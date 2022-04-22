@@ -16,6 +16,7 @@ ha_platforms:
   - media_player
   - notify
 ha_quality_scale: platinum
+ha_integration_type: integration
 ---
 
 The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS Smart TV.
@@ -31,7 +32,7 @@ To begin with enable *LG Connect Apps* feature in *Network* settings of the TV.
 
 ## Turn on action
 
-Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, like HDMI-CEC or WakeOnLan.
+Home Assistant is able to turn on an LG webOS Smart TV if you specify an action, provided by an integration like [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/).
 
 Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable the *LG Connect Apps* feature in *Network* settings of the TV (or *Mobile App* in *General* settings for older models) (*may vary by version).
 

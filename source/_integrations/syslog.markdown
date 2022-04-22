@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: syslog
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `syslog` platform allows you to deliver notifications from Home Assistant to the local syslog.

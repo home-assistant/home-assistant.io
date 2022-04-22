@@ -4,7 +4,7 @@
 # General use redirects
 /join-chat https://discord.gg/home-assistant
 /twitter https://twitter.com/home_assistant/
-/newsletter https://newsletter.home-assistant.io/webforms/landing/j9n5n6
+/newsletter https://building.open-home.io/
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
 /latest-security-alert /blog/2021/01/23/security-disclosure2/
@@ -90,1855 +90,111 @@
 /developers/code_of_conduct /code_of_conduct
 
 # Platform pages to integration pages migration
-/components/air_pollutants /integrations/air_quality
-/components/air_pollutants.opensensemap /integrations/opensensemap
-/components/air_quality.nilu /integrations/nilu
-/components/air_quality.opensensemap /integrations/opensensemap
-/components/alarm_control_panel.abode /integrations/abode
-/components/alarm_control_panel.alarmdecoder /integrations/alarmdecoder#alarm-control-panel
-/components/alarm_control_panel.arlo /integrations/arlo
-/components/alarm_control_panel.blink /integrations/blink
-/components/alarm_control_panel.canary /integrations/canary
-/components/alarm_control_panel.concord232 /integrations/concord232#alarm-control-panel
-/components/alarm_control_panel.egardia /integrations/egardia
-/components/alarm_control_panel.elkm1 /integrations/elkm1
-/components/alarm_control_panel.envisalink /integrations/envisalink
-/components/alarm_control_panel.homekit_controller /integrations/homekit_controller
-/components/alarm_control_panel.homematicip_cloud /integrations/homematicip_cloud
-/components/alarm_control_panel.lupusec /integrations/lupusec
-/components/alarm_control_panel.manual /integrations/manual
-/components/alarm_control_panel.manual_mqtt /integrations/manual_mqtt
-/components/alarm_control_panel.ness_alarm /integrations/ness_alarm
-/components/alarm_control_panel.nx584 /integrations/nx584
-/components/alarm_control_panel.satel_integra /integrations/satel_integra
-/components/alarm_control_panel.simplisafe /integrations/simplisafe
-/components/alarm_control_panel.spc /integrations/spc
-/components/alarm_control_panel.totalconnect /integrations/totalconnect
-/components/alarm_control_panel.verisure /integrations/verisure#alarm-control-panel
-/components/alarm_control_panel.yale_smart_alarm /integrations/yale_smart_alarm
-/components/apiai /integrations/dialogflow
-/components/binary_sensor.abode /integrations/abode#binary-sensor
-/components/binary_sensor.ads /integrations/ads#binary-sensor
-/components/binary_sensor.alarmdecoder /integrations/alarmdecoder
-/components/binary_sensor.android_ip_webcam /integrations/android_ip_webcam#binary-sensor
-/components/binary_sensor.apcupsd /integrations/apcupsd#binary-sensor
-/components/binary_sensor.arest /integrations/arest#binary-sensor
-/components/binary_sensor.august /integrations/august#binary-sensor
-/components/binary_sensor.aurora /integrations/aurora
-/components/binary_sensor.axis /integrations/axis#binary-sensor
-/components/binary_sensor.bayesian /integrations/bayesian
-/components/binary_sensor.blink /integrations/blink
-/components/binary_sensor.bloomsky /integrations/bloomsky#binary-sensor
-/components/binary_sensor.bmw_connected_drive /integrations/bmw_connected_drive
-/components/binary_sensor.command_line /integrations/command_line
-/components/binary_sensor.concord232 /integrations/concord232#binary-sensor
-/components/binary_sensor.danfoss_air /integrations/danfoss_air#binary-sensor
-/components/binary_sensor.deconz /integrations/deconz#binary-sensor
-/components/binary_sensor.digital_ocean /integrations/digital_ocean#binary-sensor
-/components/binary_sensor.ecobee /integrations/ecobee
-/components/binary_sensor.egardia /integrations/egardia#binary-sensor
-/components/binary_sensor.eight_sleep /integrations/eight_sleep
-/components/binary_sensor.enocean /integrations/enocean#binary-sensor
-/components/binary_sensor.envisalink /integrations/envisalink
-/components/binary_sensor.esphome /integrations/esphome
-/components/binary_sensor.ffmpeg /integrations/ffmpeg_motion
-/components/binary_sensor.ffmpeg_motion /integrations/ffmpeg_motion
-/components/binary_sensor.ffmpeg_noise /integrations/ffmpeg_noise
-/components/binary_sensor.fibaro /integrations/fibaro
-/components/binary_sensor.flic /integrations/flic
-/components/binary_sensor.fritzbox /integrations/fritzbox
-/components/binary_sensor.gc100 /integrations/gc100#binary-sensor
-/components/binary_sensor.hikvision /integrations/hikvision
-/components/binary_sensor.hive /integrations/hive#binary-sensor
-/components/binary_sensor.homematic /integrations/homematic
-/components/binary_sensor.homematicip_cloud /integrations/homematicip_cloud
-/components/binary_sensor.homeworks /integrations/homeworks
-/components/binary_sensor.http /integrations/http#binary-sensor
-/components/binary_sensor.hydrawise /integrations/hydrawise#binary-sensor
-/components/binary_sensor.ihc /integrations/ihc#binary-sensor
-/components/binary_sensor.insteon /integrations/insteon
-/components/binary_sensor.iss /integrations/iss
-/components/binary_sensor.isy994 /integrations/isy994
-/components/binary_sensor.konnected /integrations/konnected#binary-sensor
-/components/binary_sensor.linode /integrations/linode#binary-sensor
-/components/binary_sensor.lupusec /integrations/lupusec
-/components/binary_sensor.maxcube /integrations/maxcube
-/components/binary_sensor.mystrom /integrations/mystrom#binary-sensor
-/components/binary_sensor.ness_alarm /integrations/ness_alarm
-/components/binary_sensor.nest /integrations/nest#binary-sensor
-/components/binary_sensor.netatmo /integrations/netatmo#binary-sensor
-/components/binary_sensor.nissan_leaf /integrations/nissan_leaf
-/components/binary_sensor.nx584 /integrations/nx584#binary-sensor
-/components/binary_sensor.octoprint /integrations/octoprint#binary-sensor
-/components/binary_sensor.opentherm_gw /integrations/opentherm_gw#binary-sensors
-/components/binary_sensor.openuv /integrations/openuv
-/components/binary_sensor.pilight /integrations/pilight#binary-sensor
-/components/binary_sensor.ping /integrations/ping#binary-sensor
-/components/binary_sensor.plum_lightpad /integrations/plum_lightpad
-/components/binary_sensor.point /integrations/point#binary-sensor
-/components/binary_sensor.qwikswitch /integrations/qwikswitch
-/components/binary_sensor.rachio /integrations/rachio
-/components/binary_sensor.raincloud /integrations/raincloud#binary-sensor
-/components/binary_sensor.rainmachine /integrations/rainmachine
-/components/binary_sensor.random /integrations/random#binary-sensor
-/components/binary_sensor.rfxtrx /integrations/rfxtrx#binary-sensors
-/components/binary_sensor.ring /integrations/ring#binary-sensor
-/components/binary_sensor.rpi_gpio /integrations/rpi_gpio#binary-sensor
-/components/binary_sensor.satel_integra /integrations/satel_integra
-/components/binary_sensor.sense /integrations/sense
-/components/binary_sensor.skybell /integrations/skybell#binary-sensor
-/components/binary_sensor.sleepiq /integrations/sleepiq
-/components/binary_sensor.smartthings /integrations/smartthings#binary-sensor
-/components/binary_sensor.spc /integrations/spc#binary-sensor
-/components/binary_sensor.tapsaff /integrations/tapsaff
-/components/binary_sensor.tcp /integrations/tcp#binary-sensor
-/components/binary_sensor.tellduslive /integrations/tellduslive
-/components/binary_sensor.tesla /integrations/tesla
-/components/binary_sensor.threshold /integrations/threshold
-/components/binary_sensor.tod /integrations/tod
-/components/binary_sensor.trend /integrations/trend
-/components/binary_sensor.upcloud /integrations/upcloud#binary-sensor
-/components/binary_sensor.uptimerobot /integrations/uptimerobot
-/components/binary_sensor.velbus /integrations/velbus
-/components/binary_sensor.vera /integrations/vera
-/components/binary_sensor.verisure /integrations/verisure
-/components/binary_sensor.volvooncall /integrations/volvooncall
-/components/binary_sensor.vultr /integrations/vultr#binary-sensor
-/components/binary_sensor.w800rf32 /integrations/w800rf32#binary-sensor
-/components/binary_sensor.wemo /integrations/wemo
-/components/binary_sensor.wirelesstag /integrations/wirelesstag#binary-sensor
-/components/binary_sensor.workday /integrations/workday
-/components/binary_sensor.zha /integrations/zha
-/components/binary_sensor.zigbee /integrations/zigbee#binary-sensor
-/components/binary_sensor.zoneminder /integrations/zoneminder#binary-sensor
-/components/binary_sensor.zwave /integrations/zwave
-/components/calendar.caldav /integrations/caldav
-/components/calendar.todoist /integrations/todoist
-/components/camera.abode /integrations/abode
-/components/camera.amcrest /integrations/amcrest
-/components/camera.android_ip_webcam /integrations/android_ip_webcam#camera
-/components/camera.arlo /integrations/arlo#camera
-/components/camera.august /integrations/august#camera
-/components/camera.axis /integrations/axis
-/components/camera.blink /integrations/blink
-/components/camera.buienradar /integrations/buienradar#camera
-/components/camera.canary /integrations/canary#camera
-/components/camera.dispatcher /integrations/dispatcher
-/components/camera.doorbird /integrations/doorbird#camera
-/components/camera.familyhub /integrations/familyhub
-/components/camera.foscam /integrations/foscam
-/components/camera.generic /integrations/generic
-/components/camera.local_file /integrations/local_file
-/components/camera.logi_circle /integrations/logi_circle#camera
-/components/camera.mjpeg /integrations/mjpeg
-/components/camera.neato /integrations/neato#camera
-/components/camera.nest /integrations/nest#camera
-/components/camera.netatmo /integrations/netatmo#camera
-/components/camera.onvif /integrations/onvif
-/components/camera.proxy /integrations/proxy
-/components/camera.push /integrations/push
-/components/camera.ring /integrations/ring#camera
-/components/camera.rpi_camera /integrations/rpi_camera
-/components/camera.skybell /integrations/skybell#camera
-/components/camera.usps /integrations/usps#camera
-/components/camera.uvc /integrations/uvc
-/components/camera.verisure /integrations/verisure
-/components/camera.xeoma /integrations/xeoma
-/components/camera.xiaomi /integrations/xiaomi
-/components/camera.yi /integrations/yi
-/components/camera.zoneminder /integrations/zoneminder#camera
-/components/climate.coolmaster /integrations/coolmaster
-/components/climate.daikin /integrations/daikin#climate
-/components/climate.deconz /integrations/deconz#climate
-/components/climate.dyson /integrations/dyson#climate
-/components/climate.ecobee /integrations/ecobee
-/components/climate.econet /integrations/econet
-/components/climate.elkm1 /integrations/elkm1
-/components/climate.ephember /integrations/ephember
-/components/climate.eq3btsmart /integrations/eq3btsmart
-/components/climate.evohome /integrations/evohome
-/components/climate.flexit /integrations/flexit
-/components/climate.fritzbox /integrations/fritzbox
-/components/climate.generic_thermostat /integrations/generic_thermostat
-/components/climate.heatmiser /integrations/heatmiser
-/components/climate.hive /integrations/hive#climate
-/components/climate.homekit_controller /integrations/homekit_controller
-/components/climate.homematic /integrations/homematic
-/components/climate.homematicip_cloud /integrations/homematicip_cloud
-/components/climate.honeywell /integrations/honeywell
-/components/climate.maxcube /integrations/maxcube
-/components/climate.melissa /integrations/melissa
-/components/climate.mill /integrations/mill
-/components/climate.nest /integrations/nest#climate
-/components/climate.netatmo /integrations/netatmo#climate
-/components/climate.nuheat /integrations/nuheat
-/components/climate.oem /integrations/oem
-/components/climate.opentherm_gw /integrations/opentherm_gw
-/components/climate.proliphix /integrations/proliphix
-/components/climate.radiotherm /integrations/radiotherm
-/components/climate.sensibo /integrations/sensibo
-/components/climate.smartthings /integrations/smartthings#climate
-/components/climate.spider /integrations/spider#climate
-/components/climate.tado /integrations/tado
-/components/climate.tesla /integrations/tesla
-/components/climate.tfiac /integrations/tfiac
-/components/climate.toon /integrations/toon#climate
-/components/climate.touchline /integrations/touchline
-/components/climate.tuya /integrations/tuya
-/components/climate.velbus /integrations/velbus
-/components/climate.venstar /integrations/venstar
-/components/climate.vera /integrations/vera
-/components/climate.xs1 /integrations/xs1
-/components/climate.zhong_hong /integrations/zhong_hong
-/components/climate.zwave /integrations/zwave#climate
-/components/cover.abode /integrations/abode
-/components/cover.aladdin_connect /integrations/aladdin_connect
-/components/cover.brunt /integrations/brunt
-/components/cover.deconz /integrations/deconz#cover
-/components/cover.esphome /integrations/esphome
-/components/cover.fibaro /integrations/fibaro
-/components/cover.garadget /integrations/garadget
-/components/cover.gogogate2 /integrations/gogogate2
-/components/cover.homekit_controller /integrations/homekit_controller
-/components/cover.homematic /integrations/homematic
-/components/cover.homematicip_cloud /integrations/homematicip_cloud
-/components/cover.insteon /integrations/insteon
-/components/cover.isy994 /integrations/isy994
-/components/cover.lcn /integrations/lcn#cover
-/components/cover.lutron /integrations/lutron
-/components/cover.lutron_caseta /integrations/lutron_caseta#cover
-/components/cover.myq /integrations/myq
-/components/cover.opengarage /integrations/opengarage
-/components/cover.rfxtrx /integrations/rfxtrx#cover
-/components/cover.rpi_gpio /integrations/rpi_gpio#cover
-/components/cover.scsgate /integrations/scsgate#cover
-/components/cover.smartthings /integrations/smartthings#cover
-/components/cover.supla /integrations/supla
-/components/cover.tellduslive /integrations/tellduslive
-/components/cover.tellstick /integrations/tellstick#cover
-/components/cover.tuya /integrations/tuya
-/components/cover.velux /integrations/velux
-/components/cover.vera /integrations/vera
-/components/cover.zwave /integrations/zwave#cover
-/components/cppm /integrations/cppm_tracker
-/components/device_tracker.actiontec /integrations/actiontec
-/components/device_tracker.aruba /integrations/aruba
-/components/device_tracker.asuswrt /integrations/asuswrt
-/components/device_tracker.bbox /integrations/bbox
-/components/device_tracker.bluetooth_le_tracker /integrations/bluetooth_le_tracker
-/components/device_tracker.bluetooth_tracker /integrations/bluetooth_tracker
-/components/device_tracker.bmw_connected_drive /integrations/bmw_connected_drive
-/components/device_tracker.bt_home_hub_5 /integrations/bt_home_hub_5
-/components/device_tracker.bt_smarthub /integrations/bt_smarthub
-/components/device_tracker.cisco_ios /integrations/cisco_ios
-/components/device_tracker.ddwrt /integrations/ddwrt
-/components/device_tracker.freebox /integrations/freebox
-/components/device_tracker.fritz /integrations/fritz
-/components/device_tracker.geofency /integrations/geofency
-/components/device_tracker.google_maps /integrations/google_maps
-/components/device_tracker.gpslogger /integrations/gpslogger
-/components/device_tracker.hitron_coda /integrations/hitron_coda
-/components/device_tracker.huawei_lte /integrations/huawei_lte
-/components/device_tracker.icloud /integrations/icloud
-/components/device_tracker.keenetic_ndms2 /integrations/keenetic_ndms2
-/components/device_tracker.linksys_ap /integrations/linksys_ap
-/components/device_tracker.linksys_smart /integrations/linksys_smart
-/components/device_tracker.locative /integrations/locative
-/components/device_tracker.luci /integrations/luci
-/components/device_tracker.meraki /integrations/meraki
-/components/device_tracker.mikrotik /integrations/mikrotik
-/components/device_tracker.mqtt_json /integrations/mqtt_json
-/components/device_tracker.netgear /integrations/netgear
-/components/device_tracker.nmap_tracker /integrations/nmap_tracker
-/components/device_tracker.owntracks /integrations/owntracks
-/components/device_tracker.owntracks_http /integrations/owntracks
-/components/device_tracker.ping /integrations/ping
-/components/device_tracker.quantum_gateway /integrations/quantum_gateway
-/components/device_tracker.ritassist /integrations/fleetgo
-/components/device_tracker.sky_hub /integrations/sky_hub
-/components/device_tracker.snmp /integrations/snmp
-/components/device_tracker.swisscom /integrations/swisscom
-/components/device_tracker.synology_srm /integrations/synology_srm
-/components/device_tracker.tado /integrations/tado
-/components/device_tracker.tesla /integrations/tesla
-/components/device_tracker.thomson /integrations/thomson
-/components/device_tracker.tile /integrations/tile
-/components/device_tracker.tomato /integrations/tomato
-/components/device_tracker.tplink /integrations/tplink
-/components/device_tracker.traccar /integrations/traccar
-/components/device_tracker.ubus /integrations/ubus
-/components/device_tracker.unifi /integrations/unifi
-/components/device_tracker.unifi_direct /integrations/unifi_direct
-/components/device_tracker.upc_connect /integrations/upc_connect
-/components/device_tracker.volvooncall /integrations/volvooncall
-/components/device_tracker.xiaomi_miio /integrations/xiaomi_miio
-/components/fan.comfoconnect /integrations/comfoconnect
-/components/fan.dyson /integrations/dyson#fan
-/components/fan.esphome /integrations/esphome
-/components/fan.insteon /integrations/insteon
-/components/fan.isy994 /integrations/isy994
-/components/fan.smartthings /integrations/smartthings#fan
-/components/fan.tuya /integrations/tuya
-/components/fan.wemo /integrations/wemo#fan
-/components/fan.zha /integrations/zha
-/components/fan.zwave /integrations/zwave
-/components/generic /integrations/generic
-/components/geo_location.geo_json_events /integrations/geo_json_events
-/components/geo_location.nsw_rural_fire_service_feed /integrations/nsw_rural_fire_service_feed
-/components/geo_location.usgs_earthquakes_feed /integrations/usgs_earthquakes_feed
-/components/google /integrations/google_translate
-/components/image_processing.dlib_face_detect /integrations/dlib_face_detect
-/components/image_processing.dlib_face_identify /integrations/dlib_face_identify
-/components/image_processing.facebox /integrations/facebox
-/components/image_processing.microsoft_face_detect /integrations/microsoft_face_detect
-/components/image_processing.microsoft_face_identify /integrations/microsoft_face_identify
-/components/image_processing.openalpr_cloud /integrations/openalpr_cloud
-/components/image_processing.openalpr_local /integrations/openalpr_local
-/components/image_processing.opencv /integrations/opencv
-/components/image_processing.qrcode /integrations/qrcode
-/components/image_processing.seven_segments /integrations/seven_segments
-/components/image_processing.tensorflow /integrations/tensorflow
-/components/input_slider /integrations/input_number
-/components/light.abode /integrations/abode#light
-/components/light.ads /integrations/ads#light
-/components/light.avion /integrations/avion
-/components/light.blinksticklight /integrations/blinksticklight
-/components/light.deconz /integrations/deconz#light
-/components/light.decora /integrations/decora
-/components/light.decora_wifi /integrations/decora_wifi
-/components/light.elkm1 /integrations/elkm1
-/components/light.enocean /integrations/enocean#light
-/components/light.esphome /integrations/esphome
-/components/light.eufy /integrations/eufy
-/components/light.everlights /integrations/everlights
-/components/light.fibaro /integrations/fibaro
-/components/light.flux_led /integrations/flux_led
-/components/light.futurenow /integrations/futurenow
-/components/light.greenwave /integrations/greenwave
-/components/light.hive /integrations/hive#light
-/components/light.homekit_controller /integrations/homekit_controller
-/components/light.homematic /integrations/homematic
-/components/light.homematicip_cloud /integrations/homematicip_cloud
-/components/light.homeworks /integrations/homeworks
-/components/light.hue /integrations/hue
-/components/light.hyperion /integrations/hyperion
-/components/light.iglo /integrations/iglo
-/components/light.ihc /integrations/ihc#light
-/components/light.insteon /integrations/insteon
-/components/light.isy994 /integrations/isy994
-/components/light.lcn /integrations/lcn#light
-/components/light.lifx /integrations/lifx
-/components/light.lightwave /integrations/lightwave
-/components/light.limitlessled /integrations/limitlessled
-/components/light.litejet /integrations/litejet
-/components/light.lutron /integrations/lutron
-/components/light.lutron_caseta /integrations/lutron_caseta#light
-/components/light.lw12wifi /integrations/lw12wifi
-/components/light.mochad /integrations/mochad#light
-/components/light.mqtt_json /integrations/light.mqtt
-/components/light.mqtt_template /integrations/light.mqtt
-/components/light.mystrom /integrations/mystrom#light
-/components/light.nanoleaf /integrations/nanoleaf
-/components/light.niko_home_control /integrations/niko_home_control
-/components/light.opple /integrations/opple
-/components/light.osramlightify /integrations/osramlightify
-/components/light.plum_lightpad /integrations/plum_lightpad
-/components/light.qwikswitch /integrations/qwikswitch
-/components/light.rfxtrx /integrations/rfxtrx#light
-/components/light.scsgate /integrations/scsgate#light
-/components/light.sisyphus /integrations/sisyphus
-/components/light.skybell /integrations/skybell#light
-/components/light.smartthings /integrations/smartthings#light
-/components/light.tellduslive /integrations/tellduslive
-/components/light.tellstick /integrations/tellstick#light
-/components/light.tikteck /integrations/tikteck
-/components/light.tplink /integrations/tplink
-/components/light.tradfri /integrations/tradfri
-/components/light.tuya /integrations/tuya
-/components/light.vera /integrations/vera
-/components/light.wemo /integrations/wemo
-/components/light.x10 /integrations/x10
-/components/light.yeelight /integrations/yeelight
-/components/light.yeelightsunflower /integrations/yeelightsunflower
-/components/light.zengge /integrations/zengge
-/components/light.zha /integrations/zha
-/components/light.zigbee /integrations/zigbee#light
-/components/light.zwave /integrations/zwave
-/components/lock.abode /integrations/abode
-/components/lock.august /integrations/august
-/components/lock.bmw_connected_drive /integrations/bmw_connected_drive
-/components/lock.homekit_controller /integrations/homekit_controller
-/components/lock.homematic /integrations/homematic
-/components/lock.isy994 /integrations/isy994
-/components/lock.kiwi /integrations/kiwi
-/components/lock.nuki /integrations/nuki
-/components/lock.sesame /integrations/sesame
-/components/lock.smartthings /integrations/smartthings#lock
-/components/lock.tesla /integrations/tesla
-/components/lock.vera /integrations/vera
-/components/lock.verisure /integrations/verisure
-/components/lock.volvooncall /integrations/volvooncall
-/components/lock.zwave /integrations/zwave#lock
-/components/mailbox.asterisk_cdr /integrations/asterisk_cdr
-/components/mailbox.asterisk_mbox /integrations/asterisk_mbox
-/components/media_player.anthemav /integrations/anthemav
-/components/media_player.apple_tv /integrations/apple_tv
-/components/media_player.aquostv /integrations/aquostv
-/components/media_player.blackbird /integrations/blackbird
-/components/media_player.bluesound /integrations/bluesound
-/components/media_player.braviatv /integrations/braviatv
-/components/media_player.cast /integrations/cast
-/components/media_player.channels /integrations/channels
-/components/media_player.clementine /integrations/clementine
-/components/media_player.cmus /integrations/cmus
-/components/media_player.denon /integrations/denon
-/components/media_player.denonavr /integrations/denonavr
-/components/media_player.directv /integrations/directv
-/components/media_player.dlna_dmr /integrations/dlna_dmr
-/components/media_player.dunehd /integrations/dunehd
-/components/media_player.emby /integrations/emby
-/components/media_player.enigma2 /integrations/enigma2
-/components/media_player.epson /integrations/epson
-/components/media_player.firetv /integrations/androidtv
-/components/media_player.frontier_silicon /integrations/frontier_silicon
-/components/media_player.gpmdp /integrations/gpmdp
-/components/media_player.gstreamer /integrations/gstreamer
-/components/media_player.harman_kardon_avr /integrations/harman_kardon_avr
-/components/media_player.hdmi_cec /integrations/hdmi_cec
-/components/media_player.horizon /integrations/horizon
-/components/media_player.itunes /integrations/itunes
-/components/media_player.kodi /integrations/kodi
-/components/media_player.lg_netcast /integrations/lg_netcast
-/components/media_player.lg_soundbar /integrations/lg_soundbar
-/components/media_player.mediaroom /integrations/mediaroom
-/components/media_player.monoprice /integrations/monoprice
-/components/media_player.mpd /integrations/mpd
-/components/media_player.nad /integrations/nad
-/components/media_player.onkyo /integrations/onkyo
-/components/media_player.openhome /integrations/openhome
-/components/media_player.panasonic_bluray /integrations/panasonic_bluray
-/components/media_player.panasonic_viera /integrations/panasonic_viera
-/components/media_player.pandora /integrations/pandora
-/components/media_player.philips_js /integrations/philips_js
-/components/media_player.pioneer /integrations/pioneer
-/components/media_player.pjlink /integrations/pjlink
-/components/media_player.plex /integrations/plex#media-player
-/components/media_player.roku /integrations/roku#media-player
-/components/media_player.russound_rio /integrations/russound_rio
-/components/media_player.russound_rnet /integrations/russound_rnet
-/components/media_player.samsungtv /integrations/samsungtv
-/components/media_player.sisyphus /integrations/sisyphus
-/components/media_player.snapcast /integrations/snapcast
-/components/media_player.songpal /integrations/songpal
-/components/media_player.sonos /integrations/sonos
-/components/media_player.soundtouch /integrations/soundtouch
-/components/media_player.spotify /integrations/spotify
-/components/media_player.squeezebox /integrations/squeezebox
-/components/media_player.ue_smart_radio /integrations/ue_smart_radio
-/components/media_player.universal /integrations/universal
-/components/media_player.vizio /integrations/vizio
-/components/media_player.vlc /integrations/vlc
-/components/media_player.volumio /integrations/volumio
-/components/media_player.webostv /integrations/webostv#media-player
-/components/media_player.xiaomi_tv /integrations/xiaomi_tv
-/components/media_player.yamaha /integrations/yamaha
-/components/media_player.yamaha_musiccast /integrations/yamaha_musiccast
-/components/media_player.ziggo_mediabox_xl /integrations/ziggo_mediabox_xl
-/components/notify.ciscospark /integrations/ciscospark
-/components/notify.clickatell /integrations/clickatell
-/components/notify.clicksend /integrations/clicksend
-/components/notify.clicksend_tts /integrations/clicksend_tts
-/components/notify.clicksendaudio /integrations/clicksend_tts
-/components/notify.discord /integrations/discord
-/components/notify.dovado /integrations/dovado
-/components/notify.ecobee /integrations/ecobee
-/components/notify.facebook /integrations/facebook
-/components/notify.file /integrations/file
-/components/notify.flock /integrations/flock
-/components/notify.free_mobile /integrations/free_mobile
-/components/notify.hangouts /integrations/hangouts
-/components/notify.homematic /integrations/homematic
-/components/notify.html5 /integrations/html5
-/components/notify.huawei_lte /integrations/huawei_lte
-/components/notify.joaoapps_join /integrations/joaoapps_join
-/components/notify.kodi /integrations/kodi
-/components/notify.lametric /integrations/lametric
-/components/notify.lannouncer /integrations/lannouncer
-/components/notify.llamalab_automate /integrations/llamalab_automate
-/components/notify.mailgun /integrations/mailgun
-/components/notify.mastodon /integrations/mastodon
-/components/notify.matrix /integrations/matrix
-/components/notify.message_bird /integrations/message_bird
-/components/notify.mycroft /integrations/mycroft
-/components/notify.netgear_lte /integrations/netgear_lte
-/components/notify.nfandroidtv /integrations/nfandroidtv
-/components/notify.prowl /integrations/prowl
-/components/notify.pushbullet /integrations/pushbullet
-/components/notify.pushover /integrations/pushover
-/components/notify.pushsafer /integrations/pushsafer
-/components/notify.rocketchat /integrations/rocketchat
-/components/notify.sendgrid /integrations/sendgrid
-/components/notify.simplepush /integrations/simplepush
-/components/notify.slack /integrations/slack
-/components/notify.smtp /integrations/smtp
-/components/notify.synology_chat /integrations/synology_chat
-/components/notify.syslog /integrations/syslog
-/components/notify.telegram /integrations/telegram
-/components/notify.tibber /integrations/tibber
-/components/notify.tplink_lte /integrations/tplink_lte
-/components/notify.twilio_call /integrations/twilio_call
-/components/notify.twilio_sms /integrations/twilio_sms
-/components/notify.twitter /integrations/twitter
-/components/notify.webostv /integrations/webostv
-/components/notify.xmpp /integrations/xmpp
-/components/openalpr /integrations/openalpr_local
-/components/pollen /integrations/iqvia
-/components/public_sensor.netatmo /integrations/netatmo
-/components/remote.apple_tv /integrations/apple_tv#remote
-/components/remote.harmony /integrations/harmony
-/components/remote.itach /integrations/itach
-/components/remote.kira /integrations/kira
-/components/remote.roku /integrations/roku#remote
-/components/ritassist /integrations/fleetgo
-/components/scene.deconz /integrations/deconz#scene
-/components/scene.elkm1 /integrations/elkm1
-/components/scene.fibaro /integrations/fibaro
-/components/scene.hunterdouglas_powerview /integrations/hunterdouglas_powerview
-/components/scene.lifx_cloud /integrations/lifx_cloud
-/components/scene.litejet /integrations/litejet
-/components/scene.lutron /integrations/lutron#scene
-/components/scene.lutron_caseta /integrations/lutron_caseta#scene
-/components/scene.smartthings /integrations/smartthings#scene
-/components/scene.tuya /integrations/tuya
-/components/scene.velux /integrations/velux
-/components/scene.vera /integrations/vera
-/components/sensor.abode /integrations/abode
-/components/sensor.ads /integrations/ads#sensor
-/components/sensor.aftership /integrations/aftership
-/components/sensor.airvisual /integrations/airvisual
-/components/sensor.alarmdecoder /integrations/alarmdecoder
-/components/sensor.alpha_vantage /integrations/alpha_vantage
-/components/sensor.ambient_station /integrations/ambient_station
-/components/sensor.amcrest /integrations/amcrest
-/components/sensor.android_ip_webcam /integrations/android_ip_webcam#sensor
-/components/sensor.apcupsd /integrations/apcupsd#sensor
-/components/sensor.api_stream /integrations/websocket_api
-/components/sensor.api_streams /integrations/websocket_api
-/components/sensor.aqualogic /integrations/aqualogic#sensor
-/components/sensor.arest /integrations/arest#sensor
-/components/sensor.arlo /integrations/arlo#sensor
-/components/sensor.arwn /integrations/arwn
-/components/sensor.asuswrt /integrations/asuswrt
-/components/sensor.awair /integrations/awair
-/components/sensor.bbox /integrations/bbox#sensor
-/components/sensor.bitcoin /integrations/bitcoin
-/components/sensor.blink /integrations/blink
-/components/sensor.blockchain /integrations/blockchain
-/components/sensor.bmw_connected_drive /integrations/bmw_connected_drive
-/components/sensor.broadlink /integrations/broadlink#sensor
-/components/sensor.brottsplatskartan /integrations/brottsplatskartan
-/components/sensor.canary /integrations/canary#sensor
-/components/sensor.cert_expiry /integrations/cert_expiry
-/components/sensor.citybikes /integrations/citybikes
-/components/sensor.co2signal /integrations/co2signal
-/components/sensor.coinbase /integrations/coinbase
-/components/sensor.comed_hourly_pricing /integrations/comed_hourly_pricing
-/components/sensor.comfoconnect /integrations/comfoconnect
-/components/sensor.cpuspeed /integrations/cpuspeed
-/components/sensor.cups /integrations/cups
-/components/sensor.currencylayer /integrations/currencylayer
-/components/sensor.daikin /integrations/daikin#sensor
-/components/sensor.danfoss_air /integrations/danfoss_air#sensor
-/components/sensor.darksky /integrations/darksky
-/components/sensor.deconz /integrations/deconz#sensor
-/components/sensor.deluge /integrations/deluge#sensor
-/components/sensor.deutsche_bahn /integrations/deutsche_bahn
-/components/sensor.discogs /integrations/discogs
-/components/sensor.dnsip /integrations/dnsip
-/components/sensor.dovado /integrations/dovado#sensor
-/components/sensor.dsmr /integrations/dsmr
-/components/sensor.dte_energy_bridge /integrations/dte_energy_bridge
-/components/sensor.dublin_bus_transport /integrations/dublin_bus_transport
-/components/sensor.dwd_weather_warnings /integrations/dwd_weather_warnings
-/components/sensor.dweet /integrations/dweet#sensor
-/components/sensor.dyson /integrations/dyson#sensor
-/components/sensor.ebox /integrations/ebox
-/components/sensor.ebusd /integrations/ebusd
-/components/sensor.ecoal_boiler /integrations/ecoal_boiler
-/components/sensor.ecobee /integrations/ecobee
-/components/sensor.eddystone_temperature /integrations/eddystone_temperature
-/components/sensor.efergy /integrations/efergy
-/components/sensor.eight_sleep /integrations/eight_sleep
-/components/sensor.eliqonline /integrations/eliqonline
-/components/sensor.elkm1 /integrations/elkm1
-/components/sensor.emoncms /integrations/emoncms
-/components/sensor.enocean /integrations/enocean#sensor
-/components/sensor.enphase_envoy /integrations/enphase_envoy
-/components/sensor.entur_public_transport /integrations/entur_public_transport
-/components/sensor.envisalink /integrations/envisalink
-/components/sensor.etherscan /integrations/etherscan
-/components/sensor.fail2ban /integrations/fail2ban
-/components/sensor.fastdotcom /integrations/fastdotcom
-/components/sensor.fedex /integrations/fedex
-/components/sensor.fibaro /integrations/fibaro
-/components/sensor.fido /integrations/fido
-/components/sensor.file /integrations/file#sensor
-/components/sensor.filesize /integrations/filesize
-/components/sensor.filter /integrations/filter
-/components/sensor.fints /integrations/fints
-/components/sensor.fitbit /integrations/fitbit
-/components/sensor.fixer /integrations/fixer
-/components/sensor.flunearyou /integrations/flunearyou
-/components/sensor.folder /integrations/folder
-/components/sensor.foobot /integrations/foobot
-/components/sensor.forecast /integrations/darksky
-/components/sensor.freebox /integrations/freebox#sensor
-/components/sensor.fritzbox /integrations/fritzbox#sensor
-/components/sensor.fritzbox_callmonitor /integrations/fritzbox_callmonitor
-/components/sensor.geo_rss_events /integrations/geo_rss_events
-/components/sensor.github /integrations/github
-/components/sensor.gitlab_ci /integrations/gitlab_ci
-/components/sensor.gitter /integrations/gitter
-/components/sensor.glances /integrations/glances
-/components/sensor.google_travel_time /integrations/google_travel_time
-/components/sensor.google_wifi /integrations/google_wifi
-/components/sensor.gpsd /integrations/gpsd
-/components/sensor.greeneye_monitor /integrations/greeneye_monitor
-/components/sensor.gtfs /integrations/gtfs
-/components/sensor.habitica /integrations/habitica
-/components/sensor.haveibeenpwned /integrations/haveibeenpwned
-/components/sensor.hddtemp /integrations/hddtemp
-/components/sensor.history_stats /integrations/history_stats
-/components/sensor.hive /integrations/hive#sensor
-/components/sensor.homekit_controller /integrations/homekit_controller
-/components/sensor.homematic /integrations/homematic
-/components/sensor.homematicip_cloud /integrations/homematicip_cloud
-/components/sensor.hp_ilo /integrations/hp_ilo
-/components/sensor.http /integrations/http#sensor
-/components/sensor.huawei_lte /integrations/huawei_lte#sensor
-/components/sensor.hydrawise /integrations/hydrawise#sensor
-/components/sensor.ihc /integrations/ihc#sensor
-/components/sensor.imap /integrations/imap
-/components/sensor.imap_email_content /integrations/imap_email_content
-/components/sensor.influxdb /integrations/influxdb#sensor
-/components/sensor.insteon /integrations/insteon
-/components/sensor.integration /integrations/integration
-/components/sensor.iperf3 /integrations/iperf3
-/components/sensor.irish_rail_transport /integrations/irish_rail_transport
-/components/sensor.islamic_prayer_times /integrations/islamic_prayer_times
-/components/sensor.iss /integrations/iss
-/components/sensor.isy994 /integrations/isy994#sensors
-/components/sensor.jewish_calendar /integrations/jewish_calendar
-/components/sensor.juicenet /integrations/juicenet#sensor
-/components/sensor.kira /integrations/kira
-/components/sensor.kwb /integrations/kwb
-/components/sensor.lacrosse /integrations/lacrosse
-/components/sensor.lastfm /integrations/lastfm
-/components/sensor.launch_library /integrations/launch_library
-/components/sensor.linux_battery /integrations/linux_battery
-/components/sensor.logi_circle /integrations/logi_circle#sensor
-/components/sensor.london_air /integrations/london_air
-/components/sensor.london_underground /integrations/london_underground
-/components/sensor.luftdaten /integrations/luftdaten#sensor
-/components/sensor.magicseaweed /integrations/magicseaweed
-/components/sensor.meteo_france /integrations/meteo_france
-/components/sensor.mfi /integrations/mfi#sensor
-/components/sensor.miflora /integrations/miflora
-/components/sensor.min_max /integrations/min_max
-/components/sensor.mitemp_bt /integrations/mitemp_bt
-/components/sensor.modem_callerid /integrations/modem_callerid
-/components/sensor.mold_indicator /integrations/mold_indicator
-/components/sensor.moon /integrations/moon
-/components/sensor.mqtt_room /integrations/mqtt_room
-/components/sensor.mvglive /integrations/mvglive
-/components/sensor.nederlandse_spoorwegen /integrations/nederlandse_spoorwegen
-/components/sensor.nest /integrations/nest#sensor
-/components/sensor.netatmo /integrations/netatmo#sensor
-/components/sensor.netdata /integrations/netdata
-/components/sensor.netgear_lte /integrations/netgear_lte
-/components/sensor.neurio_energy /integrations/neurio_energy
-/components/sensor.nissan_leaf /integrations/nissan_leaf
-/components/sensor.nmbs /integrations/nmbs
-/components/sensor.noaa_tides /integrations/noaa_tides
-/components/sensor.nsw_fuel_station /integrations/nsw_fuel_station
-/components/sensor.nut /integrations/nut
-/components/sensor.nzbget /integrations/nzbget
-/components/sensor.octoprint /integrations/octoprint#sensor
-/components/sensor.ohmconnect /integrations/ohmconnect
-/components/sensor.onewire /integrations/onewire
-/components/sensor.openevse /integrations/openevse
-/components/sensor.openexchangerates /integrations/openexchangerates
-/components/sensor.openhardwaremonitor /integrations/openhardwaremonitor
-/components/sensor.opensky /integrations/opensky
-/components/sensor.opentherm_gw /integrations/opentherm_gw#sensors
-/components/sensor.openuv /integrations/openuv
-/components/sensor.openweathermap /integrations/openweathermap#sensor
-/components/sensor.otp /integrations/otp
-/components/sensor.pi_hole /integrations/pi_hole
-/components/sensor.pilight /integrations/pilight#sensor
-/components/sensor.plex /integrations/plex#sensor
-/components/sensor.plum_lightpad /integrations/plum_lightpad
-/components/sensor.pocketcasts /integrations/pocketcasts
-/components/sensor.point /integrations/point#sensor
-/components/sensor.pollen /integrations/iqvia
-/components/sensor.pushbullet /integrations/pushbullet#sensor
-/components/sensor.pvoutput /integrations/pvoutput
-/components/sensor.pyload /integrations/pyload
-/components/sensor.qbittorrent /integrations/qbittorrent
-/components/sensor.qnap /integrations/qnap
-/components/sensor.qwikswitch /integrations/qwikswitch
-/components/sensor.radarr /integrations/radarr
-/components/sensor.rainbird /integrations/rainbird#sensor
-/components/sensor.raincloud /integrations/raincloud#sensor
-/components/sensor.rainmachine /integrations/rainmachine
-/components/sensor.random /integrations/random#sensor
-/components/sensor.recollect_waste /integrations/recollect_waste
-/components/sensor.reddit /integrations/reddit
-/components/sensor.rejseplanen /integrations/rejseplanen
-/components/sensor.rest /integrations/rest
-/components/sensor.rfxtrx /integrations/rfxtrx#sensors
-/components/sensor.ring /integrations/ring#sensor
-/components/sensor.ripple /integrations/ripple
-/components/sensor.rmvtransport /integrations/rmvtransport
-/components/sensor.rova /integrations/rova
-/components/sensor.rtorrent /integrations/rtorrent
-/components/sensor.sabnzbd /integrations/sabnzbd
-/components/sensor.scrape /integrations/scrape
-/components/sensor.season /integrations/season
-/components/sensor.sense /integrations/sense
-/components/sensor.serial /integrations/serial
-/components/sensor.serial_pm /integrations/serial_pm
-/components/sensor.seventeentrack /integrations/seventeentrack
-/components/sensor.shodan /integrations/shodan
-/components/sensor.sigfox /integrations/sigfox
-/components/sensor.simulated /integrations/simulated
-/components/sensor.skybeacon /integrations/skybeacon
-/components/sensor.skybell /integrations/skybell#sensor
-/components/sensor.sleepiq /integrations/sleepiq
-/components/sensor.sma /integrations/sma#sensors
-/components/sensor.smappee /integrations/smappee
-/components/sensor.smartthings /integrations/smartthings#sensor
-/components/sensor.snmp /integrations/snmp#sensor
-/components/sensor.sochain /integrations/sochain
-/components/sensor.solaredge /integrations/solaredge
-/components/sensor.sonarr /integrations/sonarr
-/components/sensor.speedtest /integrations/speedtestdotnet
-/components/sensor.speedtestdotnet /integrations/speedtestdotnet
-/components/sensor.sql /integrations/sql
-/components/sensor.srp_energy /integrations/srp_energy
-/components/sensor.starlingbank /integrations/starlingbank
-/components/sensor.startca /integrations/startca
-/components/sensor.statistics /integrations/statistics
-/components/sensor.steam_online /integrations/steam_online
-/components/sensor.supervisord /integrations/supervisord
-/components/sensor.swiss_hydrological_data /integrations/swiss_hydrological_data
-/components/sensor.swiss_public_transport /integrations/swiss_public_transport
-/components/sensor.syncthru /integrations/syncthru
-/components/sensor.synologydsm /integrations/synology_dsm
-/components/sensor.systemmonitor /integrations/systemmonitor
-/components/sensor.sytadin /integrations/sytadin
-/components/sensor.tado /integrations/tado
-/components/sensor.tank_utility /integrations/tank_utility
-/components/sensor.tautulli /integrations/tautulli
-/components/sensor.tcp /integrations/tcp#sensor
-/components/sensor.ted5000 /integrations/ted5000
-/components/sensor.tellduslive /integrations/tellduslive
-/components/sensor.tellstick /integrations/tellstick#sensor
-/components/sensor.temper /integrations/temper
-/components/sensor.template /integrations/template
-/components/sensor.tesla /integrations/tesla
-/components/sensor.thermoworks_smoke /integrations/thermoworks_smoke
-/components/sensor.thethingsnetwork /integrations/thethingsnetwork#sensor
-/components/sensor.thinkingcleaner /integrations/thinkingcleaner#sensor
-/components/sensor.tibber /integrations/tibber#sensor
-/components/sensor.time_date /integrations/time_date
-/components/sensor.toon /integrations/toon
-/components/sensor.torque /integrations/torque
-/components/sensor.tradfri /integrations/tradfri
-/components/sensor.trafikverket_weatherstation /integrations/trafikverket_weatherstation
-/components/sensor.transmission /integrations/transmission
-/components/sensor.transport_nsw /integrations/transport_nsw
-/components/sensor.travisci /integrations/travisci
-/components/sensor.twitch /integrations/twitch
-/components/sensor.uk_transport /integrations/uk_transport
-/components/sensor.upnp /integrations/upnp
-/components/sensor.ups /integrations/ups
-/components/sensor.uptime /integrations/uptime
-/components/sensor.uscis /integrations/uscis
-/components/sensor.usps /integrations/usps#sensor
-/components/sensor.vasttrafik /integrations/vasttrafik
-/components/sensor.velbus /integrations/velbus
-/components/sensor.vera /integrations/vera#sensor
-/components/sensor.verisure /integrations/verisure
-/components/sensor.version /integrations/version
-/components/sensor.viaggiatreno /integrations/viaggiatreno
-/components/sensor.volkszaehler /integrations/volkszaehler
-/components/sensor.volvooncall /integrations/volvooncall
-/components/sensor.vultr /integrations/vultr#sensor
-/components/sensor.waqi /integrations/waqi
-/components/sensor.waterfurnace /integrations/waterfurnace
-/components/sensor.waze_travel_time /integrations/waze_travel_time
-/components/sensor.whois /integrations/whois
-/components/sensor.wirelesstag /integrations/wirelesstag#sensor
-/components/sensor.worldclock /integrations/worldclock
-/components/sensor.worldtidesinfo /integrations/worldtidesinfo
-/components/sensor.worxlandroid /integrations/worxlandroid
-/components/sensor.wsdot /integrations/wsdot
-/components/sensor.xbox_live /integrations/xbox_live
-/components/sensor.xs1 /integrations/xs1#sensors
-/components/sensor.zabbix /integrations/zabbix#sensor
-/components/sensor.zamg /integrations/zamg#sensor
-/components/sensor.zestimate /integrations/zestimate
-/components/sensor.zha /integrations/zha
-/components/sensor.zigbee /integrations/zigbee#sensor
-/components/sensor.zoneminder /integrations/zoneminder#sensor
-/components/sensor.zwave /integrations/zwave
-/components/smartthings.binary_sensor /integrations/smartthings
-/components/smartthings.climate /integrations/smartthings
-/components/smartthings.cover /integrations/smartthings
-/components/smartthings.fan /integrations/smartthings
-/components/smartthings.light /integrations/smartthings
-/components/smartthings.lock /integrations/smartthings
-/components/smartthings.scene /integrations/smartthings
-/components/smartthings.sensor /integrations/smartthings
-/components/smartthings.switch /integrations/smartthings
-/components/switch.abode /integrations/abode#switch
-/components/switch.acer_projector /integrations/acer_projector
-/components/switch.ads /integrations/ads#switch
-/components/switch.amcrest /integrations/amcrest
-/components/switch.android_ip_webcam /integrations/android_ip_webcam
-/components/switch.anel_pwrctrl /integrations/anel_pwrctrl
-/components/switch.aqualogic /integrations/aqualogic#switch
-/components/switch.arest /integrations/arest#switch
-/components/switch.broadlink /integrations/broadlink#switch
-/components/switch.danfoss_air /integrations/danfoss_air#switch
-/components/switch.deconz /integrations/deconz#switch
-/components/switch.deluge /integrations/deluge#switch
-/components/switch.digital_ocean /integrations/digital_ocean#switch
-/components/switch.digitalloggers /integrations/digitalloggers
-/components/switch.dlink /integrations/dlink
-/components/switch.doorbird /integrations/doorbird#switch
-/components/switch.ecoal_boiler /integrations/ecoal_boiler
-/components/switch.edimax /integrations/edimax
-/components/switch.elkm1 /integrations/elkm1
-/components/switch.enocean /integrations/enocean#switch
-/components/switch.esphome /integrations/esphome
-/components/switch.eufy /integrations/eufy
-/components/switch.fibaro /integrations/fibaro
-/components/switch.flux /integrations/flux
-/components/switch.fritzbox /integrations/fritzbox
-/components/switch.gc100 /integrations/gc100#switch
-/components/switch.hdmi_cec /integrations/hdmi_cec
-/components/switch.hikvisioncam /integrations/hikvisioncam
-/components/switch.hive /integrations/hive#switch
-/components/switch.hlk_sw16 /integrations/hlk_sw16
-/components/switch.homekit_controller /integrations/homekit_controller
-/components/switch.homematic /integrations/homematic
-/components/switch.homematicip_cloud /integrations/homematicip_cloud
-/components/switch.hydrawise /integrations/hydrawise#switch
-/components/switch.ihc /integrations/ihc#switch
-/components/switch.insteon /integrations/insteon
-/components/switch.isy994 /integrations/isy994
-/components/switch.kankun /integrations/kankun
-/components/switch.konnected /integrations/konnected#switch
-/components/switch.lcn /integrations/lcn#switch
-/components/switch.lightwave /integrations/lightwave
-/components/switch.linode /integrations/linode#switch
-/components/switch.litejet /integrations/litejet
-/components/switch.lupusec /integrations/lupusec
-/components/switch.lutron /integrations/lutron
-/components/switch.lutron_caseta /integrations/lutron_caseta#switch
-/components/switch.mfi /integrations/mfi#switch
-/components/switch.mochad /integrations/mochad#switch
-/components/switch.mystrom /integrations/mystrom#switch
-/components/switch.neato /integrations/neato#switch
-/components/switch.netio /integrations/netio
-/components/switch.nissan_leaf /integrations/nissan_leaf
-/components/switch.orvibo /integrations/orvibo
-/components/switch.pencom /integrations/pencom
-/components/switch.pilight /integrations/pilight#switch
-/components/switch.pulseaudio_loopback /integrations/pulseaudio_loopback
-/components/switch.qwikswitch /integrations/qwikswitch#switch
-/components/switch.rachio /integrations/rachio#switch
-/components/switch.rainbird /integrations/rainbird#switch
-/components/switch.raincloud /integrations/raincloud#switch
-/components/switch.rainmachine /integrations/rainmachine#switch
-/components/switch.raspyrfm /integrations/raspyrfm
-/components/switch.recswitch /integrations/recswitch
-/components/switch.rfxtrx /integrations/rfxtrx#switch
-/components/switch.rpi_gpio /integrations/rpi_gpio#switch
-/components/switch.scsgate /integrations/scsgate#switch
-/components/switch.skybell /integrations/skybell#switch
-/components/switch.smappee /integrations/smappee
-/components/switch.smartthings /integrations/smartthings#switch
-/components/switch.snmp /integrations/snmp#switch
-/components/switch.sony_projector /integrations/sony_projector
-/components/switch.spider /integrations/spider
-/components/switch.switchbot /integrations/switchbot
-/components/switch.switcher_kis /integrations/switcher_kis
-/components/switch.switchmate /integrations/switchmate
-/components/switch.tellduslive /integrations/tellduslive
-/components/switch.tellstick /integrations/tellstick#switch
-/components/switch.telnet /integrations/telnet
-/components/switch.tesla /integrations/tesla
-/components/switch.thinkingcleaner /integrations/thinkingcleaner#switch
-/components/switch.toon /integrations/toon
-/components/switch.tplink /integrations/tplink
-/components/switch.tradfri /integrations/tradfri
-/components/switch.transmission /integrations/transmission
-/components/switch.tuya /integrations/tuya
-/components/switch.unifi /integrations/unifi#switch
-/components/switch.upcloud /integrations/upcloud#switch
-/components/switch.velbus /integrations/velbus
-/components/switch.vera /integrations/vera
-/components/switch.verisure /integrations/verisure
-/components/switch.vesync /integrations/vesync#switches
-/components/switch.volvooncall /integrations/volvooncall
-/components/switch.vultr /integrations/vultr#switch
-/components/switch.wake_on_lan /integrations/wake_on_lan#switch
-/components/switch.wemo /integrations/wemo
-/components/switch.wirelesstag /integrations/wirelesstag#switch
-/components/switch.xs1 /integrations/xs1
-/components/switch.zha /integrations/zha
-/components/switch.zigbee /integrations/zigbee#switch
-/components/switch.zoneminder /integrations/zoneminder#switch
-/components/switch.zwave /integrations/zwave
-/components/telegram_bot.broadcast /integrations/telegram_broadcast
-/components/telegram_bot.polling /integrations/telegram_polling
-/components/telegram_bot.webhooks /integrations/telegram_webhooks
-/components/tts.amazon_polly /integrations/amazon_polly
-/components/tts.baidu /integrations/baidu
-/components/tts.google /integrations/google_translate
-/components/tts.marytts /integrations/marytts
-/components/tts.microsoft /integrations/microsoft
-/components/tts.picotts /integrations/picotts
-/components/tts.voicerss /integrations/voicerss
-/components/tts.yandextts /integrations/yandextts
-/components/vacuum.dyson /integrations/dyson#vacuum
-/components/vacuum.ecovacs /integrations/ecovacs#vacuum
-/components/vacuum.neato /integrations/neato#vacuum
-/components/vacuum.roomba /integrations/roomba
-/components/vlc-telnet /integrations/vlc_telnet
-/components/water_heater.econet /integrations/econet
-/components/weather.buienradar /integrations/buienradar
-/components/weather.ecobee /integrations/ecobee
-/components/weather.ipma /integrations/ipma
-/components/weather.met /integrations/met
-/components/weather.meteo_france /integrations/meteo_france
-/components/weather.metoffice /integrations/metoffice
-/components/weather.openweathermap /integrations/openweathermap#weather
-/components/weather.smhi /integrations/smhi
-/components/weather.zamg /integrations/zamg#weather
-/components/xiaomi /integrations/xiaomi_aqara
-/integrations/air_quality.xiaomi_miio /integrations/xiaomi_miio
-/integrations/alarm_control_panel.xiaomi_miio /integrations/xiaomi_miio
-/integrations/binary_sensor.modbus /integrations/modbus
-/integrations/binary_sensor.template /integrations/template
-/integrations/climate.modbus /integrations/modbus
-/integrations/cover.modbus /integrations/modbus
-/integrations/fan.xiaomi_miio /integrations/xiaomi_miio
-/integrations/light.xiaomi_miio /integrations/xiaomi_miio
-/integrations/lovelace /lovelace
-/integrations/remote.xiaomi_miio /integrations/xiaomi_miio
-/integrations/sensor.websocket_api /integrations/websocket_api
-/integrations/sensor.modbus /integrations/modbus
-/integrations/sensor.xiaomi_miio /integrations/xiaomi_miio
-/integrations/switch.modbus /integrations/modbus
-/integrations/switch.xiaomi_miio /integrations/xiaomi_miio
-/integrations/vacuum.xiaomi_miio /integrations/xiaomi_miio
-
-# Renaming components to integrations
-/components /integrations
-/components/abode /integrations/abode
-/components/acer_projector /integrations/acer_projector
-/components/actiontec /integrations/actiontec
-/components/adguard /integrations/adguard
-/components/ads /integrations/ads
-/components/aftership /integrations/aftership
-/components/air_quality /integrations/air_quality
-/components/airvisual /integrations/airvisual
-/components/aladdin_connect /integrations/aladdin_connect
-/components/alarm_control_panel /integrations/alarm_control_panel
-/components/alarm_control_panel.ifttt /integrations/alarm_control_panel.ifttt
-/components/alarm_control_panel.mqtt /integrations/alarm_control_panel.mqtt
-/components/alarmdecoder /integrations/alarmdecoder
-/components/alert /integrations/alert
-/components/alexa /integrations/alexa
 /components/alexa.flash_briefings /integrations/alexa.flash_briefings
 /components/alexa.intent /integrations/alexa.intent
 /components/alexa.smart_home /integrations/alexa.smart_home
-/components/alpha_vantage /integrations/alpha_vantage
-/components/amazon_polly /integrations/amazon_polly
-/components/ambiclimate /integrations/ambiclimate
-/components/ambient_station /integrations/ambient_station
-/components/amcrest /integrations/amcrest
-/components/ampio /integrations/ampio
-/components/android_ip_webcam /integrations/android_ip_webcam
-/components/androidtv /integrations/androidtv
-/components/anel_pwrctrl /integrations/anel_pwrctrl
-/components/anthemav /integrations/anthemav
-/components/apache_kafka /integrations/apache_kafka
-/components/apcupsd /integrations/apcupsd
-/components/api /integrations/api
-/components/apple_tv /integrations/apple_tv
-/components/aprs /integrations/aprs
-/components/aqualogic /integrations/aqualogic
-/components/aquostv /integrations/aquostv
-/components/arcam_fmj /integrations/arcam_fmj
-/components/arest /integrations/arest
-/components/arlo /integrations/arlo
-/components/aruba /integrations/aruba
-/components/arwn /integrations/arwn
-/components/asterisk_cdr /integrations/asterisk_cdr
-/components/asterisk_mbox /integrations/asterisk_mbox
-/components/asuswrt /integrations/asuswrt
-/components/atome /integrations/atome
-/components/august /integrations/august
-/components/aurora /integrations/aurora
-/components/aurora_abb_powerone /integrations/aurora_abb_powerone
-/components/auth /integrations/auth
-/components/automation /integrations/automation
-/components/avea /integrations/avea
-/components/avion /integrations/avion
-/components/awair /integrations/awair
-/components/aws /integrations/aws
-/components/axis /integrations/axis
-/components/azure_event_hub /integrations/azure_event_hub
-/components/baidu /integrations/baidu
-/components/bayesian /integrations/bayesian
-/components/bbox /integrations/bbox
-/components/beewi_smartclim /integrations/beewi_smartclim
-/components/binary_sensor /integrations/binary_sensor
-/components/binary_sensor.knx /integrations/binary_sensor.knx
-/components/binary_sensor.modbus /integrations/binary_sensor.modbus
 /components/binary_sensor.mqtt /integrations/binary_sensor.mqtt
-/components/binary_sensor.mysensors /integrations/binary_sensor.mysensors
+/components/binary_sensor.mysensors /integrations/mysensors#binary-sensor
 /components/binary_sensor.rest /integrations/binary_sensor.rest
 /components/binary_sensor.rflink /integrations/binary_sensor.rflink
-/components/binary_sensor.template /integrations/binary_sensor.template
-/components/binary_sensor.xiaomi_aqara /integrations/binary_sensor.xiaomi_aqara
-/components/bitcoin /integrations/bitcoin
-/components/bizkaibus /integrations/bizkaibus
-/components/blackbird /integrations/blackbird
-/components/blink /integrations/blink
-/components/blinksticklight /integrations/blinksticklight
-/components/blockchain /integrations/blockchain
-/components/bloomsky /integrations/bloomsky
-/components/bluesound /integrations/bluesound
-/components/bluetooth_le_tracker /integrations/bluetooth_le_tracker
-/components/bluetooth_tracker /integrations/bluetooth_tracker
-/components/bmw_connected_drive /integrations/bmw_connected_drive
-/components/braviatv /integrations/braviatv
-/components/broadcast /integrations/telegram_broadcast
-/components/broadlink /integrations/broadlink
-/components/brottsplatskartan /integrations/brottsplatskartan
-/components/browser /integrations/browser
-/components/brunt /integrations/brunt
-/components/bt_home_hub_5 /integrations/bt_home_hub_5
-/components/bt_smarthub /integrations/bt_smarthub
-/components/buienradar /integrations/buienradar
-/components/caldav /integrations/caldav
-/components/calendar /integrations/calendar
-/components/calendar.google /integrations/calendar.google
-/components/camera /integrations/camera
-/components/camera.ffmpeg /integrations/camera.ffmpeg
 /components/camera.mqtt /integrations/camera.mqtt
-/components/canary /integrations/canary
-/components/cast /integrations/cast
-/components/cert_expiry /integrations/cert_expiry
-/components/channels /integrations/channels
-/components/cisco_ios /integrations/cisco_ios
-/components/cisco_mobility_express /integrations/cisco_mobility_express
-/components/cisco_webex_teams /integrations/cisco_webex_teams
-/components/ciscospark /integrations/ciscospark
-/components/citybikes /integrations/citybikes
-/components/clementine /integrations/clementine
-/components/clickatell /integrations/clickatell
-/components/clicksend /integrations/clicksend
-/components/clicksend_tts /integrations/clicksend_tts
-/components/climate /integrations/climate
-/components/climate.knx /integrations/climate.knx
-/components/climate.modbus /integrations/climate.modbus
 /components/climate.mqtt /integrations/climate.mqtt
-/components/climate.mysensors /integrations/climate.mysensors
-/components/cloud /integrations/cloud
-/components/cloudflare /integrations/cloudflare
-/components/cmus /integrations/cmus
-/components/co2signal /integrations/co2signal
-/components/coinbase /integrations/coinbase
-/components/comed_hourly_pricing /integrations/comed_hourly_pricing
-/components/comfoconnect /integrations/comfoconnect
-/components/command_line /integrations/command_line
-/components/concord232 /integrations/concord232
-/components/config /integrations/config
-/components/configurator /integrations/configurator
-/components/conversation /integrations/conversation
-/components/coolmaster /integrations/coolmaster
-/components/counter /integrations/counter
-/components/cover /integrations/cover
+/components/climate.mysensors /integrations/mysensors#climate
 /components/cover.command_line /integrations/cover.command_line
 /components/cover.group /integrations/cover.group
-/components/cover.knx /integrations/cover.knx
 /components/cover.mqtt /integrations/cover.mqtt
-/components/cover.mysensors /integrations/cover.mysensors
-/components/cover.rflink /integrations/cover.rflink
-/components/cover.rfxtrx /integrations/cover.rfxtrx
+/components/cover.mysensors /integrations/mysensors#cover
 /components/cover.template /integrations/cover.template
-/components/cover.xiaomi_aqara /integrations/cover.xiaomi_aqara
-/components/cppm_tracker /integrations/cppm_tracker
-/components/cpuspeed /integrations/cpuspeed
-/components/cups /integrations/cups
-/components/currencylayer /integrations/currencylayer
-/components/daikin /integrations/daikin
-/components/danfoss_air /integrations/danfoss_air
-/components/darksky /integrations/darksky
-/components/datadog /integrations/datadog
-/components/ddwrt /integrations/ddwrt
-/components/deconz /integrations/deconz
-/components/decora /integrations/decora
-/components/decora_wifi /integrations/decora_wifi
-/components/default_config /integrations/default_config
-/components/delijn /integrations/delijn
-/components/deluge /integrations/deluge
-/components/demo /integrations/demo
-/components/denon /integrations/denon
-/components/denonavr /integrations/denonavr
-/components/deutsche_bahn /integrations/deutsche_bahn
-/components/device_automation /integrations/device_automation
-/components/device_sun_light_trigger /integrations/device_sun_light_trigger
-/components/device_tracker /integrations/device_tracker
 /components/device_tracker.mqtt /integrations/device_tracker.mqtt
-/components/device_tracker.mysensors /integrations/device_tracker.mysensors
-/components/device_tracker.xiaomi /integrations/device_tracker.xiaomi
-/components/dialogflow /integrations/dialogflow
-/components/digital_ocean /integrations/digital_ocean
-/components/digitalloggers /integrations/digitalloggers
-/components/directv /integrations/directv
-/components/discogs /integrations/discogs
-/components/discord /integrations/discord
-/components/discovery /integrations/discovery
-/components/dispatcher /integrations/dispatcher
-/components/dlib_face_detect /integrations/dlib_face_detect
-/components/dlib_face_identify /integrations/dlib_face_identify
-/components/dlink /integrations/dlink
-/components/dlna_dmr /integrations/dlna_dmr
-/components/dnsip /integrations/dnsip
-/components/dominos /integrations/dominos
-/components/doorbird /integrations/doorbird
-/components/dovado /integrations/dovado
-/components/downloader /integrations/downloader
-/components/dsmr /integrations/dsmr
-/components/dte_energy_bridge /integrations/dte_energy_bridge
-/components/dublin_bus_transport /integrations/dublin_bus_transport
-/components/duckdns /integrations/duckdns
-/components/dunehd /integrations/dunehd
-/components/dwd_weather_warnings /integrations/dwd_weather_warnings
-/components/dweet /integrations/dweet
-/components/dyson /integrations/dyson
-/components/ebox /integrations/ebox
-/components/ebusd /integrations/ebusd
-/components/ecoal_boiler /integrations/ecoal_boiler
-/components/ecobee /integrations/ecobee
-/components/econet /integrations/econet
-/components/ecovacs /integrations/ecovacs
-/components/eddystone_temperature /integrations/eddystone_temperature
-/components/edimax /integrations/edimax
-/components/efergy /integrations/efergy
-/components/egardia /integrations/egardia
-/components/eight_sleep /integrations/eight_sleep
-/components/eliqonline /integrations/eliqonline
-/components/elkm1 /integrations/elkm1
-/components/emby /integrations/emby
-/components/emoncms /integrations/emoncms
-/components/emoncms_history /integrations/emoncms_history
-/components/emulated_hue /integrations/emulated_hue
-/components/emulated_roku /integrations/emulated_roku
-/components/enigma2 /integrations/enigma2
-/components/enocean /integrations/enocean
-/components/enphase_envoy /integrations/enphase_envoy
-/components/entur_public_transport /integrations/entur_public_transport
-/components/environment_canada /integrations/environment_canada
-/components/envisalink /integrations/envisalink
-/components/ephember /integrations/ephember
-/components/epson /integrations/epson
-/components/epsonworkforce /integrations/epsonworkforce
-/components/eq3btsmart /integrations/eq3btsmart
-/components/esphome /integrations/esphome
-/components/essent /integrations/essent
-/components/etherscan /integrations/etherscan
-/components/eufy /integrations/eufy
-/components/everlights /integrations/everlights
-/components/evohome /integrations/evohome
-/components/facebook /integrations/facebook
-/components/facebox /integrations/facebox
-/components/fail2ban /integrations/fail2ban
-/components/familyhub /integrations/familyhub
-/components/fan /integrations/fan
+/components/device_tracker.mysensors /integrations/mysensors#device-tracker
 /components/fan.mqtt /integrations/fan.mqtt
 /components/fan.template /integrations/fan.template
-/components/fan.xiaomi_miio /integrations/fan.xiaomi_miio
-/components/fastdotcom /integrations/fastdotcom
-/components/fedex /integrations/fedex
-/components/feedreader /integrations/feedreader
-/components/ffmpeg /integrations/ffmpeg
-/components/ffmpeg_motion /integrations/ffmpeg_motion
-/components/ffmpeg_noise /integrations/ffmpeg_noise
-/components/fibaro /integrations/fibaro
-/components/fido /integrations/fido
-/components/file /integrations/file
-/components/filesize /integrations/filesize
-/components/filter /integrations/filter
-/components/fints /integrations/fints
-/components/fitbit /integrations/fitbit
-/components/fixer /integrations/fixer
-/components/fleetgo /integrations/fleetgo
-/components/flexit /integrations/flexit
-/components/flic /integrations/flic
-/components/flock /integrations/flock
-/components/flunearyou /integrations/flunearyou
-/components/flux /integrations/flux
-/components/flux_led /integrations/flux_led
-/components/folder /integrations/folder
-/components/folder_watcher /integrations/folder_watcher
-/components/foobot /integrations/foobot
-/components/fortios /integrations/fortios
-/components/foscam /integrations/foscam
-/components/foursquare /integrations/foursquare
-/components/free_mobile /integrations/free_mobile
-/components/freebox /integrations/freebox
-/components/freedns /integrations/freedns
-/components/fritz /integrations/fritz
-/components/fritzbox /integrations/fritzbox
-/components/fritzbox_callmonitor /integrations/fritzbox_callmonitor
-/components/fronius /integrations/fronius
-/components/frontend /integrations/frontend
-/components/frontier_silicon /integrations/frontier_silicon
-/components/futurenow /integrations/futurenow
-/components/garadget /integrations/garadget
-/components/gc100 /integrations/gc100
-/components/generic_ip_camera /integrations/generic
-/components/generic_thermostat /integrations/generic_thermostat
-/components/geniushub /integrations/geniushub
-/components/geo_json_events /integrations/geo_json_events
-/components/geo_location /integrations/geo_location
-/components/geo_rss_events /integrations/geo_rss_events
-/components/geofency /integrations/geofency
-/components/geonetnz_quakes /integrations/geonetnz_quakes
-/components/github /integrations/github
-/components/gitlab_ci /integrations/gitlab_ci
-/components/gitter /integrations/gitter
-/components/glances /integrations/glances
-/components/goalfeed /integrations/goalfeed
-/components/gogogate2 /integrations/gogogate2
-/components/google_assistant /integrations/google_assistant
-/components/google_cloud /integrations/google_cloud
-/components/google_domains /integrations/google_domains
-/components/google_maps /integrations/google_maps
-/components/google_pubsub /integrations/google_pubsub
-/components/google_translate /integrations/google_translate
-/components/google_travel_time /integrations/google_travel_time
-/components/google_wifi /integrations/google_wifi
-/components/gpmdp /integrations/gpmdp
-/components/gpsd /integrations/gpsd
-/components/gpslogger /integrations/gpslogger
-/components/graphite /integrations/graphite
-/components/greeneye_monitor /integrations/greeneye_monitor
-/components/greenwave /integrations/greenwave
-/components/group /integrations/group
-/components/growatt_server /integrations/growatt_server
-/components/gstreamer /integrations/gstreamer
-/components/gtfs /integrations/gtfs
-/components/habitica /integrations/habitica
-/components/hangouts /integrations/hangouts
-/components/harman_kardon_avr /integrations/harman_kardon_avr
-/components/harmony /integrations/harmony
-/components/haveibeenpwned /integrations/haveibeenpwned
-/components/hddtemp /integrations/hddtemp
-/components/hdmi_cec /integrations/hdmi_cec
-/components/heatmiser /integrations/heatmiser
-/components/heos /integrations/heos
-/components/hikvision /integrations/hikvision
-/components/hikvisioncam /integrations/hikvisioncam
-/components/history /integrations/history
-/components/history_stats /integrations/history_stats
-/components/hitron_coda /integrations/hitron_coda
-/components/hive /integrations/hive
-/components/hlk_sw16 /integrations/hlk_sw16
-/components/homeassistant /integrations/homeassistant
-/components/homekit /integrations/homekit
-/components/homekit_controller /integrations/homekit_controller
-/components/homematic /integrations/homematic
-/components/homematicip_cloud /integrations/homematicip_cloud
-/components/homeworks /integrations/homeworks
-/components/honeywell /integrations/honeywell
-/components/horizon /integrations/horizon
-/components/hp_ilo /integrations/hp_ilo
-/components/html5 /integrations/html5
-/components/http /integrations/http
-/components/huawei_lte /integrations/huawei_lte
-/components/hue /integrations/hue
-/components/hunterdouglas_powerview /integrations/hunterdouglas_powerview
-/components/hydrawise /integrations/hydrawise
-/components/hyperion /integrations/hyperion
-/components/iaqualink /integrations/iaqualink
-/components/icloud /integrations/icloud
-/components/idteck_prox /integrations/idteck_prox
-/components/ifttt /integrations/ifttt
-/components/iglo /integrations/iglo
-/components/ign_sismologia /integrations/ign_sismologia
-/components/ihc /integrations/ihc
-/components/image_processing /integrations/image_processing
-/components/imap /integrations/imap
-/components/imap_email_content /integrations/imap_email_content
-/components/incomfort /integrations/incomfort
-/components/influxdb /integrations/influxdb
-/components/input_boolean /integrations/input_boolean
-/components/input_datetime /integrations/input_datetime
-/components/input_number /integrations/input_number
-/components/input_select /integrations/input_select
-/components/input_text /integrations/input_text
-/components/insteon /integrations/insteon
-/components/integration /integrations/integration
-/components/intent_script /integrations/intent_script
-/components/ios /integrations/ios
-/components/iperf3 /integrations/iperf3
-/components/ipma /integrations/ipma
-/components/iqvia /integrations/iqvia
-/components/irish_rail_transport /integrations/irish_rail_transport
-/components/islamic_prayer_times /integrations/islamic_prayer_times
-/components/iss /integrations/iss
-/components/isy994 /integrations/isy994
-/components/itach /integrations/itach
-/components/itunes /integrations/itunes
-/components/jewish_calendar /integrations/jewish_calendar
-/components/joaoapps_join /integrations/joaoapps_join
-/components/juicenet /integrations/juicenet
-/components/kankun /integrations/kankun
-/components/keba /integrations/keba
-/components/keenetic_ndms2 /integrations/keenetic_ndms2
-/components/keyboard /integrations/keyboard
-/components/keyboard_remote /integrations/keyboard_remote
-/components/kira /integrations/kira
-/components/kiwi /integrations/kiwi
-/components/knx /integrations/knx
-/components/kodi /integrations/kodi
-/components/konnected /integrations/konnected
-/components/kwb /integrations/kwb
-/components/lacrosse /integrations/lacrosse
-/components/lametric /integrations/lametric
-/components/lannouncer /integrations/lannouncer
-/components/lastfm /integrations/lastfm
-/components/launch_library /integrations/launch_library
-/components/lcn /integrations/lcn
-/components/lg_netcast /integrations/lg_netcast
-/components/lg_soundbar /integrations/lg_soundbar
-/components/life360 /integrations/life360
-/components/lifx /integrations/lifx
-/components/lifx_cloud /integrations/lifx_cloud
-/components/light /integrations/light
 /components/light.group /integrations/light.group
-/components/light.knx /integrations/light.knx
 /components/light.mqtt /integrations/light.mqtt
-/components/light.mysensors /integrations/light.mysensors
-/components/light.rflink /integrations/light.rflink
-/components/light.rfxtrx /integrations/light.rfxtrx
+/components/light.mysensors /integrations/mysensors#light
 /components/light.switch /integrations/light.switch
 /components/light.template /integrations/light.template
-/components/light.xiaomi_aqara /integrations/light.xiaomi_aqara
-/components/light.xiaomi_miio /integrations/light.xiaomi_miio
-/components/lightwave /integrations/lightwave
-/components/limitlessled /integrations/limitlessled
-/components/linksys_ap /integrations/linksys_ap
-/components/linksys_smart /integrations/linksys_smart
-/components/linode /integrations/linode
-/components/linux_battery /integrations/linux_battery
-/components/lirc /integrations/lirc
-/components/litejet /integrations/litejet
-/components/llamalab_automate /integrations/llamalab_automate
-/components/local_file /integrations/local_file
-/components/locative /integrations/locative
-/components/lock /integrations/lock
 /components/lock.mqtt /integrations/lock.mqtt
 /components/lock.template /integrations/lock.template
-/components/lock.xiaomi_aqara /integrations/lock.xiaomi_aqara
-/components/logbook /integrations/logbook
-/components/logentries /integrations/logentries
-/components/logger /integrations/logger
-/components/logi_circle /integrations/logi_circle
-/components/london_air /integrations/london_air
-/components/london_underground /integrations/london_underground
-/components/luci /integrations/luci
-/components/luftdaten /integrations/luftdaten
-/components/lupusec /integrations/lupusec
-/components/lutron /integrations/lutron
-/components/lutron_caseta /integrations/lutron_caseta
-/components/lw12wifi /integrations/lw12wifi
-/components/magicseaweed /integrations/magicseaweed
-/components/mailbox /integrations/mailbox
-/components/mailgun /integrations/mailgun
-/components/manual /integrations/manual
-/components/manual_mqtt /integrations/manual_mqtt
-/components/map /integrations/map
-/components/marytts /integrations/marytts
-/components/mastodon /integrations/mastodon
-/components/matrix /integrations/matrix
-/components/maxcube /integrations/maxcube
-/components/media_extractor /integrations/media_extractor
-/components/media_player /integrations/media_player
-/components/mediaroom /integrations/mediaroom
-/components/melissa /integrations/melissa
-/components/meraki /integrations/meraki
-/components/message_bird /integrations/message_bird
-/components/met /integrations/met
-/components/meteo_france /integrations/meteo_france
-/components/meteoalarm /integrations/meteoalarm
-/components/metoffice /integrations/metoffice
-/components/mfi /integrations/mfi
-/components/microsoft /integrations/microsoft
-/components/microsoft_face /integrations/microsoft_face
-/components/microsoft_face_detect /integrations/microsoft_face_detect
-/components/microsoft_face_identify /integrations/microsoft_face_identify
-/components/miflora /integrations/miflora
-/components/mikrotik /integrations/mikrotik
-/components/mill /integrations/mill
-/components/min_max /integrations/min_max
-/components/minio /integrations/minio
-/components/mitemp_bt /integrations/mitemp_bt
-/components/mjpeg /integrations/mjpeg
-/components/mobile_app /integrations/mobile_app
-/components/mochad /integrations/mochad
-/components/modbus /integrations/modbus
-/components/modem_callerid /integrations/modem_callerid
-/components/mold_indicator /integrations/mold_indicator
-/components/monoprice /integrations/monoprice
-/components/moon /integrations/moon
-/components/mpd /integrations/mpd
-/components/mqtt /integrations/mqtt
-/components/mqtt_eventstream /integrations/mqtt_eventstream
-/components/mqtt_json /integrations/mqtt_json
-/components/mqtt_room /integrations/mqtt_room
-/components/mqtt_statestream /integrations/mqtt_statestream
-/components/mvglive /integrations/mvglive
-/components/mycroft /integrations/mycroft
-/components/myq /integrations/myq
-/components/mysensors /integrations/mysensors
-/components/mystrom /integrations/mystrom
-/components/mythicbeastsdns /integrations/mythicbeastsdns
-/components/nad /integrations/nad
-/components/namecheapdns /integrations/namecheapdns
-/components/nanoleaf /integrations/nanoleaf
-/components/neato /integrations/neato
-/components/nederlandse_spoorwegen /integrations/nederlandse_spoorwegen
-/components/ness_alarm /integrations/ness_alarm
-/components/nest /integrations/nest
-/components/netatmo /integrations/netatmo
-/components/netdata /integrations/netdata
-/components/netgear /integrations/netgear
-/components/netgear_lte /integrations/netgear_lte
-/components/netio /integrations/netio
-/components/neurio_energy /integrations/neurio_energy
-/components/nextbus /integrations/nextbus
-/components/nfandroidtv /integrations/nfandroidtv
-/components/niko_home_control /integrations/niko_home_control
-/components/nilu /integrations/nilu
-/components/nissan_leaf /integrations/nissan_leaf
-/components/nmap_tracker /integrations/nmap_tracker
-/components/nmbs /integrations/nmbs
-/components/no_ip /integrations/no_ip
-/components/noaa_tides /integrations/noaa_tides
-/components/norway_air /integrations/norway_air
-/components/notify /integrations/notify
 /components/notify.command_line /integrations/notify.command_line
 /components/notify.group /integrations/notify.group
-/components/notify.knx /integrations/notify.knx
-/components/notify.mysensors /integrations/notify.mysensors
+/components/notify.mysensors /integrations/mysensors#notify
 /components/notify.rest /integrations/notify.rest
-/components/notion /integrations/notion
-/components/nsw_fuel_station /integrations/nsw_fuel_station
-/components/nsw_rural_fire_service_feed /integrations/nsw_rural_fire_service_feed
-/components/nuheat /integrations/nuheat
-/components/nuki /integrations/nuki
-/components/nut /integrations/nut
-/components/nws /integrations/nws
-/components/nx584 /integrations/nx584
-/components/nzbget /integrations/nzbget
-/components/oasa_telematics /integrations/oasa_telematics
-/components/obihai /integrations/obihai
-/components/octoprint /integrations/octoprint
-/components/oem /integrations/oem
-/components/ohmconnect /integrations/ohmconnect
-/components/onboarding /integrations/onboarding
-/components/onewire /integrations/onewire
-/components/onkyo /integrations/onkyo
-/components/onvif /integrations/onvif
-/components/openalpr_cloud /integrations/openalpr_cloud
-/components/openalpr_local /integrations/openalpr_local
-/components/opencv /integrations/opencv
-/components/openevse /integrations/openevse
-/components/openexchangerates /integrations/openexchangerates
-/components/opengarage /integrations/opengarage
-/components/openhardwaremonitor /integrations/openhardwaremonitor
-/components/openhome /integrations/openhome
-/components/opensensemap /integrations/opensensemap
-/components/opensky /integrations/opensky
-/components/opentherm_gw /integrations/opentherm_gw
-/components/openuv /integrations/openuv
-/components/openweathermap /integrations/openweathermap
-/components/opple /integrations/opple
-/components/orvibo /integrations/orvibo
-/components/osramlightify /integrations/osramlightify
-/components/otp /integrations/otp
-/components/owntracks /integrations/owntracks
-/components/panasonic_bluray /integrations/panasonic_bluray
-/components/panasonic_viera /integrations/panasonic_viera
-/components/pandora /integrations/pandora
-/components/panel_custom /integrations/panel_custom
-/components/panel_iframe /integrations/panel_iframe
-/components/pencom /integrations/pencom
-/components/persistent_notification /integrations/persistent_notification
-/components/person /integrations/person
-/components/philips_js /integrations/philips_js
-/components/pi_hole /integrations/pi_hole
-/components/picotts /integrations/picotts
-/components/pilight /integrations/pilight
-/components/ping /integrations/ping
-/components/pioneer /integrations/pioneer
-/components/pjlink /integrations/pjlink
-/components/plaato /integrations/plaato
-/components/plant /integrations/plant
-/components/plex /integrations/plex
-/components/plugwise /integrations/plugwise
-/components/plum_lightpad /integrations/plum_lightpad
-/components/pocketcasts /integrations/pocketcasts
-/components/point /integrations/point
-/components/polling /integrations/telegram_polling
-/components/proliphix /integrations/proliphix
-/components/prometheus /integrations/prometheus
-/components/prowl /integrations/prowl
-/components/proximity /integrations/proximity
-/components/proxy /integrations/proxy
-/components/ps4 /integrations/ps4
-/components/pulseaudio_loopback /integrations/pulseaudio_loopback
-/components/push /integrations/push
-/components/pushbullet /integrations/pushbullet
-/components/pushover /integrations/pushover
-/components/pushsafer /integrations/pushsafer
-/components/pvoutput /integrations/pvoutput
-/components/pyload /integrations/pyload
-/components/python_script /integrations/python_script
-/components/qbittorrent /integrations/qbittorrent
-/components/qld_bushfire /integrations/qld_bushfire
-/components/qnap /integrations/qnap
-/components/qrcode /integrations/qrcode
-/components/quantum_gateway /integrations/quantum_gateway
-/components/qwikswitch /integrations/qwikswitch
-/components/rachio /integrations/rachio
-/components/radarr /integrations/radarr
-/components/radiotherm /integrations/radiotherm
-/components/rainbird /integrations/rainbird
-/components/raincloud /integrations/raincloud
-/components/rainforest_eagle /integrations/rainforest_eagle
-/components/rainmachine /integrations/rainmachine
-/components/random /integrations/random
-/components/raspyrfm /integrations/raspyrfm
-/components/recollect_waste /integrations/recollect_waste
-/components/recorder /integrations/recorder
-/components/recswitch /integrations/recswitch
-/components/reddit /integrations/reddit
-/components/rejseplanen /integrations/rejseplanen
-/components/remember_the_milk /integrations/remember_the_milk
-/components/remote /integrations/remote
-/components/remote.xiaomi_miio /integrations/remote.xiaomi_miio
-/components/remote_rpi_gpio /integrations/remote_rpi_gpio
-/components/repetier /integrations/repetier
-/components/rest /integrations/rest
-/components/rest_command /integrations/rest_command
-/components/rflink /integrations/rflink
-/components/rfxtrx /integrations/rfxtrx
-/components/ring /integrations/ring
-/components/ripple /integrations/ripple
-/components/rmvtransport /integrations/rmvtransport
-/components/rocketchat /integrations/rocketchat
-/components/roku /integrations/roku
-/components/roomba /integrations/roomba
-/components/route53 /integrations/route53
-/components/rova /integrations/rova
-/components/rpi_camera /integrations/rpi_camera
-/components/rpi_gpio /integrations/rpi_gpio
-/components/rpi_pfio /integrations/rpi_pfio
-/components/rss_feed_template /integrations/rss_feed_template
-/components/rtorrent /integrations/rtorrent
-/components/russound_rio /integrations/russound_rio
-/components/russound_rnet /integrations/russound_rnet
-/components/sabnzbd /integrations/sabnzbd
-/components/samsungtv /integrations/samsungtv
-/components/satel_integra /integrations/satel_integra
-/components/scene /integrations/scene
-/components/scene.knx /integrations/scene.knx
-/components/scrape /integrations/scrape
-/components/script /integrations/script
-/components/scsgate /integrations/scsgate
-/components/season /integrations/season
-/components/sendgrid /integrations/sendgrid
-/components/sense /integrations/sense
-/components/sensibo /integrations/sensibo
-/components/sensor /integrations/sensor
-/components/sensor.buienradar /integrations/sensor.buienradar
+/components/public_sensor.netatmo /integrations/netatmo
 /components/sensor.command_line /integrations/sensor.command_line
-/components/sensor.ios /integrations/sensor.ios
-/components/sensor.knx /integrations/sensor.knx
-/components/sensor.metoffice /integrations/metoffice
-/components/sensor.modbus /integrations/sensor.modbus
 /components/sensor.mqtt /integrations/sensor.mqtt
-/components/sensor.mysensors /integrations/sensor.mysensors
-/components/sensor.rflink /integrations/sensor.rflink
-/components/sensor.rfxtrx /integrations/rfxtrx#sensors
-/components/sensor.websocket_api /integrations/sensor.websocket_api
-/components/sensor.xiaomi_aqara /integrations/sensor.xiaomi_aqara
-/components/sensor.xiaomi_miio /integrations/sensor.xiaomi_miio
-/components/serial /integrations/serial
-/components/serial_pm /integrations/serial_pm
-/components/sesame /integrations/sesame
-/components/seven_segments /integrations/seven_segments
-/components/seventeentrack /integrations/seventeentrack
-/components/shell_command /integrations/shell_command
-/components/shiftr /integrations/shiftr
-/components/shodan /integrations/shodan
-/components/shopping_list /integrations/shopping_list
-/components/sigfox /integrations/sigfox
-/components/simplepush /integrations/simplepush
-/components/simplisafe /integrations/simplisafe
-/components/simulated /integrations/simulated
-/components/sisyphus /integrations/sisyphus
-/components/sky_hub /integrations/sky_hub
-/components/skybeacon /integrations/skybeacon
-/components/skybell /integrations/skybell
-/components/slack /integrations/slack
-/components/sleepiq /integrations/sleepiq
-/components/slide /integrations/slide
-/components/sma /integrations/sma
-/components/smappee /integrations/smappee
-/components/smarthab /integrations/smarthab
-/components/smartthings /integrations/smartthings
-/components/smarty /integrations/smarty
-/components/smhi /integrations/smhi
-/components/smtp /integrations/smtp
-/components/snapcast /integrations/snapcast
-/components/snips /integrations/snips
-/components/snmp /integrations/snmp
-/components/sochain /integrations/sochain
-/components/solaredge /integrations/solaredge
-/components/solaredge_local /integrations/solaredge_local
-/components/solax /integrations/solax
-/components/somfy /integrations/somfy
-/components/somfy_mylink /integrations/somfy_mylink
-/components/sonarr /integrations/sonarr
-/components/songpal /integrations/songpal
-/components/sonos /integrations/sonos
-/components/sony_projector /integrations/sony_projector
-/components/soundtouch /integrations/soundtouch
-/components/spaceapi /integrations/spaceapi
-/components/spc /integrations/spc
-/components/speedtestdotnet /integrations/speedtestdotnet
-/components/spider /integrations/spider
-/components/splunk /integrations/splunk
-/components/spotify /integrations/spotify
-/components/sql /integrations/sql
-/components/squeezebox /integrations/squeezebox
-/components/srp_energy /integrations/srp_energy
-/components/ssdp /integrations/ssdp
-/components/starlingbank /integrations/starlingbank
-/components/startca /integrations/startca
-/components/statistics /integrations/statistics
-/components/statsd /integrations/statsd
-/components/steam_online /integrations/steam_online
-/components/stiebel_eltron /integrations/stiebel_eltron
-/components/stream /integrations/stream
-/components/streamlabswater /integrations/streamlabswater
-/components/suez_water /integrations/suez_water
-/components/sun /integrations/sun
-/components/supervisord /integrations/supervisord
-/components/supla /integrations/supla
-/components/swiss_hydrological_data /integrations/swiss_hydrological_data
-/components/swiss_public_transport /integrations/swiss_public_transport
-/components/swisscom /integrations/swisscom
-/components/switch /integrations/switch
+/components/sensor.mysensors /integrations/mysensors#sensor
 /components/switch.command_line /integrations/switch.command_line
-/components/switch.knx /integrations/switch.knx
-/components/switch.modbus /integrations/switch.modbus
 /components/switch.mqtt /integrations/switch.mqtt
-/components/switch.mysensors /integrations/switch.mysensors
-/components/switch.pca /integrations/switch.pca
+/components/switch.mysensors /integrations/mysensors#switch
 /components/switch.rest /integrations/switch.rest
-/components/switch.rflink /integrations/switch.rflink
-/components/switch.rfxtrx /integrations/switch.rfxtrx
 /components/switch.template /integrations/switch.template
-/components/switch.xiaomi_aqara /integrations/switch.xiaomi_aqara
-/components/switch.xiaomi_miio /integrations/switch.xiaomi_miio
-/components/switchbot /integrations/switchbot
-/components/switcher_kis /integrations/switcher_kis
-/components/switchmate /integrations/switchmate
-/components/syncthru /integrations/syncthru
-/components/synology_chat /integrations/synology_chat
-/components/synology_srm /integrations/synology_srm
-/components/synologydsm /integrations/synology_dsm
-/components/syslog /integrations/syslog
-/components/system_health /integrations/system_health
-/components/system_log /integrations/system_log
-/components/systemmonitor /integrations/systemmonitor
-/components/sytadin /integrations/sytadin
-/components/tado /integrations/tado
-/components/tank_utility /integrations/tank_utility
-/components/tapsaff /integrations/tapsaff
-/components/tautulli /integrations/tautulli
-/components/tcp /integrations/tcp
-/components/ted5000 /integrations/ted5000
-/components/telegram /integrations/telegram
-/components/telegram_bot /integrations/telegram_bot
-/components/tellduslive /integrations/tellduslive
-/components/tellstick /integrations/tellstick
-/components/telnet /integrations/telnet
-/components/temper /integrations/temper
-/components/template /integrations/template
-/components/tensorflow /integrations/tensorflow
-/components/tesla /integrations/tesla
-/components/tfiac /integrations/tfiac
-/components/thermoworks_smoke /integrations/thermoworks_smoke
-/components/thethingsnetwork /integrations/thethingsnetwork
-/components/thingspeak /integrations/thingspeak
-/components/thinkingcleaner /integrations/thinkingcleaner
-/components/thomson /integrations/thomson
-/components/threshold /integrations/threshold
-/components/tibber /integrations/tibber
-/components/tikteck /integrations/tikteck
-/components/tile /integrations/tile
-/components/time_date /integrations/time_date
-/components/timer /integrations/timer
-/components/tod /integrations/tod
-/components/todoist /integrations/todoist
-/components/tomato /integrations/tomato
-/components/toon /integrations/toon
-/components/torque /integrations/torque
-/components/totalconnect /integrations/totalconnect
-/components/touchline /integrations/touchline
-/components/tplink /integrations/tplink
-/components/tplink_lte /integrations/tplink_lte
-/components/traccar /integrations/traccar
-/components/tradfri /integrations/tradfri
-/components/trafikverket_train /integrations/trafikverket_train
-/components/trafikverket_weatherstation /integrations/trafikverket_weatherstation
-/components/transmission /integrations/transmission
-/components/transport_nsw /integrations/transport_nsw
-/components/travisci /integrations/travisci
-/components/trend /integrations/trend
-/components/tts /integrations/tts
-/components/tuya /integrations/tuya
-/components/twentemilieu /integrations/twentemilieu
-/components/twilio /integrations/twilio
-/components/twilio_call /integrations/twilio_call
-/components/twilio_sms /integrations/twilio_sms
-/components/twitch /integrations/twitch
-/components/twitter /integrations/twitter
-/components/ubus /integrations/ubus
-/components/ue_smart_radio /integrations/ue_smart_radio
-/components/uk_transport /integrations/uk_transport
-/components/unifi /integrations/unifi
-/components/unifi_direct /integrations/unifi_direct
-/components/universal /integrations/universal
-/components/upc_connect /integrations/upc_connect
-/components/upcloud /integrations/upcloud
-/components/updater /integrations/updater
-/components/upnp /integrations/upnp
-/components/ups /integrations/ups
-/components/uptime /integrations/uptime
-/components/uptimerobot /integrations/uptimerobot
-/components/uscis /integrations/uscis
-/components/usgs_earthquakes_feed /integrations/usgs_earthquakes_feed
-/components/usps /integrations/usps
-/components/utility_meter /integrations/utility_meter
-/components/uvc /integrations/uvc
-/components/vacuum /integrations/vacuum
+/components/telegram_bot.broadcast /integrations/telegram_broadcast
+/components/telegram_bot.polling /integrations/telegram_polling
+/components/telegram_bot.webhooks /integrations/telegram_webhooks
 /components/vacuum.mqtt /integrations/vacuum.mqtt
 /components/vacuum.template /integrations/vacuum.template
-/components/vacuum.xiaomi_miio /integrations/vacuum.xiaomi_miio
-/components/vallox /integrations/vallox
-/components/vasttrafik /integrations/vasttrafik
-/components/velbus /integrations/velbus
-/components/velux /integrations/velux
-/components/venstar /integrations/venstar
-/components/vera /integrations/vera
-/components/verisure /integrations/verisure
-/components/version /integrations/version
-/components/vesync /integrations/vesync
-/components/viaggiatreno /integrations/viaggiatreno
-/components/vicare /integrations/vicare
-/components/vivotek /integrations/vivotek
-/components/vizio /integrations/vizio
-/components/vlc /integrations/vlc
-/components/vlc_telnet /integrations/vlc_telnet
-/components/voicerss /integrations/voicerss
-/components/volkszaehler /integrations/volkszaehler
-/components/volumio /integrations/volumio
-/components/volvooncall /integrations/volvooncall
-/components/vultr /integrations/vultr
-/components/w800rf32 /integrations/w800rf32
-/components/wake_on_lan /integrations/wake_on_lan
-/components/waqi /integrations/waqi
-/components/water_heater /integrations/water_heater
-/components/waterfurnace /integrations/waterfurnace
-/components/watson_iot /integrations/watson_iot
-/components/watson_tts /integrations/watson_tts
-/components/waze_travel_time /integrations/waze_travel_time
-/components/weather /integrations/weather
-/components/weather.darksky /integrations/weather.darksky
-/components/webhook /integrations/webhook
-/components/webhooks /integrations/telegram_webhooks
-/components/webostv /integrations/webostv
-/components/websocket_api /integrations/websocket_api
-/components/wemo /integrations/wemo
-/components/whois /integrations/whois
-/components/wirelesstag /integrations/wirelesstag
-/components/withings /integrations/withings
-/components/workday /integrations/workday
-/components/worldclock /integrations/worldclock
-/components/worldtidesinfo /integrations/worldtidesinfo
-/components/worxlandroid /integrations/worxlandroid
-/components/wsdot /integrations/wsdot
-/components/wunderlist /integrations/wunderlist
-/components/x10 /integrations/x10
-/components/xbox_live /integrations/xbox_live
-/components/xeoma /integrations/xeoma
-/components/xiaomi /integrations/xiaomi
-/components/xiaomi_aqara /integrations/xiaomi_aqara
-/components/xiaomi_miio /integrations/xiaomi_miio
-/components/xiaomi_tv /integrations/xiaomi_tv
-/components/xmpp /integrations/xmpp
-/components/xs1 /integrations/xs1
-/components/yale_smart_alarm /integrations/yale_smart_alarm
-/components/yamaha /integrations/yamaha
-/components/yamaha_musiccast /integrations/yamaha_musiccast
-/components/yandextts /integrations/yandextts
-/components/yeelight /integrations/yeelight
-/components/yeelightsunflower /integrations/yeelightsunflower
-/components/yi /integrations/yi
-/components/zabbix /integrations/zabbix
-/components/zamg /integrations/zamg
-/components/zengge /integrations/zengge
-/components/zeroconf /integrations/zeroconf
-/components/zestimate /integrations/zestimate
-/components/zha /integrations/zha
-/components/zhong_hong /integrations/zhong_hong
-/components/zigbee /integrations/zigbee
-/components/ziggo_mediabox_xl /integrations/ziggo_mediabox_xl
-/components/zone /integrations/zone
-/components/zoneminder /integrations/zoneminder
-/components/zwave /integrations/zwave
+/integrations/binary_sensor.mysensors /integrations/mysensors#binary-sensor
+/integrations/climate.mysensors /integrations/mysensors#climate
+/integrations/cover.mysensors /integrations/mysensors#cover
+/integrations/device_tracker.mysensors /integrations/mysensors#device-tracker
+/integrations/light.mysensors /integrations/mysensors#light
+/integrations/notify.mysensors /integrations/mysensors#notify
+/integrations/sensor.mysensors /integrations/mysensors#sensor
+/integrations/switch.mysensors /integrations/mysensors#switch
+/integrations/binary_sensor.group /integrations/group
+/integrations/cover.group /integrations/group
+/integrations/fan.group /integrations/group
+/integrations/light.group /integrations/group
+/integrations/media_player.group /integrations/group
+/integrations/notify.group /integrations/group#notify-groups
 
-# Breaking changes
-/integrations/switch.pca /integrations/elv
-/integrations/synologydsm /integrations/synology_dsm
+/components/air_pollutants.* /integrations/:splat
+/components/air_quality.* /integrations/:splat
+/components/alarm_control_panel.* /integrations/:splat
+/components/binary_sensor.* /integrations/:splat
+/components/calendar.* /integrations/:splat
+/components/camera.* /integrations/:splat
+/components/climate.* /integrations/:splat
+/components/cover.* /integrations/:splat
+/components/device_tracker.* /integrations/:splat
+/components/fan.* /integrations/:splat
+/components/geo_location.* /integrations/:splat
+/components/image_processing.* /integrations/:splat
+/components/light.* /integrations/:splat
+/components/lock.* /integrations/:splat
+/components/mailbox.* /integrations/:splat
+/components/media_player.* /integrations/:splat
+/components/notify.* /integrations/:splat
+/components/remote.* /integrations/:splat
+/components/scene.* /integrations/:splat
+/components/sensor.* /integrations/:splat
+/components/smartthings.* /integrations/smartthings
+/components/switch.* /integrations/:splat
+/components/tts.* /integrations/:splat
+/components/vacuum.* /integrations/:splat
+/components/water_heater.* /integrations/:splat
+/components/weather.* /integrations/:splat
+/components/* /integrations/:splat
+/components /integrations
+
+# Renamed integrations
+/integrationss/air_pollutants /integrations/air_quality
+/integrations/climacell /integrations/tomorrowio
 /integrations/generic_ip_camera /integrations/generic
+/integrations/google /integrations/google_translate
+/integrations/input_slider /integrations/input_number
+/integrations/light.switch /integrations/switch_as_x
+/integrations/openalpr /integrations/openalpr_local
+/integrations/pca /integrations/elv
+/integrations/pollen /integrations/iqvia
+/integrations/polling /integrations/telegram_polling
+/integrations/ritassist /integrations/fleetgo
+/integrations/synologydsm /integrations/synology_dsm
 /integrations/telegram_chatbot /integrations/telegram_bot
+/integrations/vlc-telnet /integrations/vlc_telnet
+/integrations/xiaomi /integrations/xiaomi_aqara
+/integrations/zigbee /integrations/xbee
 
 # Moved documentation
 /details/database /docs/backend/database
@@ -1966,26 +222,16 @@
 /docs/frontend/mobile https://companion.home-assistant.io
 /docs/script/editor /docs/scripts/editor
 /docs/z-wave /integrations/zwave_js
-/docs/z-wave/adding /integrations/zwave/#adding-and-removing-devices
-/docs/z-wave/control-panel /integrations/zwave/#control-panel
+/docs/z-wave/adding /integrations/zwave_js#how-can-i-add-include-a-new-device-to-my-z-wave-network
+/docs/z-wave/control-panel /integrations/zwave_js#using-z-wave-js
 /docs/z-wave/controllers/#aeotec-stick /docs/z-wave/controllers/#aeotec-z-stick
-/docs/z-wave/devices /integrations/zwave/#device-support
-/docs/z-wave/devices/#instant-status /integrations/zwave/#instant-status
-/docs/z-wave/devices/#polling /integrations/zwave/#polling
-/docs/z-wave/device-specific /integrations/zwave/#device-specific-information
-/docs/z-wave/device-specific/#device-categories /integrations/zwave/#device-support
-/docs/z-wave/device-specific/#motion-or-alarm-sensors /integrations/zwave/#binary-sensor
-/docs/z-wave/device-specific/#locks-and-other-secure-devices /integrations/zwave/#lock
-/docs/z-wave/device-specific/#specific-devices /integrations/zwave/#device-specific-information
-/docs/z-wave/device-specific/#aeotec-z-stick /docs/z-wave/controllers/#aeotec-z-stick
-/docs/z-wave/device-specific/#razberry-board /docs/z-wave/controllers/#razberry-board
-/docs/z-wave/device-specific/#raspberry-pi-3-procedure /docs/z-wave/controllers/#raspberry-pi-3-procedure
-/docs/z-wave/device-specific/#raspberry-pi-4-procedure /docs/z-wave/controllers/#raspberry-pi-4-procedure
-/docs/z-wave/entities /integrations/zwave/#device-support
-/docs/z-wave/events /integrations/zwave/#events
-/docs/z-wave/installation /integrations/zwave/#detailed-installation-instructions
-/docs/z-wave/query-stage /integrations/zwave/#query-stage
-/docs/z-wave/services /integrations/zwave/#services
+/docs/z-wave/device-specific /integrations/zwave_js
+/docs/z-wave/devices /integrations/zwave_js#supported-devices-and-command-classes
+/docs/z-wave/entities /integrations/zwave_js#using-z-wave-js
+/docs/z-wave/events /integrations/zwave_js#events
+/docs/z-wave/installation /integrations/zwave_js#configuration
+/docs/z-wave/query-stage /integrations/zwave_js
+/docs/z-wave/services /integrations/zwave_js#services
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 /ecosystem/notebooks https://data.home-assistant.io
 /ecosystem/notebooks/api https://data.home-assistant.io
@@ -1998,19 +244,7 @@
 /integrations/auth /docs/authentication
 /integrations/automation /docs/automation
 /integrations/blueprint /docs/automation/using_blueprints
-/integrations/binary_sensor.knx /integrations/knx#binary-sensor
-/integrations/climate.knx /integrations/knx#climate
-/integrations/cover.knx /integrations/knx#cover
-/integrations/light.knx /integrations/knx#light
-/integrations/notify.knx /integrations/knx#notify
-/integrations/notify.mqtt /cookbook/notify.mqtt
-/integrations/scene.knx /integrations/knx#scene
-/integrations/sensor.knx /integrations/knx#sensor
-/integrations/switch.knx /integrations/knx#switch
 /integrations/trace /docs/automation/troubleshooting
-/integrations/weather.knx /integrations/knx#weather
-/integrations/zigbee /integrations/xbee
-/integrations/calendar.google /integrations/google
 /integrations/hassio /hassio
 /integrations/cloud.alexa /cloud/alexa
 /getting-started/automation-create-first /getting-started/automation
@@ -2140,11 +374,13 @@
 /tag/* /tag 200
 
 # Lovelace documentation
-/lovelace/entity-button /lovelace/button
-/lovelace/views /lovelace/dashboards-and-views
-/lovelace/yaml-mode /lovelace/dashboards-and-views
-/lovelace/calendar-card /lovelace/calendar
-/integrations/lovelace /lovelace
+/lovelace/entity-button /dashboards/button
+/lovelace/views /dashboards/dashboards-and-views
+/lovelace/yaml-mode /dashboards/dashboards-and-views
+/lovelace/calendar-card /dashboards/calendar
+/integrations/lovelace /dashboards
+/lovelace/* /dashboards/:splat
+/images/lovelace/* /images/dashboards/:splat
 
 # Removed documentation
 /docs/installation /getting-started
@@ -2160,226 +396,99 @@
 # Blog
 /blog/2019/05/29/release-94 /blog/2019/06/05/release-94
 /state-of-the-union /blog/2019/11/22/state-of-the-union
-
+/blog/2022/03/30/release-20224 /blog/2022/04/06/release-20224/
 
 # Removed integrations
-/components/alarm_control_panel.alarmdotcom /more-info/removed-integration 301
-/components/alarm_control_panel.ialarm /more-info/removed-integration 301
-/components/device_tracker.ubee /more-info/removed-integration 301
-/components/device_tracker.xfinity  /more-info/removed-integration 301
-/components/edp_redy /more-info/removed-integration 301
-/components/essent /more-info/removed-integration 301
-/integrations/essent /more-info/removed-integration 301
-/components/fedex /more-info/removed-integration 301
-/components/fortigate /more-info/removed-integration 301
-/components/history_graph /more-info/removed-integration 301
-/components/hydroquebec /more-info/removed-integration 301
-/components/fritzbox_netmonitor  /more-info/removed-integration 301
-/components/linksys_ap /more-info/removed-integration 301
-/components/liveboxplaytv /more-info/removed-integration 301
-/components/lock.lockitron /more-info/removed-integration 301
-/components/lockitron /more-info/removed-integration 301
-/components/media_player.liveboxplaytv /more-info/removed-integration 301
-/components/media_player.liveboxplaytv /more-info/removed-integration 301
-/components/nma /more-info/removed-integration 301
-/components/notify.nma /more-info/removed-integration 301
-/components/notify.pushetta /more-info/removed-integration 301
-/components/notify.yessssms /more-info/removed-integration 301
-/components/postnl /more-info/removed-integration 301
-/components/pushetta /more-info/removed-integration 301
-/components/ruter /more-info/removed-integration 301
-/components/sensor.bom /more-info/removed-integration 301
-/components/sensor.duke_energy  /more-info/removed-integration 301
-/components/sensor.fritzbox_netmonitor /more-info/removed-integration 301
-/components/sensor.gearbest /more-info/removed-integration 301
-/components/sensor.hydroquebec /more-info/removed-integration 301
-/components/sensor.linky /more-info/removed-integration 301
-/components/sensor.mopar /more-info/removed-integration 301
-/components/sensor.postnl /more-info/removed-integration 301
-/components/sensor.prezzibenzina /more-info/removed-integration 301
-/components/sensor.teksavvy /more-info/removed-integration 301
-/components/sensor.yweather /more-info/removed-integration 301
-/components/simple_alarm /more-info/removed-integration 301
-/components/srp_energy /more-info/removed-integration 301
-/components/switch.edp_redy /more-info/removed-integration 301
-/components/sytadin /more-info/removed-integration 301
-/components/teksavvy /more-info/removed-integration 301
-/components/uber /more-info/removed-integration 301
-/components/ups /more-info/removed-integration 301
-/components/usps /more-info/removed-integration 301
-/components/weather.bom /more-info/removed-integration 301
-/components/weather.yweather /more-info/removed-integration 301
-/components/weblink /more-info/removed-integration 301
-/components/yessssms /more-info/removed-integration 301
-/components/yweather /more-info/removed-integration 301
 /integrations/alarmdotcom /more-info/removed-integration 301
+/integrations/apns /more-info/removed-integration 301
+/integrations/arduino /more-info/removed-integration 301
+/integrations/bbb_gpio /more-info/removed-integration 301
+/integrations/bh1750 /more-info/removed-integration 301
+/integrations/binary_sensor.mychevy /more-info/removed-integration 301
+/integrations/blinkt /more-info/removed-integration 301
+/integrations/bme280 /more-info/removed-integration 301
+/integrations/bme680 /more-info/removed-integration 301
+/integrations/bmp280 /more-info/removed-integration 301
 /integrations/bom /more-info/removed-integration 301
 /integrations/ciscospark /more-info/removed-integration 301
+/integrations/coinmarketcap /more-info/removed-integration 301
+/integrations/crimereports /more-info/removed-integration 301
+/integrations/device_tracker.trackr /more-info/removed-integration 301
+/integrations/dht /more-info/removed-integration 301
+/integrations/digitalloggers /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/edp_redy /more-info/removed-integration 301
+/integrations/ee_brightbox /more-info/removed-integration 301
+/integrations/envirophat /more-info/removed-integration 301
+/integrations/essent /more-info/removed-integration 301
+/integrations/fedex /more-info/removed-integration 301
 /integrations/fortigate /more-info/removed-integration 301
+/integrations/fritzbox_netmonitor  /more-info/removed-integration 301
+/integrations/garmin_connect /more-info/removed-integration 301
 /integrations/gearbest /more-info/removed-integration 301
+/integrations/geizhals /more-info/removed-integration 301
+/integrations/gntp /more-info/removed-integration 301
+/integrations/griddy /more-info/removed-integration 301
 /integrations/history_graph /more-info/removed-integration 301
+/integrations/htu21d /more-info/removed-integration 301
+/integrations/huawei_router /more-info/removed-integration 301
 /integrations/hydroquebec /more-info/removed-integration 301
 /integrations/ialarm /more-info/removed-integration 301
+/integrations/iota /more-info/removed-integration 301
+/integrations/linksys_ap /more-info/removed-integration 301
 /integrations/linky /more-info/removed-integration 301
 /integrations/liveboxplaytv /more-info/removed-integration 301
-/integrations/liveboxplaytv /more-info/removed-integration 301
 /integrations/lockitron /more-info/removed-integration 301
+/integrations/loop_energy /more-info/removed-integration 301
+/integrations/loopenergy /more-info/removed-integration 301
+/integrations/lyft /more-info/removed-integration 301
+/integrations/mcp23017 /more-info/removed-integration 301
+/integrations/mhz19 /more-info/removed-integration 301
 /integrations/mopar /more-info/removed-integration 301
+/integrations/mpchc /more-info/removed-integration 301
+/integrations/mychevy /more-info/removed-integration 301
+/integrations/n26 /more-info/removed-integration 301
+/integrations/nello /more-info/removed-integration 301
 /integrations/nma /more-info/removed-integration 301
+/integrations/nuimo_controller /more-info/removed-integration 301
+/integrations/orangepi_gpio /more-info/removed-integration 301
+/integrations/ozw /more-info/removed-integration 301
+/integrations/pcal9535a /more-info/removed-integration 301
+/integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
+/integrations/piglow /more-info/removed-integration 301
 /integrations/postnl /more-info/removed-integration 301
 /integrations/prezzibenzina /more-info/removed-integration 301
+/integrations/ptvsd /more-info/removed-integration 301
 /integrations/pushetta /more-info/removed-integration 301
+/integrations/raspihats /more-info/removed-integration 301
+/integrations/rpi_gpio_pwm /more-info/removed-integration 301
+/integrations/rpi_pfio /more-info/removed-integration 301
+/integrations/rpi_rf /more-info/removed-integration 301
+/integrations/ruter /more-info/removed-integration 301
 /integrations/salt /more-info/removed-integration 301
+/integrations/sensehat /more-info/removed-integration 301
+/integrations/sht31 /more-info/removed-integration 301
 /integrations/simple_alarm /more-info/removed-integration 301
+/integrations/smarthab /more-info/removed-integration 301
+/integrations/socialblade /more-info/removed-integration 301
+/integrations/spotcrime /more-info/removed-integration 301
+/integrations/srp_energy /more-info/removed-integration 301
+/integrations/synology /more-info/removed-integration 301
+/integrations/sytadin /more-info/removed-integration 301
+/integrations/tahoma /more-info/removed-integration 301
 /integrations/teksavvy /more-info/removed-integration 301
+/integrations/tesla /more-info/removed-integration 301
+/integrations/tof /more-info/removed-integration 301
+/integrations/trackr /more-info/removed-integration 301
 /integrations/ubee /more-info/removed-integration 301
 /integrations/uber /more-info/removed-integration 301
+/integrations/updater /more-info/removed-integration 301
+/integrations/ups /more-info/removed-integration 301
+/integrations/usps /more-info/removed-integration 301
 /integrations/weblink /more-info/removed-integration 301
+/integrations/wink /more-info/removed-integration 301
+/integrations/wunderground /more-info/removed-integration 301
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
-/components/ptvsd /more-info/removed-integration 301
-/integrations/ptvsd /more-info/removed-integration 301
-/components/nuimo_controller /more-info/removed-integration 301
-/integrations/nuimo_controller /more-info/removed-integration 301
-/components/camera.synology /more-info/removed-integration 301
-/components/synology /more-info/removed-integration 301
-/integrations/synology /more-info/removed-integration 301
-/components/sensor.crimereports /more-info/removed-integration 301
-/components/crimereports /more-info/removed-integration 301
-/integrations/crimereports /more-info/removed-integration 301
-/components/sensor.coinmarketcap /more-info/removed-integration 301
-/components/coinmarketcap /more-info/removed-integration 301
-/integrations/coinmarketcap /more-info/removed-integration 301
-/integrations/griddy /more-info/removed-integration 301
-/components/geizhals /more-info/removed-integration 301
-/components/sensor.geizhals /more-info/removed-integration 301
-/integrations/geizhals /more-info/removed-integration 301
-/components/sensor.socialblade /more-info/removed-integration 301
-/components/socialblade /more-info/removed-integration 301
-/integrations/socialblade /more-info/removed-integration 301
-/components/n26 /more-info/removed-integration 301
-/integrations/n26 /more-info/removed-integration 301
-/components/sensor.spotcrime /more-info/removed-integration 301
-/components/spotcrime /more-info/removed-integration 301
-/integrations/spotcrime /more-info/removed-integration 301
-/components/sensor.wunderground /more-info/removed-integration 301
-/components/tesla /more-info/removed-integration 301
-/integrations/tesla /more-info/removed-integration 301
-/components/wunderground /more-info/removed-integration 301
-/integrations/wunderground /more-info/removed-integration 301
-/integrations/garmin_connect /more-info/removed-integration 301
-/components/device_tracker.trackr /more-info/removed-integration 301
-/components/trackr /more-info/removed-integration 301
-/integrations/trackr /more-info/removed-integration 301
-/components/alarm_control_panel.wink /more-info/removed-integration 301
-/components/binary_sensor.wink /more-info/removed-integration 301
-/components/climate.wink /more-info/removed-integration 301
-/components/cover.wink /more-info/removed-integration 301
-/components/fan.wink /more-info/removed-integration 301
-/components/light.wink /more-info/removed-integration 301
-/components/lock.wink /more-info/removed-integration 301
-/components/scene.wink /more-info/removed-integration 301
-/components/sensor.wink /more-info/removed-integration 301
-/components/switch.wink /more-info/removed-integration 301
-/components/water_heater.wink /more-info/removed-integration 301
-/components/wink /more-info/removed-integration 301
-/integrations/wink /more-info/removed-integration 301
-/components/lyft /more-info/removed-integration 301
-/components/sensor.lyft /more-info/removed-integration 301
-/integrations/lyft /more-info/removed-integration 301
-/components/lock.nello /more-info/removed-integration 301
-/components/nello /more-info/removed-integration 301
-/integrations/nello /more-info/removed-integration 301
-/components/device_tracker.huawei_router /more-info/removed-integration 301
-/integrations/huawei_router /more-info/removed-integration 301
-/components/sensor.iota /more-info/removed-integration 301
-/components/iota /more-info/removed-integration 301
-/integrations/iota /more-info/removed-integration 301
-/components/mychevy /more-info/removed-integration 301
-/integrations/mychevy /more-info/removed-integration 301
-/components/binary_sensor.mychevy /more-info/removed-integration 301
-/components/sensor.mychevy /more-info/removed-integration 301
-/integrations/loopenergy /more-info/removed-integration 301
-/components/loopenergy /more-info/removed-integration 301
-/components/sensor.loop_energy /more-info/removed-integration 301
-/components/sensor.loopenergy /more-info/removed-integration 301
-/integrations/tahoma /more-info/removed-integration 301
-/components/arduino /more-info/removed-integration 301
-/components/sensor.arduino /more-info/removed-integration 301
-/components/switch.arduino /more-info/removed-integration 301
-/integrations/arduino /more-info/removed-integration 301
-/components/device_tracker.ee_brightbox /more-info/removed-integration 301
-/components/ee_brightbox /more-info/removed-integration 301
-/integrations/ee_brightbox /more-info/removed-integration 301
-/components/gntp /more-info/removed-integration 301
-/components/notify.gntp /more-info/removed-integration 301
-/integrations/gntp /more-info/removed-integration 301
-/components/bbb_gpio /more-info/removed-integration 301
-/components/binary_sensor.bbb_gpio /more-info/removed-integration 301
-/components/switch.bbb_gpio /more-info/removed-integration 301
-/integrations/bbb_gpio /more-info/removed-integration 301
-/components/bh1750 /more-info/removed-integration 301
-/components/sensor.bh1750 /more-info/removed-integration 301
-/integrations/bh1750 /more-info/removed-integration 301
-/components/apns /more-info/removed-integration 301
-/components/notify.apns /more-info/removed-integration 301
-/integrations/apns /more-info/removed-integration 301
-/components/blinkt /more-info/removed-integration 301
-/components/light.blinkt /more-info/removed-integration 301
-/integrations/blinkt /more-info/removed-integration 301
-/components/tof /more-info/removed-integration 301
-/integrations/tof /more-info/removed-integration 301
-/components/sensor.sht31 /more-info/removed-integration 301
-/integrations/sht31 /more-info/removed-integration 301
-/components/sht31 /more-info/removed-integration 301
-/components/light.rpi_gpio_pwm /more-info/removed-integration 301
-/components/rpi_gpio_pwm /more-info/removed-integration 301
-/integrations/rpi_gpio_pwm /more-info/removed-integration 301
-/components/mhz19 /more-info/removed-integration 301
-/components/sensor.mhz19 /more-info/removed-integration 301
-/integrations/mhz19 /more-info/removed-integration 301
-/components/bme280 /more-info/removed-integration 301
-/components/sensor.bme280 /more-info/removed-integration 301
-/integrations/bme280 /more-info/removed-integration 301
-/components/orangepi_gpio /more-info/removed-integration 301
-/integrations/orangepi_gpio /more-info/removed-integration 301
-/components/media_player.mpchc /more-info/removed-integration 301
-/components/mpchc /more-info/removed-integration 301
-/integrations/mpchc /more-info/removed-integration 301
-/components/light.piglow /more-info/removed-integration 301
-/components/piglow /more-info/removed-integration 301
-/integrations/piglow /more-info/removed-integration 301
-/integrations/pcal9535a /more-info/removed-integration 301
-/components/bme680 /more-info/removed-integration 301
-/components/sensor.bme680 /more-info/removed-integration 301
-/integrations/bme680 /more-info/removed-integration 301
-/components/htu21d /more-info/removed-integration 301
-/components/sensor.htu21d /more-info/removed-integration 301
-/integrations/htu21d /more-info/removed-integration 301
-/components/envirophat /more-info/removed-integration 301
-/components/sensor.envirophat /more-info/removed-integration 301
-/integrations/envirophat /more-info/removed-integration 301
-/components/sensor.dht /more-info/removed-integration 301
-/integrations/dht /more-info/removed-integration 301
-/components/dht /more-info/removed-integration 301
-/components/light.sensehat /more-info/removed-integration 301
-/components/sensehat /more-info/removed-integration 301
-/components/sensor.sensehat /more-info/removed-integration 301
-/integrations/sensehat /more-info/removed-integration 301
-/integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
-/components/binary_sensor.rpi_pfio /more-info/removed-integration 301
-/components/switch.rpi_pfio /more-info/removed-integration 301
-/integrations/rpi_pfio /more-info/removed-integration 301
-/integrations/bmp280 /more-info/removed-integration 301
-/components/mcp23017 /more-info/removed-integration 301
-/integrations/mcp23017 /more-info/removed-integration 301
-/components/rpi_rf /more-info/removed-integration 301
-/components/switch.rpi_rf /more-info/removed-integration 301
-/integrations/rpi_rf /more-info/removed-integration 301
-/components/binary_sensor.raspihats /more-info/removed-integration 301
-/components/raspihats /more-info/removed-integration 301
-/components/switch.raspihats /more-info/removed-integration 301
-/integrations/raspihats /more-info/removed-integration 301
+/components/zwave /integrations/zwave_js

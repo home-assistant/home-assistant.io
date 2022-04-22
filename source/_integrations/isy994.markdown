@@ -2,11 +2,11 @@
 title: Universal Devices ISY994
 description: Instructions on how to setup the ISY994 controller within Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Climate
   - Cover
   - Fan
+  - Hub
   - Light
   - Lock
   - Sensor
@@ -29,6 +29,7 @@ ha_platforms:
   - sensor
   - switch
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The ISY994 is a home automation controller that is capable of controlling Insteon and X10 devices. Some models of the ISY994 can even control Z-Wave devices.

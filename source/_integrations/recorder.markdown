@@ -9,6 +9,7 @@ ha_domain: recorder
 ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history`](/integrations/history/) integration.
@@ -60,6 +61,11 @@ recorder:
       type: integer 
     auto_purge:
       description: Automatically purge the database every night at 04:12 local time. Purging keeps the database from growing indefinitely, which takes up disk space and can make Home Assistant slow. If you disable `auto_purge` it is recommended that you create an automation to call the [`recorder.purge`](#service-purge) periodically.
+      required: false
+      default: true
+      type: boolean
+    auto_repack:
+      description: Automatically repack the database every second sunday after the auto purge. Without a repack, the database may not decrease in size even after purging, which takes up disk space and can make Home Assistant slow. If you disable `auto_repack` it is recommended that you create an automation to call the [`recorder.purge`](#service-purge) periodically. This flag has no effect if `auto_purge` is disabled.
       required: false
       default: true
       type: boolean

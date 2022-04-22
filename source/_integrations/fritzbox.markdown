@@ -14,14 +14,15 @@ ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
-  - diagnostics
   - climate
+  - diagnostics
   - light
   - sensor
   - switch
 ha_codeowners:
   - '@mib1185'
   - '@flabbamann'
+ha_integration_type: integration
 ---
 
 The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ!DECT](https://en.avm.de/products/fritzdect/) devices like switches, sensors and thermostats.

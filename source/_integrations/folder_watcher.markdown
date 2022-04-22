@@ -7,6 +7,7 @@ ha_iot_class: Local Polling
 ha_release: 0.67
 ha_quality_scale: internal
 ha_domain: folder_watcher
+ha_integration_type: integration
 ---
 
 This integration adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring, publishing events on the Home Assistant bus on the creation/deletion/modification of files within configured folders. The monitored `event_type` are:

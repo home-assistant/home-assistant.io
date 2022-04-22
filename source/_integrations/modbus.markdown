@@ -19,6 +19,7 @@ ha_platforms:
   - sensor
   - switch
 ha_quality_scale: gold
+ha_integration_type: integration
 ---
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit). The integration adheres strictly to the [protocol specification](https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf).

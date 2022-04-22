@@ -10,6 +10,7 @@ ha_codeowners:
   - '@home-assistant/cloud'
   - '@ochlocracy'
 ha_domain: alexa
+ha_integration_type: integration
 ---
 
 ## Automatic setup via Home Assistant Cloud

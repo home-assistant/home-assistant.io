@@ -2,14 +2,14 @@
 title: Fibaro
 description: Instructions on how to setup Fibaro Z-Wave hubs (HCL and HC2) and configure devices within Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Climate
   - Cover
+  - Hub
   - Light
   - Lock
-  - Sensor
   - Scene
+  - Sensor
   - Switch
 ha_release: 0.83
 ha_iot_class: Local Push
@@ -23,6 +23,10 @@ ha_platforms:
   - scene
   - sensor
   - switch
+ha_codeowners:
+  - '@rappenze'
+ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The [Fibaro](https://fibaro.com/) hub is a controller mainly connecting to Z-Wave devices.
@@ -40,54 +44,7 @@ There is currently support for the following device types within Home Assistant:
 
 They will be automatically added when the `fibaro` hub is connected to Home Assistant.
 
-## Configuration
-
-To use Fibaro devices in your installation, add the following to your `configuration.yaml` file using the IP and port number of your Fibaro controller:
-
-```yaml
-fibaro:
-  gateways:
-    - url: http://192.168.1.161/api/
-      username: your_username
-      password: your_password
-      device_config:
-        light_device_name_123:
-          color: false
-          white_value: false
-          reset_color: true
-        binary_device_name_123:
-          device_class: "garage_door"
-          icon: mdi:open
-```
-
-{% configuration %}
-gateways:
-  description: List of gateway configurations.
-  requires: true
-  type: list
-url:
-  description: The URL for your Fibaro HomeCenter device.
-  required: true
-  type: string
-username:
-  description: The username for your Fibaro account.
-  required: true
-  type: string
-password:
-  description: The password for your Fibaro account.
-  required: true
-  type: string
-plugins:
-  description: Whether to import plugin-generated devices from Fibaro HomeCenter, such as Netatmo and Sonos devices, etc.
-  required: false
-  type: boolean
-  default: false
-device_config:
-  description: Lists device specific parameter or behavior overrides.
-  required: false
-  type: list
-  default: None
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 <div class='note'>
 

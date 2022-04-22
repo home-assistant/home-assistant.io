@@ -2,13 +2,13 @@
 title: BMW Connected Drive
 description: Instructions on how to setup your BMW Connected Drive account with Home Assistant.
 ha_category:
-  - Car
   - Binary Sensor
   - Button
-  - Presence Detection
+  - Car
   - Lock
-  - Sensor
   - Notifications
+  - Presence Detection
+  - Sensor
 ha_release: 0.64
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -23,6 +23,7 @@ ha_platforms:
   - lock
   - notify
   - sensor
+ha_integration_type: integration
 ---
 
 The `bmw_connected_drive` integration lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account and a Connected Drive enabled vehicle for this to work.
@@ -46,53 +47,19 @@ This integration provides the following platforms:
 
 ## Configuration
 
-The preferred way to enable the `bmw_connected_drive` integration is via **Configuration** > **Devices & Services**. After connecting to your account, you can set the following settings in the integration's options:
+Enable the `BMW Connected Drive` integration via **Configuration** > **Devices & Services**.
+
+<div class='note'>
+
+  For `china`, it is mandatory to prefix your username/phone number with `86`, i.e. `8612345678`.
+
+</div>
+
+After connecting to your account, you can set the following settings in the integration's options:
 
 | Setting | Description |
 |---------|-------------|
 | Read-only | No execution of services to the vehicle. Still possible to send messages and POIs via `notify` and to request a status update via `bmw_connected_drive.update_state`.
-
-The following settings in your `configuration.yaml` file are considered legacy. They will be imported into **Configuration** > **Devices & Services** and you can set the options from above. Changes to `configuration.yaml` after the first import will be ignored.
-
-### Legacy configuration
-
-```yaml
-# Example configuration.yaml entry
-bmw_connected_drive:
-  name:
-    username: USERNAME_BMW_CONNECTED_DRIVE
-    password: PASSWORD_BMW_CONNECTED_DRIVE
-    region: one of "north_america", "china", "rest_of_world"
-```
-
-{% configuration %}
-bmw_connected_drive:
-  description: configuration
-  required: true
-  type: map
-  keys:
-    name:
-      description: Name of your account in Home Assistant.
-      required: true
-      type: string
-    username:
-      description: Your BMW Connected Drive username.
-      required: true
-      type: string
-    password:
-      description: Your BMW Connected Drive password.
-      required: true
-      type: string
-    region:
-      description: "The region of your Connected Drive account. Please use one of these values: `north_america`, `china`, `rest_of_world`"
-      required: true
-      type: string
-    read_only:
-      description: In read only mode, all services including the lock of the vehicle are disabled.
-      required: false
-      type: boolean
-      default: false
-{% endconfiguration %}
 
 ## Notifications
 

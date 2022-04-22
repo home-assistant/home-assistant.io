@@ -21,7 +21,6 @@ Supported by MQTT discovery:
 - [Lights](/integrations/light.mqtt/)
 - [Locks](/integrations/lock.mqtt/)
 - [Numbers](/integrations/number.mqtt/)
-- [Notify](/integrations/notify.mqtt/)
 - [Scenes](/integrations/scene.mqtt/)
 - [Selects](/integrations/select.mqtt/)
 - [Sensors](/integrations/sensor.mqtt/)
@@ -283,8 +282,6 @@ Supported abbreviations:
     'tilt_opt':            'tilt_optimistic',
     'tilt_status_t':       'tilt_status_topic',
     'tilt_status_tpl':     'tilt_status_template',
-    'title':               'title',
-    'trgts':               'targets',
     't':                   'topic',
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',
