@@ -84,6 +84,28 @@ max_exceeded:
   required: false
   type: string
   default: warning
+trigger:
+  description: "The trigger(s) which will start the automation. Multiple triggers can be added and the automation will start when any of these triggers trigger."
+  required: true
+  type: list
+  keys:
+    id:
+      description: "An ID that can be used in the automation to determine which trigger caused the automation to start."
+      type: string
+      required: false
+    variables:
+      description: "Variables that will be available in the conditions and action sequence."
+      required: false
+      default: {}
+      type: map
+      keys:
+        PARAMETER_NAME:
+          description: "The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable."
+          type: any
+condition:
+  description: Conditions that have to be `true` to start the automation. By default all conditions listed have to be `true`, you can use [logical conditions](/docs/scripts/conditions/#logical-conditions) to change this default behavior.
+  required: false
+  type: list
 action:
   description: "The sequence of actions to be performed in the script."
   required: true
