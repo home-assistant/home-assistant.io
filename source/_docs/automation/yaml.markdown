@@ -94,7 +94,7 @@ trigger:
       type: string
       required: false
     variables:
-      description: Variables which will be available in the conditions and action sequence.
+      description: Variables that will be available in the conditions and action sequence.
       required: false
       default: {}
       type: map
