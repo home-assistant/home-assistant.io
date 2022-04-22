@@ -84,6 +84,14 @@ max_exceeded:
   required: false
   type: string
   default: warning
+trigger:
+  description: The triggers which will start this automation. Multiple triggers can be added. A trigger has to change from `false` to `true` to start the automation.
+  required: true
+  type: list
+condition:
+  description: Conditions which have to be `true` to start the automation. By default all conditions listed have to be `true`, you can use [logical conditions](https://www.home-assistant.io/docs/scripts/conditions/#logical-conditions) to change this default behaviour.
+  required: false
+  type: list
 action:
   description: The sequence of actions to be performed in the script.
   required: true
