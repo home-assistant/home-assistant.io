@@ -3,7 +3,7 @@ title: Antifurto365 iAlarmXR
 description: Instructions on how to integrate iAlarmsXR alarms into Home Assistant.
 ha_category:
   - Alarm
-ha_iot_class: Local Polling
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_release: '2021.5'
 ha_domain: ialarmxr
