@@ -90,7 +90,7 @@ trigger:
   type: list
   keys:
     id:
-      description: An id which can be used in the automatin to determine which trigger caused the automation to start
+      description: An ID that can be used in the automation to determine which trigger caused the automation to start.
       type: string
       required: false
     variables:
