@@ -29,10 +29,18 @@ language:
   required: false
   type: string
   default: "`en`"
+
+delay:
+  description: "Prepend the generated speech with this amount of silence (miliseconds)."
+  required: false
+  type: int
+  default: 0
 {% endconfiguration %}
 
 Check the [complete list of supported languages](https://translate.google.com/intl/en_ALL/about/languages/) (languages where "Talk" feature is enabled in Google Translate) for allowed values.
 Use the 2 digit language code which you can find at the end of URL when you click on Language name.
+
+With the `delay` option you can add some silence to the beginning of the rendered speech, to cope with audio systems which need time to wake up their speakers when starting a network stream. Value is in miliseconds, maximum is 15000 (15s).
 
 For more information about using text-to-speech with Home Assistant and more details on all the options it provides, see the [TTS documentation](/integrations/tts/).
 
@@ -45,4 +53,5 @@ A full configuration sample including optional variables:
 tts:
   - platform: google_translate
     language: "de"
+    delay: 1000
 ```
