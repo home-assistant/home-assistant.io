@@ -33,7 +33,7 @@ sudo apt-get upgrade -y
 Install the dependencies:
 
 ```bash
-sudo apt-get install -y python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev libjpeg-dev zlib1g-dev autoconf build-essential libopenjp2-7 libtiff5 libturbojpeg0-dev tzdata rustc
+sudo apt-get install -y python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev libjpeg-dev zlib1g-dev autoconf build-essential libopenjp2-7 libtiff5 libturbojpeg0-dev tzdata rustc cargo
 ```
 
 The above-listed dependencies might differ or missing, depending on your system or personal use of Home Assistant.
