@@ -357,7 +357,7 @@ These are notification events fired by devices using the Multilevel Switch comma
     "type": 4,
     "parameters": "up"
 },
-\```
+```
 
 ##### Stop Level Change
 ```json
