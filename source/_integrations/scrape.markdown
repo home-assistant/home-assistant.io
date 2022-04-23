@@ -72,7 +72,7 @@ If you want to get the file URL for the latest episode of your [favorite podcast
 | Name | Home Assistant Podcast |
 | Select | enclosure |
 | Index | 1 |
-| Attribute | url |
+| Attribute | URL |
 
 ### Energy price
 
