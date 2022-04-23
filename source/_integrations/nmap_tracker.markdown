@@ -29,6 +29,7 @@ On a Fedora host run `sudo dnf -y install nmap`.
 {% include integrations/config_flow.md %}
 
 An example of how the Nmap scanner can be customized:
+![nmap customization example](/images/integrations/nmap/nmap_customization_example.png)
 
 * **Network addresses to scan** in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) is the range of address it will scan for devices. In the example above it will scan addresses from 192.168.1.1 to 192.168.1.254
 * **Minimum number of minutes between scans of active devices** is the frequency of the scans. The lower the number, the quicker it will detect devices connected and disconnected usually at the cost of the devices battery life. The example above will scan every minute.
