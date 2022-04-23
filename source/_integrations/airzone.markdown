@@ -42,6 +42,7 @@ For each Airzone zone (Thermostat), the following *binary sensors* are created:
 | Condition           | Description                        |
 | :------------------ | :--------------------------------- |
 | air_demand          | HVAC is running.                   |
+| battery_low         | Thermostat battery warning.        |
 | floor_demand        | Radiating floor is running.        |
 | problems            | Zone has errors or warnings.       |
 
