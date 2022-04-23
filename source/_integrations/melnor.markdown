@@ -17,7 +17,7 @@ ha_integration_type: integration
 The Melnor Bluetooth integration allows you to control your Melnor Bluetooth watering valves.
 The devices are set up through bluetooth and don't need any additional bridge or gateway.
 
-1, 2, and 4 zone valves are supported.
+1-zone, 2-zone, and 4-zone valves are supported.
 
 These devices have been sold under at least the following brands:
 
