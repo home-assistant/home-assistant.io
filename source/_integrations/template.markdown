@@ -579,7 +579,7 @@ template:
   - sensor:
       - name: test
         state: "{{ this.attributes.test }}"
-        # not: "{{ state_attr('sensor.test', 'test' }}"
+        # not: "{{ state_attr('sensor.test', 'test') }}"
         attributes:
           test: "{{ now() }}"
 ```
