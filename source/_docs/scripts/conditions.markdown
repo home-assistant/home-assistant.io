@@ -325,14 +325,7 @@ condition:
 
 This is an example of 1 hour offset after sunset.
 
-```yaml
-condition:
-  - condition: sun
-    after: sunset
-    before: sunrise
-```
 
-This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`.
 
 ```yaml
 condition:
@@ -343,8 +336,6 @@ condition:
 
 This is 'when light' - equivalent to a state condition on `sun.sun` of `above_horizon`.
 
-We cannot use both keys in this case as it will always be `false`.
-
 ```yaml
 condition:
   condition: or
@@ -354,6 +345,8 @@ condition:
     - condition: sun
       before: sunrise
 ```
+
+This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`. We cannot use both keys without the or condition in this case as it will always be `false`.
 
 A visual timeline is provided below showing an example of when these conditions are true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions are true.
 
