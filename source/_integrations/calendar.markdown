@@ -16,7 +16,13 @@ A calendar entity has state and attributes represent the next upcoming event (on
 
 ## Automation
 
-The calendar can be used within [Automations](/docs/automation) as a trigger based on the calendar events.
+Calendar [Triggers](/docs/automation/trigger) enable automation based on an event start or end. Review the [Automating Home Assistant](/getting-started/automation/) getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
+
+{% my automations badge %}
+
+![Screenshot Trigger](/images/integrations/calendar/trigger.png)
+
+An example of a calendar trigger in yaml:
 
 ```yaml
 automation:
@@ -25,27 +31,29 @@ automation:
       # Possible values: start, end
       event: start
       # The calendar entity_id
-      entity_id: calendar.light_schedule
+      entity_id: calendar.personal
 ```
 
-### Trigger Data
+### Example Automation
 
-There is additional trigger data availale with details of the event that caused the trigger to fire.
+This is an example of an automation that sends a notification with details about the event that
+triggered the automation. See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) for additional trigger data available for conditions or actions.
 
-| Template variable        | Data                                             |
-| ------------------------ | ------------------------------------------------ |
-| `trigger.platform`       | Hardcoded: `calendar`                            |
-| `trigger.event_type`     | The trigger event type, either `start`  or `end` |
-| `trigger.calendar_event` | The payload of the calendar event.               |
 
-The `trigger.calendar_event` is populated with data from the calendar
-event that caused the trigger to fire.
-
-| Calendar event data | Data                                                        |
-| ------------------- | ----------------------------------------------------------- |
-| `summary`           | The title or summary of the calendar event.                 |
-| `start`             | String representation of the start date or date time of the calendar event e.g. `2022-04-10`, or `2022-04-10 11:30:00-07:00` |
-| `end`               | String representation of the end time of date time the calendar event in UTC  e.g. `2022-04-11`, or `2022-04-10 11:45:00-07:00`   |
-| `all_day`           | Indicates the event spans the entire day.                   |
-| `description`       | A detailed description of the calendar event, if available. |
-| `location`          | Location information for the calendar event, if available.  |
+{% raw %}
+```yaml
+automation:
+  alias: Calendar notification
+  trigger:
+    - platform: calendar
+      event: start
+      entity_id: calendar.personal
+  action:
+    - service: persistent_notification.create
+      data:
+        message: >-
+          Event {{ trigger.calendar_event.summary }} @
+          {{ trigger.calendar_event.start }}
+  mode: single
+```
+{% endraw %}
