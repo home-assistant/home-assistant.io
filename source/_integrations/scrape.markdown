@@ -30,8 +30,8 @@ The current release Home Assistant is published on [https://www.home-assistant.i
 | Field | Value |
 | Resource | https://www.home-assistant.io |
 | Name | Release |
-| Select | .current-version h1 |
-| Value Template | {{ value.split(":")[1] }} |
+| Select | `.current-version h1` |
+| Value Template | `{{ value.split(":")[1] }}` |
 
 ### Available implementations
 
@@ -40,8 +40,8 @@ Get the counter for all our implementations from the [Component overview](/integ
 | Field | Value |
 | Resource | https://www.home-assistant.io/integrations/ |
 | Name | Home Assistant impl. |
-| Select | a[href="#all"] |
-| Value Template | {{ value.split("(")[1].split(")")[0] }} |
+| Select | `a[href="#all"]` |
+| Value Template | `{{ value.split("(")[1].split(")")[0] }}` |
 
 ### Get a value out of a tag
 
@@ -50,9 +50,9 @@ The German [Federal Office for Radiation protection (Bundesamt für Strahlenschu
 | Field | Value |
 | Resource | http://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html |
 | Name | Coast Ostsee |
-| Select | p |
-| Index | 19 |
-| Unit of Measurement | UV Index |
+| Select | `p` |
+| Index | `19` |
+| Unit of Measurement | `UV Index` |
 
 ### IFTTT status
 
@@ -61,7 +61,7 @@ If you make heavy use of the [IFTTT](/integrations/ifttt/) web service for your 
 | Field | Value |
 | Resource | https://status.ifttt.com/ |
 | Name | IFTTT status |
-| Select | .component-status |
+| Select | `.component-status` |
 
 ### Get the latest podcast episode file URL
 
@@ -70,9 +70,9 @@ If you want to get the file URL for the latest episode of your [favorite podcast
 | Field | Value |
 | Resource | https://hasspodcast.io/feed/podcast |
 | Name | Home Assistant Podcast |
-| Select | enclosure |
-| Index | 1 |
-| Attribute | URL |
+| Select | `enclosure` |
+| Index | `1` |
+| Attribute | `url` |
 
 ### Energy price
 
@@ -81,7 +81,7 @@ This example tries to retrieve the price for electricity.
 | Field | Value |
 | Resource | https://elen.nu/timpriser-pa-el-for-elomrade-se3-stockholm/ |
 | Name | Electricity price |
-| Select | .text-lg:is(span) |
-| Index | 1 |
-| Value Template | {{ value | replace (",", ".") | float }} |
-| Unit of Measurement | öre/kWh |
+| Select | `.text-lg:is(span)` |
+| Index | `1` |
+| Value Template | `{{ value | replace (",", ".") | float }}` |
+| Unit of Measurement | `öre/kWh` |
