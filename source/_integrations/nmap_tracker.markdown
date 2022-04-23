@@ -31,15 +31,25 @@ On a Fedora host run `sudo dnf -y install nmap`.
 An example of how the Nmap scanner can be customized:
 ![nmap customization example](/images/integrations/nmap/nmap_customization_example.png)
 
-* **Network addresses to scan** in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) is the range of address it will scan for devices. In the example above it will scan addresses from 192.168.1.1 to 192.168.1.254
-* **Minimum number of minutes between scans of active devices** is the frequency of the scans. The lower the number, the quicker it will detect devices connected and disconnected usually at the cost of the devices battery life. The example above will scan every minute.
-* **Network addresses to exclude from scanning** will skip any address. The above example will skip 192.168.1.50.
-* **Raw configurable scan options for Nmap** are Nmap command line parameters which can be used to configure how Nmap scans the network. For more details see [Nmap reference guide](https://nmap.org/book/man.html).
-  * **-F** is fast mode and reduces the ports it scans on a device.
-  * **T4** is an aggressive [timing template](https://nmap.org/book/performance-timing-templates.html).
-  * **--min-rate 10** is sending 10 packets per second or faster when scanning for devices.
-  * **--host-timeout 5s** sets the maximum time a device has to respond to a scan before it gives up on waiting.
-
+{% configuration_basic %}
+Network addresses to scan:
+  description: Network range to scan using [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). In the example above it will scan addresses from `192.168.1.1` to `192.168.1.254`.
+  required: true
+  type: string
+Minimum number of minutes between scans of active devices:
+  description: Frequency of the scans. The lower the number, the quicker it will detect devices connected and disconnected usually at the cost of the devices battery life. The example above will scan every minute.
+  required: true
+  type: integer
+Network addresses to exclude from scanning:
+  description: A comma separated list of IP address to not scan. The above example will skip `192.168.1.50`.
+  required: false
+  type: string
+Raw configurable scan options for Nmap:
+  description: Nmap command line parameters which can be used to configure how Nmap scans the network. For more details see [Nmap reference guide](https://nmap.org/book/man.html).
+  required: false
+  type: string
+  default: -F T4 --min-rate 10 --host-timeout 5s
+{% endconfiguration_basic %}
 
 ### Linux capabilities
 
