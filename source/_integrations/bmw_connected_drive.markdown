@@ -133,7 +133,6 @@ The `button.<your_vehicle>_find_vehicle` button requests the vehicle to update t
 
 To force a refresh from the BMW API to Home Assistant, execute the `homeassistant.update_entity` service on an arbitrary entity such as the lock or any sensor.
 
-
 ```yaml
 ...
 service: homeassistant.update_entity
