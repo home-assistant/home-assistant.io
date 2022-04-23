@@ -53,7 +53,7 @@ This will not print the actual secret's value to the log.
 *Option 2*: For Home Assistant Core installations, you can also view where secrets are retrieved from and the contents of all `secrets.yaml` files using the [`check_config` script](/docs/tools/check_config/) from the command line:
 
 ```bash
-hass --script check_config --secrets
+hass --script check_config --secrets --config /config
 ```
 
 This will print all your secrets.
