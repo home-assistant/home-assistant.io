@@ -1,6 +1,6 @@
 ---
-title: Google Hangouts
-description: Hangouts chatbot support
+title: Google Chat
+description: Google chatbot support
 ha_category:
   - Hub
   - Notifications
@@ -10,9 +10,10 @@ ha_domain: hangouts
 ha_iot_class: Cloud Push
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
-This integration allows you to send messages to [Google Hangouts](https://hangouts.google.com) conversations, as well as to react to messages in conversations. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered. Home Assistant will impersonate a Smartisan YQ603 phone which will then show up in your Google devices.
+This integration allows you to send messages to [Google Chat](https://chat.google.com) conversations, as well as to react to messages in conversations. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered. Home Assistant will impersonate a Smartisan YQ603 phone which will then show up in your Google devices.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -74,7 +75,7 @@ hangouts:
 
 {% configuration %}
 intents:
-  description: "Intents that the hangouts integration should understand."
+  description: "Intents that the chat integration should understand."
   required: false
   type: map
   default: empty
@@ -122,7 +123,7 @@ error_suppressed_conversations:
 
 The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity. Make sure to use quotes around the conversation id or alias to escape special characters (`!`, and `#`) in YAML.
 
-The intent `HangoutsHelp` is part of the integration and return a list of all sentences the integration unterstand in this conversation.
+The intent `HangoutsHelp` is part of the integration and return a list of all sentences the integration understands in this conversation.
 
 ## Adding sentences
 
@@ -216,7 +217,7 @@ Sends a message to the given conversations.
 
 ### Service `hangouts.reconnect`
 
-Reconnects the hangouts bot.
+Reconnects the Google Chat bot.
 
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
@@ -226,7 +227,7 @@ Reconnects the hangouts bot.
 
 ### Automatic reconnect after IP change
 
-The hangouts integration can't detect if your IP address changes, so it can't automatic reconnect to the Google servers. This is a workaround for this problem.
+The Google Chat integration can't detect if your IP address changes, so it can't automatically reconnect to the Google servers. This is a workaround for this problem.
 
 {% raw %}
 
@@ -239,7 +240,7 @@ sensor:
     scan_interval: 10
 
 automation:
-  - alias: "Reconnect Hangouts"
+  - alias: "Reconnect Chat"
     trigger:
       - entity_id: sensor.external_ip
         platform: state
@@ -256,9 +257,9 @@ automation:
 
 ## Notifications
 
-The `hangouts` platform allows you to deliver notifications from Home Assistant to [Google Hangouts](https://hangouts.google.com/) conversations. Conversations can be both direct as well as group chats.
+The `hangouts` platform allows you to deliver notifications from Home Assistant to [Google Chat](https://chat.google.com/) conversations. Conversations can be both direct as well as group chats.
 
-To enable Hangouts notifications in your installation, you first need to configure the Hangouts component. Then, add the following to your `configuration.yaml` file:
+To enable Google Chat notifications in your installation, you first need to configure the Hangouts component. Then, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry  

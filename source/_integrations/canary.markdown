@@ -13,6 +13,7 @@ ha_platforms:
   - alarm_control_panel
   - camera
   - sensor
+ha_integration_type: integration
 ---
 
 The `canary` integration allows you to integrate your [Canary](https://canary.is) devices in Home Assistant.

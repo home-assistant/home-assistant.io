@@ -79,18 +79,6 @@ availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
-away_mode_command_topic:
-  description: The MQTT topic to publish commands to change the away mode.
-  required: false
-  type: string
-away_mode_state_template:
-  description: A template to render the value received on the `away_mode_state_topic` with.
-  required: false
-  type: template
-away_mode_state_topic:
-  description: The MQTT topic to subscribe for changes of the HVAC away mode. If this is not set, the away mode works in optimistic mode (see below).
-  required: false
-  type: string
 current_temperature_template:
   description: A template with which the value received on `current_temperature_topic` will be rendered.
   required: false
@@ -145,6 +133,11 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+encoding:
+  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
+  required: false
+  type: string
+  default: "utf-8"
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -170,26 +163,6 @@ fan_modes:
   description: A list of supported fan modes.
   required: false
   default: ['auto', 'low', 'medium', 'high']
-  type: list
-hold_command_template:
-  description: A template to render the value sent to the `hold_command_topic` with.
-  required: false
-  type: template
-hold_command_topic:
-  description: The MQTT topic to publish commands to change the hold mode.
-  required: false
-  type: string
-hold_state_template:
-  description: A template to render the value received on the `hold_state_topic` with.
-  required: false
-  type: template
-hold_state_topic:
-  description: The MQTT topic to subscribe for changes of the HVAC hold mode. If this is not set, the hold mode works in optimistic mode (see below).
-  required: false
-  type: string
-hold_modes:
-  description: A list of available hold modes.
-  required: false
   type: list
 initial:
   description: Set the initial target temperature.
@@ -275,6 +248,27 @@ precision:
   required: false
   type: float
   default: 0.1 for Celsius and 1.0 for Fahrenheit.
+preset_mode_command_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `preset_mode_command_topic`.
+  required: false
+  type: template
+preset_mode_command_topic:
+  description: The MQTT topic to publish commands to change the preset mode.
+  required: false
+  type: string
+preset_mode_state_topic:
+  description: The MQTT topic subscribed to receive climate speed based on presets. When preset 'none' is received or `None` the `preset_mode` will be reset.
+  required: false
+  type: string
+preset_mode_value_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the `preset_mode` value from the payload received on `preset_mode_state_topic`.
+  required: false
+  type: string
+preset_modes:
+  description: List of preset modes this climate is supporting. Common examples include `eco`, `away`, `boost`, `comfort`, `home`, `sleep` and `activity`.
+  required: false
+  type: [list]
+  default: []
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -285,11 +279,6 @@ retain:
   required: false
   type: boolean
   default: false
-send_if_off:
-  description: "Set to `false` to suppress sending of all MQTT messages when the current mode is `Off`."
-  required: false
-  type: boolean
-  default: true
 swing_mode_command_template:
   description: A template to render the value sent to the `swing_mode_command_topic` with.
   required: false
@@ -429,7 +418,12 @@ climate:
       - "high"
       - "medium"
       - "low"
+    preset_modes:
+      - "eco"
+      - "sleep"
+      - "activity"
     power_command_topic: "study/ac/power/set"
+    preset_mode_command_topic: "study/ac/preset_mode/set"
     mode_command_topic: "study/ac/mode/set"
     temperature_command_topic: "study/ac/temperature/set"
     fan_mode_command_topic: "study/ac/fan/set"

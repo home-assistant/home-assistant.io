@@ -13,6 +13,7 @@ ha_domain: spotify
 ha_zeroconf: true
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The Spotify media player integration allows you to control [Spotify](https://www.spotify.com/) playback from Home Assistant.
@@ -31,7 +32,7 @@ The Spotify media player integration allows you to control [Spotify](https://www
 
 Unless configured otherwise, Home Assistant will use account linking provided by
 Nabu Casa for authenticating with Spotify. If this is not working or you don't
-want to use it, follow the steps for configuring a [developer appliaction](#create-a-spotify-application)
+want to use it, follow the steps for configuring a [developer application](#create-a-spotify-application)
 before configuring Spotify.
 
 <div class='note'>

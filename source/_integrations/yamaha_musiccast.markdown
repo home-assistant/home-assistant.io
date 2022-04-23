@@ -14,6 +14,8 @@ ha_domain: yamaha_musiccast
 ha_platforms:
   - media_player
   - number
+  - select
+ha_integration_type: integration
 ---
 
 The Yamaha MusicCast integration allows you to control [Yamaha MusicCast Receivers](https://usa.yamaha.com/products/audio_visual/musiccast/index.html) from Home Assistant.
@@ -76,6 +78,25 @@ The following entities will be added, if they are supported by the MusicCast dev
   - Set the vertical position of the dialogues in the surround system
 - DTS Dialogue Control (configuration, zone level)
   - Control the volume of dialogues for DTS:X content
+
+### Select Entities
+The following entities will be added, if they are supported by the MusicCast device:
+- Dimmer (configuration, device level)
+  - Set the display brightness
+- Surround Decoder Type (configuration, zone level)
+  - If sound program is set to surround decoder, the decoder type can be selected here
+- Sleep (configuration, zone level)
+  - Set a sleep timer for the device
+- Equalizer Mode (configuration, zone level)
+  - Some devices support multiple different equalizer modes
+- Tone Control Mode (configuration, zone level)
+  - Some devices support multiple different tone control modes
+- Link Audio Delay (configuration, zone level)
+  - Some devices let the user select, whether he prefers to have audio and video in sync or the audio of linked speakers in a group
+- Link Control (configuration, zone level)
+  - Some devices support compressed audio for groups
+- Link Audio Quality (configuration, zone level)
+  - Set the audio quality for grouped speakers
 
 ## Troubleshooting
 

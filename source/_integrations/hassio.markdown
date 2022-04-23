@@ -4,6 +4,7 @@ description: Control Supervisor Add-ons and OS from Home Assistant
 ha_category:
   - Binary Sensor
   - Sensor
+  - Updates
 ha_iot_class: Local Polling
 ha_release: 0.42
 ha_domain: hassio
@@ -11,14 +12,16 @@ ha_quality_scale: internal
 ha_platforms:
   - binary_sensor
   - sensor
+  - update
 ha_codeowners:
   - '@home-assistant/supervisor'
+ha_integration_type: integration
 ---
 
 Supervisor integration allows you to monitor and control Supervisor add-ons and operating system from Home Assistant.
 This integration is installed automatically if you run Home Assistant OS or Supervised.
 
-## Sensors
+## Sensor entities
 
 For each installed add-on Supervisor provides following sensors:
 
@@ -36,13 +39,13 @@ For Home Assistant OS Supervisor provides following sensors:
 | Version | no | Current version of the Home Assistant OS
 | Newest Version | no | Latest version of the Home Assistant OS currently available
 
-## Binary Sensors
+## Binary Sensor entities
 
 For each installed add-on Supervisor provides following binary sensors:
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
-| Update Available | no | Whether there is an update available for this add-on
+| Update Available | no | Whether there is an update available for this add-on (This is deprecated, use the Update entities instead.)
 | Running | no | Whether the add-on is running or not.
 
 For Home Assistant OS Supervisor provides following binary sensors:
@@ -50,6 +53,10 @@ For Home Assistant OS Supervisor provides following binary sensors:
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
 | Update Available | no | Whether there is an update available for OS
+
+## Update entities
+
+For all your installed add-ons, Home Assistant Core, Home Assistant Supervisor, and for the Home Assistant Operating System (if you are running that), this integration will provide [update](/integrations/update) entities that provide information about pending updates, and will allow you to update to them.
 
 ## Services
 

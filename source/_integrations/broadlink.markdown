@@ -2,10 +2,10 @@
 title: Broadlink
 description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
-  - Remote
-  - Switch
-  - Sensor
   - Light
+  - Remote
+  - Sensor
+  - Switch
 ha_release: 0.35
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -20,6 +20,7 @@ ha_platforms:
   - sensor
   - switch
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
@@ -29,7 +30,7 @@ The Broadlink integration allows you to control and monitor Broadlink universal 
 - Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU`, `SP3S-US`, `SP4L-EU` and `SP4M-US`
 - Universal Remotes: `RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro` and `RM4C mini`
 - Wi-Fi Controlled Switches: `BG1`, `SC1`
-- Smart Light Bulbs: `LB1`
+- Smart Light Bulbs: `LB1`,`LB2`
 
 {% include integrations/config_flow.md %}
 

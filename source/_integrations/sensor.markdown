@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: sensor
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 Sensors are a basic platform component in Home Assistant. They monitor the states and conditions of a variety of entities. An entity can be many things. This can include a physical device like a motion sensor that reports the battery level, a web service that retrieves the weather temperature, a built-in function that calculates the sun's elevation relative to your GPS position, or even a custom sensor you may have created to report the free space on your laptop. These are all *things* reporting different types of information.
@@ -17,6 +20,7 @@ Some of these sensors are built-in to Home Assistant, some are created automatic
 The type of data a sensor returns impacts how it is displayed in the frontend. This is controlled by the sensor's device class designation. Built-in sensors and many created from an integration will have this designation predefined. Those can be modified in the [customize section](/docs/configuration/customizing-devices/). When manually creating a new sensor the device class may be optionally assigned. A full list of available sensor device classes is below:
 
 - **None**: Generic sensor. This is the default and doesn't need to be set.
+- **apparent_power**: Apparent power in VA.
 - **aqi**: Air Quality Index
 - **battery**: Percentage of battery that is left.
 - **carbon_dioxide**: Carbon Dioxide in CO2 (Smoke)
@@ -39,6 +43,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **power_factor**: Power factor in %.
 - **power**: Power in W or kW.
 - **pressure**: Pressure in hPa or mbar.
+- **reactive_power**: Reactive power in var.
 - **signal_strength**: Signal strength in dB or dBm.
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
 - **temperature**: Temperature in °C or °F.

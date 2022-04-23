@@ -33,7 +33,7 @@ sudo apt-get upgrade -y
 Install the dependencies:
 
 ```bash
-sudo apt-get install -y python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev libjpeg-dev zlib1g-dev autoconf build-essential libopenjp2-7 libtiff5 libturbojpeg0 tzdata
+sudo apt-get install -y python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev libjpeg-dev zlib1g-dev autoconf build-essential libopenjp2-7 libtiff5 libturbojpeg0-dev tzdata
 ```
 
 The above-listed dependencies might differ or missing, depending on your system or personal use of Home Assistant.
@@ -71,7 +71,7 @@ Next up is to create and change to a virtual environment for Home Assistant Core
 ```bash
 sudo -u homeassistant -H -s
 cd /srv/homeassistant
-python{{site.installation.versions.python}} -m venv .
+python3 -m venv .
 source bin/activate
 ```
 

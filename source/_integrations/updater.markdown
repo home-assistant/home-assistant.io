@@ -11,7 +11,16 @@ ha_codeowners:
 ha_domain: updater
 ha_platforms:
   - binary_sensor
+ha_integration_type: integration
 ---
+
+<div class='note warning'>
+
+This integration is deprecated and will be removed in Home Assistant Core 2022.5.
+  
+Similar functionality is available using the [Version integration](/integrations/version/).
+
+</div>
 
 The `updater` binary sensor will check daily for new releases of the Home
 Assistant Core. The state will be "on" when an update is available. Otherwise,
@@ -20,9 +29,8 @@ notes, are attributes of the updater.
 
 ## Configuration
 
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
-
 ```yaml
+# Example configuration.yaml entry
 updater:
 ```
 

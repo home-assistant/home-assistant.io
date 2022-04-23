@@ -11,6 +11,8 @@ ha_domain: tile
 ha_config_flow: true
 ha_platforms:
   - device_tracker
+  - diagnostics
+ha_integration_type: integration
 ---
 
 The `tile` platform allows Home Assistant to utilize [Tile® Bluetooth trackers](https://www.thetileapp.com).

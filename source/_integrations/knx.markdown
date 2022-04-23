@@ -2,12 +2,12 @@
 title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Button
   - Climate
   - Cover
   - Fan
+  - Hub
   - Light
   - Notifications
   - Number
@@ -29,27 +29,23 @@ ha_platforms:
   - button
   - climate
   - cover
+  - diagnostics
   - fan
   - light
   - notify
   - number
   - scene
-  - sensor
   - select
+  - sensor
   - switch
   - weather
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to KNX/IP devices.
 
 The integration requires a local KNX/IP interface or router. Through this, it will establish a connection between Home Assistant and your KNX bus.
-
-<div class='note warning'>
-
-Please note, the KNX platform does not support KNX Secure.
-
-</div>
 
 There is currently support for the following device types within Home Assistant:
 
@@ -120,6 +116,31 @@ Connection parameters are set up when adding the integration and can be changed 
 
 Use `route back` if your tunneling server is located on a different network.
 
+### KNX Secure
+
+The KNX integration currently supports IP secure tunneling.
+IP secure via routing and data secure are currently not supported.
+
+In order to use IP Secure you will have to chose "Tunneling" -> "TCP with IP Secure" in the config flow.
+
+You can configure the IP Secure credentials either manually or by providing a `.knxkeys` file, which you can obtain by exporting the keyring in ETS as seen in the screenshot below.
+
+![Export Keyring in ETS5](/images/integrations/knx/export_keyring_ets.png)
+
+The `.knxkeys` file has to be placed in `config/.storage/knx/yourfile.knxkeys`.
+
+If you decide to configure IP Secure manually you will need the user ID, the user password and the device authentication password.
+
+The user id 0 is reserved and the user id 1 is used for management tasks, thus you will need to specify a user id that is 2 or higher according to the tunneling channel you would like to use. 
+
+The following screenshot will show how you can get the device authentication password in ETS.
+
+![Obtain device authentication password in ETS](/images/integrations/knx/device_authentication_password.png)
+
+The user password can be obtained almost the same way as seen in the below screenshot.
+
+![Obtain the user password in ETS](/images/integrations/knx/user_password.png)
+
 ## Events
 
 ```yaml
@@ -178,6 +199,10 @@ payload:
 type:
   description: If set, the payload will not be sent as raw bytes, but encoded as given DPT. KNX sensor types are valid values - see table in [KNX Sensor](#sensor).
   type: [string, integer, float]
+response:
+  description: If set to `true`, the telegram will be sent as a `GroupValueResponse` instead of a `GroupValueWrite`.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Read
@@ -1565,7 +1590,8 @@ entity_category:
 |  14.077 | volume_flux                   |            4 |                            | m³/s           |
 |  14.078 | weight                        |            4 |                            | N              |
 |  14.079 | work                          |            4 |                            | J              |
-|  16.000 | string                        |           14 |                            |                |
+|  16.000 | string                        |           14 |           ASCII            |                |
+|  16.001 | latin_1                       |           14 |    ISO 8859-1 / Latin-1    |                |
 |  17.001 | scene_number                  |            1 |          1 ... 64          |                |
 
 ### More examples

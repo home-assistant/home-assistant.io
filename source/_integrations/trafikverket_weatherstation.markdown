@@ -9,8 +9,10 @@ ha_config_flow: true
 ha_domain: trafikverket_weatherstation
 ha_codeowners:
   - '@endor-force'
+  - '@gjohansson-ST'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 Showing weather information provided by [Trafikverket](https://www.trafikverket.se/) weather stations in Sweden.

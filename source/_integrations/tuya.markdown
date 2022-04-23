@@ -26,22 +26,25 @@ ha_codeowners:
   - '@METISU'
   - '@frenck'
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
-  - camera
   - button
+  - camera
   - climate
   - cover
+  - diagnostics
   - fan
   - humidifier
   - light
   - number
   - scene
-  - sensor
   - select
+  - sensor
   - siren
   - switch
   - vacuum
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The Tuya integration integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps.

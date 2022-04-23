@@ -208,6 +208,28 @@ The same thing can also be expressed as a filter:
 
 {% endraw %}
 
+{% raw %}
+
+```text
+{% for energy in expand('group.energy_sensors') if is_number(energy.state) %}
+  {{ energy.state }}
+  {%- if not loop.last %}, {% endif -%}
+{% endfor %}
+```
+
+{% endraw %}
+
+The same thing can also be expressed as a test:
+
+{% raw %}
+
+```text
+{{ expand('group.energy_sensors') 
+  | selectattr("state", 'is_number') | join(', ') }}
+```
+
+{% endraw %}
+
 ### Devices
 
 - `device_entities(device_id)` returns a list of entities that are associated with a given device ID. Can also be used as a filter.
@@ -296,6 +318,70 @@ The same thing can also be expressed as a filter:
 ```
 
 {% endraw %}
+
+### Immediate if (iif)
+
+A common case is to conditionally return a value based on another value.
+For example, return a "Yes" or "No" when the light is on or off.
+
+This can be written as:
+
+{% raw %}
+
+```text
+{% if is_state('light.kitchen', 'on') %}
+  Yes
+{% else %}
+  No
+{% endif %}
+```
+
+{% endraw %}
+
+Or using a shorter syntax:
+
+{% raw %}
+
+```text
+{{ 'Yes' if is_state('light.kitchen', 'on') else 'No' }}
+```
+
+{% endraw %}
+
+Additionally, to the above, you can use the `iif` function/filter, which is
+an immediate if.
+
+Syntax: `iif(condition, if_true, if_false, if_none)`
+
+`iif` returns the value of `if_true` if the condition is truthy, the value of `if_false` if it's `falsy` and the value of `if_none` if it's `None`.
+An empty string, an empty mapping or an an empty list, are all falsy, refer to [the Python documentation](https://docs.python.org/3/library/stdtypes.html#truth-value-testing) for an in depth explanation.
+
+`if_true` is optional, if it's omitted `True` is returned if the condition is truthy.
+`if_false` is optional, if it's omitted `False` is returned if the condition is falsy.
+`if_none` is optional, if it's omitted the value of `if_false` is returned if the condition is `None`.
+
+Examples using `iif`:
+
+{% raw %}
+
+```text
+{{ iif(is_state('light.kitchen', 'on'), 'Yes', 'No') }}
+
+{{ is_state('light.kitchen', 'on') | iif('Yes', 'No') }}
+
+{{ (states('light.kitchen') == 'on') | iif('Yes', 'No') }}
+```
+
+<div class='note warning'>
+
+The immediate if filter does not short-circuit like you might expect with a typical conditional statement. The `if_true`, `if_false` and `if_none` expressions will all be evaluated and the filter will simply return one of the resulting values. This means you cannot use this filter to prevent executing an expression which would result in an error.
+
+For example, if you wanted to select a field from `trigger` in an automation based on the platform you might go to make this template: `trigger.platform == 'event' | iif(trigger.event.data.message, trigger.to_state.state)`. This won't work because both expressions will be evaluated and one will fail since the field doesn't exist. Instead you have to do this `trigger.event.data.message if trigger.platform == 'event' else trigger.to_state.state`. This form of the expression short-circuits so if the platform is `event` the expression `trigger.to_state.state` will never be evaluated and won't cause an error.
+
+</div>
+
+{% endraw %}
+
 
 ### Time
 
@@ -430,6 +516,24 @@ The temperature is 25°C
 
 {% endraw %}
 
+### Is defined
+
+Sometimes a template should only return if a value or object is defined, if not, the supplied default value could be returned. This can be useful to validate a JSON payload.
+The `is_defined` filter allows to throw an error if a value or object is not defined.
+
+Example using `is_defined` to parse a JSON payload:
+
+{% raw %}
+
+```text
+{{ value_json.val | is_defined }}
+```
+
+{% endraw %}
+
+This will throw an error `UndefinedError: 'value_json' is undefined` if the JSON payload has no `val` attribute.
+
+
 ### Distance
 
 Not supported in [limited templates](#limited-templates).
@@ -558,6 +662,9 @@ The numeric functions and filters will not fail if the input is not a valid numb
 - `atan(value, default)` will return the arcus tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
 - `atan2(y, x, default)` will return the four quadrant arcus tangent of y / x. If `y` or `x` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
 - `sqrt(value, default)` will return the square root of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
+- `max([x, y, ...])` will obtain the largest item in a sequence. Uses the same parameters as the built-in [max](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.max) filter.
+- `min([x, y, ...])` will obtain the smallest item in a sequence. Uses the same parameters as the built-in [min](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.min) filter.
+- `average([x, y, ...])` will return the average value of the sequence. Can be used as a filter.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
@@ -565,9 +672,6 @@ The numeric functions and filters will not fail if the input is not a valid numb
   - `round(precision, "floor", default)` will always round down to `precision` decimals
   - `round(precision, "ceil", default)` will always round up to `precision` decimals
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
-- Filter `[x, y, ...] | max` will obtain the largest item in a sequence.
-- Filter `[x, y, ...] | min` will obtain the smallest item in a sequence.
-- Filter `[x, y, ...] | average` will return the average value of the sequence.
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
@@ -600,11 +704,12 @@ Some examples:
 ### String filters
 
 - Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
+- Filter `slugify(separator="_")` will convert a given string into a "slug".
 
 ### Regular expressions
 
 - Test `string is match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
-- Test `string is search(find, ignorecase=True)` will match the find expression anywhere in the string using regex.
+- Test `string is search(find, ignorecase=False)` will match the find expression anywhere in the string using regex.
 - Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
 - Filter `value | regex_findall(find='', ignorecase=False)` will find all regex matches of the find expression in `value` and return the array of matches.
 - Filter `value | regex_findall_index(find='', index=0, ignorecase=False)` will do the same as `regex_findall` and return the match at index.
@@ -672,8 +777,8 @@ The following overview contains a couple of options to get the needed values:
 # Incoming value:
 {"primes": [2, 3, 5, 7, 11, 13]}
 
-# Extract third prime number
-{{ value_json.primes[2] }}
+# Extract first prime number 
+{{ value_json.primes[0] }}
 
 # Format output
 {{ "%+.1f" | value_json }}
@@ -713,6 +818,51 @@ To evaluate a response, go to **{% my developer_template title="Developer Tools 
 ```
 
 {% endraw %}
+
+### Using templates with the MQTT integration
+
+The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templates are used to transform incoming payloads (value templates) to status updates or incoming service calls (command templates) to payloads that configure the MQTT device.
+
+#### Using value templates with MQTT
+
+For incoming data a value template translates incoming JSON or raw data to a valid payload.
+Incoming payloads are rendered with possible JSON values, so when rendering the `value_json` can be used access the attributes in a JSON based payload.
+
+<div class='note'>
+
+Example value template:
+
+With given payload:
+
+```json
+{ "state": "ON", "temperature": 21.902 }
+```
+
+Template {% raw %}```{{ value_json.temperature | round(1) }}```{% endraw %} renders to `21.9`.
+
+Additional the MQTT entity attributes `entity_id` and `name` can be used as variables in the template.
+
+ </div>
+
+#### Using command templates with MQTT
+
+For service calls command templates are defined to format the outgoing MQTT payload to the device. When a service call is executed `value` can be used to generate the correct payload to the device.
+
+<div class='note'>
+
+Example command template:
+
+With given value `21.9` template {% raw %}```{"temperature": {{ value }} }```{% endraw %} renders to:
+
+```json
+{
+  "temperature": 21.9
+}
+```
+
+Additional the MQTT entity attributes `entity_id` and `name` can be used as variables in the template.
+
+</div>
 
 ## Some more things to keep in mind
 

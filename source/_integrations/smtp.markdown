@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: smtp
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The SMTP platform allows you to deliver notifications from Home Assistant to an e-mail recipient.
@@ -103,7 +104,7 @@ burglar:
                   - /home/pi/snapshot2.jpg
 ```
 
-The optional `target` field is used to specify recipient(s) for this specific service call. When `target` field is not used, this message will be sent to default recipient(s), in this example, james@example.com and bob@example.com.
+The optional `target` field is used to specify recipient(s) for this specific service call. When `target` field is not used, this message will be sent to default recipient(s), in this example, my_intruder_alert@example.com.
 
 The optional `images` field adds in-line image attachments to the email. This sends a text/HTML multi-part message instead of the plain text default.
 

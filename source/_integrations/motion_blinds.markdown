@@ -12,22 +12,34 @@ ha_config_flow: true
 ha_platforms:
   - cover
   - sensor
+ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The integration allows you to control [Motion Blinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).
 
 Additionally the following brands have been reported to also work with this integration:
 
-- [Motion Blinds](https://motionblinds.com/)
-- [Dooya](http://www.dooya.com/)
+- [AMP Motorization](https://www.ampmotorization.com/)
+- [Bliss Automation - Alta Window Fashions](https://www.altawindowfashions.com/product/automation/bliss-automation/)
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
-- [Smart Home](https://www.smart-home.hu) 
+- [3 Day Blinds](https://www.3dayblinds.com/)
+- [Dooya](http://www.dooya.com/)
+- [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
+- [iSmartWindow](https://www.ismartwindow.co.nz/)
+- [Martec](https://www.martec.co.nz/)
+- [Motion Blinds](https://motionblinds.com/)
+- [Raven Rock MRG](https://www.ravenrockmfg.com/)
+- [Smart Blinds](https://www.smartblinds.nl/)
+- [Smart Home](https://www.smart-home.hu)
+- [Uprise Smart Shades](http://uprisesmartshades.com)
 
 {% include integrations/config_flow.md %}
 
 ## Retrieving the API Key
 
+### Motion Blinds app
 
 The Motion Blinds API uses a 16 character key that can be retrieved from the official "Motion Blinds" app for [IOS](https://apps.apple.com/us/app/motion-blinds/id1437234324) or [Android](https://play.google.com/store/apps/details?id=com.coulisse.motion).
 
@@ -40,7 +52,14 @@ Please note that "-" characters need to be included in the key when providing it
 <img src='/images/integrations/motion_blinds/Motion_App__get_key_2.jpg' />
 </p>
 
-Note that it has been reported that the official Bloc Blinds app doesn't seem to hand out the API key on Android, it does seem to provide the API key on the iOS version of the official Bloc Blinds app.
+### Brel Home app
+
+In the Brel Home app on iOS go to the `me` page (home screen 4th tab), on the bottom of this page multi-tap on the “version x.x.x(xxxx)” gray info and a pop-up with the key will be shown.
+In the Brel Home app on Android go to the `me` page (home screen 4th tab), tap 5 times on the right side of the photo place and a pop-up with the key will be shown.
+
+### Bloc Blinds app
+
+The official Bloc Blinds app doesn't seem to hand out the API key on Android, it does seem to provide the API key on the iOS version of the official Bloc Blinds app.
 
 ## Top Down Bottom Up (TDBU) blinds
 

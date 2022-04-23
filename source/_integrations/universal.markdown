@@ -9,11 +9,12 @@ ha_quality_scale: internal
 ha_domain: universal
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
-Universal Media Players combine multiple existing entities in Home Assistant into one media player entity. This is used for creating a single entity that controls an entire media center.
+A Universal Media Player can combine multiple existing entities in Home Assistant into a single media player entity. This is used to create a single media player entity that can control an entire media center.
 
-Multiple media player entities can be controlled from a universal media player. Additionally, the universal media player allows volume and power commands to be re-routed to other entities in Home Assistant. This allows the power and volume to control external devices like a television or audio receiver.
+Multiple media player entities may be controlled from a Universal Media Player. Additionally, the Universal Media Player can enable volume and power commands to be directed to other Home Assistant entities. This enables the media player power and volume commands to control devices like a television, amplifier or audio receiver, for example.
 
 A Universal Media Player is created in `configuration.yaml` as follows.
 
@@ -61,23 +62,23 @@ media_player:
 
 {% configuration %}
 name:
-  description: The name to assign the player.
+  description: The name to assign to the player.
   required: true
   type: string
 children:
-  description: Ordered list of child media players this entity will control.
+  description: Ordered list of child media players that this entity will control.
   required: false
   type: list
 state_template:
-  description: "A [template](/topics/templating/) can be specified to render the state of the media player. This way, the state could depend on entities different from media players, like switches or input booleans."
+  description: "A [template](/topics/templating/) can be specified to render the state of the media player. In this way, the state may depend on entities that are not themselves media players, like switches or input booleans."
   required: false
   type: template
 commands:
-  description: "Commands to be overwritten. Almost all media player service commands can be overwritten. Example entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down`, `volume_mute`, `media_play`, `media_pause`, `media_stop`, `media_previous_track`, `media_next_track` and `play_media` (refer to the [`media_player` documentation](/integrations/media_player/) to see the full list)."
+  description: "Media player commands to be overridden. Almost all media player service commands may be overridden. Example entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down`, `volume_mute`, `media_play`, `media_pause`, `media_stop`, `media_previous_track`, `media_next_track` and `play_media` (refer to the [`media_player` documentation](/integrations/media_player/) to see the full list)."
   required: false
   type: string
 attributes:
-  description: "Attributes that can be overwritten. Most, if not all, media player attributes can be overwritten. Example entries are `is_volume_muted`, `state`, `source`, `source_list` and `volume_level`. The values should be an entity ID and state attribute separated by a pipe character (|). If the entity ID's state should be used, then only the entity id should be provided."
+  description: "Attributes that can be overridden. Most, if not all, media player attributes can be overridden. Example entries are `is_volume_muted`, `state`, `source`, `source_list` and `volume_level`. The values should be an entity ID and state attribute separated by a pipe character (|). If the entity ID's state should be used, then only the entity id needs to be provided."
   required: false
   type: string
 device_class:
@@ -100,7 +101,7 @@ When using `state_template`, if you use a template that depends on the current t
 
 ### Chromecast & Kodi control with switches
 
-In this example, a switch is available to control the power of the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The `turn_on` and `turn_off` commands will be redirected to the television, and the volume commands will be redirected to an audio receiver. The `select_source` command will be passed directly to an A/V receiver.
+In this example, a switch is available to control the power to the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The `turn_on` and `turn_off` commands will be redirected to the television, and the volume commands will be redirected to an audio receiver. The `select_source` command will be passed directly to an A/V receiver.
 
 The children are a Chromecast and a Kodi player. If the Chromecast is playing, the Universal Media Player will reflect its status. If the Chromecast is idle and Kodi is playing, the universal media player will change to reflect its status.
 
@@ -271,36 +272,36 @@ media_player:
   - platform: universal
     name: Media Room TV
     attributes:
-      state: remote.alexander_down_guest
-      source_list: remote.alexander_down_guest|activity_list
-      source: remote.alexander_down_guest|current_activity
+      state: remote.harmony_hub
+      source_list: remote.harmony_hub|activity_list
+      source: remote.harmony_hub|current_activity
     commands:
       turn_on:
         service: remote.turn_on
         target:
-          entity_id: remote.alexander_down_guest
+          entity_id: remote.remote.harmony_hub
       turn_off:
         service: remote.turn_off
         target:
-          entity_id: remote.alexander_down_guest
+          entity_id: remote.remote.harmony_hub
       volume_up:
         service: remote.send_command
         target:
-          entity_id: remote.alexander_down_guest
+          entity_id: remote.remote.harmony_hub
         data:
           device: Receiver
           command: VolumeUp
       volume_down:
         service: remote.send_command
         target:
-          entity_id: remote.alexander_down_guest
+          entity_id: remote.remote.harmony_hub
         data:
           device: Receiver
           command: VolumeDown
       select_source:
         service: remote.turn_on
         target:
-          entity_id: remote.alexander_down_guest
+          entity_id: remote.remote.harmony_hub
         data:
           activity: "{{ source }}"
     device_class: tv

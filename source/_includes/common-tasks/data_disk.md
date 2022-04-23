@@ -45,7 +45,7 @@ data_disk: /dev/mmcblk1p4
 ...
 ```
 
-To getting a list of supported detected devices which can be used by `datadisk`:
+To get a list of potential targets which can be used by `datadisk`:
 
 ```sh
 ha os datadisk list

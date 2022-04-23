@@ -13,9 +13,11 @@ ha_release: 0.67
 ha_domain: nanoleaf
 ha_platforms:
   - button
+  - diagnostics
   - light
 ha_zeroconf: true
 ha_ssdp: true
+ha_integration_type: integration
 ---
 
 The Nanoleaf integration allows you to control and monitor Nanoleaf Light Panels, Canvas, Shapes, Elements, and Lines.

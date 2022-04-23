@@ -2,18 +2,20 @@
 title: Zigbee Home Automation
 description: Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant.
 ha_category:
-  - Hub
   - Alarm
   - Binary Sensor
+  - Button
   - Climate
+  - Cover
   - Fan
+  - Hub
   - Light
   - Lock
+  - Number
+  - Select
   - Sensor
   - Siren
   - Switch
-  - Cover
-  - Number
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
@@ -25,6 +27,7 @@ ha_domain: zha
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - button
   - climate
   - cover
   - device_tracker
@@ -32,10 +35,12 @@ ha_platforms:
   - light
   - lock
   - number
+  - select
   - sensor
   - siren
   - switch
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The ZHA (Zigbee Home Automation) integration allows you to connect many off-the-shelf [Zigbee based devices](https://zigbeealliance.org) directly to Home Assistant, using one of the many available Zigbee coordinators.
@@ -46,13 +51,16 @@ There is currently support for the following device types within Home Assistant:
 
 - Alarm Control Panel
 - Binary Sensor
+- Button
 - Climate (beta)
 - Cover
 - Fan
 - Light
 - Lock
 - Number (i.e. analog output)
+- Select
 - Sensor
+- Siren
 - Switch
 
 There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a group before the group entity is created. As well as support for binding/unbinding (i.e. bind a remote to a lightbulb or group).
@@ -83,8 +91,8 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 - Texas Instruments based radios (via the [zigpy-znp](https://github.com/zigpy/zigpy-znp) library for zigpy)
   - [CC2652P/CC2652R/CC2652RB USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
   - [CC1352P/CC1352R USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
-  - [CC2538 USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
-  - [CC2530/CC2531 USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters) (not recommended for Zigbee networks with more than 20 devices)
+  - [CC2538 USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters) (no longer recommended as only got deprecated old end-of-life firmware)
+  - [CC2530/CC2531 USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters) (no longer recommended as uses deprecated hardware and very old end-of-life firmware, plus will not work properly at all if the whole Zigbee network has more than 15-20 devices)
 - Digi XBee Zigbee based radios (via the [zigpy-xbee](https://github.com/zigpy/zigpy-xbee) library for zigpy)
   - [Digi XBee Series 3 (xbee3-24)](https://www.digi.com/products/embedded-systems/digi-xbee/rf-modules/2-4-ghz-rf-modules/xbee3-zigbee-3) and [Digi XBee Series S2C](https://www.digi.com/products/embedded-systems/digi-xbee/rf-modules/2-4-ghz-rf-modules/xbee-zigbee) modules
     - Note! While not a must, [it is recommend to upgrade XBee Series 3 and S2C to newest firmware using XCTU](https://www.digi.com/resources/documentation/Digidocs/90002002/Default.htm#Tasks/t_load_zb_firmware.htm)
@@ -162,6 +170,7 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 
 | Device | Discovery Method | Identifier |
 | -------| ---------------- | ---------- |
+| [ITead SONOFF Zigbee 3.0 USB Dongle Plus](https://itead.cc/product/sonoff-zigbee-3-0-usb-dongle-plus/) | USB | 10C4:EA60 |
 | [Bitron Video/SMaBiT BV AV2010/10](https://bv.smabit.eu/index.php/smart-home-produkte/zb-funkstick/) | USB | 10C4:8B34 |
 | [ConBee II](https://phoscon.de/en/conbee2) | USB | 1CF1:0030 |
 | [Nortek HUSBZB-1](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/) | USB | 10C4:8A2A |
@@ -198,7 +207,7 @@ custom_quirks_path:
 
 ZHA component has the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
 
-Currently, OTA providers for firmware updates are only available for IKEA and LEDVANCE devices. OTA updates for device of other manufactures could also be supported by ZHA dependencies in the future, if these manufacturers publish their firmware publicly.
+Online OTA providers for firmware updates are currently only available for IKEA, LEDVANCE/OSRAM, and SALUS/Computime devices. Support for OTA updates from other manufacturers could be supported in the future if they publish their firmware images publicly.
 
 To enable OTA firmware updates for the ZHA integration you need to add the following configuration to your `configuration.yaml` and restart Home Assistant:
 
@@ -207,11 +216,12 @@ zha:
   zigpy_config:
     ota:
       ikea_provider: true                        # Auto update Trådfri devices
-      ledvance_provider: true                    # Auto update LEDVANCE devices
+      ledvance_provider: true                    # Auto update LEDVANCE/OSRAM devices
+      salus_provider: true                       # Auto update SALUS/Computime devices
       #otau_directory: /path/to/your/ota/folder  # Utilize .ota files to update everything else
 ```
 
-You can choose if the IKEA or LEDVANCE provider should be set to enabled (`true`) or disabled (`false`) individually. After the OTA firmware upgrades are finished, you can set these to `false` again if you do not want ZHA to automatically download and perform OTA firmware upgrades in the future.
+You can choose if the IKEA, LEDVANCE or SALUS provider should be set to enabled (`true`) or disabled (`false`) individually. After the OTA firmware upgrades are finished, you can set these to `false` again if you do not want ZHA to automatically download and perform OTA firmware upgrades in the future.
 
 Note that the `otau_directory` setting is optional and can be used for any firmware files you have downloaded yourself, for any device type and manufacturer. For example, Philips Hue firmwares manually downloaded from [here](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/OTA-Image-Types---Firmware-versions) and/or [here](https://github.com/Koenkk/zigbee-OTA/blob/a02a4cb33f7c46b4d2916805bfcad582124ec975/index.json) added to the `otau_directory` can be flashed, although a manual `zha.issue_zigbee_cluster_command` command currently (as of 2021.3.3) must be issued against the IEEE of the Philips Hue device under Developer Tools->Services, e.g.:
 
@@ -219,7 +229,7 @@ Note that the `otau_directory` setting is optional and can be used for any firmw
 service: zha.issue_zigbee_cluster_command
 data:
   ieee: "xx:xx:xx:xx:xx:xx:xx:xx"
-  endpoint_id: 11
+  endpoint_id: 1
   cluster_id: 25
   cluster_type: out
   command: 0
@@ -244,9 +254,13 @@ zha:
       channels: [15, 20, 25]  # Channel mask
 ```
 
-This is a good reference for channel selection [Zigbee and Wifi Coexistance](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
+This is a good reference for channel selection for [Zigbee and WiFi coexistance](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
 
-Note that the recommendation is, however, not to change the Zigbee channel from default as not all Zigbee devices support all channels. If you have issues with overlapping frequencies, then it will generally be a better idea to change Wi-Fi channels on your Wi-Fi-router or Wi-Fi Access Points.
+The Zigbee specification standards divide the 2.4Ghz ISM radio band into 16 Zigbee channels (i.e. distinct radio frequencies for Zigbee). For all Zigbee devices to be able to communicate, they must support the same Zigbee channel (i.e. Zigbee radio frequency) that is set on the Zigbee Coordinator as the channel to use for its Zigbee network. Not all Zigbee devices support all Zigbee channels, it will usually depend on the hardware and firmware age as well as devices power ratings.
+
+The general recommendation is to only use channels 15, 20, or 25 in order to avoid interoperability problems with Zigbee devices that are limited to only being compatible with the ZLL (Zigbee Light Link) channels as well as lessen the chance of Wi-Fi networks interfering too much with the Zigbee network. Note that especially using Zigbee channels 11, 24, 25, or 26 on your Zigbee Coordinator could mean it will probably not be accessible to older devices as those Zigbee channels are commonly only supported by relatively modern Zigbee hardware devices with newer Zigbee firmware.
+
+Regardless, note that the best practice recommendation is, however, not to change the Zigbee channel from default as not all Zigbee devices support all channels. If you have issues with overlapping frequencies, then it will generally be a better idea to just change Wi-Fi channels on your Wi-Fi Router or all your Wi-Fi Access Points instead.
 
 ### Modifying the device type
 
@@ -443,8 +457,8 @@ Using a Philips Hue Dimmer Switch or Lutron Connected Bulb Remote is probably th
 
 1. Turn on your Hue bulb/light you want to reset. (It is important that the bulb has just been turned).
 2. Hold the Philips Hue Dimmer Switch near your bulb (closer than 10 centimeters / 4 inches).
-3. Press and hold the (I)/(ON) and (O)/(OFF) buttons on the Philips Hue Dimmer Switch for about 10 seconds continuously until your bulb starts to blink. On the newer switches hold the I/O and Scene Switch buttons.
-4. Your bulb should stop blinking and eventually turn on again. At the same time, a green light on the top left of your remote indicates that your bulb has been successfully reset to factory default settings.
+3. Press and hold the (I)/(ON) and (O)/(OFF) buttons on the Philips Hue Dimmer Switch. The bulb should start blinking in 10-20 seconds. The bulb will blink, then turn off, then turn on. You can now release the dimmer buttons.
+4. Your bulb is now factor resey and ready for pairing. A green light on the top left of the dimmer remote indicates that your bulb has been successfully reset to factory default settings.
 
 Note: If you are not unable to reset the bulb, remove it from the Hue Bridge and retry the procedure.
 

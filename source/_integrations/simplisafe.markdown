@@ -13,9 +13,11 @@ ha_domain: simplisafe
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - diagnostics
   - lock
   - sensor
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The `simplisafe` integration integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
@@ -34,6 +36,10 @@ There is currently support for the following device types within Home Assistant:
 - **Water Sensor**: reports on water sensor status*.
 
 * Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed.
+
+## SimpliSafe Plans
+
+SimpliSafe offers several [monitoring plans](https://support.simplisafe.com/hc/en-us/articles/360023809972-What-are-the-service-plan-options-). Currently, only the Standard and Interactive Monitoring are known to work with this integration; if you find otherwise, please consider updating this documentation.
 
 {% include integrations/config_flow.md %}
 

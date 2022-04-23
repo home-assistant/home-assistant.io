@@ -13,18 +13,18 @@ The `mqtt` light platform lets you control your MQTT enabled lights through one 
 ## Comparison of light MQTT schemas
 
 | Function          | [`default`](#default-schema) | [`json`](#json-schema) | [`template`](#template-schema) |
-|-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
-| Brightness        | ✔                                                          | ✔                                                                    | ✔                                                                            |
-| Color mode        | ✔                                                          | ✔                                                                    | ✘                                                                              |
-| Color temperature | ✔                                                          | ✔                                                                    | ✔                                                                            |
-| Effects           | ✔                                                          | ✔                                                                    | ✔                                                                            |
-| Flashing          | ✘                                                          | ✔                                                                    | ✔                                                                            |
-| HS Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
-| RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
-| RGBW Color        | ✔                                                          | ✔                                                                    | ✘                                                                            |
-| RGBWW Color       | ✔                                                          | ✔                                                                    | ✘                                                                            |
-| Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
-| XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
+| ----------------- | ---------------------------- | ---------------------- | ------------------------------ |
+| Brightness        | ✔                            | ✔                      | ✔                              |
+| Color mode        | ✔                            | ✔                      | ✘                              |
+| Color temperature | ✔                            | ✔                      | ✔                              |
+| Effects           | ✔                            | ✔                      | ✔                              |
+| Flashing          | ✘                            | ✔                      | ✔                              |
+| HS Color          | ✔                            | ✔                      | ✔                              |
+| RGB Color         | ✔                            | ✔                      | ✔                              |
+| RGBW Color        | ✔                            | ✔                      | ✘                              |
+| RGBWW Color       | ✔                            | ✔                      | ✘                              |
+| Transitions       | ✘                            | ✔                      | ✔                              |
+| XY Color          | ✔                            | ✔                      | ✘                              |
 
 
 ## Default schema
@@ -33,9 +33,9 @@ The `mqtt` light platform with default schema lets you control your MQTT enabled
 
 ## Default schema - Configuration
 
-In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the switch will be `false` / `off`.
+In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the switch will be `unknown`. A MQTT device can reset the current state to `unknown` using a `None` payload.
 
-When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from the device (message from `state_topic`).
+When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from the device (message from `state_topic`). The initial state is set to `False` / `off` in optimistic mode.
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect light operation.
 
@@ -88,6 +88,10 @@ availability_topic:
   type: string
 brightness_command_topic:
   description: The MQTT topic to publish commands to change the light’s brightness.
+  required: false
+  type: string
+brightness_command_template:
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `brightness_command_topic`. Available variables: `value`."
   required: false
   type: string
 brightness_scale:
@@ -177,6 +181,11 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+encoding:
+  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
+  required: false
+  type: string
+  default: "utf-8"
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -184,6 +193,10 @@ entity_category:
   default: None
 effect_command_topic:
   description: "The MQTT topic to publish commands to change the light's effect state."
+  required: false
+  type: string
+effect_command_template:
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `effect_command_topic`. Available variables: `value`."
   required: false
   type: string
 effect_list:
@@ -298,7 +311,7 @@ rgb_value_template:
   required: false
   type: string
 schema:
-  description: The schema to use. Must be `default` or omitted to select the default schema".
+  description: The schema to use. Must be `default` or omitted to select the default schema.
   required: false
   type: string
   default: default
@@ -559,6 +572,11 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+encoding:
+  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
+  required: false
+  type: string
+  default: "utf-8"
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -638,7 +656,7 @@ retain:
   type: boolean
   default: false
 schema:
-  description: The schema to use. Must be `json` to select the JSON schema".
+  description: The schema to use. Must be `json` to select the JSON schema.
   required: false
   type: string
   default: default
@@ -799,7 +817,7 @@ light:
 The `mqtt` light platform with template schema lets you control a MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
 It is format-agnostic so you can use any data format you want (i.e., string, JSON), just configure it with templating.
 
-This schema supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing and effects.
+This schema supports on/off, brightness, RGB colors, XY colors, HS Color, color temperature, transitions, short/long flashing and effects.
 
 ## Template schema - Configuration
 
@@ -918,6 +936,11 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+encoding:
+  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
+  required: false
+  type: string
+  default: "utf-8"
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -989,7 +1012,7 @@ red_template:
   required: false
   type: string
 schema:
-  description: The schema to use. Must be `template` to select the template schema".
+  description: The schema to use. Must be `template` to select the template schema.
   required: false
   type: string
   default: default
@@ -1019,7 +1042,7 @@ In this section you find some real-life examples of how to use this light.
 
 ### Simple string payload
 
-For a simple string payload with the format `state,brightness,r-g-b` (e.g., `on,255,255-255-255`), add the following to your `configuration.yaml` file:
+For a simple string payload with the format `state,brightness,r-g-b,h-s` (e.g., `on,255,255-255-255,360-100`), add the following to your `configuration.yaml` file:
 
 {% raw %}
 
@@ -1030,7 +1053,7 @@ light:
     schema: template
     command_topic: "home/rgb1/set"
     state_topic: "home/rgb1/status"
-    command_on_template: "on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }}"
+    command_on_template: "on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }},{{ hue|d }}-{{ sat|d }}"
     command_off_template: "off"
     state_template: "{{ value.split(',')[0] }}"  # must return `on` or `off`
     brightness_template: "{{ value.split(',')[1] }}"
@@ -1064,6 +1087,9 @@ light:
       {%- endif -%}
       {%- if red is defined and green is defined and blue is defined -%}
       , "color": [{{ red }}, {{ green }}, {{ blue }}]
+      {%- endif -%}
+      {%- if hue is defined and sat is defined -%}
+      , "huesat": [{{ hue }}, {{ sat }}]
       {%- endif -%}
       {%- if effect is defined -%}
       , "effect": "{{ effect }}"

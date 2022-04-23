@@ -54,6 +54,10 @@ json_attributes:
   description: Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
   required: false
   type: [string, list]
+unique_id:
+  description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Execution

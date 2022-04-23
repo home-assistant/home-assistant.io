@@ -11,31 +11,51 @@ ha_codeowners:
   - '@uvjustin'
   - '@allenporter'
 ha_domain: stream
+ha_platforms:
+  - diagnostics
+ha_integration_type: integration
 ---
 
 The stream integration provides a way to proxy live streams through Home Assistant. Most users should not need to configure anything or interface with the component directly since it is an internal component used by the [camera integration](/integrations/camera).
 
 ## Configuration
 
-The `stream` integration is automatically loaded by `default_config` and enabled by the `camera` platforms that support it. If `default_config` is used, no separate `configuration.yaml` entry is necessary. If `default_config` is not used, the `stream` integration can be activated with the entry below:
+The `stream` integration is automatically loaded by `default_config` and enabled by the `camera` platforms that support it. If `default_config` is used, no separate `configuration.yaml` entry is necessary. However, there are some extra options you can configure.
 
-```yaml
-# Example configuration.yaml entry. There are no additional options.
-stream:
-```
+{% configuration %}
+ll_hls:
+  description: Allows disabling Low Latency HLS (LL-HLS)
+  required: false
+  type: boolean
+  default: true
+segment_duration:
+  description: The duration of each HLS segment, in seconds (between 2 and 10)
+  type: float
+  required: false
+  default: 6
+part_duration:
+  description: The duration of each part within a segment, in seconds (between 0.2 and 1.5)
+  type: float
+  required: false
+  default: 1
+{% endconfiguration %}
 
-## LL-HLS
+## LL-HLS - Low Latency HLS
 
-There is the option to enable LL-HLS for lower latency. Please note that LL-HLS has strict timing and network requirements that can be hard to meet, so this option may not work on all setups. As HTTP/2 is required by the LL-HLS specification, the use of an HTTP/2 enabled reverse proxy is strongly recommended.
-To enable LL-HLS, add the following to your `configuration.yaml`:
+LL-HLS reduces the start time and delay for a stream, but it has strict timing and network requirements and opens additional browser connections. To avoid running into browser limits it is strongly recommended to use an HTTP/2 proxy (e.g., NGINX or haproxy) to take advantage of request pipelining. LL-HLS is enabled by default, but when not using HTTP/2, the Home Assistant frontend will revert back to regular HLS if too many streams are open.
+
+You can further adjust LL-HLS settings in `configuration.yaml` as it may perform better or worse with different values depending on your network setup, cameras, or whether or not they are local or cloud.
+
+Example configuration:
 
 ```yaml
 # Example LL-HLS configuration.yaml entry.
 stream:
   ll_hls: true
-  part_duration: 0.75  # Range of 0.2 to 1.5
-  segment_duration: 6  # Range of 2 to 10
+  part_duration: 0.75
+  segment_duration: 6
 ```
+
 
 ## Technical Details
 

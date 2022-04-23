@@ -11,8 +11,10 @@ ha_codeowners:
   - '@frenck'
 ha_domain: forecast_solar
 ha_platforms:
+  - diagnostics
   - sensor
 ha_quality_scale: platinum
+ha_integration_type: integration
 ---
 
 The [Forecast.Solar](https://forecast.solar/) service provides solar production
@@ -111,9 +113,15 @@ for example, by slightly adjusting the azimuth or declination. If your panels
 catch a bit of shadow in the morning/evening, you could consider damping
 the results a bit.
 
-The damping  factor allows you to adjust and "damp" the results of your solar
+The **damping** factor allows you to adjust and "damp" the results of your solar
 predictions in the morning and evening a bit and is a great method to make
 results less optimistic and more tuned to your reality.
+
+The **inverter** size can be used in a situation where the maximum power of your
+inverter is lower than the total power of all your solar panels (as entered under
+"total modules power") together. As a result, the forecast takes into account that
+the maximum solar power cannot exceed what your inverter can handle and you would
+therefore get a more realistic graph of your forecast.
 
 [Read more about the damping factor in the Forecast.Solar documentation](https://doc.forecast.solar/doku.php?id=damping&s[]=damping).
 

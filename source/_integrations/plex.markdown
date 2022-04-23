@@ -12,14 +12,16 @@ ha_codeowners:
   - '@jjlawren'
 ha_domain: plex
 ha_platforms:
+  - button
   - media_player
   - sensor
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The Plex integration allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [Media Players](/integrations/media_player/) and report playback status and library sizes via [Sensors](/integrations/sensor/) in Home Assistant. Media Players will allow you to control media playback and see the current playing item.
 
-Support for playing music directly on linked [Sonos](/integrations/sonos/) speakers is available for users with an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription. More information [here](#sonos-playback).
+Support for playing music directly on linked [Sonos](/integrations/sonos/) speakers is available [here](#sonos-playback).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -138,11 +140,16 @@ The integration must be configured with a token for playback commands to work. T
 
 ##### Examples:
 
+Play Hello from Adele's album 25 in the library Music
+
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: MUSIC
 media_content_id: '{ "library_name": "Music", "artist_name": "Adele", "album_name": "25", "track_name": "Hello" }'
 ```
+
+Play a random track from Stevie Wonder in the library Music
+
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: MUSIC
@@ -158,6 +165,9 @@ media_content_id: '{ "library_name": "Music", "artist_name": "Stevie Wonder", "s
 | `media_content_type`   | `PLAYLIST`                                                                                          |
 
 ##### Example:
+
+Plays the playlist The Best of Disco with shuffle enabled
+
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: PLAYLIST
@@ -174,15 +184,28 @@ media_content_id: '{ "playlist_name": "The Best of Disco", "shuffle": "1" }'
 
 ##### Examples:
 
+Play Rick and Morty S2E5 from library Adult TV
+
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: EPISODE
 media_content_id: '{ "library_name": "Adult TV", "show_name": "Rick and Morty", "season_number": 2, "episode_number": 5 }'
 ```
+
+Play a random episode of Sesame Street from the library Kids TV
+
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: EPISODE
-media_content_id: '{ "library_name": "Kid TV", "show_name": "Sesame Street", "shuffle": "1" }'
+media_content_id: '{ "library_name": "Kids TV", "show_name": "Sesame Street", "shuffle": "1" }'
+```
+
+Play the next unfinished episode of 60 Minutes from the library News TV
+
+```yaml
+entity_id: media_player.plex_player
+media_content_type: EPISODE
+media_content_id: '{ "library_name": "News TV", "show_name": "60 Minutes", "episode.unwatched": true, "episode.inProgress": [true, false], "sort": "addedAt:asc", "maxresults": 1 }'
 ```
 
 #### Movie
@@ -194,6 +217,8 @@ media_content_id: '{ "library_name": "Kid TV", "show_name": "Sesame Street", "sh
 | `media_content_type`   | `movie`                                                                                                 |
 
 ##### Examples:
+
+Play Blade from the library Adult Movies
 
 ```yaml
 entity_id: media_player.plex_player
@@ -273,20 +298,24 @@ The search will attempt to guess the type of media based on the search parameter
 
 To play Plex music directly to Sonos speakers, the following requirements must be met:
 
-1. Have an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription.
-2. Remote access enabled for your Plex server.
-3. Sonos speakers linked to your Plex account [(Instructions)](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/).
-4. [Sonos](/integrations/sonos/) integration configured.
+1. Remote access enabled for your Plex server.
+2. Sonos speakers linked to your Plex account [(Instructions)](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/).
+3. [Sonos](/integrations/sonos/) integration configured.
 
 Call the `media_player.play_media` service with the `entity_id` of a Sonos integration device and `media_content_type` prepended with `plex://`. Both [music](#music) and [playlist](#playlist) `media_content_type` values are supported.
 
 ##### Examples:
+
+Play a track with advanced filtering on a Sonos Speaker
 
 ```yaml
 entity_id: media_player.sonos_speaker
 media_content_type: music
 media_content_id: 'plex://{ "library_name": "Music", "artist_name": "Adele", "album_name": "25", "track_name": "Hello" }'
 ```
+
+Play a playlist on a Sonos Speaker
+
 ```yaml
 entity_id: media_player.sonos_speaker
 media_content_type: playlist

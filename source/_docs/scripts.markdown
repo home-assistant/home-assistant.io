@@ -75,6 +75,22 @@ The variables action allows you to set/override variables that will be accessibl
 
 {% endraw %}
 
+Variables can be templated.
+
+{% raw %}
+
+```yaml
+- alias: "Set a templated variable"
+  variables:
+    blind_state_message: "The blind is {{ states('cover.blind') }}."
+- alias: "Notify about the state of the blind"
+  service: notify.mobile_app_iphone
+  data:
+    message: "{{ blind_state_message }}"
+```
+
+{% endraw %}
+
 ### Scope of Variables
 
 Variables have local scope. This means that if a variable is changed in a nested sequence block, that change will not be visible in an outer sequence block.
@@ -114,7 +130,7 @@ While executing a script you can add a condition in the main sequence to stop fu
 
 <div class='note'>
 
-The `condition` action only stops executing the current sequence block. When it is used inside a [repeat](#repeat-a-group-of-actions) action, only the current iteration of the `repeat` loop will stop. When it is used inside a [choose](#test-a-condition) action, only the actions within that `choose` will stop.
+The `condition` action only stops executing the current sequence block. When it is used inside a [repeat](#repeat-a-group-of-actions) action, only the current iteration of the `repeat` loop will stop. When it is used inside a [choose](#choose-a-group-of-actions) action, only the actions within that `choose` will stop.
 
 </div>
 

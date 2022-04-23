@@ -15,21 +15,23 @@ ha_domain: template
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - button
   - cover
   - fan
   - light
   - lock
   - number
-  - sensor
   - select
+  - sensor
   - switch
   - vacuum
   - weather
+ha_integration_type: integration
 ---
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
-Sensors, binary (on/off) sensors, numbers and selects are covered on this page. For other types, please see the specific pages:
+Sensors, binary (on/off) sensors, buttons, numbers and selects are covered on this page. For other types, please see the specific pages:
 
 - [Alarm Control Panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
@@ -40,11 +42,11 @@ Sensors, binary (on/off) sensors, numbers and selects are covered on this page. 
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
-Sensor, binary sensor, number and select template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
+Sensor, binary sensor, button, number and select template entities are defined in your YAML configuration files, directly under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-## State-based template sensors
+## State-based template binary sensors, buttons, numbers, selects and sensors
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -66,13 +68,15 @@ template:
 
 {% endraw %}
 
-## Trigger-based template sensors
+## Trigger-based template binary sensors, buttons, numbers, selects and sensors
 
 If you want more control over when an entity updates, you can define a trigger. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#storing-webhook-information)), or update entities based on a schedule.
 
 Whenever the trigger fires, all related entities will re-render and it will have access to [the trigger data](/docs/automation/templating/) in the templates.
 
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [state trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
+
+The state, including attributes, of trigger-based binary sensors is restored when Home Assistant is restarted. The state of other trigger-based template entities is not restored.
 
 {% raw %}
 
@@ -131,7 +135,7 @@ binary_sensor:
       required: true
       type: template
     delay_on:
-      description: The amount of time (ie `0:00:05`) the template state must be ***met*** before this sensor will switch to `on`. This can also be a template.
+      description: The amount of time (e.g. `0:00:05`) the template state must be ***met*** before this sensor will switch to `on`. This can also be a template.
       required: false
       type: time
     delay_off:
@@ -219,8 +223,17 @@ select:
       required: false
       type: boolean
       default: false
-"[all sensor, binary sensor, number, select entities]":
-  description: Fields that can be used above for sensors, binary sensors, numbers, and selects.
+button:
+  description: List of buttons
+  required: true
+  type: map
+  keys:
+    press:
+      description: Defines actions to run to press the button.
+      required: true
+      type: action
+"[all sensor, binary sensor, button, number, select entities]":
+  description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
   required: false
   type: map
   keys:

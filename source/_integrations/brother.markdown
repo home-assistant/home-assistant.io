@@ -12,7 +12,9 @@ ha_domain: brother
 ha_quality_scale: platinum
 ha_zeroconf: true
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The `Brother Printer` integration allows you to read current data from your local Brother printer.

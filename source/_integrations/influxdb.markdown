@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: influxdb
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `influxdb` integration makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
@@ -424,6 +425,10 @@ queries:
       type: string
       description: The name of the sensor.
       required: true
+    unique_id:
+      type: string
+      description: The unique ID for this query. This allows changing the name, icon and entity_id from the web interface.
+      required: false
     unit_of_measurement:
       type: string
       description: Defines the units of measurement of the sensor, if any.
@@ -464,6 +469,10 @@ queries_flux:
       type: string
       description: The name of the sensor.
       required: true
+    unique_id:
+      type: string
+      description: The unique ID for this query. This allows changing the name, icon and entity_id from the web interface.
+      required: false
     unit_of_measurement:
       type: string
       description: Defines the units of measurement of the sensor, if any.

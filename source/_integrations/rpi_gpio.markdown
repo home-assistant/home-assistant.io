@@ -2,9 +2,9 @@
 title: Raspberry Pi GPIO
 description: Instructions on how to integrate the GPIO capability of a Raspberry Pi into Home Assistant.
 ha_category:
-  - DIY
   - Binary Sensor
   - Cover
+  - DIY
   - Switch
 ha_release: pre 0.7
 ha_iot_class: Local Push
@@ -13,7 +13,16 @@ ha_platforms:
   - binary_sensor
   - cover
   - switch
+ha_integration_type: integration
 ---
+
+<div class='note warning'>
+
+This integration is deprecated and will be removed in Home Assistant Core 2022.6.
+
+For more information see: [Architectural Decision Record 0019](https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md).
+
+</div>
 
 The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding pages.
 

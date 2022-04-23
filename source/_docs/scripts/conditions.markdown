@@ -209,8 +209,8 @@ condition:
   condition: state
   entity_id: alarm_control_panel.home
   state:
-    - armed_away
-    - armed_home
+    - "armed_away"
+    - "armed_home"
 ```
 
 Or, combine multiple entities with multiple states. In the following example,
@@ -223,8 +223,8 @@ condition:
     - media_player.living_room
     - media_player.kitchen
   state:
-    - playing
-    - paused
+    - "playing"
+    - "paused"
 ```
 
 Alternatively, the condition can test against a state attribute.
@@ -235,7 +235,7 @@ condition:
   condition: state
   entity_id: climate.living_room_thermostat
   attribute: hvac_modes
-  state: heat
+  state: "heat"
 ```
 
 Finally, the `state` option accepts helper entities (also known as `input_*`
@@ -424,7 +424,7 @@ condition:
 
 {% endraw %}
 
-But also in the `repeat` action's `while` or `until` option, or in a `choose` action's `conditions` option:
+It's also supported in the `repeat` action's `while` or `until` option, or in a `choose` action's `conditions` option:
 
 {% raw %}
 
@@ -447,15 +447,15 @@ But also in the `repeat` action's `while` or `until` option, or in a `choose` ac
 
 {% endraw %}
 
-<div class="note warning">
+It's also supported in script or automation `condition` actions:
 
-While conditions can be used in script sequences or automation actions, the
-shorthand for template conditions cannot be used directly in those constructs.
+{% raw %}
 
-However, if an used action supports conditions itself, like `choose` and
- `repeat`, the shorthand template conditions will be accepted in those cases.
+```yaml
+- condition: "{{ is_state('device_tracker.iphone', 'away') }}"
+```
 
-</div>
+{% endraw %}
 
 [template]: /topics/templating/
 [automation-templating]: /getting-started/automation-templating/

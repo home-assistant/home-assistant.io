@@ -2,9 +2,10 @@
 title: Bond
 description: Instructions on setting up Bond Bridge within Home Assistant.
 ha_category:
-  - Hub
+  - Button
   - Cover
   - Fan
+  - Hub
   - Light
   - Switch
 ha_iot_class: Local Push
@@ -18,10 +19,13 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_zeroconf: true
 ha_platforms:
+  - button
   - cover
+  - diagnostics
   - fan
   - light
   - switch
+ha_integration_type: integration
 ---
 
 The Bond integration allows you to control appliances through your [Bond Bridge](https://bondhome.io/). Duplicates your RF remote control.
@@ -57,31 +61,6 @@ upgrade your firmware from Bond app before adding this integration.
 
 Firmware version 2.10.8 or newer is required for push updates. The integration
 will fallback to polling for 2.10.x versions lower than .8
-
-### Service `bond.start_increasing_brightness`
-
-Start increasing the light brightness.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings of `entity_id`s.
-
-### Service `bond.start_decreasing_brightness`
-
-Start decreasing the light brightness.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings of `entity_id`s.
-
-### Service `bond.stop`
-
-Stop any in-progress action and empty the queue. Calling this service will
-stop any increase or decrease in brightness that is in progress.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings of `entity_id`s.
 
 ### Service `bond.set_fan_speed_tracked_state`
 

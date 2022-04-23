@@ -4,8 +4,8 @@ description: Instructions on how to configure UniFi Network integration with Uni
 ha_category:
   - Hub
   - Presence Detection
-  - Switch
   - Sensor
+  - Switch
 ha_release: 0.81
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -16,8 +16,10 @@ ha_domain: unifi
 ha_ssdp: true
 ha_platforms:
   - device_tracker
+  - diagnostics
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 [UniFi Network](https://www.ui.com/software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
