@@ -29,7 +29,7 @@ The current release Home Assistant is published on [https://www.home-assistant.i
 
 {% raw %}
 
-```
+```yaml
 Resource: https://www.home-assistant.io
 Name: Release
 Select: ".current-version h1"
@@ -44,7 +44,7 @@ Get the counter for all our implementations from the [Component overview](/integ
 
 {% raw %}
 
-```
+```yaml
 Resource: https://www.home-assistant.io/integrations/
 Name: Home Assistant impl.
 Select: a[href="#all"]
@@ -57,7 +57,7 @@ Value Template: {{ value.split("(")[1].split(")")[0] }}
 
 The German [Federal Office for Radiation protection (Bundesamt für Strahlenschutz)](http://www.bfs.de/) is publishing various details about optical radiation including an UV index. This example is getting the index for a region in Germany.
 
-```
+```yaml
 Resource: http://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html
 Name: Coast Ostsee
 Select: p
@@ -69,7 +69,7 @@ Unit of Measurement: UV Index
 
 If you make heavy use of the [IFTTT](/integrations/ifttt/) web service for your automations and are curious about the [status of IFTTT](https://status.ifttt.com/) then you can display the current state of IFTTT in your frontend.
 
-```
+```yaml
 Resource: https://status.ifttt.com/
 Name: IFTTT status
 Select: ".component-status"
@@ -79,7 +79,7 @@ Select: ".component-status"
 
 If you want to get the file URL for the latest episode of your [favorite podcast](https://hasspodcast.io/), so you can pass it on to a compatible media player.
 
-```
+```yaml
 Resource: https://hasspodcast.io/feed/podcast
 Name: Home Assistant Podcast
 Select: "enclosure"
@@ -93,7 +93,7 @@ This example tries to retrieve the price for electricity.
 
 {% raw %}
 
-```
+```yaml
 Resource: https://elen.nu/timpriser-pa-el-for-elomrade-se3-stockholm/
 Name: Electricity price
 Select: ".text-lg:is(span)"
