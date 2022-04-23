@@ -341,7 +341,7 @@ These are notification events fired by devices using the Notification command cl
 }
 ```
 
-#### MultilevelSwitch Notification Command Class
+#### Multilevel Switch Command Class
 
 These are notification events fired by devices using the Multilevel Switch command class. There are events for start level change and stop level change. These would typically be used in a device like the Aeotec Nano Dimmer with an external switch to respond to long button presses.
 
