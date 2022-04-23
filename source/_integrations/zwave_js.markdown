@@ -354,8 +354,8 @@ These are notification events fired by devices using the Multilevel Switch comma
     "device_id": "2f44f0d4152be3123f7ad40cf3abd095",
     "command_class": 38,
     "command_class_name": "Multilevel Switch",
-    "type": 4,
-    "parameters": "up"
+    "event_type": 4,
+    "direction": "up"
 },
 ```
 
@@ -368,8 +368,8 @@ These are notification events fired by devices using the Multilevel Switch comma
     "device_id": "2f44f0d4152be3123f7ad40cf3abd095",
     "command_class": 38,
     "command_class_name": "Multilevel Switch",
-    "type": 5,
-    "parameters": null
+    "event_type": 5,
+    "direction": null
 },
 ```
 
