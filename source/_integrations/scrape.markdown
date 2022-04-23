@@ -89,5 +89,5 @@ This example tries to retrieve the price for electricity.
 | **Name** | Electricity price |
 | **Select** | `.text-lg:is(span)` |
 | **Index** | `1` |
-| **Value Template** | {% raw %}`{{ value &#124; replace(',', '.') &#124; float }}`{% endraw %} |
+| **Value Template** | {% raw %}`{{ value \| replace(',', '.') \| float }}`{% endraw %} |
 | **Unit of Measurement** | `öre/kWh` |
