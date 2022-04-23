@@ -401,6 +401,7 @@
 # Removed integrations
 /integrations/alarmdotcom /more-info/removed-integration 301
 /integrations/apns /more-info/removed-integration 301
+/integrations/arlo /more-info/removed-integration 301
 /integrations/arduino /more-info/removed-integration 301
 /integrations/bbb_gpio /more-info/removed-integration 301
 /integrations/bh1750 /more-info/removed-integration 301
