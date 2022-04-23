@@ -129,9 +129,18 @@ The `button.<your_vehicle>_find_vehicle` button requests the vehicle to update t
 
 </div>
 
-### Update the state / refresh from API
+## Update the state / refresh from API
 
-The `button.<vehicle_model>_refresh_from_api` button fetches the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle; it gets the data from the BMW servers. So this service does *not* interact with your vehicles.
+To force a refresh from the BMW servers to Home Assistant, execute the `homeassistant.update_entity` service on an arbitrary entity such as the lock or any sensor.
+
+```yaml
+...
+service: homeassistant.update_entity
+target:
+  entity_id: binary_sensor.<your_vehicle>_windows
+```
+
+This does *not* trigger an update from the vehicle; it gets the data from the BMW servers, so this service does *not* interact with your vehicles.
 
 ## Disclaimer
 
