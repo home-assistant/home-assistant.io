@@ -31,7 +31,7 @@ The current release Home Assistant is published on [https://www.home-assistant.i
 | Resource | https://www.home-assistant.io |
 | Name | Release |
 | Select | `.current-version h1` |
-| Value Template | `{{ value.split(':')[1] }}` |
+| Value Template | {% raw %}`{{ value.split(':')[1] }}`{% endraw %} |
 
 ### Available implementations
 
@@ -41,7 +41,7 @@ Get the counter for all our implementations from the [Component overview](/integ
 | Resource | https://www.home-assistant.io/integrations/ |
 | Name | Home Assistant impl. |
 | Select | `a[href="#all"]` |
-| Value Template | `{{ value.split('(')[1].split(')')[0] }}` |
+| Value Template | {% raw %}`{{ value.split('(')[1].split(')')[0] }}`{% endraw %} |
 
 ### Get a value out of a tag
 
@@ -83,5 +83,5 @@ This example tries to retrieve the price for electricity.
 | Name | Electricity price |
 | Select | `.text-lg:is(span)` |
 | Index | `1` |
-| Value Template | `{{ value | replace (',', '.') | float }}` |
+| Value Template | {% raw %}`{{ value | replace (',', '.') | float }}`{% endraw %} |
 | Unit of Measurement | `öre/kWh` |
