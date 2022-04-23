@@ -1157,7 +1157,7 @@ type:
   description: A DPT identifier representing a text value ("string" or "latin_1" - see [KNX Sensor](#sensor)) used to encode the notification.
   required: false
   default: "latin_1"
-  type: [string, integer]
+  type: string
 {% endconfiguration %}
 
 ## Number
