@@ -12,6 +12,7 @@ ha_domain: airzone
 ha_platforms:
   - binary_sensor
   - climate
+  - diagnostics
   - sensor
 ha_codeowners:
   - '@Noltari'
