@@ -140,6 +140,8 @@ target:
   entity_id: binary_sensor.<your_vehicle>_windows
 ```
 
+This does *not* trigger an update from the vehicle; it gets the data from the BMW servers, so this service does *not* interact with your vehicles.
+
 ## Disclaimer
 
 This software is not affiliated with or endorsed by BMW Group.
