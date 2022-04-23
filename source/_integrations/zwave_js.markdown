@@ -255,7 +255,6 @@ Call this service to use the Command Class API directly. In most cases, the `zwa
 | `endpoint`       	| no       	| The endpoint to call the CC API against. 	                                                                                            |
 | `method_name`       	| yes       	| The name of the method that is being called from the CC API. 	                                                                                            |
 | `parameters`       	| yes       	| A list of parameters to pass to the CC API method. 	                                                                                            |
-```
 
 ### Service `zwave_js.ping`
 
