@@ -63,6 +63,7 @@ Enjoy the release!
 - [Release 2022.4.4 - April 14](#release-202244---april-14)
 - [Release 2022.4.5 - April 16](#release-202245---april-16)
 - [Release 2022.4.6 - April 20](#release-202246---april-20)
+- [Release 2022.4.7 - April 24](#release-202247---april-24)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -997,6 +998,41 @@ The following integrations are now available via the Home Assistant UI:
 [screenlogic docs]: /integrations/screenlogic/
 [unifiprotect docs]: /integrations/unifiprotect/
 [zha docs]: /integrations/zha/
+
+## Release 2022.4.7 - April 24
+
+- Fixed syntax error in ALTER TABLE statement (#70304) ([@dmak] - [#70336]) ([recorder docs])
+- Update xknx to version 0.20.4 ([@marvin-w] - [#70342]) ([knx docs])
+- Bump aiodiscover to 1.4.10 ([@bdraco] - [#70348]) ([dhcp docs])
+- Bump zwave-js-server-python to 0.35.3 ([@raman325] - [#70357]) ([zwave_js docs])
+- Bump pyplaato to 0.0.18 ([@JohNan] - [#70391]) ([plaato docs])
+- Bump aiodiscover to 1.4.11 ([@bdraco] - [#70413]) ([dhcp docs])
+- Ensure rainmachine creates config entry titles as strings ([@bdraco] - [#70417]) ([rainmachine docs])
+- Fix history not including start time state ([@bdraco] - [#70447]) ([recorder docs])
+- Daikin AC : Round to nearest half degree (#70446) ([@vanackej] - [#70452]) ([daikin docs])
+
+[#70336]: https://github.com/home-assistant/core/pull/70336
+[#70342]: https://github.com/home-assistant/core/pull/70342
+[#70348]: https://github.com/home-assistant/core/pull/70348
+[#70357]: https://github.com/home-assistant/core/pull/70357
+[#70391]: https://github.com/home-assistant/core/pull/70391
+[#70413]: https://github.com/home-assistant/core/pull/70413
+[#70417]: https://github.com/home-assistant/core/pull/70417
+[#70447]: https://github.com/home-assistant/core/pull/70447
+[#70452]: https://github.com/home-assistant/core/pull/70452
+[@JohNan]: https://github.com/JohNan
+[@bdraco]: https://github.com/bdraco
+[@dmak]: https://github.com/dmak
+[@marvin-w]: https://github.com/marvin-w
+[@raman325]: https://github.com/raman325
+[@vanackej]: https://github.com/vanackej
+[daikin docs]: /integrations/daikin/
+[dhcp docs]: /integrations/dhcp/
+[knx docs]: /integrations/knx/
+[plaato docs]: /integrations/plaato/
+[rainmachine docs]: /integrations/rainmachine/
+[recorder docs]: /integrations/recorder/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## Need help? Join the community!
 
