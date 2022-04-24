@@ -3,8 +3,8 @@ title: Melnor Bluetooth
 description: Instructions on setting up Melnor Bluetooth devices within Home Assistant.
 ha_category:
   - Switch
-ha_iot_class: Local Poll
-ha_release: '2022.5'
+ha_iot_class: Local Polling
+ha_release: 2022.5
 ha_config_flow: true
 ha_codeowners:
   - '@vanstinator'
@@ -28,6 +28,6 @@ These devices have been sold under at least the following brands:
 
 ## Troubleshooting
 
-* No devices found on the network
+### No devices found on the network
 
 Make sure nothing else is connected to the valve. The valve will not respond to Bluetooth discovery requests from Home Assistant if another device, such as your phone, is already connected.
