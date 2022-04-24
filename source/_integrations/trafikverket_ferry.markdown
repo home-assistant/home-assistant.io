@@ -25,16 +25,20 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 
 ## Use cases
 
-- Retrieve the next departure and information connected to it for a specific ferry line.
-- Retrieve information for specific departure time on a specific ferry line.
-- Optional to set destination harbour to get any departure from specific harbour.
+- Retrieve the next departure and information connected to it
+- Destination harbour is optional and by leaving empty it will show next destination available from selected departure harbour.
+- By choosing a specific time it will only show departures after this.
+- By deselecting from the pre-filled days of week you can make selection such as only Monday to Friday if needed.
 
-## Retrieved data
+## Sensors
 
-- Next departure for the specific ferry line/departure.
-- Modified time
-- Other information provided by Trafikverket related to the specific departure.
+- Next departure date and time by made selections
+- Departure harbour
+- Destination harbour
+- Modified time (this sensor is deactivated as standard)
+
+Other information provided by Trafikverket related to the specific departure are shown as attribute on all sensors.
 
 ## Ferry harbour names
 
-Click [here](https://www.trafikverket.se/trafikinformation/vag/?TrafficType=personalTraffic&map=1/373767.82/6890962.41/&Layers=Ferries%2b) to see examples of harbour names, use city name as harbour.
+Click [here](https://www.trafikverket.se/trafikinformation/vag/?TrafficType=personalTraffic&map=1/373767.82/6890962.41/&Layers=Ferries%2b) to see examples of harbour names, use city name as harbour, as example "Ekerö", "Svanesund".
