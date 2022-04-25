@@ -25,7 +25,9 @@ ha_integration_type: integration
 
 The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as plugs, power strips, wall switches and bulbs.
 
-You need to provision your newly purchased device to connect to your network before it can be added via the integration. This can be done either by using [kasa command-line tool](https://python-kasa.readthedocs.io/en/latest/cli.html#provisioning) or by adding it to the official Kasa app before trying to add them to Home Assistant. If you use the app, do not upgrade the firmware if it presents the option to avoid blocking the local access by potential firmware updates.
+TP-Link offers an [FAQ](https://www.tp-link.com/us/support/faq/2707/) how to provision your newly purchased devices. The devices won't connect to the TP-Link cloud and become locally controllable afterwards. If you already own devices which are connected to the cloud, you can convert them from TP-Link Cloud operated to local operation as well.
+
+Note: Previously TP-Link had cut the local access via a firmware update to their devices. This is no longer the case. SOme devices not listed here as supported might still work with local control, if the old which supported local control is not updated.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -42,24 +44,24 @@ There is currently support for the following device types within Home Assistant:
 - HS103
 - HS105
 - HS110 (supports consumption sensors)
-- KP105
+- KP105 (is not mentioned in the TP-Link FAQ as working/not working)
 - KP115 (supports consumption sensors)
 
 ### Strip (Multi-Plug)
 
-- HS107 (indoor 2-outlet)
-- HS300 (powerstrip 6-outlet) (supports consumption sensors)
-- KP303 (powerstrip 3-outlet)
-- KP400 (outdoor 2-outlet)
+<!-- - HS107 (indoor 2-outlet) # Does not support local control according to TP-Link FAQ (as of date 2022-04-25) -->
+<!-- - HS300 (powerstrip 6-outlet) (supports consumption sensors) # Does not support local control according to TP-Link FAQ (as of date 2022-04-25) -->
+<!-- - KP303 (powerstrip 3-outlet) # Does not support local control according to TP-Link FAQ (as of date 2022-04-25) -->
+<!-- - KP400 (outdoor 2-outlet) # Does not support local control according to TP-Link FAQ (as of date 2022-04-25) -->
 - KP200 (indoor 2-outlet)
 - KP40 (outdoor 2-outlet)
-- EP40 (outdoor 2-outlet)
+<!-- - EP40 (outdoor 2-outlet) # Does not support local control according to TP-Link FAQ (as of date 2022-04-25) -->
 
 ### Wall Switches
 
 - HS200
-- HS210
-- HS220 (acts as a light)
+<!-- - HS210 # Does not support local control according to TP-Link FAQ (as of date 2022-04-25) -->
+<!-- - HS220 (acts as a light) # Does not support local control according to TP-Link FAQ (as of date 2022-04-25) -->
 
 ### Bulbs
 
@@ -78,7 +80,7 @@ There is currently support for the following device types within Home Assistant:
 
 - KL400
 - KL420
-- KL430
+<!-- - KL430 # Does not support local control according to TP-Link FAQ (as of date 2022-04-25) -->
 
 Other bulbs may also work, but with limited color temperature range (2700-5000). If you find a bulb isn't reaching the full-color temperature boundaries, submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
 
