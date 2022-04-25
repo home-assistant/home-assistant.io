@@ -102,7 +102,7 @@ Search in the [Gammu database](https://wammu.eu/phones/) for modems with AT conn
 
 For some unknown reason, the rule that converts these modems from storage devices into serial devices may not run automatically. To work around this problem, follow the procedure below to change the modem mode and (optionally) create `udev` rule on a configuration USB stick for the device to switch to serial mode persistently.
 
-1. Install the `usb_modeswitch` software to switch the modem operational mode (for debian/ubuntu distros):
+1. Install the `usb_modeswitch` software to switch the modem operational mode (for Debian/Ubuntu distros):
 
 ```bash
 sudo apt update && sudo apt install usb-modeswitch -y
