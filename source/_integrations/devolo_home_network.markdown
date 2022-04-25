@@ -23,9 +23,6 @@ Currently the following device types within Home Assistant are supported.
 
 ### Binary Sensors
 
-* Firmware availability
-  * Updates every 5 minutes
-  * Is enabled by default
 * Device attached to the router
   * Updates every 5 minutes
   * Is disabled by default because it typically rarely changes
