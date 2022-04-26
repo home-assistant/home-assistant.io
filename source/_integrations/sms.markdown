@@ -98,7 +98,7 @@ Need to unlock it using [this guide](http://blog.asiantuntijakaveri.fi/2015/07/c
 
 Search in the [Gammu database](https://wammu.eu/phones/) for modems with AT connection.
 
-### Huawei/ZTE modems (and similar) devices
+### Huawei/ZTE modems (and similar) devices - NOT applicable for users of Home Assistant OS, Container or Supervised.
 
 For some unknown reason, the rule that converts these modems from storage devices into serial devices may not run automatically. To work around this problem, follow the procedure below to change the modem mode and (optionally) create `udev` rule on a configuration USB stick for the device to switch to serial mode persistently.
 
