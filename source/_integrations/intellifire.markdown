@@ -79,11 +79,11 @@ The IFT module can suffer a variety of issues that will render it inoperable. So
 
 #### Issue a Soft Reset
 
-There is a debug web-interface available at: [iftapi.net/webaccess](http://iftapi.net/webaccess/login.html). From here you can login and then navigate to your individual fireplace unit and issue a **Soft Reset** as follows:
+There is a debug web interface available at [iftapi.net/webaccess](http://iftapi.net/webaccess/login.html). From here you can log in and then navigate to your individual fireplace unit and issue a **Soft Reset** as follows:
 
 ![soft_reset.png](/images/integrations/intellifire/soft_reset.png)
 
-In some cases this will restore control to the fireplace, but if it doesn't you are best to try the following method.
+In some cases, this will restore control to the fireplace, but if it doesn't you are best to try the following method.
 
 #### Power Cycle
 
