@@ -23,7 +23,7 @@ IntelliFire Wi-Fi fireplace modules provide app-based and Alexa control to vario
 
 ## API Credentials
 
-To fully configure the IntelliFire integration you will need to enter your IntelliFire credentials which are the same ones you would use with 
+To fully configure the IntelliFire integration you will need to enter your IntelliFire credentials which are the same ones you would use with the mobile app.
 
 ### Sensor Types
 
