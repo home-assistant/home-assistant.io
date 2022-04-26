@@ -131,6 +131,12 @@ The `button.<your_vehicle>_find_vehicle` button requests the vehicle to update t
 
 ### Update the state / refresh from API
 
+<div class="note">
+
+  This button is deprecated and will be removed in a future version.
+
+</div>
+
 The `button.<vehicle_model>_refresh_from_api` button fetches the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle; it gets the data from the BMW servers. So this service does *not* interact with your vehicles.
 
 ## Disclaimer
