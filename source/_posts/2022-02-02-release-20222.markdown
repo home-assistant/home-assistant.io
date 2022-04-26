@@ -322,7 +322,7 @@ a "Yes" or "No" (or similar) value in templates. Some examples:
 ```yaml
 {{ iif(is_state('light.kitchen', 'on'), 'Yes', 'No') }}
 {{ is_state('light.kitchen', 'on') | iif('Yes', 'No') }}
-{{ (state('light.kitchen') == 'on') | iif('Yes', 'No') }}
+{{ (states('light.kitchen') == 'on') | iif('Yes', 'No') }}
 ```
 
 {% endraw %}

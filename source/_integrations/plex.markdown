@@ -111,6 +111,8 @@ Play media hosted on a Plex server on a Plex client or other supported device.
 Required fields within the `media_content_id` payloads are marked as such, others are optional. There are special parameters that can be added to any query:
 
 - `shuffle`: Shuffles the playback order of the media. Accepts `1` or `true` to enable.
+- `resume`: Resumes playback at the last partially watched position if available, otherwise plays at the beginning.
+- `offset`: The desired playback start position in seconds.
 - `allow_multiple`: A search must find one specific item to succeed. This parameter accepts multiple matches in a search and enqueues all found items for playback. Accepts `1` or `true` to enable.
 
 Simplified examples are provided for [music](#music), [TV episodes](#tv-episode), and [movies](#movie). See [advanced searches](#advanced-searches) for complex/smart search capabilities.
@@ -179,7 +181,7 @@ media_content_id: '{ "playlist_name": "The Best of Disco", "shuffle": "1" }'
 | Service data attribute | Description                                                                                                                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | `entity_id` of the client                                                                                                                                                          |
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`show_name` or `show.title`</li><li>`season_number` or `season.index`</li><li>`episode_number` or `episode.index`</li><li>`shuffle` (0 or 1)</li><li>`allow_multiple` (0 or 1)</li></ul> |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`show_name` or `show.title`</li><li>`season_number` or `season.index`</li><li>`episode_number` or `episode.index`</li><li>`shuffle` (0 or 1)</li><li>`resume` (0 or 1)</li><li>`offset` (in seconds)</li><li>`allow_multiple` (0 or 1)</li></ul> |
 | `media_content_type`   | `EPISODE`                                                                                                                                                                          |
 
 ##### Examples:
@@ -200,12 +202,12 @@ media_content_type: EPISODE
 media_content_id: '{ "library_name": "Kids TV", "show_name": "Sesame Street", "shuffle": "1" }'
 ```
 
-Play the next unfinished episode of 60 Minutes from the library News TV
+Resume the next unfinished episode of 60 Minutes from the library News TV
 
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: EPISODE
-media_content_id: '{ "library_name": "News TV", "show_name": "60 Minutes", "episode.unwatched": true, "episode.inProgress": [true, false], "sort": "addedAt:asc", "maxresults": 1 }'
+media_content_id: '{ "library_name": "News TV", "show_name": "60 Minutes", "episode.unwatched": true, "episode.inProgress": [true, false], "resume": 1, "sort": "addedAt:asc", "maxresults": 1 }'
 ```
 
 #### Movie
@@ -213,7 +215,7 @@ media_content_id: '{ "library_name": "News TV", "show_name": "60 Minutes", "epis
 | Service data attribute | Description                                                                                             |
 | ---------------------- | ------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | `entity_id` of the client                                                                               |
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`title`</li></ul> |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`title`</li><li>`resume` (0 or 1)</li><li>`offset` (in seconds)</li></ul> |
 | `media_content_type`   | `movie`                                                                                                 |
 
 ##### Examples:
