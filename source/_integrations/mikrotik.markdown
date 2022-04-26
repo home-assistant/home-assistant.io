@@ -12,6 +12,7 @@ ha_domain: mikrotik
 ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](https://mikrotik.com) based router.

@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.36
 ha_iot_class: Local Push
 ha_domain: rest_command
+ha_integration_type: integration
 ---
 
 This integration can expose regular REST commands as services. Services can be called from a [script] or in [automation].

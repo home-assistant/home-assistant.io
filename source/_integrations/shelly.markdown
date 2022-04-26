@@ -23,13 +23,14 @@ ha_zeroconf: true
 ha_platforms:
   - binary_sensor
   - button
-  - diagnostics
   - climate
   - cover
+  - diagnostics
   - light
   - number
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.

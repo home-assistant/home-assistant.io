@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: counter
+ha_integration_type: integration
 ---
 
 The `counter` integration allows one to count occurrences fired by automations.

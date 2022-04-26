@@ -11,15 +11,14 @@ ha_codeowners:
 ha_domain: rtsp_to_webrtc
 ha_platforms:
   - diagnostics
+ha_integration_type: integration
 ---
 
 The RTSPtoWebRTC integration registers with [camera integration](/integrations/camera) to provide WebRTC live streams for any RTSP camera. The integration initiates a connection to a [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb) or [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) proxy server that converts an RTSP stream to a WebRTC stream.
 
 The integration configuration requires the URL to your server (e.g. `http://example.com:8083`) and will automatically discover which type of server you have.
 
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6hJXenSZJ5M" frameborder="0" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="6hJXenSZJ5M" videotitle="Real Time Camera Viewing using RTSPtoWeb and Glance Cards in Home Assistant." posterquality="maxresdefault"></lite-youtube>
 
 {% include integrations/config_flow.md %}
 

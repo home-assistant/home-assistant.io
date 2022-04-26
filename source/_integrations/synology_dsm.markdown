@@ -4,6 +4,7 @@ description: Instructions on how to integrate the Synology DSM sensor within Hom
 ha_category:
   - Camera
   - System Monitor
+  - Updates
 ha_release: 0.32
 ha_iot_class: Local Polling
 ha_domain: synology_dsm
@@ -15,11 +16,13 @@ ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
-  - camera
   - button
+  - camera
   - diagnostics
   - sensor
   - switch
+  - update
+ha_integration_type: integration
 ---
 
 The Synology DSM sensor platform provides access to various statistics from your [Synology NAS](https://www.synology.com) as well as cameras from the [Surveillance Station](https://www.synology.com/en-us/surveillance).
@@ -85,7 +88,7 @@ Entities reporting status, total size (TB), used size (TB), % of volume used, av
 
 ### General sensors
 
-Entities reporting the update and security status of the NAS.
+Entity reporting the security status of the NAS.
 
 <div class='note'>
 

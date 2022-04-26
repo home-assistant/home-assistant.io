@@ -8,6 +8,7 @@ ha_iot_class: Cloud Push
 ha_domain: html5
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `html5` notification platform enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.

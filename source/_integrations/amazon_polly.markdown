@@ -8,6 +8,7 @@ ha_domain: amazon_polly
 ha_iot_class: Cloud Push
 ha_platforms:
   - tts
+ha_integration_type: integration
 ---
 
 The `amazon_polly` text-to-speech platform that works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.

@@ -3,7 +3,7 @@ title: "Setup basic information"
 description: "Setting up the basic info of Home Assistant."
 ---
 
-As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a temperature unit and time zone based on this location. You may adjust this during onboarding, or afterwards at {% my general title="Configuration -> General" %}.
+As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a temperature unit and time zone based on this location. You may adjust this during onboarding, or afterwards at {% my general title="Configuration > General" %}.
 
 If you prefer YAML, you can add the following information to your `configuration.yaml`:
 
@@ -29,7 +29,11 @@ homeassistant:
   legacy_templates: false
 ```
 
-NOTE: You will not be able to edit anything in {% my general title="Configuration -> General" %} in the UI if you are using YAML configuration for any of the following: name, latitude, longitude, elevation, unit_system, temperature_unit, time_zone, external_url, internal_url.
+<div class='note'>
+
+  You will not be able to edit anything in {% my general title="Configuration > General" %} in the UI if you are using YAML configuration for any of the following: name, latitude, longitude, elevation, unit_system, temperature_unit, time_zone, external_url, internal_url. Additionally, some options are only visible after "Advanced Mode" is enabled on your {% my profile title="User Profile" %}.
+
+</div>
 
 {% configuration %}
 name:

@@ -16,6 +16,7 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 The `powerwall` integration allows you to integrate your [Tesla Powerwall](https://www.tesla.com/powerwall) into Home Assistant.
@@ -47,6 +48,7 @@ The following sensors are added for each Powerwall:
 - Powerwall Load Now - Load usage in kW
 - Powerwall Solar Now - Solar usage in kW (if applicable)
 - Powerwall Site Now - Site usage in kW
+- Powerwall Backup Reserve - Percentage of battery which will be reserved for a grid outage
 
 The following sensors show the direction of energy:
 

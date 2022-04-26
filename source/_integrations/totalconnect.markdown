@@ -13,6 +13,7 @@ ha_domain: totalconnect
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+ha_integration_type: integration
 ---
 
 The `totalconnect` integration provides connectivity with Resideo Total Connect 2.0-enabled alarm systems.

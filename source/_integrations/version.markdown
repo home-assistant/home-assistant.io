@@ -2,8 +2,8 @@
 title: Version
 description: Instructions on how to integrate the Version integration into Home Assistant.
 ha_category:
-  - Utility
   - Sensor
+  - Utility
 ha_iot_class: Local Push
 ha_release: 0.52
 ha_quality_scale: internal
@@ -16,6 +16,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The Version integration can display the current Home Assistant Core versions.
@@ -28,10 +29,10 @@ With this integration you can select various sources to get a version from.
 
 {% configuration_basic %}
   "Local installation":
-    description: The will get the version you are currently running.
+    description: This will get the version you are currently running.
 
   "Home Assistant Versions":
-    description: This will use the same source that are used by the Supervisor to check for updates based on the channel and image you choose..
+    description: This will use the same source that are used by the Supervisor to check for updates based on the channel and image you choose.
 
   "Home Assistant Website":
     description: This will check the website you are reading this on to find the latest version.
@@ -43,3 +44,15 @@ With this integration you can select various sources to get a version from.
     description: This will check PyPI for the latest published package.
 
 {% endconfiguration_basic %}
+
+## Entities
+
+The entities created by this integration depends on which source you set it up with (you can also set up the integration multiple times to use more sources).
+
+### Sensor
+
+For all sources the integration will create a [sensor](/integrations/sensor) entity that displays the newest version published to that source.
+
+### Binary Sensor
+
+For all sources (except for the ["Local installation"](#local-installation) source) the integration will create a [binary_sensor](/integrations/binary_sensor) entity that show if there is a newer version than the one you are currently running published to that source.

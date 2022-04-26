@@ -2,9 +2,9 @@
 title: Environment Canada
 description: Weather data from Environment Canada.
 ha_category:
-  - Weather
-  - Sensor
   - Camera
+  - Sensor
+  - Weather
 ha_platforms:
   - camera
   - sensor
@@ -16,6 +16,7 @@ ha_codeowners:
   - '@michaeldavie'
 ha_domain: environment_canada
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The Environment Canada integration provides meteorological data for Canadian locations from [Environment and Climate Change Canada](https://weather.gc.ca/index_e.html).
@@ -59,11 +60,11 @@ By default, the radar entity uses the rain layer from 1 April to 30 November and
 #### Temperature
 
 - Temperature
-- Wind chill
-- Humidex
 - Forecast high temperature
 - Forecast low temperature
 - Dewpoint
+- Wind chill (only at temperatures below 0ºC)
+- Humidex (only at temperatures above 19ºC)
 
 #### Wind
 

@@ -11,11 +11,14 @@ ha_codeowners:
 ha_domain: updater
 ha_platforms:
   - binary_sensor
+ha_integration_type: integration
 ---
 
 <div class='note warning'>
 
 This integration is deprecated and will be removed in Home Assistant Core 2022.5.
+  
+Similar functionality is available using the [Version integration](/integrations/version/).
 
 </div>
 

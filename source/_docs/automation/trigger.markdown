@@ -23,6 +23,8 @@ An automation can be triggered by an event, with a certain entity state, at a gi
 - [Zone trigger](#zone-trigger)
 - [Geolocation trigger](#geolocation-trigger)
 - [Device triggers](#device-triggers)
+- [Multiple triggers](#multiple-triggers)
+- [Multiple Entity IDs for the same Trigger](#multiple-entity-ids-for-the-same-trigger)
 
 ## Trigger ID
 
@@ -46,7 +48,28 @@ automation:
 
 ## Trigger variables
 
-Similar to [script level variables](/integrations/script/#variables), `trigger_variables` will be available in [trigger templates](/docs/automation/templating) with the difference that only [limited templates](/docs/configuration/templating/#limited-templates) can  be used to pass a value to the trigger variable.
+There are two different types of variables available for triggers. Both work like [script level variables](/integrations/script/#variables).
+
+The first variant allows you to define variables that will be set when the trigger fires. The variables will be able to use templates and have access to [the `trigger` variable](/docs/automation/templating#available-trigger-data).
+
+The second variant is setting variables that are available when attaching a trigger when the trigger can contain templated values. These are defined using the `trigger_variables` key at an automation level. These variables can only contain [limited templates](/docs/configuration/templating/#limited-templates). The triggers will not re-apply if the value of the template changes. Trigger variables are a feature meant to support using blueprint inputs in triggers.
+
+{% raw %}
+
+```yaml
+automation:
+  trigger_variables:
+    my_event: example_event
+  trigger:
+    - platform: event
+      # Able to use `trigger_variables`
+      event_type: "{{ my_event }}"
+      # These variables are evaluated and set when this trigger is triggered
+      variables:
+        name: "{{ trigger.event.data.name }}"
+```
+
+{% endraw %}
 
 ## Event trigger
 

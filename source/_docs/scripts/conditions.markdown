@@ -209,8 +209,8 @@ condition:
   condition: state
   entity_id: alarm_control_panel.home
   state:
-    - armed_away
-    - armed_home
+    - "armed_away"
+    - "armed_home"
 ```
 
 Or, combine multiple entities with multiple states. In the following example,
@@ -223,8 +223,8 @@ condition:
     - media_player.living_room
     - media_player.kitchen
   state:
-    - playing
-    - paused
+    - "playing"
+    - "paused"
 ```
 
 Alternatively, the condition can test against a state attribute.
@@ -235,7 +235,7 @@ condition:
   condition: state
   entity_id: climate.living_room_thermostat
   attribute: hvac_modes
-  state: heat
+  state: "heat"
 ```
 
 Finally, the `state` option accepts helper entities (also known as `input_*`
