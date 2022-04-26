@@ -375,13 +375,13 @@ For a summary in a more readable format:
 - Add recorder platform to input_number ([@frenck] - [#70226]) ([input_number docs]) (breaking-change)
 - Add recorder platform to input_text ([@frenck] - [#70227]) ([input_text docs]) (breaking-change)
 - Replace Alarm Control Panel FORMAT_ constants with CodeFormat enum ([@frenck] - [#69861]) (breaking-change)
-- Add Template selector ([@frenck] - [#70229])
+- Add Template selector ([@frenck] - [#70229]) (noteworthy)
 - Improve AsusWRT diagnostics ([@ollo69] - [#69826]) ([asuswrt docs])
 - Improve AsusWrt test coverage ([@ollo69] - [#70215]) ([asuswrt docs])
 - Reduce state updates for OctoPrint ([@slovdahl] - [#70146]) ([octoprint docs])
 - Add shorthand notation for boolean conditions ([@thomasloven] - [#70120]) (noteworthy)
 - Add recorder platform to input_select ([@bdraco] - [#70223]) ([input_select docs]) (breaking-change)
-- Add update platform for Sensibo ([@gjohansson-ST] - [#70180]) ([sensibo docs]) (breaking-change)
+- Add update platform for Sensibo ([@gjohansson-ST] - [#70180]) ([sensibo docs]) (breaking-change) (noteworthy)
 - Add outage map alerts to PECO ([@IceBotYT] - [#69825]) ([peco docs])
 - Refactor history_stats to minimize database access (part 1) ([@bdraco] - [#70134]) ([history_stats docs])
 - Fix issue with turning the ambilight on after switched off ([@bramstroker] - [#69132]) ([philips_js docs])
@@ -397,11 +397,11 @@ For a summary in a more readable format:
 - Update sentry-sdk to 1.5.10 ([@frenck] - [#70269]) ([sentry docs]) (dependency)
 - Update Pillow to 9.1.0 ([@frenck] - [#70273]) (dependency)
 - Add Z-Wave.Me Fan support ([@PoltoS] - [#69768]) ([zwave_me docs]) (new-platform)
-- Add clear_skipped service to update entity ([@frenck] - [#70116]) ([update docs])
+- Add clear_skipped service to update entity ([@frenck] - [#70116]) ([update docs]) (noteworthy)
 - Add target_temp_step to generic_thermostat ([@arantes555] - [#58691]) ([generic_thermostat docs])
 - Update aioairzone to v0.4.0 ([@Noltari] - [#70280]) ([airzone docs])
 - Enable long term statistics for Xiaomi Mijia BLE Temperature and Humidity Sensor ([@mib1185] - [#70272]) ([mitemp_bt docs])
-- Add update entity to fritz integration ([@Mask3007] - [#70096]) ([fritz docs]) (breaking-change)
+- Add update entity to fritz integration ([@Mask3007] - [#70096]) ([fritz docs]) (breaking-change) (noteworthy)
 - Add humidity to tomorrowio hourly weather forecasts ([@lymanepp] - [#70186]) ([tomorrowio docs])
 - Enable strict typing for deCONZ platforms cover+lock+siren+switch ([@Kane610] - [#69930]) ([deconz docs])
 - Add extra tests for input text ([@balloob] - [#70283]) ([input_text docs])
@@ -415,7 +415,7 @@ For a summary in a more readable format:
 - Elk types 4 ([@gwww] - [#70305]) ([elkm1 docs])
 - Highlight to drag-and-drop diagnostic data instead of copy-and-paste in issue template ([@mib1185] - [#70279])
 - Scale Z-Wave.Me max values ([@PoltoS] - [#70274]) ([zwave_me docs])
-- Add backup.create service ([@frenck] - [#70118]) ([backup docs])
+- Add backup.create service ([@frenck] - [#70118]) ([backup docs]) (noteworthy)
 - Don't attempt to set invalid fan percentage and preset_mode (try 3) ([@Flameeyes] - [#70294]) ([fan docs]) (breaking-change)
 - Add cmake to devcontainer ([@justinedelson] - [#70253])
 - Enable strict typing for deCONZ platforms ([@Kane610] - [#70290]) ([deconz docs])
@@ -448,8 +448,8 @@ For a summary in a more readable format:
 - IntelliFire Config API Token Config Update ([@jeeftor] - [#68134]) ([intellifire docs])
 - Allow device conditions and triggers for unitless sensors ([@emontnemery] - [#70337]) ([sensor docs])
 - Restore state of trigger-based template sensor ([@emontnemery] - [#69344]) ([template docs]) (breaking-change)
-- Add Sonos favorites sensor ([@jjlawren] - [#70235]) ([sonos docs])
-- Add unique ID to scripts ([@frenck] - [#70345]) ([script docs])
+- Add Sonos favorites sensor ([@jjlawren] - [#70235]) ([sonos docs]) (noteworthy)
+- Add unique ID to scripts ([@frenck] - [#70345]) ([script docs]) (noteworthy)
 - Add diagnostics to ONVIF ([@hunterjm] - [#69708]) ([onvif docs])
 - Handle additional ONVIF messages (Hikvision) ([@davet2001] - [#66357]) ([onvif docs])
 - Update pylint to 2.13.7 ([@cdce8p] - [#70381]) ([xiaomi_miio docs]) (dependency)
@@ -475,7 +475,7 @@ For a summary in a more readable format:
 - Reorganize tomorrowio code to keep it clean ([@raman325] - [#70454]) ([tomorrowio docs])
 - Use ColorMode enum in bond ([@epenet] - [#70427]) ([bond docs])
 - Remove deprecated YAML configuration from ONVIF ([@hunterjm] - [#70395]) ([onvif docs]) (breaking-change)
-- Add calendar event end trigger ([@allenporter] - [#70372]) ([calendar docs])
+- Add calendar event end trigger ([@allenporter] - [#70372]) ([calendar docs]) (noteworthy)
 - Split and refactor AirzoneEntity ([@Noltari] - [#70421]) ([airzone docs])
 - Add Airzone Low Battery Binary Sensor ([@Noltari] - [#69022]) ([airzone docs])
 - deCONZ dependency exports type hints ([@Kane610] - [#70449]) ([deconz docs]) (dependency)
@@ -588,7 +588,7 @@ For a summary in a more readable format:
 - Use VacuumEntityFeature in roomba ([@epenet] - [#70577]) ([roomba docs])
 - Add "LUX" manufacturer to "ZenWithin" ZHA thermostat ([@TheJulianJES] - [#70190]) ([zha docs])
 - ZHA ElectricalMeasurement cluster add Frequency and Power Factor ([@glcos] - [#59417]) ([zha docs]) ([sensor docs])
-- Implement support for start_up_on_off in ZHA ([@dmulcahey] - [#70110]) ([zha docs])
+- Implement support for start_up_on_off in ZHA ([@dmulcahey] - [#70110]) ([zha docs]) (noteworthy)
 - Bump async-upnp-client to 0.28.0 ([@StevenLooman] - [#70582]) ([upnp docs]) ([yeelight docs]) ([dlna_dmr docs]) ([samsungtv docs]) ([ssdp docs]) ([dlna_dms docs]) (dependency)
 - Implement config flow for SQL integration ([@gjohansson-ST] - [#68700]) ([sql docs]) (breaking-change) (config-flow)
 - Use ColorMode enum in mqtt ([@epenet] - [#70579]) ([mqtt docs])
@@ -643,7 +643,7 @@ For a summary in a more readable format:
 - Use climate enums in mysensors ([@epenet] - [#70692]) ([mysensors docs])
 - Remove metadata from device conditions and triggers ([@emontnemery] - [#70695]) ([device_automation docs])
 - Update async_upnp_client to 0.29.0 ([@bdraco] - [#70604]) ([yeelight docs]) ([ssdp docs])
-- Add duration device class to sensor platform ([@bdraco] - [#70543]) ([sensor docs])
+- Add duration device class to sensor platform ([@bdraco] - [#70543]) ([sensor docs]) (noteworthy)
 - Fix hidden default ([@balloob] - [#70699])
 - Avoid selecting last_updated from the db when filtering on last_updated==last_changed ([@bdraco] - [#70459]) ([recorder docs])
 - Use climate enums in bsblan ([@epenet] - [#70627]) ([bsblan docs])
@@ -745,6 +745,15 @@ For a summary in a more readable format:
 - Use light enums in wiz ([@epenet] - [#70785]) ([wiz docs])
 - Use light enums in velbus ([@epenet] - [#70784]) ([velbus docs])
 - Remove manage URL for hassio system health info ([@ludeeus] - [#70776]) ([hassio docs])
+- Use light enums in tplink ([@epenet] - [#70787]) ([tplink docs])
+- Use light enums in yeelight ([@epenet] - [#70797]) ([yeelight docs])
+- Use light enums in smarttub ([@epenet] - [#70789]) ([smarttub docs])
+- Detect duplicate script objects in config validation ([@frenck] - [#70368]) ([script docs])
+- Use light enums in tests ([@epenet] - [#70801])
+- Prepare for upcoming mypy update ([@cdce8p] - [#70800]) ([fritz docs]) ([statistics docs])
+- Use database executor in migration test ([@bdraco] - [#70774]) ([recorder docs])
+- Fix update entity not sticking with skipped version ([@frenck] - [#70779]) ([update docs])
+- Create zwave_js.invoke_cc_api service ([@raman325] - [#70466]) ([zwave_js docs])
 
 [#44929]: https://github.com/home-assistant/core/pull/44929
 [#55260]: https://github.com/home-assistant/core/pull/55260
@@ -1214,6 +1223,7 @@ For a summary in a more readable format:
 [#70358]: https://github.com/home-assistant/core/pull/70358
 [#70363]: https://github.com/home-assistant/core/pull/70363
 [#70366]: https://github.com/home-assistant/core/pull/70366
+[#70368]: https://github.com/home-assistant/core/pull/70368
 [#70370]: https://github.com/home-assistant/core/pull/70370
 [#70372]: https://github.com/home-assistant/core/pull/70372
 [#70374]: https://github.com/home-assistant/core/pull/70374
@@ -1255,6 +1265,7 @@ For a summary in a more readable format:
 [#70459]: https://github.com/home-assistant/core/pull/70459
 [#70463]: https://github.com/home-assistant/core/pull/70463
 [#70464]: https://github.com/home-assistant/core/pull/70464
+[#70466]: https://github.com/home-assistant/core/pull/70466
 [#70467]: https://github.com/home-assistant/core/pull/70467
 [#70468]: https://github.com/home-assistant/core/pull/70468
 [#70469]: https://github.com/home-assistant/core/pull/70469
@@ -1469,11 +1480,15 @@ For a summary in a more readable format:
 [#70769]: https://github.com/home-assistant/core/pull/70769
 [#70770]: https://github.com/home-assistant/core/pull/70770
 [#70772]: https://github.com/home-assistant/core/pull/70772
+[#70774]: https://github.com/home-assistant/core/pull/70774
 [#70776]: https://github.com/home-assistant/core/pull/70776
+[#70779]: https://github.com/home-assistant/core/pull/70779
 [#70783]: https://github.com/home-assistant/core/pull/70783
 [#70784]: https://github.com/home-assistant/core/pull/70784
 [#70785]: https://github.com/home-assistant/core/pull/70785
 [#70786]: https://github.com/home-assistant/core/pull/70786
+[#70787]: https://github.com/home-assistant/core/pull/70787
+[#70789]: https://github.com/home-assistant/core/pull/70789
 [#70790]: https://github.com/home-assistant/core/pull/70790
 [#70791]: https://github.com/home-assistant/core/pull/70791
 [#70792]: https://github.com/home-assistant/core/pull/70792
@@ -1481,6 +1496,9 @@ For a summary in a more readable format:
 [#70794]: https://github.com/home-assistant/core/pull/70794
 [#70795]: https://github.com/home-assistant/core/pull/70795
 [#70796]: https://github.com/home-assistant/core/pull/70796
+[#70797]: https://github.com/home-assistant/core/pull/70797
+[#70800]: https://github.com/home-assistant/core/pull/70800
+[#70801]: https://github.com/home-assistant/core/pull/70801
 [@DDanii]: https://github.com/DDanii
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@Djelibeybi]: https://github.com/Djelibeybi

@@ -13,7 +13,7 @@ categories:
 og_image: /images/blog/2022-05/social.png
 ---
 
-<!--<a href='/integrations/#version/2022.4'><img src='/images/blog/2022-04/social.png' style='border: 0;box-shadow: none;'></a>-->
+<a href='/integrations/#version/2022.5'><img src='/images/blog/2022-05/social.png' style='border: 0;box-shadow: none;'></a>
 
 These are the beta release notes for Home Assistant Core 2022.5 (and is thus a
 work in progress).
@@ -46,7 +46,20 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Lorem ipsum](#lorem-ipsum)
+- [Reoganized configuration menu](#reoganized-configuration-menu)
+- [Find entities even quicker than before](#find-entities-even-quicker-than-before)
+- [Gauge card segment colors](#gauge-card-segment-colors)
+- [New automation & script features](#new-automation--script-features)
+  - [If-then](#if-then)
+  - [Calendar trigger](#calendar-trigger)
+  - [For each](#for-each)
+  - [Continue on error](#continue-on-error)
+  - [Stopping a script or automation](#stopping-a-script-or-automation)
+  - [Parallelizing actions](#parallelizing-actions)
+  - [And there is even more!](#and-there-is-even-more)
+- [Database optimizations](#database-optimizations)
+- [Update entity updates](#update-entity-updates)
+- [Template selector](#template-selector)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -67,33 +80,573 @@ You can now mark an entity as hidden in the entity settings.
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FLH4SXMAQS4" frameborder="0" allowfullscreen></iframe>
 </div>-->
 
-## Lorem ipsum
+## Reoganized configuration menu
 
-Lorem ipsum
+{% details "TODO" %}
+
+- Improve story/add more information on "why".
+- Needs more body, this is a huge change and improvement.
+- Add screenshots when fontend UI is stabilized/finished for this release
+- Review important movements to highlight.
+- Add a breaking change section to summerize the shifts?
+
+{% enddetails %}
+
+A couple of releases ago, we have started the process of reorganizing the
+configuration menu, this release is bringing the next big step in that
+reorganizing.
+
+Goal is to have everything in a single logical place, having it accessible
+nicely from mobile devices and prepare for future expansion.
+
+<img class="no-shadow" src='/images/blog/2022-05/configuration-menu.png' alt='Screenshot showing the new configuration menu structure'>
+
+Are you running Home Assistant OS or Supervised? The Supervisor has been fully
+merged into the configuration menu, to provide a seamless/unified experience.
+This removes weirdness like having a network section in the system menu
+but also in the Supervisor section.
+
+Blueprints are now moved to the automations & scenes section, and by popular
+request: Helpers have moved to the devices & services page. Areas & Zone are
+now nicely brought together in a single menu and there is now an extensive
+System menu.
+
+## Find entities even quicker than before
+
+Looking to access that one entity quickly? But it isn't on your dashboard?
+
+The [Quick Bar](/docs/tools/quick-bar/) is actually really helpful for that,
+just press `e` anywhere you are in Home Assistant. But what if you are on
+mobile or a tablet?
+
+This release add a quick search button to the dashboards, so you can look up
+and access any entity you need, at any time; Even when its not on your current
+dashboard.
+
+<img class="no-shadow" src='/images/blog/2022-05/entity-finder.png' alt='Screenshot showing the new quick search button'>
+
+## Gauge card segment colors
+
+A nice addition by [@Netzwerkfehler] this release, is the ability to freely
+define the the number of segments, and their colors, for the gauge card!
+
+<p class='img'>
+<img src='/images/dashboards/lovelace_gauge_segments.png' alt='Screenshot of the gauge card with multiple colored segments.'>
+Screenshot of the gauge card with multiple colored segments.
+</p>
+
+This can be really helpful if you'd like to define upper and lower sensor
+limits on your gauge, as shown in the example above. The configuration example
+used for the above screenshot, can be found in the [Gauge Card documentation].
+
+[@Netzwerkfehler]: https://github.com/Netzwerkfehler
+[Gauge Card documentation]: /dashboards/gauge/#examples
+
+## New automation & script features
+
+{% details "TODO" %}
+
+- Order of all chapters; should they be subsections?
+- If-Then:
+  - Replace screenshot
+  - Check story/contents
+  - Shorter example?
+- Calendar trigger:
+  - Replace screenshot
+  - Check story
+- For each:
+  - Improve story
+  - Better example?
+- Parallelizing actions: 
+  - Simplify?
+  - Less warnings to make it less negative?
+- Stopping a script or automation:
+  - Replace screenshot
+  - Story... is meh
+- The more stuff section... Its just a lot, figure out a way
+  to organize the story.
+
+{% enddetails %}
+
+
+This release is packed with new automation & script features! Some have been
+added to the UI, others are advanced features that are currently only available
+for when using YAML.
+
+One thing almost all these changes have in common: They have been requested
+and votes for by the community in our [Feature Requests] forum.
+
+[Feature Requests]: https://community.home-assistant.io/c/feature-requests/13
+
+### If-then
+
+When we introduced the [Choose action](/docs/scripts/#choose-a-group-of-actions),
+our goal was to provide a structure that allowed for other action sequences
+selectively based on conditions.
+
+While this structure is very flexible and extensive, there was still a desire
+for an if-then(-else) structure, that is small, simple, compact and clean to
+use. This release brings you just that.
+
+The new if-then action is available via the automations and scripts editors.
+
+<img class="no-shadow" src='https://user-images.githubusercontent.com/195327/162737991-d97d3cf0-2039-4ebe-9295-1c3d7fdeff90.png' alt='Screenshot showing If-then'>
+
+An example in YAML:
+
+```yaml
+actions:
+  - if:
+      - alias: "If no one is home"
+        condition: state
+        entity_id: zone.home
+        state: 0
+    then:
+      - alias: "Then start cleaning already!"
+        service: vacuum.start
+        target:
+          area_id: living_room
+    # The `else` is fully optional and can be omitted
+    else:
+      - service: notify.notify
+        data:
+          message: "Skipped cleaning, someone is home!"
+```
+
+[More information can be found in the scripts documentation](/docs/scripts/#if-then)
+
+### Calendar trigger
+
+This release [@allenporter] gave the [Calendar] integration (and the
+[Google Calendars] integration lots of love. In the process a new Calendar
+trigger was added, which is available for use in your automations.
+
+<img class="no-shadow" src='/images/integrations/calendar/trigger.png' alt='Screenshot showing the calendar trigger'>
+
+This brand new trigger is a little more flexible compared to the (previously 
+only other option) state trigger. It is availble for automation in YAML as well,
+and the trigger provides [a lot of trigger variables](/docs/automation/templating/#calendar)
+you can use in your templates.
+
+[More information can be found in the Calendar integration documentation](/integrations/calendar/#automation)
+
+[@allenporter]: https://github.com/allenporter
+[Calendar]: /integrations/calendar/
+[Google Calendars]: /integrations/google
+
+### For each
+
+We had a number of options available, to repeat a [group of actions]. For
+example, repeating based on a count, reapting while a condition passes and
+repeating until a condition passes.
+
+These have been very powerful, but, repeating a sequence for a items in a list
+was also requested and voted for. This release implements: For each.
+
+This is an advanced feature, and is only available for use in YAML right now.
+Here is an example of a for each that sends out two notifications in different
+languages:
+
+{% raw %}
+
+```yaml
+repeat:
+  for_each:
+    - language: English
+      message: Hello World
+    - language: Dutch
+      hello: Hallo Wereld
+  sequence:
+    - service: notify.phone
+      data:
+        title: "Message in {{ repeat.item.language }}"
+        message: "{{ repeat.item.message }}!"
+```
+
+{% endraw %}
+
+Each item in the list will be run against a sequence of actions and the item
+is available as a variable you can use in your templates. The list of
+items you can provide to `for_each` can be mappings, lists of just strings
+and even complex templates that provide a list as a result.
+
+[More information can be found in the scripts documentation](/docs/scripts/#for-each)
+
+[group of actions]: /docs/scripts/#repeat-a-group-of-actions
+
+### Continue on error
+
+A automation and script runs a sequence of actions. One of the comments and
+question we often see/read/get is: "If one of the actions fails, why does
+the whole automtion stop?"
+
+Good question! To answer this, we have added a new feature: Continue on error.
+This will enable you to allow certain steps in an automation or script sequence
+to fail, without interupting the whole sequence.
+
+This is an example of a script that will always run the second action, even
+if the first action fails with an error.
+
+```yaml
+sequence:
+  - alias: "If this one fails..."
+    continue_on_error: true
+    service: notify.super_unreliable_service_provider
+    data:
+      message: "I'm going to error out..."
+
+  - alias: "This one will still run!"
+    service: persistent_notification.create
+    data:
+      title: "Hi there!"
+      message: "I'm fine..."
+```
+
+This is an advanced feature, currently only availble for automations in YAML.
+
+[More information can be found in the scripts documentation](/docs/scripts/#continuing-on-error)
+
+### Stopping a script or automation
+
+You can now stop a script or automation half way using the Stop action.
+Combined with the previously mentioned new If-then action, this can be used
+to conditionally stop an automation or script.
+
+This can be helpful, for example, in case you want just part of a automation
+to run when you are home and run it at full when you are away.
+
+This feature is available both via the UI and YAML.
+
+<img class="no-shadow" src='https://user-images.githubusercontent.com/195327/163601771-1e8a1e6e-c4e3-4b18-a388-fc17b946dea8.png' alt='Screenshot showing the new stop action'>
+
+Additionally, the stop action can be set as an "error" which gives
+you a way to stop an automation or script and mark it as an error (for
+example, if you detected something unexpected).
+
+[More information can be found in the scripts documentation](/docs/scripts/#stopping-a-script-sequence)
+
+### Parallelizing actions
+
+This release introduces, a highly advanced feature, that provides a way to
+parallelize actions (or groups of actions).
+
+By default, all sequences of actions in Home Assistant run sequentially.
+This means the next action is started after the current action has been
+completed.
+
+This is not always needed, for example, if the sequence of actions
+doesn’t rely on each other and order doesn’t matter. For those cases, the
+parallel action can be used to run the actions in the sequence in parallel,
+meaning all the actions are started at the same time.
+
+```yaml
+automation:
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.motion
+        to: "on"
+    action:
+      - parallel:
+          - service: notify.person1
+            data:
+              message: "These messages are sent at the same time!"
+          - service: notify.person2
+            data:
+              message: "These messages are sent at the same time!"
+```
+
+As said, this is quite an powerful and advanced feature, and it comes with
+caveats. Be sure to check out the [script documentation on parallizing actions](/docs/scripts/#parallelizing-actions)
+before you decide on using it.
+
+### And there is even more!
+
+These items still need to be processed for the release notes, or might just
+be summed up.
+
+- **Allow any entity to match state condition** ([@frenck] - [#69763])
+  
+  If any of the entities matches a certain condition, instead of all of them:
+
+  ```yaml
+  condition:
+  condition: state
+  entity_id:
+    - binary_sensor.motion_sensor_left
+    - binary_sensor.motion_sensor_right
+  match: any
+  state: "on"
+  ```
+
+  YAML only capability.
+
+  [More information can be found on the state condition documentation](/docs/scripts/conditions#state-condition)
+
+- **Trigger on not matching to/from states** ([@frenck] - [#69760])
+
+  Adds support for `not_from` and `not_to` in the state trigger:
+
+  ```yaml
+  automation:
+  trigger:
+    - platform: state
+      entity_id: light.living_room
+      not_from:
+        - "unavailable"
+        - "unknown"
+      to: "on"
+  ```
+
+  ```yaml
+  automation:
+  trigger:
+    - alias: "Trigger on any alarm state, except when it is disarmed"
+      platform: state
+      entity_id: alarm_control_panel.home
+      not_to: "disarmed"
+  ```
+
+  YAML only capability.
+
+  [More information can be found on the state condition documentation](/docs/scripts/conditions#state-condition)
+
+- **Allow disabling specific triggers/actions/conditions** ([@frenck] - [#70082])
+
+  Adds support to disable/enable any trigger, action or condition; without
+  removing it from the automation or script.
+
+  ```yaml
+  # Example automation with a disabled trigger
+  automation:
+    trigger:
+      # This trigger will not trigger, as it is disabled.
+      # This automation does not run when the sun is set.
+      - enabled: false
+        platform: sun
+        event: sunset
+
+      # This trigger will fire, as it is not disabled.
+      - platform: time
+        at: "15:32:00"
+  ```
+
+  Currently only supported by YAML, but supposed to be a UI driven feature
+  (as well, in YAML you can just comment out). UI feature hasn't landed yet.
+
+  - Triggers: <https://rc.home-assistant.io/docs/automation/trigger/#disabling-a-trigger>
+  - Conditions: <https://rc.home-assistant.io/docs/scripts/conditions#disabling-a-condition>
+  - Actions: <https://rc.home-assistant.io/docs/scripts/#disabling-an-action>
+
+- **Add shorthand notation for logical conditions** ([@thomasloven] - [#70120])
+
+  This add a shorter/cleaner syntax for logical conditions (`and`, `or`, `not`)
+
+  ```yaml
+  or:
+    - <condition>
+    - and:
+      - <condition>
+      - <condition>
+    - not:
+      - <condition>
+  ```
+
+  A full example
+
+  ```yaml
+  automation test:
+    - trigger:
+      - platform: state
+        entity_id: light.bed_light
+        to: "on"
+      condition:
+        - or:
+          - condition: state
+            entity_id: light.ceiling_lights
+            state: "on"
+          - condition: state
+            entity_id: light.kitchen_lights
+            state: "on"
+      action:
+        - service: light.turn_off
+          target:
+            entity_id: light.bed_light
+  ```
+
+  This feature is YAML only and currently causes issues with the UI editor.
+  There is a possibility this feature is pulled from the beta until UI support
+  is fixed in a future release.
+
+  [More information can be found on the condition documentation](/docs/scripts/conditions#logical-conditions)
+
+- **Allow selecting multiple entities for state trigger** (#12334) @frenck
+
+  This is a UI feature that allows you to create a single trigger with multiple
+  entities. In YAML this has been possible for a long time already, but this
+  release added support for it in the UI editors.
+
+  <img class="no-shadow" src='https://user-images.githubusercontent.com/195327/163603895-126f08d0-705e-4f30-9c6f-a02392d8ff86.png' alt='Screenshot showing multiple entites in a single trigger from the UI.'>
+
+## Database optimizations
+
+{% details "TODO" %}
+
+- Add automatic monthly repacking to section?
+  - Auto repack the database on the second sunday of the month ([@bdraco] - [#69314]) ([recorder docs]) (breaking-change) (noteworthy)
+
+{% enddetails %}
+
+The last release focused on reducing the size of the database and optimizing
+the writing of data to the database.
+
+While there are some additional optimizations in this release to further reduce
+the amount of data that needs to be written, in this release, we focused on how
+often data is read from the database and optimizing its scale for larger setups.
+
+This release is for you if you have many sensors generating statistics, as
+compiling statistics now takes 30-100x less time. 
+
+Are you using the [History Stats] integration? The number of database queries
+needed for most sensors with a fixed start time is 99% less.
+
+Even if your instance is small and you don’t record many states, you’ll benefit
+from the recorder optimizations to avoid waking up when there is no new
+data to commit.
+
+We have made additional improvements to the history APIs to speed up retrieving
+from the database, reducing API response times by 15-35% on average.
+
+Finally, we have reduced the memory used during database migrations to smooth
+future migrations.
+
+[History Stats]: /integrations/history_stats
+
+## Update entity updates
+
+{% details "TODO" %}
+
+- Add screenshot
+- Improve story
+- Link some blueprints from the community?
+
+{% enddetails %}
+
+In the [previous release, we introduced update entities](/blog/2022/04/06/release-20224/#introducing-update-entities).
+It was a well received concept and this release, we added a couple of
+improvements to it, based on the feedback we've received from you all.
+
+Almost all feedback involved "Skipping an update"-related functionality. How
+to see which updates I have skipped? Can I unskip an update?
+
+To help with these we added:
+
+- The possibility to view all skipped update from the UI.
+- Added an "unskip" button to the updates that have been skipped.
+- Added a {% my developer_call_service service="update.clear_skipped" %}
+  service that can be used in automation or scripts to unskip updates.
+
+This will give you full insight, control and automation capabilities to "unskip"
+any update you have previously skipped.
+
+Additionally, this release two new integrations have implemented the update
+entity: 
+
+- [Sensibo], done by [@gjohansson-ST]
+- [AVM FRITZ!Box Tools], done by [@Mask3007]
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@Mask3007]: https://github.com/Mask3007
+[AVM FRITZ!Box Tools]: /integrations/fritz
+[Sensibo]: /integrations/sensibo
+
+## Template selector
+
+{% details "TODO" %}
+
+- Revisit story
+- Replace screenshot
+- Make smaller item?
+
+{% enddetails %}
+
+A new [selector](/docs/blueprint/selectors/) has been added this release:
+The [Template selector].
+
+This new selector can be used in, for example, Blueprints to ask the user
+for a template input; providing a nice code editor with Jinja syntax
+highlighting and entity auto-completion.
+
+This release adds the template editor to the automation and script editors,
+in case of the template conditions and wait template action.
+
+<img class="no-shadow" src='https://user-images.githubusercontent.com/195327/164308418-72ae7e08-1ebc-44c7-82ec-7d51a931e65b.png' alt='Screenshot showing the template selector'>
+
+Selectors are not just available for Blueprints, but also for your script fields
+and (custom) integration and dashboard card developers.
+
+[Template selector]: /docs/blueprint/selectors/#template-selector
 
 ## Other noteworthy changes
+
+{% details "TODO" %}
+
+- Revisit / recheck for other, newer and/or better items
+- Check contents/spelling/grammar/order
+
+{% enddetails %}
 
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- [@frenck] added more lorem ipsum! Thanks!
-
+- Every script now automatically gets an unique ID, which means you can edit
+  their name, icon, and assign them to areas straight from the UI!
+  Thanks, [@frenck]!
+- If you run Z-Wave JS server manually in for example, a Docker container, it
+  will now be automatically discovered on your network. Thanks [@raman325]!
+- Template entities now have a `this` variable availble, which is reference
+  to state of the template entity itself. Awesome work [@akloeckner] and 
+  [@emontnemery]!
+- Running Home Assistant Core or Container? [@frenck] added the
+  {% my developer_call_service service="backup.create" %} service to the
+  [backup] integration allowing you to create an automation to create backups
+  on a schedule.
+- [@sisimomo] added Markdown support to Blueprint input descriptions, allow
+  you to add links to e.g., documentation in your Blueprints.
+- [Sonos] now has a favorites sensor, so you can access and use your favorites
+  in your automations, scripts and templates. Thanks [@jjlawren]!
+- [@dmulcahey] added support for configuring the power on state, of devices
+  that have this configuration option, to [ZHA]. Nice!
+- Sensors now have a new device class available: "duration". Thanks, [@bdraco]!
+- The output of [Media Selector] can now be directly used with play media
+  service calls in your Blueprints. Awesome, [@emontnemery]!
+- [@raman325] added frontend support for Sirens, so you can actually turn one
+  on from the UI. 🚨 Alarming news [@raman325]!
+- [@frenck] added an persons attribute to zones, which indicates who is
+  currently in a zone.
+- When customizing the device class / "Show as" of an entity in the UI, you can
+  now set it to nothing/emtpy as well. Thanks, [@zsarnett]!
+- [@rdfurman] Added support to the [Honeywell] Total Connect Comfort (US)
+  integration for outdoor sensors. Awesome!
+- [Philips TV] now provides a switch to turn on/off the "Ambilight+Hue" syncing
+  if your TV model supports that. Thanks, [@bramstroker]!
+  
+[@akloeckner]: https://github.com/akloeckner
+[@bdraco]: https://github.com/bdraco
+[@bramstroker]: https://github.com/bramstroker
+[@dmulcahey]: https://github.com/dmulcahey
+[@emontnemery]: https://github.com/emontnemery
 [@frenck]: https://github.com/frenck
-
-- Honeywell outdoor sensor ([@rdfurman] - [#65347]) ([honeywell docs]) (new-platform) (noteworthy)
-- Auto repack the database on the second sunday of the month ([@bdraco] - [#69314]) ([recorder docs]) (breaking-change) (noteworthy)
-- PhilipsTV - Add Ambilight + Hue switch entity ([@bramstroker] - [#69141]) ([philips_js docs]) (noteworthy)
-- Add zeroconf discovery to zwave_js ([@raman325] - [#69382]) ([zwave_js docs]) (noteworthy)
-- Add attribute to zone indicating persons in zone ([@frenck] - [#69767]) ([zone docs]) (noteworthy)
-- Allow any entity to match state condition ([@frenck] - [#69763]) (breaking-change) (dependency) (noteworthy)
-- Add stop/error script/automation action ([@frenck] - [#67340]) (noteworthy)
-- Add if/else automation/script action ([@frenck] - [#69811]) (noteworthy)
-- Drop frontend metadata from entity service schemas ([@emontnemery] - [#69894]) ([media_player docs]) (noteworthy)
-- Trigger on not matching to/from states ([@frenck] - [#69760]) ([homeassistant docs]) (noteworthy)
-- Add parallel automation/script actions ([@frenck] - [#69903]) (noteworthy)
-- Add ability to continue scripts/automations on error ([@frenck] - [#70004]) (noteworthy)
-- Allow disabling specific triggers/actions/conditions ([@frenck] - [#70082]) (noteworthy)
-- Add for each item support to repeat action ([@frenck] - [#70093]) (noteworthy)
+[@jjlawren]: https://github.com/jjlawren
+[@raman325]: https://github.com/raman325
+[@rdfurman]: https://github.com/rdfurman
+[@sisimomo]: https://github.com/sisimomo
+[@zsarnett]: https://github.com/zsarnett
+[backup]: /integrations/backup
+[Honeywell]: /integrations/honeywell
+[Media Selector]: /docs/blueprint/selectors/#media-selector
+[Philips TV]: /integrations/philips_js
+[Sonos]: /integrations/sonos
+[ZHA]: /integrations/zha
 
 ## New Integrations
 
@@ -111,10 +664,10 @@ We welcome the following new integrations this release:
 
 The following integrations are now available via the Home Assistant UI:
 
-- [Lorem Ipsum], done by [@frenck]
+- [SQL], done by [@gjohansson-ST]
 
-[@frenck]: https://github.com/frenck
-[Lorem Ipsum]: /integrations/lorem_ipsum
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[SQL]: /integrations/sql
 
 ## Need help? Join the community!
 
@@ -137,6 +690,22 @@ other news about building an Open Home; straight into your inbox.
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
+
+{% details "AVM FRITZ!Box Call Monitor" %}
+
+The previously deprecated YAML configuration of theAVM FRITZ!Box Call Monitor
+integration has been removed.
+
+AVM FRITZ!Box Call Monitor is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@cdce8p] - [#70829]) ([documentation](/integrations/fritzbox_callmonitor))
+
+[@cdce8p]: https://github.com/cdce8p
+[#70829]: https://github.com/home-assistant/core/pull/70829
+
+{% enddetails %}
 
 {% details "AVM FRITZ!Box Tools" %}
 
@@ -228,6 +797,20 @@ to adopt to this change.
 
 {% enddetails %}
 
+{% details "History Stats" %}
+
+The pretty formatted value attribute has been removed in favor of using the
+new duration state class which is formatted by the frontend.
+
+This change significantly reduces the number of rows stored in the database.
+
+([@bdraco] - [#70720]) ([documentation](/integrations/history_stats))
+
+[@bdraco]: https://github.com/bdraco
+[#70720]: https://github.com/home-assistant/core/pull/70720
+
+{% enddetails %}
+
 {% details "HomeKit" %}
 
 The device class `carbon_dioxide` is no longer admitted as a `binary_sensor`
@@ -292,6 +875,21 @@ sensor is in `kWh` not `MWs`.
 
 {% enddetails %}
 
+{% details "LIFX" %}
+
+The LIFX integration changed the network adapters used to discover LIFX devices.
+Instead of enabling all adapters on which LIFX devices appear, it now only
+uses the adapter(s) enabled in Home Assistant.
+
+This makes discovery of LIFX faster and more reliable.
+
+([@Djelibeybi] - [#70458]) ([documentation](/integrations/lifx))
+
+[@Djelibeybi]: https://github.com/Djelibeybi
+[#70458]: https://github.com/home-assistant/core/pull/70458
+
+{% enddetails %}
+
 {% details "Media Source" %}
 
 Filenames and directories starting with a `.`, will no longer appear in the
@@ -300,7 +898,7 @@ Media Browser.
 If the file or directory name starts with a `.`, it means they are marked
 hidden; thus the media browser will now repect that.
 
-([@DDanii] - [#69820]) ([documentation](/integrations/bmw_connected_drive))
+([@DDanii] - [#69820]) ([documentation](/integrations/media_source))
 
 [@DDanii]: https://github.com/DDanii
 [#69820]: https://github.com/home-assistant/core/pull/69820
@@ -548,6 +1146,18 @@ Home Assistant startup, instead of to "unknown".
 
 {% enddetails %}
 
+{% details "Text-to-Speech (TTS)" %}
+
+The TTS `base_url` option is deprecated. Please, configure internal/external
+URL instead.
+
+([@balloob] - [#70382]) ([documentation](/integrations/tts))
+
+[@balloob]: https://github.com/balloob
+[#70382]: https://github.com/home-assistant/core/pull/70382
+
+{% enddetails %}
+
 {% details "UPnP/IGD" %}
 
 The UPnP/IGD integration options have been removed. This includes the
@@ -612,7 +1222,7 @@ TODO: Make list of items from devblog
 
 [devblog]: https://developers.home-assistant.io/blog/
 
-TODO: Remove this line; Last processed breaking change: 69189
+TODO: Remove this line; Last processed breaking change: 70829
 
 ## Farewell to the following
 

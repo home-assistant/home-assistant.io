@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Presence Detection
   - Sensor
+  - Updates
 ha_release: '0.10'
 ha_domain: fritz
 ha_config_flow: true

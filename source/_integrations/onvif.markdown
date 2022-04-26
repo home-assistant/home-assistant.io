@@ -13,6 +13,7 @@ ha_platforms:
   - binary_sensor
   - button
   - camera
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---

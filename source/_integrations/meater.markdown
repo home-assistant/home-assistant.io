@@ -1,5 +1,5 @@
 ---
-title: Meater Smart Meat Thermometer
+title: Meater
 description: Instructions on how to integrate the Meater Temperature Probe within Home Assistant.
 ha_category:
   - Sensor
@@ -8,7 +8,11 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@Sotolotl'
+  - '@emontnemery'
 ha_domain: meater
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 The Meater Smart Meat Thermometer integration allows for communicating with the [Meater Temperature Probe](https://meater.com/) from Apption Labs.
