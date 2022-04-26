@@ -33,7 +33,7 @@ language:
 delay:
   description: "Prepend the generated speech with this amount of silence (miliseconds)."
   required: false
-  type: int
+  type: integer
   default: 0
 {% endconfiguration %}
 
