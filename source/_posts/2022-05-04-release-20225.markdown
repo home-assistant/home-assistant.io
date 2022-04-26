@@ -138,151 +138,77 @@ Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
 
-If you are a custom integration developer and want to learn about breaking
-changes and new features available for your integration: Be sure to read our
-[developer blog][devblog] summarizing all the changes in this release.
+{% details "AVM FRITZ!Box Tools" %}
 
-TODO: Make list of items from devblog
-  - Add EntityFeature enum to Alarm Control Panel ([@frenck] - [#69044]) ([alarm_control_panel docs]) ([manual docs]) (breaking-change)
-  - Drop deprecated support for unit_of_measurement from sensor ([@emontnemery] - [#69061]) ([sensor docs]) (breaking-change)
-  - Add EntityFeature enum to Camera ([@frenck] - [#69072]) ([camera docs]) ([demo docs]) (breaking-change)
-  - Add EntityFeature enum to Cover ([@frenck] - [#69088]) ([cover docs]) ([mqtt docs]) ([demo docs]) (breaking-change)
-  - Add EntityFeature enum to Climate ([@frenck] - [#69077]) ([climate docs]) ([demo docs]) (breaking-change)
-  - Add EntityFeature enum to Humidifier ([@frenck] - [#69092]) ([demo docs]) ([humidifier docs]) (breaking-change)
-  - Add EntityFeature enum to Fan ([@frenck] - [#69091]) ([fan docs]) ([demo docs]) (breaking-change)
-  - Add EntityFeature enum to Water Heater ([@frenck] - [#69123]) ([demo docs]) ([water_heater docs]) (breaking-change)
-  - Add EntityFeature enum to Vacuum ([@frenck] - [#69121]) ([demo docs]) ([vacuum docs]) (breaking-change)
-  - Add EntityFeature enum to Light ([@frenck] - [#69103]) ([light docs]) ([demo docs]) (breaking-change)
-  - Add EntityFeature enum to Lock ([@frenck] - [#69118]) ([lock docs]) ([demo docs]) (breaking-change)
-  - Add EntityFeature enum to Media Player ([@frenck] - [#69119]) ([media_player docs]) ([demo docs]) (breaking-change)
-  - Add EntityFeature enum to Remote ([@frenck] - [#69120]) ([remote docs]) (breaking-change)
-  - Remove deprecated temperature conversion of non temperature sensors ([@emontnemery] - [#69069]) ([sensor docs]) (breaking-change)
-  - Add ColorMode enum to light platform ([@frenck] - [#69223]) ([light docs]) ([demo docs]) (breaking-change)
-  - Replace Camera STREAM_ constants with StreamType enum ([@frenck] - [#69871]) ([camera docs]) ([nest docs]) (breaking-change)
-  - Add EntityFeature enum to Siren ([@epenet] - [#69585]) ([siren docs]) (breaking-change)
-  - Move Local OAuth http endpoint registration to auth component ([@allenporter] - [#69507]) (breaking-change)
-  - Remove EVENT_TIME_CHANGED and EVENT_TIMER_OUT_OF_SYNC ([@bdraco] - [#69643]) (breaking-change)
-  - Cleanup calendar APIs and introduce a dataclass for representing events ([@allenporter] - [#68843]) ([google docs]) ([calendar docs]) ([demo docs]) ([caldav docs]) ([twentemilieu docs]) (breaking-change)
+The binary sensor entity showing that an update is available for the FRITZ!Box
+firmware has been deprecated and will be removed in Home Assistant 2022.7.
 
-[devblog]: https://developers.home-assistant.io/blog/
+The AVM FRITZ!Box Tools integration now provides an `update` entity as a
+replacement.
 
-{% details "Phone Modem" %}
+([@Mask3007] - [#70096]) ([documentation](/integrations/fritz))
 
-The previously deprecated `modem_callerid.reject_call` service, has now been
-removed. A button entity has previously been made available as a replacement.
-
-([@frenck] - [#69019]) ([documentation](/integrations/modem_callerid))
-
-[@frenck]: https://github.com/frenck
-[#69019]: https://github.com/home-assistant/core/pull/69019
+[@Mask3007]: https://github.com/Mask3007
+[#70096]: https://github.com/home-assistant/core/pull/70096
 
 {% enddetails %}
 
-{% details "Zengge" %}
+{% details "BMW Connected Drive" %}
 
-Zengge lights no longer support `white_value`, please use `white` instead.
+All `bmw_connected_drive.*` services are removed (deprecated since 2022.2).
+Please use the new button entities with the `button.press` service instead.
 
-([@emontnemery] - [#55260]) ([documentation](/integrations/zengge))
+([@rikroe] - [#69808]) ([documentation](/integrations/bmw_connected_drive))
 
-[@emontnemery]: https://github.com/emontnemery
-[#55260]: https://github.com/home-assistant/core/pull/55260
-
-{% enddetails %}
-
-{% details "IKEA TRÅDFRI" %}
-
-The native IKEA TRÅDFRI groups are now removed. We propose using
-[light groups](/integrations/group/) instead. 
-
-Additionally, the previously deprecated YAML configuration of the IKEA TRÅDFRI
-integration has been removed.
-
-IKEA TRÅDFRI is now configured via the UI, any existing YAML
-configuration has been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@ggravlingen] - [#68033]) ([documentation](/integrations/tradfri))
-
-[@ggravlingen]: https://github.com/ggravlingen
-[#68033]: https://github.com/home-assistant/core/pull/68033
-
-{% enddetails %}
-
-{% details "MJPEG IP Camera" %}
-
-The previously deprecated YAML configuration of the MJPEG IP Camera
-integration has been removed.
-
-MJPEG IP Camera is now configured via the UI, any existing YAML
-configuration has been imported in previous releases and can now be safely
-removed from your YAML configuration files.
-
-([@frenck] - [#68033]) ([documentation](/integrations/mjpeg))
-
-[@frenck]: https://github.com/frenck
-[#68980]: https://github.com/home-assistant/core/pull/68980
-
-{% enddetails %}
-
-{% details "Vera" %}
-
-Vera power meter sensor is now using the (correct) symbol `W` for watt instead
-of `watts`.
-
-If you relied on this unit of measurement format in your automations, scripts
-or have been recording it in an external time metrics database, you may need
-to adopt to this change.
-
-([@emontnemery] - [#69285]) ([documentation](/integrations/vera))
-
-[@emontnemery]: https://github.com/emontnemery
-[#69285]: https://github.com/home-assistant/core/pull/69285
-
-{% enddetails %}
-
-{% details "HomeKit" %}
-
-The device class `carbon_dioxide` is no longer admitted as a `binary_sensor`
-device class; as its not a valid device class for a binary sensor. If you have
-overridden the device class with customize need to adjust your configuration.
-
-([@epenet] - [#69239]) ([documentation](/integrations/homekit))
-
-[@epenet]: https://github.com/epenet
-[#69239]: https://github.com/home-assistant/core/pull/69239
-
-{% enddetails %}
-
-{% details "Recorder" %}
-
-Home Assistant will now automatically repack your database once a month, on 
-the second sunday of the month.
-
-Repacking allows to shrink the database in file size, resulting in smaller
-backups. It also frees up the space that has been freed up by the database
-optimizations made in 2022.4.
-
-Some notes:
-
-- It is only done once a month to minimize I/O.
-- The second Sunday was chosen as it would be out of sync with Home Assistant
-  releases.
-- This automatic repacking can be disabled by setting `auto_repack` to `false`
-  in the recorder configuration
-
-([@bdraco] - [#69314]) ([documentation](/integrations/recorder))
-
-[@bdraco]: https://github.com/bdraco
-[#69314]: https://github.com/home-assistant/core/pull/69314
+[@rikroe]: https://github.com/rikroe
+[#69808]: https://github.com/home-assistant/core/pull/69808
 
 ---
 
-It's no longer possible to configure the recorder to use an in-memory database.
+The `button.<your_vehicle_refresh` entity is deprecated and will be removed in
+a future version. Please use the `homeassistant.update_entity` service with
+any BMW entity to force-refresh all platforms from the BMW API.
 
-([@emontnemery] - [#69616]) ([documentation](/integrations/recorder))
+([@rikroe] - [#67003]) ([documentation](/integrations/bmw_connected_drive))
 
-[@emontnemery]: https://github.com/emontnemery
-[#69616]: https://github.com/home-assistant/core/pull/69616
+[@rikroe]: https://github.com/rikroe
+[#67003]: https://github.com/home-assistant/core/pull/67003
+
+{% enddetails %}
+
+{% details "deCONZ" %}
+
+Migrating deCONZ Siren entities from switch platform to siren platform has
+been removed. This only affects users upgrading from before 2021.10 to 2022.5
+or later. At most this causes lingering unavailable switch entities; which
+can be manually removed.
+
+([@Kane610] - [#70600]) ([documentation](/integrations/deconz))
+
+[@Kane610]: https://github.com/Kane610
+[#70600]: https://github.com/home-assistant/core/pull/70600
+
+--- 
+
+Migrated deCONZ light entities of type "On/Off Output" to switch
+from light platform as they are binary devices (only on/off).
+
+([@Kane610] - [#70598]) ([documentation](/integrations/deconz))
+
+[@Kane610]: https://github.com/Kane610
+[#70598]: https://github.com/home-assistant/core/pull/70598
+
+{% enddetails %}
+
+{% details "Fibaro" %}
+
+Fibaro lights no longer supports deprecated `white_value`,
+use `rgbw_color` instead.
+
+([@rappenze] - [#69189]) ([documentation](/integrations/fibaro))
+
+[@Kane610]: https://github.com/Kane610
+[#69189]: https://github.com/home-assistant/core/pull/69189
 
 {% enddetails %}
 
@@ -302,32 +228,35 @@ to adopt to this change.
 
 {% enddetails %}
 
-{% details "Radarr" %}
+{% details "HomeKit" %}
 
-The previously deprecated Wanted sensor in the Radarr integration has been
-removed. If you have this sensor still configured it your YAML configuration,
-you should remove it before updating.
+The device class `carbon_dioxide` is no longer admitted as a `binary_sensor`
+device class; as its not a valid device class for a binary sensor. If you have
+overridden the device class with customize need to adjust your configuration.
 
-([@tkdrob] - [#69500]) ([documentation](/integrations/radarr))
+([@epenet] - [#69239]) ([documentation](/integrations/homekit))
 
-[@tkdrob]: https://github.com/tkdrob
-[#69500]: https://github.com/home-assistant/core/pull/69500
+[@epenet]: https://github.com/epenet
+[#69239]: https://github.com/home-assistant/core/pull/69239
 
 {% enddetails %}
 
-{% details "UPnP/IGD" %}
+{% details "IKEA TRÅDFRI" %}
 
-The UPnP/IGD integration options have been removed. This includes the
-ability to configure a custom update/scan interval.
+The native IKEA TRÅDFRI groups are now removed. We propose using
+[light groups](/integrations/group/) instead. 
 
-As an alternative, the more generic and more flexible
-`homeassistant.update_entity` service can be used to create an automation that
-updates the entities on your desired intervals or schedule.
+Additionally, the previously deprecated YAML configuration of the IKEA TRÅDFRI
+integration has been removed.
 
-([@StevenLooman] - [#69134]) ([documentation](/integrations/upnp))
+IKEA TRÅDFRI is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
 
-[@StevenLooman]: https://github.com/StevenLooman
-[#69134]: https://github.com/home-assistant/core/pull/69134
+([@ggravlingen] - [#68033]) ([documentation](/integrations/tradfri))
+
+[@ggravlingen]: https://github.com/ggravlingen
+[#68033]: https://github.com/home-assistant/core/pull/68033
 
 {% enddetails %}
 
@@ -363,18 +292,6 @@ sensor is in `kWh` not `MWs`.
 
 {% enddetails %}
 
-{% details "BMW Connected Drive" %}
-
-All `bmw_connected_drive.*` services are removed (deprecated since 2022.2).
-Please use the new button entities with the `button.press` service instead.
-
-([@rikroe] - [#69808]) ([documentation](/integrations/bmw_connected_drive))
-
-[@rikroe]: https://github.com/rikroe
-[#69808]: https://github.com/home-assistant/core/pull/69808
-
-{% enddetails %}
-
 {% details "Media Source" %}
 
 Filenames and directories starting with a `.`, will no longer appear in the
@@ -387,6 +304,105 @@ hidden; thus the media browser will now repect that.
 
 [@DDanii]: https://github.com/DDanii
 [#69820]: https://github.com/home-assistant/core/pull/69820
+
+{% enddetails %}
+
+{% details "Min/Max" %}
+
+`min_max` sensors generated a significant amount of database rows because they
+included all attributes regardless of the configured type. For active sensors
+these attributes added up to multiple megabytes per day for each sensor.
+[Reference issue report](https://github.com/home-assistant/core/issues/56987#issuecomment-1100575672).
+
+`min_max` sensors now only set attributes based on the configured type of sensor
+as below:
+
+- `min`: `min_entity_id`
+- `max`: `max_entity_id`
+- `last`: `last_entity_id`
+
+The following attributes are no longer present: `min`, `max`, `mean`, `median`,
+`last`, `count_sensors`
+
+If access to the data previously provided by the attributes is needed,
+create a separate `min_max` sensor for that required type instead.
+
+([@bdraco] - [#70142]) ([documentation](/integrations/min_max))
+
+[@bdraco]: https://github.com/bdraco
+[#70142]: https://github.com/home-assistant/core/pull/70142
+
+{% enddetails %}
+
+{% details "MJPEG IP Camera" %}
+
+The previously deprecated YAML configuration of the MJPEG IP Camera
+integration has been removed.
+
+MJPEG IP Camera is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@frenck] - [#68033]) ([documentation](/integrations/mjpeg))
+
+[@frenck]: https://github.com/frenck
+[#68980]: https://github.com/home-assistant/core/pull/68980
+
+{% enddetails %}
+
+{% details "ONVIF" %}
+
+Additionally, the previously deprecated YAML configuration of the ONVIF
+integration has been removed.
+
+ONVIF is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@hunterjm] - [#70395]) ([documentation](/integrations/onvif))
+
+[@hunterjm]: https://github.com/hunterjm
+[#70395]: https://github.com/home-assistant/core/pull/70395
+
+{% enddetails %}
+
+{% details "Pentair ScreenLogic" %}
+
+The original `orp_supply_level` and `ph_supply_level` sensors will become
+unavailable. Two new sensors will be automatically created, but the originals
+will have to be removed and the new ones manually renamed to match the originals.
+
+This should only affect those with IntelliChem.
+
+([@dieselrabbit] - [#69937]) ([documentation](/integrations/screenlogic))
+
+[@dieselrabbit]: https://github.com/dieselrabbit
+[#69937]: https://github.com/home-assistant/core/pull/69937
+
+{% enddetails %}
+
+{% details "Phone Modem" %}
+
+The previously deprecated `modem_callerid.reject_call` service, has now been
+removed. A button entity has previously been made available as a replacement.
+
+([@frenck] - [#69019]) ([documentation](/integrations/modem_callerid))
+
+[@frenck]: https://github.com/frenck
+[#69019]: https://github.com/home-assistant/core/pull/69019
+
+{% enddetails %}
+
+{% details "Radarr" %}
+
+The previously deprecated Wanted sensor in the Radarr integration has been
+removed. If you have this sensor still configured it your YAML configuration,
+you should remove it before updating.
+
+([@tkdrob] - [#69500]) ([documentation](/integrations/radarr))
+
+[@tkdrob]: https://github.com/tkdrob
+[#69500]: https://github.com/home-assistant/core/pull/69500
 
 {% enddetails %}
 
@@ -414,36 +430,209 @@ of precision.
 
 {% enddetails %}
 
-{% details "Pentair ScreenLogic" %}
+{% details "Recorder" %}
 
-The original `orp_supply_level` and `ph_supply_level` sensors will become
-unavailable. Two new sensors will be automatically created, but the originals
-will have to be removed and the new ones manually renamed to match the originals.
+Home Assistant will now automatically repack your database once a month, on 
+the second sunday of the month.
 
-This should only affect those with IntelliChem.
+Repacking allows to shrink the database in file size, resulting in smaller
+backups. It also frees up the space that has been freed up by the database
+optimizations made in 2022.4.
 
-([@dieselrabbit] - [#69937]) ([documentation](/integrations/screenlogic))
+Some notes:
 
-[@dieselrabbit]: https://github.com/dieselrabbit
-[#69937]: https://github.com/home-assistant/core/pull/69937
+- It is only done once a month to minimize I/O.
+- The second Sunday was chosen as it would be out of sync with Home Assistant
+  releases.
+- This automatic repacking can be disabled by setting `auto_repack` to `false`
+  in the recorder configuration
+
+([@bdraco] - [#69314]) ([documentation](/integrations/recorder))
+
+[@bdraco]: https://github.com/bdraco
+[#69314]: https://github.com/home-assistant/core/pull/69314
+
+---
+
+It's no longer possible to configure the recorder to use an in-memory database.
+
+([@emontnemery] - [#69616]) ([documentation](/integrations/recorder))
+
+[@emontnemery]: https://github.com/emontnemery
+[#69616]: https://github.com/home-assistant/core/pull/69616
+
+---
+
+Integrations and platforms can provide hints to the recorder to exclude specific
+entity state attributes from being recorded.
+
+This excludes attributes that hold little to no historical value or are a
+static value. This significantly reduces the amount of data stored.
+
+The following attributes are no longer recorded:
+
+- Automation: `current`, `id`, `last_action`, `last_triggered`, `max` and  `mode`.
+- Input Boolean: `editable`.
+- Input Button: `editable`.
+- Input Datetime: `editable`, `has_date`, and `has_datetime`.
+- Input Number: `editable`, `max`, `min`, `mode`, and `step`.
+- Input Text: `editable`, `max`, `min`, `mode`, and `pattern`.
+- Input Select: `editable`.
+
+([@bdraco] - [#70168] [#70223])
+
+([@frenck] - [#70154] [#70224] [#70225] [#70226])
+
+[@bdraco]: https://github.com/bdraco
+[@frenck]: https://github.com/frenck
+[#70154]: https://github.com/home-assistant/core/pull/70154
+[#70168]: https://github.com/home-assistant/core/pull/70168
+[#70223]: https://github.com/home-assistant/core/pull/70223
+[#70224]: https://github.com/home-assistant/core/pull/70224
+[#70225]: https://github.com/home-assistant/core/pull/70225
+[#70226]: https://github.com/home-assistant/core/pull/70226
+[#70227]: https://github.com/home-assistant/core/pull/70227
 
 {% enddetails %}
+
+{% details "Sensibo" %}
+
+Binary sensor for update available has been removed. Use the new update entities
+to monitor available updates instead.
+
+([@gjohansson-ST] - [#70180]) ([documentation](/integrations/sensibo))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#70180]: https://github.com/home-assistant/core/pull/70180
+
+{% enddetails %}
+
+{% details "SQL" %}
+
+The SQL integration migrated to configuration
+via the UI. Configuring SQL via YAML configuration
+has been deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration
+after upgrading.
+
+([@gjohansson-ST] - [#68700]) ([documentation](/integrations/sql))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#68700]: https://github.com/home-assistant/core/pull/68700
+
+{% enddetails %}
+
+{% details "Synology DSM" %}
+
+The naming of entities and devices has been aligned, so that the device name
+is now part of the entity name.
+
+([@mib1185] - [#69754]) ([documentation](/integrations/synology_dsm))
+
+[@mib1185]: https://github.com/mib1185
+[#69754]: https://github.com/home-assistant/core/pull/69754
+
+{% enddetails %}
+
+{% details "Templates" %}
+
+Trigger based template sensors are now initialized to the last known state at
+Home Assistant startup, instead of to "unknown".
+
+([@emontnemery] - [#69344]) ([documentation](/integrations/template))
+
+[@emontnemery]: https://github.com/emontnemery
+[#69344]: https://github.com/home-assistant/core/pull/69344
+
+{% enddetails %}
+
+{% details "UPnP/IGD" %}
+
+The UPnP/IGD integration options have been removed. This includes the
+ability to configure a custom update/scan interval.
+
+As an alternative, the more generic and more flexible
+`homeassistant.update_entity` service can be used to create an automation that
+updates the entities on your desired intervals or schedule.
+
+([@StevenLooman] - [#69134]) ([documentation](/integrations/upnp))
+
+[@StevenLooman]: https://github.com/StevenLooman
+[#69134]: https://github.com/home-assistant/core/pull/69134
+
+{% enddetails %}
+
+{% details "Vera" %}
+
+Vera power meter sensor is now using the (correct) symbol `W` for watt instead
+of `watts`.
+
+If you relied on this unit of measurement format in your automations, scripts
+or have been recording it in an external time metrics database, you may need
+to adopt to this change.
+
+([@emontnemery] - [#69285]) ([documentation](/integrations/vera))
+
+[@emontnemery]: https://github.com/emontnemery
+[#69285]: https://github.com/home-assistant/core/pull/69285
+
+{% enddetails %}
+
+{% details "Zengge" %}
+
+Zengge lights no longer support `white_value`, please use `white` instead.
+
+([@emontnemery] - [#55260]) ([documentation](/integrations/zengge))
+
+[@emontnemery]: https://github.com/emontnemery
+[#55260]: https://github.com/home-assistant/core/pull/55260
+
+{% enddetails %}
+
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to read our
+[developer blog][devblog] summarizing all the changes in this release.
+
+- [Calendar Data Model improvements and deprecations](https://developers.home-assistant.io/blog/2022/04/18/calendar-data-model)
+- [Deprecating all SUPPORT_* constants](https://developers.home-assistant.io/blog/2022/04/02/support-constants-deprecation)
+- [Local OAuth2 Updates](https://developers.home-assistant.io/blog/2022/04/16/local-oauth2)
+- [Saying goodbye to the time_changed event](https://developers.home-assistant.io/blog/2022/04/20/saying-goodbye-to-event_time_changed)
+
+TODO: Make list of items from devblog
+  - Drop deprecated support for unit_of_measurement from sensor ([@emontnemery] - [#69061]) ([sensor docs]) (breaking-change)
+  - Remove deprecated temperature conversion of non temperature sensors ([@emontnemery] - [#69069]) ([sensor docs]) (breaking-change)
+  - Add ColorMode enum to light platform ([@frenck] - [#69223]) ([light docs]) ([demo docs]) (breaking-change)
+  - Replace Camera STREAM_ constants with StreamType enum ([@frenck] - [#69871]) ([camera docs]) ([nest docs]) (breaking-change)
+  - Replace Alarm Control Panel FORMAT_ constants with CodeFormat enum ([@frenck] - [#69861]) (breaking-change)
+  - Replace Climate HVAC_MODE_* constants with HVACMode enum ([@frenck] - [#70286]) ([climate docs]) ([demo docs]) (breaking-change)
+  - Replace Climate CURRENT_HVAC_* constants with HVACAction enum ([@frenck] - [#70319]) ([climate docs]) ([mqtt docs]) ([demo docs]) (breaking-change)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+TODO: Remove this line; Last processed breaking change: 69189
 
 ## Farewell to the following
 
 The following integrations are also no longer available as of this release:
 
-- **Updater** was previously deprecated has been removed. Use the [Version]
-  and [Analytics] integrations as a replacement.
-  ([@frenck] - [#68981])
+- **Arlo** has been removed. It was in a broken state for a long time caused
+  by authentication changes upstream. ([@anaisbetts] - [#70330])
 - **Digital Loggers** has been removed. It relied on web scraping, which is
   [not allowed][ADR-0004] for a Home Assistant Core integration.
   ([@tkdrob] - [#69939])
+- **Updater** was previously deprecated has been removed. Use the [Version]
+  and [Analytics] integrations as a replacement.
+  ([@frenck] - [#68981])
 
+[@anaisbetts]: https://github.com/anaisbetts
 [@frenck]: https://github.com/frenck
 [@tkdrob]: https://github.com/tkdrob
 [#68981]: https://github.com/home-assistant/core/pull/68981
 [#69939]: https://github.com/home-assistant/core/pull/69939
+[#70330]: https://github.com/home-assistant/core/pull/70330
 [ADR-0004]: https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md?rgh-link-date=2022-04-12T21%3A46%3A17Z
 [Analytics]: /integrations/analytics
 [Version]: /integrations/version
