@@ -28,7 +28,7 @@ The supported database solutions are:
 - [PostgreSQL](https://www.postgresql.org/) ≥ 12
 - [SQLite](https://www.sqlite.org/) ≥ 3.31.0
 
-Although SQLAlchemy supports additional database solutions, it will behave differently on different databases, and features relied on by the recorder may work differently, or not at all, in different databases.
+Although SQLAlchemy supports database solutions in addition to the ones supported by Home Assistant, it will behave differently on different databases, and features relied on by the recorder may work differently, or not at all, in different databases.
 
 The default, and recommended, database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`.
 
