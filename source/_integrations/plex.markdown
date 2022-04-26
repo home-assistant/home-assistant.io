@@ -114,8 +114,12 @@ play_plex_on_tv:
         entity_id: media_player.smart_tv
       data:
         source: "Plex"
-    - wait_template: "{{ is_state('media_player.smart_tv', 'On') }}"
-      timeout: "00:00:10"
+    - wait_for_trigger:
+        - platform: state
+          entity_id: media_player.smart_tv
+          to: "on"
+      timeout:
+        seconds: 10
     - service: button.press
       target:
         entity_id: button.scan_clients_plex
