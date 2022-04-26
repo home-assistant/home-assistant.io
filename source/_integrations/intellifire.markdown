@@ -75,8 +75,7 @@ The following is a description of the various diagnostic error sensors and what 
 
 ### Troubleshooting
 
-The IFT module can suffer a variety of issues which will render it inoperable. Some of these have been confirmed by the manufacturer and some appear to be random. There are two paths to to try when attempting to reset the module:
-
+The IFT module can suffer a variety of issues that will render it inoperable. Some of these have been confirmed by the manufacturer and some appear to be random. There are two paths to try when attempting to reset the module:
 
 #### Issue a Soft Reset
 
