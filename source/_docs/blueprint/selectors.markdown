@@ -931,6 +931,21 @@ target:
     model: TRADFRI remote control
 ```
 
+## Template selector
+
+The template selector can be used to input a Jinja2 template. This is useful
+for allowing more advanced user-input that use Jinja2 templates.
+
+![Screenshot of an template selector](/images/blueprints/selector-template.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+template:
+```
+
+The output of this selector is a template string.
+
 ## Text selector
 
 The text selector can be used to input a text string. The value of the input will contain the selected text.
