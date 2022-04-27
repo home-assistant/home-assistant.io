@@ -653,11 +653,14 @@ noteworthy changes this release:
 We welcome the following new integrations this release:
 
 - [Meater], added by[@Sotolotl]
+- [QNAP QSW], added by [@Noltari]
 - [SENZ], added by [@milanmeu]
 
 [@milanmeu]: https://github.com/milanmeu
+[@Noltari]: https://github.com/Noltari
 [@Sotolotl]: https://github.com/Sotolotl
 [Meater]: /integrations/meater
+[QNAP QSW]: /integrations/qnap_qsw
 [SENZ]: /integrations/senz
 
 ## Integrations now available to set up from the UI
@@ -665,9 +668,12 @@ We welcome the following new integrations this release:
 The following integrations are now available via the Home Assistant UI:
 
 - [SQL], done by [@gjohansson-ST]
+- [Tautulli], done by [@tkdrob]
 
 [@gjohansson-ST]: https://github.com/gjohansson-ST
+[@tkdrob]: https://github.com/tkdrob
 [SQL]: /integrations/sql
+[Tautulli]: /integrations/tautulli
 
 ## Need help? Join the community!
 
