@@ -111,6 +111,9 @@ request: Helpers have moved to the devices & services page. Areas & Zone are
 now nicely brought together in a single menu, and there is now an extensive
 System menu.
 
+YAML Configuration Controls have a new home in the developer tools. This felt like a more logical place to have the reloading happen.
+Restarting Home Assistant can now be done via the Overflow menu on the System Dashboard Page. 
+
 ## Find entities even quicker than before
 
 Looking to access that one entity quickly? But it isn't on your dashboard?
