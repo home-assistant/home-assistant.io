@@ -433,6 +433,7 @@ source/_integrations/pvoutput.markdown @frenck
 source/_integrations/pvpc_hourly_pricing.markdown @azogue
 source/_integrations/qbittorrent.markdown @geoffreylagaisse
 source/_integrations/qld_bushfire.markdown @exxamalte
+source/_integrations/qnap_qsw.markdown @Noltari
 source/_integrations/quantum_gateway.markdown @cisasteelersfan
 source/_integrations/qvr_pro.markdown @oblogic7
 source/_integrations/qwikswitch.markdown @kellerza
@@ -465,6 +466,7 @@ source/_integrations/rpi_power.markdown @shenxn @swetoast
 source/_integrations/rss_feed_template.markdown @home-assistant/core
 source/_integrations/rtsp_to_webrtc.markdown @allenporter
 source/_integrations/ruckus_unleashed.markdown @gabe565
+source/_integrations/sabnzbd.markdown @shaiu
 source/_integrations/safe_mode.markdown @home-assistant/core
 source/_integrations/saj.markdown @fredericvl
 source/_integrations/samsungtv.markdown @chemelli74 @epenet
@@ -500,6 +502,7 @@ source/_integrations/sky_hub.markdown @rogerselwyn
 source/_integrations/slack.markdown @bachya
 source/_integrations/sleepiq.markdown @mfugate1 @kbickar
 source/_integrations/slide.markdown @ualex73
+source/_integrations/slimproto.markdown @marcelveldt
 source/_integrations/sma.markdown @kellerza @rklomp
 source/_integrations/smappee.markdown @bsmappee
 source/_integrations/smart_meter_texas.markdown @grahamwetzler
@@ -527,6 +530,7 @@ source/_integrations/squeezebox.markdown @rajlaud
 source/_integrations/srp_energy.markdown @briglx
 source/_integrations/starline.markdown @anonym-tsk
 source/_integrations/statistics.markdown @fabaff @ThomDietrich
+source/_integrations/steam_online.markdown @tkdrob
 source/_integrations/steamist.markdown @bdraco
 source/_integrations/stiebel_eltron.markdown @fucm
 source/_integrations/stookalert.markdown @fwestenberg @frenck
@@ -555,7 +559,7 @@ source/_integrations/tailscale.markdown @frenck
 source/_integrations/tankerkoenig.markdown @guillempages @mib1185
 source/_integrations/tapsaff.markdown @bazwilliams
 source/_integrations/tasmota.markdown @emontnemery
-source/_integrations/tautulli.markdown @ludeeus
+source/_integrations/tautulli.markdown @ludeeus @tkdrob
 source/_integrations/tellduslive.markdown @fredrike
 source/_integrations/template.markdown @PhracturedBlue @tetienne @home-assistant/core
 source/_integrations/tesla_wall_connector.markdown @einarhauks
@@ -573,6 +577,7 @@ source/_integrations/totalconnect.markdown @austinmroczek
 source/_integrations/tplink.markdown @rytilahti @thegardenmonkey @bdraco
 source/_integrations/traccar.markdown @ludeeus
 source/_integrations/tractive.markdown @Danielhiversen @zhulik @bieniu
+source/_integrations/trafikverket_ferry.markdown @gjohansson-ST
 source/_integrations/trafikverket_train.markdown @endor-force @gjohansson-ST
 source/_integrations/trafikverket_weatherstation.markdown @endor-force @gjohansson-ST
 source/_integrations/transmission.markdown @engrbm87 @JPHutchins
