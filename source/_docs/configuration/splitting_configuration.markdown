@@ -43,11 +43,6 @@ http:
 ifttt:
   key: ["nope"]
 
-zwave:
-  usb_path: "/dev/ttyUSB0"
-  config_path: "/usr/local/share/python-openzwave/config"
-  polling_interval: 10000
-
 mqtt:
   broker: 127.0.0.1
 ```

@@ -13,18 +13,21 @@ ha_domain: mqtt
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
-  - camera
   - button
+  - camera
   - climate
   - cover
+  - diagnostics
   - fan
   - humidifier
   - lock
   - number
   - scene
-  - sensor
   - select
+  - sensor
+  - siren
   - switch
+ha_integration_type: integration
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.

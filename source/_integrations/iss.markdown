@@ -10,6 +10,8 @@ ha_platforms:
   - binary_sensor
 ha_codeowners:
   - '@DurgNomis-drol'
+ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The `iss` platform uses the
@@ -29,4 +31,3 @@ are named `latitude` and `longitude`. The default name of the location attribute
 `lat` and `long` to avoid showing them on the map.
 
 </div>
-

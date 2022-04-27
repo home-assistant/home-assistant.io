@@ -6,6 +6,9 @@ ha_category:
 ha_release: 2022.2
 ha_quality_scale: internal
 ha_domain: diagnostics
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 The diagnostics integration provides a way to download diagnostic data from

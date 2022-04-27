@@ -6,22 +6,24 @@ ha_category:
   - Light
 ha_iot_class: Local Push
 featured: true
-ha_release: "0.60"
+ha_release: '0.60'
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
-  - "@balloob"
-  - "@marcelveldt"
+  - '@balloob'
+  - '@marcelveldt'
 ha_domain: hue
 ha_ssdp: true
 ha_homekit: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - light
   - scene
   - sensor
   - switch
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The Philips Hue integration allows you to control and monitor the lights and sensors connected to your Hue bridge.

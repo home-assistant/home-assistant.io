@@ -11,6 +11,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
 ha_zeroconf: true
+ha_platforms:
+  - diagnostics
+ha_integration_type: integration
 ---
 
 The HomeKit integration allows you to make your Home Assistant entities available in Apple HomeKit,
@@ -584,6 +587,10 @@ Pairing works fine when the filter is set to only include `demo.demo`, but fails
 2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge connected to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable.
 
 ### Issues during normal use
+
+#### Bridge spontaneously unpairs
+
+Multiple users have reported that iOS 12 and earlier devices will spontaneously remove pairings. Ensure all iOS devices that have administrator access to the Home are running iOS 13 or later. If you cannot update the device to iOS 13, disable `Home` in the device iCloud settings.
 
 #### My entity doesn't show up
 

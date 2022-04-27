@@ -12,7 +12,9 @@ ha_codeowners:
   - '@Bre77'
 ha_domain: aussie_broadband
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The Aussie Broadband integration displays various service metrics using the [Aussie Broadband API](https://myaussie-api.aussiebroadband.com.au).

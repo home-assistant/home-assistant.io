@@ -21,6 +21,112 @@ automation kitchen:
 
 You can add as many labeled `automation` blocks as you want.
 
+{% configuration %}
+alias:
+  description: Friendly name for the automation.
+  required: false
+  type: string
+id:
+  description: A unique id for your automation, will allow you to make changes to the name and entity_id in the UI, and will enable debug traces.
+  required: false
+  type: string
+description:
+  description: A description of the automation.
+  required: false
+  default: ''
+  type: string
+initial_state:
+  description: Used to define the state of your automation at startup. When not set, the state will be restored from the last run. See [Automation initial state](#automation-initial-state).
+  required: false
+  type: boolean
+  default: Restored from last run
+trace:
+  description: "Configuration values for the traces stored, currently only `stored_traces` can be configured."
+  required: false
+  default: {}
+  type: map
+  keys:
+    stored_traces:
+      description: "The number of traces which will be stored. See [Number of debug traces stored](#number-of-debug-traces-stored)."
+      type: integer
+      default: 5
+      required: false
+variables:
+  description: "Variables that will be available inside your templates, both in `condition` and `action`."
+  required: false
+  default: {}
+  type: map
+  keys:
+    PARAMETER_NAME:
+      description: "The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable."
+      type: any
+trigger_variables:
+  description: "Variables that will be available inside your [templates triggers](/docs/automation/trigger/#template-trigger)."
+  required: false
+  default: {}
+  type: map
+  keys:
+    PARAMETER_NAME:
+      description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/configuration/templating/#limited-templates) can be used."
+      type: any
+mode:
+  description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation Modes](#automation-modes)."
+  required: false
+  type: string
+  default: single
+max:
+  description: "Controls maximum number of runs executing and/or queued up to run at a time. Only valid with modes `queued` and `parallel`."
+  required: false
+  type: integer
+  default: 10
+max_exceeded:
+  description: "When `max` is exceeded (which is effectively 1 for `single` mode) a log message will be emitted to indicate this has happened. This option controls the severity level of that log message. See [Log Levels](/integrations/logger/#log-levels) for a list of valid options. Or `silent` may be specified to suppress the message from being emitted."
+  required: false
+  type: string
+  default: warning
+trigger:
+  description: "The trigger(s) which will start the automation. Multiple triggers can be added and the automation will start when any of these triggers trigger."
+  required: true
+  type: list
+  keys:
+    id:
+      description: "An ID that can be used in the automation to determine which trigger caused the automation to start."
+      type: string
+      required: false
+    variables:
+      description: "Variables that will be available in the conditions and action sequence."
+      required: false
+      default: {}
+      type: map
+      keys:
+        PARAMETER_NAME:
+          description: "The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable."
+          type: any
+condition:
+  description: Conditions that have to be `true` to start the automation. By default all conditions listed have to be `true`, you can use [logical conditions](/docs/scripts/conditions/#logical-conditions) to change this default behavior.
+  required: false
+  type: list
+action:
+  description: "The sequence of actions to be performed in the script."
+  required: true
+  type: list
+{% endconfiguration %}
+
+### Automation Modes
+
+Mode | Description
+-|-
+`single` | Do not start a new run. Issue a warning.
+`restart` | Start a new run after first stopping previous run.
+`queued` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued.
+`parallel` | Start a new, independent run in parallel with previous runs.
+
+<p class='img'>
+  <img src='/images/integrations/script/script_modes.jpg'>
+</p>
+
+
+
 ## YAML Example
 
 Example of a YAML based automation that you can add to `configuration.yaml`.
@@ -160,6 +266,6 @@ If you want to migrate your manual automations to use the editor, you'll have to
 
 When automations remain visible in the Home Assistant Dashboard, even after having deleted in the YAML file, you have to delete them in the UI.
 
-To delete them completely, go to UI **{% my entities title="Configuration -> Entities" %}** and find the automation in the search field or by scrolling down.
+To delete them completely, go to UI **{% my entities title="Configuration -> Devices & Services -> Entities" %}** and find the automation in the search field or by scrolling down.
 
 Check the square box aside of the automation you wish to delete and from the top-right of your screen, select 'REMOVE SELECTED'.

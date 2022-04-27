@@ -2,10 +2,10 @@
 title: Philips Dynalite
 description: Instructions on setting up Philips Dynalite within Home Assistant.
 ha_category:
+  - Cover
   - Hub
   - Light
   - Switch
-  - Cover
 ha_iot_class: Local Push
 ha_release: 0.106
 ha_codeowners:
@@ -16,6 +16,7 @@ ha_platforms:
   - cover
   - light
   - switch
+ha_integration_type: integration
 ---
 
 Philips Dynalite support is integrated into Home Assistant as a hub that can drive the light, switch, and cover platforms. 

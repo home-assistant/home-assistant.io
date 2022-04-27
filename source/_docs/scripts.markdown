@@ -75,11 +75,27 @@ The variables action allows you to set/override variables that will be accessibl
 
 {% endraw %}
 
+Variables can be templated.
+
+{% raw %}
+
+```yaml
+- alias: "Set a templated variable"
+  variables:
+    blind_state_message: "The blind is {{ states('cover.blind') }}."
+- alias: "Notify about the state of the blind"
+  service: notify.mobile_app_iphone
+  data:
+    message: "{{ blind_state_message }}"
+```
+
+{% endraw %}
+
 ### Scope of Variables
 
 Variables have local scope. This means that if a variable is changed in a nested sequence block, that change will not be visible in an outer sequence block.
 
-The following example will always say "There are 0 people home". Inside the `choose` sequence the `variables` action will only alter the `people` variable for that sequence.
+The following example will always say "There are 0 people home". Inside the `if` sequence the `variables` action will only alter the `people` variable for that sequence.
 
 {% raw %}
 
@@ -89,16 +105,15 @@ sequence:
   - variables:
       people: 0
   # Try to increment people if Paulus is home
-  - choose:
-    - conditions:
-        - condition: state
-          entity_id: device_tracker.paulus
-          state: "home"
-      sequence:
-        # At this scope and this point of the sequence, people == 0
-        - variables:
-            people: "{{ people + 1 }}"
-        # At this scope, people will now be 1 ...
+  - if:
+      - condition: state
+        entity_id: device_tracker.paulus
+        state: "home"
+    then:
+      # At this scope and this point of the sequence, people == 0
+      - variables:
+          people: "{{ people + 1 }}"
+      # At this scope, people will now be 1 ...
   # ... but at this scope it will still be 0
   # Announce the count of people home
   - service: notify.notify
@@ -114,7 +129,7 @@ While executing a script you can add a condition in the main sequence to stop fu
 
 <div class='note'>
 
-The `condition` action only stops executing the current sequence block. When it is used inside a [repeat](#repeat-a-group-of-actions) action, only the current iteration of the `repeat` loop will stop. When it is used inside a [choose](#test-a-condition) action, only the actions within that `choose` will stop.
+The `condition` action only stops executing the current sequence block. When it is used inside a [repeat](#repeat-a-group-of-actions) action, only the current iteration of the `repeat` loop will stop. When it is used inside a [choose](#choose-a-group-of-actions) action, only the actions within that `choose` will stop.
 
 </div>
 
@@ -124,6 +139,19 @@ The `condition` action only stops executing the current sequence block. When it 
   condition: state
   entity_id: device_tracker.paulus
   state: "home"
+```
+
+`condition` can also be a list of conditions and execution will then only continue if ALL conditions return `true`.
+
+```yaml
+- alias: "Check if Paulus ishome AND temperature is below 20"
+  condition:
+    - condition: state
+      entity_id: "device_tracker.paulus"
+      state: "home"
+    - condition: numeric_state
+      entity_id: "sensor.temperature"
+      below: 20
 ```
 
 ## Delay
@@ -263,11 +291,11 @@ This can be used to take different actions based on whether or not the condition
 # Take different actions depending on if condition was met.
 - wait_template: "{{ is_state('binary_sensor.door', 'on') }}"
   timeout: 10
-- choose:
-    - conditions: "{{ not wait.completed }}"
-      sequence:
-        - service: script.door_did_not_open
-  default:
+- if:
+    - "{{ not wait.completed }}"
+  then:
+    - service: script.door_did_not_open
+  else:
     - service: script.turn_on
       target:
         entity_id:
@@ -396,6 +424,53 @@ script:
 
 {% endraw %}
 
+### For each
+
+This repeat form accepts a list of items to iterate over. The list of items
+can be a pre-defined list, or a list created by a template.
+
+The sequence is ran for each item in the list, and current item in the
+iteration is available as `repeat.item`.
+
+The following example will turn a list of lights:
+
+{% raw %}
+
+```yaml
+repeat:
+  for_each:
+    - "living_room"
+    - "kitchen"
+    - "office"
+  sequence:
+    - service: light.turn_off
+      target:
+        entity_id: "light.{{ repeat.item }}"
+```
+
+{% endraw %}
+
+Other types are accepted as list items, for example, each item can be a
+template, or even an mapping of key/value pairs. 
+
+{% raw %}
+
+```yaml
+repeat:
+  for_each:
+    - language: English
+      message: Hello World
+    - language: Dutch
+      hello: Hallo Wereld
+  sequence:
+    - service: notify.phone
+      data:
+        title: "Message in {{ repeat.item.language }}"
+        message: "{{ repeat.item.message }}!"
+```
+
+{% endraw %}
+
 ### While Loop
 
 This form accepts a list of conditions (see [conditions page] for available options) that are evaluated _before_ each time the sequence
@@ -498,6 +573,35 @@ field | description
 `index` | The iteration number of the loop: 1, 2, 3, ...
 `last` | True during the last iteration of the repeat sequence, which is only valid for counted loops
 
+## If-then
+
+This action allow you to conditionally (`if`) run a sequence of actions (`then`)
+and optionally supports running other sequence when the condition didn't
+pass (`else`).
+
+```yaml
+script:
+  - if:
+      - alias: "If no one is home"
+        condition: state
+        entity_id: zone.home
+        state: 0
+    then:
+      - alias: "Then start cleaning already!"
+        service: vacuum.start
+        target:
+          area_id: living_room
+    # The `else` is fully optional and can be omitted
+    else:
+      - service: notify.notify
+        data:
+          message: "Skipped cleaning, someone is home!"
+```
+
+This action supports nesting, however, if you find yourself using nested if-then
+actions in the `else` part, you may want to consider using
+[choose](#choose-a-group-of-actions) instead.
+
 ## Choose a Group of Actions
 
 This action allows you to select a sequence of other actions from a list of sequences.
@@ -508,58 +612,9 @@ An _optional_ `default` sequence can be included which will be run only if none 
 
 An _optional_ `alias` can be added to each of the sequences, excluding the `default` sequence.
 
-The `choose` action can be used like an "if" statement. The first `conditions`/`sequence` pair is like the "if/then", and can be used just by itself. Or additional pairs can be added, each of which is like an "elif/then". And lastly, a `default` can be added, which would be like the "else."
+The `choose` action can be used like an "if/then/elseif/then.../else" statement. The first `conditions`/`sequence` pair is like the "if/then", and can be used just by itself. Or additional pairs can be added, each of which is like an "elif/then". And lastly, a `default` can be added, which would be like the "else."
 
 {% raw %}
-
-```yaml
-# Example with just an "if"
-automation:
-  - trigger:
-      - platform: state
-        entity_id: binary_sensor.motion
-        to: "on"
-    action:
-      - choose:
-          - alias: "IF nobody home, sound the alarm!"
-            conditions:
-              - condition: state
-                entity_id: group.family
-                state: not_home
-            sequence:
-              - service: script.siren
-                data:
-                  duration: 60
-      - service: light.turn_on
-        target:
-          entity_id: all
-```
-
-```yaml
-# Example with "if" and "else"
-automation:
-  - trigger:
-      - platform: state
-        entity_id: binary_sensor.motion
-    mode: queued
-    action:
-      - alias: "Turn on front lights if motion detected, else turn off"
-        choose:
-          # IF motion detected
-          - alias: "Motion detected"
-            conditions: "{{ trigger.to_state.state == 'on' }}"
-            sequence:
-              - service: script.turn_on
-                target:
-                  entity_id:
-                    - script.slowly_turn_on_front_lights
-                    - script.announce_someone_at_door
-        # ELSE (i.e., motion stopped)
-        default:
-          - service: light.turn_off
-            target:
-              entity_id: light.front_lights
-```
 
 ```yaml
 # Example with "if", "elif" and "else"
@@ -693,6 +748,159 @@ automation:
 ```
 
 {% endraw %}
+
+## Parallelizing actions
+
+By default, all sequences of actions in Home Assistant run sequentially. This
+means the next action is started after the current action has been completed.
+
+This is not always needed, for example, if the sequence of actions doesn't rely
+on each other and order doesn't matter. For those cases, the `parallel` action
+can be used to run the actions in the sequence in parallel, meaning all
+the actions are started at the same time.
+
+The following example shows sending messages out at the time (in parallel):
+
+```yaml
+automation:
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.motion
+        to: "on"
+    action:
+      - parallel:
+          - service: notify.person1
+            data:
+              message: "These messages are sent at the same time!"
+          - service: notify.person2
+            data:
+              message: "These messages are sent at the same time!"
+```
+
+It is also possible to run a group of actions sequantially inside the parallel
+actions. The example below demonstrates that:
+
+```yaml
+script:
+  example_script:
+    sequence:
+      - parallel:
+          - sequence:
+              - wait_for_trigger:
+                  - platform: state
+                    entity_id: binary_sensor.motion
+                    to: "on"
+              - service: notify.person1
+                data:
+                  message: "This message awaited the motion trigger"
+          - service: notify.person2
+            data:
+              message: "I am sent immediately and do not await the above action!"
+```
+
+<div class='note'>
+
+Running actions in parallel can be helpful in many cases, but use it with
+caution and only if you need it.
+
+There are some caveats (see below) when using parallel actions.
+
+While it sounds attractive to parallelize, most of the time, just the regular
+sequential actions will work just fine.
+
+</div>
+
+Some of the caveats of running actions in parallel:
+
+- There is no order guarantee. The actions will be started in parallel, but
+  there is no guarantee that they will be completed in the same order.
+- If one action fails or errors, the other actions will keep running until
+  they too have finished or errored.
+- Variables created/modified in one parallelized action are not available
+  in another parallelized action. Each step in a parallelized has its own scope.
+
+## Stopping a script sequence
+
+It is possible to halt a script sequence at any point. Using the `stop` action.
+
+The `stop` action takes a text as input explaining the reason for halting the
+sequence. This text will be logged and shows up in the automations and
+script traces.
+
+`stop` can be useful to halt a script halfway through a sequence when,
+for example, a condition is not met.
+
+```yaml
+- stop: "Stop running the rest of the sequence"
+```
+
+There is also an `error` option, to indicate we are stopping because of
+an unexpected error. It stops the sequence as well, but marks the automation
+or script as failed to run.
+
+```yaml
+- stop: "Well, that was unexpected!"
+  error: true
+```
+
+## Continuing on error
+
+By default, a sequence of actions will be halted when one of the actions in
+that sequence encounters an error. The automation or script will be halted,
+an error is logged, and the automation or script run is marked as errored.
+
+Sometimes these errors are expected, for example, because you know the service
+you call can be problematic at times, and it doesn't matter if it fails.
+You can set `continue_on_error` for those cases on such an action.
+
+The `continue_on_error` is available on all actions and is set to
+`false`. You can set it to `true` if you'd like to continue the action
+sequence, regardless of whether that action encounters an error.
+
+The example below shows the `continue_on_error` set on the first action. If
+it encounters an error; it will continue to the next action.
+
+```yaml
+- alias: "If this one fails..."
+  continue_on_error: true
+  service: notify.super_unreliable_service_provider
+  data:
+    message: "I'm going to error out..."
+
+- alias: "This one will still run!"
+  service: persistent_notification.create
+  data:
+    title: "Hi there!"
+    message: "I'm fine..."
+```
+
+Please note that `continue_on_error` will not suppress/ignore misconfiguration
+or errors that Home Assistant does not handle.
+
+## Disabling an action
+
+Every individual action in a sequence can be disabled, without removing it.
+To do so, add `enabled: false` to the action. For example:
+
+```yaml
+# Example script with a disabled action
+script:
+  example_script:
+    sequence:
+      # This action will not run, as it is disabled.
+      # The message will not be sent.
+      - enabled: false
+        alias: "Notify that ceiling light is being turned on"
+        service: notify.notify
+        data:
+          message: "Turning on the ceiling light!"
+
+      # This action will run, as it is not disabled
+      - alias: "Turn on ceiling light"
+        service: light.turn_on
+        target:
+          entity_id: light.ceiling
+```
 
 [Script component]: /integrations/script/
 [automations]: /getting-started/automation-action/

@@ -2,10 +2,10 @@
 title: Xbox
 description: Instructions on how to set up Xbox devices in Home Assistant.
 ha_category:
-  - Media Player
-  - Remote
   - Binary Sensor
+  - Media Player
   - Media Source
+  - Remote
 ha_iot_class: Cloud Polling
 ha_release: 0.117
 ha_codeowners:
@@ -17,6 +17,7 @@ ha_platforms:
   - media_player
   - remote
   - sensor
+ha_integration_type: integration
 ---
 
 The Xbox integration allows you to control Xbox One (or newer) consoles from Home Assistant.
@@ -100,11 +101,11 @@ delay_sec: 0.1
 
 ### Picture Elements Card
 
-Below is a picture elements card that can be added to Lovelace to provide an Xbox controller interface in your frontend. It utilizes the services detailed above. Replace `remote.xboxone_remote` and `media_player.xboxone` with the names of your entities and enjoy! Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
+Below is a picture elements card that can be added to a dashboard to provide an Xbox controller interface in your frontend. It utilizes the services detailed above. Replace `remote.xboxone_remote` and `media_player.xboxone` with the names of your entities and enjoy! Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
 
 <p class='img'>
-  <img src='/images/integrations/xbox/xbox_picture_entity.png' alt='Screenshot showing Xbox Controller in Lovelace.'>
-  Screenshot showing Xbox Controller in Lovelace.
+  <img src='/images/integrations/xbox/xbox_picture_entity.png' alt='Screenshot showing Xbox Controller in a dashboard.'>
+  Screenshot showing Xbox Controller in a dashboard.
 </p>
 
 ```yaml

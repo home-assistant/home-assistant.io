@@ -3,11 +3,13 @@ title: Input Boolean
 description: Instructions on how to use the Input Boolean helper with Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 0.11
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: input_boolean
+ha_integration_type: helper
 ---
 
 The Input Boolean helper integration allows you to define boolean values that

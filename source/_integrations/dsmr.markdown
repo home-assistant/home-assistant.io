@@ -13,6 +13,7 @@ ha_codeowners:
   - '@frenck'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'. Swedish meters with a 'HAN port' are not supported by this integration.
@@ -22,6 +23,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 - For official information about the P1 port refer to: [P1 Companion Standard](https://www.netbeheernederland.nl/_upload/Files/Slimme_meter_15_a727fce1f1.pdf)
 - For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 - For official information about the Swedish variant refer to: [Swedish specification](https://www.energiforetagen.se/globalassets/energiforetagen/det-erbjuder-vi/kurser-och-konferenser/elnat/branschrekommendation-lokalt-granssnitt-v2_0-201912.pdf).
+- Supports [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602) integrated in a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103).
 
 <p class='img'>
 <img src='/images/screenshots/dsmr.png' />
@@ -64,7 +66,8 @@ This integration is known to work for:
 
 ### Connecting to the meter
 
-Connection can be done directly to the meter via a USB to serial connector, or through a serial to network proxy
+Connection can be done directly to the meter via a USB to serial connector, or through a serial to network proxy.
+It is also possible to connect to a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103) with an integrated [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602).
 
 #### USB serial converters:
 

@@ -13,6 +13,7 @@ ha_domain: dlna_dmr
 ha_platforms:
   - media_player
 ha_ssdp: true
+ha_integration_type: integration
 ---
 
 The `dlna_dmr` platform allows you to control a [DLNA Digital Media Renderer](https://www.dlna.org/), such as DLNA enabled TVs or radios.
@@ -49,3 +50,11 @@ DLNA devices can support a range of features. Depending on the device itself, th
 * `media_player.shuffle_set`
 * `media_player.repeat_set`
 * `media_player.select_sound_mode`
+
+## Playing media
+
+Most DLNA DMR devices can play media from local HTTP servers. For best results, use HTTP instead of HTTPS, and refer to the server using an IP address instead of a hostname, e.g. `http://192.168.1.1:8080/song.mp3`.
+
+### Media sources
+
+The DLNA Digital Media Renderer integration can browse any configured [Media Source](/integrations/media_source/). Displayed media will be filtered based on the capabilities of the DLNA DMR device.

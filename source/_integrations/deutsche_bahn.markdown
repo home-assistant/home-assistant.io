@@ -8,6 +8,7 @@ ha_release: 0.14
 ha_domain: deutsche_bahn
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `deutsche_bahn` sensor will give you the departure time of the next train for the given connection. In case of a delay, the delay is also shown. Additional details are used to inform about, e.g., the type of the train, price, and if it is on time.

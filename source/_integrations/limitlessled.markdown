@@ -1,7 +1,6 @@
 ---
 title: LimitlessLED
 description: Instructions on how to setup LimitlessLED within Home Assistant.
-logo: limitlessled_logo.png
 ha_category:
   - Light
 ha_iot_class: Assumed State
@@ -9,6 +8,7 @@ ha_release: pre 0.7
 ha_domain: limitlessled
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 `limitlessled` can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight, or iLight.
@@ -28,29 +28,29 @@ To add `limitlessled` to your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 light:
-  platform: limitlessled
-  bridges:
-    - host: 192.168.1.10
-      groups:
-      - number: 1
-        name: Bedroom
-      - number: 2
-        type: rgbw
-        name: Bathroom
-      - number: 3
-        type: rgbw
-        name: Kitchen
-        fade: true
-      - number: 4
-        type: dimmer
-        name: Livingroom
-    - host: 192.168.1.11
-      groups:
-      - number: 1
-        name: Living Room & Hall
-      - number: 1
-        type: bridge-led
-        name: Bridge Light
+  - platform: limitlessled
+    bridges:
+      - host: 192.168.1.10
+        groups:
+        - number: 1
+          name: Bedroom
+        - number: 2
+          type: rgbw
+          name: Bathroom
+        - number: 3
+          type: rgbw
+          name: Kitchen
+          fade: true
+        - number: 4
+          type: dimmer
+          name: Livingroom
+      - host: 192.168.1.11
+        groups:
+        - number: 1
+          name: Living Room & Hall
+        - number: 1
+          type: bridge-led
+          name: Bridge Light
 ```
 
 {% configuration %}

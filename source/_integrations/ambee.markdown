@@ -2,8 +2,8 @@
 title: Ambee
 description: Instructions on how to integrate Ambee within Home Assistant.
 ha_category:
-  - Health
   - Environment
+  - Health
 ha_release: 2021.7
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -13,6 +13,7 @@ ha_domain: ambee
 ha_platforms:
   - sensor
 ha_quality_scale: platinum
+ha_integration_type: integration
 ---
 
 The Ambee integration integrates the [Ambee](https://www.getambee.com/) API

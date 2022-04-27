@@ -7,12 +7,12 @@ ha_release: 0.95
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@rodripf'
-  - '@dmcc'
   - '@MartinHjelmare'
 ha_config_flow: true
 ha_domain: vlc_telnet
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `vlc_telnet` platform allows you to control a [VLC media player](https://www.videolan.org/vlc/index.html) using the built in telnet interface.

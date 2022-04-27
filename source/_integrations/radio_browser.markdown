@@ -2,14 +2,15 @@
 title: Radio Browser
 description: Instructions on how to integrate Radio Browser into Home Assistant.
 ha_category:
-  - Multimedia
   - Media Source
+  - Multimedia
 ha_release: 2022.3
 ha_iot_class: Cloud Polling
 ha_domain: radio_browser
 ha_config_flow: true
-ha_platforms:
-  - sensor
+ha_codeowners:
+  - '@frenck'
+ha_integration_type: integration
 ---
 
 The Radio Browser integration allows you to use the directory of

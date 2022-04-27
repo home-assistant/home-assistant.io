@@ -5,20 +5,24 @@ ha_category:
   - Binary Sensor
   - Light
   - Number
+  - Sensor
   - Switch
 ha_iot_class: Local Push
-ha_release: "2022.3"
+ha_release: '2022.3'
 ha_dhcp: true
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
-  - "@sbidy"
+  - '@sbidy'
 ha_domain: wiz
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - light
   - number
+  - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The WiZ integration allows you to control your WiZ lights and smart sockets.
