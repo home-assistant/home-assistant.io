@@ -13,7 +13,7 @@ ha_platforms:
   - media_player
 ---
 
-The SlimProto integration allows you to control a [Squeezebox](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29) music player directly from Home Assistant, without the need for an external Media Server such as Logitech Media Server. This lets you control Squeezebox hardware like the Classic, Transporter, Duet, Boom, Radio and Touch and of software players like [Squeezelite](https://github.com/ralph-irving/squeezelite), [PiCorePlayer](https://www.picoreplayer.org/) or [Max2Play](https://www.max2play.com/en/). For the real DIY, enthousiast [there even is a player for the ESP32](https://github.com/sle118/squeezelite-esp32).
+The SlimProto integration allows you to control a [Squeezebox](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29) music player directly from Home Assistant, without the need for an external Media Server such as Logitech Media Server. This lets you control Squeezebox hardware like the Classic, Transporter, Duet, Boom, Radio and Touch and of software players like [Squeezelite](https://github.com/ralph-irving/squeezelite), [PiCorePlayer](https://www.picoreplayer.org/) or [Max2Play](https://www.max2play.com/en/). For the real DIY enthousiast, [there even is a player for the ESP32](https://github.com/sle118/squeezelite-esp32).
 
 {% include integrations/config_flow.md %}
 
@@ -23,7 +23,7 @@ This integration talks directly to the player running the "SLIM" protocol, efect
 
 ## Basic support only
 
-This integration is aimed to be as simple as possible, allowing the basic controls of the player from Home Assistant and the possibility to send an URL to stream to the player.
+This integration is aimed to be as simple as possible, allowing the basic controls of the player from Home Assistant and the possibility to send a URL to stream to the player.
 
 At time of writing the following is not yet supported and will be added in a later release:
 
