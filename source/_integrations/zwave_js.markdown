@@ -341,6 +341,38 @@ These are notification events fired by devices using the Notification command cl
 }
 ```
 
+#### Multilevel Switch Command Class
+
+These are notification events fired by devices using the Multilevel Switch command class. There are events for start level change and stop level change. These would typically be used in a device like the Aeotec Nano Dimmer with an external switch to respond to long button presses.
+
+##### Start Level Change
+```json
+{
+    "domain": "zwave_js",
+    "node_id": 1,
+    "home_id": 974823419,
+    "device_id": "2f44f0d4152be3123f7ad40cf3abd095",
+    "command_class": 38,
+    "command_class_name": "Multilevel Switch",
+    "event_type": 4,
+    "direction": "up"
+},
+```
+
+##### Stop Level Change
+```json
+{
+    "domain": "zwave_js",
+    "node_id": 8,
+    "home_id": 3803689189,
+    "device_id": "2f44f0d4152be3123f7ad40cf3abd095",
+    "command_class": 38,
+    "command_class_name": "Multilevel Switch",
+    "event_type": 5,
+    "direction": null
+},
+```
+
 #### Entry Control Command Class
 
 These are notification events fired by devices using the Entry Control command class.
