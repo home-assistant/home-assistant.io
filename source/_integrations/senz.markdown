@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: senz
 ha_platforms:
   - climate
+ha_integration_type: integration
 ---
 
 The SENZ integration allows you to control and monitor your nVent RAYCHEM SENZ-WIFI thermostats.

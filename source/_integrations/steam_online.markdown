@@ -9,6 +9,9 @@ ha_domain: steam_online
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_codeowners:
+  - '@tkdrob'
+ha_config_flow: true
 ---
 
 The `steam` sensor platform will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.

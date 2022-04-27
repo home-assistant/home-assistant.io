@@ -88,4 +88,3 @@ In some cases, this will restore control to the fireplace, but if it doesn't you
 #### Power Cycle
 
 The sure fire way to reset the IFT module is to just power-cycle it. This will work just about every time.
-

@@ -39,6 +39,7 @@ ha_platforms:
   - siren
   - switch
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
 This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're migrating from the deprecated `zwave`, see [our migration instructions](#migrating-from-previous-z-wave-implementations).

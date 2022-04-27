@@ -31,6 +31,7 @@ ha_platforms:
   - climate
   - cover
   - device_tracker
+  - diagnostics
   - fan
   - light
   - lock
