@@ -25,10 +25,10 @@ This integration talks directly to the player running the "SLIM" protocol, efect
 
 This integration is aimed to be as simple as possible, allowing the basic controls of the player from Home Assistant and the possibility to send a URL to stream to the player.
 
-At time of writing the following is not yet supported and will be added in a later release:
+At time of writing the following is not yet supported:
 
-- Player groups (synced multi room audio).
-- Display support (for official Squeezebox hardware).
+- Player groups (synced multi room audio) - will be added in a later release.
+- Display support (for official Squeezebox hardware) - might be added in a later release if enough interest.
 
 ## Advanced: Player events
 
