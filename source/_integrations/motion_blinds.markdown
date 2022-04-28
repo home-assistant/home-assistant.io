@@ -26,6 +26,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Brel Home](https://www.brel-home.nl/)
 - [3 Day Blinds](https://www.3dayblinds.com/)
 - [Dooya](http://www.dooya.com/)
+- [Gaviota](https://www.gaviotagroup.com/en/)
 - [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
 - [iSmartWindow](https://www.ismartwindow.co.nz/)
 - [Martec](https://www.martec.co.nz/)
