@@ -49,7 +49,7 @@ You can't write messages to yourself or get notifications in a group, if "you" w
 <br>
 If you secured your account with 2-factor authentication: Only verification by app or SMS are supported. There is no support for verification by prompt on your phone.<br>
 <br>
-The manual authentication work-around is a result of unofficial support for using bots in hangouts from Google.
+The manual authentication work-around is a result of unofficial support for using bots in Chat from Google.
 </div>
 
 The authentication token will be generated and stored internally.
