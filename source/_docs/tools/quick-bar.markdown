@@ -19,7 +19,8 @@ Type these from anywhere in the application to launch the dialog.
 | Mode  | Hotkey | Switch Modes
 | ------------- | ------------- | ------------- |
 | Entity Filter | `e` | Type `>` at start of input to switch to command palette.
-| Command Palette| `c` | Remove `>` from start of input to switch to entity filter.
+| Command Palette | `c` | Remove `>` from start of input to switch to entity filter.
+| Create [`my`](/integrations/my) link | `m` | Open a new tab to create a my link to the page you are on.
 
 <div class='note'>
   The application must have focus for the hotkey to register. If the dialog doesn't launch, try clicking into an empty part of the main content area of Home Assistant and type it again.
@@ -58,6 +59,12 @@ Type | Available |
 | Navigate | All entries in the sidebar and settings |
 | Reload | All currently-supported "Reload {domain}" services.<br />*(E.g., "Reload Scripts")* |
 | Server | Restart/Stop |
+
+## My links
+
+*Hotkey: `m`*
+
+Create [`my`](/integrations/my) links from any supported page in the user interface, when invoked on a supported page it will open a new tab which will allow you to share the link in different formats.
 
 ## Disabling Shortcuts
 
