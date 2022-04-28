@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_domain: home_plus_control
 ha_platforms:
   - switch
+ha_integration_type: integration
 ---
 
 The Home+ Control integration platform allows you to control a range of Legrand in-wall switches and power outlets that have smart home functionality thanks to their "with Netatmo" capabilities.
@@ -29,6 +30,10 @@ In both cases, the devices are modeled as on/off switches within Home Assistant.
 This integration has been tested to work with the following range of Legrand products
 
 - Valena Next™ with Netatmo
+
+This integration has also been tested to work with the following range of BTicino products
+
+- Living Now (Light switches)
 
 ## Authentication
 

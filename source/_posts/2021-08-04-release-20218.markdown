@@ -11,7 +11,6 @@ categories:
 - Release-Notes
 - Core
 og_image: /images/blog/2021-08/social.png
-feedback: true
 ---
 
 <a href='/integrations/#version/2021.8'><img src='/images/blog/2021-08/social.png' style='border: 0;box-shadow: none;'></a>
@@ -64,6 +63,10 @@ later today (9:00 PM CET).
 - [Release 2021.8.2 - August 5](#release-202182---august-5)
 - [Release 2021.8.3 - August 6](#release-202183---august-6)
 - [Release 2021.8.4 - August 8](#release-202184---august-8)
+- [Release 2021.8.5 - August 9](#release-202185---august-9)
+- [Release 2021.8.6 - August 10](#release-202186---august-10)
+- [Release 2021.8.7 - August 15](#release-202187---august-15)
+- [Release 2021.8.8 - August 18](#release-202188---august-18)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -118,7 +121,7 @@ Every hour, we calculate things like mean, min/max values, or the difference
 created that hour and store just that result in our long-term statistics.
 
 These statistics is what partly powers the new Energy dashboard, however,
-they can be used for anything else: Introducing the Lovelace [statistics graph card](/lovelace/statistics-graph/).
+they can be used for anything else: Introducing the Lovelace [statistics graph card](/dashboards/statistics-graph/).
 
 <p class='img'>
 <img src='/images/blog/2021-08/statistics-graph.png' alt='Screenshot of the new Lovelace statistics graph card'>
@@ -167,7 +170,7 @@ Screenshot of the Gauge card in needle mode with severity configured.
 </p>
 
 These settings are available straight from the Lovelace UI editor; More
-information and examples can be found in the [Gauge card documentation](/lovelace/gauge/).
+information and examples can be found in the [Gauge card documentation](/dashboards/gauge/).
 
 ## Currency core setting
 
@@ -436,6 +439,208 @@ The following integrations are now available via the Home Assistant UI:
 [ebusd docs]: https://www.home-assistant.io/integrations/ebusd/
 [modbus docs]: https://www.home-assistant.io/integrations/modbus/
 [motioneye docs]: https://www.home-assistant.io/integrations/motioneye/
+
+## Release 2021.8.5 - August 9
+
+- Fix camera state and attributes for agent_dvr ([@tkdrob] - [#54049]) ([agent_dvr docs])
+- Force an attempted subscribe on speaker reboot ([@geuben] - [#54100]) ([sonos docs])
+- Fix login to BMW services for rest_of_world and north_america ([@rikroe] - [#54261]) ([bmw_connected_drive docs])
+- Always set interfaces explicitly when IPv6 is present ([@bdraco] - [#54268]) ([zeroconf docs])
+- Fix atom integration for long term statistics ([@ZeGuigui] - [#54285]) ([atome docs])
+- Use correct state attribute for alarmdecoder binary sensor ([@tkdrob] - [#54286]) ([alarmdecoder docs])
+- Bump soco to 0.23.3 ([@jjlawren] - [#54288]) ([sonos docs])
+- Fix ondilo_ico name attribute ([@cdce8p] - [#54290]) ([ondilo_ico docs])
+- Bump zeroconf to 0.34.3 ([@bdraco] - [#54294]) ([zeroconf docs])
+- Ensure hunterdouglas_powerview model type is a string ([@bdraco] - [#54299]) ([hunterdouglas_powerview docs])
+- Remove zwave_js transition on individual color channels ([@firstof9] - [#54303]) ([zwave_js docs])
+- Restores unit_of_measurement ([@dgomes] - [#54335]) ([integration docs])
+- Fix xiaomi air fresh fan preset modes ([@jbouwh] - [#54342]) ([xiaomi_miio docs])
+- Update frontend to 20210809.0 ([@bramkragten] - [#54350]) ([frontend docs])
+- Fix Xiaomi-miio turn fan on with speed, percentage or preset ([@jbouwh] - [#54353]) ([xiaomi_miio docs])
+- Fix aqualogic state attribute update ([@dailow] - [#54354]) ([aqualogic docs])
+- Cast SimpliSafe version number as a string in device info ([@bachya] - [#54356]) ([simplisafe docs])
+- Do not process forwarded for headers for cloud requests ([@balloob] - [#54364]) ([http docs]) ([cloud docs])
+- Revert "Use entity class attributes for Bluesound (#53033)" ([@balloob] - [#54365]) ([bluesound docs])
+- Update Climacell rate limit ([@raman325] - [#54373]) ([climacell docs])
+- Fix race condition in Advantage Air ([@Bre77] - [#53439]) ([advantage_air docs])
+
+[#53439]: https://github.com/home-assistant/core/pull/53439
+[#54049]: https://github.com/home-assistant/core/pull/54049
+[#54100]: https://github.com/home-assistant/core/pull/54100
+[#54261]: https://github.com/home-assistant/core/pull/54261
+[#54268]: https://github.com/home-assistant/core/pull/54268
+[#54285]: https://github.com/home-assistant/core/pull/54285
+[#54286]: https://github.com/home-assistant/core/pull/54286
+[#54288]: https://github.com/home-assistant/core/pull/54288
+[#54290]: https://github.com/home-assistant/core/pull/54290
+[#54294]: https://github.com/home-assistant/core/pull/54294
+[#54299]: https://github.com/home-assistant/core/pull/54299
+[#54303]: https://github.com/home-assistant/core/pull/54303
+[#54335]: https://github.com/home-assistant/core/pull/54335
+[#54342]: https://github.com/home-assistant/core/pull/54342
+[#54350]: https://github.com/home-assistant/core/pull/54350
+[#54353]: https://github.com/home-assistant/core/pull/54353
+[#54354]: https://github.com/home-assistant/core/pull/54354
+[#54356]: https://github.com/home-assistant/core/pull/54356
+[#54364]: https://github.com/home-assistant/core/pull/54364
+[#54365]: https://github.com/home-assistant/core/pull/54365
+[#54373]: https://github.com/home-assistant/core/pull/54373
+[@Bre77]: https://github.com/Bre77
+[@ZeGuigui]: https://github.com/ZeGuigui
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cdce8p]: https://github.com/cdce8p
+[@dailow]: https://github.com/dailow
+[@dgomes]: https://github.com/dgomes
+[@firstof9]: https://github.com/firstof9
+[@geuben]: https://github.com/geuben
+[@jbouwh]: https://github.com/jbouwh
+[@jjlawren]: https://github.com/jjlawren
+[@raman325]: https://github.com/raman325
+[@rikroe]: https://github.com/rikroe
+[@tkdrob]: https://github.com/tkdrob
+[advantage_air docs]: /integrations/advantage_air/
+[agent_dvr docs]: /integrations/agent_dvr/
+[alarmdecoder docs]: /integrations/alarmdecoder/
+[aqualogic docs]: /integrations/aqualogic/
+[atome docs]: /integrations/atome/
+[bluesound docs]: /integrations/bluesound/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[climacell docs]: /integrations/climacell/
+[cloud docs]: /integrations/cloud/
+[frontend docs]: /integrations/frontend/
+[http docs]: /integrations/http/
+[hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
+[integration docs]: /integrations/integration/
+[ondilo_ico docs]: /integrations/ondilo_ico/
+[simplisafe docs]: /integrations/simplisafe/
+[sonos docs]: /integrations/sonos/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zeroconf docs]: /integrations/zeroconf/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.8.6 - August 10
+
+- Handle CO2Signal response value being None ([@balloob] - [#54377]) ([co2signal docs])
+- Fix Canary sensor state ([@ludeeus] - [#54380]) ([canary docs])
+- Re-add Tibber notify service name ([@Danielhiversen] - [#54401]) ([tibber docs])
+- Bump hass_nabucasa to 0.46.0 ([@balloob] - [#54421]) ([cloud docs])
+- Bump pyopenuv to 2.1.0 ([@bachya] - [#54436]) ([openuv docs])
+
+[#54377]: https://github.com/home-assistant/core/pull/54377
+[#54380]: https://github.com/home-assistant/core/pull/54380
+[#54401]: https://github.com/home-assistant/core/pull/54401
+[#54421]: https://github.com/home-assistant/core/pull/54421
+[#54436]: https://github.com/home-assistant/core/pull/54436
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@ludeeus]: https://github.com/ludeeus
+[canary docs]: /integrations/canary/
+[cloud docs]: /integrations/cloud/
+[co2signal docs]: /integrations/co2signal/
+[openuv docs]: /integrations/openuv/
+[tibber docs]: /integrations/tibber/
+
+## Release 2021.8.7 - August 15
+
+- Use pycarwings2 2.11 ([@filcole] - [#54424]) ([nissan_leaf docs])
+- Fix Huawei LTE entity state updating ([@scop] - [#54447]) ([huawei_lte docs])
+- Strip attributes whitespace in universal media_player ([@0xFelix] - [#54451]) ([universal docs])
+- Bump notifications-android-tv to 0.1.3 ([@tkdrob] - [#54462]) ([nfandroidtv docs])
+- Updates to bump MyQ to 3.1.2 ([@ehendrix23] - [#54488]) ([myq docs])
+- Add missing PRESSURE_BAR conversion ([@Danielhiversen] - [#54497])
+- Treat temporary errors as warnings for Tesla ([@alandtse] - [#54515]) ([tesla docs])
+- Fix attributes not showing after using entity class attributes ([@gerard33] - [#54558]) ([bmw_connected_drive docs])
+- Upgrade qnapstats library to 0.4.0 ([@colinodell] - [#54571]) ([qnap docs])
+- Fix bug in ambiclimate ([@Danielhiversen] - [#54579]) ([ambiclimate docs])
+- Fix Tibber last reset ([@Danielhiversen] - [#54582]) ([tibber docs])
+- Adax, update requirements ([@Danielhiversen] - [#54587]) ([adax docs])
+- Clamp color temperature to supported range in ESPHome light ([@oxan] - [#54595]) ([esphome docs])
+- Bump zeroconf to 0.35.0 ([@bdraco] - [#54604]) ([zeroconf docs])
+- Bump py-synologydsm-api to 1.0.4 ([@mib1185] - [#54610]) ([synology_dsm docs])
+- Guard partial upgrade ([@balloob] - [#54617]) ([http docs])
+- Solve switch/verify register type convert problem in modbus ([@janiversen] - [#54645]) ([modbus docs])
+- Send color_brightness to ESPHome devices on 1.20 (pre-color_mode) ([@jesserockz] - [#54670]) ([esphome docs])
+
+[#54424]: https://github.com/home-assistant/core/pull/54424
+[#54447]: https://github.com/home-assistant/core/pull/54447
+[#54451]: https://github.com/home-assistant/core/pull/54451
+[#54462]: https://github.com/home-assistant/core/pull/54462
+[#54488]: https://github.com/home-assistant/core/pull/54488
+[#54497]: https://github.com/home-assistant/core/pull/54497
+[#54515]: https://github.com/home-assistant/core/pull/54515
+[#54558]: https://github.com/home-assistant/core/pull/54558
+[#54571]: https://github.com/home-assistant/core/pull/54571
+[#54579]: https://github.com/home-assistant/core/pull/54579
+[#54582]: https://github.com/home-assistant/core/pull/54582
+[#54587]: https://github.com/home-assistant/core/pull/54587
+[#54595]: https://github.com/home-assistant/core/pull/54595
+[#54604]: https://github.com/home-assistant/core/pull/54604
+[#54610]: https://github.com/home-assistant/core/pull/54610
+[#54617]: https://github.com/home-assistant/core/pull/54617
+[#54645]: https://github.com/home-assistant/core/pull/54645
+[#54670]: https://github.com/home-assistant/core/pull/54670
+[@0xFelix]: https://github.com/0xFelix
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@alandtse]: https://github.com/alandtse
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@colinodell]: https://github.com/colinodell
+[@ehendrix23]: https://github.com/ehendrix23
+[@filcole]: https://github.com/filcole
+[@gerard33]: https://github.com/gerard33
+[@janiversen]: https://github.com/janiversen
+[@jesserockz]: https://github.com/jesserockz
+[@mib1185]: https://github.com/mib1185
+[@oxan]: https://github.com/oxan
+[@scop]: https://github.com/scop
+[@tkdrob]: https://github.com/tkdrob
+[adax docs]: /integrations/adax/
+[ambiclimate docs]: /integrations/ambiclimate/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[esphome docs]: /integrations/esphome/
+[http docs]: /integrations/http/
+[huawei_lte docs]: /integrations/huawei_lte/
+[modbus docs]: /integrations/modbus/
+[myq docs]: /integrations/myq/
+[nfandroidtv docs]: /integrations/nfandroidtv/
+[nissan_leaf docs]: /integrations/nissan_leaf/
+[qnap docs]: /integrations/qnap/
+[synology_dsm docs]: /integrations/synology_dsm/
+[tesla docs]: /integrations/tesla/
+[tibber docs]: /integrations/tibber/
+[universal docs]: /integrations/universal/
+[zeroconf docs]: /integrations/zeroconf/
+
+## Release 2021.8.8 - August 18
+
+- Fix TPLink emeter reset not updating ([@TomBrien] - [#54848]) ([tplink docs])
+- Fix tplink doing I/O in event loop and optimize ([@rytilahti] - [#54570]) ([tplink docs])
+- Fix 'in' comparisons vesync light ([@cdce8p] - [#54614]) ([vesync docs])
+- Update PyMetEireann to 2021.8.0 ([@DylanGore] - [#54693]) ([met_eireann docs])
+- Fix BMW remote services in rest_of_world & north_america ([@rikroe] - [#54726]) ([bmw_connected_drive docs])
+- Fix HomeKit cover creation with tilt position, open/close, no set position ([@bdraco] - [#54727]) ([homekit docs])
+
+[#54570]: https://github.com/home-assistant/core/pull/54570
+[#54614]: https://github.com/home-assistant/core/pull/54614
+[#54693]: https://github.com/home-assistant/core/pull/54693
+[#54726]: https://github.com/home-assistant/core/pull/54726
+[#54727]: https://github.com/home-assistant/core/pull/54727
+[#54848]: https://github.com/home-assistant/core/pull/54848
+[@DylanGore]: https://github.com/DylanGore
+[@TomBrien]: https://github.com/TomBrien
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@rikroe]: https://github.com/rikroe
+[@rytilahti]: https://github.com/rytilahti
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[homekit docs]: /integrations/homekit/
+[met_eireann docs]: /integrations/met_eireann/
+[tplink docs]: /integrations/tplink/
+[vesync docs]: /integrations/vesync/
 
 ## If you need help...
 

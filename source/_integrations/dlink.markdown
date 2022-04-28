@@ -8,6 +8,7 @@ ha_release: 0.14
 ha_domain: dlink
 ha_platforms:
   - switch
+ha_integration_type: integration
 ---
 
 The `dlink` switch platform allows you to control the state of your [D-Link Wi-Fi Smart Plugs](https://us.dlink.com/en/consumer/smart-plugs).
@@ -49,7 +50,7 @@ password:
   default: The default password is the `PIN` included on the configuration card.
   type: string
 use_legacy_protocol:
-  description: Enable limited support for legacy firmware protocols (Tested with v1.24).
+  description: Enable limited support for legacy firmware protocols (Tested with v1.24, v1.26).
   required: false
   default: false
   type: boolean

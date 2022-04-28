@@ -2,9 +2,9 @@
 title: Amcrest
 description: Instructions on how to integrate Amcrest (or Dahua) IP cameras within Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Camera
+  - Hub
   - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.49
@@ -13,6 +13,10 @@ ha_platforms:
   - binary_sensor
   - camera
   - sensor
+  - switch
+ha_codeowners:
+  - '@flacjacket'
+ha_integration_type: integration
 ---
 
 The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera or doorbell in Home Assistant.
@@ -135,6 +139,14 @@ sensors:
       description: >
         Return the number of PTZ preset positions
         configured for the given camera.
+switches:
+  description: Switches to control certain aspects of the cameras.
+  required: false
+  type: list
+  default: None
+  keys:
+    privacy_mode:
+      description: Controls the camera's Privacy Mode feature, if supported.
 control_light:
   description: >
     Automatically control the camera's indicator light, turning it on if the audio or video streams are enabled, and turning it off if both streams are disabled.

@@ -59,25 +59,3 @@ switch 1:
 switch 2:
   platform: vera
 ```
-
-## Grouping entities
-
-Once you have several entities set up, it is time to organize them into groups.
-Each group consists of a name and a list of entity IDs. Entity IDs can be
-retrieved from the web interface by using the
-{% my developer_states title="States page in the Developer Tools" %}.
-
-```yaml
-# Example configuration.yaml entry
-group:
-  living_room:
-    entities:
-      - light.table_lamp
-      - switch.ac
-  bedroom:
-    entities:
-      - light.bedroom
-      - media_player.nexus_player
-```
-
-For more details please check the [Group](/integrations/group/) page.

@@ -15,17 +15,36 @@ ha_codeowners:
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - media_player
+  - number
   - sensor
   - switch
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
 
 {% include integrations/config_flow.md %}
 
-## Battery support
+## Feature controls & sensors
+
+Speaker-level controls are exposed as `number` or `switch` entities. Additionally, various `sensor` and `binary_sensor` entities are provided.
+
+### Controllable features
+
+- **All devices**: Alarms, Bass, Treble, Crossfade, Status Light, Touch Controls
+- **Home theater devices**: Audio Delay (aka "Lip Sync"), Night Sound, Speech Enhancement, Surround Enabled
+- **When paired with a sub**: Subwoofer Enabled, Subwoofer Gain
+
+### Sensors
+
+- **Devices with battery**: Battery level, Power state
+- **Home theater devices**: Audio Input Format
+- **Voice-enabled devices**: Microphone Enabled
+
+### Battery support notes
 
 Battery sensors are fully supported for the `Sonos Roam` and `Sonos Move` devices on S2 firmware. `Sonos Move` speakers still on S1 firmware are supported but may update infrequently.
 
@@ -37,9 +56,13 @@ The battery sensors rely on working change events or updates will be delayed. S1
 
 </div>
 
-## Alarm support
+### Alarm support notes
 
 The Sonos integration adds one `switch` for each alarm set in the Sonos app. The alarm switches are detected, deleted and assigned automatically and come with several attributes that help to monitor Sonos alarms.
+
+### Microphone support notes
+
+The microphone can only be enabled/disabled from physical buttons on the Sonos device and cannot be controlled from Home Assistant. A `binary_sensor` reports its current state.
 
 ## Playing media
 
@@ -181,21 +204,6 @@ Update an existing Sonos alarm.
 | `enabled` | yes | Boolean for whether or not to enable this alarm.
 | `include_linked_zones` | yes | Boolean that defines if the alarm also plays on grouped players.
 
-### Service `sonos.set_option`
-
-Set Sonos speaker options.
-
-Night Sound and Speech Enhancement modes are only supported when playing from the TV source of products like Sonos Playbar and Sonos Beam. Other speaker types will ignore these options.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of `entity_id`s that will have their options set.
-| `buttons_enabled` | yes | Boolean to control the functioning of hardware buttons on the device.
-| `crossfade` | yes | Boolean to control crossfading between songs.
-| `night_sound` | yes | Boolean to control Night Sound mode.
-| `speech_enhance` | yes | Boolean to control Speech Enhancement mode.
-| `status_light` | yes | Boolean to control the Status (LED) Light.
-
 ### Service `sonos.play_queue`
 
 Starts playing the Sonos queue.
@@ -255,6 +263,12 @@ action:
 
 {% endraw %}
 
+## Network requirements
+
+To work optimally, the Sonos devices must be able to connect back to the Home Assistant host on TCP port 1400. This will allow the push-based updates to work properly. If this port is blocked or otherwise unreachable from the Sonos devices, the integration will fall back to a polling mode which is slower to update and much less efficient. The integration will alert the user if this problem is detected.
+
+See [Advanced use](#advanced-use) below for additional configuration options which may be needed to address this issue in setups with more complex network topologies.
+
 ## Advanced use
 
 For advanced uses, there are some manual configuration options available. These are usually only needed if you have a complex network setup where Home Assistant and Sonos are not on the same subnet.
@@ -271,7 +285,7 @@ sonos:
       - 192.0.2.27
 ```
 
-If your Home Assistant instance has multiple IP addresses, you can enable the IP address that should be used for Sonos auto-discovery with the [Network](/integrations/network/) integration. This should only be necessary if the Sonos speakers are on a network segment not reachable from the default interface.
+If your Home Assistant instance has multiple IP addresses, you can select the specific IP address that should be used for Sonos auto-discovery with the [Network](/integrations/network/) integration. This should only be necessary if the Sonos speakers are on a network segment not reachable from the default interface.
 
 The Sonos speakers will attempt to connect back to Home Assistant to deliver change events. By default, Home Assistant will listen on port 1400 but will try the next 100 ports above 1400 if it is in use. You can change the IP address that Home Assistant advertises to Sonos speakers. This can help in NAT scenarios such as when _not_ using the Docker option `--net=host`:
 

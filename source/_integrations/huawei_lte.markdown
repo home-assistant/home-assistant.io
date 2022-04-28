@@ -2,12 +2,12 @@
 title: Huawei LTE
 description: Instructions on how to integrate Huawei LTE router and modem devices with Home Assistant.
 ha_category:
+  - Binary Sensor
   - Network
-  - Presence Detection
   - Notifications
+  - Presence Detection
   - Sensor
   - Switch
-  - Binary Sensor
 ha_release: 0.79
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -22,6 +22,7 @@ ha_platforms:
   - notify
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Huawei LTE router and modem integration for Home Assistant allows you to observe and control [Huawei LTE devices](https://consumer.huawei.com/en/smart-home/).
@@ -34,10 +35,10 @@ There is currently support for the following platforms within Home Assistant:
 - Switch - mobile data on/off
 - Binary sensor - mobile and Wi-Fi connection status, SMS storage full/not
 
-## Configuration
+## Setup
 
-The integration can be enabled in two ways, either using the frontend
-or using YAML. Additionally, if the [SSDP integration](/integrations/ssdp) is
+The integration can be enabled using the frontend, see below for details.
+Additionally, if the [SSDP integration](/integrations/ssdp) is
 enabled in Home Assistant, automatically discovered Huawei LTE devices
 which support and have UPnP enabled are made available for further
 optional configuration in the frontend.
@@ -66,61 +67,10 @@ The rest are added to the entity registry, but disabled by default.
 Support for different categories of information and thus available
 entities varies by device model and firmware version.
 
-### Configuration via the frontend
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **Huawei
-LTE**, and follow the configuration flow. After finishing, the Huawei
-LTE integration will be available.
+{% include integrations/config_flow.md %}
 
 Unauthenticated mode and default list of notification recipient phone
 numbers can be set using the integration's configuration options.
-
-### Configuration via YAML
-
-To enable the component, add the following lines to your
-`configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-huawei_lte:
-  - url: http://192.168.100.1/
-    username: ROUTER_USERNAME
-    password: ROUTER_PASSWORD
-```
-For routers configured via the UI, each configuration item for the
-same router in YAML overrides and updates the values set in UI
-whenever the YAML configuration values are introduced or updated.
-
-{% configuration %}
-url:
-  description: URL of the device web interface. Typically http://192.168.100.1/ or http://192.168.1.1/.
-  required: true
-  type: string
-username:
-  description: The username used for the device web interface. Typically `admin`, or empty string (`""`) for USB stick modems. Required when first setting up the device and in authenticated mode.
-  required: false
-  type: string
-password:
-  description: The password used for the device web interface. Typically empty string (`""`) for USB stick modems. Required when first setting up the device and in authenticated mode.
-  required: false
-  type: string
-notify:
-  description: Enable notifications using SMS messages. To use notifications, please see the [getting started with automation page](/getting-started/automation/).
-  required: false
-  type: map
-  keys:
-    name:
-      description: Name of the notification service.
-      default: "`huawei_lte`"
-      required: false
-      type: string
-    recipient:
-      description: The phone number of a default recipient or a list with multiple recipients.
-      required: false
-      type: [string, list]
-{% endconfiguration %}
 
 ## Services
 

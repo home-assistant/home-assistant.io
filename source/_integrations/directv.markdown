@@ -8,13 +8,12 @@ ha_release: 0.25
 ha_iot_class: Local Polling
 ha_domain: directv
 ha_config_flow: true
-ha_codeowners:
-  - '@ctalkington'
 ha_quality_scale: gold
 ha_ssdp: true
 ha_platforms:
   - media_player
   - remote
+ha_integration_type: integration
 ---
 
 The DirecTV platform allows you to control a [DirecTV](https://www.directv.com) receiver and its client devices.

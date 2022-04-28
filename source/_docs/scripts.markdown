@@ -1,6 +1,8 @@
 ---
 title: "Script Syntax"
 description: "Documentation for the Home Assistant Script Syntax."
+toc: true
+no_toc: true
 ---
 
 Scripts are a sequence of actions that Home Assistant will execute. Scripts are available as an entity through the standalone [Script component] but can also be embedded in [automations] and [Alexa/Amazon Echo] configurations.
@@ -27,24 +29,7 @@ script:
           message: "Turned on the ceiling light!"
 ```
 
-- [Call a Service](#call-a-service)
-  - [Activate a Scene](#activate-a-scene)
-- [Variables](#variables)
-- [Test a Condition](#test-a-condition)
-- [Delay](#delay)
-- [Wait](#wait)
-  - [Wait Template](#wait-template)
-  - [Wait for Trigger](#wait-for-trigger)
-  - [Wait Timeout](#wait-timeout)
-  - [Wait Variable](#wait-variable)
-- [Fire an Event](#fire-an-event)
-  - [Raise and Consume Custom Events](#raise-and-consume-custom-events)
-- [Repeat a Group of Actions](#repeat-a-group-of-actions)
-  - [Counted Repeat](#counted-repeat)
-  - [While Loop](#while-loop)
-  - [Repeat Until](#repeat-until)
-  - [Repeat Loop Variable](#repeat-loop-variable)
-- [Choose a Group of Actions](#choose-a-group-of-actions)
+{{ page.content | markdownify | toc_only }}
 
 ## Call a Service
 
@@ -90,9 +75,64 @@ The variables action allows you to set/override variables that will be accessibl
 
 {% endraw %}
 
+Variables can be templated.
+
+{% raw %}
+
+```yaml
+- alias: "Set a templated variable"
+  variables:
+    blind_state_message: "The blind is {{ states('cover.blind') }}."
+- alias: "Notify about the state of the blind"
+  service: notify.mobile_app_iphone
+  data:
+    message: "{{ blind_state_message }}"
+```
+
+{% endraw %}
+
+### Scope of Variables
+
+Variables have local scope. This means that if a variable is changed in a nested sequence block, that change will not be visible in an outer sequence block.
+
+The following example will always say "There are 0 people home". Inside the `choose` sequence the `variables` action will only alter the `people` variable for that sequence.
+
+{% raw %}
+
+```yaml
+sequence:
+  # Set the people variable to a default value
+  - variables:
+      people: 0
+  # Try to increment people if Paulus is home
+  - choose:
+    - conditions:
+        - condition: state
+          entity_id: device_tracker.paulus
+          state: "home"
+      sequence:
+        # At this scope and this point of the sequence, people == 0
+        - variables:
+            people: "{{ people + 1 }}"
+        # At this scope, people will now be 1 ...
+  # ... but at this scope it will still be 0
+  # Announce the count of people home
+  - service: notify.notify
+    data:
+      message: "There are {{ people }} people home"
+```
+
+{% endraw %}
+
 ## Test a Condition
 
-While executing a script you can add a condition to stop further execution. When a condition does not return `true`, the script will stop executing. There are many different conditions which are documented at the [conditions page].
+While executing a script you can add a condition in the main sequence to stop further execution. When a condition does not return `true`, the script will stop executing. There are many different conditions which are documented at the [conditions page].
+
+<div class='note'>
+
+The `condition` action only stops executing the current sequence block. When it is used inside a [repeat](#repeat-a-group-of-actions) action, only the current iteration of the `repeat` loop will stop. When it is used inside a [choose](#choose-a-group-of-actions) action, only the actions within that `choose` will stop.
+
+</div>
 
 ```yaml
 # If paulus is home, continue to execute the script below these lines
@@ -170,7 +210,7 @@ The template is re-evaluated whenever an entity ID that it references changes st
 
 ### Wait for Trigger
 
-This action can use the same triggers that are available in an automation's `trigger` section. See [Automation Trigger](/docs/automation/trigger). The script will continue whenever any of the triggers fires. All previously defined [trigger_variables](/docs/automation/trigger#trigger_variables), [variables](#variables) and [script variables] are passed to the trigger.
+This action can use the same triggers that are available in an automation's `trigger` section. See [Automation Trigger](/docs/automation/trigger). The script will continue whenever any of the triggers fires. All previously defined [trigger variables](/docs/automation/trigger#trigger-variables), [variables](#variables) and [script variables] are passed to the trigger.
 {% raw %}
 
 ```yaml
@@ -405,8 +445,9 @@ For example:
 {% raw %}
 
 ```yaml
-- while: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
-  sequence:
+- repeat:
+    while: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
+    sequence:
     - ...
 ```
 
@@ -455,8 +496,9 @@ For example:
 {% raw %}
 
 ```yaml
-- until: "{{ is_state('device_tracker.iphone', 'home') }}"
-  sequence:
+- repeat:
+    until: "{{ is_state('device_tracker.iphone', 'home') }}"
+    sequence:
     - ...
 ```
 {% endraw %}

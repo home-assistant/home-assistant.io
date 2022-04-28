@@ -8,13 +8,32 @@ ha_domain: twitter
 ha_iot_class: Cloud Push
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `twitter` notification platform uses [Twitter](https://twitter.com) to deliver notifications from Home Assistant.
 
 ## Setup
 
-Make sure you have a developer account registered with Twitter, then go to [Twitter Apps](https://apps.twitter.com/app/new) and create an application. If you don't have a developer account you need to apply for one, it can take some time to get approved. Visit "Keys and Access Tokens" of the application to get the details (Consumer Key, Consumer Secret, Access Token and Access Token Secret which needs to be generated). 
+Make sure you have a developer account registered with Twitter, then go to [Twitter Apps](https://developer.twitter.com/en/portal/dashboard) and create an application. If you don't have a developer account you need to apply for one, it can take some time to get approved.
+
+### App permissions
+
+If you do not perform this step, your application will only receive read permissions and will not be able to post tweets on behalf of your account on Twitter.
+
+1. Visit "Settings" of the application.
+2. Click on `Set up` under "User authentication settings".
+3. Check the box for `OAuth 1.0a`.
+4. Set the app permission to `Read and write`.
+5. Enter a `callback` and `website` URL and click save.
+
+It does not matter for the integration what you enter as a callback or website URL.
+
+### Generate tokens and secrets
+
+1. Visit "Keys and tokens" of the application.
+2. Click on `Regenerate` under "Consumer keys" to get your **Consumer Key** and **Consumer Secret**.
+3. Click on `Regenerate` under "Access Tokens and Secret" to get your **Access Token** and **Access Token Secret**.
 
 ## Configuration
 

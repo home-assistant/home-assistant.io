@@ -13,6 +13,7 @@ ha_domain: sms
 ha_platforms:
   - notify
   - sensor
+ha_integration_type: integration
 ---
 
 The `sms` integration allows having a local execution SMS notification via [Gammu](https://wammu.eu/gammu/). This is ideal when the internet is offline or when the power goes out.
@@ -86,8 +87,15 @@ You will need a USB GSM stick modem or device like SIM800L v2 connected via USB 
 Need to unlock it using [this guide](http://blog.asiantuntijakaveri.fi/2015/07/convert-huawei-e3372h-153-from.html))
 - [Huawei E3531](https://www.amazon.com/Modem-Huawei-Unlocked-Caribbean-Desbloqueado/dp/B011YZZ6Q2/ref=sr_1_1?keywords=Huawei+E3531&qid=1581447800&sr=8-1)
 - [Huawei E3272](https://www.amazon.com/Huawei-E3272s-506-Unlocked-Americas-Europe/dp/B00HBL51OQ)
+- [SIM800C](https://www.amazon.com/gp/product/B087Z6F953/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
 
-[List of modems that may work](https://www.asus.com/event/networks_3G4G_support/)
+### List of modems known to NOT work
+
+- No known modems
+
+### List of modems that may work
+
+Search in the [Gammu database](https://wammu.eu/phones/) for modems with AT connection.
 
 ### Huawei modems on Raspberry Pi (and similar) devices
 
@@ -106,7 +114,7 @@ bus 000 device 002: ID 1232:15ca
 
 Identify the brand for your GSM modem, copy the `brand_Id` and `product_id` (In this case `brand_id = 12d1` and `product_Id = 15ca`)
 
-Set this content in file `udev\10-gsm-modem.rules` in the configuration USB:
+Set this content in file `udev\10-gsm-modem.rules` in the [configuration USB](https://github.com/home-assistant/operating-system/blob/master/Documentation/configuration.md#automatic):
 (Replace `brand_Id` and `product_id` for the numbers reported by `lsusb`)
 
 ```bash

@@ -9,19 +9,20 @@ ha_config_flow: true
 ha_domain: ifttt
 ha_platforms:
   - alarm_control_panel
+ha_integration_type: integration
 ---
 
 [IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT component, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel).
 
 ## Prerequisites
 
-To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic).
+To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic), or use your Nabu Casa account's webhook URL from the IFTTT integration.
 
 {% include integrations/config_flow.md %}
 
-### Using the incoming data
+### Receiving events from IFTTT
 
-Events coming in from IFTTT will be available as events in Home Assistant and are fired as `ifttt_webhook_received`. The data specified in IFTTT will be available as the event data. You can use this event to trigger automations.
+Events coming in from IFTTT will be available as events in Home Assistant and are fired as `ifttt_webhook_received`. The data specified in the IFTTT recipe Body section will be available as the event data. You can use this event to trigger automations. Use POST as method.
 
 For example, set the body of the IFTTT webhook to:
 
@@ -38,15 +39,16 @@ automation:
 - id: this_is_the_automation_id
   alias: "The optional automation alias"
   trigger:
-  - event_data:
-      action: call_service
+  - platform: event
     event_type: ifttt_webhook_received
-    platform: event
+    event_data:
+      action: call_service  # the same action 'name' you used in the Body section of the IFTTT recipe
   condition: []
   action:
-  - target:
+  - service: '{{ trigger.event.data.service }}'
+    target:
       entity_id: '{{ trigger.event.data.entity_id }}'
-    service: '{{ trigger.event.data.service }}'
+    
 ```
 
 {% endraw %}

@@ -8,11 +8,12 @@ ha_iot_class: Local Polling
 ha_domain: serial_pm
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
-Particulate matter sensors measure the amount of very small particles in the air. A short introduction how these sensors work can be found on [Open Home Automation](https://www.open-homeautomation.com/2016/07/19/measuring-air-quality/).
+Particulate matter sensors measure the amount of very small particles in the air.
 
-Cheap LED based sensors usually use a GPIO interface that is hard to attach to computers. However, there are a lot of laser LED based sensors on the market that use a serial interface and can be [connected to your Home Assistant system easily with a USB to serial converter](https://www.open-homeautomation.com/2016/07/20/connecting-an-particulate-matter-sensor-to-your-pc-or-mac/).
+Cheap LED based sensors usually use a GPIO interface that is hard to attach to computers. However, there are a lot of laser LED based sensors on the market that use a serial interface and can be connected to your Home Assistant system easily with a USB to serial converter.
 
 ## Supported Sensors
 

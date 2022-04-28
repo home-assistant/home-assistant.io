@@ -1,5 +1,5 @@
 ---
-title: Manual MQTT
+title: Manual MQTT Alarm Control Panel
 description: Instructions on how to integrate manual alarms into Home Assistant with MQTT support.
 ha_category:
   - Alarm
@@ -8,6 +8,7 @@ ha_domain: manual_mqtt
 ha_iot_class: Local Push
 ha_platforms:
   - alarm_control_panel
+ha_integration_type: integration
 ---
 
 The `mqtt` platform extends the [manual alarm](/integrations/manual) by adding support for MQTT control of the alarm by a remote device. It can be used to create external keypads which simply change the state of the manual alarm in Home Assistant.
@@ -20,6 +21,7 @@ The integration will accept the following commands from your Alarm Panel via the
 - `ARM_HOME`
 - `ARM_AWAY`
 - `ARM_NIGHT`
+- `ARM_VACATION`
 
 When the state of the manual alarm changes, Home Assistant will publish one of the following states to the `state_topic`:
 
@@ -27,6 +29,7 @@ When the state of the manual alarm changes, Home Assistant will publish one of t
 - 'armed_home'
 - 'armed_away'
 - 'armed_night'
+- 'armed_vacation'
 - 'pending'
 - 'triggered'
 
@@ -90,7 +93,7 @@ disarm_after_trigger:
   required: false
   type: boolean
   default: false
-armed_home/armed_away/armed_night/disarmed/triggered:
+armed_home/armed_away/armed_night/armed_vacation/disarmed/triggered:
   description: State specific settings
   required: false
   type: list
@@ -147,6 +150,11 @@ payload_arm_night:
   required: false
   type: string
   default: ARM_NIGHT
+payload_arm_vacation:
+  description: The payload to set armed-vacation mode on this Alarm Panel.
+  required: false
+  type: string
+  default: ARM_VACATION
 {% endconfiguration %}
 
 ## Examples
@@ -188,6 +196,7 @@ To change the state of the alarm, publish one of the following messages to the `
  - `ARM_HOME`
  - `ARM_AWAY`
  - `ARM_NIGHT`
+ - `ARM_VACATION`
 
 To receive state updates from HA, subscribe to the `state_topic`. Home Assistant will publish a new message whenever the state changes:
 
@@ -195,5 +204,6 @@ To receive state updates from HA, subscribe to the `state_topic`. Home Assistant
  - `armed_home`
  - `armed_away`
  - `armed_night`
+ - `armed_vacation`
  - `pending`
  - `triggered`

@@ -31,7 +31,7 @@ If you want to stay on the bleeding-edge Home Assistant Core development branch,
 {% elsif page.installation == "container" %}
 
 ```bash
-docker pull {{ site.installation.container.base }}:dev
+docker pull {{ site.installation.container }}:dev
 ```
 
 **[You then need to recreate the container with the new image.](/installation/linux#install-home-assistant-container)**
@@ -53,7 +53,7 @@ docker pull {{ site.installation.container.base }}:dev
 3. Download and install the version you want
 
     ```bash
-    pip3 install --upgrade git+git://github.com/home-assistant/core.git@dev
+    pip3 install --upgrade git+https://github.com/home-assistant/core.git@dev
     ```
 
 4. When that is complete restart the service for it to use the new files.

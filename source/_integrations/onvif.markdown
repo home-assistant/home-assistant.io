@@ -11,8 +11,10 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - button
   - camera
   - sensor
+ha_integration_type: integration
 ---
 
 The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/) Profile S conformant device in Home Assistant. This requires the [`ffmpeg` component](/integrations/ffmpeg/) to be already configured.
@@ -24,7 +26,7 @@ The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/)
 </div>
 
 <div class='note'>
-If running Home Asssistant Core in a venv, ensure that libxml2 and libxslt python interfaces are installed via your package manager.
+If running Home assistant Core in a venv, ensure that libxml2 and libxslt python interfaces are installed via your package manager.
 </div>
 
 ### Configuration Notes

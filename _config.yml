@@ -48,7 +48,6 @@ commonmark:
 highlighter: none
 
 plugins:
-  - jekyll-time-to-read
   - jekyll-toc
 
 paginate: 10 # Posts per page on the blog index
@@ -76,7 +75,7 @@ collections:
     output: true
   faq:
     output: true
-  lovelace:
+  dashboards:
     output: true
 
 # ----------------------- #
@@ -106,10 +105,10 @@ social:
     account: home_assistant
 
 # Home Assistant release details
-current_major_version: 2021
-current_minor_version: 8
-current_patch_version: 4
-date_released: 2021-08-08
+current_major_version: 2022
+current_minor_version: 4
+current_patch_version: 7
+date_released: 2022-04-24
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -178,12 +177,9 @@ toc:
 
 # Configuration for installation pages
 installation:
-  container:
-    base: "ghcr.io/home-assistant/home-assistant"
-    raspberrypi3: "ghcr.io/home-assistant/raspberrypi3-homeassistant"
-    raspberrypi4: "ghcr.io/home-assistant/raspberrypi4-homeassistant"
+  container: "ghcr.io/home-assistant/home-assistant"
   versions:
-    python: "3.8"
+    python: "3.9"
   types:
     odroid:
       board: ODROID

@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: glances
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `glances` integration allows you to monitor the system information provided by the [Glances](https://github.com/nicolargo/glances) API. This enables one to track remote host and display their stats in Home Assistant.
@@ -65,5 +66,8 @@ Glances integration will add the following sensors if available in the platform:
 - docker_active: The count of active Docker containers.
 - docker_cpu_use: The total CPU usage in percent of Docker containers.
 - docker_memory_use: The total memory used by Docker containers.
+- For each detected raid the following sensors will be created:
+  - raid_available: The number of available devices for the raid.
+  - raid_used: The number of devices used by the raid.
 
 Not all platforms are able to provide all metrics. For instance the cpu temp sensor requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.

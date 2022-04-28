@@ -8,6 +8,7 @@ ha_domain: twilio_call
 ha_iot_class: Cloud Push
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `twilio_call` notification platform enables sending notifications via Voice, powered by [Twilio](https://twilio.com).

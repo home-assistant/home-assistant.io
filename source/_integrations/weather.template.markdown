@@ -20,17 +20,19 @@ Another use case could be using temperature and humidity from one weather platfo
 
 To enable a Template Weather provider in your installation, add the following to your `configuration.yaml` file:
 
+(Note, be sure to update my_region in the condition and forecast templates to an appropriate value for your setup).
+
 {% raw %}
 
 ```yaml
 # Example configuration.yaml entry
 weather:
   - platform: template
-    name: "my very own weather station"
-    condition_template: "sunny"
-    temperature_template: "{{ states('sensor.temperature') | float}}"
-    humidity_template: "{{ states('sensor.humidity')| float }}"
-    forecast_template: "{{ states.weather.my_region.attributes.forecast }}"
+    name: "My Weather Station"
+    condition_template: "{{ states('weather.my_region') }}"
+    temperature_template: "{{ states('sensor.temperature') | float }}"
+    humidity_template: "{{ states('sensor.humidity') | float }}"
+    forecast_template: "{{ state_attr('weather.my_region', 'forecast') }}"
 ```
 
 {% endraw %}

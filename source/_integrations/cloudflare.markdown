@@ -10,6 +10,7 @@ ha_codeowners:
   - '@ctalkington'
 ha_domain: cloudflare
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 With the `cloudflare` integration, you can keep your Cloudflare records up to date.
@@ -55,6 +56,7 @@ This platform uses the API from [ipify.org](https://www.ipify.org/) to set the p
 ### Home Assistant Companion App
 
 If you would like to use [iOS App](https://companion.home-assistant.io/) via Cloudflare set **Minimum TLS version as 1.2**, in order to do that, do the following:
+
 1. Login to your [Cloudflare](https://dash.cloudflare.com/) account.
 2. Choose your domain.
 3. Click on the `SSL/TLS` icon.

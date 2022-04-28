@@ -12,7 +12,10 @@ ha_quality_scale: platinum
 ha_domain: elgato
 ha_zeroconf: true
 ha_platforms:
+  - button
+  - diagnostics
   - light
+ha_integration_type: integration
 ---
 
 The [Elgato](https://www.elgato.com/) Lights sets the bar for high-end studio

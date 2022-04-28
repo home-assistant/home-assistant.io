@@ -9,7 +9,7 @@ The template variable `this` is also available when evaluating any `trigger_vari
 
 ## Available this Data
 
-`this` is a state object. [State Objects](/docs/configuration/state_object) provides a comprehensive description for the properties of `this` and `this.attributes`.
+Variable `this` is the [state object](/docs/configuration/state_object) of the automation. State objects also contain context data which can be used to identify the user that caused a script or automation to execute.
 
 ## Available Trigger Data
 
@@ -112,7 +112,7 @@ The following describes trigger data associated with all platforms.
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `webhook`
 | `trigger.webhook_id` | The webhook ID that was triggered.
-| `trigger.json` | The JSON data of the request (if it had a JSON content type).
+| `trigger.json` | The JSON data of the request (if it had a JSON content type) as a mapping.
 | `trigger.data` | The form data of the request (if it had a form data content type).
 | `trigger.query` | The URL query parameters of the request (if provided).
 

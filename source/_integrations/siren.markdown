@@ -9,6 +9,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
   - '@raman325'
+ha_integration_type: integration
 ---
 
 The Siren integration is built for the controlling and monitoring of siren/chime devices.
@@ -31,11 +32,11 @@ Turn the siren on.
 
 There are three optional input parameters that can be passed into the service call depending on whether or not your device supports them. Check the device's integration documentation for more details.
 
-| Parameter Name  | Input Type
-|---------------- |-------------------------
-| `tone`          | `string` or `integer`
-| `duration`      | `integer`
-| `volume_level`  | `float` between 0 and 1
+| Parameter Name  | Input Type              | Notes                                                                               |
+|---------------- |-------------------------|-------------------------------------------------------------------------------------|
+| `tone`          | `string` or `integer`   | When the `available_tones` property is a map, either the key or value can be used.  |
+| `duration`      | `integer`               |                                                                                     |
+| `volume_level`  | `float` between 0 and 1 |                                                                                     |
 
 ### Service `siren.turn_off`
 

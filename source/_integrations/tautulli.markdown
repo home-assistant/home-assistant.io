@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: tautulli
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `tautulli` sensor platform will monitor activity on a given [Tautulli Server][tautulli]. It will create a sensor that shows the number of currently active streams as the state. If you click the sensor for more details it will show you more statistics, the following stats are available by default:
@@ -71,7 +72,7 @@ monitored_users:
   required: false
   type: list
 monitored_conditions:
-  description: A list of attributes to expose for each Tautulli user you monitor, every key in the `session` [section here][tautulliapi] can be used.
+  description: A list of attributes to expose for each Tautulli user you monitor, every key in the `session` [section here](https://github.com/Tautulli/Tautulli/wiki/Tautulli-API-Reference#get_activity) can be used.
   required: false
   type: list
 {% endconfiguration %}
@@ -93,4 +94,3 @@ sensor:
 ```
 
 [tautulli]: https://tautulli.com
-[tautulliapi]: https://github.com/Tautulli/Tautulli/wiki/Tautulli-API-Reference#get_activity

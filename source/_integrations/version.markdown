@@ -1,9 +1,9 @@
 ---
 title: Version
-description: Instructions on how to integrate a version sensor into Home Assistant.
+description: Instructions on how to integrate the Version integration into Home Assistant.
 ha_category:
-  - Utility
   - Sensor
+  - Utility
 ha_iot_class: Local Push
 ha_release: 0.52
 ha_quality_scale: internal
@@ -12,92 +12,47 @@ ha_codeowners:
   - '@ludeeus'
 ha_domain: version
 ha_platforms:
+  - binary_sensor
+  - diagnostics
   - sensor
+ha_config_flow: true
+ha_integration_type: integration
 ---
 
-The `version` sensor platform that can display the current Home Assistant versions.
+The Version integration can display the current Home Assistant Core versions.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable this sensor, add the following lines to your `configuration.yaml`:
+## Version sources
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: version
-```
+With this integration you can select various sources to get a version from.
 
-{% configuration %}
-name:
-  description: Name to use in the frontend.
-  required: false
-  type: string
-  default: "`Current Version` in case of `source: local`, `Latest Version` otherwise."
-beta:
-  description: Flag to indicate that it will check for beta versions, only supported for the sources `pypi`, `supervisor` and `container`.
-  required: false
-  type: boolean
-  default: false
-image:
-  description: The image you want to check against, this is only supported for `supervisor` and `container`, see full list under.
-  required: false
-  type: string
-  default: default
-source:
-  description: The source you want to check against, possible values are `local`, `pypi`, `supervisor`, `haio` and `container`.
-  required: false
-  type: string
-  default: local
-{% endconfiguration %}
+{% configuration_basic %}
+  "Local installation":
+    description: This will get the version you are currently running.
 
-### Supported images for Home Assistant
+  "Home Assistant Versions":
+    description: This will use the same source that are used by the Supervisor to check for updates based on the channel and image you choose.
 
-`default`, `qemux86`, `qemux86-64`, `qemuarm`, `qemuarm-64`, `generic-x86-64`, `raspberrypi`, `raspberrypi2`, `raspberrypi3`, `raspberrypi3-64`, `raspberrypi4`, `raspberrypi4-64`, `tinker`, `odroid-c2`, `odroid-n2`, `odroid-xu`
+  "Home Assistant Website":
+    description: This will check the website you are reading this on to find the latest version.
 
-## Alternatives for showing local version
+  "Docker Hub":
+    description: This will check the latest tag published to Docker Hub based on the channel and image you choose.
 
-This sensor is an alternative to the existing solutions to achieve the same
-result through various platforms.
-Remember that you can easily get the installed version on the command line.
+  "Python Package Index (PyPI)":
+    description: This will check PyPI for the latest published package.
 
-```bash
-hass --version
-```
+{% endconfiguration_basic %}
 
-Or go to the <img src='/images/screenshots/developer-tool-about-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Info** section of the **Developer Tools**.
+## Entities
 
-A [`command_line`](/integrations/sensor.command_line/) with
-[`hass`](/docs/tools/hass/) to display your current version.
+The entities created by this integration depends on which source you set it up with (you can also set up the integration multiple times to use more sources).
 
-```yaml
-sensor:
-  - platform: command_line
-    name: Version
-    command: "/home/homeassistant/bin/hass --version"
-```
+### Sensor
 
-It's also possible to read a file called `.HA_VERSION` which is located in your
-Home Assistant [configuration](/docs/configuration/) folder.
+For all sources the integration will create a [sensor](/integrations/sensor) entity that displays the newest version published to that source.
 
-```yaml
-sensor:
-  - platform: command_line
-    name: Version
-    command: "cat /home/homeassistant/.homeassistant/.HA_VERSION"
-```
+### Binary Sensor
 
-You might think that a [`rest` sensor](/integrations/rest) could work,
-too,
-but it will not as Home Assistant is not ready when the sensor gets initialized.
-
-{% raw %}
-
-```yaml
-sensor:
-  - platform: rest
-    resource: http://IP_ADDRESS:8123/api/config
-    name: Current Version
-    value_template: "{{ value_json.version }}"
-```
-
-{% endraw %}
+For all sources (except for the ["Local installation"](#local-installation) source) the integration will create a [binary_sensor](/integrations/binary_sensor) entity that show if there is a newer version than the one you are currently running published to that source.

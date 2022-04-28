@@ -1,7 +1,6 @@
 ---
 title: Etherscan
 description: Instructions on how to integrate Etherscan.io data within Home Assistant.
-logo: etherscan.png
 ha_category:
   - Finance
 ha_release: 0.47
@@ -9,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: etherscan
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `Etherscan` sensor platform displays Ether and ERC-20 token balances from [Etherscan.io](https://etherscan.io).

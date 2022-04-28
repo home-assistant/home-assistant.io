@@ -8,6 +8,7 @@ ha_release: 0.37
 ha_domain: anthemav
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 Both [Anthem]'s current and last generation of A/V Receivers and Processors support IP-based, network control. This Home Assistant platform adds proper "local push" support for any of these receivers on your network.
@@ -19,9 +20,8 @@ Both [Anthem]'s current and last generation of A/V Receivers and Processors supp
 
 Support is provided through the Python [anthemav] module. Older, RS-232 serial-based units like the [D2v series](https://www.anthemav.com/products-archived/model=d2v/page=overview) use a different protocol entirely and are not currently supported.
 
-[Anthem]:	https://www.anthemav.com/
+[Anthem]: https://www.anthemav.com/
 [anthemav]: https://github.com/nugget/python-anthemav
-
 
 To use your Anthem A/V Receiver in your installation, add the following to your `configuration.yaml` file:
 
@@ -50,9 +50,9 @@ name:
 
 ## Notes and Limitations
 
-- The tuner is currently unsupported as are the `media_player` play, pause, prev, and next controls.
-- Enabling this platform will set and enforce "Standby IP Control On" in your Anthem device.  You almost certainly want this.  If you disable it on the device, it will just get re-enabled by Home Assistant.
-- Only Zone 1 is currently supported.
+* The tuner is currently unsupported as are the `media_player` play, pause, prev, and next controls.
+* Enabling this platform will set and enforce "Standby IP Control On" in your Anthem device.  You almost certainly want this.  If you disable it on the device, it will just get re-enabled by Home Assistant.
+* Only Zone 1 is currently supported.
 
 <div class='note warning'>
 

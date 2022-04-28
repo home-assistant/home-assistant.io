@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: serial
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `serial` sensor platform is using the data provided by a device connected to the serial port of the system where Home Assistant is running. With [`ser2net`](http://ser2net.sourceforge.net/) and [`socat`](http://www.dest-unreach.org/socat/) would it also work for sensors connected to a remote system.
@@ -139,20 +140,17 @@ sensor:
     serial_port: /dev/ttyUSB0
     baudrate: 9600
 
-  - platform: template
-    sensors:
-      my_temperature_sensor:
-        friendly_name: Temperature
-        unit_of_measurement: "°C"
-        value_template: "{{ states('sensor.serial_sensor').split(',')[1] | float }}"
-      my_humidity_sensor:
-        friendly_name: Humidity
-        unit_of_measurement: "%"
-        value_template: "{{ states('sensor.serial_sensor').split(',')[2] | float }}"
-      my_barometer:
-        friendly_name: Barometer
-        unit_of_measurement: "mbar"
-        value_template: "{{ states('sensor.serial_sensor').split(',')[4] | float }}"
+template:
+  sensor:
+    - name: Temperature
+      unit_of_measurement: "°C"
+      state: "{{ states('sensor.serial_sensor').split(',')[1] | float(default=0) }}"
+    - name: Humidity
+      unit_of_measurement: "%"
+      state: "{{ states('sensor.serial_sensor').split(',')[2] | float(default=0) }}"
+    - name: Barometer
+      unit_of_measurement: "mbar"
+      state: "{{ states('sensor.serial_sensor').split(',')[4] | float(default=0) }}"
 ```
 
 {% endraw %}

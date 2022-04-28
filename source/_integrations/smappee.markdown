@@ -2,9 +2,9 @@
 title: Smappee
 description: Instructions on how to setup Smappee within Home Assistant.
 ha_category:
-  - Hub
-  - Energy
   - Binary Sensor
+  - Energy
+  - Hub
   - Sensor
   - Switch
 ha_iot_class: Cloud Polling
@@ -18,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Smappee integration will allow users to integrate their Smappee monitors, Smappee Comfort Plugs and Smappee Switches into Home Assistant using the [official cloud API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview) or the limited local option.
@@ -43,6 +44,8 @@ In most cases, the Smappee Energy, Solar, Plus, Pro and Genius monitors will be 
 Those automatically discovered Smappee devices are listed on the integrations page and can be configured without any additional details.
 This will provide you a limited number of entities only.
 If your home network doesn't support mDNS you can still manually initiate the Smappee integration by choosing the LOCAL option and entering the IP address of the Smappee monitor through the configuration flow.
+
+Technical note: Auto-discovery of Smappee device requires that its mDNS name and password are set to factory default values. These values are typically accessed on the device expert web portal (locally at http://[IP-Address]/smappee.html). If you have changed the mDNS name, this typically is "Smappee[serialnumber]".
 
 ### Sensor
 A sensor entity is being added for the current active power usage. In case of solar production, an entity for active power production is added as well.

@@ -10,21 +10,27 @@ ha_codeowners:
 ha_domain: cisco_webex_teams
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `cisco_webex_teams` notification platform allows you to deliver rich notifications from Home Assistant to [Cisco Webex Teams](https://www.webex.com/team-collaboration.html) (formerly known as Cisco Spark).
 
-To use this notification platform you will need an app (bot) token. To obtain a token visit [Cisco Webex for Developers](https://developer.webex.com/). 
+To use this notification platform you will need an app (bot) token. To obtain a token visit [Cisco Webex for Developers](https://developer.webex.com/).
+
 * Detailed instructions can be found in the section titled **Creating a Webex Teams Bot** on the [Webex Teams bot documentation](https://developer.webex.com/docs/bots).
 
 You also need to specify the `room_id` that you wish to post messages into. The `room_id` can be found in one of two ways:
 
-1. Logging in at [Cisco Webex for Developers](https://developer.webex.com/) and navigate to `Documentation`>`API Reference`>`Messages` and select List Messages, or 
-2. Log into the web client at [teams.webex.com](https://teams.webex.com/), 
- * select the room (or create a new room), 
- * then copying the room ID from the URL. 
- 
-<strong>**Note:** you must add the bot email (in the format `mybot@webex.bot`) as a participant to the room specified above.</strong>
+1. Logging in at [Cisco Webex for Developers](https://developer.webex.com/) and navigate to `Documentation`>`API Reference`>`Messages` and select List Messages, or
+2. Log into the web client at [teams.webex.com](https://teams.webex.com/),
+    * select the room (or create a new room),
+    * then copying the room ID from the URL.
+
+<div class='note'>
+
+You must add the bot email (in the format `mybot@webex.bot`) as a participant to the room specified above.
+
+</div>
 
 To enable this platform in your installation, add the following to your `configuration.yaml` file:
 
@@ -39,7 +45,7 @@ notify:
 
 ## Rich Text Formatting
 
-Webex Teams clients can render rich text via a whitelisted set of html tags. 
+Webex Teams clients can render rich text via a whitelisted set of html tags.
 
 For example, you could configure automations to display details in an easy to read fashion like so:
 
@@ -113,8 +119,8 @@ Here are the automations for the above screenshot:
 The following is a list of the allowed html tags and attributes:
 
 Tag | More Info
---- | --- 
-`<@personEmail:email@examplecompany.com>` | Used to tag another Webex Team user by email address. 
+--- | ---
+`<@personEmail:email@examplecompany.com>` | Used to tag another Webex Team user by email address.
 `<a>`  | Defines a hyperlink. Allows attribute `href`.
 `<blockquote>`  | Defines a section that is quoted from another source. Allows attribute `class` with allowed values `danger`, `warning`, `info`, `primary`, `secondary`.
 `<b>` | Defines bold text.

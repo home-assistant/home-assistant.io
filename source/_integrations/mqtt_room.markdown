@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_domain: mqtt_room
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `mqtt_room` sensor platform allows you to detect the indoor location of devices using MQTT clients.
@@ -21,6 +22,7 @@ To use this device tracker in your installation, add the following to your `conf
 sensor:
   - platform: mqtt_room
     device_id: 123testid
+    state_topic: "espresense/rooms"
 ```
 
 {% configuration %}
@@ -66,6 +68,7 @@ Example JSON that should be published to the room topics:
 This integration works with any software that is sending data in the given format. Each client should post the discovered devices in its own subtopic of the configured topic.
 Instead of developing your own application, you can also use any of these already existing clients:
 
+- [**ESPresense**](https://github.com/ESPresense/ESPresense): Fork of ESP32-MQTT-room w/ fingerprinting, tile support, Kalman filter, based on C++/Platformio
 - [**ESP-32-BLE-Scanner for Home Assistant**](https://github.com/HeimdallMidgard/ESP-32-BLE-Scanner): ESP32 based BLE presence detection for Home Assistant with web GUI
 - [**room-assistant**](https://github.com/mKeRix/room-assistant): looks for Bluetooth LE beacons, based on Node.js
 - [**Happy Bubbles Presence Server**](https://github.com/happy-bubbles/presence): presence detection server for Happy Bubbles BLE-scanning devices, based on Go

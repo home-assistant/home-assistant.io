@@ -9,11 +9,10 @@ If you would like to test next release before anyone else, you can install the b
 - title: From the UI
   content: |
 
-   1. In your Home Assistant UI navigate to the Supervisor panel
-   2. Navigate to the System tab
-   3. Click the link that says "Join beta"
-   4. Navigate to the Dashboard tab
-   5. Install the update that is presented to you
+   1. In your Home Assistant UI navigate to {% my supervisor_info title="Configuration > Add-ons & Backups > System" %}
+   2. Click the link that says "Join beta"
+   3. Navigate to Configuration panel
+   4. Install the update that is presented to you
 
 - title: From the CLI
   content: |
@@ -41,7 +40,7 @@ If you would like to test next release before anyone else, you can install the b
 {% elsif page.installation == "container" %}
 
 ```bash
-docker pull {{ site.installation.container.base }}:beta
+docker pull {{ site.installation.container }}:beta
 ```
 
 **[You then need to recreate the container with the new image.](/installation/linux#install-home-assistant-container)**

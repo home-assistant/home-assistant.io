@@ -1,163 +1,215 @@
 ---
-title: Flux LED/MagicLight
-description: Instructions on how to setup Flux led/MagicHome/MagicLight within Home Assistant.
+title: Magic Home
+description: Instructions on how to setup Magic Home within Home Assistant.
 ha_category:
+  - Button
   - Light
-ha_iot_class: Local Polling
+  - Number
+  - Select
+  - Sensor
+  - Switch
+ha_iot_class: Local Push
 ha_release: 0.25
 ha_domain: flux_led
 ha_platforms:
+  - button
+  - diagnostics
   - light
+  - number
+  - select
+  - sensor
+  - switch
+ha_codeowners:
+  - '@icemanch'
+  - '@bdraco'
+ha_quality_scale: platinum
+ha_config_flow: true
+ha_dhcp: true
+ha_integration_type: integration
 ---
 
-The `flux_led` support is integrated into Home Assistant as a light platform. Several brands of both bulbs and controllers use the same protocol and they have the HF-LPB100 chipset in common. The chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work if you can control the device with the MagicHome app.
+The Magic Home integration supports several brands of switches, bulbs, and controllers that use the same protocol. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the Magic Home app or the Surp Life app.
+
+This integration will provide local control over your LED lights/strips and can be configured to auto-scan your network for controllers or for you to manually configure individual lights by their IP address.
 
 Example of bulbs:
 
-- [Flux Smart Lighting](https://www.fluxsmartlighting.com/)
-- [Flux WiFi Smart LED Light Bulb4](https://amzn.to/2X0dVwu)
-- [WIFI smart LED light Bulb1](https://amzn.to/2J2fksr)
+- [MagicLight Smart Bulbs](https://www.magiclightbulbs.com/lightbulbs) or [Amazon](https://www.amazon.com/gp/product/B081YJHHB1/)
+- [RGBCW Downlights](https://www.amazon.com/gp/product/B093Q83G7S/)
+- [RGBCW Floodlights](https://www.amazon.com/gp/product/B09J38NKPN)
+
+Examples of controllers with strips:
+
+- [MagicLight Strip Lights](https://www.magiclightbulbs.com/strip-lights) or [Amazon](https://www.amazon.com/gp/product/B08LPSS4J3/)
 
 Examples of controllers:
 
-- [Ledenet WiFi RGBW Controller](https://amzn.to/2WZKXNa)
-- [SUPERNIGHT WiFi Wireless LED Smart Controller](https://amzn.to/2WURx7w)
+- [Single color](https://www.amazon.com/gp/product/B07J5B3R5L/)
+- [RGB](https://www.amazon.com/gp/product/B07C1LN7FZ/)
+- [RGBW](https://www.amazon.com/gp/product/B07J9QCQNN/)
+- [RGBCW](https://www.amazon.com/gp/product/B09BMC4JNJ/)
+- [RGB/W/CW](https://www.amazon.com/gp/product/B01DY56N8U/)
 
-## Configuration
+Examples of addressable controllers:
 
-To enable those lights, add the following lines to your `configuration.yaml` file:
+- [Addressable v3](https://www.amazon.com/gp/product/B09BMBSCRF/)
 
-```yaml
-# Example configuration.yaml entry
-light:
-  - platform: flux_led
-```
+Examples of addressable controllers with strip:
+- [Addressable v1](https://www.amazon.com/gp/product/B07RLF7C86/)
+- [Addressable v2](https://www.amazon.com/gp/product/B07B7CQ2ZB/)
 
-{% configuration %}
-automatic_add:
-  description: To enable the automatic addition of lights on startup.
-  required: false
-  default: false
-  type: boolean
-devices:
-  description: A list of devices with their IP address.
-  required: false
-  type: list
-  keys:
-    name:
-      description: A friendly name for the device.
-      required: false
-      type: string
-    mode:
-      description: "The chosen brightness mode, options are: `rgbw`, `rgb` and `w`."
-      required: false
-      default: rgbw
-      type: string
-    protocol:
-      description: Set this to `ledenet` if you are using a ledenet bulb.
-      required: false
-      type: string
-    custom_effect:
-      description: A definition of the custom effect.
-      required: false
-      type: map
-      keys:
-        colors:
-          description: A list of 1 to 16 colors, used in the effect loop (see example below). Defined as three comma-separated integers between 0 and 255 that represent the color in RGB. There is no way to set brightness, but you can define lower RGB values to simulate lower brightness. E.g., if you want 50% red, define it as `[127,0,0]` instead of `[255,0,0]`.
-          required: true
-          type: list
-        speed_pct:
-          description: A speed in percents (100 being the fastest), at which controller will transition between the colors.
-          required: false
-          type: integer
-          default: 50
-        transition:
-          description: "A type of transition, which will be used to transition between the colors. Supported values are: `gradual`, `jump` and `strobe`."
-          required: false
-          type: string
-          default: gradual
-{% endconfiguration %}
+Examples of sockets:
+- [MagicLight Smart Plugs](https://www.magiclightbulbs.com/smart-plugs) or [Amazon](https://www.amazon.com/gp/product/B07XNBVVXV/)
 
-<div class='note'>
+These devices have been sold under at least the following brands:
 
-Depending on your controller or bulb type, there are two ways to configure brightness.
-The integration defaults to rgbw. If your device has a separate white channel, you do not need to specify anything else; changing the white value will adjust the brightness of white channel keeping rgb color constant. However, if your device does not have a separate white channel, you will need to set the mode to rgb. In this mode, the device will keep the same color, and adjust the rgb values to dim or brighten the color.
+- Aislan
+- [Allkeys](http://allkeystech.com/)
+- Apobob
+- [Arilux](https://www.ariluxworldwide.com/)
+- Aubric
+- BERENNIS
+- BHGY
+- [Brizled](https://www.brizled.com/)
+- Bunpeon
+- [Chichin](https://chichinlighting.com/)
+- Comoyda
+- dalattin
+- [DALS RGBW / Armacost Lighting / MyLED](https://www.armacostlighting.com/)
+- DARKPROOF
+- [Daybetter](https://www.daybetter.com/)
+- deerdance
+- DIAMOND
+- [Diode Dynamics](https://www.diodedynamics.com/)
+- [Flux LED](https://www.fluxsmartlighting.com/)
+- [FVTLED](https://fvtled.com/)
+- [GEV LIG](https://www.gev.de/)
+- GEYUEYA Home
+- GIDEALED
+- [GIDERWEL](https://giderwel.com/)
+- GMK
+- Goldwin
+- Hakkatronics
+- [HaoDeng](http://www.zengge.com/appkzd)
+- [Heissner](https://www.heissner.de/)
+- HDDFL
+- [illume RGBW](https://dals.com/illume/)
+- [Illumination FX](https://www.illumination-fx.com/)
+- INDARUN
+- iNextStation
+- [Koopower](https://www.koopower.com/)
+- [Lallumer](https://www.lapuretes.cn/)
+- LEDENET
+- [LiteWRX](https://litewrx.com/)
+- Lytworx
+- Magic Ambient
+- [Magic Home](http://www.zengge.com/appkzd)
+- [Magic Hue](http://www.magichue.com/)
+- [Magic Light](https://www.magiclightbulbs.com/)
+- Miheal
+- Mowelai
+- Nexlux
+- OBSESS
+- [Offdarks](http://offdarks.net)
+- PH LED
+- PHOPOLLO
+- [Pin Stadium Pinball Lights](https://pinstadium.com/)
+- POV Lamp
+- [PROTEAM Europe Pool Lights](https://proteam-me.com/)
+- [Rimikon](https://www.rimikon.com/)
+- SMFX
+- [Sumaote](https://fvtled.com/)
+- [Superhome](https://superhome.com.cy/)
+- [SurpLife](http://www.zengge.com/newbrand)
+- [SuperlightingLED](https://www.superlightingled.com/)
+- Svipear
+- Tommox
+- Vanance
+- Yetaida
+- YHW
+- [Zengge](http://www.zengge.com/sy)
+- Zombber
 
-</div>
+{% include integrations/config_flow.md %}
 
-### Example configuration
+After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Magic Home" configuration for the bulb or controller. 
 
-Will automatically search and add all lights on start up:
+**Custom Effect**\
+A list of RGB colors can be entered to create an effect. The effect speed can be adjusted using the slider underneath.
 
-```yaml
-# Example configuration.yaml entry
-light:
-  - platform: flux_led
-    automatic_add: true
-```
+**Custom Effect Type**\
+This determines the transition between each color. 
 
-Will add two lights with given name and create an automation rule to randomly set color each 45 seconds:
+### Supported Models
 
-```yaml
-light:
-# Example configuration.yaml entry
-  - platform: flux_led
-    devices:
-      192.168.0.106:
-        name: flux_lamppost
-      192.168.0.109:
-        name: flux_living_room_lamp
+The following models have been tested.
 
-automation:
-  alias: random_flux_living_room_lamp
-  trigger:
-    platform: time_pattern
-    seconds: '/45'
-  action:
-    service: light.turn_on
-    data:
-      entity_id: light.flux_living_room_lamp
-      effect: random
-```
+| Model | Description                 | Microphone | Notes                           |
+| ----- | --------------------------- | ---------- | ------------------------------- |
+| 0x01  | Legacy RGB Controller       | no         | Original protocol               |
+| 0x03  | Legacy CCT Controller       | no         | Original protocol               |
+| 0x04  | UFO Controller RGBW         | no         |                                 |
+| 0x06  | Controller RGBW             | no         |                                 |
+| 0x07  | Controller RGBCW            | no         |                                 |
+| 0x08  | Controller RGB with MIC     | yes        |                                 |
+| 0x09  | Ceiling Light CCT           | no         |                                 |
+| 0x0E  | Floor Lamp RGBCW            | no         |                                 |
+| 0x10  | Christmas Light             | no         |                                 |
+| 0x16  | Magnetic Light CCT          | no         |                                 |
+| 0x17  | Magnetic Light Dimmable     | no         |                                 |
+| 0x1A  | Christmas Light             | no         |                                 |
+| 0x1C  | Table Light CCT             | no         |                                 |
+| 0x1E  | Ceiling Light RGBCW         | no         |                                 |
+| 0x21  | Bulb Dimmable               | no         |                                 |
+| 0x25  | Controller RGB/WW/CW        | no         | Supports RGB, RGBW, RGBWW, CW, DIM |
+| 0x33  | Controller RGB              | no         |                                 |
+| 0x35  | Bulb RGBCW                  | no         |                                 |
+| 0x41  | Controller Dimmable         | no         |                                 |
+| 0x44  | Bulb RGBW                   | no         |                                 |
+| 0x52  | Bulb CCT                    | no         |                                 |
+| 0x54  | Downlight RGBW              | no         |                                 |
+| 0x62  | Controller CCT              | no         |                                 |
+| 0x93  | Switch 1 Channel            | no         |                                 |
+| 0x97  | Socket                      | no         |                                 |
+| 0xA1  | Addressable v1              | no         | Supports UCS1903, SM16703, WS2811, WS2812B, SK6812, INK1003, WS2801, LB1914 |
+| 0xA2  | Addressable v2              | yes        | Supports UCS1903, SM16703, WS2811, WS2811B, SK6812, INK1003, WS2801, WS2815, APA102, TM1914, UCS2904B |
+| 0xA3  | Addressable v3              | yes        | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW (WS2814), INK1003, UCS2904B |
+| 0xA4  | Addressable v4              | no         | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW (WS2814), INK1003, UCS2904B |
+| 0xA6  | Addressable v6              | yes        | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW (WS2814), INK1003, UCS2904B |
+| 0xA7  | Addressable v7              | yes        | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW (WS2814), INK1003, UCS2904B |
+| 0xE1  | Ceiling Light CCT           | no         |                                 |
+| 0xE2  | Ceiling Light Assist        | no         | Auxiliary Switch not supported  |
 
-Will add a light without the white mode:
+### Untested Models
 
-```yaml
-    192.168.1.10:
-      name: NAME
-      mode: "rgb"
-```
+The following models have not been tested but may work.
 
-Will add a light with rgb+white mode (default). White and RGB channels can be adjusted independently using a slider and color picker respectively.
+| Model | Description                 | Microphone | Notes                           |
+| ----- | --------------------------- | ---------- | ------------------------------- |
+| 0x02  | Legacy Dimmable Controller  | no         | Original protocol, discontinued |
 
-```yaml
-    192.168.1.10:
-      name: NAME
-      mode: "rgbw"
-```
+### Unsupported Models
 
-Will add a light with white mode only. This is useful when only W channel is connected to an RGBW controller and allows the white level to be controlled via brightness value.
+The following models are confirmed to be unsupported.
 
-```yaml
-    192.168.1.10:
-      name: NAME
-      mode: "w"
-```
+| Model | Description                 | Microphone | Notes                           |
+| ----- | --------------------------- | ---------- | ------------------------------- |
+| 0x18  | Plant Grow Light            | no         |                                 |
+| 0x19  | Socket with 2 USB           | no         |                                 |
+| 0x1B  | Aroma Fragrance Lamp        | no         |                                 |
+| 0x1D  | Fill Light                  | no         |                                 |
+| 0x94  | Switch 1c Watt              | no         |                                 |
+| 0x95  | Switch 2 Channel            | no         |                                 |
+| 0x96  | Switch 4 Channel            | no         |                                 |
+| 0xD1  | Digital Time Lamp           | no         |                                 |
 
-Some devices such as the Ledenet RGBW controller use a slightly different protocol for communicating the brightness to each color channel. If your device is only turning on or off but not changing color or brightness try adding the LEDENET protocol.
+### Troubleshooting
 
-```yaml
-light:
-  - platform: flux_led
-    devices:
-      192.168.1.10:
-        name: NAME
-        protocol: 'ledenet'
-```
+If a strip controller device will not stay on wifi or goes offline during adjusting colors and effects, upgrading to a power supply with a higher amperage usually resolves any stability issues.
 
 ### Effects
 
-The Flux LED light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the `light.turn_on` command.
+The Magic Home light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the `light.turn_on` command.
 
 | Effect Name                                                                                                  | Description                                                        |
 |--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
@@ -170,23 +222,83 @@ The Flux LED light offers a number of effects which are not included in other li
 | `gb_cross_fade`                                                                                              | Fades between green and blue.                                      |
 | `red_strobe`, `green_strobe`, `blue_strobe`, `yellow_strobe`, `cyan_strobe`, `purple_strobe`, `white_strobe` | Strobes the color indicated by the effect name.                    |
 | `random`                                                                                                     | Chooses a random color by selecting random values for R, G, and B. |
-| `custom`                                                                                                     | Custom effect (if defined, see below).                             |
 
-Users can define their own custom effect. It consists of three parameters: a list of 1 to 16 colors, speed and type of transition. The controller will transition between the colors in a loop, with specified transition and speed. Here is an example of a custom effect that will quickly flash red, yellow, green, cyan, blue, magenta in a loop:
+
+### Custom Effects - Service `flux_led.set_custom_effect`
+
+The integration offers a custom service to enable you to set the lights to a custom light effect. 
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | The entity_id of the LED light to set the effect on. |
+| `colors` | List of RGB colors to transition between in your effect. (Max 16, Required) |
+| `speed_pct` | The speed of the effect in % (0-100. Default 50) |
+| `transition` | The transition effect you would like. Valid options are `gradual`, `jump`, or `strobe`. (Default `gradual`) |
 
 ```yaml
-light:
-  - platform: flux_led
-    devices:
-      192.168.1.10:
-        custom_effect:
-          speed_pct: 100
-          transition: 'strobe'
-          colors:
-            - [255,0,0]
-            - [255,255,0]
-            - [0,255,0]
-            - [0,255,255]
-            - [0,0,255]
-            - [255,0,255]
+#Example Service Call
+entity_id: light.led_strip
+colors:
+  - [255,0,0]
+  - [0,255,0]
+  - [0,0,255]
+speed_pct: 80
+transition: "jump"
+```
+
+### Set Zones - Service `flux_led.set_zones`
+
+The Addressable v3 (0xA3) models allow setting a color effect per zone. The length of each zone is the number of pixels per segment divided by the number of colors. If the device is turned off, setting the zones will not turn it on. A separate call to `light.turn_on` is needed to turn on the device.
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | The entity_id of the LED light to set the effect on. |
+| `colors` | List of colors for each zone (RGB). (Max 2048 Colors) |
+| `speed_pct` | The speed of the effect in % (0-100. Default 50) |
+| `effect` | The effect you would like. Valid options are `static`, `running_water`, `strobe`, `jump`, or `breathing`. (Default `static`) |
+
+```yaml
+#Example Service Call
+service: flux_led.set_zones
+target:
+  entity_id:
+    - light.addressable_v3_8e2f7f
+    - light.addressable_v3_8ebdeb
+data:
+  colors:
+    - [255, 0, 0]
+    - [0, 255, 0]
+    - [0, 0, 255]
+    - [255, 255, 255]
+  speed_pct: 80
+```
+
+### Set Music Mode - Service `flux_led.set_music_mode`
+
+The RGB with MIC (0x08), Addressable v2 (0xA2), and Addressable v3 (0xA3) models have a built-in microphone that have multiple music mode settings.
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | The entity_id of the LED light to set the effect on. |
+| `sensitivity` | Microphone sensitivity (0-100) |
+| `brightness` | Light brightness (0-100) |
+| `light_screen` | Light screen mode for 2 dimensional pixels (Addressable models only) |
+| `effect` | Effect (1-16 on Addressable models, 0-3 on RGB with MIC models)|
+| `foreground_color` | The foreground RGB color |
+| `background_color` | The background RGB color (Addressable models only) |
+
+```yaml
+#Example Service Call
+service: flux_led.set_music_mode
+target:
+  entity_id:
+    - light.addressable_v3_8e2f7f
+    - light.addressable_v3_8ebdeb
+data:
+  sensitivity: 100
+  brightness: 100
+  effect: 2
+  light_screen: false
+  background_color: [0, 255, 0]
+  foreground_color: [255, 0, 0]
 ```

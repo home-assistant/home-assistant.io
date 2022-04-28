@@ -3,8 +3,8 @@ title: Transmission
 description: Instructions on how to integrate Transmission within Home Assistant.
 ha_category:
   - Downloading
-  - Switch
   - Sensor
+  - Switch
 ha_release: 0.87
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -15,6 +15,7 @@ ha_domain: transmission
 ha_platforms:
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Transmission integration allows you to monitor your [Transmission](https://www.transmissionbt.com/) BitTorrent downloads from within Home Assistant and set up automations based on that information.
@@ -120,7 +121,7 @@ Stops a torrent.
 
 ### Attribute `torrent_info`
 
-All `*_torrents` sensors e.g. `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents` have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in **Developer Tools** -> **States** -> `sensor.transmission_total_torrents` -> **Attributes**, or by adding a [Markdown card](/lovelace/markdown/) to Lovelace with the following code:
+All `*_torrents` sensors e.g. `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents` have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in **Developer Tools** -> **States** -> `sensor.transmission_total_torrents` -> **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
 
 {% raw %}
 

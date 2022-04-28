@@ -7,10 +7,11 @@ description: "Home Assistant's Glossary."
 
 The glossary covers terms which are used around Home Assistant.
 
-<ul>
+{% configuration_basic %}
+
 {% for entry in entries %}
-  <li>
-      <b>{{ entry.topic }}</b>: {{ entry.description | markdownify }}
-  </li>
+  "{{ entry.topic }}":
+    description: "{{ entry.description }}"
 {% endfor %}
-</ul>
+
+{% endconfiguration_basic %}

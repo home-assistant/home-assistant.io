@@ -2,24 +2,30 @@
 title: Bond
 description: Instructions on setting up Bond Bridge within Home Assistant.
 ha_category:
-  - Hub
+  - Button
   - Cover
   - Fan
+  - Hub
   - Light
   - Switch
 ha_iot_class: Local Push
 ha_release: 0.113
 ha_domain: bond
 ha_codeowners:
+  - '@bdraco'
   - '@prystupa'
+  - '@joshs85'
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_zeroconf: true
 ha_platforms:
+  - button
   - cover
+  - diagnostics
   - fan
   - light
   - switch
+ha_integration_type: integration
 ---
 
 The Bond integration allows you to control appliances through your [Bond Bridge](https://bondhome.io/). Duplicates your RF remote control.
@@ -55,3 +61,43 @@ upgrade your firmware from Bond app before adding this integration.
 
 Firmware version 2.10.8 or newer is required for push updates. The integration
 will fallback to polling for 2.10.x versions lower than .8
+
+### Service `bond.set_fan_speed_tracked_state`
+
+Sets the tracked fan speed for a bond fan.
+Calling this service will change the tracked speed of the fan but not transmit any signal to make the device change speed.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings of `entity_id`s.
+| `speed` | no | Speed as a percentage.
+
+### Service `bond.set_switch_power_tracked_state`
+
+Sets the tracked power state of a bond switch.
+Calling this service will change the tracked power state of any bond switch but not transmit any signal to make the device change its state.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings of `entity_id`s.
+| `power_state` | no | Boolean power state.
+
+### Service `bond.set_light_power_tracked_state`
+
+Sets the tracked power state of a bond light.
+Calling this service will change the tracked power state of any bond light but not transmit any signal to make the device change its state.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings of `entity_id`s.
+| `power_state` | no | Boolean power state.
+
+### Service `bond.set_light_brightness_tracked_state`
+
+Sets the tracked brightness state of a bond light
+Calling this service will change the tracked brightness state of any bond light but not transmit any signal to make the device change its state.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings of `entity_id`s.
+| `brightness` | no | brightness as an integer between 0 and 255

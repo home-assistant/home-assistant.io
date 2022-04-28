@@ -101,7 +101,7 @@ module Jekyll
         "general" => "General Settings",
         "info" => "Information",
         "supervisor_info" => "Supervisor Information",
-        "supervisor_snapshots" => "Snapshots",
+        "supervisor_backups" => "Backups",
       }
 
       def parse_options(input, context)

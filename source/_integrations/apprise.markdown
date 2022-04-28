@@ -10,9 +10,12 @@ ha_codeowners:
 ha_domain: apprise
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The [Apprise service](https://github.com/caronc/apprise/) is an all-in-one solution to open up Home Assistant to _just about_ every Notification platform (such as Amazon SNS, Discord, Telegram, Slack, MSTeams, Twilio, etc.)
+
+## Configuration
 
 To use Apprise supported notifications, add the following to your `configuration.yaml` file:
 
@@ -59,7 +62,7 @@ config:
   type: string
 {% endconfiguration %}
 
-#### Example service call
+## Example service call
 
 ```yaml
 - service: notify.apprise
@@ -80,11 +83,11 @@ If you're using configuration files to store your Apprise URLs in, then you have
 
 The tag `all` is reserved to notify absolutely everything, whether you have a tag associated with a URL or not.
 
-### Notes
+## Notes
 
 There are over 50 supported Notification services supported by Apprise. Each has their own tweaks and customizations you can leverage.
 
 - For instructions on how to construct the URLs, visit [here](https://github.com/caronc/apprise/wiki#notification-services).
 - For instructions on how you can customize your own Apprise configuration files (referenced through the `config` directive), check out the following:
-   - [Text Formatted URLs](https://github.com/caronc/apprise/wiki/config_text)
-   - [YAML Formatted URLs](https://github.com/caronc/apprise/wiki/config_yaml)
+  - [Text Formatted URLs](https://github.com/caronc/apprise/wiki/config_text)
+  - [YAML Formatted URLs](https://github.com/caronc/apprise/wiki/config_yaml)

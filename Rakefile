@@ -220,7 +220,7 @@ end
 
 desc "Download data from the blueprint exchange @ community.home-assistant.io"
 task :blueprint_exchange_data do
-  uri = URI('https://community.home-assistant.io/c/blueprints-exchange/53/l/top/all.json')
+  uri = URI('https://community.home-assistant.io/c/blueprints-exchange/53/l/top.json?period=all')
 
   remote_data = JSON.parse(Net::HTTP.get(uri))
 

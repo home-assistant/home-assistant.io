@@ -11,9 +11,10 @@ ha_platforms:
   - notify
 ha_codeowners:
   - '@tkdrob'
+ha_integration_type: integration
 ---
 
-Notification integration for [Notifications for Android TV](https://play.google.com/store/apps/details?id=de.cyberdream.androidtv.notifications.google) and [Notifications for Fire TV](https://www.amazon.com/Christian-Fees-Notifications-for-Fire/dp/B00OESCXEK). You can use this integration to send notifications to your Android TV device. An overlay with the message content will appear for a configurable amount of seconds and then disappear again. Sending images (e.g., security cam) is supported too.
+Notification integration for [Notifications for Android TV](https://play.google.com/store/apps/details?id=de.cyberdream.androidtv.notifications.google) and [Notifications for Fire TV](https://www.amazon.com/Christian-Fees-Notifications-for-Fire/dp/B00OESCXEK). You can use this integration to send notifications to your Android TV device. An overlay with the message content will appear for a configurable amount of seconds and then disappear again. Sending images (e.g., security cam) and custom icons is supported too. Icons are essentially the same as images (any image format supported by Android TV is supported), but are displayed small and to the left of the notification whereas images are large and above the notification.
 
 The notifications are in the global scope of your Android TV device. They will be displayed regardless of which application is running.
 
@@ -69,34 +70,80 @@ color: "red"
 interrupt: 1
 ```
 
-## Service data for sending images
+## Service data for sending images and icons
 
-The following attributes can be placed inside `data` to send images.
+The following attributes can be placed inside `data` to send images and icons.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `file`                 |      yes | Groups the attributes for file upload. If present, either `url` or `path` have to be provided.
-| `path`                |      yes | Local path of an image file. Is placed inside `file`.
-| `url`                  |      yes | URL of an image file. Is placed inside `file`.
-| `username`             |      yes | Username if the URL requires authentication. Is placed inside `file`.
-| `password`             |      yes | Password if the URL requires authentication. Is placed inside `file`.
-| `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing, HTTP-BASIC-Authentication is used and is placed inside `file`.
+| `image`                 |      yes | Groups the attributes for image upload. If present, either `url` or `path` have to be provided.
+| `icon`                 |      yes | Groups the attributes for icon upload. If present, either `url` or `path` have to be provided.
+| `path`                |      yes | Local path of an image file. Is placed inside `image`, `icon` or both.
+| `url`                  |      yes | URL of an image file. Is placed inside `image`, `icon` or both.
+| `username`             |      yes | Username if the URL requires authentication. Is placed inside `image`, `icon` or both`.
+| `password`             |      yes | Password if the URL requires authentication. Is placed inside `image`, `icon` or both.
+| `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing, HTTP-BASIC-Authentication is used and is placed inside `image`, `icon` or both.
 
-Example for posting file from URL:
+Example for posting image from URL:
 
 ```yaml
-file:
+image:
   url: "http://[url to image file]"
   username: "optional user, if necessary"
   password: "optional password, if necessary"
   auth: "digest"
 ```
 
-Example for posting file from local path:
+Example for posting image from local path:
 
 ```yaml
-file:
+image:
   path: "/path/to/file.ext"
 ```
+
+Example for posting icon from URL:
+
+```yaml
+icon:
+  url: "http://[url to image file]"
+  username: "optional user, if necessary"
+  password: "optional password, if necessary"
+  auth: "digest"
+```
+
+Example for posting both image and icon from URL:
+
+```yaml
+image:
+  url: "http://[url to image file]"
+  username: "optional user, if necessary"
+  password: "optional password, if necessary"
+  auth: "digest"
+icon:
+  url: "http://[url to image file]"
+  username: "optional user, if necessary"
+  password: "optional password, if necessary"
+  auth: "digest"
+```
+
+Example of an automation with an service call, full configuration:
+
+{% raw %}
+
+```yaml
+service: notify.living_room_tv
+data:
+  title: "Thanks for the water!"
+  message: "Nigel is {{ states('sensor.nigel_moisture') }}% moisture"
+  data:
+    duration: 4
+    position: "bottom-left"
+    fontsize: "medium"
+    transparency: "80%"
+    color: "teal"
+    interrupt: 0
+```
+
+{% endraw %}
 
 Please note that `path` is validated against the `allowlist_external_dirs` in the `configuration.yaml`.

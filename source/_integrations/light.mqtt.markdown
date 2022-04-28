@@ -13,18 +13,18 @@ The `mqtt` light platform lets you control your MQTT enabled lights through one 
 ## Comparison of light MQTT schemas
 
 | Function          | [`default`](#default-schema) | [`json`](#json-schema) | [`template`](#template-schema) |
-|-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
-| Brightness        | ✔                                                          | ✔                                                                    | ✔                                                                            |
-| Color mode        | ✔                                                          | ✔                                                                    | ✘                                                                              |
-| Color temperature | ✔                                                          | ✔                                                                    | ✔                                                                            |
-| Effects           | ✔                                                          | ✔                                                                    | ✔                                                                            |
-| Flashing          | ✘                                                          | ✔                                                                    | ✔                                                                            |
-| HS Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
-| RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
-| RGBW Color        | ✔                                                          | ✔                                                                    | ✘                                                                            |
-| RGBWW Color       | ✔                                                          | ✔                                                                    | ✘                                                                            |
-| Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
-| XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
+| ----------------- | ---------------------------- | ---------------------- | ------------------------------ |
+| Brightness        | ✔                            | ✔                      | ✔                              |
+| Color mode        | ✔                            | ✔                      | ✘                              |
+| Color temperature | ✔                            | ✔                      | ✔                              |
+| Effects           | ✔                            | ✔                      | ✔                              |
+| Flashing          | ✘                            | ✔                      | ✔                              |
+| HS Color          | ✔                            | ✔                      | ✔                              |
+| RGB Color         | ✔                            | ✔                      | ✔                              |
+| RGBW Color        | ✔                            | ✔                      | ✘                              |
+| RGBWW Color       | ✔                            | ✔                      | ✘                              |
+| Transitions       | ✘                            | ✔                      | ✔                              |
+| XY Color          | ✔                            | ✔                      | ✘                              |
 
 
 ## Default schema
@@ -33,9 +33,9 @@ The `mqtt` light platform with default schema lets you control your MQTT enabled
 
 ## Default schema - Configuration
 
-In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the switch will be `false` / `off`.
+In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the switch will be `unknown`. A MQTT device can reset the current state to `unknown` using a `None` payload.
 
-When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from the device (message from `state_topic`).
+When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from the device (message from `state_topic`). The initial state is set to `False` / `off` in optimistic mode.
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect light operation.
 
@@ -69,17 +69,29 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
 availability_mode:
   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
   required: false
   type: string
   default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
 brightness_command_topic:
   description: The MQTT topic to publish commands to change the light’s brightness.
+  required: false
+  type: string
+brightness_command_template:
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `brightness_command_topic`. Available variables: `value`."
   required: false
   type: string
 brightness_scale:
@@ -112,7 +124,7 @@ color_temp_command_topic:
   required: false
   type: string
 color_temp_state_topic:
-  description: "The MQTT topic subscribed to receive color temperature state updates. If the light also supports setting colors, also define a `white_value_state_topic`. "
+  description: "The MQTT topic subscribed to receive color temperature state updates."
   required: false
   type: string
 color_temp_value_template:
@@ -128,6 +140,10 @@ device:
   required: false
   type: map
   keys:
+    configuration_url:
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      required: false
+      type: string
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
@@ -165,8 +181,22 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+encoding:
+  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
+  required: false
+  type: string
+  default: "utf-8"
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 effect_command_topic:
   description: "The MQTT topic to publish commands to change the light's effect state."
+  required: false
+  type: string
+effect_command_template:
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `effect_command_topic`. Available variables: `value`."
   required: false
   type: string
 effect_list:
@@ -221,6 +251,10 @@ name:
   required: false
   type: string
   default: MQTT Light
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 on_command_type:
   description: "Defines when on the payload_on is sent. Using `last` (the default) will send any style (brightness, color, etc) topics first and then a `payload_on` to the `command_topic`. Using `first` will send the `payload_on` and then any style topics. Using `brightness` will only send brightness commands instead of the `payload_on` to turn the light on."
   required: false
@@ -277,7 +311,7 @@ rgb_value_template:
   required: false
   type: string
 schema:
-  description: The schema to use. Must be `default` or omitted to select the default schema".
+  description: The schema to use. Must be `default` or omitted to select the default schema.
   required: false
   type: string
   default: default
@@ -464,11 +498,19 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
 availability_mode:
   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
   required: false
   type: string
   default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -497,6 +539,10 @@ device:
   required: false
   type: map
   keys:
+    configuration_url:
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      required: false
+      type: string
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
@@ -526,6 +572,16 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+encoding:
+  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
+  required: false
+  type: string
+  default: "utf-8"
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 effect:
   description: Flag that defines if the light supports effects.
   required: false
@@ -570,6 +626,10 @@ name:
   required: false
   type: string
   default: MQTT JSON Light
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 optimistic:
   description: Flag that defines if the light works in optimistic mode.
   required: false
@@ -596,7 +656,7 @@ retain:
   type: boolean
   default: false
 schema:
-  description: The schema to use. Must be `json` to select the JSON schema".
+  description: The schema to use. Must be `json` to select the JSON schema.
   required: false
   type: string
   default: default
@@ -757,7 +817,7 @@ light:
 The `mqtt` light platform with template schema lets you control a MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
 It is format-agnostic so you can use any data format you want (i.e., string, JSON), just configure it with templating.
 
-This schema supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing and effects.
+This schema supports on/off, brightness, RGB colors, XY colors, HS Color, color temperature, transitions, short/long flashing and effects.
 
 ## Template schema - Configuration
 
@@ -797,25 +857,33 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
 availability_mode:
   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
   required: false
   type: string
   default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
 blue_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract blue color from the state payload value."
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract blue color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: string
 brightness_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract brightness from the state payload value."
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract brightness from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: string
 color_temp_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract color temperature from the state payload value."
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract color temperature from the state payload value. Expected result of the template is an integer representing mired units."
   required: false
   type: string
 command_off_template:
@@ -823,7 +891,7 @@ command_off_template:
   required: true
   type: string
 command_on_template:
-  description: "The [template](/docs/configuration/templating/#processing-incoming-data) for *on* state changes. Available variables: `state`, `brightness`, `red`, `green`, `blue`, `flash`, `transition` and `effect`."
+  description: "The [template](/docs/configuration/templating/#processing-incoming-data) for *on* state changes. Available variables: `state`, `brightness`, `color_temp`, `red`, `green`, `blue`, `flash`, `transition` and `effect`. Values `red`, `green`, `blue`, `brightness` are provided as integers from range 0-255. Value of `color_temp` is provided as integer representing mired units."
   required: true
   type: string
 command_topic:
@@ -835,6 +903,10 @@ device:
   required: false
   type: map
   keys:
+    configuration_url:
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      required: false
+      type: string
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
@@ -864,6 +936,16 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+encoding:
+  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
+  required: false
+  type: string
+  default: "utf-8"
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 effect_list:
   description: List of possible effects.
   required: false
@@ -873,7 +955,7 @@ effect_template:
   required: false
   type: string
 green_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract green color from the state payload value."
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract green color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: string
 icon:
@@ -901,10 +983,14 @@ name:
   required: false
   type: string
   default: MQTT Template Light
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 optimistic:
   description: Flag that defines if the light works in optimistic mode.
   required: false
-  type: string
+  type: boolean
   default: "`true` if no state topic or state template is defined, else `false`."
 payload_available:
   description: The payload that represents the available state.
@@ -922,11 +1008,11 @@ qos:
   type: integer
   default: 0
 red_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract red color from the state payload value."
+  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract red color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: string
 schema:
-  description: The schema to use. Must be `template` to select the template schema".
+  description: The schema to use. Must be `template` to select the template schema.
   required: false
   type: string
   default: default
@@ -956,7 +1042,7 @@ In this section you find some real-life examples of how to use this light.
 
 ### Simple string payload
 
-For a simple string payload with the format `state,brightness,r-g-b` (e.g., `on,255,255-255-255`), add the following to your `configuration.yaml` file:
+For a simple string payload with the format `state,brightness,r-g-b,h-s` (e.g., `on,255,255-255-255,360-100`), add the following to your `configuration.yaml` file:
 
 {% raw %}
 
@@ -967,7 +1053,7 @@ light:
     schema: template
     command_topic: "home/rgb1/set"
     state_topic: "home/rgb1/status"
-    command_on_template: "on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }}"
+    command_on_template: "on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }},{{ hue|d }}-{{ sat|d }}"
     command_off_template: "off"
     state_template: "{{ value.split(',')[0] }}"  # must return `on` or `off`
     brightness_template: "{{ value.split(',')[1] }}"
@@ -1002,6 +1088,9 @@ light:
       {%- if red is defined and green is defined and blue is defined -%}
       , "color": [{{ red }}, {{ green }}, {{ blue }}]
       {%- endif -%}
+      {%- if hue is defined and sat is defined -%}
+      , "huesat": [{{ hue }}, {{ sat }}]
+      {%- endif -%}
       {%- if effect is defined -%}
       , "effect": "{{ effect }}"
       {%- endif -%}
@@ -1013,6 +1102,48 @@ light:
     green_template: '{{ value_json.color[1] }}'
     blue_template: '{{ value_json.color[2] }}'
     effect_template: '{{ value_json.effect }}'
+```
+
+{% endraw %}
+
+### CCT light (brightnes and temperature)
+
+This example comes from a configuration of Shelly RGBW Bulb working in White mode. 
+`max_mireds` and `min_mireds` set color temperature boundaries to 3000K - 6500K. Notice the same limits are applied in `command_on_template`, but in kelvin units this time. It's due to conversion from mired to kelvin which causes exceeding boundary values accepted by the device.
+The code also ensures bi-directional conversion of brightness scale between 0-100 (required by the device) and 0-255 (required by Home Assistant).
+Add the following to your `configuration.yaml` file:
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: mqtt
+    schema: template
+    name: "Bulb-white"
+    command_topic: "shellies/bulb/color/0/set"
+    state_topic: "shellies/bulb/color/0/status"
+    availability_topic: "shellies/bulb/online"
+    command_on_template: >
+      {"turn": "on", "mode": "white"
+      {%- if brightness is defined -%}
+      , "brightness": {{brightness | float | multiply(0.39215686) | round(0)}}
+      {%- endif -%}
+      {%- if color_temp is defined -%}
+      , "temp": {{ [[(1000000 / color_temp | float) | round(0), 3000] | max, 6500] | min }}
+      {%- endif -%}
+      }
+    command_off_template: '{"turn":"off", "mode": "white"}'
+    state_template: "{% if value_json.ison and value_json.mode == 'white' %}on{% else %}off{% endif %}"
+    brightness_template: "{{ value_json.brightness | float | multiply(2.55) | round(0) }}"
+    color_temp_template: "{{ (1000000 / value_json.temp | float) | round(0) }}"
+    payload_available: "true"
+    payload_not_available: "false"
+    max_mireds: 334
+    min_mireds: 153
+    qos: 1
+    retain: false
+    optimistic: false  
 ```
 
 {% endraw %}

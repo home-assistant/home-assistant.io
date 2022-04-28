@@ -1,6 +1,8 @@
 ---
 title: "Conditions"
 description: "Documentation about all available conditions."
+toc: true
+no_toc: true
 ---
 
 Conditions can be used within a script or automation to prevent further execution. When a condition does not return true, the script or automation stops executing. A condition will look at the system at that moment. For example, a condition can test if a switch is currently turned on or off.
@@ -9,7 +11,11 @@ Unlike a trigger, which is always `or`, conditions are `and` by default - all co
 
 All conditions support an optional `alias`.
 
-## AND condition
+{{ page.content | markdownify | toc_only }}
+
+## Logical conditions
+
+### AND condition
 
 Test multiple conditions in one condition statement. Passes if all embedded conditions are valid.
 
@@ -31,8 +37,7 @@ If you do not want to combine AND and OR conditions, you can list them sequentia
 The following configuration works the same as the one listed above:
 
 ```yaml
-alias: "Paulus home AND temperature below 20"
-conditions:
+condition:
   - condition: state
     entity_id: "device_tracker.paulus"
     state: "home"
@@ -43,7 +48,7 @@ conditions:
 
 Currently you need to format your conditions like this to be able to edit them using the [automations editor](/docs/automation/editor/).
 
-## OR condition
+### OR condition
 
 Test multiple conditions in one condition statement. Passes if any embedded condition is valid.
 
@@ -60,7 +65,7 @@ condition:
       below: 20
 ```
 
-## MIXED AND and OR conditions
+### Mixed AND and OR conditions
 
 Test multiple AND and OR conditions in one condition statement. Passes if any embedded condition is valid.
 This allows you to mix several AND and OR conditions together.
@@ -82,7 +87,7 @@ condition:
           below: 20
 ```
 
-## NOT condition
+### NOT condition
 
 Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** valid.
 
@@ -204,8 +209,8 @@ condition:
   condition: state
   entity_id: alarm_control_panel.home
   state:
-    - armed_away
-    - armed_home
+    - "armed_away"
+    - "armed_home"
 ```
 
 Or, combine multiple entities with multiple states. In the following example,
@@ -218,8 +223,8 @@ condition:
     - media_player.living_room
     - media_player.kitchen
   state:
-    - playing
-    - paused
+    - "playing"
+    - "paused"
 ```
 
 Alternatively, the condition can test against a state attribute.
@@ -230,7 +235,7 @@ condition:
   condition: state
   entity_id: climate.living_room_thermostat
   attribute: hvac_modes
-  state: heat
+  state: "heat"
 ```
 
 Finally, the `state` option accepts helper entities (also known as `input_*`
@@ -316,6 +321,15 @@ condition:
   condition: sun
   after: sunset
   after_offset: "-01:00:00"
+```
+
+This is an example of 1 hour offset after sunset.
+
+```yaml
+condition:
+  - condition: sun
+    after: sunset
+    before: sunrise
 ```
 
 This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`.
@@ -410,7 +424,7 @@ condition:
 
 {% endraw %}
 
-But also in the `repeat` action's `while` or `until` option, or in a `choose` action's `conditions` option:
+It's also supported in the `repeat` action's `while` or `until` option, or in a `choose` action's `conditions` option:
 
 {% raw %}
 
@@ -433,15 +447,15 @@ But also in the `repeat` action's `while` or `until` option, or in a `choose` ac
 
 {% endraw %}
 
-<div class="note warning">
+It's also supported in script or automation `condition` actions:
 
-While conditions can be used in script sequences or automation actions, the
-shorthand for template conditions cannot be used directly in those constructs.
+{% raw %}
 
-However, if an used action supports conditions itself, like `choose` and
- `repeat`, the shorthand template conditions will be accepted in those cases.
+```yaml
+- condition: "{{ is_state('device_tracker.iphone', 'away') }}"
+```
 
-</div>
+{% endraw %}
 
 [template]: /topics/templating/
 [automation-templating]: /getting-started/automation-templating/
