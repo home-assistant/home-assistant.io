@@ -18,6 +18,10 @@ The [NINA](https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-ni
 
 For each county/city it creates warning slots that change to Unsafe when warnings are present. It is also possible to combine the slots into one sensor. The text of the warning and the metadata are stored in the attributes of the slots.
 
+<p class='note'>
+When the slots are combined into one sensor, the slot limit is ignored.
+</p>
+
 {% include integrations/config_flow.md %}
 
 ### Attributes
