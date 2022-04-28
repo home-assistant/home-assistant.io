@@ -21,7 +21,7 @@ Home Assistant allows users to share their usage data via the analytics integrat
 
 The information sent depends on what options you opt-in to. You can opt-in during onboarding and by going to **{% my general title="Configuration >> General" %}** .
 
-{% my general badge %}
+{% my analytics badge %}
 
 When enabled, data will be sent 15 minutes after each start, and every 24h after startup. Sent data is printed to your log.
 
