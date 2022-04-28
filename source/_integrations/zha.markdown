@@ -478,13 +478,13 @@ Following these essential optimization tips will typically resolve many known is
 
 #### External resources for initial Zigbee setup optimizations:
 
-- [ZigBee and Wi-Fi Coexistence (Metageek - Advanced Wi-Fi Lessons and Training)](https://community.home-assistant.io/t/advice-on-zigbee-range-extending/175882/)
+- [Zigbee and Wi-Fi Coexistence (Metageek - Advanced Wi-Fi Lessons and Training)](https://community.home-assistant.io/t/advice-on-zigbee-range-extending/175882/)
 - [Choose your Zigbee channel wisely (Liam Alexander Colman - Home Assistant Guide)](https://home-assistant-guide.com/2020/10/29/choose-your-zigbee-channel-wisely/)
-- [Smart Home Protocols: ZigBee Explained (Everything Smart Home on YouTube)](https://www.youtube.com/watch?v=UmpDXc3cXbU&ab_channel=EverythingSmartHome)
+- [Smart Home Protocols: Zigbee Explained (Everything Smart Home on YouTube)](https://www.youtube.com/watch?v=UmpDXc3cXbU&ab_channel=EverythingSmartHome)
 - [Improve Zigbee network performance and stability with these 3 tips (Home Automation Guy on YouTube)](https://www.youtube.com/watch?v=t-gw7kURXCk&t=2s&ab_channel=HomeAutomationGuy)
 - [Zigbee 2022 TIPS with Home Assistant (digiblurDIY on YouTube)](https://www.youtube.com/watch?v=1dcAXkJxzcY&ab_channel=digiblurDIY)
 - [How to improve your Zigbee network (Gadget-Freak)](https://gadget-freakz.com/how-to-improve-your-zigbee-network/)
-- [Top 5 Reasons for Failures in ZigBee Deployments (NTS)](https://nts.com/services/education/zigbee-best-practices/)
+- [Top 5 Reasons for Failures in Zigbee Deployments (NTS)](https://nts.com/services/education/zigbee-best-practices/)
 - [Electrolama ZZH Adapter Troubleshooting and FAQ](https://electrolama.com/radio-docs/troubleshooting/)
 - [2.4GHz Intra-System (or Self/Platform) Interference Demonstration (Unit 3 Compliance Blog)](https://www.unit3compliance.co.uk/2-4ghz-intra-system-or-self-platform-interference-demonstration/)
 - [USB 3.0 Radio Frequency Interference Impact on 2.4 GHz Wireless Devices (Intel White Paper)](https://www.usb.org/sites/default/files/327216.pdf)
