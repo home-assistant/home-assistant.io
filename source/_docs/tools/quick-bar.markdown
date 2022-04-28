@@ -64,7 +64,7 @@ Type | Available |
 
 *Hotkey: `m`*
 
-Create [`my`](/integrations/my) links from any supported page in the user interface, when invoked on a supported page it will open a new tab which will allow you to share the link in different formats.
+Create [`my`](/integrations/my) links from any supported page in the user interface, when invoked on a supported page it will open a new tab that will allow you to share the link in different formats.
 
 ## Disabling Shortcuts
 
