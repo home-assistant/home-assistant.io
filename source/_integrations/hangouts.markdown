@@ -45,7 +45,7 @@ To obtain the `oauth_code` cookie value, follow the steps below:
 * In the cookie list, double click on the value for the `oauth_code` cookie to select it, and copy the value. This is the authorization code
 
 <div class='note'>
-You can't write messages to yourself or get notifications in a group, if "you" write the message. The best way is to create a new Google Hangouts account for this integration.<br>
+You can't write messages to yourself or get notifications in a group, if "you" write the message. The best way is to create a new Google Chat account for this integration.<br>
 <br>
 If you secured your account with 2-factor authentication: Only verification by app or SMS are supported. There is no support for verification by prompt on your phone.<br>
 <br>
