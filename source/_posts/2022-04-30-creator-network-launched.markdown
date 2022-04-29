@@ -13,6 +13,11 @@ start talking closely with creators to ensure everyone has the best information 
 community and support the effort being put into keeping our users informed. This is a way for Home Assistant to reward these
 creators that are positively engaging with our users.
 
+<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-04-30-creator-network/Creators.jpg' alt='Creators in the network'>
+First Members of the Creator Network!
+</p>
+
 ## What is the Creator Network?
 
 The creator network will be a group of creators that are active and engaged with our community with consistent content that
@@ -20,20 +25,6 @@ builds the archive for Home Assistant. These creators are creating content for Y
 with the goal of helping people with Home Assistant. This can be through tutorials, unbiased product reviews, creating cool stuff and more.
 
 We are looking forward to growing this network to be a great group of people that work together and share the best information.
-One of the biggest ways we are doing that is monthly calls with the network to discuss release notes. This way all creators in the network
-know exactly what was added so they can share it with their audience.
+One of the biggest ways we are doing that is monthly calls with the network to discuss releases and upcoming changes.
 
-Learn more here: <https://partner.home-assistant.io/creators/>
-
-We are also excited to share our first members of the network:
-
-[Everything Smart Home](https://www.youtube.com/c/EverythingSmartHome)<br>
-[Dr. Zzs](https://www.youtube.com/c/DrZzs)<br>
-[Home Assistant Podcast](https://hasspodcast.io/)<br>
-[JuanMTech](https://www.youtube.com/c/JuanMTech)<br>
-[Mark Watt Tech](https://www.youtube.com/c/MarkWattTech)<br>
-[Bearded Tinker](https://www.youtube.com/c/BeardedTinker)<br>
-
-This is only a start. We are accepting applications to become a part of the network now!
-
-<a href="https://partner.home-assistant.io/creators/" target="_blank"><img src="/images/blog/2022-04-30-creator-network/ApplyButton.png" style="border:none; box-shadow: none;"></a>
+Visit the [Home Assistant Creators Network](https://partner.home-assistant.io/creators/) for more information and how to apply.
