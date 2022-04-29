@@ -21,7 +21,7 @@ ha_ssdp: true
 
 This platform allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device and control the NETGEAR device.
 Both routers and access points can be used with this integration. Some access points will not be automatically discovered and need to be set up manually.
-Attaced devices schould only be tracked on the main router, otherwise duplicate entities will occur. Select the "Do not track devices" option for additional acces points.
+Attached devices should only be tracked on the main router, otherwise, duplicate entities will occur. Select the "Do not track devices" option for additional access points.
 
 {% include integrations/config_flow.md %}
 
