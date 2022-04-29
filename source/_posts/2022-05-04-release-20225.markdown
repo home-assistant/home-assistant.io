@@ -112,7 +112,7 @@ now nicely brought together in a single menu, and there is now an extensive
 System menu.
 
 YAML Configuration Controls have a new home in the developer tools. This felt like a more logical place to have the reloading happen.
-Restarting Home Assistant can now be done via the Overflow menu on the System Dashboard Page. 
+Restarting Home Assistant can now be done via the Overflow menu on the System Dashboard Page.
 
 ## Find entities even quicker than before
 
@@ -159,7 +159,7 @@ used for the above screenshot can be found in the [Gauge Card documentation].
 - For each:
   - Improve story
   - Better example?
-- Parallelizing actions: 
+- Parallelizing actions:
   - Simplify?
   - Less warnings to make it less negative?
 - Stopping a script or automation:
@@ -225,7 +225,7 @@ trigger was added, which is available for use in your automations.
 
 <img class="no-shadow" src='/images/integrations/calendar/trigger.png' alt='Screenshot showing the calendar trigger'>
 
-This brand new trigger is a little more flexible compared to the (previously 
+This brand new trigger is a little more flexible compared to the (previously
 only other option) state trigger. It is available for automation in YAML as well,
 and the trigger provides [a lot of trigger variables](/docs/automation/templating/#calendar)
 you can use in your templates.
@@ -367,7 +367,7 @@ These items still need to be processed for the release notes, or might just
 be summed up.
 
 - **Allow any entity to match state condition** ([@frenck] - [#69763])
-  
+
   If any of the entities matches a certain condition, instead of all of them:
 
   ```yaml
@@ -506,7 +506,7 @@ the amount of data that needs to be written, in this release, we focused on how
 often data is read from the database and optimizing its scale for larger setups.
 
 This release is for you if you have many sensors generating statistics, as
-compiling statistics now takes 30-100x less time. 
+compiling statistics now takes 30-100x less time.
 
 Are you using the [History Stats] integration? The number of database queries
 needed for most sensors with a fixed start time is 99% less.
@@ -551,7 +551,7 @@ This will give you full insight, control and automation capabilities to "unskip"
 any update you have previously skipped.
 
 Additionally, this release two new integrations have implemented the update
-entity: 
+entity:
 
 - [Sensibo], done by [@gjohansson-ST]
 - [AVM FRITZ!Box Tools], done by [@Mask3007]
@@ -606,7 +606,7 @@ noteworthy changes this release:
 - If you run Z-Wave JS server manually in for example, a Docker container, it
   will now be automatically discovered on your network. Thanks [@raman325]!
 - Template entities now have a `this` variable availble, which is reference
-  to state of the template entity itself. Awesome work [@akloeckner] and 
+  to state of the template entity itself. Awesome work [@akloeckner] and
   [@emontnemery]!
 - Running Home Assistant Core or Container? [@frenck] added the
   {% my developer_call_service service="backup.create" %} service to the
@@ -631,7 +631,7 @@ noteworthy changes this release:
   integration for outdoor sensors. Awesome!
 - [Philips TV] now provides a switch to turn on/off the "Ambilight+Hue" syncing
   if your TV model supports that. Thanks, [@bramstroker]!
-  
+
 [@akloeckner]: https://github.com/akloeckner
 [@bdraco]: https://github.com/bdraco
 [@bramstroker]: https://github.com/bramstroker
@@ -775,7 +775,7 @@ can be manually removed.
 [@Kane610]: https://github.com/Kane610
 [#70600]: https://github.com/home-assistant/core/pull/70600
 
---- 
+---
 
 Migrated deCONZ light entities of type "On/Off Output" to switch
 from light platform as they are binary devices (only on/off).
@@ -857,7 +857,7 @@ overridden the device class with customize need to adjust your configuration.
 {% details "IKEA TRÅDFRI" %}
 
 The native IKEA TRÅDFRI groups are now removed. We propose using
-[light groups](/integrations/group/) instead. 
+[light groups](/integrations/group/) instead.
 
 Additionally, the previously deprecated YAML configuration of the IKEA TRÅDFRI
 integration has been removed.
@@ -1060,7 +1060,7 @@ of precision.
 
 {% details "Recorder" %}
 
-Home Assistant will now automatically repack your database once a month, on 
+Home Assistant will now automatically repack your database once a month, on
 the second sunday of the month.
 
 Repacking allows to shrink the database in file size, resulting in smaller
@@ -1251,6 +1251,23 @@ to adopt to this change.
 
 [@emontnemery]: https://github.com/emontnemery
 [#69285]: https://github.com/home-assistant/core/pull/69285
+
+{% enddetails %}
+
+{% details "Z-Wave JS" %}
+
+With this release, you will need to update your zwave-js-server instance.
+
+- If you use the zwave_js add-on, you need to have at least version `0.1.56`.
+- If you use the Z-Wave JS 2 MQTT add-on, you need to have at least version `0.38.0`.
+- If you use the zwavejs2mqtt Docker container, you need to have at least version `6.7.0`.
+- If you run your own Docker container, or some other installation method,
+  you will need to update your zwave-js-server instance to at least `1.16.0`.
+
+([@raman325] - [#70464]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#70464]: https://github.com/home-assistant/core/pull/70464
 
 {% enddetails %}
 
