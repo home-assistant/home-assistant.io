@@ -30,7 +30,7 @@ Attached devices should only be tracked on the main router, otherwise, duplicate
 Consider_home:
   description: "The consider home time is the number of seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. This option helps prevent false alarms in presence detection."
 Do not track devices:
-  description: "Do not track attached devices for this acces point, this option schould be selected for all additional acces points besides the main router to prevent duplicate entities."
+  description: "Do not track attached devices for this access point, this option should be selected for all additional access points besides the main router to prevent duplicate entities."
 {% endconfiguration_basic %}
 
 ## Router entities
