@@ -25,7 +25,7 @@ The creator network will be a group of creators that are active and engaged with
 builds the archive for Home Assistant. These creators are creating content for YouTube, Twitter, Instagram, TikTok, etc.
 with the goal of helping people use Home Assistant. This can be through tutorials, unbiased product reviews, creating cool stuff and more.
 
-We are looking forward to growing this network to be a great group of people that work together and share the best information.
+We are looking forward to growing this network to be a group of creators that work together with each other and the Home Assistant Developers.
 One of the biggest ways we are doing that is monthly calls with the network to discuss releases and upcoming changes.
 
 Visit the [Home Assistant Creators Network](https://partner.home-assistant.io/creators/) for more information and how to apply.
