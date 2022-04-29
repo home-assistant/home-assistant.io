@@ -2,8 +2,8 @@
 title: Season
 description: Instructions on how to add season sensors into Home Assistant.
 ha_category:
-  - Utility
   - Sensor
+  - Utility
 ha_iot_class: Local Polling
 ha_release: 0.53
 ha_quality_scale: internal
@@ -11,6 +11,9 @@ ha_domain: season
 ha_config_flow: true
 ha_platforms:
   - sensor
+ha_codeowners:
+  - '@frenck'
+ha_integration_type: integration
 ---
 
 The season integration will provide the current astronomical or meteorological season (Spring, Summer, Autumn, Winter)

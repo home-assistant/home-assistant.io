@@ -3,11 +3,13 @@ title: Input Button
 description: Instructions on how to use the Input Button helper with Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 2022.2
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: input_button
+ha_integration_type: helper
 ---
 
 The Input Button helper integration allows you to define buttons that

@@ -17,12 +17,14 @@ ha_codeowners:
 ha_domain: sensibo
 ha_platforms:
   - binary_sensor
-  - diagnostics
   - climate
+  - diagnostics
   - number
+  - select
   - sensor
 ha_homekit: true
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 Integrates [Sensibo](https://sensibo.com) Air Conditioning controller into Home Assistant.

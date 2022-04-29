@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: cisco_ios
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 This is a presence detection scanner for [Cisco IOS](https://www.cisco.com/) devices.

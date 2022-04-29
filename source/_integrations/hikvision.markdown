@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: hikvision
 ha_platforms:
   - binary_sensor
+ha_integration_type: integration
 ---
 
 The Hikvision Binary Sensor is a platform that parses the event stream of a

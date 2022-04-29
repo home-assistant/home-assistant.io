@@ -11,6 +11,7 @@ ha_codeowners:
   - '@tkdrob'
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows integrations to send messages to the user using Discord.
@@ -22,6 +23,12 @@ Retrieve the **Client ID** from the information section and the (hidden) **Token
 When setting up the application you can use this [icon](/images/favicon-192x192-full.png).
 
 {% include integrations/config_flow.md %}
+
+<div class='note'>
+
+The name you give your application on the [Discord My Apps page](https://discordapp.com/developers/applications/me) will determine the name of the notify service. For example: if you enter "Discord Chat", the service will be named `notify.discord_chat`.
+
+</div>
 
 ## Setting up the bot
 

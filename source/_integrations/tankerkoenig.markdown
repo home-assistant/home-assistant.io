@@ -9,8 +9,12 @@ ha_iot_class: Cloud Polling
 ha_domain: tankerkoenig
 ha_codeowners:
   - '@guillempages'
+  - '@mib1185'
 ha_platforms:
+  - binary_sensor
   - sensor
+ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The `tankerkoenig` platform allows you to monitor the fuel prices with [tankerkoenig.de](https://www.tankerkoenig.de/) from within Home Assistant and setup automations based on the information.

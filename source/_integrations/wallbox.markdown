@@ -7,12 +7,14 @@ ha_release: 2021.6
 ha_iot_class: Cloud Polling
 ha_domain: wallbox
 ha_platforms:
+  - lock
   - number
   - sensor
-  - lock
+  - switch
 ha_config_flow: true
 ha_codeowners:
   - '@hesselonline'
+ha_integration_type: integration
 ---
 
 The Wallbox integration pulls data from the [MyWallbox Portal](https://my.wallbox.com) for your Wallbox charging station.
@@ -47,3 +49,7 @@ The number entity is only loaded if the supplied username has sufficient rights 
 ## Lock
 
 The integration adds a lock entity, allowing you to lock the charger. Please note, this only works with a user with admin rights.
+
+## Switch
+
+The integration adds a switch entity, allowing you to pause/resume the charging process.

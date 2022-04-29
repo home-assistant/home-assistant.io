@@ -2,8 +2,8 @@
 title: File Size
 description: Component for monitoring the size of a file.
 ha_category:
-  - Utility
   - Sensor
+  - Utility
 ha_iot_class: Local Polling
 ha_release: 0.64
 ha_domain: filesize
@@ -11,6 +11,8 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@gjohansson-ST'
+ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The `filesize` sensor is for displaying the size in MB of a file.

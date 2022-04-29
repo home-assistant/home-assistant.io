@@ -21,6 +21,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 This integration allows you to control [Tasmota](https://tasmota.github.io/docs/) devices over MQTT.

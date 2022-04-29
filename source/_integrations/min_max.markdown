@@ -2,8 +2,9 @@
 title: Min/Max
 description: Instructions on how to integrate min/max sensors into Home Assistant.
 ha_category:
-  - Utility
+  - Helper
   - Sensor
+  - Utility
 ha_iot_class: Local Push
 ha_release: 0.31
 ha_quality_scale: internal
@@ -13,6 +14,7 @@ ha_domain: min_max
 ha_config_flow: true
 ha_platforms:
   - sensor
+ha_integration_type: helper
 ---
 
 The Min/Max integration consumes the state from other sensors to determine the minimum, maximum, latest (last), mean and median of the collected states.
@@ -28,7 +30,7 @@ Name:
 Input entities:
   description: At least two entities to monitor. All entities must use the same unit of measurement.
 Type:
-  description: The type of the sensor, this can be either "last", "max", "mean", "mean", or "median".
+  description: The type of the sensor, this can be either "min", "max", "last", "mean", or "median".
 Precision:
   description: Round the calculated mean or median value to at most N decimal places.
 {% endconfiguration_basic %}

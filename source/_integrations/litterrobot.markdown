@@ -15,10 +15,11 @@ ha_codeowners:
 ha_domain: litterrobot
 ha_platforms:
   - button
-  - sensor
   - select
+  - sensor
   - switch
   - vacuum
+ha_integration_type: integration
 ---
 
 The Litter-Robot integration allows you to control and monitor your Wi-Fi-enabled, automatic, self-cleaning litter box for cats.

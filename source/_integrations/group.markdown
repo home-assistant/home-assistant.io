@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Cover
   - Fan
+  - Helper
   - Light
   - Lock
   - Media Player
@@ -24,9 +25,10 @@ ha_platforms:
   - fan
   - light
   - lock
-  - switch
   - media_player
   - notify
+  - switch
+ha_integration_type: helper
 ---
 
 The group integration lets you combine multiple entities into a single entity. Entities that are members of a group can be controlled and monitored as a whole.
@@ -204,6 +206,8 @@ services:
 {% endconfiguration %}
 
 ## Old style groups
+
+This group is a special case of groups only available via YAML configuration.
 
 **We don't recommend using these old-style groups anymore.** They are still supported, but we recommend using the groups as described above.
 

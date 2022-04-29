@@ -15,6 +15,7 @@ ha_domain: tomorrowio
 ha_platforms:
   - sensor
   - weather
+ha_integration_type: integration
 ---
 
 The Tomorrow.io integration allows you to obtain weather, air quality, pollen, and fire information from the [Tomorrow.io API](https://www.tomorrow.io/weather-api/).
@@ -23,7 +24,7 @@ The Tomorrow.io integration allows you to obtain weather, air quality, pollen, a
 
 You can obtain a free API key by signing up with [Tomorrow.io](https://www.tomorrow.io/weather-api/).
 
-The integration will automatically set the refresh interval based on the number of Tomorrow.io integrations that are using the same API key for a given Home Assistant instance. The integration currently assumes you are using a free account so the max requests per day is 500 (the refresh interval is calculated such that you should only use up around 90% of the quota).
+The integration will automatically set the refresh interval based on the number of Tomorrow.io integrations that are using the same API key for a given Home Assistant instance. The integration currently assumes you are using a free account so the max requests per day is 100 (the refresh interval is calculated such that you should only use up around 90% of the quota).
 
 ## Supported Forecast Types
 

@@ -62,6 +62,11 @@ command_topic:
   description: The MQTT topic to publish `payload_on` to activate the scene.
   required: false
   type: string
+enabled_by_default:
+  description: Flag which defines if the entity should be enabled when first added.
+  required: false
+  type: boolean
+  default: true
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false

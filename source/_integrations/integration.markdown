@@ -2,9 +2,10 @@
 title: Integration - Riemann sum integral
 description: Instructions on how to integrate Integration Sensor into Home Assistant.
 ha_category:
-  - Utility
   - Energy
+  - Helper
   - Sensor
+  - Utility
 ha_release: 0.87
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -14,6 +15,7 @@ ha_domain: integration
 ha_config_flow: true
 ha_platforms:
   - sensor
+ha_integration_type: helper
 ---
 
 This integrations provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum)
@@ -99,7 +101,7 @@ The unit of `source` together with `unit_prefix` and `unit_time` is used to gene
 
 An integration sensor is quite useful in energy billing scenarios since energy is generally billed in kWh and many sensors provide power in W (Watts).
 
-If you have a sensor that provides you with power readings in Watts (uses W as `unit_of_measurement`), then you can use the `integration` sensor to track how much energy is being spent. Take the next manual YAML configuration as an example:
+If you have a sensor that provides you with power readings in Watts (uses W as `unit_of_measurement`, `device_class` of `power`), then you can use the `integration` sensor to track how much energy is being spent. Take the next manual YAML configuration as an example:
 
 ```yaml
 sensor:
@@ -110,4 +112,4 @@ sensor:
     round: 2
 ```
 
-This configuration will provide you with `sensor.energy_spent` which will have your energy in kWh.
+This configuration will provide you with `sensor.energy_spent` which will have your energy in kWh, as a `device_class` of `energy`.

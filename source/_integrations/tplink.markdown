@@ -3,9 +3,9 @@ title: TP-Link Kasa Smart
 description: Instructions on integrating TP-Link Smart Home Devices to Home Assistant.
 ha_category:
   - Hub
-  - Switch
   - Light
   - Sensor
+  - Switch
 ha_release: 0.89
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -20,6 +20,7 @@ ha_platforms:
   - switch
 ha_dhcp: true
 ha_quality_scale: platinum
+ha_integration_type: integration
 ---
 
 The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as plugs, power strips, wall switches and bulbs.
@@ -72,7 +73,11 @@ There is currently support for the following device types within Home Assistant:
 - KL125
 - KL130
 - KB130
+
+### Light Strips
+
 - KL400
+- KL420
 - KL430
 
 Other bulbs may also work, but with limited color temperature range (2700-5000). If you find a bulb isn't reaching the full-color temperature boundaries, submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
