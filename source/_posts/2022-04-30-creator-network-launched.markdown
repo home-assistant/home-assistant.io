@@ -1,6 +1,6 @@
 ---
 title: "Introducing the Home Assistant Creator Network!"
-description: "We are looking to invest into our community and support the effort being put in"
+description: "We are looking to invest into our community and support the effort being put in."
 date: 2022-04-29 00:00:00
 date_formatted: "April 29, 2022"
 comments: true
