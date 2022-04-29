@@ -17,6 +17,14 @@ ha_integration_type: integration
 
 The `sabnzbd` integration will allow you to monitor and control your downloads with [SABnzbd](https://sabnzbd.org) from within Home Assistant and setup automations based on the information.
 
+## Prerequisites
+
+You need to grab your API key from your SABnzbd instance in order to configure this integration:
+
+- Navigate to your Sabnzbd.
+- Click "Config", then click "General".
+- Copy your API key under "Security".
+
 {% include integrations/config_flow.md %}
 
 ## Sensor
@@ -44,9 +52,21 @@ Available services:
 - `resume`: Resume the download queue.
 - `set_speed`: Set the download queue speed limit.
 
-#### Service `sabnzbd/set_speed`
+### Service `sabnzbd.pause`
+
+| Service data attribute | Optional | Description                                                                                                                                                                                 |
+|------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Sabnzbd API key`      | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                               |
+
+### Service `sabnzbd.resume`
+
+| Service data attribute | Optional | Description                                                                                                                                                                                 |
+|------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Sabnzbd API key`      | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                               |
+
+### Service `sabnzbd.set_speed`
 
 | Service data attribute | Optional | Description                                                                                                                                                                                 |
 |------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `speed`                | yes      | Sets the download speed limit. If specified as a number with no units, will be interpreted as a percent. If units are provided (e.g., 500K) will be interpreted absolutely. Defaults to 100 |
-| `Sabnzbd API key`                  | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                                         |
+| `Sabnzbd API key`      | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                               |
