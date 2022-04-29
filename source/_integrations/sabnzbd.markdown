@@ -21,7 +21,7 @@ The `sabnzbd` integration will allow you to monitor and control your downloads w
 
 You need to grab your API key from your SABnzbd instance in order to configure this integration:
 
-- Navigate to your Sabnzbd.
+- Navigate to your SABnzbd.
 - Click "Config", then click "General".
 - Copy your API key under "Security".
 
