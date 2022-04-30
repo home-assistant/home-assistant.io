@@ -62,7 +62,7 @@ Available services:
 
 | Service data attribute | Optional | Description                                                                                                                                                                                 |
 |------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Sabnzbd API key`      | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                               |
+| `api_key`      | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                               |
 
 ### Service `sabnzbd.set_speed`
 
