@@ -7,7 +7,7 @@ The onboarding process takes care of the initial setup for Home Assistant, such 
 
 <div class='note'>
 
-The steps below do not apply to Home Assistant Core installations, for those types of installations, [see here](/docs/configuration/).
+The steps below do not apply to Home Assistant Core & container installations, for those types of installations, [see here](/docs/configuration/).
 
 </div>
 
