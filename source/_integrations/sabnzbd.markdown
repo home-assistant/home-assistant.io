@@ -69,4 +69,4 @@ Available services:
 | Service data attribute | Optional | Description                                                                                                                                                                                 |
 |------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `speed`                | yes      | Sets the download speed limit. If specified as a number with no units, will be interpreted as a percent. If units are provided (e.g., 500K) will be interpreted absolutely. Defaults to 100 |
-| `Sabnzbd API key`      | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                               |
+| `api_key`      | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                               |
