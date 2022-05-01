@@ -27,7 +27,7 @@ The `tplink` integration allows you to control your [TP-Link Smart Home Devices]
 
 TP-Link offers an [FAQ](https://www.tp-link.com/us/support/faq/2707/) on how to provision your newly purchased devices. The devices won't connect to the TP-Link cloud and become locally controllable afterward. If you already own devices that are connected to the cloud, you can convert them from TP-Link Cloud operated to local operation as well.
 
-In the past more TP-Link used to support local access but they removed this support. If your old device is on older firmware it can still be controlled locally by Home Assistant. In this case you need to provision your newly purchased device to connect to your network before it can be added via the integration. This can be done by using the [kasa command-line tool](https://python-kasa.readthedocs.io/en/latest/cli.html#provisioning).
+In the past, more TP-Link used to support local access but they removed this support. If your old device is on older firmware it can still be controlled locally by Home Assistant. In this case, you need to provision your newly purchased device to connect to your network before it can be added via the integration. This can be done by using the [kasa command-line tool](https://python-kasa.readthedocs.io/en/latest/cli.html#provisioning).
 
 There is currently support for the following device types within Home Assistant:
 
