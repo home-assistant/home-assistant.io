@@ -25,9 +25,10 @@ ha_integration_type: integration
 
 The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as plugs, power strips, wall switches and bulbs.
 
-TP-Link offers an [FAQ](https://www.tp-link.com/us/support/faq/2707/) on how to provision your newly purchased devices. The devices won't connect to the TP-Link cloud and become locally controllable afterward. If you already own devices that are connected to the cloud, you can convert them from TP-Link Cloud operated to local operation as well.
+You need to provision your newly purchased device to connect to your network before it can be added via the integration. This can be done by using the using the [kasa command-line tool](https://python-kasa.readthedocs.io/en/latest/cli.html#provisioning).
 
-In the past, more TP-Link used to support local access, but they removed this support. If your old device is on older firmware, it can still be controlled locally by Home Assistant. In this case, you need to provision your newly purchased device to connect to your network before it can be added via the integration. This can be done by using the [kasa command-line tool](https://python-kasa.readthedocs.io/en/latest/cli.html#provisioning).
+TP-Link has issued some firmware updates to their devices which disabled the local access which is necessary to control the device via Home Assistant. They revisited their decision in early 2022 and started offering a special 'local access only' provisioning which re-enables local access for Home Assistant on newer firmware versions. This provisioning is not compatible with all devices supported by this integration. Their [FAQ](https://www.tp-link.com/us/support/faq/2707/) outlines how to proceed.
+
 
 There is currently support for the following device types within Home Assistant:
 
@@ -37,50 +38,87 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-## Supported Devices
+## TP-Link Kasa Device Overview
+
 ### Plugs
 
-- HS100
-- HS103
-- HS105
-- HS110 (supports consumption sensors)
-- KP105 (is not mentioned in the TP-Link FAQ as working/not working)
-- KP115 (supports consumption sensors)
+| Model Number     | Support by Home Assistant | Support by TP-Link's 'local only mode'     | Note                                     |
+|------------------|---------------------------|--------------------------------------------|------------------------------------------|
+| HS100            | ✅                        | ✅                                         |                                          |
+| HS103            | ✅                        | ✅                                         |                                          |
+| HS105            | ✅                        | ✅                                         |                                          |
+| HS110            | ✅                        | ✅                                         | supports consumption sensors             |
+| KP100            | ❓                        | ✅                                         |                                          |
+| KP105            | ✅                        | ❓ <!-- not mentioned as of 2022-05-01 --> |                                          |
+| KP115            | ✅                        | ✅                                         | supports consumption sensors             |
 
-### Strip (Multi-Plug)
+### Multi-Outlet Power Strips
 
-<!-- - HS107 (indoor 2-outlet) # Does not support local control according to TP-Link FAQ (as of date 2022-04-25) -->
-<!-- - HS300 (powerstrip 6-outlet) (supports consumption sensors) # Does not support local control according to TP-Link FAQ (as of date 2022-04-25) -->
-<!-- - KP303 (powerstrip 3-outlet) # Does not support local control according to TP-Link FAQ (as of date 2022-04-25) -->
-<!-- - KP400 (outdoor 2-outlet) # Does not support local control according to TP-Link FAQ (as of date 2022-04-25) -->
-- KP200 (indoor 2-outlet)
-- KP40 (outdoor 2-outlet)
-<!-- - EP40 (outdoor 2-outlet) # Does not support local control according to TP-Link FAQ (as of date 2022-04-25) -->
+| Model Number     | Support by Home Assistant | Support by TP-Link's 'local only mode'     | Note                                     |
+|------------------|---------------------------|--------------------------------------------|------------------------------------------|
+| EP40             | ✅                        | ❌                                         | outdoor 2-outlet                         |
+| HS107            | ✅                        | ❌                                         | indoor 2-outlet                          |
+| HS300            | ✅                        | ❌                                         | 6-outlet<br>supports consumption sensors |
+| KP40             | ✅                        | ❓ <!-- not mentioned as of 2022-05-01 --> | outdoor 2-outlet                         |
+| KP200            | ✅                        | ❌                                         | indoor 2-outlet                          |
+| KP303            | ✅                        | ❌                                         | 3-outlet                                 |
+| KP400            | ✅                        | ❌                                         | outdoor 2-outlet                         |
 
 ### Wall Switches
 
-- HS200
-<!-- - HS210 # Does not support local control according to TP-Link FAQ (as of date 2022-04-25) -->
-<!-- - HS220 (acts as a light) # Does not support local control according to TP-Link FAQ (as of date 2022-04-25) -->
+| Model Number     | Support by Home Assistant | Support by TP-Link's 'local only mode'     | Note                                     |
+|------------------|---------------------------|--------------------------------------------|------------------------------------------|
+| ES10             | ❓                        | ✅                                         |                                          |
+| HS200            | ✅                        | ✅                                         |                                          |
+| HS210            | ✅                        | ❌                                         |                                          |
+| HS210KIT         | ❓                        | ❌                                         |                                          |
+| HS220            | ✅                        | ❌                                         | acts as a light                          |
 
 ### Bulbs
 
-- LB100
-- LB110
-- LB120
-- LB130
-- LB230
-- KL110
-- KL120
-- KL125
-- KL130
-- KB130
+| Model Number     | Support by Home Assistant | Support by TP-Link's 'local only mode'     | Note                                     |
+|------------------|---------------------------|--------------------------------------------|------------------------------------------|
+| KB130            | ✅                        | ❓ <!-- not mentioned as of 2022-05-01 --> |                                          |
+| KL50             | ❓                        | ✅                                         |                                          |
+| KL60             | ❓                        | ✅                                         |                                          |
+| KL110            | ✅                        | ✅ <!-- whole series should to work -->    |                                          |
+| KL120            | ✅                        | ✅ <!-- whole series should to work -->    |                                          |
+| KL125            | ✅                        | ✅ <!-- whole series should to work -->    |                                          |
+| KL130            | ✅                        | ✅ <!-- whole series should to work -->    |                                          |
+| LB100            | ✅                        | ✅ <!-- whole series should to work -->    |                                          |
+| LB110            | ✅                        | ✅ <!-- whole series should to work -->    |                                          |
+| LB120            | ✅                        | ✅ <!-- whole series should to work -->    |                                          |
+| LB130            | ✅                        | ✅ <!-- whole series should to work -->    |                                          |
+| LB230            | ✅                        | ✅ <!-- whole series should to work -->    |                                          |
 
 ### Light Strips
 
-- KL400
-- KL420
-<!-- - KL430 # Does not support local control according to TP-Link FAQ (as of date 2022-04-25) -->
+| Model Number     | Support by Home Assistant | Support by TP-Link's 'local only mode'     | Note                                     |
+|------------------|---------------------------|--------------------------------------------|------------------------------------------|
+| KL400            | ✅                        | ❓ <!-- not mentioned as of 2022-05-01 --> |                                          |
+| KL420            | ✅                        | ❓ <!-- not mentioned as of 2022-05-01 --> |                                          |
+| KL430            | ✅                        | ❌                                         |                                          |
+| KL430E           | ❓                        | ❌                                         |                                          |
+
+### Range Extender
+
+| Model Number     | Support by Home Assistant | Support by TP-Link's 'local only mode'     | Note                                     |
+|------------------|---------------------------|--------------------------------------------|------------------------------------------|
+| RE270            | ❓                        | ✅                                         |                                          |
+| RE370            | ❓                        | ✅                                         |                                          |
+| RE350K           | ❓                        | ✅                                         |                                          |
+
+### Cameras
+
+| Model Number     | Support by Home Assistant | Support by TP-Link's 'local only mode'     | Note                                     |
+|------------------|---------------------------|--------------------------------------------|------------------------------------------|
+| All Kasa cameras | ❓                        | ❌ <!-- as of 2022-05-01               --> |                                          |
+
+### Smart Routers
+
+| Model Number     | Support by Home Assistant | Support by TP-Link's 'local only mode'     | Note                                     |
+|------------------|---------------------------|--------------------------------------------|------------------------------------------|
+| SR20             | ❓                        | ❌                                         |                                          |
 
 Other bulbs may also work, but with limited color temperature range (2700-5000). If you find a bulb isn't reaching the full-color temperature boundaries, submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
 
