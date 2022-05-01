@@ -13,6 +13,8 @@ ha_integration_type: integration
 
 Integration between [ebusd](https://github.com/john30/ebusd/) daemon for communication with eBUS heating systems, and Home Assistant using sensor component.
 
+Note: [ebusd](https://github.com/john30/ebusd/) also supports a more generic approach using the [MQTT discovery feature](https://www.home-assistant.io/docs/mqtt/discovery/), which allows to make almost everything available as entities in home assistant automatically, see [documentation and setup instructions here](https://github.com/john30/ebusd/wiki/MQTT-integration).
+
 ## Configuration
 
 Enable the sensor by adding the following to your `configuration.yaml` file:
