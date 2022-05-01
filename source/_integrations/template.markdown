@@ -164,6 +164,10 @@ binary_sensor:
           description: The attribute and corresponding template.
           required: true
           type: template
+      friendly_name: 
+        description: Name to use in the frontend.
+        required: false
+        type: string      
     device_class:
       description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
       required: false
