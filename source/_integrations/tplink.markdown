@@ -27,7 +27,7 @@ The `tplink` integration allows you to control your [TP-Link Smart Home Devices]
 
 You need to provision your newly purchased device to connect to your network before it can be added via the integration. This can be done by using the using the [kasa command-line tool](https://python-kasa.readthedocs.io/en/latest/cli.html#provisioning).
 
-TP-Link has issued some firmware updates to their devices which disabled the local access which is necessary to control the device via Home Assistant. They revisited their decision in early 2022 and started offering a special 'local access only' provisioning which re-enables local access for Home Assistant on newer firmware versions. This provisioning is not compatible with all devices supported by this integration. Their [FAQ](https://www.tp-link.com/us/support/faq/2707/) outlines how to proceed.
+TP-Link has issued some firmware updates to their devices which disabled the local access. The local access is what enables Home Assistant to connect to your devices and control them. They revisited their decision in early 2022 and started offering a special 'local access only' provisioning which re-enables local access on newer firmware versions. This provisioning is not compatible with all devices supported by this integration. Their [FAQ](https://www.tp-link.com/us/support/faq/2707/) outlines how to proceed if your device is supported.
 
 
 There is currently support for the following device types within Home Assistant:
