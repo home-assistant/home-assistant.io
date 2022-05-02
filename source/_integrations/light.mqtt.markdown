@@ -24,6 +24,7 @@ The `mqtt` light platform lets you control your MQTT enabled lights through one 
 | RGBW Color        | ✔                            | ✔                      | ✘                              |
 | RGBWW Color       | ✔                            | ✔                      | ✘                              |
 | Transitions       | ✘                            | ✔                      | ✔                              |
+| White             | ✔                            | ✔                      | ✘                              |
 | XY Color          | ✔                            | ✔                      | ✘                              |
 
 
@@ -299,15 +300,47 @@ rgb_command_template:
   required: false
   type: string
 rgb_command_topic:
-  description: "The MQTT topic to publish commands to change the light's RGB state. Please note that the color value sent by Home Assistant is normalized to full brightness if `brightness_command_topic` is set. Brightness information is in this case sent separately in the `brightness_command_topic`. This will cause a light that expects an absolute color value (including brightness) to flicker."
+  description: "The MQTT topic to publish commands to change the light's RGB state."
   required: false
   type: string
 rgb_state_topic:
-  description: "The MQTT topic subscribed to receive RGB state updates. The expected payload is the RGB values separated by commas, for example, `255,0,127`. Please note that the color value received by Home Assistant is normalized to full brightness. Brightness information is received separately in the `brightness_state_topic`."
+  description: "The MQTT topic subscribed to receive RGB state updates. The expected payload is the RGB values separated by commas, for example, `255,0,127`."
   required: false
   type: string
 rgb_value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the RGB value."
+  required: false
+  type: string
+rgbw_command_template:
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `rgbw_command_topic`. Available variables: `red`, `green`, `blue` and `white`."
+  required: false
+  type: string
+rgbw_command_topic:
+  description: "The MQTT topic to publish commands to change the light's RGBW state."
+  required: false
+  type: string
+rgbw_state_topic:
+  description: "The MQTT topic subscribed to receive RGBW state updates. The expected payload is the RGBW values separated by commas, for example, `255,0,127,64`."
+  required: false
+  type: string
+rgbw_value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the RGBW value."
+  required: false
+  type: string
+rgbww_command_template:
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `rgbww_command_topic`. Available variables: `red`, `green`, `blue`, `cold_white` and `warm_white`."
+  required: false
+  type: string
+rgbww_command_topic:
+  description: "The MQTT topic to publish commands to change the light's RGBWW state."
+  required: false
+  type: string
+rgbww_state_topic:
+  description: "The MQTT topic subscribed to receive RGBWW state updates. The expected payload is the RGBWW values separated by commas, for example, `255,0,127,64,32`."
+  required: false
+  type: string
+rgbww_value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the RGBWW value."
   required: false
   type: string
 schema:
