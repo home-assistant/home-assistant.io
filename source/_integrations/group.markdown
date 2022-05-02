@@ -74,7 +74,7 @@ binary_sensor:
       - binary_sensor.door_right_contact
 ```
 
-Example YAML configuration of a cover group:
+Example YAML configuration of a cover group (the [`device_class`](https://www.home-assistant.io/integrations/cover/#device-class) must be set via the [customize section](https://www.home-assistant.io/docs/configuration/customizing-devices/) or UI):
 
 ```yaml
 # Example configuration.yaml entry
