@@ -9,7 +9,7 @@ If you run into trouble while configuring Home Assistant, refer to the [configur
 
 ## Editing `configuration.yaml`
 
-The easiest option to edit `configuration.yaml` is to use the {% my supervisor_addon title="Studio Code Server add-on" addon="a0d7b954_vscode" %}. This add-on runs VS Code, which  offers live syntax checking and auto-fill of various Home Assistant entities (if unavailable on your system, use {% my supervisor_addon title="File Editor add-on" addon="core_configurator" %} instead).
+The easiest option to edit `configuration.yaml` is to use the {% my supervisor_addon title="Visual Studio Code Server add-on" addon="a0d7b954_vscode" %}. This add-on runs VS Code, which  offers live syntax checking and auto-fill of various Home Assistant entities (if unavailable on your system, use {% my supervisor_addon title="File Editor add-on" addon="core_configurator" %} instead).
 
 If you prefer to use a file editor on your computer, use the {% my supervisor_addon title="Samba add-on" addon="core_samba" %} to access the files as a network share.
 
