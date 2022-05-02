@@ -205,22 +205,6 @@ services:
       type: string
 {% endconfiguration %}
 
-## Services
-
-This integration provides the following services to modify groups and a service to reload the configuration without restarting Home Assistant itself.
-
-| Service | Data | Description |
-| ------- | ---- | ----------- |
-| `set` | `Object ID` | Group id and part of entity id. 
-| | `Name` | Name of the group.
-| | `Icon` | Name of the icon for the group.
-| | `Entities` | List of all members in the group. Not compatible with **delta**.
-| | `Add Entities` | List of members that will change on group listening.
-| | `All` | Enable this option if the group should only turn on when all entities are on.
-| `remove` | `Object ID` | Group id and part of entity id.
-| `reload` | `Object ID` | Group id and part of entity id.
-
-
 ## Old style groups
 
 This group is a special case of groups only available via YAML configuration.
@@ -309,3 +293,18 @@ When a group contains entities from domains that have multiple `on` states or on
 It is possible to create a group that the system cannot calculate a group state. Groups with entities from unsupported domains will always have an unknown state.
 
 These groups can still be in templates with the `expand()` directive, called using the `homeassistant.turn_on` and `homeassistant.turn_off` services, etc.
+
+### Services
+
+This integration provides the following services to modify groups and a service to reload the configuration without restarting Home Assistant itself.
+
+| Service | Data | Description |
+| ------- | ---- | ----------- |
+| `set` | `Object ID` | Group id and part of entity id. 
+| | `Name` | Name of the group.
+| | `Icon` | Name of the icon for the group.
+| | `Entities` | List of all members in the group. Not compatible with **delta**.
+| | `Add Entities` | List of members that will change on group listening.
+| | `All` | Enable this option if the group should only turn on when all entities are on.
+| `remove` | `Object ID` | Group id and part of entity id.
+| `reload` | `Object ID` | Group id and part of entity id.
