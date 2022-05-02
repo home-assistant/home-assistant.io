@@ -213,11 +213,13 @@ _All these can be extended if your usage calls for more resources._
     5. Then go to “Network” “Adapter 1” choose “Bridged Adapter” and choose your Network adapter
     6. Then go to “Audio” and choose “Intel HD Audio” as Audio Controller.
     <div class="note info">
+
     By default VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
     the `discard` option must be enabled:
     ```bash
     VBoxManage storageattach <VM name> --storagectl "SATA" --port 0 --device 0 --nonrotational on --discard on
     ```
+
     </div>
 
 - title: KVM
