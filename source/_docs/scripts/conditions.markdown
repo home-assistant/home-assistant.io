@@ -316,6 +316,7 @@ The sunset/sunrise conditions do not work in locations inside the polar circles,
 In those cases it is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
 </div>
 
+This is an example of 1 hour offset after sunset:
 ```yaml
 condition:
   condition: sun
@@ -323,7 +324,7 @@ condition:
   after_offset: "-01:00:00"
 ```
 
-This is an example of 1 hour offset after sunset.
+This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`:
 
 ```yaml
 condition:
@@ -332,7 +333,7 @@ condition:
     before: sunrise
 ```
 
-This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`.
+This is 'when light' - equivalent to a state condition on `sun.sun` of `above_horizon`:
 
 ```yaml
 condition:
@@ -340,8 +341,6 @@ condition:
     after: sunrise
     before: sunset
 ```
-
-This is 'when light' - equivalent to a state condition on `sun.sun` of `above_horizon`.
 
 We cannot use both keys in this case as it will always be `false`.
 
@@ -357,7 +356,7 @@ condition:
 
 A visual timeline is provided below showing an example of when these conditions are true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions are true.
 
-<img src='/images/docs/scripts/sun-conditions.svg' alt='Graphic showing an example of sun conditions' />
+![Graphic showing an example of sun conditions](/images/docs/scripts/sun-conditions.svg)
 
 ## Template condition
 
