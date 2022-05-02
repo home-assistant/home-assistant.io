@@ -7,7 +7,7 @@ contact_links:
     url: https://www.home-assistant.io/help
     about: We use GitHub for tracking bugs, check our website for resources on getting help.
   - name: Feature Request
-    url: https://community.home-assistant.io/c/feature-requests
+    url: https://community.home-assistant.io/c/feature-requests/13
     about: Please use our Community Forum for doing feature requests.
   - name: I'm unsure where to go
     url: https://www.home-assistant.io/join-chat
