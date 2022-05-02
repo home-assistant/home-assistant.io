@@ -19,7 +19,6 @@ This integration is limited to detect:
  * [Bose Soundtouch speakers](/integrations/soundtouch)
  * [Enigma2 media player](/integrations/enigma2)
  * [Frontier Silicon internet radios](/integrations/frontier_silicon)
- * [LG Soundbars](/integrations/lg_soundbar)
  * [Linn / Openhome](/integrations/openhome)
  * [SABnzbd downloader](/integrations/sabnzbd)
  * [Yamaha media player](/integrations/yamaha)
