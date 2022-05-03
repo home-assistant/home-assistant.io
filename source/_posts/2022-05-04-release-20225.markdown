@@ -709,6 +709,50 @@ Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
 
+
+{% details "Configuration Menu" %}
+
+Configuration renamed to Settings
+
+Helpers moved to Devices & Services
+
+Blueprints moved to Automations & Scenes
+
+Areas grouped with Zones
+
+Resources moved to overflow menu
+
+New System Menu
+
+New Updates page
+
+All logs moved to Logs (Supervisor, audio, etc)
+
+Backups moved to System Menu
+
+Network moved from General and Supervisor to Network in System Menu
+
+Used Space, eMMC Lifetime and move datadisk moved to Storage in System Menu
+
+Reboot and Restart Host moved to Hardware in System Menu
+
+Available Hardware moved to Hardware in System Menu in the overflow menu
+
+System Health moved to System Health in System Menu
+
+Processor and Memory Usage moved to System Health
+
+Integration List moved from About to System Health
+
+Server Controls moved to Developer Tools under YAML tab
+
+Restart available in Header of System Menu
+
+Join / Leave Beta Channel moved to Update Page
+
+
+{% enddetails %}
+
 {% details "AVM FRITZ!Box Call Monitor" %}
 
 The previously deprecated YAML configuration of theAVM FRITZ!Box Call Monitor
