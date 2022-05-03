@@ -59,6 +59,7 @@ Enjoy the (beta) release!
   - [And there is even more!](#and-there-is-even-more)
 - [Database optimizations](#database-optimizations)
 - [Update entity updates](#update-entity-updates)
+- [Insteon control panel](#insteon-control-panel)
 - [Template selector](#template-selector)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
@@ -561,9 +562,28 @@ entity:
 [AVM FRITZ!Box Tools]: /integrations/fritz
 [Sensibo]: /integrations/sensibo
 
-## Template selector
+## Insteon control panel
 
-{% details "TODO" %}
+In case you have missed it, the US smart home company Insteon went out of
+business and shut down its cloud services.
+[Read more about it in our dedicated blog post][insteon-blog].
+
+As Home Assistant works with Insteon locally, we have seen quite a few new
+users joining our community; so:
+
+👋 Hello, dear Insteon user. We have a new control panel for you!
+
+<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-05/insteon-panel.png' alt='Screenshot showing the new Insteon control panel'>
+The new Insteon control panel allows you to manage your Insteon devices.
+</p>
+
+This new control panel allows you to manage your Insteon device from
+Home Assistant directly, just like you would have done previously with
+the Insteon application.
+
+[Tom Harris]: https://github.com/teharris1
+[insteon-blog]: /blog/2022/04/19/for-insteon-users/
 
 ## Template selector
 
