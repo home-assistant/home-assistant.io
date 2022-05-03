@@ -46,7 +46,7 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Reoganized configuration menu](#reoganized-configuration-menu)
+- [Reorganized settings menu](#reorganized-settings-menu)
 - [Find entities even quicker than before](#find-entities-even-quicker-than-before)
 - [New automation & script features](#new-automation--script-features)
   - [If-then](#if-then)
@@ -73,50 +73,35 @@ Enjoy the (beta) release!
 - [All changes](#all-changes)
 
 
-<!--<p class='img'>
-<img class="no-shadow" src='/images/blog/2022-05/entity-hidden.png' alt='Screenshot showing the new option to hide an entity'>
-You can now mark an entity as hidden in the entity settings.
-</p>-->
+## Reorganized settings menu
 
-<!--<img class="no-shadow" src='/images/blog/2022-05/groups.png' alt='Screenshot showing adding groups from the UI'>-->
+A couple of releases ago, we started reorganizing the configuration menu, and
+this release is bringing the next big step in that reorganization.
 
-<!--<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FLH4SXMAQS4" frameborder="0" allowfullscreen></iframe>
-</div>-->
-
-## Reoganized configuration menu
-
-{% details "TODO" %}
-
-- Improve story/add more information on "why".
-- Needs more body, this is a huge change and improvement.
-- Add screenshots when fontend UI is stabilized/finished for this release
-- Review important movements to highlight.
-- Add a breaking change section to summerize the shifts?
-
-{% enddetails %}
-
-A couple of releases ago, we started the process of reorganizing the
-configuration menu and this release is bringing the next big step in that
-reorganizing.
-
-The goal is to have everything in a single logical place, having it accessible
-nicely from mobile devices, and allow/prepare for future expansion.
+The goal is to have everything in a single logical place, and after user tests
+and many discussions in frontend and UX channels, this is what the menu
+now looks like:
 
 <img class="no-shadow" src='/images/blog/2022-05/configuration-menu.png' alt='Screenshot showing the new configuration menu structure'>
 
-Are you running Home Assistant OS or Supervised? The Supervisor has been fully
-merged into the configuration menu, to provide a seamless/unified experience.
-This removes weirdness like having a network section in the system menu
-and the Supervisor section.
+Most notably, it is renamed "Configuration" to "Settings", and we have a brand
+new "System" submenu (shown on the right in the above screenshot).
 
-Blueprints are now moved to the automations & scenes section, and by popular
-request: Helpers have moved to the devices & services page. Areas & Zone are
-now nicely brought together in a single menu, and there is now an extensive
-System menu.
+Are you running Home Assistant OS? The Supervisor has been fully merged into
+the settings menu to provide a seamless/unified experience. It removes
+weirdness like having a network section in one menu and the Supervisor section.
 
-YAML Configuration Controls have a new home in the developer tools. This felt like a more logical place to have the reloading happen.
-Restarting Home Assistant can now be done via the Overflow menu on the System Dashboard Page.
+Blueprints moved to the automations & scenes section, and by popular request:
+Helpers have moved to the devices & services page.
+
+YAML configuration tools have a new home in the developer tools, aa more
+logical place for YAML configuration checks and reloading.
+
+You might notice some of the new menu items are fairly empty. For those menus,
+like "Storage" and "Hardware", we have more content planned soon!
+
+Just to be sure, we have added a list of changes to the breaking changes section;
+please check those out in case you are missing something.
 
 ## Find entities even quicker than before
 
