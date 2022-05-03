@@ -121,7 +121,7 @@ data:
 
 ## Services
 
-The Sonos integration makes various custom services available in addition to the [standard Media Player services](https://next.home-assistant.io/integrations/media_player/#services).
+The Sonos integration makes various custom services available in addition to the [standard Media Player services](/integrations/media_player/#services).
 
 ### Service `sonos.snapshot`
 
