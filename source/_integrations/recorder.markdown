@@ -400,7 +400,7 @@ sudo apt-get install postgresql-server-dev-X.Y
 pip3 install psycopg2
 ```
 
-If Home Assistant is installed in a virtual environment, the additional libraries should be installed in the same virtual environment. If you installed Home Assistant Core to a Raspberry Pi following the [standard installation instructions](https://www.home-assistant.io/installation/raspberrypi) the following process should work.
+If Home Assistant is installed in a virtual environment, the additional libraries should be installed in the same virtual environment. If you installed Home Assistant Core to a Raspberry Pi following the [standard installation instructions](/installation/raspberrypi) the venv can be activated like this prior to installing `psycopg2`:
 
 ```bash
 pip3 uninstall psycopg2
