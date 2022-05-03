@@ -119,31 +119,15 @@ Restarting Home Assistant can now be done via the Overflow menu on the System Da
 
 Looking to access that one entity quickly? But it isn't on your dashboard?
 
-The [Quick Bar](/docs/tools/quick-bar/) is actually really helpful for that;
-just press `e` anywhere you are in Home Assistant. But what if you are on
-mobile or a tablet?
-
-This release adds a quick search button to the dashboards, so you can look up
-and access any entity you need, even when it is not on your current dashboard.
+The [Quick Bar](/docs/tools/quick-bar/) helps with that; just press `e` anywhere
+you are in Home Assistant. This release adds a quick search button to the
+dashboards as well, so you can look up and access any entity you need,
+even when it is not on your current dashboard.
 
 <img class="no-shadow" src='/images/blog/2022-05/entity-finder.png' alt='Screenshot showing the new quick search button'>
 
-## Gauge card segment colors
-
-A excellent addition by [@Netzwerkfehler] in this release is the ability to
-freely define the the number of segments, and their colors, for the gauge card!
-
-<p class='img'>
-<img src='/images/dashboards/lovelace_gauge_segments.png' alt='Screenshot of the gauge card with multiple colored segments.'>
-Screenshot of the gauge card with multiple colored segments.
-</p>
-
-This can be really helpful if you'd like to define upper and lower sensor
-limits on your gauge, as shown in the example above. The configuration example
-used for the above screenshot can be found in the [Gauge Card documentation].
-
-[@Netzwerkfehler]: https://github.com/Netzwerkfehler
-[Gauge Card documentation]: /dashboards/gauge/#examples
+To conserve space, the search is not shown on mobile devices; but is available
+via the overflow menu (the three dots in the top right).
 
 ## New automation & script features
 
