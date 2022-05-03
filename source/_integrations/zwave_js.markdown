@@ -242,6 +242,20 @@ This service will set a value on multiple Z-Wave devices using multicast. It is 
 | `value`   	            | yes        	| The new value that you want to set. 	                                                                                                                |
 | `options`   	          | no        	| Set value options map. Refer to the Z-Wave JS documentation for more information on what options can be set. 	                                                                                                                |
 
+### Service `zwave_js.invoke_cc_api`
+
+Call this service to use the Command Class API directly. In most cases, the `zwave_js.set_value` service will accomplish what you need to, but some Command Classes have API commands that can't be accessed via that service. Refer to the [Z-Wave JS Command Class documentation](https://zwave-js.github.io/node-zwave-js/#/api/CCs/index) for the available APIs and arguments. Be sure to know what you are doing when calling this service.
+
+| Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
+|------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| `entity_id`            	| no        	| Entity (or list of entities) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided. If `endpoint` is specified, that endpoint will be used to make the CC API call for all devices, otherwise the primary value endpoint will be used for each entity.                      	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided. If `endpoint` is specified, that endpoint will be used to make the CC API call for all devices, otherwise the root endpoint (0) will be used for each device.                                               	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided. If `endpoint` is specified, that endpoint will be used to make the CC API call for all devices, otherwise the root endpoint (0) will be used for each `zwave_js` device in the area.                                               	|
+| `command_class`       	| yes       	| ID of Command Class that you want to set the value for. 	                                                                                            |
+| `endpoint`       	| no       	| The endpoint to call the CC API against. 	                                                                                            |
+| `method_name`       	| yes       	| The name of the method that is being called from the CC API. 	                                                                                            |
+| `parameters`       	| yes       	| A list of parameters to pass to the CC API method. 	                                                                                            |
+
 ### Service `zwave_js.ping`
 
 > NOTE: This service has been deprecated and replaced with a new button entity. The service will still work for now but will be removed in a future release. Users are advised to move their automations to use the `button.press` service with the new entity which is a like for like replacement.
@@ -339,6 +353,38 @@ These are notification events fired by devices using the Notification command cl
     "event_label": "Keypad lock operation",
     "parameters": {"userId": 1}
 }
+```
+
+#### Multilevel Switch Command Class
+
+These are notification events fired by devices using the Multilevel Switch command class. There are events for start level change and stop level change. These would typically be used in a device like the Aeotec Nano Dimmer with an external switch to respond to long button presses.
+
+##### Start Level Change
+```json
+{
+    "domain": "zwave_js",
+    "node_id": 1,
+    "home_id": 974823419,
+    "device_id": "2f44f0d4152be3123f7ad40cf3abd095",
+    "command_class": 38,
+    "command_class_name": "Multilevel Switch",
+    "event_type": 4,
+    "direction": "up"
+},
+```
+
+##### Stop Level Change
+```json
+{
+    "domain": "zwave_js",
+    "node_id": 8,
+    "home_id": 3803689189,
+    "device_id": "2f44f0d4152be3123f7ad40cf3abd095",
+    "command_class": 38,
+    "command_class_name": "Multilevel Switch",
+    "event_type": 5,
+    "direction": null
+},
 ```
 
 #### Entry Control Command Class

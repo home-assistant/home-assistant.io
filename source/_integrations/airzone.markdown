@@ -12,6 +12,7 @@ ha_domain: airzone
 ha_platforms:
   - binary_sensor
   - climate
+  - diagnostics
   - sensor
 ha_codeowners:
   - '@Noltari'
@@ -31,6 +32,8 @@ Host:
   description: "Network IP address"
 Port:
   description: "Network port"
+ID:
+  description: "Airzone System ID (only needed if System ID 0 is not supported on your device)"
 {% endconfiguration_basic %}
 
 ## Binary Sensors
@@ -40,6 +43,7 @@ For each Airzone zone (Thermostat), the following *binary sensors* are created:
 | Condition           | Description                        |
 | :------------------ | :--------------------------------- |
 | air_demand          | HVAC is running.                   |
+| battery_low         | Thermostat battery warning.        |
 | floor_demand        | Radiating floor is running.        |
 | problems            | Zone has errors or warnings.       |
 
