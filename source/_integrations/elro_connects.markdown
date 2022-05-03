@@ -28,18 +28,11 @@ Make sure the Elro Connects K1 connector connects to a Wi-Fi network where Home 
 
 {% configuration_basic %}
 connector_id:
-  description: The Connector ID of the Elro Connects K1 adapter.  This connector ID can be found in the Elro Connects App at `Home -> Settings -> Current connector`. The connector ID has the format `ST_xxxxxxxxxxxx`.
-  required: True
-  type: string
+  description: The Connector ID of the Elro Connects K1 connector.  This connector ID can be found in the Elro Connects App at `Home -> Settings -> Current connector`. The connector ID has the format `ST_xxxxxxxxxxxx`.
 host:
-  description: The hostname or IP-address of the Elro Connects K1 adapter. Can be changed after setup.
-  required: True
-  type: string
+  description: The hostname or IP-address of the Elro Connects K1 connector. Can be changed after setup.
 port:
-  description: The port the Elro Connects K1 adapter listens too. Can be changed after setup.
-  required: True
-  type: integer
-  default: 1025
+  description: The port the Elro Connects K1 connector listens too. Can be changed after setup. The default port for the Elro Connects K1 connector is `1025`.
 {% endconfiguration_basic %}
 
 ## Platforms
