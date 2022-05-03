@@ -16,15 +16,29 @@ ha_integration_type: integration
 
 The Elro Connects integration will allow users to integrate their Elro Connects fire, heat, CO, water, or smoke alarms as a siren entity into Home Assistant. The alarms can be tested (and silenced) through the siren turn on (and turn off) services. The integration discovers entities (automatically) through an Elro Connects K1 connector plug. The entity names assigned in the Elro Connects app will be synced as entity names in Home Assistant.
 
+## Configuration
+
 As a prerequisite the Elro K1 Connector needs to be already setup and the alarm devices need to be pre-registered on the Elro Connects K1 connector.
 
-Make sure the K1 connector connects to a Wi-Fi network where Home Assistant has access.
+Make sure the Elro Connects K1 connector connects to a Wi-Fi network where Home Assistant has access.
 
-During setup you will need the `IP-address` (or `hostname`) assigned to the K1 connector and the `connector ID`. This connector ID can be found in the Elro Connects App at `Home -> Settings -> Current connector`. The connector ID has the format `ST_xxxxxxxxxxxx`.
+{% configuration %}
+connector_id:
+  description: The Connector ID of the Elro Connects K1 adapter.  This connector ID can be found in the Elro Connects App at `Home -> Settings -> Current connector`. The connector ID has the format `ST_xxxxxxxxxxxx`.
+  required: True
+  type: str
+host:
+  description: The hostname or IP-address of the Elro Connects K1 adapter. Can be changed after setup.
+  required: True
+  type: str
+port:
+  description: The port the Elro Connects K1 adapter listens too. Can be changed after setup.
+  required: True
+  type: int
+  default: 1025
+{% endconfiguration %}
 
-The polling interval is 15 seconds.
-
-The IP address/hostname and port can be changed after setting up.
+> The polling interval is 15 seconds.
 
 {% include integrations/config_flow.md %}
 
