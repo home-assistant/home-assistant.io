@@ -22,8 +22,6 @@ As a prerequisite the Elro K1 Connector needs to be already setup and the alarm 
 
 Make sure the Elro Connects K1 connector connects to a Wi-Fi network where Home Assistant has access.
 
-> The polling interval is 15 seconds.
-
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -34,6 +32,8 @@ host:
 port:
   description: The port the Elro Connects K1 connector listens too. Can be changed after setup. The default port for the Elro Connects K1 connector is `1025`.
 {% endconfiguration_basic %}
+
+> The polling interval to the Elro Connects K1 connector is 15 seconds.
 
 ## Platforms
 
