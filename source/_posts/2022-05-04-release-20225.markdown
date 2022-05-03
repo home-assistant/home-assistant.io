@@ -492,13 +492,6 @@ be summed up.
 
 ## Database optimizations
 
-{% details "TODO" %}
-
-- Add automatic monthly repacking to section?
-  - Auto repack the database on the second sunday of the month ([@bdraco] - [#69314]) ([recorder docs]) (breaking-change) (noteworthy)
-
-{% enddetails %}
-
 The last release focused on reducing the size of the database and optimizing
 the writing of data to the database.
 
@@ -520,7 +513,8 @@ We have made additional improvements to the history APIs to speed up retrieving
 from the database, reducing API response times by 15-35% on average.
 
 Finally, we have reduced the memory used during database migrations to smooth
-future migrations.
+future migrations and are now automatically repacking your database once a
+month to keep things tidy.
 
 [History Stats]: /integrations/history_stats
 
