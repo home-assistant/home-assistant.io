@@ -565,27 +565,21 @@ entity:
 
 {% details "TODO" %}
 
-- Revisit story
-- Replace screenshot
-- Make smaller item?
+## Template selector
 
-{% enddetails %}
+A new [selector] is added: The [Template selector].
 
-A new [selector](/docs/blueprint/selectors/) has been added this release:
-The [Template selector].
-
-This new selector can be used in, for example, Blueprints to ask the user
-for a template input; providing a nice code editor with Jinja syntax
+This new selector can be used in, for example, Blueprints, scripts fields, or
+in a (custom) integration. It provides a nice code editor with Jinja syntax
 highlighting and entity auto-completion.
 
-This release adds the template editor to the automation and script editors,
-in case of the template conditions and wait template action.
+We have deployed it in the automations and scripts editor too! So, you
+now get this editor when editing your template conditions or wait for template
+actions in the UI.
 
-<img class="no-shadow" src='https://user-images.githubusercontent.com/195327/164308418-72ae7e08-1ebc-44c7-82ec-7d51a931e65b.png' alt='Screenshot showing the template selector'>
+<img class="no-shadow" src='/images/blog/2022-05/template-editor.png' alt='Screenshot showing the template editor'>
 
-Selectors are not just available for Blueprints, but also for your script fields
-and (custom) integration and dashboard card developers.
-
+[selector]: /docs/blueprint/selectors/
 [Template selector]: /docs/blueprint/selectors/#template-selector
 
 ## Other noteworthy changes
