@@ -709,47 +709,40 @@ Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
 
-
 {% details "Configuration Menu" %}
 
-Configuration renamed to Settings
+This release contains several changes to the configuration menu. These are the
+most important changes.
 
-Helpers moved to Devices & Services
+- The `Configuration` menu has been renamed to `Settings`.
+- `Helpers` moved to `Devices & Services`.
+- `Blueprints` moved to `Automations & Scenes`.
+- `Areas` is now grouped with `Zones.
+- Dashboard `Resources` moved to overflow menu*.
+- A brand new `System` menu housing all system-related settings:
 
-Blueprints moved to Automations & Scenes
+  - The `Restart` button is available in the `System` menu.
+  - New `Updates` menu, which also now provides the ability to join or leave
+    the beta channel from the overflow menu*.
+  - All logs moved to `Logs` (Supervisor, audio, etc).
+  - `Backups` moved from the Supervisor/Main menu to here.
+  - `Network` now has all network related settings previously in the General
+    settings and Supervisor.
+  - `Storage` provides information about used space, eMMC Lifetime, and also
+    provides the `Move datadisk` feature in the overflow menu*.
+  - `Hardware` now has the `Reboot` and `Restart Host` controls,
+    `Available Hardware` is available in the overflow menu*.
+  - `System Health` moved to its own menu item in the system menu.
+  - Processor and memory usage was moved into the new `System Health` menu.
+  - The integration list with timings, previously shown in the `About` menu, is
+    moved into the new `System Health` menu.
 
-Areas grouped with Zones
+Additionally, the developers tools has a brand new `YAML` tab, which contains
+the buttons and tools to reload and check your YAML configuration. This was
+previously known as "Server Controls", but now moved to the developer tools.
 
-Resources moved to overflow menu
-
-New System Menu
-
-New Updates page
-
-All logs moved to Logs (Supervisor, audio, etc)
-
-Backups moved to System Menu
-
-Network moved from General and Supervisor to Network in System Menu
-
-Used Space, eMMC Lifetime and move datadisk moved to Storage in System Menu
-
-Reboot and Restart Host moved to Hardware in System Menu
-
-Available Hardware moved to Hardware in System Menu in the overflow menu
-
-System Health moved to System Health in System Menu
-
-Processor and Memory Usage moved to System Health
-
-Integration List moved from About to System Health
-
-Server Controls moved to Developer Tools under YAML tab
-
-Restart available in Header of System Menu
-
-Join / Leave Beta Channel moved to Update Page
-
+\* The overflow menu is the menu you see when you click on the three vertical
+   dots in the top right of your screen.
 
 {% enddetails %}
 
@@ -811,7 +804,7 @@ any BMW entity to force-refresh all platforms from the BMW API.
 
 Migrating deCONZ Siren entities from switch platform to siren platform has
 been removed. This only affects users upgrading from before 2021.10 to 2022.5
-or later. At most this causes lingering unavailable switch entities; which
+or later. At most, this causes lingering unavailable switch entities; which
 can be manually removed.
 
 ([@Kane610] - [#70600]) ([documentation](/integrations/deconz))
@@ -850,19 +843,19 @@ use `rgbw_color` instead.
 
 ([@rappenze] - [#69189]) ([documentation](/integrations/fibaro))
 
-[@Kane610]: https://github.com/Kane610
+[@rappenze]: https://github.com/rappenze
 [#69189]: https://github.com/home-assistant/core/pull/69189
 
 {% enddetails %}
 
 {% details "Flick Electric" %}
 
-Units changed from `cents` to `¢/kWh`. This more accurately represent the type
+Units changed from `cents` to `¢/kWh`. This more accurately represents the type
 of value, and makes the sensor work when used in the Energy dashboards.
 
-If you relied on this unit of measurement format in your automations, scripts
+If you relied on this unit of measurement format in your automations, scripts,
 or have been recording it in an external time metrics database, you may need
-to adopt to this change.
+to adapt to this change.
 
 ([@ZephireNZ] - [#69396]) ([documentation](/integrations/flick_electric))
 
@@ -874,7 +867,7 @@ to adopt to this change.
 {% details "History Stats" %}
 
 The pretty formatted value attribute has been removed in favor of using the
-new duration state class which is formatted by the frontend.
+new duration state class, which is formatted by the frontend.
 
 This change significantly reduces the number of rows stored in the database.
 
@@ -888,7 +881,7 @@ This change significantly reduces the number of rows stored in the database.
 {% details "HomeKit" %}
 
 The device class `carbon_dioxide` is no longer admitted as a `binary_sensor`
-device class; as its not a valid device class for a binary sensor. If you have
+device class; as it is not a valid device class for a binary sensor. If you have
 overridden the device class with customize need to adjust your configuration.
 
 ([@epenet] - [#69239]) ([documentation](/integrations/homekit))
@@ -937,10 +930,10 @@ sensor:
 ```
 
 The configuration in the example would cause the source sensor's unit
-(e.g. `W`) tobe over ruled and the integration sensor's `unit_of_measurement`
+(e.g., `W`) tobe overruled and the integration sensor's `unit_of_measurement`
 would be set to `MWs` (MegaWatt-Second) even though the integral calculation
-was performed with `k` (kilo) and `h` (hour), i.e. the value of the integration
-sensor is in `kWh` not `MWs`.
+was performed with `k` (kilo) and `h` (hour), i.e., the value of the integration
+sensor is in `kWh`, not `MWs`.
 
 ([@dgomes] - [#69157]) ([documentation](/integrations/integration))
 
@@ -955,7 +948,7 @@ The LIFX integration changed the network adapters used to discover LIFX devices.
 Instead of enabling all adapters on which LIFX devices appear, it now only
 uses the adapter(s) enabled in Home Assistant.
 
-This makes discovery of LIFX faster and more reliable.
+This makes the discovery of LIFX faster and more reliable.
 
 ([@Djelibeybi] - [#70458]) ([documentation](/integrations/lifx))
 
@@ -966,11 +959,11 @@ This makes discovery of LIFX faster and more reliable.
 
 {% details "Media Source" %}
 
-Filenames and directories starting with a `.`, will no longer appear in the
+Filenames and directories starting with a `.` will no longer appear in the
 Media Browser.
 
 If the file or directory name starts with a `.`, it means they are marked
-hidden; thus the media browser will now repect that.
+hidden; thus, the media browser will now respect that.
 
 ([@DDanii] - [#69820]) ([documentation](/integrations/media_source))
 
@@ -982,7 +975,7 @@ hidden; thus the media browser will now repect that.
 {% details "Min/Max" %}
 
 `min_max` sensors generated a significant amount of database rows because they
-included all attributes regardless of the configured type. For active sensors
+included all attributes regardless of the configured type. For active sensors,
 these attributes added up to multiple megabytes per day for each sensor.
 [Reference issue report](https://github.com/home-assistant/core/issues/56987#issuecomment-1100575672).
 
@@ -1055,7 +1048,7 @@ This should only affect those with IntelliChem.
 
 {% details "Phone Modem" %}
 
-The previously deprecated `modem_callerid.reject_call` service, has now been
+The previously deprecated `modem_callerid.reject_call` service has now been
 removed. A button entity has previously been made available as a replacement.
 
 ([@frenck] - [#69019]) ([documentation](/integrations/modem_callerid))
@@ -1067,8 +1060,8 @@ removed. A button entity has previously been made available as a replacement.
 
 {% details "Radarr" %}
 
-The previously deprecated Wanted sensor in the Radarr integration has been
-removed. If you have this sensor still configured it your YAML configuration,
+The previously deprecated "Wanted" sensor in the Radarr integration has been
+removed. If you have this sensor still configured in your YAML configuration,
 you should remove it before updating.
 
 ([@tkdrob] - [#69500]) ([documentation](/integrations/radarr))
@@ -1105,9 +1098,9 @@ of precision.
 {% details "Recorder" %}
 
 Home Assistant will now automatically repack your database once a month, on
-the second sunday of the month.
+the second Sunday of the month.
 
-Repacking allows to shrink the database in file size, resulting in smaller
+Repacking allows shrinking the database in file size, resulting in smaller
 backups. It also frees up the space that has been freed up by the database
 optimizations made in 2022.4.
 
@@ -1117,7 +1110,7 @@ Some notes:
 - The second Sunday was chosen as it would be out of sync with Home Assistant
   releases.
 - This automatic repacking can be disabled by setting `auto_repack` to `false`
-  in the recorder configuration
+  in the recorder configuration.
 
 ([@bdraco] - [#69314]) ([documentation](/integrations/recorder))
 
@@ -1186,13 +1179,25 @@ after upgrading.
 
 {% details "Sensibo" %}
 
-Binary sensor for update available has been removed. Use the new update entities
-to monitor available updates instead.
+The binary sensor for the update available has been removed.
+Use the new `update` entities to monitor available updates instead.
 
 ([@gjohansson-ST] - [#70180]) ([documentation](/integrations/sensibo))
 
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [#70180]: https://github.com/home-assistant/core/pull/70180
+
+{% enddetails %}
+
+{% details "Sonos" %}
+
+The `sonos_group` attribute on Sonos media players has been renamed
+to `group_members` to align with other integrations.
+
+([@jjlawren] - [#70924]) ([documentation](/integrations/sonos))
+
+[@jjlawren]: https://github.com/jjlawren
+[#70924]: https://github.com/home-assistant/core/pull/70924
 
 {% enddetails %}
 
@@ -1210,6 +1215,28 @@ after upgrading.
 
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [#68700]: https://github.com/home-assistant/core/pull/68700
+
+{% enddetails %}
+
+{% details "Steam" %}
+
+The Steam integration migrated to configuration
+via the UI. Configuring Steam via YAML configuration
+has been deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration
+after upgrading.
+
+The first account listed in the YAML configuration will be considered as your
+Steam ID as there is no way to identify your Steam ID from your API key. You
+can put your Steam ID as the first entry in accounts before updating, or set up
+the integration from scratch.
+
+([@tkdrob] - [#67261]) ([documentation](/integrations/steam_online))
+
+[@tkdrob]: https://github.com/tkdrob
+[#67261]: https://github.com/home-assistant/core/pull/67261
 
 {% enddetails %}
 
@@ -1244,7 +1271,7 @@ after upgrading.
 
 {% details "Templates" %}
 
-Trigger based template sensors are now initialized to the last known state at
+Trigger-based template sensors are now initialized to the last known state at
 Home Assistant startup, instead of to "unknown".
 
 ([@emontnemery] - [#69344]) ([documentation](/integrations/template))
@@ -1287,9 +1314,9 @@ updates the entities on your desired intervals or schedule.
 Vera power meter sensor is now using the (correct) symbol `W` for watt instead
 of `watts`.
 
-If you relied on this unit of measurement format in your automations, scripts
+If you relied on this unit of measurement format in your automations, scripts,
 or have been recording it in an external time metrics database, you may need
-to adopt to this change.
+to adapt to this change.
 
 ([@emontnemery] - [#69285]) ([documentation](/integrations/vera))
 
@@ -1326,28 +1353,17 @@ Zengge lights no longer support `white_value`, please use `white` instead.
 
 {% enddetails %}
 
-
 If you are a custom integration developer and want to learn about breaking
-changes and new features available for your integration: Be sure to read our
-[developer blog][devblog] summarizing all the changes in this release.
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+[devblog]: https://developers.home-assistant.io/blog/
 
 - [Calendar Data Model improvements and deprecations](https://developers.home-assistant.io/blog/2022/04/18/calendar-data-model)
 - [Deprecating all SUPPORT_* constants](https://developers.home-assistant.io/blog/2022/04/02/support-constants-deprecation)
 - [Local OAuth2 Updates](https://developers.home-assistant.io/blog/2022/04/16/local-oauth2)
 - [Saying goodbye to the time_changed event](https://developers.home-assistant.io/blog/2022/04/20/saying-goodbye-to-event_time_changed)
-
-TODO: Make list of items from devblog
-  - Drop deprecated support for unit_of_measurement from sensor ([@emontnemery] - [#69061]) ([sensor docs]) (breaking-change)
-  - Remove deprecated temperature conversion of non temperature sensors ([@emontnemery] - [#69069]) ([sensor docs]) (breaking-change)
-  - Add ColorMode enum to light platform ([@frenck] - [#69223]) ([light docs]) ([demo docs]) (breaking-change)
-  - Replace Camera STREAM_ constants with StreamType enum ([@frenck] - [#69871]) ([camera docs]) ([nest docs]) (breaking-change)
-  - Replace Alarm Control Panel FORMAT_ constants with CodeFormat enum ([@frenck] - [#69861]) (breaking-change)
-  - Replace Climate HVAC_MODE_* constants with HVACMode enum ([@frenck] - [#70286]) ([climate docs]) ([demo docs]) (breaking-change)
-  - Replace Climate CURRENT_HVAC_* constants with HVACAction enum ([@frenck] - [#70319]) ([climate docs]) ([mqtt docs]) ([demo docs]) (breaking-change)
-
-[devblog]: https://developers.home-assistant.io/blog/
-
-TODO: Remove this line; Last processed breaking change: 70378
+- [Constant deprecations for 2022.5](https://developers.home-assistant.io/blog/2022/05/03/constants-deprecations/)
 
 ## Farewell to the following
 
@@ -1358,7 +1374,7 @@ The following integrations are also no longer available as of this release:
 - **Digital Loggers** has been removed. It relied on web scraping, which is
   [not allowed][ADR-0004] for a Home Assistant Core integration.
   ([@tkdrob] - [#69939])
-- **Updater** was previously deprecated has been removed. Use the [Version]
+- **Updater** was previously deprecated and has been removed. Use the [Version]
   and [Analytics] integrations as a replacement.
   ([@frenck] - [#68981])
 
