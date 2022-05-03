@@ -374,11 +374,9 @@ pip3 install mysqlclient
 If Home Assistant is installed in a virtual environment, the additional libraries should be installed in the same virtual environment. If you installed Home Assistant Core to a Raspberry Pi following the [standard installation instructions](/installation/raspberrypi) the venv can be activated like this prior to installing either `pymysql` or `mysqlclient`:
 
 ```bash
-pip3 uninstall psycopg2
-sudo systemctl stop home-assistant@homeassistant.service
-sudo -u homeassistant -H -s
 source /srv/homeassistant/bin/activate
 pip3 install mysqlclient
+deactivate
 ```
 
 After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you.
