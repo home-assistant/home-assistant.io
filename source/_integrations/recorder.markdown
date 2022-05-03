@@ -393,7 +393,7 @@ pip3 install psycopg2
 ```
 
 If this doesn't work you may have to install the psycopg2 package as part of the same virtual environment that runs Home Assistant
-```
+```bash
 pip3 uninstall psycopg2
 sudo systemctl stop home-assistant@homeassistant.service
 sudo -u homeassistant -H -s
