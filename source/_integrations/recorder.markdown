@@ -403,11 +403,9 @@ pip3 install psycopg2
 If Home Assistant is installed in a virtual environment, the additional libraries should be installed in the same virtual environment. If you installed Home Assistant Core to a Raspberry Pi following the [standard installation instructions](/installation/raspberrypi) the venv can be activated like this prior to installing `psycopg2`:
 
 ```bash
-pip3 uninstall psycopg2
-sudo systemctl stop home-assistant@homeassistant.service
-sudo -u homeassistant -H -s
 source /srv/homeassistant/bin/activate
 pip3 install psycopg2
+deactivate
 ```
 
 Then hit Control-D to exit the virtual environment.
