@@ -371,6 +371,16 @@ sudo apt-get install default-libmysqlclient-dev libssl-dev
 pip3 install mysqlclient
 ```
 
+If Home Assistant is installed in a virtual environment, the additional libraries should be installed in the same virtual environment. If you installed Home Assistant Core to a Raspberry Pi following the [standard installation instructions](https://www.home-assistant.io/installation/raspberrypi) the following process should work.
+
+```bash
+pip3 uninstall psycopg2
+sudo systemctl stop home-assistant@homeassistant.service
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+pip3 install mysqlclient
+```
+
 After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you.
 
 Once Home Assistant finds the database, with the right level of permissions, all the required tables will then be automatically created and the data will be populated accordingly.
@@ -392,7 +402,8 @@ sudo apt-get install postgresql-server-dev-X.Y
 pip3 install psycopg2
 ```
 
-If this doesn't work you may have to install the psycopg2 package as part of the same virtual environment that runs Home Assistant
+If Home Assistant is installed in a virtual environment, the additional libraries should be installed in the same virtual environment. If you installed Home Assistant Core to a Raspberry Pi following the [standard installation instructions](https://www.home-assistant.io/installation/raspberrypi) the following process should work.
+
 ```bash
 pip3 uninstall psycopg2
 sudo systemctl stop home-assistant@homeassistant.service
