@@ -392,6 +392,18 @@ sudo apt-get install postgresql-server-dev-X.Y
 pip3 install psycopg2
 ```
 
+If this doesn't work you may have to install the psycopg2 package as part of the same virtual environment that runs Home Assistant
+```
+pip3 uninstall psycopg2
+sudo systemctl stop home-assistant@homeassistant.service
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+pip3 install psycopg2
+```
+
+Then hit Control-D to exit the virtual environment.
+
+
 For using Unix Sockets, first create your user from the `postgres` user account;
 ```bash
 createuser USER_NAME
