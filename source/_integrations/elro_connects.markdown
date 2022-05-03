@@ -26,7 +26,7 @@ Make sure the Elro Connects K1 connector connects to a Wi-Fi network where Home 
 
 {% include integrations/config_flow.md %}
 
-{% configuration %}
+{% configuration_basic %}
 connector_id:
   description: The Connector ID of the Elro Connects K1 adapter.  This connector ID can be found in the Elro Connects App at `Home -> Settings -> Current connector`. The connector ID has the format `ST_xxxxxxxxxxxx`.
   required: True
@@ -40,7 +40,7 @@ port:
   required: True
   type: integer
   default: 1025
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 ## Platforms
 
