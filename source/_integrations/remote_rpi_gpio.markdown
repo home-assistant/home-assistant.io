@@ -33,7 +33,7 @@ To use your Remote Raspberry Pi's GPIO in your installation, add the following t
 binary_sensor:
   - platform: remote_rpi_gpio
     host: IP_ADDRESS_OF_REMOTE_PI
-    ports:
+    pins:
       11: PIR Office
       12: PIR Bedroom
 ```
@@ -43,13 +43,17 @@ host:
   description: IP Address of remote Raspberry Pi.
   required: true
   type: string
-ports:
-  description: List of used ports.
+port:
+  description: TCP port of the PiGPIO daemon
+  required: false
+  type: integer
+pins:
+  description: List of used GPIOs.
   required: true
   type: map
   keys:
-    "port: name":
-      description: The port numbers (BCM mode pin numbers) and corresponding names.
+    "pin: name":
+      description: The GPIO numbers (BCM mode pin numbers) and corresponding names.
       required: true
       type: string
 invert_logic:
@@ -80,7 +84,8 @@ To use your Remote Raspberry Pi's GPIO in your installation, add the following t
 switch:
   - platform: remote_rpi_gpio
     host: IP_ADDRESS_OF_REMOTE_PI
-    ports:
+    port: 8888
+    pins:
       11: Fan Office
       12: Light Desk
 ```
@@ -90,13 +95,17 @@ host:
   description: IP Address of remote Raspberry Pi.
   required: true
   type: string
-ports:
-  description: Array of used ports.
+port:
+  description: TCP port of the PiGPIO daemon
+  required: false
+  type: integer
+pins:
+  description: Array of used GPIOs.
   required: true
   type: list
   keys:
-    port:
-      description:  Port numbers and corresponding names (GPIO #).
+    pin:
+      description:  Pin numbers and corresponding names (GPIO #).
       required: true
       type: [integer, string]
 invert_logic:
@@ -112,15 +121,15 @@ For more details about the GPIO layout, visit the Wikipedia [article](https://en
 Note that a pin managed by Home Assistant is expected to be exclusive to Home Assistant.
 </div>
 
-A common question is what does port refer to, this number is the actual GPIO #, not the pin #.
-For example, if you have a relay connected to pin 11 its GPIO # is 17.
+A common question is what does pin refer to, this number is the actual GPIO #, not the hardware pin #.
+For example, if you have a relay connected to hardware pin 11 its GPIO # is 17.
 
 ```yaml
 # Example configuration.yaml entry
 switch:
   - platform: remote_rpi_gpio
     host: 192.168.0.123
-    ports:
+    pins:
       17: Speaker Relay
 ```
 
