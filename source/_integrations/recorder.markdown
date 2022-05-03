@@ -408,9 +408,6 @@ pip3 install psycopg2
 deactivate
 ```
 
-Then hit Control-D to exit the virtual environment.
-
-
 For using Unix Sockets, first create your user from the `postgres` user account;
 ```bash
 createuser USER_NAME
