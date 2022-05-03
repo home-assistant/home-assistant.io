@@ -460,19 +460,22 @@ be summed up.
             entity_id: light.bed_light
   ```
 
-  This feature is YAML only and currently causes issues with the UI editor.
-  There is a possibility this feature is pulled from the beta until UI support
-  is fixed in a future release.
+## Gauge card segment colors
 
-  [More information can be found on the condition documentation](/docs/scripts/conditions#logical-conditions)
+An excellent addition by [@Netzwerkfehler] is the ability to freely define the
+number of segments, and their colors, of the gauge card!
 
-- **Allow selecting multiple entities for state trigger** (#12334) @frenck
+<p class='img'>
+<img src='/images/dashboards/lovelace_gauge_segments.png' alt='Screenshot of the gauge card with multiple colored segments.'>
+Screenshot of the gauge card with multiple colored segments.
+</p>
 
-  This is a UI feature that allows you to create a single trigger with multiple
-  entities. In YAML this has been possible for a long time already, but this
-  release added support for it in the UI editors.
+Helpful if you'd like to define upper and lower sensor
+limits on your gauge, as shown in the example above. The configuration example
+used for the above screenshot can be found in the [Gauge Card documentation].
 
-  <img class="no-shadow" src='https://user-images.githubusercontent.com/195327/163603895-126f08d0-705e-4f30-9c6f-a02392d8ff86.png' alt='Screenshot showing multiple entites in a single trigger from the UI.'>
+[@Netzwerkfehler]: https://github.com/Netzwerkfehler
+[Gauge Card documentation]: /dashboards/gauge/#examples
 
 ## Database optimizations
 
