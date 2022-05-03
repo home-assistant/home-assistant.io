@@ -15,6 +15,8 @@ og_image: /images/blog/2022-05/social.png
 
 <a href='/integrations/#version/2022.5'><img src='/images/blog/2022-05/social.png' style='border: 0;box-shadow: none;'></a>
 
+<!-- TODO REMOVE BELOW BEFORE RELEASE AND CHANGE TITLE/DATE IN FRONTMATTER -->
+
 These are the beta release notes for Home Assistant Core 2022.5 (and is thus a
 work in progress).
 
@@ -36,13 +38,30 @@ Issues introduced in the beta are processed with priority.
 
 ---
 
-Still need to write some kind of introduction text for this release...
+<!-- TODO REMOVE ABOVE BEFORE RELEASE AND CHANGE TITLE/DATE IN FRONTMATTER -->
 
-Anyways, in the mean time:
+Home Assistant Core 2022.5!
 
-Enjoy the (beta) release!
+And, as often said: "All things seem possible in May!". Well, possibilities
+we have for you this last month of spring.
+
+The most visible thing this release is the next iteration of the setting menu,
+of which the result, to make personally, makes tons of sense. It took me a bit
+to get used to, but honestly I like it! 🤩
+
+Meanwhile, at [Nabu Casa], they released annual subscriptions for Home Assistant
+Cloud worldwide (except for Canada, the UK, and the EU, they will follow soon with
+local currency support).
+
+I'm also very excited to present you with a whole lot of new powerful
+automations and scripts features! Some for the UI, but there are some real
+game changers in there that our YAML community will love! 🤖
+
+Enjoy the release!
 
 ../Frenck
+
+[Nabu Casa]: https://www.nabucasa.com/
 
 <!--more-->
 
@@ -619,6 +638,8 @@ noteworthy changes this release:
   on a schedule.
 - [@sisimomo] added Markdown support to Blueprint input descriptions, allowing
   you to add links to, for example, documentation in your Blueprints.
+- [State conditions] with multiple entities can now also match if any of the
+  entities match the condition (instead of all), thanks [@frenck]!
 - [Sonos] now has a favorites sensor so that you can access and use your
   favorites in your automations, scripts, and templates. Thanks [@jjlawren]!
 - [@dmulcahey] added support for configuring the power-on state of devices
@@ -653,6 +674,7 @@ noteworthy changes this release:
 [Media Selector]: /docs/blueprint/selectors/#media-selector
 [Philips TV]: /integrations/philips_js
 [Sonos]: /integrations/sonos
+[State conditions]: /docs/scripts/conditions#state-condition
 [ZHA]: /integrations/zha
 
 ## New Integrations
