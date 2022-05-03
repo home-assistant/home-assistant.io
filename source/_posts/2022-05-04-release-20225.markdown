@@ -131,34 +131,9 @@ via the overflow menu (the three dots in the top right).
 
 ## New automation & script features
 
-{% details "TODO" %}
-
-- Order of all chapters; should they be subsections?
-- If-Then:
-  - Replace screenshot
-  - Check story/contents
-  - Shorter example?
-- Calendar trigger:
-  - Replace screenshot
-  - Check story
-- For each:
-  - Improve story
-  - Better example?
-- Parallelizing actions:
-  - Simplify?
-  - Less warnings to make it less negative?
-- Stopping a script or automation:
-  - Replace screenshot
-  - Story... is meh
-- The more stuff section... Its just a lot, figure out a way
-  to organize the story.
-
-{% enddetails %}
-
-
 This release is packed with new automation & script features! Some have been
-added to the UI, and others are advanced features that are currently only
-available when using YAML.
+added to the UI, and others are advanced features that are only available when
+using YAML.
 
 One thing almost all these changes have in common: They have been requested
 and voted for by the community in our [Feature Requests] forum.
@@ -175,11 +150,15 @@ While this structure is very flexible and extensive, there was still a desire
 for an if-then(-else) structure that is small, simple, compact, and clean.
 This release brings you just that.
 
-The new if-then action is available via the automations and scripts editors.
+The new if-then action is available via YAML and via the UI using automations
+and scripts editors.
 
-<img class="no-shadow" src='https://user-images.githubusercontent.com/195327/162737991-d97d3cf0-2039-4ebe-9295-1c3d7fdeff90.png' alt='Screenshot showing If-then'>
+<img class="no-shadow" src='/images/blog/2022-05/if-then.png' alt='Screenshot showing If-then'>
 
-An example in YAML:
+{% details "If-then example in YAML" %}
+
+If YAML automations are more your thing, this is how you can use the new
+if-then action in your automations and scripts.
 
 ```yaml
 actions:
@@ -200,22 +179,69 @@ actions:
           message: "Skipped cleaning, someone is home!"
 ```
 
-[More information can be found in the scripts documentation](/docs/scripts/#if-then)
+Note that that `if` also supports a shorthand condition templates (if that
+is more your style), for example:
+
+{% raw %}
+
+```yaml
+actions:
+  - if: "{{ states('zone.home') == 0 }}"
+    then:
+      - alias: "Then start cleaning already!"
+        service: vacuum.start
+        target:
+          area_id: living_room
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+[More information can be found in the scripts documentation](/docs/scripts/#if-then).
 
 ### Calendar trigger
 
-This release [@allenporter] gave the [Calendar] integration (and the
-[Google Calendars] integration lots of love. In the process, a new Calendar
-trigger was added, which is available for use in your automations.
+[@allenporter] gave the [Calendar] integration (and the [Google Calendars]
+integration) lots of love. In the process, a new Calendar trigger was added,
+which is available for use in your automations.
 
-<img class="no-shadow" src='/images/integrations/calendar/trigger.png' alt='Screenshot showing the calendar trigger'>
+<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-05/calendar-trigger.png' alt='Screenshot showing the new calendar trigger in the UI'>
+The new calendar trigger is available in the automation editor.
+</p>
 
-This brand new trigger is a little more flexible compared to the (previously
-only other option) state trigger. It is available for automation in YAML as well,
-and the trigger provides [a lot of trigger variables](/docs/automation/templating/#calendar)
+This brand new trigger is slightly more flexible than the (previously only
+other option) state trigger. It is available for automations in YAML as well,
+and the trigger provides [lots of trigger variables](/docs/automation/templating/#calendar)
 you can use in your templates.
 
-[More information can be found in the Calendar integration documentation](/integrations/calendar/#automation)
+{% details "Calendar trigger example in YAML" %}
+
+The calendar trigger is, of course, also available in YAML. This automation
+example shows the use of the trigger and some of the variables it provides.
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    - platform: calendar
+      event: start
+      entity_id: calendar.personal
+  action:
+    - service: persistent_notification.create
+      data:
+        message: >-
+          Event {{ trigger.calendar_event.summary }} @
+          {{ trigger.calendar_event.start }}
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+[More information can be found in the Calendar integration documentation](/integrations/calendar/#automation).
 
 [@allenporter]: https://github.com/allenporter
 [Calendar]: /integrations/calendar/
@@ -223,16 +249,16 @@ you can use in your templates.
 
 ### For each
 
-We had a number of options available to repeat a [group of actions]. For
-example, repeating based on a count, repeating while a condition passes, and
-repeating until a condition passes.
+We had several options available to repeat a [group of actions]. For example,
+repeating based on a count, while a condition passes, or until a condition
+passes.
 
-These have been very powerful, but repeating a sequence for each item in a list
-was also requested and voted for. This release implements: For each.
+These are very powerful, but repeating a sequence for each item in a list
+was also requested and voted for. This release adds: For each.
 
-This is an advanced feature and is only available for use in YAML right now.
-Here is an example of a for each that sends out two notifications in different
-languages:
+This is an advanced feature and is only available for use in automations written
+manually in YAML. Here is an example that sends out two notifications in
+different languages:
 
 {% raw %}
 
@@ -253,29 +279,81 @@ repeat:
 {% endraw %}
 
 Each item in the list will be run against a sequence of actions, and the item
-is available as a variable you can use in your templates. The list of
-items you can provide to `for_each` can be mappings, lists of just strings,
-and even complex templates that provide a list as a result.
+is available as a variable you can use in your templates. The items you can
+provide to `for_each` can be mappings, lists of just strings, and even complex
+templates that provide a list as a result.
 
-[More information can be found in the scripts documentation](/docs/scripts/#for-each)
+[More information can be found in the scripts documentation](/docs/scripts/#for-each).
 
 [group of actions]: /docs/scripts/#repeat-a-group-of-actions
 
-### Continue on error
+### Disable any trigger, condition, or action
 
-An automation and script run a sequence of actions. One of the comments and
-questions we often see/read/get is: "If one of the actions fails, why does
-the whole automation stop?"
+Sometimes, you may want to disable a specific trigger, action, or condition,
+whether this is for testing, a temporary workaround, or any other reason.
 
-Good question! To answer this, we have added a new feature: Continue on error.
-This will enable you to allow certain steps in an automation or script sequence
-to fail, without interrupting the whole sequence.
+In YAML, you'd comment out parts of your automation, but if you wanted
+to do that in the UI, the only option you have is to delete it from the
+automation or script.
 
-This is an example of a script that will always run the second action, even
-if the first action fails with an error.
+In this release, we added support for disabling a trigger, action, or condition;
+without the need for removing it or commenting it out! A disabled trigger
+won't fire, a disabled condition always passes, and a disabled action is
+skipped.
+
+<img class="no-shadow" src='/images/blog/2022-05/disabled-condition.png' alt='Screenshot showing an disabled condition in an UI automation'>
+
+{% details "Disabled example in YAML" %}
+
+If YAML automations are more your thing, this disabled feature is still
+helpful. While, of course, you can still comment parts out easily; using the
+this feature will make disabled parts still show up in automation and
+script debug traces.
+
+Every trigger, condition, and action now has an `enabled` parameter. Which
+you can set to `false` to disable that section. For example:
 
 ```yaml
-sequence:
+# Example automation with a disabled trigger
+automation:
+  trigger:
+    # This trigger will not trigger, as it is disabled.
+    # This automation does not run when the sun is set.
+    - enabled: false
+      platform: sun
+      event: sunset
+
+    # This trigger will fire, as it is not disabled.
+    - platform: time
+      at: "15:32:00"
+```
+
+{% enddetails %}
+
+More information can be found in the disabled [Triggers], [Conditions],
+and [Actions] documentation.
+
+[Actions]: /docs/scripts/#disabling-an-action
+[Conditions]: /docs/scripts/conditions#disabling-a-condition
+[Triggers]: /docs/automation/trigger/#disabling-a-trigger
+
+### Continue on error
+
+An automation runs a sequence of actions. One of the questions we
+often see/read/get is: "If one of the actions fails, why does the whole
+automation stop?"
+
+Good question! To answer this, we have added: Continue on error.
+
+It allows specific steps in an automation or script sequence to fail
+without interrupting the rest of the sequence.
+
+This advanced feature is currently only available for automations and scripts
+written in YAML. The following example shows an automation action that will
+always run the second action, even if the first action fails with an error:
+
+```yaml
+action:
   - alias: "If this one fails..."
     continue_on_error: true
     service: notify.super_unreliable_service_provider
@@ -289,9 +367,7 @@ sequence:
       message: "I'm fine..."
 ```
 
-This is an advanced feature, currently only availble for automations in YAML.
-
-[More information can be found in the scripts documentation](/docs/scripts/#continuing-on-error)
+[More information can be found in the scripts documentation](/docs/scripts/#continuing-on-error).
 
 ### Stopping a script or automation
 
@@ -304,24 +380,32 @@ run when you are home and run it at full when you are away.
 
 This feature is available both via the UI and YAML.
 
-<img class="no-shadow" src='https://user-images.githubusercontent.com/195327/163601771-1e8a1e6e-c4e3-4b18-a388-fc17b946dea8.png' alt='Screenshot showing the new stop action'>
+<img class="no-shadow" src='/images/blog/2022-05/stop-action.png' alt='Screenshot showing the new stop action'>
 
-Additionally, the stop-action can be set as an "error" which gives
-you a way to stop an automation or script and mark it as an error (for
-example, if you detected something unexpected).
+{% details "Stop example in YAML" %}
+
+When writing YAML automations or scripts, this is how the Stop action looks:
+
+```yaml
+action:
+  - stop: "Stop right here!"
+    # Optionally mark it as an unexpected error
+    error: true
+```
+
+{% enddetails %}
 
 [More information can be found in the scripts documentation](/docs/scripts/#stopping-a-script-sequence)
 
 ### Parallelizing actions
 
-This release introduces a highly advanced feature, that provides a way to
-parallelize actions (or groups of actions).
+This release introduces a highly advanced feature that provides a way to
+parallelize actions.
 
-By default, all sequences of actions in Home Assistant run sequentially.
-This means the next action is started after the current action has been
-completed.
+By default, all actions in Home Assistant run sequentially. This means the
+next action is only started after the current action has been completed.
 
-This is not always needed, for example, if the sequence of actions
+Running in serial is not always needed, for example, if the sequence of actions
 doesn’t rely on each other and order doesn’t matter. For those cases, the
 parallel action can be used to run the actions in the sequence in parallel,
 meaning all the actions are started simultaneously.
@@ -342,123 +426,68 @@ automation:
               message: "These messages are sent at the same time!"
 ```
 
-As said, this is quite an powerful and advanced feature, and it comes with
-caveats. Be sure to check out the [script documentation on parallizing actions](/docs/scripts/#parallelizing-actions)
-before you decide on using it.
+This feature is partly available via the UI; however, as said: This is quite
+a powerful and advanced feature, and it comes with caveats. Be sure to check
+out the [script documentation on parallelizing actions](/docs/scripts/#parallelizing-actions)
+before deciding to use it.
 
-### And there is even more!
+### Using a single state trigger for multiple entities
 
-These items still need to be processed for the release notes, or might just
-be summed up.
+If you write automations in YAML, you are probably already aware of the
+ability to trigger on multiple entities in a single trigger; it has been
+around for quite some time.
 
-- **Allow any entity to match state condition** ([@frenck] - [#69763])
+And now also available in the UI. A small addition that might help you cut
+down the length of your UI-managed automations.
 
-  If any of the entities matches a certain condition, instead of all of them:
+<img class="no-shadow" src='/images/blog/2022-05/trigger-multiple-entities.png' alt='Screenshot showing multiple entites in a single trigger from the UI.'>
 
-  ```yaml
-  condition:
-  condition: state
-  entity_id:
-    - binary_sensor.motion_sensor_left
-    - binary_sensor.motion_sensor_right
-  match: any
-  state: "on"
-  ```
+### Trigger on not matching to/from states
 
-  YAML only capability.
+This is an YAML only feature we have added to the state triggers: Triggering
+on not matching to/from states. Yes, you read that correctly. When it **not**
+matches it triggers.
 
-  [More information can be found on the state condition documentation](/docs/scripts/conditions#state-condition)
+Instead of `from`, you can now use `not_from` and instead of `to`, you can now
+use `not_to`. This example trigger will only from if the state was previously
+not "unavailable" or "unknown":
 
-- **Trigger on not matching to/from states** ([@frenck] - [#69760])
+```yaml
+trigger:
+  - platform: state
+    entity_id: light.living_room
+    not_from:
+      - "unavailable"
+      - "unknown"
+    to: "on"
+```
 
-  Adds support for `not_from` and `not_to` in the state trigger:
+[More information can be found on the state condition documentation](/docs/scripts/conditions#state-condition).
 
-  ```yaml
-  automation:
-  trigger:
-    - platform: state
-      entity_id: light.living_room
-      not_from:
-        - "unavailable"
-        - "unknown"
-      to: "on"
-  ```
+### Shorthand notation for logical conditions
 
-  ```yaml
-  automation:
-  trigger:
-    - alias: "Trigger on any alarm state, except when it is disarmed"
-      platform: state
-      entity_id: alarm_control_panel.home
-      not_to: "disarmed"
-  ```
+A neat little YAML feature [@thomasloven] added can make your YAML-based
+automations and scripts looks significantly cleaner.
 
-  YAML only capability.
+Logical conditions (also known as `and`, `or`, `not`) now have a shorthand
+notation. Some example pseudo code to show them all:
 
-  [More information can be found on the state condition documentation](/docs/scripts/conditions#state-condition)
-
-- **Allow disabling specific triggers/actions/conditions** ([@frenck] - [#70082])
-
-  Adds support to disable/enable any trigger, action or condition; without
-  removing it from the automation or script.
-
-  ```yaml
-  # Example automation with a disabled trigger
-  automation:
-    trigger:
-      # This trigger will not trigger, as it is disabled.
-      # This automation does not run when the sun is set.
-      - enabled: false
-        platform: sun
-        event: sunset
-
-      # This trigger will fire, as it is not disabled.
-      - platform: time
-        at: "15:32:00"
-  ```
-
-  Currently only supported by YAML, but supposed to be a UI driven feature
-  (as well, in YAML you can just comment out). UI feature hasn't landed yet.
-
-  - Triggers: <https://rc.home-assistant.io/docs/automation/trigger/#disabling-a-trigger>
-  - Conditions: <https://rc.home-assistant.io/docs/scripts/conditions#disabling-a-condition>
-  - Actions: <https://rc.home-assistant.io/docs/scripts/#disabling-an-action>
-
-- **Add shorthand notation for logical conditions** ([@thomasloven] - [#70120])
-
-  This add a shorter/cleaner syntax for logical conditions (`and`, `or`, `not`)
-
-  ```yaml
-  or:
+```yaml
+or:
+  - <condition>
+  - and:
     - <condition>
-    - and:
-      - <condition>
-      - <condition>
-    - not:
-      - <condition>
-  ```
+    - <condition>
+  - not:
+    - <condition>
+```
 
-  A full example
+In the above `<condition>`, of course, needs to be replaced with an actual
+condition, but the short new syntax of `or`, `and`, and `not` clearly visible.
 
-  ```yaml
-  automation test:
-    - trigger:
-      - platform: state
-        entity_id: light.bed_light
-        to: "on"
-      condition:
-        - or:
-          - condition: state
-            entity_id: light.ceiling_lights
-            state: "on"
-          - condition: state
-            entity_id: light.kitchen_lights
-            state: "on"
-      action:
-        - service: light.turn_off
-          target:
-            entity_id: light.bed_light
-  ```
+[More information can be found on the condition documentation](/docs/scripts/conditions#logical-conditions).
+
+[@thomasloven]: https://github.com/thomasloven
 
 ## Gauge card segment colors
 
