@@ -41,7 +41,6 @@ port:
 
 The siren platform should support Fire, Heat, Smoke, Water and CO alarms.
 When a siren is turned on manually test alarm request will be sent. Turning the siren off will send a `silence` request to the device.
-Additional attributes for `battery`, `signal` (range 0-4) and `device_state` are added.
 
 > When the K1 connector receives multiple `test alarm` requests simultaneously only the first siren signal will be processed. To test multiple alarms, make sure to add a few seconds delay between the requests.
 
