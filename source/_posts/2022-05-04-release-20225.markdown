@@ -258,7 +258,7 @@ repeat:
     - language: English
       message: Hello World
     - language: Dutch
-      hello: Hallo Wereld
+      message: Hallo Wereld
   sequence:
     - service: notify.phone
       data:
@@ -563,6 +563,7 @@ getting quite some attention in the community this month!
 
 In case you have missed it, the US smart home company Insteon went out of
 business and shut down its cloud services.
+
 [Read more about it in our dedicated blog post][insteon-blog].
 
 As Home Assistant works with Insteon locally, we have seen quite a few new
@@ -578,6 +579,8 @@ The new Insteon control panel allows you to manage your Insteon devices.
 This new control panel allows you to manage your Insteon device from
 Home Assistant directly, just like you would have done previously with
 the Insteon application.
+
+Thanks for you hard work on this [Tom Harris]!
 
 [Tom Harris]: https://github.com/teharris1
 [insteon-blog]: /blog/2022/04/19/for-insteon-users/
