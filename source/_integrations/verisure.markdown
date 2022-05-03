@@ -89,10 +89,6 @@ automation:
 | smartcam_capture | Capture a new image from a specific smartcam. |
 
 ## Lock
-| State | Description |
-| ------- | ----------- |
-| locked | Lock is locked |
-| unlocked | Lock is unlocked |
 
 | method state attribute | Description |
 | ------- | ----------- |
