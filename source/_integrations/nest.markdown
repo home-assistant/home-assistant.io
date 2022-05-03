@@ -26,6 +26,12 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
+<div class='note warning'>
+<p>The instructions on this page do not work for new credentials due to a change in Google's desktop authentication. See <a href="https://github.com/home-assistant/core/issues/67662">this GitHub issue</a> for details.</p>
+
+<p>Existing credentials will continue to work until October 2022.</p>
+</div>
+
 The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
 
 There is currently support for the following device types within Home Assistant:
