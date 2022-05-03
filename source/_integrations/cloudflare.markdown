@@ -13,21 +13,9 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-With the `cloudflare` integration, you can keep your Cloudflare A records up to date.
+With the `cloudflare` integration, you can keep your Cloudflare DNS records up to date.
 
 The integration runs every hour, but can also be triggered by running the {% my developer_services title="`cloudflare.update_records` service" service="cloudflare.update_records" %}.
-
-<div class='note warning'>
-
-Due to a limitation in the Cloudflare API, you can not use this integration with any of the following TLD's:
-
-- `.cf`
-- `.ga`
-- `.gq`
-- `.ml`
-- `.tk`
-
-</div>
 
 ## Requirements
 
@@ -38,3 +26,19 @@ An easy way to create this is to start with the "Edit zone DNS" template then ad
 [Cloudflare API Tokens Guide](https://developers.cloudflare.com/api/tokens/create)
 
 {% include integrations/config_flow.md %}
+
+## Limitations
+
+### Unusable TLDs
+
+Due to a limitation in the Cloudflare API, you can not use this integration with any of the following TLD's:
+
+- `.cf`
+- `.ga`
+- `.gq`
+- `.ml`
+- `.tk`
+
+### Record types
+
+This integration can only update A records.
