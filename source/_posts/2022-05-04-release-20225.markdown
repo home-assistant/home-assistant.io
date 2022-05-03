@@ -526,41 +526,38 @@ future migrations.
 
 ## Update entity updates
 
-{% details "TODO" %}
+In the [previous release, we introduced update entities][update-entities].
+It was a well-received concept, and we added a couple of improvements to it.
 
-- Add screenshot
-- Improve story
-- Link some blueprints from the community?
+Almost all feedback we got involved "Skipping an update"-related functionality.
+Can I unskip an update? How to see which updates I have skipped?
 
-{% enddetails %}
+To help with these, we added a dedicated settings menu for updates. It provides
+an overview of all pending updates and provides the ability to view updates
+you have previously skipped.
 
-In the [previous release, we introduced update entities](/blog/2022/04/06/release-20224/#introducing-update-entities).
-It was a well received concept and this release, we added a couple of
-improvements to it, based on the feedback we've received from you all.
+<img class="no-shadow" src='/images/blog/2022-05/settings-updates.png' alt='Screenshot showing the new updates page in the settings menu'>
 
-Almost all feedback involved "Skipping an update"-related functionality. How
-to see which updates I have skipped? Can I unskip an update?
+Skipped updates can now be "unskipped" again too! This works in the same way
+as skipping an update but can also be done in automations using this new 
+{% my developer_call_service service="service" %}.
 
-To help with these we added:
-
-- The possibility to view all skipped update from the UI.
-- Added an "unskip" button to the updates that have been skipped.
-- Added a {% my developer_call_service service="update.clear_skipped" %}
-  service that can be used in automation or scripts to unskip updates.
-
-This will give you full insight, control and automation capabilities to "unskip"
-any update you have previously skipped.
-
-Additionally, this release two new integrations have implemented the update
-entity:
+Two new integrations have implemented update entities this release:
 
 - [Sensibo], done by [@gjohansson-ST]
 - [AVM FRITZ!Box Tools], done by [@Mask3007]
 
+And finally, if you'd like to receive update notifications: The 
+["Update notifications" Blueprint][update-notify] by [@mdegat01] has been
+getting quite some attention in the community this month!
+
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@Mask3007]: https://github.com/Mask3007
+[@mdegat01]: https://github.com/mdegat01
 [AVM FRITZ!Box Tools]: /integrations/fritz
 [Sensibo]: /integrations/sensibo
+[update-entities]: /blog/2022/04/06/release-20224/#introducing-update-entities
+[update-notify]: https://community.home-assistant.io/t/update-notifications-core-os-addons-hacs-etc/409161
 
 ## Insteon control panel
 
