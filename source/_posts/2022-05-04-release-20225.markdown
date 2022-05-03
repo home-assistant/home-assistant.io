@@ -682,6 +682,7 @@ The following integrations are now available via the Home Assistant UI:
 
 - [SABnzbd], done by [@shaiu]
 - [SQL], done by [@gjohansson-ST]
+- [Steam], done by [@tkdrob]
 - [Tautulli], done by [@tkdrob]
 
 [@gjohansson-ST]: https://github.com/gjohansson-ST
@@ -689,6 +690,7 @@ The following integrations are now available via the Home Assistant UI:
 [@tkdrob]: https://github.com/tkdrob
 [SABnzbd]: /integrations/sabnzbd
 [SQL]: /integrations/sql
+[Steam]: /integrations/steam_online
 [Tautulli]: /integrations/tautulli
 
 ## Need help? Join the community!
