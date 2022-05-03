@@ -27,6 +27,10 @@ An easy way to create this is to start with the "Edit zone DNS" template then ad
 
 {% include integrations/config_flow.md %}
 
+## Usage of external service
+
+This platform uses the API from [ipify.org](https://www.ipify.org/) to set the public IP address.
+
 ## Limitations
 
 ### Unusable TLDs
