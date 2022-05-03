@@ -87,3 +87,19 @@ automation:
 | disable_autolock | Disables autolock function for a specific lock. |
 | enable_autolock | Enables autolock function for a specific lock. |
 | smartcam_capture | Capture a new image from a specific smartcam. |
+
+## Lock
+| State | Description |
+| ------- | ----------- |
+| locked | Lock is locked |
+| unlocked | Lock is unlocked |
+
+| method state attribute | Description |
+| ------- | ----------- |
+| thumb | Lock was locked/unlocked by interior thumb switch |
+| star | Lock was locked by exterior star button |
+| code | Lock was unlocked by exterior code |
+| auto | Lock was locked/unlocked automatically by Verisure rule |
+| remote | Lock was locked/unlocked automatically by Verisure App |
+
+
