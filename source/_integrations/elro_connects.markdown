@@ -16,11 +16,15 @@ ha_integration_type: integration
 
 The Elro Connects integration will allow users to integrate their Elro Connects fire, heat, CO, water, or smoke alarms as a siren entity into Home Assistant. The alarms can be tested (and silenced) through the siren turn on (and turn off) services. The integration discovers entities (automatically) through an Elro Connects K1 connector plug. The entity names assigned in the Elro Connects app will be synced as entity names in Home Assistant.
 
-## Configuration
+## Prerequisites
 
 As a prerequisite the Elro K1 Connector needs to be already setup and the alarm devices need to be pre-registered on the Elro Connects K1 connector.
 
 Make sure the Elro Connects K1 connector connects to a Wi-Fi network where Home Assistant has access.
+
+> The polling interval is 15 seconds.
+
+{% include integrations/config_flow.md %}
 
 {% configuration %}
 connector_id:
@@ -34,13 +38,9 @@ host:
 port:
   description: The port the Elro Connects K1 adapter listens too. Can be changed after setup.
   required: True
-  type: int
+  type: integer
   default: 1025
 {% endconfiguration %}
-
-> The polling interval is 15 seconds.
-
-{% include integrations/config_flow.md %}
 
 ## Platforms
 
@@ -51,4 +51,5 @@ When a siren is turned on manually test alarm request will be sent. Turning the 
 Additional attributes for `battery`, `signal` (range 0-4) and `device_state` are added.
 
 > When the K1 connector receives multiple `test alarm` requests simultaneously only the first siren signal will be processed. To test multiple alarms, make sure to add a few seconds delay between the requests.
+
 > Not all device types have been fully tested yet. Fire alarm devices are tested should work as expected.
