@@ -27,13 +27,15 @@ An easy way to create this is to start with the "Edit zone DNS" template then ad
 
 {% include integrations/config_flow.md %}
 
-## Usage of external service
+## Additional information
+
+### Usage of external service
 
 This platform uses the API from [ipify.org](https://www.ipify.org/) to set the public IP address.
 
-## Limitations
+### Limitations
 
-### Unusable TLDs
+#### Unusable TLDs
 
 Due to a limitation in the Cloudflare API, you can not use this integration with any of the following TLD's:
 
@@ -43,6 +45,6 @@ Due to a limitation in the Cloudflare API, you can not use this integration with
 - `.ml`
 - `.tk`
 
-### Record types
+#### Record types
 
 This integration can only update A records.
