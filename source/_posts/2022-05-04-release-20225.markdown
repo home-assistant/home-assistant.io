@@ -590,47 +590,40 @@ and (custom) integration and dashboard card developers.
 
 ## Other noteworthy changes
 
-{% details "TODO" %}
-
-- Revisit / recheck for other, newer and/or better items
-- Check contents/spelling/grammar/order
-
-{% enddetails %}
-
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- Every script now automatically gets an unique ID, which means you can edit
-  their name, icon, and assign them to areas straight from the UI!
+- Every script now automatically gets a unique ID, which means you can edit
+  their name, icon and assign them to areas straight from the UI!
   Thanks, [@frenck]!
-- If you run Z-Wave JS server manually in for example, a Docker container, it
-  will now be automatically discovered on your network. Thanks [@raman325]!
-- Template entities now have a `this` variable availble, which is reference
-  to state of the template entity itself. Awesome work [@akloeckner] and
+- If you run the Z-Wave JS server manually in, for example, a Docker container,
+  it will now be automatically discovered on your network. Thanks [@raman325]!
+- Template entities now have a `this` variable available, which is a reference
+  to the state of the template entity itself. Awesome work [@akloeckner] and
   [@emontnemery]!
 - Running Home Assistant Core or Container? [@frenck] added the
   {% my developer_call_service service="backup.create" %} service to the
   [backup] integration allowing you to create an automation to create backups
   on a schedule.
-- [@sisimomo] added Markdown support to Blueprint input descriptions, allow
-  you to add links to e.g., documentation in your Blueprints.
-- [Sonos] now has a favorites sensor, so you can access and use your favorites
-  in your automations, scripts and templates. Thanks [@jjlawren]!
-- [@dmulcahey] added support for configuring the power on state, of devices
-  that have this configuration option, to [ZHA]. Nice!
+- [@sisimomo] added Markdown support to Blueprint input descriptions, allowing
+  you to add links to, for example, documentation in your Blueprints.
+- [Sonos] now has a favorites sensor so that you can access and use your
+  favorites in your automations, scripts, and templates. Thanks [@jjlawren]!
+- [@dmulcahey] added support for configuring the power-on state of devices
+  that have this configuration option to [ZHA]. Nice!
 - Sensors now have a new device class available: "duration". Thanks, [@bdraco]!
 - The output of [Media Selector] can now be directly used with play media
   service calls in your Blueprints. Awesome, [@emontnemery]!
 - [@raman325] added frontend support for Sirens, so you can actually turn one
   on from the UI. 🚨 Alarming news [@raman325]!
-- [@frenck] added an persons attribute to zones, which indicates who is
+- [@frenck] added a persons attribute to zones, which indicates who is
   currently in a zone.
 - When customizing the device class / "Show as" of an entity in the UI, you can
-  now set it to nothing/emtpy as well. Thanks, [@zsarnett]!
+  now set it to nothing/empty as well. Thanks, [@zsarnett]!
 - [@rdfurman] Added support to the [Honeywell] Total Connect Comfort (US)
   integration for outdoor sensors. Awesome!
 - [Philips TV] now provides a switch to turn on/off the "Ambilight+Hue" syncing
-  if your TV model supports that. Thanks, [@bramstroker]!
+  (if your TV model supports that). Thanks, [@bramstroker]!
 
 [@akloeckner]: https://github.com/akloeckner
 [@bdraco]: https://github.com/bdraco
