@@ -1,6 +1,6 @@
 ---
-title: Trafikverket Ferry
-description: Instructions how to integrate Trafikverket Ferry within Home Assistant.
+title: Trafikverket Road Ferry
+description: Instructions how to integrate Trafikverket Road Ferry within Home Assistant.
 ha_category:
   - Sensor
   - Transport
@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-Retrieve ferry departure information from [Trafikverket](https://www.trafikverket.se/).
+Retrieve road ferry departure information from The Swedish Transport Administration [Trafikverket](https://www.trafikverket.se/).
 
 ## Prerequisites
 
@@ -39,6 +39,6 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 
 Other information provided by Trafikverket related to the specific departure is shown as attribute on all sensors.
 
-## Ferry harbour names
+## Road ferry harbour names
 
 Click [here](https://www.trafikverket.se/trafikinformation/vag/?TrafficType=personalTraffic&map=1/373767.82/6890962.41/&Layers=Ferries%2b) to see examples of harbor names, use city name as harbor, as for example "Ekerö", "Svanesund".
