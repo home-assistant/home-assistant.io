@@ -45,7 +45,7 @@ Home Assistant Core 2022.5!
 And, as often said: "All things seem possible in May!". Well, possibilities
 we have for you this last month of spring.
 
-The most visible thing this release is the next iteration of the setting menu,
+The most visible thing this release is the next iteration of the settings menu,
 of which the result, to make personally, makes tons of sense. It took me a bit
 to get used to, but honestly I like it! 🤩
 
@@ -103,8 +103,8 @@ now looks like:
 
 <img class="no-shadow" src='/images/blog/2022-05/configuration-menu.png' alt='Screenshot showing the new configuration menu structure'>
 
-Most notably, it is renamed "Configuration" to "Settings", and we have a brand
-new "System" submenu (shown on the right in the above screenshot).
+Most notably, it renamed from "Configuration" to "Settings", and we have a
+brand new "System" submenu (shown on the right in the above screenshot).
 
 Are you running Home Assistant OS? The Supervisor has been fully merged into
 the settings menu to provide a seamless/unified experience. It removes
@@ -113,7 +113,7 @@ weirdness like having a network section in one menu and the Supervisor section.
 Blueprints moved to the automations & scenes section, and by popular request:
 Helpers have moved to the devices & services page.
 
-YAML configuration tools have a new home in the developer tools, aa more
+YAML configuration tools have a new home in the developer tools, a more
 logical place for YAML configuration checks and reloading.
 
 You might notice some of the new menu items are fairly empty. For those menus,
@@ -638,6 +638,8 @@ noteworthy changes this release:
   on a schedule.
 - [@sisimomo] added Markdown support to Blueprint input descriptions, allowing
   you to add links to, for example, documentation in your Blueprints.
+- The [Shelly] integration now supports authentication for the second generation
+  devices, thanks [@thecode]!
 - [State conditions] with multiple entities can now also match if any of the
   entities match the condition (instead of all), thanks [@frenck]!
 - [Sonos] now has a favorites sensor so that you can access and use your
