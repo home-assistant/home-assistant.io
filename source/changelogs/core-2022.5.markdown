@@ -955,6 +955,18 @@ For a summary in a more readable format:
 - Bump frontend to 20220503.0 ([@zsarnett] - [#71262]) ([frontend docs]) (beta fix)
 - Reject MQTT topics which include control- or non-characters ([@emontnemery] - [#71263]) ([mqtt docs]) (beta fix)
 - Bump aioslimproto to 2.0.0 ([@balloob] - [#71265]) ([slimproto docs]) (beta fix) (dependency)
+- Fix history using pre v25 queries during v26 migration ([@bdraco] - [#71294]) ([recorder docs]) (beta fix)
+- Change Amcrest event monitor to non-async ([@flacjacket] - [#69640]) ([amcrest docs]) (beta fix)
+- Bump pynetgear to 0.10.0 ([@starkillerOG] - [#71251]) ([netgear docs]) (beta fix) (dependency)
+- Fix homekit tests in beta ([@balloob] - [#71268]) ([homekit docs]) (beta fix)
+- Update xknx to 0.21.2 ([@marvin-w] - [#71271]) ([knx docs]) (beta fix) (dependency)
+- Fix meater sensor ([@emontnemery] - [#71283]) ([meater docs]) (beta fix)
+- Update frontend to 20220504.0 ([@bramkragten] - [#71284]) ([frontend docs]) (beta fix)
+- Bump aioslimproto to 2.0.1 ([@marcelveldt] - [#71285]) ([slimproto docs]) (beta fix) (dependency)
+- Remove more info links for hassio system health ([@ludeeus] - [#71286]) ([hassio docs]) (beta fix)
+- Handle empty zeroconf properties in devolo_home_network ([@Shutgun] - [#71288]) ([devolo_home_network docs]) (beta fix)
+- Allow scripts to turn themselves on ([@emontnemery] - [#71289]) ([script docs]) (beta fix)
+- Pin grpcio-status to 1.45.0 ([@frenck] - [#71293]) (beta fix)
 
 [#44929]: https://github.com/home-assistant/core/pull/44929
 [#55260]: https://github.com/home-assistant/core/pull/55260
@@ -1229,6 +1241,7 @@ For a summary in a more readable format:
 [#69624]: https://github.com/home-assistant/core/pull/69624
 [#69628]: https://github.com/home-assistant/core/pull/69628
 [#69634]: https://github.com/home-assistant/core/pull/69634
+[#69640]: https://github.com/home-assistant/core/pull/69640
 [#69643]: https://github.com/home-assistant/core/pull/69643
 [#69645]: https://github.com/home-assistant/core/pull/69645
 [#69646]: https://github.com/home-assistant/core/pull/69646
@@ -1895,12 +1908,23 @@ For a summary in a more readable format:
 [#71238]: https://github.com/home-assistant/core/pull/71238
 [#71240]: https://github.com/home-assistant/core/pull/71240
 [#71250]: https://github.com/home-assistant/core/pull/71250
+[#71251]: https://github.com/home-assistant/core/pull/71251
 [#71258]: https://github.com/home-assistant/core/pull/71258
 [#71259]: https://github.com/home-assistant/core/pull/71259
 [#71261]: https://github.com/home-assistant/core/pull/71261
 [#71262]: https://github.com/home-assistant/core/pull/71262
 [#71263]: https://github.com/home-assistant/core/pull/71263
 [#71265]: https://github.com/home-assistant/core/pull/71265
+[#71268]: https://github.com/home-assistant/core/pull/71268
+[#71271]: https://github.com/home-assistant/core/pull/71271
+[#71283]: https://github.com/home-assistant/core/pull/71283
+[#71284]: https://github.com/home-assistant/core/pull/71284
+[#71285]: https://github.com/home-assistant/core/pull/71285
+[#71286]: https://github.com/home-assistant/core/pull/71286
+[#71288]: https://github.com/home-assistant/core/pull/71288
+[#71289]: https://github.com/home-assistant/core/pull/71289
+[#71293]: https://github.com/home-assistant/core/pull/71293
+[#71294]: https://github.com/home-assistant/core/pull/71294
 [@3v1n0]: https://github.com/3v1n0
 [@DDanii]: https://github.com/DDanii
 [@Danielhiversen]: https://github.com/Danielhiversen
@@ -1916,6 +1940,7 @@ For a summary in a more readable format:
 [@Misiu]: https://github.com/Misiu
 [@Noltari]: https://github.com/Noltari
 [@PoltoS]: https://github.com/PoltoS
+[@Shutgun]: https://github.com/Shutgun
 [@Sotolotl]: https://github.com/Sotolotl
 [@StevenLooman]: https://github.com/StevenLooman
 [@TheJulianJES]: https://github.com/TheJulianJES
@@ -1936,6 +1961,7 @@ For a summary in a more readable format:
 [@balloob]: https://github.com/balloob
 [@bdraco]: https://github.com/bdraco
 [@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
 [@bramstroker]: https://github.com/bramstroker
 [@breakthestatic]: https://github.com/breakthestatic
 [@cangelis]: https://github.com/cangelis
@@ -1954,6 +1980,7 @@ For a summary in a more readable format:
 [@epenet]: https://github.com/epenet
 [@fabaff]: https://github.com/fabaff
 [@farmio]: https://github.com/farmio
+[@flacjacket]: https://github.com/flacjacket
 [@frenck]: https://github.com/frenck
 [@fronzbot]: https://github.com/fronzbot
 [@ggravlingen]: https://github.com/ggravlingen
@@ -2016,6 +2043,7 @@ For a summary in a more readable format:
 [alexa docs]: /integrations/alexa/
 [alpha_vantage docs]: /integrations/alpha_vantage/
 [ambiclimate docs]: /integrations/ambiclimate/
+[amcrest docs]: /integrations/amcrest/
 [androidtv docs]: /integrations/androidtv/
 [apple_tv docs]: /integrations/apple_tv/
 [arest docs]: /integrations/arest/
@@ -2058,6 +2086,7 @@ For a summary in a more readable format:
 [denonavr docs]: /integrations/denonavr/
 [device_automation docs]: /integrations/device_automation/
 [devolo_home_control docs]: /integrations/devolo_home_control/
+[devolo_home_network docs]: /integrations/devolo_home_network/
 [diagnostics docs]: /integrations/diagnostics/
 [digitalloggers docs]: /integrations/digitalloggers/
 [discovery docs]: /integrations/discovery/

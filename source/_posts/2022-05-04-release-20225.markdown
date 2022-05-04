@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2022.5: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2022.5"
-date: 2022-04-27 00:00:00
+title: "2022.5: Streamlining settings"
+description: "Streamlining the settings menu, an Insteon control panel, lots of new features for automations and scripts, and much more!"
+date: 2022-05-04 00:00:00
 date_formatted: "May 04, 2022"
 author: Franck Nijhof
 author_twitter: frenck
@@ -14,31 +14,6 @@ og_image: /images/blog/2022-05/social.png
 ---
 
 <a href='/integrations/#version/2022.5'><img src='/images/blog/2022-05/social.png' style='border: 0;box-shadow: none;'></a>
-
-<!-- TODO REMOVE BELOW BEFORE RELEASE AND CHANGE TITLE/DATE IN FRONTMATTER -->
-
-These are the beta release notes for Home Assistant Core 2022.5 (and is thus a
-work in progress).
-
-If you encounter any issues with the beta release, please report them on GitHub:
-
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
-
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
-
-Issues introduced in the beta are processed with priority.
-
----
-
-<!-- TODO REMOVE ABOVE BEFORE RELEASE AND CHANGE TITLE/DATE IN FRONTMATTER -->
 
 Home Assistant Core 2022.5!
 
