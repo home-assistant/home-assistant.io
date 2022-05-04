@@ -23,7 +23,7 @@ To update Home Assistant Core when you run Home Assistant {{ page.installation_n
     2. Navigate to the Configuration panel
     3. On the top you will be presented with an update notification
 
-    _If you do not see that notification you can navigate to the {% my supervisor_logs title="Configuration > Add-ons & Backups > System" %} panel. and click the "Reload Supervisor" button._
+    _If you do not see that notification you can click the overflow menu in the top right and select "Check for updates"._
 
 - title: Using the CLI
   content: |
