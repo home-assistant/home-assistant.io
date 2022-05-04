@@ -16,7 +16,7 @@ The `counter` integration allows one to count occurrences fired by automations.
 ## Configuration
 
 The preferred way to configure counter helpers is via the user interface. To add one, go to
-**{% my helpers title="Configuration -> Helpers" %}** and click the add button;
+**{% my helpers title="Settings -> Devices & Services -> Helpers" %}** and click the add button;
 next choose the "**Counter**" option.
 
 To be able to add **Helpers** via the user interface you should have
