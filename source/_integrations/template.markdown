@@ -578,7 +578,7 @@ This example demonstrates how the `this` variable can be used in templates for s
 template:
   - sensor:
       - name: test
-        state: "{{ this.attributes.test }}"
+        state: "{{ this.attributes.test | default('Value when missing') }}"
         # not: "{{ state_attr('sensor.test', 'test') }}"
         attributes:
           test: "{{ now() }}"
