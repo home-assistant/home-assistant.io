@@ -528,10 +528,6 @@ compiling statistics now takes 30-100x less time.
 Are you using the [History Stats] integration? The number of database queries
 needed for most sensors with a fixed start time is 99% less.
 
-Even if your instance is small and you don’t record many states, you’ll benefit
-from the recorder optimizations to avoid waking up when there is no new
-data to commit.
-
 We have made additional improvements to the history APIs to speed up retrieving
 from the database, reducing API response times by 15-35% on average.
 
