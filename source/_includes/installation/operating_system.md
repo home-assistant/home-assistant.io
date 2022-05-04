@@ -157,6 +157,16 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 3. Power the system on.
 
    - Wait for the Home Assistant welcome banner to show up in the console of the generic-x86-64 system.
+
+If the machine complains about not being able to find a bootable medium, you might need to specify the EFI entry in your BIOS.
+This can be accomplished either by using a live operating system (e.g. Ubuntu) and running the following command:
+
+    efibootmgr --create --disk /dev/sda --part 1 --label "HAOS" --loader \EFI\BOOT\bootx64.efi
+    
+Or else, the BIOS might provide you with a tool to add boot options, there you can specify the path to the EFI file:
+
+   \EFI\BOOT\bootx64.efi
+   
 {% else %}
 
 1. Insert the boot media ({{site.installation.types[page.installation_type].installation_media}}) you just created.
