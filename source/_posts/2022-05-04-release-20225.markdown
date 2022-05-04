@@ -46,7 +46,7 @@ And, as often said: "All things seem possible in May!". Well, possibilities
 we have for you this last month of spring.
 
 The most visible thing this release is the next iteration of the settings menu,
-of which the result, to make personally, makes tons of sense. It took me a bit
+of which the result, to me personally, makes tons of sense. It took me a bit
 to get used to, but honestly I like it! 🤩
 
 Meanwhile, at [Nabu Casa], they released annual subscriptions for Home Assistant
@@ -103,7 +103,7 @@ now looks like:
 
 <img class="no-shadow" src='/images/blog/2022-05/configuration-menu.png' alt='Screenshot showing the new configuration menu structure'>
 
-Most notably, it renamed from "Configuration" to "Settings", and we have a
+Most notably, it's been renamed from "Configuration" to "Settings", and we have a
 brand new "System" submenu (shown on the right in the above screenshot).
 
 Are you running Home Assistant OS? The Supervisor has been fully merged into
@@ -186,7 +186,7 @@ actions:
           message: "Skipped cleaning, someone is home!"
 ```
 
-Note that that `if` also supports a shorthand condition templates (if that
+Note that that `if` also supports a shorthand condition template (if that
 is more your style), for example:
 
 {% raw %}
@@ -308,12 +308,12 @@ without the need for removing it or commenting it out! A disabled trigger
 won't fire, a disabled condition always passes, and a disabled action is
 skipped.
 
-<img class="no-shadow" src='/images/blog/2022-05/disabled-condition.png' alt='Screenshot showing an disabled condition in an UI automation'>
+<img class="no-shadow" src='/images/blog/2022-05/disabled-condition.png' alt='Screenshot showing a disabled condition in a UI automation'>
 
 {% details "Disabled example in YAML" %}
 
 If YAML automations are more your thing, this disabled feature is still
-helpful. While, of course, you can still comment parts out easily; using the
+helpful. While, of course, you can still comment parts out easily; using
 this feature will make disabled parts still show up in automation and
 script debug traces.
 
@@ -451,12 +451,12 @@ down the length of your UI-managed automations.
 
 ### Trigger on not matching to/from states
 
-This is an YAML only feature we have added to the state triggers: Triggering
+This is a YAML only feature we have added to the state triggers: Triggering
 on not matching to/from states. Yes, you read that correctly. When it **not**
 matches it triggers.
 
 Instead of `from`, you can now use `not_from` and instead of `to`, you can now
-use `not_to`. This example trigger will only from if the state was previously
+use `not_to`. This example trigger will only trigger if the state was previously
 not "unavailable" or "unknown":
 
 ```yaml
@@ -490,7 +490,7 @@ or:
 ```
 
 In the above `<condition>`, of course, needs to be replaced with an actual
-condition, but the short new syntax of `or`, `and`, and `not` clearly visible.
+condition, but the short new syntax of `or`, `and`, and `not` is clearly visible.
 
 [More information can be found on the condition documentation](/docs/scripts/conditions#logical-conditions).
 
@@ -781,7 +781,7 @@ previously known as "Server Controls", but now moved to the developer tools.
 
 {% details "AVM FRITZ!Box Call Monitor" %}
 
-The previously deprecated YAML configuration of theAVM FRITZ!Box Call Monitor
+The previously deprecated YAML configuration of the AVM FRITZ!Box Call Monitor
 integration has been removed.
 
 AVM FRITZ!Box Call Monitor is now configured via the UI, any existing YAML
@@ -871,7 +871,7 @@ dashboard of Home Assistant, are now hidden by default.
 
 {% details "Fibaro" %}
 
-Fibaro lights no longer supports deprecated `white_value`,
+Fibaro lights no longer support deprecated `white_value`,
 use `rgbw_color` instead.
 
 ([@rappenze] - [#69189]) ([documentation](/integrations/fibaro))
@@ -915,7 +915,7 @@ This change significantly reduces the number of rows stored in the database.
 
 The device class `carbon_dioxide` is no longer admitted as a `binary_sensor`
 device class; as it is not a valid device class for a binary sensor. If you have
-overridden the device class with customize need to adjust your configuration.
+overridden the device class with customize you need to adjust your configuration.
 
 ([@epenet] - [#69239]) ([documentation](/integrations/homekit))
 
@@ -963,7 +963,7 @@ sensor:
 ```
 
 The configuration in the example would cause the source sensor's unit
-(e.g., `W`) tobe overruled and the integration sensor's `unit_of_measurement`
+(e.g., `W`) to be overruled and the integration sensor's `unit_of_measurement`
 would be set to `MWs` (MegaWatt-Second) even though the integral calculation
 was performed with `k` (kilo) and `h` (hour), i.e., the value of the integration
 sensor is in `kWh`, not `MWs`.
@@ -1050,7 +1050,7 @@ removed from your YAML configuration files.
 
 {% details "ONVIF" %}
 
-Additionally, the previously deprecated YAML configuration of the ONVIF
+The previously deprecated YAML configuration of the ONVIF
 integration has been removed.
 
 ONVIF is now configured via the UI, any existing YAML
