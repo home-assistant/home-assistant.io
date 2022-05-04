@@ -35,7 +35,7 @@ Please note that if you click on **Trigger** of an automation in the frontend, *
 All this makes that Trigger feature pretty limited and nearly useless for debugging purposes so you need to find another way.
 Make sure you check and adapt to your circumstances appropriate examples from Automation Trigger, Conditions and Actions.
 
-It is also useful to go to **{% my server_controls title="Configuration -> Server Control" %}** and click on **Check Configuration** button in Configuration validation section to make sure there are no syntax errors before restarting Home Assistant. In order for **Check configuration** to be visible, you must enable **Advanced Mode** on {% my profile title="your user profile" %}.
+It is also useful to go to **{% my server_controls title="Developer Tools -> YAML" %}** and click on **Check Configuration** button in Configuration validation section to make sure there are no syntax errors before restarting Home Assistant. In order for **Check configuration** to be visible, you must enable **Advanced Mode** on {% my profile title="your user profile" %}.
 
 If your automation uses templates in any part, you can do the following to make sure it works as expected:
 
