@@ -113,10 +113,10 @@ enabled_by_default:
   type: boolean
   default: true
 encoding:
-  description: The encoding of the image payloads received. Set to `"b64"` to enable base64 decoding of image payload.
+  description: The encoding of the image payloads received. Set to `"b64"` to enable base64 decoding of image payload. If not set, or if set to `null`, the image payload must be raw binary data.
   required: false
   type: string
-  default: None
+  default: null
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
