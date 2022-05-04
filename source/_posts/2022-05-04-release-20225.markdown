@@ -670,11 +670,13 @@ noteworthy changes this release:
 [@raman325]: https://github.com/raman325
 [@rdfurman]: https://github.com/rdfurman
 [@sisimomo]: https://github.com/sisimomo
+[@thecode]: https://github.com/thecode
 [@zsarnett]: https://github.com/zsarnett
 [backup]: /integrations/backup
 [Honeywell]: /integrations/honeywell
 [Media Selector]: /docs/blueprint/selectors/#media-selector
 [Philips TV]: /integrations/philips_js
+[Shelly]: /integrations/shelly
 [Sonos]: /integrations/sonos
 [State conditions]: /docs/scripts/conditions#state-condition
 [ZHA]: /integrations/zha
