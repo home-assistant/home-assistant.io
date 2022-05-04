@@ -80,7 +80,7 @@ Whenever the trigger fires, all related entities will re-render and it will have
 
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [state trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
 
-The state, including attributes, of trigger-based binary sensors is restored when Home Assistant is restarted. The state of other trigger-based template entities is not restored.
+The state, including attributes, of trigger-based sensors and binary sensors is restored when Home Assistant is restarted. The state of other trigger-based template entities is not restored.
 
 {% raw %}
 
