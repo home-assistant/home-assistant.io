@@ -48,8 +48,8 @@ The following characteristics are supported for `sensor` source sensors:
 | `count` | The number of stored source sensor readings. This number is limited by `sampling_size` and can be low within the bounds of `max_age`.
 | `datetime_newest` | The timestamp of the newest measurement.
 | `datetime_oldest` | The timestamp of the oldest measurement.
-| `datetime_value_max` | The timestamp of the biggest value among the number of measurements.
-| `datetime_value_min` | The timestamp of the smallest value among the number of measurements.
+| `datetime_value_max` | The timestamp of the numerically biggest measurement.
+| `datetime_value_min` | The timestamp of the numerically smallest measurement.
 | `distance_95_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 95% of all stored values fall into a range of returned size.
 | `distance_99_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 99% of all stored values fall into a range of returned size.
 | `distance_absolute` | The difference between the extreme values of measurements. Equals `value_max` minus `value_min`.
