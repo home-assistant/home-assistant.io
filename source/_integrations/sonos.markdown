@@ -70,7 +70,10 @@ The microphone can only be enabled/disabled from physical buttons on the Sonos d
 The favorites sensor provides the names and `media_content_id` values for each of the favorites saved to My Sonos in the native Sonos app. This replaces the legacy `source_list` attribute previously available on the media player entities. This sensor is intended for users that need to access the favorites in a custom template. For most users, accessing favorites by using the Media Browser functionality and "Play media" script/automation action is recommended.
 
 Example templates:
-```
+
+{% raw %}
+
+```yaml
 # Get all favorite names as a list (old behavior)
 {{ state_attr("sensor.sonos_favorites", "items").values() | list }}
 
@@ -85,6 +88,8 @@ Example templates:
   {{ name, media_id }}
 {% endfor %}
 ```
+
+{% endraw %}
 
 <div class='note'>
 
