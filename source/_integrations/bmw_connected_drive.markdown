@@ -47,7 +47,7 @@ This integration provides the following platforms:
 
 ## Configuration
 
-Enable the `BMW Connected Drive` integration via **Configuration** > **Devices & Services**.
+Enable the `BMW Connected Drive` integration via **Settings** -> **Devices & Services**.
 
 <div class='note'>
 

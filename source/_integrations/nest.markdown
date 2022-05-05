@@ -465,7 +465,7 @@ This feature is enabled by the following permissions:
 
 - For general trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting).
 
-- Check **Configuration** then **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
+- Check **Settings** -> **System** -> **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
 
 - *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiugration or your authentication token was revoked by Google for some other reason.
 

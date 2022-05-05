@@ -3,7 +3,7 @@ title: "Configuration.yaml"
 description: "Configuring Home Assistant via text files."
 ---
 
-While you can configure most of Home Assistant directly from the user interface under {% my config title="Configuration" %}, some parts need you to edit `configuration.yaml`. This file contains integrations to be loaded along with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable specific functionality.
+While you can configure most of Home Assistant directly from the user interface under {% my config %}, some parts need you to edit `configuration.yaml`. This file contains integrations to be loaded along with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable specific functionality.
 
 If you run into trouble while configuring Home Assistant, refer to the [configuration troubleshooting page](/docs/configuration/troubleshooting/) and the [`configuration.yaml` examples](/examples/#example-configurationyaml).
 
