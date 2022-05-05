@@ -12,7 +12,7 @@
     "remark-stringify": "^10.0.2",
     "textlint": "^12.1.1",
     "textlint-rule-common-misspellings": "^1.0.1",
-    "textlint-rule-terminology": "^2.1.5"
+    "textlint-rule-terminology": "^3.0.0"
   },
   "resolutions": {
     "minimist": ">=1.2.5"
