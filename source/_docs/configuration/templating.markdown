@@ -72,7 +72,7 @@ Not supported in [limited templates](#limited-templates).
 - Iterating `states` will yield each state sorted alphabetically by entity ID.
 - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
-- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity, `unknown` if it doesn't exist, `unavailable` if the object exists but not yet available (e.g. due to an integration internal processing) 
+- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity, `unknown` if it doesn't exist, `unavailable` if the object exists but is not yet available. 
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None`. 
@@ -119,13 +119,9 @@ Other state examples:
   Paulus is at {{ states('device_tracker.paulus') }}.
 {% endif %}
 
-#check state and compute remaining time before a train departure time (in minutes)
-{% if (states('sensor.train_departure_time') != "unknown" and states('sensor.train_departure_time') != "unavailable") %}
-{{ ( (as_timestamp(states('sensor.train_departure_time')) - as_timestamp(now()))/60.0 ) | round (2) }}
-{% else %}
-unknown
-{% endif %}
-
+#check sensor.train_departure_time state
+{% if states('sensor.train_departure_time') in ("unavailable", "unknown") %}
+  {{ ... }}
 
 {% set state = states('sensor.temperature') %}{{ state | float + 1 if is_number(state) else "invalid temperature" }}
 
