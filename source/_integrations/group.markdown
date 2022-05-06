@@ -56,6 +56,14 @@ Some groups, like the binary sensors and lights, allow you set the "All entities
 - Otherwise, the group state is `unknown` if at least one group member is `unknown` or `unavailable`.
 - Otherwise, the group state is `on`.
 
+## Managing groups
+
+To edit a group, **{% my helpers title="Settings -> Devices & Services -> Helpers" %}**. Find and select the group from the list.
+
+### Group options
+
+To add or remove entities from an existing group, click on `Group options`, all the existing entities are listed in the `members` section where you add and remove entities.
+
 ## YAML Configuration
 
 Alternatlively, this integration can be configured and set up manually via YAML
