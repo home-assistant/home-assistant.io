@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Presence Detection
   - Sensor
+  - Updates
 ha_release: '0.10'
 ha_domain: fritz
 ha_config_flow: true
@@ -21,6 +22,7 @@ ha_platforms:
   - diagnostics
   - sensor
   - switch
+  - update
 ha_ssdp: true
 ha_integration_type: integration
 ---
@@ -34,7 +36,7 @@ There is support for the following platform types within Home Assistant:
 - **Button** - reboot, reconnect, firmware_update.
 - **Sensor** - external IP address, uptime and network monitors.
 - **Switch** - call deflection, port forward, parental control and Wi-Fi networks.
-
+- **Update** - firmware status of the device.
 {% include integrations/config_flow.md %}
 
 <div class='note'>

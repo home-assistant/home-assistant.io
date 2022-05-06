@@ -323,7 +323,7 @@ When exposing a Camera, Activity based remote (a `remote` that supports activiti
 
 To quickly add all accessory mode entities in the UI:
 
-1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Configuration >> Integrations" domain=page.ha_domain %}**).
+1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings >> Devices & Services" domain=page.ha_domain %}**).
 2. Select `media_player`, `remote`, `lock`, and `camera` domains.
 3. Complete the flow as normal.
 4. Additional HomeKit entries for each entity that must operate in accessory mode will be created for each entity that does not already have one.
@@ -332,7 +332,7 @@ To quickly add all accessory mode entities in the UI:
 
 To add a single entity in accessory mode:
 
-1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Configuration >> Integrations" domain=page.ha_domain %}**)
+1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings >> Devices & Services" domain=page.ha_domain %}**)
 2. Before pairing the bridge, access the options for the bridge.
 3. Change the mode to `accessory`
 4. Select the entity.
@@ -434,7 +434,7 @@ The following integrations are currently supported:
 
 # Device Triggers
 
-Devices that support triggers can be added to the bridge by accessing options for the bridge in **{% my integrations title="Configuration >> Integrations" %}**. To use this feature, Advanced Mode must be enabled in your user profile.
+Devices that support triggers can be added to the bridge by accessing options for the bridge in **{% my integrations title="Settings >> Devices & Services" %}**. To use this feature, Advanced Mode must be enabled in your user profile.
 
 Bridged device triggers are represented as a single press button on stateless programmable switches. This allows a HomeKit automation to run when a device trigger fires. Because the Apple Home app currently only shows the number of the button and not the name, users may find it easier to identify the name of the button in the `Eve for HomeKit` app.
 

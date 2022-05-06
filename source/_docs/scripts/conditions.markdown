@@ -48,6 +48,20 @@ condition:
 
 Currently you need to format your conditions like this to be able to edit them using the [automations editor](/docs/automation/editor/).
 
+The AND condition also has a shorthand form. The following configuration works the same as the ones listed above:
+
+```yaml
+condition:
+  alias: "Paulus home AND temperature below 20"
+  and:
+    - condition: state
+      entity_id: "device_tracker.paulus"
+      state: "home"
+    - condition: numeric_state
+      entity_id: "sensor.temperature"
+      below: 20
+```
+
 ### OR condition
 
 Test multiple conditions in one condition statement. Passes if any embedded condition is valid.
@@ -57,6 +71,20 @@ condition:
   alias: "Paulus home OR temperature below 20"
   condition: or
   conditions:
+    - condition: state
+      entity_id: "device_tracker.paulus"
+      state: "home"
+    - condition: numeric_state
+      entity_id: "sensor.temperature"
+      below: 20
+```
+
+The OR condition also has a shorthand form. The following configuration works the same as the one listed above:
+
+```yaml
+condition:
+  alias: "Paulus home OR temperature below 20"
+  or:
     - condition: state
       entity_id: "device_tracker.paulus"
       state: "home"
@@ -87,6 +115,23 @@ condition:
           below: 20
 ```
 
+Or in shorthand form:
+
+```yaml
+condition:
+  and:
+    - condition: state
+      entity_id: "device_tracker.paulus"
+      state: "home"
+    - or:
+      - condition: state
+        entity_id: sensor.weather_precip
+        state: "rain"
+      - condition: numeric_state
+        entity_id: "sensor.temperature"
+        below: 20
+```
+
 ### NOT condition
 
 Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** valid.
@@ -96,6 +141,20 @@ condition:
   alias: "Paulus not home AND alarm not disarmed"
   condition: not
   conditions:
+    - condition: state
+      entity_id: device_tracker.paulus
+      state: "home"
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm
+      state: disarmed
+```
+
+The NOT condition also has a shorthand form. The following configuration works the same as the one listed above:
+
+```yaml
+condition:
+  alias: "Paulus not home AND alarm not disarmed"
+  not:
     - condition: state
       entity_id: device_tracker.paulus
       state: "home"
@@ -136,7 +195,7 @@ condition:
 {% endraw %}
 
 It is also possible to test the condition against multiple entities at once.
-The condition will pass if all entities match the thresholds.
+The condition will pass if **all** entities match the thresholds.
 
 ```yaml
 condition:
@@ -190,7 +249,7 @@ condition:
 ```
 
 It is also possible to test the condition against multiple entities at once.
-The condition will pass if all entities match the state.
+The condition will pass if **all** entities match the state.
 
 ```yaml
 condition:
@@ -198,6 +257,19 @@ condition:
   entity_id:
     - light.kitchen
     - light.living_room
+  state: "on"
+```
+
+Instead of matching all, it is also possible if one of the entities matches.
+In the following example the condition will pass if **any** entities match the state.
+
+```yaml
+condition:
+  condition: state
+  entity_id:
+    - binary_sensor.motion_sensor_left
+    - binary_sensor.motion_sensor_right
+  match: any
   state: "on"
 ```
 
@@ -316,6 +388,7 @@ The sunset/sunrise conditions do not work in locations inside the polar circles,
 In those cases it is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
 </div>
 
+This is an example of 1 hour offset after sunset:
 ```yaml
 condition:
   condition: sun
@@ -323,7 +396,7 @@ condition:
   after_offset: "-01:00:00"
 ```
 
-This is an example of 1 hour offset after sunset.
+This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`:
 
 ```yaml
 condition:
@@ -332,7 +405,7 @@ condition:
     before: sunrise
 ```
 
-This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`.
+This is 'when light' - equivalent to a state condition on `sun.sun` of `above_horizon`:
 
 ```yaml
 condition:
@@ -340,8 +413,6 @@ condition:
     after: sunrise
     before: sunset
 ```
-
-This is 'when light' - equivalent to a state condition on `sun.sun` of `above_horizon`.
 
 We cannot use both keys in this case as it will always be `false`.
 
@@ -357,7 +428,7 @@ condition:
 
 A visual timeline is provided below showing an example of when these conditions are true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions are true.
 
-<img src='/images/docs/scripts/sun-conditions.svg' alt='Graphic showing an example of sun conditions' />
+![Graphic showing an example of sun conditions](/images/docs/scripts/sun-conditions.svg)
 
 ## Template condition
 
@@ -617,3 +688,22 @@ condition:
 ```
 
 {% endraw %}
+
+## Disabling a condition
+
+Every individual condition can be disabled, without removing it.
+To do so, add `enabled: false` to the condition configuration.
+
+This can be useful if you want to temporarily disable a condition, for example,
+for testing. A disabled condition will always pass.
+
+For example:
+
+```yaml
+# This condition will always pass, as it is disabled.
+condition:
+  enabled: false
+  condition: state
+  entity_id: sun.sun
+  state: "above_horizon"
+```

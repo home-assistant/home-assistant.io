@@ -132,7 +132,7 @@ These devices have been sold under at least the following brands:
 
 {% include integrations/config_flow.md %}
 
-After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Magic Home" configuration for the bulb or controller. 
+After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Settings -> Integrations and selecting the "Magic Home" configuration for the bulb or controller. 
 
 **Custom Effect**\
 A list of RGB colors can be entered to create an effect. The effect speed can be adjusted using the slider underneath.
