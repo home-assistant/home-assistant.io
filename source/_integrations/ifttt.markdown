@@ -116,15 +116,11 @@ The `target` field can contain a single key name or a list of key names.
 
 Press the *New applet* button and search for *Webhooks*.
 
-<p class='img'>
-<img src='/images/integrations/ifttt/setup_service.png' />
-Choose "Webhooks" as service.
-</p>
+Choose "Webhooks" as serviced
+![Choose "Webhooks" as serviced.](/images/integrations/ifttt/setup_service.png)
 
-<p class='img'>
-<img src='/images/integrations/ifttt/setup_trigger.png' />
-You need to setup a unique trigger for each event you sent to IFTTT.
-</p>
+You need to setup a unique trigger for each event you sent to IFTTT
+![You need to setup a unique trigger for each event you sent to IFTTT.](/images/integrations/ifttt/setup_trigger.png)
 
 {% raw %}
 
