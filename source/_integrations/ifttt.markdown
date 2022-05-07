@@ -84,13 +84,26 @@ ifttt:
 
 ### Testing your trigger
 
-You can use **Developer Tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, open the Home Assistant sidebar, click on Developer Tools, and then the **Services** tab. Fill in the following values:
+You can use **Developer Tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, open the Home Assistant sidebar, click on **Developer Tools** -> **Services** tab. Select `IFTTT: Trigger` as the service and fill in the following values:
 
-Field | Value
------ | -----
-domain | `ifttt`
-service | `trigger`
-Service Data | `{"event": "EventName", "value1": "Hello World"}`
+{% configuration_basic %}
+event:
+  description: The name of the event to send.
+  required: true
+  type: string
+value1:
+  description: Generic field to send data via the event.
+  required: false
+  type: string
+value2:
+  description: Generic field to send data via the event.
+  required: false
+  type: string
+value3:
+  description: Generic field to send data via the event.
+  required: false
+  type: string
+{% endconfiguration_basic %}
 
 When your screen looks like this, click the 'call service' button.
 ![Testing service.](/images/integrations/ifttt/testing_service.png)
