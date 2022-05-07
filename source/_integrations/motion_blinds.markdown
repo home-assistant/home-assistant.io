@@ -25,6 +25,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
 - [3 Day Blinds](https://www.3dayblinds.com/)
+- [Diaz](https://www.diaz.be/en/)
 - [Dooya](http://www.dooya.com/)
 - [Gaviota](https://www.gaviotagroup.com/en/)
 - [Havana Shade](https://havanashade.com/)
