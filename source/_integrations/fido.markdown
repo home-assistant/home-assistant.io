@@ -79,7 +79,7 @@ monitored_variables:
       description: Talk time used
     talk_limit:
       description: Talk time limit
-    talt_remaining:
+    talk_remaining:
       description: Talk time remaining
     other_talk_used:
       description: Other talk time used (It could be international calls)
