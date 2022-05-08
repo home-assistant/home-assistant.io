@@ -63,6 +63,7 @@ Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.5.1 - May 5](#release-202251---may-5)
 - [Release 2022.5.2 - May 6](#release-202252---may-6)
+- [Release 2022.5.3 - May 8](#release-202253---may-8)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -770,6 +771,51 @@ The following integrations are now available via the Home Assistant UI:
 [glances docs]: /integrations/glances/
 [zha docs]: /integrations/zha/
 
+## Release 2022.5.3 - May 8
+
+- Move flexit climate to HVAC action ([@balloob] - [#71443]) ([flexit docs])
+- Fix display of multiline queries in sql config flow ([@bdraco] - [#71450]) ([sql docs])
+- Ensure sql sensors keep working after using the options flow ([@bdraco] - [#71453]) ([sql docs])
+- Fix rgb conversion in fibaro light ([@rappenze] - [#71476]) ([fibaro docs])
+- Revert usage of Fibaro Client V5 as it has too many errors ([@rappenze] - [#71477]) ([fibaro docs])
+- Update py-canary to 0.5.2 ([@0bmay] - [#71489]) ([canary docs])
+- bump total_connect_client to 2022.5 ([@austinmroczek] - [#71493]) ([totalconnect docs])
+- Add timeout ([@bieniu] - [#71499]) ([brother docs])
+- Add Ukraine Alarm integration ([@PaulAnnekov] - [#71501]) ([ukraine_alarm docs]) (new-integration)
+- fix speed sensor wrong number ([@shaiu] - [#71502]) ([sabnzbd docs])
+- Bump frontend to 20220504.1 ([@balloob] - [#71504]) ([frontend docs])
+- Fix other enums in helpers ([@balloob] - [#71505])
+
+[#71443]: https://github.com/home-assistant/core/pull/71443
+[#71450]: https://github.com/home-assistant/core/pull/71450
+[#71453]: https://github.com/home-assistant/core/pull/71453
+[#71476]: https://github.com/home-assistant/core/pull/71476
+[#71477]: https://github.com/home-assistant/core/pull/71477
+[#71489]: https://github.com/home-assistant/core/pull/71489
+[#71493]: https://github.com/home-assistant/core/pull/71493
+[#71499]: https://github.com/home-assistant/core/pull/71499
+[#71501]: https://github.com/home-assistant/core/pull/71501
+[#71502]: https://github.com/home-assistant/core/pull/71502
+[#71504]: https://github.com/home-assistant/core/pull/71504
+[#71505]: https://github.com/home-assistant/core/pull/71505
+[@0bmay]: https://github.com/0bmay
+[@PaulAnnekov]: https://github.com/PaulAnnekov
+[@austinmroczek]: https://github.com/austinmroczek
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@rappenze]: https://github.com/rappenze
+[@shaiu]: https://github.com/shaiu
+[brother docs]: /integrations/brother/
+[canary docs]: /integrations/canary/
+[fibaro docs]: /integrations/fibaro/
+[flexit docs]: /integrations/flexit/
+[frontend docs]: /integrations/frontend/
+[sabnzbd docs]: /integrations/sabnzbd/
+[sql docs]: /integrations/sql/
+[totalconnect docs]: /integrations/totalconnect/
+[ukraine_alarm docs]: /integrations/ukraine_alarm/
+****
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
