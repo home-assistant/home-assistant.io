@@ -21,7 +21,7 @@ The Ukraine Alarm integration uses the [Ukraine Alarm](https://www.ukrainealarm.
 - Urban Fights
 - Unknown
 
-Siren check interval is set to 10 seconds to don't overload API and be able to react quite fast.
+Siren check interval is set to 10 seconds to avoid overloading the API and still be able to react fast enough.
 
 ## Setup
 
