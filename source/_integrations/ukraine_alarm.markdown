@@ -14,14 +14,12 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Ukraine Alarm integration uses the [Ukraine Alarm](https://www.ukrainealarm.com/) web service as a source for air-raid sirens in Ukraine for your region. It's became very important since [Russian troops invasion](https://war.ukraine.ua/).
-
-For each region integration exposes 4 binary sensors:
+The Ukraine Alarm integration uses the [Ukraine Alarm](https://www.ukrainealarm.com/) web service to offer air-raid siren notifications. The integration will create 4 binary sensors for your selected region in Ukraine:
 
 - Air
-- Unknown
 - Artillery
 - Urban Fights
+- Unknown
 
 Siren check interval is set to 10 seconds to don't overload API and be able to react quite fast.
 
