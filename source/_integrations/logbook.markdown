@@ -93,7 +93,9 @@ Filters are applied as follows:
 The following characters can be used in entity globs:
 
 - `*` - The asterisk represents zero, one, or multiple characters
-- `.` - The period represents a single character
+- `?` - The question mark represents a single character
+
+Unlike UNIX globs, `[abc]` cannot be used to match one of several characters.
 
 ### Common filtering examples
 
