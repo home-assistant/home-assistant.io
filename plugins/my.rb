@@ -92,7 +92,7 @@ module Jekyll
         "config_mqtt" => "MQTT Configuration",
         "config_zha" => "ZHA Configuration",
         "config_zwave_js" => "Z-Wave JS Configuration",
-        "config" => "Configuration",
+        "config" => "Settings",
         "developer_events" => "Events",
         "developer_services" => "Services",
         "developer_states" => "States",
