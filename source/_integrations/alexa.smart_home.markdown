@@ -217,7 +217,9 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
   - Click the Smart Home skill you just created.
   - Click `Enable to use`.
   - A new window will open to direct you to your Home Assistant's login screen.
-    note: If you get a 403 Unauthorized at this stage, please verify if you have IP Ban activated.
+    
+    note: If you have [IP Ban](https://www.home-assistant.io/integrations/http/#ip_ban_enabled) activated, after many try, there is the possibility receive a "403 Forbidden" return code from the Home assistant's login screen.
+    In this case, temporarily disable [IP Ban](https://www.home-assistant.io/integrations/http/#ip_ban_enabled) to conclude the procedure or remove the banned IP entry from the list.
   - After you successfully login, you will be redirected back to Alexa app.
   - You can discover your devices now!
 - Now, you can ask your Echo or in Alexa App, _"Alexa, turn on bedroom"_ 🎉
