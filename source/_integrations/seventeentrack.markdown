@@ -5,6 +5,7 @@ ha_category:
   - Postal Service
 ha_release: 0.83
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ha_domain: seventeentrack
 ha_platforms:
   - sensor
@@ -15,12 +16,12 @@ The `seventeentrack` sensor platform allows users to get package data tied to th
 
 ## Getting Your API Token
 
-1. Register for an account: https://user.17track.net/en/register
+1. Register for an account at [17track.net](https://user.17track.net/en/register).
 2. Enter the verification code sent to your email.
-3. Select "Developer Account"
+3. Select "Developer Account".
 4. Complete registration, phone number and skype are not required.
-6. Open the settings page: https://api.17track.net/en/admin/settings
-7. API Token will be displayed under the Security tab
+6. Open the [settings page](https://api.17track.net/en/admin/settings) from the Dashboard.
+7. API Token will be displayed under the Security tab.
 
 {% include integrations/config_flow.md %}
 
