@@ -11,6 +11,8 @@ ha_homekit: true
 ha_platforms:
   - light
 ha_integration_type: integration
+ha_codeowners:
+  - '@Djelibeybi'
 ---
 
 The `lifx` integration allows you to integrate your [LIFX](https://www.lifx.com) bulbs into Home Assistant.

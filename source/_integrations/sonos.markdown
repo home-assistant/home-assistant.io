@@ -225,7 +225,7 @@ condition:
     # Coordinator
     - condition: template
       value_template: >
-        {{ state_attr( trigger.entity_id , 'sonos_group')[0] ==  trigger.entity_id }}
+        {{ state_attr( trigger.entity_id , 'group_members')[0] ==  trigger.entity_id }}
     # Going from queue to queue
     - condition: template
       value_template: >
