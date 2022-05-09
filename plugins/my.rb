@@ -85,6 +85,7 @@ module Jekyll
 
       # Default title used for in-line text
       DEFAULT_TITLES = {
+        "automations" => "Automations & Scenes",
         "blueprint_import" => "Import Blueprint",
         "cloud" => "Home Assistant Cloud",
         "config_energy" => "Energy Configuration",
