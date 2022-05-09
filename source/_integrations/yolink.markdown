@@ -2,7 +2,7 @@
 title: YoLink
 description: Instructions on how to integrate YoLink Devices into Home Assistant.
 ha_category:
-  - sensor
+  - Sensor
 ha_release: 2022.6.0
 ha_iot_class: Cloud Push
 ha_config_flow: true
