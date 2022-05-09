@@ -95,7 +95,7 @@ Example templates:
 
 <div class='note'>
 
-The Sonos favorites sensor (`sensor.sonos_favorites`) is disabled by default. It can be found and enabled from the entities associated with the Sonos integration on your [Integrations](https://my.home-assistant.io/redirect/integrations/) page.
+The Sonos favorites sensor (`sensor.sonos_favorites`) is disabled by default. It can be found and enabled from the entities associated with the Sonos integration on your {% my integrations %} page.
   
 </div>
 
