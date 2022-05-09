@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: qnap_qsw
 ha_platforms:
+  - diagnostics
   - sensor
 ha_codeowners:
   - '@Noltari'
