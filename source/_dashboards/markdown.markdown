@@ -116,3 +116,23 @@ content: |
 ```
 
 {% endraw %}
+
+
+## ha-alert
+
+You can use our [\`ha-alert\`](https://design.home-assistant.io/#components/ha-alert) component in markdown content rendered in the Home Assistant Frontend.
+
+<p class='img'>
+<img src='/images/dashboards/lovelace_markdown_ha-alert.png' alt='Screenshot of the ha-alert elements in a markdown card'>
+Screenshot of the ha-alert elements in a markdown card.
+</p>
+
+```yaml
+type: markdown
+content: |
+  <ha-alert alert-type="error">This is an error alert — check it out!</ha-alert>
+  <ha-alert alert-type="warning">This is a warning alert — check it out!</ha-alert>
+  <ha-alert alert-type="info">This is an info alert — check it out!</ha-alert>
+  <ha-alert alert-type="success">This is a success alert — check it out!</ha-alert>
+  <ha-alert title="Test alert">This is an alert with a title</ha-alert>
+```
