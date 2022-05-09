@@ -2,21 +2,21 @@
 title: YoLink
 description: Instructions on how to integrate YoLink Devices into Home Assistant.
 ha_category:
-  - yolink
-ha_release: 2022.5.4
+  - sensor
+ha_release: 2022.6.0
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@YoSmart-Inc'
 ha_domain: yolink
 ha_platforms:
-  - yolink
+  - sensor
 ha_integration_type: integration
 ---
 
 Integrates [YoLink](https://www.yosmart.com/) Devices into Home Assistant.
 
-You must concat us <service@yosmart.com> to obtain a `client_id` and `client_secret`.
+You must contact <service@yosmart.com> to obtain a `client_id` and `client_secret`.
 
 To enable this platform, add the following lines to your `configuration.yaml` file:
 
