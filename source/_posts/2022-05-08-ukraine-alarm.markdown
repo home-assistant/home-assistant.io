@@ -8,7 +8,7 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories:
-- Core
+- Release-Notes
 og_image: /images/blog/2022-05-ukraine-alarm/integration.png
 ---
 
