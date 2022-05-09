@@ -15,38 +15,14 @@ The `seventeentrack` sensor platform allows users to get package data tied to th
 
 ## Getting Your API Token
 
-To get an API token:
-1. Login to your account on [17track.net](https://api.17track.net/en)
-2. Open the settings page from the menu
-3. API Token will be displayed under the Security tab
+1. Register for an account: https://user.17track.net/en/register
+2. Enter the verification code sent to your email.
+3. Select "Developer Account"
+4. Complete registration, phone number and skype are not required.
+6. Open the settings page: https://api.17track.net/en/admin/settings
+7. API Token will be displayed under the Security tab
 
-## Configuration
-
-To enable the platform, add the following lines to your `configuration.yaml`
-file:
-
-```yaml
-sensor:
-  - platform: seventeentrack
-    token: API_TOKEN
-```
-
-{% configuration %}
-token:
-  description: The API token provided for your 17track.net account.
-  required: true
-  type: string
-show_archived:
-  description: Whether sensors should be created for archived packages.
-  required: false
-  type: boolean
-  default: false
-show_delivered:
-  description: Whether sensors should be created for delivered packages.
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Examples
 
