@@ -388,7 +388,7 @@ The sunset/sunrise conditions do not work in locations inside the polar circles,
 In those cases it is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
 </div>
 
-This is an example of 1 hour offset after sunset:
+This is an example of 1 hour offset before sunset:
 ```yaml
 condition:
   condition: sun
