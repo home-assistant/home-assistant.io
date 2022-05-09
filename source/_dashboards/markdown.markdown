@@ -103,7 +103,7 @@ content: |
 
 ## Icons
 
-You can also use [materialdesignicons.com](https://materialdesignicons.com/) icons in the `content` of the card.
+You can use [materialdesignicons.com](https://materialdesignicons.com/) icons in the `content` of the card.
 
 For example:
 
@@ -120,7 +120,9 @@ content: |
 
 ## ha-alert
 
-You can use our [\`ha-alert\`](https://design.home-assistant.io/#components/ha-alert) component in markdown content rendered in the Home Assistant Frontend.
+You can also use our [\`ha-alert\`](https://design.home-assistant.io/#components/ha-alert) component in the Markdown card.
+
+Example:
 
 <p class='img'>
 <img src='/images/dashboards/lovelace_markdown_ha-alert.png' alt='Screenshot of the ha-alert elements in a markdown card'>
