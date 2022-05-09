@@ -29,6 +29,8 @@ yolink:
 
 Restart Home Assistant. Then, go to the frontend and authorize YoLink.
 
+{% include integrations/config_flow.md %}
+
 {% configuration %}
 client_id:
   description: Your YoLink API client ID.
@@ -43,5 +45,3 @@ client_secret:
 The integration is tested and verified for the following devices from YoLink:
 
 * YS7704
-
-{% include integrations/config_flow.md %}
