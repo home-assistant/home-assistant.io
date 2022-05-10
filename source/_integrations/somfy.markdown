@@ -17,6 +17,10 @@ ha_platforms:
   - switch
 ---
 
+<div class="note warning">
+The Somfy Open API (cloud-based) has been deprecated in favour of the [Somfy TaHoma Developer Mode](https://developer.somfy.com/developer-mode) and will shutdown after June 21st 2022. The [Overkiz integration](/integrations/overkiz/) will support this new local API and can already be used to control your Somfy devices via the cloud.
+</div>
+
 The Somfy integration will allow users to integrate their Somfy devices into Home Assistant using the [official API](https://developer.somfy.com/somfy-open-api/apis).
 
 ## Installation

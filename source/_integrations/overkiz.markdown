@@ -51,8 +51,6 @@ The Overkiz (by Somfy) integration platform is used by many different vendors, l
 - Somfy TaHoma Switch [(instructions)](#tahoma-switch)
 - Thermor Cozytouch
 
-If you own a Somfy hub, you could also use the [Somfy integration](/integrations/somfy/) which uses the official API.
-
 ### TaHoma Switch
 
 Multiple users reported that the TaHoma Switch will work with this integration **after** you create a scene in the TaHoma app and wait for a few hours.
