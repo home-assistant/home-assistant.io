@@ -180,7 +180,5 @@ sensor:
         arg: eth0
       - type: processor_use
       - type: processor_temperature
-      # - type: process
-        # specify arg:
       - type: last_boot
 ```
