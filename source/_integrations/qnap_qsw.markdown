@@ -3,11 +3,13 @@ title: QNAP QSW
 description: Instructions on how to integrate QNAP QSW within Home Assistant.
 ha_release: 2022.5
 ha_category:
+  - Binary Sensor
   - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: qnap_qsw
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - sensor
 ha_codeowners:
@@ -27,6 +29,14 @@ Username:
 Password:
   description: "Password"
 {% endconfiguration_basic %}
+
+## Binary Sensors
+
+The following *binary sensors* are created:
+
+| Condition           | Description                        |
+| :------------------ | :--------------------------------- |
+| anomaly             | Device anomaly.                    |
 
 ## Sensors
 
