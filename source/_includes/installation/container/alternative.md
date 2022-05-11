@@ -137,3 +137,9 @@ That will tell Home Assistant where to look for our Z-Wave radio.
 device_tracker:
   - platform: bluetooth_tracker
 ```
+
+### Asustor NAS
+
+- Install the [docker-ce package](https://www.asustor.com/app_central/app_detail?id=754) in the App Center.
+- Connect to your NAS over SSH.
+From there you can follow the steps for [Platform Installation](https://www.home-assistant.io/installation/generic-x86-64#platform-installation) in the Container section of Generic x86-x64 since the Docker CLI commands are the same.
