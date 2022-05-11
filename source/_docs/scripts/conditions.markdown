@@ -689,6 +689,43 @@ condition:
 
 {% endraw %}
 
+Selecting weekday(s) as a Blueprint !input
+
+```yaml
+blueprint:
+......
+  input:
+    weekday:
+      name: Days of the week to use
+      default: [mon, tue, wed, thu, fri, sat, sun]
+      selector:
+        select:
+          options:
+          - label: Monday
+            value: mon
+          - label: Tuesday
+            value: tue
+          - label: Wednesday
+            value: wed
+          - label: Thursday
+            value: thu
+          - label: Friday
+            value: fri
+          - label: Saturday
+            value: sat
+          - label: Sunday
+            value: sun
+          custom_value: false
+          multiple: true
+......
+  condition:
+    alias: "Use the weekday list"
+    condition: time
+    after: "15:00:00"
+    before: "02:00:00"
+    weekday: !input 'weekday'
+```
+
 ## Disabling a condition
 
 Every individual condition can be disabled, without removing it.
