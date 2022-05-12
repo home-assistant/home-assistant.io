@@ -40,7 +40,7 @@ Please follow the steps below:
 
 1. In the left navigation bar of Home Assistant, click on **Configuration**.
 3. Select **Devices and Services** from the menu.
-4. In the bottom right corner, click on the **ADD INTERGRATION** button.
+4. In the bottom right corner, click on the **ADD INTEGRATION** button.
 5. Search and select **Aqara**.
 6. Complete the configuration according to the page introduction.
 
