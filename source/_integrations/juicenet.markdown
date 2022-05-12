@@ -37,3 +37,11 @@ These sensors will be added for each JuiceNet device in your account:
 - Watts
 - Charge time of session
 - Energy added this session
+
+## Switch
+
+The `juicenet` switch platform allows you to override the charging schedule for your JuiceNet device.
+
+## Number
+
+The `juicenet` number platform allows you to control the charging amperage limit.
