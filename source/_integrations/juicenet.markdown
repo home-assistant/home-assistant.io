@@ -15,6 +15,7 @@ ha_config_flow: true
 ha_platforms:
   - sensor
   - switch
+  - number
 ha_integration_type: integration
 ---
 
