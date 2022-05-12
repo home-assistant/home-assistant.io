@@ -37,9 +37,19 @@ port:
 
 ## Platforms
 
+### Sensor platform
+
+For each device discovered the following sensors are available:
+
+sensor | name | enabled by default | description
+--- | --- | --- | ---
+battery | `{device name} battery` | `true` | battery level of the alarm in %
+device state| `{device name} state` | `true` | device state of the alarm. Possible states are `ALARM`, `FAULT`, `FIRE ALARM`, `NORMAL`, `OFFLINE`, `SILENCE`, `TEST ALARM` and `UNKNOWN`
+signal | `{device name} signal` | `false` | device RF signal of the alarm (can be `0`, `25`, `75` or `100`%)
+
 ### Siren platform
 
-The siren platform should support Fire, Heat, Smoke, Water and CO alarms.
+The siren platform should support Elro Connects Fire, Heat, Smoke, Water and CO alarms.
 When a siren is turned on manually test alarm request will be sent. Turning the siren off will send a `silence` request to the device.
 
 > When the K1 connector receives multiple `test alarm` requests simultaneously only the first siren signal will be processed. To test multiple alarms, make sure to add a few seconds delay between the requests.
