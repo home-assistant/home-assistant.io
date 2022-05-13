@@ -834,8 +834,12 @@ The following integrations are now available via the Home Assistant UI:
 - Fix wrong brightness level change visible in UI ([@rappenze] - [#71655]) ([fibaro docs])
 - Prevent history_stats from rejecting states when microseconds differ ([@bdraco] - [#71704]) ([history_stats docs])
 - Fix zwave_js device automation bug ([@raman325] - [#71715]) ([zwave_js docs])
+- Fix merge conflict with master to dev in sabnzbd (CI fix) ([@bdraco] - [#71605]) ([sabnzbd docs])
+- Add use_wallclock_as_timestamps option to generic ([@uvjustin] - [#71245]) ([generic docs])
+- Changed API for Ukraine Alarm ([@PaulAnnekov] - [#71754]) ([ukraine_alarm docs])
 
 [#70473]: https://github.com/home-assistant/core/pull/70473
+[#71245]: https://github.com/home-assistant/core/pull/71245
 [#71426]: https://github.com/home-assistant/core/pull/71426
 [#71455]: https://github.com/home-assistant/core/pull/71455
 [#71545]: https://github.com/home-assistant/core/pull/71545
@@ -846,12 +850,15 @@ The following integrations are now available via the Home Assistant UI:
 [#71567]: https://github.com/home-assistant/core/pull/71567
 [#71578]: https://github.com/home-assistant/core/pull/71578
 [#71584]: https://github.com/home-assistant/core/pull/71584
+[#71605]: https://github.com/home-assistant/core/pull/71605
 [#71613]: https://github.com/home-assistant/core/pull/71613
 [#71655]: https://github.com/home-assistant/core/pull/71655
 [#71704]: https://github.com/home-assistant/core/pull/71704
 [#71715]: https://github.com/home-assistant/core/pull/71715
+[#71754]: https://github.com/home-assistant/core/pull/71754
 [@AngellusMortis]: https://github.com/AngellusMortis
 [@Kane610]: https://github.com/Kane610
+[@PaulAnnekov]: https://github.com/PaulAnnekov
 [@bachya]: https://github.com/bachya
 [@bdraco]: https://github.com/bdraco
 [@bieniu]: https://github.com/bieniu
@@ -862,9 +869,11 @@ The following integrations are now available via the Home Assistant UI:
 [@rappenze]: https://github.com/rappenze
 [@shaiu]: https://github.com/shaiu
 [@teharris1]: https://github.com/teharris1
+[@uvjustin]: https://github.com/uvjustin
 [cast docs]: /integrations/cast/
 [deconz docs]: /integrations/deconz/
 [fibaro docs]: /integrations/fibaro/
+[generic docs]: /integrations/generic/
 [history_stats docs]: /integrations/history_stats/
 [insteon docs]: /integrations/insteon/
 [logi_circle docs]: /integrations/logi_circle/
@@ -873,6 +882,7 @@ The following integrations are now available via the Home Assistant UI:
 [onvif docs]: /integrations/onvif/
 [sabnzbd docs]: /integrations/sabnzbd/
 [simplisafe docs]: /integrations/simplisafe/
+[ukraine_alarm docs]: /integrations/ukraine_alarm/
 [unifiprotect docs]: /integrations/unifiprotect/
 [zwave_js docs]: /integrations/zwave_js/
 
