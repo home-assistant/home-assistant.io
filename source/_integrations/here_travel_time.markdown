@@ -2,7 +2,6 @@
 title: HERE Travel Time
 description: Instructions on how to add HERE travel time to Home Assistant.
 ha_category:
-  - Sensor
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: '0.100'
@@ -26,28 +25,11 @@ HERE offers a Freemium Plan which includes 250,000 free Transactions per month. 
 
 By default HERE will deactivate your account if you exceed the free Transaction limit for the month. You can add payment details to re-enable your account as described [here](https://knowledge.here.com/csm_kb?id=public_kb_csm_details&number=KB0016434)
 
-### Migrate from app_code to api_key
-
-HERE has changed its authentication mechanism. It is no longer possible to use `app_id` and `app_code`. You need to register an `api_key` as described [here](https://developer.here.com/tutorials/getting-here-credentials/).
-
 ## Configuration
 
 {% include integrations/config_flow.md %}
 
 {% include integrations/option_flow.md %}
-
-{% configuration_basic %}
-Travel Mode:
-  description: "You can choose between: `bicycle`, `car`, `pedestrian`, `publicTransport`, `publicTransportTimeTable` or `truck`. The default is `car`. For public transport `publicTransportTimeTable` is recommended. You can find more information on the modes [here](https://developer.here.com/documentation/routing/topics/transport-modes.html) and on the public modes [here](https://developer.here.com/documentation/routing/topics/public-transport-routing.html)"
-Route Mode:
-  description: "You can choose between: `fastest`, or `shortest`. This will determine whether the route is optimized to be the shortest and completely disregard traffic and speed limits or the fastest route according to the current traffic information. The default is `fastest`"
-Traffic Mode:
-  description: "You can choose between: `true`, or `false`. Decide whether you want to take the current traffic condition into account. Default is `false`."
-Time Type:
-  description: "You can choose between `arrival_time`, the time travel is expected to end and `departure_time`, the time travel is expected to start. A 24 hour time string like `08:00:00`. On a sensor update it will be combined with the current date to get travel time for that moment. `arrival_time` can only be used in combination with Travel Mode `publicTransportTimeTable`"
-Unit System:
-  description: "You can choose between `metric` or `imperial`."
-{% endconfiguration_basic %}
 
 ## Dynamic Configuration
 
