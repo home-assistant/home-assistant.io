@@ -6,6 +6,7 @@ ha_category:
   - Energy
   - Sensor
   - Switch
+  - Number
 ha_iot_class: Cloud Polling
 ha_release: 0.47
 ha_codeowners:
@@ -15,6 +16,7 @@ ha_config_flow: true
 ha_platforms:
   - sensor
   - switch
+  - number
 ha_integration_type: integration
 ---
 
