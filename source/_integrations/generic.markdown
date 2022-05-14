@@ -36,7 +36,7 @@ You can configure additional Generic Camera options for each camera through the 
 | Username | The username for accessing your camera. Note that this username applies only to still_image_url and not to stream_source. |
 | Password | The password for accessing your camera. Note that this password applies only to still_image_url and not to stream_source. |
 | Authentication | Type for authenticating the requests `basic` or `digest`. |
-| Limit refetch to url change | Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image. |
+| Limit refetch to URL change | Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image. |
 | Frame Rate | The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera. |
 | Verify SSL certificate | Enable or disable SSL certificate verification. Set to false to use an http-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification. |
 | RTSP transport protocol | Set the RTSP transport protocol to `tcp`, `udp`, `udp_multicast` or `http`. |
