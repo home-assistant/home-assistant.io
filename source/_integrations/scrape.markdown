@@ -17,6 +17,8 @@ ha_integration_type: integration
 
 The `scrape` sensor platform is scraping information from websites. The sensor loads an HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/), it will most likely only work with simple web pages and it can be time-consuming to get the right section.
 
+Check Beautifulsoup's [CSS selectors](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#css-selectors) for details on how to write a **Select**.
+
 {% include integrations/config_flow.md %}
 
 ## Examples
