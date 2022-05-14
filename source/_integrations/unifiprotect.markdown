@@ -67,7 +67,7 @@ For example, the latest UniFi Protect Early Access version as of `2022.5.4` is U
 
 #### Downgrading UniFi Protect
 
-In the event you accidentally upgrade to an Early Access version of UniFi Protect and it breaks your UniFi Protect Home Assistant integration, you can access your [UniFi OS Console via SSH](https://help.ui.com/hc/en-us/articles/204909374#h_01F8G1NSFWE9GWXMT977VQEP8V) and then do the following:
+In the event you accidentally upgrade to an Early Access version of UniFi Protect and it breaks your UniFi Protect Home Assistant integration, you can access your <a href="https://help.ui.com/hc/en-us/articles/204909374#h_01F8G1NSFWE9GWXMT977VQEP8V" target="_blank" rel="noopener">UniFi OS Console via SSH</a> and then do the following:
 
 ```bash
 # run this command first _only_ if you are on a 1.x firmware of the UDM Pro
@@ -81,7 +81,7 @@ apt-get install --reinstall --allow-downgrades unifi-protect=2.0.0-beta.5 -y
 
 You can replace `2.0.0-beta.5` with whatever version of UniFi Protect you want to downgrade to.
 
-**Note**: if you want to downgrade to another Early Access version, you must have [Remote Access enabled](https://help.ui.com/hc/en-us/articles/115012240067-UniFi-How-to-enable-remote-access) and have the Early Access release channel enabled.
+**Note**: if you want to downgrade to another Early Access version, you must have <a href="https://help.ui.com/hc/en-us/articles/115012240067-UniFi-How-to-enable-remote-access" target="_blank" rel="noopener">Remote Access enabled</a> and have the Early Access release channel enabled.
 
 ### Local User
 
