@@ -67,7 +67,7 @@ For example, the latest UniFi Protect Early Access version as of `2022.5.4` is U
 
 #### Downgrading UniFi Protect
 
-In the event you accidentally upgrade to an Early Access version of UniFi Protect and it breaks your UniFi Protect Home Assistant integration, you can access your <a href="https://help.ui.com/hc/en-us/articles/204909374#h_01F8G1NSFWE9GWXMT977VQEP8V" target="_blank" rel="noopener">UniFi OS Console via SSH</a> and then do the following:
+In the event you accidentally upgrade to an Early Access version of UniFi Protect, and it breaks your UniFi Protect Home Assistant integration, you can access your <a href="https://help.ui.com/hc/en-us/articles/204909374#h_01F8G1NSFWE9GWXMT977VQEP8V" target="_blank" rel="noopener">UniFi OS Console via SSH</a> and then do the following:
 
 ```bash
 # run this command first _only_ if you are on a 1.x firmware of the UDM Pro
