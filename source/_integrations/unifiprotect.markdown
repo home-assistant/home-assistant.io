@@ -54,9 +54,34 @@ UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware v2
 
 ### Software Support
 
-The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported. Since UniFi Protect has its own release cycle, you should only upgrade UniFi Protect _after_ the next Home Assistant release comes out to ensure the new version is fully supported.
+The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
 
-Example: as of `2022.2.0` of Home Assistant, UniFi Protect `1.21.0` is the newest UniFi Protect version. So the recommended versions of UniFi Protect to run for a `2022.2.0` version of Home Assistant are `1.20.0`, `1.20.1`, `1.20.2`, `1.20.3`, `1.21.0`.
+#### About UniFi Early Access
+
+Since UniFi Protect has its own release cycle, you should only upgrade UniFi Protect _after_ the next Home Assistant release to ensure the new version is fully supported. Most importantly, that means **do not use Early Access versions of UniFi Protect if you want your UniFi Protect integration to be stable**. Early Access versions can and will break the UniFi Protect Home Assistant integration in unexpectedly. If you desire to use Early Access versions of UniFi Protect, you can disable automatic updates and wait for the next bugfix version of UniFi Protect to come out.
+
+For example, the latest UniFi Protect Early Access version as of `2022.5.4` is UniFi Protect `2.0.0-beta.5` and the latest Early Access version of UniFi Protect is `2.0.0-beta.7`. So that means:
+
+* **do not** upgrade to `2.0.0-beta.7` until `2022.5.5` or `2022.6.0` comes out
+* the recommended version of UniFi Protect are any `1.21.x` version or `2.0.0-beta` version before `2.0.0-beta.7`
+
+#### Downgrading UniFi Protect
+
+In the event you accidentally upgrade to an Early Access version of UniFi Protect and it breaks your UniFi Protect Home Assistant integration, you can access your <a href="https://help.ui.com/hc/en-us/articles/204909374#h_01F8G1NSFWE9GWXMT977VQEP8V" target="_blank" rel="noopener">UniFi OS Console via SSH</a> and then do the following:
+
+```bash
+# run this command first _only_ if you are on a 1.x firmware of the UDM Pro
+# it is not needed for the UDM SE, UNVR, etc.
+unifi-os shell
+
+# downgrade UniFi Protect
+apt-get update
+apt-get install --reinstall --allow-downgrades unifi-protect=2.0.0-beta.5 -y
+```
+
+You can replace `2.0.0-beta.5` with whatever version of UniFi Protect you want to downgrade to.
+
+**Note**: if you want to downgrade to another Early Access version, you must have <a href="https://help.ui.com/hc/en-us/articles/115012240067-UniFi-How-to-enable-remote-access" target="_blank" rel="noopener">Remote Access enabled</a> and have the Early Access release channel enabled.
 
 ### Local User
 
