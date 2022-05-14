@@ -40,7 +40,7 @@ You can configure additional Generic Camera options for each camera through the 
 | Frame Rate | The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera. |
 | Verify SSL certificate | Enable or disable SSL certificate verification. Set to false to use an http-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification. |
 | RTSP transport protocol | Set the RTSP transport protocol to `tcp`, `udp`, `udp_multicast` or `http`. |
-| Use wallclock as timestamps | (Advanced Mode only) Rewrite the camera timestamps. This may help with playback or crashing issues from WiFi cameras or cameras of certain brands (e.g. EZVIZ). |
+| Use wallclock as timestamps | ([Advanced Mode](https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode) only) Rewrite the camera timestamps. This may help with playback or crashing issues from WiFi cameras or cameras of certain brands (e.g. EZVIZ). |
 
 
 <p class='img'>
