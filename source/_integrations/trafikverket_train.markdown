@@ -35,7 +35,7 @@ Retrieve train departure information from [Trafikverket](https://www.trafikverke
 - Other information / additional texts.
 - Deviations.
 
-Next departure is calculated from actual, estimated and planned to provide most accurate information about departure.
+Next departure is calculated from actual, estimated and planned to provide the most accurate information about departure.
 
 ## Prerequisites
 
