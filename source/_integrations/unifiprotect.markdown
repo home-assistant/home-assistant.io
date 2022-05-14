@@ -206,7 +206,7 @@ Use to dynamically set the message on a Doorbell LCD screen. This service should
 
 ### Service unifiprotect.set_chime_paired_doorbells
 
-Use to set the paired doorbell(s) with a smart chime
+Use to set the paired doorbell(s) with a smart chime.
 
 | Service data attribute | Optional | Description                                                                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
