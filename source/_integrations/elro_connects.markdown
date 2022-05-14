@@ -24,16 +24,11 @@ Make sure the Elro Connects K1 connector connects to a Wi-Fi network where Home 
 
 {% include integrations/config_flow.md %}
 
-{% configuration_basic %}
-connector_id:
-  description: The Connector ID of the Elro Connects K1 connector.  This connector ID can be found in the Elro Connects App at `Home -> Settings -> Current connector`. The connector ID has the format `ST_xxxxxxxxxxxx`.
-host:
-  description: The hostname or IP-address of the Elro Connects K1 connector. Can be changed after setup.
-port:
-  description: The port the Elro Connects K1 connector listens too. Can be changed after setup. The default port for the Elro Connects K1 connector is `1025`.
-{% endconfiguration_basic %}
+The Connector ID of the Elro Connects K1 connector can be found in the Elro Connects App at `Home -> Settings -> Current connector`. The format is `ST_xxxxxxxxxxxx`. The hostname or IP-address and port are related to the Elro Connects K1 connector. They be changed after setup.
 
-> The polling interval to the Elro Connects K1 connector is 15 seconds.
+<div class='note info'>
+The polling interval to the Elro Connects K1 connector is 15 seconds.
+</div>
 
 ## Platforms
 
@@ -41,17 +36,19 @@ port:
 
 For each device discovered the following sensors are available:
 
-sensor | name | enabled by default | description
---- | --- | --- | ---
-battery | `{device name} battery` | `true` | battery level of the alarm in %
-device state| `{device name} state` | `true` | device state of the alarm. Possible states are `ALARM`, `FAULT`, `FIRE ALARM`, `NORMAL`, `OFFLINE`, `SILENCE`, `TEST ALARM` and `UNKNOWN`
-signal | `{device name} signal` | `false` | device RF signal of the alarm (can be `0`, `25`, `75` or `100`%)
+- battery `{device name} battery` showing the battery level of the alarm in %.
+- device_state `{device name} state` showing device state of the alarm. Possible states are `ALARM`, `FAULT`, `FIRE ALARM`, `NORMAL`, `OFFLINE`, `SILENCE`, `TEST ALARM` and `UNKNOWN`.
+- signal `{device name} signal` showing the device RF signal of the alarm (value can be `0`, `25`, `75` or `100`%). This sensor is disabled by default.
 
 ### Siren platform
 
 The siren platform should support Elro Connects Fire, Heat, Smoke, Water and CO alarms.
-When a siren is turned on manually test alarm request will be sent. Turning the siren off will send a `silence` request to the device.
+When a siren is turned on manually `test alarm` request will be sent. Turning the siren off will send a `silence` request to the device.
 
-> When the K1 connector receives multiple `test alarm` requests simultaneously only the first siren signal will be processed. To test multiple alarms, make sure to add a few seconds delay between the requests.
+<div class='note info'>
+When the K1 connector receives multiple test alarm requests simultaneously only the first siren signal will be processed. To test multiple alarms, make sure to add a few seconds delay between the requests.
+</div>
 
-> Not all device types have been fully tested yet. Fire alarm devices are tested should work as expected.
+<div class='note warning'>
+Not all device types have been fully tested yet. Fire alarm devices are tested should work as expected.
+</div>
