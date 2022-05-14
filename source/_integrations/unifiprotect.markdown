@@ -60,7 +60,7 @@ The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you 
 
 Since UniFi Protect has its own release cycle, you should only upgrade UniFi Protect _after_ the next Home Assistant release to ensure the new version is fully supported. Most importantly, that means **do not use Early Access versions of UniFi Protect if you want your UniFi Protect integration to be stable**. Early Access versions can and will break the UniFi Protect Home Assistant integration in unexpectedly. If you desire to use Early Access versions of UniFi Protect, you can disable automatic updates and wait for the next bugfix version of UniFi Protect to come out.
 
-For example, the latest UniFi Protect Early Access version as of `2022.5.4` is UniFi Protect `2.0.0-beta.5`. So that means
+For example, the latest UniFi Protect Early Access version as of `2022.5.4` is UniFi Protect `2.0.0-beta.5` and the latest Early Access version of UniFi Protect is `2.0.0-beta.7`. So that means:
 
 * **do not** upgrade to `2.0.0-beta.7` until `2022.5.5` or `2022.6.0` comes out
 * the recommended version of UniFi Protect are any `1.21.x` version or `2.0.0-beta` version before `2.0.0-beta.7`
