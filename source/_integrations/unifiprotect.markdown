@@ -151,6 +151,13 @@ Each UniFi Protect door lock will get a device in Home Assistant with the follow
 * **Device Configuration** - Door locks will get configuration controls for the Auto-Lock Timeout, selecting the Paired Camera, and Status Light switch
 * **Button** - A disabled by default button is added for each door lock device. The button will let you reboot your door lock device.
 
+### UniFi Protect Smart Chime
+
+Each UniFi Protect smart chime will get a device in Home Assistant with the following:
+
+* **Button** - A button to trigger the chime manually for each smart chime device. Also a disabled by default button is added that will let you reboot your smart chime device.
+* **Device Configuration** - Smart chimes will get a volume slider adjust the loudness of the chime as well as sensor the last time the chime rang.
+
 ### NVR
 
 Your main UniFi Protect NVR device also gets a number of diagnostics sensors that can be used for tracking the state of your UniFi Protect system:
@@ -196,6 +203,15 @@ Use to dynamically set the message on a Doorbell LCD screen. This service should
 | `entity_id`            | No       | The Doorbell Text select entity for your Doorbell.                                                           |
 | `message`              | No       | The message you would like to display on the LCD screen of your Doorbell. Must be less than 30 characters.   |
 | `duration`             | Yes      | Number of minutes to display the message for before returning to the default message. The default is to not expire. |
+
+### Service unifiprotect.set_chime_paired_doorbells
+
+Use to set the paired doorbell(s) with a smart chime
+
+| Service data attribute | Optional | Description                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `entity_id`            | No       | The smart chime you want to pair doorbells with (actually the "Play Chime" button).                          |
+| `doorbells`            | No       | A [target selector](https://www.home-assistant.io/docs/blueprint/selectors/#target-selector) for any number of doorbells you want to pair to the chime. |
 
 ## Troubleshooting
 
