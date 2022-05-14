@@ -17,6 +17,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+  - Update
 ha_release: '2021.2'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -38,6 +39,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - update
 ha_integration_type: integration
 ha_zeroconf: true
 ---
@@ -566,6 +568,11 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 | `trigger.event_source`      | Source of event (node, controller, or driver).                                                                          |
 | `trigger.event`             | Name of event.                                                                        |
 | `trigger.event_data`           | Any data included in the event.                                                                   |
+
+
+## Updating device config files
+
+Z-Wave JS will sometimes update device config files separately from their releases. In order to take advantage of these updates, use the `update` entity that's provided by the integration to check for and install updates.
 
 ## Migrating from previous Z-Wave implementations
 
