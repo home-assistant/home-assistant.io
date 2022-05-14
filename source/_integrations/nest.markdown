@@ -465,7 +465,7 @@ This feature is enabled by the following permissions:
 
 - For general trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting).
 
-- Check **Configuration** then **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
+- Check **Settings** -> **System** -> **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
 
 - *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiugration or your authentication token was revoked by Google for some other reason.
 
@@ -562,7 +562,7 @@ There is currently support for the following device types within Home Assistant:
     * Use "[Home Assistant] [Edit] [For Home Automation]" as the description as it is not super important.
 8. Click "Create Product"
 9. Once the new product page opens the "Product ID" and "Product Secret" are located on the right side. These will be used as `client_id` and `client_secret` below.
-10. Add the Nest integration to your `configuration.yaml` and restart Home Assistant. Then, go to `Configuration > Integrations` and select `CONFIGURE` next to `Nest`. Click the link in the configurator pop up to log into your Nest account and complete the OAuth. Copy the resulting PIN code into the pop up.
+10. Add the Nest integration to your `configuration.yaml` and restart Home Assistant. Then, go to `Settings > Devices & Services` and select `CONFIGURE` next to `Nest`. Click the link in the configurator pop up to log into your Nest account and complete the OAuth. Copy the resulting PIN code into the pop up.
 
 Connecting to the Nest Developer API requires outbound port 9553 on your firewall. The configuration will fail if this is not accessible.
 

@@ -47,7 +47,7 @@ This integration provides the following platforms:
 
 ## Configuration
 
-Enable the `BMW Connected Drive` integration via **Configuration** > **Devices & Services**.
+Enable the `BMW Connected Drive` integration via **Settings** -> **Devices & Services**.
 
 <div class='note'>
 
@@ -129,9 +129,9 @@ The `button.<your_vehicle>_find_vehicle` button requests the vehicle to update t
 
 </div>
 
-### Update the state / refresh from API
+### Update the state / refresh from cloud
 
-The `button.<vehicle_model>_refresh_from_api` button fetches the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle; it gets the data from the BMW servers. So this service does *not* interact with your vehicles.
+The `button.<vehicle_model>_refresh_from_cloud` button fetches the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle; it gets the data from the BMW servers. So this service does *not* interact with your vehicles.
 
 ## Disclaimer
 

@@ -15,6 +15,7 @@ ha_platforms:
   - media_player
   - number
   - select
+  - switch
 ha_integration_type: integration
 ---
 
@@ -97,6 +98,25 @@ The following entities will be added, if they are supported by the MusicCast dev
   - Some devices support compressed audio for groups
 - Link Audio Quality (configuration, zone level)
   - Set the audio quality for grouped speakers
+
+### Switch Entities
+The following entities will be added, if they are supported by the MusicCast device:
+- Speaker A (configuration, device level)
+  - A switch to turn on the speaker set A
+- Speaker B (configuration, device level)
+  - A switch to turn on the speaker set B
+- Party Mode (configuration, device level)
+  - Lets all zones play the same content like the main zone
+- Bass Extension (configuration, zone level)
+  - Extend the bass to more speakers (especially useful in configurations without a subwoofer)
+- Extra Bass (configuration, zone level)
+  - Seems to be the same as bass extension, but on other devices
+- Enhancer (configuration, zone level)
+  - Enhances compressed audio formats
+- Pure Direct (configuration, zone level)
+  - Lets the device play the audio directly without any additional processing
+- Adaptive DRC (configuration, zone level)
+  - Adjusts the volume of high and low frequency levels for better sound at low volume
 
 ## Troubleshooting
 

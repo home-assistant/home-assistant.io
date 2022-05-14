@@ -61,6 +61,9 @@ Enjoy the release!
 - [Release 2022.4.2 - April 11](#release-202242---april-11)
 - [Release 2022.4.3 - April 12](#release-202243---april-12)
 - [Release 2022.4.4 - April 14](#release-202244---april-14)
+- [Release 2022.4.5 - April 16](#release-202245---april-16)
+- [Release 2022.4.6 - April 20](#release-202246---april-20)
+- [Release 2022.4.7 - April 24](#release-202247---april-24)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -897,6 +900,139 @@ The following integrations are now available via the Home Assistant UI:
 [stream docs]: /integrations/stream/
 [tomorrowio docs]: /integrations/tomorrowio/
 [zha docs]: /integrations/zha/
+
+## Release 2022.4.5 - April 16
+
+- Fix retry when Met config entry fails ([@chemelli74] - [#70012]) ([met docs])
+- Set source & sound mode at start in media player reproduce state ([@thecode] - [#70064]) ([media_player docs])
+- Limit Supervisor refresh updates ([@ludeeus] - [#70075]) ([hassio docs])
+- Correct tomorrowio weather units ([@raman325] - [#70107]) ([tomorrowio docs])
+- update xknx to 0.20.3 ([@farmio] - [#70123]) ([knx docs]) (dependency)
+- Bump pymazda to 0.3.3 ([@bdr99] - [#70136]) ([mazda docs]) (dependency)
+- Ensure powerwall retries setup when api returns too many requests ([@bdraco] - [#70143]) ([powerwall docs])
+- Fix StationInfo not string in Trafikverket Train ([@gjohansson-ST] - [#70153]) ([trafikverket_train docs])
+
+[#70012]: https://github.com/home-assistant/core/pull/70012
+[#70064]: https://github.com/home-assistant/core/pull/70064
+[#70075]: https://github.com/home-assistant/core/pull/70075
+[#70107]: https://github.com/home-assistant/core/pull/70107
+[#70123]: https://github.com/home-assistant/core/pull/70123
+[#70136]: https://github.com/home-assistant/core/pull/70136
+[#70143]: https://github.com/home-assistant/core/pull/70143
+[#70153]: https://github.com/home-assistant/core/pull/70153
+[@bdr99]: https://github.com/bdr99
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@farmio]: https://github.com/farmio
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@ludeeus]: https://github.com/ludeeus
+[@raman325]: https://github.com/raman325
+[@thecode]: https://github.com/thecode
+[hassio docs]: /integrations/hassio/
+[knx docs]: /integrations/knx/
+[mazda docs]: /integrations/mazda/
+[media_player docs]: /integrations/media_player/
+[met docs]: /integrations/met/
+[powerwall docs]: /integrations/powerwall/
+[tomorrowio docs]: /integrations/tomorrowio/
+[trafikverket_train docs]: /integrations/trafikverket_train/
+
+## Release 2022.4.6 - April 20
+
+- Fix bug in google calendar offset calculation (#70024) ([@allenporter] - [#70166]) ([google docs])
+- Improve roon integraton ([@pavoni] - [#66000]) ([roon docs])
+- Fix opening/closing for awning in Overkiz integration ([@tetienne] - [#68890]) ([overkiz docs])
+- Move handling of non-secure login to the elkm1 library ([@bdraco] - [#69483]) ([elkm1 docs])
+- Fix file size last_updated ([@chemelli74] - [#70114]) ([filesize docs])
+- Revert zigpy-zigate to 0.7.4 ([@doudz] - [#70184]) ([zha docs])
+- Fix handling of powerview stale state ([@bdraco] - [#70195]) ([hunterdouglas_powerview docs])
+- Auto set content type for stream-only in generic camera ([@davet2001] - [#70200]) ([generic docs])
+- Hide credentials from generated titles in generic camera ([@davet2001] - [#70204]) ([generic docs])
+- Bump aiodiscover to 1.4.9 ([@bdraco] - [#70213]) ([dhcp docs])
+- Screenlogic config: Filter unexpected host names ([@dieselrabbit] - [#70256]) ([screenlogic docs])
+- Fix handling unassigned areas in lutron_caseta ([@bdraco] - [#70258]) ([lutron_caseta docs])
+- Fix updating CameraZone coords for UniFi Protect ([@AngellusMortis] - [#70260]) ([unifiprotect docs])
+- Add Insteon USB discovery ([@balloob] - [#70306]) ([insteon docs])
+- Bump aiohomekit to 0.7.17 ([@bdraco] - [#70313]) ([homekit_controller docs])
+- Fix #69952: Daikin AC Temperature jumps after being set ([@vanackej] - [#70326]) ([daikin docs])
+
+[#66000]: https://github.com/home-assistant/core/pull/66000
+[#68890]: https://github.com/home-assistant/core/pull/68890
+[#69483]: https://github.com/home-assistant/core/pull/69483
+[#70114]: https://github.com/home-assistant/core/pull/70114
+[#70166]: https://github.com/home-assistant/core/pull/70166
+[#70184]: https://github.com/home-assistant/core/pull/70184
+[#70195]: https://github.com/home-assistant/core/pull/70195
+[#70200]: https://github.com/home-assistant/core/pull/70200
+[#70204]: https://github.com/home-assistant/core/pull/70204
+[#70213]: https://github.com/home-assistant/core/pull/70213
+[#70256]: https://github.com/home-assistant/core/pull/70256
+[#70258]: https://github.com/home-assistant/core/pull/70258
+[#70260]: https://github.com/home-assistant/core/pull/70260
+[#70306]: https://github.com/home-assistant/core/pull/70306
+[#70313]: https://github.com/home-assistant/core/pull/70313
+[#70326]: https://github.com/home-assistant/core/pull/70326
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@davet2001]: https://github.com/davet2001
+[@dieselrabbit]: https://github.com/dieselrabbit
+[@doudz]: https://github.com/doudz
+[@pavoni]: https://github.com/pavoni
+[@tetienne]: https://github.com/tetienne
+[@vanackej]: https://github.com/vanackej
+[daikin docs]: /integrations/daikin/
+[dhcp docs]: /integrations/dhcp/
+[elkm1 docs]: /integrations/elkm1/
+[filesize docs]: /integrations/filesize/
+[generic docs]: /integrations/generic/
+[google docs]: /integrations/google/
+[homekit_controller docs]: /integrations/homekit_controller/
+[hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
+[insteon docs]: /integrations/insteon/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[overkiz docs]: /integrations/overkiz/
+[roon docs]: /integrations/roon/
+[screenlogic docs]: /integrations/screenlogic/
+[unifiprotect docs]: /integrations/unifiprotect/
+[zha docs]: /integrations/zha/
+
+## Release 2022.4.7 - April 24
+
+- Fixed syntax error in ALTER TABLE statement (#70304) ([@dmak] - [#70336]) ([recorder docs])
+- Update xknx to version 0.20.4 ([@marvin-w] - [#70342]) ([knx docs])
+- Bump aiodiscover to 1.4.10 ([@bdraco] - [#70348]) ([dhcp docs])
+- Bump zwave-js-server-python to 0.35.3 ([@raman325] - [#70357]) ([zwave_js docs])
+- Bump pyplaato to 0.0.18 ([@JohNan] - [#70391]) ([plaato docs])
+- Bump aiodiscover to 1.4.11 ([@bdraco] - [#70413]) ([dhcp docs])
+- Ensure rainmachine creates config entry titles as strings ([@bdraco] - [#70417]) ([rainmachine docs])
+- Fix history not including start time state ([@bdraco] - [#70447]) ([recorder docs])
+- Daikin AC : Round to nearest half degree (#70446) ([@vanackej] - [#70452]) ([daikin docs])
+
+[#70336]: https://github.com/home-assistant/core/pull/70336
+[#70342]: https://github.com/home-assistant/core/pull/70342
+[#70348]: https://github.com/home-assistant/core/pull/70348
+[#70357]: https://github.com/home-assistant/core/pull/70357
+[#70391]: https://github.com/home-assistant/core/pull/70391
+[#70413]: https://github.com/home-assistant/core/pull/70413
+[#70417]: https://github.com/home-assistant/core/pull/70417
+[#70447]: https://github.com/home-assistant/core/pull/70447
+[#70452]: https://github.com/home-assistant/core/pull/70452
+[@JohNan]: https://github.com/JohNan
+[@bdraco]: https://github.com/bdraco
+[@dmak]: https://github.com/dmak
+[@marvin-w]: https://github.com/marvin-w
+[@raman325]: https://github.com/raman325
+[@vanackej]: https://github.com/vanackej
+[daikin docs]: /integrations/daikin/
+[dhcp docs]: /integrations/dhcp/
+[knx docs]: /integrations/knx/
+[plaato docs]: /integrations/plaato/
+[rainmachine docs]: /integrations/rainmachine/
+[recorder docs]: /integrations/recorder/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## Need help? Join the community!
 

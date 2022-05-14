@@ -6,6 +6,7 @@ ha_category:
   - Energy
   - Sensor
   - Switch
+  - Number
 ha_iot_class: Cloud Polling
 ha_release: 0.47
 ha_codeowners:
@@ -15,6 +16,7 @@ ha_config_flow: true
 ha_platforms:
   - sensor
   - switch
+  - number
 ha_integration_type: integration
 ---
 
@@ -37,3 +39,11 @@ These sensors will be added for each JuiceNet device in your account:
 - Watts
 - Charge time of session
 - Energy added this session
+
+## Switch
+
+The `juicenet` switch platform allows you to override the charging schedule for your JuiceNet device.
+
+## Number
+
+The `juicenet` number platform allows you to control the charging amperage limit.

@@ -33,7 +33,7 @@ Finally, click Finish. Now you're brought to the Home Assistant web interface. T
 The Home Assistant user interface.
 </p>
 
-Click on Configuration in the sidebar on the left. On the next screen, click on Integrations. At this screen you will be able to set up integrations with Home Assistant. You might notice a "discovered" section. This section contains integrations that were found on your network and can easily be added with a few clicks. If your integrations are not discovered, click the + button in the lower right and search for your integration in that list.
+Click on "Configuration" in the sidebar on the left. On the next screen, click on "Devices & Services". At this screen you will be able to set up integrations with Home Assistant. You might notice a "discovered" section. This section contains integrations that were found on your network and can easily be added with a few clicks. If your integrations are not discovered, click the "Add integration" button in the lower right and search for your integration in that list.
 
 <p class='img'>
 <img src='/images/getting-started/integrations.png' />

@@ -19,6 +19,12 @@ The `scrape` sensor platform is scraping information from websites. The sensor l
 
 Check Beautifulsoup's [CSS selectors](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#css-selectors) for details on how to write a **Select**.
 
+If you are not using Home Assistant Container or Home Assistant Operating System, this integration requires `libxml2` to be installed. On Debian based installs, run:
+
+```bash
+sudo apt install libxml2
+```
+
 {% include integrations/config_flow.md %}
 
 ## Examples
