@@ -17,9 +17,9 @@ We are going to help you make your first changes to `configuration.yaml`. To do 
 
 Under the "Official add-ons" section you will find the File editor add-on.
 
- - Click on File Editor and click on INSTALL. When installation is complete, the UI will go to the add-on details page for the file editor.
- - Now start the add-on by clicking on START.
- - Open the user interface by clicking on OPEN WEB UI.
+ - Click on File Editor and click on **Install**. When installation is complete, the UI will go to the add-on details page for the file editor.
+ - Now start the add-on by clicking on **Start**.
+ - Open the user interface by clicking on **Open Web UI**.
 
 Now let's make a change using the file editor: we are going to change the name, location, unit system, and time zone of your Home Assistant installation.
 
@@ -41,8 +41,8 @@ Now let's make a change using the file editor: we are going to change the name, 
 </div>
 
  - Click the save icon in the top right to commit changes.
- - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a configuration check. Do this by clicking on Configuration in the sidebar, click on "Settings", "Server Controls" and click on the "CHECK configuration" button. When it's valid, it will show the text "Configuration valid!". In order for the "CHECK configuration" button to be visible, you must enable "Advanced Mode" on your user profile.
- - Now Restart Home Assistant using the "RESTART" button in the Server management section on the same page.
+ - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a configuration check. Do this by clicking on Configuration in the sidebar, click on `Developer-Tools -> YAML` and click on the **Check configuration** button. When it's valid, it will show the text "Configuration valid!". In order for the **Check Configuration**" button to be visible, you must enable "Advanced Mode" on your user profile.
+ - Now Restart Home Assistant using the **Restart** button in the Server management section on the same page.
 
 ![Screenshot of the "General" page in the configuration panel.](/images/screenshots/configuration-validation.png)
 
