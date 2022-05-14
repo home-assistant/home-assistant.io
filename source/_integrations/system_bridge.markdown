@@ -18,7 +18,7 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-[System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API/WebSocket. You can also send commands to be to the device such as opening a file or sending keyboard keypresses.
+[System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API/WebSocket. You can also send commands to be to the device such as opening a URL or sending keyboard keypresses.
 
 ## Prerequisites
 
