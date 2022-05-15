@@ -58,7 +58,7 @@ The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you 
 
 #### About UniFi Early Access
 
-Since UniFi Protect has its own release cycle, you should only upgrade UniFi Protect _after_ the next Home Assistant release to ensure the new version is fully supported. Most importantly, that means **do not use Early Access versions of UniFi Protect if you want your UniFi Protect integration to be stable**. Early Access versions can and will break the UniFi Protect Home Assistant integration in unexpectedly. If you desire to use Early Access versions of UniFi Protect, you can disable automatic updates and wait for the next bugfix version of UniFi Protect to come out.
+Since UniFi Protect has its own release cycle, you should only upgrade UniFi Protect _after_ the next Home Assistant release to ensure the new version is fully supported. Most importantly, that means **do not use Early Access versions of UniFi Protect if you want your UniFi Protect integration to be stable**. Early Access versions can and will break the UniFi Protect Home Assistant integration unexpectedly. If you desire to use Early Access versions of UniFi Protect, you can disable automatic updates and wait for the next bugfix version of UniFi Protect to come out.
 
 For example, the latest UniFi Protect Early Access version as of `2022.5.4` is UniFi Protect `2.0.0-beta.5` and the latest Early Access version of UniFi Protect is `2.0.0-beta.7`. So that means:
 
@@ -76,7 +76,7 @@ unifi-os shell
 
 # downgrade UniFi Protect
 apt-get update
-apt-get install --reinstall --allow-downgrades unifi-protect=2.0.0-beta.5 -y
+apt-get install --reinstall --allow-downgrades unifi-protect=2.0.0~beta.5 -y
 ```
 
 You can replace `2.0.0-beta.5` with whatever version of UniFi Protect you want to downgrade to.
