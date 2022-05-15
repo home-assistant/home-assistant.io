@@ -45,11 +45,11 @@ Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instanc
 
 | Field | Entry |
 | --- | --- |
-| Command | 'netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")' |
-| Name | "sickragerunning" |
+| Command | {%raw%}netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running"){%endraw%} |
+| Name | sickragerunning |
 | Device class | moving |
-| Payload on | "Running" |
-| Payload off | "Not running" | 
+| Payload on | Running |
+| Payload off | Not running | 
 
 ### Check RasPlex
 
@@ -57,8 +57,8 @@ Check if [RasPlex](https://github.com/RasPlex/RasPlex) is `online`.
 
 | Field | Entry |
 | --- | --- |
-| Command | 'ping -c 1 rasplex.local | grep "1 received" | wc -l' |
-| Name | "is_rasplex_online" |
+| Command | {%raw%}ping -c 1 rasplex.local | grep "1 received" | wc -l{%endraw%} |
+| Name | is_rasplex_online |
 | Device class | connectivity |
 | Payload on | 1 |
 | Payload off | 0 |
@@ -68,10 +68,10 @@ An alternative solution could look like this:
 | Field | Entry |
 | --- | --- |
 | Name | Printer
-| Command | 'ping -W 1 -c 1 192.168.1.10 > /dev/null 2>&1 && echo success || echo fail' |
+| Command | {%raw%}ping -W 1 -c 1 192.168.1.10 > /dev/null 2>&1 && echo success || echo fail{%endraw%} |
 | Device class | connectivity |
-| Payload on | "success" |
-| Payload off | "fail" |
+| Payload on | success |
+| Payload off | fail |
 
 Consider to use the [ping sensor](/integrations/ping#binary-sensor) as an alternative to the samples above.
 
@@ -91,6 +91,6 @@ A binary command line sensor can check this:
 
 | Field | Entry |
 | --- | --- |
-| Command | '/bin/systemctl is-active home-assistant@rock64.service' |
-| Payload on | "active" |
-| Payload off | "inactive" |
+| Command | {%raw%}/bin/systemctl is-active home-assistant@rock64.service{%endraw%} |
+| Payload on | active |
+| Payload off | inactive |
