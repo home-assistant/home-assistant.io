@@ -45,7 +45,7 @@ Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instanc
 
 | Field | Entry |
 | --- | --- |
-| Command | {% raw %} netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running") {% endraw %} |
+| Command | {% raw %}`netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")`{% endraw %} |
 | Name | sickragerunning |
 | Device class | moving |
 | Payload on | Running |
@@ -57,7 +57,7 @@ Check if [RasPlex](https://github.com/RasPlex/RasPlex) is `online`.
 
 | Field | Entry |
 | --- | --- |
-| Command | {% raw %} ping -c 1 rasplex.local | grep "1 received" | wc -l {% endraw %} |
+| Command | {% raw %}`ping -c 1 rasplex.local | grep "1 received" | wc -l`{% endraw %} |
 | Name | is_rasplex_online |
 | Device class | connectivity |
 | Payload on | 1 |
@@ -68,7 +68,7 @@ An alternative solution could look like this:
 | Field | Entry |
 | --- | --- |
 | Name | Printer
-| Command | {% raw %} ping -W 1 -c 1 192.168.1.10 > /dev/null 2>&1 && echo success || echo fail {% endraw %} |
+| Command | {% raw %}`ping -W 1 -c 1 192.168.1.10 > /dev/null 2>&1 && echo success || echo fail`{% endraw %} |
 | Device class | connectivity |
 | Payload on | success |
 | Payload off | fail |
@@ -91,6 +91,6 @@ A binary command line sensor can check this:
 
 | Field | Entry |
 | --- | --- |
-| Command | {% raw %} /bin/systemctl is-active home-assistant@rock64.service {% endraw %} |
+| Command | {% raw %}`/bin/systemctl is-active home-assistant@rock64.service`{% endraw %} |
 | Payload on | active |
 | Payload off | inactive |
