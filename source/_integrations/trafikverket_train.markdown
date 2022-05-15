@@ -28,14 +28,14 @@ Retrieve train departure information from [Trafikverket](https://www.trafikverke
 
 - Next departure for the specific train line.
 - Canceled status.
-- Delayed time
+- Delayed time.
 - Planned time if no delays occur.
 - Estimated time of arrival if delays occur.
 - Actual time - when it did arrive.
 - Other information / additional texts.
 - Deviations.
 
-Next departure is calculated from actual, estimated and planned to provide the most accurate information about departure.
+The next departure is calculated from actual, estimated, and planned to provide the most accurate information about departure.
 
 ## Prerequisites
 
