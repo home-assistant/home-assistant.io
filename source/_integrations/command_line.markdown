@@ -9,7 +9,7 @@ ha_iot_class: Local Polling
 ha_domain: command_line
 ha_codeowners:
   - '@gjohansson-ST'
- ha_config_flow: true
+ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - cover
@@ -45,11 +45,11 @@ Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instanc
 
 | Field | Entry |
 | --- | --- |
-| command | 'netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")' |
-| name | "sickragerunning" |
-| device_class | moving |
-| payload_on | "Running" |
-| payload_off | "Not running" ||| | |  
+| Command | 'netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")' |
+| Name | "sickragerunning" |
+| Device class | moving |
+| Payload on | "Running" |
+| Payload off | "Not running" | 
 
 ### Check RasPlex
 
@@ -57,21 +57,21 @@ Check if [RasPlex](https://github.com/RasPlex/RasPlex) is `online`.
 
 | Field | Entry |
 | --- | --- |
-| command | 'ping -c 1 rasplex.local | grep "1 received" | wc -l' |
-| name | "is_rasplex_online" |
-| device_class | connectivity |
-| payload_on | 1 |
-| payload_off | 0 |
+| Command | 'ping -c 1 rasplex.local | grep "1 received" | wc -l' |
+| Name | "is_rasplex_online" |
+| Device class | connectivity |
+| Payload on | 1 |
+| Payload off | 0 |
 
 An alternative solution could look like this:
 
 | Field | Entry |
 | --- | --- |
-| name | Printer
-| command | 'ping -W 1 -c 1 192.168.1.10 > /dev/null 2>&1 && echo success || echo fail' |
-| device_class | connectivity |
-| payload_on | "success" |
-| payload_off | "fail" |
+| Name | Printer
+| Command | 'ping -W 1 -c 1 192.168.1.10 > /dev/null 2>&1 && echo success || echo fail' |
+| Device class | connectivity |
+| Payload on | "success" |
+| Payload off | "fail" |
 
 Consider to use the [ping sensor](/integrations/ping#binary-sensor) as an alternative to the samples above.
 
@@ -91,6 +91,6 @@ A binary command line sensor can check this:
 
 | Field | Entry |
 | --- | --- |
-| command | '/bin/systemctl is-active home-assistant@rock64.service' |
-| payload_on | "active" |
-| payload_off | "inactive" |
+| Command | '/bin/systemctl is-active home-assistant@rock64.service' |
+| Payload on | "active" |
+| Payload off | "inactive" |
