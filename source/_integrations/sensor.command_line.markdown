@@ -40,9 +40,9 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
 | Field | Entry |
 | --- | --- |
 | Name | CPU Temperature |
-| Command | {%raw%}cat /sys/class/thermal/thermal_zone0/temp{%endraw%} |
+| Command | {% raw %} cat /sys/class/thermal/thermal_zone0/temp {% endraw %} |
 | Unit of Measurement | °C |
-| Value template | {%raw%}{{ value | multiply(0.001) | round(1) }}{%endraw%} |
+| Value template | {% raw %} {{ value | multiply(0.001) | round(1) }} {% endraw %} |
 
 ### Monitoring failed login attempts on Home Assistant
 
@@ -51,7 +51,7 @@ If you'd like to know how many failed login attempts are made to Home Assistant,
 | Field | Entry |
 | --- | --- |
 | Name | badlogin |
-| Command | {%raw%}grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log{%endraw%} |
+| Command | {% raw %} grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log {% endraw %} |
 
 Make sure to configure the [Logger integration](/integrations/logger) to monitor the [HTTP integration](/integrations/http/) at least the `warning` level.
 
@@ -69,7 +69,7 @@ You can see directly in the frontend (**Developer tools** -> **About**) what rel
 
 | Field | Entry |
 | --- | --- |
-| Command | {%raw%}python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"{%endraw%} |
+| Command | {% raw %} python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])" {% endraw %} |
 | Name | HA release |
 
 ### Read value out of a remote text file
@@ -78,7 +78,7 @@ If you own devices which are storing values in text files which are accessible o
 
 | Field | Entry |
 | --- | --- |
-| Command | {%raw%}python3 -c "import requests; print(requests.get('http://remote-host/sensor_data.txt').text)"{%endraw%} |
+| Command | {% raw %} python3 -c "import requests; print(requests.get('http://remote-host/sensor_data.txt').text)" {% endraw %} |
 | Name | File value |
 
 ### Use an external script
@@ -106,7 +106,7 @@ To use the script you need to add something like this as entry.
 | Field | Entry |
 | --- | --- |
 | Name | Brightness |
-| Command | {%raw%}python3 /path/to/script/arest-value.py{%endraw%} |
+| Command | {% raw %} python3 /path/to/script/arest-value.py {% endraw %} |
 
 ### Usage of templating in `command:`
 
@@ -115,7 +115,7 @@ To use the script you need to add something like this as entry.
 | Field | Entry |
 | --- | --- |
 | Name | wind direction |
-| Command | {%raw%}"sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states('sensor.wind_direction') }}"{%endraw%} |
+| Command | {% raw %} "sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states('sensor.wind_direction') }}" {% endraw %} |
 | Unit of Measurement | Direction |
 
 
@@ -127,5 +127,5 @@ The example shows how you can retrieve multiple values with one sensor (where th
 | --- | --- |
 | Name | JSON time |
 | JSON attributes | date, milliseconds_since_epoch |
-| Command | {%raw%}python3 /home/pi/.homeassistant/scripts/datetime.py{%endraw%} |
-| Value template | {%raw%}{{ value_json.time }}{%endraw%} |
+| Command | {% raw %} python3 /home/pi/.homeassistant/scripts/datetime.py {% endraw %} |
+| Value template | {% raw %} {{ value_json.time }} {% endraw %} |
