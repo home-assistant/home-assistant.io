@@ -5,7 +5,7 @@ ha_category:
   - Alarm
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_release: '2021.5'
+ha_release: '2022.5.4'
 ha_domain: ialarmxr
 ha_codeowners:
   - '@bigmoby'
