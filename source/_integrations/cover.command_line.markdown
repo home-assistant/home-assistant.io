@@ -27,4 +27,4 @@ In this section you find some real-life examples of how to use this sensor.
 | Command close | move_command down garage |
 | Command stop | move_command stop garage |
 | Command state | state_command garage |
-| Value template | {%raw%}{% if value == 'open' %} 100 {% elif value == 'closed' %} 0 {% endif %}{%endraw%} |
+| Value template | {% raw %} {% if value == 'open' %} 100 {% elif value == 'closed' %} 0 {% endif %} {% endraw %} |
