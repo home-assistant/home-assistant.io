@@ -29,11 +29,11 @@ This example demonstrates how to use template to change the icon as its state ch
 | Field | Entry |
 | --- | --- |
 | Name | Driveway buiten sensor |
-| Command on | {%raw%}curl -X PUT -d '{"on":true}' "http://ip_address/api/sensors/27/config/"{%endraw%} |
-| Command off | {%raw%}curl -X PUT -d '{"on":false}' "http://ip_address/api/sensors/27/config/"{%endraw%} |
-| Command state | {%raw%}curl http://ip_address/api/sensors/27/{%endraw%} |
-| Value template | {%raw%}{{value_json.config.on}}{%endraw%} |
-| Icon template | {%raw%}{% if value_json.config.on == true %} mdi:toggle-switch {% else %} mdi:toggle-switch-off {% endif %}{%endraw%} |
+| Command on | {% raw %} curl -X PUT -d '{"on":true}' "http://ip_address/api/sensors/27/config/" {% endraw %} |
+| Command off | {% raw %} curl -X PUT -d '{"on":false}' "http://ip_address/api/sensors/27/config/" {% endraw %} |
+| Command state | {% raw %} curl http://ip_address/api/sensors/27/ {% endraw %} |
+| Value template | {% raw %} {{value_json.config.on}} {% endraw %} |
+| Icon template | {% raw %} {% if value_json.config.on == true %} mdi:toggle-switch {% else %} mdi:toggle-switch-off {% endif %} {% endraw %} |
 
 
 ### aREST device
@@ -45,10 +45,10 @@ which is controllable through REST.
 
 | Field | Entry |
 | --- | --- |
-| Command on | {%raw%}/usr/bin/curl -X GET http://192.168.1.10/digital/4/1{%endraw%} |
-| Command off | {%raw%}/usr/bin/curl -X GET http://192.168.1.10/digital/4/0{%endraw%} |
-| Command state | {%raw%}/usr/bin/curl -X GET http://192.168.1.10/digital/4{%endraw%} |
-| Value template | {%raw%}{{ value == "1" }}{%endraw%} |
+| Command on | {% raw %} /usr/bin/curl -X GET http://192.168.1.10/digital/4/1 {% endraw %} |
+| Command off | {% raw %} /usr/bin/curl -X GET http://192.168.1.10/digital/4/0 {% endraw %} |
+| Command state | {% raw %} /usr/bin/curl -X GET http://192.168.1.10/digital/4 {% endraw %} |
+| Value template | {% raw %} {{ value == "1" }} {% endraw %} |
 | Name | Kitchen Lightswitch |
 
 
@@ -67,7 +67,7 @@ This switch will shutdown your host immediately, there will be no confirmation.
 
 | Field | Entry |
 | --- | --- |
-| Command off | {%raw%}/usr/sbin/poweroff{%endraw%} |
+| Command off | {% raw %} /usr/sbin/poweroff {% endraw %} |
 
 ### Control your VLC player
 
@@ -76,8 +76,8 @@ This switch will control a local VLC media player
 
 | Field | Entry |
 | --- | --- |
-| Command on | {%raw%}cvlc 1.mp3 vlc://quit &{%endraw%} |
-| Command off | {%raw%}pkill vlc{%endraw%} |
+| Command on | {% raw %} cvlc 1.mp3 vlc://quit & {% endraw %} |
+| Command off | {% raw %} pkill vlc {% endraw %} |
 
 ### Control Foscam Motion Sensor
 
@@ -88,10 +88,10 @@ which checks the current state of motion detection.
 
 | Field | Entry |
 | --- | --- |
-| Command on | {%raw%}curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"{%endraw%} |
-| Command off | {%raw%}curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"{%endraw%} |
-| Command state | {%raw%}curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"{%endraw%} |
-| Value template | {%raw%}{{ value == "1" }}{%endraw%} |
+| Command on | {% raw %} curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password" {% endraw %} |
+| Command off | {% raw %} curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password" {% endraw %} |
+| Command state | {% raw %} curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)" {% endraw %} |
+| Value template | {% raw %} {{ value == "1" }} {% endraw %} |
 
 - Replace admin and password with an "Admin" privileged Foscam user
 - Replace ipaddress with the local IP address of your Foscam
