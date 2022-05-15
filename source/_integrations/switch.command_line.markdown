@@ -29,11 +29,11 @@ This example demonstrates how to use template to change the icon as its state ch
 | Field | Entry |
 | --- | --- |
 | Name | Driveway buiten sensor |
-| command_on | curl -X PUT -d '{"on":true}' "http://ip_address/api/sensors/27/config/" |
-| command_off | curl -X PUT -d '{"on":false}' "http://ip_address/api/sensors/27/config/" |
-| command_state | curl http://ip_address/api/sensors/27/ |
-| value_template | {{value_json.config.on}} |
-| icon_template | {% if value_json.config.on == true %} mdi:toggle-switch {% else %} mdi:toggle-switch-off {% endif %} |
+| Command on | curl -X PUT -d '{"on":true}' "http://ip_address/api/sensors/27/config/" |
+| Command off | curl -X PUT -d '{"on":false}' "http://ip_address/api/sensors/27/config/" |
+| Command state | curl http://ip_address/api/sensors/27/ |
+| Value template | {%raw%}{{value_json.config.on}}{%endraw%} |
+| Icon template | {%raw%}{% if value_json.config.on == true %} mdi:toggle-switch {% else %} mdi:toggle-switch-off {% endif %}{%endraw%} |
 
 
 ### aREST device
@@ -45,10 +45,10 @@ which is controllable through REST.
 
 | Field | Entry |
 | --- | --- |
-| command_on | "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1" |
-| command_off | "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0" |
-| command_state | "/usr/bin/curl -X GET http://192.168.1.10/digital/4" |
-| value_template | '{{ value == "1" }}' |
+| Command on | "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1" |
+| Command off | "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0" |
+| Command state | "/usr/bin/curl -X GET http://192.168.1.10/digital/4" |
+| Value template | {%raw%}{{ value == "1" }}{%endraw%} |
 | Name | Kitchen Lightswitch |
 
 
@@ -67,7 +67,7 @@ This switch will shutdown your host immediately, there will be no confirmation.
 
 | Field | Entry |
 | --- | --- |
-| command_off | "/usr/sbin/poweroff" |
+| Command off | "/usr/sbin/poweroff" |
 
 ### Control your VLC player
 
@@ -76,8 +76,8 @@ This switch will control a local VLC media player
 
 | Field | Entry |
 | --- | --- |
-| command_on | "cvlc 1.mp3 vlc://quit &" |
-| command_off | "pkill vlc" |
+| Command on | "cvlc 1.mp3 vlc://quit &" |
+| Command off | "pkill vlc" |
 
 ### Control Foscam Motion Sensor
 
@@ -88,10 +88,10 @@ which checks the current state of motion detection.
 
 | Field | Entry |
 | --- | --- |
-| command_on | 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"' |
-| command_off | 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"' |
-| command_state | 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"' |
-| value_template | '{{ value == "1" }}' |
+| Command on | 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"' |
+| Command off | 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"' |
+| Command state | 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"' |
+| Value template | {%raw%}{{ value == "1" }}{%endraw%} |
 
 - Replace admin and password with an "Admin" privileged Foscam user
 - Replace ipaddress with the local IP address of your Foscam
