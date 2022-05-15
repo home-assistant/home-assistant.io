@@ -23,8 +23,8 @@ In this section you find some real-life examples of how to use this sensor.
 
 | Field | Entry |
 | --- | --- |
-| command_open | move_command up garage |
-| command_close | move_command down garage |
-| command_stop | move_command stop garage |
-| command_state | state_command garage |
-| value_template | {% if value == 'open' %} 100 {% elif value == 'closed' %} 0 {% endif %} |
+| Command open | move_command up garage |
+| Command close | move_command down garage |
+| Command stop | move_command stop garage |
+| Command state | state_command garage |
+| Value template | {%raw%}{% if value == 'open' %} 100 {% elif value == 'closed' %} 0 {% endif %}{%endraw%} |
