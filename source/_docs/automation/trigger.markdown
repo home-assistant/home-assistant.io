@@ -23,6 +23,7 @@ An automation can be triggered by an event, with a certain entity state, at a gi
 - [Zone trigger](#zone-trigger)
 - [Geolocation trigger](#geolocation-trigger)
 - [Device triggers](#device-triggers)
+- [Calendar trigger](#calendar-trigger)
 - [Multiple triggers](#multiple-triggers)
 - [Multiple Entity IDs for the same Trigger](#multiple-entity-ids-for-the-same-trigger)
 
@@ -850,6 +851,29 @@ Device triggers encompass a set of events that are defined by an integration. Th
 In contrast to state triggers, device triggers are tied to a device and not necessarily an entity.
 To use a device trigger, set up an automation through the browser frontend.
 If you would like to use a device trigger for an automation that is not managed through the browser frontend, you can copy the YAML from the trigger widget in the frontend and paste it into your automation's trigger list.
+
+## Calendar trigger
+
+Calendar trigger fires when a [Calendar](/integrations/calendar/) event starts or ends, allowing
+much more flexible automations that using the Calendar entity state which only supports a single
+event start at a time.
+
+An optional time offset can be given to have it fire a set time before or after the calendar event (e.g., 5 minutes before event start).
+
+```yaml
+automation:
+  trigger:
+    - platform: calendar
+      # Possible values: start, end
+      event: start
+      # The calendar entity_id
+      entity_id: calendar.light_schedule
+      # Optional time offset
+      offset: "-00:05:00"
+```
+
+See the [Calendar](/integrations/calendar/) integration for more details on event triggers and the
+additional event data available for use by an automation.
 
 ## Multiple triggers
 

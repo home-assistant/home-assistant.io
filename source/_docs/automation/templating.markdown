@@ -24,6 +24,21 @@ The following describes trigger data associated with all platforms.
 | `trigger.id` | Optional trigger `id`, or index of the trigger.
 | `trigger.idx` | Index of the trigger.
 
+### Calendar
+
+| Template variable                    | Data                                                                                                                            |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| `trigger.platform`                   | Hardcoded: `calendar`                                                                                                           |
+| `trigger.event_type`                 | The trigger event type, either `start`  or `end`                                                                                |
+| `trigger.calendar_event`             | The calendar event object matched.                                                                                              |
+| `trigger.calendar_event.summary`     | The title or summary of the calendar event.                                                                                     |
+| `trigger.calendar_event.start`       | String representation of the start date or date time of the calendar event e.g. `2022-04-10`, or `2022-04-10 11:30:00-07:00`    |
+| `trigger.calendar_event.end`         | String representation of the end time of date time the calendar event in UTC  e.g. `2022-04-11`, or `2022-04-10 11:45:00-07:00` |
+| `trigger.calendar_event.all_day`     | Indicates the event spans the entire day.                                                                                       |
+| `trigger.calendar_event.description` | A detailed description of the calendar event, if available.                                                                     |
+| `trigger.calendar_event.location`    | Location information for the calendar event, if available.                                                                      |
+| `trigger.offset`                     | Timedelta object with offset to the event, if any |
+
 ### Device
 
 | Template variable | Data |

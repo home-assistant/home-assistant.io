@@ -25,6 +25,12 @@ The devolo Home Network integration allows you to monitor your PLC network.
 
 Currently the following device types within Home Assistant are supported.
 
+### Binary Sensors
+
+* Device attached to the router
+  * Updates every 5 minutes
+  * Is disabled by default because it typically rarely changes
+
 ### Sensors
 
 * Number of connected wifi clients
@@ -48,3 +54,10 @@ The list of supported devolo devices depends on the device firmware and the devi
 * dLAN 1200+ WiFi ac
 * dLAN 550+ Wifi
 * dLAN 550 WiFi
+
+Since firmware 7.10 also the following device without Wifi can be used as long as the corresponding entities are supported:
+
+* Magic 2 LAN triple
+* Magic 2 DinRail
+* Magic 2 LAN 1-1
+* Magic 1 LAN 1-1

@@ -12,6 +12,7 @@ ha_domain: airzone
 ha_platforms:
   - binary_sensor
   - climate
+  - diagnostics
   - sensor
 ha_codeowners:
   - '@Noltari'
@@ -37,11 +38,18 @@ ID:
 
 ## Binary Sensors
 
+For each Airzone system (HVAC machine), the following *binary sensors* are created:
+
+| Condition           | Description                        |
+| :------------------ | :--------------------------------- |
+| problems            | System has errors or warnings.     |
+
 For each Airzone zone (Thermostat), the following *binary sensors* are created:
 
 | Condition           | Description                        |
 | :------------------ | :--------------------------------- |
 | air_demand          | HVAC is running.                   |
+| battery_low         | Thermostat battery warning.        |
 | floor_demand        | Radiating floor is running.        |
 | problems            | Zone has errors or warnings.       |
 

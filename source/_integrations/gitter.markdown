@@ -5,8 +5,6 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.47
-ha_codeowners:
-  - '@fabaff'
 ha_domain: gitter
 ha_platforms:
   - sensor

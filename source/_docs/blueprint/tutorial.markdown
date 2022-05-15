@@ -230,7 +230,7 @@ For this tutorial, we're going to share it on GitHub Gists. This is a good optio
 - Content is the content of the blueprint file.
 - Click the "Create Gist" button
 
-You can now copy the URL of your new Gist and share it with other people. They can import it by going to **Configuration**, **Blueprints** and clicking on the blue "Import Blueprint" button.
+You can now copy the URL of your new Gist and share it with other people. They can import it by going to **Settings** -> **Automations & Scenes** -> **Blueprints** and clicking on the blue "Import Blueprint" button.
 
 ### Share on the Blueprint Exchange
 

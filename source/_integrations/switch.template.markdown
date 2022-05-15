@@ -65,11 +65,11 @@ switch:
         type: template
         default: true
       turn_on:
-        description: Defines an action to run when the switch is turned on.
+        description: Defines an action or list of actions to run when the switch is turned on.
         required: true
         type: action
       turn_off:
-        description: Defines an action to run when the switch is turned off.
+        description: Defines an action or list of actions to run when the switch is turned off.
         required: true
         type: action
       icon_template:
@@ -82,9 +82,9 @@ switch:
         type: template
 {% endconfiguration %}
 
-### Template variables
+### Template and action variables
 
-State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates.
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates and actions.
 
 ## Considerations
 

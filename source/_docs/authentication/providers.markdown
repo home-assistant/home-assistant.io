@@ -113,7 +113,7 @@ homeassistant:
           - group: system-users
 ```
 
-First note, for `trusted_users` configuration you need to use `user id`, which you can find through {% my users title="Configuration -> Users" %} -> View User Detail. The `trusted_users` configuration will not validate the existence of the user, so please make sure you have put in the correct user id by yourself.
+First note, for `trusted_users` configuration you need to use `user id`, which you can find through {% my users title="Settings -> People" %} -> View User Detail. The `trusted_users` configuration will not validate the existence of the user, so please make sure you have put in the correct user id by yourself.
 
 Second note, a trusted user with an IPv6 address must put the IPv6 address in quotes as shown.
 

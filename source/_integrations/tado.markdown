@@ -125,8 +125,9 @@ You can use the service `tado.set_climate_timer` to set your Tado climate device
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
-| `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
 | `temperature`          | no       | String, The required target temperature e.g., `20.5`                   |
+| `time_period`          | yes      | Time Period, Period of time the boost should last for e.g., `01:30:00` |
+| `overlay`              | yes      | Override your defaults setting. NB dont set this and the time period   |
 
 ### Service `tado.set_water_heater_timer`
 

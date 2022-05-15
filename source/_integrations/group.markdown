@@ -56,6 +56,18 @@ Some groups, like the binary sensors and lights, allow you set the "All entities
 - Otherwise, the group state is `unknown` if at least one group member is `unknown` or `unavailable`.
 - Otherwise, the group state is `on`.
 
+## Managing groups
+
+To edit a group, **{% my helpers title="Settings -> Devices & Services -> Helpers" %}**. Find and select the group from the list.
+
+![Group members](/images/integrations/group/Group_settings.png)
+
+### Group options
+
+To add or remove entities from an existing group, click on `Group options`, all the existing entities are listed in the `members` section where you add and remove entities.
+
+![Group members](/images/integrations/group/Group_members.png)
+
 ## YAML Configuration
 
 Alternatlively, this integration can be configured and set up manually via YAML
@@ -293,3 +305,18 @@ When a group contains entities from domains that have multiple `on` states or on
 It is possible to create a group that the system cannot calculate a group state. Groups with entities from unsupported domains will always have an unknown state.
 
 These groups can still be in templates with the `expand()` directive, called using the `homeassistant.turn_on` and `homeassistant.turn_off` services, etc.
+
+### Services
+
+This integration provides the following services to modify groups and a service to reload the configuration without restarting Home Assistant itself.
+
+| Service | Data | Description |
+| ------- | ---- | ----------- |
+| `set` | `Object ID` | Group id and part of entity id. 
+| | `Name` | Name of the group.
+| | `Icon` | Name of the icon for the group.
+| | `Entities` | List of all members in the group. Not compatible with **delta**.
+| | `Add Entities` | List of members that will change on group listening.
+| | `All` | Enable this option if the group should only turn on when all entities are on.
+| `remove` | `Object ID` | Group id and part of entity id.
+| `reload` | `Object ID` | Group id and part of entity id.

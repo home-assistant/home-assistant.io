@@ -401,6 +401,7 @@
 # Removed integrations
 /integrations/alarmdotcom /more-info/removed-integration 301
 /integrations/apns /more-info/removed-integration 301
+/integrations/arlo /more-info/removed-integration 301
 /integrations/arduino /more-info/removed-integration 301
 /integrations/bbb_gpio /more-info/removed-integration 301
 /integrations/bh1750 /more-info/removed-integration 301
@@ -461,6 +462,7 @@
 /integrations/ptvsd /more-info/removed-integration 301
 /integrations/pushetta /more-info/removed-integration 301
 /integrations/raspihats /more-info/removed-integration 301
+/integrations/rpi_gpio /more-info/removed-integration 301
 /integrations/rpi_gpio_pwm /more-info/removed-integration 301
 /integrations/rpi_pfio /more-info/removed-integration 301
 /integrations/rpi_rf /more-info/removed-integration 301
