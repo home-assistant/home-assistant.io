@@ -38,6 +38,8 @@ Enjoy the release!
 
 ../Frenck
 
+<!--more-->
+
 - [The Home Assistant Newsletter](#the-home-assistant-newsletter)
 - [Media Selector and the new "Play media" action](#media-selector-and-the-new-play-media-action)
 - [More media sources!](#more-media-sources)

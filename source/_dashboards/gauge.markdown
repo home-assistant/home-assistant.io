@@ -81,6 +81,19 @@ severity:
       required: true
       description: Value from which to start red color.
       type: integer
+segments:
+  required: false
+  description: List of colors and their corresponding start values. Segments will override the severity settings.
+  type: list
+  keys:
+    from:
+      required: true
+      description: Value from which to start the color.
+      type: integer
+    color:
+      required: true
+      description: Color of the segment, may be any CSS color declaration like "red", "#0000FF" or "rgb(255, 120, 0)".
+      type: string
 {% endconfiguration %}
 
 ## Examples
@@ -110,4 +123,30 @@ severity:
   green: 0
   yellow: 45
   red: 85
+```
+
+Multiple segments:
+
+<p class='img'>
+<img src='/images/dashboards/lovelace_gauge_segments.png' alt='Screenshot of the gauge card with multiple colored segments.'>
+Screenshot of the gauge card with multiple colored segments.
+</p>
+
+```yaml
+type: gauge
+entity: sensor.kitchen_humidity
+needle: true
+min: 20
+max: 80
+segments:
+  - from: 0
+    color: '#db4437'
+  - from: 35
+    color: '#ffa600'
+  - from: 40
+    color: '#43a047'
+  - from: 60
+    color: '#ffa600'
+  - from: 65
+    color: '#db4437'
 ```

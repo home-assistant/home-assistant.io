@@ -18,15 +18,19 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
+<div class="note warning">
+
+The Somfy Open API (cloud-based) has been deprecated in favor of the [Somfy TaHoma Developer Mode](https://developer.somfy.com/developer-mode) and will shut down after June 21st, 2022. The [Overkiz integration](/integrations/overkiz/) will support this new local API and can already be used to control your Somfy devices via the cloud.
+
+</div>
+
 The Somfy integration will allow users to integrate their Somfy devices into Home Assistant using the [official API](https://developer.somfy.com/somfy-open-api/apis).
 
 ## Installation
 
 Somfy is leveraging the new account linking service. This means that to set up Somfy, you only need to go to the integrations page and click on add new integration.
 
-<div class='videoWrapper'>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/y0SECWUVR-M" frameborder="0" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="y0SECWUVR-M" videotitle="New OAuth2 account linking service" posterquality="maxresdefault"></lite-youtube>
 
 ## Installation with own developer account
 

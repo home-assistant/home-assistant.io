@@ -101,7 +101,7 @@ The unit of `source` together with `unit_prefix` and `unit_time` is used to gene
 
 An integration sensor is quite useful in energy billing scenarios since energy is generally billed in kWh and many sensors provide power in W (Watts).
 
-If you have a sensor that provides you with power readings in Watts (uses W as `unit_of_measurement`), then you can use the `integration` sensor to track how much energy is being spent. Take the next manual YAML configuration as an example:
+If you have a sensor that provides you with power readings in Watts (uses W as `unit_of_measurement`, `device_class` of `power`), then you can use the `integration` sensor to track how much energy is being spent. Take the next manual YAML configuration as an example:
 
 ```yaml
 sensor:
@@ -112,4 +112,4 @@ sensor:
     round: 2
 ```
 
-This configuration will provide you with `sensor.energy_spent` which will have your energy in kWh.
+This configuration will provide you with `sensor.energy_spent` which will have your energy in kWh, as a `device_class` of `energy`.

@@ -60,11 +60,11 @@ By default, the radar entity uses the rain layer from 1 April to 30 November and
 #### Temperature
 
 - Temperature
-- Wind chill
-- Humidex
 - Forecast high temperature
 - Forecast low temperature
 - Dewpoint
+- Wind chill (only at temperatures below 0ºC)
+- Humidex (only at temperatures above 19ºC)
 
 #### Wind
 
@@ -113,3 +113,15 @@ template:
 ```
 
 {% endraw %}
+
+
+## Services
+
+### Service `environment_canada.set_radar_type`
+
+Sets the type of radar to retrieve for the camera.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | Camera to set the radar type for.
+| `radar_type` | no | One of "Auto", "Rain", or "Snow".

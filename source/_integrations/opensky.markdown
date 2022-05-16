@@ -58,5 +58,28 @@ automation:
       data:
         message: "Flight entry of {{ trigger.event.data.callsign }}"
 ```
+{% endraw %}
 
+One can also get a direct link to the OpenSky website to see the flight using the icao24 identification:
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Flight entry notification"
+    trigger:
+      platform: event
+      event_type: opensky_entry
+    action:
+      service: notify.mobile_app_<device_name>
+      data:
+        message: "Flight entry of {{ trigger.event.data.callsign }}"
+        data:
+          actions:
+            - action: URI
+              title: Track the flight
+              uri: >-
+                https://opensky-network.org/aircraft-profile?icao24={{
+                trigger.event.data.icao24 }}
+```
 {% endraw %}
