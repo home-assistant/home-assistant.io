@@ -122,12 +122,15 @@ Therefore it is always safe to use any of the services in Home Assistant with th
 ## Service `motion_blinds.set_absolute_position`
 
 For simple blinds the `motion_blinds.set_absolute_position` does the same as `cover.set_cover_position` service.
+
 ### TDBU blinds
+
 For TDBU blinds `motion_blinds.set_absolute_position` will set the absolute position relative to the window itself.
 The `cover.set_cover_position` will set the scaled position relative to the space in which the TDBU blind is allowed to move.
+
 ### Tilt capable blinds
-For tilt capable blinds a new position and tilt can be specified and the blind will move to the new position and then adjust its tilt.
-If the normal `cover.set_cover_position` is issued and emidiatly after a `cover.set_cover_tilt_position` is issued, the blind will stop moving and start adjusting the tilt before it reaches the intended position.
+
+For tilt capable blinds a new position and tilt can be specified and the blind will move to the new position and then adjust its tilt. If the normal `cover.set_cover_position` is issued and immediately after a `cover.set_cover_tilt_position` is issued, the blind will stop moving and start adjusting the tilt before it reaches the intended position.
 
 | Service data attribute | Optional | Description                                                                                       |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------- |
