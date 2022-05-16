@@ -33,6 +33,9 @@ Once loaded, your front end will have the following entities:
 - A sensor per camera that reports temperature.
 - A sensor per camera that reports humidity.
 - A sensor per camera that reports air quality.
+- A sensor per camera that reports Wi-Fi signal strength.
+- A sensor per camera that reports the date of last motion capture.
+- A sensor per camera that reports number of triggered motion captures fpr the day.
 
 ## Camera
 
@@ -51,3 +54,6 @@ Once loaded, you will see following sensors:
 - A sensor per camera that reports temperature.
 - A sensor per camera that reports humidity.
 - A sensor per camera that reports air quality.
+- A sensor per camera that reports Wi-Fi signal strength.
+- A sensor per camera that reports the date of last motion capture.
+- A sensor per camera that reports number of triggered motion captures fpr the day.
