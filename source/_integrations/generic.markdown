@@ -45,7 +45,7 @@ Verify SSL certificate:
 RTSP transport protocol:
   description: "Set the RTSP transport protocol to `tcp`, `udp`, `udp_multicast` or `http`."
 Use wallclock as timestamps:
-  description: ([Advanced Mode](https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode) only) Rewrite the camera timestamps. This may help with playback or crashing issues from WiFi cameras or cameras of certain brands (e.g. EZVIZ).
+  description: ([Advanced Mode](/blog/2019/07/17/release-96/#advanced-mode) only) Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (e.g., EZVIZ).
 {% endconfiguration_basic %}
 
 <p class='img'>
