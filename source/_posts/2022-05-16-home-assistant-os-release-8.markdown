@@ -26,7 +26,7 @@ Home Assistant OS 8.0 stable is available now!
 - New image: Home Assistant Yellow
 
 For existing installations, no manual intervention is needed! You can safely
-update without reading this rather technical release notes.
+update without reading these rather technical release notes.
 
 ## Table of contents
 
