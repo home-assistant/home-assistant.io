@@ -145,7 +145,7 @@ media_player:
   - platform: group
     entities:
       - media_player.kitchen_tv
-      - media_player.livivng_room_tv
+      - media_player.living_room_tv
 ```
 
 Example YAML configuration of a switch group:

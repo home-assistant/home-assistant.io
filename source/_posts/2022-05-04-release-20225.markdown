@@ -64,6 +64,7 @@ Enjoy the release!
 - [Release 2022.5.1 - May 5](#release-202251---may-5)
 - [Release 2022.5.2 - May 6](#release-202252---may-6)
 - [Release 2022.5.3 - May 8](#release-202253---may-8)
+- [Release 2022.5.4 - May 12](#release-202254---may-12)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -815,7 +816,76 @@ The following integrations are now available via the Home Assistant UI:
 [sql docs]: /integrations/sql/
 [totalconnect docs]: /integrations/totalconnect/
 [ukraine_alarm docs]: /integrations/ukraine_alarm/
-****
+
+## Release 2022.5.4 - May 12
+
+- Fix timezone issue on onvif integration ([@marvinroger] - [#70473]) ([onvif docs])
+- Fix Insteon issue with dimmer default on level ([@teharris1] - [#71426]) ([insteon docs])
+- Migrate sabnzbd sensors unique ids ([@shaiu] - [#71455]) ([sabnzbd docs])
+- Bump simplisafe-python to 2022.05.1 ([@bachya] - [#71545]) ([simplisafe docs])
+- Fix SABnzbd config check ([@shaiu] - [#71549]) ([sabnzbd docs])
+- Fix typer/click incompatibilty for unifiprotect ([@AngellusMortis] - [#71555]) ([unifiprotect docs])
+- Improve Google Cast detection of HLS playlists ([@emontnemery] - [#71564]) ([cast docs])
+- Correct device class for meater cook sensors ([@emontnemery] - [#71565]) ([meater docs])
+- Bump pychromecast to 12.1.2 ([@emontnemery] - [#71567]) ([cast docs])
+- Bump logi_circle to 0.2.3 ([@evanjd] - [#71578]) ([logi_circle docs])
+- Bump nam backend library to version 1.2.4 ([@bieniu] - [#71584]) ([nam docs])
+- Bump pydeconz to v92 ([@Kane610] - [#71613]) ([deconz docs])
+- Fix wrong brightness level change visible in UI ([@rappenze] - [#71655]) ([fibaro docs])
+- Prevent history_stats from rejecting states when microseconds differ ([@bdraco] - [#71704]) ([history_stats docs])
+- Fix zwave_js device automation bug ([@raman325] - [#71715]) ([zwave_js docs])
+- Fix merge conflict with master to dev in sabnzbd (CI fix) ([@bdraco] - [#71605]) ([sabnzbd docs])
+- Add use_wallclock_as_timestamps option to generic ([@uvjustin] - [#71245]) ([generic docs])
+- Changed API for Ukraine Alarm ([@PaulAnnekov] - [#71754]) ([ukraine_alarm docs])
+
+[#70473]: https://github.com/home-assistant/core/pull/70473
+[#71245]: https://github.com/home-assistant/core/pull/71245
+[#71426]: https://github.com/home-assistant/core/pull/71426
+[#71455]: https://github.com/home-assistant/core/pull/71455
+[#71545]: https://github.com/home-assistant/core/pull/71545
+[#71549]: https://github.com/home-assistant/core/pull/71549
+[#71555]: https://github.com/home-assistant/core/pull/71555
+[#71564]: https://github.com/home-assistant/core/pull/71564
+[#71565]: https://github.com/home-assistant/core/pull/71565
+[#71567]: https://github.com/home-assistant/core/pull/71567
+[#71578]: https://github.com/home-assistant/core/pull/71578
+[#71584]: https://github.com/home-assistant/core/pull/71584
+[#71605]: https://github.com/home-assistant/core/pull/71605
+[#71613]: https://github.com/home-assistant/core/pull/71613
+[#71655]: https://github.com/home-assistant/core/pull/71655
+[#71704]: https://github.com/home-assistant/core/pull/71704
+[#71715]: https://github.com/home-assistant/core/pull/71715
+[#71754]: https://github.com/home-assistant/core/pull/71754
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@Kane610]: https://github.com/Kane610
+[@PaulAnnekov]: https://github.com/PaulAnnekov
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@emontnemery]: https://github.com/emontnemery
+[@evanjd]: https://github.com/evanjd
+[@marvinroger]: https://github.com/marvinroger
+[@raman325]: https://github.com/raman325
+[@rappenze]: https://github.com/rappenze
+[@shaiu]: https://github.com/shaiu
+[@teharris1]: https://github.com/teharris1
+[@uvjustin]: https://github.com/uvjustin
+[cast docs]: /integrations/cast/
+[deconz docs]: /integrations/deconz/
+[fibaro docs]: /integrations/fibaro/
+[generic docs]: /integrations/generic/
+[history_stats docs]: /integrations/history_stats/
+[insteon docs]: /integrations/insteon/
+[logi_circle docs]: /integrations/logi_circle/
+[meater docs]: /integrations/meater/
+[nam docs]: /integrations/nam/
+[onvif docs]: /integrations/onvif/
+[sabnzbd docs]: /integrations/sabnzbd/
+[simplisafe docs]: /integrations/simplisafe/
+[ukraine_alarm docs]: /integrations/ukraine_alarm/
+[unifiprotect docs]: /integrations/unifiprotect/
+[zwave_js docs]: /integrations/zwave_js/
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
