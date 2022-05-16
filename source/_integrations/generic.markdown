@@ -25,23 +25,28 @@ You must enter a URL in at least one of the fields **Still Image URL** or **Stre
 
 [Templates](/topics/templating/) are allowed in the URL fields, which can be used to select different images or parameterize the URL depending on the status of sensors.  Template validity and network access are checked during the configuration steps.
 
-### Generic Camera Configuration
-
-You can configure additional Generic Camera options for each camera through the configuration options in the GUI. The configure button can be found after clicking into the camera name under Generic Camera on the integration details page.
-
-| Option | Description |
-| -------| ----------- |
-| Still Image URL | The URL your camera serves the image on, e.g., `http://192.168.1.21:2112/`. Can be a [template](/topics/templating/). At least one of still_image_url or stream_source must be provided. |
-| Stream Source | The URL your camera serves the live stream on, e.g., `rtsp://user:pass@192.168.1.21:554/`. Can be a [template](/topics/templating/). Usernames and passwords must be embedded in the URL. At least one of still_image_url or stream_source must be provided. Note that a stream_source without a still_image_url can only be used if the [stream integration](/integrations/stream/) is configured. |
-| Username | The username for accessing your camera. Note that this username applies only to still_image_url and not to stream_source. |
-| Password | The password for accessing your camera. Note that this password applies only to still_image_url and not to stream_source. |
-| Authentication | Type for authenticating the requests `basic` or `digest`. |
-| Limit refetch to URL change | Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image. |
-| Frame Rate | The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera. |
-| Verify SSL certificate | Enable or disable SSL certificate verification. Set to false to use an http-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification. |
-| RTSP transport protocol | Set the RTSP transport protocol to `tcp`, `udp`, `udp_multicast` or `http`. |
-| Use wallclock as timestamps | ([Advanced Mode](https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode) only) Rewrite the camera timestamps. This may help with playback or crashing issues from WiFi cameras or cameras of certain brands (e.g. EZVIZ). |
-
+{% configuration_basic %}
+Still Image URL:
+  description: "The URL your camera serves the image on, e.g., `http://192.168.1.21:2112/`. Can be a [template](/topics/templating/). At least one of still_image_url or stream_source must be provided."
+Stream Source:
+  description: "The URL your camera serves the live stream on, e.g., `rtsp://user:pass@192.168.1.21:554/`. Can be a [template](/topics/templating/). Usernames and passwords must be embedded in the URL. At least one of still_image_url or stream_source must be provided. Note that a stream_source without a still_image_url can only be used if the [stream integration](/integrations/stream/) is configured."
+Username:
+  description: The username for accessing your camera. Note that this username applies only to still_image_url and not to stream_source.
+Password:
+  description: The password for accessing your camera. Note that this password applies only to still_image_url and not to stream_source.
+Authentication:
+  description: "Type for authenticating the requests `basic` or `digest`."
+Limit refetch to URL change:
+  description: Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
+Frame Rate:
+  description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
+Verify SSL certificate:
+  description: Enable or disable SSL certificate verification. Set to false to use an http-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
+RTSP transport protocol:
+  description: "Set the RTSP transport protocol to `tcp`, `udp`, `udp_multicast` or `http`."
+Use wallclock as timestamps:
+  descriptions: ([Advanced Mode](https://www.home-assistant.io/blog/2019/07/17/release-96/#advanced-mode) only) Rewrite the camera timestamps. This may help with playback or crashing issues from WiFi cameras or cameras of certain brands (e.g. EZVIZ).
+{% endconfiguration_basic %}
 
 <p class='img'>
   <a href='/examples/google_maps_card/'>
