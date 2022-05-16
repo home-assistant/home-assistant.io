@@ -3,7 +3,7 @@ layout: post
 title: "Home Assistant OS Release 8"
 description: ""
 date: 2022-05-16 00:00:00
-date_formatted: "Mai 16, 2022"
+date_formatted: "May 16, 2022"
 author: Stefan Agner
 author_twitter: falstaff_ch
 comments: true
@@ -44,20 +44,20 @@ Home Assistant OS 8.0 stable is available now!
 
 For Generic x86-64, OVA and the new Generic AArch64 Home Assistant uses GRUB2
 as boot loader now. GRUB2 (GRand Unified Bootloader) is the de-facto standard
-boot loader used by most Linux distributions. The main reason switching from
+boot loader used by most Linux distributions. The main reason for switching from
 Barebox to GRUB2 was the missing AArch64 UEFI boot support in Barebox. We also
 expect GRUB2 to be more stable especially on Desktop style x86-64 systems as
 it gets used by much more users since generic Linux distributions use GRUB2.
-Although, we actually hit a bug in GRUB2 during the RC phase, but let's hope
+Although, we actually hit a bug in GRUB2 during the RC phase, let's hope
 this was a one-off. 🤞
 
 <img src='/images/blog/2022-05-16-os8/haos-grub2-menu.png' alt='Screenshot showing GRUB2 menu of Home Assistant OS'>
 
-The boot menu shows the two boot slot. Typically you don't have to change
+The boot menu shows the two boot slots. Typically you don't have to change
 selection here, unless you intentionally want to boot the previously installed
 Home Assistant OS version.
 
-Note: Upgrading from any version 7.x is safe, but we recommend to upgrade from
+Note: Upgrading from any version 7.x is safe, but we recommend upgrading from
 the last version of the previous major release. This is also the best tested
 upgrade path. From any release with GRUB2 it is only safe to downgrade to 7.6!
 Downgrading to releases before 7.6 can be done by downgrading to 7.6 first.
@@ -74,11 +74,11 @@ host the [OpenThread Border Router add-on].
 
 ### Other Changes
 
-- IP set support for advanced firewalling (also used by the OTBR add-on)
-- Support for NTP configuration via DHCP
+- IP set support for advanced firewalling (also used by the OTBR add-on).
+- Support for NTP configuration via DHCP.
 - Google Coral support is now using Google's latest driver. This enables
   additional Coral device support such as PCI Dual Edge TPU.
-- Legacy wext backend for wpa_suppilcant is now enabled to support more WiFi
+- Legacy wext backend for wpa_suppilcant is now enabled to support more Wi-Fi
   devices.
 
 ## Device Support
@@ -91,9 +91,9 @@ the Raspberry Pi OS is using currently.
 
 ### Home Assistant Yellow
 
-This is the first release which supports Home Assistant Yellow. Since Home
+This is the first release that supports Home Assistant Yellow. Since Home
 Assistant Yellow uses the Raspberry Pi Compute Module 4, the support is
-based of the regular Raspberry Pi support currently. The Yellow image is
+based on the regular Raspberry Pi support currently. The Yellow image is
 using the same kernel and firmware version. The Yellow board also supports
 booting directly off of a NVMe device for those using a CM4 Lite (without
 eMMC storage).
@@ -101,7 +101,7 @@ eMMC storage).
 ### Generic x86-64
 
 Besides the move to GRUB2 Generic x86-64 received quite some additional device
-support. The WiFi devices 3945ABG/BG/4965AGN and 22000 series are now supported.
+support. The Wi-Fi devices 3945ABG/BG/4965AGN and 22000 series are now supported.
 
 Other Changes:
 
