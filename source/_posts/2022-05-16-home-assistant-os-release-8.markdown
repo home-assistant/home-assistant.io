@@ -95,7 +95,7 @@ This is the first release that supports Home Assistant Yellow. Since Home
 Assistant Yellow uses the Raspberry Pi Compute Module 4, the support is
 based on the regular Raspberry Pi support currently. The Yellow image is
 using the same kernel and firmware version. The Yellow board also supports
-booting directly off of a NVMe device for those using a CM4 Lite (without
+booting directly off of an NVMe device for those using a CM4 Lite (without
 eMMC storage).
 
 ### Generic x86-64
