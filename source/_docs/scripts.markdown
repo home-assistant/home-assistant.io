@@ -461,7 +461,7 @@ repeat:
     - language: English
       message: Hello World
     - language: Dutch
-      hello: Hallo Wereld
+      message: Hallo Wereld
   sequence:
     - service: notify.phone
       data:
