@@ -57,9 +57,10 @@ The boot menu shows the two boot slot. Typically you don't have to change
 selection here, unless you intentionally want to boot the previously installed
 Home Assistant OS version.
 
-Note: From OS 8.0 onwards it is only safe to downgrade to 7.6! Automatic
-fallback in case 8.0 does not boot does work with older versions, but 7.6
-is the recommended release to upgrade from.
+Note: Upgrading from any version 7.x is safe, but we recommend to upgrade from
+the last version of the previous major release. This is also the best tested
+upgrade path. From any release with GRUB2 it is only safe to downgrade to 7.6!
+Downgrading to releases before 7.6 can be done by downgrading to 7.6 first.
 
 ### Under the Hood
 
@@ -69,7 +70,7 @@ versions of various core components like systemd 250, NetworkManager 1.34.0
 and Docker 20.10.14.
 
 Additional networking drivers and settings prepare Home Assistant OS to
-host the OpenThread Border Router Add-on.
+host the [OpenThread Border Router add-on].
 
 ### Other Changes
 
@@ -116,3 +117,4 @@ boot flow. It should support real boards as well as virtual machines. So far
 it has been successfully tested on KVM Virtual Machines.
 
 [@Doridian]: https://github.com/Doridian
+[OpenThread Border Router add-on]: https://github.com/home-assistant/addons-development/tree/master/openthread_border_router
