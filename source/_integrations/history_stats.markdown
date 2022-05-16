@@ -107,12 +107,12 @@ The duration variable is used when the time period is fixed. Different syntaxes 
 
 ```yaml
 # 6 hours
-duration: 06:00
+duration: "06:00"
 ```
 
 ```yaml
 # 1 minute, 30 seconds
-duration: 00:01:30
+duration: "00:01:30"
 ```
 
 ```yaml
