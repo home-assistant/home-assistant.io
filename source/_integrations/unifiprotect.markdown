@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Button
   - Camera
+  - Doorbell
   - Hub
   - Light
   - Lock
