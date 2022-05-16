@@ -92,13 +92,13 @@ switch:
           target:
             entity_id: climate.ac
           data:
-            hvac_mode: 'cool'
+            hvac_mode: "cool"
         turn_off:
           service: climate.set_hvac_mode
           target:
             entity_id: climate.ac
           data:
-            hvac_mode: 'off'
+            hvac_mode: "off"
 ```
 
 {% endraw %}
