@@ -51,7 +51,7 @@ it gets used by much more users since generic Linux distributions use GRUB2.
 Although, we actually hit a bug in GRUB2 during the RC phase, but let's hope
 this was a one-off. 🤞
 
-<img src='/images/blog/2022-05/haos-grub2-menu.png' alt='Screenshot showing GRUB2 menu of Home Assistant OS'>
+<img src='/images/blog/2022-05-16-os8/haos-grub2-menu.png' alt='Screenshot showing GRUB2 menu of Home Assistant OS'>
 
 The boot menu shows the two boot slot. Typically you don't have to change
 selection here, unless you intentionally want to boot the previously installed
