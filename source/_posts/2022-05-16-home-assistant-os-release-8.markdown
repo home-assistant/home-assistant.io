@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Home Assistant OS Release 8"
-description: ""
+description: "Now using GRUB2 for UEFI-based systems, Home Assistant Yellow support, and support for UEFI-based AArch64 systems!"
 date: 2022-05-16 00:00:00
 date_formatted: "May 16, 2022"
 author: Stefan Agner
