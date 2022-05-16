@@ -30,7 +30,7 @@ This integration provides the following platforms:
 - Binary Sensors: Hand brake, hood, trunk, alarm status and doors lock state.
 - Device tracker: The location of your car.
 - Lock: Control the lock of your car.
-- Sensors: Battery level, SIM card balance, GSM signal level, Fuel Volume, Mileage, interior temperature and engine temperature.
+- Sensors: Battery level, SIM card balance, GSM signal level, Fuel Volume, Mileage, GPS Satellites, interior temperature and engine temperature.
 - Switches: Start/stop engine, heater (webasto) and additional channel.
 - Buttons: Sound the horn.
 - Services: Update the state, set update frequency. More details can be found [here](#services).
