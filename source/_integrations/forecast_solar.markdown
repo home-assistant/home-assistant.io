@@ -130,6 +130,6 @@ instance:
 
 - Browse to your Home Assistant instance.
 - In the sidebar click on _**{% my config icon %}**_.
-- From the configuration menu select: _**{% my integrations icon %}**_.
+- From the configuration menu select: _**{% my integrations %}**_.
 - If multiple instances of {{ name }} are configured, choose the instance you want to configure.
 - Click on _**"Configure"**_.
