@@ -41,7 +41,7 @@ Minimum number of minutes between scans of active devices:
   required: true
   type: integer
 Network addresses to exclude from scanning:
-  description: A comma separated list of IP address to not scan. The above example will skip `192.168.1.50`.
+  description: A comma-separated list of IP addresses not to scan. The above example will skip `192.168.1.50`.
   required: false
   type: string
 Raw configurable scan options for Nmap:
