@@ -844,7 +844,7 @@ travelling_time_up:
   default: 25
   type: integer
 invert_updown:
-  description: Set this to `true` invert the binary up/down commands from/to your KNX actuator. Default is 0 for UP; 1 for DOWN.
+  description: Set this to `true` to invert the binary up/down commands from/to your KNX actuator. Default is 0 for UP; 1 for DOWN.
   required: false
   default: false
   type: boolean
