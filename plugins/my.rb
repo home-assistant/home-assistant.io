@@ -80,7 +80,7 @@ module Jekyll
       DEFAULT_ICONS = {
         "config_flow_start" => "icon-plus-sign",
         "config" => "icon-cog",
-        "integrations" => "icon-puzzle-piece",
+        "integrations" => "devices",
       }
 
       # Default title used for in-line text
@@ -103,6 +103,7 @@ module Jekyll
         "info" => "Information",
         "supervisor_info" => "Supervisor Information",
         "supervisor_backups" => "Backups",
+        "integrations" => "Devices & Services",
       }
 
       def parse_options(input, context)
