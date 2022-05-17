@@ -80,7 +80,6 @@ module Jekyll
       DEFAULT_ICONS = {
         "config_flow_start" => "icon-plus-sign",
         "config" => "icon-cog",
-        "integrations" => "devices",
       }
 
       # Default title used for in-line text
