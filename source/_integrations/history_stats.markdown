@@ -90,7 +90,7 @@ Depending on the sensor type you choose, the `history_stats` integration can sho
 
 - **time**: The default value, which is the tracked time, in hours
 - **ratio**: The tracked time divided by the length of your period, as a percentage
-- **count**: How many times thetracked entity matched the tracked state
+- **count**: How many times the tracked entity matched the tracked state during the time period
 
 ## Time periods
 
