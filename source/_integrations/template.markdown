@@ -385,14 +385,14 @@ You can use a trigger-based template entity to convert any event or other automa
 
 ```yaml
 template:
-  trigger:
-    platform: event
-    event_type: my_event
-  binary_sensor:
-    - name: Event recently fired
-      auto_off: 5
-      state: "true"
-```
+  - trigger:
+      platform: event
+      event_type: my_event
+    binary_sensor:
+      - name: Event recently fired
+        auto_off: 5
+        state: "true"
+  ```
 
 ### Sun Angle
 
