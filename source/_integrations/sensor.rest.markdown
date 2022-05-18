@@ -129,7 +129,7 @@ json_attributes_path:
   required: false
   type: string
 include_raw_attribute:
-  description: Add 'raw' attribute to the sensor that contains the raw JSON response resulting from the API call. This is usefull either for debugging, or when the values contained in the respons do not neatly map to separate attributes.
+  description: Add 'raw' attribute to the sensor that contains the raw JSON response resulting from the API call. This is useful either for debugging, or when the values contained in the respons do not neatly map to separate attributes using `json_attributes`.
   required: false
   type: boolean
   default: false
