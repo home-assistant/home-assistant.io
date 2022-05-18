@@ -128,6 +128,11 @@ json_attributes_path:
   description: A [JSONPath](https://goessner.net/articles/JsonPath/) that references the location of the `json_attributes` in the JSON content.
   required: false
   type: string
+include_raw_attribute:
+  description: Add 'raw' attribute to the sensor that contains the raw JSON response resulting from the API call. This is usefull either for debugging, or when the values contained in the respons do not neatly map to separate attributes.
+  required: false
+  type: boolean
+  default: false
 force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
   required: false
