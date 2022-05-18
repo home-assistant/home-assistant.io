@@ -392,7 +392,7 @@ template:
       - name: Event recently fired
         auto_off: 5
         state: "true"
-  ```
+```
 
 ### Sun Angle
 
