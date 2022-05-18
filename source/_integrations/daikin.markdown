@@ -150,3 +150,5 @@ Currently known region codes:
 - JP
 - US
 - TH
+
+If you experience problems with certain apps like the Daikin ONECTA try setting a lower-case region code (e.g. 'eu').
