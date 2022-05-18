@@ -2,6 +2,7 @@
 title: Big Ass Fans
 description: Instructions on how to integrate BAF devices into Home Assistant.
 ha_category:
+  - Climate
   - Fan
   - Sensor
   - Switch
@@ -14,6 +15,7 @@ ha_codeowners:
 ha_domain: baf
 ha_config_flow: true
 ha_platforms:
+  - climate
   - fan
   - sensor
   - switch
@@ -28,6 +30,10 @@ Integrates [Big Ass Fans](https://www.bigassfans.com/) devices into Home Assista
 - i6 Fans
 
 ## Platforms
+
+### Climate
+
+For devices that support Auto Comfort, a climate entity allows adjusting the target temperature.
 
 ### Sensor
 
