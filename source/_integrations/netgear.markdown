@@ -32,7 +32,10 @@ Consider_home:
 {% endconfiguration_basic %}
 
 ## Router entities
-The NETGEAR router will have the following entities:
+The NETGEAR router will have the following entities.
+Note that not all routers support all features, if a router does not support a feature the corresponding entity will have the unavailable status even when the enity is disabled.
+You might also see the following error in the log `404 service '...', method '...' not found`, to prevent these errors, keep the unsuported entities disabled.
+All posibly unsupported enities are disabled by default.
 
 ### Reboot button
 
@@ -42,9 +45,20 @@ Button entity to restart the router.
 
 The total and average amount of downloaded/uploaded data through the router can be tracked per day/week/month.
 In order for these entities to display the data (instead of 0), the "Traffic Meter" should be enabled in the router settings.
-Log into your router > Select **ADVANCED** > **Advanced Setup** > **Traffic Meter** > **Enable Traffic Meter** check box.
+Enable the `Traffic Meter` switch entity and turn it on.
 
-## Connected device entities
+### Router feature switches
+
+The following router features can be turned on/off and the status can be read:
+- Access Control
+- Traffic Meter
+- Parental Control
+- Quality of Service
+- 2.4G Guest Wifi
+- 5G Guest Wifi
+- Smart Connect
+
+## Connected device
 
 For each device connected to the NETGEAR router the following entities will be available:
 
@@ -56,7 +70,7 @@ Displays if the device is currently connected to the router (Home) or not (Away)
 
 Switch that lets you Allow or Block a device on the Network.
 For this entity to actually Block the device, "Access Control" needs to be turned on in the Router settings.
-Log into your router > Select **ADVANCED** > **Security** > **Access Control** > **Turn on Access Control** check box.
+Enable the `Access Control` switch entity and turn it on.
 
 ### Signal strength
 
