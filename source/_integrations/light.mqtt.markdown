@@ -49,6 +49,7 @@ mqtt:
     - command_topic: "office/rgb1/light/switch"
 ```
 
+<a id='new_format'></a>
 <div class='note'>
 The way manual MQTT Lights are configured has changed. Placing configurations under the `light` platform key is deprecated.
 

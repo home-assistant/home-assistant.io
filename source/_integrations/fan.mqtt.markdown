@@ -27,6 +27,7 @@ mqtt:
     - command_topic: "bedroom_fan/on/set"
 ```
 
+<a id='new_format'></a>
 <div class='note'>
 The way manual MQTT Fans are configured has changed. Placing configurations under the `fan` platform key is deprecated.
 
