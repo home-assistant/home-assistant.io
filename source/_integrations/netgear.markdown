@@ -44,6 +44,12 @@ The total and average amount of downloaded/uploaded data through the router can 
 In order for these entities to display the data (instead of 0), the "Traffic Meter" should be enabled in the router settings.
 Log into your router > Select **ADVANCED** > **Advanced Setup** > **Traffic Meter** > **Enable Traffic Meter** check box.
 
+### Speed test data
+
+The `Average Ping`, `Downlink Bandwidth` and `Uplink Bandwidth` can be tracked by perfoming a speedtest every 30 minutes.
+If these sensor entities are enabled they will first show as Unknown since the first speed test does only happen 30 minutes after the integration loads, previous results will be restored on subsequent restarts.
+The speed test intervall is chosen to be 30 minutes to not put unnesesarry load on the network.
+
 ## Connected device entities
 
 For each device connected to the NETGEAR router the following entities will be available:
