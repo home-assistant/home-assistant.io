@@ -29,6 +29,25 @@ mqtt:
 
 <div class='note'>
 The way manual MQTT Fans are configured has changed. Placing configurations under the `fan` platform key is deprecated.
+
+Deprecated:
+
+```yaml
+fan:
+  - platform: "mqtt"
+    command_topic: "bedroom_fan/on/set"
+    ...
+```
+
+New format:
+
+```yaml
+mqtt:
+  fan:
+    - command_topic: "bedroom_fan/on/set"
+    ...
+```
+
 </div>
 
 {% configuration %}

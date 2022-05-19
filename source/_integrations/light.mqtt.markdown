@@ -51,6 +51,25 @@ mqtt:
 
 <div class='note'>
 The way manual MQTT Lights are configured has changed. Placing configurations under the `light` platform key is deprecated.
+
+Deprecated:
+
+```yaml
+light:
+  - platform: "mqtt"
+    command_topic: "office/rgb1/light/switch"
+    ...
+```
+
+New format:
+
+```yaml
+mqtt:
+  light:
+    - command_topic: "office/rgb1/light/switch"
+    ...
+```
+
 </div>
 
 {% configuration %}
