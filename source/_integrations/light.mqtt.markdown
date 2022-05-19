@@ -50,28 +50,23 @@ mqtt:
 ```
 
 <a id='new_format'></a>
-<div class='note'>
-The way manual MQTT Lights are configured has changed. Placing configurations under the `light` platform key is deprecated.
 
-Deprecated:
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `light` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
 
 ```yaml
 light:
   - platform: "mqtt"
     command_topic: "office/rgb1/light/switch"
-    ...
 ```
 
-New format:
-
-```yaml
-mqtt:
-  light:
-    - command_topic: "office/rgb1/light/switch"
-    ...
-```
-
-</div>
+{% enddetails %}
 
 {% configuration %}
 availability:

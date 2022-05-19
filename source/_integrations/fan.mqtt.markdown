@@ -28,28 +28,23 @@ mqtt:
 ```
 
 <a id='new_format'></a>
-<div class='note'>
-The way manual MQTT Fans are configured has changed. Placing configurations under the `fan` platform key is deprecated.
 
-Deprecated:
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `fan` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
 
 ```yaml
 fan:
   - platform: "mqtt"
     command_topic: "bedroom_fan/on/set"
-    ...
 ```
 
-New format:
-
-```yaml
-mqtt:
-  fan:
-    - command_topic: "bedroom_fan/on/set"
-    ...
-```
-
-</div>
+{% enddetails %}
 
 {% configuration %}
 availability:
