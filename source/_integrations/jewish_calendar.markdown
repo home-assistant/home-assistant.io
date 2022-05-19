@@ -4,6 +4,7 @@ description: Instructions on how to integrate the Jewish Calendar integration wi
 ha_category:
   - Calendar
 ha_iot_class: Calculated
+ha_config_flow: true
 ha_release: 0.79
 ha_codeowners:
   - '@tsvi'
@@ -15,51 +16,11 @@ ha_platforms:
 
 The Jewish Calendar (`jewish_calendar`) integration displays a variety of information related to the Jewish Calendar as a variety of sensors.
 
-## Configuration
-
-To enable this integration in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-jewish_calendar:
-```
-
-{% configuration %}
-language:
-  required: false
-  default: english
-  description: Whether to represent the sensors in Hebrew (א' תשרי תשע"ט) or English characters (1 Tishrei 5779). Valid options are 'english' and 'hebrew'.
-  type: string
-latitude:
-  required: false
-  description: Latitude for time calculations of the sensor.
-  default: Home Assistant location
-  type: integer
-longitude:
-  required: false
-  description: Longitude for time calculations of the sensor.
-  default: Home Assistant location
-  type: integer
-diaspora:
-  required: false
-  description: Consider the location as diaspora or not for calculation of the weekly portion and holidays.
-  default: false
-  type: string
-candle_lighting_minutes_before_sunset:
-  required: false
-  description: Number of minutes before sunset to report as candle lighting time.
-  default: 18
-  type: integer
-havdalah_minutes_after_sunset:
-  required: false
-  description: Number of minutes after sunset to report as havdalah time. If this is set to 0, uses the time that the sun is 8.5 degrees below the horizon (same as the `first_stars` sensor). If non-zero, this value is added as an offset to the time of sunset to report havdalah.
-  default: 0
-  type: integer
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Sensor list
 
-### Data sensors
+### Info sensors
 
 - `date`: Shows the hebrew date for today.
 - `weekly_portion`: Shows the weekly portion (parshat hashavu'a - פרשת השבוע)
@@ -142,13 +103,3 @@ The following is the list of holidays the sensor knows about with their selected
 | memorial_day_unknown | Memorial day for fallen whose place of burial is unknown | יום הזיכרון לחללי מערכות ישראל שמקום קבורתם לא נודע | MEMORIAL_DAY | 8      |
 | rabin_memorial_day   | Yitzhak Rabin memorial day | יום הזכרון ליצחק רבין | MEMORIAL_DAY              | 8       |
 | zeev_zhabotinsky_day | Zeev Zhabotinsky day       | יום זאב ז'בוטינסקי    | MEMORIAL_DAY              | 8       |
-
-## Full configuration example
-
-```yaml
-# Example configuration.yaml entry
-jewish_calendar:
-  language: english
-  diaspora: true
-  havdalah_minutes_after_sunset: 50
-```
