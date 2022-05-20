@@ -37,6 +37,8 @@ The following describes trigger data associated with all platforms.
 | `trigger.calendar_event.all_day`     | Indicates the event spans the entire day.                                                                                       |
 | `trigger.calendar_event.description` | A detailed description of the calendar event, if available.                                                                     |
 | `trigger.calendar_event.location`    | Location information for the calendar event, if available.                                                                      |
+| `trigger.offset`                     | Timedelta object with offset to the event, if any |
+
 ### Device
 
 | Template variable | Data |

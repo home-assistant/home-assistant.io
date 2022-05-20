@@ -8,9 +8,12 @@ description: "Extended instructions how to setup Z-Wave."
 You need to have a compatible Z-Wave stick or module installed. The following devices have been confirmed to work with Z-Wave JS:
 
 - 700 series controllers
-  - Aeotec Z-Stick 7
-  - Zooz ZST10 700
-  - Silicon Labs SLUSB7000A
+  - Aeotec Z-Stick 7 USB stick (ZWA010)
+  - Aeotec Z-Pi 7 Raspberry Pi HAT/Shield (ZWA025)
+  - Silicon Labs UZB-7 USB Stick (Silabs SLUSB7000A / SLUSB001A)
+  - Zooz S2 Stick 700 (ZST10 700)
+  - ZWave.me RaZberry 7 (ZME_RAZBERRY7)
+  - ZWave.me RaZberry 7 Pro (ZMEERAZBERRY7_ANT or ZMEURAZBERRY7_ANT)
 
 - 500 series controllers
   - Aeotec Z-Stick Gen5 (see note below)

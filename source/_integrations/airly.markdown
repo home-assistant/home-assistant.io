@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: airly
 ha_quality_scale: platinum
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---
