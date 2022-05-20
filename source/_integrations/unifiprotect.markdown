@@ -155,7 +155,7 @@ Each UniFi Protect door lock will get a device in Home Assistant with the follow
 
 Each UniFi Protect smart chime will get a device in Home Assistant with the following:
 
-* **Button** - A button to trigger the chime manually for each smart chime device. Also a disabled by default button is added that will let you reboot your smart chime device.
+* **Button** - A button to trigger the chime manually for each smart chime device. Also, a disabled by default button is added to let you reboot your smart chime device.
 * **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness and a sensor for the last time the chime rang.
 
 ### NVR
