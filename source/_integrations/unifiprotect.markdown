@@ -210,8 +210,8 @@ Use to set the paired doorbell(s) with a smart chime.
 
 | Service data attribute | Optional | Description                                                                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | No       | The smart chime you want to pair doorbells with (actually the "Play Chime" button).                          |
-| `doorbells`            | No       | A target selector for any number of doorbells you want to pair to the chime. |
+| `device_id`            | No       | The device ID of the Chime you want to part doorbells to                                                     |
+| `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime.                                 |
 
 ## Troubleshooting
 
