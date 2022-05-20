@@ -210,7 +210,7 @@ Use to set the paired doorbell(s) with a smart chime.
 
 | Service data attribute | Optional | Description                                                                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to                                           |
+| `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to.                                          |
 | `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime. No value means unpair all.      |
 
 ## Troubleshooting
