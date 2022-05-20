@@ -96,7 +96,7 @@ NFC tags come in many different shapes and formats. [NFC Stickers](https://amzn.
 
 To get started with printing cards, you need the following hardware:
 
-- [Canon TS702a Inkjet Printer]([https://amzn.to/3khMrts](https://www.amazon.com/TS702a-Compact-Connected-Inkjet-Printer/dp/B09TG8F4YS/))
+- [Canon TS702a Inkjet Printer](https://www.amazon.com/TS702a-Compact-Connected-Inkjet-Printer/dp/B09TG8F4YS/)
 - [Compatible card printing tray](https://amzn.to/3hq59x2)
 - [Printable NFC cards](https://amzn.to/3iqHpKx)
 
