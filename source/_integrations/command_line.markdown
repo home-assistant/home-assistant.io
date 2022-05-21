@@ -21,8 +21,6 @@ ha_integration_type: integration
 
 The `command_line` binary sensor platform issues specific commands to get data.
 
-## Configuration
-
 The Command Line Binary Sensor can be added both using yaml and via UI.
 
 {% include integrations/config_flow.md %}
