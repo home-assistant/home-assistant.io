@@ -160,7 +160,7 @@ tap_action:
       description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`."
       type: string
       default: none
-    service_data:
+    data:
       required: false
       description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`."
       type: string
@@ -254,7 +254,7 @@ service:
   required: true
   description: "`light.turn_on`"
   type: string
-service_data:
+data:
   required: false
   description: The service data to use.
   type: map
@@ -476,7 +476,7 @@ tap_action:
 hold_action:
   action: call-service
   service: light.turn_on
-  service_data:
+  data:
     entity_id: light.bed_light
     brightness_pct: 100
 ```
@@ -521,7 +521,7 @@ elements:
       top: 95%
       left: 60%
     service: homeassistant.turn_off
-    service_data:
+    data:
       entity_id: group.all_lights
   - type: icon
     icon: mdi:home
@@ -570,7 +570,7 @@ elements:
     tap_action:
       action: call-service
       service: media_player.media_play_pause
-      service_data:
+      data:
         entity_id: media_player.living_room
     image: /local/television.jpg
     filter: brightness(5%)

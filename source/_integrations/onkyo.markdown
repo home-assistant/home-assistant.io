@@ -146,7 +146,7 @@ script:
     alias: "Hdmi out projector"
     sequence:
       - service: media_player.onkyo_select_hdmi_output
-        service_data:
+        data:
           entity_id: media_player.onkyo
           hdmi_output: out-sub
 ```

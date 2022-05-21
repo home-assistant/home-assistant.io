@@ -51,7 +51,7 @@ tap_action:
       description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
-    service_data:
+    data:
       required: false
       description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
@@ -98,7 +98,7 @@ hold_action:
       description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
-    service_data:
+    data:
       required: false
       description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
@@ -145,7 +145,7 @@ double_tap_action:
       description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
-    service_data:
+    data:
       required: false
       description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
