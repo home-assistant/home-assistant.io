@@ -24,7 +24,7 @@ ha_integration_type: integration
 
 ### Version
 
-This integration requires System Bridge 3.0.0 and above. Any older version will not work.
+This integration requires System Bridge 3.0.9 and above. Any older version will not work.
 
 ### API Key
 
