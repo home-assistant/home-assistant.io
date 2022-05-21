@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: devolo_home_network
 ha_quality_scale: platinum
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_zeroconf: true
 ha_integration_type: integration
