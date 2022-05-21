@@ -19,8 +19,6 @@ The Command Line Sensor can be added both via yaml and from the UI.
 
 {% include integrations/config_flow.md %}
 
-## Configuration
-
 To enable it via yaml, add the following lines to your `configuration.yaml`:
 
 ```yaml
