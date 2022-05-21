@@ -22,11 +22,31 @@ To enable MQTT humidifiers in your installation, add the following to your `conf
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  humidifier:
+    - command_topic: "bedroom_humidifier/on/set"
+      target_humidity_command_topic: "bedroom_humidifier/humidity/set"
+```
+
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `light` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 humidifier:
   - platform: mqtt
     command_topic: "bedroom_humidifier/on/set"
     target_humidity_command_topic: "bedroom_humidifier/humidity/set"
 ```
+
+{% enddetails %}
 
 {% configuration %}
 availability:
@@ -279,31 +299,31 @@ The example below shows a full configuration for a MQTT humidifier including mod
 
 ```yaml
 # Example configuration.yaml
-humidifier:
-  - platform: mqtt
-    name: "Bedroom humidifier"
-    device_class: "humidifier"
-    state_topic: "bedroom_humidifier/on/state"
-    command_topic: "bedroom_humidifier/on/set"
-    target_humidity_command_topic: "bedroom_humidifier/humidity/set"
-    target_humidity_state_topic: "bedroom_humidifier/humidity/state"
-    mode_state_topic: "bedroom_humidifier/mode/state"
-    mode_command_topic: "bedroom_humidifier/preset/preset_mode"
-    modes:
-      - "normal"
-      - "eco"
-      - "away"
-      - "boost"
-      - "comfort"
-      - "home"
-      - "sleep"
-      - "auto"
-      - "baby"
-    qos: 0
-    payload_on: "true"
-    payload_off: "false"
-    min_humidity: 30
-    max_humidity: 80
+mqtt:
+  humidifier:
+    - name: "Bedroom humidifier"
+      device_class: "humidifier"
+      state_topic: "bedroom_humidifier/on/state"
+      command_topic: "bedroom_humidifier/on/set"
+      target_humidity_command_topic: "bedroom_humidifier/humidity/set"
+      target_humidity_state_topic: "bedroom_humidifier/humidity/state"
+      mode_state_topic: "bedroom_humidifier/mode/state"
+      mode_command_topic: "bedroom_humidifier/preset/preset_mode"
+      modes:
+        - "normal"
+        - "eco"
+        - "away"
+        - "boost"
+        - "comfort"
+        - "home"
+        - "sleep"
+        - "auto"
+        - "baby"
+      qos: 0
+      payload_on: "true"
+      payload_off: "false"
+      min_humidity: 30
+      max_humidity: 80
 ```
 
 {% endraw %}
