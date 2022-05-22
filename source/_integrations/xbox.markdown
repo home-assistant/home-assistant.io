@@ -278,7 +278,7 @@ It can take up to a couple of days for newly installed applications to appear in
 ## Manual Configuration
 
 <div class="note">
-These steps are not required, nor will they be supported if issues are encountered. It is recommended to add the integration directly in the Integrations page.
+These steps are not required, nor will they be supported if issues are encountered.
 </div>
 
 If you prefer not to use the Home Assistant account linking service, you may manually configure a local implementation if your instance is exposed externally over HTTPS using the following steps:
@@ -291,24 +291,4 @@ If you prefer not to use the Home Assistant account linking service, you may man
 - On the App Page, navigate to "Certificates & secrets"
   - Generate a new client secret and save for later use
 
-Add the client id and secret to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-xbox:
-  client_id: YOUR_CLIENT_ID
-  client_secret: YOUR_CLIENT_SECRET
-```
-
-Finish setup in the UI through **Settings -> Integrations -> Xbox**.
-
-{% configuration %}
-client_id:
-  description: The `client id` from your Azure AD Application.
-  required: true
-  type: string
-client_secret:
-  description: The `client secret` from your Azure AD Application.
-  required: true
-  type: string
-{% endconfiguration %}
+You may then add the credentials to [Application Credentials](/integrations/application_credentials/) and then setup the integration.
