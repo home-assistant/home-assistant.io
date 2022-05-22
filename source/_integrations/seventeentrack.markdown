@@ -52,6 +52,33 @@ show_delivered:
   default: false
 {% endconfiguration %}
 
+## Package statuses
+
+[17track's API](https://api.17track.net/en/doc) provides the following tracking statuses. The integration creates a sensor for each status, which contains the packages in that status. The sensor's displayed value is the number of packages in that status.
+
+- Not found
+- In transit
+- Expired
+- Pick up
+- Undelivered
+- Delivered
+- Alert
+
+## Package-level attributes
+
+Each package entry (for example, within a status sensor) contains the following attributes.
+
+- package.friendly_name
+- package.status
+- package.destination_country
+- package.info_text
+- package.timestamp
+- package.location
+- package.origin_country
+- package.package_type
+- package.tracking_info_language
+- package.tracking_number
+
 ## Examples
 
 ### Dashboard summary card
@@ -75,13 +102,3 @@ content: >
 ```
 
 {% endraw %}
-
-In a templated Markdown card of this type, the following attributes are available for each individual package:
-- package.destination_country
-- package.info_text
-- package.timestamp
-- package.location
-- package.origin_country
-- package.package_type
-- package.tracking_info_language
-- package.tracking_number
