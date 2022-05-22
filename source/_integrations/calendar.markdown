@@ -34,11 +34,19 @@ automation:
       entity_id: calendar.personal
 ```
 
-### Example Automation
+See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) for additional trigger data available for conditions or actions.
 
-This is an example of an automation that sends a notification with details about the event that
-triggered the automation. See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) for additional trigger data available for conditions or actions.
+### Automation Recipes
 
+Below are a few example ways you can use Calendar triggers.
+
+{% details "Example: Calendar Event Notification " %}
+
+This example automation consists of:
+- For the calendar entity `calendar.personal`
+- At the start of any calendar event
+- Send a notification with the title and start time of the event
+- Allowing multiple events starting at the same time
 
 {% raw %}
 ```yaml
@@ -54,6 +62,79 @@ automation:
         message: >-
           Event {{ trigger.calendar_event.summary }} @
           {{ trigger.calendar_event.start }}
+  mode: parallel
+```
+{% endraw %}
+
+{% enddetails %}
+
+{% details "Example: Calendar Event Light Schedule " %}
+
+This example consists of:
+- For the calendar entity ` calendar.device_automation`
+- When event summary contains `Front Lights`
+- Turn on and off light named `light.front` when the event starts and ends
+- Only runs for one event at a time
+
+{% raw %}
+```yaml
+automation:
+  alias: Front Light Schedule
+  trigger:
+    - platform: calendar
+      event: start
+      entity_id: calendar.device_automation
+    - platform: calendar
+      event: end
+      entity_id: calendar.device_automation
+  condition:
+  - condition: template
+    value_template: "{{ 'Front Lights' in trigger.calendar_event.summary }}"
+  action:
+    service: >
+      {% if trigger.event == "start" %}
+        light.turn_on
+      {% else %}
+        light.turn_off
+      {% endif %}
+    target: light.front
   mode: single
 ```
 {% endraw %}
+
+{% enddetails %}
+
+{% details "Example: Calendar Event Binary Sensor Template" %}
+
+This template example consists of:
+- For the calendar entity ` calendar.device_automation`
+- When event summary contains `Front Lights`
+- Set the state of `binary_sensor.front_light_schedule` when the event starts and ends
+- Only runs for one event at a time
+
+{% raw %}
+```yaml
+template:
+  - trigger:
+      - platform: calendar
+        event: start
+        entity_id: calendar.device_automation
+      - platform: calendar
+        event: end
+        entity_id: calendar.device_automation
+    binary_sensor:
+      - name: front_light_schedule
+        state: >
+          {% if 'Front Lights' in trigger.calendar_event.summary %}
+            {% if trigger.event == "start" %}
+            on
+            {% else %}
+            off
+            {% endif %}
+          {% else %}
+            {{ states("binary_sensor.front_light_schedule") }}
+          {% endif %}
+```
+{% endraw %}
+
+{% enddetails %}
