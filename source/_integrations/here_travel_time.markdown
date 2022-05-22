@@ -21,13 +21,15 @@ The `here_travel_time` sensor provides travel time from the [HERE Routing API](h
 
 You need to register for an API key (REST & XYZ HUB API/CLI) by following the instructions [here](https://developer.here.com/tutorials/getting-here-credentials/).
 
-HERE offers a Freemium Plan which includes 250,000 free Transactions per month. For the Routing API, one transaction equals one request with one starting point (no multi stop). More information can be found [here](https://knowledge.here.com/csm_kb?id=public_kb_csm_details&number=KB0016433)
+HERE offers a Freemium Plan which includes 250,000 free Transactions per month. For the Routing API, one transaction equals one request with one starting point (no multi stop). If you are not [updating sensors on demand](#updating-sensors-on-demand-using-automation) you can track 28 routes without exceeding the limit. More information can be found [here](https://knowledge.here.com/csm_kb?id=public_kb_csm_details&number=KB0016433)
 
 By default HERE will deactivate your account if you exceed the free Transaction limit for the month. You can add payment details to re-enable your account as described [here](https://knowledge.here.com/csm_kb?id=public_kb_csm_details&number=KB0016434)
 
-## Configuration
-
 {% include integrations/config_flow.md %}
+
+Notes:
+
+- Origin and Destination can be the address or the GPS coordinates of the location. For a [dynamic configuration](#dynamic-configuration) you can also enter an entity id which provides this information in its state, an entity id with latitude and longitude attributes, or zone friendly name (case sensitive).
 
 {% include integrations/option_flow.md %}
 
@@ -44,8 +46,6 @@ input_select:
       - zone.office
       - zone.somewheredefault
 ```
-
-## Entity Tracking
 
 - **device_tracker**
   - If the state is a zone, then the zone location will be used
