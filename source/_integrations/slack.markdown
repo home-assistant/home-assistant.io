@@ -12,6 +12,7 @@ ha_codeowners:
   - '@tkdrob'
 ha_platforms:
   - notify
+  - number
 ha_integration_type: integration
 ---
 
@@ -52,6 +53,12 @@ The added `notify` service will be named after the chat server the app is instal
 </div>
 
 {% include integrations/config_flow.md %}
+
+## Integration Entities
+
+One number entity will be created:
+
+- **Do Not Disturb**: Set Do Not Disturb period. This starts immediately when set and decreases until depleted.
 
 ### Slack Service Data
 
