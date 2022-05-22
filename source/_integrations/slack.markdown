@@ -12,6 +12,7 @@ ha_codeowners:
   - '@tkdrob'
 ha_platforms:
   - notify
+  - switch
 ha_integration_type: integration
 ---
 
@@ -52,6 +53,10 @@ The added `notify` service will be named after the chat server the app is instal
 </div>
 
 {% include integrations/config_flow.md %}
+
+One switch entity will be created:
+
+- **Status**: Set status to Active (On) / Away (Off).
 
 ### Slack Service Data
 
