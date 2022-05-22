@@ -103,7 +103,7 @@ The calendar entity has additional attributes related to a single next upcoming 
 
 <div class='note'>
 
-Using the entity state and attributes is more error prone and less flexible than using Calendar Automations. The calendar entity itself may only tracks a single upcoming active event and can't handle multiple events with the same start time, or overlapping events.
+Using the entity state and attributes is more error prone and less flexible than using Calendar Automations. The calendar entity itself may only track a single upcoming active event and can't handle multiple events with the same start time, or overlapping events.
 
 </div>
 
