@@ -6,6 +6,7 @@ ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: '0.100'
+ha_quality_scale: gold
 ha_codeowners:
   - '@eifinger'
 ha_domain: here_travel_time
