@@ -2,8 +2,8 @@
 title: Home Connect
 description: Instructions on how to set up the Home Connect integration within Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
+  - Hub
   - Light
   - Sensor
   - Switch
@@ -18,6 +18,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Home Connect integration allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).
@@ -30,7 +31,7 @@ The integration will add one Home Assistant device for each connected home appli
 - For hood's functional light a light switch including brightness control will be added.
 - For hood's and dishwasher's ambient light a light switch including brightness and color control will be added.
 
-Note that it depends on the appliance and on API permissions which of the features are supported. A notable limitation is that oven programs cannot be started currently.
+Note that it depends on the appliance and on API permissions which of the features are supported.
 
 ## Prerequisites
 

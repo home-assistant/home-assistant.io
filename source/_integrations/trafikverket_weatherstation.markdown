@@ -12,6 +12,7 @@ ha_codeowners:
   - '@gjohansson-ST'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 Showing weather information provided by [Trafikverket](https://www.trafikverket.se/) weather stations in Sweden.

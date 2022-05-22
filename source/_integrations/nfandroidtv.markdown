@@ -11,6 +11,7 @@ ha_platforms:
   - notify
 ha_codeowners:
   - '@tkdrob'
+ha_integration_type: integration
 ---
 
 Notification integration for [Notifications for Android TV](https://play.google.com/store/apps/details?id=de.cyberdream.androidtv.notifications.google) and [Notifications for Fire TV](https://www.amazon.com/Christian-Fees-Notifications-for-Fire/dp/B00OESCXEK). You can use this integration to send notifications to your Android TV device. An overlay with the message content will appear for a configurable amount of seconds and then disappear again. Sending images (e.g., security cam) and custom icons is supported too. Icons are essentially the same as images (any image format supported by Android TV is supported), but are displayed small and to the left of the notification whereas images are large and above the notification.
@@ -138,7 +139,7 @@ data:
     duration: 4
     position: "bottom-left"
     fontsize: "medium"
-    transparency: "80%"
+    transparency: "75%"
     color: "teal"
     interrupt: 0
 ```

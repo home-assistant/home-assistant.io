@@ -11,6 +11,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@tkdrob'
+ha_integration_type: integration
 ---
 
 Integrate your [Efergy](https://efergy.com) meter information into Home Assistant.

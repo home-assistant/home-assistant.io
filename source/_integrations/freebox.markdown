@@ -19,6 +19,7 @@ ha_platforms:
   - sensor
   - switch
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/).
@@ -37,7 +38,7 @@ Please consult the [API documentation](https://dev.freebox.fr/sdk/os/) for more 
 
 ### Via the frontend
 
-Menu: **Configuration** -> **Devices & Services**. Search for "Freebox", add your host and port, click submit.
+Menu: **Settings** -> **Devices & Services**. Search for "Freebox", add your host and port, click submit.
 
 If you add the integration for the first time, follow the instructions in the [Initial setup](#initial-setup) section.
 

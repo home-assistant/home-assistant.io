@@ -14,6 +14,7 @@ ha_platforms:
   - switch
 ha_config_flow: true
 ha_quality_scale: platinum
+ha_integration_type: integration
 ---
 
 This `Switcher` integration allows you to control your [Switcher Devices](https://www.switcher.co.il/).

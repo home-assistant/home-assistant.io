@@ -9,6 +9,7 @@ ha_codeowners:
   - '@eavanvalkenburg'
 ha_domain: azure_event_hub
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The `Azure Event Hub` integration allows you to hook into the Home Assistant event bus and send events to [Azure Event Hub](https://azure.microsoft.com/en-us/services/event-hubs/) or to an [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-read-builtin).

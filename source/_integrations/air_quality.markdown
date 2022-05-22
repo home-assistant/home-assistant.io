@@ -4,6 +4,10 @@ description: Instructions on how to add air quality sensors with Home Assistant
 ha_release: 0.85
 ha_domain: air_quality
 ha_quality_scale: internal
+ha_category: []
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 The `air_quality` base platform allows other integrations to process information about air quality and pollution details. It is used by integrations that provide an `air_quality` sensor - you can find those under the `health` [integrations](/integrations/#health).

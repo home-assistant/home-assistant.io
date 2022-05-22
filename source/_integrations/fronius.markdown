@@ -15,6 +15,7 @@ ha_platforms:
   - sensor
 ha_quality_scale: platinum
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The `fronius` integration polls a [Fronius](https://www.fronius.com/) solar inverter or datalogger to allow you to get details from your Fronius SolarNet setup and integrate it in your Home Assistant installation.

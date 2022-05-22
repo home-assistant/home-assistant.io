@@ -8,6 +8,7 @@ ha_domain: thomson
 ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 Thomson produced networking equipment (under the brand name SpeedTouch) till 2010 and was then renamed to Technicolor.

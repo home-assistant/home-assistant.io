@@ -15,6 +15,7 @@ ha_platforms:
 ha_codeowners:
   - '@garbled1'
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The `venstar` climate platform allows you to control [Venstar](https://www.venstar.com/) thermostats from Home Assistant.

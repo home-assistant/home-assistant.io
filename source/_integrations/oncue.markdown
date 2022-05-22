@@ -14,6 +14,7 @@ ha_domain: oncue
 ha_platforms:
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 The Oncue by Kohler integration will allow you to monitor the state of your [Oncue enabled Kohler generator](https://api.kohler.com/oncueplus/#/auth).

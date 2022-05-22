@@ -2,8 +2,8 @@
 title: Workday
 description: Steps to configure the binary workday sensor.
 ha_category:
-  - Utility
   - Binary Sensor
+  - Utility
 ha_iot_class: Local Polling
 ha_release: 0.41
 ha_quality_scale: internal
@@ -12,14 +12,17 @@ ha_codeowners:
 ha_domain: workday
 ha_platforms:
   - binary_sensor
+ha_integration_type: integration
 ---
 
-The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week will count as workdays and also
+The `workday` binary sensor indicates whether the current day is a workday or not. It allows specifying which days of the week will count as workdays and also
 uses the Python module [holidays](https://pypi.python.org/pypi/holidays) to incorporate information about region-specific public holidays. 
+
+This can be used to make automations that act differently on weekdays vs weekends. For example, you could make your bedroom lights turn on (gently) at 7 in the morning if it is a weekday, but wait until 11 if it is a weekend day.
 
 ## Setup
 
-Check the [country list](https://github.com/dr-prodigy/python-holidays#available-countries) for available province.
+Check the [country list](https://github.com/dr-prodigy/python-holidays#available-countries) for available provinces (and other subdivisions, like states and territories) for each country.
 
 ## Configuration
 To enable the `workday` sensor in your installation, add the following to your `configuration.yaml` file:
@@ -81,13 +84,13 @@ Otherwise, the value is evaluated as `false`.
 If you use the sensor for Canada (`CA`) with Ontario (`ON`) as `province:` then you need to wrap `ON` in quotes.
 Otherwise, the value is evaluated as `true` (check the YAML documentation for further details) and the sensor will not work.
 
-One other thing to watch is how the `holiday` keyword is used. Your first instinct might be to add it to the `exclude` configuration, thinking that it means to skip the holidays. Actually it means to exclude the days in the holidays’ list from the workdays. So when you exclude `holiday` and a workday falls on that day, then that workday is excluded. Meaning the sensor will be off. If you want the workday flagged without regarding holidays, make sure that there is something in your `Excludes` configuration other than `holiday`.
+One other thing to watch is how the `holiday` keyword is used. Your first instinct might be to add it to the `exclude` configuration, thinking that it means to skip the holidays. Actually it means to exclude the days in the holidays list from the workdays. So, when you exclude `holiday` and a workday falls on that day, then that workday is excluded, and the sensor will be **off**. If you want every workday flagged with no regard to holidays, make sure that there is something in your `Excludes` configuration _other_ than `holiday`.
 
 </div>
 
 ## Full examples
 
-This example excludes Saturdays and Sundays but not holidays. Two custom holidays are added.
+This example excludes Saturdays and Sundays but not pre-configured holidays. Two custom holidays are added.
 
 ```yaml
 # Example 1 configuration.yaml entry
@@ -102,7 +105,7 @@ binary_sensor:
 ```
 
 This example excludes Saturdays, Sundays and holidays. One custom holiday is added.
-The date February 24th, 2020 is a Monday but will be excluded because it was added to the `add_holidays` configuration.
+The date February 24th, 2020 is a Monday, but will be excluded (the sensor will be **off**) because it was added to the `add_holidays` configuration.
 
 ```yaml
 # Example 2 configuration.yaml entry
