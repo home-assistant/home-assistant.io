@@ -640,6 +640,7 @@ source/_integrations/wled.markdown @frenck
 source/_integrations/wolflink.markdown @adamkrol93
 source/_integrations/workday.markdown @fabaff
 source/_integrations/worldclock.markdown @fabaff
+source/_integrations/ws66i.markdown @ssaenger
 source/_integrations/xbox.markdown @hunterjm
 source/_integrations/xbox_live.markdown @MartinHjelmare
 source/_integrations/xiaomi_aqara.markdown @danielhiversen @syssi
