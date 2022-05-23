@@ -43,7 +43,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
 - **power_factor**: Power factor in %
 - **power**: Power in W or kW
-- **pressure**: Pressure in hPa or mbar
+- **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg or psi
 - **reactive_power**: Reactive power in var
 - **signal_strength**: Signal strength in dB or dBm
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
