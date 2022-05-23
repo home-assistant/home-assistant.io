@@ -58,7 +58,7 @@ The added `notify` service will be named after the chat server the app is instal
 
 One number entity will be created:
 
-- **Do Not Disturb**: Set Do Not Disturb period. This starts immediately when set.
+- **Do Not Disturb Period**: Set Do Not Disturb period. This starts immediately when set.
 
 ### Slack Service Data
 
