@@ -29,7 +29,7 @@ The following describes trigger data associated with all platforms.
 | Template variable                    | Data                                                                                                                            |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
 | `trigger.platform`                   | Hardcoded: `calendar`                                                                                                           |
-| `trigger.event_type`                 | The trigger event type, either `start`  or `end`                                                                                |
+| `trigger.event`                      | The trigger event type, either `start`  or `end`                                                                                |
 | `trigger.calendar_event`             | The calendar event object matched.                                                                                              |
 | `trigger.calendar_event.summary`     | The title or summary of the calendar event.                                                                                     |
 | `trigger.calendar_event.start`       | String representation of the start date or date time of the calendar event e.g. `2022-04-10`, or `2022-04-10 11:30:00-07:00`    |

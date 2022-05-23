@@ -65,6 +65,7 @@ Enjoy the release!
 - [Release 2022.5.2 - May 6](#release-202252---may-6)
 - [Release 2022.5.3 - May 8](#release-202253---may-8)
 - [Release 2022.5.4 - May 12](#release-202254---may-12)
+- [Release 2022.5.5 - May 18](#release-202255---may-18)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -885,6 +886,59 @@ The following integrations are now available via the Home Assistant UI:
 [ukraine_alarm docs]: /integrations/ukraine_alarm/
 [unifiprotect docs]: /integrations/unifiprotect/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.5.5 - May 18
+
+- Refresh camera stream source of Synology DSM connected cameras ([@mib1185] - [#70938])
+- Warn user if "model" key is missing from Shelly firmware ([@chemelli74] - [#71612]) ([shelly docs])
+- Remove LIFX bulb discovery from the inflight list if it fails to connect ([@Djelibeybi] - [#71673]) ([lifx docs])
+- Limit parallel requests in fibaro light ([@rappenze] - [#71762]) ([fibaro docs])
+- Fix VeSync air_quality fan attribute ([@jetpacktuxedo] - [#71771]) ([vesync docs])
+- Fix handling package detection for latest UniFi Protect beta ([@AngellusMortis] - [#71821]) ([unifiprotect docs])
+- Add missing Shelly Cover sensors bugfix ([@RadekHvizdos] - [#71831]) ([shelly docs])
+- Revert changing `pysnmp` to `pysnmplib` ([@bieniu] - [#71901]) ([snmp docs]) ([brother docs])
+- Suppress Upnp error in SamsungTV resubscribe ([@epenet] - [#71925]) ([samsungtv docs])
+- Properly handle Shelly gen2 device disconnect ([@chemelli74] - [#71937]) ([shelly docs])
+- Include initial state in history_stats count ([@bdraco] - [#71952]) ([history_stats docs])
+- Fix filesize doing IO in event loop ([@thecode] - [#72038]) ([filesize docs])
+- Ignore UpnpXmlContentError in SamsungTV ([@epenet] - [#72056]) ([samsungtv docs])
+- Cleanup unused import in SamsungTV ([@epenet] - [#72102]) ([samsungtv docs])
+
+[#70938]: https://github.com/home-assistant/core/pull/70938
+[#71612]: https://github.com/home-assistant/core/pull/71612
+[#71673]: https://github.com/home-assistant/core/pull/71673
+[#71762]: https://github.com/home-assistant/core/pull/71762
+[#71771]: https://github.com/home-assistant/core/pull/71771
+[#71821]: https://github.com/home-assistant/core/pull/71821
+[#71831]: https://github.com/home-assistant/core/pull/71831
+[#71901]: https://github.com/home-assistant/core/pull/71901
+[#71925]: https://github.com/home-assistant/core/pull/71925
+[#71937]: https://github.com/home-assistant/core/pull/71937
+[#71952]: https://github.com/home-assistant/core/pull/71952
+[#72038]: https://github.com/home-assistant/core/pull/72038
+[#72056]: https://github.com/home-assistant/core/pull/72056
+[#72102]: https://github.com/home-assistant/core/pull/72102
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@RadekHvizdos]: https://github.com/RadekHvizdos
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@chemelli74]: https://github.com/chemelli74
+[@epenet]: https://github.com/epenet
+[@jetpacktuxedo]: https://github.com/jetpacktuxedo
+[@mib1185]: https://github.com/mib1185
+[@rappenze]: https://github.com/rappenze
+[@thecode]: https://github.com/thecode
+[brother docs]: /integrations/brother/
+[fibaro docs]: /integrations/fibaro/
+[filesize docs]: /integrations/filesize/
+[history_stats docs]: /integrations/history_stats/
+[lifx docs]: /integrations/lifx/
+[samsungtv docs]: /integrations/samsungtv/
+[shelly docs]: /integrations/shelly/
+[snmp docs]: /integrations/snmp/
+[unifiprotect docs]: /integrations/unifiprotect/
+[vesync docs]: /integrations/vesync/
 
 ## Need help? Join the community!
 
