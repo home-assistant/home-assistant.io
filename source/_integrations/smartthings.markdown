@@ -3,15 +3,15 @@ title: SmartThings
 description: Instructions on setting up SmartThings within Home Assistant.
 featured: true
 ha_category:
-  - Hub
   - Binary Sensor
   - Climate
   - Cover
   - Fan
+  - Hub
   - Light
   - Lock
-  - Sensor
   - Scene
+  - Sensor
   - Switch
 ha_release: 0.87
 ha_iot_class: Cloud Push
@@ -30,6 +30,7 @@ ha_platforms:
   - sensor
   - switch
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The features of this integration include:

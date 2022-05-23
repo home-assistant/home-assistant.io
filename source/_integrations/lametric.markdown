@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: lametric
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 [LaMetric Time](https://lametric.com/) is a smart clock that can be used to access applications, listen to web radio and display notifications.

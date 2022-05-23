@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.36
 ha_domain: openalpr_cloud
+ha_integration_type: integration
 ---
 
 [OpenALPR](https://www.openalpr.com/) integration for Home Assistant allows you

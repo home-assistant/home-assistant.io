@@ -21,6 +21,7 @@ ha_platforms:
   - sensor
   - switch
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
@@ -35,10 +36,11 @@ Speaker-level controls are exposed as `number` or `switch` entities. Additionall
 
 - **All devices**: Alarms, Bass, Treble, Crossfade, Status Light, Touch Controls
 - **Home theater devices**: Audio Delay (aka "Lip Sync"), Night Sound, Speech Enhancement, Surround Enabled
-- **When paired with a sub**: Subwoofer Enabled
+- **When paired with a sub**: Subwoofer Enabled, Subwoofer Gain
 
 ### Sensors
 
+- **Each Sonos system**: Sonos Favorites
 - **Devices with battery**: Battery level, Power state
 - **Home theater devices**: Audio Input Format
 - **Voice-enabled devices**: Microphone Enabled
@@ -62,6 +64,41 @@ The Sonos integration adds one `switch` for each alarm set in the Sonos app. The
 ### Microphone support notes
 
 The microphone can only be enabled/disabled from physical buttons on the Sonos device and cannot be controlled from Home Assistant. A `binary_sensor` reports its current state.
+
+### Sonos Favorites support notes
+
+The favorites sensor provides the names and `media_content_id` values for each of the favorites saved to My Sonos in the native Sonos app. This sensor is intended for users that need to access the favorites in a custom template. For most users, accessing favorites by using the Media Browser functionality and "Play media" script/automation action is recommended.
+
+If using the provided `media_content_id` with the `media_player.play_media` service, the `media_content_type` must be set to "favorite_item_id".
+
+Example templates:
+
+{% raw %}
+
+```yaml
+# Get all favorite names as a list (old behavior)
+{{ state_attr("sensor.sonos_favorites", "items").values() | list }}
+
+# Pick a specific favorite name by position
+{{ (state_attr("sensor.sonos_favorites", "items").values() | list)[3] }}
+
+# Pick a random item's `media_content_id`
+{{ state_attr("sensor.sonos_favorites", "items") | list | random }}
+
+# Loop through and grab name & media_content_id
+{% for media_id, name in state_attr("sensor.sonos_favorites", "items").items() %}
+  {{ name, media_id }}
+{% endfor %}
+```
+
+{% endraw %}
+
+<div class='note'>
+
+The Sonos favorites sensor (`sensor.sonos_favorites`) is disabled by default. It can be found and enabled from the entities associated with the Sonos integration on your {% my integrations %} page.
+  
+</div>
+
 
 ## Playing media
 
@@ -241,7 +278,7 @@ condition:
     # Coordinator
     - condition: template
       value_template: >
-        {{ state_attr( trigger.entity_id , 'sonos_group')[0] ==  trigger.entity_id }}
+        {{ state_attr( trigger.entity_id , 'group_members')[0] ==  trigger.entity_id }}
     # Going from queue to queue
     - condition: template
       value_template: >

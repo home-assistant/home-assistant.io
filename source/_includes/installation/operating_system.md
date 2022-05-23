@@ -12,11 +12,11 @@ Follow this guide if you want to get started with Home Assistant easily or if yo
 
 We will need a few things to get started with installing Home Assistant. Links below lead to Amazon US. If you’re not in the US, you should be able to find these items in web stores in your country.
 
-- [Raspberry Pi 4](https://amzn.to/2S0Gcl1) (Raspberry Pi 3 is ok too, if you have one laying around)
+- [Raspberry Pi 4](https://amzn.to/2S0Gcl1) (Raspberry Pi 3 is ok too, if you have one laying around). Raspberry Pi are currently hard to come by, use [RPilocator](https://rpilocator.com/?cat=PI4) or [Fast Alerts (US)](https://fastalerts.io/product/raspberry-pi-4/) to find webshops with stock.
 - [Power Supply for Raspberry Pi 4](https://amzn.to/2ReZ2Vq) or [Power Supply for Raspberry Pi 3](https://amzn.to/2R8yG7h)
 - [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. A 32 GB or bigger card is recommended.
 - SD Card reader. This is already part of most laptops, but you can purchase a [standalone USB adapter](https://amzn.to/2WWxntY) if you don't have one. The brand doesn't matter, just pick the cheapest.
-- Ethernet cable. Home Assistant can work with Wi-Fi, but an Ethernet connection is more reliable and highly recommended.
+- [Ethernet cable](https://amzn.com/dp/B00N2VISLW). Required for installation. After installation, Home Assistant can work with Wi-Fi, but an Ethernet connection is more reliable and highly recommended.
 
 {% endif %}
 
@@ -99,7 +99,7 @@ To use this method, follow the steps described in the procedure below: [Write th
 {% if page.installation_type == 'odroid' %}
    If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
 {% endif %}
-2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>
+2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. (You may need to run it with administrator privileges on Windows).
 3. Select "Flash from URL"
 ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
 
@@ -207,11 +207,20 @@ _All these can be extended if your usage calls for more resources._
 - title: VirtualBox
   content: |
     1. Create a new virtual machine
-    2. Select Type “Linux” and Version “Other Linux (64-bit)”
+    2. Select Type “Linux” and Version “Linux 2.6 / 3.x / 4.x (64-bit)”
     3. Select “Use an existing virtual hard disk file”, select the unzipped VDI file from above
     4. Edit the “Settings” of the VM and go “System” then “Motherboard” and select “Enable EFI”
     5. Then go to “Network” “Adapter 1” choose “Bridged Adapter” and choose your Network adapter
     6. Then go to “Audio” and choose “Intel HD Audio” as Audio Controller.
+    <div class="note info">
+
+    By default VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
+    the `discard` option must be enabled:
+    ```bash
+    VBoxManage storageattach <VM name> --storagectl "SATA" --port 0 --device 0 --nonrotational on --discard on
+    ```
+
+    </div>
 
 - title: KVM
   content: |

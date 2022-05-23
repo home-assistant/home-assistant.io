@@ -2,10 +2,10 @@
 title: Hive
 description: Instructions on how to integrate Hive devices with Home Assistant.
 ha_category:
-  - Hub
   - Alarm Control Panel
   - Binary Sensor
   - Climate
+  - Hub
   - Light
   - Sensor
   - Switch
@@ -25,6 +25,7 @@ ha_platforms:
   - switch
   - water_heater
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The Hive integration for Home Assistant allows you to interact with supported devices and services offered by

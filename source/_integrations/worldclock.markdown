@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: worldclock
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `worldclock` sensor platform simply displays the current time in a different time zone.

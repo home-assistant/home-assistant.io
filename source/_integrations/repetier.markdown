@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: repetier
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 [Repetier-Server](https://www.repetier-server.com/) is a 3D printer/CNC server, able to control multiple devices on the same server.

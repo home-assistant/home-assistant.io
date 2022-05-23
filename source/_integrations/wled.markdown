@@ -5,6 +5,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Updates
 ha_release: 0.102
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -19,9 +20,11 @@ ha_platforms:
   - diagnostics
   - light
   - number
-  - sensor
   - select
+  - sensor
   - switch
+  - update
+ha_integration_type: integration
 ---
 
 [WLED](https://kno.wled.ge) is a fast and feature-rich
@@ -102,13 +105,25 @@ Can be configured on the WLED itself under settings > Sync Interfaces > WLED Bro
 
 [WLED Sync documentation](https://kno.wled.ge/interfaces/udp-realtime/)
 
+## Firmware Updates
+
+The integration has an [update entity](/integrations/update/) that provides
+information on the latest available version of WLED and indicates if a
+firmware update is available for installation.
+
+The firmware update can be triggered and installed onto your WLED device
+directly from Home Assistant.
+
+The update entity will only provide updates to stable versions, unless you are
+using a beta version of WLED. In that case, the update entity will also provide
+updates to newer beta versions.
+
 {% include integrations/option_flow.md %}
 
 {% configuration_basic %}
 Keep Master Light:
   description: Keep the master light, even if there is only 1 segment. This ensures the master light is always there, in case you are automating segments to appear and remove dynamically.
 {% endconfiguration_basic %}
-
 ## Example Automations
 
 ### Activating Random Effect

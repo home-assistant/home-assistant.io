@@ -9,6 +9,7 @@ ha_domain: mjpeg
 ha_config_flow: true
 ha_platforms:
   - camera
+ha_integration_type: integration
 ---
 
 The MJPEG IP Camera integration allows you to integrate IP cameras which are

@@ -353,7 +353,7 @@ state_image:
   type: map
 filter:
   required: false
-  description: Default CSS filter.
+  description: "Default: `grayscale(100%)` when entity state is `off`. Set to `none` to remove this."
   type: string
 state_filter:
   required: false
@@ -406,7 +406,7 @@ elements:
 ### Custom Elements
 
 The process for creating and referencing custom elements is the same as for custom cards.
-Please see the [developer documentation](https://developers.home-assistant.io/docs/frontend/custom-ui/lovelace-custom-card.html)
+Please see the [developer documentation](https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card)
 for more information.
 
 {% configuration %}

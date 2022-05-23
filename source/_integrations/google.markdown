@@ -5,9 +5,13 @@ ha_category:
   - Calendar
 ha_iot_class: Cloud Polling
 ha_release: 0.33
+ha_config_flow: true
 ha_domain: google
 ha_platforms:
   - calendar
+ha_codeowners:
+  - '@allenporter'
+ha_integration_type: integration
 ---
 
 The Google integration allows you to connect to your [Google Calendars](https://calendar.google.com) to Home Assistant. The integration adds calendar entities that are shown on the *Calendar* dashboard, and can be used for automations based on any event, or limited to specific matching criteria.
@@ -37,7 +41,6 @@ This section explains how to generate a Client ID and Client Secret on
 1. You will then be presented with a pop-up saying 'OAuth client created' showing `Your Client ID` and `Your Client Secret`. Make a note of these (for example, copy and paste them into a text editor) as you will need to put these in your `configuration.yaml` file shortly. Once you have noted these strings, click `OK`. If you need to find these credentials again at any point then simply navigate to `APIs & Services` > `Credentials` and you will see `Home Assistant Credentials` (or whatever you named them in the previous step) under `OAuth 2.0 Clident IDs`. To view both the `Client ID` and `Client secret`, click on the pencil icon, this will take you to the settings page for these credentials and the information will be on the right hand side of the page.
 1. We need to double check that the "Google Calendar API" has been automatically enabled. To do this, select `Library` from the menu, then search for "Google Calendar API". If it is enabled you will see `API Enabled` with a green tick next to it. If it is not enabled, then enable it.
 
-If you will later be adding more scopes than just the "Google Calendar API" to the OAuth for this application, you will need to delete your token file under your Home Assistant Profile. You will lose your refresh token due to the re-authenticating to add more API access. It's recommended to use different authorizations for different pieces of Google.
 {% enddetails %}
 
 
@@ -78,16 +81,60 @@ calendar_access:
   default: read_write
 {% endconfiguration %}
 
-The next time you run or restart Home Assistant, you should find a new notification (the little bell icon in the lower-left corner). Click on that notification it will give you a link and an authentication code. Click on that link to open a Google website where you should enter the code found in the notification (**NOTE**: You may get a message telling you that the API has not been verified and you will need to acknowledge that in order to proceed). This will grant your Home Assistant service `read-only` or `read-write` access (based on configuration) to all the Google Calendars that the account you authenticate with can read.
+Then make sure to restart Home Assistant under _**Server Controls**_.
+
+{% my server_controls badge %}
+
+After that, you need to add Google Calendars *Integration*.
+
+{% my config_flow_start badge domain=page.ha_domain %}
+
+{% details "Manual configuration steps" %}
+
+1. Browse to your Home Assistant instance.
+1. In the sidebar click on _**{% my config icon %}**_.
+2. From the configuration menu select: _**{% my integrations %}**_.
+3. In the bottom right, click on the
+  _**{% my config_flow_start icon domain=page.ha_domain %}**_ button.
+1. From the list, search and select _**"Google Calendars"**_ and follow the instructions.
+
+{% enddetails %}
+
+The integration setup will next give you instructions on how to authorize Home Assistant to access your account and Calendars.
+
+{% details "OAuth and Device Authorization steps" %}
+
+1. The first step shows a link and a code.
+
+    ![Screenshot of Link Account](/images/integrations/google/link_account.png)
+
+1. Click on the link [https://www.google.com/device](https://www.google.com/device) to open a Google website which should open a new window where you can enter the code.
+
+1. Home Assistant will wait for a short time while you complete the authorization steps, checking in the background for the authorization to be completed.
+
+    ![Screenshot of Enter Code](/images/integrations/google/enter_code.png)
+
+1. Continue through the steps of selecting the account you used when creating the credentials in the Google Developer Console.
+
+1. **NOTE**: You may get a message telling you that the app has not been verified and you will need to acknowledge that in
+order to proceed.
+
+1. Depending on your `configuration.yaml`, you will either be granting Home Assistant *read only* or *read write* access
+to all the Google Calendars available to your linked account.
+
+1. You should then see a *Success!* message from Google.
+
+    ![Screenshot of Device Connected](/images/integrations/google/device_connected.png)
+
+1. You may close the window, and return back to Home Assistant where you should see a *Success!* message from Home Assistant.
+
+    ![Screenshot of Success](/images/integrations/google/success.png)
+
+{% enddetails %}
 
 ## Troubleshooting
 
-If you are trying to switch to a new Google account then you would run into the following error message. Make sure to delete the existing **.google.token** file from your `config` folder and restart Home Assistant to try again.
-
-'oauth2client.client.HttpAccessTokenRefreshError: deleted_client: The OAuth client was deleted'
-
-In case you get an `Authentication code expired, please restart Home-Assistant and try again` error message, switch your timezone to `Etc/GMT` and restart Home Assistant. This should fix the issue and the `google_calendars.yaml` configuration file will be created.
-You can then switch back the timezone to your original one and restart Home Assistant again.
+If the setup process fails and you see an error message such as *Authentication code expired, please try again* you may want to try the flow again. You may also check the logs for additional error messages that may indicate a misconfiguration such as an invalid client id or secret.
 
 ## Calendar Configuration
 
@@ -181,7 +228,7 @@ entities:
 
 - **offset_reached**: If set in the event title and parsed out will be `on`/`off` once the offset in the title in minutes is reached. So the title `Very important meeting #Important !!-10` would trigger this attribute to be `on` 10 minutes before the event starts.
 - **all_day**: `true`/`false` if this is an all day event. Will be `false` if there is no event found.
-- **message**: The event title with the `search` and `offset` values extracted. So in the above example for **offset_reached** the **message** would be set to `Very important meeting`
+- **message**: The event title with the `offset` value extracted. So in the above example for **offset_reached** the **message** would be set to `Very important meeting #Important`
 - **description**: The event description.
 - **location**: The event Location.
 - **start_time**: Start time of event.
@@ -242,5 +289,3 @@ For example, the actions following this condition will only be executed for even
 ```
 
 {% endraw %}
-
-

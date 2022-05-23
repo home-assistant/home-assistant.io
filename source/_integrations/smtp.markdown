@@ -5,11 +5,10 @@ ha_category:
   - Notifications
 ha_iot_class: Cloud Push
 ha_release: pre 0.7
-ha_codeowners:
-  - '@fabaff'
 ha_domain: smtp
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The SMTP platform allows you to deliver notifications from Home Assistant to an e-mail recipient.

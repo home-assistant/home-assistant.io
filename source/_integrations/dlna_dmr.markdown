@@ -13,6 +13,7 @@ ha_domain: dlna_dmr
 ha_platforms:
   - media_player
 ha_ssdp: true
+ha_integration_type: integration
 ---
 
 The `dlna_dmr` platform allows you to control a [DLNA Digital Media Renderer](https://www.dlna.org/), such as DLNA enabled TVs or radios.
@@ -23,7 +24,7 @@ Please note that some devices, such as Samsung TVs, are rather picky about the s
 
 ## Options
 
-Options for DLNA DMR devices can be set going to **Configuration** -> **Devices & Services** -> **DLNA Digital Media Renderer** -> **Configuration**.
+Options for DLNA DMR devices can be set going to **Settings** -> **Devices & Services** -> **DLNA Digital Media Renderer** -> **Configuration**.
 
 {% configuration_basic %}
 Event listener port:
