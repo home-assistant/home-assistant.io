@@ -12,6 +12,7 @@ ha_codeowners:
   - '@tkdrob'
 ha_platforms:
   - notify
+  - sensor
 ha_integration_type: integration
 ---
 
@@ -52,6 +53,10 @@ The added `notify` service will be named after the chat server the app is instal
 </div>
 
 {% include integrations/config_flow.md %}
+
+One sensor entity will be created:
+
+- **Do Not Disturb Timer**: The amount of time left for Do Not Disturb status.
 
 ### Slack Service Data
 
