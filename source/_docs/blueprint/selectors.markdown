@@ -18,22 +18,27 @@ The following selectors are currently available:
 - [Action selector](#action-selector)
 - [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
+  - [Example area selectors](#example-area-selectors)
 - [Attribute selector](#attribute-selector)
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
 - [Date selector](#date-selector)
 - [Date & time selector](#date--time-selector)
 - [Device selector](#device-selector)
+  - [Example device selector](#example-device-selector)
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
+  - [Example entity selector](#example-entity-selector)
 - [Icon selector](#icon-selector)
 - [Location selector](#location-selector)
 - [Media selector](#media-selector)
 - [Number selector](#number-selector)
+  - [Example number selectors](#example-number-selectors)
 - [Object selector](#object-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [Target selector](#target-selector)
+  - [Example target selectors](#example-target-selectors)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
@@ -785,14 +790,29 @@ Alternatively, a mapping can be used for the options. When you want to return
 a different value compared to how it is displayed to the user.
 
 ```yaml
-select:
-  options:
-    - label: Red
-      value: r
-    - label: Green
-      value: g
-    - label: Blue
-      value: b
+input:
+  weekday:
+    name: Days of the week to use
+    default: [mon, tue, wed, thu, fri, sat, sun]
+    selector:
+      select:
+        options:
+        - label: Monday
+          value: mon
+        - label: Tuesday
+          value: tue
+        - label: Wednesday
+          value: wed
+        - label: Thursday
+          value: thu
+        - label: Friday
+          value: fri
+        - label: Saturday
+          value: sat
+        - label: Sunday
+          value: sun
+        custom_value: false
+        multiple: true
 ```
 
 {% configuration select_map %}
