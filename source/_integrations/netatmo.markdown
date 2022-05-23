@@ -222,27 +222,7 @@ In your Netatmo Application configuration, do not enter a 'redirect URI' or a 'w
   
 </div>
 
-Next, add the following lines to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-netatmo:
-  client_id: YOUR_CLIENT_ID
-  client_secret: YOUR_CLIENT_SECRET
-```
-
-{% configuration %}
-client_id:
-  description: The `client id` from your Netatmo app.
-  required: true
-  type: string
-client_secret:
-  description: The `client secret` from your Netatmo app.
-  required: true
-  type: string
-{% endconfiguration %}
-
-**After the `client_id` and `client_secret` are added to your `configuration.yaml` you must restart Home Assistant and then enable Netatmo through the integrations page.**
+See [Application Credentials](/integrations/application_credentials) for instructions on how to configure your *Client ID* and *Client Secret*, then enable Netatmo through the integrations page.
 
 Menu: **Settings** -> **Devices & Services**.
 
