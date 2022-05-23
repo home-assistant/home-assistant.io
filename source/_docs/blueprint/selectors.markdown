@@ -37,6 +37,7 @@ The following selectors are currently available:
 - [Object selector](#object-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
+  - [Example select selector](#example-select-selector)
 - [Target selector](#target-selector)
   - [Example target selectors](#example-target-selectors)
 - [Template selector](#template-selector)
@@ -788,6 +789,10 @@ mode:
 
 Alternatively, a mapping can be used for the options. When you want to return
 a different value compared to how it is displayed to the user.
+
+### Example select selector
+
+Sample mapped select selector for weekday selection.
 
 ```yaml
 input:
