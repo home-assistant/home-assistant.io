@@ -27,6 +27,7 @@ Integrates [Big Ass Fans](https://www.bigassfans.com/) devices into Home Assista
 ## Supported devices
 
 - Haiku Fans with 3.0 firmware and later (Legacy SenseME firmware not supported)
+- Discontinued Haiku Lights with 3.0 firmware and later (Legacy SenseME firmware not supported)
 - i6 Fans
 
 ## Platforms
