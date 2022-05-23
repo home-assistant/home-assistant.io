@@ -4,6 +4,7 @@ description: Instructions on how to integrate YoLink Devices into Home Assistant
 ha_category:
   - Binary Sensor
   - Sensor
+  - Siren
   - Switch
 ha_release: 2022.6
 ha_iot_class: Cloud Push
@@ -14,6 +15,7 @@ ha_domain: yolink
 ha_platforms:
   - binary_sensor
   - sensor
+  - siren
   - switch
 ha_integration_type: integration
 ---
@@ -28,6 +30,7 @@ Nabu Casa for authenticating with YoLink, If you want to use separate credential
 The integration is tested and verified for the following devices from YoLink:
 
 * YS6604
+* YS7103
 * YS7704
 * YS7804/5
 * YS7904
