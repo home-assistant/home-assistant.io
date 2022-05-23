@@ -161,9 +161,12 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 <div class="note">
 If the machine complains about not being able to find a bootable medium, you might need to specify the EFI entry in your BIOS.
 This can be accomplished either by using a live operating system (e.g. Ubuntu) and running the following command:
+   
+Replace `<drivename>` with the appropriate drive name assigned by Linux. Typically this will be `sda` or `nvme0n1` on NVMe SSDs.
 
   ```text
-  efibootmgr --create --disk /dev/sda --part 1 --label "HAOS" --loader \EFI\BOOT\bootx64.efi
+  efibootmgr --create --disk /dev/<drivename> --part 1 --label "HAOS" \
+     --loader \EFI\BOOT\bootx64.efi
   ```
 
 Or else, the BIOS might provide you with a tool to add boot options, there you can specify the path to the EFI file:
