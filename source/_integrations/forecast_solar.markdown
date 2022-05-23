@@ -120,7 +120,7 @@ results less optimistic and more tuned to your reality.
 The **inverter** size can be used in a situation where the maximum power of your
 inverter is lower than the total power of all your solar panels (as entered under
 "total modules power") together. As a result, the forecast takes into account that
-the maximum solar power cannot exceed what your inverter can handle, giving you  
+the maximum solar power cannot exceed what your inverter can handle, giving you
 a more realistic forecast graph.
 
 [Read more about the damping factor in the Forecast.Solar documentation](https://doc.forecast.solar/doku.php?id=damping&s[]=damping).
