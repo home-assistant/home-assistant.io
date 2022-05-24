@@ -286,7 +286,7 @@ If you prefer not to use the Home Assistant account linking service, you may man
 - Register a new application in [Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
   - Name your app
   - Select "Personal Microsoft accounts only" under supported account types
-  - For Redirect URI, add: `https://my.home-assistant.io/redirect/callback`
+  - For Redirect URI, add: `https://my.home-assistant.io/redirect/oauth`
 - Copy your Application (client) ID for later use
 - On the App Page, navigate to "Certificates & secrets"
   - Generate a new client secret and save for later use

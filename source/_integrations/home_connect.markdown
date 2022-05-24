@@ -41,7 +41,7 @@ Note that it depends on the appliance and on API permissions which of the featur
 
 - Application ID: Home Assistant (or whatever name makes sense to you)
 - OAuth Flow: Authorization Code Grant Flow
-- Redirect URI: `https://my.home-assistant.io/redirect/callback`
+- Redirect URI: `https://my.home-assistant.io/redirect/oauth`
 
 {% details "I have manually disabled My Home Assistant" %}
 

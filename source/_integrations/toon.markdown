@@ -52,7 +52,7 @@ In order to be able to use this component, you'll need to sign up for a free Too
 2. Open the "[My Apps](https://developer.toon.eu/user/me/apps)" page and click on "Add a new App" button on the top right.
 3. The "Add App" page shows a form with two fields:
    - **App Name**: Can be anything you like, for example, "Home Assistant" will just do.
-   - **Callback URL**: `https://my.home-assistant.io/redirect/callback`.
+   - **Callback URL**: `https://my.home-assistant.io/redirect/oauth`.
 4. Click on "Create App" to complete the creation process.
 5. Open the "[My Apps](https://developer.toon.eu/user/me/apps)" page again and click on the app that you've just created.
 6. You need the codes now shown: "Consumer Key" and "Consumer Secret".

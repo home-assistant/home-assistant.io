@@ -27,7 +27,7 @@ To set up this component, you first **must** set up a developer account with Hon
 1. Go to the [developer site](https://developer.honeywellhome.com) and register with an account.
 1. Next, create a [new app](https://developer.honeywellhome.com/user/me/apps/add) via the `My Apps` section.
    1. App Name: You can use any name here.
-   1. Callback URL: `https://my.home-assistant.io/redirect/callback`
+   1. Callback URL: `https://my.home-assistant.io/redirect/oauth`
 
 {% details "I have manually disabled My Home Assistant" %}
 

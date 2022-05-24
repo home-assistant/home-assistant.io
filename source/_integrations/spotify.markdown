@@ -51,7 +51,7 @@ before configuring Spotify.
 - Select **Create An App**. Enter any name and description.
 - Once your application is created, view it and copy your **Client ID** and **Client Secret**, which are used in the Home Assistant [configuration file below](#configuration).
 - Enter the **Edit Settings** dialog of your newly-created application and add a *Redirect URI*:
-  `https://my.home-assistant.io/redirect/callback`.
+  `https://my.home-assistant.io/redirect/oauth`.
   Note: Spotify does a case-sensitive match of the fields above, as such ensure the Redirect URI is all lower case.
 - Click **Save** after adding the URI.
 

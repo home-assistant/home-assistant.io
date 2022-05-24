@@ -38,7 +38,7 @@ There is support for the following platform types within Home Assistant:
 
 You will have to enter a name, a description and your redirect URL.
 
-Use `https://my.home-assistant.io/redirect/callback` as the redirect URL.
+Use `https://my.home-assistant.io/redirect/oauth` as the redirect URL.
 
 You have to select all three scopes (`public_profile`, `control_robots` and `maps`).
 
