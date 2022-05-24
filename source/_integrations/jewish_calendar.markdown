@@ -14,7 +14,7 @@ ha_platforms:
   - sensor
 ---
 
-The Jewish Calendar (`jewish_calendar`) integration displays a variety of information related to the Jewish Calendar as a variety of sensors.
+The Jewish Calendar (`jewish_calendar`) integration provides information related to the Jewish Calendar as a variety of sensors.
 
 {% include integrations/config_flow.md %}
 
