@@ -5,6 +5,7 @@ ha_category:
   - Climate
   - Fan
   - Light
+  - Number
   - Sensor
   - Switch
 ha_zeroconf: true
@@ -19,6 +20,7 @@ ha_platforms:
   - climate
   - fan
   - light
+  - number
   - sensor
   - switch
 ha_integration_type: integration
