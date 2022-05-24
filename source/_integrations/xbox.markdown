@@ -116,7 +116,7 @@ elements:
   - type: service-button
     title: ""
     service: remote.send_command
-    data:
+    service_data:
       entity_id: remote.xboxone_remote
       command: Up
     style:
@@ -128,7 +128,7 @@ elements:
   - type: service-button
     title: ""
     service: remote.send_command
-    data:
+    service_data:
       entity_id: remote.xboxone_remote
       command: Down
     style:
@@ -140,7 +140,7 @@ elements:
   - type: service-button
     title: ""
     service: remote.send_command
-    data:
+    service_data:
       entity_id: remote.xboxone_remote
       command: Left
     style:
@@ -152,7 +152,7 @@ elements:
   - type: service-button
     title: ""
     service: remote.send_command
-    data:
+    service_data:
       entity_id: remote.xboxone_remote
       command: Right
     style:
@@ -164,7 +164,7 @@ elements:
   - type: service-button
     title: ""
     service: remote.send_command
-    data:
+    service_data:
       entity_id: remote.xboxone_remote
       command: "A"
     style:
@@ -177,7 +177,7 @@ elements:
   - type: service-button
     title: ""
     service: remote.send_command
-    data:
+    service_data:
       entity_id: remote.xboxone_remote
       command: "X"
     style:
@@ -190,7 +190,7 @@ elements:
   - type: service-button
     title: ""
     service: remote.send_command
-    data:
+    service_data:
       entity_id: remote.xboxone_remote
       command: "B"
     style:
@@ -203,7 +203,7 @@ elements:
   - type: service-button
     title: ""
     service: remote.send_command
-    data:
+    service_data:
       entity_id: remote.xboxone_remote
       command: "Y"
     style:
@@ -216,7 +216,7 @@ elements:
   - type: service-button
     title: ""
     service: remote.toggle
-    data:
+    service_data:
       entity_id: remote.xboxone_remote
     style:
       top: 80.2%
@@ -228,7 +228,7 @@ elements:
   - type: service-button
     title: ""
     service: media_player.play_media
-    data:
+    service_data:
       entity_id: media_player.xboxone
       media_content_type: ""
       media_content_id: "Home"
