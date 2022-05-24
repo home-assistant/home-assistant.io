@@ -38,6 +38,12 @@ Integrates [Big Ass Fans](https://www.bigassfans.com/) devices into Home Assista
 
 For devices that support Auto Comfort, a climate entity allows adjusting the target temperature.
 
+### Number
+
+Adjusting the minimum and maximum speed for devices that support Auto Comfort is available.
+
+Timeouts for returning to auto mode or turning back off after motion use a unit of seconds.
+
 ### Sensor
 
 If the device supports it, the integration creates the following sensors, which receive push updates:
