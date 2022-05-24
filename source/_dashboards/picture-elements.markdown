@@ -254,7 +254,7 @@ service:
   required: true
   description: "`light.turn_on`"
   type: string
-data:
+service_data:
   required: false
   description: The service data to use.
   type: map
@@ -521,7 +521,7 @@ elements:
       top: 95%
       left: 60%
     service: homeassistant.turn_off
-    data:
+    service_data:
       entity_id: group.all_lights
   - type: icon
     icon: mdi:home
