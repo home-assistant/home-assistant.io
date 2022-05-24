@@ -2,10 +2,10 @@
 title: Verisure
 description: Instructions on how to setup Verisure devices within Home Assistant.
 ha_category:
-  - Hub
   - Alarm
   - Binary Sensor
   - Camera
+  - Hub
   - Lock
   - Sensor
   - Switch
@@ -18,11 +18,13 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - camera
+  - diagnostics
   - lock
   - sensor
   - switch
 ha_config_flow: true
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.
@@ -85,3 +87,15 @@ automation:
 | disable_autolock | Disables autolock function for a specific lock. |
 | enable_autolock | Enables autolock function for a specific lock. |
 | smartcam_capture | Capture a new image from a specific smartcam. |
+
+## Lock
+
+| method state attribute | Description |
+| ------- | ----------- |
+| thumb | Lock was locked/unlocked by interior thumb switch |
+| star | Lock was locked by exterior star button |
+| code | Lock was unlocked by exterior code |
+| auto | Lock was locked/unlocked automatically by Verisure rule |
+| remote | Lock was locked/unlocked automatically by Verisure App |
+
+

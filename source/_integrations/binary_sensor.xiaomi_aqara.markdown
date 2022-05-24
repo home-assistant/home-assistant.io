@@ -38,7 +38,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
 #### Motion
 
 ```yaml
-- alias: "If there is motion and its dark turn on the gateway light"
+- alias: "If there is motion and it's dark turn on the gateway light"
   trigger:
     platform: state
     entity_id: binary_sensor.motion_sensor_158d000xxxxxc2

@@ -8,11 +8,14 @@ ha_iot_class: Local Polling
 ha_domain: aquostv
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `aquostv` platform allows you to control a [Sharp Aquos TV](http://www.sharp-world.com/aquos/en/index.html).
 
 When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
+
+## Configuration
 
 To add a TV to your installation, add the following to your `configuration.yaml` file:
 
@@ -62,7 +65,7 @@ Also, with **power_on_enabled** as True, the Aquos logo on your TV will stay on 
 
 </div>
 
-Currently known supported models:
+## Currently known supported models
 
 - LC-40LE830U
 - LC-46LE830U
@@ -78,4 +81,4 @@ Currently known supported models:
 - LC-70LE650U
 - LC-70LE747E (no volume control)
 
-If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/aquostv.markdown).
+If your model is not on the list, give it a test. If everything works correctly, then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/aquostv.markdown).

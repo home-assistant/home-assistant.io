@@ -7,71 +7,66 @@ ha_iot_class: Local Polling
 ha_release: pre 0.7
 ha_domain: netgear
 ha_platforms:
+  - button
   - device_tracker
+  - sensor
+  - switch
+ha_config_flow: true
+ha_codeowners:
+  - '@hacf-fr'
+  - '@Quentame'
+  - '@starkillerOG'
+ha_ssdp: true
+ha_integration_type: integration
 ---
 
-This platform allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device.
+This platform allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device and control the NETGEAR device.
+Both routers and access points can be used with this integration. Some access points will not be automatically discovered and need to be set up manually.
+Attached devices are only tracked on NETGEAR devices set to the router mode, otherwise, duplicate entities will occur from access points that also report the same devices.
 
-<div class='note'>
+{% include integrations/config_flow.md %}
 
-A recent updates of Orbi APs introduced a bug which takes several hours to detects presence on your local network. The current workaround is to force this integration to use the Orbi's API v2 by adding the `accesspoints:` node to your configuration.
+{% include integrations/option_flow.md %}
+{% configuration_basic %}
+Consider_home:
+  description: "The consider home time is the number of seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. This option helps prevent false alarms in presence detection."
+{% endconfiguration_basic %}
 
-</div>
+## Router entities
+The NETGEAR router will have the following entities:
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+### Reboot button
 
-```yaml
-# Example configuration.yaml entry
-device_tracker:
-  - platform: netgear
-    password: YOUR_ADMIN_PASSWORD
-```
+Button entity to restart the router.
 
-{% configuration %}
-url:
-  description: The base URL, e.g., `http://routerlogin.com:5000` for example. If not provided `host` and `port` are used. If none provided autodetection of the URL will be used.
-  required: false
-  type: string
-host:
-  description: The IP address of your router, e.g., `192.168.1.1`.
-  required: false
-  type: string
-port:
-  description: The port your router communicates with.
-  required: false
-  default: 5000
-  type: integer
-username:
-  description: The username of a user with administrative privileges.
-  required: false
-  default: admin
-  type: string
-password:
-  description: The password for your given admin account.
-  required: true
-  type: string
-devices:
-  description: If provided only specified devices will be reported. Can be MAC address or the device name as reported in the NETGEAR UI.
-  required: false
-  type: list
-exclude:
-  description: Devices to exclude from the scan.
-  required: false
-  type: list
-accesspoints:
-  description: Also track devices on the specified APs. Only supports MAC address.
-  required: false
-  type: list
-{% endconfiguration %}
+### Traffic meter data
 
-When `accesspoints` is specified an extra device will be reported for each device connected to the APs specified here, as `MY-LAPTOP on RBS40`. `Router` will be reported as AP name for the main AP. Only tested with Orbi.
+The total and average amount of downloaded/uploaded data through the router can be tracked per day/week/month.
+In order for these entities to display the data (instead of 0), the "Traffic Meter" should be enabled in the router settings.
+Log into your router > Select **ADVANCED** > **Advanced Setup** > **Traffic Meter** > **Enable Traffic Meter** check box.
 
-The use of `devices` or `exclude` is recommended when using `accesspoints` to avoid having a lot of entries.
+## Connected device entities
 
-List of models that are known to use port 80:
+For each device connected to the NETGEAR router the following entities will be available:
 
-- Nighthawk X4S - AC2600 (R7800)
-- Orbi
-- XR500
+### Device tracker
 
-See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
+Displays if the device is currently connected to the router (Home) or not (Away).
+
+### Allowed on Network
+
+Switch that lets you Allow or Block a device on the Network.
+For this entity to actually Block the device, "Access Control" needs to be turned on in the Router settings.
+Log into your router > Select **ADVANCED** > **Security** > **Access Control** > **Turn on Access Control** check box.
+
+### Signal strength
+
+Displays the wifi signal strength of the device.
+
+### Link rate
+
+Displays the current link rate of the device indicating the maximum possible data speed with the current connection.
+
+### Link type
+
+Displays the current link type: wired, 2.4GHz or 5GHz.

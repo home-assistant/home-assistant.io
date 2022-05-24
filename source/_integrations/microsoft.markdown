@@ -8,6 +8,7 @@ ha_release: 0.57
 ha_domain: microsoft
 ha_platforms:
   - tts
+ha_integration_type: integration
 ---
 
 The `microsoft` text-to-speech platform uses the [TTS engine of the Microsoft Speech Service](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech) to read a text with natural sounding voices. This integration uses an API that is part of the Cognitive Services offering and is known as the Microsoft Speech API. For this integration to work, you need a free API key. You can use your [Azure subscription](https://azure.microsoft.com) to create an [Azure Speech resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
@@ -42,7 +43,7 @@ type:
   description: "The voice type you want to use. Accepted values are listed as the service name mapping [in the documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#text-to-speech)."
   required: false
   type: string
-  default: "`ZiraRUS`"
+  default: "`JennyNeural`"
 rate:
   description: "Change the rate of speaking in percentage. Example values: `25`, `50`."
   required: false
@@ -71,11 +72,18 @@ region:
 
 <div class='note'>
 
-Not all Azure regions support high-quality neural voices. Use [this overview](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#standard-and-neural-voices) to determine the availability of standard and neural voices by region/endpoint.
+Not all Azure regions support high-quality neural voices. Use [this overview](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#neural-and-standard-voices) to determine the availability of standard and neural voices by region/endpoint.
+ 
+New users ([any newly created Azure Speech resource after August 31st, 2021](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech#migrate-to-neural-voice)) can only use neural voices. Existing resources can continue using standard voices through August 31st, 2024.
 
 </div>
 
-  
+<div class='note'>
+
+If you set the language to anything other than the default `en-us`, you will need to specify a matching voice type as well.
+
+</div> 
+ 
 ## Full configuration example
 
 A full configuration sample including optional variables:
@@ -87,7 +95,7 @@ tts:
     api_key: YOUR_API_KEY
     language: en-gb
     gender: Male
-    type: George, Apollo
+    type: RyanNeural
     rate: 20
     volume: -50
     pitch: high

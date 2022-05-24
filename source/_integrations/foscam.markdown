@@ -11,6 +11,7 @@ ha_domain: foscam
 ha_config_flow: true
 ha_platforms:
   - camera
+ha_integration_type: integration
 ---
 
 The `foscam` platform allows you to watch the live stream of your [Foscam](https://www.foscam.com) IP camera in Home Assistant.
@@ -56,7 +57,7 @@ Using the following card code you can achieve a card displaying the live video f
 
 ```yaml
 type: picture-elements
-entity: camera.bedroom
+image: camera.bedroom
 camera_image: camera.bedroom
 camera_view: live
 elements:
@@ -160,4 +161,4 @@ elements:
 
 ### Extra CGI Commands
 
-Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](https://www.iltucci.com/blog/wp-content/uploads/2018/12/Foscam-IPCamera-CGI-User-Guide-V1.0.4.pdf)).
+Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](https://www.foscam.es/descarga/Foscam-IPCamera-CGI-User-Guide-AllPlatforms-2015.11.06.pdf)).

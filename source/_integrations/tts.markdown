@@ -2,6 +2,7 @@
 title: Text-to-Speech (TTS)
 description: Instructions on how to set up Text-to-Speech (TTS) with Home Assistant.
 ha_category:
+  - Media Source
   - Text-to-speech
 ha_release: 0.35
 ha_codeowners:
@@ -10,6 +11,7 @@ ha_domain: tts
 ha_quality_scale: internal
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 Text-to-Speech (TTS) enables Home Assistant to speak to you.
@@ -26,7 +28,7 @@ tts:
 
 <div class='note'>
 
-Depending on your setup, you might need to set a external URL (`external_url`) inside the [configuration](/docs/configuration/basic/) or in the parameters of this component.
+Depending on your setup, you might need to set an external URL (`external_url`) inside the [configuration](/docs/configuration/basic/) or in the parameters of this component.
 
 </div>
 
@@ -97,7 +99,7 @@ The Google cast devices (Google Home, Chromecast, etc.) present the following pr
 
 * They [reject self-signed certificates](#self-signed-certificates).
 
-* They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). If you are _not_ using SSL then setting a internal URL that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
+* They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). If you are _not_ using SSL then setting an internal URL that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
 
 * If you are using an SSL (e.g., `https://yourhost.example.org/...`) then you _must_ use the hostname in the certificate (e.g., `base_url: https://yourhost.example.org`). You cannot use an IP address since the certificate won't be valid for the IP address, and the cast device will refuse the connection.
 

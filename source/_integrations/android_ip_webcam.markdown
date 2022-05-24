@@ -2,9 +2,9 @@
 title: Android IP Webcam
 description: Connect Android devices as an IP webcam to Home Assistant
 ha_category:
-  - Hub
   - Binary Sensor
   - Camera
+  - Hub
   - Sensor
   - Switch
 ha_release: '0.40'
@@ -12,13 +12,15 @@ ha_iot_class: Local Polling
 ha_domain: android_ip_webcam
 ha_platforms:
   - binary_sensor
+  - camera
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
-The `android_ip_webcam` integration turns any Android phone or tablet into a network camera with multiple viewing options.
+The `android_ip_webcam` integration connects with Android IP Webcam to turn any Android phone or tablet into a network camera with multiple viewing options.
 
-It's setup as an MJPEG camera and all settings as switches inside of Home Assistant. You can also expose the sensors. If you have multiple phones, you can use all options inside a list.
+The integration is setup as an MJPEG camera with all settings as switches inside Home Assistant. You can also integrate the sensors exposed by the app. If you have multiple phones, you can use all options inside a list.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -29,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Setup
 
-Download [the Android IP Webcam app](https://play.google.com/store/apps/details?id=com.pas.webcam) and launch the app. When you press 'Start Server', it will start streaming video from your phone and the IP address of the device will be shown on screen.
+Download [Android IP Webcam app](https://play.google.com/store/apps/details?id=com.pas.webcam) and launch the app. When you press 'Start Server', it will start streaming video from your phone and the IP address of the device will be shown on screen.
 
 ## Configuration
 
@@ -65,12 +67,12 @@ password:
   required: inclusive
   type: string
 scan_interval:
-  description: Defines the update interval of the phone.
+  description: The update interval to use (in seconds).
   required: false
   default: 10
   type: integer
 sensors:
-  description: List of sensor entities to be created by this component.
+  description: List of sensor entities to be created by this component (if supported by the phone and app).
   required: false
   type: list
   keys:
@@ -102,23 +104,23 @@ switches:
     exposure_lock:
       description: Control the exposure lock
     ffc:
-      description: Control the front-facing camera.
+      description: Control the front-facing camera
     focus:
-      description: Control the focus.
+      description: Control the focus
     gps_active:
-      description: Control the GPS.
+      description: Control the GPS
     motion_detect:
-      description: Control the motion detector.
+      description: Control the motion detector
     night_vision:
-      description: Control the night vision.
+      description: Control the night vision
     overlay:
-      description: Control the overlay.
+      description: Control the overlay
     torch:
-      description: Control the torch.
+      description: Control the torch
     whitebalance_lock:
-      description: Control the white balance lock.
+      description: Control the white balance lock
     video_recording:
-      description: Control the video recording.
+      description: Control the video recording
 motion_sensor:
   description: Create a binary_sensor.<name>_motion_active entity. Note that `auto_discovery` may also create this sensor.
   required: false
@@ -128,7 +130,7 @@ motion_sensor:
 
 <div class='note'>
 
-You need to enable logging in the Android app (`Data logging` > `Enable data logging`), if you wish to see the sensor states in Home Assistant. The sensor states stays as `unknown`, until it's enabled.
+You need to enable logging in the Android app (`Data logging` > `Enable data logging`) if you wish to see the sensor states in Home Assistant. The sensor states stay as `unknown`, until this is enabled.
 
 </div>
 
@@ -171,7 +173,7 @@ android_ip_webcam:
 
 ## Alternate Configuration Method
 
-The configuration described above will cause the `android_ip_webcam` binary sensor platform to automatically create and configure the devices automatically. Alternatively you can omit the `android_ip_webcam` component from your `configuration.yaml` file and add individual devices instead.
+The configuration described above will cause the `android_ip_webcam` binary sensor platform to automatically create and configure the devices. Alternatively you can omit the `android_ip_webcam` component from your `configuration.yaml` file and add individual devices instead.
 
 ### Binary Sensor
 
@@ -180,6 +182,7 @@ You can setup the binary motion sensor with the following in your `configuration
 {% raw %}
 
 ```yaml
+# Example configuration.yaml entry
 binary_sensor:
   - platform: rest
     name: Kitchen Motion

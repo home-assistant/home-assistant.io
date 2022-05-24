@@ -3,75 +3,51 @@ title: Yale Smart Living
 description: Instructions on how to integrate Yale Smart Alarms into Home Assistant.
 ha_category:
   - Alarm
+  - Binary Sensor
+  - Button
+  - Lock
 ha_release: 0.78
 ha_iot_class: Cloud Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@gjohansson-ST'
 ha_domain: yale_smart_alarm
 ha_platforms:
   - alarm_control_panel
-ha_codeowners:
-  - '@gjohansson-ST'
+  - binary_sensor
+  - button
+  - diagnostics
+  - lock
+ha_integration_type: integration
 ---
 
-The `yale_smart_alarm` platform provides connectivity with the Yale Smart Alarm systems and Smart Hub through Yale's API.
+The Yale Smart Living integration provides connectivity with the Yale Smart Alarm systems and Smart Hub through Yale's API.
 
-This platform supports the following services: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night` (duplicate of home) and `alarm_disarm`.
-Currently only one alarm is supported.
+There is currently support for the following device types within Home Assistant:
 
-## Configuration
+- Alarm
+- Binary Sensor
+- Button
+- Lock
 
-To enable, add the following lines to your `configuration.yaml`:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-alarm_control_panel:
-  - platform: yale_smart_alarm
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-```
+## Alarm Control Panel
 
-{% configuration %}
-name:
-  description: Name of device in Home Assistant.
-  required: false
-  type: string
-username:
-  description: Username used to sign into the Yale app/web client.
-  required: true
-  type: string
-password:
-  description: Password used to sign into the Yale app/web client.
-  required: true
-  type: string
-area_id:
-  description: Area ID of the device when talking to Yale's API if required.
-  required: false
-  type: integer
-  default: 1
-{% endconfiguration %}
+Services provided are `armed_away`, `armed_home`, and `disarmed`.
 
-## Automation example
+No code is required to operate the alarm.
 
-```yaml
-automation:
-  - alias: "Alarm: Disarmed Daytime"
-    trigger:
-      platform: state
-      entity_id: alarm_control_panel.yale_smart_alarm
-      to: "disarmed"
-    condition:
-      condition: sun
-      before: sunset
-    action:
-      service: scene.turn_on
-      target:
-        entity_id: scene.OnDisarmedDaytime
-  - alias: "Alarm: Armed Away"
-    trigger:
-      platform: state
-      entity_id: alarm_control_panel.yale_smart_alarm
-      to: "armed_away"
-    action:
-      service: scene.turn_on
-      target:
-        entity_id: scene.OnArmedAway
-```
+## Binary Sensors
+
+Provides support for contact sensors for doors showing if door is open or closed.
+
+## Button
+
+Provides support for pressing the panic button to trigger the alarm. Be careful as another press does not reset/turn off panic mode.
+
+## Lock
+
+The lock platform requires a code for unlocking but no code for locking.
+
+The integration can be configured to provide a default code that is used if no code is supplied and the number of digits required.

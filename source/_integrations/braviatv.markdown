@@ -8,11 +8,13 @@ ha_release: 0.23
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@bieniu'
+  - '@Drafteed'
 ha_domain: braviatv
 ha_config_flow: true
 ha_platforms:
   - media_player
   - remote
+ha_integration_type: integration
 ---
 
 The `braviatv` platform allows you to control a [Sony Bravia TV](https://www.sony.com/).
@@ -27,47 +29,17 @@ Almost all [Sony Bravia TV 2013 and newer](https://info.tvsideview.sony.net/en_w
 
 To ensure a clean re-configuration, please perform the following steps:
 
-- Ensure that all braviatv entries in `configuration.yaml` have been removed and `bravia.conf` does not exist in your `.homeassistant` folder.
 - Remove the entities you are reconfiguring from Home Assistant.
 - Restart Home Assistant.
 - Perform the [TV does not generate new pin](#tv-does-not-generate-new-pin) steps.
 - Retry [configuration](#configuration).
 
-### TV does not generate new pin:
+### TV does not generate new pin
 
 If you have previously set up your TV with any Home Assistant instances, you must remove Home Assistant from your TV in order for your TV to generate a new pin. To do this, you must do **one** of the following:
 
-- On your TV, go to: **Settings** -> **Network** -> **Remote device settings** -> **Deregister remote device**. Disable and re-enable the **Control remotely** after. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidiance.
+- On your TV, go to: **Settings** -> **Network** -> **Remote device settings** -> **Deregister remote device**. Disable and re-enable the **Control remotely** after. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidance.
 - Reset your TV to factory condition.
-
-## Configuration using YAML
-
-<div class='note warning'>
-
-New setups via `configuration.yaml` file are currently not supported.
-
-</div>
-
-If you are updating from a previous version of Home Assistant and have the following configuration in your `configuration.yaml` file in addition to a `bravia.conf` file it will be imported to the Integrations:
-
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: braviatv
-    host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: The IP of the Sony Bravia TV, e.g., 192.168.0.10
-  required: true
-  type: string
-name:
-  description: The name to use on the frontend.
-  required: false
-  default: Sony Bravia TV
-  type: string
-{% endconfiguration %}
 
 ## Remote
 
@@ -200,7 +172,7 @@ The integration allows you to change ignored TV sources from the front end. Ente
 ### For TVs older than 2013
 
 <div class='note warning'>
-  
+
 This is not part of the Bravia TV integration. Extra Configuration does not apply to the steps below.
 
 </div>
@@ -210,7 +182,6 @@ Users of TVs older than 2013 have another option for controlling their TV via Ho
 ### Using HDMI-CEC
 
 If you have a Raspberry Pi connected to your TV:
-
 
 {% raw %}
 

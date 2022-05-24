@@ -2,10 +2,10 @@
 title: Homematic
 description: Instructions for integrating Homematic into Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Climate
   - Cover
+  - Hub
   - Light
   - Lock
   - Notifications
@@ -26,9 +26,10 @@ ha_platforms:
   - notify
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
-The [Homematic](https://www.homematic.com/) integration provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
+The [Homematic](https://www.homematic.com/) integration provides bi-directional communication with your CCU/Homegear. It uses an XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
 If you are using Homegear with paired [Intertechno](https://intertechno.at/) devices, uni-directional communication is possible as well.
 
 There is currently support for the following device types within Home Assistant:
@@ -219,13 +220,10 @@ Most devices have, besides their state, additional attributes like their battery
 {% raw %}
 
 ```yaml
-sensor:
-- platform: template
-  sensors:
-    bedroom_valve:
-      value_template: "{{ state_attr('climate.leq123456', 'level') }}"
-      entity_id: climate.leq123456
-      friendly_name: "Bedroom valve"
+template:
+  - sensor:
+    - name: "Bedroom valve"
+      state: "{{ state_attr('climate.leq123456', 'level') }}"
 ```
 
 {% endraw %}
@@ -440,6 +438,38 @@ action:
     entity_id: lock.leq1234567
 ```
 
+
+#### Integrating HMIP-DLD
+
+There is no available default integration for HMIP Doorlock (HMIP-DLD) in the current `pyhomematic` implementation.
+A workaround is to define a template lock in your configuration:
+
+{% raw %}
+
+```yaml
+lock:
+  - platform: template
+    name: Basedoor
+    unique_id: basedoor
+    value_template: "{{ is_state('sensor.lock_status', 'locked') }}"
+    lock:
+      service: homematic.set_device_value
+      data:
+        address: "002A1BE9A792D2"
+        channel: 1
+        param: LOCK_TARGET_LEVEL
+        value: 0
+    unlock:
+      service: homematic.set_device_value
+      data:
+        address: "002A1BE9A792D2"
+        channel: 1
+        param: LOCK_TARGET_LEVEL
+        value: 1
+```
+
+{% endraw %}
+
 #### Detecting lost connections
 
 When the connection to your Homematic CCU or Homegear is lost, Home Assistant will stop getting updates from devices. This may happen after rebooting the CCU for example. Due to the nature of the communication protocol this cannot be handled automatically, so you must call *homematic.reconnect* in this case. That's why it is usually a good idea to check if your Homematic integrations are still updated properly, in order to detect connection losses. This can be done in several ways through an automation:
@@ -449,25 +479,20 @@ When the connection to your Homematic CCU or Homegear is lost, Home Assistant wi
 {% raw %}
 
 ```yaml
-binary_sensor:
-  - platform: template
-    sensors:
-      homematic_up:
-        friendly_name: "Homematic is sending updates"
-        entity_id:
-          - sensor.office_voltage
-          - sensor.time
-        value_template: >-
-          {{ as_timestamp(now()) - as_timestamp(state_attr('sensor.office_voltage', 'last_changed')) < 600 }}
+template:
+  - binary_sensor:
+      - name: "Homematic is sending updates"
+        state: >-
+          {{ (now() - states.sensor.office_voltage.last_changed).seconds < 600 }}
 
 automation:
   - alias: "Homematic Reconnect"
     trigger:
       platform: state
-      entity_id: binary_sensor.homematic_up
+      entity_id: binary_sensor.homematic_is_sending_updates
       to: "off"
     action:
-      # Reconnect, if sensor has not been updated for over 3 hours
+      # Reconnect, if sensor has not been updated for over 10 minutes
       service: homematic.reconnect
 ```
 
@@ -475,11 +500,11 @@ automation:
 
   The important part is the `sensor.time` entity (from time_date component). This will update the binary sensor on every change of the sensor and every minute. If the Homematic sensor does not send any updates anymore, the `sensor.time` will set the binary sensor to `off` 10 minutes after the last sensor update. This will trigger the automation.
 
-- If you have a CCU you can also create a system variable on the CCU, which stores its last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot) this is another option to call *homematic.reconnect*. Even though this option might look preferrable to many since it does not rely on a sensor, **it is less fail-safe** than checking for updates of a sensor. Since the variable on the CCU is only changed on boot, any problem that causes the connection between Home Assistant and the CCU to break but will not result in a reboot will not be detected (eg. in case of networking issues). This is how this can be done:
+- If you have a CCU you can also create a system variable on the CCU, which stores its last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot) this is another option to call *homematic.reconnect*. Even though this option might look preferable to many since it does not rely on a sensor, **it is less fail-safe** than checking for updates of a sensor. Since the variable on the CCU is only changed on boot, any problem that causes the connection between Home Assistant and the CCU to break but will not result in a reboot will not be detected (eg. in case of networking issues). This is how this can be done:
 
   1. Create a string variable **V_Last_Reboot** on the CCU
 
-  2. Creata a new programm on the CCU **without any conditions**, which executes the following *HM-Script* with a delay of 30 seconds. The Script needs to be implemented within the section `Activity: Then`.
+  2. Create a new program on the CCU **without any conditions**, which executes the following *HM-Script* with a delay of 30 seconds. The script needs to be implemented within the section `Activity: Then`.
 
      ```javascript
      var obj = dom.GetObject("V_Last_Reboot");
@@ -494,12 +519,11 @@ automation:
      {% raw %}
 
      ```yaml
-     - platform: template
-       sensors:
-         v_last_reboot:
-           value_template: "{{ state_attr('homematic.ccu2', 'V_Last_Reboot') or '01.01.1970 00:00:00' }}"
-           icon_template: "mdi:clock"
-           entity_id: homematic.ccu2
+     template:
+       - sensor:
+         - name: "v last reboot"
+           state: "{{ state_attr('homematic.ccu2', 'V_Last_Reboot') or '01.01.1970 00:00:00' }}"
+           icon: "mdi:clock"
      ```
 
      {% endraw %}
@@ -553,7 +577,7 @@ interface:
   required: false
   type: string
 value:
-  description: This is the value that is set on the device. Its device specific.
+  description: This is the value that is set on the device. It's device specific.
   required: true
   type: string
 {% endconfiguration %}

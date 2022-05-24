@@ -18,6 +18,7 @@ ha_platforms:
   - sensor
   - switch
   - vacuum
+ha_integration_type: integration
 ---
 
 The Neato integration allows you to control your [Neato Botvac Connected Robots][botvac-connected].
@@ -125,7 +126,7 @@ Some information about the capabilities might be found on the [Neato Developer P
 
 Try to restart the vacuum and wait about 5 minutes to see if it is no longer unavailable. If you are still having issues check the Neato app and make sure your robot is connected and working. If it is not then follow the steps in the app to reset your robot and give it the same name as before then restart Home Assistant.
 
-### My robot is not deteced by Home Assistant
+### My robot is not detected by Home Assistant
 
 Please check your logs if there are any warnings. When there is a message about your robot being offline, check if it is connected to the internet and available though the app. If there is a message about a bad response, try to reset this robot via your app.
 

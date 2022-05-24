@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_domain: systemmonitor
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `systemmonitor` sensor platform allows you to monitor disk usage,
@@ -89,6 +90,17 @@ tmpfs           934M     0  934M   0% /dev/shm
 ```
 
 Defining a `disk_use` sensor for `/` and `/home/pi` is redundant and will return the same values, since they both belong to the same "disk". However, defining separate sensors for `/dev` and `/dev/shm` is possible and provides different values, since those are treated as separate "disks" by the integration.
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: systemmonitor
+    resources:
+      - type: disk_use
+        arg: /dev
+      - type: disk_use
+        arg: /dev/shm
+```
 
 ## Processor temperature
 

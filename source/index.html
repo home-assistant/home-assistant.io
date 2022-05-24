@@ -5,8 +5,6 @@ hero_unit: true
 is_homepage: true
 regenerate: true
 feedback: false
-description:
-  Open source home automation that puts local control and privacy first.
 ---
 
 <div class="frontpage">
@@ -45,6 +43,7 @@ description:
         <div class="links">
           <a href="https://community.home-assistant.io">Forums</a>
           <a href="/join-chat/">Chat</a>
+          <a href="/newsletter/">Newsletter</a>
         </div>
       </div>
 
@@ -61,7 +60,7 @@ description:
         Use Alexa to control Home Assistant.
 
         <div class="links">
-          <a href="/cloud/">LEARN MORE</a>
+          <a href="/cloud/" aria-label="Learn more about use Alexa to control Home Assistant">LEARN MORE</a>
         </div>
       </div>
       <div class="material-card text">
@@ -69,7 +68,7 @@ description:
         Use Google Assistant to control Home Assistant.
 
         <div class="links">
-          <a href="/cloud/">LEARN MORE</a>
+          <a href="/cloud/" aria-label="Learn more about use Google Assistant to control Home Assistant">LEARN MORE</a>
         </div>
       </div>
 
@@ -90,47 +89,62 @@ description:
       </a>
     </div>
     <div class="grid__item two-thirds lap-two-thirds palm-one-whole">
+      <a
+        class="material-card picture-promo"
+        href="/state-of-the-open-home/"
+        aria-label="Learn more about State of the Open Home"
+        style="
+          padding-top: 56%;
+          background: center/contain no-repeat url(/images/state-of-the-open-home/promo.png) #fff;
+        "
+      >
+      </a>
 
       <a
         class="material-card picture-promo"
-        href="/blue"
+        href="https://www.crowdsupply.com/nabu-casa/home-assistant-yellow"
         style="
-          background-image: url(/images/blue/blue_narrow.jpg);
+          background-image: url(/images/frontpage/yellow-frontpage.jpg);
           background-size: cover;
           background-color: #41bdf5;
         "
       >
         <div class="caption">
           <div class="title">
-            Home Assistant Blue!
+            Home Assistant Yellow
             <div class="subtitle">
-              Where style and performance meet privacy
+              The easiest way to run Home Assistant. Now available for pre-order.
             </div>
           </div>
-          <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" /></svg>
         </div>
       </a>
 
-      <a
-        class="material-card picture-promo"
-        href="/conference/"
-        style="
-          background-image: url(/images/conference/frontpage-card.png);
-          background-size: cover;
-          background-color: #41bdf5;
-          background-position: top;
-        "
-      >
-        <div class="caption">
-          <div class="title">
-            December 13, 2020
-            <div class="subtitle">
-              It's all about Home Assistant!
+
+    {% assign pages_by_date = site.pages | sort: "date" | reverse %}
+    {% for page in pages_by_date %}
+      {% if page.layout == "landingpage" and page.frontpage != false %}
+        <a
+          class="material-card picture-promo"
+          href="{{page.url}}"
+          style="
+            background-image: url({{page.frontpage_image | default:page.og_image}});
+            background-size: cover;
+            background-color: #41bdf5;
+          "
+        >
+          <div class="caption">
+            <div class="title">
+              {{page.title}}
+              <div class="subtitle">
+                {{page.description}}
+              </div>
             </div>
+            <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
           </div>
-          <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-        </div>
-      </a>
+        </a>
+      {% endif %}
+    {% endfor %}
 
       <a
         class="material-card picture-promo"
@@ -167,49 +181,10 @@ description:
       </a>
     </div>
 
-    <div class="grid__item one-third lap-one-whole palm-one-whole usp">
-      <div class="grid">
-        <div class="grid__item one-whole lap-one-third">
-          <span class="icon">
-            <i class="icon-eye-open"></i>
-          </span>
-        </div>
-
-        <div class="grid__item one-whole lap-two-thirds">
-          {% include custom/grid_item_left.html %}
-        </div>
-      </div>
-    </div>
-
-    <div class="grid__item one-third lap-one-whole palm-one-whole usp">
-      <div class="grid">
-        <div class="grid__item one-whole lap-one-third">
-          <span class="icon">
-            <i class="icon-mobile-phone"></i>
-          </span>
-        </div>
-
-        <div class="grid__item one-whole lap-two-thirds">
-          {% include custom/grid_item_middle.html %}
-        </div>
-      </div>
-    </div>
-
-    <div class="grid__item one-third lap-one-whole palm-one-whole usp">
-      <div class="grid">
-        <div class="grid__item one-whole lap-one-third">
-          <span class="icon">
-            <i class="icon-cogs"></i>
-          </span>
-        </div>
-
-        <div class="grid__item one-whole lap-two-thirds">
-          {% include custom/grid_item_right.html %}
-        </div>
-      </div>
-    </div>
-
-    <div class="seen-press grid__item one-half lap-one-half palm-one-whole">
+    <div class="sub-title">Features</div>
+    {% include custom/features.html %}
+    <div class="grid sponsors-and-press">
+    <div class="sponsored-by grid__item one-half lap-one-half palm-one-whole">
       <div class="material-card">
         <h1>Home Assistant is sponsored by</h1>
 
@@ -218,10 +193,30 @@ description:
         /></a>
       </div>
     </div>
-
     <div class="seen-press grid__item one-half lap-one-half palm-one-whole">
       <div class="material-card">
         <h1>Home Assistant in the press</h1>
+
+        <a href="https://www.theverge.com/2021/9/16/22678088/home-assistant-amber-smart-home-hub-specs-release-date-price"
+           target="_blank" rel="noopener"
+          ><img
+            alt="The Verge logo"
+            src="/images/press/theverge.svg"
+        /></a>
+
+        <a href="https://arstechnica.com/information-technology/2021/03/how-to-achieve-smart-home-nirvana-or-home-automation-without-subscription/"
+           target="_blank" rel="noopener"
+          ><img
+            alt="ArsTechnica.com logo"
+            src="/images/press/arstechnica.svg"
+        /></a>
+
+        <a href="https://tweakers.net/reviews/8704/paulus-schoutsen-home-assistant-concurreert-met-alles-wat-via-de-cloud-gaat.html"
+           target="_blank" rel="noopener"
+          ><img
+            alt="Tweakers.net logo"
+            src="/images/press/tweakers.png"
+        /></a>
 
         <a href="https://www.youtube.com/watch?v=x7pSkVarixU"
            target="_blank" rel="noopener"
@@ -239,18 +234,11 @@ description:
             src="/images/press/troyhunt.jpg"
         /></a>
 
-        <a href="https://arstechnica.com/information-technology/2021/03/how-to-achieve-smart-home-nirvana-or-home-automation-without-subscription/"
+        <a href="https://www.tomshardware.com/news/raspberry-pi-home-assistant-amber"
            target="_blank" rel="noopener"
           ><img
-            alt="ArsTechnica.com logo"
-            src="/images/press/arstechnica.svg"
-        /></a>
-
-        <a href="https://tweakers.net/reviews/8704/paulus-schoutsen-home-assistant-concurreert-met-alles-wat-via-de-cloud-gaat.html"
-           target="_blank" rel="noopener"
-          ><img
-            alt="Tweakers.net logo"
-            src="/images/press/tweakers.png"
+            alt="Tom's Hardware logo"
+            src="/images/press/tomshardware.svg"
         /></a>
 
         <a href="https://www.producthunt.com/posts/home-assistant"
@@ -283,6 +271,7 @@ description:
           target="_blank" rel="noopener"
           ><img alt="Ct logo" src="/images/press/ct.png"
         /></a>
+      </div>
       </div>
     </div>
   </div>

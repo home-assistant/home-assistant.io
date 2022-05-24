@@ -7,6 +7,7 @@ ha_release: 2021.3
 ha_category:
   - Binary Sensor
   - Number
+  - Select
   - Sensor
   - Switch
 ha_codeowners:
@@ -15,8 +16,11 @@ ha_domain: rituals_perfume_genie
 ha_platforms:
   - binary_sensor
   - number
+  - select
   - sensor
   - switch
+ha_quality_scale: silver
+ha_integration_type: integration
 ---
 
 The Rituals Perfume Genie integration allows you to control and monitor your Rituals perfume diffusers connected to your Rituals account. The integration is compatible with the first and second `2.0` versions.

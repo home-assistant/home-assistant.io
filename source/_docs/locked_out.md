@@ -21,28 +21,40 @@ Connect a keyboard and monitor to your device.
 
 `auth reset --username existing_user --password new_password`
 
+#### To reset a user's password, via the container command line
+
+If you are running Home Assistant in a container, you can use the command line in the container with the `hass` command to change your password. The steps below refer to a Home Assistant container in Docker named `homeassistant`. Note that while working in the container, commands will take a few moments to execute.
+  
+1. `docker exec -it homeassistant bash` to open to the container command line
+2. `hass` to create a default user, if this is your first time using the tool
+3. `hass --script auth --config /config change_password existing_user new_password` to change the password
+4. `exit` to exit the container command line
+5. `docker restart homeassistant` to restart the container
+
 #### To reset a user's password, as an administrator via the web interface
 
-1. Click "Configuration" in the sidebar.
-2. Scroll down to "Users", and click in to that section.
-3. Click on the user, this should bring up a dialog box.
-4. At the bottom of the dialog box, click "Change Password".
-5. Enter the new password, and then click "OK".
-6. Confirm the new password by entering it again, and then click "OK" again.
-7. A confirmation box will be displayed with the text "Password was changed successfully".
+1. Confirm that you have "Advanced Mode" activated on your "Profile" page.
+2. Click "Settings" in the sidebar.
+3. Scroll down to "Users", and click in to that section.
+4. Click on the user, this should bring up a dialog box.
+5. At the bottom of the dialog box, click "Change Password".
+   - If you do not see the "Change Password" button, try using another interface, such as the mobile version.
+6. Enter the new password, and then click "OK".
+7. Confirm the new password by entering it again, and then click "OK" again.
+8. A confirmation box will be displayed with the text "Password was changed successfully".
 
 #### To delete a user, as an administrator via the web interface
 
-1. Click "Configuration" in the sidebar.
+1. Click "Settings" in the sidebar.
 2. Scroll down to "Users", and click in to that section.
 3. Click on the user, this should bring up a dialog box.
 4. At the bottom of the dialog box, click "Delete User".
 5. A confirmation dialog box will be displayed, asking "Are you sure you want to delete <User>"?
 6. Click "OK".
 
-### Home Assistant Core and Home Assistant Container
+#### Start a new onboarding process
 
-While you should hopefully be storing your passwords in a password manager, if you lose the password associated with the owner account the only way to resolve this is to delete *all* the authentication data. You do this by shutting down Home Assistant and deleting the following files from the `.storage/` folder in your [configuration folder](/docs/configuration/):
+If you lose the password associated with the owner account and the steps above do not work to reset the password, the only way to resolve this is to delete *all* the authentication data. You do this by shutting down Home Assistant and deleting the following files from the `.storage/` folder in your [configuration folder](/docs/configuration/):
 
 - `auth`
 - `auth_provider.homeassistant`

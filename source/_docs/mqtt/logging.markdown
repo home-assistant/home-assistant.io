@@ -13,4 +13,3 @@ logger:
   logs:
     homeassistant.components.mqtt: debug
 ```
-

@@ -12,6 +12,10 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - sensor
+  - switch
+ha_codeowners:
+  - '@ufodone'
+ha_integration_type: integration
 ---
 
 The `envisalink` integration will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Eyez On, known as the Envisalink. The Envisalink evl3 and evl4 boards provide a TCP/IP interface to the alarm panel, where it emulates an alarm keypad. This board also exposes a raw TCP/IP based API, upon which this integration is built. Currently, the Envisalink version 4 is the latest model. This integration supports both the evl3 and the evl4.
@@ -21,7 +25,7 @@ Please visit the [eyezon website](http://www.eyezon.com/) for further informatio
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor: Reports on zone status (Check the [type/class](/integrations/binary_sensor/#device-class) list for a possible visualization of your zone.)
-- Sensor: Emulates an alpha-numeric keypad attached to the alarm panel
+- Sensor: Emulates an alphanumeric keypad attached to the alarm panel
 - Alarm Control Panel: Reports on partition status, and can be used to arm/disarm the system
 
 This is a fully event-based component. Any event sent by the Envisalink device will be immediately reflected within Home Assistant.

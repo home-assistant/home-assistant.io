@@ -9,7 +9,7 @@ categories: Community
 og_image: /images/blog/2020-02-07-community-highlights/social.png
 ---
 
-Thank god, its Friday! For most of us, it means we can tinker with our Home Automation projects again 😃
+Thank god, it's Friday! For most of us, it means we can tinker with our Home Automation projects again 😃
 
 The second edition of the Community Highlights is here to provide you a fresh source of inspiration this weekend. And, if that is not enough, upgrading to the latest release of [Home Assistant Core 0.105](/blog/2020/02/05/release-105/) is definitely a recommendation for your list. It introduces tons of new shiny features for you to play with.
 
@@ -79,7 +79,7 @@ Also, don't forget to share your creations with us via Social Media:
 - Twitter it! Be sure to mention [@home_assistant][twitter]
 - Share it on our [Facebook group][facebook-group]
 - Post it to our [subreddit][reddit]
-- Tag [@homeasssistant][instagram] on Instagram
+- Tag [@homeassistant][instagram] on Instagram
 - Or via chat, drop us a line in the [#lounge at Discord][chat]
 
 See you next edition!

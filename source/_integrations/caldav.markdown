@@ -8,6 +8,7 @@ ha_release: '0.60'
 ha_domain: caldav
 ha_platforms:
   - calendar
+ha_integration_type: integration
 ---
 
 The `caldav` platform allows you to connect to your WebDAV calendar and generate binary sensors. A different sensor will be created for each individual calendar, or you can specify custom calendars which match a criteria you define (more on that below). These sensors will be `on` if you have an on going event in that calendar or `off` if the event is later in time, or if there is no event at all. The WebDAV calendar get updated roughly every 15 minutes.
@@ -42,6 +43,15 @@ calendar:
     username: john.doe
     password: !secret caldav
     url: https://nextcloud.example.com/remote.php/dav
+```
+
+```yaml
+# Example configuration.yaml entry for iCloud, calendars will be found automatically
+calendar:
+  - platform: caldav
+    username: !secret userIcloud
+    password: !secret passIcloud
+    url: https://caldav.icloud.com
 ```
 
 This example will generate default binary sensors for each calendar you have in your account. Those calendars will be `on` when there is an ongoing event and `off` if not. Events that last a whole day are ignored in those calendars. You have to setup custom calendars in order to take them into account or for advanced event filtering.
@@ -118,7 +128,7 @@ verify_ssl:
 
 ## Sensor attributes
 
-- **offset_reached**: If set in the event title and parsed out will be on/off once the offset in the title in minutes is reached. So the title Very important meeting !!-10 would trigger this attribute to be on 10 minutes before the event starts. This should be in the format of `HH:MM` or `MM`.
+- **offset_reached**: If set in the event title and parsed out will be on/off once the offset in the title in minutes is reached. So the title Very important meeting !! `-10` would trigger this attribute to be on 10 minutes before the event starts. This should be in the format of `HH:MM` or `MM`.
 - **all_day**: `True/False` if this is an all day event. Will be `False` if there is no event found.
 - **message**: The event title with the `search` values extracted. So in the above example for `offset_reached` the message would be set to Very important meeting
 - **description**: The event description.

@@ -12,6 +12,7 @@ ha_codeowners:
   - '@gtdiehl'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy-and-combiner) solar energy gateway. Works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).
@@ -21,3 +22,5 @@ A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and
 ### Obtaining the password
 
 For newer models, the username `envoy` without a password will grant access to the device. For older models, the password for the `installer` user can be obtained with this: [tool](https://thecomputerperson.wordpress.com/2016/08/28/reverse-engineering-the-enphase-installer-toolkit/).
+
+In some cases, you need to use the username `envoy` with the last 6 digits of the unit's serial number as password. See [the enphase documentation](https://www4.enphase.com/en-us/support/faq/what-username-and-password-administration-page-envoy-local-interface) for more details on other units.

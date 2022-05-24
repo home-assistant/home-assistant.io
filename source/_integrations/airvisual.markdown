@@ -10,8 +10,9 @@ ha_codeowners:
 ha_domain: airvisual
 ha_config_flow: true
 ha_platforms:
-  - air_quality
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The `airvisual` sensor platform queries the [AirVisual](https://www.iqair.com) cloud API for air quality data. Data can be collected via latitude/longitude, by city/state/country, or from an [AirVisual Node/Pro unit](https://www.iqair.com/air-quality-monitors/airvisual-pro).
@@ -36,7 +37,7 @@ For example:
 
 ## Using an AirVisual Node/Pro Unit
 
-The integration can communicate to Node/Pro units over the local network. You will need the IP address/hostname of the unit and its Samba password (which can be found on the unit; instructions here: https://support.iqair.com/en/articles/3029331-download-the-airvisual-node-pro-s-data-using-samba).
+The integration can communicate to Node/Pro units over the local network. You will need the IP address/hostname of the unit and its Samba password (which can be found on the unit; [instructions here](https://support.iqair.com/en/articles/3029331-download-the-airvisual-node-pro-s-data-using-samba)).
 
 {% include integrations/config_flow.md %}
 
@@ -46,15 +47,17 @@ In addition to using latitude and longitude, the AirVisual integration may be co
 
 For example, Sao Paulo, Brazil shows a breadcrumb title of `Brazil > Sao Paulo > Sao Paulo`. Thus, the values to use in the UI would be:
 
-* City: `Sao Paulo`
-* State: `Sao Paulo`
-* Country: `Brazil`
+- City: `Sao Paulo`
+- State: `Sao Paulo`
+- Country: `Brazil`
 
 ## Sensor Types
 
+### Cloud API
+
 When configured, the platform will create three sensors for each air quality standard:
 
-### Air Quality Index
+#### Air Quality Index
 
 - **Description:** This sensor displays a numeric air quality index (AQI), a metric for the overall "health" of the air.
 - **Example Sensor Name:** `sensor.chinese_air_quality_index`
@@ -70,13 +73,13 @@ AQI | Status | Description
 201 - 300 | **Very unhealthy** | Health warnings of emergency conditions. The entire population is more likely to be affected
 301+ | **Hazardous** | Health alert: everyone may experience more serious health effects
 
-### Air Pollution Level
+#### Air Pollution Level
 
 - **Description:** This sensor displays the associated `Status` (from the above table) for the current AQI.
 - **Sample Sensor Name:** `sensor.us_air_pollution_level`
 - **Example Sensor Value:** `Moderate`
 
-### Main Pollutant
+#### Main Pollutant
 
 - **Description:** This sensor displays the pollutant whose value is currently highest.
 - **Sample Sensor Name:** `sensor.us_main_pollutant`
@@ -90,3 +93,17 @@ Particulate (<= 10 μm) | PM10 | [EPA: Particulate Matter (PM) Pollution](https:
 Ozone | O | [EPA: Ozone Pollution](https://www.epa.gov/ozone-pollution)
 Sulpher Dioxide | SO2 | [EPA: Sulfur Dioxide (SO2) Pollution](https://www.epa.gov/so2-pollution)
 Carbon Monoxide | CO | [EPA: Carbon Monoxide (CO) Pollution in Outdoor Air](https://www.epa.gov/co-pollution)
+
+### Node/Pro
+
+Node/Pro units will create a variety of sensors:
+
+- Air Quality Index (AQI)
+- Battery Level
+- Carbon Dioxide (CO2)
+- Humidity
+- Particulate (<= 0.1 μm) (PM0.1)
+- Particulate (<= 2.5 μm) (PM2.5)
+- Particulate (<= 10 μm) (PM10)
+- Temperature
+- Volatile Organic Compounds (VOC)

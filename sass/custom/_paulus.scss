@@ -41,6 +41,17 @@ $primary-color: #049cdb;
   }
 }
 
+.integration-alert {
+  margin: -1em 0;
+  background-color: wheat;
+  padding: 4px;
+
+  a {
+    text-decoration: none !important;
+  }
+
+}
+
 @media only screen and (max-width: $menu-collapse) {
   .search-container {
     z-index: 20;
@@ -67,6 +78,10 @@ $primary-color: #049cdb;
     white-space: nowrap;
     display: inline-block;
     font-weight: 500;
+  }
+
+  img {
+    display: block;
   }
 }
 
@@ -108,6 +123,30 @@ $primary-color: #049cdb;
       display: inline-block;
       margin: 0 8px;
     }
+  }
+
+  @media screen and (max-width: 480px) {
+    .links {
+      margin-left: 0;
+    }
+  }
+}
+
+.feedback {
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, .12);
+  border-radius: 4px;
+  h4 {
+    margin: 0 0 8px !important;
+
+    a {
+      text-decoration: none !important;
+      color: #000;
+    }
+  }
+  .links a {
+    font-weight: 400;
+    text-transform: none;
   }
 }
 
@@ -201,14 +240,28 @@ $primary-color: #049cdb;
     }
   }
 
+  .sponsors-and-press {
+    margin-top:24px;
+  }
+  
+  .sponsored-by {
+    img {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 15px;
+      max-width: 40%;
+      max-height: 80px;
+    }    
+
+  }
+  
   .seen-press {
-    margin-top: 24px;
 
     img {
       border: 0;
       box-shadow: none;
       margin: 15px;
-      width: 100%;
       max-width: 40%;
       max-height: 70px;
     }
@@ -238,7 +291,7 @@ dt:hover a.title-link {
     position: absolute;
     top: 5px;
     left: -25px;
-    padding-right: 5px;
+    padding-right: 10px;
     padding-left: 5px;
     font-family: "FontAwesome";
     font-size: 15px;
@@ -483,6 +536,22 @@ div.note {
   }
 }
 
+lite-youtube {
+  position: relative;
+  display: block;
+  padding-bottom: calc(100% / (16 / 9));
+  background-color: rgba(0,0,0,.1);
+}
+
+lite-youtube::before {
+  content: attr(videotitle) " video placeholder";
+  color: rgba(0, 0, 0, 0.82);
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  padding-top: calc(45% / (16 / 9));
+}
+
 // Responsive YouTube embeds.
 // https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
 .videoWrapper {
@@ -541,6 +610,20 @@ twitter-widget,
 // Configuration variables
 div.config-vars {
   padding-bottom: 16px;
+
+  h3 {
+    margin-bottom: 0;
+  }
+
+  .configuration-link {
+    font-size: 13px;
+
+    a {
+      color: #8792a2;
+      text-decoration: none;
+      border-bottom: #8792a2 dotted 0.5px;
+    }
+  }
 
   .config-vars-item {
     border-bottom: 1px solid #d9dbde;
@@ -687,4 +770,11 @@ a.my {
   img {
     border: 0px;
   }
+}
+
+:target {
+  display: block;
+  position: relative;
+  top: -100px; 
+  visibility: hidden;
 }

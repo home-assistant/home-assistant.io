@@ -9,9 +9,12 @@ ha_domain: nut
 ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
+  - '@ollo69'
 ha_zeroconf: true
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The Network UPS Tools (NUT) integration allows you to monitor a UPS

@@ -2,8 +2,8 @@
 title: SolarEdge Local
 description: Instructions on how to integrate SolarEdge sensor within Home Assistant via Local API.
 ha_category:
-  - Sensor
   - Energy
+  - Sensor
 ha_release: 0.95
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -12,13 +12,14 @@ ha_codeowners:
 ha_domain: solaredge_local
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `solaredge_local` platform uses the local API available on some SolarEdge Inverters to allow you to get details from your SolarEdge solar power setup and integrate these into your Home Assistant installation.
 
 Only specific models support the local API. The local API is available on inverters that do not have an LCD character screen. You can also  check the datasheets if in the section "Additional Features", sub-section "Inverter Commissioning" is present the following line "With the SetApp mobile application using built-in Wi-Fi access point for local connection". These inverters also have a part number that ends with a 4. For example: SEXXK-XXXXXBXX4 or SEXXXXH-XXXXXBXX4
 
-You can check if the local API works by finding the IP address of your inverter and visiting it in a browser. If it supports the local API, you'll see a HTML page with the SolarEdge logo and a "Commissioning" menu. 
+You can check if the local API works by finding the IP address of your inverter and visiting it in a browser. If it supports the local API, you'll see an HTML page with the SolarEdge logo and a "Commissioning" menu. 
 
 <div class='note'>
 
@@ -69,13 +70,12 @@ In case you would like to convert the values for example to kWh instead of the d
 
 ```yaml
 # Example configuration.yaml entry for sensor template platform
-sensor:
-  - platform: template
-    sensors:
-      solaredge_energy_this_year_template:
-        value_template: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
-        unit_of_measurement: "KWh"
-        icon_template: "mdi:solar-power"
+template:
+  - sensor:
+    - name: solaredge_energy_this_year_template:
+      state: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
+      unit_of_measurement: "KWh"
+      icon: "mdi:solar-power"
 ```
 
 {% endraw %}

@@ -15,6 +15,7 @@ ha_platforms:
   - lock
 ha_config_flow: true
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The Nuki integration allows you to control [Nuki Smart Locks](https://nuki.io/en/smart-lock/) via a [Nuki Bridge](https://nuki.io/en/bridge/).
@@ -36,3 +37,12 @@ See the [Nuki Website](https://nuki.io/en/support/smart-lock/sl-features/locking
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
 | `unlatch` | yes | Boolean - Whether to unlatch the door when first opening it.
+
+### Service `nuki.set_continuous_mode`
+
+This service allows you to enable or disable the "Continuous Mode" feature of Nuki Openers. This is similar to the Ring-to-Open feature that is mapped to "lock/unlock", except that it doesn't have a time limit - as long as this mode is enabled, the door will open when the buzzer button is pressed, similar to how it works at e.g. a doctor's office or other business during the day. On other Nuki products, this service is a no-op.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
+| `enabled` | yes | Boolean - Set to `true` to enable Continuous Mode, or `false` to disable.

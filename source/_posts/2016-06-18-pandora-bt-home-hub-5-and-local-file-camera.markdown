@@ -45,7 +45,7 @@ Another cool addition is the local file camera. This seems very basic at first b
 
 ### Breaking change
 
-- The new Netatmo support caused us to change how Netatmo are configured. It's now done via it's own component.
+- The new Netatmo support caused us to change how Netatmo are configured. It's now done via its own component.
 
 ```yaml
 netatmo:

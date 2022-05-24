@@ -4,6 +4,7 @@ description: Instructions on how to integrate the Synology DSM sensor within Hom
 ha_category:
   - Camera
   - System Monitor
+  - Updates
 ha_release: 0.32
 ha_iot_class: Local Polling
 ha_domain: synology_dsm
@@ -15,9 +16,13 @@ ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
+  - button
   - camera
+  - diagnostics
   - sensor
   - switch
+  - update
+ha_integration_type: integration
 ---
 
 The Synology DSM sensor platform provides access to various statistics from your [Synology NAS](https://www.synology.com) as well as cameras from the [Surveillance Station](https://www.synology.com/en-us/surveillance).
@@ -28,7 +33,7 @@ The Synology DSM sensor platform provides access to various statistics from your
 
 This sensor will wake up your Synology NAS if it's in hibernation mode.
 
-You can change the scan interal within the configuration options (default is 15 min).
+You can change the scan interval within the configuration options (default is 15 min).
 
 Having cameras or the Home mode toggle from [Surveillance Station](https://www.synology.com/en-us/surveillance) will fetch every 30 seconds. Disable those entities if you don't want your NAS to be fetch as frequently.
 
@@ -83,7 +88,7 @@ Entities reporting status, total size (TB), used size (TB), % of volume used, av
 
 ### General sensors
 
-Entities reporting the update and security status of the NAS.
+Entity reporting the security status of the NAS.
 
 <div class='note'>
 
@@ -103,20 +108,12 @@ A switch is available to enable/disable the [Surveillance Station](https://www.s
 
 For each camera added in [Surveillance Station](https://www.synology.com/en-us/surveillance), a camera will be created in Home Assistant.
 
-## Services
+## Buttons
 
-### Service `synology_dsm.reboot`
+### Button `reboot`
 
-Reboot the specified NAS by `serial`. If only one DSM is configured, `serial` is optional.
+Reboot the NAS.
 
-  | Service data attribute | Required | Description |
-  | ---------------------- | -------- | ----------- |
-  | `serial` | yes, when multiple NAS are configured | serial of DSM |
+### Button `shutdown`
 
-### Service `synology_dsm.shutdown`
-
-Shutdown the specified NAS by `serial`. If only one DSM is configured, `serial` is optional.
-
-  | Service data attribute | Required | Description |
-  | ---------------------- | -------- | ----------- |
-  | `serial` | yes, when multiple NAS are configured | serial of DSM |
+Shutdown the NAS.

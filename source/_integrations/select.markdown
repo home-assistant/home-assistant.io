@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_domain: select
 ha_codeowners:
   - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 Keeps track on `select` entities in your environment, their state, and allows
@@ -16,7 +17,7 @@ a limited set of selectable options for the entity.
 
 ### Services
 
-The Number entities registers the following services:
+The Select entities registers the following services:
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |

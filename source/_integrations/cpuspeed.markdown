@@ -1,19 +1,22 @@
 ---
 title: CPU Speed
 description: Instructions on how to integrate CPU speed within Home Assistant.
-logo: cpu.png
 ha_category:
   - System Monitor
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:
   - '@fabaff'
+  - '@frenck'
 ha_domain: cpuspeed
+ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
-The `cpuspeed` sensor platform to allow you to monitor the current CPU speed.
+The CPU Speed integration allows you to monitor the current CPU speed.
 
 <div class='note warning'>
 
@@ -21,20 +24,4 @@ The `cpuspeed` sensor platform to allow you to monitor the current CPU speed.
 
 </div>
 
-## Configuration
-
-To add this platform to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: cpuspeed
-```
-
-{% configuration %}
-name:
-  description: Name to use in the frontend.
-  required: false
-  type: string
-  default: CPU speed
-{% endconfiguration %}
+{% include integrations/config_flow.md %}

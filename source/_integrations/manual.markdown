@@ -1,5 +1,5 @@
 ---
-title: Manual
+title: Manual Alarm Control Panel
 description: Instructions on how to integrate manual alarms into Home Assistant.
 ha_category:
   - Alarm
@@ -9,6 +9,7 @@ ha_domain: manual
 ha_iot_class: Calculated
 ha_platforms:
   - alarm_control_panel
+ha_integration_type: integration
 ---
 
 The `manual` alarm control panel platform enables you to create an alarm system in Home Assistant.
@@ -67,7 +68,7 @@ disarm_after_trigger:
   required: false
   type: boolean
   default: false
-armed_custom_bypass/armed_home/armed_away/armed_night/disarmed/triggered:
+armed_custom_bypass/armed_home/armed_away/armed_night/armed_vacation/disarmed/triggered:
   description: State specific settings
   required: false
   type: list

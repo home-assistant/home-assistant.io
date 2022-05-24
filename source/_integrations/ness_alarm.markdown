@@ -12,6 +12,7 @@ ha_domain: ness_alarm
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+ha_integration_type: integration
 ---
 
 The `ness_alarm` integration will allow Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a IP232 module that must be connected to the alarm.
@@ -21,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 - Binary Sensor: Reports on zone statuses
 - Alarm Control Panel: Reports on alarm status, and can be used to arm/disarm the system
 
-The module communicates via the [Ness D8x/D16x ASCII protocol](http://www.nesscorporation.com/Software/Ness_D8-D16_ASCII_protocol.pdf).
+The module communicates via the [Ness D8x/D16x ASCII protocol](https://ia601401.us.archive.org/34/items/ness-d-8x-d-16x-serial-interface.-ascii-protocol/Ness%20D8x%20D16x%20Serial%20Interface.%20ASCII%20Protocol.pdf).
 
 ## Configuration
 

@@ -2,9 +2,9 @@
 title: BloomSky
 description: Instructions on how to integrate the BloomSky within Home Assistant.
 ha_category:
-  - Environment
   - Binary Sensor
   - Camera
+  - Environment
   - Sensor
 ha_release: 0.14
 ha_iot_class: Cloud Polling
@@ -13,6 +13,7 @@ ha_platforms:
   - binary_sensor
   - camera
   - sensor
+ha_integration_type: integration
 ---
 
 The `bloomsky` integration allows you to access your [BloomSky](https://www.bloomsky.com/) weather station's.

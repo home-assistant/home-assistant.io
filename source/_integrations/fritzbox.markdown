@@ -4,6 +4,7 @@ description: Instructions on how to integrate AVM Fritz!DECT components into Hom
 ha_category:
   - Binary Sensor
   - Climate
+  - Light
   - Sensor
   - Switch
 ha_release: 0.68
@@ -14,10 +15,14 @@ ha_ssdp: true
 ha_platforms:
   - binary_sensor
   - climate
+  - diagnostics
+  - light
   - sensor
   - switch
 ha_codeowners:
   - '@mib1185'
+  - '@flabbamann'
+ha_integration_type: integration
 ---
 
 The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ!DECT](https://en.avm.de/products/fritzdect/) devices like switches, sensors and thermostats.
@@ -26,6 +31,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
 - Climate
+- Light
 - Sensor
 - Switch
 
@@ -38,7 +44,9 @@ There is currently support for the following device types within Home Assistant:
 - [FRITZ!Box 7430](https://en.avm.de/service/fritzbox/fritzbox-7430/overview/)
 - [FRITZ!DECT 200](https://en.avm.de/products/fritzdect/fritzdect-200/)
 - [FRITZ!DECT 301](https://en.avm.de/products/fritzdect/fritzdect-301/)
+- [FRITZ!DECT 500](https://en.avm.de/products/fritzdect/fritzdect-500/)
 - [Eurotronic Comet DECT](https://eurotronic.org/produkte/elektronische-heizkoerperthermostate/sparmatic-comet/)
+- [Magenta SmartHome LED E27](https://www.smarthome.de/geraete/smarthome-led-lampe-e27-farbig-weiss)
 
 {% include integrations/config_flow.md %}
 
@@ -63,14 +71,26 @@ There are several attributes that can be useful for automations and templates.
 | `holiday_mode` | The state of the holiday mode (only available since Fritz!OS 7).
 | `summer_mode` | The state of the summer mode (only available since Fritz!OS 7).
 | `window_open` | The state of the window open detection (only available since Fritz!OS 7).
-| `temperature_unit` |  The unit of the temperature sensor (only available if the device support temperature sensor).
-| `temperature` | The current temperature sensor reading (only available if the device supports temperature sensor).
-| `total_consumption` | The total power consumption since the beginning of operation (only available if the device supports power meter function).
-| `total_consumption_unit` | The unit of the total_consumption (only available if the device supports power meter function).
 
 ## Sensors
 
 To get AVM FRITZ!DECT sensors (e.g.,  FRITZ!DECT Repeater 100) follow the [configuration instructions](#configuration) above.
+
+There are multiple sensors defined, the availability depends on the features of the connected FRITZ!DECT devices
+
+- Battery
+- Comfort Temperature
+- Current Scheduled Preset
+- Eco Temperature
+- Electric Current
+- Humidity
+- Next Scheduled Change Time
+- Next Scheduled Preset
+- Next Scheduled Temperature
+- Power Consumption
+- Temperature
+- Total Energy
+- Voltage
 
 ### Attributes
 
@@ -80,5 +100,11 @@ There are several attributes that can be useful for automations and templates.
 | --------- | ----------- |
 | `device_locked` | The state of the key lock at the device.
 | `locked` | The state of the lock for configuring the device via the app or the FRITZ!Box web interface.
-| `temperature_unit` |  The unit of the temperature sensor.
-| `temperature` | The current temperature sensor reading.
+
+## Light
+
+To get AVM FRITZ!DECT lightbulbs (e.g., FRITZ!DECT 500) follow the [configuration instructions](#configuration) above.
+
+<div class='note'>
+The FRITZ!DECT 500 lightbulb supports only 36 colors. When a color is picked in home assistant that is not supported by the device, a color that comes close will be activated.
+</div>

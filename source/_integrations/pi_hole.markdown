@@ -2,14 +2,14 @@
 title: Pi-hole
 description: Instructions on how to integrate Pi-hole with Home Assistant.
 ha_category:
-  - System Monitor
   - Sensor
   - Switch
+  - System Monitor
+  - Updates
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 0.28
 ha_codeowners:
-  - '@fabaff'
   - '@johnluetke'
   - '@shenxn'
 ha_domain: pi_hole
@@ -17,6 +17,8 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
+  - update
+ha_integration_type: integration
 ---
 
 The Pi-hole integration allows you to retrieve statistics and interact with a
@@ -40,3 +42,14 @@ Disables configured Pi-hole(s) for the specified amount of time.
 | ---------------------- | -------- | -------- | ----------- |
 | `entity_id` | `False` | string | Target switch entity. Use `all` to target all Pi-hole services |
 | `duration` | `True` | timedelta | Time for which Pi-hole should be disabled |
+
+Example service call:
+
+```yaml
+# Example service call to disable Pi-Hole for 30 minutes
+service: pi_hole.disable
+data:
+  duration: '00:30'
+target:
+  entity_id: all
+```

@@ -2,19 +2,21 @@
 title: Ambee
 description: Instructions on how to integrate Ambee within Home Assistant.
 ha_category:
-  - Health
   - Environment
+  - Health
 ha_release: 2021.7
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@frenck"
+  - '@frenck'
 ha_domain: ambee
 ha_platforms:
   - sensor
+ha_quality_scale: platinum
+ha_integration_type: integration
 ---
 
-The Ambee integration integrations the [Ambee](https://www.getambee.com/) API
+The Ambee integration integrates the [Ambee](https://www.getambee.com/) API
 platform with Home Assistant.
 
 Ambee fuses the power of thousands of on-ground sensor data and hundreds of
@@ -25,17 +27,16 @@ themselves.
 
 ## Prerequisites
 
-To use the Ambee integration, you will need to obtain an API key from Ambee
-
-Ambee provides free API keys, that are limited to 100 requests a day. This
-is enough for a single Ambee integration instance. If
-you are in need for more, Ambee offers paid options to raise the limits on
-your API key as well.
+To use the Ambee integration, you will need to obtain an API key from Ambee.
+Ambee provides free evulation API keys, that are limited to 50,000 credits
+and for a period of 30 days. After that, you will need to sign up for a 
+paid enterprise plan in order to continue using Ambee.
 
 [Sign up for an Ambee account](https://api-dashboard.getambee.com/#/signup).
 Once you have completed the sign up and logged in for the first time, the
 API token will be displayed on the top of your
-[Ambee dashboard](https://api-dashboard.getambee.com/#/).
+[Ambee dashboard](https://api-dashboard.getambee.com/#/). Make sure you select
+both the Air Quality API and the Pollen API.
 
 {% include integrations/config_flow.md %}
 

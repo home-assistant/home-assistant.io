@@ -18,9 +18,10 @@ ha_platforms:
   - sensor
 ha_zeroconf: true
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
-The `hunterdouglas_powerview` integration allows you to integrate your [Hunter Douglas PowerView](https://www.hunterdouglas.com/operating-systems/powerview-motorization/support) devices in Home Assistant.
+The `hunterdouglas_powerview` integration allows you to integrate your [Hunter Douglas PowerView](https://www.hunterdouglas.com/operating-systems/powerview-motorization/support) devices in Home Assistant. The product is also known by the brand name Luxaflex Powerview in Europe and Australia [as explained on their website](https://www.hunterdouglasgroup.com/company/brands-in-action/), however this integration should work for both brands.
 
 There is currently support for the following device types within Home Assistant:
 

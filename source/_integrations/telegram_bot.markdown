@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.42
 ha_iot_class: Cloud Push
 ha_domain: telegram_bot
+ha_integration_type: integration
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
@@ -43,9 +44,9 @@ Send a photo.
 | `url`                     |       no | Remote path to an image. |
 | `file`                    |       no | Local path to an image.  |
 | `caption`                 |      yes | The title of the image. |
-| `username`                |      yes | Username for a URL which requires HTTP basic authentication. |
-| `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
-| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
+| `username`                |      yes | Username for a URL which requires HTTP authentication. |
+| `password`                |      yes | Password (or bearer token) for a URL which require HTTP authentication. |
+| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.  |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
 | `disable_notification`     |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
@@ -64,9 +65,9 @@ Send a video.
 | `url`                     |       no | Remote path to a video. |
 | `file`                    |       no | Local path to a video.  |
 | `caption`                 |      yes | The title of the video. |
-| `username`                |      yes | Username for a URL which requires HTTP basic authentication. |
-| `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
-| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
+| `username`                |      yes | Username for a URL which requires HTTP authentication. |
+| `password`                |      yes | Password (or bearer token) for a URL which require HTTP authentication. |
+| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.  |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
 | `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
@@ -84,9 +85,9 @@ Send an animation.
 | `url`                     |       no | Remote path to a GIF or H.264/MPEG-4 AVC video without sound. |
 | `file`                    |       no | Local path to a GIF or H.264/MPEG-4 AVC video without sound.  |
 | `caption`                 |      yes | The title of the animation. |
-| `username`                |      yes | Username for a URL which requires HTTP basic authentication. |
-| `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
-| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
+| `username`                |      yes | Username for a URL which requires HTTP authentication. |
+| `password`                |      yes | Password (or bearer token) for a URL which require HTTP authentication. |
+| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.  |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
 | `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
@@ -105,9 +106,9 @@ Send a voice message.
 | `url`                     |       no | Remote path to a voice message. |
 | `file`                    |       no | Local path to a voice message.  |
 | `caption`                 |      yes | The title of the voice message. |
-| `username`                |      yes | Username for a URL which requires HTTP basic authentication. |
-| `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
-| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
+| `username`                |      yes | Username for a URL which requires HTTP authentication. |
+| `password`                |      yes | Password (or bearer token) for a URL which require HTTP authentication. |
+| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.  |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
@@ -124,9 +125,10 @@ Send a sticker.
 |---------------------------|----------|--------------------------------------------------|
 | `url`                     |       no | Remote path to a static .webp or animated .tgs sticker. |
 | `file`                    |       no | Local path to a static .webp or animated .tgs sticker.  |
-| `username`                |      yes | Username for a URL which requires HTTP basic authentication. |
-| `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
-| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
+| `sticker_id`              |       no | ID of a sticker that exists  on telegram servers. The ID can be found by sending a sticker to your bot and querying the telegram-api method [getUpdates](https://core.telegram.org/bots/api#getting-updates) or by using the [@idstickerbot](https://t.me/idstickerbot) |
+| `username`                |      yes | Username for a URL which requires HTTP authentication. |
+| `password`                |      yes | Password (or bearer token) for a URL which require HTTP authentication. |
+| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.  |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`     |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
@@ -144,9 +146,9 @@ Send a document.
 | `url`                     |       no | Remote path to a document. |
 | `file`                    |       no | Local path to a document.  |
 | `caption`                 |      yes | The title of the document. |
-| `username`                |      yes | Username for a URL which requires HTTP basic authentication. |
-| `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
-| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
+| `username`                |      yes | Username for a URL which requires HTTP authentication. |
+| `password`                |      yes | Password (or bearer token) for a URL which require HTTP authentication. |
+| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.  |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
@@ -236,7 +238,7 @@ Remove the bot from the chat group where it was added.
 
 ## Telegram notification platform
 
-The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility.
+The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification` and `message_tag` are also supported.
 
 The required YAML configuration now reduces to:
 
@@ -517,3 +519,25 @@ Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegr
 ```
 
 {% endraw %}
+
+## Example: send_message with formatted Text
+
+```yaml
+action:
+- service: notify.telegrambot
+  data:
+    title: Example Message
+    message: 'Message with *BOLD*, _ITALIC_ and `MONOSPACE` Text'
+```
+
+## Example: send_message with message tag
+
+```yaml
+action:
+- service: notify.telegrambot
+  data:
+    title: Example Message
+    message: "Message with tag"
+    data:
+      message_tag: "example_tag"
+```

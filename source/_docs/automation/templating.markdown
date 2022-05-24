@@ -3,11 +3,50 @@ title: "Automation Trigger Variables"
 description: "List all available variables made available by triggers."
 ---
 
-Automations support [templating](/docs/configuration/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) available to scripts, the `trigger` template variable is available.
+Automations support [templating](/docs/configuration/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) available to scripts, the `trigger` and `this` template variables are available.
+
+The template variable `this` is also available when evaluating any `trigger_variables` declared in the configuration.
+
+## Available this Data
+
+Variable `this` is the [state object](/docs/configuration/state_object) of the automation. State objects also contain context data which can be used to identify the user that caused a script or automation to execute.
 
 ## Available Trigger Data
 
 The following tables show the available trigger data per platform.
+
+### All
+
+The following describes trigger data associated with all platforms.
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.id` | Optional trigger `id`, or index of the trigger.
+| `trigger.idx` | Index of the trigger.
+
+### Calendar
+
+| Template variable                    | Data                                                                                                                            |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| `trigger.platform`                   | Hardcoded: `calendar`                                                                                                           |
+| `trigger.event`                      | The trigger event type, either `start`  or `end`                                                                                |
+| `trigger.calendar_event`             | The calendar event object matched.                                                                                              |
+| `trigger.calendar_event.summary`     | The title or summary of the calendar event.                                                                                     |
+| `trigger.calendar_event.start`       | String representation of the start date or date time of the calendar event e.g. `2022-04-10`, or `2022-04-10 11:30:00-07:00`    |
+| `trigger.calendar_event.end`         | String representation of the end time of date time the calendar event in UTC  e.g. `2022-04-11`, or `2022-04-10 11:45:00-07:00` |
+| `trigger.calendar_event.all_day`     | Indicates the event spans the entire day.                                                                                       |
+| `trigger.calendar_event.description` | A detailed description of the calendar event, if available.                                                                     |
+| `trigger.calendar_event.location`    | Location information for the calendar event, if available.                                                                      |
+| `trigger.offset`                     | Timedelta object with offset to the event, if any |
+
+### Device
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `device`.
+| `trigger.event` | Event object that matched.
+| `trigger.event.event_type` | Event type.
+| `trigger.event.data` | Optional event data.
 
 ### Event
 
@@ -25,7 +64,7 @@ The following tables show the available trigger data per platform.
 | `trigger.platform` | Hardcoded: `mqtt`.
 | `trigger.topic` | Topic that received payload.
 | `trigger.payload` | Payload.
-| `trigger.payload_json` | Dictonary of the JSON parsed payload.
+| `trigger.payload_json` | Dictionary of the JSON parsed payload.
 | `trigger.qos` | QOS of payload.
 
 ### Numeric State
@@ -88,7 +127,7 @@ The following tables show the available trigger data per platform.
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `webhook`
 | `trigger.webhook_id` | The webhook ID that was triggered.
-| `trigger.json` | The JSON data of the request (if it had a JSON content type).
+| `trigger.json` | The JSON data of the request (if it had a JSON content type) as a mapping.
 | `trigger.data` | The form data of the request (if it had a form data content type).
 | `trigger.query` | The URL query parameters of the request (if provided).
 
@@ -113,12 +152,15 @@ automation:
   trigger:
     - platform: state
       entity_id: device_tracker.paulus
+      id: paulus_device
   action:
     - service: notify.notify
       data:
         message: >
           Paulus just changed from {{ trigger.from_state.state }}
           to {{ trigger.to_state.state }}
+          
+          This was triggered by {{ trigger.id }}
 
 automation 2:
   trigger:
