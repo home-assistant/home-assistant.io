@@ -51,15 +51,22 @@ before configuring Spotify.
 - Select **Create An App**. Enter any name and description.
 - Once your application is created, view it and copy your **Client ID** and **Client Secret**, which are used in the Home Assistant [configuration file below](#configuration).
 - Enter the **Edit Settings** dialog of your newly-created application and add a *Redirect URI*:
-  - If you are not using SSL: `http://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
-  - If you are using SSL: `https://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
-  - Note Spotify does a case-sensitive match of the fields above, as such ensure the Redirect URI is all lower case.
+  `https://my.home-assistant.io/redirect/callback`.
+  Note: Spotify does a case-sensitive match of the fields above, as such ensure the Redirect URI is all lower case.
 - Click **Save** after adding the URI.
 
-<div class='note'>
-  Your Home Assistant instance does not need to be exposed to the internet. It works just fine with local IP addresses.
-</div>  
+{% details "I have manually disabled My Home Assistant" %}
 
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
+instead.
+
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
+
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+
+{% enddetails %}
 
 Add the following to your `configuration.yaml` file:
 
