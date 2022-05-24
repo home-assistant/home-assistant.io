@@ -24,7 +24,7 @@ The Jewish Calendar (`jewish_calendar`) integration displays a variety of inform
 
 - `date`: Shows the hebrew date for today.
 - `weekly_portion`: Shows the weekly portion (parshat hashavu'a - פרשת השבוע)
-- `holiday`: If it is a holiday, shows the name of the holiday _(see below for more info)_.
+- `holiday`: If it is a holiday, shows the name of the holiday *(see below for more info)*.
 - `omer_count`: An integer sensor indicating the day of the Omer (1-49) or 0 if it is not currently the Omer.
 - `daf_yomi`: Shows the date's daf yomi page.
 
