@@ -4,6 +4,7 @@ description: Instructions on how to integrate BAF devices into Home Assistant.
 ha_category:
   - Climate
   - Fan
+  - Light
   - Sensor
   - Switch
 ha_zeroconf: true
@@ -17,6 +18,7 @@ ha_config_flow: true
 ha_platforms:
   - climate
   - fan
+  - light
   - sensor
   - switch
 ha_integration_type: integration
@@ -27,6 +29,7 @@ Integrates [Big Ass Fans](https://www.bigassfans.com/) devices into Home Assista
 ## Supported devices
 
 - Haiku Fans with 3.0 firmware and later (Legacy SenseME firmware not supported)
+- Discontinued Haiku Lights with 3.0 firmware and later (Legacy SenseME firmware not supported)
 - i6 Fans
 
 ## Platforms
