@@ -568,6 +568,30 @@ template:
 
 {% endraw %}
 
+A more advanced use case could be to set the icon based on the sensor's own state like above, but when triggered by an event. This example demonstrates a binary sensor that turns on momentarily, such as when a doorbell button is pressed. 
+
+The binary sensor turns on and sets the matching icon when the appropriate event is received. After 5 seconds, the binary sensor turns off automatically. To ensure the icon gets updated, there must be a trigger for when the state changes to off. 
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: event
+        event_type: YOUR_EVENT
+      - platform: state
+        entity_id: binary_sensor.doorbell_rang
+        to: "off"
+    binary_sensor:
+      name: doorbell_rang
+      icon: "{{ (trigger.platform == 'event') | iif('mdi:bell-ring-outline', 'mdi:bell-outline') }}"
+      state: "{{ trigger.platform == 'event' }}"
+      auto_off:
+        seconds: 5
+```
+
+{% endraw %}
+
 ### Self referencing
 
 This example demonstrates how the `this` variable can be used in templates for self-referencing.
