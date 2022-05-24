@@ -39,11 +39,3 @@ code:
   required: true
   type: string
 {% endconfiguration_basic %}
-
-{% include integrations/option_flow.md %}
-{% configuration_basic %}
-poll_interval:
-  description: Interval for polling the laundrify backend (in seconds)
-  default: 60
-  type: integer
-{% endconfiguration_basic %}
