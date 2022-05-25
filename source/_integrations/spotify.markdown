@@ -64,7 +64,9 @@ instead.
 The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
 authentication process.
 
-Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`."
+
+{% enddetails %}
 
 See [Application Credentials](/integrations/application_credentials) for instructions on how to configure your *Client ID* and *Client Secret*.
 
