@@ -161,8 +161,7 @@ compatible with other Home Assistant features, but this documentation is availab
 for existing users.
 </div>
 
-The integration supports additional configuration from a file `google_calendars.yaml` which is avaialble for existing
-users before version `2022.06`. This file is no longer automatically populated.
+The integration supports additional configuration from a file `google_calendars.yaml` which is avaialble for existing users before version `2022.06`. This file is no longer automatically populated.
 
 {% configuration %}
 cal_id:
