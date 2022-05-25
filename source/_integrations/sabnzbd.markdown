@@ -34,17 +34,17 @@ You need to grab your API key from your SABnzbd instance in order to configure t
 
 This component will create these sensors:
 
-- `status`: The current status of SABnzbd (Idle, Paused, etc.)
-- `speed`: The current download speed
-- `queue`: The total size of the download queue
-- `left`: The remaining size of the download queue
-- `disk`: The total disk size at SABnzbd's download location
-- `disk_free`: The available disk space at SABnzbd's download location
-- `queue_count`: The number of items in the download queue
-- `daily_total`: GB downloaded today
-- `weekly_size`: GB downloaded this week
-- `monthly_total`: GB downloaded this month
-- `total`: Total GB downloaded
+- `status`: The current status of SABnzbd. (Idle, Paused, etc.)
+- `speed`: The current download speed.
+- `queue`: The total size of the download queue.
+- `left`: The remaining size of the download queue.
+- `disk`: The total disk size at SABnzbd's download location.
+- `disk_free`: The available disk space at SABnzbd's download location.
+- `queue_count`: The number of items in the download queue.
+- `total`: Total GB downloaded.
+- `daily_total`: GB downloaded today. (disabled by default)
+- `weekly_size`: GB downloaded this week. (disabled by default)
+- `monthly_total`: GB downloaded this month. (disabled by default)
 
 
 ## Services
