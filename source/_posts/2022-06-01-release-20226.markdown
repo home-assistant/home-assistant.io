@@ -1,0 +1,1176 @@
+---
+layout: post
+title: "2022.6: Beta release notes"
+description: "Beta release notes for Home Assistant Core 2022.6"
+date: 2022-05-25 00:00:00
+date_formatted: "June 1, 2022"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+- Release-Notes
+- Core
+og_image: /images/blog/2022-06/social.png
+---
+
+<a href='/integrations/#version/2022.6'><img src='/images/blog/2022-06/social.png' style='border: 0;box-shadow: none;'></a>
+
+These are the beta release notes for Home Assistant Core 2022.6 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/Lovelace:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the Supervisor:<br>
+  <https://github.com/home-assistant/supervisor/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+version field (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+---
+
+Home Assistant Core 2022.6!
+
+I have nothing to tell yet... this is still all beta!
+
+Thanks for helping out testing the beta! ❤️
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [Comparing energy data](#comparing-energy-data)
+- [Logbooks!](#logbooks)
+- [Manage application credentials from the UI](#manage-application-credentials-from-the-ui)
+- [Improved scene editor](#improved-scene-editor)
+- [Calendar trigger offsets](#calendar-trigger-offsets)
+- [Hardware integrations](#hardware-integrations)
+- [Database Performance](#database-performance)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New Integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Breaking Changes](#breaking-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+<!--<img class="no-shadow" src='/images/blog/2022-06/configuration-menu.png' alt='Screenshot showing the new configuration menu structure'>-->
+
+<!--<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-06/calendar-trigger.png' alt='Screenshot showing the new calendar trigger in the UI'>
+The new calendar trigger is available in the automation editor.
+</p>-->
+
+## Comparing energy data
+
+{% details "TODO" %}
+
+- Add a better screenshot
+- Add more story
+
+{% enddetails %}
+
+Did you use less or more energy than... yesterday? last week? month? year?
+We all want to know if we are on the right track, right? :)
+
+This release introduces the capability to compare energy data against previous
+periods, directly from the energy dashboard.
+
+<img class="no-shadow" src='/images/blog/2022-06/energy-compare.png' alt='Screenshot showing energy usage being compared with the day before'>
+
+## Logbooks!
+
+{% details "TODO" %}
+
+- Improve story
+- Short movie clip?
+- Screenshots / animations
+
+{% enddetails %}
+
+The logbook received a significant overhaul this release. It is now everywhere,
+blazing fast, has more information, and the logs are live!
+
+Everywhere! Yes, the logbook will now be shown as a card on device and area
+pages. That way, you can instantly see the last activity for that specific
+device or, in case of an area, of the devices in that area.
+
+Fast! The backend got a lot of optimizations. Queries have been polished and
+processing has been optimized to make the experience as smooth as possible.
+If you are using the logbook card anywhere you'll see the results immediately.
+
+More information! The logbook can now show device events too! This is helpful
+for entity-less logs, like device events of button presses. [deCONZ],
+[Elk-M1 Control], [Philips Hue], [Lutron Caséta], [Shelly],
+and the [Mobile App] added support for this feature in this release.
+
+Live! Yes, if you select a dange range that extends into the future,
+the logbook will now update in real-time. The logbook cards have been equiped
+with the same real-time feature.
+
+[deCONZ]: /integrations/deconz
+[Elk-M1 Control]: /integrations/elkm1
+[Lutron Caséta]: /integrations/lutron_caseta
+[Mobile App]: /integrations/mobile_app
+[Philips Hue]: /integrations/hue
+[Shelly]: /integrations/shelly
+
+## Manage application credentials from the UI
+
+{% details "TODO" %}
+
+- Make a clear, short, to the point story, this is too long and unreadble.
+- Add some kind of screenshot
+- My Home Assistant? My Home Assistant for OAuth2 redirect callbacks ([@frenck] - [#72449]) (breaking-change)
+- Movie / clip?
+
+{% enddetails %}
+
+We see more service providers and device manufacturers handling authentication
+using OAuth2. If you are unfamiliar or unsure what this is, this method of
+authentication is mostly recongnizable because you are redirected/log in on
+the website/app/service itself when hooking up your account to e.g.,
+Home Assistant.
+
+At [Nabu Casa](https://www.nabucasa.com) they try to make this easier, by
+providing a (free for everyone) account linking services, unfortunately,
+not every OAuth2 provider can, wants, or will be supported. In those cases,
+you can configure your own application credentials (aka developer credentials,
+application tokens, app client/secret, client ID & secret).
+
+Up until today you needed to go into YAML, ensuring your Home Assistant URLs
+would conform the requirements of the provider, and things like that. Which is
+annoying to say the least 🥴
+
+This release [@allenporter] has been busy adding support for managing OAuth2
+application credentials, directly from the UI! This removes the need to edit
+YAML (and restart Home Assistant). Additionally, the UI will now guide you
+throught this all when setting up the integration. Awesome!
+
+OAuth Redirect URLs. If this gives you shivers, you definitly will know what
+drama we are talking about. They can be complicated, hard or at least annoying
+to get right. We've solved that!
+
+My Home Assistant has been extended to be able to support OAuth2 authentication
+redirects! Its fast, simple, privacy aware and nothing for you to set up.
+We have updated the documentation of all integrations that now support this
+(which is basically all of them!).
+
+[@allenporter]: https://github.com/allenporter
+
+## Improved scene editor
+
+{% details "TODO" %}
+
+- Section feel "meh"
+- Needs some graphic, or maybe even video about scenes? Anyways, the current screenshot needs to be replaced.
+* Make entities and devices independent in the scene editor (#11046) @dmulcahey
+
+{% enddetails %}
+
+Scenes are great to restore states of multple devices to a previous state.
+They can be useful for quickly setting, for example, a lighting mood in a room
+quickly; No matter if you use the scene in an automation, script or using a
+button on one of your dashboards.
+
+When edditing scenes in the UI, it creates those scenes based on the state
+of a whole device (including all of its entities), however, what if you
+wanted to restore just specific entities with the scene?
+
+<img class="no-shadow" src='/images/blog/2022-06/scene-editor.png' alt='Screenshot showing the scene editor adding a single entity to the scene'>
+
+Exactly that has been improved, a small, but welcome improvement that makes
+it possible to include single entities into a scene, without adding the whole
+device.
+
+## Calendar trigger offsets
+
+{% details "TODO" %}
+
+- Add a bit of content/story
+- Add a screenshot
+- Add calendar trigger offsets ([@allenporter] - [#70963]) ([calendar docs])
+
+{% enddetails %}
+
+Last release, we introduced the calendar trigger, this release, this trigger
+is being exended to support offsets!
+
+Offsets can be helpful for use in automations, as it allows you to alert
+ahead of the actual calendar event happening.
+
+For example, trigger a notification the evening before trashday, a birthday
+reminder a week early, or a reminder 15 minutes before an meeting.
+
+The calendar trigger offset is available for automations in created YAML and
+via the UI.
+
+## Hardware integrations
+
+One big todo at this point.
+
+## Database Performance
+
+{% details "TODO" %}
+
+- Not sure yet about the TODO even
+
+{% enddetails %}
+
+This release builds on the improvements from 2022.4, which offers disk write
+reductions intended to preserve SD card lifetimes and features a new WebSocket
+API for both history and logbook, which gets data to the frontend even faster. 
+
+The database storage format is further optimized, with an additional size
+reduction ranging from 25-40% for most installs on top of what 2022.4 brought.
+
+When the same event data already exists in the database, newly recorded events
+now only store a reference to the event data instead of saving the whole event
+data.
+
+As data stored in the database before 2022.6 does not get updated, the
+reduction in database size will occur over time with the recording of new data
+and the purging of old data. If you have `auto_repack` enabled in the recorder,
+you'll start to see the size reductions on the second Sunday of the month after
+you update.
+
+SQLite and MySQL users benefit from a faster date parser, which speeds up
+multi-hour history and logbook queries.
+
+Don't miss this release, as future database migrations will be faster if most
+of your data is in the new format.
+
+## Other noteworthy changes
+
+{% details "TODO" %}
+
+- Review for missing items
+- Check for spelling and such
+
+{% enddetails %}
+
+There is much more juice in this release; here are some of the other
+noteworthy changes this release:
+
+- The {% my system_health title="System Health" %} menu now shows database
+  information, including versions and estimated database size. The version
+  number of the OS Agent is now also listed. Thanks, [@bdraco] & [@ludeeus].
+- The "Preload Camara" setting shown on every camera feed, has been moved! It
+  is now part of the entity settings, preventing unintential toggling it.
+  Thanks [@bramkragten]!
+- [@goyney] upgraded the [Material Design Icons] to version v6.7.96, providing
+  us with 100 new, fresh and really useful icons to use! Thank you!
+- The `this` variable in [template] entities, is now also available for use in
+  their actions! Thanks, [@emontnemery].
+- A big shout out to [@yosilevy], who has been improving support for
+  RTL-languages (Right to Left) in the UI! Thank you!
+- [@balloob] added support for the media browser to the [GStreamer] and
+  [VLC media player] integrations.
+- The [`as_timedelta`](/docs/configuration/templating/#time) template
+  filter/function, added by [@eifinger], allows you to convert many time strings
+  (including ISO8601) into a timedelta object. Awesome!
+- Lots of you asked for it, the "YAML" tab is now the first tab
+  shown in the developer tools.
+- [@Noltari] has been extending the [QNAP QSW] integration, adding support
+  for diagnostics, a reboot button and binary sensors for abomaly detection.
+- Got a [Ring] doorbell? And want fool your other in your house someone is
+  at the door? Now you can! Thanks to [@grablair] you can now trigger the ding!
+  Which is useful for notifications of course ;)
+- [Tasmota] covers now support tilting, thanks [@emontnemery]!
+- [@rappenze] added support for garage doors to [Fibaro], nice!
+- [Venstar] now has CO2 and IAQ sensor when the thermostat supports it,
+  awesome [@hall]!
+- Using a [NETGEAR]? [@starkillerOG] added the speedtest sensors!
+
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@eifinger]: https://github.com/eifinger
+[@emontnemery]: https://github.com/emontnemery
+[@goyney]: https://github.com/goyney
+[@grablair]: https://github.com/grablair
+[@hall]: https://github.com/hall
+[@ludeeus]: https://github.com/ludeeus
+[@Noltari]: https://github.com/Noltari
+[@rappenze]: https://github.com/rappenze
+[@starkillerOG]: https://github.com/starkillerOG
+[Fibaro]: /integrations/fibaro
+[GStreamer]: /integrations/gstreamer
+[Material Design Icons]: https://pictogrammers.github.io/@mdi/font/6.7.96/
+[NETGEAR]: /integrations/netgear
+[QNAP QSW]: /integrations/qnap_qsw
+[Ring]: /integrations/ring
+[Tasmota]: /integrations/tasmota
+[template]: /integrations/template
+[Venstar]: /integrations/venstar
+[VLC media player]: /integrations/vlc
+
+
+## New Integrations
+
+We welcome the following new integrations this release:
+
+- [Application Credentials], added by[@allenporter]
+- [Big Ass Fans], added by [@bdraco]
+- [Geocaching], added by [@Sholofly] & [@reinder83]
+- [iAlarmXR], added by [@bigmoby]
+- [laundrify], added by [@xLarry]
+- [Soundavo WS66i 6-Zone Amplifier], added by [@ssaenger]
+- [YoLink], added by [@matrixd2]
+
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@bigmoby]: https://github.com/bigmoby
+[@matrixd2]: https://github.com/matrixd2
+[@reinder83]: https://github.com/reinder83
+[@Sholofly]: https://github.com/Sholofly
+[@ssaenger]: https://github.com/ssaenger
+[@xLarry]: https://github.com/xLarry
+[Application Credentials]: /integrations/application_credentials
+[Big Ass Fans]: /integrations/baf
+[Geocaching]: /integrations/geocaching
+[iAlarmXR]: /integrations/ialarm_xr
+[laundrify]: /integrations/laundrify
+[Soundavo WS66i 6-Zone Amplifier]: /integrations/ws66i/
+[YoLink]: /integrations/yolink
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- [Aladdin Connect], done by [@mkmer]
+- [HERE Travel Time], done by [@eifinger]
+- [Slack], done by [@tkdrob]
+
+[@eifinger]: https://github.com/eifinger
+[@mkmer]: https://github.com/mkmer
+[@tkdrob]: https://github.com/tkdrob
+[Aladdin Connect]: /integrations/aladdin_connect
+[HERE Travel Time]: /integrations/here_travel_time
+[Slack]: /integrations/slack
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Breaking Changes
+
+Below is a listing of the breaking change for this release, per subject or
+integration. Click on one of those to read more about the breaking change
+for that specific item.
+
+{% details "MQTT" %}
+
+Defining manually configured MQTT entities directly under the respective
+platform keys (e.g. `fan`, `light`, `sensor`, etc) is deprecated and support
+will be removed in Home Assistant Core 2022.9.
+
+Manually configured MQTT entities should now be defined under the `mqtt`
+configurtation key in `configuration.yaml` instead of under the platform key.
+
+As an example, this is now deprecated:
+
+```yaml
+sensor:
+  - platform: "mqtt"
+    name: "My sensor"
+    state_topic: "some-state-topic"
+```
+
+The configuration needs to updated to this format:
+
+```yaml
+mqtt:
+  sensor:
+   - name: "My sensor"
+     state_topic: "some-state-topic"
+```
+
+([@jbouwh] - [#71676] [#72183] [#72281] [#72249] [#72271] [#72167] [#72165] [#72251] [#72279] [#72268] [#72272] [#72273] [#72274] [#72278] [#72270]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#71676]: https://github.com/home-assistant/core/pull/71676
+[#72183]: https://github.com/home-assistant/core/pull/72183
+[#72281]: https://github.com/home-assistant/core/pull/72281
+[#72249]: https://github.com/home-assistant/core/pull/72249
+[#72271]: https://github.com/home-assistant/core/pull/72271
+[#72167]: https://github.com/home-assistant/core/pull/72167
+[#72165]: https://github.com/home-assistant/core/pull/72165
+[#72251]: https://github.com/home-assistant/core/pull/72251
+[#72279]: https://github.com/home-assistant/core/pull/72279
+[#72268]: https://github.com/home-assistant/core/pull/72268
+[#72272]: https://github.com/home-assistant/core/pull/72272
+[#72273]: https://github.com/home-assistant/core/pull/72273
+[#72274]: https://github.com/home-assistant/core/pull/72274
+[#72278]: https://github.com/home-assistant/core/pull/72278
+[#72270]: https://github.com/home-assistant/core/pull/72270
+
+{% enddetails %}
+
+{% details "OAuth2 (re-)authentications" %}
+
+Home Assistant will now use My Home Assistant to redirect the OAuth2 callback
+over.
+
+If you need to re-authenticate with an exiting OAuth2 application in the future,
+you might need to adjust the external application configuration. Please check
+the documentation of the specific integration on how to configure this.
+
+([@frenck] - [#72449]) ([documentation](/integrations/my))
+
+[@frenck]: https://github.com/frenck
+[#72449]: https://github.com/home-assistant/core/pull/72449
+
+{% enddetails %}
+
+{% details "1-Wire" %}
+
+Using the 1-Wire via SysBus, previously deprecated, has been removed;
+this integration is being adjusted to comply with Architectural Decision
+Record 0019, more information can be found here:
+
+<https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md>
+
+ℹ️ Using the 1-Wire via OWServer is still supported!
+
+([@epenet] - [#71232]) ([documentation](/integrations/onewire))
+
+[@epenet]: https://github.com/epenet
+[#71232]: https://github.com/home-assistant/core/pull/71232
+
+{% enddetails %}
+
+{% details "Aladdin Connect" %}
+
+The Aladdin Connect integration migrated to configuration
+via the UI. Configuring Aladdin Connect via YAML configuration
+has been deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration
+after upgrading.
+
+([@mkmer] - [#68304]) ([documentation](/integrations/aladdin_connect))
+
+[@mkmer]: https://github.com/mkmer
+[#68304]: https://github.com/home-assistant/core/pull/68304
+
+{% enddetails %}
+
+{% details "BMW Connected Drive" %}
+
+The `binary_sensor.<your_vehicle>_lights_parking` has been removed, it is not
+provided by API anymore.
+
+The following sensors have been renamed. Existing sensors with historic data
+and automations should be migrated automatically:
+
+- `sensor.<your_vehicle>_charging_level_hv` to `sensor.<your_vehicle>_remaining_battery_percent`
+- `sensor.<your_vehicle>_fuel_percent` to `sensor.<your_vehicle>_remaining_fuel_percent`
+
+([@rikroe] - [#71827]) ([documentation](/integrations/bmw_connected_drive))
+
+[@rikroe]: https://github.com/rikroe
+[#71827]: https://github.com/home-assistant/core/pull/71827
+
+{% enddetails %}
+
+{% details "Deluge" %}
+
+The previously deprecated YAML configuration of the Deluge
+integration has been removed.
+
+Deluge is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@tkdrob] - [#71487]) ([documentation](/integrations/deluge))
+
+[@tkdrob]: https://github.com/tkdrob
+[#71487]: https://github.com/home-assistant/core/pull/71487
+
+{% enddetails %}
+
+{% details "Discord" %}
+
+The previously deprecated YAML configuration of the Discord
+integration has been removed.
+
+Discord is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@frenck] - [#71696]) ([documentation](/integrations/discord))
+
+[@frenck]: https://github.com/frenck
+[#71696]: https://github.com/home-assistant/core/pull/71696
+
+{% enddetails %}
+
+{% details "DuneHD" %}
+
+The previously deprecated YAML configuration of the DuneHD
+integration has been removed.
+
+DuneHD is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@frenck] - [#71694]) ([documentation](/integrations/dunehd))
+
+[@frenck]: https://github.com/frenck
+[#71694]: https://github.com/home-assistant/core/pull/71694
+
+{% enddetails %}
+
+{% details "File Size" %}
+
+The previously deprecated YAML configuration of the File Size
+integration has been removed.
+
+File Size is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@frenck] - [#71692]) ([documentation](/integrations/filesize))
+
+[@frenck]: https://github.com/frenck
+[#71692]: https://github.com/home-assistant/core/pull/71692
+
+{% enddetails %}
+
+{% details "Google Calendars" %}
+
+The configuration of the OAuth application credentials for the Google Calendars
+integration has migrated to configuration via the UI. Configuring Google Calendars
+OAuth application credentials via YAML configuration has been deprecated
+and will be removed in a future Home Assistant release.
+
+Your existing OAuth application credentials in the YAML configuration is
+automatically imported on upgrade to this release; and thus can be safely
+removed from your YAML configuration after upgrading.
+
+All entity tracking state has been migrated to use the standard Home Assistant
+entity enable/disable features in the user interface and system options.
+
+([@allenporter] - [#72288]) ([documentation](/integrations/google))
+
+[@allenporter]: https://github.com/allenporter
+[#72288]: https://github.com/home-assistant/core/pull/72288
+
+---
+
+The `found_calendar` service has been removed from Google Calendars.
+This service is an internal implementation detail of the integration
+used for creating calendars found from the API,
+which is now no longer exposed as a service.
+
+([@allenporter] - [#72260]) ([documentation](/integrations/google))
+
+[@allenporter]: https://github.com/allenporter
+[#72260]: https://github.com/home-assistant/core/pull/72260
+
+{% enddetails %}
+
+{% details "HERE Travel Time" %}
+
+The HERE Travel Time integration migrated to configuration
+via the UI. Configuring HERE Travel Time via YAML configuration
+has been deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration
+after upgrading.
+
+([@eifinger] - [#69212]) ([documentation](/integrations/lorem))
+
+[@eifinger]: https://github.com/eifinger
+[#69212]: https://github.com/home-assistant/core/pull/69212
+
+{% enddetails %}
+
+{% details "Home Connect" %}
+
+The configuration of the OAuth application credentials for the Home Connect
+integration has migrated to configuration via the UI. Configuring Home Connect
+OAuth application credentials via YAML configuration has been deprecated
+and will be removed in a future Home Assistant release.
+
+Your existing OAuth application credentials in the YAML configuration is
+automatically imported on upgrade to this release; and thus can be safely
+removed from your YAML configuration after upgrading.
+
+([@allenporter] - [#71988]) ([documentation](/integrations/home_connect))
+
+[@allenporter]: https://github.com/allenporter
+[#71988]: https://github.com/home-assistant/core/pull/71988
+
+{% enddetails %}
+
+{% details "Honeywell Lyric" %}
+
+The configuration of the OAuth application credentials for the Honeywell Lyric
+integration has migrated to configuration via the UI. Configuring Honeywell Lyric
+OAuth application credentials via YAML configuration has been deprecated
+and will be removed in a future Home Assistant release.
+
+Your existing OAuth application credentials in the YAML configuration is
+automatically imported on upgrade to this release; and thus can be safely
+removed from your YAML configuration after upgrading.
+
+([@allenporter] - [#72335]) ([documentation](/integrations/lyric))
+
+[@allenporter]: https://github.com/allenporter
+[#72335]: https://github.com/home-assistant/core/pull/72335
+
+{% enddetails %}
+
+{% details "International Space Station (ISS)" %}
+
+The previously deprecated YAML configuration of the International Space Station (ISS)
+integration has been removed.
+
+International Space Station (ISS) is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@frenck] - [#71693]) ([documentation](/integrations/iss))
+
+[@frenck]: https://github.com/frenck
+[#71693]: https://github.com/home-assistant/core/pull/71693
+
+{% enddetails %}
+
+{% details "Jandy iAqualink" %}
+
+The previously deprecated YAML configuration of the Jandy iAqualink
+integration has been removed.
+
+Jandy iAqualink is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@epenet] - [#72404]) ([documentation](/integrations/iaqualink))
+
+[@epenet]: https://github.com/epenet
+[#72404]: https://github.com/home-assistant/core/pull/72404
+
+{% enddetails %}
+
+{% details "KNX" %}
+
+A new configuration key for KNX covers `invert_updown` can be set to
+invert the up-down payload (binary) of covers independently of the
+position percentage. 
+
+Previously up-down (`move_long_address`) payloads were inverted
+when `invert_position: true` was configured. This now only inverts
+the `position_address` and `position_state_address` payloads (%).
+
+If you have used `invert_position: true` for covers you would need to
+add the new key to your YAML config to have the same behaviour as before.
+
+```yaml
+knx:
+  cover:
+    - name: "Example cover"
+      move_long_address: "3/0/0"
+      move_short_address: "3/0/1"
+      position_address: "3/0/3"
+      position_state_address: "3/0/2"
+      invert_updown: true  # <- add this line to keep inversion of up/down payload
+      invert_position: true
+```
+
+([@farmio] - [#72012]) ([documentation](/integrations/knx))
+
+[@farmio]: https://github.com/farmio
+[#72012]: https://github.com/home-assistant/core/pull/72012
+
+{% enddetails %}
+
+{% details "Litter-Robot" %}
+
+The Litter-Robot vacuum entity will now enter an unavailable state when the
+robot hasn't sent an update recently.
+
+([@natekspencer] - [#70810]) ([documentation](/integrations/litterrobot))
+
+[@natekspencer]: https://github.com/natekspencer
+[#70810]: https://github.com/home-assistant/core/pull/70810
+
+---
+
+The `clean_cycle_wait_time_minutes`, `status_code`, and `last_seen` attributes
+have been removed from the vacuum entity as they are now available as individual
+entities.
+
+([@natekspencer] - [#71760]) ([documentation](/integrations/litterrobot))
+
+[@natekspencer]: https://github.com/natekspencer
+[#71760]: https://github.com/home-assistant/core/pull/71760
+
+{% enddetails %}
+
+{% details "Logbook" %}
+
+If the stop and start event were fired within the exact same minute we would
+previously show it as `restarted`  in the logbook. When events crossed the
+minute boundary (i.e. we fired stop at 11:30:59 and start at 11:31:04) it
+would show separately as `stopped` and then `start`.
+
+This change eliminates the inconstancy by always showing them as `stopped` and
+`started` which allows us to simplify how we generate logbook rows.
+
+([@bdraco] - [#71600]) ([documentation](/integrations/logbook))
+
+[@bdraco]: https://github.com/bdraco
+[#71600]: https://github.com/home-assistant/core/pull/71600
+
+---
+
+The entity name in logbook is now always shown with the current name instead
+of the old name if it was renamed. If the entity no longer exists we now show
+the original entity_id instead which aligns with the warning icon we already
+display on the frontend when a state is missing or removed.
+
+([@bdraco] - [#71895]) ([documentation](/integrations/logbook))
+
+[@bdraco]: https://github.com/bdraco
+[#71895]: https://github.com/home-assistant/core/pull/71895
+
+{% enddetails %}
+
+{% details "Neato Botvac" %}
+
+The configuration of the OAuth application credentials for the Neato Botvac
+integration has migrated to configuration via the UI. Configuring Neato Botvac
+OAuth application credentials via YAML configuration has been deprecated
+and will be removed in a future Home Assistant release.
+
+Your existing OAuth application credentials in the YAML configuration is
+automatically imported on upgrade to this release; and thus can be safely
+removed from your YAML configuration after upgrading.
+
+([@allenporter] - [#72175]) ([documentation](/integrations/neato))
+
+[@allenporter]: https://github.com/allenporter
+[#72175]: https://github.com/home-assistant/core/pull/72175
+
+{% enddetails %}
+
+{% details "Netatmo" %}
+
+The configuration of the OAuth application credentials for the Netatmo
+integration has migrated to configuration via the UI. Configuring Netatmo
+OAuth application credentials via YAML configuration has been deprecated
+and will be removed in a future Home Assistant release.
+
+Your existing OAuth application credentials in the YAML configuration is
+automatically imported on upgrade to this release; and thus can be safely
+removed from your YAML configuration after upgrading.
+
+([@allenporter] - [#71884]) ([documentation](/integrations/netatmo))
+
+[@allenporter]: https://github.com/allenporter
+[#71884]: https://github.com/home-assistant/core/pull/71884
+
+{% enddetails %}
+
+{% details "Nexia" %}
+
+The zone status attribute has been removed from the climate entity. The zone
+status is already available as a seperate sensor and it was producing duplicate
+data in the state machine.
+
+([@bdraco] - [#72176]) ([documentation](/integrations/nexia))
+
+[@bdraco]: https://github.com/bdraco
+[#72176]: https://github.com/home-assistant/core/pull/72176
+
+{% enddetails %}
+
+{% details "Nexia/American Standard/Trane" %}
+
+Remove non-standard `humidify_supported` and `dehumidify_supported` attributes
+from nexia
+
+These attributes can already be inferred from the `dehumidify_setpoint`
+or `humidify_setpoint` attributes.
+
+As they took up space in the database every time any of the values changes, they
+have now been removed.
+
+([@bdraco] - [#71248]) ([documentation](/integrations/nexia))
+
+[@bdraco]: https://github.com/bdraco
+[#71248]: https://github.com/home-assistant/core/pull/71248
+
+{% enddetails %}
+
+{% details "nVent RAYCHEM SENZ" %}
+
+The configuration of the OAuth application credentials for the nVent RAYCHEM SENZ
+integration has migrated to configuration via the UI. Configuring nVent RAYCHEM SENZ
+OAuth application credentials via YAML configuration has been deprecated
+and will be removed in a future Home Assistant release.
+
+Your existing OAuth application credentials in the YAML configuration is
+automatically imported on upgrade to this release; and thus can be safely
+removed from your YAML configuration after upgrading.
+
+([@allenporter] - [#72338]) ([documentation](/integrations/senz))
+
+[@allenporter]: https://github.com/allenporter
+[#72338]: https://github.com/home-assistant/core/pull/72338
+
+{% enddetails %}
+
+{% details "Recorder" %}
+
+De-duplicate event data into a new `event_data` table
+
+Data is no longer stored in the `event.event_data` column and instead
+deduplicated into the `event_data.shared_data` column and joined on
+`event.data_id==event_data.data_id`.
+
+This is the same as we did with state attributes in 2022.4 as we can reduce
+the size of the events table by ~8-14% on avg.
+
+([@bdraco] - [#71135]) ([documentation](/integrations/recorder))
+
+[@bdraco]: https://github.com/bdraco
+[#71135]: https://github.com/home-assistant/core/pull/71135
+
+---
+
+- All the data needed to fetch a `stated_changed` event is now available in
+  the `states` table (along with `state_attributes` if needed).
+- Reduces overall database size by ~27%
+- Refactors logbook to work without the need for the `state_changed` `events`
+  rows (fetched from `states`).
+- Refactors purge to work without the need for linking the `state_changed` event.
+- Origin is now stored as an integer.
+
+([@bdraco] - [#71165]) ([documentation](/integrations/recorder))
+
+[@bdraco]: https://github.com/bdraco
+[#71165]: https://github.com/home-assistant/core/pull/71165
+
+---
+
+The following attributes are no longer recorder for for `group` entities:
+
+- `entity_id`
+- `order`
+- `auto`
+
+These attributes provide no historical value since they are already
+contained in the YAML configuration and only fill up the database.
+
+([@bdraco] - [#71256]) ([documentation](/integrations/recorder))
+
+[@bdraco]: https://github.com/bdraco
+[#71256]: https://github.com/home-assistant/core/pull/71256
+
+---
+
+The recorder now refuses to set up if the database dialect is unsupported,
+or if the database dialect is supported but the version is too old.
+
+([@emontnemery] - [#70888]) ([documentation](/integrations/recorder))
+
+[@emontnemery]: https://github.com/emontnemery
+[#70888]: https://github.com/home-assistant/core/pull/70888
+
+{% enddetails %}
+
+{% details "Scrape" %}
+
+The scape integration performance has been improved by using the `lxml` parser.
+
+Testing (YMMV based on content and nesting):
+- For large documents (5000k tags) it was at least an order of magnitude faster.
+- For small documents it was ~3x faster.
+
+Users who are **not** using Home Assistant Operating System or Home Assistant
+Container will need to ensure `libxml2` and `libxslt` are installed.
+
+For example, on Debian based Home Assistant Core installs, run:
+`sudo apt install libxml2`
+
+([@bdraco] - [#71087]) ([documentation](/integrations/scrape))
+
+[@bdraco]: https://github.com/bdraco
+[#71087]: https://github.com/home-assistant/core/pull/71087
+
+{% enddetails %}
+
+{% details "Slack" %}
+
+The Slack integration migrated to configuration
+via the UI. Configuring Slack via YAML configuration
+has been deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration is automatically imported on upgrade to this
+release; and thus can be safely removed from your YAML configuration
+after upgrading.
+
+([@tkdrob] - [#69880]) ([documentation](/integrations/slack))
+
+[@tkdrob]: https://github.com/tkdrob
+[#69880]: https://github.com/home-assistant/core/pull/69880
+
+{% enddetails %}
+
+{% details "Somfy" %}
+
+Somfy has replaced their Somfy Open API (cloud-based) with a local API
+(which we Home Assistant users absolutely love). Somfy has now decided
+to shut down their cloud API after June 21st, 2022.
+
+Please migrate to use the [Overkiz integration](/integrations/overkiz)
+as a replacement.
+
+Unfortunately a migration to Overkiz is not possible due to differences in the
+authentication mechanism.
+
+([@iMicknl] - [#71653]) ([documentation](/integrations/somfy))
+
+[@iMicknl]: https://github.com/iMicknl
+[#71653]: https://github.com/home-assistant/core/pull/71653
+
+{% enddetails %}
+
+{% details "Sonos" %}
+
+The `sonos.join` and `sonos.unjoin` services will be removed in 2022.8 in favor
+of the standard `media_player.join` and `media_player.unjoin` services.
+
+([@jjlawren] - [#71226]) ([documentation](/integrations/sonos))
+
+[@jjlawren]: https://github.com/jjlawren
+[#71226]: https://github.com/home-assistant/core/pull/71226
+
+{% enddetails %}
+
+{% details "Spotify" %}
+
+The configuration of the OAuth application credentials for the Spotify
+integration has migrated to configuration via the UI. Configuring Spotify
+OAuth application credentials via YAML configuration has been deprecated
+and will be removed in a future Home Assistant release.
+
+Your existing OAuth application credentials in the YAML configuration is
+automatically imported on upgrade to this release; and thus can be safely
+removed from your YAML configuration after upgrading.
+
+([@allenporter] - [#71871]) ([documentation](/integrations/spotify))
+
+[@allenporter]: https://github.com/allenporter
+[#71871]: https://github.com/home-assistant/core/pull/71871
+
+{% enddetails %}
+
+{% details "Squeezebox (Logitech Media Server)" %}
+
+This PR updates the Squeezebox player synchronization framework to use the
+platform-level services `media_player.join` and `media_player.unjoin`. The
+list of synchronized players is now stored in the `group_members` state
+attribute. 
+
+The  `squeezebox.sync` and `squeezebox.unsync` serives are now deprecated,
+which will be removed in two releases in favor of the new platform-level
+services listed above.
+
+The `sync_group` state attribute is deprecated in favor of `group_members`,
+and will also be removed in two releases.
+
+([@rajlaud] - [#70962]) ([documentation](/integrations/squeezebox))
+
+[@rajlaud]: https://github.com/rajlaud
+[#70962]: https://github.com/home-assistant/core/pull/70962
+
+{% enddetails %}
+
+{% details "Templates" %}
+
+Support for `white_value` is deprecated in template `light`, and will be removed
+in Home Assistant Core 2022.9.
+
+([@emontnemery] - [#71044]) ([documentation](/integrations/template))
+
+[@emontnemery]: https://github.com/emontnemery
+[#71044]: https://github.com/home-assistant/core/pull/71044
+
+{% enddetails %}
+
+{% details "Trafikverket Train" %}
+
+The previously deprecated YAML configuration of the Trafikverket Train
+integration has been removed.
+
+Trafikverket Train is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@gjohansson-ST] - [#71410]) ([documentation](/integrations/trafikverket_train))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#71410]: https://github.com/home-assistant/core/pull/71410
+
+{% enddetails %}
+
+{% details "Universal Devices ISY994" %}
+
+The auxiliary sensors for each Insteon device are now their own sensor entity
+instead of an attribute on the parent entity. This makes them easier to find
+and allows attributes to be de-duplicated in the database.
+
+([@bdraco] - [#71254]) ([documentation](/integrations/isy994))
+
+[@bdraco]: https://github.com/bdraco
+[#71254]: https://github.com/home-assistant/core/pull/71254
+
+{% enddetails %}
+
+{% details "Vera" %}
+
+The Vera integration previously migrated to configuration
+via the UI. Configuring Vera via YAML configuration
+has been deprecated and will be removed in a future Home Assistant release.
+
+Your existing YAML configuration has already been automatically imported;
+and thus can be safely removed from your YAML configuration
+after upgrading.
+
+([@epenet] - [#72418]) ([documentation](/integrations/vera))
+
+[@epenet]: https://github.com/epenet
+[#72418]: https://github.com/home-assistant/core/pull/72418
+
+{% enddetails %}
+
+{% details "Version" %}
+
+The Boards "Intel NUC", "RaspberryPi" (Raspberry Pi 1 devices),
+and "RaspberryPi Zero-W" are no longer supported in Home Assistant OS.
+
+They are also no longer available in the version integration.
+Please remove the version integrations for those boards.
+
+([@agners] - [#123456]) ([documentation](/integrations/version))
+
+[@agners]: https://github.com/agners
+[#72085]: https://github.com/home-assistant/core/pull/72085
+
+{% enddetails %}
+
+{% details "Viessmann ViCare" %}
+
+The previously deprecated YAML configuration of the Viessmann ViCare
+integration has been removed.
+
+Viessmann ViCare is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@epenet] - [#72408]) ([documentation](/integrations/vicare))
+
+[@epenet]: https://github.com/epenet
+[#72408]: https://github.com/home-assistant/core/pull/72408
+
+{% enddetails %}
+
+{% details "Withings" %}
+
+The configuration of the OAuth application credentials for the Withings
+integration has migrated to configuration via the UI. Configuring Withings
+OAuth application credentials via YAML configuration has been deprecated
+and will be removed in a future Home Assistant release.
+
+Your existing OAuth application credentials in the YAML configuration is
+automatically imported on upgrade to this release; and thus can be safely
+removed from your YAML configuration after upgrading.
+
+([@allenporter] - [#71990]) ([documentation](/integrations/withings))
+
+[@allenporter]: https://github.com/allenporter
+[#71990]: https://github.com/home-assistant/core/pull/71990
+
+{% enddetails %}
+
+{% details "WLED" %}
+
+The previously deprecated WLED update button entity has been removed.
+Please use the newly provided `update` entity instead.
+
+([@frenck] - [#71775]) ([documentation](/integrations/wled))
+
+[@frenck]: https://github.com/frenck
+[#71775]: https://github.com/home-assistant/core/pull/71775
+
+{% enddetails %}
+
+{% details "Xbox" %}
+
+The configuration of the OAuth application credentials for the Xbox
+integration has migrated to configuration via the UI. Configuring Xbox
+OAuth application credentials via YAML configuration has been deprecated
+and will be removed in a future Home Assistant release.
+
+Your existing OAuth application credentials in the YAML configuration is
+automatically imported on upgrade to this release; and thus can be safely
+removed from your YAML configuration after upgrading.
+
+([@allenporter] - [#71908]) ([documentation](/integrations/xbox))
+
+[@allenporter]: https://github.com/allenporter
+[#71908]: https://github.com/home-assistant/core/pull/71908
+
+{% enddetails %}
+
+**TODO:** Remove this line. Last processed breaking change 72458
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+- [S6-Overlay 3.x update on our docker base images](https://developers.home-assistant.io/blog/2022/05/12/s6-overlay-base-images)
+- [Logbook API removal of `entity_matches_only` flag](https://developers.home-assistant.io/blog/2022/05/24/entity_matches_only_removed_logbook_card)
+- [ServiceInfo model improvements and deprecations](https://developers.home-assistant.io/blog/2022/05/03/serviceinfo-model-improvements)
+
+## Farewell to the following
+
+The following integrations are also no longer available as of this release:
+
+- **Raspberry Pi GPIO** has been previously deprecated and now removed.
+  More information can be found in [Architectural Decision Record 0019](https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md).
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2022.6](/changelogs/core-2022.6)

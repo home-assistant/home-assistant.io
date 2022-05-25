@@ -29,6 +29,7 @@ ha_platforms:
   - binary_sensor
   - button
   - camera
+  - diagnostics
   - light
   - lock
   - media_player

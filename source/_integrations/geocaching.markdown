@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: geocaching
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 Geocaching is a real-world, outdoor adventure that is happening all the time, all around the world. To play, participants use the Geocaching app and/or a GPS device to navigate to cleverly hidden containers called geocaches.

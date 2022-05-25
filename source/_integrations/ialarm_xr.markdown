@@ -11,6 +11,7 @@ ha_codeowners:
   - '@bigmoby'
 ha_platforms:
   - alarm_control_panel
+ha_integration_type: integration
 ---
 
 The iAlarmXR integration provides connectivity with the [Antifurto365](https://www.antifurtocasa365.it/) iAlarmXR alarm systems.
