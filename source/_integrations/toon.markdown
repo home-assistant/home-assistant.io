@@ -90,6 +90,7 @@ authentication process.
 Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
 
 {% enddetails %}
+
 ## Binary Sensor
 
 The Toon integration provides the following binary sensors:
