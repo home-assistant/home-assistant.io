@@ -119,7 +119,7 @@ camera_view: live
 tap_action:
   action: call-service
   service: camera.snapshot
-  service_data:
+  data:
     entity_id: camera.backdoor
     filename: '/shared/backdoor-{{ now().strftime("%Y-%m-%d-%H%M%S") }}.jpg'
 ```

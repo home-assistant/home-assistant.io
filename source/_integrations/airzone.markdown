@@ -63,6 +63,12 @@ For each Airzone zone (Thermostat) a *climate entity* is created.
 
 ## Sensors
 
+For the Airzone WebServer, the following *sensors* are created:
+
+| Condition           | Description                        |
+| :------------------ | :--------------------------------- |
+| rssi                | WiFi RSSI.                         |
+
 For each Airzone zone (Thermostat), the following *sensors* are created:
 
 | Condition           | Description                        |

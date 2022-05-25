@@ -202,8 +202,8 @@ Once `configuration.yaml` has a valid `nest` entry, you need to add Nest to your
 
 1. Browse to your Home Assistant instance.
 1. In the sidebar click on _**{% my config icon %}**_.
-1. From the configuration menu select: _**{% my integrations icon %}**_.
-1. In the bottom right, click on the
+2. From the configuration menu select: _**{% my integrations %}**_.
+3. In the bottom right, click on the
   _**{% my config_flow_start icon domain=page.ha_domain %}**_ button.
 1. From the list, search and select _**"Nest"**_ and follow the instructions.
 

@@ -10,7 +10,7 @@ If you would like to test next release before anyone else, you can install the b
   content: |
 
    1. In your Home Assistant UI navigate to {% my updates title="System > Updates" %}
-   2. Click the operflow menu in the top right corner
+   2. Click the overflow menu in the top right corner
    3. Click "Join beta"
    4. Navigate to Configuration panel
    5. Install the update that is presented to you

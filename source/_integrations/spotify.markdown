@@ -60,29 +60,7 @@ before configuring Spotify.
   Your Home Assistant instance does not need to be exposed to the internet. It works just fine with local IP addresses.
 </div>  
 
-
-Add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-spotify:
-  client_id: YOUR_CLIENT_ID
-  client_secret: YOUR_CLIENT_SECRET
-```
-
-{% configuration %}
-client_id:
-  description: Client ID from your Spotify Developer application.
-  required: true
-  type: string
-client_secret:
-  description: Client Secret from your Spotify Developer application.
-  required: true
-  type: string
-{% endconfiguration %}
-
-
-Restart your Home Assistant instance before continuing with the next step.
+See [Application Credentials](/integrations/application_credentials) for instructions on how to configure your *Client ID* and *Client Secret*.
 
 ## Using multiple Spotify accounts
 
