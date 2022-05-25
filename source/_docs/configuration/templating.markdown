@@ -409,9 +409,9 @@ For example, if you wanted to select a field from `trigger` in an automation bas
    {% endraw %}
 
 - `as_datetime()` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object.
-- `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted `None`. This function can also be used as a filter.
+- `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts datetime object to local time. This function can also be used as a filter.
-- `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, returns the `default` value, or if omitted the unprocessed input value.
+- `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, returns the `default` value, or if omitted raises an error.
 - `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g.,  if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
 - `timedelta` returns a timedelta object and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
 
@@ -435,9 +435,9 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
    {% endraw %}
 
-- Filter `timestamp_local(default)` converts a UNIX timestamp to the ISO format string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted the unprocessed input value. If a custom string format is needed in the string, use `timestamp_custom` instead.
-- Filter `timestamp_utc(default)` converts a UNIX timestamp to the ISO format string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted the unprocessed input value. If a custom string format is needed in the string, use `timestamp_custom` instead.
-- Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. If that fails, returns the `default` value, or if omitted the unprocessed input value. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
+- Filter `timestamp_local(default)` converts a UNIX timestamp to the ISO format string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
+- Filter `timestamp_utc(default)` converts a UNIX timestamp to the ISO format string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
+- Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
 
 <div class='note'>
 
@@ -533,7 +533,7 @@ The temperature is 25°C
 
 ### Is defined
 
-Sometimes a template should only return if a value or object is defined, if not, the supplied default value could be returned. This can be useful to validate a JSON payload.
+Sometimes a template should only return if a value or object is defined, if not, the supplied default value should be returned. This can be useful to validate a JSON payload.
 The `is_defined` filter allows to throw an error if a value or object is not defined.
 
 Example using `is_defined` to parse a JSON payload:
@@ -647,43 +647,39 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
 
 <div class='note'>
 
-The numeric functions and filters will not fail if the input is not a valid number, instead the input value will be returned unless a default value is specified. The `float` filter is an exception, it returns `0.0` if the input is invalid and a default value has not been specified. This is unwanted behavior in many cases, use `is_number` to check if the value is valid.
+The numeric functions and filters raise an error if the input is not a valid number, optionally a default value can be specified which will be returned instead. The `is_number` function and filter can be used to check if a value is a valid number. Errors can be caught by the `default` filter.
 
 {% raw %}
 
-- `{{ float("not_a_number") }}` - renders as `"not_a_number"`
-- `{{ "not_a_number" | float }}` - renders as `0.0`
-- `{{ sin("not_a_number") }}` - renders as `"not_a_number"`
-- `{{ "not_a_number" | sin }}` - renders as `"not_a_number"`
+- `{{ float("not_a_number") }}` - the template will fail to render
+- `{{ "not_a_number" | sin }}` - the template will fail to render
 - `{{ float("not_a_number", default="Invalid number!") }}` - renders as `"Invalid number!"`
-- `{{ "not_a_number" | float(default="Invalid number!") }}` - renders as `"Invalid number!"`
-- `{{ sin("not_a_number", default="Invalid number!") }}` - renders as `"Invalid number!"`
 - `{{ "not_a_number" | sin(default="Invalid number!") }}` - renders as `"Invalid number!"`
 
 {% endraw %}
 
 </div>
 
-- `float(value, default)` function will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted `value`.
-- `float(default)` filter will attempt to convert the input to a `float`.  If that fails, returns the `default` value, or if omitted `0.0`.
+- `float(value, default)` function will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted raises an error.
+- `float(default)` filter will attempt to convert the input to a `float`.  If that fails, returns the `default` value, or if omitted raises an error.
 - `is_number` will return `True` if the input can be parsed by Python's `float` function and the parsed input is not `inf` or `nan`, in all other cases returns `False`. Note that a Python `bool` will return `True` but the strings `"True"` and `"False"` will both return `False`. Can be used as a filter.
 
-- `log(value, base, default)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. If `value` or `base` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can also be used as a filter.
-- `sin(value, default)` will return the sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
-- `cos(value, default)` will return the cosine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
-- `tan(value, default)` will return the tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
-- `asin(value, default)` will return the arcus sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
-- `acos(value, default)` will return the arcus cosine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
-- `atan(value, default)` will return the arcus tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
-- `atan2(y, x, default)` will return the four quadrant arcus tangent of y / x. If `y` or `x` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
-- `sqrt(value, default)` will return the square root of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
+- `log(value, base, default)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. If `value` or `base` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can also be used as a filter.
+- `sin(value, default)` will return the sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `cos(value, default)` will return the cosine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `tan(value, default)` will return the tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `asin(value, default)` will return the arcus sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `acos(value, default)` will return the arcus cosine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `atan(value, default)` will return the arcus tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `atan2(y, x, default)` will return the four quadrant arcus tangent of y / x. If `y` or `x` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `sqrt(value, default)` will return the square root of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `max([x, y, ...])` will obtain the largest item in a sequence. Uses the same parameters as the built-in [max](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.max) filter.
 - `min([x, y, ...])` will obtain the smallest item in a sequence. Uses the same parameters as the built-in [min](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.min) filter.
 - `average([x, y, ...])` will return the average value of the sequence. Can be used as a filter.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
-- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted the input value. 
+- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted raises an error. 
   - `round(precision, "floor", default)` will always round down to `precision` decimals
   - `round(precision, "ceil", default)` will always round up to `precision` decimals
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
