@@ -22,10 +22,28 @@ To enable this siren in your installation, add the following to your `configurat
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  siren:
+    - command_topic: "home/bedroom/siren/set"
+```
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `siren` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 siren:
   - platform: mqtt
     command_topic: "home/bedroom/siren/set"
 ```
+
+{% enddetails %}
 
 {% configuration %}
 availability:
@@ -244,24 +262,24 @@ The example below shows a full configuration for a siren.
 
 ```yaml
 # Example configuration.yaml entry
-siren:
-  - platform: mqtt
-    unique_id: custom_siren
-    name: "Intrusion siren"
-    state_topic: "home/alarm/siren1"
-    command_topic: "home/alarm/siren1/set"
-    available_tones:
-      - ping
-      - siren
-    availability:
-      - topic: "home/alarm/siren1/available"
-    payload_on: "ON"
-    payload_off: "OFF"
-    state_on: "ON"
-    state_off: "OFF"
-    optimistic: false
-    qos: 0
-    retain: true
+mqtt:
+  siren:
+    - unique_id: custom_siren
+      name: "Intrusion siren"
+      state_topic: "home/alarm/siren1"
+      command_topic: "home/alarm/siren1/set"
+      available_tones:
+        - ping
+        - siren
+      availability:
+        - topic: "home/alarm/siren1/available"
+      payload_on: "ON"
+      payload_off: "OFF"
+      state_on: "ON"
+      state_off: "OFF"
+      optimistic: false
+      qos: 0
+      retain: true
 ```
 
 {% endraw %}

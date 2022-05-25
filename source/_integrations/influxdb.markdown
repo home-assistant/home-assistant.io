@@ -7,11 +7,11 @@ ha_category:
 ha_release: 0.9
 ha_iot_class: Local Push
 ha_codeowners:
-  - '@fabaff'
   - '@mdegat01'
 ha_domain: influxdb
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `influxdb` integration makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.

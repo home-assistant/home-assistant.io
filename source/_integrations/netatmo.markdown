@@ -2,14 +2,14 @@
 title: Netatmo
 description: Instructions on how to integrate Netatmo integration into Home Assistant.
 ha_category:
-  - Hub
-  - Environment
-  - Weather
-  - Sensor
-  - Climate
   - Camera
+  - Climate
+  - Environment
+  - Hub
   - Light
   - Media Source
+  - Sensor
+  - Weather
 ha_release: '0.20'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -19,11 +19,12 @@ ha_domain: netatmo
 ha_homekit: true
 ha_platforms:
   - camera
-  - diagnostics
   - climate
+  - diagnostics
   - light
-  - sensor
   - select
+  - sensor
+ha_integration_type: integration
 ---
 
 The Netatmo integration platform is the main integration to integrate all Netatmo related platforms.
@@ -221,29 +222,9 @@ In your Netatmo Application configuration, do not enter a 'redirect URI' or a 'w
   
 </div>
 
-Next, add the following lines to your `configuration.yaml`:
+See [Application Credentials](/integrations/application_credentials) for instructions on how to configure your *Client ID* and *Client Secret*, then enable Netatmo through the integrations page.
 
-```yaml
-# Example configuration.yaml entry
-netatmo:
-  client_id: YOUR_CLIENT_ID
-  client_secret: YOUR_CLIENT_SECRET
-```
-
-{% configuration %}
-client_id:
-  description: The `client id` from your Netatmo app.
-  required: true
-  type: string
-client_secret:
-  description: The `client secret` from your Netatmo app.
-  required: true
-  type: string
-{% endconfiguration %}
-
-**After the `client_id` and `client_secret` are added to your `configuration.yaml` you must restart Home Assistant and then enable Netatmo through the integrations page.**
-
-Menu: **Configuration** -> **Devices & Services**.
+Menu: **Settings** -> **Devices & Services**.
 
 Click on the `+` sign to add an integration and click on **Netatmo**.
 After completing the configuration flow, the Netatmo integration will be available.

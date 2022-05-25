@@ -6,6 +6,7 @@ ha_category:
   - Energy
   - Sensor
   - Switch
+  - Number
 ha_iot_class: Cloud Polling
 ha_release: 0.47
 ha_codeowners:
@@ -15,6 +16,8 @@ ha_config_flow: true
 ha_platforms:
   - sensor
   - switch
+  - number
+ha_integration_type: integration
 ---
 
 The `juicenet` platform pulls data from a [JuiceNet](https://evcharging.enelx.com/products/juicebox) charging station equipped with a Wi-Fi connection. It will access and make available all of the devices attached to your account. It also exposes a switch allowing you to charge your car now instead of waiting for the pre-set schedule.
@@ -36,3 +39,11 @@ These sensors will be added for each JuiceNet device in your account:
 - Watts
 - Charge time of session
 - Energy added this session
+
+## Switch
+
+The `juicenet` switch platform allows you to override the charging schedule for your JuiceNet device.
+
+## Number
+
+The `juicenet` number platform allows you to control the charging amperage limit.

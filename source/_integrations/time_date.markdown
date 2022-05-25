@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: time_date
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The time and date (`time_date`) integration allows one to show the current date or time in different formats. All values are based on the timezone which is set in "General Configuration". 

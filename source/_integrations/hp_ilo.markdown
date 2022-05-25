@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: hp_ilo
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `hp_ilo` platform allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in Home Assistant sensors.

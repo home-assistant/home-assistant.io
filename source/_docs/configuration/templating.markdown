@@ -72,7 +72,7 @@ Not supported in [limited templates](#limited-templates).
 - Iterating `states` will yield each state sorted alphabetically by entity ID.
 - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
-- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
+- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity, `unknown` if it doesn't exist, `unavailable` if the object exists but is not yet available. 
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None`. 
@@ -118,6 +118,10 @@ Other state examples:
 {% else %}
   Paulus is at {{ states('device_tracker.paulus') }}.
 {% endif %}
+
+#check sensor.train_departure_time state
+{% if states('sensor.train_departure_time') in ("unavailable", "unknown") %}
+  {{ ... }}
 
 {% set state = states('sensor.temperature') %}{{ state | float + 1 if is_number(state) else "invalid temperature" }}
 
@@ -372,6 +376,14 @@ Examples using `iif`:
 {{ (states('light.kitchen') == 'on') | iif('Yes', 'No') }}
 ```
 
+<div class='note warning'>
+
+The immediate if filter does not short-circuit like you might expect with a typical conditional statement. The `if_true`, `if_false` and `if_none` expressions will all be evaluated and the filter will simply return one of the resulting values. This means you cannot use this filter to prevent executing an expression which would result in an error.
+
+For example, if you wanted to select a field from `trigger` in an automation based on the platform you might go to make this template: `trigger.platform == 'event' | iif(trigger.event.data.message, trigger.to_state.state)`. This won't work because both expressions will be evaluated and one will fail since the field doesn't exist. Instead you have to do this `trigger.event.data.message if trigger.platform == 'event' else trigger.to_state.state`. This form of the expression short-circuits so if the platform is `event` the expression `trigger.to_state.state` will never be evaluated and won't cause an error.
+
+</div>
+
 {% endraw %}
 
 
@@ -408,6 +420,17 @@ Examples using `iif`:
    ```yaml
    # 77 minutes before current time. 
    {{ now() - timedelta( hours = 1, minutes = 17 ) }} 
+   ```
+
+   {% endraw %}
+
+- `as_timedelta(string)` converts a string to a timedelta object. Expects data in the format `DD HH:MM:SS.uuuuuu`, `DD HH:MM:SS,uuuuuu`, or as specified by ISO 8601 (e.g. `P4DT1H15M20S` which is equivalent to `4 1:15:20`) or PostgreSQL’s day-time interval format (e.g. `3 days 04:05:06`) This function can also be used as a filter.
+
+   {% raw %}
+
+   ```yaml
+   # Renders to "00:10:00" 
+   {{ as_timedelta("PT10M") }} 
    ```
 
    {% endraw %}
@@ -701,7 +724,7 @@ Some examples:
 ### Regular expressions
 
 - Test `string is match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
-- Test `string is search(find, ignorecase=True)` will match the find expression anywhere in the string using regex.
+- Test `string is search(find, ignorecase=False)` will match the find expression anywhere in the string using regex.
 - Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
 - Filter `value | regex_findall(find='', ignorecase=False)` will find all regex matches of the find expression in `value` and return the array of matches.
 - Filter `value | regex_findall_index(find='', index=0, ignorecase=False)` will do the same as `regex_findall` and return the match at index.

@@ -2,14 +2,14 @@
 title: Xiaomi Miio
 description: Instructions on how to integrate Xiaomi devices using the Xiaomi Miio integration within Home Assistant.
 ha_category:
-  - Hub
-  - Fan
   - Alarm
+  - Fan
+  - Health
+  - Hub
+  - Light
   - Presence Detection
   - Remote
-  - Health
   - Vacuum
-  - Light
 ha_iot_class: Local Polling
 ha_release: 0.51
 ha_codeowners:
@@ -24,16 +24,19 @@ ha_platforms:
   - air_quality
   - alarm_control_panel
   - binary_sensor
+  - button
   - device_tracker
+  - diagnostics
   - fan
   - humidifier
   - light
   - number
   - remote
-  - sensor
   - select
+  - sensor
   - switch
   - vacuum
+ha_integration_type: integration
 ---
 
 The Xiaomi Miio integration supports the following devices:
@@ -1132,14 +1135,14 @@ remote:
           - pronto:pronto_hex:[optional_repeat]
 ```
 
-### Add command as entity button in Lovelace UI
+### Add command as entity button to a dashboard
 
 ```yaml
 type: entity-button
 tap_action:
   action: call-service
   service: remote.send_command
-  service_data:
+  data:
     command: activate_towel_heater
     entity_id: remote.xiaomi_miio_ir
 hold_action:

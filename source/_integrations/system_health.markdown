@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.87
 ha_quality_scale: internal
 ha_domain: system_health
+ha_integration_type: integration
 ---
 
 The System Health integration provides an API to offer information on the system and its components. It also allows to run diagnostic tools to diagnose problems.
@@ -17,6 +18,6 @@ This integration is by default enabled, unless you've disabled or removed the [`
 system_health:
 ```
 
-System Health integration data can be viewed at **Configuration** -> **Info**.
+System Health integration data can be viewed at **Settings** -> **System** -> **System Health**.
 
-Data includes information about your system architecture, operating system and version, Home Assistant installation type and version, Python version, frontend version, the number of Lovelace [Dashboards](/lovelace/dashboards/) and [Views](/lovelace/views/) you have, and more.
+Data includes information about your system architecture, operating system and version, Home Assistant installation type and version, Python version, frontend version, the number of [Dashboards](/dashboards/dashboards/) and [Views](/dashboards/views/) you have, and more.

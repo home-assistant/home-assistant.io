@@ -2,10 +2,11 @@
 title: UniFi Protect
 description: Instructions on how to configure the Ubiquiti UniFi Protect integration.
 ha_category:
-  - Hub
   - Binary Sensor
   - Button
   - Camera
+  - Doorbell
+  - Hub
   - Light
   - Lock
   - Media Player
@@ -26,15 +27,16 @@ ha_codeowners:
 ha_domain: unifiprotect
 ha_platforms:
   - binary_sensor
-  - camera
   - button
+  - camera
   - light
   - lock
   - media_player
   - number
-  - sensor
   - select
+  - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The UniFi Protect integration adds support for retrieving Camera feeds and Sensor data from a [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on a UniFi OS Console.
@@ -53,9 +55,34 @@ UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware v2
 
 ### Software Support
 
-The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported. Since UniFi Protect has its own release cycle, you should only upgrade UniFi Protect _after_ the next Home Assistant release comes out to ensure the new version is fully supported.
+The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
 
-Example: as of `2022.2.0` of Home Assistant, UniFi Protect `1.21.0` is the newest UniFi Protect version. So the recommended versions of UniFi Protect to run for a `2022.2.0` version of Home Assistant are `1.20.0`, `1.20.1`, `1.20.2`, `1.20.3`, `1.21.0`.
+#### About UniFi Early Access
+
+Since UniFi Protect has its own release cycle, you should only upgrade UniFi Protect _after_ the next Home Assistant release to ensure the new version is fully supported. Most importantly, that means **do not use Early Access versions of UniFi Protect if you want your UniFi Protect integration to be stable**. Early Access versions can and will break the UniFi Protect Home Assistant integration unexpectedly. If you desire to use Early Access versions of UniFi Protect, you can disable automatic updates and wait for the next bugfix version of UniFi Protect to come out.
+
+For example, the latest UniFi Protect Early Access version as of `2022.5.4` is UniFi Protect `2.0.0-beta.5` and the latest Early Access version of UniFi Protect is `2.0.0-beta.7`. So that means:
+
+* **do not** upgrade to `2.0.0-beta.7` until `2022.5.5` or `2022.6.0` comes out
+* the recommended version of UniFi Protect are any `1.21.x` version or `2.0.0-beta` version before `2.0.0-beta.7`
+
+#### Downgrading UniFi Protect
+
+In the event you accidentally upgrade to an Early Access version of UniFi Protect and it breaks your UniFi Protect Home Assistant integration, you can access your <a href="https://help.ui.com/hc/en-us/articles/204909374#h_01F8G1NSFWE9GWXMT977VQEP8V" target="_blank" rel="noopener">UniFi OS Console via SSH</a> and then do the following:
+
+```bash
+# run this command first _only_ if you are on a 1.x firmware of the UDM Pro
+# it is not needed for the UDM SE, UNVR, etc.
+unifi-os shell
+
+# downgrade UniFi Protect
+apt-get update
+apt-get install --reinstall --allow-downgrades unifi-protect=2.0.0~beta.5 -y
+```
+
+You can replace `2.0.0-beta.5` with whatever version of UniFi Protect you want to downgrade to.
+
+**Note**: if you want to downgrade to another Early Access version, you must have <a href="https://help.ui.com/hc/en-us/articles/115012240067-UniFi-How-to-enable-remote-access" target="_blank" rel="noopener">Remote Access enabled</a> and have the Early Access release channel enabled.
 
 ### Local User
 
@@ -150,6 +177,13 @@ Each UniFi Protect door lock will get a device in Home Assistant with the follow
 * **Device Configuration** - Door locks will get configuration controls for the Auto-Lock Timeout, selecting the Paired Camera, and Status Light switch
 * **Button** - A disabled by default button is added for each door lock device. The button will let you reboot your door lock device.
 
+### UniFi Protect Smart Chime
+
+Each UniFi Protect smart chime will get a device in Home Assistant with the following:
+
+* **Button** - A button to trigger the chime manually for each smart chime device. Also, a disabled by default button is added to let you reboot your smart chime device.
+* **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness and a sensor for the last time the chime rang.
+
 ### NVR
 
 Your main UniFi Protect NVR device also gets a number of diagnostics sensors that can be used for tracking the state of your UniFi Protect system:
@@ -195,6 +229,15 @@ Use to dynamically set the message on a Doorbell LCD screen. This service should
 | `entity_id`            | No       | The Doorbell Text select entity for your Doorbell.                                                           |
 | `message`              | No       | The message you would like to display on the LCD screen of your Doorbell. Must be less than 30 characters.   |
 | `duration`             | Yes      | Number of minutes to display the message for before returning to the default message. The default is to not expire. |
+
+### Service unifiprotect.set_chime_paired_doorbells
+
+Use to set the paired doorbell(s) with a smart chime.
+
+| Service data attribute | Optional | Description                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to.                                          |
+| `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime. No value means unpair all.      |
 
 ## Troubleshooting
 

@@ -21,7 +21,6 @@ Supported by MQTT discovery:
 - [Lights](/integrations/light.mqtt/)
 - [Locks](/integrations/lock.mqtt/)
 - [Numbers](/integrations/number.mqtt/)
-- [Notify](/integrations/notify.mqtt/)
 - [Scenes](/integrations/scene.mqtt/)
 - [Selects](/integrations/select.mqtt/)
 - [Sensors](/integrations/sensor.mqtt/)
@@ -283,8 +282,6 @@ Supported abbreviations:
     'tilt_opt':            'tilt_optimistic',
     'tilt_status_t':       'tilt_status_topic',
     'tilt_status_tpl':     'tilt_status_template',
-    'title':               'title',
-    'trgts':               'targets',
     't':                   'topic',
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',
@@ -316,6 +313,7 @@ Supported abbreviations for device registry configuration:
 The following software has built-in support for MQTT discovery:
 
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
+- [ebusd](https://github.com/john30/ebusd)
 - [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)

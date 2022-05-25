@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: switchmate
 ha_platforms:
   - switch
+ha_integration_type: integration
 ---
 
 This `Switchmate` switch platform allows you to control Switchmate [devices]( https://www.mysimplysmarthome.com/products/switchmate-switches/).

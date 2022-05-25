@@ -2,13 +2,13 @@
 title: Nest
 description: Instructions on how to integrate Nest into Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Camera
   - Climate
   - Doorbell
-  - Sensor
+  - Hub
   - Media Source
+  - Sensor
 ha_iot_class: Cloud Push
 ha_release: 0.7
 ha_config_flow: true
@@ -20,9 +20,10 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - camera
-  - diagnostics
   - climate
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
@@ -45,9 +46,7 @@ The Nest Smart Device Management (SDM) API **requires a US$5 fee**.
 
 ## Video Walkthrough
 
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wghcd9xDdMs" frameborder="0" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="wghcd9xDdMs" videotitle="EASIER NEST INTEGRATION in Home Assistant! No More SSH or SSL validation!" posterquality="maxresdefault"></lite-youtube>
 
 ## Device Access Registration
 
@@ -203,8 +202,8 @@ Once `configuration.yaml` has a valid `nest` entry, you need to add Nest to your
 
 1. Browse to your Home Assistant instance.
 1. In the sidebar click on _**{% my config icon %}**_.
-1. From the configuration menu select: _**{% my integrations icon %}**_.
-1. In the bottom right, click on the
+2. From the configuration menu select: _**{% my integrations %}**_.
+3. In the bottom right, click on the
   _**{% my config_flow_start icon domain=page.ha_domain %}**_ button.
 1. From the list, search and select _**"Nest"**_ and follow the instructions.
 
@@ -303,7 +302,7 @@ Additional Nest Temperature Sensors are not supported by the SDM API.
 Home Assistant supports all SDM API features. However, every Camera or Doorbell device has a different set of built-in capabilities. A Camera device has one of the following live stream types:
 
 - **RTSP**: These devices have an HLS stream served by the Home Assistant Core. These cameras support server-side `camera` services like stream recording or image preview. See [Low Latency HLS](/integrations/stream#ll-hls) as a great option to enable to reduce stream latency.
-- **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. A [Picture Glance Card](/lovelace/picture-glance/) can show the live stream in the grid with the *Camera View* set to `live` (not recommended for battery-powered cameras). `camera` services like stream recording are *not supported*.
+- **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. A [Picture Glance Card](/dashboards/picture-glance/) can show the live stream in the grid with the *Camera View* set to `live` (not recommended for battery-powered cameras). `camera` services like stream recording are *not supported*.
 
 <div class='note'>
 
@@ -466,7 +465,7 @@ This feature is enabled by the following permissions:
 
 - For general trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting).
 
-- Check **Configuration** then **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
+- Check **Settings** -> **System** -> **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
 
 - *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiugration or your authentication token was revoked by Google for some other reason.
 
@@ -475,7 +474,7 @@ This feature is enabled by the following permissions:
 - This most likely reason is the *OAuth Consent Screen* is set to *Testing* by default which expires the token after 7 days.
 - Follow the steps above to set it to *Production* to resolve this and reauthorize your integration one more time to get a new token.
 - You may also see this as the error message *invalid_grant: Token has been expired or revoked*.
-- See [Google Identity: Refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration) for more reasons on why your token may have expired. 
+- See [Google Identity: Refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration) for more reasons on why your token may have expired.
 
 {% enddetails %}
 
@@ -503,7 +502,7 @@ This feature is enabled by the following permissions:
 
 - You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all.
 
-- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble: 
+- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble:
 
 ```yaml
 
@@ -525,11 +524,11 @@ logger:
 
 - It is recommended to let Home Assistant create the Pub/Sub subscription for you. However, if you would like more control you can enter a `susbcriber_id` in the configuration. See [Subscribe to Events](https://developers.google.com/nest/device-access/subscribe-to-events) for more instructions on how to manually create a subscription and use the full subscription name in the Home Assistant configuration e.g. `projects/gcp-project-name/subscriptions/subscription-id`
 
-# Works With Nest API (Deprecated)
+# Works With Nest API
 
 <div class='note warning'>
 
-The [Works with Nest](https://developers.nest.com/) API is deprecated and will be removed in Home Assistant Core 2022.5.
+The Legacy [Works with Nest](https://developers.nest.com/) API is not accepting new signups.
 
 </div>
 
@@ -563,7 +562,7 @@ There is currently support for the following device types within Home Assistant:
     * Use "[Home Assistant] [Edit] [For Home Automation]" as the description as it is not super important.
 8. Click "Create Product"
 9. Once the new product page opens the "Product ID" and "Product Secret" are located on the right side. These will be used as `client_id` and `client_secret` below.
-10. Add the Nest integration to your `configuration.yaml` and restart Home Assistant. Then, go to `Configuration > Integrations` and select `CONFIGURE` next to `Nest`. Click the link in the configurator pop up to log into your Nest account and complete the OAuth. Copy the resulting PIN code into the pop up.
+10. Add the Nest integration to your `configuration.yaml` and restart Home Assistant. Then, go to `Settings > Devices & Services` and select `CONFIGURE` next to `Nest`. Click the link in the configurator pop up to log into your Nest account and complete the OAuth. Copy the resulting PIN code into the pop up.
 
 Connecting to the Nest Developer API requires outbound port 9553 on your firewall. The configuration will fail if this is not accessible.
 

@@ -4,10 +4,10 @@ description: Instructions on how to integrate your August devices into Home Assi
 ha_category:
   - Binary Sensor
   - Button
-  - Doorbell
-  - Sensor
   - Camera
+  - Doorbell
   - Lock
+  - Sensor
 ha_release: 0.64
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -17,10 +17,12 @@ ha_domain: august
 ha_dhcp: true
 ha_platforms:
   - binary_sensor
-  - camera
   - button
+  - camera
+  - diagnostics
   - lock
   - sensor
+ha_integration_type: integration
 ---
 
 The `august` integration allows you to integrate your [August](https://august.com/) and some Yale Access devices in Home Assistant.
@@ -53,6 +55,12 @@ There is currently support for the following device types within Home Assistant:
 <div class='note'>
 Most devices will need either August Connect Bridge or Doorbell to connect to Home Assistant.
 </div>
+
+## Known Issues with battery reporting 
+
+The August Wi-Fi Smart Lock (Gen 4) uses different battery technology (lithium-ion) than the other locks. The battery charge value reported by the lock detail API has frequently been reported as incorrect for these models.
+		
+Other August locks expect to be powered by AA alkaline (non-rechargeable) batteries. Rechargeable batteries in these locks will result in incorrect reporting of battery charge.
 
 ## Known Unsupported Devices
 

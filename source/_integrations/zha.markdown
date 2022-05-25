@@ -2,20 +2,20 @@
 title: Zigbee Home Automation
 description: Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant.
 ha_category:
-  - Hub
   - Alarm
   - Binary Sensor
   - Button
   - Climate
+  - Cover
   - Fan
+  - Hub
   - Light
   - Lock
+  - Number
   - Select
   - Sensor
   - Siren
   - Switch
-  - Cover
-  - Number
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
@@ -31,15 +31,17 @@ ha_platforms:
   - climate
   - cover
   - device_tracker
+  - diagnostics
   - fan
   - light
   - lock
   - number
-  - sensor
   - select
+  - sensor
   - siren
   - switch
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The ZHA (Zigbee Home Automation) integration allows you to connect many off-the-shelf [Zigbee based devices](https://zigbeealliance.org) directly to Home Assistant, using one of the many available Zigbee coordinators.
@@ -150,7 +152,7 @@ radio type. In the pop-up:
 Most devices need at the very least the serial device path, like `/dev/ttyUSB0`, but it is recommended to use
 device path from `/dev/serial/by-id` folder,
 e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`  
-A list of available device paths can be found in {% my supervisor_logs title="Configuration > Add-ons & Backups > System" %} > **Host** > **dot menu** > **Hardware**.
+A list of available device paths can be found in {% my hardware title="Settings > System > HArdware" %} > **dot menu** > **All Hardware**.
 
 Press `Submit`. The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
 
@@ -206,7 +208,7 @@ custom_quirks_path:
 
 ZHA component has the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
 
-Online OTA providers for firmware updates are currently only available for IKEA, LEDVANCE and SALUS devices. Support for OTA updates from other manufacturers could be supported in the future, if they publish their firmware images publicly.
+Online OTA providers for firmware updates are currently only available for IKEA, LEDVANCE/OSRAM, and SALUS/Computime devices. Support for OTA updates from other manufacturers could be supported in the future if they publish their firmware images publicly.
 
 To enable OTA firmware updates for the ZHA integration you need to add the following configuration to your `configuration.yaml` and restart Home Assistant:
 
@@ -215,8 +217,8 @@ zha:
   zigpy_config:
     ota:
       ikea_provider: true                        # Auto update Trådfri devices
-      ledvance_provider: true                    # Auto update LEDVANCE devices
-      salus_provider: true                       # Auto update SALUS devices
+      ledvance_provider: true                    # Auto update LEDVANCE/OSRAM devices
+      salus_provider: true                       # Auto update SALUS/Computime devices
       #otau_directory: /path/to/your/ota/folder  # Utilize .ota files to update everything else
 ```
 
@@ -422,7 +424,7 @@ When reporting issues, please provide the following information in addition to i
 1. Debug logs for the issue, see [debug logging](#debug-logging)
 2. Model of Zigbee radio being used
 3. If issue is related to a specific Zigbee device, provide device Zigbee signature. Signature is available at
-**Configuration** -> **Devices & Services** -> **Zigbee Home Automation** (click **Configure**) -> **Devices** (pick your device) -> **Zigbee Device Signature**
+**Settings** -> **Devices & Services** -> **Zigbee Home Automation** (click **Configure**) -> **Devices** (pick your device) -> **Zigbee Device Signature**
 
 ### Debug logging
 
@@ -459,7 +461,7 @@ Using a Philips Hue Dimmer Switch or Lutron Connected Bulb Remote is probably th
 3. Press and hold the (I)/(ON) and (O)/(OFF) buttons on the Philips Hue Dimmer Switch. The bulb should start blinking in 10-20 seconds. The bulb will blink, then turn off, then turn on. You can now release the dimmer buttons.
 4. Your bulb is now factor resey and ready for pairing. A green light on the top left of the dimmer remote indicates that your bulb has been successfully reset to factory default settings.
 
-Note: If you are not unable to reset the bulb, remove it from the Hue Bridge and retry the procedure.
+Note: If you are unable to reset the bulb, remove it from the Hue Bridge and retry the procedure.
 
 #### Lutron Connected Bulb Remote
 

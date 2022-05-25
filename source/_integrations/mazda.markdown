@@ -19,11 +19,12 @@ ha_domain: mazda
 ha_platforms:
   - binary_sensor
   - button
-  - diagnostics
   - device_tracker
+  - diagnostics
   - lock
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Mazda Connected Services integration allows you to retrieve data from a Mazda vehicle. In order to use this integration, you must first register your vehicle using the MyMazda app ([iOS](https://apps.apple.com/us/app/mymazda/id451886367)/[Android](https://play.google.com/store/apps/details?id=com.interrait.mymazda)).

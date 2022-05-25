@@ -12,6 +12,7 @@ ha_platforms:
   - button
   - sensor
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The `modem_callerid` integration uses an available modem for collecting caller ID information. It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1). Usually any modem that uses a CX93001 will support this.

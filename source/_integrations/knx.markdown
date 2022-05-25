@@ -2,12 +2,12 @@
 title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Button
   - Climate
   - Cover
   - Fan
+  - Hub
   - Light
   - Notifications
   - Number
@@ -23,34 +23,29 @@ ha_codeowners:
   - '@farmio'
   - '@marvin-w'
 ha_domain: knx
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - button
-  - diagnostics
   - climate
   - cover
+  - diagnostics
   - fan
   - light
   - notify
   - number
   - scene
-  - sensor
   - select
+  - sensor
   - switch
   - weather
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to KNX/IP devices.
 
 The integration requires a local KNX/IP interface or router. Through this, it will establish a connection between Home Assistant and your KNX bus.
-
-<div class='note warning'>
-
-Please note, the KNX platform does not support KNX Secure.
-
-</div>
 
 There is currently support for the following device types within Home Assistant:
 
@@ -120,6 +115,31 @@ knx:
 Connection parameters are set up when adding the integration and can be changed from the `Integrations` panel.
 
 Use `route back` if your tunneling server is located on a different network.
+
+### KNX Secure
+
+The KNX integration currently supports IP secure tunneling.
+IP secure via routing and data secure are currently not supported.
+
+In order to use IP Secure you will have to chose "Tunneling" -> "TCP with IP Secure" in the config flow.
+
+You can configure the IP Secure credentials either manually or by providing a `.knxkeys` file, which you can obtain by exporting the keyring in ETS as seen in the screenshot below.
+
+![Export Keyring in ETS5](/images/integrations/knx/export_keyring_ets.png)
+
+The `.knxkeys` file has to be placed in `config/.storage/knx/yourfile.knxkeys`.
+
+If you decide to configure IP Secure manually you will need the user ID, the user password and the device authentication password.
+
+The user id 0 is reserved and the user id 1 is used for management tasks, thus you will need to specify a user id that is 2 or higher according to the tunneling channel you would like to use. 
+
+The following screenshot will show how you can get the device authentication password in ETS.
+
+![Obtain device authentication password in ETS](/images/integrations/knx/device_authentication_password.png)
+
+The user password can be obtained almost the same way as seen in the below screenshot.
+
+![Obtain the user password in ETS](/images/integrations/knx/user_password.png)
 
 ## Events
 
@@ -823,6 +843,11 @@ travelling_time_up:
   required: false
   default: 25
   type: integer
+invert_updown:
+  description: Set this to `true` to invert the binary up/down commands from/to your KNX actuator. Default is 0 for UP; 1 for DOWN.
+  required: false
+  default: false
+  type: boolean
 invert_position:
   description: Set this to `true` if your actuator reports fully closed position as 0% in KNX.
   required: false
@@ -1153,6 +1178,11 @@ address:
 name:
   description: A name for this device used within Home Assistant.
   required: false
+  type: string
+type:
+  description: A DPT identifier representing a text value ("string" or "latin_1" - see [KNX Sensor](#sensor)) used to encode the notification.
+  required: false
+  default: "latin_1"
   type: string
 {% endconfiguration %}
 
@@ -1570,7 +1600,8 @@ entity_category:
 |  14.077 | volume_flux                   |            4 |                            | m³/s           |
 |  14.078 | weight                        |            4 |                            | N              |
 |  14.079 | work                          |            4 |                            | J              |
-|  16.000 | string                        |           14 |                            |                |
+|  16.000 | string                        |           14 |           ASCII            |                |
+|  16.001 | latin_1                       |           14 |    ISO 8859-1 / Latin-1    |                |
 |  17.001 | scene_number                  |            1 |          1 ... 64          |                |
 
 ### More examples

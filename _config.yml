@@ -75,7 +75,7 @@ collections:
     output: true
   faq:
     output: true
-  lovelace:
+  dashboards:
     output: true
 
 # ----------------------- #
@@ -106,9 +106,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 2022
-current_minor_version: 03
-current_patch_version: 2
-date_released: 2022-03-06
+current_minor_version: 5
+current_patch_version: 5
+date_released: 2022-05-18
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
