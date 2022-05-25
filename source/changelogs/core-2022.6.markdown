@@ -637,6 +637,16 @@ For a summary in a more readable format:
 - Bump pychromecast to 12.1.3 ([@emontnemery] - [#72475]) ([cast docs])
 - Bump ZHA quirks to 0.0.74 ([@dmulcahey] - [#72482]) ([zha docs]) (dependency)
 - Fix meater remaining time sensor ([@emontnemery] - [#72490]) ([meater docs])
+- Clean zwave_js api typing ([@MartinHjelmare] - [#72484]) ([zwave_js docs])
+- Clean zwave_js services typing ([@MartinHjelmare] - [#72485]) ([zwave_js docs])
+- Clean zwave_js remaining typing issues ([@MartinHjelmare] - [#72488]) ([zwave_js docs])
+- Allow zwave_js/network_status WS API to accept device or entry ID ([@raman325] - [#72205]) ([zwave_js docs])
+- Bypass dynamic validation for zwave_js custom triggers ([@raman325] - [#72471]) ([zwave_js docs])
+- Bump zwave-js-server-python to 0.37.0 ([@raman325] - [#72395]) ([zwave_js docs]) (breaking-change) (dependency)
+- Fix typo in ISY994 re-authentication dialog ([@spacegaier] - [#72497]) ([isy994 docs])
+- Hardware integration MVP ([@emontnemery] - [#71677]) ([hassio docs]) ([hardware docs]) ([raspberrypi docs]) (new-integration)
+- Update mypy to 0.960 ([@cdce8p] - [#72481]) ([recorder docs]) ([sonos docs]) (dependency)
+- Bump Frontend to 20220525.0 ([@zsarnett] - [#72496]) ([frontend docs])
 
 [#50284]: https://github.com/home-assistant/core/pull/50284
 [#54266]: https://github.com/home-assistant/core/pull/54266
@@ -881,6 +891,7 @@ For a summary in a more readable format:
 [#71666]: https://github.com/home-assistant/core/pull/71666
 [#71667]: https://github.com/home-assistant/core/pull/71667
 [#71676]: https://github.com/home-assistant/core/pull/71676
+[#71677]: https://github.com/home-assistant/core/pull/71677
 [#71687]: https://github.com/home-assistant/core/pull/71687
 [#71688]: https://github.com/home-assistant/core/pull/71688
 [#71692]: https://github.com/home-assistant/core/pull/71692
@@ -1146,6 +1157,7 @@ For a summary in a more readable format:
 [#72200]: https://github.com/home-assistant/core/pull/72200
 [#72201]: https://github.com/home-assistant/core/pull/72201
 [#72203]: https://github.com/home-assistant/core/pull/72203
+[#72205]: https://github.com/home-assistant/core/pull/72205
 [#72206]: https://github.com/home-assistant/core/pull/72206
 [#72207]: https://github.com/home-assistant/core/pull/72207
 [#72209]: https://github.com/home-assistant/core/pull/72209
@@ -1229,6 +1241,7 @@ For a summary in a more readable format:
 [#72387]: https://github.com/home-assistant/core/pull/72387
 [#72388]: https://github.com/home-assistant/core/pull/72388
 [#72394]: https://github.com/home-assistant/core/pull/72394
+[#72395]: https://github.com/home-assistant/core/pull/72395
 [#72396]: https://github.com/home-assistant/core/pull/72396
 [#72397]: https://github.com/home-assistant/core/pull/72397
 [#72400]: https://github.com/home-assistant/core/pull/72400
@@ -1259,12 +1272,19 @@ For a summary in a more readable format:
 [#72462]: https://github.com/home-assistant/core/pull/72462
 [#72466]: https://github.com/home-assistant/core/pull/72466
 [#72467]: https://github.com/home-assistant/core/pull/72467
+[#72471]: https://github.com/home-assistant/core/pull/72471
 [#72472]: https://github.com/home-assistant/core/pull/72472
 [#72475]: https://github.com/home-assistant/core/pull/72475
 [#72476]: https://github.com/home-assistant/core/pull/72476
 [#72478]: https://github.com/home-assistant/core/pull/72478
+[#72481]: https://github.com/home-assistant/core/pull/72481
 [#72482]: https://github.com/home-assistant/core/pull/72482
+[#72484]: https://github.com/home-assistant/core/pull/72484
+[#72485]: https://github.com/home-assistant/core/pull/72485
+[#72488]: https://github.com/home-assistant/core/pull/72488
 [#72490]: https://github.com/home-assistant/core/pull/72490
+[#72496]: https://github.com/home-assistant/core/pull/72496
+[#72497]: https://github.com/home-assistant/core/pull/72497
 [@Abadede]: https://github.com/Abadede
 [@Adminiuga]: https://github.com/Adminiuga
 [@AlainH]: https://github.com/AlainH
@@ -1451,6 +1471,7 @@ For a summary in a more readable format:
 [group docs]: /integrations/group/
 [gstreamer docs]: /integrations/gstreamer/
 [hangouts docs]: /integrations/hangouts/
+[hardware docs]: /integrations/hardware/
 [hassio docs]: /integrations/hassio/
 [hdmi_cec docs]: /integrations/hdmi_cec/
 [heos docs]: /integrations/heos/
@@ -1528,6 +1549,7 @@ For a summary in a more readable format:
 [powerwall docs]: /integrations/powerwall/
 [qnap_qsw docs]: /integrations/qnap_qsw/
 [rainforest_eagle docs]: /integrations/rainforest_eagle/
+[raspberrypi docs]: /integrations/raspberrypi/
 [recorder docs]: /integrations/recorder/
 [remote docs]: /integrations/remote/
 [rfxtrx docs]: /integrations/rfxtrx/

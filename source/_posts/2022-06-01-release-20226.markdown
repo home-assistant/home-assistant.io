@@ -264,7 +264,7 @@ noteworthy changes this release:
 - The {% my system_health title="System Health" %} menu now shows database
   information, including versions and estimated database size. The version
   number of the OS Agent is now also listed. Thanks, [@bdraco] & [@ludeeus].
-- The "Preload Camara" setting shown on every camera feed, has been moved! It
+- The "Preload Camera" setting shown on every camera feed, has been moved! It
   is now part of the entity settings, preventing unintential toggling it.
   Thanks [@bramkragten]!
 - [@goyney] upgraded the [Material Design Icons] to version v6.7.96, providing
@@ -1151,7 +1151,24 @@ removed from your YAML configuration after upgrading.
 
 {% enddetails %}
 
-**TODO:** Remove this line. Last processed breaking change 72458
+{% details "Z-Wave JS" %}
+
+With this release, you will need to update your zwave-js-server instance.
+
+- If you use the zwave_js add-on, you need to have at least version `0.1.60`.
+- If you use the Z-Wave JS 2 MQTT add-on, you need to have at least version `0.41.0`.
+- If you use the zwavejs2mqtt Docker container, you need to have at least version `6.10.0`.
+- If you run your own Docker container, or some other installation method,
+  you will need to update your zwave-js-server instance to at least `1.17.0`.
+
+([@raman325] - [#72395]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#72395]: https://github.com/home-assistant/core/pull/72395
+
+{% enddetails %}
+
+**TODO:** Remove this line. Last processed breaking change 72395
 
 If you are a custom integration developer and want to learn about breaking
 changes and new features available for your integration: Be sure to follow our
