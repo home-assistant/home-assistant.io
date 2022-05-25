@@ -434,7 +434,7 @@ entities:
     tap_action:
       action: call-service
       service: light.toggle
-      service_data:
+      data:
         entity_id: light.bed_light
         transition: 10
   - type: divider

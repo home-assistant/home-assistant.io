@@ -121,7 +121,7 @@ Using the entity state and attributes is more error prone and less flexible than
 
 ### Service `google.add_event`
 
-You can use the service `google.add_event` to create a new calendar event in a calendar. Calendar id's can be found in the file `google_calendars.yaml`. All dates and times are in your local time, the integration gets your time zone from your `configuration.yaml` file.
+You can use the service `google.add_event` to create a new calendar event in a calendar. You can find the Calendar's ID Google Calendar Settings. All dates and times are in your local time, the integration gets your time zone from your `configuration.yaml` file.
 
 {% details "Add Event Service details" %}
 
@@ -161,7 +161,7 @@ compatible with other Home Assistant features, but this documentation is availab
 for existing users.
 </div>
 
-The integration will discover new calendars and write them into a configuration file `google_calendars.yaml` in your configuration directory that can allow for additional configuration.
+The integration supports additional configuration from a file `google_calendars.yaml` which is avaialble for existing users before version `2022.06`. This file is no longer automatically populated.
 
 {% configuration %}
 cal_id:
