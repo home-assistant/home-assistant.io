@@ -41,8 +41,20 @@ Note that it depends on the appliance and on API permissions which of the featur
 
 - Application ID: Home Assistant (or whatever name makes sense to you)
 - OAuth Flow: Authorization Code Grant Flow
-- Redirect URI: "`<HOME_ASSISTANT_URL>/auth/external/callback`
-  The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration / authentication process. Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+- Redirect URI: `https://my.home-assistant.io/redirect/oauth`
+
+{% details "I have manually disabled My Home Assistant" %}
+
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
+instead.
+
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
+
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+
+{% enddetails %}
 
 Next, add the following to your `configuration.yaml` file:
 
