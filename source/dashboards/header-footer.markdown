@@ -79,6 +79,17 @@ entities:
       required: false
       description: Label for the button.
       type: string
+    show_icon:
+      required: false
+      description: Show entity icon.
+      type: boolean
+      default: "true"  
+    show_name:
+      required: false
+      description: Show entity name.
+      type: boolean
+      default: "false"
+    
 {% endconfiguration %}
 
 ## Graph header & footer
