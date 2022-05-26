@@ -34,6 +34,9 @@ automation:
       entity_id: calendar.personal
 ```
 
+Calendar triggers should should generally not use automation mode `single` to ensure the trigger
+can fire when multiple events start at the same time (e.g. use `queued` or `parallel` instead)
+
 See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) for additional trigger data available for conditions or actions.
 
 ### Automation Recipes
@@ -62,7 +65,7 @@ automation:
         message: >-
           Event {{ trigger.calendar_event.summary }} @
           {{ trigger.calendar_event.start }}
-  mode: parallel
+  mode: queued
 ```
 {% endraw %}
 
@@ -74,7 +77,6 @@ This example consists of:
 - For the calendar entity ` calendar.device_automation`
 - When event summary contains `Front Lights`
 - Turn on and off light named `light.front` when the event starts and ends
-- Only runs for one event at a time
 
 {% raw %}
 ```yaml
@@ -88,52 +90,16 @@ automation:
       event: end
       entity_id: calendar.device_automation
   condition:
-  - condition: template
-    value_template: "{{ 'Front Lights' in trigger.calendar_event.summary }}"
+    - condition: template
+      value_template: "{{ 'Front Lights' in trigger.calendar_event.summary }}"
   action:
-    service: >
-      {% if trigger.event == "start" %}
-        light.turn_on
-      {% else %}
-        light.turn_off
-      {% endif %}
-    target: light.front
-  mode: single
-```
-{% endraw %}
-
-{% enddetails %}
-
-{% details "Example: Calendar Event Binary Sensor Template" %}
-
-This template example consists of:
-- For the calendar entity ` calendar.device_automation`
-- When event summary contains `Front Lights`
-- Set the state of `binary_sensor.front_light_schedule` when the event starts and ends
-- Only runs for one event at a time
-
-{% raw %}
-```yaml
-template:
-  - trigger:
-      - platform: calendar
-        event: start
-        entity_id: calendar.device_automation
-      - platform: calendar
-        event: end
-        entity_id: calendar.device_automation
-    binary_sensor:
-      - name: front_light_schedule
-        state: >
-          {% if 'Front Lights' in trigger.calendar_event.summary %}
-            {% if trigger.event == "start" %}
-            on
-            {% else %}
-            off
-            {% endif %}
-          {% else %}
-            {{ states("binary_sensor.front_light_schedule") }}
-          {% endif %}
+    - if:
+        - "{{ trigger.event == 'start' }}"
+      then:
+        - service: light.turn_on
+      else:
+        - service: light.turn_off
+  mode: queued
 ```
 {% endraw %}
 
