@@ -21,19 +21,19 @@ To enable text-to-speech with Knovvu, add the following lines to your `configura
 # Example configuration.yaml entry
 tts:
   - platform: knovvu
-    api_token: YOUR_API_KEY
+    client_id: YOUR_API_ID
+    client_secret: YOUR_API_KEY
 ```
 
 {% configuration %}
-api_token:
+client_id:
+  description: The API ID for use this service.
+  required: false
+  type: string
+client_secret:
   description: The API key for use this service.
   required: true
   type: string
-url:
-  description: The API URL for use this service.
-  required: false
-  type: string
-  default: https://ttsapi.knovvu.com/v1/speech/synthesis/tts
 voice:
   description: "The speaker voice. Supported female voices are `Sestek Gul 24k_HV_Premium`,`Sestek Melissa 24k`,`Sestek Delal 24k`, and `Sestek Rae 24k`. Male voices are `Sestek Sinan 24k`."
   required: false
@@ -45,12 +45,12 @@ codec:
   type: string
   default: "`wav`"
 volume:
-  description: "The audio volume. Highest volume is `2` and lowest ` 0.0`"
+  description: "The audio volume. Highest volume is `2` and lowest `0.0`"
   required: false
   type: float
   default: "`1`"
 rate:
-  description: "The speech speed. Highest speed is `3` and lowest ` 0.3`"
+  description: "The speech speed. Highest speed is `3` and lowest `0.3`"
   required: false
   type: float
   default: "`1`"
@@ -69,8 +69,8 @@ The configuration sample below shows how an entry can look like:
 # Example configuration.yaml entry
 tts:
   - platform: knovvu
-    url: https://ttsapi.knovvu.com/v1/speech/synthesis/tts
-    api_token: YOUR_API_KEY
+    client_id: YOUR_API_ID
+    client_secret: YOUR_API_KEY
     voice: Sestek Gul 24k_HV_Premium
     codec: wav
     volume: 1
