@@ -13,6 +13,10 @@ ha_integration_type: integration
 
 The script integration allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via services.
 
+Scripts can be created via YAML configuration (described below) or via {% my scripts title="the UI" %}.
+
+{% my scripts badge %}
+
 ## Configuration
 
 The sequence of actions is specified using the [Home Assistant Script Syntax](/getting-started/scripts/).
