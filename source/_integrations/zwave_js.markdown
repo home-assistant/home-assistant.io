@@ -39,6 +39,7 @@ ha_platforms:
   - siren
   - switch
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
 This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're migrating from the deprecated `zwave`, see [our migration instructions](#migrating-from-previous-z-wave-implementations).
@@ -584,7 +585,7 @@ Some entities may not be able to migrate automatically and you will need to rena
 
   <div class='note info'>Make a list of what node ID belongs to each device. Your network (Nodes and their config etc) is stored on the stick but the names you gave your devices and entities are not. This step is optional but will save you a lot of time later.</div>
 
-2) Remove the Z-Wave integration from Home Assistant: Configuration --> Integrations --> Z-Wave (or OpenZWave) --> Press the three dots and click Delete.
+2) Remove the Z-Wave integration from Home Assistant: Settings --> Devices & Services --> Z-Wave (or OpenZWave) --> Press the three dots and click Delete.
 
   <div class='note info'>
 
@@ -783,7 +784,7 @@ Names set in Home Assistant will not import into Zwavejs2Mqtt.
 
 #### How can I add (include) a new device to my Z-Wave network?
 
-1. In Home Assistant: open Configuration -> Integrations -> Z-Wave JS -> Configure.
+1. In Home Assistant: open Settings -> Devices & Services -> Z-Wave JS -> Configure.
 2. Press `+ ADD DEVICE`.
 3. The Z-Wave controller is now in inclusion mode and will not respond to other commands.
 4. Put the device you want to add in inclusion mode. Refer to its manual how this is done.
@@ -807,7 +808,7 @@ S2 security does not impose additional network traffic and provides additional b
 
 #### How do I remove (exclude) a device from my Z-Wave network?
 
-1. In Home Assistant: open Configuration -> Integrations -> Z-Wave JS -> Configure.
+1. In Home Assistant: open Settings -> Devices & Services -> Z-Wave JS -> Configure.
 2. Press `REMOVE DEVICE`.
 3. Press `START EXCLUSION`. The Z-Wave controller is now in exclusion mode and will not respond to other commands.
 4. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
@@ -859,7 +860,7 @@ If the interview is complete, then the device does not yet have a device file fo
 
 When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow the menu:
 
-{% my integrations title="**Configuration** -> **Devices & Services**" %} -> **Z-Wave JS** -> **...** -> **Download diagnostics**
+{% my integrations title="**Settings** -> **Devices & Services**" %} -> **Z-Wave JS** -> **...** -> **Download diagnostics**
 
 ### Interference issues
 

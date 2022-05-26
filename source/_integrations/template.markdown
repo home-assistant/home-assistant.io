@@ -68,9 +68,9 @@ template:
 
 {% endraw %}
 
-### Template variables
+### Template and action variables
 
-State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](#self-referencing) of an entity's state and attribute in templates.
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](#self-referencing) of an entity's state and attribute in templates and actions.
 
 ## Trigger-based template binary sensors, buttons, numbers, selects and sensors
 
@@ -80,7 +80,7 @@ Whenever the trigger fires, all related entities will re-render and it will have
 
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [state trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
 
-The state, including attributes, of trigger-based binary sensors is restored when Home Assistant is restarted. The state of other trigger-based template entities is not restored.
+The state, including attributes, of trigger-based sensors and binary sensors is restored when Home Assistant is restarted. The state of other trigger-based template entities is not restored.
 
 {% raw %}
 
@@ -385,13 +385,13 @@ You can use a trigger-based template entity to convert any event or other automa
 
 ```yaml
 template:
-  trigger:
-    platform: event
-    event_type: my_event
-  binary_sensor:
-    - name: Event recently fired
-      auto_off: 5
-      state: "true"
+  - trigger:
+      platform: event
+      event_type: my_event
+    binary_sensor:
+      - name: Event recently fired
+        auto_off: 5
+        state: "true"
 ```
 
 ### Sun Angle
@@ -568,6 +568,30 @@ template:
 
 {% endraw %}
 
+A more advanced use case could be to set the icon based on the sensor's own state like above, but when triggered by an event. This example demonstrates a binary sensor that turns on momentarily, such as when a doorbell button is pressed. 
+
+The binary sensor turns on and sets the matching icon when the appropriate event is received. After 5 seconds, the binary sensor turns off automatically. To ensure the icon gets updated, there must be a trigger for when the state changes to off. 
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: event
+        event_type: YOUR_EVENT
+      - platform: state
+        entity_id: binary_sensor.doorbell_rang
+        to: "off"
+    binary_sensor:
+      name: doorbell_rang
+      icon: "{{ (trigger.platform == 'event') | iif('mdi:bell-ring-outline', 'mdi:bell-outline') }}"
+      state: "{{ trigger.platform == 'event' }}"
+      auto_off:
+        seconds: 5
+```
+
+{% endraw %}
+
 ### Self referencing
 
 This example demonstrates how the `this` variable can be used in templates for self-referencing.
@@ -578,7 +602,7 @@ This example demonstrates how the `this` variable can be used in templates for s
 template:
   - sensor:
       - name: test
-        state: "{{ this.attributes.test }}"
+        state: "{{ this.attributes.test | default('Value when missing') }}"
         # not: "{{ state_attr('sensor.test', 'test') }}"
         attributes:
           test: "{{ now() }}"

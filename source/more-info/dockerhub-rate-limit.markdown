@@ -22,7 +22,7 @@ _If you do not have a Docker Hub account [you can create one here][dockerhub-sig
 To use your Docker Hub credentials with the Supervisor:
 
 - You need to have the advanced user toggle enabled in your user profile setting.
-- Go to the {% my supervisor title="Configuration > Add-ons & Backups" %} in the Home Assistant UI.
+- Go to the {% my supervisor title="Settings > Add-ons" %} in the Home Assistant UI.
 - Click on "Add-on Store".
 - Click the three dots in the top right corner of the screen, and select "Registries".
 

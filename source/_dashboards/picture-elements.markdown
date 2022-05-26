@@ -160,7 +160,7 @@ tap_action:
       description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`."
       type: string
       default: none
-    service_data:
+    data:
       required: false
       description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`."
       type: string
@@ -406,7 +406,7 @@ elements:
 ### Custom Elements
 
 The process for creating and referencing custom elements is the same as for custom cards.
-Please see the [developer documentation](https://developers.home-assistant.io/docs/frontend/custom-ui/lovelace-custom-card.html)
+Please see the [developer documentation](https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card)
 for more information.
 
 {% configuration %}
@@ -476,7 +476,7 @@ tap_action:
 hold_action:
   action: call-service
   service: light.turn_on
-  service_data:
+  data:
     entity_id: light.bed_light
     brightness_pct: 100
 ```
@@ -570,7 +570,7 @@ elements:
     tap_action:
       action: call-service
       service: media_player.media_play_pause
-      service_data:
+      data:
         entity_id: media_player.living_room
     image: /local/television.jpg
     filter: brightness(5%)

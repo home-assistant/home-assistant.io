@@ -47,7 +47,7 @@ This integration provides the following platforms:
 
 ## Configuration
 
-Enable the `BMW Connected Drive` integration via **Configuration** > **Devices & Services**.
+Enable the `BMW Connected Drive` integration via **Settings** -> **Devices & Services**.
 
 <div class='note'>
 
@@ -128,6 +128,10 @@ The `button.<your_vehicle>_find_vehicle` button requests the vehicle to update t
   On some older cars (non i3/i8 series produced before 7/2014) this service will fail in getting your vehicles position, if the vehicle is more than 1.5 km away from the location of your Home Assistant instance. This is a limitation of the BMW API.
 
 </div>
+
+### Update the state / refresh from cloud
+
+The `button.<vehicle_model>_refresh_from_cloud` button fetches the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle; it gets the data from the BMW servers. So this service does *not* interact with your vehicles.
 
 ## Disclaimer
 

@@ -32,6 +32,8 @@ automation:
       event: start
       # The calendar entity_id
       entity_id: calendar.personal
+      # Optional time offset to fire a set time before or after event start/end
+      offset: -00:15:00
 ```
 
 ### Example Automation

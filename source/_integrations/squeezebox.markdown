@@ -1,5 +1,5 @@
 ---
-title: Logitech Squeezebox
+title: Squeezebox (Logitech Media Server)
 description: Instructions on how to integrate a Logitech Squeezebox player into Home Assistant.
 ha_category:
   - Media Player
@@ -80,21 +80,3 @@ This service can be used to integrate a Squeezebox query into an automation. For
 `hass.services.call("squeezebox", "call_query", { "entity_id": "media_player.kitchen", "command": "albums", "parameters": ["0", "20", "search:beatles", "tags:al"] })`
 To work with the results:
 `result = hass.states.get("media_player.kitchen").attributes['query_result']`
-
-### Service `sync`
-
-Add another player to this player's sync group. If the other player is already in a sync group, it will leave it.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Squeezebox entities where to run the API method.
-| `other_player` | no | Name of the other Squeezebox player to join the sync group.
-
-### Service `unsync`
-
-Remove this player from its sync group.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Squeezebox entities where to run the API method.
-=======
