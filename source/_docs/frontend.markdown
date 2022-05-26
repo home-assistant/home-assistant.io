@@ -18,7 +18,7 @@ The frontend is built with [Polymer](https://www.polymer-project.org/).
 
 ## Icons
 
-Home Assistant utilizes the community-driven [Material Design Icons](https://www.materialdesignicons.com/) project for icons in the frontend. The [Icons section](/docs/frontend/icons/) has more information on how to use icons, suggest new ones, and even provides common examples.
+Home Assistant utilizes the community-driven [Material Design Icons](https://www.materialdesignicons.com/) project for icons in the frontend. The [Icons section](/docs/frontend/icons/) has more information on how to use icons and suggest new ones.
 
 ## Examples
 
