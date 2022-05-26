@@ -31,7 +31,7 @@ The most common way you can find an icons is using the icon picker built right i
 
 ### Material Design Icons Picker Browser Extension
 
-The easiest way to browse and find icons outside of Home Assistant is with the official [Material Design Icons Picker](https://github.com/chteuchteu/MaterialDesignIcons-Picker) browser extension. The extension is available for Chrome, Firefox, and Edge and is maintained by the MDI team.
+The easiest way to browse and find icons outside of Home Assistant is with the official [Material Design Icons Picker](https://github.com/Pictogrammers/MaterialDesignIcons-Picker) browser extension. The extension is available for Chrome, Firefox, and Edge and is maintained by the MDI team.
 
 <p class='img'>
   <img src='/images/screenshots/mdi-picker.png' alt='Material Design Icons Picker' />
