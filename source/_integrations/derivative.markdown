@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: helper
 ---
 
-The derivative integration creates a sensor that estimates the derivative of the
+The derivative ([Wikipedia](https://en.wikipedia.org/wiki/Derivative)) integration creates a sensor that estimates the derivative of the
 values provided by another sensor (the **source sensor**). Derivative sensors are updated upon changes of the **source sensor**.
 
 {% include integrations/config_flow.md %}
