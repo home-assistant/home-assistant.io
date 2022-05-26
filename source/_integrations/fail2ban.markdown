@@ -57,7 +57,7 @@ These steps assume you already have the Home Assistant Docker running behind NGI
 
 </div>
 
-For those of us using Docker, the above tutorial may not be sufficient. The following steps specifically outline how to set up `fail2ban` and Home Assistant when running Home Assistant within a Docker behind NGINX. The setup this was tested on was an unRAID server using the [Let's Encrypt Docker](https://github.com/linuxserver/docker-letsencrypt) from linuxserver.io.
+For those of us using Docker, the above tutorial may not be sufficient. The following steps specifically outline how to set up `fail2ban` and Home Assistant when running Home Assistant within a Docker behind NGINX. The setup this was tested on was an unRAID server using the [SWAG](https://github.com/linuxserver/docker-swag) from linuxserver.io.
 
 #### Set HTTP logger
 

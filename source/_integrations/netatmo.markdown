@@ -244,7 +244,7 @@ client_secret:
 
 **After the `client_id` and `client_secret` are added to your `configuration.yaml` you must restart Home Assistant and then enable Netatmo through the integrations page.**
 
-Menu: **Configuration** -> **Devices & Services**.
+Menu: **Settings** -> **Devices & Services**.
 
 Click on the `+` sign to add an integration and click on **Netatmo**.
 After completing the configuration flow, the Netatmo integration will be available.

@@ -38,6 +38,8 @@ Enjoy the release!
 
 ../Frenck
 
+<!--more-->
+
 - [Goodbye Lovelace, Hello Dashboards](#goodbye-lovelace-hello-dashboards)
 - [Hide entities](#hide-entities)
 - [Now available in the UI: Groups!](#now-available-in-the-ui-groups)
@@ -57,6 +59,11 @@ Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.4.1 - April 7](#release-202241---april-7)
 - [Release 2022.4.2 - April 11](#release-202242---april-11)
+- [Release 2022.4.3 - April 12](#release-202243---april-12)
+- [Release 2022.4.4 - April 14](#release-202244---april-14)
+- [Release 2022.4.5 - April 16](#release-202245---april-16)
+- [Release 2022.4.6 - April 20](#release-202246---april-20)
+- [Release 2022.4.7 - April 24](#release-202247---april-24)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -754,6 +761,277 @@ The following integrations are now available via the Home Assistant UI:
 [tplink docs]: /integrations/tplink/
 [unifiprotect docs]: /integrations/unifiprotect/
 [xmpp docs]: /integrations/xmpp/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.4.3 - April 12
+
+- Update xknx to 0.20.2 (RC) ([@marvin-w] - [#69859]) ([knx docs])
+- Fix profiler object growth logging test ([@bdraco] - [#69211]) ([profiler docs])
+- Handle Squeezebox media ids that are not URLs ([@rajlaud] - [#69696]) ([squeezebox docs])
+- Add diagnostics support for ZHA ([@dmulcahey] - [#69756]) ([zha docs])
+- Bump devolo-home-control-api to 0.18.1 ([@Shutgun] - [#69840]) ([devolo_home_control docs])
+- Fix #69694 ([@iMicknl] - [#69850]) ([overkiz docs])
+- Fix google calendar timestamp out of range ([@allenporter] - [#69863]) ([google docs])
+- Use quickplay when casting splash for mediaplayer.turn_on ([@emontnemery] - [#69866]) ([cast docs])
+- Motion blinds fix set absolute position service ([@starkillerOG] - [#69873]) ([motion_blinds docs])
+- Bump zigpy to 0.44.2 and and zha-quirks to 0.0.72 ([@puddly] - [#69879]) ([zha docs])
+- Handle add-on issues ([@ludeeus] - [#69897]) ([hassio docs])
+- Fix unique id in SamsungTV config flow ([@epenet] - [#69899]) ([samsungtv docs])
+- Bump renault-api to 0.1.11 ([@epenet] - [#69900]) ([renault docs])
+- Fix climate HVAC device condition ([@frenck] - [#69908]) ([climate docs])
+- Fix adjusting 5-minute statistics ([@emontnemery] - [#69921]) ([recorder docs]) ([sensor docs])
+- Fix adjusting statistics in ft³ ([@emontnemery] - [#69913]) ([recorder docs]) ([sensor docs])
+- Downgrade ZHA dependency zigpy-deconz from 0.15.0 to 0.14.0 ([@puddly] - [#69927]) ([zha docs])
+- Fix fibaro light state for rgb lights and HC3 ([@rappenze] - [#69884]) ([fibaro docs])
+- Not all music are URLs ([@balloob] - [#69936]) ([mpd docs])
+- Guard against non http schemes ([@balloob] - [#69938]) ([media_player docs])
+
+[#69211]: https://github.com/home-assistant/core/pull/69211
+[#69696]: https://github.com/home-assistant/core/pull/69696
+[#69756]: https://github.com/home-assistant/core/pull/69756
+[#69840]: https://github.com/home-assistant/core/pull/69840
+[#69850]: https://github.com/home-assistant/core/pull/69850
+[#69859]: https://github.com/home-assistant/core/pull/69859
+[#69863]: https://github.com/home-assistant/core/pull/69863
+[#69866]: https://github.com/home-assistant/core/pull/69866
+[#69873]: https://github.com/home-assistant/core/pull/69873
+[#69879]: https://github.com/home-assistant/core/pull/69879
+[#69884]: https://github.com/home-assistant/core/pull/69884
+[#69897]: https://github.com/home-assistant/core/pull/69897
+[#69899]: https://github.com/home-assistant/core/pull/69899
+[#69900]: https://github.com/home-assistant/core/pull/69900
+[#69908]: https://github.com/home-assistant/core/pull/69908
+[#69913]: https://github.com/home-assistant/core/pull/69913
+[#69921]: https://github.com/home-assistant/core/pull/69921
+[#69927]: https://github.com/home-assistant/core/pull/69927
+[#69936]: https://github.com/home-assistant/core/pull/69936
+[#69938]: https://github.com/home-assistant/core/pull/69938
+[@Shutgun]: https://github.com/Shutgun
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@dmulcahey]: https://github.com/dmulcahey
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@iMicknl]: https://github.com/iMicknl
+[@ludeeus]: https://github.com/ludeeus
+[@marvin-w]: https://github.com/marvin-w
+[@puddly]: https://github.com/puddly
+[@rajlaud]: https://github.com/rajlaud
+[@rappenze]: https://github.com/rappenze
+[@starkillerOG]: https://github.com/starkillerOG
+[cast docs]: /integrations/cast/
+[climate docs]: /integrations/climate/
+[devolo_home_control docs]: /integrations/devolo_home_control/
+[fibaro docs]: /integrations/fibaro/
+[google docs]: /integrations/google/
+[hassio docs]: /integrations/hassio/
+[knx docs]: /integrations/knx/
+[media_player docs]: /integrations/media_player/
+[motion_blinds docs]: /integrations/motion_blinds/
+[mpd docs]: /integrations/mpd/
+[overkiz docs]: /integrations/overkiz/
+[profiler docs]: /integrations/profiler/
+[recorder docs]: /integrations/recorder/
+[renault docs]: /integrations/renault/
+[samsungtv docs]: /integrations/samsungtv/
+[sensor docs]: /integrations/sensor/
+[squeezebox docs]: /integrations/squeezebox/
+[zha docs]: /integrations/zha/
+
+## Release 2022.4.4 - April 14
+
+- Remove duplicate program ([@golles] - [#69734]) ([home_connect docs])
+- Fix Prosegur availability through Alexa ([@dgomes] - [#69941]) ([prosegur docs])
+- Fix race during homekit controller pairing ([@bdraco] - [#69948]) ([homekit_controller docs])
+- Fix HomeKit Controller device class for CO Sensors ([@bdraco] - [#69949]) ([homekit_controller docs])
+- Fix available property in the base supervisor entity ([@ludeeus] - [#69966]) ([hassio docs])
+- Use ha-av instead of av and bump to v9.1.1-3 ([@uvjustin] - [#69974]) ([stream docs]) ([generic docs])
+- Fix config_flow error from dlna_dmr for UPnP discovery info containing a single service ([@chishm] - [#69977]) ([dlna_dmr docs])
+- Fix config_flow error for UPnP info with single service ([@chishm] - [#69979]) ([dlna_dms docs])
+- Suppress UpnpResponseError in SamsungTV ([@epenet] - [#69984]) ([samsungtv docs])
+- Fix missing interior battery sensor for Ambient PWS ([@bachya] - [#69994]) ([ambient_station docs])
+- ZHA diagnostics fixes ([@dmulcahey] - [#70000]) ([zha docs])
+- use newer version of openhomedevice ([@bazwilliams] - [#70022]) ([openhome docs])
+- Handle KeyError when loading backups ([@ludeeus] - [#70028]) ([backup docs])
+- Fix tomorrow.io units... again... ([@raman325] - [#70029]) ([tomorrowio docs])
+- Check supported features in media player reproduce state ([@balloob] - [#70055]) ([media_player docs])
+
+[#69734]: https://github.com/home-assistant/core/pull/69734
+[#69941]: https://github.com/home-assistant/core/pull/69941
+[#69948]: https://github.com/home-assistant/core/pull/69948
+[#69949]: https://github.com/home-assistant/core/pull/69949
+[#69966]: https://github.com/home-assistant/core/pull/69966
+[#69974]: https://github.com/home-assistant/core/pull/69974
+[#69977]: https://github.com/home-assistant/core/pull/69977
+[#69979]: https://github.com/home-assistant/core/pull/69979
+[#69984]: https://github.com/home-assistant/core/pull/69984
+[#69994]: https://github.com/home-assistant/core/pull/69994
+[#70000]: https://github.com/home-assistant/core/pull/70000
+[#70022]: https://github.com/home-assistant/core/pull/70022
+[#70028]: https://github.com/home-assistant/core/pull/70028
+[#70029]: https://github.com/home-assistant/core/pull/70029
+[#70055]: https://github.com/home-assistant/core/pull/70055
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bazwilliams]: https://github.com/bazwilliams
+[@bdraco]: https://github.com/bdraco
+[@chishm]: https://github.com/chishm
+[@dgomes]: https://github.com/dgomes
+[@dmulcahey]: https://github.com/dmulcahey
+[@epenet]: https://github.com/epenet
+[@golles]: https://github.com/golles
+[@ludeeus]: https://github.com/ludeeus
+[@raman325]: https://github.com/raman325
+[@uvjustin]: https://github.com/uvjustin
+[ambient_station docs]: /integrations/ambient_station/
+[backup docs]: /integrations/backup/
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[dlna_dms docs]: /integrations/dlna_dms/
+[generic docs]: /integrations/generic/
+[hassio docs]: /integrations/hassio/
+[home_connect docs]: /integrations/home_connect/
+[homekit_controller docs]: /integrations/homekit_controller/
+[media_player docs]: /integrations/media_player/
+[openhome docs]: /integrations/openhome/
+[prosegur docs]: /integrations/prosegur/
+[samsungtv docs]: /integrations/samsungtv/
+[stream docs]: /integrations/stream/
+[tomorrowio docs]: /integrations/tomorrowio/
+[zha docs]: /integrations/zha/
+
+## Release 2022.4.5 - April 16
+
+- Fix retry when Met config entry fails ([@chemelli74] - [#70012]) ([met docs])
+- Set source & sound mode at start in media player reproduce state ([@thecode] - [#70064]) ([media_player docs])
+- Limit Supervisor refresh updates ([@ludeeus] - [#70075]) ([hassio docs])
+- Correct tomorrowio weather units ([@raman325] - [#70107]) ([tomorrowio docs])
+- update xknx to 0.20.3 ([@farmio] - [#70123]) ([knx docs]) (dependency)
+- Bump pymazda to 0.3.3 ([@bdr99] - [#70136]) ([mazda docs]) (dependency)
+- Ensure powerwall retries setup when api returns too many requests ([@bdraco] - [#70143]) ([powerwall docs])
+- Fix StationInfo not string in Trafikverket Train ([@gjohansson-ST] - [#70153]) ([trafikverket_train docs])
+
+[#70012]: https://github.com/home-assistant/core/pull/70012
+[#70064]: https://github.com/home-assistant/core/pull/70064
+[#70075]: https://github.com/home-assistant/core/pull/70075
+[#70107]: https://github.com/home-assistant/core/pull/70107
+[#70123]: https://github.com/home-assistant/core/pull/70123
+[#70136]: https://github.com/home-assistant/core/pull/70136
+[#70143]: https://github.com/home-assistant/core/pull/70143
+[#70153]: https://github.com/home-assistant/core/pull/70153
+[@bdr99]: https://github.com/bdr99
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@farmio]: https://github.com/farmio
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@ludeeus]: https://github.com/ludeeus
+[@raman325]: https://github.com/raman325
+[@thecode]: https://github.com/thecode
+[hassio docs]: /integrations/hassio/
+[knx docs]: /integrations/knx/
+[mazda docs]: /integrations/mazda/
+[media_player docs]: /integrations/media_player/
+[met docs]: /integrations/met/
+[powerwall docs]: /integrations/powerwall/
+[tomorrowio docs]: /integrations/tomorrowio/
+[trafikverket_train docs]: /integrations/trafikverket_train/
+
+## Release 2022.4.6 - April 20
+
+- Fix bug in google calendar offset calculation (#70024) ([@allenporter] - [#70166]) ([google docs])
+- Improve roon integraton ([@pavoni] - [#66000]) ([roon docs])
+- Fix opening/closing for awning in Overkiz integration ([@tetienne] - [#68890]) ([overkiz docs])
+- Move handling of non-secure login to the elkm1 library ([@bdraco] - [#69483]) ([elkm1 docs])
+- Fix file size last_updated ([@chemelli74] - [#70114]) ([filesize docs])
+- Revert zigpy-zigate to 0.7.4 ([@doudz] - [#70184]) ([zha docs])
+- Fix handling of powerview stale state ([@bdraco] - [#70195]) ([hunterdouglas_powerview docs])
+- Auto set content type for stream-only in generic camera ([@davet2001] - [#70200]) ([generic docs])
+- Hide credentials from generated titles in generic camera ([@davet2001] - [#70204]) ([generic docs])
+- Bump aiodiscover to 1.4.9 ([@bdraco] - [#70213]) ([dhcp docs])
+- Screenlogic config: Filter unexpected host names ([@dieselrabbit] - [#70256]) ([screenlogic docs])
+- Fix handling unassigned areas in lutron_caseta ([@bdraco] - [#70258]) ([lutron_caseta docs])
+- Fix updating CameraZone coords for UniFi Protect ([@AngellusMortis] - [#70260]) ([unifiprotect docs])
+- Add Insteon USB discovery ([@balloob] - [#70306]) ([insteon docs])
+- Bump aiohomekit to 0.7.17 ([@bdraco] - [#70313]) ([homekit_controller docs])
+- Fix #69952: Daikin AC Temperature jumps after being set ([@vanackej] - [#70326]) ([daikin docs])
+
+[#66000]: https://github.com/home-assistant/core/pull/66000
+[#68890]: https://github.com/home-assistant/core/pull/68890
+[#69483]: https://github.com/home-assistant/core/pull/69483
+[#70114]: https://github.com/home-assistant/core/pull/70114
+[#70166]: https://github.com/home-assistant/core/pull/70166
+[#70184]: https://github.com/home-assistant/core/pull/70184
+[#70195]: https://github.com/home-assistant/core/pull/70195
+[#70200]: https://github.com/home-assistant/core/pull/70200
+[#70204]: https://github.com/home-assistant/core/pull/70204
+[#70213]: https://github.com/home-assistant/core/pull/70213
+[#70256]: https://github.com/home-assistant/core/pull/70256
+[#70258]: https://github.com/home-assistant/core/pull/70258
+[#70260]: https://github.com/home-assistant/core/pull/70260
+[#70306]: https://github.com/home-assistant/core/pull/70306
+[#70313]: https://github.com/home-assistant/core/pull/70313
+[#70326]: https://github.com/home-assistant/core/pull/70326
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@davet2001]: https://github.com/davet2001
+[@dieselrabbit]: https://github.com/dieselrabbit
+[@doudz]: https://github.com/doudz
+[@pavoni]: https://github.com/pavoni
+[@tetienne]: https://github.com/tetienne
+[@vanackej]: https://github.com/vanackej
+[daikin docs]: /integrations/daikin/
+[dhcp docs]: /integrations/dhcp/
+[elkm1 docs]: /integrations/elkm1/
+[filesize docs]: /integrations/filesize/
+[generic docs]: /integrations/generic/
+[google docs]: /integrations/google/
+[homekit_controller docs]: /integrations/homekit_controller/
+[hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
+[insteon docs]: /integrations/insteon/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[overkiz docs]: /integrations/overkiz/
+[roon docs]: /integrations/roon/
+[screenlogic docs]: /integrations/screenlogic/
+[unifiprotect docs]: /integrations/unifiprotect/
+[zha docs]: /integrations/zha/
+
+## Release 2022.4.7 - April 24
+
+- Fixed syntax error in ALTER TABLE statement (#70304) ([@dmak] - [#70336]) ([recorder docs])
+- Update xknx to version 0.20.4 ([@marvin-w] - [#70342]) ([knx docs])
+- Bump aiodiscover to 1.4.10 ([@bdraco] - [#70348]) ([dhcp docs])
+- Bump zwave-js-server-python to 0.35.3 ([@raman325] - [#70357]) ([zwave_js docs])
+- Bump pyplaato to 0.0.18 ([@JohNan] - [#70391]) ([plaato docs])
+- Bump aiodiscover to 1.4.11 ([@bdraco] - [#70413]) ([dhcp docs])
+- Ensure rainmachine creates config entry titles as strings ([@bdraco] - [#70417]) ([rainmachine docs])
+- Fix history not including start time state ([@bdraco] - [#70447]) ([recorder docs])
+- Daikin AC : Round to nearest half degree (#70446) ([@vanackej] - [#70452]) ([daikin docs])
+
+[#70336]: https://github.com/home-assistant/core/pull/70336
+[#70342]: https://github.com/home-assistant/core/pull/70342
+[#70348]: https://github.com/home-assistant/core/pull/70348
+[#70357]: https://github.com/home-assistant/core/pull/70357
+[#70391]: https://github.com/home-assistant/core/pull/70391
+[#70413]: https://github.com/home-assistant/core/pull/70413
+[#70417]: https://github.com/home-assistant/core/pull/70417
+[#70447]: https://github.com/home-assistant/core/pull/70447
+[#70452]: https://github.com/home-assistant/core/pull/70452
+[@JohNan]: https://github.com/JohNan
+[@bdraco]: https://github.com/bdraco
+[@dmak]: https://github.com/dmak
+[@marvin-w]: https://github.com/marvin-w
+[@raman325]: https://github.com/raman325
+[@vanackej]: https://github.com/vanackej
+[daikin docs]: /integrations/daikin/
+[dhcp docs]: /integrations/dhcp/
+[knx docs]: /integrations/knx/
+[plaato docs]: /integrations/plaato/
+[rainmachine docs]: /integrations/rainmachine/
+[recorder docs]: /integrations/recorder/
 [zwave_js docs]: /integrations/zwave_js/
 
 ## Need help? Join the community!

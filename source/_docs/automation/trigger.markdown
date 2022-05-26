@@ -23,6 +23,7 @@ An automation can be triggered by an event, with a certain entity state, at a gi
 - [Zone trigger](#zone-trigger)
 - [Geolocation trigger](#geolocation-trigger)
 - [Device triggers](#device-triggers)
+- [Calendar trigger](#calendar-trigger)
 - [Multiple triggers](#multiple-triggers)
 - [Multiple Entity IDs for the same Trigger](#multiple-entity-ids-for-the-same-trigger)
 
@@ -326,7 +327,7 @@ If for your use case this is undesired, you could consider using the automation 
 ## State trigger
 
 Fires when the state of any of given entities changes. If only `entity_id` is given, the trigger will fire for all state changes, even if only state attributes change.
-If at least one of `from` or `to` are given, the trigger will fire on any matching state change, but not if only attributes change. To trigger on all state changes, but not on changed attributes, set at least one of `from` or `to` to `null`.
+If at least one of `from`, `to`, `not_from`, or `not_to` are given, the trigger will fire on any matching state change, but not if only attributes change. To trigger on all state changes, but not on changed attributes, set at least one of `from`, `to`, `not_from`, or `not_to` to `null`.
 
 <div class='note'>
 
@@ -369,6 +370,21 @@ automation:
       entity_id: vacuum.test
       to:
 ```
+
+The `not_from` and `not_to` options are the counter parts of `from` and `to`. They can be used to trigger on state changes that are **not** the specified state. This can be useful to  trigger on all state changes, except specific ones.
+
+```yaml
+automation:
+  trigger:
+    - platform: state
+      entity_id: vacuum.test
+      not_from:
+        - "unknown"
+        - "unavailable"
+      to: "on"
+```
+
+You cannot use `from` and `not_from` at the same time. The same applies to `to` and `not_to`.
 
 ### Triggering on attribute changes
 
@@ -836,6 +852,25 @@ In contrast to state triggers, device triggers are tied to a device and not nece
 To use a device trigger, set up an automation through the browser frontend.
 If you would like to use a device trigger for an automation that is not managed through the browser frontend, you can copy the YAML from the trigger widget in the frontend and paste it into your automation's trigger list.
 
+## Calendar trigger
+
+Calendar trigger fires when a [Calendar](/integrations/calendar/) event starts or ends, allowing
+much more flexible automations that using the Calendar entity state which only supports a single
+event start at a time.
+
+```yaml
+automation:
+  trigger:
+    - platform: calendar
+      # Possible values: start, end
+      event: start
+      # The calendar entity_id
+      entity_id: calendar.light_schedule
+```
+
+See the [Calendar](/integrations/calendar/) integration for more details on event triggers and the
+additional event data available for use by an automation.
+
 ## Multiple triggers
 
 It is possible to specify multiple triggers for the same rule. To do so just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, [processing](#what-are-triggers) of your automation rule begins.
@@ -863,4 +898,24 @@ automation:
         - sensor.one
         - sensor.two
         - sensor.three
+```
+
+## Disabling a trigger
+
+Every individual trigger in an automation can be disabled, without removing it.
+To do so, add `enabled: false` to the trigger. For example:
+
+```yaml
+# Example script with a disabled trigger
+automation:
+  trigger:
+    # This trigger will not trigger, as it is disabled.
+    # This automation does not run when the sun is set.
+    - enabled: false
+      platform: sun
+      event: sunset
+
+    # This trigger will fire, as it is not disabled.
+    - platform: time
+      at: "15:32:00"
 ```

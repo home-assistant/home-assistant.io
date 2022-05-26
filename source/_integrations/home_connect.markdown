@@ -31,7 +31,7 @@ The integration will add one Home Assistant device for each connected home appli
 - For hood's functional light a light switch including brightness control will be added.
 - For hood's and dishwasher's ambient light a light switch including brightness and color control will be added.
 
-Note that it depends on the appliance and on API permissions which of the features are supported. A notable limitation is that oven programs cannot be started currently.
+Note that it depends on the appliance and on API permissions which of the features are supported.
 
 ## Prerequisites
 

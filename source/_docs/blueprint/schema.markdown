@@ -83,6 +83,7 @@ input:
     description:
       description: >
         A short description of the input field. Keep this short and descriptive.
+        The description can include [Markdown](https://commonmark.org/help/).
       type: string
       required: false
     selector:

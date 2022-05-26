@@ -23,7 +23,7 @@ ha_codeowners:
   - '@farmio'
   - '@marvin-w'
 ha_domain: knx
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - button
@@ -1173,6 +1173,11 @@ address:
 name:
   description: A name for this device used within Home Assistant.
   required: false
+  type: string
+type:
+  description: A DPT identifier representing a text value ("string" or "latin_1" - see [KNX Sensor](#sensor)) used to encode the notification.
+  required: false
+  default: "latin_1"
   type: string
 {% endconfiguration %}
 

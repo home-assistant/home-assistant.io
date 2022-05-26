@@ -103,7 +103,7 @@ content: |
 
 ## Icons
 
-You can also use [materialdesignicons.com](https://materialdesignicons.com/) icons in the `content` of the card.
+You can use [materialdesignicons.com](https://materialdesignicons.com/) icons in the `content` of the card.
 
 For example:
 
@@ -116,3 +116,25 @@ content: |
 ```
 
 {% endraw %}
+
+
+## ha-alert
+
+You can also use our [\`ha-alert\`](https://design.home-assistant.io/#components/ha-alert) component in the Markdown card.
+
+Example:
+
+<p class='img'>
+<img src='/images/dashboards/lovelace_markdown_ha-alert.png' alt='Screenshot of the ha-alert elements in a markdown card'>
+Screenshot of the ha-alert elements in a markdown card.
+</p>
+
+```yaml
+type: markdown
+content: |
+  <ha-alert alert-type="error">This is an error alert — check it out!</ha-alert>
+  <ha-alert alert-type="warning">This is a warning alert — check it out!</ha-alert>
+  <ha-alert alert-type="info">This is an info alert — check it out!</ha-alert>
+  <ha-alert alert-type="success">This is a success alert — check it out!</ha-alert>
+  <ha-alert title="Test alert">This is an alert with a title</ha-alert>
+```

@@ -29,7 +29,7 @@ Once installed you can adjust the threshold for this location by clicking on the
 
 ## Sensors
 
-The integration will add a two sensors for each location you configure:
+The integration will add two sensors for each location you configure:
 
 |Sensor Type|Values|Description|
 |-|-|-|

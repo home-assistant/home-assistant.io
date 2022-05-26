@@ -300,7 +300,7 @@ xbox:
   client_secret: YOUR_CLIENT_SECRET
 ```
 
-Finish setup in the UI through **Configuration -> Integrations -> Xbox**.
+Finish setup in the UI through **Settings -> Integrations -> Xbox**.
 
 {% configuration %}
 client_id:
