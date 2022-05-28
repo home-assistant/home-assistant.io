@@ -40,11 +40,6 @@ port:
   required: false
   default: 14999
   type: integer
-name:
-  description: The name of the device used in the frontend.
-  required: false
-  default: Anthem AV
-  type: string
 {% endconfiguration_basic %}
 
 ## Notes and Limitations
