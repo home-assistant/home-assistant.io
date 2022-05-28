@@ -103,3 +103,15 @@ The time period these sensors use depends on the forecast mode selected when con
 | `forecast_wind_speed`                | Wind speed for the forecast's time period, metre/sec.                                                                                                          |
 
 Details about the API are available in the [OpenWeatherMap documentation](https://openweathermap.org/api).
+
+## Services
+
+### Service `update_location`
+
+Update the location associated with a weather entity.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            | no       | Weather entity to update |
+| `latitude`             | no       | Latitude in degrees (north positive, south negative) |
+| `longitude`            | no       | Longitude in degrees (east positive, west negative) |
