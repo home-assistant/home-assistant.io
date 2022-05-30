@@ -24,11 +24,9 @@ Integrates [YoLink](https://www.yosmart.com/) Devices into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-<br>
-
 <div class='note'>
 
-Because it uses the Home Assistant Cloud account linking service you **must** have either `cloud:` or `default_config:` in your `configuration.yaml`. These follow steps are not required, nor will they be supported if issues are encountered.
+Home Assistant will use account linking provided by Nabu Casa for authenticating with YoLink, These follow steps are not required.
 
 </div>
 
