@@ -27,8 +27,11 @@ Give the user access to your Location, along with a user code, usually a 4 digit
 
 {% include integrations/config_flow.md %}
 
-## Automation example
+## Configuration Options
 
+**Auto Bypass Low Battery:** if enabled, TotalConnect zones will immediately be bypassed when they report low battery. This option helps because zones tend to report low battery in the middle of the night. The downside of this option is that when the alarm system is armed, the bypassed zone will not be monitored.
+
+## Automation example
 ```yaml
 automation:
   - alias: "Alarm: Disarmed Daytime"
