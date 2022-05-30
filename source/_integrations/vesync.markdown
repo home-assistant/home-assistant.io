@@ -59,6 +59,7 @@ This integration supports devices controllable by the VeSync App.  The following
 - Core 200S: Smart True HEPA Air Purifier
 - Core 300S: Smart True HEPA Air Purifier
 - Core 400S: Smart True HEPA Air Purifier
+- Core 600S: Smart True HEPA Air Purifier
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
 
 ## Prerequisite
@@ -96,6 +97,15 @@ VeSync outlets will expose the following details for only the smart outlets. Ene
 | `monthly_energy_total`  | Total energy usage for month starting from 12:01AM on the first in kWh  | 52.30           |
 | `yearly_energy_total`   | Total energy usage for year start from 12:01AM on Jan 1 in kWh          | 105.25          |
 
+## Fan & Air Quality Sensors
+All VeSync air purifiers expose the remaining filter life, and some also expose air quality measurements.
+
+| Sensor                                  | Description                                                        | Example |
+| --------------------------------------- | ------------------------------------------------------------------ | ------- |
+| `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, Core200S/300s/400s/600s)         | 142       |
+| `air_quality`           | The current air quality reading. (LV-PUR131S, Core400s/600s)                      | excellent |
+| `pm2_5`                 | The current air quality reading. (Core400s/600s)                                  | 8         |
+
 ## Fan Exposed Attributes
 
 VeSync air purifiers will expose the following details depending on the features supported by the model:
@@ -106,8 +116,6 @@ VeSync air purifiers will expose the following details depending on the features
 | `speed`                 | The current speed setting of the device. (LV-PUR131S, Core200S/300s/400s)         | high            |
 | `speed_list`            | The available list of speeds supported by the device. (LV-PUR131S)                | high            |
 | `active_time`           | The number of seconds since the device has been in a non-off mode. (LV-PUR131S)   | 1598            |
-| `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, (Core200S/300s/400s)             | 142             |
-| `air_quality`           | The current air quality reading. (LV-PUR131S)                                     | excellent       |
 | `screen_status`         | The current status of the screen. (LV-PUR131S)                                    | on              |
 | `night_light`           | The current status of the night light (Core200S/Core400s)                         | off             |
 | `child_lock`            | The current status of the child lock (Core200S/300s/400s)                         | off             |
@@ -129,17 +137,4 @@ template:
       state: "{{ state_attr('switch.vesync_switch', 'voltage') | float(default=0) }}"
       unit_of_measurement: "V"
 ```
-{% endraw %}
-
-Extracting air quality from a VeSync LV-PUR131S air purifier. Change the `vesync_air_purifier` to match your device's entity ID.
-
-{% raw %}
-
-```yaml
-template:
-  - sensor:
-      - name: "VeSync Air Quality"
-        state: "{{ state_attr('fan.vesync_air_purifier', 'air_quality') | title }}"
-```
-
 {% endraw %}
