@@ -44,10 +44,6 @@ The Nest Smart Device Management (SDM) API **requires a US$5 fee**.
 
 </div>
 
-## Video Walkthrough
-
-<lite-youtube videoid="wghcd9xDdMs" videotitle="EASIER NEST INTEGRATION in Home Assistant! No More SSH or SSL validation!" posterquality="maxresdefault"></lite-youtube>
-
 ## Device Access Registration
 
 For the first phase, you will turn on the API and create the necessary credentials to have Home Assistant talk to the Nest API.
@@ -109,7 +105,7 @@ your cloud project.
 
 By the end of this section you will have the `client_id` and `client_secret` which are needed for later steps.
 
-The steps below use *Desktop App* auth since your Home Assistant instance is not a public website. *Web App* auth is no longer recommended to avoid needing to configure SSL and follow strict URL validation rules.
+The steps below use *Web Application Auth* with *My Home Assistant* to handle Google's strict URL validation rules like requiring SSL and a publicly resolvable redirect URL. *Desktop Auth* has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google to improve security, and it can no longer be used with Home Assistant.
 
 1. Navigate to the [Credentials](https://console.cloud.google.com/apis/credentials) page and click **Create Credentials**.
     ![Screenshot of APIs and Services Cloud Console](/images/integrations/nest/create_credentials.png)
@@ -117,9 +113,14 @@ The steps below use *Desktop App* auth since your Home Assistant instance is not
 1. From the drop-down list select *OAuth client ID*.
     ![Screenshot of OAuth client ID selection](/images/integrations/nest/oauth_client_id.png)
 
-1. Enter *Desktop App* for the Application type.
+1. Enter *Web Application* for the Application type.
 
 1. Pick a name for your credential.
+
+1. Add **Authorized redirect URIs** end enter `https://my.home-assistant.io/redirect/oauth`
+
+1. Click *Create* to create the credential.
+    ![Screenshot of creating OAuth credentials](/images/integrations/nest/oauth_redirect_uri.png)
 
 1. You should now be presented with an *OAuth client created* message. Take note of *Your Client ID* and *Your Client
 Secret* as these are needed in later steps.
@@ -216,14 +217,9 @@ your Home Assistant to access your account and Nest devices.
 
 In this section you will authorize Home Assistant to access your account by generating an *Authentication Token*.
 
-1. Choose **OAuth for Apps** since you created *Desktop App* credentials above in the Google Cloud Console. Note that *OAuth for Web* still exists if you previously created *Web Application* credentials and want to keep using them.
+1. Choose **OAuth for Web** since you created *Web Application* credentials above in the Google Cloud Console. Note that *OAuth for Auth* has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google and will break by October 2022.
 
     ![Screenshot of Integration setup on OAuth type step](/images/integrations/nest/integration_oauth_type.png)
-
-
-1. Click the link to **authorize your account**.
-
-    ![Screenshot of Integration setup on Link Accounts step](/images/integrations/nest/integration_link_account.png)
 
 1. A new tab opens, allowing you to choose a Google account. This should be the same developer account you configured above.
 
@@ -244,13 +240,7 @@ In this section you will authorize Home Assistant to access your account by gene
 1. Confirm you want to allow persistent access to Home Assistant.
     ![Screenshot of OAuth confirmation](/images/integrations/nest/oauth_confirm.png)
 
-1. Copy the access token.
-
-    ![Screenshot of Integration setup on Link Accounts step](/images/integrations/nest/oauth_access_token.png)
-
-1. Paste the access token into the Home Assistant *Link Google Account* dialog.
-
-    ![Screenshot of Integration setup on Link Accounts step](/images/integrations/nest/integration_access_token.png)
+1. You will now see a page hosted by *My Home Assistant* asking if you would like to *Link account to Home Assistant?* Click **Link Account** to continue.
 
 1. The next step is to enter the *Cloud Project ID* to enable a subscription to receive updates from devices. This is not the same as the *Device Access Project ID* above! Visit the [Cloud Console](https://console.cloud.google.com/home/dashboard) and copy the *Project ID*.
 
@@ -463,9 +453,35 @@ This feature is enabled by the following permissions:
 
 - You can manage devices and permissions granted to Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Restart Home Assistant to make new devices available. See the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation for more details.
 
-- For general trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting).
+- *Error 400: invalid_request* plus a message about not complying with *Google's OAuth Policy for keeping accounts secure* is shown when using *App Auth* or *Desktop Auth* or *OOB Auth* which has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google. You need to create new *Web App* credentials following the instructions on this page and update your Home Assistant to use them.
 
-- Check **Settings** -> **System** -> **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
+- *Error 400: redirect_uri_mismatch* means that your OAuth Client ID is not configured to match the *My Home Assistant* callback URL. Home Assistant's redirect URL behavior may have changed since you initially set this up!
+
+{% details "Details about resolving redirect_uri_mismatch" %}
+
+- This should show the redirect URI `https://my.home-assistant.io/redirect/oauth` in the error message. If the error message has a different URL, then you are running an older version of Home Assistant need to upgrade or manually disabled My Home Assistant (see below).
+
+  ![Screenshot of success](/images/integrations/nest/redirect_uri_mismatch.png)
+
+- Go back to the [API Console](https://console.developers.google.com/apis/credentials) and select your *OAuth 2.0 Client ID*.
+- Add the URL `https://my.home-assistant.io/redirect/oauth` to the list of *Authorized redirect URIs* and click **Save** and start the flow over.
+
+  ![Screenshot of success](/images/integrations/nest/redirect_uris_fix.png)
+
+{% enddetails %}
+
+{% details "I have manually disabled My Home Assistant" %}
+
+Google applies strict [Redirect URI validation rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) to keep your login credentials secure. In practice, this means that you must access Home Assistant *over SSL* and a *public top-level domain*. See the documentation on [Securing](/docs/configuration/securing/) and note that you don't actually need to enable remote access.
+
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
+instead.
+
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
+
+{% enddetails %}
 
 - *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiugration or your authentication token was revoked by Google for some other reason.
 
@@ -478,7 +494,7 @@ This feature is enabled by the following permissions:
 
 {% enddetails %}
 
-- *Error 400: redirect_uri_mismatch*: This means you have an existing *Web Application* credential. It is recommended to delete the existing OAuth Client id and create a new *Desktop App* credential using the instructions above. This has the advantage of not requiring SSL or a public DNS name.
+- Check **Settings** -> **System** -> **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
 
 - *Thermostat does not appear or is unavailable* happens due to a bug where the SDM API does return the devices. A common fix get the API to work again is to:
 
@@ -705,8 +721,6 @@ script:
 ```
 
 **Troubleshooting**
-
-- For trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting) which includes guidance for errors like `redirect_uri_mismatch` where Google needs to know about your external URL.
 
 - If you're getting [rickrolled](https://www.youtube.com/watch?v=dQw4w9WgXcQ) by the Legacy API instead of being able to see your Nest cameras, you may not have set up your developer account's permissions correctly. Go back through and make sure you've selected read/write under every category that it's an option.
 
