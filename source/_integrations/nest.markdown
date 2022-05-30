@@ -105,7 +105,7 @@ your cloud project.
 
 By the end of this section you will have the `client_id` and `client_secret` which are needed for later steps.
 
-The steps below use *Web Application Auth* with *My Home Assistant* to handle Gogole's strict URL validation rules like requiring SSL and a publicly resolvable redirect URL. *Desktop Auth* has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google to improve security, and it can no longer be used with Home Assistant.
+The steps below use *Web Application Auth* with *My Home Assistant* to handle Google's strict URL validation rules like requiring SSL and a publicly resolvable redirect URL. *Desktop Auth* has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google to improve security, and it can no longer be used with Home Assistant.
 
 1. Navigate to the [Credentials](https://console.cloud.google.com/apis/credentials) page and click **Create Credentials**.
     ![Screenshot of APIs and Services Cloud Console](/images/integrations/nest/create_credentials.png)
@@ -455,11 +455,11 @@ This feature is enabled by the following permissions:
 
 - *Error 400: invalid_request* plus a message about not complying with *Google's OAuth Policy for keeping accounts secure* is shown when using *App Auth* or *Desktop Auth* or *OOB Auth* which has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google. You need to create new *Web App* credentials following the instructions on this page and update your Home Assistant to use them.
 
-- *Error 400: redirect_uri_mismatch* means that your OAuth Client ID is not configured to match the *My Home Assistant* callback URL. Home Assistant's redirect URLl behavior may have changed since you initially set this up!
+- *Error 400: redirect_uri_mismatch* means that your OAuth Client ID is not configured to match the *My Home Assistant* callback URL. Home Assistant's redirect URL behavior may have changed since you initially set this up!
 
 {% details "Details about resolving redirect_uri_mismatch" %}
 
-- This should show the redirect uri `https://my.home-assistant.io/redirect/oauth` in the error message. If the error message has a different URL, then you are running an older version of Home Assistant need to upgrade or manually disabled My Home Assistant (see below).
+- This should show the redirect URI `https://my.home-assistant.io/redirect/oauth` in the error message. If the error message has a different URL, then you are running an older version of Home Assistant need to upgrade or manually disabled My Home Assistant (see below).
 
   ![Screenshot of success](/images/integrations/nest/redirect_uri_mismatch.png)
 
