@@ -245,6 +245,7 @@ source/_integrations/hue.markdown @balloob @marcelveldt
 source/_integrations/huisbaasje.markdown @dennisschroer
 source/_integrations/humidifier.markdown @home-assistant/core @Shulyaka
 source/_integrations/hunterdouglas_powerview.markdown @bdraco
+source/_integrations/huum.markdown @frwickst
 source/_integrations/hvv_departures.markdown @vigonotion
 source/_integrations/hydrawise.markdown @ptcryan
 source/_integrations/hyperion.markdown @dermotduffy
