@@ -24,13 +24,10 @@ Integrates [YoLink](https://www.yosmart.com/) Devices into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-
-Home Assistant will use account linking provided by Nabu Casa for authenticating with YoLink, These follow steps are not required.
-
-</div>
-
- If you want to use separate credentials, please contact <service@yosmart.com> to obtain a `client_id` and `client_secret`. Then you can add your credentials via application credentials. Settings > Devices & Services > click the menu (three dots at the top right of the screen) and then **Application Credentials**. Enter your credentials in the pop-up window.
+{% details "Using custom application credentials" %}
+Home Assistant will use account linking provided by Nabu Casa for authenticating with YoLink, this service is provided for free and does not require a Nabu Casa subscription. The steps below are thus not required.
+If you want to use separate credentials, please contact <service@yosmart.com> to obtain a `client_id` and `client_secret`. Then you can add your credentials via application credentials. Settings > Devices & Services > click the menu (three dots at the top right of the screen) and then **Application Credentials**. Enter your credentials in the pop-up window.
+{% enddetails %}
 
 The integration is tested and verified for the following devices from YoLink:
 
