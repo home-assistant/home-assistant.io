@@ -28,7 +28,7 @@ tap_action:
 {% configuration tap-action %}
 tap_action:
   required: false
-  description: Action to take on tap.
+  description: Action taken on tap.
   type: map
   keys:
     action:
@@ -75,7 +75,7 @@ hold_action:
 {% configuration hold_action %}
 hold_action:
   required: false
-  description: Action to take on tap-and-hold
+  description: Action taken on tap-and-hold
   type: map
   keys:
     action:
@@ -122,7 +122,7 @@ double_tap_action:
 {% configuration double_tap_action %}
 double_tap_action:
   required: false
-  description: Action to take on double tap
+  description: Action taken on double tap
   type: map
   keys:
     action:
