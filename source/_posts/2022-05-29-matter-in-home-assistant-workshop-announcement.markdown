@@ -30,7 +30,7 @@ The workshop will be free but you will need a couple of things if you want to be
 
 - Home Assistant OS 8.0 or newer (Matter relies on an add-on and Bluetooth)
 - [Home Assistant Community Store](https://hacs.xyz/) installed
-- Espressif ESP32-C3-DevKitM-1 ($9 @ [Mouser](https://www.mouser.com/ProductDetail/356-ESP32-C3DEVKITM1), €13.50 @ [Reichelt](https://www.reichelt.com/nl/en/developmentkit-esp32-c3-mini-1-esp32c3devkitm-p311730.html))
+- Espressif ESP32-C3-DevKitM-1 ($9 @ [Mouser](https://www.mouser.com/ProductDetail/356-ESP32-C3DEVKITM1), €17 @ [Conrad](https://www.conrad.de/de/p/espressif-entwicklungsboard-esp32-c3-devkitm-1-2490158.html))
 - Bluetooth. If you use a Raspberry Pi to run Home Assistant you’re set. If you have a Home Assistant Blue or another device without Bluetooth, get a Bluetooth USB adapter that is supported by Home Assistant OS ([like this one](https://www.amazon.com/gp/product/B09DMP6T22/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B09DMP6T22&linkCode=as2&tag=homeassista0e-20&linkId=c5046239bf04d5b21835299dfb393f0e)).
 
 Even if you can’t follow along, it will still be an informative session!
