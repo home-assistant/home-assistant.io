@@ -98,7 +98,7 @@ Clicking the "Compare data" button in the top right of your
 are currently viewing with the same period before that. It adds the
 previous period to the graphs using a lighter bar color.
 
-<img class="no-shadow" src='/images/blog/2022-06/energy-compare.png' alt='Screenshot showing energy usage being compared from last week with the week before that'>
+<img class="no-shadow" src='/images/blog/2022-06/energy-compare-usage.png' alt='Screenshot showing energy usage being compared from last week with the week before that'>
 
 In the above screenshot, my energy usage of this week is compared with the week
 before; since, a week is selected as the period to view.
@@ -136,7 +136,7 @@ for entity-less logs, like device events of button presses. [deCONZ],
 [Elk-M1 Control], [Philips Hue], [Lutron Caséta], [Shelly],
 and the [Mobile App] added support for this feature in this release.
 
-Live! Yes, if you select a dange range that extends into the future,
+Live! Yes, if you select a date range that extends into the future,
 the logbook will now update in real-time. The logbook cards have been equiped
 with the same real-time feature.
 
@@ -176,31 +176,6 @@ We have updated the documentation of all integrations using OAuth to reflect
 all these changes.
 
 [@allenporter]: https://github.com/allenporter
-
-## Improved scene editor
-
-{% details "TODO" %}
-
-- Section feel "meh"
-- Needs some graphic, or maybe even video about scenes? Anyways, the current screenshot needs to be replaced.
-* Make entities and devices independent in the scene editor (#11046) @dmulcahey
-
-{% enddetails %}
-
-Scenes are great to restore states of multple devices to a previous state.
-They can be useful for quickly setting, for example, a lighting mood in a room
-quickly; No matter if you use the scene in an automation, script or using a
-button on one of your dashboards.
-
-When edditing scenes in the UI, it creates those scenes based on the state
-of a whole device (including all of its entities), however, what if you
-wanted to restore just specific entities with the scene?
-
-<img class="no-shadow" src='/images/blog/2022-06/scene-editor.png' alt='Screenshot showing the scene editor adding a single entity to the scene'>
-
-Exactly that has been improved, a small, but welcome improvement that makes
-it possible to include single entities into a scene, without adding the whole
-device.
 
 ## Calendar trigger offsets
 
