@@ -51,8 +51,8 @@ Enjoy the (beta) release!
 - [Comparing energy data](#comparing-energy-data)
 - [Logbooks!](#logbooks)
 - [Streamlining the OAuth2 experience](#streamlining-the-oauth2-experience)
-- [Improved scene editor](#improved-scene-editor)
 - [Calendar trigger offsets](#calendar-trigger-offsets)
+- [Improved scene editor](#improved-scene-editor)
 - [Database Performance](#database-performance)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
@@ -224,6 +224,24 @@ or a reminder 15 minutes before a meeting.
   This way, you can create complex schedules with repeating patterns
   and schedule exceptions, with the ease of using your calendar.
 </div>
+
+## Improved scene editor
+
+Scenes are great for restoring states of multiple devices to a previous state, e.g.,
+to quickly set a lighting mood in a room, using an automation, script, or a
+button on your dashboard.
+
+When creating scenes, it creates those scenes based on the state of a whole
+device (including all of its entities). However, what if you want to add
+a specific entity to a scene and not the entire device?
+
+Well, now you can!
+
+<img class="no-shadow" src='/images/blog/2022-06/scene-editor-individual-entities.png' alt='Screenshot showing the scene editor adding a single entity to the scene'>
+
+It is a small but welcome improvement that makes it possible to include single
+entities into a scene without adding the whole device. Of course, you can also
+still add the entire device if you want to.
 
 ## Database Performance
 
