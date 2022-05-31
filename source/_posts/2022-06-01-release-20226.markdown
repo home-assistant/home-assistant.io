@@ -50,7 +50,7 @@ Enjoy the (beta) release!
 
 - [Comparing energy data](#comparing-energy-data)
 - [Logbooks!](#logbooks)
-- [Manage application credentials from the UI](#manage-application-credentials-from-the-ui)
+- [Streamlining the OAuth2 experience](#streamlining-the-oauth2-experience)
 - [Improved scene editor](#improved-scene-editor)
 - [Calendar trigger offsets](#calendar-trigger-offsets)
 - [Database Performance](#database-performance)
@@ -147,46 +147,33 @@ with the same real-time feature.
 [Philips Hue]: /integrations/hue
 [Shelly]: /integrations/shelly
 
-## Manage application credentials from the UI
+## Streamlining the OAuth2 experience
 
-{% details "TODO" %}
+Home Assistant has quite a few integrations that use the OAuth2 standard
+to authenticate your Home Assistant instance with a third-party service. Some
+examples are Home Connect, Spotify, Netatmo, Xbox, Withings, and Google Calendars.
 
-- Make a clear, short, to the point story, this is too long and unreadble.
-- Add some kind of screenshot
-- My Home Assistant? My Home Assistant for OAuth2 redirect callbacks ([@frenck] - [#72449]) (breaking-change)
-- Movie / clip?
+OAuth2 can be pretty complex, as services often implement additional
+requirements on top of the OAuth2 specifications. So, if "OAuth Redirect URI"
+gives you the shivers, you definitely will know what drama we are talking about.
+Additionally, for most, you need to register a developer account, create
+an application, get the client ID and secret and configure YAML 🥴
 
-{% enddetails %}
+This release aims to make this all easier and streamline this experience A LOT.
 
-We see more service providers and device manufacturers handling authentication
-using OAuth2. If you are unfamiliar or unsure what this is, this method of
-authentication is mostly recongnizable because you are redirected/log in on
-the website/app/service itself when hooking up your account to e.g.,
-Home Assistant.
+<img class="no-shadow" src='/images/blog/2022-06/application-credentials.png' alt='Screenshot showing adding OAuth2 application credentials can now be done via the UI'>
 
-At [Nabu Casa](https://www.nabucasa.com) they try to make this easier, by
-providing a (free for everyone) account linking services, unfortunately,
-not every OAuth2 provider can, wants, or will be supported. In those cases,
-you can configure your own application credentials (aka developer credentials,
-application tokens, app client/secret, client ID & secret).
+[@allenporter] has been busy adding support for managing OAuth2
+application credentials directly from the UI! (screenshot above.) This removes
+the need to edit YAML (and restart Home Assistant). Additionally, the UI
+will now guide you through this all when setting up the integration. Awesome!
 
-Up until today you needed to go into YAML, ensuring your Home Assistant URLs
-would conform the requirements of the provider, and things like that. Which is
-annoying to say the least 🥴
+Also, we have extended My Home Assistant to be able to support OAuth2
+authentication redirects! It's fast, simple, privacy-aware, and nothing
+for you to set up. It just works! No more redirect URI frustrations. 🤘
 
-This release [@allenporter] has been busy adding support for managing OAuth2
-application credentials, directly from the UI! This removes the need to edit
-YAML (and restart Home Assistant). Additionally, the UI will now guide you
-throught this all when setting up the integration. Awesome!
-
-OAuth Redirect URLs. If this gives you shivers, you definitly will know what
-drama we are talking about. They can be complicated, hard or at least annoying
-to get right. We've solved that!
-
-My Home Assistant has been extended to be able to support OAuth2 authentication
-redirects! Its fast, simple, privacy aware and nothing for you to set up.
-We have updated the documentation of all integrations that now support this
-(which is basically all of them!).
+We have updated the documentation of all integrations using OAuth to reflect
+all these changes.
 
 [@allenporter]: https://github.com/allenporter
 
