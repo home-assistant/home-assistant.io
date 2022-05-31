@@ -1003,7 +1003,7 @@ previously known as "Server Controls", but now moved to the developer tools.
 
 Sensors reporting a temperature but not setting device class to temperature will
 no longer have their values automatically converted.
-For sensors which are manually configured, users needs to set the device class.
+For sensors that are manually configured, users need to set the device class.
 If the integration providing the sensor does not support setting device class,
 the sensor's state can be filtered through a template sensor.
 
