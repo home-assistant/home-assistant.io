@@ -202,29 +202,26 @@ device.
 
 ## Calendar trigger offsets
 
-{% details "TODO" %}
-
-- Add a bit of content/story
-- Add a screenshot
-- Add calendar trigger offsets ([@allenporter] - [#70963]) ([calendar docs])
-
-{% enddetails %}
-
-Last release, we introduced the calendar trigger, this release, this trigger
-is being exended to support offsets!
+The last release, [we introduced the calendar trigger](/blog/2022/05/04/release-20225/);
+in this release, the calendar trigger is extended with offset support!
 
 Offsets can be helpful for use in automations, as it allows you to alert
-ahead of the actual calendar event happening.
+ahead of the actual calendar event happening. For example, triggering a
+notification the evening before trash day, a birthday reminder a week early,
+or a reminder 15 minutes before a meeting.
 
-For example, trigger a notification the evening before trashday, a birthday
-reminder a week early, or a reminder 15 minutes before an meeting.
+<img class="no-shadow" src='/images/blog/2022-06/calendar-offset.png' alt='Screenshot showing the calendar trigger using an offset'>
 
-The calendar trigger offset is available for automations in created YAML and
-via the UI.
-
-## Hardware integrations
-
-One big todo at this point.
+<div class='note' data-title=" / Pro-tip!">
+  <b>Use the calendar trigger to schedule anything in your home!</b><br>
+  <br>
+  Create a calendar and add events to it as a schedule, for example, for your
+  thermostat or lights, and use an automation to trigger and adjust
+  these devices based on the plan you have defined in that calendar!<br>
+  <br>
+  This way, you can create complex schedules with repeating patterns
+  and schedule exceptions, with the ease of using your calendar.
+</div>
 
 ## Database Performance
 
