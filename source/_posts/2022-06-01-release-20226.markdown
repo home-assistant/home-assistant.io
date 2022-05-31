@@ -256,49 +256,45 @@ of your data is in the new format.
 
 ## Other noteworthy changes
 
-{% details "TODO" %}
-
-- Review for missing items
-- Check for spelling and such
-
-{% enddetails %}
-
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
 - The {% my system_health title="System Health" %} menu now shows database
   information, including versions and estimated database size. The version
   number of the OS Agent is now also listed. Thanks, [@bdraco] & [@ludeeus].
-- The "Preload Camera" setting shown on every camera feed, has been moved! It
-  is now part of the entity settings, preventing unintential toggling it.
+- The "Preload Camera" setting shown on every camera feed has been moved! It
+  is now part of the entity settings, preventing unintentional toggling.
   Thanks [@bramkragten]!
 - [@goyney] upgraded the [Material Design Icons] to version v6.7.96, providing
-  us with 100 new, fresh and really useful icons to use! Thank you!
-- The `this` variable in [template] entities, is now also available for use in
+  us with 100 new, fresh, and really useful icons! Thank you!
+- The `this` variable in [template] entities is now also available for use in
   their actions! Thanks, [@emontnemery].
 - A big shout out to [@yosilevy], who has been improving support for
-  RTL-languages (Right to Left) in the UI! Thank you!
+  RTL languages (Right to Left) in the UI! Thank you!
 - [@balloob] added support for the media browser to the [GStreamer] and
   [VLC media player] integrations.
 - The [`as_timedelta`](/docs/configuration/templating/#time) template
   filter/function, added by [@eifinger], allows you to convert many time strings
   (including ISO8601) into a timedelta object. Awesome!
-- Lots of you asked for it, the "YAML" tab is now the first tab
+- Lots of you asked for it; the "YAML" tab is now the first tab
   shown in the developer tools.
 - [@Noltari] has been extending the [QNAP QSW] integration, adding support
-  for diagnostics, a reboot button and binary sensors for abomaly detection.
-- Got a [Ring] doorbell? And want fool your other in your house someone is
+  for diagnostics, a reboot button, and binary sensors for anomaly detection.
+- Got a [Ring] doorbell? And want to fool your other in your house someone is
   at the door? Now you can! Thanks to [@grablair] you can now trigger the ding!
-  Which is useful for notifications of course ;)
+  This is useful for notifications, of course ;)
 - [Tasmota] covers now support tilting, thanks [@emontnemery]!
 - [@rappenze] added support for garage doors to [Fibaro], nice!
-- [Venstar] now has CO2 and IAQ sensor when the thermostat supports it,
+- The [QR Code] integration now works on all installation types,
+  thanks [@cliffordwhansen]!
+- [Venstar] now has CO2 and IAQ sensors when the thermostat supports it,
   awesome [@hall]!
-- Using a [NETGEAR]? [@starkillerOG] added the speedtest sensors!
+- Using a [NETGEAR]? [@starkillerOG] added the speed test sensors!
 
 [@balloob]: https://github.com/balloob
 [@bdraco]: https://github.com/bdraco
 [@bramkragten]: https://github.com/bramkragten
+[@cliffordwhansen]: https://github.com/cliffordwhansen
 [@eifinger]: https://github.com/eifinger
 [@emontnemery]: https://github.com/emontnemery
 [@goyney]: https://github.com/goyney
@@ -308,11 +304,13 @@ noteworthy changes this release:
 [@Noltari]: https://github.com/Noltari
 [@rappenze]: https://github.com/rappenze
 [@starkillerOG]: https://github.com/starkillerOG
+[@yosilevy]: https://github.com/yosilevy
 [Fibaro]: /integrations/fibaro
 [GStreamer]: /integrations/gstreamer
 [Material Design Icons]: https://pictogrammers.github.io/@mdi/font/6.7.96/
 [NETGEAR]: /integrations/netgear
 [QNAP QSW]: /integrations/qnap_qsw
+[QR Code]: /integrations/qrcode/
 [Ring]: /integrations/ring
 [Tasmota]: /integrations/tasmota
 [template]: /integrations/template
