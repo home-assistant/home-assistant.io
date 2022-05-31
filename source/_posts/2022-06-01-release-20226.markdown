@@ -428,6 +428,48 @@ mqtt:
 
 {% enddetails %}
 
+{% details "Template filter/function defaults" %}
+
+The following template filters and functions will now error instead of returning
+the input if the input is invalid and no default value is specified:
+
+- `acos`
+- `as_timestamp`
+- `asin`
+- `atan`
+- `atan2`
+- `cos`
+- `float`
+- `int`
+- `log`
+- `multiply`
+- `round`
+- `sin`
+- `sqrt`
+- `strptime`
+- `tan`
+- `timestamp_custom`
+- `timestamp_local`
+- `timestamp_utc`
+
+Examples:
+
+{% raw %}
+
+- `{{ "abc" | float }}`: Will fail to render
+- `{{ "abc" | float(default=5) }}`: Will render as -5, no warning will be logged
+- `{{ float("abc") }}`: Will fail to render
+- `{{ float("abc", default=5) }}`: Will render as -5, no warning will be logged
+
+{% endraw %}
+
+([@emontnemery] - [#71687]) ([documentation](/docs/configuration/templating/#numeric-functions-and-filters))
+
+[@emontnemery]: https://github.com/emontnemery
+[#71687]: https://github.com/home-assistant/core/pull/71687
+
+{% enddetails %}
+
 {% details "OAuth2 (re-)authentications" %}
 
 Home Assistant will now use My Home Assistant to redirect the OAuth2 callback
