@@ -72,20 +72,28 @@ The new calendar trigger is available in the automation editor.
 
 ## Comparing energy data
 
-{% details "TODO" %}
+Did you use less or more energy than... Yesterday? Last week? Month? Year?
+We all want to know if we are on the right track, right? 
 
-- Add a better screenshot
-- Add more story
+This release introduces the capability to compare energy data against the
+previous period directly from the energy dashboard!
 
-{% enddetails %}
+Clicking the "Compare data" button in the top right of your
+{% my energy title="energy dashboard" %} will instantly compare the period you
+are currently viewing with the same period before that. It adds the
+previous period to the graphs using a lighter bar color.
 
-Did you use less or more energy than... yesterday? last week? month? year?
-We all want to know if we are on the right track, right? :)
+<img class="no-shadow" src='/images/blog/2022-06/energy-compare.png' alt='Screenshot showing energy usage being compared from last week with the week before that'>
 
-This release introduces the capability to compare energy data against previous
-periods, directly from the energy dashboard.
+In the above screenshot, my energy usage of this week is compared with the week
+before; since, a week is selected as the period to view.
 
-<img class="no-shadow" src='/images/blog/2022-06/energy-compare.png' alt='Screenshot showing energy usage being compared with the day before'>
+The same also works for other graphs; for example, the screenshot below
+shows the solar energy production for today compared with yesterday.
+
+<img class="no-shadow" src='/images/blog/2022-06/energy-compare-solar.png' alt='Screenshot showing solar energy production data compared with the day before'>
+
+{% my energy badge %}
 
 ## Logbooks!
 
