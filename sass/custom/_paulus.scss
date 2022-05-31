@@ -186,7 +186,6 @@ $primary-color: #049cdb;
       background-color: lighten(#038fc7, 10%);
     }
   }
-
   .events {
     padding: 16px;
     
@@ -317,6 +316,19 @@ $primary-color: #049cdb;
     }
   }
 }
+
+@media screen and (max-width: 700px) {
+  .frontpage .events .event {
+    .caption {
+      padding-top: 4px;
+    }
+
+    img {
+       width: 100%;
+   }
+  }
+ }
+
 
 // https://fortawesome.github.io/Font-Awesome/3.2.1/icons/
 
