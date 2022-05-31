@@ -187,6 +187,48 @@ $primary-color: #049cdb;
     }
   }
 
+  .events {
+    padding: 16px;
+    
+    h3 {
+      margin-top: 8px;
+    } 
+
+    .event {
+      display: flex;
+      flex-wrap: wrap-reverse;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+  
+      .caption {
+        padding: 0 12px;
+        max-width: 450px;
+      }
+  
+      .title {
+        font-size: 20px;
+        font-weight: 400;
+      }
+  
+      .secondary {
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 14px;
+        font-weight: 500;
+      }
+  
+      .subtitle {
+        font-size: 12px;
+        font-weight: initial;
+      }
+  
+      img {
+        width: 200px;
+        height: 100%;
+      }
+    }
+  }
+
   .picture-promo {
     display: block;
     padding-top: 30%;
