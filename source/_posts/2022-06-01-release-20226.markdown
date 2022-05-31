@@ -53,7 +53,6 @@ Enjoy the (beta) release!
 - [Manage application credentials from the UI](#manage-application-credentials-from-the-ui)
 - [Improved scene editor](#improved-scene-editor)
 - [Calendar trigger offsets](#calendar-trigger-offsets)
-- [Hardware integrations](#hardware-integrations)
 - [Database Performance](#database-performance)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
