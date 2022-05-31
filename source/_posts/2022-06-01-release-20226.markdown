@@ -317,7 +317,6 @@ noteworthy changes this release:
 [Venstar]: /integrations/venstar
 [VLC media player]: /integrations/vlc
 
-
 ## New Integrations
 
 We welcome the following new integrations this release:
@@ -386,11 +385,11 @@ for that specific item.
 {% details "MQTT" %}
 
 Defining manually configured MQTT entities directly under the respective
-platform keys (e.g. `fan`, `light`, `sensor`, etc) is deprecated and support
+platform keys (e.g., `fan`, `light`, `sensor`, etc.) is deprecated, and support
 will be removed in Home Assistant Core 2022.9.
 
 Manually configured MQTT entities should now be defined under the `mqtt`
-configurtation key in `configuration.yaml` instead of under the platform key.
+configuration key in `configuration.yaml` instead of under the platform key.
 
 As an example, this is now deprecated:
 
@@ -401,7 +400,7 @@ sensor:
     state_topic: "some-state-topic"
 ```
 
-The configuration needs to updated to this format:
+The configuration needs to be updated to this format:
 
 ```yaml
 mqtt:
@@ -493,7 +492,7 @@ the documentation of the specific integration on how to configure this.
 
 Using the 1-Wire via SysBus, previously deprecated, has been removed;
 this integration is being adjusted to comply with Architectural Decision
-Record 0019, more information can be found here:
+Record 0019; more information can be found here:
 
 <https://github.com/home-assistant/architecture/blob/master/adr/0019-GPIO.md>
 
@@ -525,10 +524,10 @@ after upgrading.
 
 {% details "BMW Connected Drive" %}
 
-The `binary_sensor.<your_vehicle>_lights_parking` has been removed, it is not
+The `binary_sensor.<your_vehicle>_lights_parking` has been removed. It is not
 provided by API anymore.
 
-The following sensors have been renamed. Existing sensors with historic data
+The following sensors have been renamed. Existing sensors with historical data
 and automations should be migrated automatically:
 
 - `sensor.<your_vehicle>_charging_level_hv` to `sensor.<your_vehicle>_remaining_battery_percent`
@@ -648,7 +647,7 @@ Your existing YAML configuration is automatically imported on upgrade to this
 release; and thus can be safely removed from your YAML configuration
 after upgrading.
 
-([@eifinger] - [#69212]) ([documentation](/integrations/lorem))
+([@eifinger] - [#69212]) ([documentation](/integrations/here_travel_time))
 
 [@eifinger]: https://github.com/eifinger
 [#69212]: https://github.com/home-assistant/core/pull/69212
@@ -733,7 +732,7 @@ Previously up-down (`move_long_address`) payloads were inverted
 when `invert_position: true` was configured. This now only inverts
 the `position_address` and `position_state_address` payloads (%).
 
-If you have used `invert_position: true` for covers you would need to
+If you have used `invert_position: true` for covers, you would need to
 add the new key to your YAML config to have the same behaviour as before.
 
 ```yaml
@@ -780,13 +779,13 @@ entities.
 
 {% details "Logbook" %}
 
-If the stop and start event were fired within the exact same minute we would
+If the stop and start event were fired within the exact same minute, we would
 previously show it as `restarted`  in the logbook. When events crossed the
-minute boundary (i.e. we fired stop at 11:30:59 and start at 11:31:04) it
+minute boundary (i.e., we fired stop at 11:30:59 and start at 11:31:04), it
 would show separately as `stopped` and then `start`.
 
 This change eliminates the inconstancy by always showing them as `stopped` and
-`started` which allows us to simplify how we generate logbook rows.
+`started`, which allows us to simplify how we generate logbook rows.
 
 ([@bdraco] - [#71600]) ([documentation](/integrations/logbook))
 
@@ -795,9 +794,9 @@ This change eliminates the inconstancy by always showing them as `stopped` and
 
 ---
 
-The entity name in logbook is now always shown with the current name instead
-of the old name if it was renamed. If the entity no longer exists we now show
-the original entity_id instead which aligns with the warning icon we already
+The entity name in the logbook is now always shown with the current name instead
+of the old name if it was renamed. If the entity no longer exists, we now show
+the original entity_id instead, which aligns with the warning icon we already
 display on the frontend when a state is missing or removed.
 
 ([@bdraco] - [#71895]) ([documentation](/integrations/logbook))
@@ -846,7 +845,7 @@ removed from your YAML configuration after upgrading.
 {% details "Nexia" %}
 
 The zone status attribute has been removed from the climate entity. The zone
-status is already available as a seperate sensor and it was producing duplicate
+status is already available as a separate sensor, and it was producing duplicate
 data in the state machine.
 
 ([@bdraco] - [#72176]) ([documentation](/integrations/nexia))
@@ -859,7 +858,7 @@ data in the state machine.
 {% details "Nexia/American Standard/Trane" %}
 
 Remove non-standard `humidify_supported` and `dehumidify_supported` attributes
-from nexia
+from Nexia.
 
 These attributes can already be inferred from the `dehumidify_setpoint`
 or `humidify_setpoint` attributes.
@@ -900,7 +899,7 @@ Data is no longer stored in the `event.event_data` column and instead
 deduplicated into the `event_data.shared_data` column and joined on
 `event.data_id==event_data.data_id`.
 
-This is the same as we did with state attributes in 2022.4 as we can reduce
+This is the same as we did with state attributes in 2022.4, as we can reduce
 the size of the events table by ~8-14% on avg.
 
 ([@bdraco] - [#71135]) ([documentation](/integrations/recorder))
@@ -925,7 +924,7 @@ the size of the events table by ~8-14% on avg.
 
 ---
 
-The following attributes are no longer recorder for for `group` entities:
+The following attributes are no longer recorded for `group` entities:
 
 - `entity_id`
 - `order`
@@ -941,8 +940,8 @@ contained in the YAML configuration and only fill up the database.
 
 ---
 
-The recorder now refuses to set up if the database dialect is unsupported,
-or if the database dialect is supported but the version is too old.
+The recorder now refuses to set up if the database dialect is unsupported
+or if the database dialect is supported, but the version is too old.
 
 ([@emontnemery] - [#70888]) ([documentation](/integrations/recorder))
 
@@ -957,7 +956,7 @@ The scape integration performance has been improved by using the `lxml` parser.
 
 Testing (YMMV based on content and nesting):
 - For large documents (5000k tags) it was at least an order of magnitude faster.
-- For small documents it was ~3x faster.
+- For small documents, it was ~3x faster.
 
 Users who are **not** using Home Assistant Operating System or Home Assistant
 Container will need to ensure `libxml2` and `libxslt` are installed.
@@ -993,12 +992,12 @@ after upgrading.
 
 Somfy has replaced their Somfy Open API (cloud-based) with a local API
 (which we Home Assistant users absolutely love). Somfy has now decided
-to shut down their cloud API after June 21st, 2022.
+to shut down its cloud API after June 21st, 2022.
 
 Please migrate to use the [Overkiz integration](/integrations/overkiz)
 as a replacement.
 
-Unfortunately a migration to Overkiz is not possible due to differences in the
+Unfortunately, a migration to Overkiz is not possible due to differences in the
 authentication mechanism.
 
 ([@iMicknl] - [#71653]) ([documentation](/integrations/somfy))
@@ -1045,7 +1044,7 @@ platform-level services `media_player.join` and `media_player.unjoin`. The
 list of synchronized players is now stored in the `group_members` state
 attribute. 
 
-The  `squeezebox.sync` and `squeezebox.unsync` serives are now deprecated,
+The  `squeezebox.sync` and `squeezebox.unsync` services are now deprecated,
 which will be removed in two releases in favor of the new platform-level
 services listed above.
 
@@ -1061,7 +1060,7 @@ and will also be removed in two releases.
 
 {% details "Templates" %}
 
-Support for `white_value` is deprecated in template `light`, and will be removed
+Support for `white_value` is deprecated in template `light` and will be removed
 in Home Assistant Core 2022.9.
 
 ([@emontnemery] - [#71044]) ([documentation](/integrations/template))
@@ -1125,7 +1124,7 @@ and "RaspberryPi Zero-W" are no longer supported in Home Assistant OS.
 They are also no longer available in the version integration.
 Please remove the version integrations for those boards.
 
-([@agners] - [#123456]) ([documentation](/integrations/version))
+([@agners] - [#72085]) ([documentation](/integrations/version))
 
 [@agners]: https://github.com/agners
 [#72085]: https://github.com/home-assistant/core/pull/72085
@@ -1213,16 +1212,15 @@ With this release, you will need to update your zwave-js-server instance.
 
 {% enddetails %}
 
-**TODO:** Remove this line. Last processed breaking change 72395
-
 If you are a custom integration developer and want to learn about breaking
 changes and new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following are the most notable for this release:
 
 [devblog]: https://developers.home-assistant.io/blog/
 
-- [S6-Overlay 3.x update on our docker base images](https://developers.home-assistant.io/blog/2022/05/12/s6-overlay-base-images)
 - [Logbook API removal of `entity_matches_only` flag](https://developers.home-assistant.io/blog/2022/05/24/entity_matches_only_removed_logbook_card)
+- [Media Player updates: enqueue changes, announce added](https://developers.home-assistant.io/blog/2022/05/31/media-player-updates/)
+- [S6-Overlay 3.x update on our docker base images](https://developers.home-assistant.io/blog/2022/05/12/s6-overlay-base-images)
 - [ServiceInfo model improvements and deprecations](https://developers.home-assistant.io/blog/2022/05/03/serviceinfo-model-improvements)
 
 ## Farewell to the following
