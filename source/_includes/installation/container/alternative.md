@@ -89,24 +89,3 @@ The steps would be:
 - Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Qnap NAS IP address - for example `http://192.xxx.xxx.xxx:8123`)
 
 Remark: To update your Home Assistant on your Docker within Qnap NAS, you just remove container and image and do steps again (Don't remove "config" folder).
-
-If you want to use a USB Bluetooth adapter or Z-Wave USB stick with Home Assistant on Qnap Docker, follow those steps:
-
-#### Bluetooth
-
-- Connect to your NAS over SSH
-- Run Docker command:
-
-  ```bash
-  docker run --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus {{ site.installation.container }}:stable
-  ```
-
-  First `-v` is your configuration path
-  `-e` is set timezone
-
-- Edit the `configuration.yaml` file
-
-```yaml
-device_tracker:
-  - platform: bluetooth_tracker
-```
