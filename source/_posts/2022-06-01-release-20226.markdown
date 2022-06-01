@@ -217,34 +217,23 @@ still add the entire device if you want to.
 
 ## Database performance
 
-{% details "TODO" %}
-
-- Not sure yet about the TODO even
-
-{% enddetails %}
-
-This release builds on the improvements from 2022.4, which offers disk write
-reductions intended to preserve SD card lifetimes and features a new WebSocket
-API for both history and logbook, which gets data to the frontend even faster. 
+This release builds on [the database improvements from 2022.4](/blog/2022/04/06/release-20224/#database-performance).
+Disk writes have been reduced to preserve SD card lifetimes and new APIs,
+which get event/historical data to the frontend even faster. 
 
 The database storage format is further optimized, with an additional size
-reduction ranging from 25-40% for most installs on top of what 2022.4 brought.
+reduction ranging from 25-40% for most installs on top of what has been gained
+in previous releases. This is achieved by storing events more efficiently.
 
-When the same event data already exists in the database, newly recorded events
-now only store a reference to the event data instead of saving the whole event
-data.
+Data stored in the database before upgrading to this release isn't compacted.
+The size reduction will occur over time when new data gets recorded, and older
+data gets purged.
 
-As data stored in the database before 2022.6 does not get updated, the
-reduction in database size will occur over time with the recording of new data
-and the purging of old data. If you have `auto_repack` enabled in the recorder,
-you'll start to see the size reductions on the second Sunday of the month after
-you update.
+If you are using SQLite (default) or MySQL, you will benefit from a faster date
+parser, which speeds up multi-hour history and logbooks.
 
-SQLite and MySQL users benefit from a faster date parser, which speeds up
-multi-hour history and logbook queries.
-
-Don't miss this release, as future database migrations will be faster if most
-of your data is in the new format.
+We recommend not to miss this release to ensure that future database changes
+and migrations will be faster.
 
 ## Other noteworthy changes
 
