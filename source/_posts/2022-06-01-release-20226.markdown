@@ -48,12 +48,12 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Comparing energy data](#comparing-energy-data)
-- [Logbooks!](#logbooks)
+- [Comparing data in the energy dashboard](#comparing-data-in-the-energy-dashboard)
+- [Logbooks have never been better!](#logbooks-have-never-been-better)
 - [Streamlining the OAuth2 experience](#streamlining-the-oauth2-experience)
-- [Calendar trigger offsets](#calendar-trigger-offsets)
+- [Calendar triggers with offsets](#calendar-triggers-with-offsets)
 - [Improved scene editor](#improved-scene-editor)
-- [Database Performance](#database-performance)
+- [Database performance](#database-performance)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -85,7 +85,7 @@ the recording of it right here!
 
 {% endcomment %}
 
-## Comparing energy data
+## Comparing data in the energy dashboard
 
 Did you use less or more energy than... Yesterday? Last week? Month? Year?
 We all want to know if we are on the right track, right? 
@@ -110,7 +110,7 @@ shows the solar energy production for today compared with yesterday.
 
 {% my energy badge %}
 
-## Logbooks!
+## Logbooks have never been better!
 
 The logbook received a significant overhaul this release. The backend of the
 logbook got a lot of optimizations. Data processing has been polished and
@@ -174,7 +174,7 @@ all these changes.
 
 [@allenporter]: https://github.com/allenporter
 
-## Calendar trigger offsets
+## Calendar triggers with offsets
 
 The last release, [we introduced the calendar trigger](/blog/2022/05/04/release-20225/);
 in this release, the calendar trigger is extended with offset support!
@@ -215,7 +215,7 @@ It is a small but welcome improvement that makes it possible to include single
 entities into a scene without adding the whole device. Of course, you can also
 still add the entire device if you want to.
 
-## Database Performance
+## Database performance
 
 {% details "TODO" %}
 
