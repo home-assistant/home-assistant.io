@@ -112,34 +112,31 @@ shows the solar energy production for today compared with yesterday.
 
 ## Logbooks!
 
-{% details "TODO" %}
+The logbook received a significant overhaul this release. The backend of the
+logbook got a lot of optimizations. Data processing has been polished and
+optimized to make logbooks load super fast, creating an experience
+that is as smooth as possible.
 
-- Improve story
-- Short movie clip?
-- Screenshots / animations
+We added the logbook to more places as well. It is now shown on device and
+area pages. That way, you can instantly see the last activity for that specific
+device or, in case of an area, of all the devices in that area.
 
-{% enddetails %}
+And on top of all that: Logbooks are now live! You can see events live on your
+screen, while the logbook updates instantly when events are happing!
 
-The logbook received a significant overhaul this release. It is now everywhere,
-blazing fast, has more information, and the logs are live!
+<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-06/live-device-logbook.gif' alt='Screen recording showing a live logbook feed on the device page'>
+The logbook on this device page, updates in real-time when motion is detected.
+</p>
 
-Everywhere! Yes, the logbook will now be shown as a card on device and area
-pages. That way, you can instantly see the last activity for that specific
-device or, in case of an area, of the devices in that area.
-
-Fast! The backend got a lot of optimizations. Queries have been polished and
-processing has been optimized to make the experience as smooth as possible.
-If you are using the logbook card anywhere you'll see the results immediately.
-
-More information! The logbook can now show device events too! This is helpful
+Also new: The logbook can now show device events too! This is helpful
 for entity-less logs, like device events of button presses. [deCONZ],
 [Elk-M1 Control], [Philips Hue], [Lutron Caséta], [Shelly],
-and the [Mobile App] added support for this feature in this release.
+and the [Mobile App] added support for this new feature.
 
-Live! Yes, if you select a date range that extends into the future,
-the logbook will now update in real-time. The logbook cards have been equiped
-with the same real-time feature.
+Thanks [@bdraco], for your hard work on the logbooks!
 
+[@bdraco]: https://github.com/bdraco
 [deCONZ]: /integrations/deconz
 [Elk-M1 Control]: /integrations/elkm1
 [Lutron Caséta]: /integrations/lutron_caseta
