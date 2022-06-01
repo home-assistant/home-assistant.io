@@ -464,6 +464,26 @@ the documentation of the specific integration on how to configure this.
 
 {% enddetails %}
 
+{% details "Home Assistant Container" %}
+
+If you run Home Assistant Container in Docker (e.g., using Portainer,
+Docker (Compose), QNAP, and others), please make sure you are not specifying
+an init process. 
+
+This can be an `init` configuration option in your Docker management tools or
+Docker Compose, or the `--init` command line flag on the raw Docker command.
+These should **NOT** be set, as Home Assistant ships with the S6 init system.
+
+While you are at it, make sure you also do not set a `cmd` or `entrypoint`.
+Setting these are not breaking, however, you should not set them.
+
+([@pvizeli] - [#72425]) ([documentation](/installation))
+
+[@pvizeli]: https://github.com/pvizeli
+[#72425]: https://github.com/home-assistant/core/pull/72425
+
+{% enddetails %}
+
 {% details "1-Wire" %}
 
 Using the 1-Wire via SysBus, previously deprecated, has been removed;

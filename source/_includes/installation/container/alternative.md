@@ -92,40 +92,13 @@ Remark: To update your Home Assistant on your Docker within Qnap NAS, you just r
 
 If you want to use a USB Bluetooth adapter or Z-Wave USB stick with Home Assistant on Qnap Docker, follow those steps:
 
-#### Z-Wave
-
-- Connect to your NAS over SSH
-- Load cdc-acm kernel module(when NAS restart need to run this command)
-  `insmod /usr/local/modules/cdc-acm.ko`
-- Find USB devices attached. Type command:
-  `ls /dev/tty*`
-  The above command should show you any USB devices plugged into your NAS. If you have more than one, you may get multiple items returned. Like : `ttyACM0`
-
-- Run Docker command:
-
-  ```bash
-  docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London --device /dev/ttyACM0 {{ site.installation.container }}:stable
-  ```
-
-  `-v` is your configuration path
-  `-e` is set timezone
-
-- Edit `configuration.yaml`
-
-```yaml
-zwave:
-  usb_path: /dev/ttyACM0
-```
-
-That will tell Home Assistant where to look for our Z-Wave radio.
-
 #### Bluetooth
 
 - Connect to your NAS over SSH
 - Run Docker command:
 
   ```bash
-  docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus {{ site.installation.container }}:stable
+  docker run --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus {{ site.installation.container }}:stable
   ```
 
   First `-v` is your configuration path
