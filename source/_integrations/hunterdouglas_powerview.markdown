@@ -75,12 +75,12 @@ These shades offer only the simple up/down movement of your conventional shades.
 
 ### Top Down
 
-> :warning: Full functionality not currently implemented
+> :information_source: Full functionality not currently implemented
 These shades offer a unique movement which is inverse to your conventional shade where the shade is fixed to the floor and lowers from the roof.
 
 ### Top Down, Bottom Up (TDBU)
 
-> :warning: Full functionality not currently implemented
+> :information_source: Full functionality not currently implemented
 TDBU shades consist of two rails controlled by two motors designated by Top and Bottom with fabric in between.
 The Top and Bottom can move independently of each other to cover different parts of the window but cannot pass the other.
 Two different entities that will be created for each blind: Top and Bottom.
@@ -105,12 +105,12 @@ Shades with Tilt with Tilt when closed functionality only allow a shade to tilt 
 
 ### Tilt Anywhere
 
-> :warning: Full functionality not currently implemented
+> :information_source: Full functionality not currently implemented
 These shades can tilt in any position and do not require the shade to be open or closed to adjust tilt position.
 
 ### Dual Shade Blackout
 
-> :warning: Full functionality not currently implemented
+> :information_source: Full functionality not currently implemented
 These shades consist of two pieces of fabric attached to a single rail. The front shade is sheer with the rear being blackout and neither panel can move independently to the other.
 
 ## Example Automations
