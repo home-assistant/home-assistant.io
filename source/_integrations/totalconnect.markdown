@@ -13,6 +13,7 @@ ha_domain: totalconnect
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - diagnostics
 ha_integration_type: integration
 ---
 

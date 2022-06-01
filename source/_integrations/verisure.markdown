@@ -97,5 +97,3 @@ automation:
 | code | Lock was unlocked by exterior code |
 | auto | Lock was locked/unlocked automatically by Verisure rule |
 | remote | Lock was locked/unlocked automatically by Verisure App |
-
-
