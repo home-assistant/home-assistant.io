@@ -6,7 +6,7 @@ description: Detailed changelog for the Home Assistant Core 2022.6 release
 These are all the changes included in the Home Assistant Core 2202.6 release.
 
 For a summary in a more readable format:
-[Release notes blog for this release](/blog/2022/05/25/release-20226/).
+[Release notes blog for this release](/blog/2022/06/01/release-20226/).
 
 ## Full Changelog
 
@@ -703,6 +703,31 @@ For a summary in a more readable format:
 - Fix invalid RainMachine syntax ([@bachya] - [#72732]) ([rainmachine docs]) (beta fix)
 - Bump regenmaschine to 2022.05.1 ([@bachya] - [#72735]) ([rainmachine docs]) (beta fix) (dependency)
 - Bump simplisafe-python to 2022.05.2 ([@bachya] - [#72740]) ([simplisafe docs]) (beta fix) (dependency)
+- Add empty string to list of invalid states ([@eyager1] - [#72590]) ([statistics docs]) (beta fix)
+- SmartThings issue with unique_id ([@alexeyzimarev] - [#72715]) ([smartthings docs]) (beta fix)
+- Fix hive authentication process ([@KJonline] - [#72719]) ([hive docs]) (beta fix) (dependency)
+- Alter RainMachine to not create entities if the underlying data is missing ([@bachya] - [#72733]) ([rainmachine docs]) (beta fix)
+- Small performance improvement for matching logbook rows ([@bdraco] - [#72750]) ([logbook docs]) (beta fix)
+- Make zone condition more robust by ignoring unavailable and unknown entities ([@exxamalte] - [#72751]) ([geo_location docs]) (beta fix)
+- Improve integration sensor's time unit handling ([@emontnemery] - [#72759]) ([integration docs]) (beta fix)
+- Bump ZHA quirks lib to 0.0.75 ([@dmulcahey] - [#72765]) ([zha docs]) (beta fix) (dependency)
+- Update frontend to 20220531.0 ([@bramkragten] - [#72775]) ([frontend docs]) (beta fix)
+- Fix queries for logbook context_ids running in the wrong executor ([@bdraco] - [#72778]) ([logbook docs]) (beta fix)
+- Don't set headers kwargs multiple times ([@elupus] - [#72779]) (beta fix)
+- Prevent live logbook from sending state changed events when we only want device ids ([@bdraco] - [#72780]) ([logbook docs]) (beta fix)
+- Ensure the statistics_meta table is using the dynamic row format ([@bdraco] - [#72784]) ([recorder docs]) (beta fix)
+- Improve cast HLS detection ([@emontnemery] - [#72787]) ([cast docs]) (beta fix)
+- Stringify mikrotik device_tracker name ([@emontnemery] - [#72788]) ([mikrotik docs]) (beta fix)
+- Sync entities when enabling/disabling Google Assistant ([@balloob] - [#72791]) ([cloud docs]) ([google_assistant docs]) (beta fix)
+- Fix #72749 ([@dgomes] - [#72794]) ([utility_meter docs]) (beta fix)
+- Support add/next/play/replace enqueue options in Sonos ([@jjlawren] - [#72800]) ([sonos docs]) (beta fix)
+- Add package constraint for pydantic ([@AngellusMortis] - [#72799]) (beta fix)
+- Cleanup handling of new enqueue & announce features in Sonos ([@jjlawren] - [#72801]) ([sonos docs]) (beta fix)
+- Don't trigger entity sync when Google Assistant gets disabled ([@balloob] - [#72805]) ([cloud docs]) (beta fix)
+- Bump sqlalchemy to 1.4.37 ([@bdraco] - [#72809]) ([recorder docs]) ([sql docs]) (beta fix) (dependency)
+- Add Motionblinds WoodShutter support ([@starkillerOG] - [#72814]) ([motion_blinds docs]) (beta fix) (dependency)
+- Fix purge of legacy database events that are not state changed ([@bdraco] - [#72815]) ([recorder docs]) (beta fix)
+- Fix logbook spinner never disappearing when all entities are filtered ([@bdraco] - [#72816]) ([logbook docs]) (beta fix)
 
 [#50284]: https://github.com/home-assistant/core/pull/50284
 [#54266]: https://github.com/home-assistant/core/pull/54266
@@ -1366,6 +1391,7 @@ For a summary in a more readable format:
 [#72578]: https://github.com/home-assistant/core/pull/72578
 [#72579]: https://github.com/home-assistant/core/pull/72579
 [#72589]: https://github.com/home-assistant/core/pull/72589
+[#72590]: https://github.com/home-assistant/core/pull/72590
 [#72593]: https://github.com/home-assistant/core/pull/72593
 [#72597]: https://github.com/home-assistant/core/pull/72597
 [#72605]: https://github.com/home-assistant/core/pull/72605
@@ -1391,12 +1417,36 @@ For a summary in a more readable format:
 [#72677]: https://github.com/home-assistant/core/pull/72677
 [#72696]: https://github.com/home-assistant/core/pull/72696
 [#72698]: https://github.com/home-assistant/core/pull/72698
+[#72715]: https://github.com/home-assistant/core/pull/72715
+[#72719]: https://github.com/home-assistant/core/pull/72719
 [#72728]: https://github.com/home-assistant/core/pull/72728
 [#72729]: https://github.com/home-assistant/core/pull/72729
 [#72731]: https://github.com/home-assistant/core/pull/72731
 [#72732]: https://github.com/home-assistant/core/pull/72732
+[#72733]: https://github.com/home-assistant/core/pull/72733
 [#72735]: https://github.com/home-assistant/core/pull/72735
 [#72740]: https://github.com/home-assistant/core/pull/72740
+[#72750]: https://github.com/home-assistant/core/pull/72750
+[#72751]: https://github.com/home-assistant/core/pull/72751
+[#72759]: https://github.com/home-assistant/core/pull/72759
+[#72765]: https://github.com/home-assistant/core/pull/72765
+[#72775]: https://github.com/home-assistant/core/pull/72775
+[#72778]: https://github.com/home-assistant/core/pull/72778
+[#72779]: https://github.com/home-assistant/core/pull/72779
+[#72780]: https://github.com/home-assistant/core/pull/72780
+[#72784]: https://github.com/home-assistant/core/pull/72784
+[#72787]: https://github.com/home-assistant/core/pull/72787
+[#72788]: https://github.com/home-assistant/core/pull/72788
+[#72791]: https://github.com/home-assistant/core/pull/72791
+[#72794]: https://github.com/home-assistant/core/pull/72794
+[#72799]: https://github.com/home-assistant/core/pull/72799
+[#72800]: https://github.com/home-assistant/core/pull/72800
+[#72801]: https://github.com/home-assistant/core/pull/72801
+[#72805]: https://github.com/home-assistant/core/pull/72805
+[#72809]: https://github.com/home-assistant/core/pull/72809
+[#72814]: https://github.com/home-assistant/core/pull/72814
+[#72815]: https://github.com/home-assistant/core/pull/72815
+[#72816]: https://github.com/home-assistant/core/pull/72816
 [@Abadede]: https://github.com/Abadede
 [@Adminiuga]: https://github.com/Adminiuga
 [@AlainH]: https://github.com/AlainH
@@ -1407,6 +1457,7 @@ For a summary in a more readable format:
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@Flameeyes]: https://github.com/Flameeyes
 [@J3173]: https://github.com/J3173
+[@KJonline]: https://github.com/KJonline
 [@Kane610]: https://github.com/Kane610
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@Misiu]: https://github.com/Misiu
@@ -1421,6 +1472,7 @@ For a summary in a more readable format:
 [@ThomDietrich]: https://github.com/ThomDietrich
 [@agners]: https://github.com/agners
 [@alengwenus]: https://github.com/alengwenus
+[@alexeyzimarev]: https://github.com/alexeyzimarev
 [@allenporter]: https://github.com/allenporter
 [@andre-richter]: https://github.com/andre-richter
 [@atj]: https://github.com/atj
@@ -1437,6 +1489,7 @@ For a summary in a more readable format:
 [@cliffordwhansen]: https://github.com/cliffordwhansen
 [@dacwe]: https://github.com/dacwe
 [@davet2001]: https://github.com/davet2001
+[@dgomes]: https://github.com/dgomes
 [@dmulcahey]: https://github.com/dmulcahey
 [@eifinger]: https://github.com/eifinger
 [@elad-bar]: https://github.com/elad-bar
@@ -1444,6 +1497,7 @@ For a summary in a more readable format:
 [@emontnemery]: https://github.com/emontnemery
 [@epenet]: https://github.com/epenet
 [@esev]: https://github.com/esev
+[@exxamalte]: https://github.com/exxamalte
 [@eyager1]: https://github.com/eyager1
 [@fabaff]: https://github.com/fabaff
 [@fairecasoimeme]: https://github.com/fairecasoimeme
@@ -1538,6 +1592,7 @@ For a summary in a more readable format:
 [camera docs]: /integrations/camera/
 [cast docs]: /integrations/cast/
 [climate docs]: /integrations/climate/
+[cloud docs]: /integrations/cloud/
 [cloudflare docs]: /integrations/cloudflare/
 [coinbase docs]: /integrations/coinbase/
 [compensation docs]: /integrations/compensation/
@@ -1580,6 +1635,7 @@ For a summary in a more readable format:
 [frontend docs]: /integrations/frontend/
 [gdacs docs]: /integrations/gdacs/
 [generic docs]: /integrations/generic/
+[geo_location docs]: /integrations/geo_location/
 [geocaching docs]: /integrations/geocaching/
 [geonetnz_quakes docs]: /integrations/geonetnz_quakes/
 [gios docs]: /integrations/gios/
@@ -1638,6 +1694,7 @@ For a summary in a more readable format:
 [meater docs]: /integrations/meater/
 [media_player docs]: /integrations/media_player/
 [media_source docs]: /integrations/media_source/
+[mikrotik docs]: /integrations/mikrotik/
 [mobile_app docs]: /integrations/mobile_app/
 [moehlenhoff_alpha2 docs]: /integrations/moehlenhoff_alpha2/
 [motion_blinds docs]: /integrations/motion_blinds/
@@ -1725,6 +1782,7 @@ For a summary in a more readable format:
 [upnp docs]: /integrations/upnp/
 [uptimerobot docs]: /integrations/uptimerobot/
 [usb docs]: /integrations/usb/
+[utility_meter docs]: /integrations/utility_meter/
 [vacuum docs]: /integrations/vacuum/
 [vallox docs]: /integrations/vallox/
 [vasttrafik docs]: /integrations/vasttrafik/

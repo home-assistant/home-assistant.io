@@ -39,6 +39,7 @@ source/_integrations/androidtv.markdown @JeffLIrion @ollo69
 source/_integrations/apache_kafka.markdown @bachya
 source/_integrations/api.markdown @home-assistant/core
 source/_integrations/apple_tv.markdown @postlund
+source/_integrations/application_credentials.markdown @home-assistant/core
 source/_integrations/apprise.markdown @caronc
 source/_integrations/aprs.markdown @PhilRW
 source/_integrations/arcam_fmj.markdown @elupus
