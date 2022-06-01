@@ -2,14 +2,16 @@
 title: Elro Connects
 description: Instructions on integrating Elro Connects with Home Assistant.
 ha_category:
+  - Sensor
   - Siren
-ha_release: 2022.6.0
+ha_release: 2022.7.0
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@jbouwh'
 ha_domain: elro_connects
 ha_platforms:
+  - sensor
   - siren
 ha_integration_type: integration
 ---
