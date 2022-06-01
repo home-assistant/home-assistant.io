@@ -76,8 +76,7 @@ device_tracker: !include device_tracker.yaml
 
 Nesting `!include`s (having an `!include` within a file that is itself `!include`d) will also work.
 
-You can, as well, have multiple top-level `!include`s for platform integrations as well as the `automation`, `script` and `template` integrations, if you give a different label to each one. Configuration for other integrations can instead be split up by using packages. To
-learn more about packages, see the [Packages](/docs/configuration/packages) page.
+Some integrations support multiple top-level `!include`s, this includes integrations defining an IoT domain, e.g. `light`, `switch`, `sensor` as well as the `automation`, `script` and `template` integrations, if you give a different label to each one. Configuration for other integrations can instead be split up by using packages. To learn more about packages, see the [Packages](/docs/configuration/packages) page.
 
 Example of multiple top-level keys for the `light` platform.
 
