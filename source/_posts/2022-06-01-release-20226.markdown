@@ -44,18 +44,18 @@ The June release brings insights! Insights on how you are doing with your
 energy usage, and insights into what all the devices in your home are up to!
 
 But that is not all June has to bring. Besides this release and [the release party](https://www.youtube.com/watch?v=LVDex3IV44M),
-we have two events additional events lined up for you this month!
+we have two additional events lined up for you this month!
 
 On June 15, we will be hosting a [Matter in Home Assistant workshop](/blog/2022/05/29/matter-in-home-assistant-workshop-announcement/)!
 
-The workshop will show you what we've been up to and allows you to actually test it out by adding your first Matter device to your own instance!
+The workshop will show you what we've been up to and allow you to actually test it out by adding your first Matter device to your own instance!
 I'm excited for this one; I've ordered [the parts listed in the workshop details](/blog/2022/05/29/matter-in-home-assistant-workshop-announcement/)
-so to it myself 🤗.
+for myself 🤗.
 
 The day after, June 16, the second event: [Let's get loud!](https://www.youtube.com/watch?v=SEH-DxOsywg)
 
 This event is all about a new approach to home audio and music in an open
-solution that values the Open Home. Join this events for the latest news and
+solution that values the Open Home. Join this event for the latest news and
 audio demos from Home Assistant, [ESPHome](https://esphome.io),
 [Raspiaudio](https://raspiaudio.com), and... something new!
 
@@ -187,7 +187,7 @@ Also, we have extended My Home Assistant to be able to support OAuth2
 authentication redirects! It's fast, simple, privacy-aware, and nothing
 for you to set up. It just works! No more redirect URI frustrations. 🤘
 
-We have updated the documentation of all integrations using OAuth to reflect
+We have updated the documentation of all integrations using OAuth2 to reflect
 all these changes.
 
 [@allenporter]: https://github.com/allenporter
@@ -236,7 +236,7 @@ still add the entire device if you want to.
 ## Database performance
 
 This release builds on [the database improvements from 2022.4](/blog/2022/04/06/release-20224/#database-performance).
-Disk writes have been reduced to preserve SD card lifetimes and new APIs,
+Disk writes have been reduced to preserve SD card lifetimes and new APIs have been added,
 which get event/historical data to the frontend even faster. 
 
 The database storage format is further optimized, with an additional size
@@ -279,7 +279,7 @@ noteworthy changes this release:
   shown in the developer tools.
 - [@Noltari] has been extending the [QNAP QSW] integration, adding support
   for diagnostics, a reboot button, and binary sensors for anomaly detection.
-- Got a [Ring] doorbell? And want to fool your other in your house someone is
+- Got a [Ring] doorbell? And want to fool the others in your house someone is
   at the door? Now you can! Thanks to [@grablair] you can now trigger the ding!
   This is useful for notifications, of course ;)
 - [Tasmota] covers now support tilting, thanks [@emontnemery]!
@@ -377,7 +377,7 @@ other news about building an Open Home; straight into your inbox.
 
 ## Breaking Changes
 
-Below is a listing of the breaking change for this release, per subject or
+Below is a listing of the breaking changes for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
 
@@ -476,7 +476,7 @@ Examples:
 Home Assistant will now use My Home Assistant to redirect the OAuth2 callback
 over.
 
-If you need to re-authenticate with an exiting OAuth2 application in the future,
+If you need to re-authenticate with an existing OAuth2 application in the future,
 you might need to adjust the external application configuration. Please check
 the documentation of the specific integration on how to configure this.
 
@@ -796,7 +796,7 @@ This change eliminates the inconstancy by always showing them as `stopped` and
 The entity name in the logbook is now always shown with the current name instead
 of the old name if it was renamed. If the entity no longer exists, we now show
 the original entity_id instead, which aligns with the warning icon we already
-display on the frontend when a state is missing or removed.
+display in the frontend when a state is missing or removed.
 
 ([@bdraco] - [#71895]) ([documentation](/integrations/logbook))
 
@@ -908,7 +908,7 @@ the size of the events table by ~8-14% on avg.
 
 ---
 
-- All the data needed to fetch a `stated_changed` event is now available in
+- All the data needed to fetch a `state_changed` event is now available in
   the `states` table (along with `state_attributes` if needed).
 - Reduces overall database size by ~27%
 - Refactors logbook to work without the need for the `state_changed` `events`
@@ -1038,13 +1038,13 @@ removed from your YAML configuration after upgrading.
 
 {% details "Squeezebox (Logitech Media Server)" %}
 
-This PR updates the Squeezebox player synchronization framework to use the
-platform-level services `media_player.join` and `media_player.unjoin`. The
+The Squeezebox player synchronization framework has been updated to use the
+standard `media_player.join` and `media_player.unjoin` services. The
 list of synchronized players is now stored in the `group_members` state
 attribute. 
 
 The  `squeezebox.sync` and `squeezebox.unsync` services are now deprecated,
-which will be removed in two releases in favor of the new platform-level
+and will be removed in two releases in favor of the standard
 services listed above.
 
 The `sync_group` state attribute is deprecated in favor of `group_members`,
