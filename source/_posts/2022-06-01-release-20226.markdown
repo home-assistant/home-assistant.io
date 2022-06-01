@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2022.6: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2022.6"
-date: 2022-05-25 00:00:00
+title: "2022.6: Gaining new insights!"
+description: "Compare your energy data, better logbooks, calendar trigger with offsets, streamlining the OAuth2 experience, and more performance updates!"
+date: 2022-06-01 00:00:00
 date_formatted: "June 1, 2022"
 author: Franck Nijhof
 author_twitter: frenck
@@ -15,6 +15,7 @@ og_image: /images/blog/2022-06/social.png
 
 <a href='/integrations/#version/2022.6'><img src='/images/blog/2022-06/social.png' style='border: 0;box-shadow: none;'></a>
 
+<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
 These are the beta release notes for Home Assistant Core 2022.6 (and is thus a
 work in progress).
 
@@ -35,14 +36,34 @@ version field (not title), so we can classify your issue correctly.
 Issues introduced in the beta are processed with priority.
 
 ---
+<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
 
-Home Assistant Core 2022.6!
+👋  Hi there, Home Assistant Core 2022.6!
 
-I have nothing to tell yet... this is still all beta!
+The June release brings insights! Insights on how you are doing with your
+energy usage, and insights into what all the devices in your home are up to!
 
-Thanks for helping out testing the beta! ❤️
+But that is not all June has to bring. Besides this release and [the release party](https://www.youtube.com/watch?v=LVDex3IV44M),
+we have two events additional events lined up for you this month!
 
-Enjoy the (beta) release!
+On June 15, we will be hosting a [Matter in Home Assistant workshop](/blog/2022/05/29/matter-in-home-assistant-workshop-announcement/)!
+
+The workshop will show you what we've been up to and allows you to actually test it out by adding your first Matter device to your own instance!
+I'm excited for this one; I've ordered [the parts listed in the workshop details](/blog/2022/05/29/matter-in-home-assistant-workshop-announcement/)
+so to it myself 🤗.
+
+The day after, June 16, the second event: [Let's get loud!](https://www.youtube.com/watch?v=SEH-DxOsywg)
+
+This event is all about a new approach to home audio and music in an open
+solution that values the Open Home. Join this events for the latest news and
+audio demos from Home Assistant, [ESPHome](https://esphome.io),
+[Raspiaudio](https://raspiaudio.com), and... something new!
+
+Anyways, this Home Assistant Core release is a nice release with a couple of
+new features and lots of cleanups under the hood. Together with the upcoming
+events, this is going to be one exciting month!
+
+Enjoy the release (and upcoming events)!
 
 ../Frenck
 
@@ -62,13 +83,6 @@ Enjoy the (beta) release!
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-<!--<img class="no-shadow" src='/images/blog/2022-06/configuration-menu.png' alt='Screenshot showing the new configuration menu structure'>-->
-
-<!--<p class='img'>
-<img class="no-shadow" src='/images/blog/2022-06/calendar-trigger.png' alt='Screenshot showing the new calendar trigger in the UI'>
-The new calendar trigger is available in the automation editor.
-</p>-->
-
 Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=LVDex3IV44M) today at 12:00 PDT / 21:00 CET!
 
 <div class="videoWrapper">
@@ -78,7 +92,7 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 {% comment %}
 <!-- Replace the wrapper above with the following after the livestream...-->
 
-Missed our release party livestream on YouTube? Don't worry, you can watch
+Missed our release party live stream on YouTube? Don't worry! You can watch
 the recording of it right here!
 
 <lite-youtube videoid="LVDex3IV44M" videotitle="Home Assistant 2022.6 Release Party" posterquality="maxresdefault"></lite-youtube>
@@ -126,7 +140,7 @@ screen, while the logbook updates instantly when events are happing!
 
 <p class='img'>
 <img class="no-shadow" src='/images/blog/2022-06/live-device-logbook.gif' alt='Screen recording showing a live logbook feed on the device page'>
-The logbook on this device page, updates in real-time when motion is detected.
+The logbook on this device page, when motion is detected the logbook updates in real-time.
 </p>
 
 Also new: The logbook can now show device events too! This is helpful
@@ -199,9 +213,9 @@ or a reminder 15 minutes before a meeting.
 
 ## Improved scene editor
 
-Scenes are great for restoring states of multiple devices to a previous state, e.g.,
-to quickly set a lighting mood in a room, using an automation, script, or a
-button on your dashboard.
+Scenes are great for restoring states of multiple devices to a previous state,
+e.g., to quickly set a lighting mood in a room, using an automation, script,
+or a button on your dashboard.
 
 When creating scenes, it creates those scenes based on the state of a whole
 device (including all of its entities). However, what if you want to add
