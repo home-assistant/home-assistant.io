@@ -2,6 +2,7 @@
 title: Text-to-Speech (TTS)
 description: Instructions on how to set up Text-to-Speech (TTS) with Home Assistant.
 ha_category:
+  - Media Source
   - Text-to-speech
 ha_release: 0.35
 ha_codeowners:
@@ -10,6 +11,7 @@ ha_domain: tts
 ha_quality_scale: internal
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 Text-to-Speech (TTS) enables Home Assistant to speak to you.

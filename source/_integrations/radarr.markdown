@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: radarr
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 This `radarr` sensor platform pulls data from a given [Radarr](https://radarr.video/) instance.

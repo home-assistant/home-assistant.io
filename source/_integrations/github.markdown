@@ -13,6 +13,7 @@ ha_platforms:
 ha_codeowners:
   - '@timmo001'
   - '@ludeeus'
+ha_integration_type: integration
 ---
 
 The GitHub integration allows you to monitor your favorite [GitHub][github] repositories.
@@ -21,13 +22,11 @@ The GitHub integration allows you to monitor your favorite [GitHub][github] repo
 
 When you set up this integration, you will first be guided to allow the integration to use the [GitHub API][github_api] on your behalf. If you do not yet have a [GitHub][github] account you will be prompted to create one during the configuration of the integration.
 
-When you have authorized the integration, you select repositories you want to monitor, the list contains repositories you have [starred][github_starred] on GitHub with your account.
-
-Most of the entities provided by this integration are disabled by default, you can enable these by going to the {% my entities title="entities panel" %}.
+When you have authorized the integration, you select repositories you want to monitor, the list contains repositories you have created and [starred][github_starred] on GitHub with your account.
 
 ## Remove authorization
 
-After you have removed the integration from {% my integrations title="Configuration -> Devices & Services" %}, you need to manually revoke OAuth app authorization.
+After you have removed the integration from {% my integrations title="Settings -> Devices & Services" %}, you need to manually revoke OAuth app authorization.
 
 1. Go to your [Authorized OAuth Apps][github_apps]
 2. Find the "Home Assistant GitHub Integration" application

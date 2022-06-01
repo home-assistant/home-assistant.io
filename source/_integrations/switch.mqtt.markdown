@@ -12,9 +12,9 @@ The `mqtt` switch platform lets you control your MQTT enabled switches.
 
 ## Configuration
 
-In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT switch will receive an instant state update after subscription, and will start with the correct state. Otherwise, the initial state of the switch will be `false` / `off`.
+In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT switch will receive an instant state update after subscription, and will start with the correct state. Otherwise, the initial state of the switch will be `unknown`. A MQTT device can reset the current state to `unknown` using a `None` payload.
 
-When a `state_topic` is not available, the switch will work in optimistic mode. In this mode, the switch will immediately change state after every command. Otherwise, the switch will wait for state confirmation from the device (message from `state_topic`).
+When a `state_topic` is not available, the switch will work in optimistic mode. In this mode, the switch will immediately change state after every command. Otherwise, the switch will wait for state confirmation from the device (message from `state_topic`). The initial state is set to `False` / `off` in optimistic mode.
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect switch operation.
 
@@ -22,10 +22,29 @@ To enable this switch in your installation, add the following to your `configura
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  switch:
+    - command_topic: "home/bedroom/switch1/set"
+```
+
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `switch` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 switch:
   - platform: mqtt
     command_topic: "home/bedroom/switch1/set"
 ```
+
+{% enddetails %}
 
 {% configuration %}
 availability:
@@ -225,21 +244,21 @@ The example below shows a full configuration for a switch.
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: mqtt
-    unique_id: bedroom_switch
-    name: "Bedroom Switch"
-    state_topic: "home/bedroom/switch1"
-    command_topic: "home/bedroom/switch1/set"
-    availability:
-      - topic: "home/bedroom/switch1/available"
-    payload_on: "ON"
-    payload_off: "OFF"
-    state_on: "ON"
-    state_off: "OFF"
-    optimistic: false
-    qos: 0
-    retain: true
+mqtt:
+  switch:
+    - unique_id: bedroom_switch
+      name: "Bedroom Switch"
+      state_topic: "home/bedroom/switch1"
+      command_topic: "home/bedroom/switch1/set"
+      availability:
+        - topic: "home/bedroom/switch1/available"
+      payload_on: "ON"
+      payload_off: "OFF"
+      state_on: "ON"
+      state_off: "OFF"
+      optimistic: false
+      qos: 0
+      retain: true
 ```
 
 For a check, you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your switch manually:
@@ -262,11 +281,11 @@ The configuration will look like the example below:
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: mqtt
-    name: bathroom
-    state_topic: "home/bathroom/gpio/13"
-    command_topic: "home/bathroom/gpio/13"
-    payload_on: "1"
-    payload_off: "0"
+mqtt:
+  switch:
+    - name: bathroom
+      state_topic: "home/bathroom/gpio/13"
+      command_topic: "home/bathroom/gpio/13"
+      payload_on: "1"
+      payload_off: "0"
 ```

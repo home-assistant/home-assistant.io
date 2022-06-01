@@ -14,6 +14,7 @@ ha_platforms:
   - camera
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The motionEye integration allows you to integrate your
@@ -296,9 +297,9 @@ of the "overlapping" cameras are queried. Use different root directories (in mot
 `File Storage -> Root Directory`) to ensure motionEye (and thus this integration) will
 correctly associate media with the camera from which that media was captured.
 
-## Example Lovelace Card
+## Example Dashboard Card
 
-A Lovelace card with icons that will call the `action` service to send action commands to motionEye.
+A dashboard card with icons that will call the `action` service to send action commands to motionEye.
 
 ```yaml
 - type: picture-glance
@@ -312,7 +313,7 @@ A Lovelace card with icons that will call the `action` service to send action co
         tap_action:
           action: call-service
           service: motioneye.action
-          service_data:
+          data:
             action: left
             entity_id: camera.living_room
       - entity: camera.living_room
@@ -320,7 +321,7 @@ A Lovelace card with icons that will call the `action` service to send action co
         tap_action:
           action: call-service
           service: motioneye.action
-          service_data:
+          data:
             action: right
             entity_id: camera.living_room
       - entity: camera.living_room
@@ -328,7 +329,7 @@ A Lovelace card with icons that will call the `action` service to send action co
         tap_action:
           action: call-service
           service: motioneye.action
-          service_data:
+          data:
             action: up
             entity_id: camera.living_room
       - entity: camera.living_room
@@ -336,7 +337,7 @@ A Lovelace card with icons that will call the `action` service to send action co
         tap_action:
           action: call-service
           service: motioneye.action
-          service_data:
+          data:
             action: down
             entity_id: camera.living_room
 ```

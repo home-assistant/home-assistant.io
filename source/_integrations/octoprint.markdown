@@ -3,6 +3,7 @@ title: OctoPrint
 description: Integration between OctoPrint and Home Assistant.
 ha_category:
   - Binary Sensor
+  - Button
   - Sensor
 ha_config_flow: true
 ha_release: 0.19
@@ -14,7 +15,9 @@ ha_zeroconf: true
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
+  - button
   - sensor
+ha_integration_type: integration
 ---
 
 [OctoPrint](https://octoprint.org/) is a web interface for your 3D printer. This is the main integration to integrate OctoPrint sensors.
@@ -75,12 +78,14 @@ Supported sensors:
 
 ## Camera
 
-If the OctoPrint host is equipped with a web camera it is possible to add this as well.
+If the OctoPrint host is equipped with a web camera it is possible to add this as well using the [`MJPEG IP Camera`](/integrations/mjpeg) integration. Use `http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=stream` for the MJPEG URL and `http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=snapshot` as the still image URL.
 
-```yaml
-camera:
-  - platform: mjpeg
-    name: OctoPrint
-    still_image_url: http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=snapshot
-    mjpeg_url: http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=stream
-```
+{% my config_flow_start badge domain="mjpeg" %}
+
+## Buttons
+
+The OctoPrint integration provides the following buttons.
+
+- Pause Job
+- Resume Job
+- Stop Job

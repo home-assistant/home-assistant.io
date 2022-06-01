@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: supervisord
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `supervisord` platform allows you to track the states of [Supervisord](http://supervisord.org/).

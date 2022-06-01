@@ -9,6 +9,9 @@ ha_domain: fritzbox_callmonitor
 ha_config_flow: true
 ha_platforms:
   - sensor
+ha_integration_type: integration
+ha_codeowners:
+  - '@cdce8p'
 ---
 
 The `fritzbox_callmonitor` sensor monitors the call monitor exposed by [AVM FRITZ!Box](https://avm.de/produkte/fritzbox/) routers on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing` or `talking` with the phone numbers involved contained in the state attributes.
@@ -32,6 +35,8 @@ To use the FRITZ!Box call monitor in your installation, a user with at least `FR
 To activate the call monitor on your FRITZ!Box, dial **#96\*5\*** from any phone connected to it.
 
 {% include integrations/config_flow.md %}
+
+If you want Home Assistant to resolve numbers to names based on your FRITZ!Box phone book, you have to configure the correct prefixes. Usually, you just need one single prefix, which equals your country calling code, e.g. `+49` for Germany or `+33` for France. Find the right prefix on [Wikipedia](https://en.wikipedia.org/wiki/List_of_country_calling_codes) and add it on the configurations page.
 
 ## Examples
 

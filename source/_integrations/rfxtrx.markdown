@@ -2,12 +2,13 @@
 title: RFXCOM RFXtrx
 description: Instructions on how to integrate RFXtrx into Home Assistant.
 ha_category:
-  - Hub
-  - Cover
-  - Light
-  - Switch
   - Binary Sensor
+  - Cover
+  - Hub
+  - Light
   - Sensor
+  - Siren
+  - Switch
 ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_config_flow: true
@@ -19,9 +20,12 @@ ha_domain: rfxtrx
 ha_platforms:
   - binary_sensor
   - cover
+  - diagnostics
   - light
   - sensor
+  - siren
   - switch
+ha_integration_type: integration
 ---
 
 The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
@@ -33,6 +37,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switches)
 - [Sensor](#sensors)
 - [Binary Sensor](#binary-sensors)
+- [Siren](#sirens)
 
 {% include integrations/config_flow.md %}
 
@@ -52,19 +57,38 @@ logger:
 
 ## Supported protocols
 
-Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either. Your 433.92 product not showing in the logs? Visit the RFXtrx website to [download RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) and enable the required protocol.
+Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either.
+
+If your 433.92 product is not showing in the logs, you may need to enable additional protocols. You can do this by configuring the device itself using [RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) to enable the required protocol, or you can configure the device in Home Assistant by configuring the [Protocols](#protocols).
 
 ## ser2net
 
 You can host your device on another computer by setting up ser2net and example configuration for ser2net looks like this and then using host/port in your Home Assistant configuration.
 
+Configuration example for ser2net older than 4.x.x (check with command `ser2net -v`):
+
 ```text
 50000:raw:0:/dev/ttyUSB0:38400 8DATABITS NONE 1STOPBIT
 ```
 
+Configuration example for ser2net 4.x.x:
+
+```yaml
+# Example /etc/ser2net.yaml for proxying USB/serial connections
+connection: &rfxtrx
+    accepter: tcp,5000
+    enable: on
+    options:
+      kickolduser: true
+      telnet-brk-on-sync: true
+    connector: serialdev,
+              /dev/ttyUSB0,
+              38400n81,local
+```
+
 ## Settings options
 
-To configure options for RFXtrx integration go to **Configuration** >> **Devices & Services** and press **Options** on the RFXtrx card.
+To configure options for RFXtrx integration go to **Settings** -> **Devices & Services** and press **Options** on the RFXtrx card.
 
 <img src='/images/integrations/rfxtrx/options.png' />
 
@@ -95,6 +119,10 @@ Also, several switches and other devices will also expose sensor entities with b
 #### Binary Sensors
 
 The RFXtrx integration support binary sensors that communicate in the frequency range of 433.92 MHz. The RFXtrx binary sensor integration provides support for them. Many cheap sensors available on the web today are based on a particular RF chip called *PT-2262*. Depending on the running firmware on the RFXcom box, some of them may be recognized under the X10 protocol, but most of them are recognized under the *Lighting4* protocol. The RFXtrx binary sensor integration provides some special options for them, while other RFXtrx protocols should work too.
+
+#### Sirens
+
+The RFXtrx integration supports siren entities for a few types of security systems and chimes. This entity allows triggering the chime or siren from Home Assistant as well as monitoring their status. Most of the chimes and security systems need a configured off-delay to work correctly since they only transmit when active.
 
 ### Add a device by event code
 
@@ -130,20 +158,20 @@ Copy the event code from the state attribute of the switch, which shows up on th
 710030e4102 **01** 50<br>
 710030e4102 **02** 50
 
+### Protocols {#protocols}
+
+When no protocols are selected in the device configuration, the RFXtrx device will use the protocols enabled in its non-volatile memory. You can set these using [RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads).
+
+If you select protocols in the device configuration, these will be enabled each time the device is connected. They will not be stored in the RFXtrx device non-volatile memory.
+
+Some protocols, like `undecoded`, cannot be enabled in non-volatile memory and must be enabled on each connect. To enable these protocols you must use the device configuration instead of RFXmgr.
+
 ### Configure device options
 
 To configure device options, select a device from the list under *Select device to configure*. After pressing *Submit* a window with device options are presented based on the device type.
 
 <div class='note warning'>
 If a device is missing from the list, close the options window and either make sure the device sents a command or manually re-add the device by event code.
-</div>
-
-#### Signal repetitions
-
-Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the RFXtrx device to try to send each signal repeatedly.
-
-<div class='note warning'>
-The RFXtrx hardware generally handle signal repeats itself, and some protocols are timing sensitive when it comes to signal repeats so in general this should be avoided.
 </div>
 
 #### Off Delay
@@ -221,7 +249,7 @@ Some battery-powered devices send commands or data with a randomly generated id.
 
 ### Delete device
 
-To delete device(s) from the configuration, select one or more devices under *Select device to delete*. Press *Submit* to delete the selected devices.
+To delete device(s) from the configuration, select the delete button on the device info page.
 
 ## Events
 

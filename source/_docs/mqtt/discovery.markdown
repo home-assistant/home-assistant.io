@@ -24,24 +24,19 @@ Supported by MQTT discovery:
 - [Scenes](/integrations/scene.mqtt/)
 - [Selects](/integrations/select.mqtt/)
 - [Sensors](/integrations/sensor.mqtt/)
+- [Sirens](/integrations/siren.mqtt/)
 - [Switches](/integrations/switch.mqtt/)
 - [Tag Scanners](/integrations/tag.mqtt/)
 - [Vacuums](/integrations/vacuum.mqtt/)
 
-MQTT discovery is enabled by default. To disable MQTT discovery, add the following to your `configuration.yaml` file:
+## Configuration
+MQTT discovery is enabled by default, but can be disable. To do this, click on "Configure" in the integration page in the UI, then "Re-configure MQTT" and then "Next".
 
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  discovery: false
-```
+### Advanced discovery configuration
+
+It's possible to configure the prefix of the discovery topic through `configuration.yaml`.
 
 {% configuration %}
-discovery:
-  description: If the MQTT discovery should be enabled or not.
-  required: false
-  default: true
-  type: boolean
 discovery_prefix:
   description: The prefix for the discovery topic.
   required: false
@@ -49,7 +44,7 @@ discovery_prefix:
   type: string
 {% endconfiguration %}
 
-### Discovery topic
+## Discovery topic
 
 The discovery topic need to follow a specific format:
 
@@ -83,6 +78,7 @@ Supported abbreviations:
     'aux_cmd_t':           'aux_command_topic',
     'aux_stat_tpl':        'aux_state_template',
     'aux_stat_t':          'aux_state_topic',
+    'av_tones':            'available_tones',
     'avty'                 'availability',
     'avty_mode':           'availability_mode',
     'avty_t':              'availability_topic',
@@ -92,6 +88,7 @@ Supported abbreviations:
     'away_mode_stat_t':    'away_mode_state_topic',
     'b_tpl':               'blue_template',
     'bri_cmd_t':           'brightness_command_topic',
+    'bri_cmd_tpl':         'brightness_command_template',
     'bri_scl':             'brightness_scale',
     'bri_stat_t':          'brightness_state_topic',
     'bri_tpl':             'brightness_template',
@@ -121,6 +118,7 @@ Supported abbreviations:
     'dock_t':              'docked_topic',
     'dock_tpl':            'docked_template',
     'e':                   'encoding',
+    'ent_cat':             'entity_category,
     'err_t':               'error_topic',
     'err_tpl':             'error_template',
     'fanspd_t':            'fan_speed_topic',
@@ -129,6 +127,7 @@ Supported abbreviations:
     'flsh_tlng':           'flash_time_long',
     'flsh_tsht':           'flash_time_short',
     'fx_cmd_t':            'effect_command_topic',
+    'fx_cmd_tpl':          'effect_command_template',
     'fx_list':             'effect_list',
     'fx_stat_t':           'effect_state_topic',
     'fx_tpl':              'effect_template',
@@ -252,7 +251,10 @@ Supported abbreviations:
     'stat_tpl':            'state_template',
     'stat_val_tpl':        'state_value_template',
     'stype':               'subtype',
+    'sup_duration':        'support_duration',
+    'sup_vol':             'support_volume_set',
     'sup_feat':            'supported_features',
+    'sup_off':             'supported_turn_off',
     'swing_mode_cmd_tpl':  'swing_mode_command_template',
     'swing_mode_cmd_t':    'swing_mode_command_topic',
     'swing_mode_stat_tpl': 'swing_mode_state_template',
@@ -311,6 +313,7 @@ Supported abbreviations for device registry configuration:
 The following software has built-in support for MQTT discovery:
 
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
+- [ebusd](https://github.com/john30/ebusd)
 - [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)

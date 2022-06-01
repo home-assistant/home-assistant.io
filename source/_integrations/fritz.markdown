@@ -2,9 +2,10 @@
 title: AVM FRITZ!Box Tools
 description: Instructions on how to integrate AVM FRITZ!Box based routers into Home Assistant.
 ha_category:
-  - Presence Detection
   - Binary Sensor
+  - Presence Detection
   - Sensor
+  - Updates
 ha_release: '0.10'
 ha_domain: fritz
 ha_config_flow: true
@@ -17,11 +18,13 @@ ha_iot_class: Local Polling
 ha_platforms:
   - binary_sensor
   - button
-  - diagnostics
   - device_tracker
+  - diagnostics
   - sensor
   - switch
+  - update
 ha_ssdp: true
+ha_integration_type: integration
 ---
 
 The AVM FRITZ!Box Tools integration allows you to control your [AVM FRITZ!Box](https://en.avm.de/products/fritzbox/) based router.
@@ -33,11 +36,11 @@ There is support for the following platform types within Home Assistant:
 - **Button** - reboot, reconnect, firmware_update.
 - **Sensor** - external IP address, uptime and network monitors.
 - **Switch** - call deflection, port forward, parental control and Wi-Fi networks.
-
+- **Update** - firmware status of the device.
 {% include integrations/config_flow.md %}
 
 <div class='note'>
-TR-064 needs to be enabled in the FRITZ!Box network settings for Home Assistant to login and read device info.
+Both TR-064 and UPnP need to be enabled in the FRITZ!Box ( Home Network -> Network -> Network settings -> Access Settings in the Home Network ) for Home Assistant to login and read device info.
 </div>
 
 ## Username
@@ -61,12 +64,25 @@ A device is identified as stale when it's still present on Home Assistant but no
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
 | `device_id`            | no       | Only act on a specific  router                                                                                 |
 
+#### Service `fritz.set_guest_wifi_password`
+
+Set a new password for the guest wifi.
+The password must be between 8 and 63 characters long.
+If no password is given, it will be auto-generated.
+
+| Service data attribute | Optional | Description                                                                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| `device_id`            | no       | Only act on a specific  router                                                                                 |
+| `password`             | yes      | New password for the guest wifi                                                                                |
+| `length`               | yes      | Length of the auto-generated password. (_default 12_)                        |
+
 ## Integration Options
 
 It is possible to change some behaviors through the integration options.
 These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrations page.
 
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
+- **Enable old discovery method**: Needed on some scenarios like no mesh support (fw <= 6.x), mixed brands network devices or LAN switches.
 
 ## Additional info
 
@@ -97,11 +113,11 @@ The following script can be used to easily add a reconnect button to your UI. If
 
 ```yaml
 fritz_box_reconnect:
-  alias: "Reboot FRITZ!Box"
+  alias: "Reconnect FRITZ!Box"
   sequence:
     - service: button.press
       target:
-        entity_id: button.fritzbox_7530_reboot
+        entity_id: button.fritzbox_7530_reconnect
 
 ```
 

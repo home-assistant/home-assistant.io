@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.72
 ha_domain: watson_iot
 ha_iot_class: Cloud Push
+ha_integration_type: integration
 ---
 
 The `watson_iot` integration enables you to link the devices in Home Assistant

@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: gitlab_ci
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `gitlab_ci` sensor platform integrates results reported by CI/CD Pipeline Jobs in [GitLab](https://gitlab.com/).

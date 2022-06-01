@@ -2,11 +2,12 @@
 title: Nest
 description: Instructions on how to integrate Nest into Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Camera
   - Climate
   - Doorbell
+  - Hub
+  - Media Source
   - Sensor
 ha_iot_class: Cloud Push
 ha_release: 0.7
@@ -19,9 +20,10 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - camera
-  - diagnostics
   - climate
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
@@ -40,12 +42,6 @@ You are in control of the information and capabilities exposed to Home Assistant
 
 The Nest Smart Device Management (SDM) API **requires a US$5 fee**.
 
-</div>
-
-## Video Walkthrough
-
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wghcd9xDdMs" frameborder="0" allowfullscreen></iframe>
 </div>
 
 ## Device Access Registration
@@ -109,7 +105,7 @@ your cloud project.
 
 By the end of this section you will have the `client_id` and `client_secret` which are needed for later steps.
 
-The steps below use *Desktop App* auth since your Home Assistant instance is not a public website. *Web App* auth is no longer recommended to avoid needing to configure SSL and follow strict URL validation rules.
+The steps below use *Web Application Auth* with *My Home Assistant* to handle Google's strict URL validation rules like requiring SSL and a publicly resolvable redirect URL. *Desktop Auth* has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google to improve security, and it can no longer be used with Home Assistant.
 
 1. Navigate to the [Credentials](https://console.cloud.google.com/apis/credentials) page and click **Create Credentials**.
     ![Screenshot of APIs and Services Cloud Console](/images/integrations/nest/create_credentials.png)
@@ -117,9 +113,14 @@ The steps below use *Desktop App* auth since your Home Assistant instance is not
 1. From the drop-down list select *OAuth client ID*.
     ![Screenshot of OAuth client ID selection](/images/integrations/nest/oauth_client_id.png)
 
-1. Enter *Desktop App* for the Application type.
+1. Enter *Web Application* for the Application type.
 
 1. Pick a name for your credential.
+
+1. Add **Authorized redirect URIs** end enter `https://my.home-assistant.io/redirect/oauth`
+
+1. Click *Create* to create the credential.
+    ![Screenshot of creating OAuth credentials](/images/integrations/nest/oauth_redirect_uri.png)
 
 1. You should now be presented with an *OAuth client created* message. Take note of *Your Client ID* and *Your Client
 Secret* as these are needed in later steps.
@@ -202,8 +203,8 @@ Once `configuration.yaml` has a valid `nest` entry, you need to add Nest to your
 
 1. Browse to your Home Assistant instance.
 1. In the sidebar click on _**{% my config icon %}**_.
-1. From the configuration menu select: _**{% my integrations icon %}**_.
-1. In the bottom right, click on the
+2. From the configuration menu select: _**{% my integrations %}**_.
+3. In the bottom right, click on the
   _**{% my config_flow_start icon domain=page.ha_domain %}**_ button.
 1. From the list, search and select _**"Nest"**_ and follow the instructions.
 
@@ -216,14 +217,9 @@ your Home Assistant to access your account and Nest devices.
 
 In this section you will authorize Home Assistant to access your account by generating an *Authentication Token*.
 
-1. Choose **OAuth for Apps** since you created *Desktop App* credentials above in the Google Cloud Console. Note that *OAuth for Web* still exists if you previously created *Web Application* credentials and want to keep using them.
+1. Choose **OAuth for Web** since you created *Web Application* credentials above in the Google Cloud Console. Note that *OAuth for Auth* has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google and will break by October 2022.
 
     ![Screenshot of Integration setup on OAuth type step](/images/integrations/nest/integration_oauth_type.png)
-
-
-1. Click the link to **authorize your account**.
-
-    ![Screenshot of Integration setup on Link Accounts step](/images/integrations/nest/integration_link_account.png)
 
 1. A new tab opens, allowing you to choose a Google account. This should be the same developer account you configured above.
 
@@ -244,13 +240,7 @@ In this section you will authorize Home Assistant to access your account by gene
 1. Confirm you want to allow persistent access to Home Assistant.
     ![Screenshot of OAuth confirmation](/images/integrations/nest/oauth_confirm.png)
 
-1. Copy the access token.
-
-    ![Screenshot of Integration setup on Link Accounts step](/images/integrations/nest/oauth_access_token.png)
-
-1. Paste the access token into the Home Assistant *Link Google Account* dialog.
-
-    ![Screenshot of Integration setup on Link Accounts step](/images/integrations/nest/integration_access_token.png)
+1. You will now see a page hosted by *My Home Assistant* asking if you would like to *Link account to Home Assistant?* Click **Link Account** to continue.
 
 1. The next step is to enter the *Cloud Project ID* to enable a subscription to receive updates from devices. This is not the same as the *Device Access Project ID* above! Visit the [Cloud Console](https://console.cloud.google.com/home/dashboard) and copy the *Project ID*.
 
@@ -302,7 +292,7 @@ Additional Nest Temperature Sensors are not supported by the SDM API.
 Home Assistant supports all SDM API features. However, every Camera or Doorbell device has a different set of built-in capabilities. A Camera device has one of the following live stream types:
 
 - **RTSP**: These devices have an HLS stream served by the Home Assistant Core. These cameras support server-side `camera` services like stream recording or image preview. See [Low Latency HLS](/integrations/stream#ll-hls) as a great option to enable to reduce stream latency.
-- **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. A [Picture Glance Card](/lovelace/picture-glance/) can show the live stream in the grid with the *Camera View* set to `live` (not recommended for battery-powered cameras). `camera` services like stream recording are *not supported*.
+- **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. A [Picture Glance Card](/dashboards/picture-glance/) can show the live stream in the grid with the *Camera View* set to `live` (not recommended for battery-powered cameras). `camera` services like stream recording are *not supported*.
 
 <div class='note'>
 
@@ -348,12 +338,14 @@ This is an example of what the `nest_event` payload looks like for a Device Trig
         "type": "doorbell_chime",
         "timestamp": "2022-01-26T04:56:54.031000+00:00",
         "nest_event_id": "EXAMPLE_EVENT_ID",
+        "zones": ["Zone 1"],
     },
 }
 ```
 
 * `device_id`: The Home Assistant device identifier for the camera
 * `nest_event_id`: is an opaque identifier that can be used with the Media Source Attachments described below for supported cameras.
+* `zones`: Zones triggering the event if available. Zones are configured in the Google Home App, though not supported by all cameras. Events in the area outside of a named zone will be an empty zone name.
 
 {% enddetails %}
 
@@ -461,9 +453,35 @@ This feature is enabled by the following permissions:
 
 - You can manage devices and permissions granted to Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Restart Home Assistant to make new devices available. See the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation for more details.
 
-- For general trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting).
+- *Error 400: invalid_request* plus a message about not complying with *Google's OAuth Policy for keeping accounts secure* is shown when using *App Auth* or *Desktop Auth* or *OOB Auth* which has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google. You need to create new *Web App* credentials following the instructions on this page and update your Home Assistant to use them.
 
-- Check **Configuration** then **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
+- *Error 400: redirect_uri_mismatch* means that your OAuth Client ID is not configured to match the *My Home Assistant* callback URL. Home Assistant's redirect URL behavior may have changed since you initially set this up!
+
+{% details "Details about resolving redirect_uri_mismatch" %}
+
+- This should show the redirect URI `https://my.home-assistant.io/redirect/oauth` in the error message. If the error message has a different URL, then you are running an older version of Home Assistant need to upgrade or manually disabled My Home Assistant (see below).
+
+  ![Screenshot of success](/images/integrations/nest/redirect_uri_mismatch.png)
+
+- Go back to the [API Console](https://console.developers.google.com/apis/credentials) and select your *OAuth 2.0 Client ID*.
+- Add the URL `https://my.home-assistant.io/redirect/oauth` to the list of *Authorized redirect URIs* and click **Save** and start the flow over.
+
+  ![Screenshot of success](/images/integrations/nest/redirect_uris_fix.png)
+
+{% enddetails %}
+
+{% details "I have manually disabled My Home Assistant" %}
+
+Google applies strict [Redirect URI validation rules](https://developers.google.com/identity/protocols/oauth2/web-server#uri-validation) to keep your login credentials secure. In practice, this means that you must access Home Assistant *over SSL* and a *public top-level domain*. See the documentation on [Securing](/docs/configuration/securing/) and note that you don't actually need to enable remote access.
+
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
+instead.
+
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
+
+{% enddetails %}
 
 - *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiugration or your authentication token was revoked by Google for some other reason.
 
@@ -472,11 +490,11 @@ This feature is enabled by the following permissions:
 - This most likely reason is the *OAuth Consent Screen* is set to *Testing* by default which expires the token after 7 days.
 - Follow the steps above to set it to *Production* to resolve this and reauthorize your integration one more time to get a new token.
 - You may also see this as the error message *invalid_grant: Token has been expired or revoked*.
-- See [Google Identity: Refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration) for more reasons on why your token may have expired. 
+- See [Google Identity: Refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration) for more reasons on why your token may have expired.
 
 {% enddetails %}
 
-- *Error 400: redirect_uri_mismatch*: This means you have an existing *Web Application* credential. It is recommended to delete the existing OAuth Client id and create a new *Desktop App* credential using the instructions above. This has the advantage of not requiring SSL or a public DNS name.
+- Check **Settings** -> **System** -> **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
 
 - *Thermostat does not appear or is unavailable* happens due to a bug where the SDM API does return the devices. A common fix get the API to work again is to:
 
@@ -500,7 +518,7 @@ This feature is enabled by the following permissions:
 
 - You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all.
 
-- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble: 
+- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble:
 
 ```yaml
 
@@ -522,11 +540,11 @@ logger:
 
 - It is recommended to let Home Assistant create the Pub/Sub subscription for you. However, if you would like more control you can enter a `susbcriber_id` in the configuration. See [Subscribe to Events](https://developers.google.com/nest/device-access/subscribe-to-events) for more instructions on how to manually create a subscription and use the full subscription name in the Home Assistant configuration e.g. `projects/gcp-project-name/subscriptions/subscription-id`
 
-# Works With Nest API (Deprecated)
+# Works With Nest API
 
 <div class='note warning'>
 
-The [Works with Nest](https://developers.nest.com/) API is deprecated and will be removed in Home Assistant Core 2022.5.
+The Legacy [Works with Nest](https://developers.nest.com/) API is not accepting new signups.
 
 </div>
 
@@ -560,7 +578,7 @@ There is currently support for the following device types within Home Assistant:
     * Use "[Home Assistant] [Edit] [For Home Automation]" as the description as it is not super important.
 8. Click "Create Product"
 9. Once the new product page opens the "Product ID" and "Product Secret" are located on the right side. These will be used as `client_id` and `client_secret` below.
-10. Add the Nest integration to your `configuration.yaml` and restart Home Assistant. Then, go to `Configuration > Integrations` and select `CONFIGURE` next to `Nest`. Click the link in the configurator pop up to log into your Nest account and complete the OAuth. Copy the resulting PIN code into the pop up.
+10. Add the Nest integration to your `configuration.yaml` and restart Home Assistant. Then, go to `Settings > Devices & Services` and select `CONFIGURE` next to `Nest`. Click the link in the configurator pop up to log into your Nest account and complete the OAuth. Copy the resulting PIN code into the pop up.
 
 Connecting to the Nest Developer API requires outbound port 9553 on your firewall. The configuration will fail if this is not accessible.
 
@@ -703,8 +721,6 @@ script:
 ```
 
 **Troubleshooting**
-
-- For trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting) which includes guidance for errors like `redirect_uri_mismatch` where Google needs to know about your external URL.
 
 - If you're getting [rickrolled](https://www.youtube.com/watch?v=dQw4w9WgXcQ) by the Legacy API instead of being able to see your Nest cameras, you may not have set up your developer account's permissions correctly. Go back through and make sure you've selected read/write under every category that it's an option.
 

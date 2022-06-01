@@ -9,15 +9,14 @@ ha_config_flow: true
 ha_domain: owntracks
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 [OwnTracks](https://owntracks.org/) (and its Android fork [NextTracks](https://codeberg.org/nexttracks/android)) is a free and open source application for iOS and Android that allow you to track your location and send it directly to Home Assistant. It can be set up via the integrations panel in the configuration screen.
 
 By default the integration will listen for incoming messages from OwnTracks via HTTP. It will also listen for MQTT messages if Home Assistant is configured to use MQTT. When a location is submitted via HTTP, Home Assistant will return all [Persons](/integrations/person/)' last known locations and they will be displayed within the OwnTracks app.
 
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UieAQ8sC6GY" frameborder="0" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="UieAQ8sC6GY" videotitle="Location Tracking with OwnTracks HTTP Mode and Home Assistant" posterquality="maxresdefault"></lite-youtube>
 
 ## Configuration
 

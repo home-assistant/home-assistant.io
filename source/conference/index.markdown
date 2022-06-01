@@ -17,13 +17,11 @@ Paulus Schoutsen, the founder of Home Assistant, will give the opening and closi
 
 After the talks, attendees will be able to join various sessions about different topics like automations, Lovelace and Q&A with Home Assistant developers.
 
-## Watch it back
+## Watching the conference
 
 The conference is over! All talks have been [published online on YouTube](https://www.youtube.com/playlist?list=PLKsVm4cWHDQDGRXnybFUOLlcDWPsroGGB) and are also embedded below:
 
-<div class="videoWrapper">
-  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLKsVm4cWHDQDGRXnybFUOLlcDWPsroGGB" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="eh7BO_qro7c" playlistid="PLKsVm4cWHDQDGRXnybFUOLlcDWPsroGGB" videotitle="Home Assistant Conference 2020" posterquality="maxresdefault"></lite-youtube>
 
 ## Keynotes & Talks schedule
 
