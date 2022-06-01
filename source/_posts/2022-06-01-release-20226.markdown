@@ -59,6 +59,10 @@ solution that values the Open Home. Join this events for the latest news and
 audio demos from Home Assistant, [ESPHome](https://esphome.io),
 [Raspiaudio](https://raspiaudio.com), and... something new!
 
+Also: Hi Jacqueline Raaflaub! 👋 Jacqueline has joined
+Nabu Casa; she will help out with support and assist in moderating our community.
+We are excited to have you, and welcome!
+
 Anyways, this Home Assistant Core release is a nice release with a couple of
 new features and lots of cleanups under the hood. Together with the upcoming
 events, this is going to be one exciting month!
