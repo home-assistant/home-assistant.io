@@ -435,9 +435,9 @@ Examples:
 {% raw %}
 
 - `{{ "abc" | float }}`: Will fail to render
-- `{{ "abc" | float(default=5) }}`: Will render as -5, no warning will be logged
+- `{{ "abc" | float(default=5) }}`: Will render as 5, no warning will be logged
 - `{{ float("abc") }}`: Will fail to render
-- `{{ float("abc", default=5) }}`: Will render as -5, no warning will be logged
+- `{{ float("abc", default=5) }}`: Will render as 5, no warning will be logged
 
 {% endraw %}
 
