@@ -31,6 +31,10 @@ There is currently support for the following device types within Home Assistant:
 - Scene
 - Sensor
 
+{% include integrations/config_flow.md %}
+
+## Supported Shades
+
 Known devices and their supported functionality is listed below.
 
 > :warning: Devices listed as **Under Development** may perform basic or slightly odd functionality until **Full** support is implemented.\
@@ -64,8 +68,6 @@ Known devices and their supported functionality is listed below.
 | 70   | Curtain, Right Stack               | 180° Tilt when closed, Vertical | Under Development |
 | 71   | Curtain, Split Stack               | 180° Tilt when closed, Vertical | Under Development |
 | 79   | Duolite Lift                       | Dual Shade Blackout             | Under Development |
-
-{% include integrations/config_flow.md %}
 
 ## Capabilities Information
 
