@@ -26,29 +26,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-It's setup utilizing 'Sensor' platform to convey the current state of your bed and results of your sleep sessions and a 'Binary Sensor' platform to indicate your presence in the bed. A service is also provided to set the cooling/heating level and duration of the bed (cooling is only available for the POD mattress).
-
-You must have at least two sleep sessions recorded in the Eight Sleep app prior to setting up the Home Assistant component.
-
-To get started add the following information to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-eight_sleep:
-  username: YOUR_E_MAIL_ADDRESS
-  password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: The email address associated with your Eight Sleep account.
-  required: true
-  type: string
-password:
-  description: The password associated with your Eight Sleep account.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ### Supported features
 
@@ -107,7 +85,7 @@ You can use the service eight_sleep/heat_set to adjust the target cooling/heatin
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | Entity ID of bed state to adjust.
+| `entity_id` | no | Entity ID that relates to the side to be adjusted.
 | `target` | no | Target cooling/heating level from -100 to 100.
 | `duration` | no | Duration to cool/heat at the target level in seconds.
 
