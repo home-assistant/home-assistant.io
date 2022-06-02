@@ -1,0 +1,312 @@
+---
+layout: post
+title: "2022.7: Beta release notes"
+description: "Beta release notes for Home Assistant Core 2022.7"
+date: 2022-06-02 00:00:00
+date_formatted: "July 6, 2022"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+- Release-Notes
+- Core
+og_image: /images/blog/2022-07/social.png
+---
+
+<!--<a href='/integrations/#version/2022.7'><img src='/images/blog/2022-07/social.png' style='border: 0;box-shadow: none;'></a>-->
+
+<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+These are the beta release notes for Home Assistant Core 2022.7 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/Lovelace:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the Supervisor:<br>
+  <https://github.com/home-assistant/supervisor/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+version field (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+---
+<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+Home Assistant Core 2022.7!
+
+I have nothing to tell yet... this is still all beta!
+
+Thanks for helping out testing the beta! ❤️
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [Lorem ipsem](#lorem-ipsem)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New Integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Breaking Changes](#breaking-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+<!--<img class="no-shadow" src='/images/blog/2022-06/configuration-menu.png' alt='Screenshot showing the new configuration menu structure'>-->
+
+<!--<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-06/calendar-trigger.png' alt='Screenshot showing the new calendar trigger in the UI'>
+The new calendar trigger is available in the automation editor.
+</p>-->
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=lorem) today at 12:00 PDT / 21:00 CET!
+
+<div class="videoWrapper">
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/lorem" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+{% comment %}
+<!-- Replace the wrapper above with the following after the livestream...-->
+
+Missed our release party live stream on YouTube? Don't worry! You can watch
+the recording of it right here!
+
+<lite-youtube videoid="lorum" videotitle="Home Assistant 2022.7 Release Party" posterquality="maxresdefault"></lite-youtube>
+
+{% endcomment %}
+
+## Lorem ipsem
+
+{% details "TODO" %}
+
+- Not sure yet about the TODO even
+
+{% enddetails %}
+
+Lorem ipsum
+
+## Other noteworthy changes
+
+There is much more juice in this release; here are some of the other
+noteworthy changes this release:
+
+- You can now control the loudness setting of your [Sonos] speakers, thanks [@jjlawren]!
+
+**TODO**: Remove this line before release. Changes processed up to 72572
+
+[@jjlawren]: https://github.com/frejjlawrennck
+[Sonos]: /integrations/sonos
+
+## New Integrations
+
+We welcome the following new integrations this release:
+
+- [Lorem Ipsum], added by [@frenck]
+
+[@frenck]: https://github.com/frenck
+[Lorem Ipsum]: /integrations/lorem
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- [Lorem Ipsum], done by [@frenck]
+
+[@frenkc]: https://github.com/frenck
+[Lorem Ipsum]: /integrations/lorem
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Breaking Changes
+
+Below is a listing of the breaking change for this release, per subject or
+integration. Click on one of those to read more about the breaking change
+for that specific item.
+
+{% details "Glances" %}
+
+The previously deprecated YAML configuration of the Glances
+integration has been removed.
+
+Glances is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@engrbm87] - [#72706]) ([documentation](/integrations/glances))
+
+[@engrbm87]: https://github.com/engrbm87
+[#72706]: https://github.com/home-assistant/core/pull/72706
+
+{% enddetails %}
+
+{% details "Hunter Douglas PowerView" %}
+
+Add support for topdown shades to hunterdouglas_powerview
+
+**TODO**: Missing breaking change description in PR
+
+([@kingy444] - [#62788]) ([documentation](/integrations/hunterdouglas_powerview))
+
+[@kingy444]: https://github.com/kingy444
+[#62788]: https://github.com/home-assistant/core/pull/62788
+
+{% enddetails %}
+
+{% details "Mikrotik" %}
+
+The previously deprecated YAML configuration of the Mikrotik
+integration has been removed.
+
+Mikrotik is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@engrbm87] - [#72581]) ([documentation](/integrations/mikrotik))
+
+[@engrbm87]: https://github.com/engrbm87
+[#72581]: https://github.com/home-assistant/core/pull/72581
+
+{% enddetails %}
+
+{% details "MySensors" %}
+
+The previously deprecated YAML configuration of the MySensors
+integration has been removed.
+
+MySensors is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@MartinHjelmare] - [#72761]) ([documentation](/integrations/mysensors))
+
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[#72761]: https://github.com/home-assistant/core/pull/72761
+
+{% enddetails %}
+
+{% details "NZBGet" %}
+
+The previously deprecated YAML configuration of the NZBGet
+integration has been removed.
+
+NZBGet is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@epenet] - [#72424]) ([documentation](/integrations/nzbget))
+
+[@epenet]: https://github.com/epenet
+[#72424]: https://github.com/home-assistant/core/pull/72424
+
+{% enddetails %}
+
+{% details "System Bridge" %}
+
+- This integration now requires System Bridge 3.1.2 and above. Any older
+  version will no longer work.
+- BIOS Version, Idle, System, and User Load sensors have been removed.
+  These are no longer available from System Bridge data modules.
+- Command service has been removed. This has been removed from System Bridge
+  due to potential security issues.
+- Open path and URL are now separate services. If you are using the
+  old `system_bridge.open` service, you will need to update your
+  automation to use the new service(s).
+- GPU entities are from a new source so may have changed names slightly.
+  Any automations using these entities may need to be updated.
+- GPU fan speed is now measured in RPM instead of %.
+
+([@timmo001] - [#71218]) ([documentation](/integrations/system_bridge))
+
+[@timmo001]: https://github.com/timmo001
+[#71218]: https://github.com/home-assistant/core/pull/71218
+
+{% enddetails %}
+
+{% details "Transmission" %}
+
+The previously deprecated YAML configuration of the Transmission
+integration has been removed.
+
+Transmission is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@engrbm87] - [#72832]) ([documentation](/integrations/transmission))
+
+[@engrbm87]: https://github.com/engrbm87
+[#72832]: https://github.com/home-assistant/core/pull/72832
+
+{% enddetails %}
+
+{% details "UPnP/IGD" %}
+
+The previously deprecated YAML configuration of the UPnP/IGD
+integration has been removed.
+
+UPnP/IGD is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@epenet] - [#72410]) ([documentation](/integrations/upnp))
+
+[@epenet]: https://github.com/epenet
+[#72410]: https://github.com/home-assistant/core/pull/72410
+
+{% enddetails %}
+
+{% details "VeSync" %}
+
+The `air_quality` and `filter_life` attributes have been removed from the fan
+entities. These attributes have been replaced by dedicated sensor entities.
+
+If you are currently using these attributes in your automation or scripts,
+you'll need to adapt them to this change.
+
+([@jetpacktuxedo] - [#72658]) ([documentation](/integrations/vesync))
+
+[@jetpacktuxedo]: https://github.com/jetpacktuxedo
+[#72658]: https://github.com/home-assistant/core/pull/72658
+
+{% enddetails %}
+
+**TODO**: Remove this line before release. Changes processed up to 71218
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+- [Lorem Ipsum](https://developers.home-assistant.io/blog)
+
+## Farewell to the following
+
+The following integrations are also no longer available as of this release:
+
+- **Lorem Ipsum** has been previously deprecated and now removed.
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2022.7](/changelogs/core-2022.7)
