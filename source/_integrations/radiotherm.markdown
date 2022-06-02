@@ -6,7 +6,9 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.7.6
 ha_domain: radiotherm
+ha_config_flow: true
 ha_codeowners:
+  - '@bdraco'
   - '@vinnyfuria'
 ha_platforms:
   - climate
@@ -14,6 +16,8 @@ ha_integration_type: integration
 ---
 
 The `radiotherm` climate platform let you control a thermostat from [Radio Thermostat](https://www.radiothermostat.com/) or [3M Filtrete](https://www.filtrete.com/). Your thermostat must have the Wi-Fi module installed and connected to your network.
+
+{% include integrations/config_flow.md %}
 
 The underlying library supports:
 
@@ -32,35 +36,4 @@ The underlying library supports:
 
 New models that are derivatives of the CT30 or CT80 should be detected automatically and basic functionality should work.
 
-To set it up, add the following information to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-climate:
-  - platform: radiotherm
-```
-
-{% configuration %}
-host:
-  description: List of your Radiotherm thermostats. If not provided the thermostats will be auto-detected.
-  required: false
-  type: list
-hold_temp:
-  description: Boolean to control if Home Assistant temperature adjustments hold (`true`) or are temporary (`false`).
-  required: false
-  default: false
-  type: boolean
-{% endconfiguration %}
-
-Set `hold_temp: true` if you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself. Otherwise Home Assistant will perform temporary temperature changes.
-
-Multiple thermostats can be assigned by using `host:` if auto-detection is not used.
-
-```yaml
-climate:
-  platform: radiotherm
-  host:
-    - 192.168.99.137
-    - 192.168.99.202
-```
-Humidity is now available as the `current_humidity` attribute for each `climate.$HOST` entity. This only works for RadioThermostat devices that have a built in humidity sensor.
+If you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself, this can be configured in the options flow. Otherwise Home Assistant will perform temporary temperature changes.
