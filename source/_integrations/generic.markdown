@@ -9,6 +9,7 @@ ha_iot_class: Local Push
 ha_domain: generic
 ha_platforms:
   - camera
+  - diagnostics
 ha_codeowners:
   - '@davet2001'
 ha_config_flow: true

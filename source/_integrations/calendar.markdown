@@ -36,11 +36,22 @@ automation:
       offset: -00:15:00
 ```
 
-### Example Automation
+Calendar triggers should should generally not use automation mode `single` to ensure the trigger
+can fire when multiple events start at the same time (e.g. use `queued` or `parallel` instead)
 
-This is an example of an automation that sends a notification with details about the event that
-triggered the automation. See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) for additional trigger data available for conditions or actions.
+See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) for additional trigger data available for conditions or actions.
 
+### Automation Recipes
+
+Below are a few example ways you can use Calendar triggers.
+
+{% details "Example: Calendar Event Notification " %}
+
+This example automation consists of:
+- For the calendar entity `calendar.personal`
+- At the start of any calendar event
+- Send a notification with the title and start time of the event
+- Allowing multiple events starting at the same time
 
 {% raw %}
 ```yaml
@@ -56,6 +67,42 @@ automation:
         message: >-
           Event {{ trigger.calendar_event.summary }} @
           {{ trigger.calendar_event.start }}
-  mode: single
+  mode: queued
 ```
 {% endraw %}
+
+{% enddetails %}
+
+{% details "Example: Calendar Event Light Schedule " %}
+
+This example consists of:
+- For the calendar entity ` calendar.device_automation`
+- When event summary contains `Front Lights`
+- Turn on and off light named `light.front` when the event starts and ends
+
+{% raw %}
+```yaml
+automation:
+  alias: Front Light Schedule
+  trigger:
+    - platform: calendar
+      event: start
+      entity_id: calendar.device_automation
+    - platform: calendar
+      event: end
+      entity_id: calendar.device_automation
+  condition:
+    - condition: template
+      value_template: "{{ 'Front Lights' in trigger.calendar_event.summary }}"
+  action:
+    - if:
+        - "{{ trigger.event == 'start' }}"
+      then:
+        - service: light.turn_on
+      else:
+        - service: light.turn_off
+  mode: queued
+```
+{% endraw %}
+
+{% enddetails %}
