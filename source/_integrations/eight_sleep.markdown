@@ -24,11 +24,9 @@ There is currently support for the following device types within Home Assistant:
 - Binary Sensor - lets observe the presence state of a [Eight Sleep](https://eightsleep.com/) cover/mattress through Home Assistant.
 - Sensor - This includes bed state, sleep fitness scores, and results of the current and previous sleep sessions.
 
-## Configuration
-
 {% include integrations/config_flow.md %}
 
-### Supported features
+## Supported features
 
 Sensors and associated attributes:
 
@@ -79,13 +77,13 @@ Binary Sensors:
 
 - eight_left/right_bed_presence
 
-### Service `heat_set`
+## Service `heat_set`
 
 You can use the service eight_sleep/heat_set to adjust the target cooling/heating level and heating duration of your bed (cooling is only available for the POD mattress).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | Entity ID that relates to the side to be adjusted.
+| `entity_id` | no | Entity ID for a sensor on the side to be adjusted.
 | `target` | no | Target cooling/heating level from -100 to 100.
 | `duration` | no | Duration to cool/heat at the target level in seconds.
 
@@ -97,12 +95,12 @@ script:
     sequence:
       - service: eight_sleep.heat_set
         target:
-          entity_id: "sensor.eight_left_bed_state"
+          entity_id: "sensor.eight_johns_bed_temperature"
         data:
           target: 35
           duration: 3600
 ```
 
-### Notice
+## Notice
 
 Please note this component relies on an undocumented API utilized by the Eight Sleep mobile app to communicate with the Eight Sleep servers.  It is not supported by Eight Sleep and may malfunction if changes are made to either the mobile app operation or the API format.
