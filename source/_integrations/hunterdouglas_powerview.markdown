@@ -103,7 +103,7 @@ Two different entities that will be created for each blind: Top and Bottom.
 
 ### Tilt when closed
 
-Shades with Tilt with Tilt when closed functionality only allow a shade to tilt when it is closed and will automatically close the vanes when the shade is moved from it's closed position.
+Shades with Tilt when closed functionality only allow a shade to tilt when it is closed and will automatically close the vanes when the shade is moved from it's closed position.
 
 ### Tilt Anywhere
 
