@@ -84,7 +84,7 @@ These shades offer a unique movement which is inverse to your conventional shade
 
 > :information_source: Full functionality not currently implemented
 TDBU shades consist of two rails controlled by two motors designated by Top and Bottom with fabric in between.
-The Top and Bottom can move independently of each other to cover different parts of the window but cannot pass the other.
+The Top and Bottom can move independently to cover different parts of the window but cannot pass the other.
 Two different entities that will be created for each blind: Top and Bottom.
 
 #### Top entity
