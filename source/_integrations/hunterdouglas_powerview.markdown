@@ -108,7 +108,7 @@ Shades with Tilt when closed functionality only allow a shade to tilt when it is
 ### Tilt Anywhere
 
 > :information_source: Full functionality not currently implemented
-These shades can tilt in any position and do not require the shade to be open or closed to adjust tilt position.
+These shades can tilt in any position and do not require the shade to be open or closed to adjust the tilt position.
 
 ### Dual Shade Blackout
 
