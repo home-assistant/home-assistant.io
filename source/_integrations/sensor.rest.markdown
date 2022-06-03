@@ -133,6 +133,10 @@ force_update:
   required: false
   type: boolean
   default: false
+unique_id:
+  description: Set a unique id for the sensor.
+  required: false
+  type: string
 {% endconfiguration %}
 
 <div class='note'>
