@@ -37,27 +37,27 @@ There is currently support for the following device types within Home Assistant:
 
 Known devices and their supported functionality is listed below.
 
-> :warning: Devices listed as **Under Development** may perform basic or slightly odd functionality until **Full** support is implemented.\
-> We ask you wait patiently for Full support before raising support tickets for other models.\
+> :warning: Devices listed as **Under Development** may perform basic or slightly odd functionality.\
+> We ask you wait patiently for testing to complete on other models.\
 > \
-> If however you're shade is not listed below please raise a support request for them to be added.
+> If however you're shade is not listed below please raise a feature request on the community forum.
 
-| Type | Common Name                        | Capabilities                    | Support           |
+| Type | Common Name                        | Capabilities                    | Functionality     |
 | ---- | ---------------------------------- | ------------------------------- | ----------------- |
-| 4    | Roman                              | Bottom Up                       | Full              |
-| 5    | Bottom Up                          | Bottom Up                       | Full              |
-| 6    | Duette                             | Bottom Up                       | Full              |
+| 4    | Roman                              | Bottom Up                       | Confirmed         |
+| 5    | Bottom Up                          | Bottom Up                       | Confirmed         |
+| 6    | Duette                             | Bottom Up                       | Confirmed         |
 | 7    | Top Down                           | Top Down                        | Under Development |
 | 8    | Duette, Top Down Bottom Up         | Top Down, Bottom Up             | Under Development |
 | 9    | Duette DuoLite, Top Down Bottom Up | Top Down, Bottom Up             | Under Development |
 | 18   | Silhouette                         | 90° Tilt when closed            | Under Development |
-| 23   | Silhouette                         | 90° Tilt when closed            | Full              |
+| 23   | Silhouette                         | 90° Tilt when closed            | Confirmed         |
 | 38   | Silhouette Duolite                 | Dual Shade Blackout + 90° Tilt  | Under Development |
-| 42   | M25T Roller Blind                  | Bottom Up                       | Full              |
+| 42   | M25T Roller Blind                  | Bottom Up                       | Confirmed         |
 | 43   | Facette                            | 90° Tilt when closed            | Under Development |
-| 44   | Twist                              | 180° Tilt when closed           | Full              |
+| 44   | Twist                              | 180° Tilt when closed           | Confirmed         |
 | 47   | Pleated, Top Down Bottom Up        | Top Down, Bottom Up             | Under Development |
-| 49   | AC Roller                          | Bottom Up                       | Full              |
+| 49   | AC Roller                          | Bottom Up                       | Confirmed         |
 | 51   | Venetian, Tilt Anywhere            | 180° Tilt Anywhere              | Under Development |
 | 54   | Vertical Slats, Left Stack         | 180° Tilt when closed, Vertical | Under Development |
 | 55   | Vertical Slats, Right Stack        | 180° Tilt when closed, Vertical | Under Development |
