@@ -1,6 +1,6 @@
 ---
-title: "laundrify"
-description: "Instructions on how to integrate laundrify within Home Assistant."
+title: laundrify
+description: Instructions on how to integrate laundrify within Home Assistant.
 ha_category:
   - Binary Sensor
 ha_release: 2022.6
@@ -11,6 +11,7 @@ ha_platforms:
 ha_codeowners:
   - '@xLarry'
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 Monitor the status of your washing machine or dryer within Home Assistant using a [laundrify](https://laundrify.de/) WiFi power plug.

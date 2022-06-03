@@ -10,7 +10,7 @@ ha_release: 2022.6
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - '@YoSmart-Inc'
+  - '@matrixd2'
 ha_domain: yolink
 ha_platforms:
   - binary_sensor

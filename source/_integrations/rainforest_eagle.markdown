@@ -9,6 +9,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@gtdiehl'
   - '@jcalbert'
+  - '@hastarin'
 ha_domain: rainforest_eagle
 ha_platforms:
   - diagnostics
