@@ -356,7 +356,7 @@ homekit:
       - light.kitchen_light
 ```
 
-{% include common_tasks/filters.md %}
+{% include common-tasks/filters.md %}
 
 Categorized entities are not included (config, diagnostic, and system entities) unless they are explicitly matched by `include_entity_globs` or `include_entities` or selected in the UI in include mode.
 

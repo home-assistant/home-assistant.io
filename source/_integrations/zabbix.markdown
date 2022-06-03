@@ -134,7 +134,7 @@ zabbix:
 
 {% endraw %}
 
-{% include common_tasks/filters.md %}
+{% include common-tasks/filters.md %}
 
 ## Sensor
 

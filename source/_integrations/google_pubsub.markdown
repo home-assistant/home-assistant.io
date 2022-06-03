@@ -104,7 +104,7 @@ google_pubsub:
       - light.kitchen_light
 ```
 
-{% include common_tasks/filters.md %}
+{% include common-tasks/filters.md %}
 
 ### Saving the data using a Google Cloud Function
 

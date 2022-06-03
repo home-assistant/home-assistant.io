@@ -385,7 +385,7 @@ alexa:
         - light.kitchen_light
 ```
 
-{% include common_tasks/filters.md %}
+{% include common-tasks/filters.md %}
 
 See the [troubleshooting](#troubleshooting) if for issues setting up the integration.
 

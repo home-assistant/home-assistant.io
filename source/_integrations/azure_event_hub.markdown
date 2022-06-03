@@ -57,7 +57,7 @@ azure_event_hub:
       - light.kitchen_light
 ```
 
-{% include common_tasks/filters.md %}
+{% include common-tasks/filters.md %}
 
 {% configuration %}
 filter:

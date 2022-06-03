@@ -93,7 +93,7 @@ mqtt_statestream:
       - light.kitchen_light
 ```
 
-{% include common_tasks/filters.md %}
+{% include common-tasks/filters.md %}
 
 ### Common filtering examples
 
