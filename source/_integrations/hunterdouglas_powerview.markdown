@@ -33,7 +33,7 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-## Supported Shades
+## Shades
 
 Known devices and their supported functionality is listed below.
 
