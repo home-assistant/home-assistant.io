@@ -129,6 +129,10 @@ params:
   description: The query params for the requests.
   required: false
   type: [list, template]
+unique_id:
+  description: Set a unique id for the binary sensor.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Examples
