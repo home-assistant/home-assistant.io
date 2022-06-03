@@ -94,14 +94,14 @@ Two different entities that will be created for each blind: Top and Bottom.
 - 'Up/Open' will move the Top rail to the bottom of the window and set the Bottom rail to its closed position.
 - 'Down/Close' will move the Top rail to the top of the window and set the Bottom rail to its closed position.
 - 'Position' is the position in which the Top rail can move from the top of the window (0) to the bottom (100).
-- Note as the position of a Top rail cannot pass that of a Bottom rail if you set an 'impossible position' the position will fall back to the closest possible value to that requested.
+- The position of a Top rail cannot pass that of a Bottom rail. If you set an impossible position, the position will fall back to the closest possible value to that requested.
 
 #### Bottom entity
 
 - 'Up/Open' will move the Bottom rail to the top of the window and set the Top rail to its closed position.
 - 'Down/Close' will move the Bottom rail to the bottom of the window and set the Top rail to its closed position.
 - 'Position' is the position in which the Bottom rail can move from the bottom of the window (0) to the top (100).
-- Note as the position of a Bottom rail cannot pass that of a Top rail if you set an 'impossible position' the position will fall back to the closest possible value to that requested.
+- The position of a Bottom rail cannot pass that of a Top rail. If you set an impossible position, the position will fall back to the closest possible value to that requested.
 
 ### Tilt when closed
 
