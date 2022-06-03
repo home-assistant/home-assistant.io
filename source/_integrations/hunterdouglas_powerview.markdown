@@ -78,7 +78,7 @@ These shades offer only the simple up/down movement of your conventional shades.
 ### Top Down
 
 > :information_source: Full functionality not currently implemented
-These shades offer a unique movement which is inverse to your conventional shade where the shade is fixed to the floor and lowers from the roof.
+These shades offer a unique movement that is inverse to your conventional shade, where the shade is fixed to the floor and lowered from the roof.
 
 ### Top Down, Bottom Up (TDBU)
 
