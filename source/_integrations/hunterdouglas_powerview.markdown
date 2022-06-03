@@ -113,7 +113,7 @@ These shades can tilt in any position and do not require the shade to be open or
 ### Dual Shade Blackout
 
 > :information_source: Full functionality not currently implemented
-These shades consist of two pieces of fabric attached to a single rail. The front shade is sheer with the rear being blackout and neither panel can move independently to the other.
+These shades consist of two pieces of fabric attached to a single rail. The front shade is sheer, with the rear being blackout, and neither panel can move independently from the other.
 
 ## Example Automations
 
