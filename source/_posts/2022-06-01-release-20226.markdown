@@ -59,6 +59,7 @@ Enjoy the release (and upcoming events)!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2022.6.1 - June 2](#release-202261---june-2)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -83,7 +84,7 @@ the recording of it right here!
 ## Comparing data in the energy dashboard
 
 Did you use less or more energy than... Yesterday? Last week? Month? Year?
-We all want to know if we are on the right track, right? 
+We all want to know if we are on the right track, right?
 
 This release introduces the capability to compare energy data against the
 previous period directly from the energy dashboard!
@@ -214,7 +215,7 @@ still add the entire device if you want to.
 
 This release builds on [the database improvements from 2022.4](/blog/2022/04/06/release-20224/#database-performance).
 Disk writes have been reduced to preserve SD card lifetimes and new APIs have been added,
-which get event/historical data to the frontend even faster. 
+which get event/historical data to the frontend even faster.
 
 The database storage format is further optimized, with an additional size
 reduction ranging from 25-40% for most installs on top of what has been gained
@@ -335,6 +336,67 @@ The following integrations are now available via the Home Assistant UI:
 [Aladdin Connect]: /integrations/aladdin_connect
 [HERE Travel Time]: /integrations/here_travel_time
 [Slack]: /integrations/slack
+
+## Release 2022.6.1 - June 2
+
+- Cleanup and use new MQTT_BASE_SCHEMA constants ([@jbouwh] - [#72283]) ([mqtt docs])
+- Move MQTT config schemas and client to separate modules ([@emontnemery] - [#71995]) ([mqtt docs])
+- Update MQTT tests to use the config entry setup ([@jbouwh] - [#72373]) ([mqtt docs])
+- Remove announce workaround for Sonos ([@jjlawren] - [#72854]) ([sonos docs])
+- Update frontend to 20220601.0 ([@bramkragten] - [#72855]) ([frontend docs])
+- Ensure recorder shuts down when its startup future is canceled out from under it ([@bdraco] - [#72866]) ([recorder docs])
+- Fix logbook not setting up with an recorder filter that has empty fields ([@bdraco] - [#72869]) ([recorder docs]) ([logbook docs])
+- Only present history_stats state as unknown if the time is in the future ([@bdraco] - [#72880]) ([history_stats docs])
+- Fix migration of MySQL data when InnoDB is not being used ([@bdraco] - [#72893]) ([recorder docs])
+- Fix performance of logbook entity and devices queries with large MySQL databases ([@bdraco] - [#72898]) ([logbook docs])
+- Fix reload of MQTT yaml config ([@emontnemery] - [#72901]) ([mqtt docs])
+- Bump yolink-api to 0.0.6 ([@matrixd2] - [#72903]) ([yolink docs])
+- Fix logging & exit code reporting to S6 on HA shutdown ([@nojocodex] - [#72921])
+- Fix bug in caldav and avoid unnecessary copy of dataclass ([@allenporter] - [#72922]) ([caldav docs])
+- Fix Hive authentication ([@KJonline] - [#72929]) ([hive docs])
+- Only sync when HA is started up as we already sync at startup ([@balloob] - [#72940]) ([cloud docs])
+- Fix misalignments between sql based filtering with the entityfilter based filtering ([@bdraco] - [#72936]) ([recorder docs])
+- Only create auto comfort entities for BAF devices that support them ([@bdraco] - [#72948]) ([baf docs])
+
+[#71995]: https://github.com/home-assistant/core/pull/71995
+[#72283]: https://github.com/home-assistant/core/pull/72283
+[#72373]: https://github.com/home-assistant/core/pull/72373
+[#72854]: https://github.com/home-assistant/core/pull/72854
+[#72855]: https://github.com/home-assistant/core/pull/72855
+[#72866]: https://github.com/home-assistant/core/pull/72866
+[#72869]: https://github.com/home-assistant/core/pull/72869
+[#72880]: https://github.com/home-assistant/core/pull/72880
+[#72893]: https://github.com/home-assistant/core/pull/72893
+[#72898]: https://github.com/home-assistant/core/pull/72898
+[#72901]: https://github.com/home-assistant/core/pull/72901
+[#72903]: https://github.com/home-assistant/core/pull/72903
+[#72921]: https://github.com/home-assistant/core/pull/72921
+[#72922]: https://github.com/home-assistant/core/pull/72922
+[#72929]: https://github.com/home-assistant/core/pull/72929
+[#72936]: https://github.com/home-assistant/core/pull/72936
+[#72940]: https://github.com/home-assistant/core/pull/72940
+[#72948]: https://github.com/home-assistant/core/pull/72948
+[@KJonline]: https://github.com/KJonline
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@jbouwh]: https://github.com/jbouwh
+[@jjlawren]: https://github.com/jjlawren
+[@matrixd2]: https://github.com/matrixd2
+[@nojocodex]: https://github.com/nojocodex
+[baf docs]: /integrations/baf/
+[caldav docs]: /integrations/caldav/
+[cloud docs]: /integrations/cloud/
+[frontend docs]: /integrations/frontend/
+[history_stats docs]: /integrations/history_stats/
+[hive docs]: /integrations/hive/
+[logbook docs]: /integrations/logbook/
+[mqtt docs]: /integrations/mqtt/
+[recorder docs]: /integrations/recorder/
+[sonos docs]: /integrations/sonos/
+[yolink docs]: /integrations/yolink/
 
 ## Need help? Join the community!
 
@@ -468,7 +530,7 @@ the documentation of the specific integration on how to configure this.
 
 If you run Home Assistant Container in Docker (e.g., using Portainer,
 Docker (Compose), QNAP, and others), please make sure you are not specifying
-an init process. 
+an init process.
 
 This can be an `init` configuration option in your Docker management tools or
 Docker Compose, or the `--init` command line flag on the raw Docker command.
@@ -722,7 +784,7 @@ removed from your YAML configuration files.
 
 A new configuration key for KNX covers `invert_updown` can be set to
 invert the up-down payload (binary) of covers independently of the
-position percentage. 
+position percentage.
 
 Previously up-down (`move_long_address`) payloads were inverted
 when `invert_position: true` was configured. This now only inverts
@@ -1038,7 +1100,7 @@ removed from your YAML configuration after upgrading.
 The Squeezebox player synchronization framework has been updated to use the
 standard `media_player.join` and `media_player.unjoin` services. The
 list of synchronized players is now stored in the `group_members` state
-attribute. 
+attribute.
 
 The  `squeezebox.sync` and `squeezebox.unsync` services are now deprecated,
 and will be removed in two releases in favor of the standard
