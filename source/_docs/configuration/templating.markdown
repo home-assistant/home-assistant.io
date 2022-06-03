@@ -705,8 +705,8 @@ Some examples:
 
 - `{{ 0xDEADBEEF | pack(">I") }}` - renders as `b"\xde\xad\xbe\xef"`
 - `{{ pack(0xDEADBEEF, ">I") }}` - renders as `b"\xde\xad\xbe\xef"`
-- `{{ 0xDEADBEEF | pack(">I") | unpack(">I") }}` - renders as `0xDEADBEEF`
-- `{{ 0xDEADBEEF | pack(">I") | unpack(">H", offset=2) }}` - renders as `0xBEEF`
+- `{{ "0x%X" % 0xDEADBEEF | pack(">I") | unpack(">I") }}` - renders as `0xDEADBEEF`
+- `{{ "0x%X" % 0xDEADBEEF | pack(">I") | unpack(">H", offset=2) }}` - renders as `0xBEEF`
 
 {% endraw %}
 
