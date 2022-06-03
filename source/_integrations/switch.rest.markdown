@@ -84,6 +84,10 @@ verify_ssl:
   required: false
   type: boolean
   default: true
+unique_id:
+  description: Set a unique id for the switch.
+  required: false
+  type: string
 {% endconfiguration %}
 
 <div class='note warning'>
