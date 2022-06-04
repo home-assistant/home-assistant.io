@@ -31,10 +31,10 @@ If you want to use separate credentials, please contact <service@yosmart.com> to
 
 The integration is tested and verified for the following devices from YoLink:
 
-* YS6602/4(outlet|plug)
-* YS7103/4/5(siren)
-* YS7704(door sensor)
-* YS7804/5(motion sensor)
-* YS7903/4(leak sensor)
-* YS8003(temperature/humidity sensor)
-* Vibration Sensor
+* YS6602/4 (outlet | plug)
+* YS7103/4/5 (siren)
+* YS7704 (door sensor)
+* YS7804/5 (motion sensor)
+* YS7903/4 (leak sensor)
+* YS8003 (temperature/humidity sensor)
+* YS7201 (Vibration Sensor)
