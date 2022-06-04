@@ -596,6 +596,7 @@ The `lcn_transmitter` event is fired if a LCN remote control command is received
 | `level` | Key level | 0..4 |
 | `key` | Key | 0..4 |
 | `action` | Key action | `hit`, `make`, `break` |
+| `battery` | Battery status | `full`, `weak` |
 
 Example:
 
