@@ -65,21 +65,10 @@ Enjoy the release (and upcoming events)!
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=LVDex3IV44M) today at 12:00 PDT / 21:00 CET!
-
-<div class="videoWrapper">
-  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/LVDex3IV44M" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
-
-{% comment %}
-<!-- Replace the wrapper above with the following after the livestream...-->
-
 Missed our release party live stream on YouTube? Don't worry! You can watch
 the recording of it right here!
 
-<lite-youtube videoid="LVDex3IV44M" videotitle="Home Assistant 2022.6 Release Party" posterquality="maxresdefault"></lite-youtube>
-
-{% endcomment %}
+<lite-youtube videoid="LVDex3IV44M" videotitle="Home Assistant 2022.6 Release Party"></lite-youtube>
 
 ## Comparing data in the energy dashboard
 
@@ -443,8 +432,8 @@ The configuration needs to be updated to this format:
 ```yaml
 mqtt:
   sensor:
-   - name: "My sensor"
-     state_topic: "some-state-topic"
+    - name: "My sensor"
+      state_topic: "some-state-topic"
 ```
 
 ([@jbouwh] - [#71676] [#72183] [#72281] [#72249] [#72271] [#72167] [#72165] [#72251] [#72279] [#72268] [#72272] [#72273] [#72274] [#72278] [#72270]) ([documentation](/integrations/mqtt))
