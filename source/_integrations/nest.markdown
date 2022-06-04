@@ -44,9 +44,24 @@ The Nest Smart Device Management (SDM) API **requires a US$5 fee**.
 
 </div>
 
-## Device Access Registration
 
-For the first phase, you will turn on the API and create the necessary credentials to have Home Assistant talk to the Nest API.
+## Configuration
+
+Adding Nest to your Home Assistant instance can be done via the user interface, by using this My Button:
+{% my config_flow_start badge domain=page.ha_domain %}
+
+{% details "Manual configuration steps" %}
+
+1. Browse to your Home Assistant instance.
+1. In the sidebar click on _**{% my config icon %}**_.
+1. From the configuration menu select: _**{% my integrations %}**_.
+1. In the bottom right, click on the
+  _**{% my config_flow_start icon domain=page.ha_domain %}**_ button.
+1. From the list, search and select _**"Nest"**_ and follow the instructions.
+
+{% enddetails %}
+
+The integration setup steps will walk you through the process of configuring a Google Cloud Project, Device Access Project, and finally link your account to Home Assistant. Make sure you are running the most recent version of Home Assistant.
 
 {% details "Create and configure Cloud Project [Cloud Console]" %}
 
@@ -54,11 +69,15 @@ By the end of this section you will have a Cloud Project with the necessary APIs
 
 1. Go to the [Google Cloud Console](https://console.developers.google.com/apis/credentials).
 
-1. If this is your first time here, you likely need to create a new Google Cloud project. Click **Create Project** then **New
+2. If this is your first time here, you likely need to create a new Google Cloud project. Click **Create Project** then **New
 Project**.
     ![Screenshot of APIs and Services Cloud Console with no existing project](/images/integrations/nest/api_project_needed.png)
 
 1. Give your Cloud Project a name then click **Create**.
+
+1. You will need to hold on to your *Cloud Project ID* to enable a subscription to receive updates from devices. Visit the [Cloud Console](https://console.cloud.google.com/home/dashboard) and copy the *Project ID* needed by Home Assistant.
+
+    ![Screenshot of success](/images/integrations/nest/console_project_id.png)
 
 1. Go to [APIs & Services > Library](https://console.cloud.google.com/apis/library) where you can enable APIs.
 
@@ -101,9 +120,9 @@ your cloud project.
 
 {% enddetails %}
 
-{% details "Configure OAuth client_id and client_secret [Cloud Console]" %}
+{% details "Configure OAuth Application Credentials[Cloud Console]" %}
 
-By the end of this section you will have the `client_id` and `client_secret` which are needed for later steps.
+By the end of this section you will have the OAuth *Client ID* and *Client Secret* needed for Application Credentials setup.
 
 The steps below use *Web Application Auth* with *My Home Assistant* to handle Google's strict URL validation rules like requiring SSL and a publicly resolvable redirect URL. *Desktop Auth* has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google to improve security, and it can no longer be used with Home Assistant.
 
@@ -122,16 +141,17 @@ The steps below use *Web Application Auth* with *My Home Assistant* to handle Go
 1. Click *Create* to create the credential.
     ![Screenshot of creating OAuth credentials](/images/integrations/nest/oauth_redirect_uri.png)
 
-1. You should now be presented with an *OAuth client created* message. Take note of *Your Client ID* and *Your Client
-Secret* as these are needed in later steps.
+1. You should now be presented with an *OAuth client created* message.
+
     ![Screenshot of OAuth Client ID and Client Secret](/images/integrations/nest/oauth_created.png)
+
+1. You now have *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant.  See [Application Credentials](/integrations/application_credentials) for more general detail about how Home Assistant manages credentials.
 
 {% enddetails %}
 
-{% details "Create a Device Access project_id [Device Access Console]" %}
+{% details "Create a Device Access Project [Device Access Console]" %}
 
-Now that you have authentication configured, you will create a Nest Device Access Project which *requires a US$5 fee*.
-Once completed, you will have a device access `project_id` needed for later steps.
+Now that you have authentication configured, you will create a Nest Device Access Project which *requires a US$5 fee*. Once completed, you will have a *Device Access Project ID*.
 
 1. Go to the [Device Access Registration](https://developers.google.com/nest/device-access/registration) page. Click on the button **[Go to the Device Access Console](https://console.nest.google.com/device-access/)**.
     ![Screenshot of Device Access Registration](/images/integrations/nest/device_access.png)
@@ -154,72 +174,15 @@ Once completed, you will have a device access `project_id` needed for later step
 1. Enable Events by clicking on **Enable** and **Create project**.
     ![Screenshot of enabling events](/images/integrations/nest/enable_events.png)
 
-1. Take note of the *Project ID* as you will it later. At this point you have the `project_id`, `client_id` and `client_secret` configuration options needed for Home Assistant.
+1. You now have a *Device Access Project ID* needed by Home Assistant.
 
 {% enddetails %}
 
-## Configuration
-
-You now should have everything needed to configure Nest in Home Assistant. Edit your `configuration.yaml` file and populate a `nest` entry in the format of the example configuration below.
-
-
-```yaml
-# Example configuration.yaml entry
-nest:
-  client_id: CLIENT_ID
-  client_secret: CLIENT_SECRET
-  # "Project ID" in the Device Access Console (not Cloud Project ID!)
-  project_id: PROJECT_ID
-```
-
-Then make sure to restart Home Assistant under _**Server Controls**_. {% my server_controls badge %}
-
-{% configuration %}
-client_id:
-  description: Your Device Access or Nest developer client ID.
-  required: true
-  type: string
-client_secret:
-  description: Your Device Access or Nest developer client secret.
-  required: true
-  type: string
-project_id:
-  description: Your Device Access Project ID. This enables the SDM API.
-  required: false
-  type: string
-subscriber_id:
-  description: Recommended to leave blank, and let the integration manage this for you. If you want to use your subscription, enter the full path for the Pub/sub Subscription name.
-  type: string
-  required: false
-{% endconfiguration %}
-
-## Device Setup
-
-Once `configuration.yaml` has a valid `nest` entry, you need to add Nest to your Home Assistant instance via the user interface by using this My button:
-
-{% my config_flow_start badge domain=page.ha_domain %}
-
-{% details "Manual configuration steps" %}
-
-1. Browse to your Home Assistant instance.
-1. In the sidebar click on _**{% my config icon %}**_.
-2. From the configuration menu select: _**{% my integrations %}**_.
-3. In the bottom right, click on the
-  _**{% my config_flow_start icon domain=page.ha_domain %}**_ button.
-1. From the list, search and select _**"Nest"**_ and follow the instructions.
-
-{% enddetails %}
-
-The Nest integration setup will walk you through the steps of authorizing
-your Home Assistant to access your account and Nest devices.
-
-{% details "OAuth and Device Authorization steps" %}
+{% details "Link Google Account" %}
 
 In this section you will authorize Home Assistant to access your account by generating an *Authentication Token*.
 
-1. Choose **OAuth for Web** since you created *Web Application* credentials above in the Google Cloud Console. Note that *OAuth for Auth* has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google and will break by October 2022.
-
-    ![Screenshot of Integration setup on OAuth type step](/images/integrations/nest/integration_oauth_type.png)
+Note that *OAuth for Auth* has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google and will break by October 2022.
 
 1. A new tab opens, allowing you to choose a Google account. This should be the same developer account you configured above.
 
@@ -242,11 +205,7 @@ In this section you will authorize Home Assistant to access your account by gene
 
 1. You will now see a page hosted by *My Home Assistant* asking if you would like to *Link account to Home Assistant?* Click **Link Account** to continue.
 
-1. The next step is to enter the *Cloud Project ID* to enable a subscription to receive updates from devices. This is not the same as the *Device Access Project ID* above! Visit the [Cloud Console](https://console.cloud.google.com/home/dashboard) and copy the *Project ID*.
-
-    ![Screenshot of success](/images/integrations/nest/console_project_id.png)
-
-1. If all went well, you are ready to go!
+1.  If all went well, you are ready to go!
 
     ![Screenshot of success](/images/integrations/nest/finished.png)
 
@@ -455,6 +414,17 @@ This feature is enabled by the following permissions:
 
 - *Error 400: invalid_request* plus a message about not complying with *Google's OAuth Policy for keeping accounts secure* is shown when using *App Auth* or *Desktop Auth* or *OOB Auth* which has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google. You need to create new *Web App* credentials following the instructions on this page and update your Home Assistant to use them.
 
+{% details "Upgrade from Deprecated OOB / App Auth Credentials" %}
+
+1. Delete the *Nest* integration from Home Assistant
+1. Remove or comment out the `nest` from your `configuration.yaml`. You will still need your device access `project_id` so hold on to it
+1. Create a new *Web Application* credential in the [Google Cloud Console](https://console.developers.google.com/apis/credentials) following the instructions above. Make sure the redirect allows `https://my.home-assistant.io/redirect/oauth`.
+1. Update the [Device Access Project](https://console.nest.google.com/device-access/project-list) to point to the new *OAuth Client ID* you just created
+1. Restart Home Assistant
+1. Add the integration following the steps above
+
+{% enddetails %}
+
 - *Error 400: redirect_uri_mismatch* means that your OAuth Client ID is not configured to match the *My Home Assistant* callback URL. Home Assistant's redirect URL behavior may have changed since you initially set this up!
 
 {% details "Details about resolving redirect_uri_mismatch" %}
@@ -482,6 +452,10 @@ The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
 authentication process.
 
 {% enddetails %}
+
+- *Something went wrong: Please contact the developer of this app if the issue persists*: This typically means you are using the wrong type of credential (e.g. *Desktop Auth*). Make sure the credential in the [Google Cloud Console](https://console.developers.google.com/apis/credentials) is a *Web Application* credential following the instructions above.
+
+- *Can’t link to Home Assistant Local Dev: Please contact Home Assistant Local Dev if the issue persists* : This typically means that the [Device Access Project](https://console.nest.google.com/device-access/project-list) is set up with on old or incorrect *OAuth Client ID*
 
 - *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiugration or your authentication token was revoked by Google for some other reason.
 
