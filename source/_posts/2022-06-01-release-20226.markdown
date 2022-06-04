@@ -60,6 +60,7 @@ Enjoy the release (and upcoming events)!
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.6.1 - June 2](#release-202261---june-2)
+- [Release 2022.6.2 - June 4](#release-202262---june-4)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -386,6 +387,51 @@ The following integrations are now available via the Home Assistant UI:
 [recorder docs]: /integrations/recorder/
 [sonos docs]: /integrations/sonos/
 [yolink docs]: /integrations/yolink/
+
+## Release 2022.6.2 - June 4
+
+- Fix statistics_during_period being incorrectly cached ([@bdraco] - [#72947]) ([history docs])
+- Allow `log` template function to return specified `default` on math domain error ([@XaF] - [#72960])
+- Bump pynetgear to 0.10.4 ([@starkillerOG] - [#72965]) ([netgear docs])
+- Bump bimmer_connected to 0.9.4 ([@rikroe] - [#72973]) ([bmw_connected_drive docs])
+- fjaraskupan: Don't filter anything in backend ([@elupus] - [#72988]) ([fjaraskupan docs])
+- Check ISY994 climate for unknown humidity value on Z-Wave Thermostat ([@shbatm] - [#72990]) ([isy994 docs])
+- Fix google calendar bug where expired tokens are not refreshed ([@allenporter] - [#72994]) ([google docs])
+- Provide Sonos media position if duration not available ([@jjlawren] - [#73001]) ([sonos docs])
+- Bump pypck to 0.7.15 ([@alengwenus] - [#73009]) ([lcn docs])
+- Fix missing historical context data in logbook for MySQL and PostgreSQL ([@bdraco] - [#73011]) ([recorder docs])
+- Fix history stats not comparing all times in UTC ([@bdraco] - [#73040]) ([history_stats docs])
+
+[#72947]: https://github.com/home-assistant/core/pull/72947
+[#72960]: https://github.com/home-assistant/core/pull/72960
+[#72965]: https://github.com/home-assistant/core/pull/72965
+[#72973]: https://github.com/home-assistant/core/pull/72973
+[#72988]: https://github.com/home-assistant/core/pull/72988
+[#72990]: https://github.com/home-assistant/core/pull/72990
+[#72994]: https://github.com/home-assistant/core/pull/72994
+[#73001]: https://github.com/home-assistant/core/pull/73001
+[#73009]: https://github.com/home-assistant/core/pull/73009
+[#73011]: https://github.com/home-assistant/core/pull/73011
+[#73040]: https://github.com/home-assistant/core/pull/73040
+[@XaF]: https://github.com/XaF
+[@alengwenus]: https://github.com/alengwenus
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@jjlawren]: https://github.com/jjlawren
+[@rikroe]: https://github.com/rikroe
+[@shbatm]: https://github.com/shbatm
+[@starkillerOG]: https://github.com/starkillerOG
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[fjaraskupan docs]: /integrations/fjaraskupan/
+[google docs]: /integrations/google/
+[history docs]: /integrations/history/
+[history_stats docs]: /integrations/history_stats/
+[isy994 docs]: /integrations/isy994/
+[lcn docs]: /integrations/lcn/
+[netgear docs]: /integrations/netgear/
+[recorder docs]: /integrations/recorder/
+[sonos docs]: /integrations/sonos/
 
 ## Need help? Join the community!
 
