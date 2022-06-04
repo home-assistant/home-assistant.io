@@ -37,37 +37,39 @@ There is currently support for the following device types within Home Assistant:
 
 Known devices and their supported functionality is listed below.
 
-> :warning: Devices listed as **Under Development** may perform basic or slightly odd functionality.\
-> We ask you wait patiently for testing to complete on other models.\
-> \
-> If however you're shade is not listed below please raise a feature request on the community forum.
+<div class="note">
+Devices marked with a <strong>~</strong> may perform basic or slightly odd functionality.<br/>
+We ask you wait patiently for testing to complete on these models.<br/>
+<br/>
+If your shade is not listed please raise a feature request on the community forum.
+</div>
 
-| Type | Common Name                        | Capabilities                    | Functionality     |
-| ---- | ---------------------------------- | ------------------------------- | ----------------- |
-| 4    | Roman                              | Bottom Up                       | Confirmed         |
-| 5    | Bottom Up                          | Bottom Up                       | Confirmed         |
-| 6    | Duette                             | Bottom Up                       | Confirmed         |
-| 7    | Top Down                           | Top Down                        | Under Development |
-| 8    | Duette, Top Down Bottom Up         | Top Down, Bottom Up             | Under Development |
-| 9    | Duette DuoLite, Top Down Bottom Up | Top Down, Bottom Up             | Under Development |
-| 18   | Silhouette                         | 90° Tilt when closed            | Under Development |
-| 23   | Silhouette                         | 90° Tilt when closed            | Confirmed         |
-| 38   | Silhouette Duolite                 | Dual Shade Blackout + 90° Tilt  | Under Development |
-| 42   | M25T Roller Blind                  | Bottom Up                       | Confirmed         |
-| 43   | Facette                            | 90° Tilt when closed            | Under Development |
-| 44   | Twist                              | 180° Tilt when closed           | Confirmed         |
-| 47   | Pleated, Top Down Bottom Up        | Top Down, Bottom Up             | Under Development |
-| 49   | AC Roller                          | Bottom Up                       | Confirmed         |
-| 51   | Venetian, Tilt Anywhere            | 180° Tilt Anywhere              | Under Development |
-| 54   | Vertical Slats, Left Stack         | 180° Tilt when closed, Vertical | Under Development |
-| 55   | Vertical Slats, Right Stack        | 180° Tilt when closed, Vertical | Under Development |
-| 56   | Vertical Slats, Split Stack        | 180° Tilt when closed, Vertical | Under Development |
-| 62   | Venetian, Tilt Anywhere            | 180° Tilt Anywhere, Vertical    | Under Development |
-| 65   | Vignette Duolite                   | Dual Shade Blackout             | Under Development |
-| 69   | Curtain, Left Stack                | 180° Tilt when closed, Vertical | Under Development |
-| 70   | Curtain, Right Stack               | 180° Tilt when closed, Vertical | Under Development |
-| 71   | Curtain, Split Stack               | 180° Tilt when closed, Vertical | Under Development |
-| 79   | Duolite Lift                       | Dual Shade Blackout             | Under Development |
+| Type | Common Name                        | Capabilities                    |
+| ---- | ---------------------------------- | ------------------------------- |
+| 4    | Roman                              | Bottom Up                       |
+| 5    | Bottom Up                          | Bottom Up                       |
+| 6    | Duette                             | Bottom Up                       |
+| 7  ~  | Top Down                           | Top Down                        |
+| 8  ~  | Duette, Top Down Bottom Up         | Top Down, Bottom Up             |
+| 9  ~  | Duette DuoLite, Top Down Bottom Up | Top Down, Bottom Up             |
+| 18 ~  | Silhouette                         | 90° Tilt when closed            |
+| 23   | Silhouette                         | 90° Tilt when closed            |
+| 38 ~  | Silhouette Duolite                 | Dual Shade Blackout + 90° Tilt  |
+| 42   | M25T Roller Blind                  | Bottom Up                       |
+| 43 ~  | Facette                            | 90° Tilt when closed            |
+| 44   | Twist                              | 180° Tilt when closed           |
+| 47 ~  | Pleated, Top Down Bottom Up        | Top Down, Bottom Up             |
+| 49   | AC Roller                          | Bottom Up                       |
+| 51 ~  | Venetian, Tilt Anywhere            | 180° Tilt Anywhere              |
+| 54 ~  | Vertical Slats, Left Stack         | 180° Tilt when closed, Vertical |
+| 55 ~  | Vertical Slats, Right Stack        | 180° Tilt when closed, Vertical |
+| 56 ~  | Vertical Slats, Split Stack        | 180° Tilt when closed, Vertical |
+| 62 ~  | Venetian, Tilt Anywhere            | 180° Tilt Anywhere, Vertical    |
+| 65 ~  | Vignette Duolite                   | Dual Shade Blackout             |
+| 69 ~  | Curtain, Left Stack                | 180° Tilt when closed, Vertical |
+| 70 ~  | Curtain, Right Stack               | 180° Tilt when closed, Vertical |
+| 71 ~  | Curtain, Split Stack               | 180° Tilt when closed, Vertical |
+| 79 ~  | Duolite Lift                       | Dual Shade Blackout             |
 
 ## Capabilities Information
 
@@ -77,13 +79,13 @@ These shades offer only the simple up/down movement of your conventional shades.
 
 ### Top Down
 
-> :information_source: Full functionality not currently implemented
+<div class="note">Full functionality not currently implemented</div>
 
 These shades offer a unique movement that is inverse to your conventional shade, where the shade is fixed to the floor and lowered from the roof.
 
 ### Top Down, Bottom Up (TDBU)
 
-> :information_source: Full functionality not currently implemented
+<div class="note">Full functionality not currently implemented</div>
 
 TDBU shades consist of two rails controlled by two motors designated by Top and Bottom with fabric in between.
 The Top and Bottom can move independently to cover different parts of the window but cannot pass the other.
@@ -109,13 +111,13 @@ Shades with Tilt when closed functionality only allow a shade to tilt when it is
 
 ### Tilt Anywhere
 
-> :information_source: Full functionality not currently implemented
+<div class="note">Full functionality not currently implemented</div>
 
 These shades can tilt in any position and do not require the shade to be open or closed to adjust the tilt position.
 
 ### Dual Shade Blackout
 
-> :information_source: Full functionality not currently implemented
+<div class="note">Full functionality not currently implemented</div>
 
 These shades consist of two pieces of fabric attached to a single rail. The front shade is sheer, with the rear being blackout, and neither panel can move independently from the other.
 
