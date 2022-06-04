@@ -534,7 +534,7 @@ Further examples can be found in the [event section](#events).
 To use LCN remote controls (e.g., LCN-RT or LCN-RT16) ensure that the corresponding module's I-port property
 is enabled in the LCN-PRO software and its behavior is properly configured as "IR access control".
 With this configuration each remote control is identified by a six value hexadecimal code (e.g. *123abc*).
-If a command from a remote control is received a corresponding event ([transponder event](#event-lcn_transponder))
+If a command from a remote control is received a corresponding event ([transmitter event](#event-lcn_transmitter))
 is fired and can be used to trigger an automation. Along with the transmitted code, the pressed key and the key action
 are transmitted.
 Alternatively, you can use the corresponding [device triggers](#device-triggers).
