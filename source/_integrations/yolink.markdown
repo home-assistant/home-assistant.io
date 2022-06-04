@@ -37,4 +37,4 @@ The integration is tested and verified for the following devices from YoLink:
 * YS7804/5 (motion sensor)
 * YS7903/4 (leak sensor)
 * YS8003 (temperature/humidity sensor)
-* YS7201 (Vibration Sensor)
+* YS7201 (vibration sensor)
