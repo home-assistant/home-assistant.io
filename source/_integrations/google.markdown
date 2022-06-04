@@ -31,16 +31,16 @@ This section explains how to generate a Client ID and Client Secret on
 1. Navigate to APIs & Services (left sidebar) > [Credentials](https://console.cloud.google.com/apis/credentials)
 1. Click on the field on the right of the screen, **OAuth Consent Screen**.
 1. Select **External** and **Create**.
-1. Set the *App Name* (the name of the application asking for consent) to anything you want. We suggest *Home-Assistant*.
+1. Set the *App Name* (the name of the application asking for consent) to anything you want e.g.  *Home Assistant*.
 1. You then need to select a *Support email*. To do this, simply click the drop down box and select your email address.
 1. You finally need to complete the section: *Developer contact information*. To do this, simply enter your email address (same as above is fine).
-1. Scroll to the bottom and click **Save and Continue**. Don't have to fill out anything else or it may enable additional review.
-1. You will then be automatically taken to the *Scopes* page. You do not need to add any scopes here so click **Save and Continue** to move to the *Test users* page. You will need to add the Gmail address you will be using with this integration as a test user before you will be allowed to use the API. Once you have added your email address under *Test users* click **Save and Continue** which will take to the *Summary* page. (you do not need to do anything here).
-1. Click **OAuth consent screen** again and set *Publish Status* to **Production** otherwise your credentials will expire every 7 days.
-1. Click **Credentials** in the menu on the left hand side of the screen, then click **Create credentials** (at the top of the screen), then select *OAuth client ID*.
-1. Set the Application type to *TV and Limited Input* and give this credential set a name (like "Home Assistant Credentials") then click **Create**.
-1. You will then be presented with a pop-up saying 'OAuth client created' showing *Your Client ID* and *Your Client Secret*. Make a note of these (for example, copy and paste them into a text editor) as you will need these shortly. Once you have noted these strings, click **OK**. If you need to find these credentials again at any point then simply navigate to *APIs & Services > Credentials* and you will see *Home Assistant Credentials* (or whatever you named them in the previous step) under *OAuth 2.0 Client IDs*. To view both the *Client ID* and *Client secret*, click on the pencil icon, this will take you to the settings page for these credentials and the information will be on the right hand side of the page.
-1. We need to double check that the *Google Calendar API* has been automatically enabled. To do this, select **Library** from the menu, then search for *Google Calendar API*. If it is enabled you will see *API Enabled* with a green tick next to it. If it is not enabled, then enable it.
+1.  Scroll to the bottom and click **Save and Continue**. Don't have to fill out anything else or it may enable additional review.
+1.  You will then be automatically taken to the *Scopes* page. You do not need to add any scopes here so click **Save and Continue** to move to the *Test users* page. You will need to add the Gmail address you will be using with this integration as a test user before you will be allowed to use the API. Once you have added your email address under *Test users* click **Save and Continue** which will take to the *Summary* page. (you do not need to do anything here).
+1.  Click **OAuth consent screen** again and set *Publish Status* to **Production** otherwise your credentials will expire every 7 days.
+1.  Click **Credentials** in the menu on the left hand side of the screen, then click **Create credentials** (at the top of the screen), then select *OAuth client ID*.
+1.  Set the Application type to *TV and Limited Input* and give this credential set a name (like "Home Assistant Credentials") then click **Create**.
+1. You will then be presented with a pop-up saying *OAuth client created* showing *Your Client ID* and *Your Client Secret*. Make a note of these (for example, copy and paste them into a text editor) as you will need these shortly. Once you have noted these strings, click **OK**. If you need to find these credentials again at any point then simply navigate to *APIs & Services > Credentials* and you will see *Home Assistant Credentials* (or whatever you named them in the previous step) under *OAuth 2.0 Client IDs*. To view both the *Client ID* and *Client secret*, click on the pencil icon, this will take you to the settings page for these credentials and the information will be on the right hand side of the page.
+1. Double check that the *Google Calendar API* has been automatically enabled. To do this, select **Library** from the menu, then search for *Google Calendar API*. If it is enabled you will see *API Enabled* with a green tick next to it. If it is not enabled, then enable it.
 
 {% enddetails %}
 
