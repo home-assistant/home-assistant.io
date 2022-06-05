@@ -43,13 +43,13 @@ If your shade is not listed please raise a feature request on the community foru
 
 | Type and Name                            | Capabilities                    |
 | :--------------------------------------- | :------------------------------ |
-| 4   - Roman                              | Bottom Up                       |
-| 5   - Bottom Up                          | Bottom Up                       |
-| 6   - Duette                             | Bottom Up                       |
-|  23 - Silhouette                         | 90° Tilt when closed            |
-|  42 - M25T Roller Blind                  | Bottom Up                       |
-|  44 - Twist                              | 180° Tilt when closed           |
-|  49 - AC Roller                          | Bottom Up                       |
+| Roman (4)                             | Bottom Up                       |
+| Bottom Up (5)                          | Bottom Up                       |
+| Duette (6)                            | Bottom Up                       |
+| Silhouette (23)                        | 90° Tilt when closed            |
+| M25T Roller Blind (42)                 | Bottom Up                       |
+| Twist (44)                              | 180° Tilt when closed           |
+| AC Roller  (49)                         | Bottom Up                       |
 
 ### Devices under with limited functionality
 
