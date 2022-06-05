@@ -51,7 +51,7 @@ If your shade is not listed please raise a feature request on the community foru
 | Twist (44)                             | 180° Tilt when closed           |
 | AC Roller  (49)                        | Bottom Up                       |
 
-### Devices under with limited functionality
+### Devices with limited functionality
 
 <div class="note">
 These devices are currently still being tested. We ask you wait patiently while this completes. Until this is completed these may perform basic or slightly odd functionality.
