@@ -41,15 +41,15 @@ There is currently support for the following device types within Home Assistant:
 If your shade is not listed please raise a feature request on the community forum.
 </div>
 
-| Type and Name                            | Capabilities                    |
-| :--------------------------------------- | :------------------------------ |
-| Roman (4)                             | Bottom Up                       |
+| Name (Type)                            | Capabilities                    |
+| :------------------------------------- | :------------------------------ |
+| Roman (4)                              | Bottom Up                       |
 | Bottom Up (5)                          | Bottom Up                       |
-| Duette (6)                            | Bottom Up                       |
+| Duette (6)                             | Bottom Up                       |
 | Silhouette (23)                        | 90° Tilt when closed            |
 | M25T Roller Blind (42)                 | Bottom Up                       |
-| Twist (44)                              | 180° Tilt when closed           |
-| AC Roller  (49)                         | Bottom Up                       |
+| Twist (44)                             | 180° Tilt when closed           |
+| AC Roller  (49)                        | Bottom Up                       |
 
 ### Devices under with limited functionality
 
@@ -57,25 +57,25 @@ If your shade is not listed please raise a feature request on the community foru
 These devices are currently still being tested. We ask you wait patiently while this completes. Until this is completed these may perform basic or slightly odd functionality.
 </div>
 
-| Type and Name                            | Capabilities                    |
-| :--------------------------------------- | :------------------------------ |
-| 7   - Top Down                           | Top Down                        |
-| 8   - Duette, Top Down Bottom Up         | Top Down, Bottom Up             |
-| 9   - Duette DuoLite, Top Down Bottom Up | Top Down, Bottom Up             |
-|  18 - Silhouette                         | 90° Tilt when closed            |
-|  38 - Silhouette Duolite                 | Dual Shade Blackout + 90° Tilt  |
-|  43 - Facette                            | 90° Tilt when closed            |
-|  47 - Pleated, Top Down Bottom Up        | Top Down, Bottom Up             |
-|  51 - Venetian, Tilt Anywhere            | 180° Tilt Anywhere              |
-|  54 - Vertical Slats, Left Stack         | 180° Tilt when closed, Vertical |
-|  55 - Vertical Slats, Right Stack        | 180° Tilt when closed, Vertical |
-|  56 - Vertical Slats, Split Stack        | 180° Tilt when closed, Vertical |
-|  62 - Venetian, Tilt Anywhere            | 180° Tilt Anywhere, Vertical    |
-|  65 - Vignette Duolite                   | Dual Shade Blackout             |
-|  69 - Curtain, Left Stack                | 180° Tilt when closed, Vertical |
-|  70 - Curtain, Right Stack               | 180° Tilt when closed, Vertical |
-|  71 - Curtain, Split Stack               | 180° Tilt when closed, Vertical |
-|  79 - Duolite Lift                       | Dual Shade Blackout             |
+| Name (Type)                            | Capabilities                    |
+| :------------------------------------- | :------------------------------ |
+| Top Down (7)                           | Top Down                        |
+| Duette, Top Down Bottom Up (8)         | Top Down, Bottom Up             |
+| Duette DuoLite, Top Down Bottom Up (9) | Top Down, Bottom Up             |
+| Silhouette (18)                        | 90° Tilt when closed            |
+| Silhouette Duolite (38)                | Dual Shade Blackout + 90° Tilt  |
+| Facette (43)                           | 90° Tilt when closed            |
+| Pleated, Top Down Bottom Up (47)       | Top Down, Bottom Up             |
+| Venetian, Tilt Anywhere (51)           | 180° Tilt Anywhere              |
+| Vertical Slats, Left Stack (54)        | 180° Tilt when closed, Vertical |
+| Vertical Slats, Right Stack (55)       | 180° Tilt when closed, Vertical |
+| Vertical Slats, Split Stack (56)       | 180° Tilt when closed, Vertical |
+| Venetian, Tilt Anywhere (62)           | 180° Tilt Anywhere, Vertical    |
+| Vignette Duolite (65)                  | Dual Shade Blackout             |
+| Curtain, Left Stack (69)               | 180° Tilt when closed, Vertical |
+| Curtain, Right Stack (70)              | 180° Tilt when closed, Vertical |
+| Curtain, Split Stack (71)              | 180° Tilt when closed, Vertical |
+| Duolite Lift (79)                      | Dual Shade Blackout             |
 
 ## Capabilities Information
 
