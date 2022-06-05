@@ -38,9 +38,51 @@ Change the light to a new state.
 | `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
 | `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`](/integrations/light/#service-lightturn_on) to specify the new state.
 
+## HEV Support
+
+Home Assistant will indicate whehther a LIFX Clean cycle is active via an extra state attribute for LIFX Clean bulbs and
+the `lifx.hev_cycle` service (see below) can be used to start and stop an HEV cleaning cycle.
+
+### Service `lifx.hev_cycle`
+
+Start or stop an HEV cleaning cycle.
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of LIFX Clean entities. |
+| `stop` | Set to `True` to stop a running HEV cycle. Leave out or set to `False` to start a cycle.
+| `duration` | Duration (in seconds) for the cleaning cycle. Will use the default of 7200 seconds (2 hours) if not specified.
+
+For example, here's how to start a 1-hour HEV cycle from an automation:
+
+```yaml
+automation:
+  ...
+  action:
+    - service: lifx.hev_cycle
+      target:
+        entity_id: light.lifx_clean_bulb
+      data:
+        duration: 3600
+```
+
+And here's an example of how to stop an HEV cycle:
+
+```yaml
+automation:
+  ...
+  action:
+    - service: lifx.hev_cycle
+      target:
+        entity_id: light.lifx_clean_bulb
+      data:
+        stop: True
+```
+
 ## Light effects
 
 The LIFX platform supports several light effects. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/integrations/light/#service-lightturn_on) service, for example like this:
+
 ```yaml
 automation:
   - alias: "..."
@@ -55,6 +97,7 @@ automation:
 ```
 
 However, if you want to fully control a light effect, you have to use its dedicated service call, like this:
+
 ```yaml
 script:
   colorloop_start:
@@ -108,7 +151,6 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 | Service data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
-
 
 ## Advanced configuration
 
