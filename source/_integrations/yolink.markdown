@@ -3,6 +3,7 @@ title: YoLink
 description: Instructions on how to integrate YoLink Devices into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Lock
   - Sensor
   - Siren
   - Switch
@@ -14,6 +15,7 @@ ha_codeowners:
 ha_domain: yolink
 ha_platforms:
   - binary_sensor
+  - lock
   - sensor
   - siren
   - switch
@@ -38,3 +40,4 @@ The integration is tested and verified for the following devices from YoLink:
 * YS7903/4 (leak sensor)
 * YS8003 (temperature/humidity sensor)
 * YS7201 (vibration sensor)
+* YS7607 (lock)
