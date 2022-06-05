@@ -173,7 +173,7 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 | -------| ---------------- | ---------- |
 | [ITead SONOFF Zigbee 3.0 USB Dongle Plus](https://itead.cc/product/sonoff-zigbee-3-0-usb-dongle-plus/) | USB | 10C4:EA60 |
 | [Bitron Video/SMaBiT BV AV2010/10](https://bv.smabit.eu/index.php/smart-home-produkte/zb-funkstick/) | USB | 10C4:8B34 |
-| [ConBee II](https://phoscon.de/en/conbee2) | USB | 1CF1:0030 |
+| [ConBee II](https://phoscon.de/conbee2) | USB | 1CF1:0030 |
 | [Nortek HUSBZB-1](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/) | USB | 10C4:8A2A |
 | [slae.sh CC2652RB development stick](https://slae.sh/projects/cc2652/) | USB | 10C4:EA60 |
 | [ZigStar Stick (CC2652 + CH340B variant)](https://zig-star.com/projects/zigbee-stick-v4/) | USB | 1A86:7523 |
