@@ -35,7 +35,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Shades
 
-Known devices and their supported functionality is listed below.
+### Known working devices and their functionality is listed below.
 
 <div class="note">
 If your shade is not listed please raise a feature request on the community forum.
