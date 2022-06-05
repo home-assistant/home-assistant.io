@@ -12,20 +12,47 @@ ha_config_flow: true
 ha_platforms:
   - cover
   - sensor
+ha_dhcp: true
+ha_integration_type: integration
 ---
 
-The integration allows you to control [Motion Blinds](https://motion-blinds.com) from [Coulisse B.V.](https://coulisse.com/products/motion).
+The integration allows you to control [Motion Blinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).
 
 Additionally the following brands have been reported to also work with this integration:
 
-- [Motion Blinds](https://motion-blinds.com)
-- [Dooya](http://www.dooya.com/)
+- [AMP Motorization](https://www.ampmotorization.com/)
+- [Bliss Automation - Alta Window Fashions](https://www.altawindowfashions.com/product/automation/bliss-automation/)
 - [Bloc Blinds](https://www.blocblinds.com/)
+- [Brel Home](https://www.brel-home.nl/)
+- [3 Day Blinds](https://www.3dayblinds.com/)
+- [Diaz](https://www.diaz.be/en/)
+- [Dooya](http://www.dooya.com/)
+- [Gaviota](https://www.gaviotagroup.com/en/)
+- [Havana Shade](https://havanashade.com/)
+- [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
+- [Inspired Shades](https://www.inspired-shades.com/)
+- [iSmartWindow](https://www.ismartwindow.co.nz/)
+- [Martec](https://www.martec.co.nz/)
+- [Motion Blinds](https://motionblinds.com/)
+- [Raven Rock MFG](https://www.ravenrockmfg.com/)
+- [Smart Blinds](https://www.smartblinds.nl/)
+- [Smart Home](https://www.smart-home.hu)
+- [Uprise Smart Shades](http://uprisesmartshades.com)
+
+This integration allows for both directly controlling blinds that support wifi-connection and controlling Uni- and Bi-direction blinds that connect to a 433MHz WiFi bridge.
+The following bridges are reported to work with this integration:
+ - CM-20 Motion Blinds bridge
+ - CMD-01 Motion Blinds mini-bridge
+ - DD7002B Connector bridge
+ - D1554 Connector mini-bridge
+ - DD7002B Brel-Home box
+ - D1554 Brel Home USB plug
 
 {% include integrations/config_flow.md %}
 
 ## Retrieving the API Key
 
+### Motion Blinds app
 
 The Motion Blinds API uses a 16 character key that can be retrieved from the official "Motion Blinds" app for [IOS](https://apps.apple.com/us/app/motion-blinds/id1437234324) or [Android](https://play.google.com/store/apps/details?id=com.coulisse.motion).
 
@@ -37,6 +64,18 @@ Please note that "-" characters need to be included in the key when providing it
 <img src='/images/integrations/motion_blinds/Motion_App__get_key_1.jpg' />
 <img src='/images/integrations/motion_blinds/Motion_App__get_key_2.jpg' />
 </p>
+
+### Brel Home app
+
+In the Brel Home app on iOS go to the `me` page (home screen 4th tab), on the bottom of this page multi-tap on the “version x.x.x(xxxx)” gray info and a pop-up with the key will be shown.
+In the Brel Home app on Android go to the `me` page (home screen 4th tab), tap 5 times on the right side of the photo place and a pop-up with the key will be shown.
+
+### Bloc Blinds app
+
+The official Bloc Blinds app doesn't seem to hand out the API key on Android, it does seem to provide the API key on the iOS version of the official Bloc Blinds app.
+
+### Connector app
+Click the about page of the connector app 5 times to get the key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)).
 
 ## Top Down Bottom Up (TDBU) blinds
 
@@ -82,14 +121,22 @@ Therefore it is always safe to use any of the services in Home Assistant with th
 
 ## Service `motion_blinds.set_absolute_position`
 
-For most blinds the `motion_blinds.set_absolute_position` does the same as `cover.set_cover_position` service.
-However, for TDBU blinds it will set the absolute position relative to the window itself.
+For simple blinds the `motion_blinds.set_absolute_position` does the same as `cover.set_cover_position` service.
+
+### TDBU blinds
+
+For TDBU blinds `motion_blinds.set_absolute_position` will set the absolute position relative to the window itself.
 The `cover.set_cover_position` will set the scaled position relative to the space in which the TDBU blind is allowed to move.
+
+### Tilt capable blinds
+
+For tilt capable blinds a new position and tilt can be specified and the blind will move to the new position and then adjust its tilt. If the normal `cover.set_cover_position` is issued and immediately after a `cover.set_cover_tilt_position` is issued, the blind will stop moving and start adjusting the tilt before it reaches the intended position.
 
 | Service data attribute | Optional | Description                                                                                       |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------- |
 | `entity_id`            |      yes | Name of the motion blind cover entity to control. For example `cover.TopDownBottomUp-Bottom-0001` |
 | `absolute_position`    |       no | Absolute position to move to. For example 70                                                      |
+| `tilt_position`        |      yes | Tilt position to move to. For example 50                                                          |
 | `width`                |      yes | Optionally specify the width that is covered, only for TDBU Combined entities. For example 30     |
 
 ## Troubleshooting
@@ -107,3 +154,30 @@ Please make sure the motion gateway and the device running Home Assistant are on
 If using separate VLANs, make sure the 238.0.0.18:32100 and 238.0.0.18:32101 ports are open for communication between those VLANs (not tested or confirmed to work).
 
 For some routers "IGMP snooping" on the used wireless interface needs to be disabled to let the IGMP/multicast messages through.
+
+For Ubiquiti routers/access points the "Enable multicast enhancement (IGMPv3)" should be disabled.
+
+### Bypassing UDP multicast
+
+If UDP Multicast does not work in your setup (due to network limitations), this integration can be used in local polling mode.
+Go to Settings -> Integrations -> on the already set up Motion Blinds integration click "configure" --> disable the "Wait for push" option (disabled by default).
+
+The default update interval of the Motion Blinds integration is every 10 minutes. When UDP multicast pushes do not work, this polling interval can be a bit high.
+To increase the polling interval:
+Go to Settings -> Integrations -> on the already set up Motion Blinds integration click more options (three dots) and select "System options" -> disable "polling for updates".
+Now create an automation with as trigger a time pattern and select your desired polling time.
+As the action select "Call service" and select "Update entity", select one of the motion blinds covers as entity.
+You only have to create one automation with only one motion blind cover as entity, the rest will update at the same time.
+
+Example YAML automation for custom polling interval (every minute):
+```yaml
+alias: Motion blinds polling automation
+mode: single
+trigger:
+  - platform: time_pattern
+    minutes: "/1"
+action:
+  - service: homeassistant.update_entity
+    target:
+      entity_id: cover.motion_shade
+```

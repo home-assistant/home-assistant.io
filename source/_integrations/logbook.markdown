@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.7
 ha_domain: logbook
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 <img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" />
@@ -64,7 +67,7 @@ include:
 
 ## Configure Filter
 
-By default, no entity will be excluded. To limit which entities are being exposed to `Logbook`, you can use the `include` and `exclude` parameters.
+By default, the logbook will use the same filter as the recorder. To limit which entities are being exposed to `Logbook`, you can use the `include` and `exclude` parameters.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -181,7 +184,7 @@ script:
 
 <div class="note warning">
 
-When calling the `logbook.log` service without a `domain` or `entity_id`, entries will be added with the the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your logbook.
+When calling the `logbook.log` service without a `domain` or `entity_id`, entries will be added with the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your logbook.
 
 </div>
 

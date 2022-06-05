@@ -97,7 +97,7 @@ module Jekyll
         major = split_ver[0]
         minor = split_ver[1]
 
-        if minor.length == 1
+        if major.length == 4 || minor.length == 1
           "#{major}.X"
         else
           "#{major}.#{minor.chop}X"

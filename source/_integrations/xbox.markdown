@@ -2,10 +2,10 @@
 title: Xbox
 description: Instructions on how to set up Xbox devices in Home Assistant.
 ha_category:
-  - Media Player
-  - Remote
   - Binary Sensor
+  - Media Player
   - Media Source
+  - Remote
 ha_iot_class: Cloud Polling
 ha_release: 0.117
 ha_codeowners:
@@ -17,6 +17,7 @@ ha_platforms:
   - media_player
   - remote
   - sensor
+ha_integration_type: integration
 ---
 
 The Xbox integration allows you to control Xbox One (or newer) consoles from Home Assistant.
@@ -100,11 +101,11 @@ delay_sec: 0.1
 
 ### Picture Elements Card
 
-Below is a picture elements card that can be added to Lovelace to provide an Xbox controller interface in your frontend. It utilizes the services detailed above. Replace `remote.xboxone_remote` and `media_player.xboxone` with the names of your entities and enjoy! Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
+Below is a picture elements card that can be added to a dashboard to provide an Xbox controller interface in your frontend. It utilizes the services detailed above. Replace `remote.xboxone_remote` and `media_player.xboxone` with the names of your entities and enjoy! Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
 
 <p class='img'>
-  <img src='/images/integrations/xbox/xbox_picture_entity.png' alt='Screenshot showing Xbox Controller in Lovelace.'>
-  Screenshot showing Xbox Controller in Lovelace.
+  <img src='/images/integrations/xbox/xbox_picture_entity.png' alt='Screenshot showing Xbox Controller in a dashboard.'>
+  Screenshot showing Xbox Controller in a dashboard.
 </p>
 
 ```yaml
@@ -277,7 +278,7 @@ It can take up to a couple of days for newly installed applications to appear in
 ## Manual Configuration
 
 <div class="note">
-These steps are not required, nor will they be supported if issues are encountered. It is recommended to add the integration directly in the Integrations page.
+These steps are not required, nor will they be supported if issues are encountered.
 </div>
 
 If you prefer not to use the Home Assistant account linking service, you may manually configure a local implementation if your instance is exposed externally over HTTPS using the following steps:
@@ -285,29 +286,22 @@ If you prefer not to use the Home Assistant account linking service, you may man
 - Register a new application in [Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
   - Name your app
   - Select "Personal Microsoft accounts only" under supported account types
-  - For Redirect URI, add: `https://<EXTERNAL_HOME_ASSISTANT_URL>/auth/external/callback`
+  - For Redirect URI, add: `https://my.home-assistant.io/redirect/oauth`
 - Copy your Application (client) ID for later use
 - On the App Page, navigate to "Certificates & secrets"
   - Generate a new client secret and save for later use
 
-Add the client id and secret to your `configuration.yaml`:
+You may then add the credentials to [Application Credentials](/integrations/application_credentials/) and then setup the integration.
 
-```yaml
-# Example configuration.yaml entry
-xbox:
-  client_id: YOUR_CLIENT_ID
-  client_secret: YOUR_CLIENT_SECRET
-```
+{% details "I have manually disabled My Home Assistant" %}
 
-Finish setup in the UI through **Configuration -> Integrations -> Xbox**.
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
+instead.
 
-{% configuration %}
-client_id:
-  description: The `client id` from your Azure AD Application.
-  required: true
-  type: string
-client_secret:
-  description: The `client secret` from your Azure AD Application.
-  required: true
-  type: string
-{% endconfiguration %}
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
+
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+
+{% enddetails %}

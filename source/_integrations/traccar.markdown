@@ -3,6 +3,7 @@ title: Traccar
 description: Instructions how to use Traccar GPS tracker to track devices in Home Assistant.
 ha_release: 0.83
 ha_category:
+  - Car
   - Presence Detection
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: traccar
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 `Traccar` uses GPS for tracking and has support for over 1500 different types of devices. One option is to track the [Traccar Client](https://www.traccar.org/client/) app on a smartphone via `webhook`. The other option is to connect to an existing [Traccar Server](https://www.traccar.org/server/) installation which is also available as Home Assistant add-on.
@@ -70,7 +72,7 @@ max_accuracy:
   type: integer
   default: 0
 skip_accuracy_filter_on:
-  description: Skip filter position by "max_accuracy filter" if any of specified attributes are pressent on the traccar message.
+  description: Skip filter position by "max_accuracy filter" if any of specified attributes are present on the traccar message.
   required: false
   type: list
 monitored_conditions:

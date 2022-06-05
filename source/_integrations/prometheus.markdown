@@ -8,6 +8,7 @@ ha_iot_class: Assumed State
 ha_domain: prometheus
 ha_codeowners:
   - '@knyar'
+ha_integration_type: integration
 ---
 
 The `prometheus` integration exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
@@ -167,6 +168,25 @@ You can then configure Prometheus to fetch metrics from Home Assistant by adding
 
     # Long-Lived Access Token
     bearer_token: "your.longlived.token"
+
+    scheme: https
+    static_configs:
+      - targets: ['HOSTNAME:8123']
+```
+
+Replace `your.longlived.token` with a Home Assistant [generated token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token).
+
+The format to configure the bearer token has changed in Prometheus 2.26, so if you have a newer version, you can use this configuration sample:
+
+```yaml
+# Example Prometheus scrape_configs entry (For version 2.26+
+  - job_name: "hass"
+    scrape_interval: 60s
+    metrics_path: /api/prometheus
+
+    # Long-Lived Access Token
+    authorization:
+      credentials: "your.longlived.token"
 
     scheme: https
     static_configs:

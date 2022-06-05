@@ -11,7 +11,6 @@ categories:
 - Release-Notes
 - Core
 og_image: /images/blog/2021-06/social.png
-feedback: true
 ---
 
 <a href='/integrations/#version/2021.6'><img src='/images/blog/2021-06/social.png' style='border: 0;box-shadow: none;'></a>
@@ -38,6 +37,12 @@ worth scanning the all changes section for your favorite integrations.
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.6.1 - June 3](#release-202161---june-3)
+- [Release 2021.6.2 - June 4](#release-202162---june-4)
+- [Release 2021.6.3 - June 7](#release-202163---june-7)
+- [Release 2021.6.4 - June 11](#release-202164---june-11)
+- [Release 2021.6.5 - June 15](#release-202165---june-15)
+- [Release 2021.6.6 - June 20](#release-202166---june-20)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
   - [Integrations that removed deprecated YAML import](#integrations-that-removed-deprecated-yaml-import)
@@ -246,6 +251,217 @@ The following integrations are now available via the Home Assistant UI:
 
 - [Buienradar][buienradar docs], done by [@RobBie1221]
 - [Growatt][growatt_server docs], done by [@indykoning]
+
+## Release 2021.6.1 - June 3
+
+- Fix last activity consideration for AVM Fritz!Tools device tracker ([@mib1185] - [#51375]) ([fritz docs])
+- Handle Sonos connection issues better when polling ([@jjlawren] - [#51376]) ([sonos docs])
+- Fix no value error for heatit climate entities ([@raman325] - [#51392]) ([zwave_js docs])
+- Fix Tibber Pulse device name and sensor update ([@Danielhiversen] - [#51402]) ([tibber docs])
+- Fix shopping list "complete all" service name ([@spacegaier] - [#51406]) ([shopping_list docs])
+- Bump aiohomekit to 0.2.67 (fixes #51391) ([@Jc2k] - [#51418]) ([homekit_controller docs])
+- Bump zwave-js-server-python to 0.26.1 ([@raman325] - [#51425]) ([zwave_js docs])
+- Update frontend to 20210603.0 ([@bramkragten] - [#51442]) ([frontend docs])
+
+[#51375]: https://github.com/home-assistant/core/pull/51375
+[#51376]: https://github.com/home-assistant/core/pull/51376
+[#51392]: https://github.com/home-assistant/core/pull/51392
+[#51402]: https://github.com/home-assistant/core/pull/51402
+[#51406]: https://github.com/home-assistant/core/pull/51406
+[#51418]: https://github.com/home-assistant/core/pull/51418
+[#51425]: https://github.com/home-assistant/core/pull/51425
+[#51442]: https://github.com/home-assistant/core/pull/51442
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Jc2k]: https://github.com/Jc2k
+[@bramkragten]: https://github.com/bramkragten
+[@jjlawren]: https://github.com/jjlawren
+[@mib1185]: https://github.com/mib1185
+[@raman325]: https://github.com/raman325
+[@spacegaier]: https://github.com/spacegaier
+[fritz docs]: /integrations/fritz/
+[frontend docs]: /integrations/frontend/
+[homekit_controller docs]: /integrations/homekit_controller/
+[shopping_list docs]: /integrations/shopping_list/
+[sonos docs]: /integrations/sonos/
+[tibber docs]: /integrations/tibber/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.6.2 - June 4
+
+- Hot fix version of Apply modbus interval patch ([@balloob] - [#51487]) ([modbus docs])
+- Update to iaqualink 0.3.90 ([@flz] - [#51452]) ([iaqualink docs])
+- Retry isy994 setup later if isy.initialize times out ([@bdraco] - [#51453]) ([isy994 docs])
+- xknx 0.18.3 ([@farmio] - [#51277]) ([knx docs])
+- Update xknx to version 0.18.4 ([@farmio] - [#51459]) ([knx docs])
+- Bump aiolyric to 1.0.7 ([@timmo001] - [#51473]) ([lyric docs])
+- Improve logging for SamsungTV ([@chemelli74] - [#51477]) ([samsungtv docs])
+- Upgrade elgato to 2.1.1 ([@frenck] - [#51483]) ([elgato docs])
+- Protect our user agent ([@balloob] - [#51486])
+
+[#51277]: https://github.com/home-assistant/core/pull/51277
+[#51452]: https://github.com/home-assistant/core/pull/51452
+[#51453]: https://github.com/home-assistant/core/pull/51453
+[#51459]: https://github.com/home-assistant/core/pull/51459
+[#51473]: https://github.com/home-assistant/core/pull/51473
+[#51477]: https://github.com/home-assistant/core/pull/51477
+[#51483]: https://github.com/home-assistant/core/pull/51483
+[#51486]: https://github.com/home-assistant/core/pull/51486
+[#51487]: https://github.com/home-assistant/core/pull/51487
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@chemelli74]: https://github.com/chemelli74
+[@farmio]: https://github.com/farmio
+[@flz]: https://github.com/flz
+[@frenck]: https://github.com/frenck
+[@timmo001]: https://github.com/timmo001
+[elgato docs]: /integrations/elgato/
+[iaqualink docs]: /integrations/iaqualink/
+[isy994 docs]: /integrations/isy994/
+[knx docs]: /integrations/knx/
+[lyric docs]: /integrations/lyric/
+[modbus docs]: /integrations/modbus/
+[samsungtv docs]: /integrations/samsungtv/
+
+## Release 2021.6.3 - June 7
+
+- Use a single job to ping all devices in the Broadlink integration ([@felipediel] - [#51466]) ([broadlink docs])
+- Fix loop in tod binary sensor ([@bdraco] - [#51491]) ([tod docs])
+- AsusWRT fix keyerror when firmver is missing from info ([@timmo001] - [#51499]) ([asuswrt docs])
+- Handle missing options in foreign_key for MSSQL ([@bdraco] - [#51503]) ([recorder docs])
+- Fix missing Tibber power production ([@Danielhiversen] - [#51505]) ([tibber docs])
+- Bump garminconnect_aio to 0.1.4 ([@cyberjunky] - [#51507]) ([garmin_connect docs])
+- Bump pyialarm to 1.8.1 ([@RyuzakiKK] - [#51519]) ([ialarm docs])
+- Improve log message when zone missing in geolocation trigger ([@exxamalte] - [#51522]) ([geo_location docs])
+- Ensure host is always set with samsungtv SSDP discovery ([@bdraco] - [#51527]) ([samsungtv docs])
+- Bump aiorecollect to 1.0.5 ([@bachya] - [#51538]) ([recollect_waste docs])
+- Fix garmin_connect config flow multiple account creation ([@cyberjunky] - [#51542]) ([garmin_connect docs])
+- Bump dwdwfsapi to 1.0.4 ([@stephan192] - [#51556]) ([dwd_weather_warnings docs])
+- Increase isy setup timeout to 60s ([@bdraco] - [#51559]) ([isy994 docs])
+- Fix Sonos restore calls ([@jjlawren] - [#51565]) ([sonos docs])
+- Update builder to 2021.06.2 ([@pvizeli] - [#51582])
+- Fix deprecated value_template for MQTT light ([@emontnemery] - [#51587]) ([mqtt docs])
+
+[#51466]: https://github.com/home-assistant/core/pull/51466
+[#51491]: https://github.com/home-assistant/core/pull/51491
+[#51499]: https://github.com/home-assistant/core/pull/51499
+[#51503]: https://github.com/home-assistant/core/pull/51503
+[#51505]: https://github.com/home-assistant/core/pull/51505
+[#51507]: https://github.com/home-assistant/core/pull/51507
+[#51519]: https://github.com/home-assistant/core/pull/51519
+[#51522]: https://github.com/home-assistant/core/pull/51522
+[#51527]: https://github.com/home-assistant/core/pull/51527
+[#51538]: https://github.com/home-assistant/core/pull/51538
+[#51542]: https://github.com/home-assistant/core/pull/51542
+[#51556]: https://github.com/home-assistant/core/pull/51556
+[#51559]: https://github.com/home-assistant/core/pull/51559
+[#51565]: https://github.com/home-assistant/core/pull/51565
+[#51582]: https://github.com/home-assistant/core/pull/51582
+[#51587]: https://github.com/home-assistant/core/pull/51587
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@RyuzakiKK]: https://github.com/RyuzakiKK
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@cyberjunky]: https://github.com/cyberjunky
+[@emontnemery]: https://github.com/emontnemery
+[@exxamalte]: https://github.com/exxamalte
+[@felipediel]: https://github.com/felipediel
+[@jjlawren]: https://github.com/jjlawren
+[@pvizeli]: https://github.com/pvizeli
+[@stephan192]: https://github.com/stephan192
+[@timmo001]: https://github.com/timmo001
+[asuswrt docs]: /integrations/asuswrt/
+[broadlink docs]: /integrations/broadlink/
+[dwd_weather_warnings docs]: /integrations/dwd_weather_warnings/
+[garmin_connect docs]: /integrations/garmin_connect/
+[geo_location docs]: /integrations/geo_location/
+[ialarm docs]: /integrations/ialarm/
+[isy994 docs]: /integrations/isy994/
+[mqtt docs]: /integrations/mqtt/
+[recollect_waste docs]: /integrations/recollect_waste/
+[recorder docs]: /integrations/recorder/
+[samsungtv docs]: /integrations/samsungtv/
+[sonos docs]: /integrations/sonos/
+[tibber docs]: /integrations/tibber/
+[tod docs]: /integrations/tod/
+
+## Release 2021.6.4 - June 11
+
+- Fix Sonos battery sensors on S1 firmware ([@jjlawren] - [#51585]) ([sonos docs])
+- Handle missing section ID for Plex clips ([@jjlawren] - [#51598]) ([plex docs])
+- Reduce ovo_energy polling rate to be less aggressive ([@blastoise186] - [#51613]) ([ovo_energy docs])
+- Do not configure Shelly config entry created by custom component ([@bieniu] - [#51616]) ([shelly docs])
+- Fix Onvif get_time_zone from device ([@pszafer] - [#51620])
+- Ensure samsungtv reloads after reauth ([@bdraco] - [#51714]) ([samsungtv docs])
+- Fix race condition in samsungtv turn off ([@bdraco] - [#51716]) ([samsungtv docs])
+
+[#51585]: https://github.com/home-assistant/core/pull/51585
+[#51598]: https://github.com/home-assistant/core/pull/51598
+[#51613]: https://github.com/home-assistant/core/pull/51613
+[#51616]: https://github.com/home-assistant/core/pull/51616
+[#51620]: https://github.com/home-assistant/core/pull/51620
+[#51714]: https://github.com/home-assistant/core/pull/51714
+[#51716]: https://github.com/home-assistant/core/pull/51716
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@blastoise186]: https://github.com/blastoise186
+[@jjlawren]: https://github.com/jjlawren
+[@pszafer]: https://github.com/pszafer
+[ovo_energy docs]: /integrations/ovo_energy/
+[plex docs]: /integrations/plex/
+[samsungtv docs]: /integrations/samsungtv/
+[shelly docs]: /integrations/shelly/
+[sonos docs]: /integrations/sonos/
+
+## Release 2021.6.5 - June 15
+
+- Replace garminconnect_aio with garminconnect_ha ([@cyberjunky] - [#51730]) ([garmin_connect docs])
+- Bump pydaikin, fix airbase issues ([@fredrike] - [#51797]) ([daikin docs])
+- Add httpcore with version 0.13.3 ([@ludeeus] - [#51799])
+- Bump pyialarm to 1.9.0 ([@RyuzakiKK] - [#51804]) ([ialarm docs])
+
+[#51730]: https://github.com/home-assistant/core/pull/51730
+[#51797]: https://github.com/home-assistant/core/pull/51797
+[#51799]: https://github.com/home-assistant/core/pull/51799
+[#51804]: https://github.com/home-assistant/core/pull/51804
+[@RyuzakiKK]: https://github.com/RyuzakiKK
+[@cyberjunky]: https://github.com/cyberjunky
+[@fredrike]: https://github.com/fredrike
+[@ludeeus]: https://github.com/ludeeus
+[daikin docs]: /integrations/daikin/
+[garmin_connect docs]: /integrations/garmin_connect/
+[ialarm docs]: /integrations/ialarm/
+
+## Release 2021.6.6 - June 20
+
+- Fix whois expiration date ([@kantselovich] - [#51868]) ([whois docs])
+- Add Omnilogic switch defaults for max_speed and min_speed ([@djtimca] - [#51889]) ([omnilogic docs])
+- Bump pyRFXtrx to 0.27.0 ([@RobBie1221] - [#51911]) ([rfxtrx docs])
+- Bump pydaikin to 2.4.3 ([@fredrike] - [#51926]) ([daikin docs])
+- Fix AccuWeather sensors updates ([@bieniu] - [#52031]) ([accuweather docs])
+- Fix double subscriptions for local push notifications ([@balloob] - [#52039]) ([mobile_app docs])
+- Catch unexpected battery update payloads on Sonos ([@jjlawren] - [#52040]) ([sonos docs])
+
+[#51868]: https://github.com/home-assistant/core/pull/51868
+[#51889]: https://github.com/home-assistant/core/pull/51889
+[#51911]: https://github.com/home-assistant/core/pull/51911
+[#51926]: https://github.com/home-assistant/core/pull/51926
+[#52031]: https://github.com/home-assistant/core/pull/52031
+[#52039]: https://github.com/home-assistant/core/pull/52039
+[#52040]: https://github.com/home-assistant/core/pull/52040
+[@RobBie1221]: https://github.com/RobBie1221
+[@balloob]: https://github.com/balloob
+[@bieniu]: https://github.com/bieniu
+[@djtimca]: https://github.com/djtimca
+[@fredrike]: https://github.com/fredrike
+[@jjlawren]: https://github.com/jjlawren
+[@kantselovich]: https://github.com/kantselovich
+[accuweather docs]: /integrations/accuweather/
+[daikin docs]: /integrations/daikin/
+[mobile_app docs]: /integrations/mobile_app/
+[omnilogic docs]: /integrations/omnilogic/
+[rfxtrx docs]: /integrations/rfxtrx/
+[sonos docs]: /integrations/sonos/
+[whois docs]: /integrations/whois/
 
 ## If you need help...
 
@@ -603,7 +819,7 @@ certificate for MQTT, you now need to adjust to the following:
 ```yaml
 mqtt:
   certificate: auto
-  host: ... # all other info 
+  host: ... # all other info
 ```
 
 ([@balloob] - [#51112]) ([MQTT docs])
@@ -2261,7 +2477,7 @@ The following integrations are no longer available as of this release:
 [bluetooth_tracker docs]: /integrations/bluetooth_tracker/
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [bond docs]: /integrations/bond/
-[boschshc docs]: /integrations/boschshc/
+[boschshc docs]: /integrations/bosch_shc/
 [braviatv docs]: /integrations/braviatv/
 [broadlink docs]: /integrations/broadlink/
 [brother docs]: /integrations/brother/
@@ -2382,7 +2598,7 @@ The following integrations are no longer available as of this release:
 [namecheapdns docs]: /integrations/namecheapdns/
 [nest docs]: /integrations/nest/
 [netatmo docs]: /integrations/netatmo/
-[nettigo docs]: /integrations/nettigo/
+[nettigo docs]: /integrations/nam/
 [network docs]: /integrations/network/
 [nexia docs]: /integrations/nexia/
 [notify docs]: /integrations/notify/

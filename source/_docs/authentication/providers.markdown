@@ -15,7 +15,7 @@ When you log in, an _auth provider_ checks your credentials to make sure you are
 
 Home Assistant automatically configures the standard auth providers so you don't need to specify `auth_providers` in your `configuration.yaml` file unless you are configuring more than one. Specifying `auth_providers` will disable all auth providers that are not listed, so you could reduce your security or create difficulties logging in if it is not configured correctly.
 
-If you decide to use `trusted_networks` as your `auth_provider` there won't be a way to authenticate for a device outside of your listed trusted network. To overcome this ensure you add the default `auth_provider``type: homeassistant` back in manually. This will then present you with the default auth login screen when trusted network authentication fails as expected from outside your LAN.
+If you decide to use `trusted_networks` as your `auth_provider` there won't be a way to authenticate for a device outside of your listed trusted network. To overcome this ensure you add the default `auth_provider` with `type: homeassistant` back in manually. This will then present you with the default auth login screen when trusted network authentication fails as expected from outside your LAN.
 
 </div>
 
@@ -51,7 +51,7 @@ If you don't specify any `auth_providers` section in the `configuration.yaml` fi
 
 ### Trusted Networks
 
-The Trusted Networks auth provider defines a range of IP addresses for which no authentication will be required (also known as "whitelisting"). For example, you can whitelist your local network so you won't be prompted for a password if you access Home Assistant from inside your home.
+The Trusted Networks auth provider defines a range of IP addresses for which no authentication will be required (also known as "allowlisting"). For example, you can allowlist your local network so you won't be prompted for a password if you access Home Assistant from inside your home.
 
 When you log in from one of these networks, you will be asked which user account to use and won't need to enter a password.
 
@@ -74,7 +74,7 @@ homeassistant:
 
 {% configuration %}
 trusted_networks:
-  description: A list of IP address or IP network you want to whitelisted. It accepts both IPv4 and IPv6 IP address or network
+  description: A list of IP addresses or an IP network you want allowlisted. It accepts both IPv4 and IPv6 IP address or network
   required: true
   type: list
 trusted_users:
@@ -113,7 +113,7 @@ homeassistant:
           - group: system-users
 ```
 
-First note, for `trusted_users` configuration you need to use `user id`, which you can find through {% my users title="Configuration -> Users" %} -> View User Detail. The `trusted_users` configuration will not validate the existence of the user, so please make sure you have put in the correct user id by yourself.
+First note, for `trusted_users` configuration you need to use `user id`, which you can find through {% my users title="Settings -> People" %} -> View User Detail. The `trusted_users` configuration will not validate the existence of the user, so please make sure you have put in the correct user id by yourself.
 
 Second note, a trusted user with an IPv6 address must put the IPv6 address in quotes as shown.
 
@@ -123,7 +123,9 @@ Specially, you can use `group: GROUP_ID` to assign all users in certain `user gr
 
 #### Skip Login Page Examples
 
-This is a feature to allow you bring back some of the experience before the user system was implemented. You can directly jump to main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose in the login form.
+This is a feature to allow you to bring back some of the experience before the user system was implemented. You can directly jump to the main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose from in the login form. 
+
+If you allow bypass login then your cookie will not be stored and every time you refresh the page in Home Assistant a new login will be created. This is because bypassing the login does not give you the option to save the login.
 
 ```yaml
 # assuming you have only one non-system user
@@ -144,7 +146,7 @@ Assuming you have only the owner created though onboarding process, no other use
 
 The Command Line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
 
-This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS. A compatible script for LDAP authentication is [this one](https://github.com/efficiosoft/ldap-auth-sh), for instance. Please note, this will only work when using the Home Assistant Core installation type.
+This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS. A compatible script for LDAP authentication is [this one](https://github.com/bob1de/ldap-auth-sh), for instance. Please note, this will only work when using the Home Assistant Core installation type.
 
 Here is a configuration example:
 
@@ -202,6 +204,6 @@ If you don't specify any `auth_providers` section in the `configuration.yaml` fi
 
 <div class='note warning'>
 
-[Issue 16441](https://github.com/home-assistant/home-assistant/issues/16441): the legacy API password auth provider, won't be automatically configured if your API password is located in a package. This is because Home Assistant processes the `auth_provider` during the `core` section loading, which is earlier than the `packages` processing.
+[Issue 16441](https://github.com/home-assistant/core/issues/16441): the legacy API password auth provider, won't be automatically configured if your API password is located in a package. This is because Home Assistant processes the `auth_provider` during the `core` section loading, which is earlier than the `packages` processing.
 
 </div>

@@ -2,54 +2,77 @@
 title: Sensibo
 description: Instructions on how to integrate Sensibo A/C controller into Home Assistant.
 ha_category:
+  - Binary Sensor
   - Climate
+  - Fan
+  - Number
+  - Select
+  - Sensor
+  - Updates
 ha_release: 0.44
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ha_codeowners:
   - '@andrey-git'
+  - '@gjohansson-ST'
 ha_domain: sensibo
 ha_platforms:
+  - binary_sensor
   - climate
+  - diagnostics
+  - number
+  - select
+  - sensor
+  - update
+ha_homekit: true
+ha_dhcp: true
+ha_integration_type: integration
 ---
 
 Integrates [Sensibo](https://sensibo.com) Air Conditioning controller into Home Assistant.
 
-To enable this platform, add the following lines to your `configuration.yaml` file:
+## Prerequisites
 
-```yaml
-# Example configuration.yaml entry
-climate:
-  - platform: sensibo
-    api_key: YOUR_API_KEY
-```
-
-{% configuration %}
-api_key:
-  description: Your Sensibo API key (To get your API key visit `https://home.sensibo.com/me/api`).
-  required: true
-  type: string
-id:
-  description: A unit ID or a list of IDs. If none specified then all units accessible by the `api_key` will be used.
-  required: false
-  type: string
-{% endconfiguration %}
-
+Please click [here](https://home.sensibo.com/me/api) and register to obtain the API key.
 <div class="note">
 If you create the API key using a dedicated user (and not your main user),
 then in the Sensibo app log you will be able to distinguish between actions
 done in the app and actions done by Home Assistant.
 </div>
 
-## Full configuration example
+{% include integrations/config_flow.md %}
 
-```yaml
-climate:
-  - platform: sensibo
-    api_key: YOUR_API_KEY
-    id:
-      - id1
-      - id2
-```
+## Binary sensors
+
+For motion sensors (supported by Sensibo Air devices), this integration provides the following sensors:
+
+- Motion
+- Alive
+- Main sensor
+
+For climate devices, these sensors are available:
+
+- Room presence
+- Update available
+
+## Select Entities
+
+For supported devices, this integration provides support to set the following modes by the select entity:
+
+- Horizontal swing
+- Light
+
+## Sensor Entities
+
+For motion sensors (supported by Sensibo Air devices), this integration provides the following sensors:
+
+- Temperature
+- Humidity
+
+For diagnostics, not automatically displayed on dashboards, these sensors are available:
+
+- Voltage
+- Rssi
 
 ## Adding a quick switch example
 
@@ -68,13 +91,14 @@ switch:
           service: climate.set_hvac_mode
           target:
             entity_id: climate.ac
-            hvac_mode: cool
+          data:
+            hvac_mode: "cool"
         turn_off:
           service: climate.set_hvac_mode
           target:
             entity_id: climate.ac
           data:
-            hvac_mode: off
+            hvac_mode: "off"
 ```
 
 {% endraw %}

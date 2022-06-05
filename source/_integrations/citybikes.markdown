@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: citybikes
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `citybikes` sensor platform monitors bike availability at bike sharing stations in a chosen area. The data is provided by [CityBikes](https://citybik.es/#about), which supports bike sharing systems all around the world.
@@ -51,7 +52,6 @@ stations:
   required: false
   type: list
 {% endconfiguration %}
-
 
 ## Example
 

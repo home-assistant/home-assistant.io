@@ -18,6 +18,8 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_quality_scale: gold
+ha_integration_type: integration
 ---
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit). The integration adheres strictly to the [protocol specification](https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf).
@@ -51,13 +53,28 @@ delay:
   required: false
   default: 0
   type: integer
+message_wait_milliseconds:
+  description: Time to wait in milliseconds between requests.
+  required: false
+  default: 30 for serial connection, 0 for everything else.
+  type: integer
 name:
   description: Name for this hub. Must be unique, so it is required when setting up multiple instances.
   required: false
   default: "modbus_hub"
   type: string
+retries:
+  description: Number of times to retry a request.
+  required: false
+  default: 3
+  type: integer
+retry_on_empty:
+  description: Retry request, when receiving and empty message.
+  required: false
+  default: false
+  type: boolean
 timeout:
-  description: "Timeout while waiting for a response in seconds. Remark: a timeout of fewer than 5 seconds will be automatically adjusted to 5 seconds."
+  description: "Timeout while waiting for a response in seconds."
   required: false
   default: 5
   type: integer
@@ -165,7 +182,7 @@ Remark: `name:`is required for multiple connections, because it needs to be uniq
 
 ## Modbus services
 
-The Modbus integration provides two generic services in addition to the platform-specific services.
+The Modbus integration provides two generic write services in addition to the platform-specific services.
 
 | Service | Description |
 | ------- | ----------- |
@@ -177,10 +194,37 @@ Description:
 | Attribute | Description |
 | --------- | ----------- |
 | hub       | Hub name (defaults to 'modbus_hub' when omitted) |
-| unit      | Slave address (1-255, defaults to 0) |
+| unit      | Slave address (0-255), alternative to slave |
+| slave     | Slave address (0-255), alternative to unit |
 | address   | Address of the Register (e.g. 138) |
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F |
+
+The Modbus integration also provides communication stop/restart services. These services will not do any reconfiguring, but simply stop/start the modbus communication layer.
+
+| Service | Description |
+| ------- | ----------- |
+| modbus.stop | Stop communication |
+| modbus.restart | Restart communication (Stop first if running) |
+
+Description:
+
+| Attribute | Description |
+| --------- | ----------- |
+| hub       | Hub name (defaults to 'modbus_hub' when omitted) |
+
+### Example: writing a float32 type register
+
+To write a float32 datatype register use network format like `10.0` == `0x41200000` (network order float hexadecimal). 
+
+```yaml
+service: modbus.write_register
+data:
+  address: <target register address>
+  unit: <target slave address>
+  hub: <hub name>
+  value: [0x4120, 0x0000]
+```
 
 # configure Modbus platforms
 
@@ -204,12 +248,17 @@ modbus:
 ```
 
 {% configuration %}
+lazy_error_count:
+  description: Number of messages with error received before setting entity to unavailable. This parameter can be used to prevent spontaneous errors to ruin statistic graphs.
+  required: false
+  type: integer
+  default: 0
 name:
   description: Name for the platform entity which must be unique within the platform.
   required: true
   type: string
 scan_interval:
-  description: Defines the update interval of the entity in seconds. If scan_interval is lower than `timeout` or 5 seconds it is automatically adjusted to `timeout` (default 5 seconds).
+  description: Defines the update interval of the entity in seconds, if scan_interval = 0 polling is stopped. Entities are unavailable until the first response is received, except for entities with scan_interval = 0, these entities are available from startup.
   required: false
   type: integer
   default: 10
@@ -218,13 +267,70 @@ slave:
   required: false
   type: integer
   default: 0
+unique_id:
+  description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
 {% endconfiguration %}
 
-### Configuring platform binary sensor
+### Configuring data_type and struct
+
+Climate and Sensor share setup of data_type and struct. 
+
+```yaml
+# Example configuration.yaml entry for platform common parameters
+modbus:
+  - type: tcp
+    host: IP_ADDRESS_1
+    port: 2020
+    name: "hub1"
+    sensors:
+      - name: sensor1
+        data_type: int
+```
+
+{% configuration %}
+data_type:
+  description: Response representation (int8, int16, int32, int64, uint8, uint16, uint32, uint64, float16, float32, float64, string). `int/uint`are silently converted to `int16/uint16`.
+  required: false
+  type: string
+  default: int16
+offset:
+  description: Final offset (output = scale * value + offset).
+  required: false
+  type: float
+  default: 0
+precision:
+  description: Number of valid decimals.
+  required: false
+  type: integer
+  default: 0
+scale:
+  description: Scale factor (output = scale * value + offset).
+  required: false
+  type: float
+  default: 1
+structure:
+  description: "If `data_type` is custom specified a double-quoted Python struct is expected here, to format the string to unpack the value. See Python documentation for details. Example: `>i`."
+  required: false
+  type: string
+  default: ">f"
+swap:
+  description: "Swap the order of bytes/words, options are `none`, `byte`, `word`, `word_byte`."
+  required: false
+  default: none
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
+{% endconfiguration %}
+
+## Configuring platform binary sensor
 
 The Modbus binary sensor allows you to gather data from coils which as per standard have state ON/OFF.
 
-To use your Modbus binary sensors in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use your Modbus binary sensors in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-platform-common-parameters):
 
 ```yaml
 # Example configuration.yaml entry for binary_sensor configuration
@@ -238,7 +344,7 @@ modbus:
         address: 100
         scan_interval: 20
         slave: 1
-      - name: "binary_ensor2"
+      - name: "binary_sensor2"
         address: 110
         device_class: door
         input_type: discrete_input
@@ -262,13 +368,22 @@ binary_sensors:
       required: false
       default: coil
       type: string
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
+    slave_count:
+      description: Generates x-1 slave binary sensors, allowing read of multiple coils with a single read messsage.
+      required: false
+      type: integer
+
 {% endconfiguration %}
 
-### Configuring platform climate
+## Configuring platform climate
 
 The Modbus climate platform allows you to monitor your thermostat as well as set a target temperature.
 
-To use your Modbus thermostat in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use your Modbus thermostat in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-platform-common-parameters) and [response regresentation](#configuring-data_type-and-struct):
 
 ```yaml
 # Example configuration.yaml entry
@@ -279,9 +394,9 @@ modbus:
     port: 502
     climates:
       - name: "Watlow F4T"
-        current_temp_register: 27586
-        current_temp_register_type: holding
-        data_count: 1
+        address: 27586
+        input_type: holding
+        count: 1
         data_type: custom
         max_temp: 35
         min_temp: 15
@@ -301,25 +416,20 @@ climates:
   required: false
   type: [map]
   keys:
-    current_temp_register:
+    address:
       description: Register address for current temperature (process value).
       required: true
       type: integer
-    current_temp_register_type:
+    count:
+      description: Number of registers to read.
+      required: false
+      type: integer
+      default: 1 or calculated if data_type is not `struct`.
+    input_type:
       description: Modbus register type (`holding`, `input`) for current temperature.
       required: false
       type: string
       default: holding
-    data_count:
-      description: Number of registers to read.
-      required: false
-      type: integer
-      default: 2
-    data_type:
-      description: Response representation (`int`, `uint`, `float`, `custom`). If `float` selected, value will converted to IEEE 754 floating point format. If `custom`is selected `structure`must de defined.
-      required: false
-      type: string
-      default: float  
     max_temp:
       description: Maximum setpoint temperature.
       required: false
@@ -330,26 +440,6 @@ climates:
       required: false
       type: integer
       default: 5
-    offset:
-      description: Final offset (output = scale * value + offset).
-      required: false
-      type: float
-      default: 0
-    precision:
-      description: Number of valid decimals.
-      required: false
-      type: integer
-      default: 1
-    scale:
-      description: Scale factor (output = scale * value + offset).
-      required: false
-      type: float
-      default: 1
-    structure:
-      description: "If `data_type` is custom specified a double-quoted Python struct is expected here, to format the string to unpack the value. See Python documentation for details. Example: `>i`."
-      required: false
-      type: string
-      default: ">f"
     target_temp_register:
       description: Register address for target temperature (Setpoint).
       required: true
@@ -364,25 +454,29 @@ climates:
       required: false
       type: string
       default: C
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
-#### Service `modbus.set-temperature`
+### Service `modbus.set-temperature`
 
 | Service | Description |
 | ------- | ----------- |
 | set_temperature | Set Temperature. Requires `value` to be passed in, which is the desired target temperature. `value` should be in the same type as `data_type` |
 
-### Configuring platform cover
+## Configuring platform cover
 
 The `modbus` cover platform allows you to control covers (such as blinds, a roller shutter, or a garage door).
 
 At the moment, platform cover support the opening and closing of a cover. You can control your covers either using coils or holding registers.
 
-Cover that uses the `coil` attribute is not able to determine intermediary states such as opening and closing. Coil stores only two states — "0" means cover closed, and "1" implies cover open. To allow detecting intermediary states, there is an optional `status_register` attribute. It will enable you to write your command (e.g., to open a cover) into a coil, and read current cover status back through the register. Additionally, you can specify values for `state_open`, `state_opening`, `state_closed`, and `state_closing` attributes. These will be matched with the value read from the `status_register`.
+Cover that uses `input_type: coil` is not able to determine intermediary states such as opening and closing. Coil stores only two states — "0" means cover closed, and "1" implies cover open. To allow detecting intermediary states, there is an optional `status_register` attribute. It will enable you to write your command (e.g., to open a cover) into a coil, and read current cover status back through the register. Additionally, you can specify values for `state_open`, `state_opening`, `state_closed`, and `state_closing` attributes. These will be matched with the value read from the `status_register`.
 
-If your cover uses holding register to send commands (defined by the `register` attribute), it can also read the intermediary states. To adjust which value represents what state, you can fine-tune the optional state attributes, like `state_open`. These optional state values are also used for specifying values written into the register. If you specify an optional status_register attribute, cover states will be read from status_register instead of the register used for sending commands.
+If your cover uses ìnput_type: holding` (default) to send commands, it can also read the intermediary states. To adjust which value represents what state, you can fine-tune the optional state attributes, like `state_open`. These optional state values are also used for specifying values written into the register. If you specify an optional status_register attribute, cover states will be read from status_register instead of the register used for sending commands.
 
-To use Modbus covers in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use Modbus covers in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-platform-common-parameters):
 
 ```yaml
 # Example configuration.yaml entry
@@ -394,8 +488,8 @@ modbus:
     covers:
       - name: Door1
         device_class: door
-        coil: 117
-        device_class: door
+        input_type: coil
+        address: 117
         state_open: 1
         state_opening: 2
         state_closed: 0
@@ -403,7 +497,7 @@ modbus:
         status_register: 119
         status_register_type: holding
       - name: "Door2"
-        register: 117
+        address: 118
 ```
 
 {% configuration %}
@@ -412,19 +506,20 @@ covers:
   required: true
   type: map
   keys:
-    coil:
-      description: Coil address; `coil` and `register` attributes are mutually exclusive and you need to add one of them.
-      required: false
+    address:
+      description: Address of `coil` / `register`.
+      required: true
       type: integer
     device_class:
       description: The [type/class](/integrations/cover/#device-class) of the cover to set the icon in the frontend.
       required: false
       type: device_class
       default: None
-    register:
-      description: Holding register address; `coil` and `register` attributes are mutually exclusive, and you need to add one of them.
-      required: true
-      type: integer
+    input_type:
+      description: Modbus register type (holding, input), default holding.
+      default: holding
+      required: false
+      type: string
     state_open:
       description: A value in `status_register` or `register` representing an open cover. If your configuration uses the `register` attribute, this value will be written into the holding register to open the cover.
       required: false
@@ -436,7 +531,7 @@ covers:
       default: 0
       type: integer
     state_opening:
-      description: A value in `status_register` or `register` representing a opening cover. Note that this state should be also supported on your connected Modbus cover. If it won't report the state, this state won't be detected.
+      description: A value in `status_register` or `register` representing an opening cover. Note that this state should be also supported on your connected Modbus cover. If it won't report the state, this state won't be detected.
       required: false
       default: 2
       type: integer
@@ -446,16 +541,20 @@ covers:
       default: 3
       type: integer
     status_register:
-      description: An address of an register, from which all the cover states will be read. If you specified `register` attribute, and not `status_register` attribute, your main register will also be used as a status register.
+      description: An address of a register, from which all the cover states will be read. If you specified `register` attribute, and not `status_register` attribute, your main register will also be used as a status register.
       required: false
       type: integer
     status_register_type:
       description: Modbus register type (holding, input), default holding.
       required: false
       type: string
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
-#### Example: Modbus cover controlled by a coil
+### Example: Modbus cover controlled by a coil
 
 This example shows a configuration for a Modbus cover controlled using a coil. Intermediary states like opening/closing are not supported. The cover state is polled from Modbus every 10 seconds.
 
@@ -478,7 +577,7 @@ modbus:
         scan_interval: 10
 ```
 
-#### Example: Modbus cover controlled by a coil, it's state is read from the register
+### Example: Modbus cover controlled by a coil, its state is read from the register
 
 This example shows a configuration for a Modbus cover controlled using a coil. Actual cover state is read from the `status_register`. We've also specified register values to match with the states open/opening/closed/closing. The cover state is polled from Modbus every 10 seconds.
 
@@ -502,7 +601,7 @@ modbus:
         state_closed: 4
 ```
 
-#### Example: Modbus cover controlled by a holding register
+### Example: Modbus cover controlled by a holding register
 
 This example shows a configuration for a Modbus cover controlled using a holding register, from which we also read current cover state. We've also specified register values to match with the states open/opening/closed/closing. The cover state is polled from Modbus every 10 seconds.
 
@@ -524,7 +623,7 @@ modbus:
         state_closed: 4
 ```
 
-#### Example: Modbus cover controlled by a holding register, it's state is read from the status register
+### Example: Modbus cover controlled by a holding register, its state is read from the status register
 
 This example shows a configuration for a Modbus cover controlled using a holding register. However, cover state is read from a `status_register`. In this case, we've specified only values for `state_open` and `state_closed`, for the rest, default values are used. The cover state is polled from Modbus every 10 seconds.
 
@@ -549,11 +648,11 @@ modbus:
 
 
 
-### Configuring platform fan
+## Configuring platform fan
 
 The `modbus` fan platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
-To use your Modbus fans in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use your Modbus fans in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-platform-common-parameters):
 
 ```yaml
 # Example configuration.yaml entry
@@ -602,7 +701,7 @@ fans:
       default: 0x00
       type: integer
     write_type:
-      description: Type of address (holding/coil).
+      description: Type of address (holding/coil or holdings/coils for array call).
       required: false
       default: holding
       type: string
@@ -620,6 +719,11 @@ fans:
           required: false
           default: write address
           type: integer
+        delay:
+          description: delay between write and verify.
+          required: false
+          default: 0
+          type: integer
         input_type:
           description: Type of address (holding/coil/discrete/input).
           required: false
@@ -635,13 +739,17 @@ fans:
           required: false
           default: same as command_off
           type: integer
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
-### Configuring platform light
+## Configuring platform light
 
 The `modbus` light platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
-To use your Modbus lights in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use your Modbus lights in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-platform-common-parameters):
 
 ```yaml
 # Example configuration.yaml entry
@@ -690,7 +798,7 @@ lights:
       default: 0x00
       type: integer
     write_type:
-      description: Type of address (holding/coil).
+      description: Type of address (holding/coil or holdings/coils for array call).
       required: false
       default: holding
       type: string
@@ -703,6 +811,11 @@ lights:
           description: Address to read from. 
           required: false
           default: write address
+          type: integer
+        delay:
+          description: delay between write and verify.
+          required: false
+          default: 0
           type: integer
         input_type:
           description: Type of address (holding/coil/discrete/input).
@@ -719,13 +832,17 @@ lights:
           required: false
           default: same as command_off
           type: integer
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
-### Configuring platform sensor
+## Configuring platform sensor
 
 The `modbus` sensor allows you to gather data from [Modbus](http://www.modbus.org/) registers.
 
-To use your Modbus sensors in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use your Modbus sensors in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-platform-common-parameters) and [response regresentation](#configuring-data_type-and-struct):
 
 ```yaml
 # Example configuration.yaml entry
@@ -768,12 +885,7 @@ sensors:
       description: Number of registers to read.
       required: false
       type: integer
-      default: 1
-    data_type:
-      description: Response representation (int, uint, float, string, custom). If float selected, value will be converted to IEEE 754 floating point format.
-      required: false
-      default: int
-      type: string
+      default: 1 or calculated if data_type is not `struct`.
     device_class:
       description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend.
       required: false
@@ -787,26 +899,6 @@ sensors:
       description: Name of the sensor.
       required: true
       type: string
-    offset:
-      description: Final offset (output = scale * value + offset).
-      required: false
-      default: 0
-      type: float
-    precision:
-      description: Number of valid decimals.
-      required: false
-      default: 0
-      type: integer
-    swap:
-      description: swap the order of bytes/words, options are none, byte, word, word_byte.
-      required: false
-      default: none
-      type: string 
-    scale:
-      description: Scale factor (output = scale * value + offset).
-      required: false
-      default: 1
-      type: float
     scan_interval:
       description: Defines the update interval of the sensor in seconds.
       required: false
@@ -816,12 +908,20 @@ sensors:
       description: The number of the slave (Optional for tcp and upd Modbus).
       required: true
       type: integer
-    structure:
-      description: "If `data_type` is custom specified a double-quoted Python struct is expected here, to format the string to unpack the value. See Python documentation for details. Example: `>i`."
-      required: false
-      type: string
     unit_of_measurement:
       description: Unit to attach to value.
+      required: false
+      type: string
+    state_class:
+      description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+      required: false
+      type: string
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
+    slave_count:
+      description: Generates x-1 slave sensors, allowing read of multiple registers with a single read messsage.
       required: false
       type: integer
 {% endconfiguration %}
@@ -832,7 +932,7 @@ If you specify scale or offset as floating point values, double precision floati
 
 </div>
 
-#### Full example
+### Full example
 
 Example temperature sensor with a default scan interval:
 
@@ -848,6 +948,7 @@ modbus:
         address: 0
         input_type: holding
         unit_of_measurement: °C
+        state_class: measurement
         count: 1
         scale: 0.1
         offset: 0
@@ -855,11 +956,11 @@ modbus:
         data_type: integer
 ```
 
-### Configuring platform switch
+## Configuring platform switch
 
 The `modbus` switch platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
-To use your Modbus switches in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring- platform-common-parameters):
+To use your Modbus switches in your installation, add the following to your `configuration.yaml` file, in addition to the [common parameters](#configuring-platform-common-parameters):
 
 ```yaml
 # Example configuration.yaml entry
@@ -908,7 +1009,7 @@ switches:
       default: 0x00
       type: integer
     write_type:
-      description: type of address (holding/coil)
+      description: type of address (holding/coil or holdings/coils for array call)
       required: false
       default: holding
       type: string
@@ -928,7 +1029,7 @@ switches:
           default: 0
           type: integer
         input_type:
-          description: type of address (holding/coil/discrete/input)
+          description: type of address (holding/coil/discrete/input or holdings/coils for array call)
           required: false
           default: write_type
           type: integer
@@ -942,6 +1043,10 @@ switches:
           required: false
           default: same as command_off
           type: integer
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
 ## Opening an issue
@@ -965,8 +1070,9 @@ and restart Home Assistant, reproduce the problem, and include the log in the is
 
 ## Building on top of Modbus
 
- - [Modbus Binary Sensor](/integrations/binary_sensor.modbus/)
- - [Modbus Climate](/integrations/climate.modbus/)
- - [Modbus Cover](/integrations/cover.modbus/)
- - [Modbus Sensor](/integrations/sensor.modbus/)
- - [Modbus Switch](/integrations/switch.modbus/)
+ - [Modbus Binary Sensor](#configuring-platform-binary_sensor)
+ - [Modbus Climate](#configuring-platform-climate)
+ - [Modbus Cover](#configuring-platform-cover)
+ - [Modbus Fan](#configuring-platform-fan)
+ - [Modbus Sensor](#configuring-platform-sensor)
+ - [Modbus Switch](#configuring-platform-switch)

@@ -9,17 +9,25 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@OttoWinter'
+  - '@jesserockz'
 ha_domain: esphome
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - button
   - camera
   - climate
   - cover
+  - diagnostics
   - fan
   - light
+  - lock
+  - media_player
+  - number
+  - select
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 This integration allows [ESPHome](https://esphome.io) devices to connect directly to Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).

@@ -7,12 +7,13 @@ ha_iot_class: Local Polling
 ha_release: 0.7.2
 ha_domain: denonavr
 ha_codeowners:
-  - '@scarface-4711'
+  - '@ol-iver'
   - '@starkillerOG'
 ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `denonavr` platform allows you to control [Denon Network Receivers](https://www.denon.com/en-gb/shop/networkmusicsystem/ceolpiccolon4) from Home Assistant. It might be that your device is supported by the [Denon] platform.
@@ -26,17 +27,20 @@ Known supported devices:
 - Denon AVR-X1400H
 - Denon AVR-X1500H
 - Denon AVR-X1600H
+- Denon AVR-X1700H
 - Denon AVR-X2000
 - Denon AVR-X2100W
 - Denon AVR-X2200W
 - Denon AVR-X2300W
 - Denon AVR-X2400H
 - Denon AVR-X2500H
+- Denon AVR-X2600H
 - Denon AVR-X2700H
 - Denon AVR-X3000
 - Denon AVR-X3200W
 - Denon AVR-X3300W
 - Denon AVR-X3400H
+- Denon AVR-X3500H
 - Denon AVR-X3600H
 - Denon AVR-X3700H
 - Denon AVR-X4100W
@@ -44,6 +48,7 @@ Known supported devices:
 - Denon AVR-X4400H
 - Denon AVR-X4500H
 - Denon AVR-X6500H
+- Denon AVR-X6700H
 - Denon AVR-1912
 - Denon AVR-2312CI
 - Denon AVR-3311CI
@@ -54,7 +59,12 @@ Known supported devices:
 - Denon AVR-S710W
 - Denon AVR-S720W
 - Denon AVR-S750H
+- Denon AVR-S760H
+- Denon AVR-S960H
 - Denon DN-500AV
+- Marantz AV7702
+- Marantz AV7703
+- Marantz AV7704
 - Marantz M-CR510
 - Marantz M-CR511
 - Marantz M-CR603
@@ -64,17 +74,20 @@ Known supported devices:
 - Marantz SR5008
 - Marantz SR5011
 - Marantz SR6007 - SR6012
+- Marantz SR7007
 - Marantz SR8015
 - Marantz NR1504
 - Marantz NR1506
 - Marantz NR1602
 - Marantz NR1604
+- Marantz NR1606
 - Marantz NR1607
 - Marantz NR1710
+- Marantz NR1711
 - Other Denon AVR receivers (untested)
 - Marantz receivers (experimental)
 
-If your model is not on the list then give it a test, if everything works correctly then add it to the list by clicking on the **Edit this page on GitHub** link above.
+If your model is not on the list then give it a test, if everything works correctly then add it to the list by clicking on the **Edit** link at the bottom of this page.
 
 <div class='note warning'>
 If you have something else using the IP controller for your Denon AVR 3808CI, such as your URC controller, it will not work! There is either a bug or security issue with some models where only one device could be controlling the IP functionality.
@@ -90,9 +103,9 @@ show_all_sources:
 zone1:
   description: Specifies if zone 1 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
 zone2:
-  description: Specifies if zone 2 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
+  description: Specifies if zone 2 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports. Some receivers do not support a second zone.
 update_audyssey:
-  description: Specifies if Audyssey settings should be updated. This can take up to 10 Seconds for some receivers.
+  description: Specifies if Audyssey settings should be updated. This can take up to 10 seconds for some receivers.
   required: false
   default: false
   type: boolean
@@ -106,16 +119,26 @@ A few notes:
 - To remotely power on Marantz receivers with Home Assistant, the Auto-Standby feature must be enabled in the receiver's settings.
 - Sound mode: The command to set a specific sound mode is different from the value of the current sound mode reported by the receiver (sound_mode_raw). There is a key-value structure (sound_mode_dict) that matches the raw sound mode to one of the possible commands to set a sound mode (for instance {'MUSIC':['PLII MUSIC']}. If you get a "Not able to match sound mode" warning, please open an issue on the [denonavr library](https://github.com/scarface-4711/denonavr), stating which raw sound mode could not be matched so it can be added to the matching dictionary. You can find the current raw sound mode under **Developer Tools** -> **States**.
 
-
 #### Service `denonavr.get_command`
 
-Generic commands are supported, in particular, any command supported by the telnet protocol can be sent to `/goform/formiPhoneAppDirect.xml`, e.g., `/goform/formiPhoneAppDirect.xml?VSMONI2` to switch HDMI outputs on supported receivers. IR remote codes can also be sent to this endpoint, e.g.,  "/goform/formiPhoneAppDirect.xml?RCKSK0410370" as a mute toggle.  
-A comprehensive list of telnet protocol commands is [also available](http://assets.denon.com/_layouts/15/xlviewer.aspx?id=/DocumentMaster/us/AVR-X6400H_X4400H_X3400H_X2400H_X1400H_S930H_S730H_PROTOCOL_V01.xlsx) and so is a [full list of IR codes](http://assets.denon.com/DocumentMaster/UK/AVR3313_IR_CODE_V01.pdf)
+Denon AVR receivers support a simple text-based network interface for sending commands to the receiver over the network. You can access this interface via the `denonavr.get_command` service. In addition, IR remote codes can also be sent to this interface.
+
+A list of network commands supported by the various Denon AVR receivers can be [found here](https://www.heimkinoraum.de/upload/files/product/IP_Protocol_AVR-Xx100.pdf). A list of IR codes can be [found here](https://assets.denon.com/DocumentMaster/UK/AVR3313_IR_CODE_V01.pdf).
+
+To use these commands, call the `denonavr.get_command` service and append the specific command to the path `/goform/formiPhoneAppDirect.xml?`:
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |       no | Name of entity to send command to. For example `media_player.marantz`|
 | `command`              |       no | Command to send to device, e.g.,  `/goform/formiPhoneAppDirect.xml?VSMONI2`|
+
+So for example, the above command `/goform/formiPhoneAppDirect.xml?VSMONI2` will switch the HDMI to output 2 (if your receiver supports it). Sending an IR code works the same, so the command `/goform/formiPhoneAppDirect.xml?RCKSK0410370` will toggle muting.
+
+<div class='note'>
+
+The denonavr platform supports the standard media player controls such as `turn_on` and `volume_up`. Thus calling the service `media_player.turn_on` is equivalent to calling `denonavr.get_command` with the command `/goform/formiPhoneAppDirect.xml?PWON`. See [media_player](/integrations/media_player/) for more details.
+
+</div>
 
 #### Service `denonavr.set_dynamic_eq`
 

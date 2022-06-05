@@ -22,7 +22,7 @@ homeassistant:
   longitude: -121
   # 'metric' for Metric, 'imperial' for Imperial
   unit_system: imperial
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  # Pick yours from here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: "America/Los_Angeles"
   customize: !include customize.yaml
 ```
@@ -42,15 +42,6 @@ http:
 
 ifttt:
   key: ["nope"]
-
-wink:
-  access_token: ["wouldn't you"]
-  refresh_token: ["like to know"]
-
-zwave:
-  usb_path: "/dev/ttyUSB0"
-  config_path: "/usr/local/share/python-openzwave/config"
-  polling_interval: 10000
 
 mqtt:
   broker: 127.0.0.1
@@ -83,7 +74,11 @@ switch: !include switch.yaml
 device_tracker: !include device_tracker.yaml
 ```
 
-Nesting `!include`s (having an `!include` within a file that is itself `!include`d) isn't going to work. You can, however, have multiple top-level `!include`s for a given integration, if you give a different label to each one:
+Nesting `!include`s (having an `!include` within a file that is itself `!include`d) will also work.
+
+Some integrations support multiple top-level `!include`s, this includes integrations defining an IoT domain, e.g. `light`, `switch`, `sensor` as well as the `automation`, `script` and `template` integrations, if you give a different label to each one. Configuration for other integrations can instead be split up by using packages. To learn more about packages, see the [Packages](/docs/configuration/packages) page.
+
+Example of multiple top-level keys for the `light` platform.
 
 ```yaml
 light:
@@ -185,30 +180,34 @@ This (large) sensor configuration gives us another example:
 
 You'll notice that this example includes a secondary parameter section (under the steam section) as well as a better example of the way comments can be used to break down files into sections.
 
+All of the above can be applied when splitting up files using packages. To
+learn more about packages, see the [Packages](/docs/configuration/packages) page.
+
 That about wraps it up.
 
 If you have issues checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to our [Discord chat server][discord] and ask away.
 
-## Debugging multiple configuration files
+## Debugging configuration files
 
-If you have many configuration files, the `check_config` script allows you to see how Home Assistant interprets them:
+If you have many configuration files, Home Assistant provides a CLI that allows you to see how it interprets them, each installation type has its own section in the common-tasks about this:
 
-- Listing all loaded files: `hass --script check_config --files`
-- Viewing a component's configuration: `hass --script check_config --info light`
-- Or all components' configuration:  `hass --script check_config --info all`
-
-You can get help from the command line using: `hass --script check_config --help`
+- [Operating System](/common-tasks/os/#configuration-check)
+- [Container](/common-tasks/container/#configuration-check)
+- [Core](/common-tasks/core/#configuration-check)
+- [Supervised](/common-tasks/supervised/#configuration-check)
 
 ## Advanced Usage
 
 We offer four advanced options to include whole directories at once. Please note that your files must have the `.yaml` file extension; `.yml` is not supported.
+
+This will allow you to `!include` files with `.yml` extensions from within the `.yaml` files; without those `.yml` files being imported by the following commands themselves.
 
 - `!include_dir_list` will return the content of a directory as a list with each file content being an entry in the list. The list entries are ordered based on the alphanumeric ordering of the names of the files.
 - `!include_dir_named` will return the content of a directory as a dictionary which maps filename => content of file.
 - `!include_dir_merge_list` will return the content of a directory as a list by merging all files (which should contain a list) into 1 big list.
 - `!include_dir_merge_named` will return the content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.
 
-These work recursively. As an example using `!include_dir_* automation`, will include all 6 files shown below:
+These work recursively. As an example using `!include_dir_list automation`, will include all 6 files shown below:
 
 ```bash
 .
@@ -288,8 +287,6 @@ action:
 ```
 
 It is important to note that each file must contain only **one** entry when using `!include_dir_list`.
-It is also important to note that if you are splitting a file after adding -id: to support the automation UI,
-the -id: line must be removed from each of the split files.
 
 ### Example: `!include_dir_named`
 

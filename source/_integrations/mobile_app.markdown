@@ -7,7 +7,7 @@ ha_release: 0.89
 ha_config_flow: true
 ha_quality_scale: internal
 ha_codeowners:
-  - '@robbiet480'
+  - '@home-assistant/core'
 ha_domain: mobile_app
 ha_iot_class: Local Push
 ha_platforms:
@@ -15,6 +15,7 @@ ha_platforms:
   - device_tracker
   - notify
   - sensor
+ha_integration_type: integration
 ---
 
 The Mobile App integration allows Home Assistant mobile apps to easily integrate with Home Assistant.

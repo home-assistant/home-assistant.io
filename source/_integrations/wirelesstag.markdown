@@ -2,17 +2,20 @@
 title: Wireless Sensor Tags
 description: Instructions on how to integrate your Wireless Tags sensors within Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
+  - Hub
   - Sensor
   - Switch
-ha_iot_class: Local Push
+ha_iot_class: Cloud Push
 ha_release: 0.68
 ha_domain: wirelesstag
 ha_platforms:
   - binary_sensor
   - sensor
   - switch
+ha_codeowners:
+  - '@sergeymaysak'
+ha_integration_type: integration
 ---
 
 The `wirelesstag` implementation allows you to integrate your [wirelesstag.net](https://wirelesstag.net/) sensors tags in Home Assistant.
@@ -44,22 +47,6 @@ password:
   required: true
   type: string
 {% endconfiguration %}
-
-<div class='note'>
-
-To enable local push notifications from the Tags Manager, you need to add the IP address of the Tags Manager into `trusted_networks` under Authentication Providers. See the [Authentication Providers](https://www.home-assistant.io/docs/authentication/providers/#trusted-networks) for details.
- 
-If you are using a version prior to v0.89 you can do the whitelisting under the [HTTP](/integrations/http) integration.
-  
-Additionally, you need to add at least one [WirelessTag binary sensor](#binary-sensor) in the configuration to start receiving local push notifications.
-
-</div>
-
-<div class='note warning'>
-
-Tags Manager supports local push notifications for `http` schema only. So if your Home Assistant uses `https`, local push notifications are disabled and data is received via cloud polling.
-
-</div>
 
 ## Binary Sensor
 
@@ -130,6 +117,8 @@ monitored_conditions:
       description: "Water level/soil moisture in % (applicable for Water Tag only)."
     light:
       description: Brightness in lux (if supported by tag).
+    ambient_temperature:
+      description: If your device is Outdoor Probe with ambient temperature - use this sensor.
 {% endconfiguration %}
 
 ## Switch

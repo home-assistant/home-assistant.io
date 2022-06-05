@@ -10,14 +10,16 @@ ha_codeowners:
   - '@bachya'
 ha_domain: iqvia
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The `iqvia` sensor platform collects and displays allergy, asthma and disease
 information (based on a U.S. ZIP code) from [IQVIA](https://www.iqvia.com/).
 Data measured includes:
 
-* Indicies for allergies, asthma and cold/flu indices
+* Indices for allergies, asthma and cold/flu indices
 * Trends
 * Current outlook
 * more!

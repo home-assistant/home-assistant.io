@@ -1,17 +1,10 @@
 ---
+layout: landingpage
+frontpage: false
 title: "Home Assistant Blue!"
 description: "Where style and performance meet privacy"
-sidebar: false
-is_homepage: true
-feedback: false
-body_id: blue
-show_title: false
-og_image: /images/blue/blue_hero.jpg
----
-
-<div class="banner">
-  <img src="/images/blue/blue_hero.jpg" />
-  <div class="title">
+date: 2020-12-12
+tagline: >-
     Home Assistant
     <svg
       width="212"
@@ -28,42 +21,32 @@ og_image: /images/blue/blue_hero.jpg
       />
       <text x="40" y="78" stroke="white" fill="white">Blue</text>
     </svg>
-  </div>
-</div>
+tagline_wide: false
+og_image: /images/blue/blue_hero.jpg
+frontpage_image: /images/frontpage/blue-frontpage.jpg
+---
 
 <div class="content">
-  <div class="material-card text missing-piece">
+  <div class="material-card text banner-overlay with-box">
     <div>
-      <div class="missing-piece-header">The missing piece</div>
-      <div class="missing-piece-content">
-        We challenged ourselves: what would the perfect home automation hub look
-        like. Not just software, but also hardware and looks.
-      </div>
-      <div class="missing-piece-content secondary">
-        The result is the limited edition Home Assistant Blue bundle. Hardware
-        that is affordable and fast, packed in a gorgeous case and powered by
-        the most powerful home automation software on the planet: Home
-        Assistant.
+      <div class="banner-overlay-header">Available today</div>
+      <div class="banner-overlay-content">
+        The limited edition Home Assistant Blue bundle is hardware that is affordable
+        and fast, packed in a custom-designed and gorgeous case, and powered by the most powerful home
+        automation software on the planet: Home Assistant.
       </div>
     </div>
-    <div class="material-card text missing-piece-overlay">
-      <div class="missing-piece-overlay-header">LIMITED EDITION</div>
-      <div class="missing-piece-overlay-price">
-        $140
-        <div>*</div>
-      </div>
-      <div class="missing-piece-overlay-images">
+    <div class="material-card text box">
+      <div class="banner-overlay-header">LIMITED EDITION</div>
+      <div class="banner-overlay-images">
         <div class="img-container"><img src="/images/blue/blue1.png" /></div>
         <div class="img-container"><img src="/images/blue/blue2.png" /></div>
         <div class="img-container"><img src="/images/blue/blue3.png" /></div>
       </div>
-      <div class="missing-piece-overlay-button" onclick="showBuyDialog()">
-        <div>BUY NOW</div>
+      <div class="banner-overlay-button disabled">
+        <div>Out of Stock</div>
       </div>
     </div>
-  </div>
-  <div class="missing-piece-disclaimer">
-    * Price does not include taxes and import fees
   </div>
 
   <div class="bullet-points">
@@ -368,7 +351,7 @@ og_image: /images/blue/blue_hero.jpg
         <div class="spec-content">
           No Wi-Fi or Bluetooth
           <div class="spec-content-additional">
-            Support for Z-Wave and Zigbee by external USB adaptor
+            Support for Z-Wave and Zigbee by external USB adapter
             (not&nbsp;included)
           </div>
         </div>
@@ -595,10 +578,24 @@ All other parts of the bundle will remain available for purchase.
 
 {% enddetails %}
 
+{% details "What is the difference with Home Assistant Yellow?" %}
+
+We partnered with a single-board computer (SBC) manufacturer to introduce Home Assistant Blue, our first foray into creating hardware that runs Home Assistant. Home Assistant Blue was always meant to be a limited edition and its production has been discontinued.
+<br><br>
+Though Home Assistant Blue has been limited, we will continue to support it and, just like Home Assistant Yellow, it is able to run the latest version of Home Assistant.
+
+{% enddetails %}
+
 {% details "I already own an ODROID-N2+. Do I run the same software?" %}
 
 Yes! Home Assistant Blue runs the exact same software as that you're
 currently using and you're benefitting from all the improvements.
+
+{% enddetails %}
+
+{% details "Will Home Assistant keep supporting the Blue even when it's limited?" %}
+
+Yes! We are committed to keep supporting all platforms that are currently available.
 
 {% enddetails %}
 
@@ -616,166 +613,5 @@ Nope! We are committed to keep supporting all platforms that are currently avail
     </div>
   </div>
 </a>
-  <div id="buy-dialog" class="dialog">
-    <div class="material-card text dialog-content">
-      <div class="close-container"></div>
-      <div class="dialog-header">
-        <span>Home Assistant Blue bundle</span>
-        <span class="dialog-close" onclick="closeDialog()" title="close">
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
-            />
-          </svg>
-        </span>
-      </div>
-      <div class="box-contents">
-        <span>The bundle includes:</span>
-        <ul>
-          <li>Limited edition Home Assistant Blue case</li>
-          <li>ODROID-N2+</li>
-          <ul class="ul-sub">
-            <li>6-core CPU</li>
-            <li>4GB memory</li>
-            <li>128GB eMMC storage</li>
-            <li>Home Assistant Operating System pre-installed</li>
-          </ul>
-          <li>Power adapter</li>
-        </ul>
-      </div>
-      <div class="distributors">
-        <a
-          href="https://www.hardkernel.com/shop/odroid-n2-home-assistant-blue-bundle-limited-edition/"
-          target="_blank"
-        >
-          <div class="distributor">
-            <div>
-              <div>🇰🇷</div>
-              <div>Hardkernel</div>
-              <div>Located in Korea</div>
-            </div>
-            <svg width="24" height="24" viewBox="0 0 24 24">
-              <path
-                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-              />
-            </svg>
-          </div>
-        </a>
-        <a
-          href="https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?ref=eeb6nfw07e"
-          target="_blank"
-        >
-          <div class="distributor">
-            <div>
-              <div>🇺🇸</div>
-              <div>ameriDroid</div>
-              <div>Located in USA</div>
-            </div>
-            <svg width="24" height="24" viewBox="0 0 24 24">
-              <path
-                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-              />
-            </svg>
-          </div>
-        </a>
-        <a
-          href="https://www.m.nu/styrenheter-z-wave/odroid-n2-home-assistant-blue-bundle-limited-edition"
-          target="_blank"
-        >
-          <div class="distributor">
-            <div>
-              <div>🇸🇪</div>
-              <div>m.nu</div>
-              <div>Located in Sweden</div>
-            </div>
-            <svg width="24" height="24" viewBox="0 0 24 24">
-              <path
-                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-              />
-            </svg>
-          </div>
-        </a>
-        <a href="https://www.webhallen.com/329102" target="_blank">
-          <div class="distributor">
-            <div>
-              <div>🇸🇪</div>
-              <div>Webhallen</div>
-              <div>Located in Sweden</div>
-            </div>
-            <svg width="24" height="24" viewBox="0 0 24 24">
-              <path
-                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-              />
-            </svg>
-          </div>
-        </a>
-        <a href="http://www.baumannelektro.ch/ha-blue" target="_blank">
-          <div class="distributor">
-            <div>
-              <div>🇨🇭</div>
-              <div>Baumann Elektro</div>
-              <div>Located in Switzerland</div>
-            </div>
-            <svg width="24" height="24" viewBox="0 0 24 24">
-              <path
-                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-              />
-            </svg>
-          </div>
-        </a>
-        <div class="tip">
-          The Home Assistant Blue is distributed by Hardkernel. The resellers in
-          the various regions will handle the import so you can get your Blue
-          fast and worry free.
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="blue-buy-fab" onclick="showBuyDialog()" title="buy blue">
-    <svg style="width: 32px; height: 32px" viewBox="0 0 32 32">
-      <path
-        fill="currentColor"
-        d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z"
-      />
-    </svg>
-    BUY BLUE
-  </div>
-  <script>
-    const buyDialog = document.getElementById("buy-dialog");
-    const buyFab = document.querySelector(".blue-buy-fab");
-
-    function showBuyDialog() {
-      buyDialog.style.display = "flex";
-      buyFab.style.display = "none";
-    }
-
-    function closeDialog() {
-      buyDialog.style.display = "none";
-      buyFab.style.display = "flex";
-    }
-
-    window.onclick = function (event) {
-      if (event.target === buyDialog) {
-        closeDialog();
-      }
-    };
-
-    if (document.documentElement.clientWidth < 480) {
-      document.querySelector(".page-content").addEventListener(
-        "scroll",
-        function (e) {
-          const header = document.querySelector(".site-header");
-          const fab = document.querySelector(".blue-buy-fab");
-          if (e.currentTarget.scrollTop > 180) {
-            header.style.backgroundColor = "#ffffff";
-            fab.style.display = "flex";
-          } else {
-            header.style.backgroundColor = "#ffffff66";
-            fab.style.display = "none";
-          }
-        },
-        { passive: true, capture: true }
-      );
-    }
-  </script>
+  
 </div>

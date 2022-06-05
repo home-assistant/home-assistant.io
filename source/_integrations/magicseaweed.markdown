@@ -8,13 +8,14 @@ ha_iot_class: Cloud Polling
 ha_domain: magicseaweed
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
-The `magicseaweed` platform uses the [Magicseaweed Forecast API](https://magicseaweed.com/developer/forecast-api) as a source for surf forecasting data for the surf spots of your choice.
+The `magicseaweed` platform uses the [Magicseaweed Forecast API](https://magicseaweed.com/docs/developers/59/) as a source for surf forecasting data for the surf spots of your choice.
 
 ## Setup
 
-You need an API key which is free but requires [registration](https://magicseaweed.com/developer/sign-up). Magicseaweed is limiting users of the API to 1 spot for the free plan.
+You need an API key which is free but requires [registration](https://magicseaweed.com/docs/developers/59/sign-up/9908/). Magicseaweed is limiting users of the API to 1 spot for the free plan.
 
 ## Configuration
 
@@ -63,7 +64,7 @@ hours:
     12AM:
       description: Display forecast for 12AM.
 spot_id:
-  description: ID of the surf spot. Details for getting spot id available at [Magicseaweed](https://magicseaweed.com/developer/forecast-api)
+  description: ID of the surf spot. Details for getting spot id available at [Magicseaweed](https://magicseaweed.com/docs/developers/59/)
   required: true
   type: string
 monitored_conditions:
@@ -84,4 +85,4 @@ units:
   type: string
 {% endconfiguration %}
 
-Details about the API are available in the [Magicseaweed documentation](https://magicseaweed.com/developer/forecast-api).
+Details about the API are available in the [Magicseaweed documentation](https://magicseaweed.com/docs/developers/59/).

@@ -2,15 +2,16 @@
 title: deCONZ
 description: Instructions on how to setup ConBee/RaspBee devices with deCONZ from dresden elektronik within Home Assistant.
 ha_category:
-  - Hub
   - Alarm
   - Binary Sensor
   - Cover
   - Fan
+  - Hub
   - Light
   - Lock
   - Scene
   - Sensor
+  - Siren
   - Switch
 ha_release: 0.61
 ha_iot_class: Local Push
@@ -23,19 +24,23 @@ ha_ssdp: true
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - button
   - climate
   - cover
+  - diagnostics
   - fan
   - light
   - lock
+  - number
   - scene
   - sensor
+  - siren
   - switch
+ha_integration_type: integration
 ---
 
 [deCONZ](https://www.dresden-elektronik.de/funk/software/deconz.html) by [dresden elektronik](https://www.dresden-elektronik.de) is a software that communicates with ConBee/RaspBee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
 
-[deCONZ REST API](https://dresden-elektronik.github.io/deconz-rest-doc/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -47,18 +52,21 @@ There is currently support for the following device types within Home Assistant:
 - [Lock](#lock)
 - [Scene](#scene)
 - [Sensor](#sensor)
+- [Siren](#siren)
 - [Switch](#switch)
 
 ## Recommended way of running deCONZ
 
 An official add-on for deCONZ is available in the Home Assistant add-on store.
-Otherwise, use [community container](https://hub.docker.com/r/marthoc/deconz/) by Marthoc for your deCONZ needs.
+Otherwise, use [community container](https://github.com/deconz-community/deconz-docker) for your deCONZ needs.
 
 ### Supported devices
 
 See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Supported-Devices) for a list of supported devices.
 
 {% include integrations/config_flow.md %}
+
+Running a stand-alone instance of deCONZ (non add-on installation) requires a pairing between the deCONZ gateway and Home Assistant. To allow Home Assistant to connect with deCONZ go to the Phoscon **UI click Settings -> Gateway -> Advanced** and press the "Authenticate app" button. This same information is also shown during the config flow of the deCONZ integration.
 
 ## Debugging integration
 
@@ -76,13 +84,17 @@ logger:
 
 If you are having issues and want to report a problem, always start with making sure that you're on the latest [deCONZ software version](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) and [latest firmware for hardware](http://deconz.dresden-elektronik.de/deconz-firmware/?C=M;O=D).
 
+### No state updates
+
+If the state of entities are only reflected in Home Assistant when the integration is loaded (during restart, reload, setup) you probably have an issue with the WebSocket configuration where your deCONZ instance is running. The deCONZ integration uses the WebSocket port provided by the deCONZ REST API. If you're running the deCONZ Docker container make sure that it properly configures the WebSocket port so deCONZ can report what port is exposed outside of the containerized environment. Also, make sure to review firewall rules that might block communication over certain ports.
+
 ## Device services
 
 Available services: `configure`, `deconz.device_refresh` and `deconz.remove_orphaned_entries`.
 
 ### Service `deconz.configure`
 
-Set attribute of device in deCONZ using [REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/rest/).
+Set the attribute of device in deCONZ using [REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/about_rest/).
 
 | Service data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
@@ -108,13 +120,13 @@ Either `entity` or `field` must be provided. If both are present, `field` will b
 { "field": "/config", "data": {"permitjoin": 60} }
 ```
 
-#### Service `deconz.device_refresh`
+### Service `deconz.device_refresh`
 
 Refresh with devices added to deCONZ after Home Assistants latest restart.
 
 Note: deCONZ automatically signals Home Assistant when new sensors are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this service or a restart of Home Assistant.
 
-#### Service `deconz.remove_orphaned_entries`
+### Service `deconz.remove_orphaned_entries`
 
 Remove entries from entity and device registry which are no longer provided by deCONZ.
 
@@ -159,29 +171,11 @@ Navigate to **Developer tools->Events**. In the section **Listen to events** add
 
 ### Device triggers
 
-To simplify using remote control devices in automations deCONZ integration exposes them as device triggers. This will expose all possible variations of button presses and rotations. Note that this is a manually curated list and will not initially be as complete as what deCONZ supports.
-
-Currently supported devices as device triggers:
-
-- Hue Dimmer Switch
-- Hue Smart Button
-- Hue Tap Switch
-- Friends of Hue Switch
-- Symfonisk Sound Controller
-- Trådfri On/Off Switch
-- Trådfri Open/Close Remote
-- Trådfri Remote Control
-- Trådfri Wireless Dimmer
-- Aqara Double Wall Switch
-- Aqara Mini Switch
-- Aqara Round Switch
-- Aqara Square Switch
-- Aqara Magic Cube
-- Aqara Opple 2/4/6 button Switches
+To simplify using remote control devices in automations deCONZ integration exposes them as device triggers. This will expose all possible variations of button presses and rotations. Most popular brands of Zigbee remotes are supported.
 
 #### Requesting support for new device trigger
 
-Requesting support for additional devices requires the device model (can be acquired from debug logs) together with a mapping of action and button event, e.g., Hue dimmer remote model "RWL021", Short press turn on 1000.
+If you have a Zigbee remote that is not yet supported you can request support for it by creating an issue on Home Assistant Core GitHub repository. This requires the device model (can be acquired from debug logs) together with a mapping of action and button event, e.g., Hue dimmer remote model "RWL021", Short press turn on 1000.
 
 ## Examples
 
@@ -313,37 +307,29 @@ automation:
             'on': false
 ```
 
-## Alarm Control Panel
+## Platforms
+
+The `entity_id` name will be `platform.device_name`, where `device_name` is defined in deCONZ.
+
+### Alarm Control Panel
 
 The entity of a physical keypad. Can be in 4 different modes (`arm_away`, `arm_home`, `arm_night` or `disarmed`). Changing the state will do an audible notification from the keypad.
 
-The Device also exposes a new event type `deconz_alarm_event` which signals a user action with the keypad.
-The Payload consists of an event (`arm_away`, `arm_home`, `arm_night` or `disarmed`) and a four-digit code.
+The Device also exposes a new event type `deconz_alarm_event` which reflects signals not supported within the Alarm Control Panel platform.
+The Payload consists of an event (`emergency`, `fire`, `invalid_code` or `panic`).
 
-## Binary Sensor
+### Binary Sensor
 
 The following sensor types are supported:
 
+- Alarm signalling
 - Fire/Smoke detection
 - Open/Close detection
 - Presence detection
+- Vibration detection
 - Water leakage detection
 
-The `entity_id` name will be `binary_sensor.device_name`, where `device_name` is defined in deCONZ.
-
-### Verified supported binary sensors
-
-- Open/Close Detection
-  - Xiaomi Smart Home Security Door & Window Contact Sensor
-- Presence Detection
-  - IKEA Trådfri Motion Sensor
-  - Philips Hue Motion Sensor
-  - Xiaomi Motion Sensor
-  - Xiaomi Smart Home Aqara Human Body Sensor
-- Water leakage detection
-  - Xiaomi Aqara water leak Sensor
-
-## Climate
+### Climate
 
 See the [deCONZ main integration](/integrations/deconz/) for configuration instructions.
 
@@ -351,105 +337,44 @@ Climate currently represent thermostats.
 
 Note that devices in the climate platform identify as sensors, so there is a manually curated list that defines which "sensors" are climate devices.
 
-The `entity_id` name will be `climate.device_name`, where `device_name` is defined in deCONZ.
-
-### Verified supported climate devices
-
-- Bitron Thermostat 902010/32
-- Eurotronic SPZB0001
-
-## Cover
+### Cover
 
 Covers are devices like ventilation dampers or smart window covers.
 
-Note that devices in the cover platform identify as lights, so there is a manually curated list that defines which "lights" are covers. You therefore add a cover device as a light device in deCONZ (Phoscon App).
-
-The `entity_id` name will be `cover.device_name`, where `device_name` is defined in deCONZ.
-
-### Verified supported covers
-
-- IKEA Fyrtur
-- IKEA Kadrilj
-- Keen vents
-- Xiaomi Aqara Curtain controller
-
-## Fan
+### Fan
 
 Fans from deCONZ are currently a combination of a light and fan fixture.
 
-Note that devices in the fan platform identify as lights, so there is a manually curated list that defines which "lights" are fans. You, therefore, add a fan device as a light device in deCONZ (Phoscon App).
+### Light
 
-## Light
+The Light platform keeps light devices and deCONZ light groups. Light groups created in deCONZ will be created in Home Assistant as lights named `light.group_name_in_deconz`, allowing the user to control groups of lights with only a single API call to deCONZ.
 
-The `entity_id` names will be `light.device_name`, where `device_name` is defined in deCONZ. Light groups created in deCONZ will be created in Home Assistant as lights named `light.group_name_in_deconz`, allowing the user to control groups of lights with only a single API call to deCONZ.
-
-### Verified supported lights
-
-- IKEA Trådfri bulb E14 WS Opal 400lm
-- IKEA Trådfri bulb E14 WS Opal 600lm
-- IKEA Trådfri bulb E27 WS clear 806lm
-- IKEA Trådfri bulb E27 WS clear 950lm
-- IKEA Trådfri bulb E27 WS Opal 980lm
-- IKEA Trådfri bulb E27 WS Opal 1000lm
-- IKEA Trådfri bulb E27 WS & RGB Opal 600lm
-- IKEA Trådfri bulb GU10 W 400lm
-- IKEA Trådfri FLOALT LED light panel
-- Innr BY-265, BY-245, RB-265
-- OSRAM Classic A60 W clear - LIGHTIFY
-- OSRAM Flex RGBW
-- OSRAM Gardenpole RGBW
-- Philips Hue White A19
-- Philips Hue White Ambiance A19
-- Philips Hue Hue White ambiance Milliskin (recessed spotlight) LTW013
-- Philips Hue LightStrip Plus
-- Busch Jaeger Zigbee Light Link univ. relai (6711 U) with Zigbee Light Link control element 6735-84
-- Xiaomi Aqara Smart LED Bulb (white) E27 ZNLDP12LM
-
-## Lock
+### Lock
 
 Locks are devices such as the Danalock Zigbee lock.
 
-Note that devices in the `lock` platform identify as lights, so there is a manually curated list that defines which "lights" are locks. You therefore add a lock device as a light device in deCONZ (Phoscon App).
-
-The `entity_id` name will be `lock.device_name`, where `device_name` is defined in deCONZ.
-
-## Scene
+### Scene
 
 The `entity_id` name will be `scene.group_scene_name`, where `group` is which group the scene belongs to and the name of the scene, both group and name are defined in deCONZ.
 
-## Sensor
+### Sensor
 
 The following sensor types are supported:
 
+- Air Quality sensor
+- Battery sensor
+- Consumption sensor
+- Daylight
 - Humidity sensor
 - Light level sensor
+- Power sensor
 - Pressure sensor
 - Switches
 - Temperature sensor
 
-The `entity_id` name will be `sensor.device_name`, where `device_name` is defined in deCONZ. Switches aren't exposed as ordinary entities, see the [deCONZ main integration](/integrations/deconz/) for more details.
+Switches aren't exposed as ordinary entities, see the [deCONZ main integration](/integrations/deconz/) for more details.
 
-### Verified to be supported sensors
-
-- Humidity Sensor
-  - Xiaomi Aqara Humidity/Temperature Sensor
-  - Xiaomi MiJia Smart Temperature & Humidity Sensor
-- Light Level Sensor
-- Pressure Sensor
-- Switches
-  - IKEA Trådfri Wireless Dimmer
-  - Philips Hue Motion Sensor
-  - IKEA Trådfri Remote
-  - Philips Hue Dimmer Switch
-  - Xiaomi Aqara Smart Light Switch
-  - Xiaomi Aqara Smart Wireless Switch
-  - Xiaomi Smart Home Wireless Switch
-- Temperature Sensor
-  - Xiaomi Temperature/Humidity Sensor
-- OpenClose Sensor
-  - Xiaomi Window / Door Sensor with Temperature
-
-### deCONZ Daylight Sensor
+#### deCONZ Daylight Sensor
 
 The deCONZ Daylight sensor is a special sensor built into the deCONZ software since version 2.05.12. It is represented in Home Assistant as a sensor called sensor.daylight. The sensor's state value is a string corresponding to the phase of daylight (descriptions below taken from <https://github.com/mourner/suncalc>, on which the deCONZ implementation is based):
 
@@ -476,18 +401,12 @@ These states can be used in automations as a trigger (e.g., trigger when a certa
 
 Please note that the deCONZ daylight sensor is disabled by default in Home Assistant. It can be enabled manually by going to your deCONZ controller device in the Home Assistant UI.
 
-## Switch
+### Siren
 
-Switches are devices like power plugs and sirens.
+Control audible devices with a limit on how long the signal should sound.
 
-Note that devices in the switch platform identify as lights, so there is a manually curated list that defines which "lights" are switches.
+### Switch
+
+Switches are devices such as power plugs.
 
 The `entity_id` name will be `switch.device_name`, where `device_name` is defined in deCONZ.
-
-### Verified supported switches
-
-- Innr SP120
-- Innr ZB-ONOFFPlug-D0005/SmartThings Smart Plug (2019) (without power measurements)
-- Osram Lightify plug
-- Osram Outdoor plug
-- Heiman siren

@@ -3,8 +3,8 @@ title: OpenWeatherMap
 description: Instructions on how to integrate OpenWeatherMap within Home Assistant.
 ha_release: 0.32
 ha_category:
-  - Weather
   - Sensor
+  - Weather
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -15,6 +15,7 @@ ha_domain: openweathermap
 ha_platforms:
   - sensor
   - weather
+ha_integration_type: integration
 ---
 
 The OpenWeatherMap weather integrations uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location.
@@ -40,7 +41,7 @@ not be activated yet.
 | Name                 | Name of the integration                                                                                                                                                                                                                    |
 | Latitude             | Latitude for weather forecast and sensor                                                                                                                                                                                                   |
 | Longitude            | Longitude for weather forecast and sensor                                                                                                                                                                                                  |
-| Mode                 | Forecast mode, `hourly` for a three-hour forecast, `daily` for daily forecast using a paid API tier, `onecall_hourly` for an hourly forecast up to 2 days, or `onecall_daily` for a daily forecast up to 7 days (ideal for the free tier). |
+| Mode                 | Forecast mode, `hourly` for a three-hour forecast, `daily` for daily forecast using a paid API tier, `onecall_hourly` for an hourly forecast up to 2 days, or `onecall_daily` for a daily forecast up to 7 days (ideal for the free tier, default). |
 | Language             | Language for receiving data (only for `sensor`)                                                                                                                                                                                            |
 
 The integration creates a weather entity as well as sensors for supported weather conditions.
@@ -75,6 +76,7 @@ The Weather entity provides data only in English. Home Assistant automatically t
 | `snow`                   | Snow volume for the last hour, mm.                                                                                                |
 | `temperature`            | Temperature, ºC.                                                                                                                  |
 | `uv_index`               | UV Index.                                                                                                                         |
+| `visibility`             | Average visibility, m.                                                                                                            |
 | `weather`                | A human-readable description of the [weather condition](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2). |
 | `weather_code`           | ID of the [weather condition](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2).                           |
 | `wind_bearing`           | Wind direction, degrees (meteorological).                                                                                         |

@@ -10,8 +10,6 @@ ha_category:
 ha_release: 0.56
 ha_iot_class: Cloud Push
 ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
 ha_domain: toon
 ha_dhcp: true
 ha_platforms:
@@ -19,6 +17,7 @@ ha_platforms:
   - climate
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Toon integration platform can be used to control your Quby Toon thermostat,
@@ -53,7 +52,7 @@ In order to be able to use this component, you'll need to sign up for a free Too
 2. Open the "[My Apps](https://developer.toon.eu/user/me/apps)" page and click on "Add a new App" button on the top right.
 3. The "Add App" page shows a form with two fields:
    - **App Name**: Can be anything you like, for example, "Home Assistant" will just do.
-   - **Callback URL**: `https://homeassistant.local:8123/auth/external/callback` (Please replace the first part of the URL with the internal URL of your Home Assistant frontend).
+   - **Callback URL**: `https://my.home-assistant.io/redirect/oauth`.
 4. Click on "Create App" to complete the creation process.
 5. Open the "[My Apps](https://developer.toon.eu/user/me/apps)" page again and click on the app that you've just created.
 6. You need the codes now shown: "Consumer Key" and "Consumer Secret".
@@ -78,6 +77,19 @@ client_secret:
 {% endconfiguration %}
 
 {% include integrations/config_flow.md %}
+
+{% details "I have manually disabled My Home Assistant" %}
+
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the Callback URL
+instead.
+
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
+
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+
+{% enddetails %}
 
 ## Binary Sensor
 
@@ -133,6 +145,7 @@ The Toon integration provides the following sensors:
 - Gas Cost Today
 - Gas Meter
 - Gas Usage Today
+- Humidity*
 - Max Solar Power Production Today (only with solar module)
 - Solar Energy Produced Today (only with solar module)
 - Solar Power Production to Grid (only with solar module)

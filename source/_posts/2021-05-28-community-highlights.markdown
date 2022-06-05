@@ -23,8 +23,8 @@ Information on [how to share](#got-a-tip-for-the-next-edition).
 
 This week's blueprint is all about medication. It may happen that you forget
 to swallow it, what if you create an automation that sends you a message as a
-reminder every time? [Mati24](LINK) has now made a handy blueprint for that,
-try it out!
+reminder every time? [Mati24](https://community.home-assistant.io/u/mati24) has
+now made a handy blueprint for that, try it out!
 
 {% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/advanced-medication-reminder/300137" %}
 
@@ -91,7 +91,7 @@ Also, don't forget to share your creations with us via Social Media:
 - Tweet it! Be sure to mention [@home_assistant][twitter]
 - Share it on our [Facebook group][facebook-group]
 - Post it to our [subreddit][reddit]
-- Tag [@homeasssistant][instagram] on Instagram
+- Tag [@homeassistant][instagram] on Instagram
 - Or via chat, drop us a line in the [#lounge at Discord][chat]
 
 See you next edition!

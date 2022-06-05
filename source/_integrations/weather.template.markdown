@@ -13,12 +13,14 @@ The `template` integrations creates weather provider that combines integrations 
 
 There are several powerful ways to use this integration, including localizing your weather provider information with local information from temperature, humidity, pressure sensors that you own.
 
-Another use case could be using temperature and humidity from one weather plaform, with forecasts from a different one.
+Another use case could be using temperature and humidity from one weather platform, with forecasts from a different one.
 
 
 ## Configuration
 
 To enable a Template Weather provider in your installation, add the following to your `configuration.yaml` file:
+
+(Note, be sure to update my_region in the condition and forecast templates to an appropriate value for your setup).
 
 {% raw %}
 
@@ -26,11 +28,11 @@ To enable a Template Weather provider in your installation, add the following to
 # Example configuration.yaml entry
 weather:
   - platform: template
-    name: "my very own weather station"
-    condition_template: "sunny"
-    temperature_template: "{{ states('sensor.temperature') | float}}"
-    humidity_template: "{{ states('sensor.humidity')| float }}"
-    forecast_template: "{{ states.weather.my_region.attributes.forecast }}"
+    name: "My Weather Station"
+    condition_template: "{{ states('weather.my_region') }}"
+    temperature_template: "{{ states('sensor.temperature') | float }}"
+    humidity_template: "{{ states('sensor.humidity') | float }}"
+    forecast_template: "{{ state_attr('weather.my_region', 'forecast') }}"
 ```
 
 {% endraw %}
@@ -85,3 +87,7 @@ forecast_template:
   required: false
   type: template
 {% endconfiguration %}
+
+### Template variables
+
+State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates.

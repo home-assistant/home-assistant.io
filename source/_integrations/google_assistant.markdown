@@ -9,6 +9,7 @@ ha_iot_class: Cloud Push
 ha_codeowners:
   - '@home-assistant/cloud'
 ha_domain: google_assistant
+ha_integration_type: integration
 ---
 
 The `google_assistant` integration allows you to control things via Google Assistant on your mobile, tablet or Google Home device.
@@ -59,10 +60,10 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     <img src='/images/integrations/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
 
 3. Select the `Develop` tab at the top of the page, then in the upper right hand corner select the `Test` button to generate the draft version Test App. If you don't see this option, go to the `Test` tab instead, click on the `Settings` button in the top right below the header, and ensure `On device testing` is enabled (if it isn't, enable it).
-4. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#configuration) below.
+4. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
 5. Add services in the Google Home App (Note that app versions may be slightly different.)
-    1. Open the Google Home app and go to `Settings`.
-    2. Click `Add...`, `+ Set up or add`, `+ Set up device`, and click `Have something already setup?`. You should have `[test] your app name` listed under 'Add new'. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
+    1. Open the Google Home app.
+    2. Click the `+` button on the top left corner, click `Set up device`, in the "Set up a device" screen click "Works with Google". You should have `[test] <Action Name>` listed under 'Add new'. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
 
 <div class='note'>
 
@@ -97,7 +98,7 @@ If you want to support active reporting of state to Google's server (configurati
     5. In the Service account ID field, enter an ID.
     6. From the Role list, select `Service Accounts` > `Service Account Token Creator`.
     7. Click `CONTINUE` and then `DONE`. You are returned to the service account list, and your new account is shown.
-    8. Click the the three dots menu under `Actions` next to your new account, and click `Manage keys`. You are taken to a `Keys` page.
+    8. Click the three dots menu under `Actions` next to your new account, and click `Manage keys`. You are taken to a `Keys` page.
     9. Click `ADD KEY` then `Create new key`. Leave the `key type` as `JSON` and click `CREATE`. A JSON file that contains your key downloads to your computer.
     10. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
     11. Click `Close`.
@@ -106,6 +107,45 @@ If you want to support active reporting of state to Google's server (configurati
     2. At the top left of the page next to "Google Cloud Platform" logo, select your project created in the Actions on Google console. Confirm this by reviewing the project ID and it ensure it matches.
     3. Click Enable HomeGraph API.
 3. Try "OK Google, sync my devices" - the Google Home app should import your exposed Home Assistant devices and prompt you to assign them to rooms.
+
+### Enable Local Fulfillment
+
+Google Assistant devices can send their commands locally to Home Assistant allowing them to respond faster.
+
+Your Home Assistant instance needs to be connected to the same network as the Google Assistant device that you’re talking to so that it can be discovered via mDNS discovery (UDP broadcasts).
+
+Your Google Assistant devices will still communicate via the internet to:
+- Sync entities.
+- Get credentials to establish a local connection.
+- Send commands that involve a [secure device](#secure-device).
+- Send commands if local fulfillment fails.
+
+<div class='note'>
+
+The [HTTP integration](/integrations/http) must **not** be configured to use an SSL certificate with the [`ssl_certificate` option](/integrations/http/#ssl_certificate).
+
+This is because the Google Assistant device will connect directly to the IP of your Home Assistant instance and will fail if it encounters an invalid SSL certificate.
+
+For secure remote access, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} add-on instead of directing external traffic straight to Home Assistant.
+
+</div>
+
+1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
+2. Click `Develop` on the top of the page, then click `Actions` located in the hamburger menu on the top left.
+3. Upload `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest) for both Node and Chrome by clicking the `Upload Javascript files` button.
+4. Add device scan configuration:
+   1. Click `+ New scan config` if no configuration exists
+   2. Select `MDNS`
+   3. Set `MDNS service name` to `_home-assistant._tcp.local`
+   4. Click `Add field`, then under `Select a field` choose `Name`
+   5. Enter a new `Value` field set to `.*\._home-assistant\._tcp\.local`
+5. Check the box `Support local query` under `Add capabilities`.
+6. `Save` your changes.
+7. Either wait for 30 minutes, or restart all your Google Assistant devices.
+8. Restart Home Assistant Core.
+9. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Assistant support.
+
+You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome).
 
 ### YAML Configuration
 
@@ -209,9 +249,9 @@ Currently, the following domains are available to be used with Google Assistant,
 - scene (on)
 - script (on)
 - switch (on/off)
-- fan (on/off/speed)
+- fan (on/off/speed percentage/preset mode)
 - light (on/off/brightness/rgb color/color temp)
-- lock 
+- lock
 - cover (on/off/set position)
 - media_player (on/off/set volume (via set volume)/source (via set input source)/control playback)
 - climate (temperature setting, hvac_mode)
@@ -267,7 +307,7 @@ The `request_sync` service may fail with a 404 if the `project_id` of the HomeGr
   1. Removing your project from the [Google Cloud API Console](https://console.cloud.google.com).
   2. Add a new project to the [Actions on Google console](https://console.actions.google.com) Here you get a new `project_id`.
   3. Run through the previously mentioned [Actions on Google console] setup instructions until the step to create a `service_account`.
-  4. Once you begin to create a new `service_account` in the [Google Cloud API Console], ensure you select the project created in  [Actions on Google console] by verifying the `project_id`.  
+  4. Once you begin to create a new `service_account` in the [Google Cloud API Console], ensure you select the project created in  [Actions on Google console] by verifying the `project_id`.
   5. Enable HomeGraph API to the new project.
 
 Verify that the Google Assistant is available on `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` If it is working it should return `405: Method Not Allowed` when opened in a browser or via curl.

@@ -4,13 +4,19 @@ description: Instructions on how to integrate Efergy devices within Home Assista
 ha_category:
   - Energy
 ha_release: pre 0.7
+ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_domain: efergy
 ha_platforms:
   - sensor
+ha_codeowners:
+  - '@tkdrob'
+ha_integration_type: integration
 ---
 
 Integrate your [Efergy](https://efergy.com) meter information into Home Assistant.
+
+{% include integrations/config_flow.md %}
 
 ## Setup
 
@@ -21,64 +27,17 @@ To get an app token:
 3. Click on App tokens
 4. Click "Add token"
 
-## Configuration
+## Integration Entities
 
-To enable the sensor, add the following lines to your `configuration.yaml`:
+The following sensors will be created:
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: efergy
-    app_token: APP_TOKEN
-    utc_offset: UTC_OFFSET
-    monitored_variables:
-      - type: instant_readings
-      - type: budget
-      - type: cost
-        period: day
-        currency: $
-      - type: amount
-        period: day
-      - type: current_values
-```
-
-{% configuration %}
-app_token:
-  description: The App Token for your account.
-  required: true
-  type: string
-utc_offset:
-  description: Some variables (currently only the daily_cost) require that the negative number of minutes your timezone is ahead/behind UTC time.
-  required: false
-  default: 0
-  type: string
-monitored_variables:
-  description: Variables to monitor.
-  required: true
-  type: list
-  keys:
-    type:
-      description: Name of the variable.
-      required: true
-      type: list
-      keys:
-        instant_readings:
-          description: Instant energy consumption.
-        budget:
-          description: Monthly budget.
-        cost:
-          description: The cost for energy consumption (with the tariff that has been set in Efergy) over a given period.
-        amount:
-          description: The amount of energy consumed over a given period.
-        current_values:
-          description: This returns the current energy usage of each device on your account. If you only have one device in your account, this is effectively the same as `instant_readings`.
-    period:
-      description: Some variables take a period argument. Valid options are "day", "week", "month", and "year".
-      required: false
-      default: year
-      type: string
-    currency:
-      description: This is used to display the cost/period as the unit when monitoring the cost. It should correspond to the actual currency used in your dashboard.
-      required: false
-      type: string
-{% endconfiguration %}
+- **Power Usage**: Shows the aggregate instant value of power consumption. An entity will also be created for each sensor attached to the household. If only one sensor is detected, it will be disabled by default.
+- **Daily Consumption**: Shows the current day's energy consumption. (disabled by default)
+- **Weekly Consumption**: Shows the current week's energy consumption. (disabled by default)
+- **Monthly Consumption**: Shows the current month's energy consumption.
+- **Yearly Consumption**: Shows the current year's energy consumption. (disabled by default)
+- **Energy Budget**: Shows the current status of the budget set for the month.
+- **Daily Cost**: Shows the current day's cost of consumption. (disabled by default)
+- **Weekly Cost**: Shows the current week's cost of consumption. (disabled by default)
+- **Monthly Cost**: Shows the current month's cost of consumption.
+- **Yearly Cost**: Shows the current year's cost of consumption. (disabled by default)

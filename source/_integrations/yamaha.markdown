@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: yamaha
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `yamaha` platform allows you to control [Yamaha Network Receivers](https://usa.yamaha.com/products/audio-visual/av-receivers-amps/rx) from Home Assistant.
@@ -143,6 +144,15 @@ Enable or disable an output port (HDMI) on the receiver.
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
 | `port` | no | Port to enable or disable, e.g., `hdmi1`.
 | `enabled` | no | To enable set true, otherwise set to false.
+
+### Service `menu_cursor`
+
+Control the menu cursor.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
+| `cursor` | no | Name of the cursor key to press: `up`, `down`, `left`, `right`, `select`, `return`
 
 ### Service `select_scene`
 

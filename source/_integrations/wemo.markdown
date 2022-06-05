@@ -2,9 +2,9 @@
 title: Belkin WeMo
 description: Instructions on how to integrate Belkin WeMo devices into Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Fan
+  - Hub
   - Light
   - Switch
 ha_release: pre 0.7
@@ -17,9 +17,11 @@ ha_platforms:
   - binary_sensor
   - fan
   - light
+  - sensor
   - switch
 ha_codeowners:
   - '@esev'
+ha_integration_type: integration
 ---
 
 The `wemo` integration is the main integration to integrate various [Belkin WeMo](https://www.belkin.com/us/c/wemo/) devices with Home Assistant.
@@ -114,3 +116,31 @@ There are several services which can be used for automations and control of the 
 | `turn_on` | Calling this service will turn the humidifier on and set the speed to the last used speed (defaults to medium, entity_id is required).
 | `wemo.set_humidity` | Calling this service will set the desired relative humidity setting on the device (entity_id is a required list of 1 or more entities to set humidity on, and target_humidity is a required float value between 0 and 100 (this value will be rounded down and mapped to one of the valid desired humidity settings of 45, 50, 55, 60, or 100 that are supported by the WeMo humidifier)).
 | `wemo.reset_filter_life` | Calling this service will reset the humdifier's filter life back to 100% (entity_id is a required list of 1 or more entities to reset the filter life on). Call this service when you change the filter on your humidifier.
+
+## Long Press Events and Triggers
+
+For WeMo Light Switches and Dimmers, pressing the button on the device for two seconds will activate a long press event. The long-press can trigger an automation
+either by using an `event` trigger or a `device` trigger. For an `event` trigger the `event_type` will be `wemo_subscription_event`. The event data will have a `type` parameter
+set to the value `LongPress` and a `name` parameter indicating the dimmer or light switch that was triggered.
+
+The following is an example implementation of an automation:
+
+```yaml
+# Example automation
+- id: long_press_living_room
+  alias: "Toggle amplifier power"
+  trigger:
+  - platform: event
+    event_type: wemo_subscription_event
+    event_data:
+      type: LongPress
+      name: Living Room
+  action:
+    - service: media_player.toggle
+      target:
+        entity_id: media_player.amplifier
+```
+
+A `device` automation can also be used through the automation editor. Look for the `Wemo button was pressed for 2 seconds` trigger for the dimmer or light switch device.
+
+Note: Due to the way that long press events are received by Home Assistant, modifying any of the Rules through the WeMo app can cause long press events to stop working until Home Assistant is restarted. Home Assistant modifies the local device's rules database to enable long press event support. This local modification is not synchronized with the cloud service. Any rule changes from the cloud service (via the app) will likely overwrite the local changes made by Home Assistant.

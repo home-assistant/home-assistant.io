@@ -12,19 +12,19 @@ ha_codeowners:
 ha_domain: pvpc_hourly_pricing
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 This sensor uses the official API to get the hourly price of electricity in Spain from https://www.esios.ree.es/en/pvpc.
 
 Specifically, it shows the current __active energy invoicing price (FEU)__ in €/kWh, 
 which is the energy term hourly price applied in the consumers' electrical bill 
-with a contracted power not exceeding 10 kW and which are under the PVPC 
+with a contracted power not exceeding 15 kW and which are under the PVPC
 (Voluntary Price for Small Consumer).
 
 It includes the energy term of the access tolls, the charges and the production cost. It does not include taxes.
-The hourly prices are the same throughout the Spanish territory regardless of the time zone.
-
-It can be set up via the integrations panel in the configuration screen.
+The hourly prices and energy periods are the same throughout the Spanish territory regardless of the time zone,
+except for the cities of Ceuta and Melilla, where they are slightly different.
 
 <iframe src="https://www.esios.ree.es/en/embed/active-energy-invoicing-price-pvpc" width="100%" height="608"></iframe>
 
@@ -32,19 +32,21 @@ More information available at http://www.cnmc.es/en/ and http://www.omie.es/en/
 
 ## Configuration
 
-To configure PVPC Hourly Pricing, you can set it up via the integrations panel in the configuration screen.
+To configure PVPC Hourly Pricing, set it up via the integrations panel in the configuration screen.
 
-Set a name for the price sensor (default is `sensor.pvpc`) and select one of the three tariffs, 
-corresponding to your contracted rate, according to the number of billing periods per day 
-(one / peak + valley / shifted peak + valley).
+Set a name for the price sensor (default is `sensor.pvpc`), and select one of the two available tariffs,
+according to your geographic position in Spain: 
 
-- 1 period: `normal`, for the "Default PVPC tariff, (2.0 A)".
-- 2 periods: `discrimination`, for the "Efficiency 2 periods (2.0 DHA)", with 10h peak interval from 11:00 UTC to 21:00 UTC.
-- 3 periods: `electric_car`, for the "Electric vehicle tariff (2.0 DHS)", optimized for electric car owners to charge at night.
+- `2.0TD`, for the Peninsula, the Balearic Islands and the Canary Islands.
+- `2.0TD (Ceuta/Melilla)`, for the cities of Ceuta and Melilla.
 
-The default is `discrimination`, with 2 periods, as it is usually the cheapest one for home consumers. 
+Set also your contracted power (in kW) for the two power periods that apply with the new 2.0TD tariff
+(one for P1/P2 and the other one for the valley period, P3), to show your available electric power as a sensor attribute.
 
-You can add multiple sensors (up to 3, one per tariff) by adding them again through the integrations panel.
+In case you did nothing after the tariff change on 2021-06-01, both powers are equal, and the same you had for your existing contract.
+
+You can add up to 2 sensors (one for each geographic zone) by adding them again through the integrations panel,
+and you can change the sensor configuration anytime by going to the integration's options.
 
 ### Advanced configuration
 
@@ -53,10 +55,12 @@ PVPC Hourly Pricing allows manual configuration by adding a section to your `con
 ```yaml
 # Set up electricity price sensors as a component:
 pvpc_hourly_pricing:
-  - name: PVPC manual ve
-    tariff: electric_car
-  - name: PVPC manual nocturna
-    tariff: discrimination
+  - name: "PVPC"
+    tariff: "2.0TD"
+    power: 3.45
+    power_p3: 4.6
+  - name: "PVPC-CYM"
+    tariff: "2.0TD (Ceuta/Melilla)"
 ```
 
 {% configuration %}
@@ -65,12 +69,21 @@ name:
   required: true
   type: string
 tariff:
-  description: Contracted electric tariff.
+  description: Electric tariff by geographic zone.
   required: true
-  default: discrimination
+  default: 2.0TD
   type: string
+power:
+  description: Contracted electric power in kW.
+  required: false
+  default: 3.3
+  type: float
+power_p3:
+  description: Contracted electric power in kW for valley period (P3).
+  required: false
+  default: 3.3
+  type: float
 {% endconfiguration %}
-
 
 <div class='note'>
 

@@ -22,23 +22,26 @@ There is [an issue](https://github.com/rabbitmq/rabbitmq-mqtt/issues/154) with t
 
 </div>
 
-## Configuration
+## Connect to a public broker
 
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  broker: 192.168.1.100
-```
+The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home. To use the public mosquitto broker, confiure the MQTT integration to connect to broker `test.mosquitto.org` on port 1183 or 8883.
+
+<div class='note'>
+
+If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then add `certificate: auto` to your broker configuration and restart Home Assistant.
+
+</div>
+
+## Broker configuration
+
+MQTT broker settings are configured when the MQTT integration is first setup, and can be changed if needed. To change the settings, click on "Configure" in the integration page in the UI, then "Re-configure MQTT".
+
+## Advanced broker configuration
+
+Some broker configuration options can't be set via the user interface, but require changes of your `configuration.yaml` file.
+Additional SSL certificate options are documented [here](/docs/mqtt/certificate/).
 
 {% configuration %}
-broker:
-  required: false
-  description: The IP address or hostname of your MQTT broker, e.g., 192.168.1.32.
-  type: string
-port:
-  required: false
-  description: The network port to connect to. Default is 1883.
-  type: integer
 client_id:
   required: false
   description: The client ID that Home Assistant will use. Has to be unique on the server. Default is a randomly generated one.
@@ -47,14 +50,6 @@ keepalive:
   required: false
   description: The time in seconds between sending keep alive messages for this client. Default is 60.
   type: integer
-username:
-  required: false
-  description: The username to use with your MQTT broker.
-  type: string
-password:
-  required: false
-  description: The corresponding password for the username to use with your MQTT broker.
-  type: string
 protocol:
   required: false
   description: "Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.1."
@@ -76,86 +71,3 @@ If you are running a Mosquitto instance on a different server with proper SSL en
 
 </div>
 
-### Public broker
-
-The Mosquitto project runs a [public broker](http://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home.
-
-```yaml
-mqtt:
-  broker: test.mosquitto.org
-  port: 1883 or 8883
-
-  # Optional, replace port 1883 with following if you want encryption
-  # (doesn't really matter because broker is public)
-  port: 8883
-  # Download certificate from http://test.mosquitto.org/ssl/mosquitto.org.crt
-  certificate: /home/paulus/downloads/mosquitto.org.crt
-```
-
-### HiveMQ Cloud
-
-HiveMQ Cloud is a fully managed MQTT broker that provides you a private broker.
-A free plan for up to 100 devices is available. You can see all of HiveMQ's
-different plan options here: <https://www.hivemq.com/mqtt-cloud-broker/>
-
-Home Assistant is not affiliated with HiveMQ Cloud and does not receive any kickbacks.
-
-1. [Create an account](http://console.hivemq.cloud) (links to sign up).
-2. When sign up you will receive automatically the free plan that allows you to
-   connect up to 100 devices.
-3. Create MQTT credentials in the "Access Management" tab of your
-   "Cluster Detail View" you can use to connect Home Assistant
-   and any MQTT device.
-4. [Download](https://letsencrypt.org/certs/trustid-x3-root.pem) the trusted
-   certificate from let’s encrypt to ensure secure communication between
-   Home Assistant and your HiveMQ Cloud cluster.
-5. Copy the broker info to your `configuration.yaml`. You can find the
-   "Broker Hostname" in the "Cluster Overview". Use the credentials you just
-   created as username and password and the path from the downloaded certificate:
-   ![Cluster Details on the tab Overview](/images/integrations/mqtt/hivemq-details.png)
-
-```yaml
-mqtt:
-  broker: "HIVEMQ_BROKER_HOSTNAME"
-  port: 8883
-  username: "MQTT_USERNAME"
-  password: "MQTT_PASSWORD"
-  certificate: PATH_TO_STORED_CERTIFICATE
-```
-
-After restarting Home Assistant, your MQTT integration connected to HiveMQ Cloud
-will appear.
-
-### CloudMQTT
-
-[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance. Plans start at 5$ per month.
-
-<div class='note'>
-Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
-</div>
-
- 1. [Create an account](https://customer.cloudmqtt.com/login)
- 2. [Create a new CloudMQTT instance](https://customer.cloudmqtt.com/subscription/create)
- 3. From the control panel, click on the _Details_ button.
- 4. Create unique users for Home Assistant and each phone to connect<br>(CloudMQTT does not allow two connections from the same user)
-      1. Under manage users, fill in username, password and click add
-      2. Under ACLs, select user, topic `#`, check 'read access' and 'write access'
- 5. Copy the instance info to your configuration.yaml:
-
-```yaml
-mqtt:
-  broker: CLOUDMQTT_SERVER
-  port: CLOUDMQTT_PORT
-  username: CLOUDMQTT_USER
-  password: CLOUDMQTT_PASSWORD
-```
-
-<div class='note'>
-Home Assistant will automatically load the correct certificate if you connect to an encrypted channel of CloudMQTT (port range 20000-30000).
-</div>
-
-<div class='note'>
-
-If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then add `certificate: auto` to your broker configuration and restart Home Assistant.
-
-</div>

@@ -4,8 +4,8 @@ description: Instructions on how to setup your Keba charging station with Home A
 ha_category:
   - Binary Sensor
   - Lock
-  - Sensor
   - Notifications
+  - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.98
 ha_codeowners:
@@ -16,9 +16,10 @@ ha_platforms:
   - lock
   - notify
   - sensor
+ha_integration_type: integration
 ---
 
-The `keba` integrates your Keba charging station (wallbox) into your Home Assistant instance. It was tested with a BMW Wallbox but should also work with a Keba P20/P30 according to the developers [manual](https://www.keba.com/web/downloads/e-mobility/KeContact_P20_P30_UDP_ProgrGuide_en.pdf). The fetching interval to the charging station is set to 5 seconds, same as in the official mobile app.
+The `keba` integrates your Keba charging station/BMW Wallbox into your Home Assistant instance using the UDP Smart Home Interface ([manual](https://www.keba.com/web/downloads/e-mobility/KeContact_P20_P30_UDP_ProgrGuide_en.pdf)). The fetching interval to the charging station is set to 5 seconds, same as in the official mobile app. In order to use the integration, enable the UDP Smart Home Interface by adjusting the DIP switches within the charging station according to the [installation manual](https://www.keba.com/file/downloads/e-mobility/KeContact_KCP20_30_ih_en.pdf).
 
 This component provides the following platforms:
 

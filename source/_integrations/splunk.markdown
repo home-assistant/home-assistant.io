@@ -8,6 +8,7 @@ ha_release: 0.13
 ha_domain: splunk
 ha_codeowners:
   - '@Bre77'
+ha_integration_type: integration
 ---
 
 The `splunk` integration makes it possible to log all state changes to an external [Splunk](https://splunk.com/) database using Splunk's HTTP Event Collector (HEC) feature. You can either use this alone, or with the Home Assistant for Splunk [app](https://github.com/miniconfig/splunk-homeassistant). Since the HEC feature is new to Splunk, you will need to use at least version 6.3.
@@ -35,7 +36,7 @@ host:
 port:
   description: Port to use.
   required: false
-  default: 8080
+  default: 8088
   type: integer
 ssl:
   description: Use HTTPS instead of HTTP to connect.

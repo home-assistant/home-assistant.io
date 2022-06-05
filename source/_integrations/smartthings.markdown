@@ -3,15 +3,15 @@ title: SmartThings
 description: Instructions on setting up SmartThings within Home Assistant.
 featured: true
 ha_category:
-  - Hub
   - Binary Sensor
   - Climate
   - Cover
   - Fan
+  - Hub
   - Light
   - Lock
-  - Sensor
   - Scene
+  - Sensor
   - Switch
 ha_release: 0.87
 ha_iot_class: Cloud Push
@@ -30,6 +30,7 @@ ha_platforms:
   - sensor
   - switch
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The features of this integration include:
@@ -60,10 +61,10 @@ The PAT is used to create a Home Assistant SmartApp in your SmartThings account 
 
 ### Webhook
 
-This integration requires an internet accessible incoming webhook to receive push updates from SmartThings. The preferred approach is to subscribe to [Home Assistant Cloud (Nabu Casa)](https://www.nabucasa.com/) and the integration will configure and use a cloudhook automatically. Alternatively, you will have to configure and setup a internet accessible webhook in Home Assistant as described below:
+This integration requires an internet accessible incoming webhook to receive push updates from SmartThings. The preferred approach is to subscribe to [Home Assistant Cloud (Nabu Casa)](https://www.nabucasa.com/) and the integration will configure and use a cloudhook automatically. Alternatively, you will have to configure and setup an internet accessible webhook in Home Assistant as described below:
 
 1. Setup [remote access](/docs/configuration/remote/) via a domain name secured with SSL. *Self-signed SSL certificates are not supported by the SmartThings Cloud API.*
-1. Set the external URL in the Home Assistant [configuration](/docs/configuration/basic) to the URL that Home Assistant is available on the internet (this must start with `https://`).
+1. Set the external URL in the Home Assistant [configuration](/docs/configuration/basic) to the URL that Home Assistant is available on the internet (this must start with `https://`). This must be port 443. If you do not use Nabu Casa you must configure your network to allow TCP traffic from the internet on port 443 to reach the IP address of the device running Home Assistant.
 
 ## Setup instructions
 
@@ -349,7 +350,7 @@ If you have completed the checklist above and are still unable to setup the plat
 
 ### Debugging
 
-The SmartThings integration will log additional information about push updates received, events fired, and other messages when the log level is set to `debug`. Add the the relevant line below to the `configuration.yaml`:
+The SmartThings integration will log additional information about push updates received, events fired, and other messages when the log level is set to `debug`. Add the relevant line below to the `configuration.yaml`:
 
 ```yaml
 logger:
