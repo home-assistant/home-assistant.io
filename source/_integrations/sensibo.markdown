@@ -74,6 +74,14 @@ For diagnostics, not automatically displayed on dashboards, these sensors are av
 - Voltage
 - Rssi
 
+## Custom Services
+
+### Set Timer
+
+You can set or delete a timer to Turn on/off your climate device.
+
+Choose entity and minutes and it will automatically turn or or off your device depending on state with the previous configured climate settings.
+
 ## Adding a quick switch example
 
 If you want a "Quick Switch" to turn your AC On / Off, you can do that using the following `Switch Template`:
