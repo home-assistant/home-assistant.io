@@ -21,6 +21,8 @@ The `radiotherm` climate platform let you control a thermostat from [Radio Therm
 
 {% include integrations/config_flow.md %}
 
+## Time synchronization
+
 The integration will automatically sync the time when Home Assistant starts if the device is not currently in hold mode, as syncing the time will disable hold mode.
 
 ## Hold mode
