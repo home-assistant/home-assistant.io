@@ -401,6 +401,7 @@
 # Removed integrations
 /integrations/alarmdotcom /more-info/removed-integration 301
 /integrations/apns /more-info/removed-integration 301
+/integrations/arlo /more-info/removed-integration 301
 /integrations/arduino /more-info/removed-integration 301
 /integrations/bbb_gpio /more-info/removed-integration 301
 /integrations/bh1750 /more-info/removed-integration 301
@@ -415,6 +416,7 @@
 /integrations/crimereports /more-info/removed-integration 301
 /integrations/device_tracker.trackr /more-info/removed-integration 301
 /integrations/dht /more-info/removed-integration 301
+/integrations/digitalloggers /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/edp_redy /more-info/removed-integration 301
 /integrations/ee_brightbox /more-info/removed-integration 301
@@ -460,6 +462,7 @@
 /integrations/ptvsd /more-info/removed-integration 301
 /integrations/pushetta /more-info/removed-integration 301
 /integrations/raspihats /more-info/removed-integration 301
+/integrations/rpi_gpio /more-info/removed-integration 301
 /integrations/rpi_gpio_pwm /more-info/removed-integration 301
 /integrations/rpi_pfio /more-info/removed-integration 301
 /integrations/rpi_rf /more-info/removed-integration 301
@@ -468,6 +471,7 @@
 /integrations/sensehat /more-info/removed-integration 301
 /integrations/sht31 /more-info/removed-integration 301
 /integrations/simple_alarm /more-info/removed-integration 301
+/integrations/smarthab /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
 /integrations/srp_energy /more-info/removed-integration 301
@@ -480,6 +484,7 @@
 /integrations/trackr /more-info/removed-integration 301
 /integrations/ubee /more-info/removed-integration 301
 /integrations/uber /more-info/removed-integration 301
+/integrations/updater /more-info/removed-integration 301
 /integrations/ups /more-info/removed-integration 301
 /integrations/usps /more-info/removed-integration 301
 /integrations/weblink /more-info/removed-integration 301
@@ -489,4 +494,3 @@
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
 /components/zwave /integrations/zwave_js
-/integrations/smarthab /more-info/removed-integration 301

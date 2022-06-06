@@ -81,9 +81,13 @@ source:
   required: true
   type: string
 name:
-  description: The friendly name to use in the GUI.
+  description: The friendly name to use in the GUI. 
   required: false
   type: string
+unique_id:
+    description: An ID that uniquely identifies the utility_meter. Set this to a unique value to allow customization through the UI.
+    required: false
+    type: string
 cycle:
   description: How often to reset the counter. Valid values are `quarter-hourly`, `hourly`, `daily`, `weekly`, `monthly`, `bimonthly`, `quarterly` and `yearly`. Cycle value `bimonthly` will reset the counter once in two months.
   required: false

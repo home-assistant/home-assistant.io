@@ -22,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To add a Ruckus Unleashed device to your installation, go to **Configuration** -> **Devices & Services**, click the `+` button, then select **Ruckus** from the list of integrations.
+To add a Ruckus Unleashed device to your installation, go to **Settings** -> **Devices & Services**, click the `+` button, then select **Ruckus** from the list of integrations.
 
 It is required to configure the IP address of your **master access point**. See the section Access Points on the management web interface. And perhaps consider to set a preferred master (Admin & Services>System>System Info>Preferred master).
 

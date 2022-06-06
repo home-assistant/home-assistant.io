@@ -376,5 +376,5 @@ Refresh a Plex library to scan for new and updated media.
 
 ## Notes
 
-- The Plex integration supports multiple Plex servers. Additional connections can be configured under **Configuration** > **Devices & Services**.
+- The Plex integration supports multiple Plex servers. Additional connections can be configured under **Settings** -> **Devices & Services**.
 - Movies must be located under the 'Movies' section in a Plex library to properly view the 'playing' state.

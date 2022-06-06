@@ -11,6 +11,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
+  - '@trullock'
 ha_homekit: true
 ha_platforms:
   - cover

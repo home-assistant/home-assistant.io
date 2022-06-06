@@ -207,11 +207,20 @@ _All these can be extended if your usage calls for more resources._
 - title: VirtualBox
   content: |
     1. Create a new virtual machine
-    2. Select Type “Linux” and Version “Other Linux (64-bit)”
+    2. Select Type “Linux” and Version “Linux 2.6 / 3.x / 4.x (64-bit)”
     3. Select “Use an existing virtual hard disk file”, select the unzipped VDI file from above
     4. Edit the “Settings” of the VM and go “System” then “Motherboard” and select “Enable EFI”
     5. Then go to “Network” “Adapter 1” choose “Bridged Adapter” and choose your Network adapter
     6. Then go to “Audio” and choose “Intel HD Audio” as Audio Controller.
+    <div class="note info">
+
+    By default VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
+    the `discard` option must be enabled:
+    ```bash
+    VBoxManage storageattach <VM name> --storagectl "SATA" --port 0 --device 0 --nonrotational on --discard on
+    ```
+
+    </div>
 
 - title: KVM
   content: |
