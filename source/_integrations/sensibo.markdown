@@ -74,6 +74,14 @@ For diagnostics, not automatically displayed on dashboards, these sensors are av
 - Voltage
 - Rssi
 
+## Custom Services
+
+### Pure Boost
+
+You can configure your Pure Boost Settings by using the Service `Pure Boost` that is provided.
+
+Using Geo integration for Pure Boost is only possible by pre-configuration of Presence in the app.
+
 ## Adding a quick switch example
 
 If you want a "Quick Switch" to turn your AC On / Off, you can do that using the following `Switch Template`:
