@@ -13,11 +13,12 @@ ha_domain: withings
 ha_platforms:
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 The `withings` sensor platform consumes data from various health products produced by [Withings](https://www.withings.com).
 
-## Setup (Simple)
+## Setup
 
 For simplicity, these instructions assume your installation uses Home Assistant Cloud.
 
@@ -30,10 +31,28 @@ Values for your account:
 - Logo: Any reasonable picture will do.
 - Description: Personal app for collecting my data.
 - Contact Email: Your email address
-- Callback Uri: `https://YOUR_NABU_CASA_ID.ui.nabu.casa/auth/external/callback`.
+- Callback Uri: `https://my.home-assistant.io/redirect/oauth`.
 - Company: Home Assistant
 
 Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You will need these in the next step.
+
+{% details "I have manually disabled My Home Assistant" %}
+
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
+instead.
+
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
+
+Withings will validate (with HTTP HEAD) these requirements each time you save your Withings developer account. When these checks fail, the Withings UI is not always clear about why.
+
+- Home Assistant (For create/update of Withings developer account):
+    - Publicly accessible.
+    - Running on a fully qualified domain name.
+    - Running over HTTPS signed by a globally recognized Certificate Authority. Let's Encrypt will work.
+
+{% enddetails %}
 
 ### Step 2 - Configure Home Assistant
 
@@ -60,38 +79,6 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
         - Every 120 minutes.
     - If `use_webhook` is not enabled:
         - Every 10 minutes.
-
-## Setup (Advanced)
-
-For advanced users who are NOT using Home Assistant Cloud. This is not intended to be a complete step-by-step guide.
-
-### Requirements
-
-Withings will validate (with HTTP HEAD) these requirements each time you save your Withings developer account. When these checks fail, the Withings UI is not always clear about why.
-
-- Home Assistant (For create/update of Withings developer account):
-    - Publicly accessible.
-    - Running on a fully qualified domain name.
-    - Running over HTTPS signed by a globally recognized Certificate Authority. Let's Encrypt will work.
-- Home Assistant (For adding the integration)
-    - Home Assistant's `external_url` needs to be set to match the `redirect uri` provided for your Withings account.
-
-### Steps
-
-- Create a developer account with the same steps from the instructions above.
-    - The `redirect uri` should look like `https://<MY_DOMAIN_NAME>/auth/external/callback`.
-- Configure Home Assistant's URL. This guarantees Withings will receive the proper redirect_uri. When adding the integration, Withings will throw an error if this is not setup correctly.
-    ```yaml
-    homeassistant:
-      external_url: https://<MY_DOMAIN_NAME>
-    ```
-- Configure the Withings integration in your configuration YAML (see above).
-- Add the integration (see above).
-    - The following only applied if you chose to close off Home Assistant from the public after setting up your Withings account.
-    After authorizing finishing authorization, your browser will redirect back to `https://<MY_DOMAIN_NAME>/auth/external/callback`. Since that is no longer public,
-    your browser will return an error saying it could not connect. You can get around this by modifying the URL (in the browser) 
-    to point to your local address of Home Assistant. So your browser's URL looked like `https://<MY_DOMAIN_NAME>/auth/external/callback` 
-    but now change it to something like `https://192.168.1.11:8123/auth/external/callback`.
 
 ## Configuration
 

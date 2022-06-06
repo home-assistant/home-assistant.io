@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: osramlightify
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 The `osramlightify` platform allows you to integrate your [Osram Lightify](https://www.osram.com/cb/lightify/index.jsp) into Home Assistant.

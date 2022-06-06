@@ -5,7 +5,7 @@ description: "Instructions on how to use the automation editor."
 
 The automation editor is an easy way of creating and editing automations from the UI. This page uses the [Random sensor](/integrations/random#sensor) as an example, though any other sensor with a numeric value, can be used as well.
 
-From the UI choose **{% my config %}** which is located in the sidebar, then click on **{% my automations %}** to go to the automation editor. Press the **+** sign in the lower right corner to get started. You will be presented with options to create the automation from a description or from a [blueprint](/docs/automation/using_blueprints/).
+From the UI choose **{% my config %}** which is located in the sidebar, then click on **{% my automations %}** to go to the automation editor. Press the **Create Automation** button in the lower right corner to get started. You can create an automation based on a [blueprint](/docs/automation/using_blueprints/) or start from scratch.
 
 <p class='img'>
   <img src='/images/docs/automation-editor/create-automation.png' />

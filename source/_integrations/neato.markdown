@@ -18,6 +18,7 @@ ha_platforms:
   - sensor
   - switch
   - vacuum
+ha_integration_type: integration
 ---
 
 The Neato integration allows you to control your [Neato Botvac Connected Robots][botvac-connected].
@@ -37,13 +38,27 @@ There is support for the following platform types within Home Assistant:
 
 You will have to enter a name, a description and your redirect URL.
 
-If Home Assistant runs on `https://hass.example.com` your redirect URL would be `https://hass.example.com/auth/external/callback`.
-
-Please note that your instance must be accessible via HTTPS. However, your instance does not need to be exposed to the Internet.
+Use `https://my.home-assistant.io/redirect/oauth` as the redirect URL.
 
 You have to select all three scopes (`public_profile`, `control_robots` and `maps`).
 
 </div>
+
+{% details "I have manually disabled My Home Assistant" %}
+
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
+instead.
+
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
+
+Internal examples: `https://192.168.0.2:8123/auth/external/callback`, `https://homeassistant.local:8123/auth/external/callback`." 
+
+Please note that your instance must be accessible via HTTPS. However, your
+instance does not need to be exposed to the Internet.
+
+{% enddetails %}
 
 2. Add the newly created `client_id` and `client_secret` to your configuration.yaml:
 
@@ -55,7 +70,6 @@ neato:
 ```
 
 3. Restart Home Assistant
-4. Make sure you visit Home Assistant via a the same domain you used as `redirect_url` before
 
 {% configuration %}
 client_id:

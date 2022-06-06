@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: telegram
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `telegram` platform uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).

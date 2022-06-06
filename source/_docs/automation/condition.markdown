@@ -19,15 +19,14 @@ automation:
         entity_id: sensor.office_motion_sensor
         to: "on"
     condition:
-      - condition: or
-        conditions:
-          - condition: numeric_state
-            entity_id: sun.sun
-            attribute: elevation
-            below: 4
-          - condition: numeric_state
-            entity_id: sensor.office_lux_sensor
-            below: 10
+      - or:
+        - condition: numeric_state
+          entity_id: sun.sun
+          attribute: elevation
+          below: 4
+        - condition: numeric_state
+          entity_id: sensor.office_lux_sensor
+          below: 10
     action:
       - service: scene.turn_on
         target:

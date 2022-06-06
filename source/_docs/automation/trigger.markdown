@@ -23,6 +23,9 @@ An automation can be triggered by an event, with a certain entity state, at a gi
 - [Zone trigger](#zone-trigger)
 - [Geolocation trigger](#geolocation-trigger)
 - [Device triggers](#device-triggers)
+- [Calendar trigger](#calendar-trigger)
+- [Multiple triggers](#multiple-triggers)
+- [Multiple Entity IDs for the same Trigger](#multiple-entity-ids-for-the-same-trigger)
 
 ## Trigger ID
 
@@ -46,7 +49,28 @@ automation:
 
 ## Trigger variables
 
-Similar to [script level variables](/integrations/script/#variables), `trigger_variables` will be available in [trigger templates](/docs/automation/templating) with the difference that only [limited templates](/docs/configuration/templating/#limited-templates) can  be used to pass a value to the trigger variable.
+There are two different types of variables available for triggers. Both work like [script level variables](/integrations/script/#variables).
+
+The first variant allows you to define variables that will be set when the trigger fires. The variables will be able to use templates and have access to [the `trigger` variable](/docs/automation/templating#available-trigger-data).
+
+The second variant is setting variables that are available when attaching a trigger when the trigger can contain templated values. These are defined using the `trigger_variables` key at an automation level. These variables can only contain [limited templates](/docs/configuration/templating/#limited-templates). The triggers will not re-apply if the value of the template changes. Trigger variables are a feature meant to support using blueprint inputs in triggers.
+
+{% raw %}
+
+```yaml
+automation:
+  trigger_variables:
+    my_event: example_event
+  trigger:
+    - platform: event
+      # Able to use `trigger_variables`
+      event_type: "{{ my_event }}"
+      # These variables are evaluated and set when this trigger is triggered
+      variables:
+        name: "{{ trigger.event.data.name }}"
+```
+
+{% endraw %}
 
 ## Event trigger
 
@@ -303,7 +327,7 @@ If for your use case this is undesired, you could consider using the automation 
 ## State trigger
 
 Fires when the state of any of given entities changes. If only `entity_id` is given, the trigger will fire for all state changes, even if only state attributes change.
-If at least one of `from` or `to` are given, the trigger will fire on any matching state change, but not if only attributes change. To trigger on all state changes, but not on changed attributes, set at least one of `from` or `to` to `null`.
+If at least one of `from`, `to`, `not_from`, or `not_to` are given, the trigger will fire on any matching state change, but not if only attributes change. To trigger on all state changes, but not on changed attributes, set at least one of `from`, `to`, `not_from`, or `not_to` to `null`.
 
 <div class='note'>
 
@@ -346,6 +370,21 @@ automation:
       entity_id: vacuum.test
       to:
 ```
+
+The `not_from` and `not_to` options are the counter parts of `from` and `to`. They can be used to trigger on state changes that are **not** the specified state. This can be useful to  trigger on all state changes, except specific ones.
+
+```yaml
+automation:
+  trigger:
+    - platform: state
+      entity_id: vacuum.test
+      not_from:
+        - "unknown"
+        - "unavailable"
+      to: "on"
+```
+
+You cannot use `from` and `not_from` at the same time. The same applies to `to` and `not_to`.
 
 ### Triggering on attribute changes
 
@@ -813,6 +852,29 @@ In contrast to state triggers, device triggers are tied to a device and not nece
 To use a device trigger, set up an automation through the browser frontend.
 If you would like to use a device trigger for an automation that is not managed through the browser frontend, you can copy the YAML from the trigger widget in the frontend and paste it into your automation's trigger list.
 
+## Calendar trigger
+
+Calendar trigger fires when a [Calendar](/integrations/calendar/) event starts or ends, allowing
+much more flexible automations that using the Calendar entity state which only supports a single
+event start at a time.
+
+An optional time offset can be given to have it fire a set time before or after the calendar event (e.g., 5 minutes before event start).
+
+```yaml
+automation:
+  trigger:
+    - platform: calendar
+      # Possible values: start, end
+      event: start
+      # The calendar entity_id
+      entity_id: calendar.light_schedule
+      # Optional time offset
+      offset: "-00:05:00"
+```
+
+See the [Calendar](/integrations/calendar/) integration for more details on event triggers and the
+additional event data available for use by an automation.
+
 ## Multiple triggers
 
 It is possible to specify multiple triggers for the same rule. To do so just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, [processing](#what-are-triggers) of your automation rule begins.
@@ -840,4 +902,24 @@ automation:
         - sensor.one
         - sensor.two
         - sensor.three
+```
+
+## Disabling a trigger
+
+Every individual trigger in an automation can be disabled, without removing it.
+To do so, add `enabled: false` to the trigger. For example:
+
+```yaml
+# Example script with a disabled trigger
+automation:
+  trigger:
+    # This trigger will not trigger, as it is disabled.
+    # This automation does not run when the sun is set.
+    - enabled: false
+      platform: sun
+      event: sunset
+
+    # This trigger will fire, as it is not disabled.
+    - platform: time
+      at: "15:32:00"
 ```

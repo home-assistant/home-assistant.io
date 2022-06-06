@@ -14,18 +14,20 @@ ha_domain: esphome
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
-  - camera
   - button
-  - diagnostics
+  - camera
   - climate
   - cover
+  - diagnostics
   - fan
   - light
   - lock
+  - media_player
   - number
-  - sensor
   - select
+  - sensor
   - switch
+ha_integration_type: integration
 ---
 
 This integration allows [ESPHome](https://esphome.io) devices to connect directly to Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).

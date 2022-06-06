@@ -111,6 +111,10 @@ panels:
           default: number
 {% endconfiguration %}
 
+### Template and action variables
+
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates and actions.
+
 ## Considerations
 
 If you are using the state of an integration that takes extra time to load, the Template Alarm Control Panel may get an `unknown` state during startup. This results in error messages in your log file until that integration has completed loading. If you use `is_state()` function in your template, you can avoid this situation.

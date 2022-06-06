@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: vlc
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `vlc` platform allows you to control [VLC media player](https://www.videolan.org/vlc/index.html).

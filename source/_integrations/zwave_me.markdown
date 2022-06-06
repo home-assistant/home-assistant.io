@@ -5,11 +5,14 @@ ha_category:
   - Binary Sensor
   - Button
   - Climate
+  - Cover
+  - Fan
   - Hub
   - Light
   - Lock
   - Number
   - Sensor
+  - Siren
   - Switch
 ha_release: 2022.3
 ha_iot_class: Local Push
@@ -22,12 +25,16 @@ ha_platforms:
   - binary_sensor
   - button
   - climate
+  - cover
+  - fan
   - light
   - lock
   - number
   - sensor
+  - siren
   - switch
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 This integration allows you to control a Z-Wave network via the [Z-Wave.Me Z-Way](https://z-wave.me/z-way/). It combines the performance and the power of the diagnostics tools built-in Z-Way with the flexibility of Home Assistant. The integration brings all Z-Way devices in Home Assistant (Z-Wave, EnOcean, HTTP based, and others).

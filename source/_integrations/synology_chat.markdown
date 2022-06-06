@@ -8,6 +8,7 @@ ha_category:
 ha_domain: synology_chat
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `synology_chat` notification platform allows you to deliver notifications to your [Synology Chat](https://www.synology.com/en-us/dsm/feature/chat) install as a Synology Chat bot.

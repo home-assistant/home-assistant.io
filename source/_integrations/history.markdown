@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: history
+ha_integration_type: integration
 ---
 
 The `history` integration will track everything that is going on within Home
@@ -163,7 +164,7 @@ The following characters can be used in entity globs:
 The history is stored in a SQLite database `home-assistant_v2.db` within your
 configuration directory unless the `recorder` integration is set up differently.
 
-- events table is all events except `time_changed` that happened while recorder integration was running.
+- events table is all that happened while recorder integration was running.
 - states table contains all the `new_state` values of `state_changed` events.
 - Inside the states table you have:
   - `entity_id`: the entity_id of the entity

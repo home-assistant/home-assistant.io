@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_domain: mqtt_room
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `mqtt_room` sensor platform allows you to detect the indoor location of devices using MQTT clients.

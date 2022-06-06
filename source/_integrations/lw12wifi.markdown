@@ -8,6 +8,7 @@ ha_release: 0.71
 ha_domain: lw12wifi
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 The `lw12wifi` light platform supports Lagute LW-12 Wifi LED controller.

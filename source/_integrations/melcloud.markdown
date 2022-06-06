@@ -13,6 +13,7 @@ ha_platforms:
   - climate
   - sensor
   - water_heater
+ha_integration_type: integration
 ---
 
 The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://www.melcloud.com/) enabled devices into Home Assistant.
