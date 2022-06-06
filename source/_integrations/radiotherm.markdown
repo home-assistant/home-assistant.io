@@ -27,7 +27,7 @@ The integration will automatically sync the time when Home Assistant starts if t
 
 ## Hold mode
 
-Hold mode can be enabled or disabled with the hold mode switch.
+If you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself, hold mode can be enabled with the hold mode switch.
 
 ## Known working devices
 
@@ -46,4 +46,4 @@ Hold mode can be enabled or disabled with the hold mode switch.
 
 New models that are derivatives of the CT30 or CT80 should be detected automatically and basic functionality should work.
 
-If you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself, this can be configured in the options flow. Otherwise Home Assistant will perform temporary temperature changes.
+
