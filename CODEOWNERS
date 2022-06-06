@@ -254,6 +254,7 @@ source/_integrations/hvv_departures.markdown @vigonotion
 source/_integrations/hydrawise.markdown @ptcryan
 source/_integrations/hyperion.markdown @dermotduffy
 source/_integrations/ialarm.markdown @RyuzakiKK
+source/_integrations/ialarm_xr.markdown @bigmoby
 source/_integrations/iammeter.markdown @lewei50
 source/_integrations/iaqualink.markdown @flz
 source/_integrations/icloud.markdown @Quentame @nzapponi
