@@ -9,7 +9,7 @@ categories: How-To ESP8266
 og_image: /images/blog/2018-06-esphomelib/social.png
 ---
 
-The [ESP8266](https://www.espressif.com/en/products/hardware/esp8266ex/overview) and [ESP32](https://www.espressif.com/en/products/hardware/esp32/overview) are dirt cheap WiFi-enabled microcontrollers that have established themselves as the base for many DIY home automation projects. Even quite a few manufacturers like iTead with their Sonoff devices have chosen these controllers because of their competitive price.
+The [ESP8266](https://www.espressif.com/en/products/hardware/esp8266ex/overview) and [ESP32](https://www.espressif.com/products/socs/esp32) are dirt cheap WiFi-enabled microcontrollers that have established themselves as the base for many DIY home automation projects. Even quite a few manufacturers like iTead with their Sonoff devices have chosen these controllers because of their competitive price.
 
 Setting up these microcontrollers for some basic functionality has also gotten really easy over the years with popular projects like ESPEasy or Sonoff-Tasmota: You just download their firmware and flash it onto your chip. But if you’ve ever tried to go a bit beyond the basic set of functions of those frameworks and tried to do some customization, you will have probably noticed that it’s not that easy. Often times you’ll end up having to download some Arduino code project from the internet and customizing it to your needs.
 
