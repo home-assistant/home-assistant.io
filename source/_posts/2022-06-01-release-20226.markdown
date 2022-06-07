@@ -61,6 +61,7 @@ Enjoy the release (and upcoming events)!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.6.1 - June 2](#release-202261---june-2)
 - [Release 2022.6.2 - June 4](#release-202262---june-4)
+- [Release 2022.6.3 - June 6](#release-202263---june-6)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -432,6 +433,65 @@ The following integrations are now available via the Home Assistant UI:
 [netgear docs]: /integrations/netgear/
 [recorder docs]: /integrations/recorder/
 [sonos docs]: /integrations/sonos/
+
+## Release 2022.6.3 - June 6
+
+- Throttle multiple requests to the velux gateway ([@marcelveldt] - [#72974]) ([velux docs])
+- Bump wallbox to 0.4.9 ([@hesselonline] - [#72978]) ([wallbox docs])
+- Fix fibaro cover detection ([@rappenze] - [#72986]) ([fibaro docs])
+- Reduce branching in generated lambda_stmts ([@bdraco] - [#73042]) ([recorder docs])
+- Send an empty logbook response when all requested entity_ids are filtered away ([@bdraco] - [#73046]) ([logbook docs])
+- Bump aiolookup to 0.1.1 ([@bdraco] - [#73048]) ([lookin docs])
+- Bump simplisafe-python to 2022.06.0 ([@bachya] - [#73054]) ([simplisafe docs])
+- Fix unhandled exception when RainMachine coordinator data doesn't exist ([@bachya] - [#73055]) ([rainmachine docs])
+- Bump regenmaschine to 2022.06.0 ([@bachya] - [#73056]) ([rainmachine docs])
+- Fix incompatiblity with live logbook and google_assistant ([@bdraco] - [#73063]) ([logbook docs])
+- Fix elk attributes not being json serializable ([@gwww] - [#73096]) ([elkm1 docs])
+- Mark counter domain as continuous to exclude it from logbook ([@bdraco] - [#73101]) ([logbook docs])
+- Tomorrowio utc fix ([@lymanepp] - [#73102]) ([tomorrowio docs])
+- Remove available property from Kodi ([@Bikonja] - [#73103]) ([kodi docs])
+- Point iAlarm XR at PyPI fork ([@balloob] - [#73143]) ([ialarm_xr docs])
+- Fix state_changes_during_period history query when no entities are passed ([@bdraco] - [#73139]) ([recorder docs])
+- Remove unused code from logbook ([@bdraco] - [#72950]) ([logbook docs])
+
+[#72950]: https://github.com/home-assistant/core/pull/72950
+[#72974]: https://github.com/home-assistant/core/pull/72974
+[#72978]: https://github.com/home-assistant/core/pull/72978
+[#72986]: https://github.com/home-assistant/core/pull/72986
+[#73042]: https://github.com/home-assistant/core/pull/73042
+[#73046]: https://github.com/home-assistant/core/pull/73046
+[#73048]: https://github.com/home-assistant/core/pull/73048
+[#73054]: https://github.com/home-assistant/core/pull/73054
+[#73055]: https://github.com/home-assistant/core/pull/73055
+[#73056]: https://github.com/home-assistant/core/pull/73056
+[#73063]: https://github.com/home-assistant/core/pull/73063
+[#73096]: https://github.com/home-assistant/core/pull/73096
+[#73101]: https://github.com/home-assistant/core/pull/73101
+[#73102]: https://github.com/home-assistant/core/pull/73102
+[#73103]: https://github.com/home-assistant/core/pull/73103
+[#73139]: https://github.com/home-assistant/core/pull/73139
+[#73143]: https://github.com/home-assistant/core/pull/73143
+[@Bikonja]: https://github.com/Bikonja
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@gwww]: https://github.com/gwww
+[@hesselonline]: https://github.com/hesselonline
+[@lymanepp]: https://github.com/lymanepp
+[@marcelveldt]: https://github.com/marcelveldt
+[@rappenze]: https://github.com/rappenze
+[elkm1 docs]: /integrations/elkm1/
+[fibaro docs]: /integrations/fibaro/
+[ialarm_xr docs]: /integrations/ialarm_xr/
+[kodi docs]: /integrations/kodi/
+[logbook docs]: /integrations/logbook/
+[lookin docs]: /integrations/lookin/
+[rainmachine docs]: /integrations/rainmachine/
+[recorder docs]: /integrations/recorder/
+[simplisafe docs]: /integrations/simplisafe/
+[tomorrowio docs]: /integrations/tomorrowio/
+[velux docs]: /integrations/velux/
+[wallbox docs]: /integrations/wallbox/
 
 ## Need help? Join the community!
 
