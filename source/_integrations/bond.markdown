@@ -15,6 +15,7 @@ ha_codeowners:
   - '@bdraco'
   - '@prystupa'
   - '@joshs85'
+  - '@marciogranzotto'
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_zeroconf: true

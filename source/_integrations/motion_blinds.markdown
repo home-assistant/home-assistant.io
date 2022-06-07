@@ -25,15 +25,28 @@ Additionally the following brands have been reported to also work with this inte
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
 - [3 Day Blinds](https://www.3dayblinds.com/)
+- [Diaz](https://www.diaz.be/en/)
 - [Dooya](http://www.dooya.com/)
+- [Gaviota](https://www.gaviotagroup.com/en/)
+- [Havana Shade](https://havanashade.com/)
 - [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
+- [Inspired Shades](https://www.inspired-shades.com/)
 - [iSmartWindow](https://www.ismartwindow.co.nz/)
 - [Martec](https://www.martec.co.nz/)
 - [Motion Blinds](https://motionblinds.com/)
-- [Raven Rock MRG](https://www.ravenrockmfg.com/)
+- [Raven Rock MFG](https://www.ravenrockmfg.com/)
 - [Smart Blinds](https://www.smartblinds.nl/)
 - [Smart Home](https://www.smart-home.hu)
 - [Uprise Smart Shades](http://uprisesmartshades.com)
+
+This integration allows for both directly controlling blinds that support wifi-connection and controlling Uni- and Bi-direction blinds that connect to a 433MHz WiFi bridge.
+The following bridges are reported to work with this integration:
+ - CM-20 Motion Blinds bridge
+ - CMD-01 Motion Blinds mini-bridge
+ - DD7002B Connector bridge
+ - D1554 Connector mini-bridge
+ - DD7002B Brel-Home box
+ - D1554 Brel Home USB plug
 
 {% include integrations/config_flow.md %}
 
@@ -60,6 +73,9 @@ In the Brel Home app on Android go to the `me` page (home screen 4th tab), tap 5
 ### Bloc Blinds app
 
 The official Bloc Blinds app doesn't seem to hand out the API key on Android, it does seem to provide the API key on the iOS version of the official Bloc Blinds app.
+
+### Connector app
+Click the about page of the connector app 5 times to get the key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)).
 
 ## Top Down Bottom Up (TDBU) blinds
 
@@ -105,14 +121,22 @@ Therefore it is always safe to use any of the services in Home Assistant with th
 
 ## Service `motion_blinds.set_absolute_position`
 
-For most blinds the `motion_blinds.set_absolute_position` does the same as `cover.set_cover_position` service.
-However, for TDBU blinds it will set the absolute position relative to the window itself.
+For simple blinds the `motion_blinds.set_absolute_position` does the same as `cover.set_cover_position` service.
+
+### TDBU blinds
+
+For TDBU blinds `motion_blinds.set_absolute_position` will set the absolute position relative to the window itself.
 The `cover.set_cover_position` will set the scaled position relative to the space in which the TDBU blind is allowed to move.
+
+### Tilt capable blinds
+
+For tilt capable blinds a new position and tilt can be specified and the blind will move to the new position and then adjust its tilt. If the normal `cover.set_cover_position` is issued and immediately after a `cover.set_cover_tilt_position` is issued, the blind will stop moving and start adjusting the tilt before it reaches the intended position.
 
 | Service data attribute | Optional | Description                                                                                       |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------- |
 | `entity_id`            |      yes | Name of the motion blind cover entity to control. For example `cover.TopDownBottomUp-Bottom-0001` |
 | `absolute_position`    |       no | Absolute position to move to. For example 70                                                      |
+| `tilt_position`        |      yes | Tilt position to move to. For example 50                                                          |
 | `width`                |      yes | Optionally specify the width that is covered, only for TDBU Combined entities. For example 30     |
 
 ## Troubleshooting

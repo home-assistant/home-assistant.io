@@ -18,10 +18,29 @@ To enable this camera in your installation, add the following to your `configura
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  camera:
+    - topic: zanzito/shared_locations/my-device
+```
+
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `camera` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 camera:
   - platform: mqtt
     topic: zanzito/shared_locations/my-device
 ```
+
+{% enddetails %}
 
 The sample configuration above can be tested by publishing an image to the topic from the console:
 
@@ -112,6 +131,11 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+encoding:
+  description: The encoding of the image payloads received. Set to `"b64"` to enable base64 decoding of image payload. If not set, or if set to `null`, the image payload must be raw binary data.
+  required: false
+  type: string
+  default: null
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false

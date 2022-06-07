@@ -67,7 +67,7 @@ include:
 
 ## Configure Filter
 
-By default, no entity will be excluded. To limit which entities are being exposed to `Logbook`, you can use the `include` and `exclude` parameters.
+By default, the logbook will use the same filter as the recorder. To limit which entities are being exposed to `Logbook`, you can use the `include` and `exclude` parameters.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities

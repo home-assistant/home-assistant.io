@@ -16,9 +16,31 @@ To enable this climate platform in your installation, first add the following to
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  climate:
+    - name: Study
+      mode_command_topic: "study/ac/mode/set"
+```
+
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `climate` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 climate:
   - platform: mqtt
+    name: Study
+    mode_command_topic: "study/ac/mode/set"
 ```
+
+{% enddetails %}
 
 {% configuration %}
 action_template:
@@ -380,16 +402,16 @@ Say you receive the operation mode `"auto"` via your `mode_state_topic`, but the
 {% raw %}
 
 ```yaml
-climate:
-  - platform: mqtt
-    name: Study
-    modes:
-      - "off"
-      - "heat"
-      - "auto"
-    mode_command_topic: "study/ac/mode/set"
-    mode_state_topic: "study/ac/mode/state"
-    mode_state_template: "{{ value_json }}"
+mqtt:
+  climate:
+    - name: Study
+      modes:
+        - "off"
+        - "heat"
+        - "auto"
+      mode_command_topic: "study/ac/mode/set"
+      mode_state_topic: "study/ac/mode/state"
+      mode_state_template: "{{ value_json }}"
 ```
 
 {% endraw %}
@@ -404,29 +426,29 @@ A full configuration example looks like the one below.
 
 ```yaml
 # Full example configuration.yaml entry
-climate:
-  - platform: mqtt
-    name: Study
-    modes:
-      - "off"
-      - "cool"
-      - "fan_only"
-    swing_modes:
-      - "on"
-      - "off"
-    fan_modes:
-      - "high"
-      - "medium"
-      - "low"
-    preset_modes:
-      - "eco"
-      - "sleep"
-      - "activity"
-    power_command_topic: "study/ac/power/set"
-    preset_mode_command_topic: "study/ac/preset_mode/set"
-    mode_command_topic: "study/ac/mode/set"
-    temperature_command_topic: "study/ac/temperature/set"
-    fan_mode_command_topic: "study/ac/fan/set"
-    swing_mode_command_topic: "study/ac/swing/set"
-    precision: 1.0
+mqtt:
+  climate:
+    - name: Study
+      modes:
+        - "off"
+        - "cool"
+        - "fan_only"
+      swing_modes:
+        - "on"
+        - "off"
+      fan_modes:
+        - "high"
+        - "medium"
+        - "low"
+      preset_modes:
+        - "eco"
+        - "sleep"
+        - "activity"
+      power_command_topic: "study/ac/power/set"
+      preset_mode_command_topic: "study/ac/preset_mode/set"
+      mode_command_topic: "study/ac/mode/set"
+      temperature_command_topic: "study/ac/temperature/set"
+      fan_mode_command_topic: "study/ac/fan/set"
+      swing_mode_command_topic: "study/ac/swing/set"
+      precision: 1.0
 ```

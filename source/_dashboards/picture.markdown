@@ -70,6 +70,6 @@ image: /local/light.png
 tap_action:
   action: call-service
   service: light.toggle
-  service_data:
+  data:
     entity_id: light.ceiling_lights
 ```

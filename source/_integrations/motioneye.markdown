@@ -313,7 +313,7 @@ A dashboard card with icons that will call the `action` service to send action c
         tap_action:
           action: call-service
           service: motioneye.action
-          service_data:
+          data:
             action: left
             entity_id: camera.living_room
       - entity: camera.living_room
@@ -321,7 +321,7 @@ A dashboard card with icons that will call the `action` service to send action c
         tap_action:
           action: call-service
           service: motioneye.action
-          service_data:
+          data:
             action: right
             entity_id: camera.living_room
       - entity: camera.living_room
@@ -329,7 +329,7 @@ A dashboard card with icons that will call the `action` service to send action c
         tap_action:
           action: call-service
           service: motioneye.action
-          service_data:
+          data:
             action: up
             entity_id: camera.living_room
       - entity: camera.living_room
@@ -337,7 +337,7 @@ A dashboard card with icons that will call the `action` service to send action c
         tap_action:
           action: call-service
           service: motioneye.action
-          service_data:
+          data:
             action: down
             entity_id: camera.living_room
 ```

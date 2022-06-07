@@ -76,7 +76,9 @@ device_tracker: !include device_tracker.yaml
 
 Nesting `!include`s (having an `!include` within a file that is itself `!include`d) will also work.
 
-You can, as well, have multiple top-level `!include`s for a given integration, if you give a different label to each one:
+Some integrations support multiple top-level `!include`s, this includes integrations defining an IoT domain, e.g. `light`, `switch`, `sensor` as well as the `automation`, `script` and `template` integrations, if you give a different label to each one. Configuration for other integrations can instead be split up by using packages. To learn more about packages, see the [Packages](/docs/configuration/packages) page.
+
+Example of multiple top-level keys for the `light` platform.
 
 ```yaml
 light:
@@ -205,7 +207,7 @@ This will allow you to `!include` files with `.yml` extensions from within the `
 - `!include_dir_merge_list` will return the content of a directory as a list by merging all files (which should contain a list) into 1 big list.
 - `!include_dir_merge_named` will return the content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.
 
-These work recursively. As an example using `!include_dir_* automation`, will include all 6 files shown below:
+These work recursively. As an example using `!include_dir_list automation`, will include all 6 files shown below:
 
 ```bash
 .

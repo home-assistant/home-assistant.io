@@ -7,7 +7,6 @@ ha_category:
 ha_release: 0.9
 ha_iot_class: Local Push
 ha_codeowners:
-  - '@fabaff'
   - '@mdegat01'
 ha_domain: influxdb
 ha_platforms:

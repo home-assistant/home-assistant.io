@@ -27,7 +27,20 @@ To set up this component, you first **must** set up a developer account with Hon
 1. Go to the [developer site](https://developer.honeywellhome.com) and register with an account.
 1. Next, create a [new app](https://developer.honeywellhome.com/user/me/apps/add) via the `My Apps` section.
    1. App Name: You can use any name here.
-   1. Callback URL: This needs to be the URL of your Home Assistant instance + `/auth/external/callback`. For example: `http://192.168.1.123:8123/auth/external/callback`.
+   1. Callback URL: `https://my.home-assistant.io/redirect/oauth`
+
+{% details "I have manually disabled My Home Assistant" %}
+
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
+instead.
+
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
+
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+
+{% enddetails %}
 
 Once your app is created, copy the `Consumer Key` and `Consumer Secret`. These will be your `client_id` and `client_secret` to add to your `configuration.yaml`:
 

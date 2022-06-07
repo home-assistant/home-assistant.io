@@ -139,7 +139,7 @@ data:
     duration: 4
     position: "bottom-left"
     fontsize: "medium"
-    transparency: "80%"
+    transparency: "75%"
     color: "teal"
     interrupt: 0
 ```
