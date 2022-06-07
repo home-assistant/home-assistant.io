@@ -25,4 +25,4 @@ This stance will hurt us in the short term because we get less integrations. It 
 
 In the long term the user will win. Devices with local APIs will still work 10 years from now and no one will be held hostage by vendor lock-in because some of their devices only work with Home Assistant.
 
-_Note about Home Assistant APIs: Home Assistant does have [an API](https://developers.home-assistant.io/docs/api/websocket), just not for integrations. It allows you to access all your data in real-time. We also have a [data science portal](https://data.home-assistant.io/) that documents how you can query the historical data stored on disk._
+_Note about Home Assistant APIs: Home Assistant does have [an API](https://developers.home-assistant.io/docs/api/websocket/), just not for integrations. It allows you to access all your data in real-time. We also have a [data science portal](https://data.home-assistant.io/) that documents how you can query the historical data stored on disk._
