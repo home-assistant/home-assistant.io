@@ -22,23 +22,6 @@ Only doors that are owned by your Aladdin Connect account will be available. Doo
 
 ## Configuration
 
-To use your Aladdin Connect cover in your installation, add the following to your `configuration.yaml` file:
+Adding Aladdin Connect to your Home Assistant instance can be done manually via the user interface:
 
-```yaml
-# Example configuration.yaml entry
-cover:
-  - platform: aladdin_connect
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: Your Aladdin Connect account username.
-  required: true
-  type: string
-password:
-  description: Your Aladdin Connect account password.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
