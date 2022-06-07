@@ -900,6 +900,14 @@ state_address:
   description: KNX group address for retrieving the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
   required: false
   type: [string, list]
+switch_address:
+  description: KNX group address for switching the fan on/off. If not provided, on/off will implicitly be controlled via the speed `address` instead. *DPT 1*
+  required: false
+  type: [string, list]
+switch_state_address:
+  description: KNX group address for retrieving the on/off state of the fan. If not provided, on/off state will implicitly be derived from the `state_address` instead. *DPT 1*
+  required: false
+  type: [string, list]
 oscillation_address:
   description: KNX group address for switching the fan oscillation on or off. *DPT 1*
   required: false
