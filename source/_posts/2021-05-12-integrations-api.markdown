@@ -9,7 +9,7 @@ categories: Public-Service-Announcement
 og_image: /images/blog/2021-05-integrations-api/social.png
 ---
 
-Home Assistant is the world’s largest home automation platform talking with [over 1700 different devices and services](/integrations/). Home Assistant works with these via “integrations”.
+Home Assistant is the world’s largest home automation platform talking with [over 1900 different devices and services](/integrations/). Home Assistant works with these via “integrations”.
 
 Each integration runs inside Home Assistant. They convert the data from the device into data that Home Assistant understands and forward commands from Home Assistant back to the device. For this to work a device or service needs to have an application programming interface (API).
 
