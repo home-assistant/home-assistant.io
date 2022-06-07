@@ -72,7 +72,6 @@ It is also possible to connect to a [RFXtrx device](http://www.rfxcom.com/epages
 #### USB serial converters:
 
 - Cheap (Banggood/ebay) Generic PL2303
-- [Smartmeter Webshop](https://sites.google.com/site/nta8130p1smartmeter/webshop)
 - [SOS Solutions](https://www.sossolutions.nl/slimme-meter-kabel)
 - [AliExpress](https://nl.aliexpress.com/item/32945187155.html)
 
