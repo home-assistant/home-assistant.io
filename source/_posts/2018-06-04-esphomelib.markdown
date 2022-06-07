@@ -13,7 +13,7 @@ The [ESP8266](https://www.espressif.com/products/socs/esp8266) and [ESP32](https
 
 Setting up these microcontrollers for some basic functionality has also gotten really easy over the years with popular projects like ESPEasy or Sonoff-Tasmota: You just download their firmware and flash it onto your chip. But if you’ve ever tried to go a bit beyond the basic set of functions of those frameworks and tried to do some customization, you will have probably noticed that it’s not that easy. Often times you’ll end up having to download some Arduino code project from the internet and customizing it to your needs.
 
-This is where esphomelib comes in: The [esphomelib suite](https://esphomelib.com/esphomeyaml/index.html) is a set of tools that are designed with the goal of achieving the best possible user experience.  esphomelib a) allows for lots of customization without touching *a single line* of code and b) has complete Home Assistant integration. Inside the esphomelib ecosystem, you essentially just have to write a simple YAML configuration file. The rest like compiling, flashing, uploading etc. will then be taken care of automatically.
+This is where esphomelib comes in: The [esphomelib suite](https://esphome.io/) is a set of tools that are designed with the goal of achieving the best possible user experience.  esphomelib a) allows for lots of customization without touching *a single line* of code and b) has complete Home Assistant integration. Inside the esphomelib ecosystem, you essentially just have to write a simple YAML configuration file. The rest like compiling, flashing, uploading etc. will then be taken care of automatically.
 
 <!--more-->
 
