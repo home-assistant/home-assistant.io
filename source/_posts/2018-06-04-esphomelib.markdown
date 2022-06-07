@@ -19,7 +19,7 @@ This is where esphomelib comes in: The [esphomelib suite](https://esphome.io/) i
 
 ## Installation
 
-An example probably illustrates this the best. To use esphomeyaml, there are two main ways: From a [HassIO add-on](https://esphomelib.com/esphomeyaml/guides/getting_started_hassio.html), or from the [command line](https://esphomelib.com/esphomeyaml/guides/getting_started_command_line.html). For the esphomeyaml add-on, you just have to add "[https://github.com/ottowinter/esphomeyaml](https://github.com/ottowinter/esphomeyaml)" as an add-on repository (see [Installing third party add-ons](/hassio/installing_third_party_addons/)). Then select and install “esphomeyaml” and wait for the installation to complete. After that, you will be able to start the add-on and view the web interface.
+An example probably illustrates this the best. To use esphomeyaml, there are two main ways: From a [HassIO add-on](https://esphome.io/guides/getting_started_hassio.html), or from the [command line](https://esphome.io/guides/getting_started_command_line.html). For the esphomeyaml add-on, you just have to add "[https://github.com/esphome/esphome](https://github.com/esphome/esphome)" as an add-on repository (see [Installing third party add-ons](/hassio/installing_third_party_addons/)). Then select and install “esphomeyaml” and wait for the installation to complete. After that, you will be able to start the add-on and view the web interface.
 
 From the command line you just need to install the **Python 2** package using the pip command seen below. Then visit `localhost:6052` to view the dashboard.
 
@@ -77,11 +77,11 @@ If you now press upload again (this time the ESP doesn't need to be connected vi
   discovery</a> is enabled and a <a href='/integrations/group/'>default view</a> is used.
 </p>
 
-Granted, this functionality would have been pretty simple with other projects too. But once you start adding [lights](https://esphomelib.com/esphomeyaml/index.html#light-components), [covers](https://esphomelib.com/esphomeyaml/index.html#cover-components) and [other sensors](https://esphomelib.com/esphomeyaml/index.html#sensor-components), esphomelib’s modular design really starts to shine.
+Granted, this functionality would have been pretty simple with other projects too. But once you start adding [lights](https://esphome.io/index.html#light-components), [covers](https://esphome.io/index.html#cover-components) and [other sensors](https://esphome.io/index.html#sensor-components), esphomelib’s modular design really starts to shine.
 
 ## See Also
 
-- [View the full getting started guide (including how to migrate from other projects)](https://esphomelib.com/esphomeyaml/index.html#guides)
-- [Device-specific setup guides](https://esphomelib.com/esphomeyaml/index.html#devices)
-- [List of supported sensors/actuators](https://esphomelib.com/esphomeyaml/index.html)
+- [View the full getting started guide (including how to migrate from other projects)](https://esphome.io/guides/)
+- [Device-specific setup guides](https://esphome.io/#devices)
+- [List of supported sensors/actuators](https://esphome.io/)
 - Join the [discord server](https://discord.gg/KhAMKrd) if you need help.
