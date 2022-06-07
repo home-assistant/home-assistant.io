@@ -85,7 +85,7 @@ These sensors are also available, but are not enabled by default:
 
 Open a URL or file on the server using the default application.
 
-{% my developer_call_service service="system_bridge.open_path" title="Show service in you Home Assistant instance." %}
+{% my developer_call_service service="system_bridge.open_path" title="Show service in your Home Assistant instance." %}
 
 ```yaml
 service: system_bridge.open_path
@@ -98,7 +98,7 @@ data:
 
 Open a URL or file on the server using the default application.
 
-{% my developer_call_service service="system_bridge.open_url" title="Show service in you Home Assistant instance." %}
+{% my developer_call_service service="system_bridge.open_url" title="Show service in your Home Assistant instance." %}
 
 ```yaml
 service: system_bridge.open_url
@@ -111,7 +111,7 @@ data:
 
 Send a keypress to the server.
 
-{% my developer_call_service service="system_bridge.send_keypress" title="Show service in you Home Assistant instance." %}
+{% my developer_call_service service="system_bridge.send_keypress" title="Show service in your Home Assistant instance." %}
 
 ```yaml
 service: system_bridge.send_keypress
@@ -124,7 +124,7 @@ data:
 
 Sends text for the server to type.
 
-{% my developer_call_service service="system_bridge.send_text" title="Show service in you Home Assistant instance." %}
+{% my developer_call_service service="system_bridge.send_text" title="Show service in your Home Assistant instance." %}
 
 ```yaml
 service: system_bridge.send_text
