@@ -72,7 +72,7 @@ After the import a graph can be created over the existing data.
   Graph in LibreOffice
 </p>
 
-You can also use [matplotlib](http://matplotlib.org/) to generate graphs as an alternative to a spreadsheet application. This is a powerful Python 2D plotting library. With the built-in support for SQLite in Python it will only take a couple lines of code to visualize your data.
+You can also use [matplotlib](https://matplotlib.org/) to generate graphs as an alternative to a spreadsheet application. This is a powerful Python 2D plotting library. With the built-in support for SQLite in Python it will only take a couple lines of code to visualize your data.
 
 ```python
 import sqlite3
