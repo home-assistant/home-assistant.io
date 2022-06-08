@@ -15,3 +15,5 @@ This can also be done with the CLI, by running the following command:
 ```bash
 ha supervisor update
 ```
+
+In case this doesn't work. Check the logs, if there's an error where a host can't be resolved (eg: lookup ghcr.io: no such host) there might be a problem with your dns settings.
