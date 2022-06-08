@@ -52,7 +52,7 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 
 {% include integrations/config_flow.md %}
 
-The integration cofiguration below will ask for your *Client ID* and *Client Secret*. See [Application Credentials](/integrations/application_credentials) for more details.
+The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
 Once authorized, the tab/window will close and the integration page will prompt to select a profile. Select the profile you chose while on the Withings site.
   - Note: It's important you select the same profile from the previous step. Choosing a different one will result in Home Assistant displaying the wrong data.

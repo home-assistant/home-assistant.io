@@ -58,4 +58,4 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% include integrations/config_flow.md %}
 
-The integration cofiguration will ask for your *Client ID* and *Client Secret*. See [Application Credentials](/integrations/application_credentials) for more details.
+The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.

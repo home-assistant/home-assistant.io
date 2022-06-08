@@ -46,7 +46,7 @@ You can then add the integration in the frontend via the steps below.
 
 {% include integrations/config_flow.md %}
 
-The integration set up will walk you through entering the *Client ID and *Client Secret*. Also see [Application Credentials](/integrations/application_credentials) for more detail.
+The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
 ## Sensors
 
