@@ -42,3 +42,5 @@ The integration is tested and verified for the following devices from YoLink:
 * YS7201 (vibration sensor)
 * YS7607 (lock)
 * YS4909 (valve controller)
+* YS5705 (switch)
+* YS7A01 (Co & Smoke Sensor)
