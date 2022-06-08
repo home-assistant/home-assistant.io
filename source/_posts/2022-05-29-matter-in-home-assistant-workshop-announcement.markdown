@@ -28,7 +28,7 @@ The workshop will contain two parts. In the first part we will talk about what M
 
 The workshop will be free but you will need a couple of things if you want to be able to follow along with the second part:
 
-- Home Assistant OS 8.0 or newer (Matter relies on an add-on and Bluetooth)
+- Home Assistant OS 8.0 or newer, 64-bit version only (x86-64 or aarch64). Matter relies on an add-on and Bluetooth.
 - [Home Assistant Community Store](https://hacs.xyz/) installed
 - Espressif ESP32-C3-DevKitM-1 ($9 @ [Mouser](https://www.mouser.com/ProductDetail/356-ESP32-C3DEVKITM1), €17 @ [Conrad](https://www.conrad.com/p/espressif-pcb-design-board-esp32-c3-devkitm-1-2490158)) or M5Stamp C3 ($6 @ [M5Stack](https://twitter.com/home_assistant/status/1531712479016890369))
 - Bluetooth. If you use a Raspberry Pi to run Home Assistant you’re set. If you have a Home Assistant Blue or another device without Bluetooth, get a Bluetooth USB adapter that is supported by Home Assistant OS ([like this one](https://www.amazon.com/gp/product/B09DMP6T22/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B09DMP6T22&linkCode=as2&tag=homeassista0e-20&linkId=c5046239bf04d5b21835299dfb393f0e)).
