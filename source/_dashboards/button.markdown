@@ -130,7 +130,7 @@ show_state: false
 tap_action:
   action: call-service
   service: script.turn_on
-  service_data:
+  data:
     entity_id: script.turn_off_lights
 ```
 

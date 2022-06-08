@@ -31,11 +31,31 @@ To enable this platform, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  alarm_control_panel:
+    - state_topic: "home/alarm"
+      command_topic: "home/alarm/set"
+```
+
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `alarm_control_panel` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 alarm_control_panel:
   - platform: mqtt
     state_topic: "home/alarm"
     command_topic: "home/alarm/set"
 ```
+
+{% enddetails %}
 
 {% configuration %}
 availability:
@@ -260,13 +280,13 @@ The example below shows a full configuration with local code validation.
 
 ```yaml
 # Example using text based code with local validation configuration.yaml
-alarm_control_panel:
-  - platform: mqtt
-    name: "Alarm Panel With Numeric Keypad"
-    state_topic: "alarmdecoder/panel"
-    value_template: "{{value_json.state}}"
-    command_topic: "alarmdecoder/panel/set"
-    code: mys3cretc0de
+mqtt:
+  alarm_control_panel:
+    - name: "Alarm Panel With Numeric Keypad"
+      state_topic: "alarmdecoder/panel"
+      value_template: "{{value_json.state}}"
+      command_topic: "alarmdecoder/panel/set"
+      code: mys3cretc0de
 ```
 
 {% endraw %}
@@ -279,26 +299,28 @@ The example below shows a full configuration with remote code validation and `co
 
 ```yaml
 # Example using text code with remote validation configuration.yaml
-alarm_control_panel:
-  - platform: mqtt
-    name: "Alarm Panel With Text Code Dialog"
-    state_topic: "alarmdecoder/panel"
-    value_template: "{{ value_json.state }}"
-    command_topic: "alarmdecoder/panel/set"
-    code: REMOTE_CODE_TEXT
-    command_template: "{ action: '{{ action }}', code: '{{ code }}'}"
+mqtt:
+  alarm_control_panel:
+    - name: "Alarm Panel With Text Code Dialog"
+      state_topic: "alarmdecoder/panel"
+      value_template: "{{ value_json.state }}"
+      command_topic: "alarmdecoder/panel/set"
+      code: REMOTE_CODE_TEXT
+      command_template: >
+        { "action": "{{ action }}", "code": "{{ code }}" }
 ```
 
 ```yaml
 # Example using numeric code with remote validation configuration.yaml
-alarm_control_panel:
-  - platform: mqtt
-    name: "Alarm Panel With Numeric Keypad"
-    state_topic: "alarmdecoder/panel"
-    value_template: "{{ value_json.state }}"
-    command_topic: "alarmdecoder/panel/set"
-    code: REMOTE_CODE
-    command_template: "{ action: '{{ action }}', code: '{{ code }}'}"
+mqtt:
+  alarm_control_panel:
+    - name: "Alarm Panel With Numeric Keypad"
+      state_topic: "alarmdecoder/panel"
+      value_template: "{{ value_json.state }}"
+      command_topic: "alarmdecoder/panel/set"
+      code: REMOTE_CODE
+      command_template: >
+        { "action": "{{ action }}", "code": "{{ code }}" }
 ```
 
 {% endraw %}

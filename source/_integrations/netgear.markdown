@@ -22,6 +22,7 @@ ha_integration_type: integration
 
 This platform allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device and control the NETGEAR device.
 Both routers and access points can be used with this integration. Some access points will not be automatically discovered and need to be set up manually.
+Attached devices are only tracked on NETGEAR devices set to the router mode, otherwise, duplicate entities will occur from access points that also report the same devices.
 
 {% include integrations/config_flow.md %}
 
@@ -43,6 +44,12 @@ Button entity to restart the router.
 The total and average amount of downloaded/uploaded data through the router can be tracked per day/week/month.
 In order for these entities to display the data (instead of 0), the "Traffic Meter" should be enabled in the router settings.
 Log into your router > Select **ADVANCED** > **Advanced Setup** > **Traffic Meter** > **Enable Traffic Meter** check box.
+
+### Speed test data
+
+The "Average Ping", "Downlink Bandwidth" and "Uplink Bandwidth" can be tracked by performing a speed test every 30 minutes.
+If these sensor entities are enabled they will first show as Unknown since the first speed test does only happen 30 minutes after the integration loads, previous results will be restored on subsequent restarts.
+The speed test interval is chosen to be 30 minutes to not put unnecessary load on the network.
 
 ## Connected device entities
 

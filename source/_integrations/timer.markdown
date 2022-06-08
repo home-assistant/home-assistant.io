@@ -3,10 +3,11 @@ title: Timer
 description: Instructions on how to integrate timers into Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 0.57
 ha_quality_scale: internal
 ha_domain: timer
-ha_integration_type: integration
+ha_integration_type: helper
 ---
 
 The `timer` integration aims to simplify automations based on (dynamic) durations.

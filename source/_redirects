@@ -462,6 +462,7 @@
 /integrations/ptvsd /more-info/removed-integration 301
 /integrations/pushetta /more-info/removed-integration 301
 /integrations/raspihats /more-info/removed-integration 301
+/integrations/rpi_gpio /more-info/removed-integration 301
 /integrations/rpi_gpio_pwm /more-info/removed-integration 301
 /integrations/rpi_pfio /more-info/removed-integration 301
 /integrations/rpi_rf /more-info/removed-integration 301

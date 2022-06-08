@@ -157,7 +157,7 @@ data:
 
 ## Services
 
-The Sonos integration makes various custom services available.
+The Sonos integration makes various custom services available in addition to the [standard Media Player services](/integrations/media_player/#services).
 
 ### Service `sonos.snapshot`
 
@@ -192,23 +192,6 @@ A cloud queue cannot be restarted. This includes queues started from within Spot
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s that should have their snapshot restored. To target all Sonos devices, use `all`.
 | `with_group` | yes | Should we also restore the group layout and the state of other speakers in the group, defaults to true.
-
-### Service `sonos.join`
-
-Group players together under a single coordinator. This will make a new group or join to an existing group.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `master` | no | A single `entity_id` that will become/stay the coordinator speaker.
-| `entity_id` | yes | String or list of `entity_id`s to join to the master.
-
-### Service `sonos.unjoin`
-
-Remove one or more speakers from their group of speakers.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of `entity_id`s to separate from their coordinator speaker.
 
 ### Service `sonos.set_sleep_timer`
 

@@ -441,7 +441,7 @@ tap_action:
 hold_action:
   action: call-service
   service: light.turn_on
-  service_data:
+  data:
     entity_id: light.bed_light
     brightness_pct: 100
 ```
@@ -535,7 +535,7 @@ elements:
     tap_action:
       action: call-service
       service: media_player.media_play_pause
-      service_data:
+      data:
         entity_id: media_player.living_room
     image: /local/television.jpg
     filter: brightness(5%)
