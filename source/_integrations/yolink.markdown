@@ -42,3 +42,4 @@ The integration is tested and verified for the following devices from YoLink:
 * YS7201 (vibration sensor)
 * YS7607 (lock)
 * YS4909 (valve controller)
+* YS4002 (Thermostat)
