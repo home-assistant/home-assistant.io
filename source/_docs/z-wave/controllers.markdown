@@ -44,10 +44,6 @@ Via Windows:
 If you are just starting out, we recommend that you purchase a 500 series controller. At the very least, you should purchase a [Z-Wave Plus](https://z-wavealliance.org/z-wave_plus_certification/) controller.
 
 <div class='note'>
-  Not all of the above devices are supported by the deprecated Z-Wave integration.
-</div>
-
-<div class='note'>
   If you're using Home Assistant OS, Supervised, or Container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
 </div>
 
