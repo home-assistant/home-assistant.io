@@ -21,7 +21,7 @@ In this blog post I use the temperature of the [Aare](https://en.wikipedia.org/w
 
 The database is stored at `<path to config dir>/.homeassistant/home-assistant_v2.db` as [SQLite database](https://www.sqlite.org/index.html). In all examples we are going to use the path: `/home/ha/.homeassistant/home-assistant_v2.db`
 
-If you are just curious what's stored in your database then you can use the `sqlite3` command-line tool or a graphical one like [DB Browser for SQLite](http://sqlitebrowser.org/).
+If you are just curious what's stored in your database then you can use the `sqlite3` command-line tool or a graphical one like [DB Browser for SQLite](https://sqlitebrowser.org/).
 
 The table that is holding the states is called `states`. The `events` tables is responsible for storing the events which occurred. So, we will first check how many entries there are in the `states` table. `sqlite3` needs to know where the databases is located. To work with your database make sure that Home Assistant is not running or create a copy of the existing database. It's recommended to work with a copy.
 
