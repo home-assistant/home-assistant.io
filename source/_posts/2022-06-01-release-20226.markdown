@@ -62,6 +62,7 @@ Enjoy the release (and upcoming events)!
 - [Release 2022.6.1 - June 2](#release-202261---june-2)
 - [Release 2022.6.2 - June 4](#release-202262---june-4)
 - [Release 2022.6.3 - June 6](#release-202263---june-6)
+- [Release 2022.6.4 - June 7](#release-202264---june-7)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -492,6 +493,47 @@ The following integrations are now available via the Home Assistant UI:
 [tomorrowio docs]: /integrations/tomorrowio/
 [velux docs]: /integrations/velux/
 [wallbox docs]: /integrations/wallbox/
+
+## Release 2022.6.4 - June 7
+
+- Fix errors when unjoining multiple Sonos devices simultaneously ([@jjlawren] - [#73133]) ([sonos docs])
+- Bump async-upnp-client==0.31.1 ([@StevenLooman] - [#73135]) ([upnp docs]) ([yeelight docs]) ([dlna_dmr docs]) ([samsungtv docs]) ([ssdp docs]) ([dlna_dms docs])
+- Use default None for voltage property of FritzDevice in Fritz!Smarthome ([@mib1185] - [#73141]) ([fritzbox docs])
+- Fix KeyError from ESPHome media players on startup ([@jesserockz] - [#73149]) ([esphome docs])
+- Fix bugs with RainMachine zone run time sensors ([@bachya] - [#73179]) ([rainmachine docs])
+- Fix creating unique IDs for WiFi switches in Fritz!Tools ([@mib1185] - [#73183]) ([fritz docs])
+- Bump pywemo to 0.9.1 ([@esev] - [#73186]) ([wemo docs])
+- Remove sqlalchemy lambda_stmt usage from history, logbook, and statistics ([@bdraco] - [#73191]) ([recorder docs]) ([logbook docs])
+
+[#73133]: https://github.com/home-assistant/core/pull/73133
+[#73135]: https://github.com/home-assistant/core/pull/73135
+[#73141]: https://github.com/home-assistant/core/pull/73141
+[#73149]: https://github.com/home-assistant/core/pull/73149
+[#73179]: https://github.com/home-assistant/core/pull/73179
+[#73183]: https://github.com/home-assistant/core/pull/73183
+[#73186]: https://github.com/home-assistant/core/pull/73186
+[#73191]: https://github.com/home-assistant/core/pull/73191
+[@StevenLooman]: https://github.com/StevenLooman
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@esev]: https://github.com/esev
+[@jesserockz]: https://github.com/jesserockz
+[@jjlawren]: https://github.com/jjlawren
+[@mib1185]: https://github.com/mib1185
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[dlna_dms docs]: /integrations/dlna_dms/
+[esphome docs]: /integrations/esphome/
+[fritz docs]: /integrations/fritz/
+[fritzbox docs]: /integrations/fritzbox/
+[logbook docs]: /integrations/logbook/
+[rainmachine docs]: /integrations/rainmachine/
+[recorder docs]: /integrations/recorder/
+[samsungtv docs]: /integrations/samsungtv/
+[sonos docs]: /integrations/sonos/
+[ssdp docs]: /integrations/ssdp/
+[upnp docs]: /integrations/upnp/
+[wemo docs]: /integrations/wemo/
+[yeelight docs]: /integrations/yeelight/
 
 ## Need help? Join the community!
 
