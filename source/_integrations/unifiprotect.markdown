@@ -162,11 +162,11 @@ UniFi Protect smart sensors are a bit different than normal sensors. They are a 
   * **Alarm Sound** - An alarm sensor will be available if the mount type is not set to "Leak" and the alarm sound sensor is enabled. The Alarm Sound sensor can have the values "none", "smoke" and "co". More values may be added over time automatically as UniFi Protect adds support for detecting more alarms.
   * **Tamper** - A binary sensor to detect tampering.
 * **Device Configuration** - Smart sensors will get configuration controls for the Status Light, enabling/disabling all of the main sensors, selecting the Paired Camera, and changing the Mount Type of the sensor.
-* **Button** - A button to clear tamper state as well as a disabled by default button to restart the device.
+* **Button** - A button to clear the tampered state as well as a disabled by default button to restart the device.
 
 #### Tamper Sensor
 
-UniFi Protect does its tamper sensor a bit different then many other platforms. Once the tamper sensor has been triggered, it stays active until the user manually clears it. As a result, there is a button in Home Assistant to clear the state.
+Once the tamper sensor is triggered, it stays active until manually cleared. A button entity is available to clear the tampered state.
 
 ### UniFi Protect Viewers
 
