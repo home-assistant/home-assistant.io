@@ -19,7 +19,7 @@ This blog post will show you ways to export data for reporting, visualization, o
 
 In this blog post I use the temperature of the [Aare](https://en.wikipedia.org/wiki/Aare) river close to where I live as a show case. The temperatures were recorded with the [Swiss Hydrological Data sensor](/integrations/swiss_hydrological_data) and the name of the sensor is `sensor.aare`.
 
-The database is stored at `<path to config dir>/.homeassistant/home-assistant_v2.db` as [SQLite database](https://www.sqlite.org/). In all examples we are going to use the path: `/home/ha/.homeassistant/home-assistant_v2.db`
+The database is stored at `<path to config dir>/.homeassistant/home-assistant_v2.db` as [SQLite database](https://www.sqlite.org/index.html). In all examples we are going to use the path: `/home/ha/.homeassistant/home-assistant_v2.db`
 
 If you are just curious what's stored in your database then you can use the `sqlite3` command-line tool or a graphical one like [DB Browser for SQLite](http://sqlitebrowser.org/).
 
