@@ -42,20 +42,11 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% enddetails %}
 
-Once your app is created, copy the `Consumer Key` and `Consumer Secret`. These will be your `client_id` and `client_secret` to add to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-lyric:
-  client_id: MY_CONSUMER_KEY
-  client_secret: MY_CONSUMER_SECRET
-```
-
-You should now restart the server.
-
 You can then add the integration in the frontend via the steps below.
 
 {% include integrations/config_flow.md %}
+
+The integration set up will walk you through entering the *Client ID and *Client Secret*. Also see [Application Credentials](/integrations/application_credentials) for more detail.
 
 ## Sensors
 

@@ -56,25 +56,6 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% enddetails %}
 
-Next, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-
-home_connect:
-  client_id: CLIENT_ID
-  client_secret: CLIENT_SECRET
-```
-
-{% configuration %}
-client_id:
-  description: Your Home Connect client ID.
-  required: true
-  type: string
-client_secret:
-  description: Your Home Connect client secret.
-  required: true
-  type: string
-{% endconfiguration %}
-
 {% include integrations/config_flow.md %}
+
+The integration cofiguration will ask for your *Client ID* and *Client Secret*. See [Application Credentials](/integrations/application_credentials) for more details.
