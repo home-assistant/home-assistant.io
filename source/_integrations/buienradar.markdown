@@ -49,21 +49,21 @@ The following entities will be created:
 - **Barometer forecast**: A numeric barometric forecast (1 to 7)
 - **Barometer forecast name**: A textual representation of the barometer forecast (eg: Thunderstorms, Stable, etc.)
 - **Condition code**: A symbol and a unique code identifying the current weather condition 
-  *  `a`: (sunny/clear)
-  * `b`: (Mix of clear and medium or low clouds)
-  * `j`: (Mix of clear and high clouds)
-  * `o/r`: (Partly cloudy) increasing character increases the condition
-  * `c`: (Heavily clouded)
-  * `p`: (Cloudy)
-  * `d`: (Alternating cloudy with local fog)
-  * `n`: (Clear and local mist or fog)
-  * `f`: (Alternatingly cloudy with some light rain)
-  * `h/k/l`: (rainy) increasing character increases the condition
+  * `a`: sunny/clear
+  * `b`: Mix of clear and medium or low clouds
+  * `j`: Mix of clear and high clouds
+  * `o/r`: Partly cloudy (increasing character increases the condition)
+  * `c`: Heavily clouded
+  * `p`: Cloudy
+  * `d`: Alternating cloudy with local fog
+  * `n`: Clear and local mist or fog
+  * `f`: Alternatingly cloudy with some light rain
+  * `h/k/l`: rainy (increasing character increases the condition)
   * `q`: Heavily clouded with rain
-  * `w`: (Heavily clouded with rain and winter precipitation)
-  * `m`: (Heavily clouded with some light rain)
-  * `u`: (Cloudy with light snow)
-  * `i/v`: (Heavily clouded with light snowfall) increasing character increases the condition
+  * `w`: Heavily clouded with rain and winter precipitation
+  * `m`: Heavily clouded with some light rain
+  * `u`: Cloudy with light snow
+  * `i/v`: Heavily clouded with light snowfall (increasing character increases the condition)
   * `t`: (Heavy snowfall)
   * `g`: (Clear with (possibly) some heavy lightning)
   * `s`: (Cloudy with (possibly) some heavy (thunderstorms) showers)
