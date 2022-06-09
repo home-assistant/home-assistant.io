@@ -106,9 +106,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 2022
-current_minor_version: 5
-current_patch_version: 2
-date_released: 2022-05-06
+current_minor_version: 6
+current_patch_version: 4
+date_released: 2022-06-07
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.

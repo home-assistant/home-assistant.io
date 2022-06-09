@@ -39,7 +39,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 
 ### Options
 
-To configure options for DSMR integration go to **Configuration** >> **Devices & Services** and press **Options** on the DSMR card.
+To configure options for DSMR integration go to **Settings** -> **Devices & Services** and press **Options** on the DSMR card.
 
 #### Time between updates
 
@@ -72,7 +72,6 @@ It is also possible to connect to a [RFXtrx device](http://www.rfxcom.com/epages
 #### USB serial converters:
 
 - Cheap (Banggood/ebay) Generic PL2303
-- [Smartmeter Webshop](https://sites.google.com/site/nta8130p1smartmeter/webshop)
 - [SOS Solutions](https://www.sossolutions.nl/slimme-meter-kabel)
 - [AliExpress](https://nl.aliexpress.com/item/32945187155.html)
 

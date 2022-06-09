@@ -180,7 +180,9 @@ This integration is tested to work with the following models. If you have a diff
 | `color1`   | YLDP03YL     | LED Bulb (Color) - E26                           |
 | `color2`   | YLDP06YL     | LED Bulb (Color) - 2nd generation                |
 | `color4`   | YLDP13YL     | LED Bulb 1S (Color)                              |
+| `color4`   | YLDP04YL     | LED Bulb 1S (Color)                              |
 | `color6`   | YLDP13AYL    | LED Bulb 1S (Color)                              |
+| `colorb`   | YLDP005      | LED Bulb (Color)                                 |
 | `colorc`   | YLDP004-A    | GU10 W1 (Color)                                  |
 | `strip1`   | YLDD01YL     | Lightstrip (Color)                               |
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |

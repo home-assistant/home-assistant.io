@@ -31,7 +31,7 @@ The integration will add one Home Assistant device for each connected home appli
 - For hood's functional light a light switch including brightness control will be added.
 - For hood's and dishwasher's ambient light a light switch including brightness and color control will be added.
 
-Note that it depends on the appliance and on API permissions which of the features are supported. A notable limitation is that oven programs cannot be started currently.
+Note that it depends on the appliance and on API permissions which of the features are supported.
 
 ## Prerequisites
 
@@ -41,28 +41,21 @@ Note that it depends on the appliance and on API permissions which of the featur
 
 - Application ID: Home Assistant (or whatever name makes sense to you)
 - OAuth Flow: Authorization Code Grant Flow
-- Redirect URI: "`<HOME_ASSISTANT_URL>/auth/external/callback`
-  The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration / authentication process. Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+- Redirect URI: `https://my.home-assistant.io/redirect/oauth`
 
-Next, add the following to your `configuration.yaml` file:
+{% details "I have manually disabled My Home Assistant" %}
 
-```yaml
-# Example configuration.yaml entry
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
+instead.
 
-home_connect:
-  client_id: CLIENT_ID
-  client_secret: CLIENT_SECRET
-```
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
 
-{% configuration %}
-client_id:
-  description: Your Home Connect client ID.
-  required: true
-  type: string
-client_secret:
-  description: Your Home Connect client secret.
-  required: true
-  type: string
-{% endconfiguration %}
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+
+{% enddetails %}
 
 {% include integrations/config_flow.md %}
+
+The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
