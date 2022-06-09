@@ -134,7 +134,7 @@ These shades consist of two pieces of fabric attached to a single rail. The fron
 
 ### Calibrate
 
-Initiate a calibration of the shade position. This is common requirement with Duette type shades that have a string drop that lowers and raises the blind and less so with roller types.
+Initiate a calibration of the shade position. Calibration is a common requirement with Duette-type shades with a string drop that lowers and raises the blind and less so with roller types.
 
 ### Identify
 
