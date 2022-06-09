@@ -162,6 +162,8 @@ action:
 ```
 ### Force Update Shade Position
 
+This automation is not recommended for battery-powered shades.
+
 ``` yaml
 alias: Force Update
 description: 'Update the position of defined shades'
