@@ -35,8 +35,9 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 
 <div class="note">
-Shade positions in Home Assistant represent only what the Powerview Hub reports. Unfortunately positional changes made with pebble remotes do not sync to the hub.
-Forcing an update for all shades would result in excessive battery drain so this is not done on a schedule. Users who wish to implement this can call the service `homeassistant.update_entity`. [An example automation is avaiable](#force-update-shade-position)
+The Powerview Hub does not automatically wake shades or report position changes made via pebble remotes.
+
+Calling the update entity service (`homeassistant.update_entity`) on a shade entity will trigger the hub to awaken a shade and report its current position.  [An example automation is avaiable](#force-update-shade-position) below for mains powered shades.  While the automation will work for battery-powered shades, it will quickly drain their batteries for these devices.
 </div>
 
 {% include integrations/config_flow.md %}
