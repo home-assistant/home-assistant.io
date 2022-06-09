@@ -34,6 +34,11 @@ There is currently support for the following device types within Home Assistant:
 - Scene
 - Sensor
 
+<div class="note">
+Shade positions in Home Assistant represent only what the Powerview Hub reports. Unfortunately positional changes made with pebble remotes do not sync to the hub.
+Forcing an update for all shades would result in excessive battery drain so this is not done on a schedule. Users who wish to implement this can call the service `homeassistant.update_entity`. [An example automation is avaiable](#force-update-shade-position)
+</div>
+
 {% include integrations/config_flow.md %}
 
 ## Shades
@@ -142,13 +147,34 @@ Identify will 'jog' the shade position as a diagnostic tool to ensure the shade 
 
 ## Example Automations
 
+### Calling a Powerview Scene
+
 ``` yaml
-- alias: "blinds closed at night"
-  trigger:
-    platform: time
-    at: "18:00:00"
-  action:
-    - service: scene.turn_on
-      target:
-        entity_id: scene.10877
+alias: "blinds closed at night"
+trigger:
+  platform: time
+  at: "18:00:00"
+action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.10877
+```
+### Force Update Shade Position
+
+``` yaml
+alias: Force Update
+description: 'Update the position of defined shades'
+mode: single
+trigger:
+  - platform: time_pattern
+    hours: '1'
+condition: []
+action:
+  - service: homeassistant.update_entity
+    data: {}
+    target:
+      entity_id:
+        - cover.family_right
+        - cover.family_left
+        - cover.kitchen_roller
 ```
