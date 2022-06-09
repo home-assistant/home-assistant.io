@@ -78,7 +78,7 @@ the configuration section below.
 
 ## Power & Energy Sensors
 
-Many VeSync outlets support power & energy monitoring. These data are exposed as sensor entities alongside the outlet
+Many VeSync outlets support power & energy monitoring. This data is exposed as sensor entities alongside the outlet
 itself. Note that prior versions of the integration exposed these as state attributes on the outlet switch entity.
 
 | Sensor                                    | Description                                                             | Example |
