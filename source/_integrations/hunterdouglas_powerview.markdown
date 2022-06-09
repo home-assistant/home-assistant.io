@@ -34,6 +34,12 @@ There is currently support for the following device types within Home Assistant:
 - Scene
 - Sensor
 
+<div class="note">
+The Powerview Hub does not automatically wake shades or report position changes made via pebble remotes.
+
+Calling the update entity service (`homeassistant.update_entity`) on a shade entity will trigger the hub to awaken a shade and report its current position. [An example automation is available](#force-update-shade-position) below for mains powered shades. While the automation will work for battery-powered shades, it will quickly drain their batteries for these devices.
+</div>
+
 {% include integrations/config_flow.md %}
 
 ## Shades
@@ -142,13 +148,34 @@ Identify will 'jog' the shade position as a diagnostic tool to ensure the shade 
 
 ## Example Automations
 
+### Calling a Powerview Scene
+
 ``` yaml
-- alias: "blinds closed at night"
-  trigger:
-    platform: time
-    at: "18:00:00"
-  action:
-    - service: scene.turn_on
-      target:
-        entity_id: scene.10877
+alias: "blinds closed at night"
+trigger:
+  platform: time
+  at: "18:00:00"
+action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.10877
+```
+### Force Update Shade Position
+
+This automation is not recommended for battery-powered shades.
+
+``` yaml
+alias: Force Update
+description: 'Update the position of defined shades'
+mode: single
+trigger:
+  - platform: time_pattern
+    hours: '1'
+action:
+  - service: homeassistant.update_entity
+    target:
+      entity_id:
+        - cover.family_right
+        - cover.family_left
+        - cover.kitchen_roller
 ```
