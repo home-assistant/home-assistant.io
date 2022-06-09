@@ -40,8 +40,20 @@ Change the light to a new state.
 
 ## HEV Support
 
-Home Assistant will indicate whehther a LIFX Clean cycle is active via an extra state attribute for LIFX Clean bulbs and
-the `lifx.hev_cycle` service (see below) can be used to start and stop an HEV cleaning cycle.
+LIFX Clean bulbs always have the following extra state attribute:
+
+* `hev_cycle_active`:  _True_ if the bulb is currently running an HEV cleaning cycle or _False_ if not.
+
+When an HEV cycle is active, the following additional attributes will be available:
+
+* `hev_cycle_duration`: total duration of the current cycle (in seconds)
+* `hev_cycle_remaining`: remaining duration of the current cycle (in seconds)
+* `hev_restore_power`: _True_ if the bulb was on when the cycle started or _False_ if not.
+
+At the end of a cycle, bulbs will automatically revert back to the state they were in when the cycle started, as
+indicated by the `hev_restore_power` attribute.
+
+Use the `lifx.hev_cycle` service documented below to start and stop an HEV cleaning cycle.
 
 ### Service `lifx.hev_cycle`
 
@@ -51,9 +63,9 @@ Start or stop an HEV cleaning cycle.
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of LIFX Clean entities. |
 | `stop` | Set to `True` to stop a running HEV cycle. Leave out or set to `False` to start a cycle.
-| `duration` | Duration (in seconds) for the cleaning cycle. Will use the default of 7200 seconds (2 hours) if not specified.
+| `duration` | Duration (in seconds) of the HEV cycle. Defaults to 2 hours (7200 seconds) if not specified.
 
-For example, here's how to start a 1-hour HEV cycle from an automation:
+For example, to start a 1-hour HEV cycle from an automation:
 
 ```yaml
 automation:
@@ -66,7 +78,7 @@ automation:
         duration: 3600
 ```
 
-And here's an example of how to stop an HEV cycle:
+To stop an HEV cycle from automation:
 
 ```yaml
 automation:
