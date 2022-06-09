@@ -93,3 +93,11 @@ The `triggered` state also provides a state attribute called `triggered_source` 
 The integration provides a Binary Sensor for each Total Connect zone. To see faulted zones in Home Assistant, your Total Connect account must have "Sensor Activities" enabled. Your alarm monitoring company may charge an extra fee to enable this. If available, these can be found in the Total Connect 2 web portal at **Notifications** -> **Sensor Activities**. Alternately, they can be found in the Total Connect mobile app at **More** -> **Settings** -> **Notifications** -> **Sensor Activities**. Enable each zone you want to monitor. Unmonitored zones will display as `Closed` in Home Assistant.
 
 The Total Connect API has limited zone type information. Home Assistant device class `door` is assigned to Total Connect entry/exit, perimeter, and motion zones; along with most alarm panel buttons. The sensor will appear as `True` if the zone is opened (either fault or triggered in Total Connect) and `False` if closed. Device class `smoke` is assigned to Total Connect smoke detectors and alarm panel buttons set to a "Fire No Verification" response type. The sensor will appear as `True` if smoke is detected or the respective button is pressed.  Device class `gas` is assigned to Total Connect carbon monoxide detectors. The sensor will appear as `True` if carbon monoxide is detected.
+
+### Diagnostic Sensors
+
+The following diagnostic sensors will be generated, but hidden by default:
+
+- Low Battery for Zones and Alarm Panels will be `True` if the battery is low
+- Tamper for Zones and Alarm Panels will be `True` if in a tamper state
+- Power for Alarm Panels will be `True` if power is connected, or `False` if running on backup battery.
