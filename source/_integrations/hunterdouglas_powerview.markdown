@@ -171,7 +171,6 @@ mode: single
 trigger:
   - platform: time_pattern
     hours: '1'
-condition: []
 action:
   - service: homeassistant.update_entity
     data: {}
