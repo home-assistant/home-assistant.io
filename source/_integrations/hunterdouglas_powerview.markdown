@@ -2,6 +2,7 @@
 title: Hunter Douglas PowerView
 description: Instructions on how to setup Hunter Douglas PowerView scenes within Home Assistant.
 ha_category:
+  - Button
   - Cover
   - Scene
   - Sensor
@@ -15,6 +16,7 @@ ha_codeowners:
   - "@trullock"
 ha_homekit: true
 ha_platforms:
+  - button
   - cover
   - scene
   - sensor
@@ -27,6 +29,7 @@ The `hunterdouglas_powerview` integration allows you to integrate your [Hunter D
 
 There is currently support for the following device types within Home Assistant:
 
+- Button
 - Cover
 - Scene
 - Sensor
@@ -126,6 +129,16 @@ These shades can tilt in any position and do not require the shade to be open or
 <div class="note">Full functionality not currently implemented</div>
 
 These shades consist of two pieces of fabric attached to a single rail. The front shade is sheer, with the rear being blackout, and neither panel can move independently from the other.
+
+## Buttons
+
+### Calibrate
+
+Initiate a calibration of the shade position. Calibration is a common requirement with Duette-type shades with a string drop that lowers and raises the blind and less so with roller types.
+
+### Identify
+
+Identify will 'jog' the shade position as a diagnostic tool to ensure the shade you are trying to move is both the intended shade and communicating correctly.
 
 ## Example Automations
 
