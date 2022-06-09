@@ -173,7 +173,6 @@ trigger:
     hours: '1'
 action:
   - service: homeassistant.update_entity
-    data: {}
     target:
       entity_id:
         - cover.family_right
