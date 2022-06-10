@@ -82,15 +82,15 @@ When a device is linked to an occupancy sensor, by default, the sensor will be d
 
 Devices linked to the occupancy sensor that was last controlled manually will show an unknown at startup. The state will be known the next time the light is controlled by the sensor.
 
-### Effect Speed
-
-The speed of an effect can be controlled via a `number` entity. The entity will only be available when an effect has been set that allows the speed to be adjusted.
-
 ### Power Monitoring Sensors
 
-A power monitoring sensor is available on devices with the following modules:
+A power monitoring sensor is available on devices with the following hardware modules:
 
 - ESP25_SOCKET_01
 - ESP20_SHDW_31R
 - ESP20_SHRGB_31R
 - ESP20_SHTW_31R
+
+### Effect Speed
+
+The speed of an effect can be controlled via a `number` entity. The entity will only be available when an effect has been set that allows the speed to be adjusted.
