@@ -48,6 +48,7 @@ This integration provides the following sensors:
 | Name                   | Description                                         |
 | ---------------------- | --------------------------------------------------- |
 | Battery                | Battery level of the device                         |
+| Boot Time              | Time the device was turned on                       |
 | CPU Speed              | The current CPU speed                               |
 | Displays Connected     | Number of displays connected                        |
 | Display Resolution X   | Display resolution (across)                         |
