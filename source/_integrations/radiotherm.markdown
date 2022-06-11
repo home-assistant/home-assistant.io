@@ -3,6 +3,7 @@ title: Radio Thermostat
 description: Instructions on how to integrate Radio Thermostat (3M Filtrete) thermostats within Home Assistant.
 ha_category:
   - Climate
+  - Switch
 ha_iot_class: Local Polling
 ha_release: 0.7.6
 ha_domain: radiotherm
@@ -12,6 +13,7 @@ ha_codeowners:
   - '@vinnyfuria'
 ha_platforms:
   - climate
+  - switch
 ha_integration_type: integration
 ---
 
@@ -19,7 +21,15 @@ The `radiotherm` climate platform let you control a thermostat from [Radio Therm
 
 {% include integrations/config_flow.md %}
 
-The underlying library supports:
+## Time synchronization
+
+The integration will automatically sync the time when it is loaded if the device is not currently in hold mode, as syncing the time will disable hold mode.
+
+## Hold mode
+
+If you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself, hold mode can be enabled with the hold mode switch.
+
+## Known working devices
 
 - CT30 v1.75
 - CT30 v1.92
@@ -36,4 +46,4 @@ The underlying library supports:
 
 New models that are derivatives of the CT30 or CT80 should be detected automatically and basic functionality should work.
 
-If you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself, this can be configured in the options flow. Otherwise Home Assistant will perform temporary temperature changes.
+

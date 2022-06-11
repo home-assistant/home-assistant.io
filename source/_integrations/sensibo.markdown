@@ -53,7 +53,13 @@ For motion sensors (supported by Sensibo Air devices), this integration provides
 For climate devices, these sensors are available:
 
 - Room presence
-- Update available
+
+For Pure devices, these sensors are available:
+
+- Pure Boost Enabled
+- Pure Boost linked with AC
+- Pure Boost linked with Presence
+- Pure Boost linked with Outdoor Air Quality
 
 ## Select Entities
 
@@ -73,6 +79,11 @@ For diagnostics, not automatically displayed on dashboards, these sensors are av
 
 - Voltage
 - Rssi
+
+For Pure devices, these sensors are available:
+
+- PM2.5
+- Pure Boost Sensitivity
 
 ## Custom Services
 
