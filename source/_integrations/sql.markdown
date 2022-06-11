@@ -25,7 +25,7 @@ This can be used to present statistics about Home Assistant sensors if used with
 
 See [supported engines](/integrations/recorder/#custom-database-engines) for which you can connect with this integration.
 
-The SQL integration will connect to default recorder if Database URL is not specified.
+The SQL integration will connect to SQLite if Database URL is not specified. If you use a different database recorder (eg MariaDB), you will have to specify the Database URL.
 
 There is no explicit configuration required for attributes. The integration will set all additional columns returned by the query as attributes. 
 
@@ -67,7 +67,7 @@ Use `state` as column for value.
 #### Postgres
 
 ```sql
-"SELECT (pg_database_size('dsmrreader')/1024/1024) as db_size;"
+SELECT (pg_database_size('dsmrreader')/1024/1024) as db_size;
 ```
 Use `db_size` as column for value.
 
@@ -76,7 +76,7 @@ Use `db_size` as column for value.
 Change `table_schema="hass"` to the name that you use as the database name, to ensure that your sensor will work properly.
 
 ```sql
-'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hass" GROUP BY table_schema;'
+SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hass" GROUP BY table_schema;
 ```
 Use `value` as column for value.
 
@@ -85,7 +85,7 @@ Use `value` as column for value.
 If you are using the `recorder` integration then you don't need to specify the location of the database. For all other cases, add `sqlite:////path/to/database.db` as Database URL.
 
 ```sql
-'SELECT ROUND(page_count * page_size / 1024 / 1024, 1) as size FROM pragma_page_count(), pragma_page_size();'
+SELECT ROUND(page_count * page_size / 1024 / 1024, 1) as size FROM pragma_page_count(), pragma_page_size();
 ```
 Use `size` as column for value.
 
@@ -96,6 +96,6 @@ Use the same Database URL as for the `recorder` integration. Change `DB_NAME` to
 Example Database URL: `"mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=FreeTDS"`
 
 ```sql
-"SELECT TOP 1 SUM(m.size) * 8 / 1024 as size FROM sys.master_files m INNER JOIN sys.databases d ON d.database_id=m.database_id WHERE d.name='DB_NAME';"
+SELECT TOP 1 SUM(m.size) * 8 / 1024 as size FROM sys.master_files m INNER JOIN sys.databases d ON d.database_id=m.database_id WHERE d.name='DB_NAME';
 ```
 Use `size` as column for value.
