@@ -63,7 +63,7 @@ sensor:
     email: YOUR_EMAIL_ADDRESS
     password: YOUR_PASSWORD
     devices:
-      - 000000000000000000000000
+      - "000000000000000000000000"
 ```
 
 {% configuration %}
@@ -75,8 +75,8 @@ password:
   description: "Your [https://app.tankutility.com](https://app.tankutility.com) password."
   required: true
   type: string
-unit_of_measurement:
-  description: All devices to monitor.
+devices:
+  description: All devices to monitor.  Double quotes have been reported as required around each device string to configure the integration.
   required: true
   type: map
 {% endconfiguration %}
