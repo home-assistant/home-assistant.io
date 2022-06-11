@@ -89,9 +89,9 @@ For Pure devices, these sensors are available:
 
 ### Set Timer
 
-You can set or delete a timer to Turn on/off your climate device.
+You can set or delete a timer to turn on/off your climate device.
 
-Choose entity and minutes and it will automatically turn or or off your device depending on state with the previous configured climate settings.
+Choose entity and minutes and it will automatically turn on or off your device depending on the state with the previously configured climate settings.
 
 ## Adding a quick switch example
 
