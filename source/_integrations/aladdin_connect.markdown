@@ -20,8 +20,4 @@ The `aladdin_connect` cover platform lets you control Genie Aladdin Connect gara
 Only doors that are owned by your Aladdin Connect account will be available. Doors that your account has been granted shared access to are not yet supported.
 </div>
 
-## Configuration
-
-Adding Aladdin Connect to your Home Assistant instance can be done manually via the user interface:
-
 {% include integrations/config_flow.md %}
