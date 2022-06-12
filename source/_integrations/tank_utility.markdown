@@ -75,7 +75,7 @@ password:
   description: "Your [https://app.tankutility.com](https://app.tankutility.com) password."
   required: true
   type: string
-unit_of_measurement:
+devices:
   description: All devices to monitor.
   required: true
   type: map
