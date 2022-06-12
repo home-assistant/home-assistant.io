@@ -63,7 +63,7 @@ sensor:
     email: YOUR_EMAIL_ADDRESS
     password: YOUR_PASSWORD
     devices:
-      - 000000000000000000000000
+      - "000000000000000000000000"
 ```
 
 {% configuration %}
