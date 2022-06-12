@@ -76,7 +76,7 @@ password:
   required: true
   type: string
 devices:
-  description: All devices to monitor.  Double quotes have been reported as required around each device string to configure the integration.
+  description: All devices to monitor.
   required: true
   type: map
 {% endconfiguration %}
