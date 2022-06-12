@@ -55,9 +55,11 @@ If your shade is not listed please raise a feature request on the community foru
 | Roman (4)                              | Bottom Up                       |
 | Bottom Up (5)                          | Bottom Up                       |
 | Duette (6)                             | Bottom Up                       |
+| Duette, Top Down Bottom Up (8)         | Top Down, Bottom Up             |
 | Silhouette (23)                        | 90° Tilt when closed            |
 | M25T Roller Blind (42)                 | Bottom Up                       |
 | Twist (44)                             | 180° Tilt when closed           |
+| Pleated, Top Down Bottom Up (47)       | Top Down, Bottom Up             |
 | AC Roller  (49)                        | Bottom Up                       |
 
 ### Devices with limited functionality
@@ -69,12 +71,10 @@ These devices are currently still being tested. We ask you wait patiently while 
 | Name (Type)                            | Capabilities                    |
 | :------------------------------------- | :------------------------------ |
 | Top Down (7)                           | Top Down                        |
-| Duette, Top Down Bottom Up (8)         | Top Down, Bottom Up             |
 | Duette DuoLite, Top Down Bottom Up (9) | Top Down, Bottom Up             |
 | Silhouette (18)                        | 90° Tilt when closed            |
 | Silhouette Duolite (38)                | Dual Shade Blackout + 90° Tilt  |
 | Facette (43)                           | 90° Tilt when closed            |
-| Pleated, Top Down Bottom Up (47)       | Top Down, Bottom Up             |
 | Venetian, Tilt Anywhere (51)           | 180° Tilt Anywhere              |
 | Vertical Slats, Left Stack (54)        | 180° Tilt when closed, Vertical |
 | Vertical Slats, Right Stack (55)       | 180° Tilt when closed, Vertical |
@@ -99,8 +99,6 @@ These shades offer only the simple up/down movement of your conventional shades.
 These shades offer a unique movement that is inverse to your conventional shade, where the shade is fixed to the floor and lowered from the roof.
 
 ### Top Down, Bottom Up (TDBU)
-
-<div class="note">Full functionality not currently implemented</div>
 
 TDBU shades consist of two rails controlled by two motors designated by Top and Bottom with fabric in between.
 The Top and Bottom can move independently to cover different parts of the window but cannot pass the other.
@@ -160,6 +158,7 @@ action:
     target:
       entity_id: scene.10877
 ```
+
 ### Force Update Shade Position
 
 This automation is not recommended for battery-powered shades.
