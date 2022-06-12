@@ -34,39 +34,11 @@ There is currently support for the following device types within Home Assistant:
 - Scene
 - Sensor
 
-Known devices and their supported functionality is listed below.
-
-> :warning: Devices listed as **Under Development** may perform basic or slightly odd functionality until **Full** support is implemented.\
-> We ask you wait patiently for Full support before raising support tickets for other models.\
-> \
-> If however you're shade is not listed below please raise a support request for them to be added.
-
-| Type | Common Name                        | Capabilities                    | Support           |
-| ---- | ---------------------------------- | ------------------------------- | ----------------- |
-| 4    | Roman                              | Bottom Up                       | Full              |
-| 5    | Bottom Up                          | Bottom Up                       | Full              |
-| 6    | Duette                             | Bottom Up                       | Full              |
-| 7    | Top Down                           | Top Down                        | Under Development |
-| 8    | Duette, Top Down Bottom Up         | Top Down, Bottom Up             | Under Development |
-| 9    | Duette DuoLite, Top Down Bottom Up | Top Down, Bottom Up             | Under Development |
-| 18   | Silhouette                         | 90° Tilt when closed            | Under Development |
-| 23   | Silhouette                         | 90° Tilt when closed            | Full              |
-| 38   | Silhouette Duolite                 | Dual Shade Blackout + 90° Tilt  | Under Development |
-| 42   | M25T Roller Blind                  | Bottom Up                       | Full              |
-| 43   | Facette                            | 90° Tilt when closed            | Under Development |
-| 44   | Twist                              | 180° Tilt when closed           | Full              |
-| 47   | Pleated, Top Down Bottom Up        | Top Down, Bottom Up             | Under Development |
-| 49   | AC Roller                          | Bottom Up                       | Full              |
-| 51   | Venetian, Tilt Anywhere            | 180° Tilt Anywhere              | Under Development |
-| 54   | Vertical Slats, Left Stack         | 180° Tilt when closed, Vertical | Under Development |
-| 55   | Vertical Slats, Right Stack        | 180° Tilt when closed, Vertical | Under Development |
-| 56   | Vertical Slats, Split Stack        | 180° Tilt when closed, Vertical | Under Development |
-| 62   | Venetian, Tilt Anywhere            | 180° Tilt Anywhere, Vertical    | Under Development |
-| 65   | Vignette Duolite                   | Dual Shade Blackout             | Under Development |
-| 69   | Curtain, Left Stack                | 180° Tilt when closed, Vertical | Under Development |
-| 70   | Curtain, Right Stack               | 180° Tilt when closed, Vertical | Under Development |
-| 71   | Curtain, Split Stack               | 180° Tilt when closed, Vertical | Under Development |
-| 79   | Duolite Lift                       | Dual Shade Blackout             | Under Development |
+<div class="note">
+The Powerview Hub does not automatically wake shades or report position changes made via pebble remotes.
+<br/>
+Calling the update entity service (`homeassistant.update_entity`) on a shade entity will trigger the hub to awaken a shade and report its current position. [An example automation is available](#force-update-shade-position) below for mains powered shades. While the automation will work for battery-powered shades, it will quickly drain their batteries for these devices.
+</div>
 
 {% include integrations/config_flow.md %}
 
@@ -176,13 +148,34 @@ Identify will 'jog' the shade position as a diagnostic tool to ensure the shade 
 
 ## Example Automations
 
+### Calling a Powerview Scene
+
 ``` yaml
-- alias: "blinds closed at night"
-  trigger:
-    platform: time
-    at: "18:00:00"
-  action:
-    - service: scene.turn_on
-      target:
-        entity_id: scene.10877
+alias: "blinds closed at night"
+trigger:
+  platform: time
+  at: "18:00:00"
+action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.10877
+```
+### Force Update Shade Position
+
+This automation is not recommended for battery-powered shades.
+
+``` yaml
+alias: Force Update
+description: 'Update the position of defined shades'
+mode: single
+trigger:
+  - platform: time_pattern
+    hours: '1'
+action:
+  - service: homeassistant.update_entity
+    target:
+      entity_id:
+        - cover.family_right
+        - cover.family_left
+        - cover.kitchen_roller
 ```

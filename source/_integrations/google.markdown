@@ -119,11 +119,11 @@ Using the entity state and attributes is more error prone and less flexible than
 
 {% enddetails %}
 
-### Service `google.add_event`
+### Service `google.create_event`
 
-You can use the service `google.add_event` to create a new calendar event in a calendar. You can find the Calendar's ID Google Calendar Settings. All dates and times are in your local time, the integration gets your time zone from your `configuration.yaml` file.
+You can use the service `google.create_event` to create a new calendar event in a calendar.
 
-{% details "Add Event Service details" %}
+{% details "Create Event Service details" %}
 
 <div class='note'>
 
@@ -133,7 +133,6 @@ This will only be available if you have given Home Assistant `read-write` access
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `calendar_id` | no | The id of the calendar you want. | *****@group.calendar.google.com
 | `summary` | no | Acts as the title of the event. | Bowling
 | `description` | yes | The description of the event. | Birthday bowling
 | `start_date_time` | yes | The date and time the event should start. | 2019-03-10 20:00:00

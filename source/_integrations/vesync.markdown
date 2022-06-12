@@ -78,24 +78,17 @@ the configuration section below.
 
 ## Power & Energy Sensors
 
-Many VeSync outlets support power & energy monitoring. These data are exposed as diagnostic sensor entities alongside the outlet
+Many VeSync outlets support power & energy monitoring. This data is exposed as sensor entities alongside the outlet
 itself. Note that prior versions of the integration exposed these as state attributes on the outlet switch entity.
 
-| Sensor                                  | Description                                                        | Example |
-| --------------------------------------- | ------------------------------------------------------------------ | ------- |
-| `sensor.<outlet name>_current_power`    | The present power consumption of the switch in watts               | 7.89    |
-| `sensor.<outlet name>_energy_use_today` | The kilowatt hours used by the switch during the previous 24 hours | 0.12    |
-
-## Outlet Exposed Attributes
-
-VeSync outlets will expose the following details for only the smart outlets. Energy monitoring not available for in-wall switches.
-
-| Attribute               | Description                                                             | Example         |
-| ----------------------- | ----------------------------------------------------------------------- | --------------- |
-| `voltage`               | Current voltage of the device                                           | 120.32          |
-| `weekly_energy_total`   | Total energy usage for week starting from Monday 12:01AM in kWh         | 14.74           |
-| `monthly_energy_total`  | Total energy usage for month starting from 12:01AM on the first in kWh  | 52.30           |
-| `yearly_energy_total`   | Total energy usage for year start from 12:01AM on Jan 1 in kWh          | 105.25          |
+| Sensor                                    | Description                                                             | Example |
+| ------------------------------------------|-------------------------------------------------------------------------|---------|
+| `sensor.<outlet name>_current_power`      | The present power consumption of the switch in watts                    | 7.89    |
+| `sensor.<outlet name>_energy_use_today`   | The kilowatt hours used by the switch during the previous 24 hours      | 0.12    |
+| `sensor.<outlet name>_voltage`            | The present voltage of the switch in Volts as a diagnostic sensor       | 120.32  |
+| `sensor.<outlet name>_energy_use_weekly`  | Total energy usage for week starting from Monday 12:01AM in kWh         | 14.74   |
+| `sensor.<outlet name>_energy_use_monthly` | Total energy usage for month starting from 12:01AM on the first in kWh  | 52.30   |
+| `sensor.<outlet name>_energy_use_yearly`  | Total energy usage for year start from 12:01AM on Jan 1 in kWh          | 105.25  |
 
 ## Fan & Air Quality Sensors
 All VeSync air purifiers expose the remaining filter life, and some also expose air quality measurements.
