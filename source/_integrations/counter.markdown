@@ -3,12 +3,13 @@ title: Counter
 description: Instructions on how to integrate counters into Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 0.53
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: counter
-ha_integration_type: integration
+ha_integration_type: helper
 ---
 
 The `counter` integration allows one to count occurrences fired by automations.
