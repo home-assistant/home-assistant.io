@@ -69,7 +69,7 @@ By the end of this section you will have a Cloud Project with the necessary APIs
 
 1. Go to the [Google Cloud Console](https://console.developers.google.com/apis/credentials).
 
-2. If this is your first time here, you likely need to create a new Google Cloud project. Click **Create Project** then **New
+1. If this is your first time here, you likely need to create a new Google Cloud project. Click **Create Project** then **New
 Project**.
     ![Screenshot of APIs and Services Cloud Console with no existing project](/images/integrations/nest/api_project_needed.png)
 
@@ -408,22 +408,53 @@ This feature is enabled by the following permissions:
 
 </div>
 
+## Deprecated App Auth Credentials
+
+To improve security and reduce phishing risk Google has [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) a previous authentication method used by Home Assistant. **This requires action by you to resolve.**
+
+{% details "Reconfigure the integration %}
+
+1. Make sure to upgrade to the latest version of Home Assistant.
+1. In the sidebar click on _**{% my config icon %}**_.
+1. From the configuration menu select: _**{% my integrations %}**_.
+1. The *Nest* integration should appear with alert. Click **Reconfigure**.
+
+{% enddetails %}
+
+{% details "Create new Web Auth Application Credentials" %}
+
+1. In the Home Assistant flow confirm your *Google Cloud Project ID* and proceed to the next step.
+1. You will be prompted to enter new *Application Credentials*.
+1. In another tab visit the [Google Cloud Console](https://console.cloud.google.com/apis/credentials)
+1. On the *Credentials* page click **Create Credential**.
+1. From the drop-down list select **OAuth client ID**.
+1. Enter **Web Application** for the Application type.
+1.  Pick a new name for your credential.
+1.  Add **Authorized redirect URIs** end enter `https://my.home-assistant.io/redirect/oauth`
+1.  Click *Create* to create the credential.
+1.  You now have *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant.
+1. Back in Home Assistant, you should now be prompted to create [Application Credentials](/integrations/application_credentials) where you will enter the *Client ID* and *Client Secret*.
+
+{% enddetails %}
+
+{% details "Update Device Access Project" %}
+
+1.  Visit the [Device Access Console](https://console.nest.google.com/device-access/)
+1.  Select the *Device Access Project* used by *Home Assistant*
+1.  You need to then delete the old *OAuth Client ID* by clicking the Trash icon to unlick your Nest project from the deprecated Auth method.
+1.  Click the overflow menu `...` then *Add Client ID*
+1.  Enter the new *OAuth Client ID* for *Web App Auth* credentials
+1.  Back in Home Assistant confirm your *Device Access Project ID*
+
+{% enddetails %}
+
+Once you have completed the above steps, you can continue through the flow to re-authorize *Home Assistant* to restore access to your Nest Devices.
+
 ## Troubleshooting
 
 - You can manage devices and permissions granted to Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Restart Home Assistant to make new devices available. See the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation for more details.
 
-- *Error 400: invalid_request* plus a message about not complying with *Google's OAuth Policy for keeping accounts secure* is shown when using *App Auth* or *Desktop Auth* or *OOB Auth* which has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google. You need to create new *Web App* credentials following the instructions on this page and update your Home Assistant to use them.
-
-{% details "Upgrade from Deprecated OOB / App Auth Credentials" %}
-
-1. Delete the *Nest* integration from Home Assistant
-1. Remove or comment out the `nest` from your `configuration.yaml`. You will still need your device access `project_id` so hold on to it
-1. Create a new *Web Application* credential in the [Google Cloud Console](https://console.developers.google.com/apis/credentials) following the instructions above. Make sure the redirect allows `https://my.home-assistant.io/redirect/oauth`.
-1. Update the [Device Access Project](https://console.nest.google.com/device-access/project-list) to point to the new *OAuth Client ID* you just created
-1. Restart Home Assistant
-1. Add the integration following the steps above
-
-{% enddetails %}
+- *Error 400: invalid_request* plus a message about not complying with *Google's OAuth Policy for keeping accounts secure* is shown when using *App Auth* or *Desktop Auth* or *OOB Auth* which has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google. Follow the steps in the previous section to upgrade Home Assistant and restore access.
 
 - *Error 400: redirect_uri_mismatch* means that your OAuth Client ID is not configured to match the *My Home Assistant* callback URL. Home Assistant's redirect URL behavior may have changed since you initially set this up!
 
