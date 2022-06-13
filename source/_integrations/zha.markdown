@@ -68,7 +68,9 @@ There is also support for grouping of lights, switches, and fans (i.e. support f
 
 ## Introduction
 
-ZHA integration follow the official Zigbee specification standards and uses one Zigbee Coordinator to set up and control a Zigbee network. Once ZHA has been installed and the Zigbee Coordinator is configuted you will be able to directly join/pair Zigbee Router Device and Zigbee End Device products to that Zigbee network, regardless of the manufacturer and brand of that Zigbee based product. Please see the respective sections below for compatible Zigbee radio modules hardware (physical radio adapter) and information on supported Zigbee devices.
+ZHA integration follow the official Zigbee specification standards and uses one Zigbee Coordinator to set up and control a Zigbee network. The Zigbee Coordinator is a physicial physical radio adapter that act as the network controller and control security access to the network, and it is therefore the heart of the Zigbee network. 
+
+Once ZHA has been installed and the Zigbee Coordinator is configuted you will be able to directly join/pair Zigbee Router Device and Zigbee End Device products to that Zigbee network, regardless of the manufacturer and brand of that Zigbee based product. Please see the respective sections below for compatible Zigbee radio hardware modules and information on supported Zigbee devices.
 
 Before installing the integration you will need to buy and connect a Zigbee Coordinator adapter to the computer running the Home Assistant installation. The general recommendation is to buy a newer model of Zigbee Coordinator adapter hardware and to flash the latest firmware to it, the reason for that is it will usually offer better interoperability with all functions of most Zigbee 3.0 compliant devices on the market. 
 
