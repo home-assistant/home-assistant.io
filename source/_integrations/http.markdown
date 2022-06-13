@@ -2,9 +2,7 @@
 title: HTTP
 description: Offers a web framework to serve files.
 ha_category:
-  - Binary Sensor
   - Other
-  - Sensor
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_quality_scale: internal

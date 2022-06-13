@@ -59,31 +59,25 @@ Enjoy the release (and upcoming events)!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2022.6.1 - June 2](#release-202261---june-2)
+- [Release 2022.6.2 - June 4](#release-202262---june-4)
+- [Release 2022.6.3 - June 6](#release-202263---june-6)
+- [Release 2022.6.4 - June 7](#release-202264---june-7)
+- [Release 2022.6.5 - June 10](#release-202265---june-10)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=LVDex3IV44M) today at 12:00 PDT / 21:00 CET!
-
-<div class="videoWrapper">
-  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/LVDex3IV44M" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
-
-{% comment %}
-<!-- Replace the wrapper above with the following after the livestream...-->
-
 Missed our release party live stream on YouTube? Don't worry! You can watch
 the recording of it right here!
 
-<lite-youtube videoid="LVDex3IV44M" videotitle="Home Assistant 2022.6 Release Party" posterquality="maxresdefault"></lite-youtube>
-
-{% endcomment %}
+<lite-youtube videoid="LVDex3IV44M" videotitle="Home Assistant 2022.6 Release Party"></lite-youtube>
 
 ## Comparing data in the energy dashboard
 
 Did you use less or more energy than... Yesterday? Last week? Month? Year?
-We all want to know if we are on the right track, right? 
+We all want to know if we are on the right track, right?
 
 This release introduces the capability to compare energy data against the
 previous period directly from the energy dashboard!
@@ -214,7 +208,7 @@ still add the entire device if you want to.
 
 This release builds on [the database improvements from 2022.4](/blog/2022/04/06/release-20224/#database-performance).
 Disk writes have been reduced to preserve SD card lifetimes and new APIs have been added,
-which get event/historical data to the frontend even faster. 
+which get event/historical data to the frontend even faster.
 
 The database storage format is further optimized, with an additional size
 reduction ranging from 25-40% for most installs on top of what has been gained
@@ -336,6 +330,271 @@ The following integrations are now available via the Home Assistant UI:
 [HERE Travel Time]: /integrations/here_travel_time
 [Slack]: /integrations/slack
 
+## Release 2022.6.1 - June 2
+
+- Cleanup and use new MQTT_BASE_SCHEMA constants ([@jbouwh] - [#72283]) ([mqtt docs])
+- Move MQTT config schemas and client to separate modules ([@emontnemery] - [#71995]) ([mqtt docs])
+- Update MQTT tests to use the config entry setup ([@jbouwh] - [#72373]) ([mqtt docs])
+- Remove announce workaround for Sonos ([@jjlawren] - [#72854]) ([sonos docs])
+- Update frontend to 20220601.0 ([@bramkragten] - [#72855]) ([frontend docs])
+- Ensure recorder shuts down when its startup future is canceled out from under it ([@bdraco] - [#72866]) ([recorder docs])
+- Fix logbook not setting up with an recorder filter that has empty fields ([@bdraco] - [#72869]) ([recorder docs]) ([logbook docs])
+- Only present history_stats state as unknown if the time is in the future ([@bdraco] - [#72880]) ([history_stats docs])
+- Fix migration of MySQL data when InnoDB is not being used ([@bdraco] - [#72893]) ([recorder docs])
+- Fix performance of logbook entity and devices queries with large MySQL databases ([@bdraco] - [#72898]) ([logbook docs])
+- Fix reload of MQTT yaml config ([@emontnemery] - [#72901]) ([mqtt docs])
+- Bump yolink-api to 0.0.6 ([@matrixd2] - [#72903]) ([yolink docs])
+- Fix logging & exit code reporting to S6 on HA shutdown ([@nojocodex] - [#72921])
+- Fix bug in caldav and avoid unnecessary copy of dataclass ([@allenporter] - [#72922]) ([caldav docs])
+- Fix Hive authentication ([@KJonline] - [#72929]) ([hive docs])
+- Only sync when HA is started up as we already sync at startup ([@balloob] - [#72940]) ([cloud docs])
+- Fix misalignments between sql based filtering with the entityfilter based filtering ([@bdraco] - [#72936]) ([recorder docs])
+- Only create auto comfort entities for BAF devices that support them ([@bdraco] - [#72948]) ([baf docs])
+
+[#71995]: https://github.com/home-assistant/core/pull/71995
+[#72283]: https://github.com/home-assistant/core/pull/72283
+[#72373]: https://github.com/home-assistant/core/pull/72373
+[#72854]: https://github.com/home-assistant/core/pull/72854
+[#72855]: https://github.com/home-assistant/core/pull/72855
+[#72866]: https://github.com/home-assistant/core/pull/72866
+[#72869]: https://github.com/home-assistant/core/pull/72869
+[#72880]: https://github.com/home-assistant/core/pull/72880
+[#72893]: https://github.com/home-assistant/core/pull/72893
+[#72898]: https://github.com/home-assistant/core/pull/72898
+[#72901]: https://github.com/home-assistant/core/pull/72901
+[#72903]: https://github.com/home-assistant/core/pull/72903
+[#72921]: https://github.com/home-assistant/core/pull/72921
+[#72922]: https://github.com/home-assistant/core/pull/72922
+[#72929]: https://github.com/home-assistant/core/pull/72929
+[#72936]: https://github.com/home-assistant/core/pull/72936
+[#72940]: https://github.com/home-assistant/core/pull/72940
+[#72948]: https://github.com/home-assistant/core/pull/72948
+[@KJonline]: https://github.com/KJonline
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@jbouwh]: https://github.com/jbouwh
+[@jjlawren]: https://github.com/jjlawren
+[@matrixd2]: https://github.com/matrixd2
+[@nojocodex]: https://github.com/nojocodex
+[baf docs]: /integrations/baf/
+[caldav docs]: /integrations/caldav/
+[cloud docs]: /integrations/cloud/
+[frontend docs]: /integrations/frontend/
+[history_stats docs]: /integrations/history_stats/
+[hive docs]: /integrations/hive/
+[logbook docs]: /integrations/logbook/
+[mqtt docs]: /integrations/mqtt/
+[recorder docs]: /integrations/recorder/
+[sonos docs]: /integrations/sonos/
+[yolink docs]: /integrations/yolink/
+
+## Release 2022.6.2 - June 4
+
+- Fix statistics_during_period being incorrectly cached ([@bdraco] - [#72947]) ([history docs])
+- Allow `log` template function to return specified `default` on math domain error ([@XaF] - [#72960])
+- Bump pynetgear to 0.10.4 ([@starkillerOG] - [#72965]) ([netgear docs])
+- Bump bimmer_connected to 0.9.4 ([@rikroe] - [#72973]) ([bmw_connected_drive docs])
+- fjaraskupan: Don't filter anything in backend ([@elupus] - [#72988]) ([fjaraskupan docs])
+- Check ISY994 climate for unknown humidity value on Z-Wave Thermostat ([@shbatm] - [#72990]) ([isy994 docs])
+- Fix google calendar bug where expired tokens are not refreshed ([@allenporter] - [#72994]) ([google docs])
+- Provide Sonos media position if duration not available ([@jjlawren] - [#73001]) ([sonos docs])
+- Bump pypck to 0.7.15 ([@alengwenus] - [#73009]) ([lcn docs])
+- Fix missing historical context data in logbook for MySQL and PostgreSQL ([@bdraco] - [#73011]) ([recorder docs])
+- Fix history stats not comparing all times in UTC ([@bdraco] - [#73040]) ([history_stats docs])
+
+[#72947]: https://github.com/home-assistant/core/pull/72947
+[#72960]: https://github.com/home-assistant/core/pull/72960
+[#72965]: https://github.com/home-assistant/core/pull/72965
+[#72973]: https://github.com/home-assistant/core/pull/72973
+[#72988]: https://github.com/home-assistant/core/pull/72988
+[#72990]: https://github.com/home-assistant/core/pull/72990
+[#72994]: https://github.com/home-assistant/core/pull/72994
+[#73001]: https://github.com/home-assistant/core/pull/73001
+[#73009]: https://github.com/home-assistant/core/pull/73009
+[#73011]: https://github.com/home-assistant/core/pull/73011
+[#73040]: https://github.com/home-assistant/core/pull/73040
+[@XaF]: https://github.com/XaF
+[@alengwenus]: https://github.com/alengwenus
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@jjlawren]: https://github.com/jjlawren
+[@rikroe]: https://github.com/rikroe
+[@shbatm]: https://github.com/shbatm
+[@starkillerOG]: https://github.com/starkillerOG
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[fjaraskupan docs]: /integrations/fjaraskupan/
+[google docs]: /integrations/google/
+[history docs]: /integrations/history/
+[history_stats docs]: /integrations/history_stats/
+[isy994 docs]: /integrations/isy994/
+[lcn docs]: /integrations/lcn/
+[netgear docs]: /integrations/netgear/
+[recorder docs]: /integrations/recorder/
+[sonos docs]: /integrations/sonos/
+
+## Release 2022.6.3 - June 6
+
+- Throttle multiple requests to the velux gateway ([@marcelveldt] - [#72974]) ([velux docs])
+- Bump wallbox to 0.4.9 ([@hesselonline] - [#72978]) ([wallbox docs])
+- Fix fibaro cover detection ([@rappenze] - [#72986]) ([fibaro docs])
+- Reduce branching in generated lambda_stmts ([@bdraco] - [#73042]) ([recorder docs])
+- Send an empty logbook response when all requested entity_ids are filtered away ([@bdraco] - [#73046]) ([logbook docs])
+- Bump aiolookup to 0.1.1 ([@bdraco] - [#73048]) ([lookin docs])
+- Bump simplisafe-python to 2022.06.0 ([@bachya] - [#73054]) ([simplisafe docs])
+- Fix unhandled exception when RainMachine coordinator data doesn't exist ([@bachya] - [#73055]) ([rainmachine docs])
+- Bump regenmaschine to 2022.06.0 ([@bachya] - [#73056]) ([rainmachine docs])
+- Fix incompatiblity with live logbook and google_assistant ([@bdraco] - [#73063]) ([logbook docs])
+- Fix elk attributes not being json serializable ([@gwww] - [#73096]) ([elkm1 docs])
+- Mark counter domain as continuous to exclude it from logbook ([@bdraco] - [#73101]) ([logbook docs])
+- Tomorrowio utc fix ([@lymanepp] - [#73102]) ([tomorrowio docs])
+- Remove available property from Kodi ([@Bikonja] - [#73103]) ([kodi docs])
+- Point iAlarm XR at PyPI fork ([@balloob] - [#73143]) ([ialarm_xr docs])
+- Fix state_changes_during_period history query when no entities are passed ([@bdraco] - [#73139]) ([recorder docs])
+- Remove unused code from logbook ([@bdraco] - [#72950]) ([logbook docs])
+
+[#72950]: https://github.com/home-assistant/core/pull/72950
+[#72974]: https://github.com/home-assistant/core/pull/72974
+[#72978]: https://github.com/home-assistant/core/pull/72978
+[#72986]: https://github.com/home-assistant/core/pull/72986
+[#73042]: https://github.com/home-assistant/core/pull/73042
+[#73046]: https://github.com/home-assistant/core/pull/73046
+[#73048]: https://github.com/home-assistant/core/pull/73048
+[#73054]: https://github.com/home-assistant/core/pull/73054
+[#73055]: https://github.com/home-assistant/core/pull/73055
+[#73056]: https://github.com/home-assistant/core/pull/73056
+[#73063]: https://github.com/home-assistant/core/pull/73063
+[#73096]: https://github.com/home-assistant/core/pull/73096
+[#73101]: https://github.com/home-assistant/core/pull/73101
+[#73102]: https://github.com/home-assistant/core/pull/73102
+[#73103]: https://github.com/home-assistant/core/pull/73103
+[#73139]: https://github.com/home-assistant/core/pull/73139
+[#73143]: https://github.com/home-assistant/core/pull/73143
+[@Bikonja]: https://github.com/Bikonja
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@gwww]: https://github.com/gwww
+[@hesselonline]: https://github.com/hesselonline
+[@lymanepp]: https://github.com/lymanepp
+[@marcelveldt]: https://github.com/marcelveldt
+[@rappenze]: https://github.com/rappenze
+[elkm1 docs]: /integrations/elkm1/
+[fibaro docs]: /integrations/fibaro/
+[ialarm_xr docs]: /integrations/ialarm_xr/
+[kodi docs]: /integrations/kodi/
+[logbook docs]: /integrations/logbook/
+[lookin docs]: /integrations/lookin/
+[rainmachine docs]: /integrations/rainmachine/
+[recorder docs]: /integrations/recorder/
+[simplisafe docs]: /integrations/simplisafe/
+[tomorrowio docs]: /integrations/tomorrowio/
+[velux docs]: /integrations/velux/
+[wallbox docs]: /integrations/wallbox/
+
+## Release 2022.6.4 - June 7
+
+- Fix errors when unjoining multiple Sonos devices simultaneously ([@jjlawren] - [#73133]) ([sonos docs])
+- Bump async-upnp-client==0.31.1 ([@StevenLooman] - [#73135]) ([upnp docs]) ([yeelight docs]) ([dlna_dmr docs]) ([samsungtv docs]) ([ssdp docs]) ([dlna_dms docs])
+- Use default None for voltage property of FritzDevice in Fritz!Smarthome ([@mib1185] - [#73141]) ([fritzbox docs])
+- Fix KeyError from ESPHome media players on startup ([@jesserockz] - [#73149]) ([esphome docs])
+- Fix bugs with RainMachine zone run time sensors ([@bachya] - [#73179]) ([rainmachine docs])
+- Fix creating unique IDs for WiFi switches in Fritz!Tools ([@mib1185] - [#73183]) ([fritz docs])
+- Bump pywemo to 0.9.1 ([@esev] - [#73186]) ([wemo docs])
+- Remove sqlalchemy lambda_stmt usage from history, logbook, and statistics ([@bdraco] - [#73191]) ([recorder docs]) ([logbook docs])
+
+[#73133]: https://github.com/home-assistant/core/pull/73133
+[#73135]: https://github.com/home-assistant/core/pull/73135
+[#73141]: https://github.com/home-assistant/core/pull/73141
+[#73149]: https://github.com/home-assistant/core/pull/73149
+[#73179]: https://github.com/home-assistant/core/pull/73179
+[#73183]: https://github.com/home-assistant/core/pull/73183
+[#73186]: https://github.com/home-assistant/core/pull/73186
+[#73191]: https://github.com/home-assistant/core/pull/73191
+[@StevenLooman]: https://github.com/StevenLooman
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@esev]: https://github.com/esev
+[@jesserockz]: https://github.com/jesserockz
+[@jjlawren]: https://github.com/jjlawren
+[@mib1185]: https://github.com/mib1185
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[dlna_dms docs]: /integrations/dlna_dms/
+[esphome docs]: /integrations/esphome/
+[fritz docs]: /integrations/fritz/
+[fritzbox docs]: /integrations/fritzbox/
+[logbook docs]: /integrations/logbook/
+[rainmachine docs]: /integrations/rainmachine/
+[recorder docs]: /integrations/recorder/
+[samsungtv docs]: /integrations/samsungtv/
+[sonos docs]: /integrations/sonos/
+[ssdp docs]: /integrations/ssdp/
+[upnp docs]: /integrations/upnp/
+[wemo docs]: /integrations/wemo/
+[yeelight docs]: /integrations/yeelight/
+
+## Release 2022.6.5 - June 10
+
+- Ensure netgear devices are tracked with one enabled config entry ([@starkillerOG] - [#72969]) ([netgear docs])
+- Bump yolink-api to 0.0.8 ([@matrixd2] - [#73173]) ([yolink docs])
+- Fix Feedreader Atom feeds using `updated` date ([@d0nni3q84] - [#73208]) ([feedreader docs])
+- Hive auth fix for users ([@KJonline] - [#73247]) ([hive docs])
+- Fix handling of connection error during Synology DSM setup ([@mib1185] - [#73248]) ([synology_dsm docs])
+- Bump regenmaschine to 2022.06.1 ([@bachya] - [#73250]) ([rainmachine docs])
+- Improve Netgear logging ([@starkillerOG] - [#73274]) ([netgear docs])
+- Fix polling frequency for Starling integration ([@Dullage] - [#73282]) ([starlingbank docs])
+- Fix reloading themes crashing if no themes configured ([@balloob] - [#73287]) ([frontend docs])
+- Bump version of pyunifiprotect to 3.9.0 ([@AngellusMortis] - [#73168]) ([unifiprotect docs])
+- Bumps version of pyunifiprotect to 3.9.1 ([@AngellusMortis] - [#73252]) ([unifiprotect docs])
+- Bumps version of pyunifiprotect to 3.9.2 to fix compat with protect 2.1.1 ([@AngellusMortis] - [#73299]) ([unifiprotect docs])
+- Fix initial tilt value of MQTT cover ([@emontnemery] - [#73308]) ([mqtt docs])
+- Fix wallbox sensor rounding ([@hesselonline] - [#73310]) ([wallbox docs])
+- Improve MQTT reload performance ([@emontnemery] - [#73313]) ([mqtt docs])
+- Guard MySQL size calculation returning None ([@balloob] - [#73331]) ([recorder docs])
+
+[#72969]: https://github.com/home-assistant/core/pull/72969
+[#73168]: https://github.com/home-assistant/core/pull/73168
+[#73173]: https://github.com/home-assistant/core/pull/73173
+[#73208]: https://github.com/home-assistant/core/pull/73208
+[#73247]: https://github.com/home-assistant/core/pull/73247
+[#73248]: https://github.com/home-assistant/core/pull/73248
+[#73250]: https://github.com/home-assistant/core/pull/73250
+[#73252]: https://github.com/home-assistant/core/pull/73252
+[#73274]: https://github.com/home-assistant/core/pull/73274
+[#73282]: https://github.com/home-assistant/core/pull/73282
+[#73287]: https://github.com/home-assistant/core/pull/73287
+[#73299]: https://github.com/home-assistant/core/pull/73299
+[#73308]: https://github.com/home-assistant/core/pull/73308
+[#73310]: https://github.com/home-assistant/core/pull/73310
+[#73313]: https://github.com/home-assistant/core/pull/73313
+[#73331]: https://github.com/home-assistant/core/pull/73331
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@Dullage]: https://github.com/Dullage
+[@KJonline]: https://github.com/KJonline
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@d0nni3q84]: https://github.com/d0nni3q84
+[@emontnemery]: https://github.com/emontnemery
+[@hesselonline]: https://github.com/hesselonline
+[@matrixd2]: https://github.com/matrixd2
+[@mib1185]: https://github.com/mib1185
+[@starkillerOG]: https://github.com/starkillerOG
+[feedreader docs]: /integrations/feedreader/
+[frontend docs]: /integrations/frontend/
+[hive docs]: /integrations/hive/
+[mqtt docs]: /integrations/mqtt/
+[netgear docs]: /integrations/netgear/
+[rainmachine docs]: /integrations/rainmachine/
+[recorder docs]: /integrations/recorder/
+[starlingbank docs]: /integrations/starlingbank/
+[synology_dsm docs]: /integrations/synology_dsm/
+[unifiprotect docs]: /integrations/unifiprotect/
+[wallbox docs]: /integrations/wallbox/
+[yolink docs]: /integrations/yolink/
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
@@ -381,8 +640,8 @@ The configuration needs to be updated to this format:
 ```yaml
 mqtt:
   sensor:
-   - name: "My sensor"
-     state_topic: "some-state-topic"
+    - name: "My sensor"
+      state_topic: "some-state-topic"
 ```
 
 ([@jbouwh] - [#71676] [#72183] [#72281] [#72249] [#72271] [#72167] [#72165] [#72251] [#72279] [#72268] [#72272] [#72273] [#72274] [#72278] [#72270]) ([documentation](/integrations/mqtt))
@@ -461,6 +720,26 @@ the documentation of the specific integration on how to configure this.
 
 [@frenck]: https://github.com/frenck
 [#72449]: https://github.com/home-assistant/core/pull/72449
+
+{% enddetails %}
+
+{% details "Home Assistant Container" %}
+
+If you run Home Assistant Container in Docker (e.g., using Portainer,
+Docker (Compose), QNAP, and others), please make sure you are not specifying
+an init process.
+
+This can be an `init` configuration option in your Docker management tools or
+Docker Compose, or the `--init` command line flag on the raw Docker command.
+These should **NOT** be set, as Home Assistant ships with the S6 init system.
+
+While you are at it, make sure you also do not set a `cmd` or `entrypoint`.
+Setting these are not breaking, however, you should not set them.
+
+([@pvizeli] - [#72425]) ([documentation](/installation))
+
+[@pvizeli]: https://github.com/pvizeli
+[#72425]: https://github.com/home-assistant/core/pull/72425
 
 {% enddetails %}
 
@@ -702,7 +981,7 @@ removed from your YAML configuration files.
 
 A new configuration key for KNX covers `invert_updown` can be set to
 invert the up-down payload (binary) of covers independently of the
-position percentage. 
+position percentage.
 
 Previously up-down (`move_long_address`) payloads were inverted
 when `invert_position: true` was configured. This now only inverts
@@ -1018,7 +1297,7 @@ removed from your YAML configuration after upgrading.
 The Squeezebox player synchronization framework has been updated to use the
 standard `media_player.join` and `media_player.unjoin` services. The
 list of synchronized players is now stored in the `group_members` state
-attribute. 
+attribute.
 
 The  `squeezebox.sync` and `squeezebox.unsync` services are now deprecated,
 and will be removed in two releases in favor of the standard
