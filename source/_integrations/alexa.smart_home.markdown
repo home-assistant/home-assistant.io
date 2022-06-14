@@ -217,7 +217,7 @@ Alexa needs to link your Amazon account to your Home Assistant account. Therefor
   - A new window will open to direct you to your Home Assistant's login screen.
   - After you successfully login, you will be redirected back to the Alexa app.
   - Alexa should automatically start discovering your devices now! This is indicated by a blue ring on your physical devices
-  - If not, ask alexa to `Discover Devices`
+  - If not, ask Alexa to `Discover Devices`
 - Now, you can ask Alexa from your Echo or the Alexa App, _"Alexa, turn on bedroom light"_ 🎉
 
 ## Alexa Smart Home Component Configuration
