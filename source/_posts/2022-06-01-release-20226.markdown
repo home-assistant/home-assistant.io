@@ -64,6 +64,7 @@ Enjoy the release (and upcoming events)!
 - [Release 2022.6.3 - June 6](#release-202263---june-6)
 - [Release 2022.6.4 - June 7](#release-202264---june-7)
 - [Release 2022.6.5 - June 10](#release-202265---june-10)
+- [Release 2022.6.6 - June 14](#release-202266---june-14)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -594,6 +595,47 @@ The following integrations are now available via the Home Assistant UI:
 [unifiprotect docs]: /integrations/unifiprotect/
 [wallbox docs]: /integrations/wallbox/
 [yolink docs]: /integrations/yolink/
+
+## Release 2022.6.6 - June 14
+
+- Filter out forced updates in live logbook when the state has not changed ([@bdraco] - [#73335]) ([logbook docs])
+- Fix zwave_js add node schemas ([@raman325] - [#73343]) ([zwave_js docs])
+- Hive Bump pyhiveapi to 0.5.10 for credentials fix ([@KJonline] - [#73365]) ([hive docs])
+- Fix reload race in yeelight when updating the ip address ([@bdraco] - [#73390]) ([yeelight docs])
+- Only update unifiprotect ips from discovery when the console is offline ([@bdraco] - [#73411]) ([unifiprotect docs])
+- Fix smart by bond detection with v3 firmware ([@marciogranzotto] - [#73414]) ([bond docs])
+- Bump aiohue to 4.4.2 ([@balloob] - [#73420]) ([hue docs])
+- Fix fan support in nest, removing FAN_ONLY which isn't supported ([@allenporter] - [#73422]) ([nest docs])
+- Guard withings accessing hass.data without it being set ([@balloob] - [#73454]) ([withings docs])
+- Fix max_value access for number platform in Overkiz ([@tetienne] - [#73479]) ([overkiz docs])
+
+[#73335]: https://github.com/home-assistant/core/pull/73335
+[#73343]: https://github.com/home-assistant/core/pull/73343
+[#73365]: https://github.com/home-assistant/core/pull/73365
+[#73390]: https://github.com/home-assistant/core/pull/73390
+[#73411]: https://github.com/home-assistant/core/pull/73411
+[#73414]: https://github.com/home-assistant/core/pull/73414
+[#73420]: https://github.com/home-assistant/core/pull/73420
+[#73422]: https://github.com/home-assistant/core/pull/73422
+[#73454]: https://github.com/home-assistant/core/pull/73454
+[#73479]: https://github.com/home-assistant/core/pull/73479
+[@KJonline]: https://github.com/KJonline
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@marciogranzotto]: https://github.com/marciogranzotto
+[@raman325]: https://github.com/raman325
+[@tetienne]: https://github.com/tetienne
+[bond docs]: /integrations/bond/
+[hive docs]: /integrations/hive/
+[hue docs]: /integrations/hue/
+[logbook docs]: /integrations/logbook/
+[nest docs]: /integrations/nest/
+[overkiz docs]: /integrations/overkiz/
+[unifiprotect docs]: /integrations/unifiprotect/
+[withings docs]: /integrations/withings/
+[yeelight docs]: /integrations/yeelight/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## Need help? Join the community!
 
