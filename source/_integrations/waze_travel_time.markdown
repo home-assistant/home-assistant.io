@@ -27,7 +27,7 @@ Notes:
 
 ## Manual Polling
 
-Some users will want to have more control over polling frequencies. To use more granular polling, disable automated polling in your config entry's System Options. To manually trigger a polling request, call the [`homeassistant.update_entity` service](/integrations/homeassistant/#service-homeassistantupdate_entity) as needed, either manually or via automations.
+Some users want more control over polling intervals. To use more granular polling, you can disable automated polling from the entry on the Integration page. Go to the Integrtaion page, select the entry, click on the vertical 3 dots, and then select System Options to turn off or on polling. Afterwards to manually trigger a polling request, call the [`homeassistant.update_entity` service](/integrations/homeassistant/#service-homeassistantupdate_entity) as needed, either manually or via automations.
 
 ## Example using dynamic destination
 
