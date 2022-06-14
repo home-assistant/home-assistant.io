@@ -11,7 +11,7 @@ The steps below do not apply to Home Assistant Core & Container installations, f
 
 </div>
 
-We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Home Assistant add-on store: the File editor. To get to the add-on store, click on the menu icon in the top left, then open {% my supervisor title="Settings > Add-ons" %}. On the new page, open the add-on store tab.
+We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Home Assistant add-on store: the File editor. To get to the add-on store, go to {% my supervisor title="Settings > Add-ons" %}. On the new page, open the add-on store tab.
 
 ![Add-on store.](/images/hassio/screenshots/dashboard.png)
 

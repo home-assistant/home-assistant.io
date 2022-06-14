@@ -115,7 +115,6 @@ Google Assistant devices can send their commands locally to Home Assistant allow
 Your Home Assistant instance needs to be connected to the same network as the Google Assistant device that you’re talking to so that it can be discovered via mDNS discovery (UDP broadcasts).
 
 Your Google Assistant devices will still communicate via the internet to:
-- Sync entities.
 - Get credentials to establish a local connection.
 - Send commands that involve a [secure device](#secure-device).
 - Send commands if local fulfillment fails.
