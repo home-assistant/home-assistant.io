@@ -16,6 +16,8 @@ og_image: /images/blog/2022-05-matter-in-home-assistant-workshop-announcement/so
 
 ## [The workshop instructions can be found here.](/matter-june-22)
 
+## [Home Assistant SkyConnect interest form](/skyconnect-interest)
+
 Matter is a new [smart home standard](https://csa-iot.org/all-solutions/matter/) that is scheduled to launch in fall. Across the industry, companies like Hue, IKEA, Google and Apple are working together to try and solve connectivity, ease of setup and interoperability once and for all. Development is happening as part of the [Connectivity Standards Alliance](https://csa-iot.org/) (CSA) of which we ([Nabu Casa](https://www.nabucasa.com)) are also a participating member.
 
 <center><img src='/images/supported_brands/matter.png' alt='Matter logo' class='no-shadow'></center><br>
