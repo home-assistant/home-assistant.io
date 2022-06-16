@@ -63,6 +63,8 @@ Enjoy the release (and upcoming events)!
 - [Release 2022.6.2 - June 4](#release-202262---june-4)
 - [Release 2022.6.3 - June 6](#release-202263---june-6)
 - [Release 2022.6.4 - June 7](#release-202264---june-7)
+- [Release 2022.6.5 - June 10](#release-202265---june-10)
+- [Release 2022.6.6 - June 14](#release-202266---june-14)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -534,6 +536,106 @@ The following integrations are now available via the Home Assistant UI:
 [upnp docs]: /integrations/upnp/
 [wemo docs]: /integrations/wemo/
 [yeelight docs]: /integrations/yeelight/
+
+## Release 2022.6.5 - June 10
+
+- Ensure netgear devices are tracked with one enabled config entry ([@starkillerOG] - [#72969]) ([netgear docs])
+- Bump yolink-api to 0.0.8 ([@matrixd2] - [#73173]) ([yolink docs])
+- Fix Feedreader Atom feeds using `updated` date ([@d0nni3q84] - [#73208]) ([feedreader docs])
+- Hive auth fix for users ([@KJonline] - [#73247]) ([hive docs])
+- Fix handling of connection error during Synology DSM setup ([@mib1185] - [#73248]) ([synology_dsm docs])
+- Bump regenmaschine to 2022.06.1 ([@bachya] - [#73250]) ([rainmachine docs])
+- Improve Netgear logging ([@starkillerOG] - [#73274]) ([netgear docs])
+- Fix polling frequency for Starling integration ([@Dullage] - [#73282]) ([starlingbank docs])
+- Fix reloading themes crashing if no themes configured ([@balloob] - [#73287]) ([frontend docs])
+- Bump version of pyunifiprotect to 3.9.0 ([@AngellusMortis] - [#73168]) ([unifiprotect docs])
+- Bumps version of pyunifiprotect to 3.9.1 ([@AngellusMortis] - [#73252]) ([unifiprotect docs])
+- Bumps version of pyunifiprotect to 3.9.2 to fix compat with protect 2.1.1 ([@AngellusMortis] - [#73299]) ([unifiprotect docs])
+- Fix initial tilt value of MQTT cover ([@emontnemery] - [#73308]) ([mqtt docs])
+- Fix wallbox sensor rounding ([@hesselonline] - [#73310]) ([wallbox docs])
+- Improve MQTT reload performance ([@emontnemery] - [#73313]) ([mqtt docs])
+- Guard MySQL size calculation returning None ([@balloob] - [#73331]) ([recorder docs])
+
+[#72969]: https://github.com/home-assistant/core/pull/72969
+[#73168]: https://github.com/home-assistant/core/pull/73168
+[#73173]: https://github.com/home-assistant/core/pull/73173
+[#73208]: https://github.com/home-assistant/core/pull/73208
+[#73247]: https://github.com/home-assistant/core/pull/73247
+[#73248]: https://github.com/home-assistant/core/pull/73248
+[#73250]: https://github.com/home-assistant/core/pull/73250
+[#73252]: https://github.com/home-assistant/core/pull/73252
+[#73274]: https://github.com/home-assistant/core/pull/73274
+[#73282]: https://github.com/home-assistant/core/pull/73282
+[#73287]: https://github.com/home-assistant/core/pull/73287
+[#73299]: https://github.com/home-assistant/core/pull/73299
+[#73308]: https://github.com/home-assistant/core/pull/73308
+[#73310]: https://github.com/home-assistant/core/pull/73310
+[#73313]: https://github.com/home-assistant/core/pull/73313
+[#73331]: https://github.com/home-assistant/core/pull/73331
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@Dullage]: https://github.com/Dullage
+[@KJonline]: https://github.com/KJonline
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@d0nni3q84]: https://github.com/d0nni3q84
+[@emontnemery]: https://github.com/emontnemery
+[@hesselonline]: https://github.com/hesselonline
+[@matrixd2]: https://github.com/matrixd2
+[@mib1185]: https://github.com/mib1185
+[@starkillerOG]: https://github.com/starkillerOG
+[feedreader docs]: /integrations/feedreader/
+[frontend docs]: /integrations/frontend/
+[hive docs]: /integrations/hive/
+[mqtt docs]: /integrations/mqtt/
+[netgear docs]: /integrations/netgear/
+[rainmachine docs]: /integrations/rainmachine/
+[recorder docs]: /integrations/recorder/
+[starlingbank docs]: /integrations/starlingbank/
+[synology_dsm docs]: /integrations/synology_dsm/
+[unifiprotect docs]: /integrations/unifiprotect/
+[wallbox docs]: /integrations/wallbox/
+[yolink docs]: /integrations/yolink/
+
+## Release 2022.6.6 - June 14
+
+- Filter out forced updates in live logbook when the state has not changed ([@bdraco] - [#73335]) ([logbook docs])
+- Fix zwave_js add node schemas ([@raman325] - [#73343]) ([zwave_js docs])
+- Hive Bump pyhiveapi to 0.5.10 for credentials fix ([@KJonline] - [#73365]) ([hive docs])
+- Fix reload race in yeelight when updating the ip address ([@bdraco] - [#73390]) ([yeelight docs])
+- Only update unifiprotect ips from discovery when the console is offline ([@bdraco] - [#73411]) ([unifiprotect docs])
+- Fix smart by bond detection with v3 firmware ([@marciogranzotto] - [#73414]) ([bond docs])
+- Bump aiohue to 4.4.2 ([@balloob] - [#73420]) ([hue docs])
+- Fix fan support in nest, removing FAN_ONLY which isn't supported ([@allenporter] - [#73422]) ([nest docs])
+- Guard withings accessing hass.data without it being set ([@balloob] - [#73454]) ([withings docs])
+- Fix max_value access for number platform in Overkiz ([@tetienne] - [#73479]) ([overkiz docs])
+
+[#73335]: https://github.com/home-assistant/core/pull/73335
+[#73343]: https://github.com/home-assistant/core/pull/73343
+[#73365]: https://github.com/home-assistant/core/pull/73365
+[#73390]: https://github.com/home-assistant/core/pull/73390
+[#73411]: https://github.com/home-assistant/core/pull/73411
+[#73414]: https://github.com/home-assistant/core/pull/73414
+[#73420]: https://github.com/home-assistant/core/pull/73420
+[#73422]: https://github.com/home-assistant/core/pull/73422
+[#73454]: https://github.com/home-assistant/core/pull/73454
+[#73479]: https://github.com/home-assistant/core/pull/73479
+[@KJonline]: https://github.com/KJonline
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@marciogranzotto]: https://github.com/marciogranzotto
+[@raman325]: https://github.com/raman325
+[@tetienne]: https://github.com/tetienne
+[bond docs]: /integrations/bond/
+[hive docs]: /integrations/hive/
+[hue docs]: /integrations/hue/
+[logbook docs]: /integrations/logbook/
+[nest docs]: /integrations/nest/
+[overkiz docs]: /integrations/overkiz/
+[unifiprotect docs]: /integrations/unifiprotect/
+[withings docs]: /integrations/withings/
+[yeelight docs]: /integrations/yeelight/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## Need help? Join the community!
 
