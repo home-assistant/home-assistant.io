@@ -42,19 +42,40 @@ Home Assistant can group multiple binary sensors, covers, fans, lights, locks, m
 
 ## Group behavior
 
-By default, when any group member entity is `on`, the group will also be `on`. A complete overview of how groups behave:
+### Binary sensor, light and switch groups
 
-- The group state is `on` if at least one group member is `on`.
-- Otherwise, the group state is `unavailable` if all group members are `unavailable`.
+In short, when any group member entity is `on`, the group will also be `on`. A complete overview of how groups behave:
+
+- The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if all group members are `unknown`.
+- Otherwise, the group state is `on` if at least one group member is `on`.
 - Otherwise, the group state is `off`.
 
-Some groups, like the binary sensors and lights, allow you set the "All entities" option. When enabled, this behavior is inverted, and all members of the group have to be `on` for the group to turn `on` as well. A complete overview of how groups behave when the "All entities" option is enabled:
+Binary sensor, light and switch groups allow you set the "All entities" option. When enabled, the group behavior is inverted, and all members of the group have to be `on` for the group to turn `on` as well. A complete overview of how groups behave when the "All entities" option is enabled:
 
-- The group state is `off` if at least one group member is `off`.
-- Otherwise, the group state is `unavailable` if all group members are `unavailable`.
+- The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if at least one group member is `unknown` or `unavailable`.
+- Otherwise, the group state is `off` if at least one group member is `off`.
 - Otherwise, the group state is `on`.
+
+### Cover groups
+Not yet documented
+
+### Fan groups
+Not yet documented
+
+### Lock groups
+In short, when any group member entity is `unlocked`, the group will also be `unlocked`. A complete overview of how groups behave:
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is `unknown` if at least one group member is `unknown` or `unavailable`.
+- Otherwise, the group state is `jammed` if at least one group member is `jammed`.
+- Otherwise, the group state is `locking` if at least one group member is `locking`.
+- Otherwise, the group state is `unlocking` if at least one group member is `unlocking`.
+- Otherwise, the group state is `unlocked` if at least one group member is `unlocked`.
+- Otherwise, the group state is `locked`.
+
+### Media player groups
+Not yet documented
 
 ## Managing groups
 
