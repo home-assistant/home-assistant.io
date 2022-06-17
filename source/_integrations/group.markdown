@@ -59,13 +59,23 @@ Binary sensor, light and switch groups allow you set the "All entities" option. 
 - Otherwise, the group state is `on`.
 
 ### Cover groups
-Not yet documented
+In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover groups behave:
+
+- The group state is `unknown` if all group members are `unknown` or `unavailable`.
+- Otherwise, the group state is `opening` if at least one group member is `opening`.
+- Otherwise, the group state is `closing` if at least one group member is `closing`.
+- Otherwise, the group state is `open` if at least one group member is `open`.
+- Otherwise, the group state is `closed`.
 
 ### Fan groups
-Not yet documented
+Fan groups don't support `unavailable` or `unknown` states.
+
+- The group state is `on` if at least one group member is `on`.
+- Otherwise, the group state is `off`.
 
 ### Lock groups
-In short, when any group member entity is `unlocked`, the group will also be `unlocked`. A complete overview of how groups behave:
+In short, when any group member entity is `unlocked`, the group will also be `unlocked`. A complete overview of how fan groups behave:
+
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if at least one group member is `unknown` or `unavailable`.
 - Otherwise, the group state is `jammed` if at least one group member is `jammed`.
@@ -75,7 +85,15 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 - Otherwise, the group state is `locked`.
 
 ### Media player groups
-Not yet documented
+
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is `unknown` if all group members are `unknown`.
+- Otherwise, the group state is `buffering` if all group members are `buffering`.
+- Otherwise, the group state is `idle` if all group members are `idle`.
+- Otherwise, the group state is `paused` if all group members are `paused`.
+- Otherwise, the group state is `playing` if all group members are `playing`.
+- Otherwise, the group state is `on` if at least one group member is not `off`, `unavailable` or `unknown`.
+- Otherwise, the group state is `off`.
 
 ## Managing groups
 
