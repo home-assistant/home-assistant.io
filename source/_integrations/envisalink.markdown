@@ -30,7 +30,7 @@ There is currently support for the following device types within Home Assistant:
 
 This is a fully event-based component. Any event sent by the Envisalink device will be immediately reflected within Home Assistant.
 
-As of 0.29, the alarm_trigger service is supported.  It is possible to fire off an envisalink-based alarm directly from Home Assistant.  For example, a newer Z-Wave / Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
+As of 0.29, the alarm_trigger service is supported.  It is possible to fire off an envisalink-based alarm directly from Home Assistant. For example, a newer Z-Wave/Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
 
 An `envisalink` section must be present in the `configuration.yaml` file and contain the following options as required:
 
@@ -70,11 +70,11 @@ panel_type:
   required: true
   type: string
 user_name:
-  description: Which username to authenticate with when connecting to the device. This must be the username for connecting directly to the device and not the username for your EyezOn account.  On a Honeywell alarm panel, the username/password are the same.
+  description: Which username to authenticate with when connecting to the device. This must be the username for connecting directly to the device and not the username for your EyezOn account. On a Honeywell alarm panel, the username/password are the same.
   required: true
   type: string
 password:
-  description: Which password to authenticate with when connecting to the device. This must be the password for connceting directly to the device and not the password for your EyezOn account.  EVL3 only works with max. 6 characters.
+  description: Which password to authenticate with when connecting to the device. This must be the password for connceting directly to the device and not the password for your EyezOn account. EVL3 only works with max. 6 characters.
   required: true
   type: string
 code:
