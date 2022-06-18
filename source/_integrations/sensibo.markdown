@@ -89,10 +89,10 @@ For Pure devices, these sensors are available:
 
 ### Pure Boost
 
-You can configure your Pure Boost settings by using the services `Enable Pure Boost` and `Disable Pure Boost` that is provided.
+You can configure your Pure Boost settings by using the services `sensibo.enable_pure_boost` and `sensibo.disable_pure_boost` that is provided.
 
 - Enable Pure Boost will enable the service and optionally you can configure the settings.
-- Disable Pure Boost will disable the service and leave settings intact so a later enable will use settings already in place.
+- Disable Pure Boost will disable the service and leave settings intact so a later enable will use settings already in place if not new are configured.
 
 Using Geo integration for Pure Boost is only possible by pre-configuration of Presence within the app.
 
