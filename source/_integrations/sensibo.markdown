@@ -87,14 +87,12 @@ For Pure devices, these sensors are available:
 
 ## Custom Services
 
-### Set Timer
+### Timer
 
-You can set or delete a timer to turn on/off your climate device using the `sensibo.timer` service.
+You can enable or disable a timer by using the services `sensibo.enable_timer` and `sensibo.disable_timer` that is provided.
 
-Choose your Sensibo device as entity
-
-- Set state to on and provide a value as minutes and it will start or stop your choosen device with the minutes as delay.
-- Set state to off and it will deactivate a previously running timer.
+- Enable Timer and provide minutes as input will start or stop the climate entity (depending on current state) with provided minutes as delay.
+- Disable Timer will disable a current running timer
 
 ## Adding a quick switch example
 
