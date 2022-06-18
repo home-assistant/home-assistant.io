@@ -48,14 +48,14 @@ Example Automation:
 
 ```yaml
 - service: notify.entity_id
-      data:
-        message: "This is the message"
-        title: "Title of message"
-        data:
-          url: "https://www.home-assistant.io/"
-          sound: pianobar
-          priority: 0
-          attachment: "local/image.png"
+  data:
+    message: "This is the message"
+    title: "Title of message"
+    data:
+      url: "https://www.home-assistant.io/"
+      sound: pianobar
+      priority: 0
+      attachment: "local/image.png"
 ```
 
 Component specific values in the nested `data` section are optional.
@@ -66,15 +66,15 @@ To use a specific Pushover device, set it using `target`. If one of the entered 
 
 ```yaml
 - service: notify.entity_id
-      data:
-        message: "This is the message"
-        title: "Title of message"
-        target:
-          - pixel3
-          - pixel4a
-        data:
-          sound: pianobar
-          priority: 0
+  data:
+    message: "This is the message"
+    title: "Title of message"
+    target:
+      - pixel3
+      - pixel4a
+    data:
+      sound: pianobar
+      priority: 0
 ```
 
 

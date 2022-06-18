@@ -56,7 +56,7 @@ verify ssl:
 {% endconfiguration_basic %}
 
 ### API Key
-For the integration to work, please check that the plugin Discovery is enabled.
+For the integration to work, please check that in Octoprint, the plugin Discovery is enabled and in the settings -> printer notifications menu pop-ups are enabled.
 The Octoprint integration will attempt to register itself via the [application keys plugin](https://docs.octoprint.org/en/master/bundledplugins/appkeys.html). After submitting the configuration UI in Home Assistant, open the Octoprint UI and click allow on the prompt. 
 
 ## Binary Sensor
