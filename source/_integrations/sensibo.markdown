@@ -61,6 +61,10 @@ For Pure devices, these sensors are available:
 - Pure Boost linked with Presence
 - Pure Boost linked with Outdoor Air Quality
 
+For climate devices, these sensors are available:
+
+- Filter Clean Required
+
 ## Select Entities
 
 For supported devices, this integration provides support to set the following modes by the select entity:
@@ -85,6 +89,10 @@ For Pure devices, these sensors are available:
 - PM2.5
 - Pure Boost Sensitivity
 
+For climate devices, these sensors are available:
+
+- Filter last reset
+
 ## Custom Services
 
 ### Pure Boost
@@ -95,6 +103,12 @@ You can configure your Pure Boost settings by using the services `sensibo.enable
 - Disable Pure Boost will disable the service and leave settings intact, so a later enable will use settings already in place if not new are configured.
 
 Using Geo integration for Pure Boost is only possible by pre-configuration of Presence within the app.
+
+### Reset Filter
+
+You can reset your filter check by using the service `sensibo.reset_filter`.
+
+By using the service you tell your device that you have either cleaned or replaced the filter.
 
 ## Adding a quick switch example
 
