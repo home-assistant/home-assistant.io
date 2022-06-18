@@ -16,7 +16,7 @@ When a timer finishes or gets canceled the corresponding events are fired. This 
 
 
 ## Configuration
-The preferred way to configure timer helpers is via the user interface. To add one, go to Settings -> Automations & Scenes, select the "Helpers" tab and click the add button; next choose the “Timer” option.
+The preferred way to configure timer helpers is via the user interface. To add one, go to Settings -> Devices & Services, select the "Helpers" tab and click the add button; next choose the “Timer” option.
 
 You can also click the following button to be redirected to the Helpers page of your Home Assistant instance.
 
