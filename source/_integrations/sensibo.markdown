@@ -9,6 +9,7 @@ ha_category:
   - Number
   - Select
   - Sensor
+  - Switch
   - Updates
 ha_release: 0.44
 ha_iot_class: Cloud Polling
@@ -25,6 +26,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
   - update
 ha_homekit: true
 ha_dhcp: true
@@ -101,6 +103,12 @@ For climate devices, these sensors are available:
 
 - Filter last reset
 
+## Switch Entities
+
+For supported devices, this integration provides support to enable/disable a timer to delay a start or stop (depending on the current state) of your device.
+
+The switch uses a timer of 60 minutes delay. You can choose a custom delay using the custom `sensibo.enable_timer` service. See [Timer](#timer).
+
 ## Custom Services
 
 ### Pure Boost
@@ -111,6 +119,10 @@ You can configure your Pure Boost settings by using the services `sensibo.enable
 - Disable Pure Boost will disable the service and leave settings intact, so a later enable will use settings already in place if not new are configured.
 
 Using Geo integration for Pure Boost is only possible by pre-configuration of Presence within the app.
+
+### Timer
+
+You can enable a timer with a custom delay using the service `sensibo.enable_timer` that is provided.
 
 ## Adding a quick switch example
 
