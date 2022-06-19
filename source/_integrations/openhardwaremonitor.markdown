@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: openhardwaremonitor
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `openhardwaremonitor` platform uses your [Open Hardware Monitor](https://openhardwaremonitor.org/) installation as a source for sensors that will display system information.

@@ -15,17 +15,22 @@ ha_platforms:
   - cover
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
-The Somfy integration will allow users to integrate their Somfy devices into Home Assistant using the [official API](https://developer.somfy.com/somfy-open-api/apis), unlike the [Tahoma](/integrations/tahoma/) integration.
+<div class="note warning">
+
+The Somfy Open API (cloud-based) has been deprecated in favor of the [Somfy TaHoma Developer Mode](https://developer.somfy.com/developer-mode) and will shut down after June 21st, 2022. The [Overkiz integration](/integrations/overkiz/) will support this new local API and can already be used to control your Somfy devices via the cloud.
+
+</div>
+
+The Somfy integration will allow users to integrate their Somfy devices into Home Assistant using the [official API](https://developer.somfy.com/somfy-open-api/apis).
 
 ## Installation
 
 Somfy is leveraging the new account linking service. This means that to set up Somfy, you only need to go to the integrations page and click on add new integration.
 
-<div class='videoWrapper'>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/y0SECWUVR-M" frameborder="0" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="y0SECWUVR-M" videotitle="New OAuth2 account linking service" posterquality="maxresdefault"></lite-youtube>
 
 ## Installation with own developer account
 
@@ -71,31 +76,3 @@ optimistic:
 **optimistic** mode should only be used when the integration is not able to gain information on whether a cover is open or closed (e.g., [RTS](https://www.somfysystems.com/en-us/discover-somfy/technology/radio-technology-somfy) devices). It will attempt to track the status within Home Assistant. This mode should only be used if Home Assistant is the only way you operate the blind. If you also use the physical remote control or the Somfy app, Home Assistant will become out of sync.
 
 {% include integrations/config_flow.md %}
-
-### Potential duplicate with the Tahoma integration
-
-If you use the [Tahoma](/integrations/tahoma) integration, you will have to exclude the covers added by this one. Otherwise, they will be added twice.
-
-```yaml
-# Example configuration.yaml entry
-tahoma:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  exclude:
-    [
-      "rts:RollerShutterRTSComponent",
-      "rts:CurtainRTSComponent",
-      "rts:BlindRTSComponent",
-      "rts:VenetianBlindRTSComponent",
-      "rts:DualCurtainRTSComponent",
-      "rts:ExteriorVenetianBlindRTSComponent",
-      "io:ExteriorVenetianBlindIOComponent",
-      "io:RollerShutterUnoIOComponent",
-      "io:RollerShutterWithLowSpeedManagementIOComponent",
-      "io:RollerShutterVeluxIOComponent",
-      "io:RollerShutterGenericIOComponent",
-      "io:WindowOpenerVeluxIOComponent",
-      "io:VerticalExteriorAwningIOComponent",
-      "io:HorizontalAwningIOComponent",
-    ]
-```

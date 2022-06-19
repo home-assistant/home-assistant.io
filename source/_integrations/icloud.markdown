@@ -14,6 +14,7 @@ ha_domain: icloud
 ha_platforms:
   - device_tracker
   - sensor
+ha_integration_type: integration
 ---
 
 The `icloud` integration allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices.
@@ -38,18 +39,6 @@ To prevent excessive battery drainage, a dynamic interval is used for each indiv
 ## Two Factor Authentication
 
 If two-step authentication is enabled for your iCloud account, some time after Home Assistant startup the integration will ask to enter the verification code you receive on your device via a notification in the Home Assistant UI. The duration of this authentication is determined by Apple, so you will need to verify your account every now and then.
-
-### App Specific Passwords
-Apple allows you to provide an [App Specific Password](https://support.apple.com/en-gb/HT204397), which **don't require two factor authentication**, and one could argue more secure than storing your iCloud password within Home Assistant.
-#### How to generate an app-specific password
-
-1. Sign in to your [Apple ID account page](https://appleid.apple.com/account/home).
-2. In the Security section, click Generate Password below App-Specific Passwords.
-3. Follow the steps on your screen.
-
-After you generate your app-specific password, enter or paste it into the password field of the integration.
-
-Any time you change or reset your primary Apple ID password, all your app-specific passwords are revoked automatically to protect the security of your account. You'll need to generate new app-specific passwords for any apps that you want to continue using.
 
 ## In case of troubleshooting
 

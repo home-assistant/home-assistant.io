@@ -14,7 +14,7 @@ A partial backup consists of any number of the above default directories and ins
 
 ### Making a Backup from the UI
 
-1. Go to {% my supervisor_backups title="Supervisor > Backups" %} in the UI.
+1. Go to {% my supervisor_backups title="Settings > System > Backups" %} in the UI.
 2. Provide a name for the backup.
 3. Choose full or partial.
 4. Choose to password protect or not. Password-protected backups cannot easily be browsed outside of Home Assistant OS.
@@ -56,4 +56,4 @@ You often need a backup in case your system has crashed. If you only store them 
 - [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync)
 - [Nextcloud Backup](https://github.com/Sebclem/hassio-nextcloud-backup)
 - [Samba backup](https://github.com/thomasmauerer/hassio-addons/tree/master/samba-backup)
-- [Remote Backup (uses scp)](https://github.com/overkill32/hassio-remote-backup)
+- [Remote Backup (scp/rsync/rclone)](https://github.com/ikifar2012/remote-backup-addon)

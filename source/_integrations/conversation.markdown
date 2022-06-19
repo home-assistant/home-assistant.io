@@ -9,6 +9,7 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: conversation
+ha_integration_type: integration
 ---
 
 The conversation integration allows you to converse with Home Assistant. You can either converse by pressing the microphone in the frontend (supported browsers only (no iOS)) or by calling the `conversation/process` service with the transcribed text.
@@ -94,7 +95,7 @@ intent_script:
 
 {% endraw %}
 
-#### Service `conversation.process`
+## Service `conversation.process`
 
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|

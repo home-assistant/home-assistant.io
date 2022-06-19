@@ -27,7 +27,7 @@ The best way to get this data is directly from your electricity meter that sits 
 
 The P1 port is a standardized port in the Netherlands, Belgium and Luxembourg. A P1 reader can connect to this port and receive real-time information.
 
-We have worked with creator [Marcel Zuidwijk](https://www.zuidwijk.com) to develop [SlimmeLezer](https://www.slimmelezer.nl). It's an affordable P1 reader powered by [ESPHome](https://esphome.io) that will seamlessly integrate this information in Home Assistant. It is being sold on [his website](https://www.slimmelezer.nl) and the firmware is open source [on GitHub](https://github.com/zuidwijk/dsmr).
+We have worked with creator [Marcel Zuidwijk](https://www.zuidwijk.com) to develop [SlimmeLezer+](https://www.zuidwijk.com/product/slimmelezer-plus/). It's an affordable P1 reader powered by [ESPHome](https://esphome.io) that will seamlessly integrate this information in Home Assistant. It is being sold on [his website](https://www.zuidwijk.com/product/slimmelezer-plus/) and the firmware is open source [on GitHub](https://github.com/zuidwijk/dsmr).
 
 ![Photo of SlimmeLezer attached to a smart electricity meter](/images/docs/energy/slimmelezer.jpg)
 
@@ -59,6 +59,10 @@ _Attention! Installing CT clamp sensor devices requires opening your electrical 
 
 Some energy providers will provide you real-time information about your usage and have this data integrated into Home Assistant.
 
+### Troubleshooting ###
+
+If you are unable to select your energy sensor in the grid consumption drop-down, make sure that its value is being recorded in the Recorder settings.
+
 [Energy integrations](/integrations/#energy)
 
-_Disclaimer: Some links on this page are affiliate links._
+_Disclaimer: Some links on this page are affiliate links helping support the Home Assistant project._

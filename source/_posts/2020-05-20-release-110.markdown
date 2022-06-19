@@ -148,7 +148,7 @@ You can also set the attribute you want to show as the secondary information.
 Screenshot of the updated weather card.
 </p>
 
-Check the [documentation](/lovelace/weather-forecast/) for more information.
+Check the [documentation](/dashboards/weather-forecast/) for more information.
 
 ## Internal & External URLs
 
@@ -262,7 +262,7 @@ Screenshot of an ONVIF camera in Home Assistant.
 
 ## Supervisor
 
-Have you seen the new supervisor UI? [@ludeeus] did a great job redoing it's UI!
+Have you seen the new supervisor UI? [@ludeeus] did a great job redoing its UI!
 It now uses the same tabs as the configuration panel. The add-on page is split
 into multiple tabs, the add-on store is cleaned up and you can view all logs
 in the system tab now (requires advanced mode).

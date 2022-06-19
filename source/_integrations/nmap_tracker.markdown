@@ -9,6 +9,7 @@ ha_domain: nmap_tracker
 ha_platforms:
   - device_tracker
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using Nmap. The IP addresses to scan can be specified in any format that Nmap understands, including the network-prefix notation (`192.168.1.1/24`) and the range notation (`192.168.1.1-255`).
@@ -28,6 +29,27 @@ On a Fedora host run `sudo dnf -y install nmap`.
 {% include integrations/config_flow.md %}
 
 An example of how the Nmap scanner can be customized:
+![nmap customization example](/images/integrations/nmap/nmap_customization_example.png)
+
+{% configuration_basic %}
+Network addresses to scan:
+  description: Network range to scan using [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). In the example above it will scan addresses from `192.168.1.1` to `192.168.1.254`.
+  required: true
+  type: string
+Minimum number of minutes between scans of active devices:
+  description: Frequency of the scans. The lower the number, the quicker it will detect devices connected and disconnected usually at the cost of the devices battery life. The example above will scan every minute.
+  required: true
+  type: integer
+Network addresses to exclude from scanning:
+  description: A comma-separated list of IP addresses not to scan. The above example will skip `192.168.1.50`.
+  required: false
+  type: string
+Raw configurable scan options for Nmap:
+  description: Nmap command line parameters which can be used to configure how Nmap scans the network. For more details see [Nmap reference guide](https://nmap.org/book/man.html).
+  required: false
+  type: string
+  default: -F T4 --min-rate 10 --host-timeout 5s
+{% endconfiguration_basic %}
 
 ### Linux capabilities
 

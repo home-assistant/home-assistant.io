@@ -9,9 +9,12 @@ ha_config_flow: true
 ha_domain: iotawatt
 ha_codeowners:
   - '@gtdiehl'
+  - '@jyavenard'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
+
 Integration for the [IoTaWatt](https://www.iotawatt.com/) Open WiFi Electricity Monitor. It
 will collect data from the Current Transformer Clamps (Input CTs) and any Outputs that are defined on the IoTaWatt
 and create them as sensors in Home Assistant.
@@ -20,9 +23,9 @@ and create them as sensors in Home Assistant.
 
 ## Energy management
 
-IoTaWatt does not provide the exact data that is needed for energy management. We're working with the IotaWatt team on resolving this.
+You can use the accumulated energy sensors directly with the Home Assistant energy dashboard.
 
-Until then, you can use these instructions to create the correct entities that work with energy management:
+If you have an energy production system such as solar panels, following these instructions:
 
 ### Configure IoTaWatt
 
@@ -35,18 +38,17 @@ You will need to configure two new IoTaWatt output sensors:
 
 Replace `(Main_In_Red + Main_In_White + Main_In_Blue)` with the correct formula for your main feed.
 
-### Configure Home Assistant
+#### Using a solar net system
 
-Add the following to your configuration.yaml file to convert the Watt measurements into kWh:
+The IoTaWatt team recommends that the inputs for solar reads positive which can be achieved by either changing the orientation of the CT sensor or in the IoTaWatt's input settings, check `Reverse`.
 
-```yaml
-sensor iotawatt:
-  - platform: integration
-    source: sensor.mainsexport
-    name: Total Grid Export
-    unit_prefix: k
-  - platform: integration
-    source: sensor.mainsconsumption
-    name: Total Grid Consumption
-    unit_prefix: k
-```
+Replace `(Main_In_Red + Main_In_White + Main_In_Blue)` with `(Main_In_Red + Main_In_White + Main_In_Blue - Solar)`
+
+If you have two solar sensors named `Solar1` and `Solar2` you would use:
+`(Main_In_Red + Main_In_White + Main_In_Blue - Solar1 - Solar2)`
+
+### Configure Energy Management
+
+In the `Grid Consumption` settings, click `Add Consumption` and select `MainsConsumption.wh Accumulated`
+In the `Return to grid` settings, click `Add Return` and select `MainsExport.wh Accumulated`
+In the `Solar production` settings, click `Add Solar Production` and select `Solar.wh Accumulated`

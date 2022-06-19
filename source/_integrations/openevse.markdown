@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: openevse
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 This `openevse` sensor platform pulls data from an [OpenEVSE](https://www.openevse.com/) Charging station equipped with an ESP8266-based Wi-Fi connection.

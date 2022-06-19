@@ -11,7 +11,6 @@ categories:
 - Release-Notes
 - Core
 og_image: /images/blog/2021-08/social.png
-feedback: true
 ---
 
 <a href='/integrations/#version/2021.8'><img src='/images/blog/2021-08/social.png' style='border: 0;box-shadow: none;'></a>
@@ -122,7 +121,7 @@ Every hour, we calculate things like mean, min/max values, or the difference
 created that hour and store just that result in our long-term statistics.
 
 These statistics is what partly powers the new Energy dashboard, however,
-they can be used for anything else: Introducing the Lovelace [statistics graph card](/lovelace/statistics-graph/).
+they can be used for anything else: Introducing the Lovelace [statistics graph card](/dashboards/statistics-graph/).
 
 <p class='img'>
 <img src='/images/blog/2021-08/statistics-graph.png' alt='Screenshot of the new Lovelace statistics graph card'>
@@ -171,7 +170,7 @@ Screenshot of the Gauge card in needle mode with severity configured.
 </p>
 
 These settings are available straight from the Lovelace UI editor; More
-information and examples can be found in the [Gauge card documentation](/lovelace/gauge/).
+information and examples can be found in the [Gauge card documentation](/dashboards/gauge/).
 
 ## Currency core setting
 

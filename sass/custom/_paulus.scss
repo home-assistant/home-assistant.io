@@ -186,6 +186,47 @@ $primary-color: #049cdb;
       background-color: lighten(#038fc7, 10%);
     }
   }
+  .events {
+    padding: 16px;
+    
+    h3 {
+      margin-top: 8px;
+    } 
+
+    .event {
+      display: flex;
+      flex-wrap: wrap-reverse;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+  
+      .caption {
+        padding: 0 12px;
+        max-width: 450px;
+      }
+  
+      .title {
+        font-size: 20px;
+        font-weight: 400;
+      }
+  
+      .secondary {
+        color: rgba(0, 0, 0, 0.54);
+        font-size: 14px;
+        font-weight: 500;
+      }
+  
+      .subtitle {
+        font-size: 12px;
+        font-weight: initial;
+      }
+  
+      img {
+        width: 200px;
+        height: 100%;
+      }
+    }
+  }
 
   .picture-promo {
     display: block;
@@ -240,14 +281,28 @@ $primary-color: #049cdb;
     }
   }
 
+  .sponsors-and-press {
+    margin-top:24px;
+  }
+  
+  .sponsored-by {
+    img {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 15px;
+      max-width: 40%;
+      max-height: 80px;
+    }    
+
+  }
+  
   .seen-press {
-    margin-top: 24px;
 
     img {
       border: 0;
       box-shadow: none;
       margin: 15px;
-      width: 100%;
       max-width: 40%;
       max-height: 70px;
     }
@@ -261,6 +316,19 @@ $primary-color: #049cdb;
     }
   }
 }
+
+@media screen and (max-width: 700px) {
+  .frontpage .events .event {
+    .caption {
+      padding-top: 4px;
+    }
+
+    img {
+       width: 100%;
+   }
+  }
+ }
+
 
 // https://fortawesome.github.io/Font-Awesome/3.2.1/icons/
 
@@ -277,7 +345,7 @@ dt:hover a.title-link {
     position: absolute;
     top: 5px;
     left: -25px;
-    padding-right: 5px;
+    padding-right: 10px;
     padding-left: 5px;
     font-family: "FontAwesome";
     font-size: 15px;
@@ -522,6 +590,22 @@ div.note {
   }
 }
 
+lite-youtube {
+  position: relative;
+  display: block;
+  padding-bottom: calc(100% / (16 / 9));
+  background-color: rgba(0,0,0,.1);
+}
+
+lite-youtube::before {
+  content: attr(videotitle) " video placeholder";
+  color: rgba(0, 0, 0, 0.82);
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  padding-top: calc(45% / (16 / 9));
+}
+
 // Responsive YouTube embeds.
 // https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
 .videoWrapper {
@@ -740,4 +824,11 @@ a.my {
   img {
     border: 0px;
   }
+}
+
+:target {
+  display: block;
+  position: relative;
+  top: -100px; 
+  visibility: hidden;
 }

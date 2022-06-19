@@ -9,7 +9,6 @@ author_twitter: balloob
 comments: true
 categories: Announcements
 og_image: /images/blog/2021-03-18-nabu-casa-acquired-esphome/social.png
-feedback: true
 ---
 
 <img alt="Nabu Casa heart ESPHome" src="/images/blog/2021-03-18-nabu-casa-acquired-esphome/social.png" />

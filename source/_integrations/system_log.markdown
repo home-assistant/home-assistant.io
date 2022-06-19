@@ -6,9 +6,10 @@ ha_category:
 ha_release: 0.58
 ha_quality_scale: internal
 ha_domain: system_log
+ha_integration_type: integration
 ---
 
-The `system_log` integration stores information about all logged errors and warnings in Home Assistant. To view your logs, navigate to **Configuration** -> **Logs**. In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored. Older entries are automatically discarded from the log. It is possible to change the number of stored log entries using the parameter `max_entries`.
+The `system_log` integration stores information about all logged errors and warnings in Home Assistant. To view your logs, navigate to **Settings** -> **System** -> **Logs**. In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored. Older entries are automatically discarded from the log. It is possible to change the number of stored log entries using the parameter `max_entries`.
 
 ## Configuration
 

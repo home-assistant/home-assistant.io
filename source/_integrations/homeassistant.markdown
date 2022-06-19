@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: homeassistant
 ha_platforms:
   - scene
+ha_integration_type: integration
 ---
 
 The Home Assistant integration provides generic implementations like the generic `homeassistant.turn_on`.
@@ -26,11 +27,12 @@ Reads the configuration files and checks them for correctness, but **does not** 
 
 Reloads an integration config entry.
 
-| Service data attribute    | Description                                           |
-|---------------------------|-------------------------------------------------------|
-| `entity_id`               | List of entity ids used to reference a config entry.  |
-| `area_id`                 | List of area ids used to reference a config entry.    |
-| `device_id`               | List of device ids used to reference a config entry.  |
+| Service data attribute    | Description                                                 |
+|---------------------------|-------------------------------------------------------------|
+| `entity_id`               | List of entity ids used to reference a config entry.        |
+| `area_id`                 | List of area ids used to reference a config entry.          |
+| `device_id`               | List of device ids used to reference a config entry.        |
+| `entry_id`                | A single config entry id used to reference a config entry.  |
 
 ### Service `homeassistant.reload_core_config`
 

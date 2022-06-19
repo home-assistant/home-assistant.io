@@ -8,6 +8,7 @@ ha_release: '0.60'
 ha_domain: ziggo_mediabox_xl
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `ziggo_mediabox_xl` integration allows you to control a [Ziggo](https://www.ziggo.nl/) Mediabox XL from Home Assistant.

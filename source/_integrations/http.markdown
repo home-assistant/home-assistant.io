@@ -3,14 +3,13 @@ title: HTTP
 description: Offers a web framework to serve files.
 ha_category:
   - Other
-  - Binary Sensor
-  - Sensor
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: http
+ha_integration_type: integration
 ---
 
 The `http` integration serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.

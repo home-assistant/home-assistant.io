@@ -2,8 +2,8 @@
 title: Pilight
 description: Instructions on how to setup Pilight within Home Assistant.
 ha_category:
-  - DIY
   - Binary Sensor
+  - DIY
   - Sensor
   - Switch
 ha_release: 0.26
@@ -16,6 +16,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 [Pilight](https://www.pilight.org/) is a modular and open source solution to communicate with 433 MHz devices and runs on various small form factor computers. A lot of common [protocols](https://manual.pilight.org/protocols/index.html) are already available.

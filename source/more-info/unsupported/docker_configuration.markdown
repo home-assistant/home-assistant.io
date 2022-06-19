@@ -12,7 +12,7 @@ needs to be set to `overlay2`.
 
 ## The solution
 
-If you are running an older version of our Home Assistant OS, update it to the latest version in the Supervisor panel.
+If you are running an older version of our Home Assistant OS, update it to the latest version in the {% my configuration title="Configuration" %} panel.
 
 If you are running Home Assistant Supervised, you need to modify the Docker daemon
 configuration on the host. The configuration is located at `/etc/docker/daemon.json`.

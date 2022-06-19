@@ -3,7 +3,7 @@ title: "Service Calls"
 description: "Instructions on how to call services in Home Assistant."
 ---
 
-Various integrations allow calling services when a certain event occurs. The most common one is calling a service when an automation trigger happens. But a service can also be called from a script, a Lovelace dashboard or via voice command devices such as Amazon Echo.
+Various integrations allow calling services when a certain event occurs. The most common one is calling a service when an automation trigger happens. But a service can also be called from a script, a dashboard or via voice command devices such as Amazon Echo.
 
 The configuration options to call a configuration are the same between all integrations and are described on this page.
 
@@ -108,6 +108,23 @@ data:
 ```
 
 {% endraw %}
+
+You can use a template returning a native dictionary as well, which is useful if the attributes to be set depend on the situation.
+
+{% raw %}
+
+```yaml
+service: climate.set_temperature
+data: >
+  {% if states('sensor.temperature_living') < 19 %}
+    {"hvac_mode": "heat", "temperature": 19 }
+  {% else %}
+    {"hvac_mode": "auto" }
+  {% endif %}
+```
+
+{% endraw %}
+
 ### `homeassistant` services
 
 There are four `homeassistant` services that aren't tied to any single domain, these are:

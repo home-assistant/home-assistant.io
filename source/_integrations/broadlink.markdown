@@ -2,21 +2,25 @@
 title: Broadlink
 description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
+  - Light
   - Remote
-  - Switch
   - Sensor
+  - Switch
 ha_release: 0.35
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
   - '@felipediel'
+  - '@L-I-Am'
 ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:
+  - light
   - remote
   - sensor
   - switch
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
@@ -26,20 +30,22 @@ The Broadlink integration allows you to control and monitor Broadlink universal 
 - Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU`, `SP3S-US`, `SP4L-EU` and `SP4M-US`
 - Universal Remotes: `RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro` and `RM4C mini`
 - Wi-Fi Controlled Switches: `BG1`, `SC1`
+- Smart Light Bulbs: `LB1`,`LB2`
 
 {% include integrations/config_flow.md %}
 
-### Entities and subdomains
+## Entities and subdomains
 
 There is no more need to set up platforms, except for custom IR/RF switches. Once the device is configured, all entities will be created automatically.
 
 The entities have the same name as the device by default. To change the name, icon or entity id, click the entity on the frontend and click the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. Don't forget to click _Update_ to save your changes when you're done.
 
-The entities are divided into three subdomains:
+The entities are divided into four subdomains:
 
 - [Remote](#remote)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Light](#light)
 
 ## Remote
 
@@ -47,8 +53,7 @@ The `remote` entities allow you to learn and send codes with universal remotes. 
 
 ### Learning commands
 
-Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#Learned%20codes%20storage%20location). They can be sent with the `remote.send_command` service later.
-
+Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` service later.
 
 | Service data attribute | Optional | Description                           |
 | ---------------------- | -------- | ------------------------------------- |
@@ -152,7 +157,7 @@ When the LED blinks for the first time, press the button you want to learn. Then
 
 #### Learned codes storage location
 
-The learned codes are stored in `/configuration/.storage/` in a JSON file called `broadlink_remote_MACADDRESS_codes`. You can open this file with a text editor and copy the codes to set up [custom IR/RF switches](#Setting%20up%20custom%20IR/RF%20switches) or to send them as [base64 codes](#Sending%20a%20base64%20code), but beware: the files in the .storage folder _should never be edited manually_.
+The learned codes are stored in `/configuration/.storage/` in a JSON file called `broadlink_remote_MACADDRESS_codes`. You can open this file with a text editor and copy the codes to set up [custom IR/RF switches](#setting-up-custom-irrf-switches) or to send them as [base64 codes](#sending-a-base64-code), but beware: the files in the .storage folder _should never be edited manually_.
 
 ### Sending commands
 
@@ -323,6 +328,10 @@ script:
 ## Sensor
 
 The `sensor` entities allow you to monitor Broadlink sensors. These entities are created automatically when you configure a device that has sensors.
+
+## Light
+
+The `light` entities allow you to control Broadlink lights. You can turn them on and off, change brightness, adjust the color or set a color temperature. These entities are created automatically when you configure a device that has lights.
 
 ## Switch
 

@@ -2,9 +2,9 @@
 title: Minut Point
 description: Instructions on how to integrate Minut Point into Home Assistant.
 ha_category:
-  - Hub
   - Alarm
   - Binary Sensor
+  - Hub
   - Sensor
 ha_release: 0.83
 ha_config_flow: true
@@ -17,6 +17,7 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 The Point hub enables integration with the [Minut Point](https://minut.com/). To connect with Point, you will have to [sign up for a developer account and have a Pro subscription](https://minut.com/community/developers/) and get a `client_id` and `client_secret` with the `callback url` configured as your Home Assistant URL + `/api/minut`, e.g.,  `http://localhost:8123/api/minut`. The `client_id` and `client_secret` should be used as below.
@@ -149,5 +150,4 @@ Each Point exposes the following sensors:
 
 - **temperature**: Temperature in °C.
 - **humidity**: Percentage of humidity in the air.
-- **pressure**: Pressure in hPa.
 - **sound_level**: Sound level in dBA
