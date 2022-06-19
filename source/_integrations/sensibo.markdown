@@ -71,7 +71,7 @@ For climate devices, these sensors are available:
 
 You can reset your filter check by using the button available on climate devices.
 
-By pressing the button you tell your device that you have either cleaned or replaced the filter.
+By pressing the button, you tell your device that you have cleaned or replaced the filter.
 
 ## Select Entities
 
