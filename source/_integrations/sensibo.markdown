@@ -89,7 +89,7 @@ For Pure devices, these sensors are available:
 
 ## Switch Entities
 
-For supported devices, this integration provides support to enable/disable a timer to delay a start or stop (depending on current state) of your device.
+For supported devices, this integration provides support to enable/disable a timer to delay a start or stop (depending on the current state) of your device.
 
 The switch uses a timer of 60 minutes delay. You can choose a custom delay using the custom `sensibo.enable_timer` service. See [Timer](#timer).
 
