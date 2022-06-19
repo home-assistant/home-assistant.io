@@ -8,6 +8,7 @@ ha_category:
   - Number
   - Select
   - Sensor
+  - Switch
   - Updates
 ha_release: 0.44
 ha_iot_class: Cloud Polling
@@ -23,6 +24,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
   - update
 ha_homekit: true
 ha_dhcp: true
