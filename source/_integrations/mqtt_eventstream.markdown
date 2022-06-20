@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.11
 ha_iot_class: Local Polling
 ha_domain: mqtt_eventstream
+ha_integration_type: integration
 ---
 
 The `mqtt_eventstream` integration connects two Home Assistant instances via MQTT.

@@ -11,6 +11,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `epson` platform allows you to control a Epson projector from Home Assistant.

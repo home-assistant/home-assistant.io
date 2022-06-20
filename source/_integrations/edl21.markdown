@@ -10,6 +10,7 @@ ha_codeowners:
   - '@mtdcr'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `edl21` integration lets you read German EDL21 smart meters using [SML](https://de.wikipedia.org/wiki/Smart_Message_Language) from Home Assistant.
@@ -28,6 +29,7 @@ Tested smart meters:
 - DZG DWS76 (enable InF as described in manual to retrieve full data)
 - Iskraemeco MT175 (ISKRA MT175-D2A51-V22-K0t)
 - EMH metering eHZ Generation K (enable InF as described in manual to retrieve full data)
+- efr SGM-C4 (enable InF as described in manual to retrieve full data)
 
 ## Configuration
 
@@ -49,6 +51,21 @@ serial_port:
   required: true
   type: string
 {% endconfiguration %}
+
+## InF Mode
+
+To enable InF mode there are different steps needed based on the meter type but most commonly you have to enter the PIN you received from your grid operator. Once you have it, enter it into the meter and switch to the InF menu where you can switch from InF=Off to InF=On. 
+Entering this can be done using a flashlight or (if available) via the physical button on the meter.
+
+For the efr SGM-C4 it is:
+
+- flashing three times to enter pin mode
+- entering pin using quicker flashes, wait for 3 seconds for next digit
+- pin accepted
+- flashing 7 times to get to InF=OFF
+- 5-second flash to switch to InF=OFF
+
+You will now get more readings like current Power, Voltage, and phase angle. Some meters don´t have this, in that case only an overall reading is provided.
 
 ### ser2net
 

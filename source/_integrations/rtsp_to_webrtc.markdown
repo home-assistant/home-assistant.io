@@ -6,15 +6,19 @@ ha_category:
 ha_config_flow: true
 ha_release: 2022.2
 ha_iot_class: Local Push
-ha_quality_scale: internal
 ha_codeowners:
   - '@allenporter'
 ha_domain: rtsp_to_webrtc
+ha_platforms:
+  - diagnostics
+ha_integration_type: integration
 ---
 
-The RTSPtoWebRTC integration registers with [camera integration](/integration/camera) to provide WebRTC live streams for any RTSP camera. The integration initiates a connection to a [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb) or [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) proxy server that converts an RTSP stream to a WebRTC stream.
+The RTSPtoWebRTC integration registers with [camera integration](/integrations/camera) to provide WebRTC live streams for any RTSP camera. The integration initiates a connection to a [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb) or [RTSPtoWebRTC](https://github.com/deepch/RTSPtoWebRTC) proxy server that converts an RTSP stream to a WebRTC stream.
 
-The integraton configuration requires the URL to your server (e.g. `http://example.com:8083`) and will automatically discover which type of server you have.
+The integration configuration requires the URL to your server (e.g. `http://example.com:8083`) and will automatically discover which type of server you have.
+
+<lite-youtube videoid="6hJXenSZJ5M" videotitle="Real Time Camera Viewing using RTSPtoWeb and Glance Cards in Home Assistant." posterquality="maxresdefault"></lite-youtube>
 
 {% include integrations/config_flow.md %}
 
@@ -39,4 +43,4 @@ See [Getting started with peer connections](https://webrtc.org/getting-started/p
 
 The integration may not work for your particular setup, and Home Assistant cannot support and troubleshoot user problems that are unrelated to the actual integration in Home Assistant.
 
-The WebRTC stream negotiation process and streaming can very a lot depending on your network setup and camera setup. See the specific audio and video codecs supported at [RTSPtoWeb Limitations](https://github.com/deepch/RTSPtoWeb#limitations) and [RTSPtoWebRTC Limitations](https://github.com/deepch/RTSPtoWebRTC#limitations).
+The WebRTC stream negotiation process and streaming can vary a lot depending on your network setup and camera setup. See the specific audio and video codecs supported at [RTSPtoWeb Limitations](https://github.com/deepch/RTSPtoWeb#limitations) and [RTSPtoWebRTC Limitations](https://github.com/deepch/RTSPtoWebRTC#limitations).

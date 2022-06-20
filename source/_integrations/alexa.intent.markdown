@@ -11,9 +11,7 @@ ha_domain: alexa
 
 The built-in Alexa integration allows you to integrate Home Assistant into Alexa/Amazon Echo. This integration will allow you to query information and call services within Home Assistant by using your voice. Home Assistant offers no built-in sentences but offers a framework for you to define your own.
 
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="1Ke3mtWd_cQ" videotitle="Home Assistant integration for Amazon Echo" posterquality="maxresdefault"></lite-youtube>
 
 ### Requirements
 
@@ -29,7 +27,7 @@ The built-in Alexa integration allows you to integrate Home Assistant into Alexa
   - Model to add: Custom
   - Name: HomeAssistantIntentsSkill (or whatever you want to call this skill)
   - Method to host: Provision your own
- 
+
 You can use this [specially sized Home Assistant logo][large-icon] as the large icon and [this one][small-icon] as the small one.
 
 ### Create Your Lambda Function
@@ -78,7 +76,7 @@ Next you need to create a Lambda function.
   - DEBUG *(optional)*: set to *True* to log debugging messages.
   - LONG_LIVED_ACCESS_TOKEN *(optional, not recommended)*: you will connect your Alexa Custom skill with your Home Assistant user account in the later steps, so that you don't need to use long-lived access token here. However, the access token you got from login flow is only valid for 30 minutes. It will be hard for you to test lambda function with the access token in test data. So for your convenience, you can remove the access token from the test data, [generate a long-lived access token][generate-long-lived-access-token] to put here, then the function will fall back to reading the token from environment variables. (tips: You did not enable the security storage for your environment variables, so your token saved here is not that safe. You should only use it for debugging and testing purpose. You should remove and delete the long-lived access token after you finish the debugging.)
 - Save your environmental variables by clicking the `Save` button.
-- Next, copy the ARN displayed at the top of the page, which is the identity of this Lambda function. 
+- Next, copy the ARN displayed at the top of the page, which is the identity of this Lambda function.
   - Go back to your Alexa skill and go to the Custom->Endpoint menu option on the left.
   - Paste the ARN value in the "Default Region". Note: you will not be able to do this until you have completed the step above adding the Alexa Skills Kit trigger (done in the previous step) to the AWS Lambda Function.
 

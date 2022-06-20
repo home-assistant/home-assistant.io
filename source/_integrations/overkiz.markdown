@@ -2,8 +2,10 @@
 title: Overkiz (by Somfy)
 description: Instructions on how to integrate hubs whom use the Overkiz platform with Home Assistant.
 ha_category:
+  - Alarm Control Panel
   - Binary Sensor
   - Button
+  - Climate
   - Cover
   - Hub
   - Light
@@ -12,28 +14,34 @@ ha_category:
   - Scene
   - Select
   - Sensor
+  - Siren
   - Switch
 ha_release: 2022.2
 ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - '@tetienne'
   - '@imicknl'
   - '@vlebourl'
+  - '@tetienne'
 ha_domain: overkiz
 ha_dhcp: true
 ha_zeroconf: true
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
+  - climate
   - cover
+  - diagnostics
   - light
   - lock
   - number
   - scene
   - select
   - sensor
+  - siren
   - switch
+ha_integration_type: integration
 ---
 
 The Overkiz (by Somfy) integration platform is used by many different vendors, like Somfy, Hitachi, and Atlantic. This integration will allow users to integrate their devices into Home Assistant using the Overkiz API.
@@ -49,8 +57,6 @@ The Overkiz (by Somfy) integration platform is used by many different vendors, l
 - Somfy TaHoma
 - Somfy TaHoma Switch [(instructions)](#tahoma-switch)
 - Thermor Cozytouch
-
-If you own a Somfy hub, you could also use the [Somfy integration](/integrations/somfy/) which uses the official API.
 
 ### TaHoma Switch
 

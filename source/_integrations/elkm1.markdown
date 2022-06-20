@@ -3,15 +3,16 @@ title: Elk-M1 Control
 description: Instructions to setup the Elk-M1 controller.
 ha_release: 0.81
 ha_category:
-  - Hub
   - Alarm
   - Climate
+  - Hub
   - Light
   - Scene
   - Sensor
   - Switch
 ha_iot_class: Local Push
 ha_domain: elkm1
+ha_dhcp: true
 ha_config_flow: true
 ha_codeowners:
   - '@gwww'
@@ -23,6 +24,7 @@ ha_platforms:
   - scene
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Elk-M1 is a home security and automation controller that is capable of alarm control panel functions and automation.
@@ -174,11 +176,6 @@ prefix:
   description: The prefix to use, if any, for all the devices created for this controller. At most one host can omit the prefix, all others must have a unique prefix within the Home Assistant instance.
   require: false
   type: string
-temperature_unit:
-  description: The temperature unit that the Elk panel uses. Valid values are `C` and `F`.
-  required: false
-  type: string
-  default: F
 auto_configure:
   description: Auto configure `area`, `counter`, `keypad`, `output`, `setting`, `task`, `thermostat`, `plc`, and `zone` by only adding elements that ElkM1 reports on the initial sync.
   required: false

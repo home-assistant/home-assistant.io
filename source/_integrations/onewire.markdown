@@ -12,8 +12,10 @@ ha_codeowners:
 ha_domain: onewire
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 <div class='note warning'>

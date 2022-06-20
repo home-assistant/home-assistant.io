@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: time_date
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The time and date (`time_date`) integration allows one to show the current date or time in different formats. All values are based on the timezone which is set in "General Configuration". 
@@ -35,7 +36,7 @@ sensor:
 
 {% configuration %}
 display_options:
-  description: The option to display. The types *date_time*, *date_time_utc*, *time_date*, and *date_time_iso* shows the date and the time. The other types just the time or the date. *beat* shows the [Swatch Internet Time](https://2020.swatch.com/en_my/internet-time/).
+  description: The option to display. The types *date_time*, *date_time_utc*, *time_date*, and *date_time_iso* shows the date and the time. The other types just the time or the date. *beat* shows the [Swatch Internet Time](https://en.wikipedia.org/wiki/Swatch_Internet_Time).
   required: true
   type: list
 {% endconfiguration %}
@@ -70,3 +71,7 @@ template:
 ```
 
 {% endraw %}
+
+## More time-related resources
+
+For more information about using time related variables and sensors in templates (such as `today_at()`, `now()` or `as_timestamp()`) visit this [time section](/docs/configuration/templating/#time) on the templating page.

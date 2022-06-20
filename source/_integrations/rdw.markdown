@@ -14,7 +14,9 @@ ha_codeowners:
 ha_domain: rdw
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 [RDW](https://www.rdw.nl) is the Netherlands Vehicle Authority. Their tasks

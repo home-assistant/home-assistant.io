@@ -2,10 +2,11 @@
 title: Roku
 description: Instructions how to integrate Roku devices into Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
+  - Hub
   - Media Player
   - Remote
+  - Select
   - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.86
@@ -18,9 +19,12 @@ ha_ssdp: true
 ha_homekit: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - media_player
   - remote
+  - select
   - sensor
+ha_integration_type: integration
 ---
 
 The Roku integration allows you to control a [Roku](https://www.roku.com/) device.
@@ -153,8 +157,10 @@ The `media_player.play_media` service may be used to send media URLs (primarily 
 | `entity_id` | no | Target a specific media player. | 
 | `media_content_id` | no | A media URL. | http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
 | `media_content_type` | no | A media type. | `url`
-| `extra.format` | no | A media format. Should be one of `mp4` (supports mov and m4v), `wma`, `mp3`, `hls`, `ism` (smooth streaming), `dash` (MPEG-DASH), `mkv`, `mka`, `mks` | `mp4`
+| `extra.format` | no | A media format. Should be one of `mp4` (supports mov and m4v), `mp3`, `hls`, `ism` (smooth streaming), `dash` (MPEG-DASH), `mkv`, `mka`, `mks` | `mp4`
 | `extra.name` | yes | A name for the media. | Big Buck Bunny
+| `extra.thumbnail` | yes | A thumbnail URL for the media. | 
+| `extra.artist_name` | yes | The name of the media artist. | Blender
 
 ### Example
 

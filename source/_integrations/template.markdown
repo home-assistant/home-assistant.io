@@ -21,11 +21,12 @@ ha_platforms:
   - light
   - lock
   - number
-  - sensor
   - select
+  - sensor
   - switch
   - vacuum
   - weather
+ha_integration_type: integration
 ---
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
@@ -45,7 +46,7 @@ Sensor, binary sensor, button, number and select template entities are defined i
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-## State-based template sensors
+## State-based template binary sensors, buttons, numbers, selects and sensors
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -67,13 +68,19 @@ template:
 
 {% endraw %}
 
-## Trigger-based template sensors
+### Template and action variables
+
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](#self-referencing) of an entity's state and attribute in templates and actions.
+
+## Trigger-based template binary sensors, buttons, numbers, selects and sensors
 
 If you want more control over when an entity updates, you can define a trigger. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#storing-webhook-information)), or update entities based on a schedule.
 
 Whenever the trigger fires, all related entities will re-render and it will have access to [the trigger data](/docs/automation/templating/) in the templates.
 
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [state trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
+
+The state, including attributes, of trigger-based sensors and binary sensors is restored when Home Assistant is restarted. The state of other trigger-based template entities is not restored.
 
 {% raw %}
 
@@ -132,7 +139,7 @@ binary_sensor:
       required: true
       type: template
     delay_on:
-      description: The amount of time (ie `0:00:05`) the template state must be ***met*** before this sensor will switch to `on`. This can also be a template.
+      description: The amount of time (e.g. `0:00:05`) the template state must be ***met*** before this sensor will switch to `on`. This can also be a template.
       required: false
       type: time
     delay_off:
@@ -175,6 +182,7 @@ number:
       description: Template for the number's current value.
       required: true
       type: template
+    set_value:
       description: Defines actions to run when the number value changes. The variable `value` will contain the number entered.
       required: true
       type: action
@@ -377,13 +385,13 @@ You can use a trigger-based template entity to convert any event or other automa
 
 ```yaml
 template:
-  trigger:
-    platform: event
-    event_type: my_event
-  binary_sensor:
-    - name: Event recently fired
-      auto_off: 5
-      state: "true"
+  - trigger:
+      platform: event
+      event_type: my_event
+    binary_sensor:
+      - name: Event recently fired
+        auto_off: 5
+        state: "true"
 ```
 
 ### Sun Angle
@@ -556,6 +564,48 @@ template:
           {% else %}
             mdi:weather-sunset-down
           {% endif %}
+```
+
+{% endraw %}
+
+A more advanced use case could be to set the icon based on the sensor's own state like above, but when triggered by an event. This example demonstrates a binary sensor that turns on momentarily, such as when a doorbell button is pressed. 
+
+The binary sensor turns on and sets the matching icon when the appropriate event is received. After 5 seconds, the binary sensor turns off automatically. To ensure the icon gets updated, there must be a trigger for when the state changes to off. 
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: event
+        event_type: YOUR_EVENT
+      - platform: state
+        entity_id: binary_sensor.doorbell_rang
+        to: "off"
+    binary_sensor:
+      name: doorbell_rang
+      icon: "{{ (trigger.platform == 'event') | iif('mdi:bell-ring-outline', 'mdi:bell-outline') }}"
+      state: "{{ trigger.platform == 'event' }}"
+      auto_off:
+        seconds: 5
+```
+
+{% endraw %}
+
+### Self referencing
+
+This example demonstrates how the `this` variable can be used in templates for self-referencing.
+
+{% raw %}
+
+```yaml
+template:
+  - sensor:
+      - name: test
+        state: "{{ this.attributes.test | default('Value when missing') }}"
+        # not: "{{ state_attr('sensor.test', 'test') }}"
+        attributes:
+          test: "{{ now() }}"
 ```
 
 {% endraw %}

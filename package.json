@@ -10,9 +10,9 @@
     "remark-lint-fenced-code-flag": "^3.1.1",
     "remark-lint-no-shell-dollars": "^3.1.1",
     "remark-stringify": "^10.0.2",
-    "textlint": "^12.1.0",
+    "textlint": "^12.1.1",
     "textlint-rule-common-misspellings": "^1.0.1",
-    "textlint-rule-terminology": "^2.1.5"
+    "textlint-rule-terminology": "^3.0.1"
   },
   "resolutions": {
     "minimist": ">=1.2.5"
@@ -20,6 +20,6 @@
   "scripts": {
     "markdown:lint": "remark --quiet --frail .",
     "textlint:all": "textlint source",
-    "textlint": "textlint source/_examples source/_docs source/_faq source/_integrations source/_lovelace source/cloud source/getting-started source/hassio source/lovelace"
+    "textlint": "textlint source/_examples source/_docs source/_faq source/_integrations source/_dashboards source/cloud source/getting-started source/hassio source/dashboards"
   }
 }

@@ -2,18 +2,18 @@
 title: HomeKit Controller
 description: Instructions for how to integrate your HomeKit devices within Home Assistant.
 ha_category:
-  - Hub
   - Alarm
+  - Binary Sensor
   - Climate
   - Cover
-  - Light
-  - Lock
-  - Switch
-  - Binary Sensor
-  - Sensor
   - Fan
   - Health
+  - Hub
   - Humidifier
+  - Light
+  - Lock
+  - Sensor
+  - Switch
 ha_release: 0.68
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -25,18 +25,21 @@ ha_zeroconf: true
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
-  - camera
   - button
+  - camera
   - climate
   - cover
+  - diagnostics
   - fan
   - humidifier
   - light
   - lock
   - media_player
   - number
+  - select
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The [HomeKit](https://developer.apple.com/homekit/) controller integration allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.

@@ -4,10 +4,12 @@ description: Instructions on how to integrate Z-Wave with Home Assistant via Z-W
 featured: true
 ha_category:
   - Binary Sensor
+  - Button
   - Climate
   - Cover
   - Fan
   - Hub
+  - Humidifier
   - Light
   - Lock
   - Number
@@ -23,19 +25,24 @@ ha_codeowners:
 ha_domain: zwave_js
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
+  - diagnostics
   - fan
+  - humidifier
   - light
   - lock
   - number
-  - sensor
   - select
+  - sensor
   - siren
   - switch
+ha_integration_type: integration
+ha_zeroconf: true
 ---
 
-This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're migrating from the deprecated `zwave` or `ozw` integrations, see [our migration instructions](#migrating-from-previous-z-wave-implementations).
+This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're migrating from the deprecated `zwave`, see [our migration instructions](#migrating-from-previous-z-wave-implementations).
 
 To Run Z-Wave JS you will need a [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules), a running Z-Wave JS server (using only **one** of the add-ons or installation methods described below), and the Z-Wave JS integration.
 
@@ -236,7 +243,23 @@ This service will set a value on multiple Z-Wave devices using multicast. It is 
 | `value`   	            | yes        	| The new value that you want to set. 	                                                                                                                |
 | `options`   	          | no        	| Set value options map. Refer to the Z-Wave JS documentation for more information on what options can be set. 	                                                                                                                |
 
+### Service `zwave_js.invoke_cc_api`
+
+Call this service to use the Command Class API directly. In most cases, the `zwave_js.set_value` service will accomplish what you need to, but some Command Classes have API commands that can't be accessed via that service. Refer to the [Z-Wave JS Command Class documentation](https://zwave-js.github.io/node-zwave-js/#/api/CCs/index) for the available APIs and arguments. Be sure to know what you are doing when calling this service.
+
+| Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
+|------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| `entity_id`            	| no        	| Entity (or list of entities) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided. If `endpoint` is specified, that endpoint will be used to make the CC API call for all devices, otherwise the primary value endpoint will be used for each entity.                      	|
+| `device_id`            	| no        	| Device ID (or list of device IDs) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided. If `endpoint` is specified, that endpoint will be used to make the CC API call for all devices, otherwise the root endpoint (0) will be used for each device.                                               	|
+| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided. If `endpoint` is specified, that endpoint will be used to make the CC API call for all devices, otherwise the root endpoint (0) will be used for each `zwave_js` device in the area.                                               	|
+| `command_class`       	| yes       	| ID of Command Class that you want to set the value for. 	                                                                                            |
+| `endpoint`       	| no       	| The endpoint to call the CC API against. 	                                                                                            |
+| `method_name`       	| yes       	| The name of the method that is being called from the CC API. 	                                                                                            |
+| `parameters`       	| yes       	| A list of parameters to pass to the CC API method. 	                                                                                            |
+
 ### Service `zwave_js.ping`
+
+> NOTE: This service has been deprecated and replaced with a new button entity. The service will still work for now but will be removed in a future release. Users are advised to move their automations to use the `button.press` service with the new entity which is a like for like replacement.
 
 Calling this service forces Z-Wave JS to try to reach a node. This can be used to update the status of the node in Z-Wave JS when you think it doesn't accurately reflect reality, e.g. reviving a failed/dead node or marking the node as asleep.
 
@@ -301,6 +324,18 @@ There are two types of events that are fired, notification events and value noti
 
 Check the [Z-Wave JS notification event documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) for an explanation of the notification event data. These events fire with the `zwave_js_notification` event type.
 
+Notification event data can be used to trigger automations, both in the automation UI and in YAML, using the event platform. Check the details of an event by subscribing to the zwave_js_notification event in the [Developers Tools](/docs/tools/dev-tools/#subscribe-to-an-event).
+
+```yaml
+# Fires whenever the lock is unlocked by the keypad.
+trigger:
+  - platform: event
+    event_type: zwave_js_notification
+    event_data:
+      node_id: 14
+      event_label: "Keypad unlock operation"
+```
+
 #### Notification Command Class
 
 These are notification events fired by devices using the Notification command class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
@@ -319,6 +354,38 @@ These are notification events fired by devices using the Notification command cl
     "event_label": "Keypad lock operation",
     "parameters": {"userId": 1}
 }
+```
+
+#### Multilevel Switch Command Class
+
+These are notification events fired by devices using the Multilevel Switch command class. There are events for start level change and stop level change. These would typically be used in a device like the Aeotec Nano Dimmer with an external switch to respond to long button presses.
+
+##### Start Level Change
+```json
+{
+    "domain": "zwave_js",
+    "node_id": 1,
+    "home_id": 974823419,
+    "device_id": "2f44f0d4152be3123f7ad40cf3abd095",
+    "command_class": 38,
+    "command_class_name": "Multilevel Switch",
+    "event_type": 4,
+    "direction": "up"
+},
+```
+
+##### Stop Level Change
+```json
+{
+    "domain": "zwave_js",
+    "node_id": 8,
+    "home_id": 3803689189,
+    "device_id": "2f44f0d4152be3123f7ad40cf3abd095",
+    "command_class": 38,
+    "command_class_name": "Multilevel Switch",
+    "event_type": 5,
+    "direction": null
+},
 ```
 
 #### Entry Control Command Class
@@ -460,17 +527,55 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 | `trigger.current_value`      | The current value for this Z-Wave value (translated to a state name when possible).        |
 | `trigger.current_value_raw`  | The raw current value for this Z-Wave value (the key of the state when a state is named).  |
 
+### `zwave_js.event`
+
+This trigger platform can be used to trigger automations on any Z-Wave JS controller, driver, or node event, including events that may not be handled by Home Assistant automatically. Refer to the linked [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/) to learn more about the available events and the data that is sent along with it.
+
+There is strict validation in place based on all known event types, so if you come across an event type that isn't supported, please open a GitHub issue in the `home-assistant/core` repository.
+
+#### Example automation trigger configuration
+
+```yaml
+# Fires whenever the `interview failed` event is fired on the three devices (devices will be derived from device and entity IDs).
+trigger:
+  platform: zwave_js.event
+  # At least one `device_id` or `entity_id` must be provided for `node` events. For any other events, a `config_entry_id` needs to be provided.
+  device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
+  entity_id:
+    - lock.front_lock
+    - lock.back_door
+  config_entry_id:
+  # `event_source` and `event` are required
+  event_source: node   # options are node, controller, and driver
+  event: "interview failed"  # event names can be retrieved from the Z-Wave JS docs (see links above)
+  # `event_data` and `partial_dict_match` are optional. If `event_data` isn't included, all events of a given type for the given context will trigger the automation. When the `interview failed` event is fired, all argument live in a dictionary within the `event_data` dictionary under the `args` key. The default behavior is to require a full match of the event_data dictionary below and the dictionary that is passed to the event. By setting `partial_dict_match` to true, Home Assistant will check if the isFinal argument is true and ignore any other values in the dictionary. If this setting was false, this trigger would never fire because the dictionary always contains more keys than `isFinal` so the comparsion check would never evaluate to true.
+  event_data:
+    args:
+      isFinal: true
+  partial_dict_match: true  # defaults to false
+```
+
+#### Available Trigger Data
+
+In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `zwave_js.event` trigger platform has additional trigger data available for use.
+
+| Template variable            | Data                                                                                       |
+|------------------------------|--------------------------------------------------------------------------------------------|
+| `trigger.device_id`          | Device ID for the device in the device registry (only included for node events).                                           |
+| `trigger.node_id`            | Z-Wave node ID (only included for node events).                                                                            |
+| `trigger.event_source`      | Source of event (node, controller, or driver).                                                                          |
+| `trigger.event`             | Name of event.                                                                        |
+| `trigger.event_data`           | Any data included in the event.                                                                   |
+
 ## Migrating from previous Z-Wave implementations
 
-If you are switching from the `zwave` or `ozw` integrations to the new Z-Wave JS integration, you will not need to recreate your entire network, as the network is **stored on your stick**. A few things, such as how you receive [central scene events](#events) will work differently than they did before.
+If you are switching from the `zwave` integration to the new Z-Wave JS integration, you will not need to recreate your entire network, as the network is **stored on your stick**. A few things, such as how you receive [central scene events](#events) will work differently than they did before.
 
 ### Automatic migration wizard
 
 If you are using the `zwave` integration, there is a migration wizard that will help you set up the Z-Wave JS integration, remove the `zwave` integration and migrate the entities and devices that can be mapped from the `zwave` integration to the Z-Wave JS integration. The migration wizard is available from the `zwave` integration configuration panel in the GUI.
 
 Some entities may not be able to migrate automatically and you will need to rename the corresponding available Z-Wave JS entities manually. Before completing the migration you will be shown a list of entities that could not be migrated automatically, and you'll have the option to abort or continue with the migration.
-
-There is no automatic migration wizard for the `ozw` integration. Please follow the manual migration path below if you want to migrate from `ozw` to Z-Wave JS.
 
 ### Manual migration path
 
@@ -480,7 +585,7 @@ There is no automatic migration wizard for the `ozw` integration. Please follow 
 
   <div class='note info'>Make a list of what node ID belongs to each device. Your network (Nodes and their config etc) is stored on the stick but the names you gave your devices and entities are not. This step is optional but will save you a lot of time later.</div>
 
-2) Remove the Z-Wave integration from Home Assistant: Configuration --> Integrations --> Z-Wave (or OpenZWave) --> Press the three dots and click Delete.
+2) Remove the Z-Wave integration from Home Assistant: Settings --> Devices & Services --> Z-Wave (or OpenZWave) --> Press the three dots and click Delete.
 
   <div class='note info'>
 
@@ -568,7 +673,7 @@ This is considered a very advanced use case. In this case you run the Z-Wave JS 
 
 For new installations, unique default keys will be auto-generated for you by the Z-Wave JS add-on. You can also generate those network keys in the Settings section of Zwavejs2Mqtt.
 
-If migrating from the `zwave` or `ozw` integrations, your network key from those integration should be entered as the S0 network key. Those integrations did not support S2 security, so you will not yet have S2 network keys to configure.
+If migrating from the `zwave` integration, your network key from those integration should be entered as the S0 network key. Those integrations did not support S2 security, so you will not yet have S2 network keys to configure.
 
 Make sure that you keep a backup of these keys in a safe place. You will need to enter the same keys to be able to access securely paired devices.
 
@@ -679,7 +784,7 @@ Names set in Home Assistant will not import into Zwavejs2Mqtt.
 
 #### How can I add (include) a new device to my Z-Wave network?
 
-1. In Home Assistant: open Configuration -> Integrations -> Z-Wave JS -> Configure.
+1. In Home Assistant: open Settings -> Devices & Services -> Z-Wave JS -> Configure.
 2. Press `+ ADD DEVICE`.
 3. The Z-Wave controller is now in inclusion mode and will not respond to other commands.
 4. Put the device you want to add in inclusion mode. Refer to its manual how this is done.
@@ -703,7 +808,7 @@ S2 security does not impose additional network traffic and provides additional b
 
 #### How do I remove (exclude) a device from my Z-Wave network?
 
-1. In Home Assistant: open Configuration -> Integrations -> Z-Wave JS -> Configure.
+1. In Home Assistant: open Settings -> Devices & Services -> Z-Wave JS -> Configure.
 2. Press `REMOVE DEVICE`.
 3. Press `START EXCLUSION`. The Z-Wave controller is now in exclusion mode and will not respond to other commands.
 4. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
@@ -755,7 +860,7 @@ If the interview is complete, then the device does not yet have a device file fo
 
 When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow the menu:
 
-{% my integrations title="**Configuration** -> **Devices & Services**" %} -> **Z-Wave JS** -> **...** -> **Download diagnostics**
+{% my integrations title="**Settings** -> **Devices & Services**" %} -> **Z-Wave JS** -> **...** -> **Download diagnostics**
 
 ### Interference issues
 

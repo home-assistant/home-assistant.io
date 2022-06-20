@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: ovo_energy
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `ovo_energy` integration allows you to monitor your energy consumption data

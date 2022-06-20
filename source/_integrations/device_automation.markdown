@@ -7,6 +7,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: device_automation
+ha_integration_type: integration
 ---
 
 Device Automations is a plugin for the automation integration to allow other integrations to provide device specific triggers, conditions and actions.

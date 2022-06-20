@@ -13,6 +13,7 @@ ha_release: 0.25
 ha_domain: flux_led
 ha_platforms:
   - button
+  - diagnostics
   - light
   - number
   - select
@@ -20,12 +21,14 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@icemanch'
+  - '@bdraco'
 ha_quality_scale: platinum
 ha_config_flow: true
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
-The Magic Home integration supports several brands of switches, bulbs, and controllers that use the same protocol. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the Magic Home app.
+The Magic Home integration supports several brands of switches, bulbs, and controllers that use the same protocol. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the Magic Home app or the Surp Life app.
 
 This integration will provide local control over your LED lights/strips and can be configured to auto-scan your network for controllers or for you to manually configure individual lights by their IP address.
 
@@ -50,6 +53,13 @@ Examples of controllers:
 Examples of addressable controllers:
 
 - [Addressable v3](https://www.amazon.com/gp/product/B09BMBSCRF/)
+
+Examples of addressable controllers with strip:
+- [Addressable v1](https://www.amazon.com/gp/product/B07RLF7C86/)
+- [Addressable v2](https://www.amazon.com/gp/product/B07B7CQ2ZB/)
+
+Examples of sockets:
+- [MagicLight Smart Plugs](https://www.magiclightbulbs.com/smart-plugs) or [Amazon](https://www.amazon.com/gp/product/B07XNBVVXV/)
 
 These devices have been sold under at least the following brands:
 
@@ -110,6 +120,7 @@ These devices have been sold under at least the following brands:
 - SMFX
 - [Sumaote](https://fvtled.com/)
 - [Superhome](https://superhome.com.cy/)
+- [SurpLife](http://www.zengge.com/newbrand)
 - [SuperlightingLED](https://www.superlightingled.com/)
 - Svipear
 - Tommox
@@ -121,7 +132,7 @@ These devices have been sold under at least the following brands:
 
 {% include integrations/config_flow.md %}
 
-After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Magic Home" configuration for the bulb or controller. 
+After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Settings -> Integrations and selecting the "Magic Home" configuration for the bulb or controller. 
 
 **Custom Effect**\
 A list of RGB colors can be entered to create an effect. The effect speed can be adjusted using the slider underneath.
@@ -131,57 +142,70 @@ This determines the transition between each color.
 
 ### Supported Models
 
-The following models have been tested with integration.
+The following models have been tested.
 
-| Model | Description                 | Notes                           |
-| ----- | --------------------------- | ------------------------------- |
-| 0x01  | Legacy RGB Controller       | Original protocol               |
-| 0x03  | Legacy CCT Controller       | Original protocol               |
-| 0x04  | UFO Controller RGBW         |                                 |
-| 0x06  | Controller RGBW             |                                 |
-| 0x07  | Controller RGBCW            |                                 |
-| 0x08  | Controller RGB with MIC     |                                 |
-| 0x0E  | Floor Lamp RGBCW            |                                 |
-| 0x10  | Christmas Light             |                                 |
-| 0x1A  | Christmas Light             |                                 |
-| 0x1C  | Table Light CCT             |                                 |
-| 0x21  | Bulb Dimmable               |                                 |
-| 0x25  | Controller RGB/WW/CW        | Supports RGB,RGBW,RGBWW,CW,DIM  |
-| 0x33  | Controller RGB              |                                 |
-| 0x35  | Bulb RGBCW                  |                                 |
-| 0x41  | Controller Dimmable         |                                 |
-| 0x44  | Bulb RGBW                   |                                 |
-| 0x52  | Bulb CCT                    |                                 |
-| 0x54  | Downlight RGBW              |                                 |
-| 0x93  | Switch 1c                   |                                 |
-| 0x94  | Switch 1c Watt              |                                 |
-| 0x97  | Socket 1c                   |                                 |
-| 0xA1  | Addressable v1              |                                 |
-| 0xA2  | Addressable v2              |                                 |
-| 0xA3  | Addressable v3              |                                 |
+| Model | Description                 | Microphone | Notes                           |
+| ----- | --------------------------- | ---------- | ------------------------------- |
+| 0x01  | Legacy RGB Controller       | no         | Original protocol               |
+| 0x03  | Legacy CCT Controller       | no         | Original protocol               |
+| 0x04  | UFO Controller RGBW         | no         |                                 |
+| 0x06  | Controller RGBW             | no         |                                 |
+| 0x07  | Controller RGBCW            | no         |                                 |
+| 0x08  | Controller RGB with MIC     | yes        |                                 |
+| 0x09  | Ceiling Light CCT           | no         |                                 |
+| 0x0E  | Floor Lamp RGBCW            | no         |                                 |
+| 0x10  | Christmas Light             | no         |                                 |
+| 0x16  | Magnetic Light CCT          | no         |                                 |
+| 0x17  | Magnetic Light Dimmable     | no         |                                 |
+| 0x1A  | Christmas Light             | no         |                                 |
+| 0x1C  | Table Light CCT             | no         |                                 |
+| 0x1E  | Ceiling Light RGBCW         | no         |                                 |
+| 0x21  | Bulb Dimmable               | no         |                                 |
+| 0x25  | Controller RGB/WW/CW        | no         | Supports RGB, RGBW, RGBWW, CW, DIM |
+| 0x33  | Controller RGB              | no         |                                 |
+| 0x35  | Bulb RGBCW                  | no         |                                 |
+| 0x41  | Controller Dimmable         | no         |                                 |
+| 0x44  | Bulb RGBW                   | no         |                                 |
+| 0x52  | Bulb CCT                    | no         |                                 |
+| 0x54  | Downlight RGBW              | no         |                                 |
+| 0x62  | Controller CCT              | no         |                                 |
+| 0x93  | Switch 1 Channel            | no         |                                 |
+| 0x97  | Socket                      | no         |                                 |
+| 0xA1  | Addressable v1              | no         | Supports UCS1903, SM16703, WS2811, WS2812B, SK6812, INK1003, WS2801, LB1914 |
+| 0xA2  | Addressable v2              | yes        | Supports UCS1903, SM16703, WS2811, WS2811B, SK6812, INK1003, WS2801, WS2815, APA102, TM1914, UCS2904B |
+| 0xA3  | Addressable v3              | yes        | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW (WS2814), INK1003, UCS2904B |
+| 0xA4  | Addressable v4              | no         | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW (WS2814), INK1003, UCS2904B |
+| 0xA6  | Addressable v6              | yes        | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW (WS2814), INK1003, UCS2904B |
+| 0xA7  | Addressable v7              | yes        | Supports WS2812B, SM16703, SM16704, WS2811, UCS1903, SK6812, SK6812RGBW (WS2814), INK1003, UCS2904B |
+| 0xE1  | Ceiling Light CCT           | no         |                                 |
+| 0xE2  | Ceiling Light Assist        | no         | Auxiliary Switch not supported  |
+
+### Untested Models
+
+The following models have not been tested but may work.
+
+| Model | Description                 | Microphone | Notes                           |
+| ----- | --------------------------- | ---------- | ------------------------------- |
+| 0x02  | Legacy Dimmable Controller  | no         | Original protocol, discontinued |
 
 ### Unsupported Models
 
-The following models have not been tested with integration but may work.
+The following models are confirmed to be unsupported.
 
-| Model | Description                 | Notes                           |
-| ----- | --------------------------- | ------------------------------- |
-| 0x02  | Legacy Dimmable Controller  | Original protocol               |
-| 0x09  | Ceiling Light CCT           |                                 |
-| 0x16  | Magnetic Light CCT          |                                 |
-| 0x17  | Magnetic Light Dimmable     |                                 |
-| 0x19  | Socket 2 USB                |                                 |
-| 0x18  | Plant Light                 |                                 |
-| 0x1B  | Spray Light                 |                                 |
-| 0x1E  | Ceiling Light RGBCW         | Probably works & same as 0x35   |
-| 0x62  | Controller CCT              | May be discontinued             |
-| 0x95  | Switch 2c                   |                                 |
-| 0x96  | Switch 4c                   |                                 |
-| 0xD1  | Digital Light               |                                 |
-| 0xE1  | Ceiling Light               |                                 |
-| 0xE2  | Ceiling Light Assist        |                                 |
-| 0xA4  | Addressable v4              | Probably works & same as 0xA3   |
-| 0xA6  | Addressable v6              | Probably works & same as 0xA3   |
+| Model | Description                 | Microphone | Notes                           |
+| ----- | --------------------------- | ---------- | ------------------------------- |
+| 0x18  | Plant Grow Light            | no         |                                 |
+| 0x19  | Socket with 2 USB           | no         |                                 |
+| 0x1B  | Aroma Fragrance Lamp        | no         |                                 |
+| 0x1D  | Fill Light                  | no         |                                 |
+| 0x94  | Switch 1c Watt              | no         |                                 |
+| 0x95  | Switch 2 Channel            | no         |                                 |
+| 0x96  | Switch 4 Channel            | no         |                                 |
+| 0xD1  | Digital Time Lamp           | no         |                                 |
+
+### Troubleshooting
+
+If a strip controller device will not stay on wifi or goes offline during adjusting colors and effects, upgrading to a power supply with a higher amperage usually resolves any stability issues.
 
 ### Effects
 
@@ -248,7 +272,6 @@ data:
     - [255, 255, 255]
   speed_pct: 80
 ```
-
 
 ### Set Music Mode - Service `flux_led.set_music_mode`
 

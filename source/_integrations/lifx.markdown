@@ -10,11 +10,12 @@ ha_domain: lifx
 ha_homekit: true
 ha_platforms:
   - light
+ha_integration_type: integration
+ha_codeowners:
+  - '@Djelibeybi'
 ---
 
-The `lifx` integration allows you to integrate your [LIFX](https://www.lifx.com) into Home Assistant.
-
-_Please note, the `lifx` integration does not support Windows. The `lifx_legacy` light platform (supporting basic functionality) can be used instead._
+The `lifx` integration allows you to integrate your [LIFX](https://www.lifx.com) bulbs into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -136,3 +137,19 @@ broadcast:
   required: false
   type: string
 {% endconfiguration %}
+
+## LIFX Switch
+
+The `lifx` integration does not support the LIFX Switch. However, the `homekit_controller` integration can be used instead for
+[LIFX Switch running firmware 3.90](https://support.lifx.com/en_us/switch-3-90-update-rk4zYiXVq) or higher. Follow the LIFX
+documentation to obtain a HomeKit code prior to integrating the Switch with Home Assistant as it will be needed during the process.
+
+When using the `homekit_controller` integration, each button on the LIFX Switch is discovered as a
+[stateless switch](/integrations/homekit_controller#stateless-switches-and-sensors) and will not appear as an entity in Home Assistant.
+Relays that are configured as wired to non-LIFX devices will appear as normal switches in Home Assistant.
+
+### Troubleshooting discovery
+
+If your switch is not automatically discovered or you get a "_Cannot add pairing as device can no longer be found_" error
+during the config process, [reboot your LIFX Switch](https://support.lifx.com/troubleshooting-switch-Hk6RWujLd) as they
+only broadcast HomeKit compatibility for 15 minutes.

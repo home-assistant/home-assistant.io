@@ -2,8 +2,9 @@
 title: Kodi
 description: Instructions on how to integrate Kodi into Home Assistant.
 ha_category:
-  - Notifications
   - Media Player
+  - Media Source
+  - Notifications
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:
@@ -15,6 +16,7 @@ ha_zeroconf: true
 ha_platforms:
   - media_player
   - notify
+ha_integration_type: integration
 ---
 
 The `kodi` platform allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
