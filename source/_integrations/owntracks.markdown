@@ -112,7 +112,7 @@ owntracks:
 
 ## Using Owntracks regions
 
-Owntracks can track regions, and send region entry and exit information to Home Assistant. You set up a region in the Owntracks app which you should name the same as your Home Assistant Zone, and then make sure to turn on the `share` option for the region in the owntracks app. Please see the [owntracks documentation](https://owntracks.org/booklet/guide/waypoints/).
+Owntracks can track regions, and send region entry and exit information to Home Assistant. You set up a region in the Owntracks app which you should name the same as your Home Assistant Zone. Please see the [owntracks documentation](https://owntracks.org/booklet/guide/waypoints/).
 
 Home Assistant will use the enter and leave messages to set your zone location. Your location will be set to the center of zone when you enter. Location updates from OwnTracks will be ignored while you are inside a zone.
 
