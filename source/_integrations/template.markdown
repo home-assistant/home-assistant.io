@@ -340,9 +340,9 @@ If you are using the state of a platform that might not be available during star
 
 ## Examples
 
-In this section, you find some real-life examples of how to use this sensor.
+In this section, you find some real-life examples of how to use template sensors.
 
-### Storing webhook information
+### Trigger based sensor and binary sensor storing webhook information
 
 Template entities can be triggered using any automation trigger, including webhook triggers. Use a trigger-based template entity to store this information in template entities.
 
@@ -379,7 +379,7 @@ curl --header "Content-Type: application/json" \
   http://homeassistant.local:8123/api/webhook/my-super-secret-webhook-id
 ```
 
-### Turning an event into a binary sensor
+### Turning an event into a trigger based binary sensor
 
 You can use a trigger-based template entity to convert any event or other automation trigger into a binary sensor. The below configuration will turn on a binary sensor for 5 seconds when the automation trigger triggers.
 
@@ -394,7 +394,7 @@ template:
         state: "true"
 ```
 
-### Sun Angle
+### State based sensor exposing sun angle
 
 This example shows the sun angle in the frontend.
 
@@ -410,7 +410,7 @@ template:
 
 {% endraw %}
 
-### Renaming Sensor Output
+### State based sensor modyfying another sensor's output
 
 If you don't like the wording of a sensor output, then the Template Sensor can help too. Let's rename the output of the [Sun component](/integrations/sun/) as a simple example:
 
@@ -430,7 +430,7 @@ template:
 
 {% endraw %}
 
-### Multiline Example With an `if` Test
+### State based sensor with multiline template with an `if` test
 
 This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend, and shows 'standby' if the power use is less than 1000 watts.
 
@@ -454,7 +454,7 @@ template:
 
 {% endraw %}
 
-### Change The Unit of Measurement
+### State based sensor changing the unit of measurement of another sensor
 
 With a Template Sensor, it's easy to convert given values into others if the unit of measurement doesn't fit your needs.
 
@@ -474,7 +474,7 @@ template:
 
 {% endraw %}
 
-### Washing Machine Running
+### State based binary sensor - Washing Machine Running
 
 This example creates a washing machine "load running" sensor by monitoring an
 energy meter connected to the washer. During the washer's operation, the energy meter will fluctuate wildly, hitting zero frequently even before the load is finished. By utilizing `delay_off`, we can have this sensor only turn off if there has been no washer activity for 5 minutes.
@@ -494,7 +494,7 @@ template:
 
 {% endraw %}
 
-### Is Anyone Home
+### State based binary sensor - Is Anyone Home
 
 This example is determining if anyone is home based on the combination of device tracking and motion sensors. It's extremely useful if you have kids/baby sitter/grand parents who might still be in your house that aren't represented by a trackable device in Home Assistant. This is providing a composite of Wi-Fi based device tracking and Z-Wave multisensor presence sensors.
 
@@ -516,7 +516,7 @@ template:
 
 {% endraw %}
 
-### Device Tracker sensor with Latitude and Longitude Attributes
+### State based binary sensor - Device Tracker sensor with Latitude and Longitude Attributes
 
 This example shows how to combine a non-GPS (e.g., NMAP) and GPS device tracker while still including latitude and longitude attributes
 
@@ -546,7 +546,7 @@ template:
 
 {% endraw %}
 
-### Change the icon when a state changes
+### State based binary sensor - Change the icon when a state changes
 
 This example demonstrates how to use template to change the icon as its state changes. This icon is referencing its own state.
 
@@ -588,6 +588,30 @@ template:
       state: "{{ trigger.platform == 'event' }}"
       auto_off:
         seconds: 5
+```
+
+{% endraw %}
+
+### State based select - Control Day/Night mode of a camera
+
+This show how a state based template select can be used to call a service.
+
+{% raw %}
+
+
+```yaml
+template:
+  select:
+    - name: "Porch Camera Day-Night Mode"
+      unique_id: porch_camera_day_night_mode
+      state: "{{ state_attr('camera.porch_camera_sd', 'day_night_mode') }}"
+      options: "{{ ['off', 'on', 'auto'] }}"
+      select_option:
+        - service: tapo_control.set_day_night_mode
+          data:
+            day_night_mode: "{{ option }}"
+          target:
+            entity_id: camera.porch_camera_sd
 ```
 
 {% endraw %}
