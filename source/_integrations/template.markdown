@@ -596,6 +596,9 @@ template:
 
 This show how a state based template select can be used to call a service.
 
+{% raw %}
+
+
 ```yaml
 template:
   select:
@@ -610,6 +613,8 @@ template:
           target:
             entity_id: camera.porch_camera_sd
 ```
+
+{% endraw %}
 
 ### Self referencing
 
