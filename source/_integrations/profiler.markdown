@@ -28,12 +28,15 @@ When the profile is complete, Profiler will generate a Python `cprof` and a `cal
 
 The `cprof` file can be viewed with:
 
-[SnakeViz](https://jiffyclub.github.io/snakeviz/)
-[Gprof2dot](https://github.com/jrfonseca/gprof2dot)
+* [SnakeViz](https://jiffyclub.github.io/snakeviz/)
+* [Gprof2dot](https://github.com/jrfonseca/gprof2dot) `-f pstats`
 
 Additionally, the profiler will generate a `callgrind.out` file that can be viewed with:
 
-[kcachegrind](https://kcachegrind.github.io/) or qcachegrind
+* [KCachegrind or QCachegrind](https://kcachegrind.github.io/)
+* [Gprof2dot](https://github.com/jrfonseca/gprof2dot) `-f callgrind`
+
+The gprof2dot tool generates [DOT](http://www.graphviz.org/doc/info/lang.html) files, which can be converted to images using the `dot` tool from [Graphviz](http://www.graphviz.org/) or viewed directly using [xdot](https://github.com/jrfonseca/xdot.py).
 
 ### Service `profiler.memory`
 
