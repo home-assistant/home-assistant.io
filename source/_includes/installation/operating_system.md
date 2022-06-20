@@ -159,6 +159,7 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
    - Wait for the Home Assistant welcome banner to show up in the console of the generic-x86-64 system.
 
 <div class="note">
+
 If the machine complains about not being able to find a bootable medium, you might need to specify the EFI entry in your BIOS.
 This can be accomplished either by using a live operating system (e.g. Ubuntu) and running the following command (replace `<drivename>` with the appropriate drive name assigned by Linux, typically this will be `sda` or `nvme0n1` on NVMe SSDs):
 
