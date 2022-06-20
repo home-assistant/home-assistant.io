@@ -42,7 +42,7 @@ Home Assistant can group multiple binary sensors, covers, fans, lights, locks, m
 
 ## Group behavior
 
-### Binary sensor, light and switch groups
+### Binary sensor, light, and switch groups
 
 In short, when any group member entity is `on`, the group will also be `on`. A complete overview of how groups behave:
 
@@ -51,7 +51,7 @@ In short, when any group member entity is `on`, the group will also be `on`. A c
 - Otherwise, the group state is `on` if at least one group member is `on`.
 - Otherwise, the group state is `off`.
 
-Binary sensor, light and switch groups allow you set the "All entities" option. When enabled, the group behavior is inverted, and all members of the group have to be `on` for the group to turn `on` as well. A complete overview of how groups behave when the "All entities" option is enabled:
+Binary sensor, light, and switch groups allow you set the "All entities" option. When enabled, the group behavior is inverted, and all members of the group have to be `on` for the group to turn `on` as well. A complete overview of how groups behave when the "All entities" option is enabled:
 
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if at least one group member is `unknown` or `unavailable`.
