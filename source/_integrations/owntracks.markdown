@@ -150,7 +150,7 @@ You can use iBeacons of both types together, so if you have a Zone `drive` with 
 
 ## Importing Owntracks waypoints as zones
 
-By default, any Owntracks user connected to Home Assistant can export their waypoint definitions (from the *Export - Export to Endpoint* menu item) which will then be translated to zone definitions in Home Assistant. The zones will be named `<user>-<device> - <waypoint name>`. This functionality can be controlled in 2 ways:
+By default, any Owntracks user connected to Home Assistant can export their waypoint definitions (from the *Export - Export to Endpoint* menu item) which will then be translated to zone definitions in Home Assistant. The zones will be named `<user>-<device> - <region name>:<region uuid>`. This functionality can be controlled in 2 ways:
 
 1. The configuration variable `waypoints` can be set to `false` which will disable importing waypoints for all users.
 2. The configuration variable `waypoint_whitelist` can contain a list of users who are allowed to import waypoints.
