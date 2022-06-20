@@ -42,19 +42,58 @@ Home Assistant can group multiple binary sensors, covers, fans, lights, locks, m
 
 ## Group behavior
 
-By default, when any group member entity is `on`, the group will also be `on`. A complete overview of how groups behave:
+### Binary sensor, light, and switch groups
 
-- The group state is `on` if at least one group member is `on`.
-- Otherwise, the group state is `unavailable` if all group members are `unavailable`.
+In short, when any group member entity is `on`, the group will also be `on`. A complete overview of how groups behave:
+
+- The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if all group members are `unknown`.
+- Otherwise, the group state is `on` if at least one group member is `on`.
 - Otherwise, the group state is `off`.
 
-Some groups, like the binary sensors and lights, allow you set the "All entities" option. When enabled, this behavior is inverted, and all members of the group have to be `on` for the group to turn `on` as well. A complete overview of how groups behave when the "All entities" option is enabled:
+Binary sensor, light, and switch groups allow you set the "All entities" option. When enabled, the group behavior is inverted, and all members of the group have to be `on` for the group to turn `on` as well. A complete overview of how groups behave when the "All entities" option is enabled:
 
-- The group state is `off` if at least one group member is `off`.
-- Otherwise, the group state is `unavailable` if all group members are `unavailable`.
+- The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if at least one group member is `unknown` or `unavailable`.
+- Otherwise, the group state is `off` if at least one group member is `off`.
 - Otherwise, the group state is `on`.
+
+### Cover groups
+In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover groups behave:
+
+- The group state is `unknown` if all group members are `unknown` or `unavailable`.
+- Otherwise, the group state is `opening` if at least one group member is `opening`.
+- Otherwise, the group state is `closing` if at least one group member is `closing`.
+- Otherwise, the group state is `open` if at least one group member is `open`.
+- Otherwise, the group state is `closed`.
+
+### Fan groups
+Fan groups don't support `unavailable` or `unknown` states.
+
+- The group state is `on` if at least one group member is `on`.
+- Otherwise, the group state is `off`.
+
+### Lock groups
+In short, when any group member entity is `unlocked`, the group will also be `unlocked`. A complete overview of how fan groups behave:
+
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is `unknown` if at least one group member is `unknown` or `unavailable`.
+- Otherwise, the group state is `jammed` if at least one group member is `jammed`.
+- Otherwise, the group state is `locking` if at least one group member is `locking`.
+- Otherwise, the group state is `unlocking` if at least one group member is `unlocking`.
+- Otherwise, the group state is `unlocked` if at least one group member is `unlocked`.
+- Otherwise, the group state is `locked`.
+
+### Media player groups
+
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is `unknown` if all group members are `unknown`.
+- Otherwise, the group state is `buffering` if all group members are `buffering`.
+- Otherwise, the group state is `idle` if all group members are `idle`.
+- Otherwise, the group state is `paused` if all group members are `paused`.
+- Otherwise, the group state is `playing` if all group members are `playing`.
+- Otherwise, the group state is `on` if at least one group member is not `off`, `unavailable` or `unknown`.
+- Otherwise, the group state is `off`.
 
 ## Managing groups
 
