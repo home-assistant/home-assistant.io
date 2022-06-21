@@ -88,8 +88,8 @@ You can replace `2.0.0-beta.5` with whatever version of UniFi Protect you want t
 ### Local User
 
 You will need a local user created in your UniFi OS Console to log in with. Ubiquiti SSO Cloud Users will **not** work.
-It is recommend you use the Administrator or a user with full read/write access to get the most out of the integration,
-but it is not required. The entities that are created will automatically adjust based on the permissions the user you
+It is recommended you use the Administrator or a user with full read/write access to get the most out of the integration,
+but it is not required. The entities that are created will automatically adjust based on the permissions of the user you
 use has.
 
 1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_. **Note**: This **must** be done from
@@ -124,8 +124,8 @@ each of the different entity platforms.
 <div class='note'>
 
 **Permissions**: The below sections on the features available to your Home Assistant instance assume you have full
-write access to each device. If the user you are using has limited access to some devices, you will get less entities
-and in many cases get a read-only sensor instead of an editable switch/select/number entity.
+write access to each device. If the user you are using has limited access to some devices, you will get fewer entities
+and in many cases, get a read-only sensor instead of an editable switch/select/number entity.
 
 </div>
 
