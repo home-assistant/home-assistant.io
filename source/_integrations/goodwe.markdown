@@ -39,21 +39,35 @@ For the other inverter families, if such sensors are not directly available by t
 
 ## Inverter polling frequency
 
-The integration will poll the inverter for new values every 10 seconds. If you wish to receive fresh inverter data less (or more) frequently, you can disable the automatic refresh in the integration's system options (Enable polling for updates) and create your own automation with your desired polling frequency.
+The integration will poll the inverter for new values every 10 seconds. If you wish to receive fresh inverter data less (or more) frequently, you can disable the automatic refresh in the integration's system options (Enable polling for updates) and create your own automation with your desired polling frequency. This may be required if the Goodwe SEMS cloud portal stops receiving updates from the inverter.
 
 ```yaml
 - alias: "Goodwe inverter data polling"
   trigger:
+    # Poll every 30 seconds.
     - platform: time_pattern
       hours: "*"
       minutes: "*"
       seconds: "/30"
+#   # Poll every 5 minutes.
+#   - platform: time_pattern
+#     hours: "*"
+#     minutes: "/5"
+#     seconds: "0"
   action:
     - service: homeassistant.update_entity
       target:
-        entity_id: sensor.ppv
+        entity_id:
+          - sensor.pv_power
+          - sensor.pv1_current
+          - sensor.pv1_power
+          - sensor.pv1_voltage
+          - sensor.pv2_current
+          - sensor.pv2_power
+          - sensor.pv2_voltage
+          - ...
 ```
 
 <div class='note'>
-It has been observed in some rare situations that frequent polling conflicts with updates to the Goodwe SEMS cloud portal and do not receive any updates anymore. Reducing polling frequency to 30 seconds or 1 minute seems to help in such cases.
+Some Goodwe inverters will stop sending updates to the Goodwe SEMS cloud portal if local polling is too frequent. If you find that the SEMS portal does not show data correctly then you may need to reduce the polling frequency of Home Assistant. Values ranging from 30 seconds to 5 minutes have been found to be effective depending on the model of inverter.
 </div>
