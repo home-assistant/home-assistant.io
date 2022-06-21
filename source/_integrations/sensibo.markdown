@@ -3,6 +3,7 @@ title: Sensibo
 description: Instructions on how to integrate Sensibo A/C controller into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Button
   - Climate
   - Fan
   - Number
@@ -19,6 +20,7 @@ ha_codeowners:
 ha_domain: sensibo
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - diagnostics
   - number
@@ -63,6 +65,16 @@ For Pure devices, these sensors are available:
 - Pure Boost linked with Presence
 - Pure Boost linked with Outdoor Air Quality
 
+For climate devices, these sensors are available:
+
+- Filter Clean Required
+
+## Button
+
+You can reset your filter check by using the button available on climate devices.
+
+By pressing the button, you tell your device that you have cleaned or replaced the filter.
+
 ## Select Entities
 
 For supported devices, this integration provides support to set the following modes by the select entity:
@@ -86,6 +98,10 @@ For Pure devices, these sensors are available:
 
 - PM2.5
 - Pure Boost Sensitivity
+
+For climate devices, these sensors are available:
+
+- Filter last reset
 
 ## Switch Entities
 
