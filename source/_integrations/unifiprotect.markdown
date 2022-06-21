@@ -87,32 +87,47 @@ You can replace `2.0.0-beta.5` with whatever version of UniFi Protect you want t
 
 ### Local User
 
-You will need a local user created in your UniFi OS Console to log in with. Ubiquiti Cloud Users will **not** work.
+You will need a local user created in your UniFi OS Console to log in with. Ubiquiti SSO Cloud Users will **not** work.
+It is recommend you use the Administrator or a user with full read/write access to get the most out of the integration,
+but it is not required. The entities that are created will automatically adjust based on the permissions the user you
+use has.
 
-1. Login to your *Local Portal* on your UniFi OS device, and click on *Users*
-1. In the upper right corner, click on *Add User*
-1. Click *Add Admin*, and fill out the form. Specific Fields to pay attention to:
-    * Role: Must be *Limited Admin*
-    * Account Type: *Local Access Only*
-    * CONTROLLER PERMISSIONS - Under UniFi Protect, select Administrators. **NOTE**: Other roles may work, but only the default Administrators role is fully tested.
-1. Click *Add* in the bottom Right.
+1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_. **Note**: This **must** be done from
+    the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the
+    UniFi Protect app.
+2. In the upper right corner, click on _Add User_.
+3. Fill out the fields for your user. Be sure the role you assign to the user grants them access to at least one or
+    more UniFi Protect devices.
+4. Click _Add_ in the bottom Right.
 
-![ADMIN_UNIFIOS](/images/integrations/unifiprotect/unifi_os_admin.png)
+![UniFi OS User Creation](/images/integrations/unifiprotect/user.png)
 
 ### Camera Streams
 
-The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure you can stream your camera in Home Assistant. This may already be enabled by default, but it is recommended to just check that this is done. To check and enable the feature:
+The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure
+you can stream your camera in Home Assistant. This may already be enabled by default, but it is recommended to just
+check that this is done. To check and enable the feature:
 
-1. Open UniFi Protect and click on *Devices*
-1. Select *Manage* in the Menu bar at the top
-1. Click on the + sign next to RTSP
+1. Open UniFi Protect and click on _Devices_.
+1. Select the camera you want to ensure can stream in UniFi Protect.
+1. Click the _Settings_ tab in the top right.
+1. Expand the _Advanced_ section at the bottom.
 1. Enable a minimum 1 stream out of the 3 available. The Stream with the Highest resolution is the default enabled one.
 
 {% include integrations/config_flow.md %}
 
 ## Features
 
-All known UniFi Protect devices should be supported. Each UniFi Protect device will get a variety of entities added for each of the different entity platforms.
+All known UniFi Protect devices should be supported. Each UniFi Protect device will get a variety of entities added for
+each of the different entity platforms.
+
+<div class='note'>
+
+**Permissions**: The below sections on the features available to your Home Assistant instance assume you have full
+write access to each device. If the user you are using has limited access to some devices, you will get less entities
+and in many cases get a read-only sensor instead of an editable switch/select/number entity.
+
+</div>
 
 ### UniFi Protect Cameras
 
