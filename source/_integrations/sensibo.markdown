@@ -111,7 +111,7 @@ The switch uses a timer of 60 minutes delay. You can choose a custom delay using
 
 For Pure devices, this integration provides support to enable/disable Pure Boost.
 
-To customize the settings of Pure Boost you can use the custom `sensibo.enable_pure_boost` service. See [Pure Boost](#pure-boost)
+To customize the settings of Pure Boost, you can use the custom `sensibo.enable_pure_boost` service. See [Pure Boost](#pure-boost)
 
 ## Custom Services
 
