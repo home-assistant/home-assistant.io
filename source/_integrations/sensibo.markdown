@@ -117,7 +117,7 @@ To customize the settings of Pure Boost you can use the custom `sensibo.enable_p
 
 ### Pure Boost
 
-You can configure your Pure Boost settings by using the services `sensibo.enable_pure_boost`.
+You can configure your Pure Boost settings using the services `sensibo.enable_pure_boost`.
 
 - Enable Pure Boost will enable the service with configured settings
 
