@@ -50,11 +50,6 @@ time_memory:
   required: false
   type: integer
   default: 300
-base_url:
-  description: A base URL to use *instead* of the one set in the Home Assistant [configuration](/docs/configuration/basic). It is used as-is by the `tts` component. In particular, you need to include the protocol scheme `http://` or `https://` and the correct port number. They will not be automatically added for you.
-  required: false
-  type: string
-  default: value of internal URL
 service_name:
   description: Define the service name.
   required: false
@@ -75,15 +70,6 @@ tts:
     service_name: google_say
 ```
 
-<div class='note'>
-
-In the above example, `base_url` is custom to this particular TTS platform configuration. It is not suggesting that you use the internal URL that you have set for your core Home Assistant configuration. The reason you might need to do this is outlined in the next section.
-
-</div>
-
-## When do you need to set `base_url` here?
-
-The general answer is "whenever the global internal URL set in the [configuration](/docs/configuration/basic/) of Home Assistant is not adequate to allow the `say` service to run". The `say` service operates by generating a media file that contains the speech corresponding to the text passed to the service. Then the `say` service sends a message to the media device with a URL pointing to the file. The device fetches the media file at the URL and plays the media. Some combinations of a media device, network configuration and Home Assistant configuration can make it so that the device cannot fetch the media file.
 
 The following sections describe some of the problems encountered with media devices.
 
