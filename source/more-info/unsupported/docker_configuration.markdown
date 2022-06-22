@@ -10,7 +10,7 @@ The Supervisor has some expectations of how the Docker daemon is configured to m
 The logging driver for the Docker daemon needs to be set to `journald` and the storage driver
 needs to be set to `overlay2`.
 
-We only support cgroup version 1 on our Hardware handling.
+We only support cgroup version 1 on our hardware handling.
 
 ## The solution
 
@@ -31,6 +31,6 @@ following contents:
 When the Docker configuration file is changed and saved, you need to restart the
 Docker service on the host machine.
 
-To fix issues with the cgroup level, addjust the /etc/default/grub and add `systemd.unified_cgroup_hierarchy=false` to `GRUB_CMDLINE_LINUX_DEFAULT`. After this you have to complete reboot the host.
+To fix issues with the cgroup level, addjust the `/etc/default/grub` and add `systemd.unified_cgroup_hierarchy=false` to `GRUB_CMDLINE_LINUX_DEFAULT`. After this change is made, you need to reboot the host completely.
 
 You can also just re-run our [convenience installation script](https://github.com/home-assistant/supervised-installer).
