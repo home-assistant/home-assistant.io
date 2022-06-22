@@ -24,8 +24,8 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
   - Aeotec Z-Pi 7 Raspberry Pi HAT/Shield (ZWA025)
   - Silicon Labs UZB-7 USB Stick (Silabs SLUSB7000A / SLUSB001A)
   - Zooz S2 Stick 700 (ZST10 700)
-  - ZWave.me RaZberry 7 (ZME_RAZBERRY7)
-  - ZWave.me RaZberry 7 Pro (ZMEERAZBERRY7_ANT or ZMEURAZBERRY7_ANT)
+  - Z-Wave.Me RaZberry 7 (ZME_RAZBERRY7)
+  - Z-Wave.Me RaZberry 7 Pro (ZMEERAZBERRY7_ANT or ZMEURAZBERRY7_ANT)
 
 - 500 series controllers
   - Aeotec Z-Stick Gen5 (see note below)
@@ -33,11 +33,13 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
   - GoControl HUSBZB-1 stick
   - Sigma Designs UZB stick
   - Vision USB stick - Gen5
-  - ZWave.me UZB1 stick
+  - Z-Wave.Me UZB1 stick
 
 - Rasberry Pi Modules
   - Aeotec Z-Pi 7 (700 series)
-  - ZWave.me Razberry Board (500 series)
+  - Z-Wave.Me RaZberry 7 (700 series)
+  - Z-Wave.Me RaZberry 7 Pro (700 series)
+  - Z-Wave.Me Razberry 2 (500 series)
 
 If you are just starting out, we recommend that you purchase a 500 series controller.
 
@@ -52,7 +54,8 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
 - [Vera](/integrations/vera/)
 - [Fibaro](/integrations/fibaro/)
 - [SmartThings](/integrations/smartthings/)
-
+- [Z-Wave.Me Z-Way](/integrations/zwave_me)
+- 
 ## Controller Notes
 
 ### Aeotec Z-Stick
