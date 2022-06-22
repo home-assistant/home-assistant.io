@@ -2,6 +2,9 @@ name: home-assistant.io Test
 
 on: [push, pull_request]
 
+permissions:
+  contents: read
+
 jobs:
   markdown-lint:
     name: Lint Markdown
