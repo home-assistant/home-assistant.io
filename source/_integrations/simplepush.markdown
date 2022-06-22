@@ -23,6 +23,6 @@ curl 'https://api.simplepush.io/send/device_key/title/message'
 ```
 ## Notifications
 
-Simplepush can send a notification by calling the [`notify` service](/integrations/notify/). You can sepcify the `event` under the `data` key. This will override the event configured in YAML when imported.
+Simplepush can send a notification by calling the [`notify` service](/integrations/notify/). You can specify the `event` under the `data` key. This will override the event configured in YAML when imported.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
