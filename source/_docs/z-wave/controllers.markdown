@@ -55,6 +55,7 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
 - [Fibaro](/integrations/fibaro/)
 - [SmartThings](/integrations/smartthings/)
 - [Z-Wave.Me Z-Way](/integrations/zwave_me)
+
 ## Controller Notes
 
 ### Aeotec Z-Stick
