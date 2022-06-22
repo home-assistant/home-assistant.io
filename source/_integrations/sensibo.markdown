@@ -105,18 +105,21 @@ For climate devices, these sensors are available:
 
 ## Switch Entities
 
-For supported devices, this integration provides support to enable/disable a timer to delay a start or stop (depending on the current state) of your device.
+For climate devices, this integration provides support to enable/disable a timer to delay a start or stop (depending on the current state) of your device.
 
 The switch uses a timer of 60 minutes delay. You can choose a custom delay using the custom `sensibo.enable_timer` service. See [Timer](#timer).
+
+For Pure devices, this integration provides support to enable/disable Pure Boost.
+
+To customize the settings of Pure Boost, you can use the custom `sensibo.enable_pure_boost` service. See [Pure Boost](#pure-boost)
 
 ## Custom Services
 
 ### Pure Boost
 
-You can configure your Pure Boost settings by using the services `sensibo.enable_pure_boost` and `sensibo.disable_pure_boost`.
+You can configure your Pure Boost settings using the services `sensibo.enable_pure_boost`.
 
-- Enable Pure Boost will enable the service; optionally, you can configure the settings
-- Disable Pure Boost will disable the service and leave settings intact, so a later enable will use settings already in place if not new are configured.
+- Enable Pure Boost will enable the service with configured settings
 
 Using Geo integration for Pure Boost is only possible by pre-configuration of Presence within the app.
 
