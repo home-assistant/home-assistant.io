@@ -33,7 +33,6 @@ Limit GPS accuracy | Check this box to limit location updates based on location 
 Max GPS accuracy | If location's accuracy circle is larger than this value (i.e., _less_ accurate than this limit) the update will be ignored (always specified in meters)
 Set driving speed threshold | Check this box to force `driving` attribute to be `True` if the `speed` attribute is at or above specified value
 Driving Speed | Speed threshold (mph or kph, depending on Home Assistant Unit System selection)
-Life360 server query period | Time between Life360 server queries (seconds)
 Show driving as state | Check this box to change entity state to "Driving" when `driving` attribute is `True`
 
 ## Additional attributes
