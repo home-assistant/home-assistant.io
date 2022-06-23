@@ -78,6 +78,7 @@ To include messages with embedding, use these attributes underneath the `embed` 
 | `author`                    |      yes  | Sets the footer for the embed content.
 | `footer`               |      yes | Sets the footer for the embed content.
 | `thumbnail`               |      yes | Sets the thumbnail for the embed content.
+| `image`               |      yes | Sets the image for the embed content.
 | `fields`               |      yes | Adds a field to the embed object.  `name` and `value` are *required*, `inline` is *true* by default.
 
 ### Example service call
@@ -114,6 +115,8 @@ To include messages with embedding, use these attributes underneath the `embed` 
           text: 'Footer Text'
           icon_url: 'https://www.home-assistant.io'
         thumbnail:
+          url: 'https://www.home-assistant.io/images/favicon-192x192-full.png'
+        image:
           url: 'https://www.home-assistant.io/images/favicon-192x192-full.png'
         fields:
           - name: 'fieldname1'
