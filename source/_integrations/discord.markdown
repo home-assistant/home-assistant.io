@@ -81,8 +81,6 @@ To include messages with embedding, use these attributes underneath the `embed` 
 | `image`               |      yes | Sets the image for the embed content.
 | `fields`               |      yes | Adds a field to the embed object.  `name` and `value` are *required*, `inline` is *true* by default.
 
-
-
 ### Example service call
 
 ```yaml
