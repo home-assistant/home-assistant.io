@@ -585,7 +585,7 @@ script:
       - alias: "If no one is home"
         condition: numeric_state
         entity_id: zone.home
-        state: 0
+        above: 0
     then:
       - alias: "Then start cleaning already!"
         service: vacuum.start
