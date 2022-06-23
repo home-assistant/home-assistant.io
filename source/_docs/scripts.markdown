@@ -583,7 +583,7 @@ pass (`else`).
 script:
   - if:
       - alias: "If no one is home"
-        condition: state
+        condition: numeric_state
         entity_id: zone.home
         state: 0
     then:
