@@ -241,7 +241,7 @@ _All these can be extended if your usage calls for more resources._
 
     </div>
 
-- title: KVM
+- title: KVM (virt-manager)
   content: |
     1. Create a new virtual machine in `virt-manager`
     2. Select “Import existing disk image”, provide the path to the QCOW2 image above
@@ -253,6 +253,12 @@ _All these can be extended if your usage calls for more resources._
     8. Select device type: "unix"
     9. Select name: "org.qemu.guest_agent.0"
     10. Finally select "Begin Instalation" (upper left corner)
+
+- title: KVM (virt-install)
+  content: |
+    ```bash
+    virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --graphics none --boot uefi
+    ```
 
 {% if page.installation_type == 'windows' or page.installation_type == 'linux' %}
 
