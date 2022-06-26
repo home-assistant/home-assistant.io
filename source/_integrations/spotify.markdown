@@ -21,6 +21,7 @@ The Spotify media player integration allows you to control [Spotify](https://www
 
 - Spotify account
 - (Optional) Spotify developer application configured for Home Assistant (see [below](#create-a-spotify-application))
+- Spotify compatible playback [source](#selecting-output-source) device
 
 <div class='note'>
   Spotify integrated media controls (pause, play, next, etc.) require a Premium account.
@@ -92,6 +93,20 @@ accounts can be linked to a _single_ Spotify application. You will have to add t
 
 To add an additional Spotify account to Home Assistant, go to the Spotify website and log out, then repeat _only_ the steps
 in the [Configuration](#configuration) section. 
+
+## Selecting output source
+
+To play media Spotify first needs a device selected for audio output known as the `source`.
+
+```yaml
+# Example code to select an AV receiver as the output device
+service: media_player.select_source
+entity_id: media_player.spotify
+data:
+  source: "Denon AVR-X2000"
+```
+
+The Spotify API cannot initiate playback to a device not already known to the Spotify API. The source list of available devices can be found in the Details section of the Spotify Media Player Control and the `source_list` attribute in the {% my developer_states title="Developer Tools States" %}.
 
 ## Playing Spotify playlists
 
