@@ -498,3 +498,6 @@
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
 /components/zwave /integrations/zwave_js
+
+# Lovelace images
+/images/dashboards/lovelace_* /images/dashboards/:splat
