@@ -71,6 +71,6 @@ name: My Office
 ```
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_light_complex_card.png' alt='Screenshot of the Light card'>
+<img src='/images/dashboards/light_complex_card.png' alt='Screenshot of the Light card'>
 Screenshot of the Light card names.
 </p>
