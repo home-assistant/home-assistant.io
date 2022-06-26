@@ -135,7 +135,7 @@ automatically populates with entities of devices you have assigned
 to that specific area.
 
 <p class='img'>
-<img src='/images/blog/2021-12/area-card.png' alt='Screenshot of a new area Lovelace card'>
+<img src='/images/dashboards/area-card.png' alt='Screenshot of a new area Lovelace card'>
 Screenshot of a new area Lovelace card.
 </p>
 
