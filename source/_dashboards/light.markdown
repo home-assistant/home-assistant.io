@@ -8,7 +8,7 @@ description: "The Light card allows you to change the brightness of the light."
 The Light card allows you to change the brightness of the light.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_light_card.png' alt='Screenshot of the Light card'>
+<img src='/images/dashboards/light_card.png' alt='Screenshot of the Light card'>
 Screenshot of the Light card.
 </p>
 
