@@ -45,6 +45,7 @@ There is currently support for the following device types within Home Assistant:
 - HS110 (supports consumption sensors)
 - KP105
 - KP115 (supports consumption sensors)
+- KP125 (supports consumption sensors)
 
 ### Strip (Multi-Plug)
 
