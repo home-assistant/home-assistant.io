@@ -280,7 +280,7 @@ template:
 
 [trigger-doc]: /docs/automation/trigger
 
-### Template and action variables
+## Template and action variables
 
 State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attribute in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/templating/). 
 
