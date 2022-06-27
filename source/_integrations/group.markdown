@@ -69,11 +69,11 @@ In short, when any group member entity is `open`, the group will also be `open`.
 - Otherwise, the group state is `closed`.
 
 ### Fan groups
-Fan groups don't support `unavailable` or `unknown` states.
+In short, when any group member entity is `on`, the group will also be `on`. A complete overview of how fan groups behave:
 
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
-- The group state is `on` if at least one group member is `on`.
+- Otherwise, The group state is `on` if at least one group member is `on`.
 - Otherwise, the group state is `off`.
 
 ### Lock groups
