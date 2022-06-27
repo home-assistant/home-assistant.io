@@ -31,6 +31,7 @@ weather:
     name: "My Weather Station"
     condition_template: "{{ states('weather.my_region') }}"
     temperature_template: "{{ states('sensor.temperature') | float }}"
+    temperature_unit: "°C"
     humidity_template: "{{ states('sensor.humidity') | float }}"
     forecast_template: "{{ state_attr('weather.my_region', 'forecast') }}"
 ```
@@ -54,6 +55,10 @@ temperature_template:
   description: The current temperature.
   required: true
   type: template
+temperature_unit:
+  description: Unit for temperature.
+  required: false
+  type: string
 humidity_template:
   description: The current humidity.
   required: true
@@ -66,10 +71,18 @@ pressure_template:
   description: The current air pressure.
   required: false
   type: template
+pressure_unit:
+  description: Unit for pressure.
+  required: false
+  type: string
 wind_speed_template:
   description: The current wind speed.
   required: false
   type: template
+wind_speed_unit:
+  description: Unit for wind speed.
+  required: false
+  type: string
 wind_bearing_template:
   description: The current wind bearing.
   required: false
@@ -82,10 +95,18 @@ visibility_template:
   description: The current visibility.
   required: false
   type: template
+visibility_unit:
+  description: Unit for visibility.
+  required: false
+  type: string
 forecast_template:
   description: Daily forecast data.
   required: false
   type: template
+precipitation_unit:
+  description: Unit for precipitation.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ### Template variables
