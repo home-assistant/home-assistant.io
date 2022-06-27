@@ -72,7 +72,7 @@ In case you would like to convert the values for example to kWh instead of the d
 # Example configuration.yaml entry for sensor template platform
 template:
   - sensor:
-    - name: solaredge_energy_this_year_template:
+    - name: solaredge_energy_this_year_template
       state: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
       unit_of_measurement: "KWh"
       icon: "mdi:solar-power"
