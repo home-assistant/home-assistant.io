@@ -25,9 +25,15 @@ Devices and entities can be used in dashboards to [automations](#automations).
 ![Home Assistant Device](/images/getting-started/home-assistant-device.png)
 
 ### Automations
-A set of repeatable steps that can be set up to run automatically. More details can be found [here](/automation).
+A set of repeatable actions that can be set up to run automatically. More details can be found [here](/automation).
 
 ![Automations](/images/getting-started/automation-editor.png)
+
+### Scripts
+Similar to automations, repeatable actions that can be run. The difference between scripts and automations is scripts do not have triggers like automations so they cannot automatically run unless it's used in an automation. Scripts are particularly useful if you perform the same actions in different automations to triggering them from the dashboard. More details can be found [here](/integrations/script/).
+
+### Scenes
+Scenes are saved states of entities which can be recalled using scripts or automations. For example, a light can be set to a particular brightness, color, etc. More details can be found [here](/integrations/scene/).
 
 ### Add-ons
 Depending on your [installation type](/installation), you may have the ability to install add-ons. Add-ons are usually apps that can be run with Home Assistant but provide a quick and easy way to install, configure and run within Home Assistant. Add-ons provide additional functionality where as integrations connects Home Assistant to other apps.
