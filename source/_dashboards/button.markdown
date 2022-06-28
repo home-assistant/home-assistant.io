@@ -8,7 +8,7 @@ description: "The Button card allows you to add buttons to perform tasks."
 The Button card allows you to add buttons to perform tasks.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_entity_button_card.png' alt='Screenshot of three Button Cards'>
+<img src='/images/dashboards/entity_button_card.png' alt='Screenshot of three Button Cards'>
 Screenshot of three Button Cards.
 </p>
 
@@ -135,6 +135,6 @@ tap_action:
 ```
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_entity_button_complex_card.png' alt='Screenshot of the Button card with Script Service'>
+<img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with Script Service'>
 Screenshot of the Button card with Script Service.
 </p>

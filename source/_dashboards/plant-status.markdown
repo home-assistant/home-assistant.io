@@ -8,7 +8,7 @@ description: "The Plant Status card is for all the lovely botanists out there."
 The Plant Status card is for all the lovely botanists out there.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_plant_card.png' alt='Screenshot of the plant status card'>
+<img src='/images/dashboards/plant_card.png' alt='Screenshot of the plant status card'>
 Screenshot of the plant status card.
 </p>
 
