@@ -8,7 +8,7 @@ Filters are applied as follows:
     - Otherwise, entity matches domain include: include
     - Otherwise: exclude
 3. Only excludes
-    - Otherwise, entity listed in exclude: exclude
+    - Entity listed in exclude: exclude
     - Otherwise, entity matches glob exclude: exclude     
     - Otherwise, entity matches domain exclude: exclude     
     - Otherwise: include
