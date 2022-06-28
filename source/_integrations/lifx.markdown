@@ -15,7 +15,7 @@ ha_codeowners:
   - '@Djelibeybi'
 ---
 
-The `lifx` integration automatically discovers [LIFX](https://www.lifx.com) bulbs on your network and adds them to Home Assistant.
+The LIFX integration automatically discovers [LIFX](https://www.lifx.com) bulbs on your network and adds them to Home Assistant.
 
 <div class="note info">
 
