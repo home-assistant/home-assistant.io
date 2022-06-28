@@ -54,7 +54,7 @@ service_name:
   description: Define the service name.
   required: false
   type: string
-  default:  The service name default set to <platform>_say. For example, for google_translate tts, its service name default is `google_translate_say`.
+  default: The service name default set to <platform>_say. For example, for google_translate TTS, its service name default is `google_translate_say`.
 {% endconfiguration %}
 
 The extended example from above would look like the following sample:

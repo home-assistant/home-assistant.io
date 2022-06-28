@@ -58,7 +58,7 @@ It can also be used to target a Squeezebox from IFTTT (or Dialogflow, Alexa...).
 
 For example, to play an album from your collection, create an IFTTT applet like this:
 
-- Trigger: Google assistant, with sentence: `I want to listen to album $`
+- Trigger: Google Assistant, with sentence: `I want to listen to album $`
 - Action: JSON post query with such JSON body:
 `{ "entity_id": "media_player.squeezebox_radio", "command": "playlist", "parameters": ["loadtracks", "album.titlesearch={{TextField}}"] }`
 
