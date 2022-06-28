@@ -29,7 +29,6 @@ Retrieve the **Application ID** from the 'General Information' section and the (
 <div class='note'>
   
 The name you give your application on the [Discord My Apps page](https://discordapp.com/developers/applications/me) will determine the name of the notify service. For example: if you enter "Discord Chat", the service will be named `notify.discord_chat`.
-  
 </div>
 
 ## Setting up the bot
