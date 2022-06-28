@@ -56,7 +56,7 @@ temperature_template:
   required: true
   type: template
 temperature_unit:
-  description: Unit for temperature_template output.
+  description: Unit for temperature_template output. Valid options are °C, °F and K.
   required: false
   type: string
 humidity_template:
@@ -72,7 +72,7 @@ pressure_template:
   required: false
   type: template
 pressure_unit:
-  description: Unit for pressure_template output.
+  description: Unit for pressure_template output. Valid options are Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, psi.
   required: false
   type: string
 wind_speed_template:
@@ -80,7 +80,7 @@ wind_speed_template:
   required: false
   type: template
 wind_speed_unit:
-  description: Unit for wind_speed_template output.
+  description: Unit for wind_speed_template output. Valid options are m/s, km/h, mph, mm/d, in/d, in/h.
   required: false
   type: string
 wind_bearing_template:
@@ -96,7 +96,7 @@ visibility_template:
   required: false
   type: template
 visibility_unit:
-  description: Unit for visibility_template output.
+  description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
   required: false
   type: string
 forecast_template:
@@ -104,7 +104,7 @@ forecast_template:
   required: false
   type: template
 precipitation_unit:
-  description: Unit for precipitation output.
+  description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
   required: false
   type: string
 {% endconfiguration %}
