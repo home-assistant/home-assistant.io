@@ -47,7 +47,7 @@ Home Assistant can group multiple binary sensors, covers, fans, lights, locks, m
 In short, when any group member entity is `on`, the group will also be `on`. A complete overview of how groups behave:
 
 - The group state is `unavailable` if all group members are `unavailable`.
-- Otherwise, the group state is `unknown` if all group members are `unknown`.
+- Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
 - Otherwise, the group state is `on` if at least one group member is `on`.
 - Otherwise, the group state is `off`.
 

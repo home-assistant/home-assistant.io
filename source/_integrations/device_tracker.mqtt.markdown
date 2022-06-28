@@ -11,6 +11,10 @@ ha_domain: mqtt
 
 The `mqtt` device tracker platform allows you to define new device_trackers through [manual YAML configuration](#yaml-configuration) in `configuration.yaml` and also to automatically discover device_trackers [using the MQTT Discovery protocol](#using-the-discovery-protocol).
 
+<div class='note info'>
+  At the moment, manual configured device trackers can only reloaded by restarting Home Assistant.
+</div>
+
 ## Configuration
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:

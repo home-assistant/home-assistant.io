@@ -8,7 +8,7 @@ description: "The calendar card displays your calendar entities in a month, day 
 The Calendar card displays your [calendar](/integrations/#calendar) entities in a month, day and list view.
 
 <p class='img'>
-  <img src='/images/dashboards/lovelace_calendar_card.png' alt='Screenshot of the 
+  <img src='/images/dashboards/calendar_card.png' alt='Screenshot of the 
   calendar card'>
   Screenshot of the Calendar card.
 </p>

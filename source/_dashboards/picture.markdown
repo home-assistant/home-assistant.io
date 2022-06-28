@@ -8,7 +8,7 @@ description: "The Picture card allows you to set an image to use for navigation 
 The Picture card allows you to set an image to use for navigation to various paths in your interface or to call a service.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_picture.png' alt='Screenshot of the picture card'>
+<img src='/images/dashboards/picture.png' alt='Screenshot of the picture card'>
 Screenshot of the picture card.
 </p>
 

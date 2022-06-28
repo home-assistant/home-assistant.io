@@ -398,7 +398,7 @@ entities:
 Above the divider are regular entity rows, below one of type `buttons`. Note that regular entity rows automatically show the entity name, whereas for buttons you have to explicitly specify a label / name.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_entity_row_buttons.jpg' alt='Screenshot of buttons row'>
+<img src='/images/dashboards/entity_row_buttons.jpg' alt='Screenshot of buttons row'>
 Screenshot of buttons row.
 </p>
 
@@ -419,7 +419,7 @@ entities:
 ### Other special rows
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_entity_row_special.jpg' alt='Screenshot of other special rows'>
+<img src='/images/dashboards/entity_row_special.jpg' alt='Screenshot of other special rows'>
 Screenshot of other special rows.
 </p>
 

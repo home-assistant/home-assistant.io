@@ -362,6 +362,12 @@ pip3 install mysqlclient
 
 After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you.
 
+```bash
+SET GLOBAL default_storage_engine = 'InnoDB';
+CREATE DATABASE DB_NAME CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+Where `DB_NAME` is the name of your database
+
 Once Home Assistant finds the database, with the right level of permissions, all the required tables will then be automatically created and the data will be populated accordingly.
 
 ### PostgreSQL

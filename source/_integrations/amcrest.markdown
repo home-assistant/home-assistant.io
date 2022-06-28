@@ -86,7 +86,7 @@ stream_source:
   default: snapshot
 ffmpeg_arguments:
   description: >
-    Extra options to pass to ffmpeg, e.g.,
+    Extra options to pass to FFmpeg, e.g.,
     image quality or video filter options.
   required: false
   type: string
