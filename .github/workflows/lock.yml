@@ -7,8 +7,8 @@ on:
 jobs:
   lock:
     permissions:
-      issues: write  # for dessant/lock-threads to lock issues
-      pull-requests: write  # for dessant/lock-threads to lock PRs
+      issues: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - uses: dessant/lock-threads@v3

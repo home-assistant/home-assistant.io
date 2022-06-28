@@ -2,7 +2,6 @@ name: home-assistant.io Test
 
 on: [push, pull_request]
 
-
 jobs:
   markdown-lint:
     name: Lint Markdown
