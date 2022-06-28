@@ -6,12 +6,12 @@ Filters are applied as follows:
     - Entity listed in entities include: include
     - Otherwise, entity matches domain include: include
     - Otherwise, entity matches glob include: include
-- Otherwise: exclude
+    - Otherwise: exclude
 3. Only excludes
     - Entity listed in exclude: exclude
     - Otherwise, entity matches domain exclude: exclude
     - Otherwise, entity matches glob exclude: exclude
-- Otherwise: include
+    - Otherwise: include
 4. Domain and/or glob includes (may also have excludes)
     - Entity listed in entities include: include
     - Otherwise, entity listed in entities exclude: exclude
