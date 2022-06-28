@@ -400,9 +400,12 @@ This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_hor
 
 ```yaml
 condition:
-  - condition: sun
-    after: sunset
-    before: sunrise
+  condition: or
+  conditions:
+    - condition: sun
+      after: sunset
+    - condition: sun
+      before: sunrise
 ```
 
 This is 'when light' - equivalent to a state condition on `sun.sun` of `above_horizon`:
@@ -418,12 +421,9 @@ We cannot use both keys in this case as it will always be `false`.
 
 ```yaml
 condition:
-  condition: or
-  conditions:
-    - condition: sun
-      after: sunset
-    - condition: sun
-      before: sunrise
+  - condition: sun
+    after: sunset
+    before: sunrise
 ```
 
 A visual timeline is provided below showing an example of when these conditions are true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions are true.
