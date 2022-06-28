@@ -15,6 +15,7 @@ There are several powerful ways to use this integration, including localizing yo
 
 Another use case could be using temperature and humidity from one weather platform, with forecasts from a different one.
 
+Output will be converted according to the users unit system or entity override, see [docs](https://developers.home-assistant.io/docs/core/entity/weather/#unit-conversion).
 
 ## Configuration
 
