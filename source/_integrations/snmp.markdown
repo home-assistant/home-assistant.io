@@ -145,6 +145,8 @@ default_value:
   type: string
 device_class:
   description: Sets the [class of the device](/integrations/sensor#device-class), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 host:
   description: The IP address of your host, e.g., `192.168.1.32`.
   required: false
