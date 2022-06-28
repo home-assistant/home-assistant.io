@@ -16,7 +16,7 @@ ha_integration_type: integration
 
 The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows integrations to send messages to the user using Discord.
 
-## Creating the Discord Application
+## Prerequisites
 
 In order to create a bot user a Discord Application is required. Go to the [Discord My Apps page](https://discordapp.com/developers/applications/me) and create a new application.
 
