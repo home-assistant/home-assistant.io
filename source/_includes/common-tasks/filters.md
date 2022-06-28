@@ -1,8 +1,8 @@
 Filters are applied as follows:
 
 1. No includes or excludes - all entities included
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
+2. Includes, no excludes - specified entities included
+3. Excludes, no includes - specified entities excluded
 4. Both includes and excludes:
    - Include domain and/or glob patterns specified
       - If entity is included, accept
