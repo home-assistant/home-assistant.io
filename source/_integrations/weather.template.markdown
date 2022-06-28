@@ -56,7 +56,7 @@ temperature_template:
   required: true
   type: template
 temperature_unit:
-  description: Unit for temperature.
+  description: Unit for temperature_template output.
   required: false
   type: string
 humidity_template:
@@ -72,7 +72,7 @@ pressure_template:
   required: false
   type: template
 pressure_unit:
-  description: Unit for pressure.
+  description: Unit for pressure_template output.
   required: false
   type: string
 wind_speed_template:
@@ -80,7 +80,7 @@ wind_speed_template:
   required: false
   type: template
 wind_speed_unit:
-  description: Unit for wind speed.
+  description: Unit for wind_speed_template output.
   required: false
   type: string
 wind_bearing_template:
@@ -96,7 +96,7 @@ visibility_template:
   required: false
   type: template
 visibility_unit:
-  description: Unit for visibility.
+  description: Unit for visibility_template output.
   required: false
   type: string
 forecast_template:
@@ -104,7 +104,7 @@ forecast_template:
   required: false
   type: template
 precipitation_unit:
-  description: Unit for precipitation.
+  description: Unit for precipitation output.
   required: false
   type: string
 {% endconfiguration %}
