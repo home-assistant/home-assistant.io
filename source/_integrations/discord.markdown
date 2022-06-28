@@ -18,6 +18,8 @@ The [Discord service](https://discordapp.com/) is a platform for the notify comp
 
 ## Prerequisites
 
+### Creating a Discord Application
+
 In order to create a bot user a Discord Application is required. Go to the [Discord My Apps page](https://discordapp.com/developers/applications/me) and create a new application.
 
 When setting up the application you can use this [icon](/images/favicon-192x192-full.png).
@@ -31,7 +33,7 @@ Retrieve the **Application ID** from the 'General Information' section and the (
 The name you give your application on the [Discord My Apps page](https://discordapp.com/developers/applications/me) will determine the name of the notify service. For example: if you enter "Discord Chat", the service will be named `notify.discord_chat`.
 </div>
 
-## Setting up the bot
+### Setting up the bot
 
 Bots can send messages to servers and users or attach locally available images. To add the bot to a server you are an admin on use the **Application ID** you noted above, found on the [Discord My Apps page](https://discordapp.com/developers/applications/me).
 
