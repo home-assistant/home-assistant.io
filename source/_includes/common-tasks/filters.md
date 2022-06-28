@@ -10,7 +10,7 @@ Filters are applied as follows:
   - Otherwise, entity matches glob exclude: exclude     
   - Otherwise, entity matches domain include: include
   - Otherwise: exclude
-5. Domain and/or glob excludes and no domain and/or glob includes:
+5. Domain and/or glob excludes:
   - Entity listed in entities include: include
   - Otherwise, entity listed in exclude: exclude
   - Otherwise, entity matches glob exclude: exclude     
