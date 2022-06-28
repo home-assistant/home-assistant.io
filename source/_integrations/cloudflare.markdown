@@ -56,4 +56,4 @@ This integration can only have 1 instance and manage 1 Zone/TLD
 #### Reconfiguration
 
 This integration must be deleted and re-added to change the Zone and A record selection.
-You cannot view which records were selected or view API Token once the integration is configured
+You cannot view which records were selected or view API Token once the integration is configured.
