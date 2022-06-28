@@ -31,7 +31,7 @@ This section explains how to generate a Client ID and Client Secret on
 1. When it gets to the Page titled _Add credentials to your project_ just click cancel.
 1. Navigate to APIs & Services (left sidebar) > Credentials
 1. Click on the field on the right of the screen, 'CONFIGURE CONSENT SCREEN', select "External" and create.
-1. Set the 'Application Name' (the name of the application asking for consent) to anything you want. We suggest "Home-Assistant".
+1. Set the 'Application Name' (the name of the application asking for consent) to anything you want. We suggest `Home-Assistant`.
 1. You then need to select a `Support email`. To do this, simply click the drop down box and select your email address.
 1. You finally need to complete the section: `Developer contact information`. To do this, simply enter your email address (same as above is fine).
 1. Scroll to the bottom and click `save`. (You don't have to fill out anything else)
