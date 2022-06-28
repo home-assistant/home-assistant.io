@@ -8,7 +8,7 @@ description: "The Map card that allows you to display entities on a map"
 The Map card that allows you to display entities on a map
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_map_card.png' alt='Screenshot of the map card'>
+<img src='/images/dashboards/map_card.png' alt='Screenshot of the map card'>
 Screenshot of the map card.
 </p>
 
