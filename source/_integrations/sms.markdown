@@ -70,7 +70,8 @@ You will need a USB GSM stick modem or device like SIM800L v2 connected via USB 
 Need to unlock it using [this guide](http://blog.asiantuntijakaveri.fi/2015/07/convert-huawei-e3372h-153-from.html))
 - [Huawei E3531](https://www.amazon.com/Modem-Huawei-Unlocked-Caribbean-Desbloqueado/dp/B011YZZ6Q2/ref=sr_1_1?keywords=Huawei+E3531&qid=1581447800&sr=8-1)
 - [Huawei E3272](https://www.amazon.com/Huawei-E3272s-506-Unlocked-Americas-Europe/dp/B00HBL51OQ)
-
+- [SIM800C](https://www.amazon.com/gp/product/B087Z6F953/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
+- ZTE K3565-Z
 
 ### List of modems known to NOT work
 
@@ -80,13 +81,17 @@ Need to unlock it using [this guide](http://blog.asiantuntijakaveri.fi/2015/07/c
 
 Search in the [Gammu database](https://wammu.eu/phones/) for modems with AT connection.
 
-### Huawei modems on Raspberry Pi (and similar) devices
+### Huawei/ZTE modems (and similar) devices - NOT applicable for users of Home Assistant OS, Container or Supervised.
 
-For some unknown reason, the rule that converts these modems from storage devices into serial devices does not run automatically. To work around this problem, follow the procedure to create `udev` rule on a configuration USB stick for the device to switch to serial mode.
+For some unknown reason, the rule that converts these modems from storage devices into serial devices may not run automatically. To work around this problem, follow the procedure below to change the modem mode and (optionally) create `udev` rule on a configuration USB stick for the device to switch to serial mode persistently.
 
-0. Try disable virtual cd-rom and change work mode "only modem". After this modem correct work on Raspberry Pi without 'udev' rule.
+1. Install the `usb_modeswitch` software to switch the modem operational mode (for Debian/Ubuntu distros):
 
-1. Run `lsusb`, its output looks like this:
+```bash
+sudo apt update && sudo apt install usb-modeswitch -y
+```
+
+2. Run `lsusb`, its output should be similar to this:
 
 ```bash
 bus 000 device 001: ID 1FFF:342a
@@ -96,6 +101,15 @@ bus 000 device 002: ID 1232:15ca
 ```
 
 Identify the brand for your GSM modem, copy the `brand_Id` and `product_id` (In this case `brand_id = 12d1` and `product_Id = 15ca`)
+
+3. Try disabling virtual cd-rom and change work mode to "only modem": 
+
+```bash
+sudo /sbin/usb_modeswitch -X -v 12d1 -p 15ca
+```
+Re-plug the device. After this the modem correct should work without the following 'udev' rule.
+
+4. (Optional) Configure the udev rule to persist the correct modem configuration even after disconnecting it:
 
 Set this content in file `udev\10-gsm-modem.rules` in the [configuration USB](https://github.com/home-assistant/operating-system/blob/master/Documentation/configuration.md#automatic):
 (Replace `brand_Id` and `product_id` for the numbers reported by `lsusb`)
@@ -116,7 +130,7 @@ ACTION=="add" \
 , RUN+="/sbin/usb_modeswitch -X -v 12d1 -p 15ca"
 ```
 
-Plug the USB stick, reboot the device, run `lsusb` again.
+Re-plug the USB stick, reboot the device, run `lsusb` again.
 The resulting product id now should be different and the brand id should be the same.
 And `ls -l /dev/*USB*` should now report your device.
 
