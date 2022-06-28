@@ -36,38 +36,38 @@ description:
   default: ''
   type: string
 initial_state:
-  description: Used to define the state of your automation at startup. When not set, the state will be restored from the last run.
+  description: Used to define the state of your automation at startup. When not set, the state will be restored from the last run. See [Automation initial state](#automation-initial-state).
   required: false
   type: boolean
   default: Restored from last run
 trace:
-  description: Configuration values for the traces stored, currently only `stored_traces` can be configured.
+  description: "Configuration values for the traces stored, currently only `stored_traces` can be configured."
   required: false
   default: {}
   type: map
   keys:
     stored_traces:
-      description: The number of traces which will be stored
+      description: "The number of traces which will be stored. See [Number of debug traces stored](#number-of-debug-traces-stored)."
       type: integer
       default: 5
       required: false
 variables:
-  description: Variables that will be available inside your templates, both in `condition` and `action`.
+  description: "Variables that will be available inside your templates, both in `condition` and `action`."
   required: false
   default: {}
   type: map
   keys:
     PARAMETER_NAME:
-      description: The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable.
+      description: "The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable."
       type: any
 trigger_variables:
-  description: Variables that will be available inside your [templates triggers](automation/trigger/#template-trigger).
+  description: "Variables that will be available inside your [templates triggers](/docs/automation/trigger/#template-trigger)."
   required: false
   default: {}
   type: map
   keys:
     PARAMETER_NAME:
-      description: The value of the variable. Any YAML is valid. Only [limited templates](/docs/configuration/templating/#limited-templates) can be used.
+      description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/configuration/templating/#limited-templates) can be used."
       type: any
 mode:
   description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation Modes](#automation-modes)."
@@ -84,8 +84,30 @@ max_exceeded:
   required: false
   type: string
   default: warning
+trigger:
+  description: "The trigger(s) which will start the automation. Multiple triggers can be added and the automation will start when any of these triggers trigger."
+  required: true
+  type: list
+  keys:
+    id:
+      description: "An ID that can be used in the automation to determine which trigger caused the automation to start."
+      type: string
+      required: false
+    variables:
+      description: "Variables that will be available in the conditions and action sequence."
+      required: false
+      default: {}
+      type: map
+      keys:
+        PARAMETER_NAME:
+          description: "The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable."
+          type: any
+condition:
+  description: Conditions that have to be `true` to start the automation. By default all conditions listed have to be `true`, you can use [logical conditions](/docs/scripts/conditions/#logical-conditions) to change this default behavior.
+  required: false
+  type: list
 action:
-  description: The sequence of actions to be performed in the script.
+  description: "The sequence of actions to be performed in the script."
   required: true
   type: list
 {% endconfiguration %}
@@ -244,6 +266,6 @@ If you want to migrate your manual automations to use the editor, you'll have to
 
 When automations remain visible in the Home Assistant Dashboard, even after having deleted in the YAML file, you have to delete them in the UI.
 
-To delete them completely, go to UI **{% my entities title="Configuration -> Devices & Services -> Entities" %}** and find the automation in the search field or by scrolling down.
+To delete them completely, go to UI **{% my entities title="Settings -> Devices & Services -> Entities" %}** and find the automation in the search field or by scrolling down.
 
 Check the square box aside of the automation you wish to delete and from the top-right of your screen, select 'REMOVE SELECTED'.

@@ -23,6 +23,7 @@ ha_platforms:
   - light
   - switch
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 <p class='note warning'>The Insteon company has shut down and turned off their cloud as of April 2022.</p>

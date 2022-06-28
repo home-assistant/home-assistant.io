@@ -5,8 +5,6 @@ ha_category:
   - Notifications
 ha_release: pre 0.7
 ha_iot_class: Local Push
-ha_codeowners:
-  - '@fabaff'
 ha_domain: syslog
 ha_platforms:
   - notify

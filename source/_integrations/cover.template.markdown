@@ -114,6 +114,10 @@ cover:
         type: template
 {% endconfiguration %}
 
+### Template and action variables
+
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates and actions.
+
 ## Considerations
 
 If you are using the state of a platform that takes extra time to load, the

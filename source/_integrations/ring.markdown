@@ -20,6 +20,7 @@ ha_platforms:
   - camera
   - light
   - sensor
+  - siren
   - switch
 ha_integration_type: integration
 ---

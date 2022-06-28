@@ -77,7 +77,7 @@ The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is im
 
 Each Point exposes the following binary sensors:
 
-- **alarm**: `On` means alarm sound was recognised, `Off` means normal
+- **alarm**: `On` means alarm sound was recognized, `Off` means normal
 - **battery**: `On` means low, `Off` means normal
 - **button_press**: `On` means the button was pressed, `Off` means normal
 - **cold**: `On` means cold, `Off` means normal

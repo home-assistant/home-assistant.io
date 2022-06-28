@@ -40,6 +40,7 @@ Speaker-level controls are exposed as `number` or `switch` entities. Additionall
 
 ### Sensors
 
+- **Each Sonos system**: Sonos Favorites
 - **Devices with battery**: Battery level, Power state
 - **Home theater devices**: Audio Input Format
 - **Voice-enabled devices**: Microphone Enabled
@@ -63,6 +64,41 @@ The Sonos integration adds one `switch` for each alarm set in the Sonos app. The
 ### Microphone support notes
 
 The microphone can only be enabled/disabled from physical buttons on the Sonos device and cannot be controlled from Home Assistant. A `binary_sensor` reports its current state.
+
+### Sonos Favorites support notes
+
+The favorites sensor provides the names and `media_content_id` values for each of the favorites saved to My Sonos in the native Sonos app. This sensor is intended for users that need to access the favorites in a custom template. For most users, accessing favorites by using the Media Browser functionality and "Play media" script/automation action is recommended.
+
+If using the provided `media_content_id` with the `media_player.play_media` service, the `media_content_type` must be set to "favorite_item_id".
+
+Example templates:
+
+{% raw %}
+
+```yaml
+# Get all favorite names as a list (old behavior)
+{{ state_attr("sensor.sonos_favorites", "items").values() | list }}
+
+# Pick a specific favorite name by position
+{{ (state_attr("sensor.sonos_favorites", "items").values() | list)[3] }}
+
+# Pick a random item's `media_content_id`
+{{ state_attr("sensor.sonos_favorites", "items") | list | random }}
+
+# Loop through and grab name & media_content_id
+{% for media_id, name in state_attr("sensor.sonos_favorites", "items").items() %}
+  {{ name, media_id }}
+{% endfor %}
+```
+
+{% endraw %}
+
+<div class='note'>
+
+The Sonos favorites sensor (`sensor.sonos_favorites`) is disabled by default. It can be found and enabled from the entities associated with the Sonos integration on your {% my integrations %} page.
+  
+</div>
+
 
 ## Playing media
 
@@ -121,7 +157,7 @@ data:
 
 ## Services
 
-The Sonos integration makes various custom services available.
+The Sonos integration makes various custom services available in addition to the [standard Media Player services](/integrations/media_player/#services).
 
 ### Service `sonos.snapshot`
 
@@ -156,23 +192,6 @@ A cloud queue cannot be restarted. This includes queues started from within Spot
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s that should have their snapshot restored. To target all Sonos devices, use `all`.
 | `with_group` | yes | Should we also restore the group layout and the state of other speakers in the group, defaults to true.
-
-### Service `sonos.join`
-
-Group players together under a single coordinator. This will make a new group or join to an existing group.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `master` | no | A single `entity_id` that will become/stay the coordinator speaker.
-| `entity_id` | yes | String or list of `entity_id`s to join to the master.
-
-### Service `sonos.unjoin`
-
-Remove one or more speakers from their group of speakers.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of `entity_id`s to separate from their coordinator speaker.
 
 ### Service `sonos.set_sleep_timer`
 
@@ -242,7 +261,7 @@ condition:
     # Coordinator
     - condition: template
       value_template: >
-        {{ state_attr( trigger.entity_id , 'sonos_group')[0] ==  trigger.entity_id }}
+        {{ state_attr( trigger.entity_id , 'group_members')[0] ==  trigger.entity_id }}
     # Going from queue to queue
     - condition: template
       value_template: >

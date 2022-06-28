@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - sensor
+  - switch
 ha_dhcp: true
 ha_integration_type: integration
 ---
@@ -20,6 +21,10 @@ IntelliFire Wi-Fi fireplace modules provide app-based and Alexa control to vario
 
 {% include integrations/config_flow.md %}
 
+
+## API Credentials
+
+To fully configure the IntelliFire integration you will need to enter your IntelliFire credentials which are the same ones you would use with the mobile app.
 
 ### Sensor Types
 
@@ -67,3 +72,20 @@ The following is a description of the various diagnostic error sensors and what 
  - **Offline** - Your appliance is currently offline.
  - **Pilot Flame** - Pilot Flame Error: Your appliance has been safely disabled. Please contact your dealer and report this issue.
  - **Soft Lock Out** - Sorry your appliance did not start. Try again by pressing Flame ON.
+
+
+### Troubleshooting
+
+The IFT module can suffer a variety of issues that will render it inoperable. Some of these have been confirmed by the manufacturer and some appear to be random. There are two paths to try when attempting to reset the module:
+
+#### Issue a Soft Reset
+
+There is a debug web interface available at [iftapi.net/webaccess](http://iftapi.net/webaccess/login.html). From here you can log in and then navigate to your individual fireplace unit and issue a **Soft Reset** as follows:
+
+![soft_reset.png](/images/integrations/intellifire/soft_reset.png)
+
+In some cases, this will restore control to the fireplace, but if it doesn't you are best to try the following method.
+
+#### Power Cycle
+
+The sure fire way to reset the IFT module is to just power-cycle it. This will work just about every time.

@@ -86,7 +86,7 @@ stream_source:
   default: snapshot
 ffmpeg_arguments:
   description: >
-    Extra options to pass to ffmpeg, e.g.,
+    Extra options to pass to FFmpeg, e.g.,
     image quality or video filter options.
   required: false
   type: string
@@ -289,7 +289,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: up
   - type: icon
@@ -301,7 +301,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: down
   - type: icon
@@ -313,7 +313,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: left
   - type: icon
@@ -325,7 +325,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: right
   - type: icon
@@ -337,7 +337,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: left_up
   - type: icon
@@ -349,7 +349,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: right_up
   - type: icon
@@ -361,7 +361,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: left_down
   - type: icon
@@ -373,7 +373,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: right_down
   - type: icon
@@ -385,13 +385,13 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: zoom_in
     hold_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: zoom_out
 ```

@@ -23,7 +23,6 @@ ha_domain: tuya
 ha_codeowners:
   - '@Tuya'
   - '@zlinoliver'
-  - '@METISU'
   - '@frenck'
 ha_platforms:
   - alarm_control_panel
