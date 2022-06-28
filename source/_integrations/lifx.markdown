@@ -17,14 +17,6 @@ ha_codeowners:
 
 The LIFX integration automatically discovers [LIFX](https://www.lifx.com) bulbs on your network and adds them to Home Assistant.
 
-<div class="note info">
-
-  Automatic discovery relies on the Home Assistant [network configuration](/integrations/network) being correct.
-
-</div>
-
-If Home Assistant does not automatically discover your bulbs, please ensure you have enabled a network interface on the same subnet as your LIFX bulbs. If you use a segregated IoT network and do not have an interface connected to that network, use the manual configuration documented below to bypass the discovery process.
-
 {% include integrations/config_flow.md %}
 
 ## Set state
@@ -158,7 +150,15 @@ When using the `homekit_controller` integration, each button on the LIFX Switch 
 [stateless switch](/integrations/homekit_controller#stateless-switches-and-sensors) and will not appear as an entity in Home Assistant.
 Relays that are configured as wired to non-LIFX devices will appear as normal switches in Home Assistant.
 
-### Troubleshooting Switch Discovery
+## Troubleshooting Discovery
+
+### Lights
+
+Automated discovery of LIFX bulbs relies on Home Assistant having a [network interface](/integrations/network) connected to the same subnet as your LIFX bulbs. If you use a segregated IoT network to which Home Assistant is not directly connected, use the manual configuration method documented above to bypass discovery.
+
+If you have multiple network interfaces, ensure that the interface connected to the same subnet as your LIFX bulbs is enabled in Home Assistant's [network configuration](/integrations/network).
+
+### Switches
 
 If your switch is not automatically discovered or you get a "_Cannot add pairing as device can no longer be found_" error
 during the config process, [reboot your LIFX Switch](https://support.lifx.com/troubleshooting-switch-Hk6RWujLd) as they
