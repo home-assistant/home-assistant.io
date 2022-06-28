@@ -1,6 +1,6 @@
 Filters are applied as follows:
 
-1. No includes or excludes - all entities
+1. No includes or excludes - all entities included
 2. Includes, no excludes - only include specified entities
 3. Excludes, no includes - only exclude specified entities
 4. Both includes and excludes:
