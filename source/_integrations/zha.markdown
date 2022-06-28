@@ -424,7 +424,7 @@ When reporting issues, please provide the following information in addition to i
 1. Debug logs for the issue, see [debug logging](#debug-logging)
 2. Model of Zigbee radio being used
 3. If issue is related to a specific Zigbee device, provide both "Zigbee Device Signature" and "Diagnostics" information. 
-  * Both the "Zigbee Device Signature" and "Diagnostics" information can be found by clicking **Configuration** -> **Devices & Services** -> **Zigbee Home Automation** (click **Configure**) -> **Devices** (pick your device) -> Click "**Zigbee Device Signature**" and "**Download Diagnostics**" respectively.
+  * Both the "Zigbee Device Signature" and "Diagnostics" information can be found by clicking **Settings** -> **Devices & Services** -> **Zigbee Home Automation** (click **Configure**) -> **Devices** (pick your device) -> Click "**Zigbee Device Signature**" and "**Download Diagnostics**" respectively.
 
 ### Debug logging
 
