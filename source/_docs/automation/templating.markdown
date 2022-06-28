@@ -22,7 +22,7 @@ The following describes trigger data associated with all platforms.
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.id` | Optional trigger `id`, or index of the trigger.
-| `trigger.idx` | Index of the trigger.
+| `trigger.idx` | Index of the trigger. (The first trigger idx is `0`.)
 
 ### Calendar
 
