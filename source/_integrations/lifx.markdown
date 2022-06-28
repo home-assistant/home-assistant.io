@@ -15,7 +15,15 @@ ha_codeowners:
   - '@Djelibeybi'
 ---
 
-The `lifx` integration allows you to integrate your [LIFX](https://www.lifx.com) bulbs into Home Assistant.
+The `lifx` integration automatically discovers [LIFX](https://www.lifx.com) bulbs on your network and adds them to Home Assistant.
+
+<div class="note info">
+
+  Automatic discovery relies on the Home Assistant [network configuration](/integrations/network) being correct.
+
+</div>
+
+If Home Assistant does not automatically discover your bulbs, please ensure you have enabled a network interface on the same subnet as your LIFX bulbs. If you use a segregated IoT network and do not have an interface connected to that network, use the manual configuration documented below to bypass the discovery process.
 
 {% include integrations/config_flow.md %}
 
@@ -41,6 +49,7 @@ Change the light to a new state.
 ## Light effects
 
 The LIFX platform supports several light effects. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/integrations/light/#service-lightturn_on) service, for example like this:
+
 ```yaml
 automation:
   - alias: "..."
@@ -55,6 +64,7 @@ automation:
 ```
 
 However, if you want to fully control a light effect, you have to use its dedicated service call, like this:
+
 ```yaml
 script:
   colorloop_start:
@@ -148,7 +158,7 @@ When using the `homekit_controller` integration, each button on the LIFX Switch 
 [stateless switch](/integrations/homekit_controller#stateless-switches-and-sensors) and will not appear as an entity in Home Assistant.
 Relays that are configured as wired to non-LIFX devices will appear as normal switches in Home Assistant.
 
-### Troubleshooting discovery
+### Troubleshooting Switch Discovery
 
 If your switch is not automatically discovered or you get a "_Cannot add pairing as device can no longer be found_" error
 during the config process, [reboot your LIFX Switch](https://support.lifx.com/troubleshooting-switch-Hk6RWujLd) as they
