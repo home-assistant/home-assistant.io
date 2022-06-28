@@ -5,15 +5,15 @@ Filters are applied as follows:
 3. Excludes, no includes - only exclude specified entities
 4. Both includes and excludes:
    - Include domain and/or glob patterns specified
-      - If entity_id is included, accept
-      - If entity_id is excluded, reject
+      - If entity is included, accept
+      - If entity is excluded, reject
       - If included by glob, accept
       - If excluded by glob, reject
       - If domain matches, accept
       - reject
    - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - If entity_id is included, accept
-      - If entity_id is excluded, reject
+      - If entity is included, accept
+      - If entity is excluded, reject
       - If domain is excluded, reject
       - If excluded by glob, reject
       - accept
