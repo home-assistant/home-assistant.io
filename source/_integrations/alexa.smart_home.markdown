@@ -41,6 +41,53 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 - [Account Linking](#account-linking)
 - [Alexa Smart Home Component Configuration](#alexa-smart-home-component-configuration)
 - [Supported Platforms](#supported-platforms)
+  - [Alarm Control Panel](#alarm-control-panel)
+    - [Arming](#arming)
+    - [Disarming](#disarming)
+  - [Alert, Automation, Group](#alert-automation-group)
+  - [Binary Sensor](#binary-sensor)
+    - [Routines](#routines)
+  - [Button, Input Button](#button-input-button)
+    - [Routines](#routines-1)
+    - [Doorbell Announcement](#doorbell-announcement)
+    - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
+  - [Camera](#camera)
+  - [Climate](#climate)
+    - [Set Thermostat Temperature](#set-thermostat-temperature)
+    - [Thermostat Mode](#thermostat-mode)
+  - [Cover](#cover)
+    - [Open/Close/Raise/Lower](#opencloseraiselower)
+    - [Set Cover Position](#set-cover-position)
+    - [Set Cover Tilt](#set-cover-tilt)
+    - [Garage Doors](#garage-doors)
+  - [Fan](#fan)
+    - [Fan Speed](#fan-speed)
+    - [Fan Preset Mode](#fan-preset-mode)
+    - [Fan Direction](#fan-direction)
+    - [Fan Oscillation](#fan-oscillation)
+  - [Image Processing](#image-processing)
+    - [Presence Detection Notification](#presence-detection-notification)
+  - [Input Number](#input-number)
+  - [Light](#light)
+    - [Brightness](#brightness)
+    - [Color Temperature](#color-temperature)
+    - [Color](#color)
+  - [Lock](#lock)
+    - [Unlocking](#unlocking)
+  - [Media Player](#media-player)
+    - [Change Channel](#change-channel)
+    - [Speaker Volume](#speaker-volume)
+    - [Equalizer Mode](#equalizer-mode)
+    - [Inputs](#inputs)
+    - [Playback State](#playback-state)
+    - [Seek](#seek)
+  - [Scene](#scene)
+  - [Script](#script)
+  - [Sensor](#sensor)
+  - [Switch, Input Boolean](#switch-input-boolean)
+    - [Routines](#routines-2)
+  - [Timer](#timer)
+  - [Vacuum](#vacuum)
 - [Alexa Web-Based App](#alexa-web-based-app)
 - [Troubleshooting](#troubleshooting)
 - [Debugging](#debugging)
@@ -409,50 +456,66 @@ Home Assistant supports the following integrations through Alexa using a Smart H
 
 The following integrations are currently supported:
 
-- [Alarm Control Panel](#alarm-control-panel)
-  - [Arming](#arming)
-  - [Disarming](#disarming)
-- [Alert, Automation, Group, Input Boolean](#alert-automation-group-input-boolean)
-- [Binary Sensor](#binary-sensor)
-  - [Routines](#routines)
-  - [Doorbell Announcement](#doorbell-announcement)
-  - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
-- [Camera](#camera)
-- [Climate](#climate)
-  - [Set Thermostat Temperature](#set-thermostat-temperature)
-  - [Thermostat Mode](#thermostat-mode)
-- [Cover](#cover)
-  - [Open/Close/Raise/Lower](#opencloseraiselower)
-  - [Set Cover Position](#set-cover-position)
-  - [Set Cover Tilt](#set-cover-tilt)
-  - [Garage Doors](#garage-doors)
-- [Fan](#fan)
-  - [Fan Speed](#fan-speed)
-  - [Fan Preset Mode](#fan-preset-mode)
-  - [Fan Direction](#fan-direction)
-  - [Fan Oscillation](#fan-oscillation)
-- [Image Processing](#image-processing)
-  - [Presence Detection Notification](#presence-detection-notification)
-- [Input Number](#input-number)
-- [Light](#light)
-  - [Brightness](#brightness)
-  - [Color Temperature](#color-temperature)
-  - [Color](#color)
-- [Lock](#lock)
-  - [Unlocking](#unlocking)
-- [Media Player](#media-player)
-  - [Change Channel](#change-channel)
-  - [Speaker Volume](#speaker-volume)
-  - [Equalizer Mode](#equalizer-mode)
-  - [Inputs](#inputs)
-  - [Playback State](#playback-state)
-  - [Seek](#seek)
-- [Scene](#scene)
-- [Script](#script)
-- [Sensor](#sensor)
-- [Switch](#switch)
-- [Timer](#timer)
-- [Vacuum](#vacuum)
+- [Requirements](#requirements)
+- [Create an Amazon Alexa Smart Home Skill](#create-an-amazon-alexa-smart-home-skill)
+- [Create an AWS Lambda Function](#create-an-aws-lambda-function)
+  - [Create an IAM Role for Lambda](#create-an-iam-role-for-lambda)
+  - [Add Code to the Lambda Function](#add-code-to-the-lambda-function)
+  - [Test the Lambda Function](#test-the-lambda-function)
+- [Configure the Smart Home Service Endpoint](#configure-the-smart-home-service-endpoint)
+- [Account Linking](#account-linking)
+- [Alexa Smart Home Component Configuration](#alexa-smart-home-component-configuration)
+- [Supported Platforms](#supported-platforms)
+  - [Alarm Control Panel](#alarm-control-panel)
+    - [Arming](#arming)
+    - [Disarming](#disarming)
+  - [Alert, Automation, Group](#alert-automation-group)
+  - [Binary Sensor](#binary-sensor)
+    - [Routines](#routines)
+  - [Button, Input Button](#button-input-button)
+    - [Routines](#routines-1)
+    - [Doorbell Announcement](#doorbell-announcement)
+    - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
+  - [Camera](#camera)
+  - [Climate](#climate)
+    - [Set Thermostat Temperature](#set-thermostat-temperature)
+    - [Thermostat Mode](#thermostat-mode)
+  - [Cover](#cover)
+    - [Open/Close/Raise/Lower](#opencloseraiselower)
+    - [Set Cover Position](#set-cover-position)
+    - [Set Cover Tilt](#set-cover-tilt)
+    - [Garage Doors](#garage-doors)
+  - [Fan](#fan)
+    - [Fan Speed](#fan-speed)
+    - [Fan Preset Mode](#fan-preset-mode)
+    - [Fan Direction](#fan-direction)
+    - [Fan Oscillation](#fan-oscillation)
+  - [Image Processing](#image-processing)
+    - [Presence Detection Notification](#presence-detection-notification)
+  - [Input Number](#input-number)
+  - [Light](#light)
+    - [Brightness](#brightness)
+    - [Color Temperature](#color-temperature)
+    - [Color](#color)
+  - [Lock](#lock)
+    - [Unlocking](#unlocking)
+  - [Media Player](#media-player)
+    - [Change Channel](#change-channel)
+    - [Speaker Volume](#speaker-volume)
+    - [Equalizer Mode](#equalizer-mode)
+    - [Inputs](#inputs)
+    - [Playback State](#playback-state)
+    - [Seek](#seek)
+  - [Scene](#scene)
+  - [Script](#script)
+  - [Sensor](#sensor)
+  - [Switch, Input Boolean](#switch-input-boolean)
+    - [Routines](#routines-2)
+  - [Timer](#timer)
+  - [Vacuum](#vacuum)
+- [Alexa Web-Based App](#alexa-web-based-app)
+- [Troubleshooting](#troubleshooting)
+- [Debugging](#debugging)
 
 ### Alarm Control Panel
 
@@ -489,9 +552,9 @@ To use the exiting code configured for the Alarm Control Panel the `code` must b
 
 The existing code is never communicated to Alexa from Home Assistant. During disarming, Alexa will ask for a PIN. The PIN spoken to Alexa is relayed to Home Assistant and passed to the `alarm_control_panel.alarm_disarm` service. If the `alarm_control_panel.alarm_disarm` service fails for any reason, it is assumed the PIN was incorrect and reported to Alexa as an invalid PIN.
 
-### Alert, Automation, Group, Input Boolean
+### Alert, Automation, Group
 
-Turn on and off Alerts, Automations, Groups, and Input Boolean entities as switches.
+Turn on and off Alert, Automation, and Group entities as switches.
 
 - _"Alexa, turn on the front door alert."_
 - _"Alexa, turn off energy saving automations."_
@@ -523,6 +586,26 @@ Requires [Proactive Events](#proactive-events) enabled.
 Alexa Routines can be triggered with Binary Sensors exposed as contact or motion sensors.
 
 Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
+
+### Button, Input Button
+
+Activate Buttons and Input Buttons with the button name, or _"turn on"_ utterance. They will appear in the Alexa app as scenes.
+
+- _"Alexa, Ring Phone."_
+- _"Alexa, turn on Ring Phone."_
+
+#### Routines
+
+Requires [Proactive Events](#proactive-events) enabled.
+
+Alexa Routines can be triggered when Buttons and Input Buttons are pressed.
+
+In order to enable this, buttons will appear to have "presence detection" capability. This is what allows this functionality since Alexa does not support button type devices. To trigger a routine when a button is pressed, select the button in the when menu and then select the "Person" capability.
+
+<p class='img'>
+<a href='/images/integrations/alexa/alexa_app_button_trigger.png' target='_blank'>
+  <img height='460' src='/images/integrations/alexa/alexa_app_button_trigger.png' alt='Screenshot: Alexa App Button Routine Trigger'/></a>
+</p>
 
 #### Doorbell Announcement
 
@@ -912,12 +995,25 @@ Only temperature sensors are configured at this time.
 - _"Alexa, what's the upstairs temperature?"_
 - _"Alexa, what's the temperature of my ex-girlfriend's heart?"_
 
-### Switch
+### Switch, Input Boolean
 
 Support _"turn on"_ and _"turn off"_ utterances.
 
 - _"Alexa, turn on the vacuum."_
 - _"Alexa, turn off the lights."_
+
+#### Routines
+
+Requires [Proactive Events](#proactive-events) enabled.
+
+Alexa Routines can be triggered when Switches and Input Booleans change state.
+
+In order to enable this, Switches and Input Booleans will appear as contact sensors in the when menu of Alexa Routines. This is because Alexa does not support triggering routines from switch-type devices, only from contact and motion sensors. In this menu when you select a switch, `Open` corresponds to `on` and `Close` corresponds to `off`.
+
+<p class='img'>
+<a href='/images/integrations/alexa/alexa_app_switch_trigger.png' target='_blank'>
+  <img height='460' src='/images/integrations/alexa/alexa_app_switch_trigger.png' alt='Screenshot: Alexa App Switch Routine Trigger'/></a>
+</p>
 
 ### Timer
 
