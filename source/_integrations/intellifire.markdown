@@ -45,6 +45,8 @@ The following controllable entities are available:
 
 - **Fan** - If your unit is equipped with a fan - this entry will be present. 
 
+	There are 4 configured speed modes available `quiet`, `low`, `medium`, `high` that can be used with the **Fan: Set preset mode** service.
+
 ### Sensor Types
 
 
