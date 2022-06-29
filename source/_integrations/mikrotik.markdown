@@ -24,7 +24,8 @@ There is currently support for the following device types within Home Assistant:
 ## Prerequisites
 
 You have to enable accessing the RouterOS API on your router to use this platform.
-RouterOS uses ping test to determine client presence, make sure you are not blocking this on the client (Windows firewall default behaviour), as this will result in Homeassistant `device_tracker` having state `Not_home`.
+
+RouterOS uses a ping test to determine client presence, make sure you are not blocking this on the client (Windows firewall default behavior), as this will result in the provided `device_tracker` having the state `not_home`.
 
 Terminal:
 
