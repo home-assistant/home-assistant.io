@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: coolmaster
 ha_platforms:
   - climate
+ha_integration_type: integration
 ---
 
 The `coolmaster` climate platform lets you control HVAC through [CoolMasterNet](https://coolautomation.com/products/coolmasternet/).

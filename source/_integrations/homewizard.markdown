@@ -10,8 +10,11 @@ ha_domain: homewizard
 ha_codeowners:
   - '@DCSBL'
 ha_platforms:
+  - diagnostics
   - sensor
+  - switch
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 Integration for the [HomeWizard Energy](https://www.homewizard.nl/energy) platform. It can collect data locally from the HomeWizard Energy products and create them as sensors in Home Assistant.

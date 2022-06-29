@@ -1,7 +1,8 @@
 ---
 title: Kostal Plenticore Solar Inverter
 description: Instructions on how to integrate Kostal Plenticore solar inverter within Home Assistant.
-ha_category: Energy
+ha_category:
+  - Energy
 ha_release: 2021.5
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -9,10 +10,12 @@ ha_codeowners:
   - '@stegm'
 ha_domain: kostal_plenticore
 ha_platforms:
-  - sensor
+  - diagnostics
   - select
+  - sensor
   - switch
   - number
+ha_integration_type: integration
 ---
 
 The Kostal Plenticore integration allows you to get data from [Kostal Plenticore](https://www.kostal-solar-electric.com/) solar inverters and integrate them into your Home Assistant installation. It allows you also to change some of settings values of the inverter.
@@ -97,6 +100,18 @@ The following sensors are available in the library:
 | Energy Yield Month      | kWh  | Energy yield of the current month. |
 | Energy Yield Year       | kWh  | Energy yield of the current year. |
 | Energy Yield Total      | kWh  | Energy yield total. |
+| Energy Discharge to Grid Day    | kWh  | Energy discharged to the Grid of the current day. |
+| Energy Discharge to Grid Month  | kWh  | Energy discharged to the Grid of the current month. |
+| Energy Discharge to Grid Year   | kWh  | Energy discharged to the Grid of the current year. |
+| Energy Discharge to Grid Total  | kWh  | Energy discharged to the Grid total. |
+| Battery Charge from Grid Day    | kWh  | Energy charged to the battery from the Grid of the current day. |
+| Battery Charge from Grid Month  | kWh  | Energy charged to the battery from the Grid of the current month. |
+| Battery Charge from Grid Year   | kWh  | Energy charged to the battery from the Grid of the current year. |
+| Battery Charge from Grid Total  | kWh  | Energy charged to the battery from the Grid total. |
+| Battery Charge from PV Day    | kWh  | Energy charged to the battery from the PV of the current day. |
+| Battery Charge from PV Month  | kWh  | Energy charged to the battery from the PV of the current month. |
+| Battery Charge from PV Year   | kWh  | Energy charged to the battery from the PV of the current year. |
+| Battery Charge from PV Total  | kWh  | Energy charged to the battery from the PV total. |
 
 ### Settings Sensors
 

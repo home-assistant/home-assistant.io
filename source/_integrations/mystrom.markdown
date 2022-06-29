@@ -2,8 +2,8 @@
 title: myStrom
 description: Instructions on how to integrate myStrom WiFi Bulbs into Home Assistant.
 ha_category:
-  - Light
   - Binary Sensor
+  - Light
   - Switch
 ha_release: 0.43
 ha_iot_class: Local Polling
@@ -14,6 +14,7 @@ ha_platforms:
   - binary_sensor
   - light
   - switch
+ha_integration_type: integration
 ---
 
 The `mystrom` light platform allows you to control your [myStrom](https://mystrom.ch/en/) WiFi Bulbs.
@@ -25,7 +26,6 @@ There is currently support for the following device types within Home Assistant:
   - [Setup of myStrom Buttons](#setup-of-mystrom-buttons)
 - [Switch](#switch)
   - [Setup](#setup)
-  - [Get the current power consumption](#get-the-current-power-consumption)
 
 ## Light
 
@@ -157,7 +157,7 @@ If you have set [`login_attempts_threshold`](/integrations/http/) and forget to 
 
 ## Switch
 
-The `mystrom` switch platform allows you to control the state of your [myStrom](https://mystrom.ch/en/) switches. The built-in sensor is measuring the power consumption while the switch is on.
+The `mystrom` switch platform allows you to control the state of your [myStrom](https://mystrom.ch/en/) switches.
 
 ### Setup
 
@@ -187,23 +187,3 @@ name:
   type: string
   default: myStrom Switch
 {% endconfiguration %}
-
-
-### Get the current power consumption
-
-The switch is measuring the current power consumption. To expose this as a sensor use a [`template` sensor](/integrations/template).
-
-{% raw %}
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: template
-    sensors:
-      power:
-        friendly_name: "Current Power"
-        unit_of_measurement: "W"
-        value_template: "{{ state_attr('switch.office', 'current_power_w') }}"
-```
-
-{% endraw %}

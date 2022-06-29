@@ -5,9 +5,13 @@ ha_category:
   - Notifications
 ha_iot_class: Cloud Push
 ha_release: 0.37
+ha_config_flow: true
 ha_domain: discord
+ha_codeowners:
+  - '@tkdrob'
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows integrations to send messages to the user using Discord.
@@ -18,28 +22,13 @@ Retrieve the **Client ID** from the information section and the (hidden) **Token
 
 When setting up the application you can use this [icon](/images/favicon-192x192-full.png).
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To use Discord notifications, add the following to your `configuration.yaml` file:
+<div class='note'>
 
-```yaml
-# Example configuration.yaml entry
-notify:
-  - platform: discord
-    token: YOUR_DISCORD_BOT_TOKEN
-```
+The name you give your application on the [Discord My Apps page](https://discordapp.com/developers/applications/me) will determine the name of the notify service. For example: if you enter "Discord Chat", the service will be named `notify.discord_chat`.
 
-{% configuration %}
-name:
-  description: The notifier will bind to the service `notify.NAME`.
-  required: false
-  type: string
-  default: notify
-token:
-  description: Your bot's token.
-  required: true
-  type: string
-{% endconfiguration %}
+</div>
 
 ## Setting up the bot
 
@@ -89,6 +78,7 @@ To include messages with embedding, use these attributes underneath the `embed` 
 | `author`                    |      yes  | Sets the footer for the embed content.
 | `footer`               |      yes | Sets the footer for the embed content.
 | `thumbnail`               |      yes | Sets the thumbnail for the embed content.
+| `image`               |      yes | Sets the image for the embed content.
 | `fields`               |      yes | Adds a field to the embed object.  `name` and `value` are *required*, `inline` is *true* by default.
 
 ### Example service call
@@ -125,6 +115,8 @@ To include messages with embedding, use these attributes underneath the `embed` 
           text: 'Footer Text'
           icon_url: 'https://www.home-assistant.io'
         thumbnail:
+          url: 'https://www.home-assistant.io/images/favicon-192x192-full.png'
+        image:
           url: 'https://www.home-assistant.io/images/favicon-192x192-full.png'
         fields:
           - name: 'fieldname1'

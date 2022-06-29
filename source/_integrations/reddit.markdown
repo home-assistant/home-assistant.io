@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: reddit
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Reddit sensor integrates data from [Reddit](https://reddit.com/) to monitor your favorite subreddits.

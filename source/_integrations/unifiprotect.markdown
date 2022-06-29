@@ -2,10 +2,11 @@
 title: UniFi Protect
 description: Instructions on how to configure the Ubiquiti UniFi Protect integration.
 ha_category:
-  - Hub
   - Binary Sensor
   - Button
   - Camera
+  - Doorbell
+  - Hub
   - Light
   - Lock
   - Media Player
@@ -28,6 +29,7 @@ ha_platforms:
   - binary_sensor
   - button
   - camera
+  - diagnostics
   - light
   - lock
   - media_player
@@ -35,6 +37,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The UniFi Protect integration adds support for retrieving Camera feeds and Sensor data from a [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on a UniFi OS Console.
@@ -46,45 +49,85 @@ The UniFi Protect integration adds support for retrieving Camera feeds and Senso
 This Integration supports all UniFi OS Consoles that can run UniFi Protect. Currently, this includes:
 
 * Any UniFi Protect Network Video Recorder (**UNVR** or **UNVRPRO**)
-* Any UniFi "Dream" device (**UDM**, **UDMPRO**, **UDR**, or **UDMSE**)
+* Any UniFi "Dream" device (**UDMPRO**, **UDR**, or **UDMSE**), _except the base UniFi Dream Machine/UDM_
 * UniFi Cloud Key Gen2 Plus (**UCKP**) firmware version v2.0.24+
 
 UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware v2.0.24 or newer.
 
 ### Software Support
 
-The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported. Since UniFi Protect has its own release cycle, you should only upgrade UniFi Protect _after_ the next Home Assistant release comes out to ensure the new version is fully supported.
+The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
 
-Example: as of `2022.2.0` of Home Assistant, UniFi Protect `1.21.0-beta.3` is the newest UniFi Protect version. So the recommended versions of UniFi Protect to run for a `2022.2.0` version of Home Assistant are `1.20.0`, `1.20.1`, `1.20.2`, `1.20.3`, `1.21.0-beta.1`, `1.21.0-beta.2`, and `1.21.0-beta.3`.
+#### About UniFi Early Access
+
+Since UniFi Protect has its own release cycle, you should only upgrade UniFi Protect _after_ the next Home Assistant release to ensure the new version is fully supported. Most importantly, that means **do not use Early Access versions of UniFi Protect if you want your UniFi Protect integration to be stable**. Early Access versions can and will break the UniFi Protect Home Assistant integration unexpectedly. If you desire to use Early Access versions of UniFi Protect, you can disable automatic updates and wait for the next bugfix version of UniFi Protect to come out.
+
+For example, the latest UniFi Protect Early Access version as of `2022.5.4` is UniFi Protect `2.0.0-beta.5` and the latest Early Access version of UniFi Protect is `2.0.0-beta.7`. So that means:
+
+* **do not** upgrade to `2.0.0-beta.7` until `2022.5.5` or `2022.6.0` comes out
+* the recommended version of UniFi Protect are any `1.21.x` version or `2.0.0-beta` version before `2.0.0-beta.7`
+
+#### Downgrading UniFi Protect
+
+In the event you accidentally upgrade to an Early Access version of UniFi Protect and it breaks your UniFi Protect Home Assistant integration, you can access your <a href="https://help.ui.com/hc/en-us/articles/204909374#h_01F8G1NSFWE9GWXMT977VQEP8V" target="_blank" rel="noopener">UniFi OS Console via SSH</a> and then do the following:
+
+```bash
+# run this command first _only_ if you are on a 1.x firmware of the UDM Pro
+# it is not needed for the UDM SE, UNVR, etc.
+unifi-os shell
+
+# downgrade UniFi Protect
+apt-get update
+apt-get install --reinstall --allow-downgrades unifi-protect=2.0.0~beta.5 -y
+```
+
+You can replace `2.0.0-beta.5` with whatever version of UniFi Protect you want to downgrade to.
+
+**Note**: if you want to downgrade to another Early Access version, you must have <a href="https://help.ui.com/hc/en-us/articles/115012240067-UniFi-How-to-enable-remote-access" target="_blank" rel="noopener">Remote Access enabled</a> and have the Early Access release channel enabled.
 
 ### Local User
 
-You will need a local user created in your UniFi OS Console to log in with. Ubiquiti Cloud Users will **not** work.
+You will need a local user created in your UniFi OS Console to log in with. Ubiquiti SSO Cloud Users will **not** work.
+It is recommended you use the Administrator or a user with full read/write access to get the most out of the integration,
+but it is not required. The entities that are created will automatically adjust based on the permissions of the user you
+use has.
 
-1. Login to your *Local Portal* on your UniFi OS device, and click on *Users*
-1. In the upper right corner, click on *Add User*
-1. Click *Add Admin*, and fill out the form. Specific Fields to pay attention to:
-    * Role: Must be *Limited Admin*
-    * Account Type: *Local Access Only*
-    * CONTROLLER PERMISSIONS - Under UniFi Protect, select Administrators. **NOTE**: Other roles may work, but only the default Administrators role is fully tested.
-1. Click *Add* in the bottom Right.
+1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_. **Note**: This **must** be done from
+    the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the
+    UniFi Protect app.
+2. In the upper right corner, click on _Add User_.
+3. Fill out the fields for your user. Be sure the role you assign to the user grants them access to at least one or
+    more UniFi Protect devices.
+4. Click _Add_ in the bottom Right.
 
-![ADMIN_UNIFIOS](/images/integrations/unifiprotect/unifi_os_admin.png)
+![UniFi OS User Creation](/images/integrations/unifiprotect/user.png)
 
 ### Camera Streams
 
-The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure you can stream your camera in Home Assistant. This may already be enabled by default, but it is recommended to just check that this is done. To check and enable the feature:
+The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure
+you can stream your camera in Home Assistant. This may already be enabled by default, but it is recommended to just
+check that this is done. To check and enable the feature:
 
-1. Open UniFi Protect and click on *Devices*
-1. Select *Manage* in the Menu bar at the top
-1. Click on the + sign next to RTSP
+1. Open UniFi Protect and click on _Devices_.
+1. Select the camera you want to ensure can stream in UniFi Protect.
+1. Click the _Settings_ tab in the top right.
+1. Expand the _Advanced_ section at the bottom.
 1. Enable a minimum 1 stream out of the 3 available. The Stream with the Highest resolution is the default enabled one.
 
 {% include integrations/config_flow.md %}
 
 ## Features
 
-All known UniFi Protect devices should be supported. Each UniFi Protect device will get a variety of entities added for each of the different entity platforms.
+All known UniFi Protect devices should be supported. Each UniFi Protect device will get a variety of entities added for
+each of the different entity platforms.
+
+<div class='note'>
+
+**Permissions**: The below sections on the features available to your Home Assistant instance assume you have full
+write access to each device. If the user you are using has limited access to some devices, you will get fewer entities
+and in many cases, get a read-only sensor instead of an editable switch/select/number entity.
+
+</div>
 
 ### UniFi Protect Cameras
 
@@ -132,8 +175,13 @@ UniFi Protect smart sensors are a bit different than normal sensors. They are a 
   * **Humidity** - A humidity sensor will be available if the mount type is not set to "Leak" and the humidity sensor is enabled.
   * **Temperature** - A temperature sensor will be available if the mount type is not set to "Leak" and the temperature sensor is enabled.
   * **Alarm Sound** - An alarm sensor will be available if the mount type is not set to "Leak" and the alarm sound sensor is enabled. The Alarm Sound sensor can have the values "none", "smoke" and "co". More values may be added over time automatically as UniFi Protect adds support for detecting more alarms.
+  * **Tamper** - A binary sensor to detect tampering.
 * **Device Configuration** - Smart sensors will get configuration controls for the Status Light, enabling/disabling all of the main sensors, selecting the Paired Camera, and changing the Mount Type of the sensor.
-* **Button** - A disabled by default button is added for each smart sensor device. The button will let you reboot your smart sensor device.
+* **Button** - A button to clear the tampered state as well as a disabled by default button to restart the device.
+
+#### Tamper Sensor
+
+Once the tamper sensor is triggered, it stays active until manually cleared. A button entity is available to clear the tampered state.
 
 ### UniFi Protect Viewers
 
@@ -149,6 +197,13 @@ Each UniFi Protect door lock will get a device in Home Assistant with the follow
 * **Lock** - A lock control will be added to lock and unlock your door lock device.
 * **Device Configuration** - Door locks will get configuration controls for the Auto-Lock Timeout, selecting the Paired Camera, and Status Light switch
 * **Button** - A disabled by default button is added for each door lock device. The button will let you reboot your door lock device.
+
+### UniFi Protect Smart Chime
+
+Each UniFi Protect smart chime will get a device in Home Assistant with the following:
+
+* **Button** - A button to trigger the chime manually for each smart chime device. Also, a disabled by default button is added to let you reboot your smart chime device.
+* **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness and a sensor for the last time the chime rang.
 
 ### NVR
 
@@ -195,6 +250,15 @@ Use to dynamically set the message on a Doorbell LCD screen. This service should
 | `entity_id`            | No       | The Doorbell Text select entity for your Doorbell.                                                           |
 | `message`              | No       | The message you would like to display on the LCD screen of your Doorbell. Must be less than 30 characters.   |
 | `duration`             | Yes      | Number of minutes to display the message for before returning to the default message. The default is to not expire. |
+
+### Service unifiprotect.set_chime_paired_doorbells
+
+Use to set the paired doorbell(s) with a smart chime.
+
+| Service data attribute | Optional | Description                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to.                                          |
+| `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime. No value means unpair all.      |
 
 ## Troubleshooting
 

@@ -3,8 +3,8 @@ title: Tibber
 description: Instructions on how to integrate Tibber within Home Assistant.
 ha_category:
   - Energy
-  - Sensor
   - Notifications
+  - Sensor
 ha_release: 0.8
 ha_iot_class: Cloud Polling
 ha_quality_scale: silver
@@ -13,12 +13,14 @@ ha_codeowners:
 ha_domain: tibber
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - notify
   - sensor
+ha_integration_type: integration
 ---
 
 The `tibber` integration provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.
-If you have a [Tibber Pulse](https://norge.tibber.com/products/pulse/) or [Watty](https://tibber.com/se/store/produkt/watty-smart-energimatare) it will also show the electricity consumption in real-time. If you do not have a real-time meter, you get a sensor for monthly consumption, monthly cost, and monthly peak hour updated once per day. Once a day a statistics with hourly consumption and cost data is generated that can be used in the [Energy Dashboard](/docs/energy/). (The ids are `tibber:energy_consumption_HOMEID` and `tibber:energy_totalcost_HOMEID` )
+If you have a [Tibber Pulse](https://norge.tibber.com/products/pulse/) or [Watty](https://tibber.com/se/store/produkt/watty-smart-energimatare) it will also show the electricity consumption in real-time. You get a sensor for monthly consumption, monthly cost, and monthly peak hour. If you do have a real-time meter it is updated once every hour, oterwise it is updated once per day. Statistics with hourly consumption and cost data is generated that can be used in the [Energy Dashboard](/docs/energy/). (The ids are `tibber:energy_consumption_HOMEID` and `tibber:energy_totalcost_HOMEID` )
 
 There is currently support for the following device types within Home Assistant:
 
@@ -50,6 +52,7 @@ action:
 ## Sensor
 
 The `tibber` sensor provides the current electricity price if you are a [Tibber](https://tibber.com/) customer.
+You also get sensors for monthly consumption, monthly cost, and monthly peak hour
 If you have a Tibber Pulse it will also show the electricity consumption in real time.
 
 

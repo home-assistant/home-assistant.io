@@ -14,7 +14,7 @@
   </div>
 
   <div class='section'>
-    The {{ page.name | default: page.title }} integration was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
+    The {{ page.name | default: page.title }} {{ page.ha_integration_type | default: "integration" }} was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
     and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io/#integrations" target="_blank" rel="noopener">
     
     {% if percentage < 1 %}
@@ -35,11 +35,15 @@
       {% endif %}
       scores {{page.ha_quality_scale}} on our <a href='/docs/quality_scale/'>quality scale</a>
     {%- endif -%}.
-
-    {% if page.ha_domain %}
-    You can find the source for this integration on <a href='https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}'>GitHub</a>.
-    {%- endif -%}
   </div>
+
+  {% if page.ha_domain %}
+  <div class='section'>
+    <a href="https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}" target="_blank"><i class="icon-github"></i> View source on GitHub</a><br />
+    <a href="https://github.com/home-assistant/core/issues?q=is%3Aissue+is%3Aopen+label%3A%22integration%3A+{{ page.ha_domain }}%22" target="_blank"><i class="icon-bug"></i> View known issues</a>
+  </div>
+  {%- endif -%}
+
 
   {%- if page.ha_category.first -%}
     <div class='section'>

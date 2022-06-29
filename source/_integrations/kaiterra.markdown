@@ -11,6 +11,7 @@ ha_domain: kaiterra
 ha_platforms:
   - air_quality
   - sensor
+ha_integration_type: integration
 ---
 
 The `kaiterra` integration allows you to view the readings from your Laser Egg or Sensedge device using the [Kaiterra REST API](https://www.kaiterra.com/dev/).

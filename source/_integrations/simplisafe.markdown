@@ -13,9 +13,11 @@ ha_domain: simplisafe
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - diagnostics
   - lock
   - sensor
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The `simplisafe` integration integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
@@ -35,43 +37,11 @@ There is currently support for the following device types within Home Assistant:
 
 * Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed.
 
+## SimpliSafe Plans
+
+SimpliSafe offers several [monitoring plans](https://support.simplisafe.com/hc/en-us/articles/360023809972-What-are-the-service-plan-options-). Currently, only the Standard and Interactive Monitoring are known to work with this integration; if you find otherwise, please consider updating this documentation.
+
 {% include integrations/config_flow.md %}
-
-## Getting an Authorization Code
-
-<div class="note info">
-You must have multi-factor authentication set up in your SimpliSafe account to install the integration.
-</div>
-
-<div class="note info">
-You must use a "standard" operating system (Windows, macOS, Linux) to perform the below instructions. Indications are that non-standard OS's, like Chrome OS, will not work.
-</div>
-
-<div class="note warning">
-Because of a technical limitation, the below instructions will not work for iOS users as-is. It is recommended that you set up the SimpliSafe integration from a desktop browser. If you must use an iOS device, please ensure that the SimpliSafe app is not installed before beginning; the app can be re-installed after the integration is set up.
-</div>
-
-Starting in 2021, SimpliSafe has moved to a new authentication mechanism via its web app. Below are instructions on retrieving the authorization code needed to finish setting the integration up.
-
-1. Initiate adding the integration via the instructions above.
-2. When prompted, click the link that opens the SimpliSafe web app.
-3. Input your SimpliSafe credentials. You will see "Verification Pending" – leave this browser tab open.
-4. You will receive a multi-factor authentication prompt, either via SMS or email. Regardless of the type, use this message to verify the access request.
-5. After the verification is successful, return to the first browser tab/window.
-
-Retrieving the access code is different depending on which browser you are using:
-
-* Chrome: Navigate to `Developer -> Developer Tools -> Console Tab` and look for a `Failed to launch` error.
-* Edge: Navigate to `Developer -> Developer Tools -> Console Tab` and look for a `Failed to launch` error.
-* Safari: Navigate to `Develop -> Show Web Inspector -> Network Tab` and look for a reference to `ErrorPage.html`.
-
-Look for a reference to a URL that starts with `com.simplisafe.mobile://` and note the code at the end:
-
-```txt
-com.simplisafe.mobile://auth.simplisafe.com/ios/com.simplisafe.mobile/callback?code=<CODE>
-```
-
-Copy/paste this code parameter into Home Assistant to finish setting up the integration.
 
 ## Services
 

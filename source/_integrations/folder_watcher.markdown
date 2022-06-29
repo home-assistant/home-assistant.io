@@ -7,6 +7,7 @@ ha_iot_class: Local Polling
 ha_release: 0.67
 ha_quality_scale: internal
 ha_domain: folder_watcher
+ha_integration_type: integration
 ---
 
 This integration adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring, publishing events on the Home Assistant bus on the creation/deletion/modification of files within configured folders. The monitored `event_type` are:
@@ -53,6 +54,17 @@ folder_watcher:
 ```
 
 ## Automations
+
+The elements the events contain are:
+- `event_type`: matching the `event_type` of the filter (one of `created`, `moved`, `modified`, `deleted`, `closed`)
+- `path`: The full path to the file (e.g. "/hello/world.txt")
+- `file`: The name of the file (e.g. "world.txt")
+- `folder`: The folder path (e.g. "/hello")
+
+When the `event_type` is `moved`, the file details are for the source file and destination details are included:
+- `dest_path`: The full path to the moved file (e.g. "/hello/world.txt")
+- `dest_file`: The name of the moved file (e.g. "world.txt")
+- `dest_folder`: The folder moved path (e.g. "/hello")
 
 Automations can be triggered on filesystem event data using a template. The following automation will send a notification with the name and folder of new files added to that folder:
 

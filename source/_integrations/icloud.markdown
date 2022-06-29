@@ -14,6 +14,7 @@ ha_domain: icloud
 ha_platforms:
   - device_tracker
   - sensor
+ha_integration_type: integration
 ---
 
 The `icloud` integration allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices.
@@ -41,7 +42,7 @@ If two-step authentication is enabled for your iCloud account, some time after H
 
 ## In case of troubleshooting
 
-Go into your Home Assistant configuration `.storage` folder and delete the "icloud" folder, then retry.
+Go into your Home Assistant configuration `.storage` folder and delete the `icloud` folder, then retry.
 
 ## Platforms
 

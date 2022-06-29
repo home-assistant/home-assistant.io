@@ -13,6 +13,7 @@ ha_codeowners:
   - '@frenck'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'. Swedish meters with a 'HAN port' are not supported by this integration.
@@ -22,6 +23,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 - For official information about the P1 port refer to: [P1 Companion Standard](https://www.netbeheernederland.nl/_upload/Files/Slimme_meter_15_a727fce1f1.pdf)
 - For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 - For official information about the Swedish variant refer to: [Swedish specification](https://www.energiforetagen.se/globalassets/energiforetagen/det-erbjuder-vi/kurser-och-konferenser/elnat/branschrekommendation-lokalt-granssnitt-v2_0-201912.pdf).
+- Supports [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602) integrated in a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103).
 
 <p class='img'>
 <img src='/images/screenshots/dsmr.png' />
@@ -37,7 +39,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 
 ### Options
 
-To configure options for DSMR integration go to **Configuration** >> **Devices & Services** and press **Options** on the DSMR card.
+To configure options for DSMR integration go to **Settings** -> **Devices & Services** and press **Options** on the DSMR card.
 
 #### Time between updates
 
@@ -64,12 +66,12 @@ This integration is known to work for:
 
 ### Connecting to the meter
 
-Connection can be done directly to the meter via a USB to serial connector, or through a serial to network proxy
+Connection can be done directly to the meter via a USB to serial connector, or through a serial to network proxy.
+It is also possible to connect to a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103) with an integrated [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602).
 
 #### USB serial converters:
 
 - Cheap (Banggood/ebay) Generic PL2303
-- [Smartmeter Webshop](https://sites.google.com/site/nta8130p1smartmeter/webshop)
 - [SOS Solutions](https://www.sossolutions.nl/slimme-meter-kabel)
 - [AliExpress](https://nl.aliexpress.com/item/32945187155.html)
 
@@ -87,6 +89,7 @@ $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /h
 DIY solutions (ESP8266 based):
 
 - [esp8266_p1meter (daniel-jong)](https://github.com/daniel-jong/esp8266_p1meter)
+- [DSMR reader for ESPHome (mmakaay)](https://github.com/mmakaay/dsmr-reader-for-esphome)
 
 {% include integrations/config_flow.md %}
 

@@ -8,6 +8,7 @@ ha_release: 0.57
 ha_domain: fail2ban
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `fail2ban` sensor allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.
@@ -56,7 +57,7 @@ These steps assume you already have the Home Assistant Docker running behind NGI
 
 </div>
 
-For those of us using Docker, the above tutorial may not be sufficient. The following steps specifically outline how to set up `fail2ban` and Home Assistant when running Home Assistant within a Docker behind NGINX. The setup this was tested on was an unRAID server using the [Let's Encrypt Docker](https://github.com/linuxserver/docker-letsencrypt) from linuxserver.io.
+For those of us using Docker, the above tutorial may not be sufficient. The following steps specifically outline how to set up `fail2ban` and Home Assistant when running Home Assistant within a Docker behind NGINX. The setup this was tested on was an unRAID server using the [SWAG](https://github.com/linuxserver/docker-swag) from linuxserver.io.
 
 #### Set HTTP logger
 
@@ -102,15 +103,15 @@ datepattern = ^%%Y-%%m-%%d %%H:%%M:%%S
 
 #### Map log file directories
 
-First, we need to make sure that fail2ban log can be passed to Home Assistant and that the Home Assistant log can be passed to fail2ban.  When starting the Let's Encrypt docker, you need to add the following argument (adjust paths based on your setup):
+First, we need to make sure that fail2ban log can be passed to Home Assistant and that the Home Assistant log can be passed to fail2ban.  When starting the Let's Encrypt Docker, you need to add the following argument (adjust paths based on your setup):
 
 ```txt
 /mnt/user/appdata/home-assistant:/hass
 ```
 
-This will map the Home Assistant configuration directory to the Let's Encrypt docker, allowing `fail2ban` to parse the log for failed login attempts.
+This will map the Home Assistant configuration directory to the Let's Encrypt Docker, allowing `fail2ban` to parse the log for failed login attempts.
 
-Now do the same for the Home Assistant docker, but this time we'll be mapping the `fail2ban` log directory to Home Assistant so that the fail2ban sensor is able to read that log:
+Now do the same for the Home Assistant Docker, but this time we'll be mapping the `fail2ban` log directory to Home Assistant so that the fail2ban sensor is able to read that log:
 
 ```txt
 /mnt/user/appdata/letsencrypt/log/fail2ban:/fail2ban

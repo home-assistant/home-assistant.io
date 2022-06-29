@@ -2,13 +2,13 @@
 title: BMW Connected Drive
 description: Instructions on how to setup your BMW Connected Drive account with Home Assistant.
 ha_category:
-  - Car
   - Binary Sensor
   - Button
-  - Presence Detection
+  - Car
   - Lock
-  - Sensor
   - Notifications
+  - Presence Detection
+  - Sensor
 ha_release: 0.64
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -23,6 +23,7 @@ ha_platforms:
   - lock
   - notify
   - sensor
+ha_integration_type: integration
 ---
 
 The `bmw_connected_drive` integration lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account and a Connected Drive enabled vehicle for this to work.
@@ -46,54 +47,19 @@ This integration provides the following platforms:
 
 ## Configuration
 
-The preferred way to enable the `bmw_connected_drive` integration is via **Configuration** > **Devices & Services**. After connecting to your account, you can set the following settings in the integration's options:
+Enable the `BMW Connected Drive` integration via **Settings** -> **Devices & Services**.
+
+<div class='note'>
+
+  For `china`, it is mandatory to prefix your username/phone number with `86`, i.e. `8612345678`.
+
+</div>
+
+After connecting to your account, you can set the following settings in the integration's options:
 
 | Setting | Description |
 |---------|-------------|
 | Read-only | No execution of services to the vehicle. Still possible to send messages and POIs via `notify` and to request a status update via `bmw_connected_drive.update_state`.
-| Use Home Assistant location for car location polls | Older cars (non i3/i8 build before 7/2014) require the phone to be close to the car to get location updates. Enable this option to use the location of your Home Assistant instance for these queries, so updates are available when your car is in the surrounding of your home. |
-
-The following settings in your `configuration.yaml` file are considered legacy. They will be imported into **Configuration** > **Devices & Services** and you can set the options from above. Changes to `configuration.yaml` after the first import will be ignored.
-
-### Legacy configuration
-
-```yaml
-# Example configuration.yaml entry
-bmw_connected_drive:
-  name:
-    username: USERNAME_BMW_CONNECTED_DRIVE
-    password: PASSWORD_BMW_CONNECTED_DRIVE
-    region: one of "north_america", "china", "rest_of_world"
-```
-
-{% configuration %}
-bmw_connected_drive:
-  description: configuration
-  required: true
-  type: map
-  keys:
-    name:
-      description: Name of your account in Home Assistant.
-      required: true
-      type: string
-    username:
-      description: Your BMW Connected Drive username.
-      required: true
-      type: string
-    password:
-      description: Your BMW Connected Drive password.
-      required: true
-      type: string
-    region:
-      description: "The region of your Connected Drive account. Please use one of these values: `north_america`, `china`, `rest_of_world`"
-      required: true
-      type: string
-    read_only:
-      description: In read only mode, all services including the lock of the vehicle are disabled.
-      required: false
-      type: boolean
-      default: false
-{% endconfiguration %}
 
 ## Notifications
 
@@ -128,9 +94,9 @@ The `bmw_connected_drive` integration offers several buttons to trigger actions 
 
 Using these buttons will impact the state of your vehicle. So use these services with care!
 
-### Air condition
+### Air conditioning
 
-The air condition of the vehicle can be activated with the `button.<your_vehicle>_activate_air_conditioning` button.
+The air conditioning of the vehicle can be activated with the `button.<your_vehicle>_activate_air_conditioning` button.
 
 What exactly is started here depends on the type of vehicle. It might range from just ventilation over auxiliary heating to real air conditioning. If your vehicle is equipped with auxiliary heating, only trigger this service if the vehicle is parked in a location where it is safe to use it (e.g., not in an underground parking or closed garage).
 
@@ -163,9 +129,9 @@ The `button.<your_vehicle>_find_vehicle` button requests the vehicle to update t
 
 </div>
 
-### Update the state / refresh from API
+### Update the state / refresh from cloud
 
-The `button.<vehicle_model>_refresh_from_api` button fetches the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle; it gets the data from the BMW servers. So this service does *not* interact with your vehicles.
+The `button.<vehicle_model>_refresh_from_cloud` button fetches the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle; it gets the data from the BMW servers. So this service does *not* interact with your vehicles.
 
 ## Disclaimer
 

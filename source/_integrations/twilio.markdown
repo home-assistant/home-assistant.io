@@ -7,6 +7,7 @@ ha_release: '0.40'
 ha_config_flow: true
 ha_domain: twilio
 ha_iot_class: Cloud Push
+ha_integration_type: integration
 ---
 
 The `twilio` integration enables the sending of notifications via SMS and the creation of calls with [Twilio](https://twilio.com).
@@ -40,15 +41,15 @@ auth_token:
 
 After configuring the base Twilio component, add and configure either or both of the [Twilio SMS](/integrations/twilio_sms) and [Twilio Phone](/integrations/twilio_call) integrations to utilize the notification functionality.
 
-To be able to receive events from Twilio, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic) in Home Assistant..
+To be able to receive events from Twilio, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic) in Home Assistant.
 
 To set it up, go to the integrations page in the configuration screen and find Twilio. Click on configure. Follow the instructions on the screen to configure Twilio.
 
-You will get a URL of the following format: `https://<home-assistant-domain>/api/webhook/9940e99a26fae4dcf6fe0a478124b6b58b578ea4c55c9a584beb1c9f5057bb91`. To generate inbound events, you have to configure your webhooks with [Twilio](https://www.twilio.com/docs/glossary/what-is-a-webhook)
+You will get a URL of the following format: `https://<home-assistant-domain>/api/webhook/9940e99a26fae4dcf6fe0a478124b6b58b578ea4c55c9a584beb1c9f5057bb91`. To generate inbound events, you have to configure your webhooks with [Twilio](https://www.twilio.com/docs/glossary/what-is-a-webhook).
 
 Events coming in from Twilio will be available as events in Home Assistant and are fired as `twilio_data_received`. The data specified by Twilio will be available as the event data. You can use this event to trigger automations.
 
-You can then consume that information with the following automation:
+Here is an example:
 
 ```yaml
 automation:
@@ -56,9 +57,14 @@ automation:
     platform: event
     event_type: twilio_data_received
     event_data:
-      action: call_service
+      From: '+1XXXXXXXXXXX'
+      To: '+1YYYYYYYYYYY'
+      CallStatus: ringing
+      Direction: inbound
   action:
-    service: light.turn_on
+    service: cover.open_cover
     target:
-      entity_id: light.office
+      entity_id: cover.garage_door
 ```
+
+The above opens the garage door when the number `+1XXXXXXXXXXX` calls `+1YYYYYYYYYYY` (considering that `+1YYYYYYYYYYY` is one of your numbers registered in Twilio).

@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: ombi
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `Ombi` integration monitors data from your [Ombi](https://ombi.io) instance.

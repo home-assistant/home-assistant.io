@@ -3,11 +3,13 @@ title: Counter
 description: Instructions on how to integrate counters into Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 0.53
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: counter
+ha_integration_type: helper
 ---
 
 The `counter` integration allows one to count occurrences fired by automations.
@@ -15,7 +17,7 @@ The `counter` integration allows one to count occurrences fired by automations.
 ## Configuration
 
 The preferred way to configure counter helpers is via the user interface. To add one, go to
-**{% my helpers title="Configuration -> Helpers" %}** and click the add button;
+**{% my helpers title="Settings -> Devices & Services -> Helpers" %}** and click the add button;
 next choose the "**Counter**" option.
 
 To be able to add **Helpers** via the user interface you should have

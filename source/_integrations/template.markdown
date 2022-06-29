@@ -21,11 +21,12 @@ ha_platforms:
   - light
   - lock
   - number
-  - sensor
   - select
+  - sensor
   - switch
   - vacuum
   - weather
+ha_integration_type: integration
 ---
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
@@ -45,7 +46,7 @@ Sensor, binary sensor, button, number and select template entities are defined i
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-## State-based template sensors
+## State-based template binary sensors, buttons, numbers, selects and sensors
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -67,13 +68,16 @@ template:
 
 {% endraw %}
 
-## Trigger-based template sensors
+
+## Trigger-based template binary sensors, buttons, numbers, selects and sensors
 
 If you want more control over when an entity updates, you can define a trigger. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#storing-webhook-information)), or update entities based on a schedule.
 
 Whenever the trigger fires, all related entities will re-render and it will have access to [the trigger data](/docs/automation/templating/) in the templates.
 
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [state trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
+
+The state, including attributes, of trigger-based sensors and binary sensors is restored when Home Assistant is restarted. The state of other trigger-based template entities is not restored.
 
 {% raw %}
 
@@ -132,7 +136,7 @@ binary_sensor:
       required: true
       type: template
     delay_on:
-      description: The amount of time (ie `0:00:05`) the template state must be ***met*** before this sensor will switch to `on`. This can also be a template.
+      description: The amount of time (e.g. `0:00:05`) the template state must be ***met*** before this sensor will switch to `on`. This can also be a template.
       required: false
       type: time
     delay_off:
@@ -175,6 +179,7 @@ number:
       description: Template for the number's current value.
       required: true
       type: template
+    set_value:
       description: Defines actions to run when the number value changes. The variable `value` will contain the number entered.
       required: true
       type: action
@@ -275,6 +280,10 @@ template:
 
 [trigger-doc]: /docs/automation/trigger
 
+## Template and action variables
+
+State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attribute in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/templating/). 
+
 ## Rate limiting updates
 
 When there are entities present in the template and no triggers are defined, the template will be re-rendered when one of the entities changes states. To avoid this taking up too many resources in Home Assistant, rate limiting will be automatically applied if too many states are observed.
@@ -332,9 +341,9 @@ If you are using the state of a platform that might not be available during star
 
 ## Examples
 
-In this section, you find some real-life examples of how to use this sensor.
+In this section, you find some real-life examples of how to use template sensors.
 
-### Storing webhook information
+### Trigger based sensor and binary sensor storing webhook information
 
 Template entities can be triggered using any automation trigger, including webhook triggers. Use a trigger-based template entity to store this information in template entities.
 
@@ -371,22 +380,22 @@ curl --header "Content-Type: application/json" \
   http://homeassistant.local:8123/api/webhook/my-super-secret-webhook-id
 ```
 
-### Turning an event into a binary sensor
+### Turning an event into a trigger based binary sensor
 
 You can use a trigger-based template entity to convert any event or other automation trigger into a binary sensor. The below configuration will turn on a binary sensor for 5 seconds when the automation trigger triggers.
 
 ```yaml
 template:
-  trigger:
-    platform: event
-    event_type: my_event
-  binary_sensor:
-    - name: Event recently fired
-      auto_off: 5
-      state: "true"
+  - trigger:
+      platform: event
+      event_type: my_event
+    binary_sensor:
+      - name: Event recently fired
+        auto_off: 5
+        state: "true"
 ```
 
-### Sun Angle
+### State based sensor exposing sun angle
 
 This example shows the sun angle in the frontend.
 
@@ -402,7 +411,7 @@ template:
 
 {% endraw %}
 
-### Renaming Sensor Output
+### State based sensor modyfying another sensor's output
 
 If you don't like the wording of a sensor output, then the Template Sensor can help too. Let's rename the output of the [Sun component](/integrations/sun/) as a simple example:
 
@@ -422,7 +431,7 @@ template:
 
 {% endraw %}
 
-### Multiline Example With an `if` Test
+### State based sensor with multiline template with an `if` test
 
 This example shows a multiple line template with an `if` test. It looks at a sensing switch and shows `on`/`off` in the frontend, and shows 'standby' if the power use is less than 1000 watts.
 
@@ -446,7 +455,7 @@ template:
 
 {% endraw %}
 
-### Change The Unit of Measurement
+### State based sensor changing the unit of measurement of another sensor
 
 With a Template Sensor, it's easy to convert given values into others if the unit of measurement doesn't fit your needs.
 
@@ -466,7 +475,7 @@ template:
 
 {% endraw %}
 
-### Washing Machine Running
+### State based binary sensor - Washing Machine Running
 
 This example creates a washing machine "load running" sensor by monitoring an
 energy meter connected to the washer. During the washer's operation, the energy meter will fluctuate wildly, hitting zero frequently even before the load is finished. By utilizing `delay_off`, we can have this sensor only turn off if there has been no washer activity for 5 minutes.
@@ -486,7 +495,7 @@ template:
 
 {% endraw %}
 
-### Is Anyone Home
+### State based binary sensor - Is Anyone Home
 
 This example is determining if anyone is home based on the combination of device tracking and motion sensors. It's extremely useful if you have kids/baby sitter/grand parents who might still be in your house that aren't represented by a trackable device in Home Assistant. This is providing a composite of Wi-Fi based device tracking and Z-Wave multisensor presence sensors.
 
@@ -508,7 +517,7 @@ template:
 
 {% endraw %}
 
-### Device Tracker sensor with Latitude and Longitude Attributes
+### State based binary sensor - Device Tracker sensor with Latitude and Longitude Attributes
 
 This example shows how to combine a non-GPS (e.g., NMAP) and GPS device tracker while still including latitude and longitude attributes
 
@@ -538,7 +547,7 @@ template:
 
 {% endraw %}
 
-### Change the icon when a state changes
+### State based binary sensor - Change the icon when a state changes
 
 This example demonstrates how to use template to change the icon as its state changes. This icon is referencing its own state.
 
@@ -556,6 +565,72 @@ template:
           {% else %}
             mdi:weather-sunset-down
           {% endif %}
+```
+
+{% endraw %}
+
+A more advanced use case could be to set the icon based on the sensor's own state like above, but when triggered by an event. This example demonstrates a binary sensor that turns on momentarily, such as when a doorbell button is pressed. 
+
+The binary sensor turns on and sets the matching icon when the appropriate event is received. After 5 seconds, the binary sensor turns off automatically. To ensure the icon gets updated, there must be a trigger for when the state changes to off. 
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: event
+        event_type: YOUR_EVENT
+      - platform: state
+        entity_id: binary_sensor.doorbell_rang
+        to: "off"
+    binary_sensor:
+      name: doorbell_rang
+      icon: "{{ (trigger.platform == 'event') | iif('mdi:bell-ring-outline', 'mdi:bell-outline') }}"
+      state: "{{ trigger.platform == 'event' }}"
+      auto_off:
+        seconds: 5
+```
+
+{% endraw %}
+
+### State based select - Control Day/Night mode of a camera
+
+This show how a state based template select can be used to call a service.
+
+{% raw %}
+
+
+```yaml
+template:
+  select:
+    - name: "Porch Camera Day-Night Mode"
+      unique_id: porch_camera_day_night_mode
+      state: "{{ state_attr('camera.porch_camera_sd', 'day_night_mode') }}"
+      options: "{{ ['off', 'on', 'auto'] }}"
+      select_option:
+        - service: tapo_control.set_day_night_mode
+          data:
+            day_night_mode: "{{ option }}"
+          target:
+            entity_id: camera.porch_camera_sd
+```
+
+{% endraw %}
+
+### Self referencing
+
+This example demonstrates how the `this` variable can be used in templates for self-referencing.
+
+{% raw %}
+
+```yaml
+template:
+  - sensor:
+      - name: test
+        state: "{{ this.attributes.test | default('Value when missing') }}"
+        # not: "{{ state_attr('sensor.test', 'test') }}"
+        attributes:
+          test: "{{ now() }}"
 ```
 
 {% endraw %}

@@ -10,7 +10,9 @@ ha_codeowners:
   - '@frenck'
 ha_domain: open_meteo
 ha_platforms:
+  - diagnostics
   - weather
+ha_integration_type: integration
 ---
 
 The Open-Meteo integration integrates the free weather forecast from

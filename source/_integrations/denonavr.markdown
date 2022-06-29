@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `denonavr` platform allows you to control [Denon Network Receivers](https://www.denon.com/en-gb/shop/networkmusicsystem/ceolpiccolon4) from Home Assistant. It might be that your device is supported by the [Denon] platform.
@@ -26,6 +27,7 @@ Known supported devices:
 - Denon AVR-X1400H
 - Denon AVR-X1500H
 - Denon AVR-X1600H
+- Denon AVR-X1700H
 - Denon AVR-X2000
 - Denon AVR-X2100W
 - Denon AVR-X2200W
@@ -38,13 +40,16 @@ Known supported devices:
 - Denon AVR-X3200W
 - Denon AVR-X3300W
 - Denon AVR-X3400H
+- Denon AVR-X3500H
 - Denon AVR-X3600H
 - Denon AVR-X3700H
 - Denon AVR-X4100W
 - Denon AVR-X4300H
 - Denon AVR-X4400H
 - Denon AVR-X4500H
+- Denon AVR-X4700H
 - Denon AVR-X6500H
+- Denon AVR-X6700H
 - Denon AVR-1912
 - Denon AVR-2312CI
 - Denon AVR-3311CI
@@ -58,6 +63,9 @@ Known supported devices:
 - Denon AVR-S760H
 - Denon AVR-S960H
 - Denon DN-500AV
+- Marantz AV7702
+- Marantz AV7703
+- Marantz AV7704
 - Marantz M-CR510
 - Marantz M-CR511
 - Marantz M-CR603
@@ -73,8 +81,10 @@ Known supported devices:
 - Marantz NR1506
 - Marantz NR1602
 - Marantz NR1604
+- Marantz NR1606
 - Marantz NR1607
 - Marantz NR1710
+- Marantz NR1711
 - Other Denon AVR receivers (untested)
 - Marantz receivers (experimental)
 
@@ -114,7 +124,7 @@ A few notes:
 
 Denon AVR receivers support a simple text-based network interface for sending commands to the receiver over the network. You can access this interface via the `denonavr.get_command` service. In addition, IR remote codes can also be sent to this interface.
 
-A list of network commands supported by the various Denon AVR receivers can be [found here](https://www.heimkinoraum.de/upload/files/product/IP_Protocol_AVR-Xx100.pdf). A list of IR codes can be [found here](https://www.heimkinoraum.de/upload/files/product/IP_Protocol_AVR-Xx100.pdf).
+A list of network commands supported by the various Denon AVR receivers can be [found here](https://www.heimkinoraum.de/upload/files/product/IP_Protocol_AVR-Xx100.pdf). A list of IR codes can be [found here](https://assets.denon.com/DocumentMaster/UK/AVR3313_IR_CODE_V01.pdf).
 
 To use these commands, call the `denonavr.get_command` service and append the specific command to the path `/goform/formiPhoneAppDirect.xml?`:
 

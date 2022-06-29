@@ -10,4 +10,5 @@ ha_codeowners:
 ha_domain: energy
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---

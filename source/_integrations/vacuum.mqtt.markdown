@@ -11,6 +11,7 @@ The `mqtt` vacuum integration allows you to control your MQTT-enabled vacuum.
 There are two possible message schemas - `legacy` and `state`, chosen by setting the `schema` configuration parameter.
 New installations should use the `state` schema as `legacy` is deprecated and might be removed someday in the future.
 The `state` schema is preferred because the vacuum will then be represented as a `StateVacuumDevice` which is the preferred parent vacuum entity.
+The initial state of the state vacuum entity will set to `unknown` and can be reset by a device by sending a `null` payload as state. The legacy `mqtt` vacuum does not support handling an `unknown` state.
 
 This documentation has 3 sections. Configuration for `legacy` vacuum with examples, configuration for `state` vacuum with examples and shared section with examples which are the same for both schemas.
 
@@ -20,9 +21,29 @@ To add your MQTT vacuum to your installation, add the following to your `configu
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  vacuum:
+    - command_topic: "vacuum/command"
+```
+
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `vacuum` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 vacuum:
   - platform: mqtt
+    command_topic: "vacuum/command"
 ```
+
+{% enddetails %}
 
 ## Legacy Configuration
 
@@ -242,41 +263,41 @@ unique_id:
 
 ```yaml
 # Example configuration.yaml entry
-vacuum:
-  - platform: mqtt
-    name: "MQTT Vacuum"
-    supported_features:
-      - turn_on
-      - turn_off
-      - pause
-      - stop
-      - return_home
-      - battery
-      - status
-      - locate
-      - clean_spot
-      - fan_speed
-      - send_command
-    command_topic: "vacuum/command"
-    battery_level_topic: "vacuum/state"
-    battery_level_template: "{{ value_json.battery_level }}"
-    charging_topic: "vacuum/state"
-    charging_template: "{{ value_json.charging }}"
-    cleaning_topic: "vacuum/state"
-    cleaning_template: "{{ value_json.cleaning }}"
-    docked_topic: "vacuum/state"
-    docked_template: "{{ value_json.docked }}"
-    error_topic: "vacuum/state"
-    error_template: "{{ value_json.error }}"
-    fan_speed_topic: "vacuum/state"
-    fan_speed_template: "{{ value_json.fan_speed }}"
-    set_fan_speed_topic: "vacuum/set_fan_speed"
-    fan_speed_list:
-      - min
-      - medium
-      - high
-      - max
-    send_command_topic: "vacuum/send_command"
+mqtt:
+  vacuum:
+    - name: "MQTT Vacuum"
+      supported_features:
+        - turn_on
+        - turn_off
+        - pause
+        - stop
+        - return_home
+        - battery
+        - status
+        - locate
+        - clean_spot
+        - fan_speed
+        - send_command
+      command_topic: "vacuum/command"
+      battery_level_topic: "vacuum/state"
+      battery_level_template: "{{ value_json.battery_level }}"
+      charging_topic: "vacuum/state"
+      charging_template: "{{ value_json.charging }}"
+      cleaning_topic: "vacuum/state"
+      cleaning_template: "{{ value_json.cleaning }}"
+      docked_topic: "vacuum/state"
+      docked_template: "{{ value_json.docked }}"
+      error_topic: "vacuum/state"
+      error_template: "{{ value_json.error }}"
+      fan_speed_topic: "vacuum/state"
+      fan_speed_template: "{{ value_json.fan_speed }}"
+      set_fan_speed_topic: "vacuum/set_fan_speed"
+      fan_speed_list:
+        - min
+        - medium
+        - high
+        - max
+      send_command_topic: "vacuum/send_command"
 ```
 
 {% endraw %}
@@ -511,30 +532,30 @@ unique_id:
 
 ```yaml
 # Example configuration.yaml entry
-vacuum:
-  - platform: mqtt
-    name: "MQTT Vacuum"
-    schema: state
-    supported_features:
-      - start
-      - pause
-      - stop
-      - return_home
-      - battery
-      - status
-      - locate
-      - clean_spot
-      - fan_speed
-      - send_command
-    command_topic: "vacuum/command"
-    state_topic: "vacuum/state"
-    set_fan_speed_topic: "vacuum/set_fan_speed"
-    fan_speed_list:
-      - min
-      - medium
-      - high
-      - max
-    send_command_topic: "vacuum/send_command"
+mqtt:
+  vacuum:
+    - name: "MQTT Vacuum"
+      schema: state
+      supported_features:
+        - start
+        - pause
+        - stop
+        - return_home
+        - battery
+        - status
+        - locate
+        - clean_spot
+        - fan_speed
+        - send_command
+      command_topic: "vacuum/command"
+      state_topic: "vacuum/state"
+      set_fan_speed_topic: "vacuum/set_fan_speed"
+      fan_speed_list:
+        - min
+        - medium
+        - high
+        - max
+      send_command_topic: "vacuum/send_command"
 ```
 
 ### State MQTT Protocol

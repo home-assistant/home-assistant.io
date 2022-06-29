@@ -6,7 +6,7 @@ body:
       value: |
         Thanks for opening an issue to provide feedback on our website/documentation.
 
-        Please note, this form is not for reporting bugs with running Home Assistant or its integrations.
+        **Please note, this form is not for reporting bugs with running Home Assistant or its integrations.**
         Those bugs should be reported in the [Home Assistant Core issue tracker][core].
 
         [core]: https://github.com/home-assistant/core/issues

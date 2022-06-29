@@ -9,8 +9,10 @@ You can use the UI to change the entity ID and friendly name of supported entiti
 
 1. Select the entity, either from the frontend or by clicking the info button next to the entity in the Developer Tools "States" tab.
 2. Click on the cog icon in the right corner of the entity's dialog
+![Entity dialog box.](/images/docs/configuration/customizing-entity-dialog.png)
 3. Enter the new name or the new entity ID (remember not to change the domain of the entity - the part before the `.`)
-4. Select *Save*
+![Settings for entity.](/images/docs/configuration/customizing-entity.png)
+4. Select *Update*
 
 If your entity is not supported, or you cannot customize what you need via this method, please see below for more options.
 
@@ -113,7 +115,9 @@ homeassistant:
 
 Home Assistant offers a service to reload the core configuration while Home Assistant is running. This allows you to change your customize section and see your changes being applied without having to restart Home Assistant.
 
-To reload customizations, navigate to Configuration > Server Controls and then press the "Reload Location & Customizations" button. If you don't see this, enable Advanced Mode on your user profile page first.
+To reload customizations, navigate to Developer Tools > YAML and then press the "Reload Location & Customizations" button. If you don't see this, enable Advanced Mode on your user profile page first.
+
+You can also use the [Quick bar](/docs/tools/quick-bar/#command-palette), and choose "Reload Location & Customizations".
 
 Alternatively, you can reload via service call. Navigate to Developer Tools > Services tab, select `homeassistant.reload_core_config` from the dropdown and press the "Call Service" button.
 

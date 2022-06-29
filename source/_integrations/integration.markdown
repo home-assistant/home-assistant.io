@@ -2,24 +2,53 @@
 title: Integration - Riemann sum integral
 description: Instructions on how to integrate Integration Sensor into Home Assistant.
 ha_category:
-  - Utility
   - Energy
+  - Helper
   - Sensor
+  - Utility
 ha_release: 0.87
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
 ha_domain: integration
+ha_config_flow: true
 ha_platforms:
   - sensor
+ha_integration_type: helper
 ---
 
-The `integration` platform provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum) of the values provided by a source sensor. The Riemann sum is an approximation of an **integral** by a finite sum. The integration sensors is updated upon changes of the **source**. Fast sampling source sensors provide better results. In this implementation, the default is the Trapezoidal method, but Left and Right methods can optionally be used.
+This integrations provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum)
+of the values provided by a source sensor. The Riemann sum is an approximation
+of an **integral** by a finite sum.
 
-## Configuration
+The integration sensors are updated upon changes of the **source**. Fast
+sampling source sensors provide more accurate results. In this implementation, the
+default is the Trapezoidal method, but Left and Right methods can optionally
+be used.
 
-To enable Integration Sensor in your installation, add the following to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have. You can change it again later.
+Input sensor:
+  description: The entity providing numeric readings to integrate.
+Integral method:
+  description: Riemann sum method to be used.
+Precision:
+  description: Round the calculated integration value to at most N decimal places.
+Metric prefix:
+  description: Metric unit to prefix the integration result.
+Integration time:
+  description: SI unit of time to integrate over.
+{% endconfiguration_basic %}
+
+
+## YAML Configuration
+
+Alternatively, this integration can be configured and set up manually via YAML
+as well. To enable the Integration sensor in your installation, add the
+following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -38,6 +67,10 @@ name:
   required: false
   default: source entity ID meter
   type: string
+unique_id:
+   description: An ID that uniquely identifies the integration sensor. Set this to a unique value to allow customization through the UI.
+   required: false
+   type: string
 round:
   description: Round the calculated integration value to at most N decimal places.
   required: false
@@ -66,9 +99,9 @@ The unit of `source` together with `unit_prefix` and `unit_time` is used to gene
 
 ## Energy
 
-An `integration` sensor is quite useful in energy billing scenarios since energy is generally billed in kWh and many sensors provide power in W (Watts).
+An integration sensor is quite useful in energy billing scenarios since energy is generally billed in kWh and many sensors provide power in W (Watts).
 
-If you have a sensor that provides you with power readings in Watts (uses W as `unit_of_measurement`), then you can use the `integration` sensor to track how much energy is being spent. Take the next configuration as an example:
+If you have a sensor that provides you with power readings in Watts (uses W as `unit_of_measurement`, `device_class` of `power`), then you can use the `integration` sensor to track how much energy is being spent. Take the next manual YAML configuration as an example:
 
 ```yaml
 sensor:
@@ -79,4 +112,4 @@ sensor:
     round: 2
 ```
 
-This configuration will provide you with `sensor.energy_spent` which will have your energy in kWh.
+This configuration will provide you with `sensor.energy_spent` which will have your energy in kWh, as a `device_class` of `energy`.

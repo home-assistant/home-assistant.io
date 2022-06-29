@@ -13,6 +13,7 @@ ha_domain: sms
 ha_platforms:
   - notify
   - sensor
+ha_integration_type: integration
 ---
 
 The `sms` integration allows having a local execution SMS notification via [Gammu](https://wammu.eu/gammu/). This is ideal when the internet is offline or when the power goes out.
@@ -21,18 +22,9 @@ This integration provides the following platforms:
 
 - Notify
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-Activate `SMS` via the integrations menu and search for `SMS`.
-While activating the integration, it will ask for your serial device. Make sure the device is connected and have a valid SIM activated.
-
-You can also enable `SMS` via your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sms:
-  device: /dev/ttyUSB2
-```
+## Notifications
 
 To configure the notification service, edit your `configuration.yaml` file:
 
@@ -45,15 +37,6 @@ notify:
     name: sms_person2
     recipient: PHONE_NUMBER
 ```
-
-{% configuration %}
-device:
-  description: The gsm modem device.
-  required: true
-  type: string
-{% endconfiguration %}
-
-## Notifications
 
 You can also receive SMS messages that are sent to the SIM card number in your device.
 Every time there is a message received, `event: sms.incoming_sms` is fired with date, phone number and text message.
@@ -81,12 +64,14 @@ Note: When running Home Assistant, you need to install the SSH add-on.
 You will need a USB GSM stick modem or device like SIM800L v2 connected via USB UART.
 
 ### List of modems known to work
-
+- [SIM800C HAT form factor](https://www.amazon.com/gp/product/B07PQLRCNR/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1) Make sure to `enable_uart=1` on your `config.txt` boot file.
+- [SIM800C](https://www.amazon.com/gp/product/B087Z6F953/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
 - [Huawei E3372-510](https://www.amazon.com/gp/product/B01N6P3HI2/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)(
 Need to unlock it using [this guide](http://blog.asiantuntijakaveri.fi/2015/07/convert-huawei-e3372h-153-from.html))
 - [Huawei E3531](https://www.amazon.com/Modem-Huawei-Unlocked-Caribbean-Desbloqueado/dp/B011YZZ6Q2/ref=sr_1_1?keywords=Huawei+E3531&qid=1581447800&sr=8-1)
 - [Huawei E3272](https://www.amazon.com/Huawei-E3272s-506-Unlocked-Americas-Europe/dp/B00HBL51OQ)
 - [SIM800C](https://www.amazon.com/gp/product/B087Z6F953/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
+- ZTE K3565-Z
 
 ### List of modems known to NOT work
 
@@ -96,13 +81,17 @@ Need to unlock it using [this guide](http://blog.asiantuntijakaveri.fi/2015/07/c
 
 Search in the [Gammu database](https://wammu.eu/phones/) for modems with AT connection.
 
-### Huawei modems on Raspberry Pi (and similar) devices
+### Huawei/ZTE modems (and similar) devices - NOT applicable for users of Home Assistant OS, Container or Supervised.
 
-For some unknown reason, the rule that converts these modems from storage devices into serial devices does not run automatically. To work around this problem, follow the procedure to create `udev` rule on a configuration USB stick for the device to switch to serial mode.
+For some unknown reason, the rule that converts these modems from storage devices into serial devices may not run automatically. To work around this problem, follow the procedure below to change the modem mode and (optionally) create `udev` rule on a configuration USB stick for the device to switch to serial mode persistently.
 
-0. Try disable virtual cd-rom and change work mode "only modem". After this modem correct work on Raspberry Pi without 'udev' rule.
+1. Install the `usb_modeswitch` software to switch the modem operational mode (for Debian/Ubuntu distros):
 
-1. Run `lsusb`, its output looks like this:
+```bash
+sudo apt update && sudo apt install usb-modeswitch -y
+```
+
+2. Run `lsusb`, its output should be similar to this:
 
 ```bash
 bus 000 device 001: ID 1FFF:342a
@@ -113,7 +102,16 @@ bus 000 device 002: ID 1232:15ca
 
 Identify the brand for your GSM modem, copy the `brand_Id` and `product_id` (In this case `brand_id = 12d1` and `product_Id = 15ca`)
 
-Set this content in file `udev\10-gsm-modem.rules` in the configuration USB:
+3. Try disabling virtual cd-rom and change work mode to "only modem": 
+
+```bash
+sudo /sbin/usb_modeswitch -X -v 12d1 -p 15ca
+```
+Re-plug the device. After this the modem correct should work without the following 'udev' rule.
+
+4. (Optional) Configure the udev rule to persist the correct modem configuration even after disconnecting it:
+
+Set this content in file `udev\10-gsm-modem.rules` in the [configuration USB](https://github.com/home-assistant/operating-system/blob/master/Documentation/configuration.md#automatic):
 (Replace `brand_Id` and `product_id` for the numbers reported by `lsusb`)
 
 ```bash
@@ -132,7 +130,7 @@ ACTION=="add" \
 , RUN+="/sbin/usb_modeswitch -X -v 12d1 -p 15ca"
 ```
 
-Plug the USB stick, reboot the device, run `lsusb` again.
+Re-plug the USB stick, reboot the device, run `lsusb` again.
 The resulting product id now should be different and the brand id should be the same.
 And `ls -l /dev/*USB*` should now report your device.
 

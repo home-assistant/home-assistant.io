@@ -2,35 +2,44 @@
 title: Threshold
 description: Instructions on how to integrate threshold binary sensors into Home Assistant.
 ha_category:
-  - Utility
   - Binary Sensor
+  - Helper
+  - Utility
 ha_iot_class: Local Polling
 ha_release: 0.34
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: threshold
+ha_config_flow: true
 ha_platforms:
   - binary_sensor
+ha_integration_type: helper
 ---
 
-The `threshold` binary sensor platform observes the state of another sensor. If the value is below (`lower`) or higher (`upper`) than the given threshold then state of the threshold sensor is changed. It support also a range if `lower` and `upper` are given.
+The threshold integration observes the state of another sensor. If the value is below or higher than the given threshold, then the state of the threshold sensor is changed. It also supports a range if both the upper and lower limits are given.
 
-If the sensor is configured with no hysteresis and the sensor value is equal to the threshold, the sensor is turned off since it is not `lower` or `upper` with respect to the threshold.
+If the sensor is configured with no hysteresis and the sensor value is equal to the threshold, the sensor is turned off since it is not upper or lower with respect to the threshold.
 
-It's an alternative to the template binary sensor's `value_template:` to get the abnormal/too high/too low states.
+{% include integrations/config_flow.md %}
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have. You can change it again later.
+Input sensor:
+  description: The entity providing numeric readings to apply the threshold on.
+Hysteresis:
+  description: The distance the observed value must be from the threshold before the state is changed.
+Lower limit:
+  description: The lower threshold which the observed value is compared against.
+Upper limit:
+  description: The upper threshold which the observed value is compared against.
+{% endconfiguration_basic %}
 
-{% raw %}
+## YAML Configuration
 
-```yaml
-{{ states('sensor.furnace') > 2.5 }}
-```
-
-{% endraw %}
-
-## Configuration
-
-To enable the threshold sensor, add the following lines to your `configuration.yaml`:
+Alternatively, this integration can be configured and set up manually via YAML
+instead. To enable the Integration sensor in your installation, add the
+following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -44,6 +53,10 @@ binary_sensor:
 entity_id:
   description: "The entity to monitor. Only [sensors](/integrations/sensor/) are supported."
   required: true
+  type: string
+device_class:
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
+  required: false
   type: string
 lower:
   description: The lower threshold which the observed value is compared against.

@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_platforms:
   - media_player
   - remote
+ha_integration_type: integration
 ---
 
 The Panasonic Viera integration allows you to control a Panasonic Viera TV.
@@ -57,7 +58,7 @@ turn_on_action:
   type: list
 {% endconfiguration %}
 
-When you restart Home Assistant, make sure the TV is turned on and connected to your local network. If your TV needs to be paired, you'll need to go to **Configuration > Integrations** to type the PIN code that will be displayed on it and finish the setup.
+When you restart Home Assistant, make sure the TV is turned on and connected to your local network. If your TV needs to be paired, you'll need to go to **Settings > Devices & Services** to type the PIN code that will be displayed on it and finish the setup.
 
 ### Example `turn_on_action`
 
