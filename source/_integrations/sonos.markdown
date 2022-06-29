@@ -34,8 +34,8 @@ Speaker-level controls are exposed as `number` or `switch` entities. Additionall
 
 ### Controllable features
 
-- **All devices**: Alarms, Bass, Treble, Crossfade, Status Light, Touch Controls
-- **Home theater devices**: Audio Delay (aka "Lip Sync"), Night Sound, Speech Enhancement, Surround Enabled
+- **All devices**: Alarms, Bass, Treble, Loudness, Crossfade, Status Light, Touch Controls
+- **Home theater devices**: Audio Delay ("Lip Sync"), Night Sound, Speech Enhancement, Surround Enabled, Surround Music Full Volume ("Full/Ambient"), Surround Level ("TV Level"), Music Surround Level
 - **When paired with a sub**: Subwoofer Enabled, Subwoofer Gain
 
 ### Sensors

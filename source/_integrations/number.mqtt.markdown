@@ -117,6 +117,11 @@ device:
       description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
+device_class:
+  description: The [type/class](/integrations/number/#device-class) of the number.
+  required: false
+  type: device_class
+  default: None
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false

@@ -65,7 +65,7 @@ output.voltage.nominal: 120
 ```
 
 Use the values from the left hand column. Support is included for most
-values with 'ups', 'battery', 'input' and 'output' prefixes.
+values with `ups`, `battery`, `input` and `output` prefixes.
 
 ## UPS Status - human-readable version
 

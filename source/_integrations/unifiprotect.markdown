@@ -29,6 +29,7 @@ ha_platforms:
   - binary_sensor
   - button
   - camera
+  - diagnostics
   - light
   - lock
   - media_player
@@ -86,32 +87,47 @@ You can replace `2.0.0-beta.5` with whatever version of UniFi Protect you want t
 
 ### Local User
 
-You will need a local user created in your UniFi OS Console to log in with. Ubiquiti Cloud Users will **not** work.
+You will need a local user created in your UniFi OS Console to log in with. Ubiquiti SSO Cloud Users will **not** work.
+It is recommended you use the Administrator or a user with full read/write access to get the most out of the integration,
+but it is not required. The entities that are created will automatically adjust based on the permissions of the user you
+use has.
 
-1. Login to your *Local Portal* on your UniFi OS device, and click on *Users*
-1. In the upper right corner, click on *Add User*
-1. Click *Add Admin*, and fill out the form. Specific Fields to pay attention to:
-    * Role: Must be *Limited Admin*
-    * Account Type: *Local Access Only*
-    * CONTROLLER PERMISSIONS - Under UniFi Protect, select Administrators. **NOTE**: Other roles may work, but only the default Administrators role is fully tested.
-1. Click *Add* in the bottom Right.
+1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_. **Note**: This **must** be done from
+    the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the
+    UniFi Protect app.
+2. In the upper right corner, click on _Add User_.
+3. Fill out the fields for your user. Be sure the role you assign to the user grants them access to at least one or
+    more UniFi Protect devices.
+4. Click _Add_ in the bottom Right.
 
-![ADMIN_UNIFIOS](/images/integrations/unifiprotect/unifi_os_admin.png)
+![UniFi OS User Creation](/images/integrations/unifiprotect/user.png)
 
 ### Camera Streams
 
-The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure you can stream your camera in Home Assistant. This may already be enabled by default, but it is recommended to just check that this is done. To check and enable the feature:
+The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure
+you can stream your camera in Home Assistant. This may already be enabled by default, but it is recommended to just
+check that this is done. To check and enable the feature:
 
-1. Open UniFi Protect and click on *Devices*
-1. Select *Manage* in the Menu bar at the top
-1. Click on the + sign next to RTSP
+1. Open UniFi Protect and click on _Devices_.
+1. Select the camera you want to ensure can stream in UniFi Protect.
+1. Click the _Settings_ tab in the top right.
+1. Expand the _Advanced_ section at the bottom.
 1. Enable a minimum 1 stream out of the 3 available. The Stream with the Highest resolution is the default enabled one.
 
 {% include integrations/config_flow.md %}
 
 ## Features
 
-All known UniFi Protect devices should be supported. Each UniFi Protect device will get a variety of entities added for each of the different entity platforms.
+All known UniFi Protect devices should be supported. Each UniFi Protect device will get a variety of entities added for
+each of the different entity platforms.
+
+<div class='note'>
+
+**Permissions**: The below sections on the features available to your Home Assistant instance assume you have full
+write access to each device. If the user you are using has limited access to some devices, you will get fewer entities
+and in many cases, get a read-only sensor instead of an editable switch/select/number entity.
+
+</div>
 
 ### UniFi Protect Cameras
 
@@ -159,8 +175,13 @@ UniFi Protect smart sensors are a bit different than normal sensors. They are a 
   * **Humidity** - A humidity sensor will be available if the mount type is not set to "Leak" and the humidity sensor is enabled.
   * **Temperature** - A temperature sensor will be available if the mount type is not set to "Leak" and the temperature sensor is enabled.
   * **Alarm Sound** - An alarm sensor will be available if the mount type is not set to "Leak" and the alarm sound sensor is enabled. The Alarm Sound sensor can have the values "none", "smoke" and "co". More values may be added over time automatically as UniFi Protect adds support for detecting more alarms.
+  * **Tamper** - A binary sensor to detect tampering.
 * **Device Configuration** - Smart sensors will get configuration controls for the Status Light, enabling/disabling all of the main sensors, selecting the Paired Camera, and changing the Mount Type of the sensor.
-* **Button** - A disabled by default button is added for each smart sensor device. The button will let you reboot your smart sensor device.
+* **Button** - A button to clear the tampered state as well as a disabled by default button to restart the device.
+
+#### Tamper Sensor
+
+Once the tamper sensor is triggered, it stays active until manually cleared. A button entity is available to clear the tampered state.
 
 ### UniFi Protect Viewers
 

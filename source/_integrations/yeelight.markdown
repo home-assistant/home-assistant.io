@@ -203,8 +203,9 @@ This integration is tested to work with the following models. If you have a diff
 | `ceiling10`| YLDL01YL     | Yeelight Meteorite Pendant Light                 |
 | `ceiling13`| YLXD01YL     | Yeelight LED Ceiling Light                       |
 | `ceil26`   | YLXD76YL     | Yeelight Ceiling Light - Updated HomeKit 23w     |
-| ?          | YLXD013-B    | Yeelight Arwen Ceiling Light 450C                |
-| ?          | YLXD013-C    | Yeelight Arwen Ceiling Light 550C                |
+| ?, may be `ceilb` | YLXD013-B    | Yeelight Arwen Ceiling Light 450C         |
+| ?, may be `ceilb` | YLXD013-C    | Yeelight Arwen Ceiling Light 550C         |
+| `ceilb`    | YLXD013      | Yeelight Arwen Ceiling Light 450S                |
 
 ## Services
 

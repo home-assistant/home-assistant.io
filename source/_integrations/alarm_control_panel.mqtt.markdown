@@ -306,7 +306,8 @@ mqtt:
       value_template: "{{ value_json.state }}"
       command_topic: "alarmdecoder/panel/set"
       code: REMOTE_CODE_TEXT
-      command_template: "{ action: '{{ action }}', code: '{{ code }}'}"
+      command_template: >
+        { "action": "{{ action }}", "code": "{{ code }}" }
 ```
 
 ```yaml
@@ -318,7 +319,8 @@ mqtt:
       value_template: "{{ value_json.state }}"
       command_topic: "alarmdecoder/panel/set"
       code: REMOTE_CODE
-      command_template: "{ action: '{{ action }}', code: '{{ code }}'}"
+      command_template: >
+        { "action": "{{ action }}", "code": "{{ code }}" }
 ```
 
 {% endraw %}

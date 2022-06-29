@@ -8,7 +8,7 @@ description: "The Area card gives control of your entities in a specified area."
 The Area card lets you control and monitor an individual area.
 
 <p class='img'>
-  <img src='/images/blog/2021-12/area-card.png' alt='Screenshot of the Area card'>
+  <img src='/images/dashboards/area-card.png' alt='Screenshot of the Area card'>
   Screenshot of the Area card.
 </p>
 

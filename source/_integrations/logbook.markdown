@@ -67,7 +67,7 @@ include:
 
 ## Configure Filter
 
-By default, no entity will be excluded. To limit which entities are being exposed to `Logbook`, you can use the `include` and `exclude` parameters.
+By default, the logbook will use the same filter as the recorder. To limit which entities are being exposed to `Logbook`, you can use the `include` and `exclude` parameters.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -83,17 +83,7 @@ logbook:
       - light.kitchen_light
 ```
 
-Filters are applied as follows:
-
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes - include specified entities and exclude specified entities from the remaining.
-
-The following characters can be used in entity globs:
-
-- `*` - The asterisk represents zero, one, or multiple characters
-- `.` - The period represents a single character
+{% include common-tasks/filters.md %}
 
 ### Common filtering examples
 

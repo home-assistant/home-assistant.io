@@ -103,15 +103,15 @@ datepattern = ^%%Y-%%m-%%d %%H:%%M:%%S
 
 #### Map log file directories
 
-First, we need to make sure that fail2ban log can be passed to Home Assistant and that the Home Assistant log can be passed to fail2ban.  When starting the Let's Encrypt docker, you need to add the following argument (adjust paths based on your setup):
+First, we need to make sure that fail2ban log can be passed to Home Assistant and that the Home Assistant log can be passed to fail2ban.  When starting the Let's Encrypt Docker, you need to add the following argument (adjust paths based on your setup):
 
 ```txt
 /mnt/user/appdata/home-assistant:/hass
 ```
 
-This will map the Home Assistant configuration directory to the Let's Encrypt docker, allowing `fail2ban` to parse the log for failed login attempts.
+This will map the Home Assistant configuration directory to the Let's Encrypt Docker, allowing `fail2ban` to parse the log for failed login attempts.
 
-Now do the same for the Home Assistant docker, but this time we'll be mapping the `fail2ban` log directory to Home Assistant so that the fail2ban sensor is able to read that log:
+Now do the same for the Home Assistant Docker, but this time we'll be mapping the `fail2ban` log directory to Home Assistant so that the fail2ban sensor is able to read that log:
 
 ```txt
 /mnt/user/appdata/letsencrypt/log/fail2ban:/fail2ban

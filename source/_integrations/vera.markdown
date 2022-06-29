@@ -15,8 +15,6 @@ ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: vera
-ha_codeowners:
-  - '@pavoni'
 ha_platforms:
   - binary_sensor
   - climate

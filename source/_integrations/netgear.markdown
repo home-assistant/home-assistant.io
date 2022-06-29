@@ -39,6 +39,10 @@ The NETGEAR router will have the following entities:
 
 Button entity to restart the router.
 
+### Update entity
+
+Update entity to vieuw current and latest firmware version, and install the latest firmware of the router.
+
 ### Traffic meter data
 
 The total and average amount of downloaded/uploaded data through the router can be tracked per day/week/month.
@@ -54,6 +58,10 @@ The speed test interval is chosen to be 30 minutes to not put unnecessary load o
 ### Ethernet link status
 
 The Ethernet link status sensor indicates if the router is currently able to connect to the internet.
+
+### Utilization sensors
+
+CPU and memory utilization sensors in percentage of available resources of the router.
 
 ## Connected device entities
 
