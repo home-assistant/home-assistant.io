@@ -47,7 +47,7 @@ Enjoy the release!
 [hacktoberfest]: https://hacktoberfest.digitalocean.com/
 
 
-- [Home Assistant Amber](#home-assistant-amber)
+- [Home Assistant Yellow](#home-assistant-yellow)
 - [Z-Wave JS updates!](#z-wave-js-updates)
   - [S2 is now supported](#s2-is-now-supported)
   - [Migration wizard from the old Z-Wave integration](#migration-wizard-from-the-old-z-wave-integration)
@@ -63,25 +63,26 @@ Enjoy the release!
 - [Release 2021.10.4 - October 11](#release-2021104---october-11)
 - [Release 2021.10.5 - October 15](#release-2021105---october-15)
 - [Release 2021.10.6 - October 18](#release-2021106---october-18)
+- [Release 2021.10.7 - November 1](#release-2021107---november-1)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-## Home Assistant Amber
+## Home Assistant Yellow
 
 In case you've missed it: Home Assistant turned 8 years old! 🥳
-And to celebrate that, we've revealed the **Home Assistant Amber**!
+And to celebrate that, we've revealed the **Home Assistant Yellow**!
 
-Home Assistant Amber was launched using a crowdfunding campaign, which already
+Home Assistant Yellow was launched using a crowdfunding campaign, which already
 reached its funding goal! This is absolutely fantastic!
 
-And... You can still back the campaign to get your own Home Assistant Amber!
+And... You can still back the campaign to get your own Home Assistant Yellow!
 
 <!-- markdownlint-disable-next-line MD002 -->
-### [Go to campaign on CrowdSupply &raquo;](https://www.crowdsupply.com/nabu-casa/home-assistant-amber) <!-- omit in toc -->
+### [Go to campaign on CrowdSupply &raquo;](https://www.crowdsupply.com/nabu-casa/home-assistant-yellow) <!-- omit in toc -->
 
-<a href="https://www.crowdsupply.com/nabu-casa/home-assistant-amber"><img src='/images/blog/2021-09-home-assistant-amber/overview.png'></a>
+<a href="https://www.crowdsupply.com/nabu-casa/home-assistant-yellow"><img src='/images/blog/2021-09-home-assistant-yellow/overview.png'></a>
 
 ## Z-Wave JS updates!
 
@@ -486,6 +487,37 @@ The following integrations are now available via the Home Assistant UI:
 [plugwise docs]: /integrations/plugwise/
 [tile docs]: /integrations/tile/
 [yeelight docs]: /integrations/yeelight/
+
+## Release 2021.10.7 - November 1
+
+- Fix Tuya documentation URL ([@ludeeus] - [#57889])
+- Fix netgear NoneType and discovery ([@starkillerOG] - [#57904])
+- Abort keenetic SSDP discovery if the unique id is already setup or ignored ([@foxel] - [#58009])
+- Fix Yamaha MusicCast media_stop ([@micha91] - [#58024])
+- Sleep between device requests to detect socket closes ([@chishm] - [#58087])
+- Fix template sensor when name template doesn't render ([@emontnemery] - [#58088])
+- Bump pymazda to 0.2.2 ([@bdr99] - [#58113])
+- Abort Fritz config flow for configured hostnames ([@chemelli74] - [#58140])
+- Fix find_next_time_expression_time ([@OttoWinter] - [#58894])
+
+[#57889]: https://github.com/home-assistant/core/pull/57889
+[#57904]: https://github.com/home-assistant/core/pull/57904
+[#58009]: https://github.com/home-assistant/core/pull/58009
+[#58024]: https://github.com/home-assistant/core/pull/58024
+[#58087]: https://github.com/home-assistant/core/pull/58087
+[#58088]: https://github.com/home-assistant/core/pull/58088
+[#58113]: https://github.com/home-assistant/core/pull/58113
+[#58140]: https://github.com/home-assistant/core/pull/58140
+[#58894]: https://github.com/home-assistant/core/pull/58894
+[@ludeeus]: https://github.com/ludeeus
+[@starkillerOG]: https://github.com/starkillerOG
+[@foxel]: https://github.com/foxel
+[@micha91]: https://github.com/micha91
+[@chishm]: https://github.com/chishm
+[@emontnemery]: https://github.com/emontnemery
+[@bdr99]: https://github.com/bdr99
+[@chemelli74]: https://github.com/chemelli74
+[@OttoWinter]: https://github.com/OttoWinter
 
 ## If you need help...
 

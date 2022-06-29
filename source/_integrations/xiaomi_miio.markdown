@@ -2,14 +2,14 @@
 title: Xiaomi Miio
 description: Instructions on how to integrate Xiaomi devices using the Xiaomi Miio integration within Home Assistant.
 ha_category:
-  - Hub
-  - Fan
   - Alarm
+  - Fan
+  - Health
+  - Hub
+  - Light
   - Presence Detection
   - Remote
-  - Health
   - Vacuum
-  - Light
 ha_iot_class: Local Polling
 ha_release: 0.51
 ha_codeowners:
@@ -24,16 +24,19 @@ ha_platforms:
   - air_quality
   - alarm_control_panel
   - binary_sensor
+  - button
   - device_tracker
+  - diagnostics
   - fan
   - humidifier
   - light
   - number
   - remote
-  - sensor
   - select
+  - sensor
   - switch
   - vacuum
+ha_integration_type: integration
 ---
 
 The Xiaomi Miio integration supports the following devices:
@@ -51,9 +54,15 @@ The Xiaomi Miio integration supports the following devices:
 
 Most Xiaomi Miio devices support configuration using the Home Assistant UI,
 except for the [Xiaomi device tracker](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
-and [Xiaomi IR Remote](#xiaomi-ir-remote).
+and [Xiaomi IR Remote](#xiaomi-ir-remote). Please read the linked sections for those devices for more information.
 
-Please read the linked sections for those devices for more information.
+Devices need to be set up using the Mi Home app and not vendor-specific apps (e.g. Roborock).
+
+<div class='note'>
+
+  For more complex network setups (e.g. VLANs), reference the [following documentation](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets) for additional information.
+
+</div>
 
 {% include integrations/config_flow.md %}
 
@@ -207,7 +216,9 @@ Supported devices:
 | Air Purifier 3 (2019)  | zhimi.airpurifier.ma4  | |
 | Air Purifier 3H (2019) | zhimi.airpurifier.mb3  | |
 | Air Purifier 3C        | zhimi.airpurifier.mb4  | |
+| Air Fresh A1           | dmaker.airfresh.a1     | MJXFJ-150-A1 |
 | Air Fresh VA2          | zhimi.airfresh.va2     | |
+| Air Fresh T2017        | dmaker.airfresh.t2017  | MJXFJ-300-G1 |
 | Air Humidifier         | zhimi.humidifier.v1    | |
 | Air Humidifier CA1     | zhimi.humidifier.ca1   | |
 | Air Humidifier CA4     | zhimi.humidifier.ca4   | |
@@ -485,6 +496,43 @@ Buzzer                  | Turn on/off the buzzer
 Child Lock              | Turn on/off the child lock
 LED                     | Turn on/off the LED
 
+### Air Fresh A1 (dmaker.airfresh.a1)
+
+- Power (on, off)
+- Operation modes (Auto, Sleep, Favorite)
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------
+Auxiliary Heat Status   | Indicates if the heater is actually on
+
+- Button entities
+
+Button                  | Description                                
+----------------------- | ------------------------------------------ 
+Reset Dust Filter       | Resets filter lifetime and usage of the dust filter  
+
+- Sensor entities
+
+Sensor                          | Description                                                    
+------------------------------- | -------------------------------------------------------------- 
+Carbon Dioxide                  | The current carbon dioxide in ppm                     
+Dust filter life remaining      | The remaining life of the filter                              
+Dust filter life remaining days | The remaining life of the filter in day                        
+PM2.5                           | The current particulate matter 2.5                    
+Temperature                     | The current outside temperature                      
+Control Speed                   | The current motor speed in rpm                       
+Favorite Speed                  | The favorite motor speed in rpm                       
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+Display                 | Turn on/off `display`
+Auxiliary Heat          | Turn on/off `heater`
+
 ### Air Fresh VA2
 
 - Power (on, off)
@@ -500,7 +548,6 @@ Carbon Dioxide          | The current carbon dioxide measured in ppm            
 Filter Life Remaining   | The remaining life of the filter                               | True
 Filter Use              | Filter usage time in hours                                     | True
 Humidity                | The current humidity measured                                  | True
-Illuminance             | The current illuminance measured                               | True
 PM2.5                   | The current particulate matter 2.5 measured                    | True
 Temperature             | The current temperature measured                               | True
 Use Time                | The accumulative number of seconds the device has been in use  | False
@@ -518,6 +565,48 @@ Switch                  | Description
 Buzzer                  | Turn on/off `buzzer`
 Child Lock              | Turn on/off `child lock`
 LED                     | Turn on/off `led`
+
+
+### Air Fresh T2017 (dmaker.airfresh.t2017)
+
+- Power (on, off)
+- Operation modes (Auto, Sleep, Favorite)
+- Binary sensor entities
+
+Binary sensor           | Description
+----------------------- | -----------------
+Auxiliary Heat Status   | Indicates if the heater is actually on
+
+- Button entities
+
+Button                  | Description                                
+----------------------- | ------------------------------------------ 
+Reset Dust Filter       | Resets filter lifetime and usage of the dust filter  
+Reset Upper Filter      | Resets filter lifetime and usage of the upper filter 
+
+- Sensor entities
+
+Sensor                           | Description                                                   
+-------------------------------- | -------------------------------------------------------------- 
+Carbon Dioxide                   | The current carbon dioxide in ppm                    
+Dust filter life remaining       | The remaining life of the dust filter                       
+Dust filter life remaining days  | The remaining life of the dust filter in days                   
+Upper filter life remaining      | The remaining life of the upper filter                         
+Upper filter life remaining days | The remaining life of the upper filter in days                  
+PM2.5                            | The current particulate matter 2.5                    
+Temperature                      | The current outside temperature                       
+Control Speed                    | The current motor speed in rpm                        
+Favorite Speed                   | The favorite motor speed in rpm                       
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+Display                 | Turn on/off `display`
+Auxiliary Heat          | Turn on/off `heater`
+
 
 ### Air Humidifier (zhimi.humidifier.v1)
 
@@ -876,6 +965,7 @@ Power Supply            | Indicates whether the power supply is connected or not
 Number                  | Description
 ----------------------- | -----------------------
 Delay Off Countdown     | Set the delay off countdown in minutes
+LED Brightness          | Set the LED brightness
 Oscillation Angle       | Set the oscillation angle in degrees
 
 - Sensor entities
@@ -892,7 +982,6 @@ Switch                  | Description
 Buzzer                  | Turn on/off the Buzzer
 Child Lock              | Turn on/off the Child Lock
 Ionizer                 | Turn on/off the Ionizer
-LED                     | Turn on/off the LED
 
 ### Platform Services
 
@@ -1046,14 +1135,14 @@ remote:
           - pronto:pronto_hex:[optional_repeat]
 ```
 
-### Add command as entity button in Lovelace UI
+### Add command as entity button to a dashboard
 
 ```yaml
 type: entity-button
 tap_action:
   action: call-service
   service: remote.send_command
-  service_data:
+  data:
     command: activate_towel_heater
     entity_id: remote.xiaomi_miio_ir
 hold_action:
@@ -1380,9 +1469,9 @@ automation:
 {% configuration_basic %}
 
 DnD Start*:
-  description: The timestamp when the next DnD will start
+  description: The timestamp when the next DnD (Do not disturb) period will start
 DnD End*:
-  description: The timestamp when the current or next DnD will end
+  description: The timestamp when the current or next DnD (Do not disturb) period will end
 Total duration*:
   description: The total cleaning duration in seconds
 Total Clean Area*:
@@ -1397,13 +1486,17 @@ Main Brush Left*:
   description: How long the main brush can be used in seconds
 Sensor Dirty Left*:
   description: How long the sensor can  be used in seconds
+Current Clean Time:
+  description: The current cleaning time of the vacuum. If the vaccuum is not cleaning, this sensor will have the same value as the "Last Clean Duration" sensor.
+Current Clean Area:
+  description: The current area that has been cleaned. If the vacuum is not cealning, this sensor will have the same value as the "Last Clean Area" sensor.
 Last Clean Area*:
   description: The last cleaned area in square meters
 Last Clean Duration*:
   description: The last clean duration in seconds
-Last Clean End*:
+Last Clean End:
   description: The last clean end time as a timestamp
-Last Clean Start*:
+Last Clean Start:
   description: The last clean start time as a timestamp
 Mop Attached**:
   description: If the mop is attached

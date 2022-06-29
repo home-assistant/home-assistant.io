@@ -5,9 +5,13 @@ ha_category:
   - Notifications
 ha_iot_class: Cloud Push
 ha_release: 0.37
+ha_config_flow: true
 ha_domain: discord
+ha_codeowners:
+  - '@tkdrob'
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows integrations to send messages to the user using Discord.
@@ -18,28 +22,15 @@ Retrieve the **Client ID** from the information section and the (hidden) **Token
 
 When setting up the application you can use this [icon](/images/favicon-192x192-full.png).
 
-To use Discord notifications, add the following to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-notify:
-  - platform: discord
-    token: YOUR_DISCORD_BOT_TOKEN
-```
+<div class='note'>
 
-{% configuration %}
-name:
-  description: The notifier will bind to the service `notify.NAME`.
-  required: false
-  type: string
-  default: notify
-token:
-  description: Your bot's token.
-  required: true
-  type: string
-{% endconfiguration %}
+The name you give your application on the [Discord My Apps page](https://discordapp.com/developers/applications/me) will determine the name of the notify service. For example: if you enter "Discord Chat", the service will be named `notify.discord_chat`.
 
-### Setting up the bot
+</div>
+
+## Setting up the bot
 
 Bots can send messages to servers and users or attach local available images. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
 
@@ -67,7 +58,7 @@ Right click channel name and copy the channel ID (**Copy ID**).
 
 This channel or user ID has to be used as the target when calling the notification service. Multiple channel or user IDs can be specified, across multiple servers or direct messages.
 
-### Discord Service Data
+## Discord Service Data
 
 The following attributes can be placed inside the `data` key of the service call for extended functionality:
 
@@ -75,7 +66,6 @@ The following attributes can be placed inside the `data` key of the service call
 | ---------------------- | -------- | ----------- |
 | `images`               |      yes | The file(s) to attach to message.
 | `embed`                |      yes | Array of [Discord embeds](https://discordpy.readthedocs.io/en/latest/api.html#embed). *NOTE*: if using `embed`, `message` is still required.
-
 
 To include messages with embedding, use these attributes underneath the `embed` key:
 
@@ -88,10 +78,10 @@ To include messages with embedding, use these attributes underneath the `embed` 
 | `author`                    |      yes  | Sets the footer for the embed content.
 | `footer`               |      yes | Sets the footer for the embed content.
 | `thumbnail`               |      yes | Sets the thumbnail for the embed content.
+| `image`               |      yes | Sets the image for the embed content.
 | `fields`               |      yes | Adds a field to the embed object.  `name` and `value` are *required*, `inline` is *true* by default.
 
-
-#### Example service call
+### Example service call
 
 ```yaml
 - service: notify.discord
@@ -104,7 +94,8 @@ To include messages with embedding, use these attributes underneath the `embed` 
       - "/tmp/garage.jpg"
 ```
 
-#### Example embed service call
+### Example embed service call
+
 ```yaml
 - service: notify.discord
   data:
@@ -125,6 +116,8 @@ To include messages with embedding, use these attributes underneath the `embed` 
           icon_url: 'https://www.home-assistant.io'
         thumbnail:
           url: 'https://www.home-assistant.io/images/favicon-192x192-full.png'
+        image:
+          url: 'https://www.home-assistant.io/images/favicon-192x192-full.png'
         fields:
           - name: 'fieldname1'
             value: 'valuename1'
@@ -138,7 +131,7 @@ To include messages with embedding, use these attributes underneath the `embed` 
             inline: false
 ```
 
-### Notes
+## Notes
 
 You can tag any user inside a channel by using their user ID in the message like so: `<@userid>` replacing `userid` with the ID you copied. To get the user ID right click on the user name to copy the ID like you did for the channel ID up above.
 

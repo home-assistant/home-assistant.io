@@ -16,14 +16,37 @@ To enable MQTT Select in your installation, add the following to your `configura
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  select:
+      - command_topic: topic
+        name: "Test Select"
+        options:
+          - "Option 1"
+          - "Option 2"
+```
+
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `select` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 select:
     - platform: mqtt
       command_topic: topic
       name: "Test Select"
       options:
-      	- "Option 1"
-      	- "Option 2"
+       - "Option 1"
+       - "Option 2"
 ```
+
+{% enddetails %}
 
 {% configuration %}
 availability:
@@ -45,6 +68,10 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -54,6 +81,14 @@ availability_mode:
    required: false
    type: string
    default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
+command_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic`.
+  required: false
+  type: template
 command_topic:
   description: The MQTT topic to publish commands to change the selected option.
   required: true
@@ -104,6 +139,11 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+encoding:
+  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
+  required: false
+  type: string
+  default: "utf-8"
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -125,13 +165,17 @@ name:
   description: The name of the Select.
   required: false
   type: string
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 optimistic:
   description: Flag that defines if the select works in optimistic mode.
   required: false
   type: boolean
   default: "`true` if no `state_topic` defined, else `false`."
 options:
-  description: List of options that can be selected.
+  description: List of options that can be selected. An empty list or a list with a single item is allowed.
   required: true
   type: list
 qos:

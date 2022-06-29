@@ -3,9 +3,15 @@ title: Camera
 description: Instructions on how to integrate cameras within Home Assistant.
 ha_category:
   - Camera
+  - Media Source
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: camera
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: integration
+ha_platforms:
+  - diagnostics
 ---
 
 The camera integration allows you to use IP cameras with Home Assistant.

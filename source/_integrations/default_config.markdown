@@ -6,11 +6,15 @@ ha_category:
 ha_release: 0.88
 ha_domain: default_config
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 This integration is a meta-component and configures a default set of integrations for Home Assistant to load. The integrations that will be loaded are:
 
 - [Automation](/integrations/automation/) (`automation`)
+- [Backup](/integrations/backup/) (`backup`)
 - [Home Assistant Cloud](/integrations/cloud/) (`cloud`)
 - [Configuration](/integrations/config/) (`config`)
 - [Counter](/integrations/counter/) (`counter`)
@@ -20,6 +24,7 @@ This integration is a meta-component and configures a default set of integration
 - [History](/integrations/history/) (`history`)
 - [Image](/integrations/image/) (`image`)
 - [Input boolean](/integrations/input_boolean/) (`input_boolean`)
+- [Input button](/integrations/input_button/) (`input_button`)
 - [Input datetime](/integrations/input_datetime/) (`input_datetime`)
 - [Input number](/integrations/input_number/) (`input_number`)
 - [Input select](/integrations/input_select/) (`input_select`)
@@ -38,7 +43,6 @@ This integration is a meta-component and configures a default set of integration
 - [System Health](/integrations/system_health/) (`system_health`)
 - [Tag](/integrations/tag/) (`tag`)
 - [Timer](/integrations/timer/) (`timer`)
-- [Updater](/integrations/updater/) (`updater`)
 - [USB](/integrations/usb/) (`usb`)
 - [Webhooks](/integrations/webhook) (`webhook`)
 - [Zero-configuration networking (zeroconf)](/integrations/zeroconf/) (`zeroconf`)

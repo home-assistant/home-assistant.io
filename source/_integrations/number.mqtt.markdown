@@ -16,10 +16,28 @@ To enable MQTT Number in your installation, add the following to your `configura
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  number:
+    - command_topic: my-device/threshold
+```
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `number` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 number:
   - platform: mqtt
     command_topic: my-device/threshold
 ```
+
+{% enddetails %}
 
 {% configuration %}
 availability:
@@ -50,9 +68,13 @@ availability_mode:
    required: false
    type: string
    default: latest
+command_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic`.
+  required: false
+  type: template
 command_topic:
   description: The MQTT topic to publish commands to change the number.
-  required: false
+  required: true
   type: string
 device:
   description: "Information about the device this Number is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
@@ -95,11 +117,21 @@ device:
       description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
+device_class:
+  description: The [type/class](/integrations/number/#device-class) of the number.
+  required: false
+  type: device_class
+  default: None
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false
   type: boolean
   default: true
+encoding:
+  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
+  required: false
+  type: string
+  default: "utf-8"
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -129,6 +161,10 @@ max:
   default: 100
 name:
   description: The name of the Number.
+  required: false
+  type: string
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
   required: false
   type: string
 optimistic:

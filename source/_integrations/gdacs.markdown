@@ -11,7 +11,9 @@ ha_codeowners:
   - '@exxamalte'
 ha_domain: gdacs
 ha_platforms:
+  - geo_location
   - sensor
+ha_integration_type: integration
 ---
 
 The `gdacs` integration lets you use a GeoRSS feed provided by 
@@ -20,12 +22,12 @@ about major droughts, earthquakes, floods, tropical cyclones, tsunamis and
 volcanic activities worldwide.
 It retrieves alerts from a feed and shows information of those alerts filtered 
 by distance to Home Assistant's location.
+The filter is set in the configuration as categories, radius (kilometers or miles based on unit system set in Home Assistant), latitude and longatude.
 
 Entities are generated, updated and removed automatically with each update 
 from the feed. Each entity defines latitude and longitude and will be shown 
 on the default map automatically, or on a map card by defining the source 
-`gdacs`. The distance is available as the state of each entity, and 
-converted to the unit (kilometers or miles) configured in Home Assistant.
+`gdacs`. The distance is available as the state of each entity converted to the configured unit system (kilometers or miles).
 
 <p class='img'>
   <img src='/images/screenshots/gdacs-alerts-feed-map.png' />

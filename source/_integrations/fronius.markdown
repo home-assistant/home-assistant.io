@@ -1,82 +1,51 @@
 ---
 title: Fronius
-description: Instructions on how to connect your Fronius Inverter to Home Assistant.
+description: Instructions on how to connect your Fronius SolarAPI devices to Home Assistant.
+ha_release: 0.96
 ha_category:
   - Energy
   - Sensor
-ha_iot_class: Local Polling
-ha_release: 0.96
 ha_codeowners:
   - '@nielstron'
+  - '@farmio'
+ha_config_flow: true
 ha_domain: fronius
+ha_iot_class: Local Polling
 ha_platforms:
   - sensor
+ha_quality_scale: platinum
+ha_dhcp: true
+ha_integration_type: integration
 ---
 
-The `fronius` sensor polls a [Fronius](https://www.fronius.com/) solar inverter, battery system or smart meter and presents the values as sensors in Home Assistant. Data is gathered directly from a Fronius device connected to your local network, this integration doesn't access the cloud. 
+The `fronius` integration polls a [Fronius](https://www.fronius.com/) solar inverter or datalogger to allow you to get details from your Fronius SolarNet setup and integrate it in your Home Assistant installation.
 
 ## Prerequisites
 
 You will need to either set a static IP on the Fronius device or assign a static DHCP lease for it, or alternatively access it through the local DNS name if your network is properly configured for this.
+For Gen24 devices (delivered with Firmware >= 1.14.1) make sure to activate the "Solar API" in the inverters web interface.
 
-## Configuration
-
-To enable this sensor, add the following lines to your `configuration.yaml` file:
-
-```yaml
-sensor:
-  - platform: fronius
-    resource: FRONIUS_URL_OR_IP
-    monitored_conditions:
-    - sensor_type: logger_info
-    - sensor_type: inverter
-      scope: system
-    - sensor_type: meter
-      device: 1
-```
-
-{% configuration %}
-resource:
-  description: "The hostname or IP address of the Fronius device (e.g., `192.0.2.0` or `http://fronius.local`)"
-  required: true
-  type: string
-monitored_conditions:
-  description: "Conditions to display in the frontend"
-  required: true
-  type: list
-  keys:
-    sensor_type:
-      description: "The kind of device, can be one of \"inverter\", \"storage\", \"meter\", or \"power_flow\""
-      required: true
-      type: string
-    scope:
-      description: "The device type for storage and inverter, can be either \"device\" or \"system\""
-      required: false
-      type: string
-      default: "device"
-    device:
-      description: "The ID of the device to poll"
-      required: false
-      default: "\"1\" for inverters and \"0\" for other devices such as storages in compliance with Fronius Specs"
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Monitored data
 
-Each sensor type chosen as monitored condition adds a set of sensors to Home Assistant.
+Each device adds a set of sensors to Home Assistant.
 
-- `logger_info`
+- SolarNet device
+  
+  - `logger_info`
 
-    General information about the Fronius Datalogger. Not available on "Gen24" devices.
+    General information about the Fronius Datalogger. Not available on "Gen24" devices. Updated every hour.
 
     - The serial number and software and hardware platforms
     - The current price of energy consumed from the grid ("cash factor")
     - The current price of energy returned to the grid ("delivery factor")
 
-- `power_flow`
+  - `power_flow`
 
-    Cumulative data such as the energy produced in the current day or year and overall produced energy.
+    Cumulative data such as the energy produced in the current day or year and overall produced energy. Updated every 10 seconds.
     Also, live values such as:
-    
+
     - Power fed to the grid (if positive) or taken from the grid (if negative).
     - Power load as a generator (if positive) or consumer (if negative).
     - Battery charging power (if positive) or discharging power (if negative) and information about backup or standby mode.
@@ -86,58 +55,51 @@ Each sensor type chosen as monitored condition adds a set of sensors to Home Ass
 
 - `inverter`
 
-    Cumulative data such as the energy produced in the current day or year and overall produced energy.
-    Also, live values about AC/DC power, current, voltage and frequency.
-    The data is only shown when choosing device scope.
+  Cumulative data such as the energy produced in the current day or year and overall produced energy. Updated every minute.
+  Also, live values about AC/DC power, current, voltage and frequency.
 
 - `meter`
 
-    Detailed information about power, current and voltage, if supported split among the phases.
-    The data is only shown when choosing device scope.
-    
+  Detailed information about power, current and voltage, if supported split among the phases. Updated every minute.
+
+- `ohmpilot`
+
+  Detailed information about energy, power, and temperature of your Ohmpilots. Updated every minute.
+
 - `storage`
 
-    Detailed information about current, voltage, state, cycle count, capacity and more about installed batteries.
+  Detailed information about current, voltage, state, cycle count, capacity and more about installed batteries. Updated every minute.
 
 Note that some data (like photovoltaic production) is only provided by the Fronius device when non-zero.
 The corresponding sensors are added to Home Assistant as entities as soon as they are available.
-This means for example that when Home Assistant is started at night,
-there might be no sensor providing photovoltaic related data.
-This does not need to be problematic as the values will be added on sunrise,
-when the Fronius devices begins providing the needed data.
+This means for example that when Home Assistant is started at night, there might be no sensor providing photovoltaic related data.
+This does not need to be problematic as the values will be added on sunrise, when the Fronius devices begins providing the needed data.
+When a device is not responding correctly the update interval will increase to 10 minutes (3 minutes for power flow) until valid data is received again.
 
-## Finding out devices IDs
+## Energy dashboard
 
-To find out the device ID of the inverter visit the URL:
-`http://FRONIUS_IP/solar_api/v1/GetPowerFlowRealtimeData.fcgi`
-In the returned JSON, under the key Body > Data > Inverters you should see your inverters listed with IDs starting from 1.
+- For `Solar production`: 
+  - If no battery is connected to an inverter: Add each inverters `Energy total` entity.
+  - If a battery is connected to an inverter: Use [Riemann sum](/integrations/integration/) over `Power photovoltaics` entity (from power_flow endpoint found in your `SolarNet` device)
+- `Battery systems` aren't supported directly. Use [Template](/integrations/template) to split and invert negative values of `Power battery` entity (from power_flow) for charging power (W) and positive values for discharging power (W). Then use [Riemann sum](/integrations/integration/) to integrate each into energy values (kWh).
+- For `Devices` use the Ohmpilots `Energy consumed` entity.
 
-To find out the device ID of the meter visit the URL:
-`http://FRONIUS_IP/solar_api/v1/GetMeterRealtimeData.cgi?Scope=System`
-In the returned JSON, under the key Body > Data you should see your meters listed with IDs starting from 0.
+The energy meter integrated with Fronius devices can be installed (and configured) in two different installation positions: _"feed in path"_ (`meter_location` = 0) or _"consumption path"_ (`meter_location` = 1). In the first case, the meter provides all data you need but, in the second case, it doesn't so you need to calculate some of them by using helpers.
 
-To find out which API version your system runs, visit the URL:
-`http://FRONIUS_IP/solar_api/GetAPIVersion.cgi`
+### Feed in path meter
 
-## Examples
+Recommended energy dashboard configuration for meter location in feed in path:
 
-When including more of the components that one Fronius device offers, 
-a list of sensors that are to be integrated can be given like below.
+- For `Grid consumption` use the meters `Energy real consumed` entity.
+- For `Return to grid` use the meters `Energy real produced` entity.
 
-```yaml
-sensor:
-  - platform: fronius
-    resource: FRONIUS_URL
-    monitored_conditions:
-    - sensor_type: logger_info
-    - sensor_type: inverter
-      scope: system
-    - sensor_type: meter
-      device: 1
-    - sensor_type: storage
-      device: 0
-    - sensor_type: power_flow
-```
+### Consumption path meter
+
+Recommended energy dashboard configuration for meter location in consumption path:
+
+- The "Power Grid" entity provided by the Fronius API is positive on import and negative on export. Split it up into import- and export-power entities by using helpers with templates `max(states(sensor.power_grid) | float, 0)` and `max(0 - states(sensor.power_grid) | float, 0)`.
+- Then use [Riemann sum](/integrations/integration/) to integrate these import-/export-power entities into energy values (kWh).
+- Use these energy entities for `Grid consumption` and `Return to grid` in the energy dashboard configuration.
 
 ## Note
 

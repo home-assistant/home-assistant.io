@@ -31,11 +31,31 @@ To enable this platform, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  alarm_control_panel:
+    - state_topic: "home/alarm"
+      command_topic: "home/alarm/set"
+```
+
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `alarm_control_panel` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 alarm_control_panel:
   - platform: mqtt
     state_topic: "home/alarm"
     command_topic: "home/alarm/set"
 ```
+
+{% enddetails %}
 
 {% configuration %}
 availability:
@@ -57,11 +77,19 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
 availability_mode:
   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
   required: false
   type: string
   default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -77,6 +105,11 @@ code_arm_required:
   default: true
 code_disarm_required:
   description: If true the code is required to disarm the alarm. If false the code is not validated.
+  required: false
+  type: boolean
+  default: true
+code_trigger_required:
+  description: If true the code is required to trigger the alarm. If false the code is not validated.
   required: false
   type: boolean
   default: true
@@ -135,6 +168,11 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+encoding:
+  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
+  required: false
+  type: string
+  default: "utf-8"
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -157,6 +195,10 @@ name:
   required: false
   type: string
   default: MQTT Alarm
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 payload_arm_away:
   description: The payload to set armed-away mode on your Alarm Panel.
   required: false
@@ -197,6 +239,11 @@ payload_not_available:
   required: false
   type: string
   default: offline
+payload_trigger:
+  description: The payload to trigger the alarm on your Alarm Panel.
+  required: false
+  type: string
+  default: TRIGGER
 qos:
   description: The maximum QoS level of the state topic.
   required: false
@@ -233,45 +280,47 @@ The example below shows a full configuration with local code validation.
 
 ```yaml
 # Example using text based code with local validation configuration.yaml
-alarm_control_panel:
-  - platform: mqtt
-    name: "Alarm Panel With Numeric Keypad"
-    state_topic: "alarmdecoder/panel"
-    value_template: "{{value_json.state}}"
-    command_topic: "alarmdecoder/panel/set"
-    code: mys3cretc0de
+mqtt:
+  alarm_control_panel:
+    - name: "Alarm Panel With Numeric Keypad"
+      state_topic: "alarmdecoder/panel"
+      value_template: "{{value_json.state}}"
+      command_topic: "alarmdecoder/panel/set"
+      code: mys3cretc0de
 ```
 
 {% endraw %}
 
 ### Configurations with remote code validation
 
-The example below shows a full configuration with local code validation and `command_template`.
+The example below shows a full configuration with remote code validation and `command_template`.
 
 {% raw %}
 
 ```yaml
 # Example using text code with remote validation configuration.yaml
-alarm_control_panel:
-  - platform: mqtt
-    name: "Alarm Panel With Text Code Dialog"
-    state_topic: "alarmdecoder/panel"
-    value_template: "{{ value_json.state }}"
-    command_topic: "alarmdecoder/panel/set"
-    code: REMOTE_CODE_TEXT
-    command_template: "{ action: '{{ action }}', code: '{{ code }}'}"
+mqtt:
+  alarm_control_panel:
+    - name: "Alarm Panel With Text Code Dialog"
+      state_topic: "alarmdecoder/panel"
+      value_template: "{{ value_json.state }}"
+      command_topic: "alarmdecoder/panel/set"
+      code: REMOTE_CODE_TEXT
+      command_template: >
+        { "action": "{{ action }}", "code": "{{ code }}" }
 ```
 
 ```yaml
 # Example using numeric code with remote validation configuration.yaml
-alarm_control_panel:
-  - platform: mqtt
-    name: "Alarm Panel With Numeric Keypad"
-    state_topic: "alarmdecoder/panel"
-    value_template: "{{ value_json.state }}"
-    command_topic: "alarmdecoder/panel/set"
-    code: REMOTE_CODE
-    command_template: "{ action: '{{ action }}', code: '{{ code }}'}"
+mqtt:
+  alarm_control_panel:
+    - name: "Alarm Panel With Numeric Keypad"
+      state_topic: "alarmdecoder/panel"
+      value_template: "{{ value_json.state }}"
+      command_topic: "alarmdecoder/panel/set"
+      code: REMOTE_CODE
+      command_template: >
+        { "action": "{{ action }}", "code": "{{ code }}" }
 ```
 
 {% endraw %}

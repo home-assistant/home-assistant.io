@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: dexcom
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Dexcom integration allows you to view your CGM data from [Dexcom](https://www.dexcom.com/) in Home Assistant.
@@ -25,22 +26,22 @@ You will need to set up the [Dexcom Share](https://provider.dexcom.com/education
 Some people have had problems with connecting when their Dexcom passwords are entirely numeric. If you have connection issues in that case, try changing your password to something with a mix of numbers and letters.
 </div>
 
-#### Server
+### Server
 
 There are two Dexcom Share servers, `US` for United States customers, and `OUS` for all customers outside of the United States.
 
-#### Unit of measurement
+### Unit of measurement
 
-The integrations allows both `mg/dL` and `mmol/l` units of measurement for blood glucose values. To change your preferred unit of measurement, got to **Configuration** >> **Integrations** in the UI, and click `OPTIONS`.
+The integrations allows both `mg/dL` and `mmol/l` units of measurement for blood glucose values. To change your preferred unit of measurement, go to **Settings** -> **Devices & Services** in the UI, and click `OPTIONS`.
 
-### Sensor
+## Sensor
 
 If you have a sensor session running, and once you have enabled the Dexcom integration, you should see the following sensors:
 
 - Blood glucose value sensor
 - Blood glucose trend sensor
 
-### Example Automation
+## Example Automation
 
 ```yaml
 - id: '1234567890123'

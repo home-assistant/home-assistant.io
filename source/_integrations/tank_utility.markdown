@@ -8,6 +8,7 @@ ha_release: 0.53
 ha_domain: tank_utility
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 Add [Tank Utility](https://www.tankutility.com/) propane tank monitors to Home Assistant.
@@ -62,7 +63,7 @@ sensor:
     email: YOUR_EMAIL_ADDRESS
     password: YOUR_PASSWORD
     devices:
-      - 000000000000000000000000
+      - "000000000000000000000000"
 ```
 
 {% configuration %}
@@ -74,7 +75,7 @@ password:
   description: "Your [https://app.tankutility.com](https://app.tankutility.com) password."
   required: true
   type: string
-unit_of_measurement:
+devices:
   description: All devices to monitor.
   required: true
   type: map

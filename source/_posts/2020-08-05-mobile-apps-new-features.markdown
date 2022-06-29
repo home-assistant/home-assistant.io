@@ -74,7 +74,7 @@ Starting with 1.8.0 we have introduced a new [Geocoded sensor](https://companion
 Screenshot of the Geocoded Sensor.
 </p>
 
-The battery level sensor was split in 1.9.0 to include a [battery state sensor](https://companion.home-assistant.io/docs/core/sensors#battery-sensors) so you can see when your device is actively `charging`, `not_charging`, `discharging` and `full`. You can also distinguish whether its `wireless`, `ac` or `usb`. The state now updates immediately upon being plugged in and unplugged to allow for quicker automations.
+The battery level sensor was split in 1.9.0 to include a [battery state sensor](https://companion.home-assistant.io/docs/core/sensors#battery-sensors) so you can see when your device is actively `charging`, `not_charging`, `discharging` and `full`. You can also distinguish whether it's `wireless`, `ac` or `usb`. The state now updates immediately upon being plugged in and unplugged to allow for quicker automations.
 
 
 #### Biometrics
@@ -93,7 +93,7 @@ We have also been hard at working making improvements in other areas of the app:
 
 * There are now 2 [widgets](https://companion.home-assistant.io/docs/integrations/android-widgets) that you can set up, with Entity State being the latest addition. The Entity State widget will display the state and any attribute of the selected entity. It will update once every 30 minutes or when tapped. The Service Call widget was also enhanced to allow you to select from a list of valid and available services along with the ability to add additional data fields that the service may require.
 * In App Configuration the Home Network WiFi SSID option now allows the user to select multiple SSIDs.
-* A Cookie Manager was added to our WebView that will allow you to save cookies from sites that you may use in the [webpage card](/lovelace/iframe/).
+* A Cookie Manager was added to our WebView that will allow you to save cookies from sites that you may use in the [webpage card](/dashboards/iframe/).
 * More descriptive SSL error messages were added to help users resolve local issues they may encounter while setting up the app.
 * Device ID is now sent with the event data for actionable notifications.
 

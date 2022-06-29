@@ -13,6 +13,7 @@ ha_codeowners:
 ha_zeroconf: true
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 {% include integrations/config_flow.md %}
@@ -24,7 +25,7 @@ Support for mDNS discovery in your local network is mandatory for automatic disc
 Known hosts:
   description: "A comma-separated list of hostnames or IP-addresses of cast devices, use if mDNS discovery is not working"
 Allowed UUIDs:
-  description: A comma-separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))`. This option is only visible if advanced mode is enabled in your user profile.
+  description: A comma-separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))"`. This option is only visible if advanced mode is enabled in your user profile.
 Ignore CEC:
   description: A comma-separated list of Chromecasts that should ignore CEC data for determining the
         active input. [See the upstream documentation for more information](https://github.com/home-assistant-libs/pychromecast#ignoring-cec-data). This option is only visible if advanced mode is enabled in your user profile.
@@ -32,7 +33,7 @@ Ignore CEC:
 
 ## Home Assistant Cast
 
-Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device.  You can use it by adding the [Cast entity row](/lovelace/entities/#cast) to your Lovelace UI, or by calling the `cast.show_lovelace_view` service. The service takes the path of a Lovelace view and an entity ID of a Cast device to show the view on. A `path` has to be defined in your Lovelace YAML for each view, as outlined in the [views documentation](/lovelace/views/#path). The `dashboard_path` is the part of the Lovelace UI URL that follows the defined `base_url`, typically "lovelace". The following is a full configuration for a script that starts casting the `downstairs` tab of the `lovelace-cast` path (note that `entity_id` is specified under `data` and not for the service call):
+Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device.  You can use it by adding the [Cast entity row](/dashboards/entities/#cast) to your dashboards, or by calling the `cast.show_lovelace_view` service. The service takes the path of a dashboard view and an entity ID of a Cast device to show the view on. A `path` has to be defined in your dashboard's YAML for each view, as outlined in the [views documentation](/dashboards/views/#path). The `dashboard_path` is the part of the dashboard URL that follows the defined `base_url`, typically "`lovelace`". The following is a full configuration for a script that starts casting the `downstairs` tab of the `lovelace-cast` path (note that `entity_id` is specified under `data` and not for the service call):
 
 ```yaml
 cast_downstairs_on_kitchen:
@@ -131,162 +132,6 @@ data:
 It's possible to play with other apps than the default media receiver.
 To do so, `media_content_type` should be set to `cast`, and `media_content_id` should be a JSON dict with parameters for the app, including the app name.
 
-### BubbleUPNP
-
-The BubbleUPNP app has similar functionality to the built in Default Media Receiver app, and can be used as a backup if the default app fails to play the media.
-
-#### Media parameters
-
-Mandatory:
-
-- `app_name`: `bubbleupnp`
-- `media_id`: The URL to play
-
-Optional:
-
-- `media_type`: Media type, e.g. `video/mp4`, `audio/mp3`, `image/jpeg`, defaults to `video/mp4`.
-
-#### Example
-
-```yaml
-'cast_bubbleupnp_to_my_chromecast':
-  alias: "Cast a video to My Chromecast using BubbleUPNP"
-  sequence:
-    - target:
-        entity_id: media_player.my_chromecast
-      data:
-        media_content_type: cast
-        media_content_id: '
-          {
-            "app_name": "bubbleupnp",
-            "media_id": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-            "media_type": "video/mp4"
-          }'
-      service: media_player.play_media
-```
-
-### YouTube
-
-#### Media parameters
-
-Mandatory:
-
-- `app_name`: `youtube`
-- `media_id`: YouTube video ID
-
-Optional:
-
-- `enqueue`: Enqueue only
-- `playlist_id`: Play video with `media_id` from this playlist
-
-#### Example
-
-```yaml
-'cast_youtube_to_my_chromecast':
-  alias: "Cast YouTube to My Chromecast"
-  sequence:
-    - target:
-        entity_id: media_player.my_chromecast
-      data:
-        media_content_type: cast
-        media_content_id: '
-          {
-            "app_name": "youtube",
-            "media_id": "dQw4w9WgXcQ"
-          }'
-      service: media_player.play_media
-```
-
-### [Supla](https://www.supla.fi/)
-
-#### Media parameters
-
-Mandatory:
-
-- `app_name`: `supla`
-- `media_id`: Supla item ID
-
-Optional:
-
-- `is_live`: Item is a livestream
-
-#### Example
-
-Example values to cast the item at <https://www.supla.fi/audio/3601824>
-
-```yaml
-'cast_supla_to_my_chromecast':
-  alias: "Cast supla to My Chromecast"
-  sequence:
-    - target:
-        entity_id: media_player.my_chromecast
-      data:
-        media_content_type: cast
-        media_content_id: '
-          {
-            "app_name": "supla",
-            "media_id": "3601824"
-          }'
-      service: media_player.play_media
-```
-
-### Plex
-
-To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](/integrations/plex/#service-play_media) and prepend the `media_content_id` with `plex://`:
-
-```yaml
-'cast_plex_to_chromecast':
-  alias: "Cast Plex to Chromecast"
-  sequence:
-  - service: media_player.play_media
-    target:
-      entity_id: media_player.chromecast
-    data:
-      media_content_type: movie
-      media_content_id: 'plex://{"library_name": "Movies", "title": "Groundhog Day"}'
-```
-
-### [BBC Sounds](https://www.bbc.co.uk/sounds)
-
-This app doesn't retrieve its own metadata, so if you want the cast interface or media player card to show titles and/or images you will have to provide the data yourself. See the examples below.
-
-#### Media parameters
-
-Mandatory:
-
-- `app_name`: `bbcsounds`
-- `media_id`: Item ID
-
-Optional:
-
-- `is_live`: Item is a live stream
-
-#### Example
-
-Example values to cast [BBC Radio 1](https://www.bbc.co.uk/sounds/play/live:bbc_radio_one)
-
-```yaml
-  alias: "Cast BBC Sounds to My Chromecast"
-  sequence:
-    - service: media_player.play_media
-      target:
-        entity_id: media_player.my_chromecast
-      data:
-        media_content_type: cast
-        media_content_id: '
-          {
-            "app_name": "bbcsounds",
-            "media_id": "bbc_radio_one",
-            "is_live": true
-          }'
-        extra: 
-          metadata: 
-            metadataType: 0
-            title: "Radio 1"
-            images:
-              - url: "https://sounds.files.bbci.co.uk/2.3.0/networks/bbc_radio_one/background_1280x720.png"
-```
-
 ### [BBC iPlayer](https://www.bbc.co.uk/iplayer)
 
 This app doesn't retrieve its own metadata, so if you want the cast interface or media player card to show titles and/or images you will have to provide the data yourself. See the examples below.
@@ -335,6 +180,171 @@ Example values to cast [this episode](https://www.bbc.co.uk/iplayer/episode/b09w
             subtitle: "Castle Makeover"
             images:
               - url: "https://ichef.bbci.co.uk/images/ic/1280x720/p07j4m3r.jpg"
+```
+
+### [BBC Sounds](https://www.bbc.co.uk/sounds)
+
+This app doesn't retrieve its own metadata, so if you want the cast interface or media player card to show titles and/or images you will have to provide the data yourself. See the examples below.
+
+#### Media parameters
+
+Mandatory:
+
+- `app_name`: `bbcsounds`
+- `media_id`: Item ID
+
+Optional:
+
+- `is_live`: Item is a live stream
+
+#### Example
+
+Example values to cast [BBC Radio 1](https://www.bbc.co.uk/sounds/play/live:bbc_radio_one)
+
+```yaml
+  alias: "Cast BBC Sounds to My Chromecast"
+  sequence:
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.my_chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "bbcsounds",
+            "media_id": "bbc_radio_one",
+            "is_live": true
+          }'
+        extra: 
+          metadata: 
+            metadataType: 0
+            title: "Radio 1"
+            images:
+              - url: "https://sounds.files.bbci.co.uk/2.3.0/networks/bbc_radio_one/background_1280x720.png"
+```
+
+### BubbleUPNP
+
+The BubbleUPNP app has similar functionality to the built in Default Media Receiver app, and can be used as a backup if the default app fails to play the media.
+
+#### Media parameters
+
+Mandatory:
+
+- `app_name`: `bubbleupnp`
+- `media_id`: The URL to play
+
+Optional:
+
+- `media_type`: Media type, e.g. `video/mp4`, `audio/mp3`, `image/jpeg`, defaults to `video/mp4`.
+
+#### Example
+
+```yaml
+'cast_bubbleupnp_to_my_chromecast':
+  alias: "Cast a video to My Chromecast using BubbleUPNP"
+  sequence:
+    - target:
+        entity_id: media_player.my_chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "bubbleupnp",
+            "media_id": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            "media_type": "video/mp4"
+          }'
+      service: media_player.play_media
+```
+
+### Plex
+
+To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](/integrations/plex/#service-play_media) and prepend the `media_content_id` with `plex://`:
+
+```yaml
+'cast_plex_to_chromecast':
+  alias: "Cast Plex to Chromecast"
+  sequence:
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.chromecast
+    data:
+      media_content_type: movie
+      media_content_id: 'plex://{"library_name": "Movies", "title": "Groundhog Day"}'
+```
+
+### [Supla](https://www.supla.fi/)
+
+Note: Media ID is NOT the 8 digit alphanumeric in the URL, it can be found by right-clicking the playing audio clip. E.g., [this episode](https://www.bbc.co.uk/sounds/play/p009ycqy) shows:
+
+|     |     |
+| --- | --- |
+| 128bps | dash (mf_cloudfront_nonbidi_dash_https) |
+| p009ycqz |  |
+
+With p009ycqz being the `media_id`
+
+#### Media parameters
+
+Mandatory:
+
+- `app_name`: `supla`
+- `media_id`: Supla item ID
+
+Optional:
+
+- `is_live`: Item is a livestream
+
+#### Example
+
+Example values to cast the item at <https://www.supla.fi/audio/3601824>
+
+```yaml
+'cast_supla_to_my_chromecast':
+  alias: "Cast supla to My Chromecast"
+  sequence:
+    - target:
+        entity_id: media_player.my_chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "supla",
+            "media_id": "3601824"
+          }'
+      service: media_player.play_media
+```
+
+### YouTube
+
+#### Media parameters
+
+Mandatory:
+
+- `app_name`: `youtube`
+- `media_id`: YouTube video ID
+
+Optional:
+
+- `enqueue`: Enqueue only
+- `playlist_id`: Play video with `media_id` from this playlist. Note that only providing `playlist_id` but no `media_id` does not work.
+
+#### Example
+
+```yaml
+'cast_youtube_to_my_chromecast':
+  alias: "Cast YouTube to My Chromecast"
+  sequence:
+    - target:
+        entity_id: media_player.my_chromecast
+      data:
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "youtube",
+            "media_id": "dQw4w9WgXcQ"
+          }'
+      service: media_player.play_media
 ```
 
 ## Troubleshooting automatic discovery

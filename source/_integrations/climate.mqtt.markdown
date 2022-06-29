@@ -16,9 +16,31 @@ To enable this climate platform in your installation, first add the following to
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  climate:
+    - name: Study
+      mode_command_topic: "study/ac/mode/set"
+```
+
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `climate` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 climate:
   - platform: mqtt
+    name: Study
+    mode_command_topic: "study/ac/mode/set"
 ```
+
+{% enddetails %}
 
 {% configuration %}
 action_template:
@@ -62,25 +84,21 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
 availability_mode:
   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
   required: false
   type: string
   default: latest
-availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
-  required: false
-  type: string
-away_mode_command_topic:
-  description: The MQTT topic to publish commands to change the away mode.
-  required: false
-  type: string
-away_mode_state_template:
-  description: A template to render the value received on the `away_mode_state_topic` with.
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
-away_mode_state_topic:
-  description: The MQTT topic to subscribe for changes of the HVAC away mode. If this is not set, the away mode works in optimistic mode (see below).
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
 current_temperature_template:
@@ -137,6 +155,11 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+encoding:
+  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
+  required: false
+  type: string
+  default: "utf-8"
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -162,26 +185,6 @@ fan_modes:
   description: A list of supported fan modes.
   required: false
   default: ['auto', 'low', 'medium', 'high']
-  type: list
-hold_command_template:
-  description: A template to render the value sent to the `hold_command_topic` with.
-  required: false
-  type: template
-hold_command_topic:
-  description: The MQTT topic to publish commands to change the hold mode.
-  required: false
-  type: string
-hold_state_template:
-  description: A template to render the value received on the `hold_state_topic` with.
-  required: false
-  type: template
-hold_state_topic:
-  description: The MQTT topic to subscribe for changes of the HVAC hold mode. If this is not set, the hold mode works in optimistic mode (see below).
-  required: false
-  type: string
-hold_modes:
-  description: A list of available hold modes.
-  required: false
   type: list
 initial:
   description: Set the initial target temperature.
@@ -234,6 +237,10 @@ name:
   required: false
   type: string
   default: MQTT HVAC
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -263,6 +270,27 @@ precision:
   required: false
   type: float
   default: 0.1 for Celsius and 1.0 for Fahrenheit.
+preset_mode_command_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `preset_mode_command_topic`.
+  required: false
+  type: template
+preset_mode_command_topic:
+  description: The MQTT topic to publish commands to change the preset mode.
+  required: false
+  type: string
+preset_mode_state_topic:
+  description: The MQTT topic subscribed to receive climate speed based on presets. When preset 'none' is received or `None` the `preset_mode` will be reset.
+  required: false
+  type: string
+preset_mode_value_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the `preset_mode` value from the payload received on `preset_mode_state_topic`.
+  required: false
+  type: string
+preset_modes:
+  description: List of preset modes this climate is supporting. Common examples include `eco`, `away`, `boost`, `comfort`, `home`, `sleep` and `activity`.
+  required: false
+  type: [list]
+  default: []
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -273,11 +301,6 @@ retain:
   required: false
   type: boolean
   default: false
-send_if_off:
-  description: "Set to `false` to suppress sending of all MQTT messages when the current mode is `Off`."
-  required: false
-  type: boolean
-  default: true
 swing_mode_command_template:
   description: A template to render the value sent to the `swing_mode_command_topic` with.
   required: false
@@ -379,16 +402,16 @@ Say you receive the operation mode `"auto"` via your `mode_state_topic`, but the
 {% raw %}
 
 ```yaml
-climate:
-  - platform: mqtt
-    name: Study
-    modes:
-      - "off"
-      - "heat"
-      - "auto"
-    mode_command_topic: "study/ac/mode/set"
-    mode_state_topic: "study/ac/mode/state"
-    mode_state_template: "{{ value_json }}"
+mqtt:
+  climate:
+    - name: Study
+      modes:
+        - "off"
+        - "heat"
+        - "auto"
+      mode_command_topic: "study/ac/mode/set"
+      mode_state_topic: "study/ac/mode/state"
+      mode_state_template: "{{ value_json }}"
 ```
 
 {% endraw %}
@@ -403,24 +426,29 @@ A full configuration example looks like the one below.
 
 ```yaml
 # Full example configuration.yaml entry
-climate:
-  - platform: mqtt
-    name: Study
-    modes:
-      - "off"
-      - "cool"
-      - "fan_only"
-    swing_modes:
-      - "on"
-      - "off"
-    fan_modes:
-      - "high"
-      - "medium"
-      - "low"
-    power_command_topic: "study/ac/power/set"
-    mode_command_topic: "study/ac/mode/set"
-    temperature_command_topic: "study/ac/temperature/set"
-    fan_mode_command_topic: "study/ac/fan/set"
-    swing_mode_command_topic: "study/ac/swing/set"
-    precision: 1.0
+mqtt:
+  climate:
+    - name: Study
+      modes:
+        - "off"
+        - "cool"
+        - "fan_only"
+      swing_modes:
+        - "on"
+        - "off"
+      fan_modes:
+        - "high"
+        - "medium"
+        - "low"
+      preset_modes:
+        - "eco"
+        - "sleep"
+        - "activity"
+      power_command_topic: "study/ac/power/set"
+      preset_mode_command_topic: "study/ac/preset_mode/set"
+      mode_command_topic: "study/ac/mode/set"
+      temperature_command_topic: "study/ac/temperature/set"
+      fan_mode_command_topic: "study/ac/fan/set"
+      swing_mode_command_topic: "study/ac/swing/set"
+      precision: 1.0
 ```

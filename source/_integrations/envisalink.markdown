@@ -12,6 +12,10 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - sensor
+  - switch
+ha_codeowners:
+  - '@ufodone'
+ha_integration_type: integration
 ---
 
 The `envisalink` integration will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Eyez On, known as the Envisalink. The Envisalink evl3 and evl4 boards provide a TCP/IP interface to the alarm panel, where it emulates an alarm keypad. This board also exposes a raw TCP/IP based API, upon which this integration is built. Currently, the Envisalink version 4 is the latest model. This integration supports both the evl3 and the evl4.
@@ -26,7 +30,7 @@ There is currently support for the following device types within Home Assistant:
 
 This is a fully event-based component. Any event sent by the Envisalink device will be immediately reflected within Home Assistant.
 
-As of 0.29, the alarm_trigger service is supported.  It is possible to fire off an envisalink-based alarm directly from Home Assistant.  For example, a newer Z-Wave / Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
+As of 0.29, the alarm_trigger service is supported.  It is possible to fire off an envisalink-based alarm directly from Home Assistant. For example, a newer Z-Wave/Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
 
 An `envisalink` section must be present in the `configuration.yaml` file and contain the following options as required:
 
@@ -66,11 +70,11 @@ panel_type:
   required: true
   type: string
 user_name:
-  description: Which username to authenticate with when connecting to the device. On a Honeywell alarm panel, the username/password are the same.
+  description: Which username to authenticate with when connecting to the device. This must be the username for connecting directly to the device and not the username for your EyezOn account. On a Honeywell alarm panel, the username/password are the same.
   required: true
   type: string
 password:
-  description: Which password to authenticate with when connecting to the device. EVL3 only works with max. 6 characters.
+  description: Which password to authenticate with when connecting to the device. This must be the password for connceting directly to the device and not the password for your EyezOn account. EVL3 only works with max. 6 characters.
   required: true
   type: string
 code:

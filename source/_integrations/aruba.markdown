@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: aruba
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 This platform allows you to detect presence by looking at connected devices to an [Aruba Instant](https://www.arubanetworks.com/products/networking/aruba-instant/) device.
@@ -15,6 +16,8 @@ This platform allows you to detect presence by looking at connected devices to a
 Supported devices (tested):
 
 - Aruba AP-105
+- Aruba IAP-335
+- Aruba Instant IAP-275
 
 <div class='note warning'>
 This device tracker needs telnet to be enabled on the router.

@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.42
 ha_iot_class: Cloud Push
 ha_domain: telegram_bot
+ha_integration_type: integration
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
@@ -124,6 +125,7 @@ Send a sticker.
 |---------------------------|----------|--------------------------------------------------|
 | `url`                     |       no | Remote path to a static .webp or animated .tgs sticker. |
 | `file`                    |       no | Local path to a static .webp or animated .tgs sticker.  |
+| `sticker_id`              |       no | ID of a sticker that exists  on telegram servers. The ID can be found by sending a sticker to your bot and querying the telegram-api method [getUpdates](https://core.telegram.org/bots/api#getting-updates) or by using the [@idstickerbot](https://t.me/idstickerbot) |
 | `username`                |      yes | Username for a URL which requires HTTP authentication. |
 | `password`                |      yes | Password (or bearer token) for a URL which require HTTP authentication. |
 | `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.  |
@@ -236,7 +238,7 @@ Remove the bot from the chat group where it was added.
 
 ## Telegram notification platform
 
-The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility.
+The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification` and `message_tag` are also supported.
 
 The required YAML configuration now reduces to:
 
@@ -517,3 +519,25 @@ Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegr
 ```
 
 {% endraw %}
+
+## Example: send_message with formatted Text
+
+```yaml
+action:
+- service: notify.telegrambot
+  data:
+    title: Example Message
+    message: 'Message with *BOLD*, _ITALIC_ and `MONOSPACE` Text'
+```
+
+## Example: send_message with message tag
+
+```yaml
+action:
+- service: notify.telegrambot
+  data:
+    title: Example Message
+    message: "Message with tag"
+    data:
+      message_tag: "example_tag"
+```

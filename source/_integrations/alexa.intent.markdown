@@ -11,9 +11,7 @@ ha_domain: alexa
 
 The built-in Alexa integration allows you to integrate Home Assistant into Alexa/Amazon Echo. This integration will allow you to query information and call services within Home Assistant by using your voice. Home Assistant offers no built-in sentences but offers a framework for you to define your own.
 
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="1Ke3mtWd_cQ" videotitle="Home Assistant integration for Amazon Echo" posterquality="maxresdefault"></lite-youtube>
 
 ### Requirements
 
@@ -25,12 +23,10 @@ The built-in Alexa integration allows you to integrate Home Assistant into Alexa
 
 - Log in to the [Amazon developer console][amazon-dev-console]
 - Click the Alexa button at the top of the console
-- Click the yellow "Add a new skill" button in the top right
-  - Skill Type: Custom Interaction Model (default)
-  - Name: Home Assistant
-  - Invocation name: `home assistant` (or be creative, up to you)
-  - Version: 1.0
-  - Endpoint: This will be the ARN for the Lambda Function you will create next.
+- Click the blue "Create Skill" button in the top right
+  - Model to add: Custom
+  - Name: HomeAssistantIntentsSkill (or whatever you want to call this skill)
+  - Method to host: Provision your own
 
 You can use this [specially sized Home Assistant logo][large-icon] as the large icon and [this one][small-icon] as the small one.
 
@@ -66,7 +62,7 @@ Next you need to create a Lambda function.
   - **US West (Oregon)** region for Japanese and English (AU) skills.
 - Click `Functions` in the left navigation bar, display list of your Lambda functions.
 - Click `Create function`, select `Author from scratch`, then input a `Function name`.
-- Select *Python 3.6* or *Python 3.7* as `Runtime`.
+- Select *Python 3.* as `Runtime` (Python 3.9 was available at this time).
 - Select *Use an existing role* as `Execution role`, then select the role you just created from the `Existing role` list.
 - Click `Create function`, then you can configure the details of the Lambda function.
 - Under the `Configuration` tab, expand `Designer`, then click on `+ Add trigger` in the left part of the panel and select `Alexa Skills Kit` from the dropdown list to add an Alexa Skills Kit trigger to your Lambda function.
@@ -80,7 +76,9 @@ Next you need to create a Lambda function.
   - DEBUG *(optional)*: set to *True* to log debugging messages.
   - LONG_LIVED_ACCESS_TOKEN *(optional, not recommended)*: you will connect your Alexa Custom skill with your Home Assistant user account in the later steps, so that you don't need to use long-lived access token here. However, the access token you got from login flow is only valid for 30 minutes. It will be hard for you to test lambda function with the access token in test data. So for your convenience, you can remove the access token from the test data, [generate a long-lived access token][generate-long-lived-access-token] to put here, then the function will fall back to reading the token from environment variables. (tips: You did not enable the security storage for your environment variables, so your token saved here is not that safe. You should only use it for debugging and testing purpose. You should remove and delete the long-lived access token after you finish the debugging.)
 - Save your environmental variables by clicking the `Save` button.
-- Next, copy the ARN displayed in the top of the page, which is the identify of this Lambda function. Set the end point of the custom Alexa Skill you created earlier to this value.
+- Next, copy the ARN displayed at the top of the page, which is the identity of this Lambda function.
+  - Go back to your Alexa skill and go to the Custom->Endpoint menu option on the left.
+  - Paste the ARN value in the "Default Region". Note: you will not be able to do this until you have completed the step above adding the Alexa Skills Kit trigger (done in the previous step) to the AWS Lambda Function.
 
 ### Account Linking
 
@@ -304,6 +302,48 @@ intent_script:
     speech:
       type: plain
       text: OK
+```
+
+### Support for Session Ended Requests
+
+There may be times when you want to act to a session ended request initiated from a lack of voice response.
+
+To start, you need to get the skill id:
+
+- Log into [Amazon developer console][amazon-dev-console]
+- Click the Alexa button at the top of the console
+- Click the Alexa Skills Kit Get Started button
+  - Locate the skill for which you would like Launch Request support
+  - Click the "View Skill ID" link and copy the ID
+
+The configuration is the same as an intent with the exception being you will use your skill ID instead of the intent name.
+
+```yaml
+intent_script:
+  amzn1.ask.skill.08888888-7777-6666-5555-444444444444:
+    speech:
+      text: It is late already. Do I turn off lights ?
+    reprompt:
+      text: Do I turn off lights ?
+  AMAZON.YesIntent:
+    speech:
+      text: Done. Good night!
+    action:
+      service: switch.turn_off
+      target:
+        entity_id:
+          - switch.room1
+          - switch.room2
+  AMAZON.NoIntent:
+    speech:
+      text: Alright
+  amzn1.ask.skill.08888888-7777-6666-5555-444444444444.SessionEndedRequest:
+    action:
+      service: switch.turn_off
+      target:
+        entity_id:
+          - switch.room1
+          - switch.room2
 ```
 
 ## Giving Alexa Some Personality

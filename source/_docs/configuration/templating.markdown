@@ -72,7 +72,7 @@ Not supported in [limited templates](#limited-templates).
 - Iterating `states` will yield each state sorted alphabetically by entity ID.
 - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
-- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
+- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity, `unknown` if it doesn't exist, `unavailable` if the object exists but is not yet available. 
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None`. 
@@ -118,6 +118,10 @@ Other state examples:
 {% else %}
   Paulus is at {{ states('device_tracker.paulus') }}.
 {% endif %}
+
+#check sensor.train_departure_time state
+{% if states('sensor.train_departure_time') in ("unavailable", "unknown") %}
+  {{ ... }}
 
 {% set state = states('sensor.temperature') %}{{ state | float + 1 if is_number(state) else "invalid temperature" }}
 
@@ -208,6 +212,28 @@ The same thing can also be expressed as a filter:
 
 {% endraw %}
 
+{% raw %}
+
+```text
+{% for energy in expand('group.energy_sensors') if is_number(energy.state) %}
+  {{ energy.state }}
+  {%- if not loop.last %}, {% endif -%}
+{% endfor %}
+```
+
+{% endraw %}
+
+The same thing can also be expressed as a test:
+
+{% raw %}
+
+```text
+{{ expand('group.energy_sensors') 
+  | selectattr("state", 'is_number') | join(', ') }}
+```
+
+{% endraw %}
+
 ### Devices
 
 - `device_entities(device_id)` returns a list of entities that are associated with a given device ID. Can also be used as a filter.
@@ -278,6 +304,89 @@ The same thing can also be expressed as a filter:
 
 {% endraw %}
 
+### Integrations
+
+- `integration_entities(integration)` returns a list of entities that are associated with a given integration, such as `hue` or `zwave_js`.
+- `integration_entities(title)` if you have multiple instances set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific device bridge.
+
+#### Integrations examples
+
+{% raw %}
+
+```text
+{{ integration_entities('hue') }}  # ['light.hue_light_upstairs', 'light.hue_light_downstairs']
+```
+
+```text
+{{ integration_entities('Hue bridge downstairs') }}  # ['light.hue_light_downstairs']
+```
+
+{% endraw %}
+
+### Immediate if (iif)
+
+A common case is to conditionally return a value based on another value.
+For example, return a "Yes" or "No" when the light is on or off.
+
+This can be written as:
+
+{% raw %}
+
+```text
+{% if is_state('light.kitchen', 'on') %}
+  Yes
+{% else %}
+  No
+{% endif %}
+```
+
+{% endraw %}
+
+Or using a shorter syntax:
+
+{% raw %}
+
+```text
+{{ 'Yes' if is_state('light.kitchen', 'on') else 'No' }}
+```
+
+{% endraw %}
+
+Additionally, to the above, you can use the `iif` function/filter, which is
+an immediate if.
+
+Syntax: `iif(condition, if_true, if_false, if_none)`
+
+`iif` returns the value of `if_true` if the condition is truthy, the value of `if_false` if it's `falsy` and the value of `if_none` if it's `None`.
+An empty string, an empty mapping or an an empty list, are all falsy, refer to [the Python documentation](https://docs.python.org/3/library/stdtypes.html#truth-value-testing) for an in depth explanation.
+
+`if_true` is optional, if it's omitted `True` is returned if the condition is truthy.
+`if_false` is optional, if it's omitted `False` is returned if the condition is falsy.
+`if_none` is optional, if it's omitted the value of `if_false` is returned if the condition is `None`.
+
+Examples using `iif`:
+
+{% raw %}
+
+```text
+{{ iif(is_state('light.kitchen', 'on'), 'Yes', 'No') }}
+
+{{ is_state('light.kitchen', 'on') | iif('Yes', 'No') }}
+
+{{ (states('light.kitchen') == 'on') | iif('Yes', 'No') }}
+```
+
+<div class='note warning'>
+
+The immediate if filter does not short-circuit like you might expect with a typical conditional statement. The `if_true`, `if_false` and `if_none` expressions will all be evaluated and the filter will simply return one of the resulting values. This means you cannot use this filter to prevent executing an expression which would result in an error.
+
+For example, if you wanted to select a field from `trigger` in an automation based on the platform you might go to make this template: `trigger.platform == 'event' | iif(trigger.event.data.message, trigger.to_state.state)`. This won't work because both expressions will be evaluated and one will fail since the field doesn't exist. Instead you have to do this `trigger.event.data.message if trigger.platform == 'event' else trigger.to_state.state`. This form of the expression short-circuits so if the platform is `event` the expression `trigger.to_state.state` will never be evaluated and won't cause an error.
+
+</div>
+
+{% endraw %}
+
+
 ### Time
 
 `now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
@@ -299,10 +408,10 @@ The same thing can also be expressed as a filter:
 
    {% endraw %}
 
-- `as_datetime()` converts a string containing a timestamp to a datetime object.
-- `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted `None`. This function also be used as a filter.
-- `as_local()` converts datetime object to local time. This function also be used as a filter.
-- `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, returns the `default` value, or if omitted the unprocessed input value.
+- `as_datetime()` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object.
+- `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
+- `as_local()` converts datetime object to local time. This function can also be used as a filter.
+- `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, returns the `default` value, or if omitted raises an error.
 - `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g.,  if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
 - `timedelta` returns a timedelta object and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
 
@@ -315,9 +424,20 @@ The same thing can also be expressed as a filter:
 
    {% endraw %}
 
-- Filter `timestamp_local(default)` converts a UNIX timestamp to its naive string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted the unprocessed input value. If timezone information is needed in the string, use `timestamp_custom` instead.
-- Filter `timestamp_utc(default)` converts a UNIX timestamp to its naive string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted the unprocessed input value. If timezone information is needed in the string, use `timestamp_custom` instead.
-- Filter `timestamp_custom(format_string, local_time=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. If that fails, returns the `default` value, or if omitted the unprocessed input value. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
+- `as_timedelta(string)` converts a string to a timedelta object. Expects data in the format `DD HH:MM:SS.uuuuuu`, `DD HH:MM:SS,uuuuuu`, or as specified by ISO 8601 (e.g. `P4DT1H15M20S` which is equivalent to `4 1:15:20`) or PostgreSQL’s day-time interval format (e.g. `3 days 04:05:06`) This function can also be used as a filter.
+
+   {% raw %}
+
+   ```yaml
+   # Renders to "00:10:00" 
+   {{ as_timedelta("PT10M") }} 
+   ```
+
+   {% endraw %}
+
+- Filter `timestamp_local(default)` converts a UNIX timestamp to the ISO format string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
+- Filter `timestamp_utc(default)` converts a UNIX timestamp to the ISO format string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
+- Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
 
 <div class='note'>
 
@@ -357,6 +477,8 @@ To fix it, enforce the ISO conversion via `isoformat()`:
 
 The `to_json` filter serializes an object to a JSON string. In some cases, it may be necessary to format a JSON string for use with a webhook, as a parameter for command-line utilities or any number of other applications. This can be complicated in a template, especially when dealing with escaping special characters. Using the `to_json` filter, this is handled automatically.
 
+Similarly to the Python equivalent, the filter accepts an `ensure_ascii` parameter, defaulting to `True`. If `ensure_ascii` is `True`, the output is guaranteed to have all incoming non-ASCII characters escaped. If `ensure_ascii` is false, these characters will be output as-is.
+
 The `from_json` filter operates similarly, but in the other direction, de-serializing a JSON string back into an object.
 
 ### To/From JSON examples
@@ -370,7 +492,7 @@ In this example, the special character '°' will be automatically escaped in ord
 ```text
 {% set temp = {'temperature': 25, 'unit': '°C'} %}
 stringified object: {{ temp }}
-object|to_json: {{ temp|to_json }}
+object|to_json: {{ temp|to_json(ensure_ascii=False) }}
 ```
 
 {% endraw %}
@@ -408,6 +530,24 @@ The temperature is 25°C
 ```
 
 {% endraw %}
+
+### Is defined
+
+Sometimes a template should only return if a value or object is defined, if not, the supplied default value should be returned. This can be useful to validate a JSON payload.
+The `is_defined` filter allows to throw an error if a value or object is not defined.
+
+Example using `is_defined` to parse a JSON payload:
+
+{% raw %}
+
+```text
+{{ value_json.val | is_defined }}
+```
+
+{% endraw %}
+
+This will throw an error `UndefinedError: 'value_json' is undefined` if the JSON payload has no `val` attribute.
+
 
 ### Distance
 
@@ -507,58 +647,86 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
 
 <div class='note'>
 
-The numeric functions and filters will not fail if the input is not a valid number, instead the input value will be returned unless a default value is specified. The `float` filter is an exception, it returns `0.0` if the input is invalid and a default value has not been specified. This is unwanted behavior in many cases, use `is_number` to check if the value is valid.
+The numeric functions and filters raise an error if the input is not a valid number, optionally a default value can be specified which will be returned instead. The `is_number` function and filter can be used to check if a value is a valid number. Errors can be caught by the `default` filter.
 
 {% raw %}
 
-- `{{ float("not_a_number") }}` - renders as `"not_a_number"`
-- `{{ "not_a_number" | float }}` - renders as `0.0`
-- `{{ sin("not_a_number") }}` - renders as `"not_a_number"`
-- `{{ "not_a_number" | sin }}` - renders as `"not_a_number"`
+- `{{ float("not_a_number") }}` - the template will fail to render
+- `{{ "not_a_number" | sin }}` - the template will fail to render
 - `{{ float("not_a_number", default="Invalid number!") }}` - renders as `"Invalid number!"`
-- `{{ "not_a_number" | float(default="Invalid number!") }}` - renders as `"Invalid number!"`
-- `{{ sin("not_a_number", default="Invalid number!") }}` - renders as `"Invalid number!"`
 - `{{ "not_a_number" | sin(default="Invalid number!") }}` - renders as `"Invalid number!"`
 
 {% endraw %}
 
 </div>
 
-- `float(value, default)` function will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted `value`.
-- `float(default)` filter will attempt to convert the input to a `float`.  If that fails, returns the `default` value, or if omitted `0.0`.
+- `float(value, default)` function will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted raises an error.
+- `float(default)` filter will attempt to convert the input to a `float`.  If that fails, returns the `default` value, or if omitted raises an error.
 - `is_number` will return `True` if the input can be parsed by Python's `float` function and the parsed input is not `inf` or `nan`, in all other cases returns `False`. Note that a Python `bool` will return `True` but the strings `"True"` and `"False"` will both return `False`. Can be used as a filter.
+- `int(value, default)` function is similar to `float`, but converts to an `int` instead. Like `float`, it has a filter form, and an error is raised if the `default` value is omitted. Fractional part is discarded: `int("1.5")` is `1`.
+- `bool(value, default)` function converts the value to either `true` or `false`.
+The following values are considered to be `true`: boolean `true`, non-zero `int`s and `float`s, and the strings `"true"`, `"yes"`, `"on"`, `"enable"`, and `"1"` (case-insensitive). `false` is returned for the opposite values: boolean `false`, integer or floating-point `0`, and the strings `"false"`, `"no"`, `"off"`, `"disable"`, and `"0"` (also case-insensitive).
+If the value is not listed here, the function returns the `default` value, or if omitted raises an error.
+This function is intended to be used on states of [binary sensors](/integrations/binary_sensor/), [switches](/integrations/switch/), or similar entities, so its behavior is different from Python's built-in `bool` conversion, which would consider e.g. `"on"`, `"off"`, and `"unknown"` all to be `true`, but `""` to be `false`; if that is desired, use `not not value` or a similar construct instead.
+Like `float` and `int`, `bool` has a filter form. Using `none` as the default value is particularly useful in combination with the [immediate if filter](#immediate-if-iif): it can handle all three possible cases in a single line.
 
-- `log(value, base, default)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. If `value` or `base` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can also be used as a filter.
-- `sin(value, default)` will return the sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
-- `cos(value, default)` will return the cosine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
-- `tan(value, default)` will return the tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
-- `asin(value, default)` will return the arcus sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
-- `acos(value, default)` will return the arcus cosine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
-- `atan(value, default)` will return the arcus tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
-- `atan2(y, x, default)` will return the four quadrant arcus tangent of y / x. If `y` or `x` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
-- `sqrt(value, default)` will return the square root of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted `value`. Can be used as a filter.
+- `log(value, base, default)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. If `value` or `base` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can also be used as a filter.
+- `sin(value, default)` will return the sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `cos(value, default)` will return the cosine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `tan(value, default)` will return the tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `asin(value, default)` will return the arcus sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `acos(value, default)` will return the arcus cosine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `atan(value, default)` will return the arcus tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `atan2(y, x, default)` will return the four quadrant arcus tangent of y / x. If `y` or `x` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `sqrt(value, default)` will return the square root of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `max([x, y, ...])` will obtain the largest item in a sequence. Uses the same parameters as the built-in [max](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.max) filter.
+- `min([x, y, ...])` will obtain the smallest item in a sequence. Uses the same parameters as the built-in [min](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.min) filter.
+- `average([x, y, ...])` will return the average value of the sequence. Can be used as a filter.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
-- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted the input value. 
+- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted raises an error. 
   - `round(precision, "floor", default)` will always round down to `precision` decimals
   - `round(precision, "ceil", default)` will always round up to `precision` decimals
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
-- Filter `[x, y, ...] | max` will obtain the largest item in a sequence.
-- Filter `[x, y, ...] | min` will obtain the smallest item in a sequence.
-- Filter `[x, y, ...] | average` will return the average value of the sequence.
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
 
+### Functions and filters to process raw data
+
+These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice-versa.
+The `pack` and `unpack` functions can also be used as a filter. They make use of the Python 3 `struct` library.
+See: https://docs.python.org/3/library/struct.html
+
+- Filter `value | pack(format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or when `format_string` is invalid.
+- Function `pack(value, format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or when `format_string` is invalid.
+- Filter `value | unpack(format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid. Note that the filter `unpack` will only return the first `bytes` object, despite the function `struct.unpack_from` supporting to return multiple objects (e.g. with `format_string` being `">hh"`.
+- Function `unpack(value, format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid. Note that the function `unpack` will only return the first `bytes` object, despite the function `struct.unpack_from` supporting to return multiple objects (e.g. with `format_string` being `">hh"`.
+
+<div class='note'>
+
+Some examples:
+{% raw %}
+
+- `{{ 0xDEADBEEF | pack(">I") }}` - renders as `b"\xde\xad\xbe\xef"`
+- `{{ pack(0xDEADBEEF, ">I") }}` - renders as `b"\xde\xad\xbe\xef"`
+- `{{ "0x%X" % 0xDEADBEEF | pack(">I") | unpack(">I") }}` - renders as `0xDEADBEEF`
+- `{{ "0x%X" % 0xDEADBEEF | pack(">I") | unpack(">H", offset=2) }}` - renders as `0xBEEF`
+
+{% endraw %}
+
+</div>
+
 ### String filters
 
 - Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
+- Filter `slugify(separator="_")` will convert a given string into a "slug".
 
 ### Regular expressions
 
 - Test `string is match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
-- Test `string is search(find, ignorecase=True)` will match the find expression anywhere in the string using regex.
+- Test `string is search(find, ignorecase=False)` will match the find expression anywhere in the string using regex.
 - Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
 - Filter `value | regex_findall(find='', ignorecase=False)` will find all regex matches of the find expression in `value` and return the array of matches.
 - Filter `value | regex_findall_index(find='', index=0, ignorecase=False)` will do the same as `regex_findall` and return the match at index.
@@ -626,8 +794,8 @@ The following overview contains a couple of options to get the needed values:
 # Incoming value:
 {"primes": [2, 3, 5, 7, 11, 13]}
 
-# Extract third prime number
-{{ value_json.primes[2] }}
+# Extract first prime number 
+{{ value_json.primes[0] }}
 
 # Format output
 {{ "%+.1f" | value_json }}
@@ -645,7 +813,7 @@ The following overview contains a couple of options to get the needed values:
 # Timestamps
 {{ value_json.tst | timestamp_local }}
 {{ value_json.tst | timestamp_utc }}
-{{ value_json.tst | timestamp_custom('%Y' True) }}
+{{ value_json.tst | timestamp_custom('%Y', True) }}
 ```
 
 {% endraw %}
@@ -667,6 +835,51 @@ To evaluate a response, go to **{% my developer_template title="Developer Tools 
 ```
 
 {% endraw %}
+
+### Using templates with the MQTT integration
+
+The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templates are used to transform incoming payloads (value templates) to status updates or incoming service calls (command templates) to payloads that configure the MQTT device.
+
+#### Using value templates with MQTT
+
+For incoming data a value template translates incoming JSON or raw data to a valid payload.
+Incoming payloads are rendered with possible JSON values, so when rendering the `value_json` can be used access the attributes in a JSON based payload.
+
+<div class='note'>
+
+Example value template:
+
+With given payload:
+
+```json
+{ "state": "ON", "temperature": 21.902 }
+```
+
+Template {% raw %}```{{ value_json.temperature | round(1) }}```{% endraw %} renders to `21.9`.
+
+Additional the MQTT entity attributes `entity_id` and `name` can be used as variables in the template.
+
+ </div>
+
+#### Using command templates with MQTT
+
+For service calls command templates are defined to format the outgoing MQTT payload to the device. When a service call is executed `value` can be used to generate the correct payload to the device.
+
+<div class='note'>
+
+Example command template:
+
+With given value `21.9` template {% raw %}```{"temperature": {{ value }} }```{% endraw %} renders to:
+
+```json
+{
+  "temperature": 21.9
+}
+```
+
+Additional the MQTT entity attributes `entity_id` and `name` can be used as variables in the template.
+
+</div>
 
 ## Some more things to keep in mind
 

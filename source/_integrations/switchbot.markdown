@@ -16,6 +16,7 @@ ha_platforms:
   - sensor
   - switch
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/).
@@ -42,6 +43,15 @@ There are three attributes available on the SwitchBot entity to give you more in
 - `last_run_success`: If `true` if the last action sent to the SwitchBot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see home-assistant.log for specific error messages.
 - `Switch mode`: Specifies the mode of the SwitchBot. If `true` the the SwitchBot is in Pull/Retract mode for toggle switches otherwise the bot is in momentary switch mode.
 - `MAC address`: The BTLE MAC for the device.
+
+## SwitchBot Options
+
+There are four options that can be configured for the SwitchBot entities. Setting any of these options will apply to all of your SwitchBot devices.
+
+- `Time between updates (seconds)`: Increase/Decrease the update interval for the device. (Could impact battery life)
+- `Retry count`: How many times to retry sending commands and retry polling your SwitchBot devices.
+- `Timeout between retries`: How long to wait before retries.
+- `How long to scan for advertisement data`: Bluetooth LE uses advertisement data for device statuses and/or attributes. This setting specifies how long the scan should run.
 
 ### Error codes and troubleshooting
 

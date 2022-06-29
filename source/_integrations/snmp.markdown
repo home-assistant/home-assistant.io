@@ -3,9 +3,9 @@ title: SNMP
 description: Instructions on how to integrate SNMP into Home Assistant.
 ha_category:
   - Network
-  - Switch
   - Presence Detection
   - Sensor
+  - Switch
 ha_iot_class: Local Polling
 ha_release: 0.57
 ha_domain: snmp
@@ -13,6 +13,7 @@ ha_platforms:
   - device_tracker
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/managing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks and Wi-Fi registrations.
@@ -114,30 +115,11 @@ sensor:
 ```
 
 {% configuration %}
-host:
-  description: The IP address of your host, e.g., `192.168.1.32`.
+accept_errors:
+  description: "Determines whether the sensor should start and keep working even if the SNMP host is unreachable or not responding. This allows the sensor to be initialized properly even if, for example, your printer is not on when you start Home Assistant."
   required: false
   type: string
-  default: 'localhost'
-baseoid:
-  description: The OID where the information is located. It's advised to use the numerical notation.
-  required: true
-  type: string
-port:
-  description: The SNMP port of your host.
-  required: false
-  type: string
-  default: '161'
-community:
-  description: "The SNMP community which is set for the device for SNMP v1 and v2c. Most devices have a default community set to `public` with read-only permission (which is sufficient)."
-  required: false
-  type: string
-  default: 'public'
-username:
-  description: Username to use for authentication.
-  required: false
-  type: string
-  default: ''
+  default: false
 auth_key:
   description: Authentication key to use for SNMP v3.
   required: false
@@ -148,6 +130,46 @@ auth_protocol:
   required: false
   type: string
   default: 'none'
+baseoid:
+  description: The OID where the information is located. It's advised to use the numerical notation.
+  required: true
+  type: string
+community:
+  description: "The SNMP community which is set for the device for SNMP v1 and v2c. Most devices have a default community set to `public` with read-only permission (which is sufficient)."
+  required: false
+  type: string
+  default: 'public'
+default_value:
+  description: "Determines what value the sensor should take if `accept_errors` is set and the host is unreachable or not responding. If not set, the sensor will have value `unknown` in case of errors."
+  required: false
+  type: string
+device_class:
+  description: Sets the [class of the device](/integrations/sensor#device-class), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
+host:
+  description: The IP address of your host, e.g., `192.168.1.32`.
+  required: false
+  type: string
+  default: 'localhost'
+icon:
+  description: Defines a template for the icon of the SNMP sensor.
+  required: false
+  type: template
+name:
+  description: Defines a template for the name of the SNMP sensor.
+  required: false
+  type: template
+  default: SNMP
+picture:
+  description: Defines a template for the entity picture of the SNMP sensor.
+  required: false
+  type: template
+port:
+  description: The SNMP port of your host.
+  required: false
+  type: string
+  default: '161'
 priv_key:
   description: Privacy key to use for SNMP v3.
   required: false
@@ -158,32 +180,32 @@ priv_protocol:
   required: false
   type: string
   default: 'none'
+state_class:
+  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  required: false
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this entity. This allows changing the `name`, `icon` and `entity_id` from the web interface.
+  required: false
+  type: string
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
+  required: false
+  type: string
+username:
+  description: Username to use for authentication.
+  required: false
+  type: string
+  default: ''
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to parse the value."
+  required: false
+  type: template
 version:
   description: "Version of SNMP protocol, `1`, `2c` or `3`. Version `2c` or higher is needed to read data from 64-bit counters."
   required: false
   type: string
   default: '1'
-name:
-  description: Name of the SNMP sensor.
-  required: false
-  type: string
-unit_of_measurement:
-  description: Defines the unit of measurement of the sensor, if any.
-  required: false
-  type: string
-value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to parse the value."
-  required: false
-  type: template
-accept_errors:
-  description: "Determines whether the sensor should start and keep working even if the SNMP host is unreachable or not responding. This allows the sensor to be initialized properly even if, for example, your printer is not on when you start Home Assistant."
-  required: false
-  type: string
-  default: false
-default_value:
-  description: "Determines what value the sensor should take if `accept_errors` is set and the host is unreachable or not responding. If not set, the sensor will have value `unknown` in case of errors."
-  required: false
-  type: string
 {% endconfiguration %}
 
 Valid values for `auth_protocol`:

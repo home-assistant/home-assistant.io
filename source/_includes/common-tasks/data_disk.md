@@ -27,8 +27,8 @@ The data disk feature can be used on an existing installation without losing dat
 ### Using UI to move the data partition
 
 1. Connect the data disk to your system.
-2. Go to **{% my supervisor_info title="Supervisor >> System" %}** in the UI.
-3. Press the three dots on the bottom right of the Host card and choose "Move datadisk"
+2. Go to **{% my storage title="Settings > System > Storage" %}** in the UI.
+3. Press the three dots on the top right and choose "Move datadisk"
 4. Select the data disk from the list of available devices.
 5. Press "Move".
 
@@ -45,7 +45,7 @@ data_disk: /dev/mmcblk1p4
 ...
 ```
 
-To getting a list of supported detected devices which can be used by `datadisk`:
+To get a list of potential targets which can be used by `datadisk`:
 
 ```sh
 ha os datadisk list

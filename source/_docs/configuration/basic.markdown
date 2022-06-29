@@ -3,7 +3,7 @@ title: "Setup basic information"
 description: "Setting up the basic info of Home Assistant."
 ---
 
-As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a temperature unit and time zone based on this location. You may adjust this during onboarding, or afterwards at {% my general title="Configuration -> General" %}.
+As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a temperature unit and time zone based on this location. You may adjust this during onboarding, or afterwards at {% my general title="Settings > System > General" %}.
 
 If you prefer YAML, you can add the following information to your `configuration.yaml`:
 
@@ -29,7 +29,11 @@ homeassistant:
   legacy_templates: false
 ```
 
-NOTE: You will not be able to edit anything in {% my general title="Configuration -> General" %} in the UI if you are using YAML configuration for any of the following: name, latitude, longitude, elevation, unit_system, temperature_unit, time_zone, external_url, internal_url.
+<div class='note'>
+
+  You will not be able to edit anything in {% my general title="Settings > System > General" %} in the UI if you are using YAML configuration for any of the following: name, latitude, longitude, elevation, unit_system, temperature_unit, time_zone, external_url, internal_url. Additionally, some options are only visible after "Advanced Mode" is enabled on your {% my profile title="User Profile" %}.
+
+</div>
 
 {% configuration %}
 name:
@@ -105,4 +109,4 @@ legacy_templates:
 
 ## Reload Core Service
 
-Home Assistant offers a service to reload the core configuration while Home Assistant is running called {% my developer_call_service service="homeassistant.reload_core_config" %}. This allows you to change any of the above sections and see it being applied without having to restart Home Assistant. To call this service, go to the "{% my developer_services %}" tab under {% my developer_services title="Developer Tools" %}, select the {% my developer_call_service service="homeassistant.reload_core_config" %} service and click the "CALL SERVICE" button. Alternatively, you can press the "Reload Location & Customizations" button under {% my server_controls title="Configuration > Server Control" %}.
+Home Assistant offers a service to reload the core configuration while Home Assistant is running called {% my developer_call_service service="homeassistant.reload_core_config" %}. This allows you to change any of the above sections and see it being applied without having to restart Home Assistant. To call this service, go to the "{% my developer_services %}" tab under {% my developer_services title="Developer Tools" %}, select the {% my developer_call_service service="homeassistant.reload_core_config" %} service and click the "CALL SERVICE" button. Alternatively, you can press the "Reload Location & Customizations" button under {% my server_controls title="Developer Tools > YAML" %}.

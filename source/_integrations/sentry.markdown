@@ -10,6 +10,7 @@ ha_codeowners:
   - '@dcramer'
   - '@frenck'
 ha_domain: sentry
+ha_integration_type: integration
 ---
 
 <div class='note warning'>
@@ -45,6 +46,6 @@ The Sentry integration provides settings to:
 - Ability to send out events originating from third-party Python packages.
 - Enable performance tracing and tune the tracing sample rate used.
 
-To change the settings go in **Configuration** -> **Integrations**, find the already installed **Sentry** box and click on **Options**.
+To change the settings go in **Settings** -> **Devices & Services**, find the already installed **Sentry** box and click on **Options**.
 
 After changing Sentry settings, you'll need to restart Home Assistant in order to make them effective.

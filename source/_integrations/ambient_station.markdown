@@ -11,7 +11,9 @@ ha_codeowners:
 ha_domain: ambient_station
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The `Ambient Weather Station` integration retrieves local weather information
@@ -49,8 +51,8 @@ app_key:
 ## Local API Option
 
 This integration communicates with Ambient Weather PWS units via the Ambient Weather
-Cloud. Users wishing to explore a local option are encouraged to explore the
-[Ecowitt GW1000](https://www.ecowitt.com/shop/goodsDetail/16), a small device that is
-able to read RF signals directly from the PWS and transmit them to a variety of
-other applications, including [`ecowitt2mqtt`](https://github.com/bachya/ecowitt2mqtt)
-(which supports [MQTT Discovery](/docs/mqtt/discovery)).
+Cloud. Users desiring a local option are encouraged to explore the
+[Ecowitt](https://www.ecowitt.com) family of devices, which are able to read RF signals
+directly from the PWS and transmit them to a variety of other applications, including
+[`ecowitt2mqtt`](https://github.com/bachya/ecowitt2mqtt) (which supports
+[MQTT Discovery](/docs/mqtt/discovery)).

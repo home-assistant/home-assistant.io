@@ -2,12 +2,13 @@
 title: RFXCOM RFXtrx
 description: Instructions on how to integrate RFXtrx into Home Assistant.
 ha_category:
-  - Hub
-  - Cover
-  - Light
-  - Switch
   - Binary Sensor
+  - Cover
+  - Hub
+  - Light
   - Sensor
+  - Siren
+  - Switch
 ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_config_flow: true
@@ -19,9 +20,12 @@ ha_domain: rfxtrx
 ha_platforms:
   - binary_sensor
   - cover
+  - diagnostics
   - light
   - sensor
+  - siren
   - switch
+ha_integration_type: integration
 ---
 
 The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
@@ -33,6 +37,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switches)
 - [Sensor](#sensors)
 - [Binary Sensor](#binary-sensors)
+- [Siren](#sirens)
 
 {% include integrations/config_flow.md %}
 
@@ -42,7 +47,9 @@ To receive debug logging from the RFXCOM device, add the following lines to `con
 
 ```yaml
 logger:
+  default: warning
   logs:
+    homeassistant.components.rfxtrx: debug
     RFXtrx: debug
 ```
 
@@ -50,19 +57,38 @@ logger:
 
 ## Supported protocols
 
-Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either. Your 433.92 product not showing in the logs? Visit the RFXtrx website to [download RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) and enable the required protocol.
+Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either.
+
+If your 433.92 product is not showing in the logs, you may need to enable additional protocols. You can do this by configuring the device itself using [RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) to enable the required protocol, or you can configure the device in Home Assistant by configuring the [Protocols](#protocols).
 
 ## ser2net
 
 You can host your device on another computer by setting up ser2net and example configuration for ser2net looks like this and then using host/port in your Home Assistant configuration.
 
+Configuration example for ser2net older than 4.x.x (check with command `ser2net -v`):
+
 ```text
 50000:raw:0:/dev/ttyUSB0:38400 8DATABITS NONE 1STOPBIT
 ```
 
+Configuration example for ser2net 4.x.x:
+
+```yaml
+# Example /etc/ser2net.yaml for proxying USB/serial connections
+connection: &rfxtrx
+    accepter: tcp,5000
+    enable: on
+    options:
+      kickolduser: true
+      telnet-brk-on-sync: true
+    connector: serialdev,
+              /dev/ttyUSB0,
+              38400n81,local
+```
+
 ## Settings options
 
-To configure options for RFXtrx integration go to **Configuration** >> **Integrations** and press **Options** on the RFXtrx card.
+To configure options for RFXtrx integration go to **Settings** -> **Devices & Services** and press **Options** on the RFXtrx card.
 
 <img src='/images/integrations/rfxtrx/options.png' />
 
@@ -72,7 +98,7 @@ In the options menu, select *Enable automatic add* to enable automatic addition 
 
 #### Covers
 
-The RFXtrx integration supports Siemens/LightwaveRF and RFY roller shutters that communicate in the frequency range of 433.92 MHz.
+The RFXtrx integration supports Siemens/LightwaveRF and Somfy RTS roller shutters that communicate in the frequency range of 433.92 MHz.
 
 #### Lights
 
@@ -94,15 +120,21 @@ Also, several switches and other devices will also expose sensor entities with b
 
 The RFXtrx integration support binary sensors that communicate in the frequency range of 433.92 MHz. The RFXtrx binary sensor integration provides support for them. Many cheap sensors available on the web today are based on a particular RF chip called *PT-2262*. Depending on the running firmware on the RFXcom box, some of them may be recognized under the X10 protocol, but most of them are recognized under the *Lighting4* protocol. The RFXtrx binary sensor integration provides some special options for them, while other RFXtrx protocols should work too.
 
+#### Sirens
+
+The RFXtrx integration supports siren entities for a few types of security systems and chimes. This entity allows triggering the chime or siren from Home Assistant as well as monitoring their status. Most of the chimes and security systems need a configured off-delay to work correctly since they only transmit when active.
+
 ### Add a device by event code
 
 To manually add a device, in the options window, an event code can be added in the field *Enter event code to add*.
 
 See [Generate codes](#generate-codes) how to generate event codes.
 
-#### RFY
+#### Somfy RTS
 
-The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) is required for RFY support, however, it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. E.g., if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr, e.g., id: `1` `02` `04` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
+The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) or later versions like [RFXtrx433XL](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ObjectPath=/Shops/78165469/Products/18103) is required for support, however, it does not support receive for the Somfy RTS protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. E.g., if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr, e.g., id: `1` `02` `03` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
+
+To add the device, enter the value unaltered in the Event Code field, and click Submit.
 
 #### Convert switch event to dimming event
 
@@ -126,6 +158,14 @@ Copy the event code from the state attribute of the switch, which shows up on th
 710030e4102 **01** 50<br>
 710030e4102 **02** 50
 
+### Protocols {#protocols}
+
+When no protocols are selected in the device configuration, the RFXtrx device will use the protocols enabled in its non-volatile memory. You can set these using [RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads).
+
+If you select protocols in the device configuration, these will be enabled each time the device is connected. They will not be stored in the RFXtrx device non-volatile memory.
+
+Some protocols, like `undecoded`, cannot be enabled in non-volatile memory and must be enabled on each connect. To enable these protocols you must use the device configuration instead of RFXmgr.
+
 ### Configure device options
 
 To configure device options, select a device from the list under *Select device to configure*. After pressing *Submit* a window with device options are presented based on the device type.
@@ -133,14 +173,6 @@ To configure device options, select a device from the list under *Select device 
 <div class='note warning'>
 If a device is missing from the list, close the options window and either make sure the device sents a command or manually re-add the device by event code.
 </div>
-
-#### Signal repetitions
-
-Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the RFXtrx device to try to send each signal repeatedly.
-
-#### Device events
-
-To enable device events, use the checkbox *Enable device event*. See [Events](#events) for more information about device events.
 
 #### Off Delay
 
@@ -153,7 +185,7 @@ For those devices, use the *off_delay* parameter. It defines a delay after, whic
 
 #### Venetian blind mode
 
-Available only for RFY cover devices. Enables tilt control of venetian blind slats.
+Available only for Somfy RTS cover devices. Enables tilt control of venetian blind slats.
 
 Venetian blind motors that control slats tilt can be configured in one of two modes - US (short press of up/down buttons opens/closes the blind, long-press controls tilt angle), or European (short press of up/down buttons controls tilt angle, long-press opens/closes the blind). You can select one of the following settings depending on your blinds:
 
@@ -217,7 +249,7 @@ Some battery-powered devices send commands or data with a randomly generated id.
 
 ### Delete device
 
-To delete device(s) from the configuration, select one or more devices under *Select device to delete*. Press *Submit* to delete the selected devices.
+To delete device(s) from the configuration, select the delete button on the device info page.
 
 ## Events
 
@@ -353,76 +385,3 @@ If you need to generate codes for switches and lights, you can use a template (u
 - Launch your Home Assistant and go to the website.
 - Enable learning mode on your switch (i.e., push learn button or plug it in a wall socket)
 - Toggle your new switch in the Home Assistant interface
-
-## Configuration import
-
-When RFXtrx integration is configured in `configuration.yaml`, the configuration will be imported once. After import, the configuration can be removed from `configuration.yaml`.
-
-{% configuration %}
-device:
-  description: "The path to your device, e.g., `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0` or `/dev/ttyUSB0`. Required if you are using a locally connected USB device."
-  required: false
-  type: string
-host:
-  description: "The hostname the remote RFXtrx is available on if connecting via TCP. If this is set, a port is required."
-  required: false
-  type: string
-port:
-  description: "The TCP port the remote RFXtrx is available on. If this is set, a host is required."
-  required: false
-  type: integer
-debug:
-  description: "If you want to receive debug output."
-  required: false
-  default: false
-  type: boolean
-devices:
-  description: A list of devices.
-  required: false
-  type: map
-  keys:
-    EVENT_CODE:
-      description: An code string describing the device. It may include state, but state will be ignored.
-      required: true
-      type: map
-      keys:
-        device_class:
-          description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
-          required: false
-          type: device_class
-        fire_event:
-          description: Fires an event even if the state is the same as before. Can be used for automations.
-          required: false
-          type: boolean
-          default: false
-        off_delay:
-          description: For binary sensors that only sends 'On' state updates, this variable sets a delay after which the binary sensor state will be updated back to 'Off'.
-          required: false
-          type: integer
-        data_bits:
-          description: Defines how many bits are used for commands inside the data packets sent by the device.
-          required: false
-          type: integer
-        command_on:
-          description: Defines the data bits value that is sent by the device upon an 'On' command.
-          required: false
-          type: string
-        command_off:
-          description: Defines the data bits value that is sent by the device upon an 'Off' command.
-          required: false
-          type: string
-        signal_repetitions:
-          description: Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the RFXtrx device to try to send each signal repeatedly.
-          required: false
-          type: integer
-automatic_add:
-  description: To enable the automatic addition of new binary sensors.
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
-
-<div class='note warning'>
-If a device ID consists of only numbers, please make sure to surround it with quotes.
-This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
-</div>

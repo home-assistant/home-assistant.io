@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2020-08-28-android-230-release/Companion.png
 ---
 
-Hey there, its been so long since we last gave an update on our mobile apps we thought it would be time to give you more updates! This time around we will focus on whats new in the Android app. There have been a few releases so were going to cover everything new up until version 2.3.0 which was just released to the Google Play Store.
+Hey there, it's been so long since we last gave an update on our mobile apps we thought it would be time to give you more updates! This time around we will focus on whats new in the Android app. There have been a few releases so were going to cover everything new up until version 2.3.0 which was just released to the Google Play Store.
 
 ## Manage Sensors
 

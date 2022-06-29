@@ -9,19 +9,50 @@ ha_domain: mqtt
 ---
 
 
-The `mqtt` device tracker platform allows you to define new device_trackers through [manual YAML configuration](#yaml-configuration) in `configuration.yaml` and also to automatically discover device_trackers through a [discovery schema](#discovery-schema) using the MQTT Discovery protocol.
+The `mqtt` device tracker platform allows you to define new device_trackers through [manual YAML configuration](#yaml-configuration) in `configuration.yaml` and also to automatically discover device_trackers [using the MQTT Discovery protocol](#using-the-discovery-protocol).
 
-## YAML Configuration
+<div class='note info'>
+  At the moment, manual configured device trackers can only reloaded by restarting Home Assistant.
+</div>
+
+## Configuration
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  device_tracker:
+  - name: "annetherese_n4"
+    state_topic: "location/annetherese"
+  - name: "paulus_oneplus"
+    state_topic: "location/paulus"
+```
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `switch` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example and deprecated configuration schema:
+
+```yaml
 device_tracker:
   - platform: mqtt
     devices:
       paulus_oneplus: "location/paulus"
       annetherese_n4: "location/annetherese"
+```
+
+To set the state of the device_tracker then you need to publish a JSON message to the topic (e.g., via mqtt.publish service). As an example, the following JSON message would set the `paulus_oneplus` device_tracker to `home`:
+
+```json
+{
+  "topic": "location/paulus",
+  "payload": "home"
+}
 ```
 
 {% configuration %}
@@ -49,35 +80,7 @@ source_type:
   type: string
 {% endconfiguration %}
 
-## Complete YAML example configuration
-
-```yaml
-# Complete configuration.yaml entry
-device_tracker:
-  - platform: mqtt
-    devices:
-      paulus_oneplus: "location/paulus"
-      annetherese_n4: "location/annetherese"
-    qos: 1
-    payload_home: "present"
-    payload_not_home: "not present"
-    source_type: bluetooth
-```
-
-## YAML Usage
-
-To set the state of the device_tracker then you need to publish a JSON message to the topic (e.g., via mqtt.publish service). As an example, the following JSON message would set the `paulus_oneplus` device_tracker to `home`:
-
-```json
-{
-  "topic": "location/paulus",
-  "payload": "present"
-}
-```
-
-## Discovery Schema
-
-MQTT device_trackers are also supported through [MQTT discovery](/docs/mqtt/discovery/). This is different to the YAML configuration from above. Here, the device_tracker can be created via a discovery topic that follows the following topic name convention: `<discovery_prefix>/device_tracker/[<node_id>/]<object_id>/config` and the JSON message content of a specific format as defined below.
+{% enddetails %}
 
 {% configuration %}
 availability:
@@ -99,11 +102,19 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
 availability_mode:
   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
   required: false
   type: string
   default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -165,6 +176,10 @@ name:
   description: The name of the MQTT device_tracker.
   required: false
   type: string
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -208,9 +223,13 @@ value_template:
   type: template
 {% endconfiguration %}
 
-## Discovery Example
+## Examples
 
-You can use the discovery protocol to create a new device tracker and set it's state using the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
+### Using the discovery protocol
+
+The device_tracker can be created via a discovery topic that follows the following topic name convention: `<discovery_prefix>/device_tracker/[<node_id>/]<object_id>/config`.
+
+You can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
 
 To create the device_tracker:
 
@@ -223,3 +242,21 @@ To set the state of the device tracker to "home":
 ```bash
 mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/state -m 'home'
 ```
+
+### YAML configuration
+
+The following example shows how to configure the same device tracker through configuration.yaml
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  device_tracker:
+    - name: "My Tracker"
+      state_topic: "a4567d663eaf/state"
+      payload_home: "home"
+      payload_not_home: "not_home"
+```
+
+{% endraw %}

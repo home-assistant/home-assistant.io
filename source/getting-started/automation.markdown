@@ -12,7 +12,7 @@ In the user interface, click Configuration in the sidebar, then click Automation
 The automation editor.
 </p>
 
-Click the orange button at the bottom right to create a new automation. You are presented with a blank automation screen.
+Click the blue button at the bottom right to create a new automation. You are presented with a blank automation screen.
 
 <p class='img'>
 <img src='/images/getting-started/new-automation.png'>

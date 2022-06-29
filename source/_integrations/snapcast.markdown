@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: snapcast
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `snapcast` platform allows you to control [Snapcast](https://github.com/badaix/snapcast) from Home Assistant.

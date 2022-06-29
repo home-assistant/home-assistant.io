@@ -2,17 +2,20 @@
 title: Zigbee Home Automation
 description: Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant.
 ha_category:
-  - Hub
   - Alarm
   - Binary Sensor
+  - Button
   - Climate
+  - Cover
   - Fan
+  - Hub
   - Light
   - Lock
-  - Sensor
-  - Switch
-  - Cover
   - Number
+  - Select
+  - Sensor
+  - Siren
+  - Switch
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
@@ -24,16 +27,21 @@ ha_domain: zha
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - button
   - climate
   - cover
   - device_tracker
+  - diagnostics
   - fan
   - light
   - lock
   - number
+  - select
   - sensor
+  - siren
   - switch
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The ZHA (Zigbee Home Automation) integration allows you to connect many off-the-shelf [Zigbee based devices](https://zigbeealliance.org) directly to Home Assistant, using one of the many available Zigbee coordinators.
@@ -44,13 +52,16 @@ There is currently support for the following device types within Home Assistant:
 
 - Alarm Control Panel
 - Binary Sensor
+- Button
 - Climate (beta)
 - Cover
 - Fan
 - Light
 - Lock
 - Number (i.e. analog output)
+- Select
 - Sensor
+- Siren
 - Switch
 
 There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a group before the group entity is created. As well as support for binding/unbinding (i.e. bind a remote to a lightbulb or group).
@@ -68,21 +79,21 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 - dresden elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
   - [ConBee II (a.k.a. ConBee 2) USB adapter from dresden elektronik](https://phoscon.de/conbee2)
   - [ConBee USB adapter from dresden elektronik](https://phoscon.de/conbee)
-  - [RaspBee II (a.k.a. RaspBee 2) Raspberry Pi Shield from dresden elektronik](https://www.dresden-elektronik.com/product/raspbee-II.html)
+  - [RaspBee II (a.k.a. RaspBee 2) Raspberry Pi Shield from dresden elektronik](https://phoscon.de/raspbee2)
   - [RaspBee Raspberry Pi Shield from dresden elektronik](https://phoscon.de/raspbee)
 - Silicon Labs EmberZNet based radios using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
-  - [ITead Zigbee 3.0 USB Dongle (EFR32MG21) Model 9888010100045](https://www.itead.cc/zigbee-3-0-usb-dongle.html)
-  - [ITead Sonoff ZBBridge](https://www.itead.cc/smart-home/sonoff-zbbridge.html) (Note! [WiFi-based bridges are not recommended for ZHA with EZSP radios](https://github.com/home-assistant/home-assistant.io/issues/17170). Also, this first have to be flashed with [Tasmota firmware and Silabs EmberZNet NCP EZSP UART Host firmware to use as Serial-to-IP adapter](https://www.digiblur.com/2020/07/how-to-use-sonoff-zigbee-bridge-with.html))
+  - [ITead Zigbee 3.0 USB Dongle (EFR32MG21) Model 9888010100045](https://itead.cc/product/zigbee-3-0-usb-dongle/)
+  - [ITead Sonoff ZBBridge](https://itead.cc/product/sonoff-zbbridge/) (Note! [WiFi-based bridges are not recommended for ZHA with EZSP radios](https://github.com/home-assistant/home-assistant.io/issues/17170). Also, this first have to be flashed with [Tasmota firmware and Silabs EmberZNet NCP EZSP UART Host firmware to use as Serial-to-IP adapter](https://www.digiblur.com/2020/07/how-to-use-sonoff-zigbee-bridge-with.html))
   - [Nortek GoControl QuickStick Combo Model HUSBZB-1 (Z-Wave & Zigbee Ember 3581 USB Adapter)](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/walthowd/husbzb-firmware))
-  - [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs_usb_adapter.html)/[POPP ZB-Stick](https://shop.zwave.eu/detail/index/sArticle/2496) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
-  - [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs_zigbee_shield.html) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
-  - Bitron Video/Smabit BV AV2010/10 USB-Stick with Silicon Labs Ember 3587
+  - [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs-usb-adapter.html)/[POPP ZB-Stick](https://shop.zwave.eu/detail/index/sArticle/2496) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
+  - [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs-zigbee-shield.html) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
+  - [Bitron Video/Smabit BV AV2010/10 USB-Stick](https://bv.smabit.eu/index.php/smart-home-produkte/zb-funkstick/) with Silicon Labs Ember 3587
   - Telegesis ETRX357USB/ETRX357USB-LR/ETRX357USB-LRS+8M (Note! These first have to be [flashed with other EmberZNet firmware](https://github.com/walthowd/husbzb-firmware))
 - Texas Instruments based radios (via the [zigpy-znp](https://github.com/zigpy/zigpy-znp) library for zigpy)
   - [CC2652P/CC2652R/CC2652RB USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
   - [CC1352P/CC1352R USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
-  - [CC2538 USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
-  - [CC2530/CC2531 USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters) (not recommended for Zigbee networks with more than 20 devices)
+  - [CC2538 USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters) (no longer recommended as only got deprecated old end-of-life firmware)
+  - [CC2530/CC2531 USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters) (no longer recommended as uses deprecated hardware and very old end-of-life firmware, plus will not work properly at all if the whole Zigbee network has more than 15-20 devices)
 - Digi XBee Zigbee based radios (via the [zigpy-xbee](https://github.com/zigpy/zigpy-xbee) library for zigpy)
   - [Digi XBee Series 3 (xbee3-24)](https://www.digi.com/products/embedded-systems/digi-xbee/rf-modules/2-4-ghz-rf-modules/xbee3-zigbee-3) and [Digi XBee Series S2C](https://www.digi.com/products/embedded-systems/digi-xbee/rf-modules/2-4-ghz-rf-modules/xbee-zigbee) modules
     - Note! While not a must, [it is recommend to upgrade XBee Series 3 and S2C to newest firmware using XCTU](https://www.digi.com/resources/documentation/Digidocs/90002002/Default.htm#Tasks/t_load_zb_firmware.htm)
@@ -99,7 +110,7 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 <div class="note warning">
 
 The **EZSP** protocol requires a stable connection to the serial port. With _ITEAD Sonoff ZBBridge_ connecting over the WiFi network
-it is expected to see `NCP entered failed state. Requesting APP controller restart` in the logs. This is a normal part of the operation and indicates there was a drop in communication between ZHA and SonOff bridge.
+it is expected to see `NCP entered failed state. Requesting APP controller restart` in the logs. This is a normal part of the operation and indicates there was a drop in communication between ZHA and Sonoff bridge.
 
 </div>
 
@@ -141,7 +152,7 @@ radio type. In the pop-up:
 Most devices need at the very least the serial device path, like `/dev/ttyUSB0`, but it is recommended to use
 device path from `/dev/serial/by-id` folder,
 e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`  
-A list of available device paths can be found in **Supervisor** > **System** > **Host System** > **dot menu** > **Hardware**.
+A list of available device paths can be found in {% my hardware title="Settings > System > HArdware" %} > **dot menu** > **All Hardware**.
 
 Press `Submit`. The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
 
@@ -160,9 +171,12 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 
 | Device | Discovery Method | Identifier |
 | -------| ---------------- | ---------- |
-| [ConBee II](https://phoscon.de/en/conbee2) | USB | 1CF1:0030 |
+| [ITead SONOFF Zigbee 3.0 USB Dongle Plus](https://itead.cc/product/sonoff-zigbee-3-0-usb-dongle-plus/) | USB | 10C4:EA60 |
+| [Bitron Video/SMaBiT BV AV2010/10](https://bv.smabit.eu/index.php/smart-home-produkte/zb-funkstick/) | USB | 10C4:8B34 |
+| [ConBee II](https://phoscon.de/conbee2) | USB | 1CF1:0030 |
 | [Nortek HUSBZB-1](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/) | USB | 10C4:8A2A |
 | [slae.sh CC2652RB development stick](https://slae.sh/projects/cc2652/) | USB | 10C4:EA60 |
+| [ZigStar Stick (CC2652 + CH340B variant)](https://zig-star.com/projects/zigbee-stick-v4/) | USB | 1A86:7523 |
 | [Tube’s EFR32 Pro Ethernet/Serial Coordinator](https://www.tubeszb.com/) | USB| 10C4:EA60 |
 | [Tube's CC2652P2 USB-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/) | Zeroconf | tube_zb_gw_cc2652p2.local. |
 | [Tube's CC2652P2 PoE-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/) | Zeroconf | tube_zb_gw_cc2652p2_poe.local. |
@@ -194,7 +208,7 @@ custom_quirks_path:
 
 ZHA component has the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
 
-Currently, OTA providers for firmware updates are only available for IKEA and LEDVANCE devices. OTA updates for device of other manufactures could also be supported by ZHA dependencies in the future, if these manufacturers publish their firmware publicly.
+Online OTA providers for firmware updates are currently only available for IKEA, LEDVANCE/OSRAM, SALUS/Computime, and INOVELLI devices. Support for OTA updates from other manufacturers could be supported in the future if they publish their firmware images publicly.
 
 To enable OTA firmware updates for the ZHA integration you need to add the following configuration to your `configuration.yaml` and restart Home Assistant:
 
@@ -203,11 +217,13 @@ zha:
   zigpy_config:
     ota:
       ikea_provider: true                        # Auto update Trådfri devices
-      ledvance_provider: true                    # Auto update LEDVANCE devices
+      ledvance_provider: true                    # Auto update LEDVANCE/OSRAM devices
+      salus_provider: true                       # Auto update SALUS/Computime devices
+      inovelli_provider: true                    # Auto update INOVELLI devices
       #otau_directory: /path/to/your/ota/folder  # Utilize .ota files to update everything else
 ```
 
-You can choose if the IKEA or LEDVANCE provider should be set to enabled (`true`) or disabled (`false`) individually. After the OTA firmware upgrades are finished, you can set these to `false` again if you do not want ZHA to automatically download and perform OTA firmware upgrades in the future.
+You can choose if the IKEA, LEDVANCE, SALUS, or INOVELLI provider should be set to enabled (`true`) or disabled (`false`) individually. After the OTA firmware upgrades are finished, you can set these to `false` again if you do not want ZHA to automatically download and perform OTA firmware upgrades in the future.
 
 Note that the `otau_directory` setting is optional and can be used for any firmware files you have downloaded yourself, for any device type and manufacturer. For example, Philips Hue firmwares manually downloaded from [here](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/OTA-Image-Types---Firmware-versions) and/or [here](https://github.com/Koenkk/zigbee-OTA/blob/a02a4cb33f7c46b4d2916805bfcad582124ec975/index.json) added to the `otau_directory` can be flashed, although a manual `zha.issue_zigbee_cluster_command` command currently (as of 2021.3.3) must be issued against the IEEE of the Philips Hue device under Developer Tools->Services, e.g.:
 
@@ -215,7 +231,7 @@ Note that the `otau_directory` setting is optional and can be used for any firmw
 service: zha.issue_zigbee_cluster_command
 data:
   ieee: "xx:xx:xx:xx:xx:xx:xx:xx"
-  endpoint_id: 11
+  endpoint_id: 1
   cluster_id: 25
   cluster_type: out
   command: 0
@@ -240,7 +256,13 @@ zha:
       channels: [15, 20, 25]  # Channel mask
 ```
 
-This is a good reference for channel selection [Zigbee and Wifi Coexistance](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence)
+This is a good reference for channel selection for [Zigbee and WiFi coexistance](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
+
+The Zigbee specification standards divide the 2.4Ghz ISM radio band into 16 Zigbee channels (i.e. distinct radio frequencies for Zigbee). For all Zigbee devices to be able to communicate, they must support the same Zigbee channel (i.e. Zigbee radio frequency) that is set on the Zigbee Coordinator as the channel to use for its Zigbee network. Not all Zigbee devices support all Zigbee channels, it will usually depend on the hardware and firmware age as well as devices power ratings.
+
+The general recommendation is to only use channels 15, 20, or 25 in order to avoid interoperability problems with Zigbee devices that are limited to only being compatible with the ZLL (Zigbee Light Link) channels as well as lessen the chance of Wi-Fi networks interfering too much with the Zigbee network. Note that especially using Zigbee channels 11, 24, 25, or 26 on your Zigbee Coordinator could mean it will probably not be accessible to older devices as those Zigbee channels are commonly only supported by relatively modern Zigbee hardware devices with newer Zigbee firmware.
+
+Regardless, note that the best practice recommendation is, however, not to change the Zigbee channel from default as not all Zigbee devices support all channels. If you have issues with overlapping frequencies, then it will generally be a better idea to just change Wi-Fi channels on your Wi-Fi Router or all your Wi-Fi Access Points instead.
 
 ### Modifying the device type
 
@@ -334,12 +356,14 @@ This service disables a lock code on a Zigbee lock.
 
 To add a new device:
 
-1. Go to the **Integrations** page, find the **Zigbee Home Automation** integration that was added by the configuration steps above, and select **Configure**.
+1. Go to the **Integrations** panel, find the **Zigbee Home Automation** integration that was added by the configuration steps above, and select **Configure**.
 1. Click on the plus button at the bottom right corner to start a scan for new devices.
 1. Reset your Zigbee devices according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times, switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
 1. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
 
-### Best practices for avoiding pairing difficulties
+### Best practices to avoid pairing/connection difficulties
+
+Verify that you try to follow recommended best practices to avoid pairing and/or connection issues:
 
 - If possible try to pair your Zigbee devices in their intended final location, (and not pair it next to the Zigbee coordinator and then need to move it after). 
   - Pairing a Zigbee device next to the Zigbee coordinator and then moving it later can result in dropped/lost connections or other issues. 
@@ -348,7 +372,7 @@ To add a new device:
     - Some people have reported replacing the battery on their newly received Xiaomi/Aqara devices solved pairing issues. 
 - Check that you have enough Zigbee router devices (also known as Zigbee signal repeaters or range extenders) and if you do not have any, invest and add some mains-powered devices that will work as Zigbee routers. 
     - Aim to start out with mains-powered devices before adding battery-operated devices as a "weak" Zigbee network mesh (e.g., the device is too far from the Zigbee coordinator or a Zigbee router) may prevent some devices from being paired. Zigbee router devices are also needed to increase the maximum of devices that can be connected to your Zigbee mesh network. 
-    - Note that some Zigbee devices are not fully compatible with all brands of Zigbee router devices. Xiaomi/Aqara devices are for example known not to work with Zigbee router devices from Centralite, General Electrics, Iris, Ledvance/OSRAM/ LIGHTIFY/Sylvania, Orvibo, PEQ, Securifi, and SmartThings/Samsung. Better results can usually be achieved by using mains-powered devices IKEA and Nue/3A Home or dedicated DIY routing devices based on Texas Instruments CC253x/CC26x2 and XBee Series 2/3 Zigbee radios. 
+    - Note that some Zigbee devices are not fully compatible with all brands of Zigbee router devices. Xiaomi/Aqara devices are for example known not to work with Zigbee router devices from Centralite, General Electrics, Iris, Ledvance/OSRAM, LIGHTIFY/Sylvania, Orvibo, PEQ, Securifi, and SmartThings/Samsung. Better results can usually be achieved by using mains-powered devices IKEA and Nue/3A Home or dedicated DIY routing devices based on Texas Instruments CC253x/CC26x2 and XBee Series 2/3 Zigbee radios. 
 - Be patient as the pairing of some Zigbee devices may require multiple attempts and you may sometimes need to try again and again. 
     - Some devices, like example those from Xiaomi/Aqara, are known to not be 100% compliant with the standard Zigbee specifications and may therefore require many paring attempts over 10-20 minutes or longer. 
 
@@ -400,8 +424,8 @@ When reporting issues, please provide the following information in addition to i
 
 1. Debug logs for the issue, see [debug logging](#debug-logging)
 2. Model of Zigbee radio being used
-3. If issue is related to a specific Zigbee device, provide device Zigbee signature. Signature is available at
-**Configuration** -> **Integrations** -> **Zigbee Home Automation** (click **Configure**) -> **Devices** (pick your device) -> **Zigbee Device Signature**
+3. If issue is related to a specific Zigbee device, provide both "Zigbee Device Signature" and "Diagnostics" information. 
+  * Both the "Zigbee Device Signature" and "Diagnostics" information can be found by clicking **Settings** -> **Devices & Services** -> **Zigbee Home Automation** (click **Configure**) -> **Devices** (pick your device) -> Click "**Zigbee Device Signature**" and "**Download Diagnostics**" respectively.
 
 ### Debug logging
 
@@ -435,10 +459,10 @@ Using a Philips Hue Dimmer Switch or Lutron Connected Bulb Remote is probably th
 
 1. Turn on your Hue bulb/light you want to reset. (It is important that the bulb has just been turned).
 2. Hold the Philips Hue Dimmer Switch near your bulb (closer than 10 centimeters / 4 inches).
-3. Press and hold the (I)/(ON) and (O)/(OFF) buttons on the Philips Hue Dimmer Switch for about 10 seconds continuously until your bulb starts to blink. On the newer switches hold the I/O and Scene Switch buttons.
-4. Your bulb should stop blinking and eventually turn on again. At the same time, a green light on the top left of your remote indicates that your bulb has been successfully reset to factory default settings.
+3. Press and hold the (I)/(ON) and (O)/(OFF) buttons on the Philips Hue Dimmer Switch. The bulb should start blinking in 10-20 seconds. The bulb will blink, then turn off, then turn on. You can now release the dimmer buttons.
+4. Your bulb is now factor resey and ready for pairing. A green light on the top left of the dimmer remote indicates that your bulb has been successfully reset to factory default settings.
 
-Note: If you are not unable to reset the bulb, remove it from the Hue Bridge and retry the procedure.
+Note: If you are unable to reset the bulb, remove it from the Hue Bridge and retry the procedure.
 
 #### Lutron Connected Bulb Remote
 

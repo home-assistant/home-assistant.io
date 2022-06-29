@@ -7,6 +7,9 @@ ha_release: 0.38
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: alert
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 The `alert` integration is designed to notify you when problematic issues arise.
@@ -158,17 +161,16 @@ conjunction with a `Template Binary Sensor`. The following example does that.
 {% raw %}
 
 ```yaml
-binary_sensor:
-  - platform: template
-    sensors:
-      motion_battery_low:
-        value_template: "{{ state_attr('sensor.motion', 'battery') < 15 }}"
-        friendly_name: "Motion battery is low"
+template:
+  - binary_sensor:
+      - name: "Motion Battery is Low"
+        state: "{{ state_attr('sensor.motion', 'battery') | float(default=0) < 15 }}"
+        device_class: battery
 
 alert:
   motion_battery:
     name: Motion Battery is Low
-    entity_id: binary_sensor.motion_battery_low
+    entity_id: binary_sensor.motion_battery_is_low
     repeat: 30
     notifiers:
       - ryans_phone

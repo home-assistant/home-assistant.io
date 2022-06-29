@@ -12,24 +12,28 @@ ha_codeowners:
   - '@jjlawren'
 ha_domain: plex
 ha_platforms:
+  - button
   - media_player
   - sensor
+ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The Plex integration allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [Media Players](/integrations/media_player/) and report playback status and library sizes via [Sensors](/integrations/sensor/) in Home Assistant. Media Players will allow you to control media playback and see the current playing item.
 
-Support for playing music directly on linked [Sonos](/integrations/sonos/) speakers is available for users with an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription. More information [here](#sonos-playback).
+Support for playing music directly on linked [Sonos](/integrations/sonos/) speakers is available [here](#sonos-playback).
 
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
+- [Button](#button)
 - [Media Player](#media-player)
 
 If a Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require authentication to connect.
 
 {% include integrations/config_flow.md %}
 
-During setup, the integration will check all possible ways to connect to your Plex server(s) - i.e., local or public addresses, HTTP or HTTPS, by IP or using a subdomain of `plex.direct`, or by using a Plex relay if all other methods fail. The integration will prefer local over public and secure over insecure, in that order. The selected address is shown on the Plex card on the Integrations page.
+During setup, you will need to log in as a server administrator. The integration will check all possible ways to connect to your Plex server(s) - i.e., local or public addresses, HTTP or HTTPS, by IP or using a subdomain of `plex.direct`, or by using a Plex relay if all other methods fail. The integration will prefer local over public and secure over insecure, in that order. The selected address is shown on the Plex card on the Integrations page.
 
 If your router enforces DNS rebind protection, connections to the local `plex.direct` hostname may fail (see [Plex documentation](https://support.plex.tv/articles/206225077-how-to-use-secure-server-connections/#dnsrebinding)). To avoid this, configure your router to allow DNS rebinding for `plex.direct` by following the instructions in the documentation link.
 
@@ -94,6 +98,43 @@ The library sensors are disabled by default, but can be enabled via the Plex int
   
 </div>
 
+## Button
+
+A `button.scan_clients` entity is available to discover new controllable Plex clients. This may be necessary in scripts or automations which control a Plex client app, but where the underlying device must be turned on first. This button is preferred over the legacy `plex.scan_for_clients` service.
+
+Example script:
+
+{% raw %}
+
+```yaml
+play_plex_on_tv:
+  sequence:
+    - service: media_player.select_source
+      target:
+        entity_id: media_player.smart_tv
+      data:
+        source: "Plex"
+    - wait_for_trigger:
+        - platform: state
+          entity_id: media_player.smart_tv
+          to: "on"
+      timeout:
+        seconds: 10
+    - service: button.press
+      target:
+        entity_id: button.scan_clients_plex
+    - wait_template: "{{ not is_state('media_player.plex_smart_tv', 'unavailable') }}"
+      timeout: "00:00:10"
+      continue_on_timeout: false
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.plex_smart_tv
+      data:
+        media_content_id: "{"library_name": "Movies", "title": "Zoolander"}"
+        media_content_type: movie
+```
+
+{% endraw %}
 
 ## Media Player
 
@@ -108,6 +149,8 @@ Play media hosted on a Plex server on a Plex client or other supported device.
 Required fields within the `media_content_id` payloads are marked as such, others are optional. There are special parameters that can be added to any query:
 
 - `shuffle`: Shuffles the playback order of the media. Accepts `1` or `true` to enable.
+- `resume`: Resumes playback at the last partially watched position if available, otherwise plays at the beginning.
+- `offset`: The desired playback start position in seconds.
 - `allow_multiple`: A search must find one specific item to succeed. This parameter accepts multiple matches in a search and enqueues all found items for playback. Accepts `1` or `true` to enable.
 
 Simplified examples are provided for [music](#music), [TV episodes](#tv-episode), and [movies](#movie). See [advanced searches](#advanced-searches) for complex/smart search capabilities.
@@ -137,11 +180,16 @@ The integration must be configured with a token for playback commands to work. T
 
 ##### Examples:
 
+Play Hello from Adele's album 25 in the library Music
+
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: MUSIC
 media_content_id: '{ "library_name": "Music", "artist_name": "Adele", "album_name": "25", "track_name": "Hello" }'
 ```
+
+Play a random track from Stevie Wonder in the library Music
+
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: MUSIC
@@ -157,6 +205,9 @@ media_content_id: '{ "library_name": "Music", "artist_name": "Stevie Wonder", "s
 | `media_content_type`   | `PLAYLIST`                                                                                          |
 
 ##### Example:
+
+Plays the playlist The Best of Disco with shuffle enabled
+
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: PLAYLIST
@@ -168,20 +219,33 @@ media_content_id: '{ "playlist_name": "The Best of Disco", "shuffle": "1" }'
 | Service data attribute | Description                                                                                                                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | `entity_id` of the client                                                                                                                                                          |
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`show_name` or `show.title`</li><li>`season_number` or `season.index`</li><li>`episode_number` or `episode.index`</li><li>`shuffle` (0 or 1)</li><li>`allow_multiple` (0 or 1)</li></ul> |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`show_name` or `show.title`</li><li>`season_number` or `season.index`</li><li>`episode_number` or `episode.index`</li><li>`shuffle` (0 or 1)</li><li>`resume` (0 or 1)</li><li>`offset` (in seconds)</li><li>`allow_multiple` (0 or 1)</li></ul> |
 | `media_content_type`   | `EPISODE`                                                                                                                                                                          |
 
 ##### Examples:
+
+Play Rick and Morty S2E5 from library Adult TV
 
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: EPISODE
 media_content_id: '{ "library_name": "Adult TV", "show_name": "Rick and Morty", "season_number": 2, "episode_number": 5 }'
 ```
+
+Play a random episode of Sesame Street from the library Kids TV
+
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: EPISODE
-media_content_id: '{ "library_name": "Kid TV", "show_name": "Sesame Street", "shuffle": "1" }'
+media_content_id: '{ "library_name": "Kids TV", "show_name": "Sesame Street", "shuffle": "1" }'
+```
+
+Resume the next unfinished episode of 60 Minutes from the library News TV
+
+```yaml
+entity_id: media_player.plex_player
+media_content_type: EPISODE
+media_content_id: '{ "library_name": "News TV", "show_name": "60 Minutes", "episode.unwatched": true, "episode.inProgress": [true, false], "resume": 1, "sort": "addedAt:asc", "maxresults": 1 }'
 ```
 
 #### Movie
@@ -189,10 +253,12 @@ media_content_id: '{ "library_name": "Kid TV", "show_name": "Sesame Street", "sh
 | Service data attribute | Description                                                                                             |
 | ---------------------- | ------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | `entity_id` of the client                                                                               |
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`title`</li></ul> |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`title`</li><li>`resume` (0 or 1)</li><li>`offset` (in seconds)</li></ul> |
 | `media_content_type`   | `movie`                                                                                                 |
 
 ##### Examples:
+
+Play Blade from the library Adult Movies
 
 ```yaml
 entity_id: media_player.plex_player
@@ -258,34 +324,38 @@ The search will attempt to guess the type of media based on the search parameter
 
 ### Compatibility
 
-| Client                           | Limitations                                                                                                                                                     |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Any (when all controls disabled) | A stop button will appear but is not functional.                                                                                                                |
-| Any (when casting)               | Controlling playback will work but with error logging.                                                                                                          |
-| Any (remote client)              | Controls disabled.                                                                                                                                              |
-| Apple TV                         | None                                                                                                                                                            |
-| iOS                              | None                                                                                                                                                            |
-| NVidia Shield                    | Controlling playback when the Shield is both a client and a server will work but with error logging                                                             |
-| Plex Web                         | None                                                                                                                                                            |
+| Client | Limitations |
+| --- | --- |
+| Remote clients     | Controls are unavailable |
+| Apple TV           | None |
+| iOS                | None |
+| NVidia Shield      | None |
+| Plexamp            | None (music playback only) |
+| Plex Desktop & Web | Controls are unavailable (as of June 2022) |
+| Plex HTPC          | None |
 
 ## Sonos Playback
 
 To play Plex music directly to Sonos speakers, the following requirements must be met:
 
-1. Have an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription.
-2. Remote access enabled for your Plex server.
-3. Sonos speakers linked to your Plex account [(Instructions)](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/).
-4. [Sonos](/integrations/sonos/) integration configured.
+1. Remote access enabled for your Plex server.
+2. Sonos speakers linked to your Plex account [(Instructions)](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/).
+3. [Sonos](/integrations/sonos/) integration configured.
 
 Call the `media_player.play_media` service with the `entity_id` of a Sonos integration device and `media_content_type` prepended with `plex://`. Both [music](#music) and [playlist](#playlist) `media_content_type` values are supported.
 
 ##### Examples:
+
+Play a track with advanced filtering on a Sonos Speaker
 
 ```yaml
 entity_id: media_player.sonos_speaker
 media_content_type: music
 media_content_id: 'plex://{ "library_name": "Music", "artist_name": "Adele", "album_name": "25", "track_name": "Hello" }'
 ```
+
+Play a playlist on a Sonos Speaker
+
 ```yaml
 entity_id: media_player.sonos_speaker
 media_content_type: playlist
@@ -303,39 +373,8 @@ Refresh a Plex library to scan for new and updated media.
 | `server_name` | No | Name of Plex server to use if multiple servers configured. | "My Plex Server" |
 | `library_name` | Yes | Name of Plex library to update. | "TV Shows" |
 
-### Service `plex.scan_for_clients`
-
-Scan for new controllable Plex clients. This may be necessary in scripts or automations which control a Plex `media_player` entity, but where the underlying device must be turned on first.
-
-Example script:
-
-{% raw %}
-
-```yaml
-play_plex_on_tv:
-  sequence:
-    - service: media_player.select_source
-      target:
-        entity_id: media_player.smart_tv
-      data:
-        source: "Plex"
-    - wait_template: "{{ is_state('media_player.smart_tv', 'On') }}"
-      timeout: "00:00:10"
-    - service: plex.scan_for_clients
-    - wait_template: "{{ not is_state('media_player.plex_smart_tv', 'unavailable') }}"
-      timeout: "00:00:10"
-      continue_on_timeout: false
-    - service: media_player.play_media
-      target:
-        entity_id: media_player.plex_smart_tv
-      data:
-        media_content_id: "{"library_name": "Movies", "title": "Zoolander"}"
-        media_content_type: movie
-```
-
-{% endraw %}
 
 ## Notes
 
-- The Plex integration supports multiple Plex servers. Additional connections can be configured under **Configuration** > **Integrations**.
+- The Plex integration supports multiple Plex servers. Additional connections can be configured under **Settings** -> **Devices & Services**.
 - Movies must be located under the 'Movies' section in a Plex library to properly view the 'playing' state.

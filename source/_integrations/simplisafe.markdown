@@ -13,8 +13,11 @@ ha_domain: simplisafe
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - diagnostics
   - lock
   - sensor
+ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The `simplisafe` integration integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
@@ -34,35 +37,13 @@ There is currently support for the following device types within Home Assistant:
 
 * Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed.
 
+## SimpliSafe Plans
+
+SimpliSafe offers several [monitoring plans](https://support.simplisafe.com/hc/en-us/articles/360023809972-What-are-the-service-plan-options-). Currently, only the Standard and Interactive Monitoring are known to work with this integration; if you find otherwise, please consider updating this documentation.
+
 {% include integrations/config_flow.md %}
 
-## Getting an Authorization Code
-
-<div class="note warning">
-Because of a technical limitation, the below instructions will not work for iOS users as-is. It is recommended that you set up the SimpliSafe integration from a desktop browser. If you must use an iOS device, please ensure that the SimpliSafe app is not installed before beginning; the app can be re-installed after the integration is set up.
-</div>
-
-Starting in 2021, SimpliSafe has moved to a new authentication mechanism via its web app. Below are instructions on retrieving the authorization code needed to finish setting the integration up.
-
-1. Initiate adding the integration via the instructions above.
-2. When prompted, click the link that opens the SimpliSafe web app.
-3. Input your SimpliSafe credentials. You will see "Verification Pending" – leave this browser tab open.
-4. Check your email for a message from SimpliSafe. When you have received that email, click "Verify Device" – note that this will open a second browser tab/window.
-5. After the verification is successful, return to the first browser tab/window. The browser will show an error about not being able to navigate to the page; ignore it.
-
-At this stage, take a look at the address bar and note the `code` parameter at the very end of the URL:
-
-```txt
-com.simplisafe.mobile://auth.simplisafe.com/ios/com.simplisafe.mobile/callback?code=<CODE>
-```
-
-Copy/paste this code parameter into Home Assistant to finish setting up the integration.
-
 ## Services
-
-Note that the `system_id` parameter required by the below service calls can be discovered
-by looking at the device state attributes for the integration's `alarm_control_panel`
-entity.
 
 ### `simplisafe.clear_notifications`
 
@@ -76,8 +57,7 @@ Remove a SimpliSafe PIN (by label or PIN value).
 
 | Service Data Attribute | Optional | Description                      |
 | ---------------------- | -------- | -------------------------------- |
-| `system_id`            | no       | The ID of a SimpliSafe system    |
-| `label_or_pin`         | no       | The PIN label or value to remove |
+| `label_or_pin`           | no       | The PIN label or value to remove |
 
 ### `simplisafe.set_pin`
 
@@ -85,32 +65,23 @@ Set a SimpliSafe PIN.
 
 | Service Data Attribute | Optional | Description                                 |
 | ---------------------- | -------- | ------------------------------------------- |
-| `system_id`            | no       | The ID of the system to remove the PIN from |
-| `label`                | no       | The label to show in the SimpliSafe UI      |
-| `pin`                  | no       | The PIN value to use                        |
+| `label`                  | no       | The label to show in the SimpliSafe UI      |
+| `pin`                    | no       | The PIN value to use                        |
 
 ### `simplisafe.system_properties`
 
 Set one or more system properties.
 
-For any property denoting a volume, the following values should be used:
-
-* Off: `0`
-* Low: `1`
-* Medium: `2`
-* High: `3`
-
 | Service Data Attribute | Optional | Description                                                                  |
 | ---------------------- | -------- | ---------------------------------------------------------------------------- |
-| `system_id`            | no       | The ID of a SimpliSafe system                                                |
-| `alarm_duration`       | yes      | The number of seconds a triggered alarm should sound                         |
-| `chime_volume`         | yes      | The volume of the door chime                                                 |
-| `entry_delay_away`     | yes      | The number of seconds to delay triggering when entering with an "away" state |
-| `entry_delay_home`     | yes      | The number of seconds to delay triggering when entering with a "home" state  |
-| `exit_delay_away`      | yes      | The number of seconds to delay triggering when exiting with an "away" state  |
-| `exit_delay_home`      | yes      | The number of seconds to delay triggering when exiting with a "home" state   |
-| `light`                | yes      | Whether the light on the base station should display when armed              |
-| `voice_prompt_volume`  | yes      | The volume of the base station's voice prompts                               |
+| `alarm_duration`         | yes      | The number of seconds a triggered alarm should sound                         |
+| `chime_volume`           | yes      | The volume of the door chime                                                 |
+| `entry_delay_away`       | yes      | The number of seconds to delay triggering when entering with an "away" state |
+| `entry_delay_home`       | yes      | The number of seconds to delay triggering when entering with a "home" state  |
+| `exit_delay_away`        | yes      | The number of seconds to delay triggering when exiting with an "away" state  |
+| `exit_delay_home`        | yes      | The number of seconds to delay triggering when exiting with a "home" state   |
+| `light`                  | yes      | Whether the light on the base station should display when armed              |
+| `voice_prompt_volume`    | yes      | The volume of the base station's voice prompts                               |
 
 ## Events
 

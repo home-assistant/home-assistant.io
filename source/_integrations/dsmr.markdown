@@ -13,15 +13,17 @@ ha_codeowners:
   - '@frenck'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'. Swedish meters with a 'HAN port' are not supported by this integration.
 
-- Currently support DSMR V2.2, V3, V4, V5, Belgian V5 variant, Luxembourg V5 variant (Smarty) and the Swedish V5 variant through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
+- Currently support DSMR V2.2, V3, V4, V5, Belgian V5 variant, Luxembourg V5 variant (Smarty), Swedish V5 variant and the EasyMeter Q3D (Germany) through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
 - For official information about DSMR refer to: [DSMR Document](https://www.netbeheernederland.nl/dossiers/slimme-meter-15)
 - For official information about the P1 port refer to: [P1 Companion Standard](https://www.netbeheernederland.nl/_upload/Files/Slimme_meter_15_a727fce1f1.pdf)
 - For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 - For official information about the Swedish variant refer to: [Swedish specification](https://www.energiforetagen.se/globalassets/energiforetagen/det-erbjuder-vi/kurser-och-konferenser/elnat/branschrekommendation-lokalt-granssnitt-v2_0-201912.pdf).
+- Supports [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602) integrated in a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103).
 
 <p class='img'>
 <img src='/images/screenshots/dsmr.png' />
@@ -33,10 +35,11 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 - For Dutch meters, choose DSMR version `2.2`, `4`, or `5`
 - For Luxembourg meters, choose DSMR version `5L`
 - For Swedish meters, choose DSMR version `5S`
+- For EasyMeter Q3D, choose DSMR version `Q3D`
 
 ### Options
 
-To configure options for DSMR integration go to **Configuration** >> **Integrations** and press **Options** on the DSMR card.
+To configure options for DSMR integration go to **Settings** -> **Devices & Services** and press **Options** on the DSMR card.
 
 #### Time between updates
 
@@ -59,31 +62,34 @@ This integration is known to work for:
 - Sagemcom XS210 ESMR5
 - Sagemcom T211 
 - Ziv E0058 ESMR5
+- EasyMeter Q3D
 
 ### Connecting to the meter
 
-Connection can be done directly to the meter via a USB to serial connector, or through a serial to network proxy
+Connection can be done directly to the meter via a USB to serial connector, or through a serial to network proxy.
+It is also possible to connect to a [RFXtrx device](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/18103) with an integrated [P1 cables](http://www.rfxcom.com/epages/78165469.sf/nl_NL/?ObjectPath=/Shops/78165469/Products/19602).
 
 #### USB serial converters:
 
 - Cheap (Banggood/ebay) Generic PL2303
-- [Smartmeter Webshop](https://sites.google.com/site/nta8130p1smartmeter/webshop)
 - [SOS Solutions](https://www.sossolutions.nl/slimme-meter-kabel)
 - [AliExpress](https://nl.aliexpress.com/item/32945187155.html)
 
 Docker users have to allow Docker access to the USB to serial converter by adding `--device /dev/ttyUSB21:/dev/ttyUSB21` to the run command:
 
 ```hass
-$ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /home/USERNAME/hass:/config -v /etc/localtime:/etc/localtime:ro --net=host {{ site.installation.container.base }}
+$ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /home/USERNAME/hass:/config -v /etc/localtime:/etc/localtime:ro --net=host {{ site.installation.container }}
 ```
 
 #### Serial to network proxies:
 
 - [ser2net](http://ser2net.sourceforge.net)
+- [WIZnet WIZ110SR](https://www.wiznet.io/product-item/wiz110sr/)
 
 DIY solutions (ESP8266 based):
 
 - [esp8266_p1meter (daniel-jong)](https://github.com/daniel-jong/esp8266_p1meter)
+- [DSMR reader for ESPHome (mmakaay)](https://github.com/mmakaay/dsmr-reader-for-esphome)
 
 {% include integrations/config_flow.md %}
 

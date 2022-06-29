@@ -19,6 +19,7 @@ ha_platforms:
   - sensor
   - switch
 ha_quality_scale: gold
+ha_integration_type: integration
 ---
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit). The integration adheres strictly to the [protocol specification](https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf).
@@ -78,7 +79,7 @@ timeout:
   default: 5
   type: integer
 type:
-  description: Type of communication. Possible values are `tcp` Modbus messages with Modbus TCP frame on TCP/IP, `udp` Modbus messages with Modbus TCP frame on UDP, `rtuovertcp` Modbus messages with a wrapper TCP/IP simulating a serial line.
+  description: Type of communication. Possible values are `tcp` Modbus messages with Modbus TCP frame on TCP/IP, `udp` Modbus messages with Modbus TCP frame on UDP, `rtuovertcp` Modbus messages with a wrapper TCP/IP simulating a serial line, 'serial' Modbus serial (RS485).
   required: true
   type: string
 {% endconfiguration %}
@@ -193,7 +194,8 @@ Description:
 | Attribute | Description |
 | --------- | ----------- |
 | hub       | Hub name (defaults to 'modbus_hub' when omitted) |
-| unit      | Slave address (0-255) |
+| unit      | Slave address (0-255), alternative to slave |
+| slave     | Slave address (0-255), alternative to unit |
 | address   | Address of the Register (e.g. 138) |
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F |
@@ -265,6 +267,10 @@ slave:
   required: false
   type: integer
   default: 0
+unique_id:
+  description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ### Configuring data_type and struct
@@ -285,7 +291,7 @@ modbus:
 
 {% configuration %}
 data_type:
-  description: Response representation (int16, int32, int64, uint16, uint32, uint64, float16, float32, float64, string). `int/uint`are silently converted to `int16/uint16`.
+  description: Response representation (int8, int16, int32, int64, uint8, uint16, uint32, uint64, float16, float32, float64, string). `int/uint`are silently converted to `int16/uint16`.
   required: false
   type: string
   default: int16
@@ -298,7 +304,7 @@ precision:
   description: Number of valid decimals.
   required: false
   type: integer
-  default: 1
+  default: 0
 scale:
   description: Scale factor (output = scale * value + offset).
   required: false
@@ -313,6 +319,10 @@ swap:
   description: "Swap the order of bytes/words, options are `none`, `byte`, `word`, `word_byte`."
   required: false
   default: none
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+  required: false
   type: string
 {% endconfiguration %}
 
@@ -358,6 +368,15 @@ binary_sensors:
       required: false
       default: coil
       type: string
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
+    slave_count:
+      description: Generates x-1 slave binary sensors, allowing read of multiple coils with a single read messsage.
+      required: false
+      type: integer
+
 {% endconfiguration %}
 
 ## Configuring platform climate
@@ -435,6 +454,10 @@ climates:
       required: false
       type: string
       default: C
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
 ### Service `modbus.set-temperature`
@@ -467,7 +490,6 @@ modbus:
         device_class: door
         input_type: coil
         address: 117
-        device_class: door
         state_open: 1
         state_opening: 2
         state_closed: 0
@@ -475,7 +497,7 @@ modbus:
         status_register: 119
         status_register_type: holding
       - name: "Door2"
-        address: 117
+        address: 118
 ```
 
 {% configuration %}
@@ -526,6 +548,10 @@ covers:
       description: Modbus register type (holding, input), default holding.
       required: false
       type: string
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
 ### Example: Modbus cover controlled by a coil
@@ -551,7 +577,7 @@ modbus:
         scan_interval: 10
 ```
 
-### Example: Modbus cover controlled by a coil, it's state is read from the register
+### Example: Modbus cover controlled by a coil, its state is read from the register
 
 This example shows a configuration for a Modbus cover controlled using a coil. Actual cover state is read from the `status_register`. We've also specified register values to match with the states open/opening/closed/closing. The cover state is polled from Modbus every 10 seconds.
 
@@ -597,7 +623,7 @@ modbus:
         state_closed: 4
 ```
 
-### Example: Modbus cover controlled by a holding register, it's state is read from the status register
+### Example: Modbus cover controlled by a holding register, its state is read from the status register
 
 This example shows a configuration for a Modbus cover controlled using a holding register. However, cover state is read from a `status_register`. In this case, we've specified only values for `state_open` and `state_closed`, for the rest, default values are used. The cover state is polled from Modbus every 10 seconds.
 
@@ -713,6 +739,10 @@ fans:
           required: false
           default: same as command_off
           type: integer
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
 ## Configuring platform light
@@ -802,6 +832,10 @@ lights:
           required: false
           default: same as command_off
           type: integer
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
 ## Configuring platform sensor
@@ -877,11 +911,19 @@ sensors:
     unit_of_measurement:
       description: Unit to attach to value.
       required: false
-      type: integer
+      type: string
     state_class:
       description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
       required: false
       type: string
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
+    slave_count:
+      description: Generates x-1 slave sensors, allowing read of multiple registers with a single read messsage.
+      required: false
+      type: integer
 {% endconfiguration %}
 
 <div class='note'>
@@ -1001,6 +1043,10 @@ switches:
           required: false
           default: same as command_off
           type: integer
+    unique_id:
+      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
 ## Opening an issue

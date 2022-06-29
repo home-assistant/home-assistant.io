@@ -9,6 +9,7 @@ ha_domain: usb
 ha_quality_scale: internal
 ha_codeowners:
   - '@bdraco'
+ha_integration_type: integration
 ---
 
 The USB Discovery integration will detect newly connected USB devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.

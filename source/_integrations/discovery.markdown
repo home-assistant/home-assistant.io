@@ -6,21 +6,22 @@ ha_category:
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: discovery
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
-Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` integration can detect:
+This is the legacy discovery integration for Home Assistant. It's use is no longer recommended. Use the [SSDP](/integrations/ssdp/), [Zeroconf](/integrations/zeroconf/) and [USB](/integrations/usb/) integrations instead.
+
+This integration is limited to detect:
 
  * [Bluesound speakers](/integrations/bluesound)
  * [Bose Soundtouch speakers](/integrations/soundtouch)
- * [DLNA DMR enabled devices](/integrations/dlna_dmr)
  * [Enigma2 media player](/integrations/enigma2)
  * [Frontier Silicon internet radios](/integrations/frontier_silicon)
  * [LG Soundbars](/integrations/lg_soundbar)
  * [Linn / Openhome](/integrations/openhome)
- * [Logitech Media Server (Squeezebox)](/integrations/squeezebox)
- * [NETGEAR routers](/integrations/netgear)
  * [SABnzbd downloader](/integrations/sabnzbd)
- * [Telldus Live](/integrations/tellduslive/)
  * [Yamaha media player](/integrations/yamaha)
 
 To load this integration, add the following lines to your `configuration.yaml` file:
@@ -31,8 +32,6 @@ discovery:
   ignore:
     - yamaha
     - logitech_mediaserver
-  enable:
-    - dlna_dmr
 ```
 
 {% configuration discovery %}
@@ -53,16 +52,9 @@ Valid values for ignore are:
  * `enigma2`: Enigma2 media players
  * `frontier_silicon`: Frontier Silicon internet radios
  * `lg_smart_device`: LG Soundbars
- * `logitech_mediaserver`: Logitech Media Server (Squeezebox)
- * `netgear_router`: NETGEAR routers
  * `openhome`: Linn / Openhome
  * `sabnzbd`: SABnzbd downloader
- * `tellstick`: Telldus Live
  * `yamaha`: Yamaha media player
-
-Valid values for enable are:
-
- * `dlna_dmr`: DLNA DMR enabled devices
 
 ## Troubleshooting
 

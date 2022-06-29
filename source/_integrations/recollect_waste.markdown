@@ -10,10 +10,12 @@ ha_codeowners:
   - '@bachya'
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
-The `recollect_waste` integration allows you to track the next scheduled waste pickup and what type of waste from [ReCollect](https://recollect.net/private-waste-haulers/).
+The `recollect_waste` integration allows you to track the next scheduled waste pickup and what type of waste from [ReCollect](https://recollect.net/waste-haulers/).
 
 To use this integration, you must know both your ReCollect Place and Service IDs. In general, cities/municipalities that utilize ReCollect will give you a way to subscribe to a calendar with pickup dates. If you examine the iCal URL for this calendar, the Place and Service IDs are embedded in it:
 

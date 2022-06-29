@@ -12,7 +12,9 @@ ha_domain: brother
 ha_quality_scale: platinum
 ha_zeroconf: true
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The `Brother Printer` integration allows you to read current data from your local Brother printer.
@@ -49,7 +51,7 @@ template:
         {{ is_state('sensor.hl_l2340d_status', 'no paper') }}
 
   - binary_sensor:
-    - name: 'Later Printer Paper Jam'
+    - name: 'Laser Printer Paper Jam'
       state: >
         {{ is_state('sensor.hl_l2340d_status', 'paper jam') }}
 ```

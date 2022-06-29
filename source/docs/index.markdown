@@ -25,11 +25,11 @@ The documentation covers beginner to advanced topics around the installation, se
     </div>
     <div class='title'>MQTT</div>
   </a>
-  <a class='option-card' href='/lovelace/'>
+  <a class='option-card' href='/dashboards/'>
     <div class='img-container'>
       <img src='/images/supported_brands/view-dashboard.png' />
     </div>
-    <div class='title'>User Interface</div>
+    <div class='title'>Dashboards</div>
   </a>
   <a class='option-card' href='https://companion.home-assistant.io/'>
     <div class='img-container'>

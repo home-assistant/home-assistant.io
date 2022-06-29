@@ -4,12 +4,16 @@ description: Instructions on how to integrate Android TV and Fire TV devices int
 ha_category:
   - Media Player
 ha_release: 0.7.6
+ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@JeffLIrion'
+  - '@ollo69'
 ha_domain: androidtv
 ha_platforms:
+  - diagnostics
   - media_player
+ha_integration_type: integration
 ---
 
 The `androidtv` platform allows you to control an Android TV device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
@@ -34,158 +38,57 @@ For Fire TV devices, the instructions are as follows:
   - From the main (Launcher) screen, select Settings.
   - Select My Fire TV > About > Network.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-media_player:
-  # Use the Python ADB implementation
-  - platform: androidtv
-    name: Android TV 1
-    host: 192.168.0.111
-```
-
-{% configuration %}
-host:
-  description: The IP address for your Android TV / Fire TV device.
-  required: true
-  type: string
-name:
-  description: The friendly name of the device.
-  required: false
-  default: Android TV
-  type: string
-port:
-  description: The port for your Android TV / Fire TV device.
-  required: false
-  default: 5555
-  type: integer
-adbkey:
-  description: The path to your `adbkey` file; if not provided, Home Assistant will generate a key for you (if necessary).
-  required: false
-  type: string
-adb_server_ip:
-  description: The IP address of the ADB server. If this is provided, the integration will utilize an [ADB server](#2-adb-server) to communicate with the device.
-  required: false
-  type: string
-adb_server_port:
-  description: The port for the ADB server.
-  required: false
-  default: 5037
-  type: integer
-get_sources:
-  description: Whether or not to retrieve the running apps as the list of sources.
-  required: false
-  default: true
-  type: boolean
-apps:
-  description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below. If a name is not provided, the app will never be shown in the sources list. ([These app names](https://github.com/JeffLIrion/python-androidtv/blob/748d6b71cad611c624ef7526d9928431167531a3/androidtv/constants.py#L290-L308) are configured in the backend package and do not need to be included in your configuration.)
-  required: false
-  default: {}
-  type: map
-exclude_unnamed_apps:
-  description: If this is true, then only the apps you specify in the `apps` configuration parameter and [those specified in the backend library](https://github.com/JeffLIrion/python-androidtv/blob/5c39196ade3f88ab453b205fd15b32472d3e0482/androidtv/constants.py#L267-L283) will be shown in the sources list.
-  required: false
-  default: false
-  type: boolean
-device_class:
-  description: "The type of device: `auto` (detect whether it is an Android TV or Fire TV device), `androidtv`, or `firetv`."
-  required: false
-  default: auto
-  type: string
-state_detection_rules:
-  description: A dictionary whose keys are app IDs and whose values are lists of state detection rules; see the section [Custom State Detection](#custom-state-detection) for more info.
-  required: false
-  default: {}
-  type: map
-turn_on_command:
-  description: An ADB shell command that will override the default `turn_on` command.
-  required: false
-  type: string
-turn_off_command:
-  description: An ADB shell command that will override the default `turn_off` command.
-  required: false
-  type: string
-screencap:
-  description: Determines if album art should be pulled from what is shown onscreen.
-  required: false
-  default: true
-  type: boolean
-{% endconfiguration %}
-
-### Full Configuration
-
-```yaml
-# Example configuration.yaml entry
-media_player:
-  # Use the Python ADB implementation with a user-provided key to setup an
-  # Android TV device. Provide some app names and don't display other apps
-  # in the sources menu. Override the default turn on/off commands, and
-  # provide custom state detection rules.
-  - platform: androidtv
-    name: Android TV
-    device_class: androidtv
-    host: 192.168.0.222
-    adbkey: "/config/android/adbkey"
-    exclude_unnamed_apps: true
-    apps:
-      com.amazon.tv.launcher: "Fire TV"
-      some.background.app:  # this will never show up in the sources list
-      another.background.app: ""  # this will also never show up in the sources list
-    turn_on_command: "input keyevent 3"
-    turn_off_command: "input keyevent 223"
-    state_detection_rules:
-      'com.amazon.tv.launcher':
-        - 'standby'
-      'com.netflix.ninja':
-        - 'media_session_state'
-      'com.ellation.vrv':
-        - 'audio_state'
-      'com.plexapp.android':
-        - 'paused':
-            'media_session_state': 3  # this indentation is important!
-            'wake_lock_size': 1       # this indentation is important!
-        - 'playing':
-            'media_session_state': 3  # this indentation is important!
-        - 'standby'
-      'com.amazon.avod':
-        - 'playing':
-            'wake_lock_size': 4  # this indentation is important!
-        - 'playing':
-            'wake_lock_size': 3  # this indentation is important!
-        - 'paused':
-            'wake_lock_size': 2  # this indentation is important!
-        - 'paused':
-            'wake_lock_size': 1  # this indentation is important!
-        - 'standby'
-
-  # Use an ADB server to setup a Fire TV device and don't get the running apps.
-  - platform: androidtv
-    name: Fire TV
-    device_class: firetv
-    host: 192.168.0.222
-    adb_server_ip: 127.0.0.1
-    adb_server_port: 5037
-    get_sources: false
-```
+{% include integrations/option_flow.md %}
+{% configuration_basic %}
+Configure Applications List:
+  description: Here you can define applications that are not automatically detected by the backend library, where the keys are app IDs and the values are app names that will be displayed in the UI. If a name is not provided and the option `Exclude apps with unknown name` is enabled, the app will never be shown in the sources list.
+Retrieve the running apps as the list of sources:
+  description: "Whether or not to retrieve the running apps as the list of sources. If this option is checked, the running apps will be retrieved and used as the sources. If not, there will be only one source: the current app."
+Exclude apps with unknown name:
+  description: "Exclude app with unknown name from the source list. If this option is checked, then only apps configured in `Configured Application List` option will be listed among the sources."
+Use screen capture for album art:
+  description: "Determines if album art should be pulled from what is shown on screen."
+ADB shell turn off command:
+  description: "ADB shell command to override default turn off command. Leave empty to use default."
+ADB shell turn on command:
+  description: "ADB shell command to override default turn on command. Leave empty to use default."
+Configure State Detection Rules:
+  description: Here you can configure a list of rules where the rule key is the app IDs and whose values are lists of state detection rules. As example a valid value for a detection rule is `["standby", {"playing":{"media_session_state":4}}, {"paused":{"media_session_state":3, "wake_lock_size":4}}]`. Note that rule values must be always inside square bracket (`[...]`). See the section [Custom State Detection](#custom-state-detection) for more info.
+{% endconfiguration_basic %}
 
 ## ADB Setup
 
 This integration works by sending ADB commands to your Android TV / Fire TV device. There are two ways to accomplish this.
 
 <div class='note'>
+
 When connecting to your device for the first time, a dialog will appear on your Android TV / Fire TV asking you to approve the connection. Check the box that says "always allow connections from this device" and hit OK.
+
 </div>
 
 ### 1. Python ADB Implementation
 
-The default approach is to connect to your device using the `adb-shell` Python package. As of Home Assistant 0.101, if a key is needed for authentication and it is not provided by the `adbkey` configuration option, then Home Assistant will generate a key for you.
+The default approach is to connect to your device using the `adb-shell` Python package. As of Home Assistant 0.101, if a key is needed for authentication and it is not provided by the `ADB Key` setup option, then Home Assistant will generate a key for you.
+
+<div class='note'>
+
+To be able to provide `ADB Key` on integration setup, you need to enable [advanced mode](/blog/2019/07/17/release-96/#advanced-mode).
+
+</div>
 
 Prior to Home Assistant 0.101, this approach did not work well for newer devices. Efforts have been made to resolve these issues, but if you experience problems then you should use the ADB server option.
 
 ### 2. ADB Server
 
 The second option is to use an ADB server to connect to your Android TV and Fire TV devices.
+
+<div class='note'>
+
+To configure ADB server on integration setup, you need to enable [advanced mode](/blog/2019/07/17/release-96/#advanced-mode).
+
+</div>
 
 Using this approach, Home Assistant will send the ADB commands to the server, which will then send them to the Android TV / Fire TV device and report back to Home Assistant. To use this option, add the `adb_server_ip` option to your configuration. If you are running the server on the same machine as Home Assistant, you can use `127.0.0.1` for this value.
 
@@ -264,7 +167,7 @@ Available key commands include:
 - `BACK`
 - `MENU`
 
-The full list of key commands can be found [here](https://github.com/JeffLIrion/python-androidtv/blob/748d6b71cad611c624ef7526d9928431167531a3/androidtv/constants.py#L189-L233).
+The full list of key commands can be found in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package.
 
 You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state.  These will be stored in the media player's `'adb_response'` attribute and logged at the INFO level. This information can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package, and also to define your own [custom state detection](#custom-state-detection) rules.
 

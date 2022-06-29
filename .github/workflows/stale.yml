@@ -6,9 +6,12 @@ on:
 
 jobs:
   stale:
+    permissions:
+      issues: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@v4
+      - uses: actions/stale@v5
         if: ${{ github.repository_owner == 'home-assistant' }}
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}

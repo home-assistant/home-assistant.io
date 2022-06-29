@@ -4,12 +4,15 @@ description: Instructions on how to add Slack notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_release: pre 0.7
+ha_config_flow: true
 ha_domain: slack
 ha_iot_class: Cloud Push
 ha_codeowners:
   - '@bachya'
+  - '@tkdrob'
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
@@ -22,7 +25,7 @@ The `slack` platform allows you to deliver notifications from Home Assistant to 
 2. Click the `OAuth & Permissions` link in the sidebar, under the Features heading.
 3. In the Scopes section, add the `chat:write` scope, `Send messages as user`. If you get a `missing_scope` error when trying to send a message, check these permissions.
 4. Scroll up to `OAuth Tokens & Redirect URLs` and click `Add to Workspace`.
-5. Copy your `OAuth Access Token` and put that key into your `configuration.yaml` file -- see below.
+5. Copy your `OAuth Access Token` and put that key into the config flow.
 
 <div class='note'>
 
@@ -36,49 +39,19 @@ It is also possible to use Slack bots as users. Just create a new bot at https:/
 
 Don't forget to invite the bot to the room where you want to get the notifications.
 
-## Configuration
+### Icons
 
-To enable the Slack notification in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-notify:
-  - name: NOTIFIER_NAME
-    platform: slack
-    api_key: YOUR_API_KEY
-    default_channel: "#general"
-```
-
-{% configuration %}
-name:
-  description: Setting this parameter allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-  required: false
-  type: string
-  default: "notify"
-api_key:
-  description: The Slack API token to use for sending Slack messages.
-  required: true
-  type: string
-default_channel:
-  description: The default channel to post to if no channel is explicitly specified when sending the notification message.  A channel can be specified adding a target attribute to the JSON at the same level as "message".
-  required: true
-  type: string
-username:
-  description: Home Assistant will post to Slack using the username specified.
-  required: false
-  type: string
-  default: The user account or botname that you generated the API key as.
-icon:
-  description: Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](https://www.webpagefx.com/tools/emoji-cheat-sheet/). Alternatively a publicly accessible URL may be used.
-  required: false
-  type: string
-{% endconfiguration %}
+Slack uses the standard emoji sets used [here](https://www.webpagefx.com/tools/emoji-cheat-sheet/). Alternatively a publicly accessible URL may be used.
 
 <div class='note'>
 
-Note that in order to modify your Slack bot's username and icon, you must ensure your Slack app has the `chat:write.customize` OAuth scope. See [the Slack API documentation](https://api.slack.com/methods/chat.postMessage#authorship) for more information.
+In order to modify your Slack bot's username and icon, you must ensure your Slack app has the `chat:write.customize` OAuth scope. See [the Slack API documentation](https://api.slack.com/methods/chat.postMessage#authorship) for more information.
+
+The added `notify` service will be named after the chat server the app is installed on. For example, a server named "Slack Chat" wil display as `notify.slack_chat`.
 
 </div>
+
+{% include integrations/config_flow.md %}
 
 ### Slack Service Data
 
@@ -171,4 +144,24 @@ data:
         text: |-
           *Average Rating*
           1.0
+```
+
+Send a message directly to a user by setting the target to their member ID. Here are [instructions](https://www.workast.com/help/articles/61000165203/) to obtain a member ID.
+
+```yaml
+message: "Hello there!"
+target: "U12345"
+title: "Hi"
+data:
+  blocks: []
+```
+
+Send a message to a channel that mentions (@username, highlights a users name in yellow) a user. Here are [instructions](https://www.workast.com/help/articles/61000165203/) to obtain a member ID.
+
+```yaml
+message: "<@U12345> your appointment starts soon"
+target: "#general"
+title: "Reminder"
+data:
+  blocks: []
 ```
