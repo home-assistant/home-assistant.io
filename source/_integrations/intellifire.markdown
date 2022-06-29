@@ -3,6 +3,9 @@ title: IntelliFire
 description: Instructions on the IntelliFire Fireplace integration for Home Assistant.
 ha_category:
   - Binary Sensor
+  - Climate
+  - Sensor
+  - Switch
 ha_iot_class: Local Polling
 ha_release: 2022.2
 ha_codeowners:
@@ -11,6 +14,7 @@ ha_domain: intellifire
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - climate
   - sensor
   - switch
 ha_dhcp: true
