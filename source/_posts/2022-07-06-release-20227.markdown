@@ -289,7 +289,7 @@ For more information, check out our [Templating documentation]
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- You can now control the loudness setting of your [Sonos] speakers, thanks [@jjlawren]!
+- You can now control the loudness and various additional surround-related settings of your [Sonos] speakers, thanks [@jjlawren]!
 - [@matrixd2] extended [YoLink], it now supports thermostats, valve controllers,
   locks, and vibration, CO, and Smoke Sensors!
 - [Jellyfin] now supports movie collections in the media browser, thanks [@j-stienstra]!
