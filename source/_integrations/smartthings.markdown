@@ -165,7 +165,6 @@ For a SmartThings Air Conditioner to be represented by the climate platform, it 
 | [`temperatureMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Temperature-Measurement) (required)        | `temperature`                                                                                                                                                                     |
 | [`thermostatCoolingSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Cooling-Setpoint) (required) | `target temp`                                                                                                                                                                     |
 | [`demandResponseLoadControl`](https://docs.smartthings.com/en/latest/capabilities-reference.html#demand-response-load-control)                    | `drlc_status_duration` (state attribute), `drlc_status_level` (state attribute), `drlc_status_override` (state attribute), `drlc_status_start` (state attribute)                  |
-| [`powerConsumptionReport`](https://docs.smartthings.com/en/latest/capabilities-reference.html#power-consumption-report)                           | `power_consumption_end` (state attribute), `power_consumption_energy` (state attribute), `power_consumption_power` (state attribute), `power_consumption_start` (state attribute) |
 
 #### Thermostats
 
@@ -252,6 +251,7 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 | [`ovenMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Oven-Mode)                                                       | `ovenMode`                                                |
 | [`ovenOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Oven-Operating-State)                                  | `machineState`, `ovenJobState` and `completionTime`       |
 | [`ovenSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Oven-Setpoint)                                               | `ovenSetpoint`                                            |
+| [`powerConsumptionReport`](https://docs.smartthings.com/en/latest/capabilities-reference.html#power-consumption-report)                                  | `deltaEnergy`, `energy`, `energySaved`, `power`, `powerEnergy`  |
 | [`powerMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Power-Meter)                                                   | `power`                                                   |
 | [`powerSource`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Power-Source)                                                 | `powerSource`                                             |
 | [`refrigerationSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Refrigeration-Setpoint)                             | `refrigerationSetpoint`                                   |
