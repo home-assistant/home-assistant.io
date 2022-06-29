@@ -39,6 +39,10 @@ The NETGEAR router will have the following entities:
 
 Button entity to restart the router.
 
+### Update entity
+
+Update entity to vieuw current and latest firmware version, and install the latest firmware of the router.
+
 ### Traffic meter data
 
 The total and average amount of downloaded/uploaded data through the router can be tracked per day/week/month.
