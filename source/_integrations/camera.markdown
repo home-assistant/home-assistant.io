@@ -10,6 +10,8 @@ ha_domain: camera
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: integration
+ha_platforms:
+  - diagnostics
 ---
 
 The camera integration allows you to use IP cameras with Home Assistant.

@@ -25,6 +25,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
 - [3 Day Blinds](https://www.3dayblinds.com/)
+- [Diaz](https://www.diaz.be/en/)
 - [Dooya](http://www.dooya.com/)
 - [Gaviota](https://www.gaviotagroup.com/en/)
 - [Havana Shade](https://havanashade.com/)
@@ -120,14 +121,22 @@ Therefore it is always safe to use any of the services in Home Assistant with th
 
 ## Service `motion_blinds.set_absolute_position`
 
-For most blinds the `motion_blinds.set_absolute_position` does the same as `cover.set_cover_position` service.
-However, for TDBU blinds it will set the absolute position relative to the window itself.
+For simple blinds the `motion_blinds.set_absolute_position` does the same as `cover.set_cover_position` service.
+
+### TDBU blinds
+
+For TDBU blinds `motion_blinds.set_absolute_position` will set the absolute position relative to the window itself.
 The `cover.set_cover_position` will set the scaled position relative to the space in which the TDBU blind is allowed to move.
+
+### Tilt capable blinds
+
+For tilt capable blinds a new position and tilt can be specified and the blind will move to the new position and then adjust its tilt. If the normal `cover.set_cover_position` is issued and immediately after a `cover.set_cover_tilt_position` is issued, the blind will stop moving and start adjusting the tilt before it reaches the intended position.
 
 | Service data attribute | Optional | Description                                                                                       |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------- |
 | `entity_id`            |      yes | Name of the motion blind cover entity to control. For example `cover.TopDownBottomUp-Bottom-0001` |
 | `absolute_position`    |       no | Absolute position to move to. For example 70                                                      |
+| `tilt_position`        |      yes | Tilt position to move to. For example 50                                                          |
 | `width`                |      yes | Optionally specify the width that is covered, only for TDBU Combined entities. For example 30     |
 
 ## Troubleshooting

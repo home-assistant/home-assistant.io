@@ -64,6 +64,11 @@ recorder:
       required: false
       default: true
       type: boolean
+    auto_repack:
+      description: Automatically repack the database every second sunday after the auto purge. Without a repack, the database may not decrease in size even after purging, which takes up disk space and can make Home Assistant slow. If you disable `auto_repack` it is recommended that you create an automation to call the [`recorder.purge`](#service-purge) periodically. This flag has no effect if `auto_purge` is disabled.
+      required: false
+      default: true
+      type: boolean
     purge_keep_days:
       description: Specify the number of history days to keep in recorder database after a purge.
       required: false
@@ -132,23 +137,7 @@ recorder:
       - light.kitchen_light
 ```
 
-Filters are applied as follows:
-
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes:
-   - Include domain and/or glob patterns specified
-      - If domain is included, and entity not excluded or match exclude glob pattern, pass
-      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
-      - If domain is not included, glob pattern does not match, and entity not included, fail
-   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - If domain is excluded and entity not included, fail
-      - If entity matches exclude glob pattern and entity not included, fail
-      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
-   - Neither include or exclude specifies domains or glob patterns
-      - If entity is included, pass (as #2 above)
-      - If entity include and exclude, the entity exclude is ignored
+{% include common-tasks/filters.md %}
 
 If you only want to hide events from your history, take a look at the [`history` integration](/integrations/history/). The same goes for the [logbook](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
@@ -372,6 +361,12 @@ pip3 install mysqlclient
 ```
 
 After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you.
+
+```bash
+SET GLOBAL default_storage_engine = 'InnoDB';
+CREATE DATABASE DB_NAME CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+Where `DB_NAME` is the name of your database
 
 Once Home Assistant finds the database, with the right level of permissions, all the required tables will then be automatically created and the data will be populated accordingly.
 

@@ -209,7 +209,7 @@ Resolving names can take some time. So when you start Home Assistant you won't s
 
 ### Multiple hosts
 
-In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and ip), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
+In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and IP), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
 Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.
 This does *not* affect the entities in Home Assistant. They all use their own connection and work as expected.
 

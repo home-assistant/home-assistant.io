@@ -34,6 +34,7 @@ The following selectors are currently available:
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [Target selector](#target-selector)
+- [Template selector](#template-selector)
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
 - [Time selector](#time-selector)
@@ -930,6 +931,21 @@ target:
     manufacturer: IKEA of Sweden
     model: TRADFRI remote control
 ```
+
+## Template selector
+
+The template selector can be used to input a Jinja2 template. This is useful
+for allowing more advanced user-input that use Jinja2 templates.
+
+![Screenshot of an template selector](/images/blueprints/selector-template.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+template:
+```
+
+The output of this selector is a template string.
 
 ## Text selector
 

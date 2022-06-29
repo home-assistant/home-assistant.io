@@ -23,10 +23,10 @@ To use your D-Link smart plugs in your installation, add the following to your `
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: dlink
-  host: IP_ADRRESS
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
+  - platform: dlink
+    host: IP_ADRRESS
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
 {% configuration %}

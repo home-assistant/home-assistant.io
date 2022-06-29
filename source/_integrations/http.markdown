@@ -2,9 +2,7 @@
 title: HTTP
 description: Offers a web framework to serve files.
 ha_category:
-  - Binary Sensor
   - Other
-  - Sensor
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -155,7 +153,7 @@ If you want to use Home Assistant to host or serve static files then create a di
 
 <div class='note warning'>
 
-  Files served from the `www` folder (`/local/` url), aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
+  Files served from the `www` folder (`/local/` URL), aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
 
 </div>
 

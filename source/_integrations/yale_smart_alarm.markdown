@@ -4,6 +4,7 @@ description: Instructions on how to integrate Yale Smart Alarms into Home Assist
 ha_category:
   - Alarm
   - Binary Sensor
+  - Button
   - Lock
 ha_release: 0.78
 ha_iot_class: Cloud Polling
@@ -14,6 +15,7 @@ ha_domain: yale_smart_alarm
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - button
   - diagnostics
   - lock
 ha_integration_type: integration
@@ -25,6 +27,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Alarm
 - Binary Sensor
+- Button
 - Lock
 
 {% include integrations/config_flow.md %}
@@ -38,6 +41,10 @@ No code is required to operate the alarm.
 ## Binary Sensors
 
 Provides support for contact sensors for doors showing if door is open or closed.
+
+## Button
+
+Provides support for pressing the panic button to trigger the alarm. Be careful as another press does not reset/turn off panic mode.
 
 ## Lock
 

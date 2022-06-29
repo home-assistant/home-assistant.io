@@ -76,6 +76,7 @@ The Weather entity provides data only in English. Home Assistant automatically t
 | `snow`                   | Snow volume for the last hour, mm.                                                                                                |
 | `temperature`            | Temperature, ºC.                                                                                                                  |
 | `uv_index`               | UV Index.                                                                                                                         |
+| `visibility`             | Average visibility, m.                                                                                                            |
 | `weather`                | A human-readable description of the [weather condition](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2). |
 | `weather_code`           | ID of the [weather condition](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2).                           |
 | `wind_bearing`           | Wind direction, degrees (meteorological).                                                                                         |

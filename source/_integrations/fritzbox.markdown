@@ -82,6 +82,7 @@ There are multiple sensors defined, the availability depends on the features of 
 - Comfort Temperature
 - Current Scheduled Preset
 - Eco Temperature
+- Electric Current
 - Humidity
 - Next Scheduled Change Time
 - Next Scheduled Preset
@@ -89,6 +90,7 @@ There are multiple sensors defined, the availability depends on the features of 
 - Power Consumption
 - Temperature
 - Total Energy
+- Voltage
 
 ### Attributes
 
