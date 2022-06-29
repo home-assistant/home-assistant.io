@@ -16,10 +16,29 @@ To use your MQTT sensor in your installation, add the following to your `configu
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  sensor:
+    - state_topic: "home/bedroom/temperature"
+```
+
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `sensor` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 sensor:
   - platform: mqtt
     state_topic: "home/bedroom/temperature"
 ```
+
+{% enddetails %}
 
 {% configuration %}
 availability:
@@ -203,20 +222,22 @@ The example sensor below shows a configuration example which uses a JSON dict: `
 Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `ClientName` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.bs_rssi', 'ClientName') }}`{% endraw %}.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: mqtt
-    name: "RSSI"
-    state_topic: "home/sensor1/infojson"
-    unit_of_measurement: "dBm"
-    value_template: "{{ value_json.RSSI }}"
-    availability:
-      - topic: "home/sensor1/status"
-    payload_available: "online"
-    payload_not_available: "offline"
-    json_attributes_topic: "home/sensor1/attributes"
+mqtt:
+  sensor:
+    - name: "RSSI"
+      state_topic: "home/sensor1/infojson"
+      unit_of_measurement: "dBm"
+      value_template: "{{ value_json.RSSI }}"
+      availability:
+        - topic: "home/sensor1/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      json_attributes_topic: "home/sensor1/attributes"
 ```
+
 {% endraw %}
 
 ### JSON attributes template configuration
@@ -226,44 +247,47 @@ The example sensor below shows a configuration example which uses a JSON dict: `
 Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `Arm` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.timer1', 'Arm') }}`{% endraw %}.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: mqtt
-    name: "Timer 1"
-    state_topic: "tele/sonoff/sensor"
-    value_template: "{{ value_json.Timer1.Arm }}"
-    json_attributes_topic: "tele/sonoff/sensor"
-    json_attributes_template: "{{ value_json.Timer1 | tojson }}"
-  - platform: mqtt
-    name: "Timer 2"
-    state_topic: "tele/sonoff/sensor"
-    value_template: "{{ value_json.Timer2.Arm }}"
-    json_attributes_topic: "tele/sonoff/sensor"
-    json_attributes_template: "{{ value_json.Timer2 | tojson }}"
+mqtt:
+  sensor:
+    - name: "Timer 1"
+      state_topic: "tele/sonoff/sensor"
+      value_template: "{{ value_json.Timer1.Arm }}"
+      json_attributes_topic: "tele/sonoff/sensor"
+      json_attributes_template: "{{ value_json.Timer1 | tojson }}"
+    - name: "Timer 2"
+      state_topic: "tele/sonoff/sensor"
+      value_template: "{{ value_json.Timer2.Arm }}"
+      json_attributes_topic: "tele/sonoff/sensor"
+      json_attributes_template: "{{ value_json.Timer2 | tojson }}"
 ```
+
 {% endraw %}
 
 The state and the attributes of the sensor by design do not update in a synchronous manner if they share the same MQTT topic. Temporal mismatches between the state and the attribute data may occur if both the state and the attributes are changed simultaneously by the same MQTT message. An automation that triggers on any state change of the sensor will also trigger both on the change of the state or a change of the attributes. Such automations will be triggered twice if both the state and the attributes change. Please use a [MQTT trigger](/docs/automation/trigger/#mqtt-trigger) and process the JSON in the automation directly via the {% raw %}`{{ trigger.payload_json }}`{% endraw %} [trigger data](/docs/automation/templating/#mqtt) for automations that must synchronously handle multiple JSON values within the same MQTT message.
 
 ### Usage of `entity_id` in the template
 
-The example below shows how a simple filter, that calculates the value by adding 90% of the new value and 10% of the previous value, can be implemented in a template. 
+The example below shows how a simple filter, that calculates the value by adding 90% of the new value and 10% of the previous value, can be implemented in a template.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: mqtt
-    name: "Temp 1"
-    state_topic: "sensor/temperature"
-    value_template: |-
-      {% if states(entity_id) == None %}
-        {{ value | round(2) }}
-      {% else %}
-        {{ value | round(2) * 0.9 + states(entity_id) * 0.1 }}
-      {% endif %}
+mqtt:
+  sensor:
+    - name: "Temp 1"
+      state_topic: "sensor/temperature"
+      value_template: |-
+        {% if states(entity_id) == None %}
+          {{ value | round(2) }}
+        {% else %}
+          {{ value | round(2) * 0.9 + states(entity_id) * 0.1 }}
+        {% endif %}
 ```
+
 {% endraw %}
 
 ### Owntracks battery level sensor
@@ -277,15 +301,17 @@ owntracks/tablet/tablet {"_type":"location","lon":7.21,"t":"u","batt":92,"tst":1
 Thus the trick is extracting the battery level from the payload.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: mqtt
-    name: "Battery Tablet"
-    state_topic: "owntracks/tablet/tablet"
-    unit_of_measurement: "%"
-    value_template: "{{ value_json.batt }}"
+mqtt:
+  sensor:
+    - name: "Battery Tablet"
+      state_topic: "owntracks/tablet/tablet"
+      unit_of_measurement: "%"
+      value_template: "{{ value_json.batt }}"
 ```
+
 {% endraw %}
 
 ### Temperature and humidity sensors
@@ -303,20 +329,21 @@ office/sensor1
 Then use this configuration example to extract the data from the payload:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: mqtt
-    name: "Temperature"
-    state_topic: "office/sensor1"
-    unit_of_measurement: "°C"
-    value_template: "{{ value_json.temperature }}"
-  - platform: mqtt
-    name: "Humidity"
-    state_topic: "office/sensor1"
-    unit_of_measurement: "%"
-    value_template: "{{ value_json.humidity }}"
+mqtt:
+  sensor:
+    - name: "Temperature"
+      state_topic: "office/sensor1"
+      unit_of_measurement: "°C"
+      value_template: "{{ value_json.temperature }}"
+    - name: "Humidity"
+      state_topic: "office/sensor1"
+      unit_of_measurement: "%"
+      value_template: "{{ value_json.humidity }}"
 ```
+
 {% endraw %}
 
 ### Get sensor value from a device with ESPEasy
@@ -340,8 +367,8 @@ The configuration will look like the example below:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: mqtt
-    name: "Brightness"
-    state_topic: "home/bathroom/analog/brightness"
+mqtt:
+  sensor:
+    - name: "Brightness"
+      state_topic: "home/bathroom/analog/brightness"
 ```

@@ -26,6 +26,7 @@ ha_platforms:
   - binary_sensor
   - button
   - device_tracker
+  - diagnostics
   - fan
   - humidifier
   - light
@@ -1141,7 +1142,7 @@ type: entity-button
 tap_action:
   action: call-service
   service: remote.send_command
-  service_data:
+  data:
     command: activate_towel_heater
     entity_id: remote.xiaomi_miio_ir
 hold_action:

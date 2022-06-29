@@ -262,18 +262,6 @@ sensors:
 
 The list of sensors can be any sensor, not just temperature or humidity.
 
-## Sensor specific location
-
-The [SpaceAPI specification](http://spaceapi.net/documentation) requires every sensor to provide a location.
-In order to set a sensor specific location do the following steps:
-
-1. Go to Configuration -> Customization
-2. Select the sensor entity
-3. Pick "Other" from the attribute override pulldown
-4. Set the attribute name to location and the attribute value to your desired location
-
-If no location is set, the location defined in the HA configuration is used.
-
 ## Examples
 
 In this section you find some real-life examples of how to use this component.

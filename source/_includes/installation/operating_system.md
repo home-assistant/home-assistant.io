@@ -157,6 +157,25 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 3. Power the system on.
 
    - Wait for the Home Assistant welcome banner to show up in the console of the generic-x86-64 system.
+
+<div class="note">
+
+If the machine complains about not being able to find a bootable medium, you might need to specify the EFI entry in your BIOS.
+This can be accomplished either by using a live operating system (e.g. Ubuntu) and running the following command (replace `<drivename>` with the appropriate drive name assigned by Linux, typically this will be `sda` or `nvme0n1` on NVMe SSDs):
+
+  ```text
+  efibootmgr --create --disk /dev/<drivename> --part 1 --label "HAOS" \
+     --loader \EFI\BOOT\bootx64.efi
+  ```
+
+Or else, the BIOS might provide you with a tool to add boot options, there you can specify the path to the EFI file:
+
+  ```text
+  \EFI\BOOT\bootx64.efi
+  ```
+
+</div>
+
 {% else %}
 
 1. Insert the boot media ({{site.installation.types[page.installation_type].installation_media}}) you just created.
@@ -207,11 +226,20 @@ _All these can be extended if your usage calls for more resources._
 - title: VirtualBox
   content: |
     1. Create a new virtual machine
-    2. Select Type “Linux” and Version “Other Linux (64-bit)”
+    2. Select Type “Linux” and Version “Linux 2.6 / 3.x / 4.x (64-bit)”
     3. Select “Use an existing virtual hard disk file”, select the unzipped VDI file from above
     4. Edit the “Settings” of the VM and go “System” then “Motherboard” and select “Enable EFI”
     5. Then go to “Network” “Adapter 1” choose “Bridged Adapter” and choose your Network adapter
     6. Then go to “Audio” and choose “Intel HD Audio” as Audio Controller.
+    <div class="note info">
+
+    By default VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
+    the `discard` option must be enabled:
+    ```bash
+    VBoxManage storageattach <VM name> --storagectl "SATA" --port 0 --device 0 --nonrotational on --discard on
+    ```
+
+    </div>
 
 - title: KVM
   content: |

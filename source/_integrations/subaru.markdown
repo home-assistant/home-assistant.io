@@ -70,7 +70,7 @@ The current lock status is always unknown due to the fact that the Subaru API do
 
 Subaru integration options are set via:
 
-**Configuration** -> **Devices & Services** -> **Subaru** -> **Options**.
+**Settings** -> **Devices & Services** -> **Subaru** -> **Options**.
 
 - **Enable vehicle polling *[Default: off]*:** When enabled, vehicle polling will send a remote command to your vehicle every 2 hours to obtain new sensor data. This involves "waking" your vehicle and requesting that it send new data to Subaru servers. Without vehicle polling, new sensor data is only received when the vehicle automatically pushes data (normally after engine shutdown). This option only applies to Gen 2 vehicles with Security Plus subscriptions because it uses a "locate" command to request the data.
 

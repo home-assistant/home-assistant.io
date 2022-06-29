@@ -25,10 +25,29 @@ add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  binary_sensor:
+    - state_topic: "home-assistant/window/contact"
+```
+
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `binary_sensor` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 binary_sensor:
   - platform: mqtt
     state_topic: "home-assistant/window/contact"
 ```
+
+{% enddetails %}
 
 {% configuration %}
 availability:
@@ -223,18 +242,18 @@ The example below shows a full configuration for a binary sensor:
 
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-  - platform: mqtt
-    name: "Window Contact Sensor"
-    state_topic: "home-assistant/window/contact"
-    payload_on: "ON"
-    availability:
-      - topic: "home-assistant/window/availability"
-        payload_available: "online"
-        payload_not_available: "offline"
-    qos: 0
-    device_class: opening
-    value_template: "{{ value_json.state }}"
+mqtt:
+  binary_sensor:
+    - name: "Window Contact Sensor"
+      state_topic: "home-assistant/window/contact"
+      payload_on: "ON"
+      availability:
+        - topic: "home-assistant/window/availability"
+          payload_available: "online"
+          payload_not_available: "offline"
+      qos: 0
+      device_class: opening
+      value_template: "{{ value_json.state }}"
 ```
 
 {% endraw %}
@@ -245,10 +264,10 @@ binary_sensor:
 
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-  - platform: mqtt
-    state_topic: "lab_button/cmnd/POWER"
-    value_template: "{%if is_state(entity_id,\"on\")-%}OFF{%-else-%}ON{%-endif%}"
+mqtt:
+  binary_sensor:
+    - state_topic: "lab_button/cmnd/POWER"
+      value_template: "{%if is_state(entity_id,\"on\")-%}OFF{%-else-%}ON{%-endif%}"
 ```
 
 {% endraw %}
@@ -269,10 +288,10 @@ The configuration will look like the example below:
 
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-  - platform: mqtt
-    name: Bathroom
-    state_topic: "home/bathroom/switch/button"
-    payload_on: "1"
-    payload_off: "0"
+mqtt:
+  binary_sensor:
+    - name: Bathroom
+      state_topic: "home/bathroom/switch/button"
+      payload_on: "1"
+      payload_off: "0"
 ```

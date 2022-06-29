@@ -39,7 +39,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 
 ### Options
 
-To configure options for DSMR integration go to **Configuration** >> **Devices & Services** and press **Options** on the DSMR card.
+To configure options for DSMR integration go to **Settings** -> **Devices & Services** and press **Options** on the DSMR card.
 
 #### Time between updates
 
@@ -72,7 +72,6 @@ It is also possible to connect to a [RFXtrx device](http://www.rfxcom.com/epages
 #### USB serial converters:
 
 - Cheap (Banggood/ebay) Generic PL2303
-- [Smartmeter Webshop](https://sites.google.com/site/nta8130p1smartmeter/webshop)
 - [SOS Solutions](https://www.sossolutions.nl/slimme-meter-kabel)
 - [AliExpress](https://nl.aliexpress.com/item/32945187155.html)
 
@@ -89,7 +88,9 @@ $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /h
 
 DIY solutions (ESP8266 based):
 
-- [esp8266_p1meter (daniel-jong)](https://github.com/daniel-jong/esp8266_p1meter)
+- [esp8266_p1meter (daniel-jong)](https://github.com/daniel-jong/esp8266_p1meter) (parse on ESP8266 publish to MQTT)
+- [DSMR reader for ESPHome (mmakaay)](https://github.com/mmakaay/dsmr-reader-for-esphome)
+- [p1-esp8266 (DavyLandman)](https://github.com/DavyLandman/p1-esp8266) (turn ESP8266 into a serial forwarder)
 
 {% include integrations/config_flow.md %}
 

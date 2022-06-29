@@ -24,17 +24,16 @@ the database, and even change how long it stores the data
 
 ## Delete old backups
 
-Open the Home Assistant UI and go to {% my supervisor title="Configuration > Add-ons & Backups" %}, and then to
-the "Backups" tab, here you will see all your backups, these can be
-downloaded and placed somewhere safe. When you have done that, you can delete
+Open the Home Assistant UI and go to {% my backups title="Settings > System > Backups" %}, here you will see all your backups,
+these can be downloaded and placed somewhere safe. When you have done that, you can delete
 them in the UI and it will free up some space for you.
 
 ## Uninstall unused add-ons
 
 Add-ons can take a lot of space, not just the add-on itself but also their data.
 
-Open the Home Assistant UI and go to {% my supervisor title="Configuration > Add-ons & Backups" %} in the sidebar, you will be
-on the "Dashboard" tab when you click on {% my supervisor title="Configuration > Add-ons & Backups" %}, here you will see
+Open the Home Assistant UI and go to {% my supervisor title="Settings > Add-ons" %} in the sidebar, you will be
+on the "Dashboard" tab when you click on {% my supervisor title="Settings > Add-ons" %}, here you will see
 all your installed add-ons, maybe you have some that you no longer use, if
 you do those can be uninstalled to free up some space.
 

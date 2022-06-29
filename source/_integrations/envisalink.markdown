@@ -30,7 +30,7 @@ There is currently support for the following device types within Home Assistant:
 
 This is a fully event-based component. Any event sent by the Envisalink device will be immediately reflected within Home Assistant.
 
-As of 0.29, the alarm_trigger service is supported.  It is possible to fire off an envisalink-based alarm directly from Home Assistant.  For example, a newer Z-Wave / Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
+As of 0.29, the alarm_trigger service is supported.  It is possible to fire off an envisalink-based alarm directly from Home Assistant. For example, a newer Z-Wave/Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
 
 An `envisalink` section must be present in the `configuration.yaml` file and contain the following options as required:
 
@@ -70,11 +70,11 @@ panel_type:
   required: true
   type: string
 user_name:
-  description: Which username to authenticate with when connecting to the device. On a Honeywell alarm panel, the username/password are the same.
+  description: Which username to authenticate with when connecting to the device. This must be the username for connecting directly to the device and not the username for your EyezOn account. On a Honeywell alarm panel, the username/password are the same.
   required: true
   type: string
 password:
-  description: Which password to authenticate with when connecting to the device. EVL3 only works with max. 6 characters.
+  description: Which password to authenticate with when connecting to the device. This must be the password for connceting directly to the device and not the password for your EyezOn account. EVL3 only works with max. 6 characters.
   required: true
   type: string
 code:
@@ -136,7 +136,7 @@ partitions:
       type: string
 {% endconfiguration %}
 
-Supported services:
+## Services
 
 The following services are supported by Envisalink and can be used to script or automate the alarm.
 
@@ -147,3 +147,14 @@ The following services are supported by Envisalink and can be used to script or 
 - **alarm_trigger**: Trigger an alarm on the Envisalink connected alarm system. For example, a newer Z-Wave / Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
 - **alarm_keypress**: Sends a string of up to 6 characters to the alarm. *Works with DSC panels, and confirmed to work with Honeywell Vista-20P (aka First Alert FA-168)*
 - **invoke_custom_function**: Invokes a custom PGM function. *DSC alarms only*
+
+## Attributes
+
+The zone status binary sensors have extra attributes representing additional
+information about each zone.
+
+| Name | Description |
+| ---- | ----------- |
+| `last_tripped_time` | Last time this zone was tripped.
+| `zone` | Zone number. Can be used in combination with `alarm_keypress` service
+to issue commands relating to this zone.

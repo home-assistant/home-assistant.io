@@ -10,7 +10,7 @@ The Shopping List card allows you to add, edit, check-off, and clear items from 
 Setup of the [Shopping List integration](/integrations/shopping_list/) is required.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_shopping_list_card.gif' alt='Screenshot of the shopping list card'>
+<img src='/images/dashboards/shopping_list_card.gif' alt='Screenshot of the shopping list card'>
 Screenshot of the Shopping List card.
 </p>
 

@@ -5,8 +5,6 @@ ha_category:
   - Finance
 ha_iot_class: Cloud Polling
 ha_release: '0.60'
-ha_codeowners:
-  - '@fabaff'
 ha_domain: alpha_vantage
 ha_platforms:
   - sensor

@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - sensor
+  - switch
 ha_dhcp: true
 ha_integration_type: integration
 ---
@@ -101,4 +102,3 @@ In some cases, this will restore control to the fireplace, but if it doesn't you
 #### Power Cycle
 
 The sure fire way to reset the IFT module is to just power-cycle it. This will work just about every time.
-

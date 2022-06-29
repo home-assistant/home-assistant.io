@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@rytilahti'
   - '@thegardenmonkey'
+  - '@bdraco'
 ha_domain: tplink
 ha_platforms:
   - diagnostics
@@ -44,6 +45,7 @@ There is currently support for the following device types within Home Assistant:
 - HS110 (supports consumption sensors)
 - KP105
 - KP115 (supports consumption sensors)
+- KP125 (supports consumption sensors)
 
 ### Strip (Multi-Plug)
 

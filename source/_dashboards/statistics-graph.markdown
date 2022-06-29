@@ -12,12 +12,12 @@ Statistics are gathered every hour for sensors that support it. It will either k
 If your sensor doesn't work with statistics, check [this](/more-info/statistics/).
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_statistics_graph_line.png' alt='Screenshot of the statistics graph card for power entities'>
+<img src='/images/dashboards/statistics_graph_line.png' alt='Screenshot of the statistics graph card for power entities'>
 Screenshot of the Statistics Graph card with none metered entities and `chart_type` `line`.
 </p>
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_statistics_graph_bar.png' alt='Screenshot of the statistics graph card for energy entities'>
+<img src='/images/dashboards/statistics_graph_bar.png' alt='Screenshot of the statistics graph card for energy entities'>
 Screenshot of the Statistics Graph card with a metered entity and `chart_type` `bar`.
 </p>
 
