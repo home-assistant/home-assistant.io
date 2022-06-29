@@ -47,45 +47,45 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 
 ## Requirements
 
-- The Alexa Smart Home API requires your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using an SSL/TLS certificate. A self-signed certificate will work, but a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport) is recommended. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Home Assistant using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
-- Amazon Developer Account. Sign up [here](https://developer.amazon.com).
+- The Alexa Smart Home API requires your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using an SSL/TLS certificate. A self-signed certificate will work, but a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport) is recommended. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Home Assistant, using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
+- An Amazon Developer Account. Sign up [here](https://developer.amazon.com).
 - An [Amazon Web Services (AWS)](https://aws.amazon.com/free/) account is required to host the Lambda function for your Alexa Smart Home Skill. [AWS Lambda](https://aws.amazon.com/lambda/pricing/) is free to use for up to 1-million requests and 1GB outbound data transfer per month.
 
 ## Create an Amazon Alexa Smart Home Skill
 
-- Sign in [Alexa Developer Console][alexa-dev-console], you can create your free account on the sign-in page. Note this *must* be created with the same Amazon account you use on your Alexa devices and app.
-- Go to `Alexa Skills` page if you are not, click `Create Skill` button to start the process.
-- Input `Skill name` as you like, select your skill's `Default language`.
+- Sign into the [Alexa Developer Console][alexa-dev-console], you can create your free account on the sign-in page. Note this *must* be created with the same Amazon account you use on your Alexa devices and app.
+- Go to `Alexa Skills` page if you are not, then click the `Create Skill` button to start the process.
+- Input `Skill name` as you like, then select your skill's `Default language`.
 - Select `Smart Home` and `Provision your own`, then click `Create skill` button at top right corner.
 
 <p class='img'>
   <img src='/images/integrations/alexa/create_a_new_skill.png' alt='Screenshot: Create Smart Home skill'>
 </p>
 
-- In next screen, make sure *v3* is selected in `Payload version`.
-- Now, you have created a skeleton of Smart Home skill. Next step we will do some "real" developer work. You can keep Alexa Developer Console opened, we need change the skill configuration later.
+- In next screen, make sure *v3* is selected in `Payload version` and take note of your `Skill ID`
+- Now, you have created a skeleton of Smart Home skill. In the next step we will do some "real" developer work. Keep Alexa Developer Console open, we will need to change the skill configuration later.
 
 ## Create an AWS Lambda Function
 
-Alexa Smart Home skill will trigger a AWS Lambda function to process the request, we will write a small piece of code hosted as an Lambda function basically redirect the request to your Home Assistant instance, then the Alexa integration in Home Assistant will process the request and send back the response. Your Lambda function will deliver the response back to Alexa.
+We will write a small piece of code hosted as an AWS Lambda function that will redirect requests from the Alexa Smart Home skill to your Home Assistant instance, then the Alexa integration in Home Assistant will process the request and send back the response. The Lambda function will then deliver the response back to the Alexa Smart Home skill.
 
 <div class='info'>
 
-There already are some great tutorials and solutions in our community to achieve same goal "Create your Alexa Smart Home Skill to connect Home Assistant", for example: [haaska](https://github.com/mike-grant/haaska/wiki).
+There already are some great alternative tutorials and solutions to ours in our community to achieve the same goal of creating your Alexa Smart Home Skill and its connection to Home Assistant, for example: [haaska](https://github.com/mike-grant/haaska/wiki).
 
-You can follow this document or others, but you cannot mixed-match different solutions since they may have different design.
-
-Amazon also provided a [step-by-step guide](https://developer.amazon.com/docs/smarthome/steps-to-build-a-smart-home-skill.html) to create a Smart Home Skill, however you have to adapt its sample code to match Home Assistant API.
+Amazon also has provided a [step-by-step guide](https://developer.amazon.com/docs/smarthome/steps-to-build-a-smart-home-skill.html) to create a Smart Home Skill, however you have to adapt its sample code to match the Home Assistant API.
+  
+You can follow this document or others, but you cannot mix and match different solutions since they may have different designs.
 
 </div>
 
-OK, let's go. You first need to sign in to your [AWS console](https://console.aws.amazon.com/), if you don't have an AWS account yet, you can create a new user [here](https://aws.amazon.com/free/) with 12-month free tier benefit. You don't need worry the cost if your account already pass the first 12 months, AWS provides up to 1 million Lambda request, 1GB outbound data and all inbound data for free, every month, all users. See [Lambda pricing](https://aws.amazon.com/lambda/pricing/) for details.
+OK, let's go. You first need to sign in to your [AWS console](https://console.aws.amazon.com/), if you don't have an AWS account yet, you can create a new user [here](https://aws.amazon.com/free/) with 12-month free tier benefit. You don't need to worry about the cost if your account has already passed the first 12 months, as AWS provides up to 1 million Lambda requests, 1GB of outbound data and all inbound data for free, every month, for all users. See [Lambda pricing](https://aws.amazon.com/lambda/pricing/) for more details.
 
 ### Create an IAM Role for Lambda
 
-First thing you need to do after sing in [AWS console](https://console.aws.amazon.com/) is to create an IAM Role for Lambda execution. AWS has very strict access control, you have to specific define and assign the permissions.
+The first thing you need to do after signing into the [AWS console](https://console.aws.amazon.com/) is to create an IAM Role for Lambda execution. AWS has very strict access control, so you have to specifically define and assign the required permissions.
 
-- Click `Services` in top navigation bar, expand the menu to display all AWS services, click `IAM` under `Security, Identity, & Compliance` section to navigate to IAM console. Or you may use this [link](https://console.aws.amazon.com/iam/home)
+- Click `Services` in the top navigation bar, expand the menu to display all AWS services, then under the `Security, Identity, & Compliance` section click `IAM` to navigate to the IAM console. Or you may use this [link](https://console.aws.amazon.com/iam/home)
 - Click `Roles` in the left panel, then click `Create role`, select `AWS Service` -> `Lambda` in the first page of the wizard, then click `Next: Permissions`
 - Select `AWSLambdaBasicExecutionRole` policy, then click `Next: Tags`. (Tips: you can use the search box to filter the policy)
 
@@ -93,30 +93,29 @@ First thing you need to do after sing in [AWS console](https://console.aws.amazo
   <img src='/images/integrations/alexa/create_iam_role_attach_permission.png' alt='Screenshot: Attach permission policy to IAM role'>
 </p>
 
-- You can skip `Add tags` page, click `Next: Review`.
-- Give your new role a name, such as `AWSLambdaBasicExecutionRole-SmartHome`, then click `Create role` button. You should be able to find your new role in the roles list now.
+- Give your new role a name, such as `AWSLambdaBasicExecutionRole-SmartHome`, then click the `Create role` button at the bottom of the pahe. You should be able to find your new role in the roles list now.
 
 ### Add Code to the Lambda Function
 
 Next you need create a Lambda function.
 
-- Click `Services` in top navigation bar, expand the menu to display all AWS services, click `Lambda` under `Compute` section to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
+- Click `Services` in top navigation bar, expand the menu to display all AWS services, then under `Compute` section click `Lambda` to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
 - **IMPORTANT - Alexa Skills are only supported in certain AWS regions** Your current server location will be displayed on the top right corner (for example, Ohio), make sure you select the server closest to your location / region based on your Amazon account's country, whilst also ensuring that it is within one of the supported regions for Alexa Skills otherwise this will not work!
   - **US East (N.Virginia)** region for English (US) or English (CA) skills
   - **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
   - **US West (Oregon)** region for Japanese and English (AU) skills.
 
-- Click `Functions` in the left navigation bar, display list of your Lambda functions.
+- Click `Functions` in the left navigation bar, to display the list of your Lambda functions.
 - Click `Create function`, select `Author from scratch`, then input a `Function name`.
-- Select *Python 3.6*, *Python 3.7* or *Python 3.8* as `Runtime`.
-- Make sure select *Use an existing role* as `Execution role`, then select the role you just created from `Existing role` list.
-- Click `Create function`, then you can configuration detail of Lambda function.
-- Under `Configuration` tab, expand `Designer` (if it isn't already expanded), then click `+ Add trigger` in the left part of the panel, then click `Alexa Smart Home` from the drop down list to add a Alexa Smart Home trigger to your Lambda function.
-- You will then be prompted to input the `Skill ID` from the skill you created in previous step. (Tips: you may need switch back to Alexa Developer Console to copy the `Skill ID`.) Then click `Add`.
-- Click your Lambda function icon in the middle of the diagram (above Layers), scroll down you will see a `Function code` window.
-- Clear the example code, copy the Python script from: [https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b](https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b) (modified code to support Alexa's proactive mode, see details below)
-- Click `Deploy` button to publish updated code.
-- Scroll down a little bit, you will find `Environment variables`, you need add 1 environment variable and, if required, 3 optional variables. This is done by selecting `Manage environment variables` then adding the following:
+- Select *Python 3.9*, *Python 3.8* or *Python 3.7* as `Runtime`.
+- Expand the `Change default execution role` dropdown and make sure to select *Use an existing role* as `Execution role`, then select the role you just created from `Existing role` list.
+- Click `Create function`, then you can configure the details of Lambda function.
+- Expand the `Function overview` (if it isn't already expanded), then click `+ Add trigger` in the left part of the panel, then click `Alexa Smart Home` from the drop down list to add an Alexa Smart Home trigger to your Lambda function.
+- You will then be prompted to input the `Skill ID` from the skill you created in previous step. (Tip: you may need switch back to Alexa Developer Console to copy the `Skill ID`.) Then click `Add`.
+- Scroll down to `Code source`, then, if it isn't already open the `lambda_function.py`.
+- Clear the example code, and copy the Python script from: [https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b](https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b) (modified code to support Alexa's proactive mode, see details below)
+- Click the `Deploy` button to publish updated code.
+- Navigate to the `Configuration` tab, then select `Environment variables`. You need to add 1 environment variable and, if needed, 3 optional variables. This is done by selecting `Edit` then adding the following:
   - *(required)* Key = BASE_URL, Value = your Home Assistant instance's Internet accessible URL. *Do not include the trailing `/`*.
   - *(optional)* Key = NOT_VERIFY_SSL, Value = *True*. You can set this to *True* to ignore SSL issues, for example if you don't have a valid SSL certificate or you are using a self-signed certificate.
   - *(optional)* Key = DEBUG, Value = *True*. Set this variable to log the debug message and to allow the LONG_LIVED_ACCESS_TOKEN
@@ -127,24 +126,22 @@ Next you need create a Lambda function.
 </p>
 
 - Now click the `Save` button in the bottom right hand corner.
-- You will then be brought back to your function configuration. From here you need to select `Save` in the top right hand corner of the screen.
-- You also need to copy the ARN displayed in the top of the page, which is the identity of this Lambda function. You will need this ARN to continue Alexa Smart Home skill configuration later.
+- Next you need to copy the ARN displayed in the top of the page, which is the identity of this Lambda function. You will need this ARN to continue Alexa Smart Home skill configuration later.
 
 ### Test the Lambda Function
 
-Now, you have created the Lambda function, before you can test it, you have to set up the necessary aspects of your Home Assistant configuration. Put the following minimal configuration into your `configuration.yaml` file. It will expose all of your supported devices and automations to Alexa. Check the [configuration section](#alexa-smart-home-component-configuration) if you want more control of the exposure.
+Now, you have created the Lambda function, but before you can test it, you have to set up the necessary aspects of your Home Assistant configuration. Put the following minimal configuration into your `configuration.yaml` file. It will expose all of your supported devices and automations to Alexa. It is strongly recommended to check the [configuration section](#alexa-smart-home-component-configuration) and setup control of which devices and entities are exposed.
 
 ```yaml
 alexa:
   smart_home:
 ```
 
-After your Home Assistant has restarted, go back to `AWS Lambda Console`, you are going to do some tests.
+After your Home Assistant has restarted, go back to the `AWS Lambda Console`, you are going to do some tests.
 
-- On the top of your Lambda function configuration page, there is a `Test` button, to the left of this button is a drop down button - click this and select `Configure test events`
-- Select `Create new test event`
+- Navigate to the `Test` tab, then select `Create new event`
 - Name your event, for example `Discovery`
-- Enter the following data into the code box below `Event name`:
+- Enter the following data into the code box named `Event JSON`:
 
 ```json
 {
@@ -164,30 +161,30 @@ After your Home Assistant has restarted, go back to `AWS Lambda Console`, you ar
 }
 ```
 
-- Click `Create` in the bottom right hand corner.
+- Click `Create` in the top right hand corner.
 
-This test event is a `Discovery` directive, your Home Assistant instance will respond with a list of devices Alexa can interact with. This test data is lack of `token` in `payload.scope`, your Lambda function will read the `LONG_LIVED_ACCESS_TOKEN` from environment variable.
+This test event is a `Discovery` directive, your Home Assistant instance will respond with a list of devices Alexa can interact with. Since this test data is lacking a `token` in `payload.scope`, and your Lambda function will read the `LONG_LIVED_ACCESS_TOKEN` from environment variable.
 
-Click the `Test` button. If you don't have `LONG_LIVED_ACCESS_TOKEN`, or you haven't enabled `DEBUG` you will get a `INVALID_AUTHORIZATION_CREDENTIAL` response as the execution result.
+Click the `Test` button. If you don't have `LONG_LIVED_ACCESS_TOKEN` set, or you haven't enabled `DEBUG` you will get a `INVALID_AUTHORIZATION_CREDENTIAL` response as the execution result.
 
-Now, you can login to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you put your long-lived access token to the `Environment variable` and set the `DEBUG` environment variable to `True`, do not forget to click the `Save` button before you `Test` again.
+You can login to your Home Assistant and [generate a long-lived access token][generate-long-lived-access-token]. After you have entered your long-lived access token into the environment variable `LONG_LIVED_ACCESS_TOKEN` and set the `DEBUG` environment variable to `True`, do not forget to click the `Save` button before you `Test` again.
 
 This time, you will get a list of your devices in the response. 🎉
 
 ## Configure the Smart Home Service Endpoint
 
-Now remove the long-lived access token (if you want), copy the ARN of your Lambda function, then navigate back to [Alexa Developer Console][alexa-dev-console]. You will finish the configuration of the Smart Home skill.
+Now remove the long-lived access token (if you want), copy the ARN of your Lambda function, then navigate back to the [Alexa Developer Console][alexa-dev-console]. You will finish the configuration of the Smart Home skill.
 
-- Sign in [Alexa Developer Console][alexa-dev-console], go to `Alexa Skills` page if you are not.
+- Return to the [Alexa Developer Console][alexa-dev-console], and go to `Alexa Skills` page if you are not.
 - Find the skill you just created, click `Edit` link in the `Actions` column.
 - Click `SMART HOME` in the left navigation bar of build page.
 - Fill in `Default endpoint` under `2. Smart Home service endpoint` using the `ARN` you copied from your Lambda function configuration.
 
 ## Account Linking
 
-Alexa can link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa request be able to access your home's devices. In order to link the account, you have to make sure your Home Assistant can be accessed from Internet.
+Alexa needs to link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests are able to access your home's devices. In order to link the account, you have to make sure your Home Assistant can be accessed from Internet at port 443.
 
-- Sign in [Alexa Developer Console][alexa-dev-console], go to `Alexa Skills` page if you are not.
+- Return to the [Alexa Developer Console][alexa-dev-console], go to `Alexa Skills` page if you are not.
 - Find the skill you just created, click `Edit` link in the `Actions` column.
 - Click `ACCOUNT LINKING` in the left navigation bar of build page
 - Do not turn on the "Allow users to link their account to your skill from within your application or website" switch. This will require a Redirect URI, which won't work.
@@ -212,14 +209,16 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
 </p>
 
 - Click `Save` button in the top right corner.
-- Next, you will use Alexa Mobile App or [Alexa web-based app](#alexa-web-based-app) to link your account.
-  - Open the Alexa app, navigate to `Skills & Games` -> `Your Skills` -> `Dev`
+- Next, you will use the Alexa Mobile App or the [Alexa web-based app](#alexa-web-based-app) to link your account.
+  - In the Alexa app, navigate to `More` -> `Skills & Games` -> `Your Skills` -> `Dev`
+  - Or In the Alexa web app, navigate to `Skills` -> `Your Skills` in the top right -> `Dev Skill`
   - Click the Smart Home skill you just created.
   - Click `Enable to use`.
   - A new window will open to direct you to your Home Assistant's login screen.
-  - After you successfully login, you will be redirected back to Alexa app.
-  - You can discover your devices now!
-- Now, you can ask your Echo or in Alexa App, _"Alexa, turn on bedroom"_ 🎉
+  - After you successfully login, you will be redirected back to the Alexa app.
+  - Alexa should automatically start discovering your devices now! This is indicated by a blue ring on your physical devices
+  - If not, ask Alexa to `Discover Devices`
+- Now, you can ask Alexa from your Echo or the Alexa App, _"Alexa, turn on bedroom light"_ 🎉
 
 ## Alexa Smart Home Component Configuration
 
