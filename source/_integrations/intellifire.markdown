@@ -25,6 +25,19 @@ IntelliFire Wi-Fi fireplace modules provide app-based and Alexa control to vario
 
 To fully configure the IntelliFire integration you will need to enter your IntelliFire credentials which are the same ones you would use with the mobile app.
 
+### Entities
+
+The following controllable entities are available:
+
+### Switch
+
+- **Flame** - Turn fireplace on/off.
+- **Pilot Light** - Turn pilot light on/off.
+
+### Climate
+
+- **Thermostat** - If your unit is equipped with thermostatic control - this entry will be present. 
+
 ### Sensor Types
 
 
