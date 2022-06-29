@@ -15,6 +15,7 @@ ha_platforms:
   - climate
   - switch
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 The `radiotherm` climate platform let you control a thermostat from [Radio Thermostat](https://www.radiothermostat.com/) or [3M Filtrete](https://www.filtrete.com/). Your thermostat must have the Wi-Fi module installed and connected to your network.
@@ -45,5 +46,3 @@ If you want temperature settings from Home Assistant to override a thermostat sc
 - CT80 Rev B2 V1.09
 
 New models that are derivatives of the CT30 or CT80 should be detected automatically and basic functionality should work.
-
-

@@ -31,6 +31,7 @@ ha_platforms:
 ha_homekit: true
 ha_dhcp: true
 ha_integration_type: integration
+ha_quality_scale: platinum
 ---
 
 Integrates [Sensibo](https://sensibo.com) Air Conditioning controller into Home Assistant.

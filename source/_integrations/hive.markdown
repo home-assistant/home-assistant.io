@@ -26,6 +26,7 @@ ha_platforms:
   - water_heater
 ha_config_flow: true
 ha_integration_type: integration
+ha_homekit: true
 ---
 
 The Hive integration for Home Assistant allows you to interact with supported devices and services offered by
