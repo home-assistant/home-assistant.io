@@ -15,6 +15,7 @@ ha_platforms:
   - binary_sensor
   - sensor
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The `eight_sleep` integration allows Home Assistant to fetch data from your [Eight Sleep](https://eightsleep.com/) smart cover or mattress.

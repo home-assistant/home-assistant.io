@@ -5,8 +5,6 @@ ha_category:
   - Finance
 ha_iot_class: Cloud Polling
 ha_release: 0.23
-ha_codeowners:
-  - '@fabaff'
 ha_domain: fixer
 ha_platforms:
   - sensor

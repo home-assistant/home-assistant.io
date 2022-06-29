@@ -12,7 +12,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@rytilahti'
   - '@thegardenmonkey'
-  - '@bdraco'
 ha_domain: tplink
 ha_platforms:
   - diagnostics

@@ -11,6 +11,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@raman325'
+  - '@lymanepp'
 ha_domain: tomorrowio
 ha_platforms:
   - sensor

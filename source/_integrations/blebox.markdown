@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@bbx-a'
   - '@bbx-jp'
+  - '@riokuu'
 ha_domain: blebox
 ha_platforms:
   - air_quality
