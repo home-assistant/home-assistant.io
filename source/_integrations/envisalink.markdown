@@ -136,7 +136,7 @@ partitions:
       type: string
 {% endconfiguration %}
 
-Supported services:
+## Services
 
 The following services are supported by Envisalink and can be used to script or automate the alarm.
 
@@ -147,3 +147,14 @@ The following services are supported by Envisalink and can be used to script or 
 - **alarm_trigger**: Trigger an alarm on the Envisalink connected alarm system. For example, a newer Z-Wave / Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
 - **alarm_keypress**: Sends a string of up to 6 characters to the alarm. *Works with DSC panels, and confirmed to work with Honeywell Vista-20P (aka First Alert FA-168)*
 - **invoke_custom_function**: Invokes a custom PGM function. *DSC alarms only*
+
+## Attributes
+
+The zone status binary sensors have extra attributes representing additional
+information about each zone.
+
+| Name | Description |
+| ---- | ----------- |
+| `last_tripped_time` | Last time this zone was tripped.
+| `zone` | Zone number. Can be used in combination with `alarm_keypress` service
+to issue commands relating to this zone.
