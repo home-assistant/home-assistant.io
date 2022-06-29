@@ -71,7 +71,7 @@ Sets an option for the active program.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
-| `entity_id` | no | Id of an entity associated with the home appliance. |
+| `device_id` | no | Id of a device associated with the home appliance. |
 | `key` | no | Key of the option. |
 | `value` | no | Value of the option. |
 | `unit` | yes | Unit for the option. |
@@ -82,7 +82,7 @@ Sets an option for the selected program.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
-| `entity_id` | no | Id of an entity associated with the home appliance. |
+| `device_id` | no | Id of a device associated with the home appliance. |
 | `key` | no | Key of the option. |
 | `value` | no | Value of the option. |
 | `unit` | yes | Unit for the option. |
@@ -93,7 +93,7 @@ Pauses the current running program.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
-| `entity_id` | no | Id of an entity associated with the home appliance. |
+| `device_id` | no | Id of a device associated with the home appliance. |
 
 ### Service `home_connect.resume_program`
 
@@ -101,7 +101,7 @@ Resumes a paused program.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
-| `entity_id` | no | Id of an entity associated with the home appliance. |
+| `device_id` | no | Id of a device associated with the home appliance. |
 
 ### Service `home_connect.select_program`
 
@@ -109,7 +109,7 @@ Selects a program without starting it.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
-| `entity_id` | no | Id of an entity associated with the home appliance. |
+| `device_id` | no | Id of a device associated with the home appliance. |
 | `program` | no | Program to select. |
 | `key` | yes | Key of the option. |
 | `value` | yes | Value of the option. |
@@ -121,7 +121,7 @@ Selects a program and starts it.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
-| `entity_id` | no | Id of an entity associated with the home appliance. |
+| `device_id` | no | Id of a device associated with the home appliance. |
 | `program` | no | Program to select. |
 | `key` | yes | Key of the option. |
 | `value` | yes | Value of the option. |
@@ -133,6 +133,6 @@ Changes a setting.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
-| `entity_id` | no | Id of an entity associated with the home appliance. |
+| `device_id` | no | Id of a device associated with the home appliance. |
 | `key` | no | Key of the setting. |
 | `value` | no | Value of the setting. |
