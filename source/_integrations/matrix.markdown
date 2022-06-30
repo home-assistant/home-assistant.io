@@ -197,7 +197,7 @@ action:
     message: >-
       <h1>Hello, world!</h1>
     data:
-      format: html
+      format: "html"
 ```
 
 ### Images in notification
