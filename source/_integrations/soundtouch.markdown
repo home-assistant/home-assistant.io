@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `soundtouch` platform allows you to control your [Bose SoundTouch](https://www.soundtouch.com/) speakers from Home Assistant.
+The Bose SoundTouch integration allows you to control your [Bose SoundTouch](https://www.soundtouch.com/) speakers from Home Assistant.
 
 {% include integrations/config_flow.md %}
 
