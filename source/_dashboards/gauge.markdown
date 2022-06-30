@@ -94,6 +94,10 @@ segments:
       required: true
       description: Color of the segment, may be any CSS color declaration like "red", "#0000FF" or "rgb(255, 120, 0)".
       type: string
+    label:
+      required: false
+      description: Label of the segment. This will be shown instead of the value.
+      type: string
 {% endconfiguration %}
 
 ## Examples
