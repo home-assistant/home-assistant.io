@@ -2,6 +2,8 @@
 title: devolo Home Network
 description: Instructions on how to integrate devolo Home Network devices with Home Assistant.
 ha_category:
+  - Binary Sensor
+  - Presence Detection
   - Sensor
 ha_release: '2021.12'
 ha_iot_class: Local Polling
@@ -13,6 +15,7 @@ ha_domain: devolo_home_network
 ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
+  - device_tracker
   - sensor
 ha_zeroconf: true
 ha_integration_type: integration
@@ -31,6 +34,12 @@ Currently the following device types within Home Assistant are supported.
 * Device attached to the router
   * Updates every 5 minutes
   * Is disabled by default because it typically rarely changes
+
+### Presence Detection
+
+* Detect presence of devices connected to the main or the guest wifi
+  * Updates every 10 seconds
+  * Automatically adds new devices as disabled entities unless disabled via system option
 
 ### Sensors
 
