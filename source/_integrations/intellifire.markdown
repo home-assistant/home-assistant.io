@@ -41,7 +41,7 @@ The following controllable entities are available:
 
 ### Climate
 
-- **Thermostat** - If your unit is equipped with thermostatic control - this entry will be present. 
+- **Thermostat** - This entity will be present if your unit has thermostatic control.
 
 ### Sensor Types
 
