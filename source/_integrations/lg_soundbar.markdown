@@ -15,10 +15,10 @@ The `lg_soundbar` platform allows you to control [LG Soundbars](https://www.lg.c
 
 Supported devices:
 
-- Devices in the SK range with Ethernet and/or Wi-Fi
+- Devices in the SK and SN range with Ethernet and/or Wi-Fi
 
-Compatible devices will be automatically added if the [`discovery`](/integrations/discovery/) integration is enabled.
+{% include integrations/config_flow.md %}
 
-### Supported operations
+## Supported operations
 
 - These devices support mute, volume control, source selection and mode selection.
