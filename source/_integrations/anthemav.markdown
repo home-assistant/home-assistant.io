@@ -30,17 +30,12 @@ Support is provided through the Python [anthemav] module. Older, RS-232 serial-b
 
 {% include integrations/config_flow.md %}
 
-{% configuration %}
+{% configuration_basic %}
 host:
   description: The host name or the IP address of the device.
-  required: true
-  type: string
 port:
   description: The port number of the device.
-  required: false
-  default: 14999
-  type: integer
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 ## Notes and Limitations
 
