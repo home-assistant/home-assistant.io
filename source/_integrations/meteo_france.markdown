@@ -55,7 +55,7 @@ All the following sensors will be created :
 |`uv`|The current UV index|Yes|
 |`weather_alert`|Weather alert status ([see note below](#about-weather_alert-sensor))|Yes|
 |`wind_gust`|The current wind gust speed in km/h|No|
-|`wind_speed`|The current wind speed in km/h|No|
+|`wind_speed`|The current wind speed in m/s|No|
 
 Warning: The probability entities data are not always provided by the API. They are added only if available.
 
