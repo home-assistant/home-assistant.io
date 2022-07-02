@@ -18,6 +18,6 @@ NextDNS is a DNS service that protects from all kinds of security threats, block
 
 ## Setup
 
-To obtain API key go to the [NextDNS](https://nextdns.io/) site >> Account section.
+To obtain API key go to the NextDNS site >> [Account section](https://my.nextdns.io/account).
 
 {% include integrations/config_flow.md %}
