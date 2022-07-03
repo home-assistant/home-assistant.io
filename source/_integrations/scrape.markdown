@@ -5,8 +5,10 @@ ha_category:
   - Sensor
 ha_release: 0.31
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ha_codeowners:
   - '@fabaff'
+  - '@gjohansson-ST'
 ha_domain: scrape
 ha_platforms:
   - sensor
@@ -21,7 +23,13 @@ If you are not using Home Assistant Container or Home Assistant Operating System
 sudo apt install libxml2
 ```
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+Check Beautifulsoup's [CSS selectors](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#css-selectors) for details on how to write a **Select**.
+
+You can enable this integration using both from the user interface or by adding yaml to your `configuration.yaml` file.
+
+{% include integrations/config_flow.md %}
+
+To enable this integration using yaml, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
