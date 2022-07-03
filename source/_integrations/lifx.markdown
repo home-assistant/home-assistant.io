@@ -12,7 +12,9 @@ ha_platforms:
   - light
 ha_integration_type: integration
 ha_codeowners:
+  - '@bdraco'
   - '@Djelibeybi'
+ha_quality_scale: platinum 
 ---
 
 The LIFX integration automatically discovers [LIFX](https://www.lifx.com) bulbs on your network and adds them to Home Assistant.
