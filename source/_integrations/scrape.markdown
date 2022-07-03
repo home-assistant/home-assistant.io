@@ -29,6 +29,8 @@ You can enable this integration using both from the user interface or by adding 
 
 {% include integrations/config_flow.md %}
 
+## Configuration via yaml
+
 To enable this integration using yaml, add the following lines to your `configuration.yaml` file:
 
 ```yaml
