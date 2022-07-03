@@ -111,35 +111,6 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 
-
-## Advanced configuration
-
-There are some manual configuration options available. These are only needed with unusual network setups where automatic configuration does not find your LIFX devices.
-
-```yaml
-# Example configuration.yaml entry
-lifx:
-  light:
-    - server: IP_ADDRESS
-      port: 56700
-      broadcast: IP_ADDRESS
-```
-
-{% configuration %}
-server:
-  description: Your server address. Will listen on all interfaces if omitted.
-  required: false
-  type: string
-port:
-  description: The UDP port for discovery. Will listen on a random port if omitted.
-  required: false
-  type: integer
-broadcast:
-  description: The broadcast address for discovering lights. Can also set this to the IP address of a bulb to skip discovery.
-  required: false
-  type: string
-{% endconfiguration %}
-
 ## LIFX Switch
 
 The `lifx` integration does not support the LIFX Switch. However, the `homekit_controller` integration can be used instead for
@@ -154,7 +125,7 @@ Relays that are configured as wired to non-LIFX devices will appear as normal sw
 
 ### Lights
 
-Automated discovery of LIFX bulbs relies on Home Assistant having a [network interface](/integrations/network) connected to the same subnet as your LIFX bulbs. If you use a segregated IoT network to which Home Assistant is not directly connected, use the manual configuration method documented above to bypass discovery.
+LIFX and HomeKit based discovery of LIFX bulbs relies on Home Assistant having a [network interface](/integrations/network) connected to the same subnet as your LIFX bulbs. If you use a segregated IoT network to which Home Assistant is not directly connected, use the manual configuration method documented above to bypass discovery.
 
 If you have multiple network interfaces, ensure that the interface connected to the same subnet as your LIFX bulbs is enabled in Home Assistant's [network configuration](/integrations/network).
 
