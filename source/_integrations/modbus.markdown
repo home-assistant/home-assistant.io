@@ -79,7 +79,7 @@ timeout:
   default: 5
   type: integer
 type:
-  description: Type of communication. Possible values are `tcp` Modbus messages with Modbus TCP frame on TCP/IP, `udp` Modbus messages with Modbus TCP frame on UDP, `rtuovertcp` Modbus messages with a wrapper TCP/IP simulating a serial line.
+  description: Type of communication. Possible values are `tcp` Modbus messages with Modbus TCP frame on TCP/IP, `udp` Modbus messages with Modbus TCP frame on UDP, `rtuovertcp` Modbus messages with a wrapper TCP/IP simulating a serial line, 'serial' Modbus serial (RS485).
   required: true
   type: string
 {% endconfiguration %}
@@ -509,9 +509,11 @@ climates:
               required: false
               type: integer
     hvac_onoff_register:
-      description: Definition of a register holding and controlling the On/Off state of the climate device.
-        A zero value in this register means that the device is in off state, otherwise it is on. When writing
-        to this register, the value 0 will be written to turn the device off, 1 to turn it on.
+      description: Address of a register holding and controlling the On/Off state of the climate device.
+        When zero is read from this register, the HVAC state is set to Off, otherwise the `hvac_mode_register`
+        dictates the state of the HVAC. If no such register is defined, it defaults to Auto.
+        When the HVAC mode is set to Off, the value 0 is written to the register, otherwise the
+        value 1 is written.
       required: false
       type: integer
     unique_id:
