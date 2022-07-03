@@ -2,17 +2,17 @@
   "name": "home-assistant.io",
   "description": "Home Assistant Website & Documentation",
   "version": "1.0.0",
-  "dependencies": {},
   "devDependencies": {
-    "remark-cli": "^10.0.1",
+    "remark-cli": "^11.0.0",
     "remark-frontmatter": "^4.0.1",
     "remark-lint": "^9.1.1",
     "remark-lint-fenced-code-flag": "^3.1.1",
     "remark-lint-no-shell-dollars": "^3.1.1",
     "remark-stringify": "^10.0.2",
-    "textlint": "^12.1.1",
+    "textlint": "^12.2.1",
+    "textlint-filter-rule-comments": "^1.2.2",
     "textlint-rule-common-misspellings": "^1.0.1",
-    "textlint-rule-terminology": "^3.0.1"
+    "textlint-rule-terminology": "^3.0.2"
   },
   "resolutions": {
     "minimist": ">=1.2.5"

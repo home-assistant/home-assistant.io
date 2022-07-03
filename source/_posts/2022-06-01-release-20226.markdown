@@ -64,6 +64,8 @@ Enjoy the release (and upcoming events)!
 - [Release 2022.6.3 - June 6](#release-202263---june-6)
 - [Release 2022.6.4 - June 7](#release-202264---june-7)
 - [Release 2022.6.5 - June 10](#release-202265---june-10)
+- [Release 2022.6.6 - June 14](#release-202266---june-14)
+- [Release 2022.6.7 - June 22](#release-202267---june-22)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -594,6 +596,120 @@ The following integrations are now available via the Home Assistant UI:
 [unifiprotect docs]: /integrations/unifiprotect/
 [wallbox docs]: /integrations/wallbox/
 [yolink docs]: /integrations/yolink/
+
+## Release 2022.6.6 - June 14
+
+- Filter out forced updates in live logbook when the state has not changed ([@bdraco] - [#73335]) ([logbook docs])
+- Fix zwave_js add node schemas ([@raman325] - [#73343]) ([zwave_js docs])
+- Hive Bump pyhiveapi to 0.5.10 for credentials fix ([@KJonline] - [#73365]) ([hive docs])
+- Fix reload race in yeelight when updating the ip address ([@bdraco] - [#73390]) ([yeelight docs])
+- Only update unifiprotect ips from discovery when the console is offline ([@bdraco] - [#73411]) ([unifiprotect docs])
+- Fix smart by bond detection with v3 firmware ([@marciogranzotto] - [#73414]) ([bond docs])
+- Bump aiohue to 4.4.2 ([@balloob] - [#73420]) ([hue docs])
+- Fix fan support in nest, removing FAN_ONLY which isn't supported ([@allenporter] - [#73422]) ([nest docs])
+- Guard withings accessing hass.data without it being set ([@balloob] - [#73454]) ([withings docs])
+- Fix max_value access for number platform in Overkiz ([@tetienne] - [#73479]) ([overkiz docs])
+
+[#73335]: https://github.com/home-assistant/core/pull/73335
+[#73343]: https://github.com/home-assistant/core/pull/73343
+[#73365]: https://github.com/home-assistant/core/pull/73365
+[#73390]: https://github.com/home-assistant/core/pull/73390
+[#73411]: https://github.com/home-assistant/core/pull/73411
+[#73414]: https://github.com/home-assistant/core/pull/73414
+[#73420]: https://github.com/home-assistant/core/pull/73420
+[#73422]: https://github.com/home-assistant/core/pull/73422
+[#73454]: https://github.com/home-assistant/core/pull/73454
+[#73479]: https://github.com/home-assistant/core/pull/73479
+[@KJonline]: https://github.com/KJonline
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@marciogranzotto]: https://github.com/marciogranzotto
+[@raman325]: https://github.com/raman325
+[@tetienne]: https://github.com/tetienne
+[bond docs]: /integrations/bond/
+[hive docs]: /integrations/hive/
+[hue docs]: /integrations/hue/
+[logbook docs]: /integrations/logbook/
+[nest docs]: /integrations/nest/
+[overkiz docs]: /integrations/overkiz/
+[unifiprotect docs]: /integrations/unifiprotect/
+[withings docs]: /integrations/withings/
+[yeelight docs]: /integrations/yeelight/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.6.7 - June 22
+
+- Ensure metoffice daily are returned once daily ([@gordallott] - [#72440]) ([metoffice docs])
+- Fix thumbnail issues in Twitch integration ([@bergdahl] - [#72564]) ([twitch docs])
+- Bump aiobafi6 to 0.6.0 to fix logging performance ([@jfroy] - [#73517]) ([baf docs]) (dependency)
+- Use IP address instead of hostname in Brother integration ([@bieniu] - [#73556]) ([brother docs])
+- Bump growattServer to 1.2.2 ([@muppet3000] - [#73561]) ([growatt_server docs]) (dependency)
+- Handle offline generators in oncue ([@bdraco] - [#73568]) ([oncue docs])
+- Don't attempt to reload MQTT device tracker ([@emontnemery] - [#73577]) ([mqtt docs])
+- Fix handling of illegal dates in onvif sensor ([@emontnemery] - [#73600]) ([onvif docs])
+- Fix voltage and current values for Fritz!DECT smart plugs ([@mib1185] - [#73608]) ([fritzbox docs])
+- Fix MQTT config schema to ensure correct validation ([@jbouwh] - [#73619]) ([mqtt docs])
+- Fix calling permanent off with nexia ([@bdraco] - [#73623]) ([nexia docs]) (dependency)
+- Don't verify ssl certificates for ssdp/upnp devices ([@StevenLooman] - [#73647]) ([upnp docs]) ([ssdp docs])
+- Retry on SenseAPIException during sense config entry setup ([@bdraco] - [#73651]) ([sense docs])
+- Fix AmbiClimate services definition ([@maxgashkov] - [#73668]) ([ambiclimate docs])
+- Update aiomusiccast ([@micha91] - [#73694]) ([yamaha_musiccast docs]) (dependency)
+- Fix CSRF token for UniFi ([@Kane610] - [#73716]) ([unifi docs])
+- Insteon bug fixes ([@teharris1] - [#73791]) ([insteon docs])
+- Fix Plugwise migration error ([@frenck] - [#73812]) ([plugwise docs])
+
+[#72440]: https://github.com/home-assistant/core/pull/72440
+[#72564]: https://github.com/home-assistant/core/pull/72564
+[#73517]: https://github.com/home-assistant/core/pull/73517
+[#73556]: https://github.com/home-assistant/core/pull/73556
+[#73561]: https://github.com/home-assistant/core/pull/73561
+[#73568]: https://github.com/home-assistant/core/pull/73568
+[#73577]: https://github.com/home-assistant/core/pull/73577
+[#73600]: https://github.com/home-assistant/core/pull/73600
+[#73608]: https://github.com/home-assistant/core/pull/73608
+[#73619]: https://github.com/home-assistant/core/pull/73619
+[#73623]: https://github.com/home-assistant/core/pull/73623
+[#73647]: https://github.com/home-assistant/core/pull/73647
+[#73651]: https://github.com/home-assistant/core/pull/73651
+[#73668]: https://github.com/home-assistant/core/pull/73668
+[#73694]: https://github.com/home-assistant/core/pull/73694
+[#73716]: https://github.com/home-assistant/core/pull/73716
+[#73791]: https://github.com/home-assistant/core/pull/73791
+[#73812]: https://github.com/home-assistant/core/pull/73812
+[@Kane610]: https://github.com/Kane610
+[@StevenLooman]: https://github.com/StevenLooman
+[@bdraco]: https://github.com/bdraco
+[@bergdahl]: https://github.com/bergdahl
+[@bieniu]: https://github.com/bieniu
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gordallott]: https://github.com/gordallott
+[@jbouwh]: https://github.com/jbouwh
+[@jfroy]: https://github.com/jfroy
+[@maxgashkov]: https://github.com/maxgashkov
+[@mib1185]: https://github.com/mib1185
+[@micha91]: https://github.com/micha91
+[@muppet3000]: https://github.com/muppet3000
+[@teharris1]: https://github.com/teharris1
+[ambiclimate docs]: /integrations/ambiclimate/
+[baf docs]: /integrations/baf/
+[brother docs]: /integrations/brother/
+[fritzbox docs]: /integrations/fritzbox/
+[growatt_server docs]: /integrations/growatt_server/
+[insteon docs]: /integrations/insteon/
+[metoffice docs]: /integrations/metoffice/
+[mqtt docs]: /integrations/mqtt/
+[nexia docs]: /integrations/nexia/
+[oncue docs]: /integrations/oncue/
+[onvif docs]: /integrations/onvif/
+[plugwise docs]: /integrations/plugwise/
+[sense docs]: /integrations/sense/
+[ssdp docs]: /integrations/ssdp/
+[twitch docs]: /integrations/twitch/
+[unifi docs]: /integrations/unifi/
+[upnp docs]: /integrations/upnp/
+[yamaha_musiccast docs]: /integrations/yamaha_musiccast/
 
 ## Need help? Join the community!
 

@@ -39,6 +39,10 @@ The NETGEAR router will have the following entities:
 
 Button entity to restart the router.
 
+### Update entity
+
+Update entity to vieuw current and latest firmware version, and install the latest firmware of the router.
+
 ### Traffic meter data
 
 The total and average amount of downloaded/uploaded data through the router can be tracked per day/week/month.
@@ -50,6 +54,14 @@ Log into your router > Select **ADVANCED** > **Advanced Setup** > **Traffic Mete
 The "Average Ping", "Downlink Bandwidth" and "Uplink Bandwidth" can be tracked by performing a speed test every 30 minutes.
 If these sensor entities are enabled they will first show as Unknown since the first speed test does only happen 30 minutes after the integration loads, previous results will be restored on subsequent restarts.
 The speed test interval is chosen to be 30 minutes to not put unnecessary load on the network.
+
+### Ethernet link status
+
+The Ethernet link status sensor indicates if the router is currently able to connect to the internet.
+
+### Utilization sensors
+
+CPU and memory utilization sensors in percentage of available resources of the router.
 
 ## Connected device entities
 

@@ -15,7 +15,7 @@ ha_codeowners:
   - '@Djelibeybi'
 ---
 
-The `lifx` integration allows you to integrate your [LIFX](https://www.lifx.com) bulbs into Home Assistant.
+The LIFX integration automatically discovers [LIFX](https://www.lifx.com) bulbs on your network and adds them to Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -41,6 +41,7 @@ Change the light to a new state.
 ## Light effects
 
 The LIFX platform supports several light effects. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/integrations/light/#service-lightturn_on) service, for example like this:
+
 ```yaml
 automation:
   - alias: "..."
@@ -55,6 +56,7 @@ automation:
 ```
 
 However, if you want to fully control a light effect, you have to use its dedicated service call, like this:
+
 ```yaml
 script:
   colorloop_start:
@@ -148,7 +150,15 @@ When using the `homekit_controller` integration, each button on the LIFX Switch 
 [stateless switch](/integrations/homekit_controller#stateless-switches-and-sensors) and will not appear as an entity in Home Assistant.
 Relays that are configured as wired to non-LIFX devices will appear as normal switches in Home Assistant.
 
-### Troubleshooting discovery
+## Troubleshooting Discovery
+
+### Lights
+
+Automated discovery of LIFX bulbs relies on Home Assistant having a [network interface](/integrations/network) connected to the same subnet as your LIFX bulbs. If you use a segregated IoT network to which Home Assistant is not directly connected, use the manual configuration method documented above to bypass discovery.
+
+If you have multiple network interfaces, ensure that the interface connected to the same subnet as your LIFX bulbs is enabled in Home Assistant's [network configuration](/integrations/network).
+
+### Switches
 
 If your switch is not automatically discovered or you get a "_Cannot add pairing as device can no longer be found_" error
 during the config process, [reboot your LIFX Switch](https://support.lifx.com/troubleshooting-switch-Hk6RWujLd) as they

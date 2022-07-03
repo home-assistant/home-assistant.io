@@ -43,7 +43,7 @@ cards:
 ```
 
 <p class="img">
-  <img src="/images/dashboards/lovelace_vertical-stack.png" alt="Picture- and entities-card in a stack">
+  <img src="/images/dashboards/vertical-stack.png" alt="Picture- and entities-card in a stack">
   Picture and entities-card in a stack.
 </p>
 
@@ -66,6 +66,6 @@ cards:
 ```
 
 <p class="img">
-  <img src="/images/dashboards/lovelace_vertical-horizontal-stack.png" alt="Create a grid layout using vertical and horizontal stack">
+  <img src="/images/dashboards/vertical-horizontal-stack.png" alt="Create a grid layout using vertical and horizontal stack">
   Create a grid layout using vertical and horizontal stack.
 </p>

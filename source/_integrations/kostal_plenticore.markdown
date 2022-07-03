@@ -14,6 +14,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - number
 ha_integration_type: integration
 ---
 
@@ -119,8 +120,6 @@ The following sensors are available in the library:
 | Name                    | Unit | RW | Description   |
 |-------------------------|------|----|:--------------|
 | Battery Dynamic Soc     |      | RW | Dynamic SoC. |
-| Battery min Home Consumption | W    | RW | Min. home consumption power for battery. |
-| Battery min Soc         | %    | RW | Min. SoC of battery. |
 | Battery Smart Control   |      | RW | Enable smart battery control |
 | Battery Strategy        |      | RW | Battery strategy. |
 | Shadow Management       |      | RW | PV string shadow management. |
@@ -128,3 +127,12 @@ The following sensors are available in the library:
 <div class='note'>
 Setting values change less often, therefore these sensors are only polled every 5 minutes.
 </div>
+
+## Number
+
+The following Number entities are available. The values could also be change from Home Assistant.
+
+| Name                    | Unit | RW | Description   |
+|-------------------------|------|----|:--------------|
+| Battery min Home Consumption | W    | RW | Min. home consumption power for battery. |
+| Battery min Soc         | %    | RW | Min. SoC of battery. |
