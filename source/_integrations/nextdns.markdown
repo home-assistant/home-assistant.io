@@ -10,6 +10,7 @@ ha_codeowners:
   - '@bieniu'
 ha_domain: nextdns
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---
