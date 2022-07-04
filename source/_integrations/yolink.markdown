@@ -3,6 +3,8 @@ title: YoLink
 description: Instructions on how to integrate YoLink Devices into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Climate
+  - Lock
   - Sensor
   - Siren
   - Switch
@@ -14,6 +16,8 @@ ha_codeowners:
 ha_domain: yolink
 ha_platforms:
   - binary_sensor
+  - climate
+  - lock
   - sensor
   - siren
   - switch
@@ -31,9 +35,15 @@ If you want to use separate credentials, please contact <service@yosmart.com> to
 
 The integration is tested and verified for the following devices from YoLink:
 
-* YS6604
-* YS7103
-* YS7704
-* YS7804/5
-* YS7904
-* YS8003
+* YS6602/4 (outlet | plug)
+* YS7103/4/5 (siren)
+* YS7704 (door sensor)
+* YS7804/5 (motion sensor)
+* YS7903/4 (leak sensor)
+* YS8003 (temperature/humidity sensor)
+* YS7201 (vibration sensor)
+* YS7607 (lock)
+* YS4909 (valve controller)
+* YS5705 (switch)
+* YS7A01 (CO & Smoke Sensor)
+* YS4002 (Thermostat)

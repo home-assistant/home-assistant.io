@@ -254,7 +254,6 @@ source/_integrations/hvv_departures.markdown @vigonotion
 source/_integrations/hydrawise.markdown @ptcryan
 source/_integrations/hyperion.markdown @dermotduffy
 source/_integrations/ialarm.markdown @RyuzakiKK
-source/_integrations/ialarm_xr.markdown @bigmoby
 source/_integrations/iammeter.markdown @lewei50
 source/_integrations/iaqualink.markdown @flz
 source/_integrations/icloud.markdown @Quentame @nzapponi
@@ -522,7 +521,6 @@ source/_integrations/solaredge_local.markdown @drobtravels @scheric
 source/_integrations/solarlog.markdown @Ernst79
 source/_integrations/solax.markdown @squishykid
 source/_integrations/soma.markdown @ratsept @sebfortier2288
-source/_integrations/somfy.markdown @tetienne
 source/_integrations/sonarr.markdown @ctalkington
 source/_integrations/songpal.markdown @rytilahti @shenxn
 source/_integrations/sonos.markdown @cgtobi @jjlawren
