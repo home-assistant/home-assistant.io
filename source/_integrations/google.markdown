@@ -81,6 +81,8 @@ to all the Google Calendars available to your linked account.
 
 If the setup process fails and you see an error message such as *Authentication code expired, please try again* you may want to try the flow again. You may also check the logs for additional error messages that may indicate a misconfiguration such as an invalid client id or secret.
 
+If you previously installed the integration, make sure you have also removed any old [application credentials](/integrations/application_credentials/).
+
 ## Calendar Entities
 
 Each Google Calendar from *My Calendars* ([more info](https://support.google.com/calendar/answer/37095)) is represented as a [calendar](/integrations/calendar) entity in Home Assistant.
