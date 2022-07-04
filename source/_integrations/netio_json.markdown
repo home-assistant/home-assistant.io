@@ -10,7 +10,7 @@ ha_release: 2022.6.6
 ha_domain: netio_json
 ha_config_flow: true
 ha_codeowners:
-  - @cnf
+  - '@cnf'
 ha_platforms:
   - switch
   - sensor
