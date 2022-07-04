@@ -74,3 +74,4 @@ This will download the file from the given URL.
 | `entity_id`            |      yes | Name(s) of entities to seek media on, e.g., `media_player.living_room_chromecast`. Defaults to all.
 | `media_content_id`     |       no | The ID of the content to play. Platform dependent.
 | `media_content_type`   |       no | The type of the content to play. Must be one of MUSIC, TVSHOW, VIDEO, EPISODE, CHANNEL or PLAYLIST MUSIC.
+| `cookies_txt_filepath` |      yes | Filepath to a cookies.txt file (via cookies.txt browser extension) that can be used to authenticate streaming
