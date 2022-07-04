@@ -17,7 +17,7 @@ Some integrations like [Google Calendar](/integrations/google/) will automatical
 1. Go to **{% my integrations title="Settings -> Devices & Services" %}**
 2. Click the overflow menu **...** and choose **Application Credentials**
 
-![Application credential list](/images/integrations/application_credentials/application-credentials-setup.png)
+![Application credential list](/images/integrations/application_credentials/application-credentials.png)
 
 ## Manual Setup
 
