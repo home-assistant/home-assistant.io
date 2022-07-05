@@ -13,6 +13,7 @@ ha_integration_type: integration
 The Application Credentials integration is used by integrations that use OAuth2 to link your account to Home Assistant. The most common and preferred approach is using account linking with Home Assistant Cloud, however not all cloud providers support that and integrations can use Application Credentials instead. Additionally, users may use Application Credentials if preferred instead of Home Assistant Cloud Account Linking.
 
 ## Automatic Setup
+
 Some integrations like [Google Calendar](/integrations/google/) will automatically create application credentials as part of adding an integration. To view any entries:
 1. Go to **{% my integrations title="Settings -> Devices & Services" %}**
 2. Click the overflow menu **...** and choose **Application Credentials**
