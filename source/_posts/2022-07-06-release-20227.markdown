@@ -250,37 +250,26 @@ for example, your living room area quick and easy.
 
 ## Easily convert values to booleans in templates
 
-{% details "TODO" %}
-
-- Not sure if we should keep this as a chapter at this point, can go into
-  noteworhy too.
-- Improve story
-- Better examples
-- Spelling/grammar
-
-{% enddetails %}
-
-If you are into templates, [@pyos] has a surprise for you: We now have `bool`
+If you are into templates, [@pyos] has a surprise for you: We now have a `bool`
 function that can be used as a filter too!
 
-If you are a bit into coding, this is not the normal `bool()`, but one that
-is very specific for Home Assistant; making it very useful.
+If you are a bit into coding, this is not the standard `bool()`, but one that
+is very specific for Home Assistant, making it very useful.
 
-This `bool` method converts a value into a boolean, taking into account
-Home Assistant's specific rules for truthy values. Some examples, `"on"` will
+This `bool` method converts a value into a boolean and condiders
+Home Assistant's specific rules for truthy values. Some examples: `"on"` will
 be considered true, and `"disabled"` will be considered false.
 
-Combined with things like our [`iff`](/docs/configuration/templating/#immediate-if-iif)
-filter, you can do a lot of useful things with this.
+<img class="no-shadow" src='/images/blog/2022-07/bool.png' alt='Screenshot demonstrating auto-complete for MDI icons in the code editors'>
 
-```jinja2
-states("binary_sensor.door") | bool(none) | iif("Open", "Closed", "I dunno")
-```
+Using `bool` as a filter and combined with and [`iff`](/docs/configuration/templating/#immediate-if-iif)
+filter, you can quickly change, for example, binary sensors values into any
+text you'd like.
 
-For more information, check out our [Templating documentation]
+For more information, check out our [Templating documentation].
 
 [@pyos]: https://github.com/pyos
-[Templating documentation]: /docs/configuration/templating/#numeric-functions-and-filters)
+[Templating documentation]: /docs/configuration/templating/#numeric-functions-and-filters
 
 ## Other noteworthy changes
 
