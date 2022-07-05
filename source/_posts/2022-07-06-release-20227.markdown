@@ -52,6 +52,7 @@ Enjoy the (beta) release!
 
 - [Improved stability and performance, and Python 3.10](#improved-stability-and-performance-and-python-310)
 - [Update firmware of your Z-Wave devices directly from Home Assistant](#update-firmware-of-your-z-wave-devices-directly-from-home-assistant)
+- [The about page is now beautiful too!](#the-about-page-is-now-beautiful-too)
 - [Change the any weather unit to your preference](#change-the-any-weather-unit-to-your-preference)
 - [Optional labels for gauge cards](#optional-labels-for-gauge-cards)
 - [Auto-complete of MDI icons in template editors](#auto-complete-of-mdi-icons-in-template-editors)
@@ -149,6 +150,23 @@ Temporary screenshot. Upload Z-Wave firmware from your device page.
 <img class="no-shadow" src='https://user-images.githubusercontent.com/7243222/173172278-e3acadca-335d-4285-8a46-d18053f0cbb9.png' alt='Upload firmware to your Z-Wave device'>
 Temporary screenshot. Update in progress...
 </p>
+
+## The about page is now beautiful too!
+
+Have you ever looked at the about page in the Home Assistant settings menu?
+
+It was probably one of the least visually appealing pages still in our menus,
+and [@zsarnett] seemed to agree. He made it a lot more cleaner and functional.
+
+It now clearly shows the versions of the different components your instance is
+made up of, and provides a clean menu to all kinds of Home Assistant related
+links.
+
+<img class="no-shadow" src='/images/blog/2022-07/about-home-assistant.png' alt='Screenshot showing energy usage being compared from last week with the week before that'>
+
+{% my info badge %}
+
+[@zsarnett]: https://github.com/@zsarnett
 
 ## Change the any weather unit to your preference
 
