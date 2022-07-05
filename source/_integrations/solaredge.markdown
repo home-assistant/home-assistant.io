@@ -38,8 +38,6 @@ template:
   - sensor:
     - name: solaredge_energy_this_year_template
       unit_of_measurement: kWh
-      state_class: total_increasing
-      device_class: energy
       state: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
 ```
 
