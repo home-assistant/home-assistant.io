@@ -65,22 +65,18 @@ Enjoy the (beta) release!
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=HnA_pZQyZAs) today at 12:00 PDT / 21:00 CET!
+
 {% comment %}
 
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=lorem) today at 12:00 PDT / 21:00 CET!
-
-<div class="videoWrapper">
-  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/lorem" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
-
-<!-- Replace the wrapper above with the following after the livestream...-->
+<!-- Replace the text above with the following after the livestream...-->
 
 Missed our release party live stream on YouTube? Don't worry! You can watch
 the recording of it right here!
 
-<lite-youtube videoid="lorum" videotitle="Home Assistant 2022.7 Release Party" posterquality="maxresdefault"></lite-youtube>
-
 {% endcomment %}
+
+<lite-youtube videoid="HnA_pZQyZAs" videotitle="Home Assistant 2022.7 Release Party"></lite-youtube>
 
 ## Improved stability and performance, and Python 3.10
 
