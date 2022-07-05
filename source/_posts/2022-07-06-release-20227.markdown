@@ -270,65 +270,63 @@ For more information, check out our [Templating documentation]
 [@pyos]: https://github.com/pyos
 [Templating documentation]: /docs/configuration/templating/#numeric-functions-and-filters)
 
-
 ## Other noteworthy changes
-
-{% details "TODO" %}
-
-- Finish writing them out
-- Proof read/spelling/grammar
-
-**Note**: Changes processed up to PR 74124
-
-{% enddetails %}
 
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- You can now control the loudness and various additional surround-related settings of your [Sonos] speakers, thanks [@jjlawren]!
-- [@matrixd2] extended [YoLink], it now supports thermostats, valve controllers,
+- You can now control the loudness and various additional surround-related
+  settings of your [Sonos] speakers, thanks [@jjlawren]! 🔊
+- You can now trigger [Alexa] routines from switches, toggles, and buttons
+  without the need to wrap them into a binary template sensor first.
+  Fantastic addition, [@mdegat01]!
+- The logbook live feeds will now automatically pause when you start
+  scrolling and resume when you are back at the top again. Thanks, [@bdraco]!
+- [@matrixd2] extended [YoLink]; It now supports thermostats, valve controllers,
   locks, and vibration, CO, and Smoke Sensors!
 - [Jellyfin] now supports movie collections in the media browser, thanks [@j-stienstra]!
-- The Aqara FP1 sensor is talked about a lot, and thanks to [@dmulcahey] it is
-  now supported by [ZHA]!
+- Thanks to [@dmulcahey], the widely discussed Aqara FP1 sensor is now
+  supported by [ZHA]! 
 - [@ghedo] has been busy improving the [Area Card]. It can now show
-  moisture/flood alerts, humidity, and shows an icon for temperture. Nice!
-- [@king444] added support for Top/Down, Buttom/Up to [Hunter Douglas PowerView].
+  moisture/flood alerts, humidity, and shows an icon for temperature. Nice!
+- [@king444] added support for Top/Down, Bottom/Up to [Hunter Douglas PowerView].
   Additionally, buttons to calibrate and jog (identify) have been added. [@bdraco]
-  added support for polling, in case the device is mains powered.
+  added support for polling in case the device is mains powered.
+- Thanks to [@thrawnarn], you can now send polls via [Telegram bot]!
+- The [Home Connect] integration now has whole collection of new services
+  that can be used to control and configure options of device programs.
+  Really nice, [@BraveChicken1]!
+- If you have [WiZ] power plugs with power monitoring, these are now supported,
+  thanks to [@bdraco] ⚡️.
+- [@gjohansson-ST] added lots of love to [Sensibo] this release. Support for
+  (split) timers, Pure Boost, improvements to setting temperature, bug fixes,
+  and many more. Nice work!
+- [@iAutom8] made his first-time-ever open source contribution ❤️; And added
+  support for additional temperature sensors in [ViCare].
 
 [@bdraco]: https://github.com/bdraco
+[@BraveChicken1]: https://github.com/BraveChicken1
 [@dmulcahey]: https://github.com/dmulcahey
 [@ghedo]: https://github.com/ghedo
+[@iAutom8]: https://github.com/@iAutom8
 [@j-stienstra]: https://github.com/j-stienstra
 [@jjlawren]: https://github.com/jjlawren
 [@king444]: https://github.com/king444
 [@matrixd2]: https://github.com/matrixd2
+[@mdegat01]: https://github.com/mdegat01
+[@thrawnarn]: https://github.com/thrawnarn
+[Alexa]: /integrations/alexa
 [Area Card]: /dashboards/area/
+[Home Connect]: /integrations/home_connect
 [Hunter Douglas PowerView]: /integrations/hunterdouglas_powerview
 [Jellyfin]: /integrations/jellyfin
+[Sensibo]: /integrations/sensibo
 [Sonos]: /integrations/sonos
+[Telegram bot]: /integrations/telegram_bot
+[ViCare]: /integrations/vicare
+[WiZ]: /integrations/wiz
 [YoLink]: /integrations/yolink
 [ZHA]: /integrations/zha
-
-To process from backend: 
-
-- Add ViCare additional temperature sensors ([@iAutom8] - [#72792]) ([vicare docs])
-- Bump pysensibo to 1.0.17 ([@gjohansson-ST] - [#73092]) ([sensibo docs])
-- Add power sensor to WiZ ([@bdraco] - [#73260]) ([wiz docs])
-* Pause the logbook stream when scrolled (#13026) @bdraco
-
-Note sure where to put yet:
-* Update about page (#12653) @zsarnett
-- Update Builder & Wheels + support yellow ([@pvizeli] - [#73896])
-- More integrations support removing devices
-  - Allow removing a onewire device ([@epenet] - [#72710]) ([onewire docs])
-  - Add support for async_remove_config_entry_device to isy994 ([@bdraco] - [#72737]) ([isy994 docs])
-  - Add async_remove_config_entry_device to synology_dsm ([@bdraco] - [#73293]) ([synology_dsm docs])
-  - Add support for async_remove_config_entry_device to lutron_caseta ([@bdraco] - [#73382]) ([lutron_caseta docs])
-  - Allow removing Sonos devices ([@jjlawren] - [#73567]) ([sonos docs])
-  - Add async_remove_config_entry_device support to nexia ([@bdraco] - [#73966]) ([nexia docs])
-  - Add async_remove_config_entry_device to enphase_envoy ([@bdraco] - [#74012]) ([enphase_envoy docs])
 
 ## New Integrations
 
