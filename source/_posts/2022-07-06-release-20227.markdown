@@ -53,7 +53,7 @@ Enjoy the (beta) release!
 - [Improved stability and performance, and Python 3.10](#improved-stability-and-performance-and-python-310)
 - [Update firmware of your Z-Wave devices directly from Home Assistant](#update-firmware-of-your-z-wave-devices-directly-from-home-assistant)
 - [The about page is now beautiful too!](#the-about-page-is-now-beautiful-too)
-- [Change the any weather unit to your preference](#change-the-any-weather-unit-to-your-preference)
+- [Change any weather unit to your preference](#change-any-weather-unit-to-your-preference)
 - [Optional labels for gauge cards](#optional-labels-for-gauge-cards)
 - [Auto-complete of MDI icons in template editors](#auto-complete-of-mdi-icons-in-template-editors)
 - [Filter the history using a target selector](#filter-the-history-using-a-target-selector)
@@ -168,28 +168,27 @@ links.
 
 [@zsarnett]: https://github.com/@zsarnett
 
-## Change the any weather unit to your preference
+## Change any weather unit to your preference
 
-{% details "TODO" %}
+Home Assistant has many [weather services] that can be integrated; it is
+great to have a choice! The differences between those are often their
+accuracy for your region and the  units of measurement used for the
+different weather data points.
 
-- Insert screenshot
-- Change (any of the) units weather entities
-- Change units on number entities that represent a temperature
-- Improve on story
-- Spelling/grammar
+But what if you'd like the barometric pressure unit to be in mbar instead of
+hPa? Or maybe use m/s or knots instead of km/h for wind speed? No problem!
 
-{% enddetails %}
+You can now change the units each weather entity uses! Not just temperature,
+but for all of the values a weather entity provides. When changing a unit,
+Home Assistant will take care of converting the values for you.
 
-You can now change the units weather entities use, for each of the weather
-entities individually. And that is not just temperature, but for all of
-the values a weather entity provides.
+<img class="no-shadow" src='/images/blog/2022-07/weather-units.png' alt='Screenshot showing energy usage being compared from last week with the week before that'>
 
-So, you like your barometric pressure unit to be in mbar instead of hPa?
-Or maybe use m/s instead of km/h for wind speed? No problem!
+As a bonus, this same unit-changing feature is added to the number entities
+that represent a temperature. For those number entities, you can now change
+the units from Celsius to Fahrenheit (and the other way around).
 
-As an added bonus, this same unit changing feature was added to the
-number entities that represent a temperature. Unit conversion/changing for
-these number entites has also been added.
+[weather services]: /integrations/#weather
 
 ## Optional labels for gauge cards
 
