@@ -55,7 +55,7 @@ Enjoy the (beta) release!
 - [The about page is now beautiful too!](#the-about-page-is-now-beautiful-too)
 - [Change any weather unit to your preference](#change-any-weather-unit-to-your-preference)
 - [Optional labels for gauge cards](#optional-labels-for-gauge-cards)
-- [Auto-complete of MDI icons in template editors](#auto-complete-of-mdi-icons-in-template-editors)
+- [Code editors now auto-complete MDI icons](#code-editors-now-auto-complete-mdi-icons)
 - [Filter the history using a target selector](#filter-the-history-using-a-target-selector)
 - [Easily convert values to booleans in templates](#easily-convert-values-to-booleans-in-templates)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -209,30 +209,17 @@ This will cause the label to be shown, instead of the numeric sensor value.
 Temporary screenshot. Gauge card showing a label instead of a value
 </p>
 
-## Auto-complete of MDI icons in template editors
+## Code editors now auto-complete MDI icons
 
-{% details "TODO" %}
+All of our code editors in the frontend now have auto-completions for
+MDI icons. Just start typing `mdi:` and it will help you find the exact icon
+you need.
 
-- Not merged yet! https://github.com/home-assistant/frontend/pull/13022
-- Not sure if we should keep this here, might also go into the noteworthy section
-- Replace screenshot
-- Improve story
-- Spelling/grammar
+<img class="no-shadow" src='/images/blog/2022-07/icon-auto-complete.png' alt='Screenshot demonstrating auto-complete for MDI icons in the code editors'>
 
-{% enddetails %}
-
-All of our template editors in the frontend, now have auto-completions for
-MDI icons. Just start typing `mdi:` and it will try to help you out finding
-the exact icon you want to use in your template.
-
-Just like the normal icon picker, it support searching on part of the iconn
-ame, or its aliases. Additionally, it will show a little preview of the icon
-you are about to select, so you know you got the right one.
-
-<p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5662298/176032468-b7ac047f-76ce-442e-b3ba-516a811399f1.png' alt='MDI auto completions in all code editors'>
-Temporary screenshot. Auto-completion of MDI icons insider an template editor.
-</p>
+Like the normal icon picker, it supports searching on parts of the icon
+name, its aliases and categories. Additionally, it will show a little preview
+of the icon you are about to select, so you know you got the right one.
 
 ## Filter the history using a target selector
 
