@@ -54,7 +54,7 @@ Enjoy the (beta) release!
 - [Update firmware of your Z-Wave devices directly from Home Assistant](#update-firmware-of-your-z-wave-devices-directly-from-home-assistant)
 - [The about page is now beautiful too!](#the-about-page-is-now-beautiful-too)
 - [Change any weather unit to your preference](#change-any-weather-unit-to-your-preference)
-- [Optional labels for gauge cards](#optional-labels-for-gauge-cards)
+- [Labels instead of values for gauge cards segments](#labels-instead-of-values-for-gauge-cards-segments)
 - [Code editors now auto-complete MDI icons](#code-editors-now-auto-complete-mdi-icons)
 - [Filter the history panel](#filter-the-history-panel)
 - [Easily convert values to booleans in templates](#easily-convert-values-to-booleans-in-templates)
@@ -190,24 +190,25 @@ the units from Celsius to Fahrenheit (and the other way around).
 
 [weather services]: /integrations/#weather
 
-## Optional labels for gauge cards
+## Labels instead of values for gauge cards segments
 
-{% details "TODO" %}
+When displaying an entity gauge card on your dashboard, it would show the
+gauge with the sensor value. For example, if you'd use a humidity sensor,
+it shows the humidity percentage in the middle of the gauge.
 
-- Not sure if we should keep this here, might also go into the noteworthy section
-- Replace screenshot
-- Improve story
-- Spelling/grammar
+In the [2022.5 release], we added segment support to our gauge card,
+this release, [@kristjanbjarni] added label support to those segments!
 
-{% enddetails %}
+This means that if your segment has a label, the gauge card will show
+that label instead of the sensor value when it is in that range.
 
-The guage card can now optionally have labels attached to its segments.
-This will cause the label to be shown, instead of the numeric sensor value.
+<img class="no-shadow" src='/images/blog/2022-07/gauge-labels.png' alt='Screenshot showing the new gauge labels'>
 
-<p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/1550962/173711768-56958cf9-3012-4b6d-aa57-b1e0ee0bf046.png' alt='Gauge card showing a label instead of a value'>
-Temporary screenshot. Gauge card showing a label instead of a value
-</p>
+For more information, check out our [gauge card documentation].
+
+[@kristjanbjarni]: https://github.com/kristjanbjarni
+[2022.5 release]: /blog/2022/05/04/release-20225/#gauge-card-segment-colors
+[gauge card documentation]: /dashboards/gauge/
 
 ## Code editors now auto-complete MDI icons
 
