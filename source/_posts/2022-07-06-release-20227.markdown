@@ -56,7 +56,7 @@ Enjoy the (beta) release!
 - [Change any weather unit to your preference](#change-any-weather-unit-to-your-preference)
 - [Optional labels for gauge cards](#optional-labels-for-gauge-cards)
 - [Code editors now auto-complete MDI icons](#code-editors-now-auto-complete-mdi-icons)
-- [Filter the history using a target selector](#filter-the-history-using-a-target-selector)
+- [Filter the history panel](#filter-the-history-panel)
 - [Easily convert values to booleans in templates](#easily-convert-values-to-booleans-in-templates)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
@@ -221,24 +221,32 @@ Like the normal icon picker, it supports searching on parts of the icon
 name, its aliases and categories. Additionally, it will show a little preview
 of the icon you are about to select, so you know you got the right one.
 
-## Filter the history using a target selector
+## Filter the history panel
 
 {% details "TODO" %}
 
-- Needs a different title, this one it technical
-- Add story
-- Replace screenshot
-- Spelling/grammar
+- Replace screenshot, as soon as b5 lands
 
 {% enddetails %}
 
-The history panel now has a target select, allow you to select the area(s),
-device(s), entitie(s), or a combination of those, that you want to see.
+If you have lots of devices and entities then the
+{% my history title="history panel" %} can be long! Actually,
+it would become so large, that it becomes unpractical. You could always
+filter it down to a single entity, but that is fairly limited as well.
+For this release, we have improved these filters.
+
+The history can now be filtered by one or more entities, by all entities of
+one or more areas, or by all entities of one or more devices.
 
 <p class='img'>
 <img class="no-shadow" src='https://user-images.githubusercontent.com/663432/176453456-d244f1ee-bf7f-4243-8a2e-204e3f3f5271.png' alt='In the history panel it is now possible to select what you want to see'>
 Temporary screenshot. Target selector in the history panel.
 </p>
+
+This is super helpful, as you can now view the history of all entities in,
+for example, your living room area quick and easy.
+
+{% my history badge %}
 
 ## Easily convert values to booleans in templates
 
