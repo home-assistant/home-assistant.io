@@ -81,46 +81,30 @@ the recording of it right here!
 
 ## Improved stability and performance, and Python 3.10
 
-{% details "TODO" %}
+The quest to improve the performance of Home Assistant continues. For many
+releases, [@bdraco] has been analyzing every single aspect of
+Home Assistant and manages to make it faster every single release.
 
-- Improve on story
-- Spelling/grammar
-- Something about start up reliability improvements
-- Make it more to the point?
-- Maybe split YAML from JSON
+Usually, we have a section at the end of our release notes informing you
+about the performance improvements made. The improvements in this release,
+however, are a big deal.
 
-To add/process into this maybe:
-- Fix setup race when config entry is in a setup retry state ([@bdraco] - [#73145]) (noteworthy)
-- Prime platform.uname cache at startup to fix blocking subprocess in the event loop ([@bdraco] - [#73975]) (noteworthy)
-- Check if requirements are installed in the executor ([@bdraco] - [#71611]) (noteworthy)
+Our YAML & JSON tooling improved, using faster libraries and methods.
+JSON is used internally and for communication with the frontend, which is
+A LOT snappier now. If you use lots of YAML, you will undoubtedly notice this
+when starting Home Assistant or reloading things like your automations 🚀.
 
-{% enddetails %}
-
-The quest of improving the performance of Home Assistant continues. Normally,
-we have a section at the end of our release notes, where we tell you about the
-performance improvements that have been made. This release, it is a big deal.
-
-For many releases [@bdraco] has been analyzing every single aspect of
-Home Assistant and manages to make it faster every single release, but
-an exceptional progress has been made this release!
-
-The first one is that our YAML & JSON tooling has been optimized/replaced,
-with faster libraries and methods. If you use lots of YAML configuration,
-you will seriously notice this a lot when starting Home Assistant or
-when reloading things like your automations 🚀. JSON is used a lot internally
-and for communication with the frontend or APIs, making things A LOT snappier.
-
-Devices with an integration error during startup, that are able to self recover,
+Devices with an integration error during startup that can self-recover
 will now do that instantly as soon as the device is discovered.
 
-We now use an better and faster encryption method for the HomeKit Accessory
-Protocol (HAP). This improves the performance of the HomeKit, HomeKit Controller,
+We now use a better and faster encryption method for the HomeKit Accessory
+Protocol (HAP). It improves the performance of the HomeKit, HomeKit Controller,
 and Apple TV integrations and prepares Home Assistant for iOS 16.
 
 Lastly, [@pvizeli] has been working hard to ship Home Assistant on Python 3.10!
-Which also brings quite an performance improvement. If you are running the Home
-Assistant Operating System or use our container installation method, you will
-automatically get this, no need to do anything. 🚀
+Which also brings quite a performance improvement. If you run the Home Assistant
+Operating System or use our container installation method, you will
+automatically get this; there is no need to do anything. 🚀
 
 [@bdraco]: https://github.com/bdraco
 [@pvizeli]: https://github.com/pvizeli
