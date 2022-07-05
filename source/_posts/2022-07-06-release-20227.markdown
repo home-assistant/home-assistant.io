@@ -344,18 +344,15 @@ The following integrations are now available via the Home Assistant UI:
 
 - [Eight Sleep], done by [@raman325]
 - [Radio Thermostat], done by [@bdraco]
-- [Scrape], done by [@gjohansson-ST]
 - [Simplepush], done by [@engrbm87]
 - [SkyBell], done by [@tkdrob]
 
 [@bdraco]: https://github.com/bdraco
 [@engrbm87]: https://github.com/engrbm87
-[@gjohansson-ST]: https://github.com/gjohansson-ST
 [@raman325]: https://github.com/raman325
 [@tkdrob]: https://github.com/tkdrob
 [Eight Sleep]: /integrations/eight_sleep
 [Radio Thermostat]: /integrations/radiotherm
-[Scrape]: /integrations/scrape
 [Simplepush]: /integrations/simplepush
 [SkyBell]: /integrations/skybell
 
