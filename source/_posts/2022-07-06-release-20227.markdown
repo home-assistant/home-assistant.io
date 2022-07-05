@@ -377,14 +377,6 @@ to get the latest news about features, things happening in our community and
 
 ## Breaking Changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-
-**Note**: Breaking changes processed up to PR 74172
-
-{% enddetails %}
-
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
@@ -397,9 +389,9 @@ Home Assistant now ships with Python 3.10 for the following installation methods
 - Home Assistant Container
 - Home Assistant Supervised
 
-You don't have to do anything, this will all happen automatically. However,
+You don't have to do anything; this will all happen automatically. However,
 this might be a breaking change in case you are using custom integration
-that do not support Python 3.10 yet.
+that does not support Python 3.10 yet.
 
 ([@pvizeli] - [#73830]) ([documentation](/integrations/recorder/#configure-filter))
 
@@ -410,29 +402,32 @@ that do not support Python 3.10 yet.
 
 {% details "Bluetooth (multiple integrations)" %}
 
-Home Assistant upgrading to Python 3.10 this release, comes
+Home Assistant is upgrading to Python 3.10 this release and comes
 with a breaking change affecting multiple integrations.
 
-Known affacted integrations at the time of writing:
+Known affected integrations at the time of writing:
 
 - [BeeWi SmartClim BLE sensor](/integrations/beewi_smartclim)
+- [Bluetooth Tracker](/integrations/bluetooth_tracker)
 - [Elgato Avea](/integrations/avea)
 - [EQ3 Bluetooth Smart Thermostats](/integrations/eq3btsmart)
 - [Leviton Decora](/integrations/decora)
 - [Mi Flora](/integrations/miflora)
 - [Zengge](/integrations/zengge)
 
-These integrations rely on the `bluepy` library, which no longer works
-in newer versions of Python. `bluepy` has seen its last update in
+These integrations rely on the `bluepy` and `pybluez` libraries, which no longer
+work in newer versions of Python. `bluepy` has seen its last update in
 [December 2018](https://pypi.org/project/bluepy/#history) and hasn't
 kept up with changes in the Python world.
+[Similar story](https://pypi.org/project/pybluez/#history) with `pybluez`.
 
-It is not possible for us to mitigate this issue. If you are using
-one of these integration, these will no longer work.
+We can't mitigate this issue. If you are using one of these integrations,
+these will no longer work. We rather wanted to see a non-breaking solution,
+but we saw no backward compatible path or other solutions to aid this.
 
-If you like to help out to fix or upgrade one of these integrations, we
+If you would like to help fix or upgrade one of these integrations, we
 would be grateful. We recommend migrating these integrations onto the
-[Bleak](https://pypi.org/project/bleak/) libary instead.
+[Bleak](https://pypi.org/project/bleak/) library instead.
 
 ([@pvizeli] - [#73830]) ([documentation](/integrations/recorder/#configure-filter))
 
@@ -453,9 +448,9 @@ All entity filters, as used by the following integrations:
 - [Logbook](/integrations/logbook)
 - [Recorder](/integrations/recorder)
 
-Have been adjusted to make entity filters handli includes stronger than excludes.
+Have been adjusted to make entity filters handle includes stronger than excludes.
 
-Filters are now applied as follows when there are domain and/or glob includes
+Filters are now applied as follows when there are domain and glob includes
 (may also have excludes):
 
 - Entity listed in entities include: include
@@ -469,6 +464,25 @@ Filters are now applied as follows when there are domain and/or glob includes
 
 [@bdraco]: https://github.com/bdraco
 [#74080]: https://github.com/home-assistant/core/pull/74080
+
+{% enddetails %}
+
+{% details "Weather (multiple integrations)" %}
+
+This applies to all (weather) integrations providing weather entities.
+
+Previously the units for Weather had not been corresponding correctly with
+the documentation. These units are now aligned for pressure and wind speed:
+
+- If the unit system is metric, the default pressure unit is `hPa`,
+  and the default wind speed unit is `km/h`.
+- If the unit system is imperial, the default pressure unit is `inHg`,
+  and the default wind speed unit is `mi/h`.
+
+([@gjohansson-ST] - [#73707]) ([documentation](/integrations/weather))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#73441]: https://github.com/home-assistant/core/pull/73441
 
 {% enddetails %}
 
@@ -519,11 +533,11 @@ integration and load all new calendars from the API.
 
 ---
 
-The Google Calendar `add_event` service is deprecated, and will be removed in
+The Google Calendar `add_event` service is deprecated and will be removed in
 a future Home Assistant release.
 
 A new service `create_event` with equivalent functionality is its replacement,
-which is an entity based service that takes an entity as a target
+which is an entity-based service that takes an entity as a target
 (rather than a Google Calendar ID).
 
 ([@allenporter] - [#72473]) ([documentation](/integrations/google))
@@ -545,9 +559,15 @@ when `google_calendars.yaml` specifies the same entity multiple times.
 
 {% details "Hunter Douglas PowerView" %}
 
-Add support for topdown shades to hunterdouglas_powerview
+Top Down/Bottom Up shades will now have an entity to control each motor.
+You will need to manually remove any old entities by selecting the unavailable
+entities from the Home Assistant Interface, selecting "REMOVE ENTITY", and
+then confirming the removal by clicking "REMOVE".
 
-**TODO**: Missing breaking change description in PR
+- If you have automations to set shade position based on entity ID, you will
+  need to reconfigure these as the new entities will be named differently. 
+- If you only have automations set to trigger scenes you **do not** need to
+  reconfigure automations.
 
 ([@kingy444] - [#62788]) ([documentation](/integrations/hunterdouglas_powerview))
 
@@ -578,7 +598,7 @@ The Kostal Plenticore now has number entities. Two existing sensors entities
 have been promoted to this platform: "Battery min Soc" and
 "Battery min Home Consumption".
 
-If you used these sensors entities in your automation, scripts, or dashboards
+If you use these sensors entities in your automation, scripts, or dashboards,
 you will need to adjust these for this change.
 
 ([@stegm] - [#64927]) ([documentation](/integrations/kostal_plenticore))
@@ -588,19 +608,87 @@ you will need to adjust these for this change.
 
 {% enddetails %}
 
+{% details "LG Soundbars" %}
+
+The LG Soundbars integration migrated to configuration
+via the UI. The automatic discovery of the integration via legacy discovery
+has been removed.
+
+This change has no possible migration path; therefore, if you use this
+integration, you will have to re-add it manually via the user interface.
+
+([@MasonCrawford] - [#71153]) ([documentation](/integrations/lg_soundbar))
+
+[@MasonCrawford]: https://github.com/MasonCrawford
+[#71153]: https://github.com/home-assistant/core/pull/71153
+
+{% enddetails %}
+
+{% details "Life360" %}
+
+The previously deprecated YAML configuration of the Life360
+integration has been removed.
+
+Life360 is now configured via the UI. Any "advanced" options in
+YAML configuration will be imported. Once the migration is complete,
+any `life360` entries in YAML configuration should be removed.
+
+As per other device tracker platforms that have migrated to entity-based,
+entries in `known_devices.yaml` will no longer be created, and any existing
+entries for `life360` should be removed.
+
+The following options are no longer supported: 
+
+- `circles`
+- `members`
+- `error_threshold`
+- `warning_threshold`
+- `max_update_wait`
+- `show_as_state: moving`
+
+Additionally, the following entity attributes have been changed:
+
+- Renamed: `battery` -> `battery_level`
+- Removed: `moving`, `raw_speed`
+
+If you have been using these attributes in your automations or script, you'll
+need to adapt them to this change.
+
+([@pnbruckner] - [#72461] [#73904]) ([documentation](/integrations/life360))
+
+[@pnbruckner]: https://github.com/pnbruckner
+[#72461]: https://github.com/home-assistant/core/pull/72461
+
+{% enddetails %}
+
 {% details "Mazda Connected Services" %}
 
 The `start_engine`, `stop_engine`, `turn_on_hazard_lights`,
 `turn_off_hazard_lights`, `start_charging`, and `stop_charging` services are
 removed from the Mazda integration.
 
-They were deprecated in 2022.4 and have been replaced by button and switch
-entities.
+They were deprecated in 2022.4 and replaced by button and switch entities.
 
 ([@bdr99] - [#73403]) ([documentation](/integrations/mazda))
 
 [@bdr99]: https://github.com/bdr99
 [#73403]: https://github.com/home-assistant/core/pull/73403
+
+{% enddetails %}
+
+{% details "Met Office" %}
+
+Met Office doesn't provide precise visibility distance, only ranges - i.e.,
+something like "Very good - 20-40 km".
+
+This doesn't fit into the weather entity model, so it's now removed.
+The old value is still available in a separate sensor provided
+by this integration.
+
+([@avee87] - [#74314]) ([documentation](/integrations/metoffice))
+
+[@avee87]: https://github.com/avee87
+[#74314]: https://github.com/home-assistant/core/pull/74314
 
 {% enddetails %}
 
@@ -640,7 +728,7 @@ removed from your YAML configuration files.
 
 The Nest authentication method called "Desktop", "Installed App" or "OOB" auth
 has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html#disallowed-oob)
-by Google and scheduled to break existing users in October.
+by Google and is scheduled to break existing users in October.
 
 As a result, the Home Assistant Nest integration setup has been streamlined
 to help make the transition easier for users. See the integration
@@ -727,18 +815,14 @@ the hold mode to disable unexpectedly.
 
 {% details "Scrape" %}
 
-The Scrape integration migrated to configuration
-via the UI. Configuring Scrape via YAML configuration
-has been deprecated and will be removed in a future Home Assistant release.
+The default scan interval of the scape sensor has been changed from 30 seconds
+to a more reasonable 10 minutes; This prevents unneeded hammering of
+websites by default.
 
-Your existing YAML configuration is automatically imported on upgrade to this
-release; and thus can be safely removed from your YAML configuration
-after upgrading.
+([@balloob] - [#74285]) ([documentation](/integrations/scrape))
 
-([@gjohansson-ST] - [#70476]) ([documentation](/integrations/scrape))
-
-[@gjohansson-ST]: https://github.com/gjohansson-ST
-[#70476]: https://github.com/home-assistant/core/pull/70476
+[@balloob]: https://github.com/balloob
+[#74285]: https://github.com/home-assistant/core/pull/74285
 
 {% enddetails %}
 
@@ -770,7 +854,7 @@ release; and thus can be safely removed from your YAML configuration
 after upgrading.
 
 After upgrading, each Skybell will now have a device for each doorbell.
-Also, it now has become unnecessary to prefix all entities with "SkyBell",
+Also, it has become unnecessary to prefix all entities with "SkyBell",
 this may change you existing entities after upgrading and you need to adjust
 your automation, scripts and dashboard for this change.
 
@@ -782,8 +866,8 @@ your automation, scripts and dashboard for this change.
 ---
 
 The following SkyBell entity attributes have been split out into their own
-sensors: last motion event, last button event, last check in, motion threshold,
-video profile, wifi ssid, wifi status.
+sensors: last motion event, last button event, last check-in, motion threshold,
+video profile, Wi-Fi SSID, Wi-Fi status.
 
 If you rely on these attributes in your automations or scripts, you will need
 to adapt them to this change.
@@ -805,7 +889,7 @@ Air Conditioner have been removed and added as separate sensors:
 - `power_consumption_power`
 - `power_consumption_energy`
 
-If you are currently using these attributes in your automation or scripts,
+If you currently use these attributes in your automation or scripts,
 you'll need to adapt them to this change.
 
 ([@mbo18] - [#72594]) ([documentation](/integrations/smartthings))
@@ -818,7 +902,7 @@ you'll need to adapt them to this change.
 {% details "SMS notifications via GSM-modem" %}
 
 GSM signal sensor entity was replaced with a set of more granular ones.
-The old entity will become unavailable after update.
+The old entity will become unavailable after updating to this release.
 
 ([@PaulAnnekov] - [#70486]) ([documentation](/integrations/sms))
 
@@ -838,7 +922,7 @@ The old entity will become unavailable after update.
 - Open path and URL are now separate services. If you are using the
   old `system_bridge.open` service, you will need to update your
   automation to use the new service(s).
-- GPU entities are from a new source so may have changed names slightly.
+- GPU entities are from a new source, so they may have changed names slightly.
   Any automations using these entities may need to be updated.
 - GPU fan speed is now measured in RPM instead of %.
 
@@ -867,7 +951,7 @@ removed from your YAML configuration files.
 
 Entity attributes of Tautulli entities have now been moved to their own sensors.
 
-If you are currently using these attributes in your automation or scripts,
+If you currently use these attributes in your automation or scripts,
 you'll need to adapt them to this change.
 
 ([@tkdrob] - [#71712]) ([documentation](/integrations/tautulli))
@@ -895,13 +979,13 @@ removed from your YAML configuration files.
 
 {% details "UniFi Protect" %}
 
-The new disk sensors pull from completely different data then the old ones.
+The new disk sensors pull from completely different data than the old ones.
 They should be largely compatible for functionality, but orphaned sensors may
 still be created. Any orphaned sensors can be safely deleted.
 
-The naming format for the sensors have changed as well to match what is showed
-in UniFi Protect. Additionally, the extra state attribute for the model has
-been completely removed since now the slot numbers match up with what UniFi
+The sensors' naming format has also changed to match what is shown in UniFi
+Protect. Additionally, the extra state attribute for the model has
+been completely removed since now the slot numbers match what UniFi
 Protect displays.
 
 ([@AngellusMortis] - [#73104]) ([documentation](/integrations/unifiprotect))
@@ -916,7 +1000,7 @@ Entities that provided an "edit" configuration interface for Protect devices
 regular sensor entities; if you do not have write access to that UniFi Protect
 Device.
 
-These switches, select entities, etc. never actually worked previously since
+These switches, select entities, etc., never actually worked previously since
 the user did not have permission to change them, but you could read the status.
 
 Any entities that are orphaned by this can be safely deleted.
@@ -933,7 +1017,7 @@ Any entities that are orphaned by this can be safely deleted.
 An "order of importance" between the states of the children of
 Universal Media Player has been added. The active media player might change
 if some of the children are in "playing" and "paused" states,
-depending on the children order.
+depending on the children's order.
 
 ([@koying] - [#68036]) ([documentation](/integrations/universal))
 
@@ -961,7 +1045,7 @@ removed from your YAML configuration files.
 {% details "VeSync" %}
 
 The `air_quality` and `filter_life` attributes have been removed from the fan
-entities. These attributes have been replaced by dedicated sensor entities.
+entities. Dedicated sensor entities have replaced these attributes.
 
 If you are currently using these attributes in your automation or scripts,
 you'll need to adapt them to this change.
@@ -973,14 +1057,14 @@ you'll need to adapt them to this change.
 
 ---
 
-Vesync switches which support energy monitoring will have their:
+Vesync switches that support energy monitoring will have their:
 
 - Voltage attribute moved from the switch entity to a dedicated Voltage Sensor
   entity
 - Weekly, monthly and yearly moved from the switch entity attributes into new
   energy sensors. 
 
-If you used these entity attributes in your automation or scripts, you'll need
+If you used these entity attributes in your automation or scripts, you'd need
 to adapt them to this change.
 
 ([@b3nj1] - [#72570]) ([documentation](/integrations/vesync))
@@ -990,36 +1074,15 @@ to adapt them to this change.
 
 {% enddetails %}
 
-{% details "Weather" %}
-
-This applies to all (weather) integrations providing weather entities.
-
-Previously the units for Weather had not been corresponding correctly with
-the documentation. These units are now aligned for pressure and wind speed:
-
-- If unit system is metric, default pressure unit is `hPa` and the default wind
-  speed unit is `km/h`.
-- If unit system is imperial, default pressure unit is `inHg` and the default
-  wind speed unit is `mi/h`.
-
-([@gjohansson-ST] - [#73707]) ([documentation](/integrations/zwave_js))
-
-[@gjohansson-ST]: https://github.com/gjohansson-ST
-[#73441]: https://github.com/home-assistant/core/pull/73441
-
-{% enddetails %}
-
-{% details "TODO: Z-Wave JS" %}
-
-**TODO:** Add versions
+{% details "Z-Wave JS" %}
 
 With this release, you will need to update your zwave-js-server instance.
 
-- If you use the zwave_js add-on, you need to have at least version `?`.
-- If you use the Z-Wave JS 2 MQTT add-on, you need to have at least version `?`.
-- If you use the zwavejs2mqtt Docker container, you need to have at least version `?`.
-- If you run your own Docker container, or some other installation method,
-  you will need to update your zwave-js-server instance to at least `1.18.0`.
+- If you use the zwave_js add-on, you need at least version `0.1.64`.
+- If you use the Z-Wave JS 2 MQTT add-on, you need at least version `0.44.0`.
+- If you use the zwavejs2mqtt Docker container, you need at least version `6.13.0`.
+- If you run your own Docker container or some other installation method,
+  you will need to update your zwave-js-server instance to at least `1.20.0`.
 
 ([@raman325] - [#73707] [#73904]) ([documentation](/integrations/zwave_js))
 
