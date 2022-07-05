@@ -162,7 +162,7 @@ It now clearly shows the versions of the different components your instance is
 made up of, and provides a clean menu to all kinds of Home Assistant related
 links.
 
-<img class="no-shadow" src='/images/blog/2022-07/about-home-assistant.png' alt='Screenshot showing energy usage being compared from last week with the week before that'>
+<img class="no-shadow" src='/images/blog/2022-07/about-home-assistant.png' alt='Screenshot the new about page from the settings menu'>
 
 {% my info badge %}
 
@@ -292,6 +292,10 @@ For more information, check out our [Templating documentation]
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
+- The Material Design Icons have been updated to v6.9.96, giving you
+  [100](https://pictogrammers.github.io/@mdi/font/6.8.96/) and another
+  [100](https://pictogrammers.github.io/@mdi/font/6.9.96/) brand new icons
+  to use 🤩 .
 - You can now control the loudness and various additional surround-related
   settings of your [Sonos] speakers, thanks [@jjlawren]! 🔊
 - You can now trigger [Alexa] routines from switches, toggles, and buttons
