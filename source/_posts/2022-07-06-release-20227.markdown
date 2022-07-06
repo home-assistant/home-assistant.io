@@ -163,6 +163,11 @@ As a bonus, this same unit-changing feature is added to the number entities
 that represent a temperature. For those number entities, you can now change
 the units from Celsius to Fahrenheit (and the other way around).
 
+Thanks [@emontnemery] and [@gjohansson-ST] for adding this and updating
+all existing weather integrations to support this 👍.
+
+[@emontnemery]: https://github.com/emontnemery
+[@gjohansson-ST]: https://github.com/gjohansson-ST
 [weather services]: /integrations/#weather
 
 ## Labels instead of values for gauge cards segments
@@ -197,13 +202,17 @@ Like the normal icon picker, it supports searching on parts of the icon
 name, its aliases and categories. Additionally, it will show a little preview
 of the icon you are about to select, so you know you got the right one.
 
+Thank you [@bramkragten], this is a really nice addition!
+
+[@bramkragten]: https://github.com/bramkragten
+
 ## Filter the history panel
 
 If you have lots of devices and entities then the
 {% my history title="history panel" %} can be long! Actually,
 it would become so large, that it becomes unpractical. You could always
 filter it down to a single entity, but that is fairly limited as well.
-For this release, we have improved these filters.
+For this release, [@D3v01dZA] improved these filters.
 
 The history can now be filtered by one or more entities, by all entities of
 one or more areas, or by all entities of one or more devices.
@@ -214,6 +223,8 @@ This is super helpful, as you can now view the history of all entities in,
 for example, your living room area quick and easy.
 
 {% my history badge %}
+
+[@D3v01dZA]: https://github.com/D3v01dZA
 
 ## Easily convert values to booleans in templates
 
