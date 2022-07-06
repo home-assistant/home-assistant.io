@@ -385,6 +385,7 @@ Known affected integrations at the time of writing:
 - [EQ3 Bluetooth Smart Thermostats](/integrations/eq3btsmart)
 - [Leviton Decora](/integrations/decora)
 - [Mi Flora](/integrations/miflora)
+- [Switchmate SimplySmart Home](/integrations/switchmate)
 - [Zengge](/integrations/zengge)
 
 These integrations rely on the `bluepy` and `pybluez` libraries, which no longer
