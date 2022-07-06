@@ -479,7 +479,7 @@ source/_integrations/saj.markdown @fredericvl
 source/_integrations/samsungtv.markdown @chemelli74 @epenet
 source/_integrations/scene.markdown @home-assistant/core
 source/_integrations/schluter.markdown @prairieapps
-source/_integrations/scrape.markdown @fabaff @gjohansson-ST
+source/_integrations/scrape.markdown @fabaff
 source/_integrations/screenlogic.markdown @dieselrabbit @bdraco
 source/_integrations/script.markdown @home-assistant/core
 source/_integrations/search.markdown @home-assistant/core

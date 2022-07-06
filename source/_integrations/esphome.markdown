@@ -28,6 +28,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 This integration allows [ESPHome](https://esphome.io) devices to connect directly to Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).
