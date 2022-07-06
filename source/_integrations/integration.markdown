@@ -65,7 +65,7 @@ source:
 name:
   description: Name to use in the frontend.
   required: false
-  default: source entity ID meter
+  default: source entity ID integral
   type: string
 unique_id:
    description: An ID that uniquely identifies the integration sensor. Set this to a unique value to allow customization through the UI.
