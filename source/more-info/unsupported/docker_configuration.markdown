@@ -31,6 +31,6 @@ following contents:
 When the Docker configuration file is changed and saved, you need to restart the
 Docker service on the host machine.
 
-To fix issues with the cgroup level, addjust the `/etc/default/grub` and add `systemd.unified_cgroup_hierarchy=false` to `GRUB_CMDLINE_LINUX_DEFAULT`. After this change is made, you need to reboot the host completely.
+To fix issues with the cgroup level, addjust the `/etc/default/grub` and add `systemd.unified_cgroup_hierarchy=false` to `GRUB_CMDLINE_LINUX_DEFAULT` and run `sudo update-grub`. After this change is made, you need to reboot the host completely.
 
 You can also just re-run our [convenience installation script](https://github.com/home-assistant/supervised-installer).
