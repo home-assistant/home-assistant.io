@@ -23,7 +23,7 @@ and a [Let's get loud!](https://www.youtube.com/watch?v=SEH-DxOsywg) event
 about bringing audio to the [Open Home](https://building.open-home.io/).
 If you have missed those, it is worthwhile to check those recordings out.
 
-Meanwhile, preparations are happing for the upcoming Matter and of course,
+Meanwhile, preparations are happening for the upcoming Matter and of course,
 the soon-to-be-released [Home Assistant Yellow]! 💛 More about that soon™.
 
 This release is definitely representing the "streamlining experiences"
@@ -176,8 +176,8 @@ When displaying an entity gauge card on your dashboard, it would show the
 gauge with the sensor value. For example, if you'd use a humidity sensor,
 it shows the humidity percentage in the middle of the gauge.
 
-In the [2022.5 release], we added segment support to our gauge card,
-this release, [@kristjanbjarni] added label support to those segments!
+In the [2022.5 release], we added segment support to our gauge card.
+In this release, [@kristjanbjarni] added label support to those segments!
 
 This means that if your segment has a label, the gauge card will show
 that label instead of the sensor value when it is in that range.
@@ -234,13 +234,13 @@ function that can be used as a filter too!
 If you are a bit into coding, this is not the standard `bool()`, but one that
 is very specific for Home Assistant, making it very useful.
 
-This `bool` method converts a value into a boolean and condiders
+This `bool` method converts a value into a boolean and considers
 Home Assistant's specific rules for truthy values. Some examples: `"on"` will
 be considered true, and `"disabled"` will be considered false.
 
 <img class="no-shadow" src='/images/blog/2022-07/bool.png' alt='Screenshot demonstrating auto-complete for MDI icons in the code editors'>
 
-Using `bool` as a filter and combined with and [`iff`](/docs/configuration/templating/#immediate-if-iif)
+Using `bool` as a filter and combined with and [`iif`](/docs/configuration/templating/#immediate-if-iif)
 filter, you can quickly change, for example, binary sensors values into any
 text you'd like.
 
