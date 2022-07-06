@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2022.7: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2022.7"
-date: 2022-06-29 00:00:00
+title: "2022.7: A stunning performance"
+description: "Huge performance improvements, update your Z-Wave devices directly from the UI, auto completions for MDI icons, and filters for the history panel!"
+date: 2022-07-06 00:00:00
 date_formatted: "July 6, 2022"
 author: Franck Nijhof
 author_twitter: frenck
@@ -15,38 +15,28 @@ og_image: /images/blog/2022-07/social.png
 
 <img src='/images/blog/2022-07/social.png' style='border: 0;box-shadow: none;'>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-These are the beta release notes for Home Assistant Core 2022.7 (and is thus a
-work in progress).
+Home Assistant Core 2022.7! ☀️
 
-If you encounter any issues with the beta release, please report them on GitHub:
+This was one exciting and busy month! In case you've missed it, there was
+a [Matter in Home Assistant workshop](https://www.youtube.com/watch?v=9fOHBl5w0_k)
+and a [Let's get loud!](https://www.youtube.com/watch?v=SEH-DxOsywg) event
+about bringing audio to the [Open Home](https://building.open-home.io/).
+If you have missed those, it is worthwhile to check those recordings out.
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+Meanwhile, preparations are happing for the upcoming Matter and of course,
+the soon-to-be-released [Home Assistant Yellow]! 💛 More about that soon™.
 
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
+This release is definitely representing the "streamlining experiences"
+motto we have been using. The performance improvements in this release are
+once more: stunning! Furthermore, there are some wonderful new features to
+explore too. 
 
-Issues introduced in the beta are processed with priority.
-
----
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
-Home Assistant Core 2022.7!
-
-I have nothing to tell yet... this is still all beta!
-
-Thanks for helping out testing the beta! ❤️
-
-Enjoy the (beta) release!
+This release has the perfect mix! I'm sure there is something in here you
+like. So without further due: Enjoy the release!
 
 ../Frenck
+
+[Home Assistant Yellow]: /yellow
 
 <!--more-->
 
