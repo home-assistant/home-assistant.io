@@ -208,12 +208,6 @@ of the icon you are about to select, so you know you got the right one.
 
 ## Filter the history panel
 
-{% details "TODO" %}
-
-- Replace screenshot, as soon as b5 lands
-
-{% enddetails %}
-
 If you have lots of devices and entities then the
 {% my history title="history panel" %} can be long! Actually,
 it would become so large, that it becomes unpractical. You could always
@@ -223,10 +217,7 @@ For this release, we have improved these filters.
 The history can now be filtered by one or more entities, by all entities of
 one or more areas, or by all entities of one or more devices.
 
-<p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/663432/176453456-d244f1ee-bf7f-4243-8a2e-204e3f3f5271.png' alt='In the history panel it is now possible to select what you want to see'>
-Temporary screenshot. Target selector in the history panel.
-</p>
+<img class="no-shadow" src='/images/blog/2022-07/history-panel.png' alt='Screenshot demonstrating the history panel; it is now possible to select what you want to see'>
 
 This is super helpful, as you can now view the history of all entities in,
 for example, your living room area quick and easy.
