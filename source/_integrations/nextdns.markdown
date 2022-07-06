@@ -10,12 +10,13 @@ ha_codeowners:
   - '@bieniu'
 ha_domain: nextdns
 ha_platforms:
+  - button
   - diagnostics
   - sensor
 ha_integration_type: integration
 ---
 
-NextDNS is a DNS service that protects from all kinds of security threats, blocks ADS and trackers on websites and in apps, and provides a safe and supervised Internet for kids — on all devices and on all networks. The NextDNS integration allows you to monitor your NextDNS statistics.
+NextDNS is a DNS service that protects from all kinds of security threats, blocks ADS and trackers on websites and in apps, and provides a safe and supervised Internet for kids — on all devices and on all networks. The NextDNS integration allows you to monitor NextDNS statistics and control its configuration.
 
 ## Prerequisites
 
