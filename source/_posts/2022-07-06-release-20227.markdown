@@ -51,7 +51,7 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [Improved stability and performance, and Python 3.10](#improved-stability-and-performance-and-python-310)
-- [Update firmware of your Z-Wave devices directly from Home Assistant](#update-firmware-of-your-z-wave-devices-directly-from-home-assistant)
+- [Update Z-Wave devices directly from Home Assistant](#update-z-wave-devices-directly-from-home-assistant)
 - [The about page is now beautiful too!](#the-about-page-is-now-beautiful-too)
 - [Change any weather unit to your preference](#change-any-weather-unit-to-your-preference)
 - [Labels instead of values for gauge cards segments](#labels-instead-of-values-for-gauge-cards-segments)
@@ -109,31 +109,32 @@ automatically get this; there is no need to do anything. 🚀
 [@bdraco]: https://github.com/bdraco
 [@pvizeli]: https://github.com/pvizeli
 
-## Update firmware of your Z-Wave devices directly from Home Assistant
+## Update Z-Wave devices directly from Home Assistant
 
-{% details "TODO" %}
+All software has bugs, including the software on your Z-Wave devices. But how
+to update those? Have no fear! As of today, we have a solution for this!
 
-- Update screenshots, maybe an animation?
-- Add manual firmware update support for zwave-js devices (#12910) @raman325 (frontend)
-- Improve story
-- Spelling/grammar
+Thanks to the hard work and collaboration between [@AlCalzone] from Z-Wave JS
+and [@raman325] from Home Assistant, you can now install updates on your
+Z-Wave devices directly from the Home Assistant interface!
 
-{% enddetails %}
+<img class="no-shadow" src='/images/blog/2022-07/zwave-updating-firmware.png' alt='Screenshot showing the new upload firmware item on the device page of a Z-Wave device page'>
 
-You can now install and update firmware of your Z-Wave devices directly from
-within Home Assistant! On the device page there is now the ability to
-upload a firmware to your Z-Wave device.
+On the device page of your Z-Wave device, there is now a menu item allowing
+you to install Z-Wave firmware updates onto your device manually.
 
-<p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/7243222/173172258-cd6a4bd8-4ead-49cf-a96e-42084b9d7246.png' alt='Upload firmware to your Z-Wave device'>
-Temporary screenshot. Upload Z-Wave firmware from your device page.
-</p>
+Get a software update for your Z-Wave device from the manufacturer,
+and start an update in Home Assistant, which allows you to upload the
+update file you got from the manufacturer. The rest is pure magic!
 
+<img class="no-shadow" src='/images/blog/2022-07/zwave-installing-firmware-update.png' alt='Screenshot showing the a Z-Wave device that has firmware installation in progress'>
 
-<p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/7243222/173172278-e3acadca-335d-4285-8a46-d18053f0cbb9.png' alt='Upload firmware to your Z-Wave device'>
-Temporary screenshot. Update in progress...
-</p>
+During update installation, you'll be presented with the update's progress.
+
+It is that easy 💪
+
+[@AlCalzone]: https://github.com/AlCalzone
+[@raman325]: https://github.com/raman325
 
 ## The about page is now beautiful too!
 
