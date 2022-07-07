@@ -601,6 +601,29 @@ integration, you will have to re-add it manually via the user interface.
 
 {% details "Life360" %}
 
+### Overview
+
+The Life360 integration has been converted from the old "legacy"
+implementation (which uses known_devices.yaml) to the newer entity based
+design, similar to what was done back in the 0.94.0 release to many other
+device tracker integrations.
+
+Due to this change all your existing Life360 entities will become
+non-functional, and there will be new entities, with different entity IDs,
+that _are_ functional.
+
+### Steps to replace old entities with new ones
+
+1. Edit the known_devices.yaml file in your configuration directory to
+remove any Life360 related entries. Or, if there are only Life360 entries in
+this file, simply delete the file entirely.
+2. Restart Home Assistant. All the old, non-functional Life360 entities
+should now be gone.
+3. Go to the Entities page (under Settings -> Devices & Services -> Entities)
+and change the entity IDs for the new Life360 entities as desired.
+
+### Removed/changed functionality
+
 The previously deprecated YAML configuration of the Life360
 integration has been removed.
 
@@ -608,17 +631,13 @@ Life360 is now configured via the UI. Any "advanced" options in
 YAML configuration will be imported. Once the migration is complete,
 any `life360` entries in YAML configuration should be removed.
 
-As per other device tracker platforms that have migrated to entity-based,
-entries in `known_devices.yaml` will no longer be created, and any existing
-entries for `life360` should be removed.
-
 The following options are no longer supported: 
 
 - `circles`
 - `members`
 - `error_threshold`
 - `warning_threshold`
-- `max_update_wait`
+- `max_update_wait` (including the `life360_update_overdue` & `life360_update_restored` events)
 - `show_as_state: moving`
 
 Additionally, the following entity attributes have been changed:
