@@ -44,7 +44,7 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The ZHA (Zigbee Home Automation) integration allows you to connect many off-the-shelf [Zigbee based devices](https://zigbeealliance.org) directly to Home Assistant, using one of the many available Zigbee coordinators.
+The ZHA (Zigbee Home Automation) integration allows you to connect many off-the-shelf [Zigbee based devices](https://csa-iot.org/) directly to Home Assistant, using one of the many available Zigbee coordinators.
 
 ZHA uses an open-source Python library implementing a hardware-independent Zigbee stack called [zigpy](https://github.com/zigpy/zigpy). All coordinators compatible with zigpy can be used with ZHA.
 

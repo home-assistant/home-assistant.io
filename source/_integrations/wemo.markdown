@@ -30,8 +30,8 @@ There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
 - Fan (Belkin WeMo (Holmes) Smart Humidifier)
-- Light (Belkin WeMo LED lights and [Smart Dimmer Switch](https://www.belkin.com/us/F7C059-Belkin/p/P-F7C059/))
-- Switch ([Belkin WeMo Switches](https://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) and includes support for WeMo enabled [Mr. Coffee](https://www.mrcoffee.com/wemo-landing-page.html) smart coffee makers.)
+- Light (Belkin WeMo LED lights and [Smart Dimmer Switch](https://www.belkin.com/smart-home/wemo/wemo-wifi-smart-dimmer/p/p-wds060/))
+- Switch ([Belkin WeMo Switches](https://www.belkin.com/us/smart-home/c/wemo/) and includes support for WeMo enabled [Mr. Coffee](https://www.mrcoffee.com/) smart coffee makers.)
 
 ## Configuration
 
@@ -87,7 +87,7 @@ wemo:
 
 ## Fan
 
-The `wemo` platform allows you to control your Belkin WeMo humidifiers from within Home Assistant. This includes support for the [Holmes Smart Humidifier](https://www.holmesproducts.com/wemo-humidifier.html).
+The `wemo` platform allows you to control your Belkin WeMo humidifiers from within Home Assistant. This includes support for the Holmes Smart Humidifier.
 
 WeMo devices are automatically discovered if the `discovery` integration is enabled.
 
