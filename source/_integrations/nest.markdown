@@ -488,7 +488,7 @@ authentication process.
 
 - *Something went wrong: Please contact the developer of this app if the issue persists*: This typically means you are using the wrong type of credential (e.g. *Desktop Auth*). Make sure the credential in the [Google Cloud Console](https://console.developers.google.com/apis/credentials) is a *Web Application* credential following the instructions above.
 
-- *Can’t link to [Project Name]: Please contact [Project Name] if the issue persists* : This typically means that the *OAuth Client ID* used is mismatched
+- *Can’t link to [Project Name]: Please contact [Project Name] if the issue persists*: This typically means that the *OAuth Client ID* used is mismatched
 
 {% details "Resolving mismatched OAuth Client ID" %}
 
@@ -496,8 +496,8 @@ The *OAuth Client ID* used must be consistent, so check these:
 
 - [Google Cloud Console](https://console.cloud.google.com/apis/credentials) - See instructions above to create new Web Auth OAuth Credentials if needed
 - [Device Access Project](https://console.nest.google.com/device-access/project-list) - The OAuth Client ID for your Device Access Project must refer to the Web Auth OAuth Client ID in the Google Cloud Console
-- Make sure you are using the same account in the Device Access Console and Google Cloud Console e.g. double check the photo and account name in the top right of the screen
-- [Application Credentials](/integrations/application_credentials/) - You may need to delete existing credentials  in Home Assistant, if they do not match then either manually enter or re-enter as part of setup.
+- Make sure you are using the same account in the Device Access Console and Google Cloud Console e.g. double-check the photo and account name in the top right of the screen
+- [Application Credentials](/integrations/application_credentials/) - You may need to delete existing credentials in Home Assistant, if they do not match then either manually enter or re-enter as part of the setup.
 
 
 {% enddetails %}
