@@ -28,7 +28,7 @@ tap_action:
 {% configuration tap-action %}
 tap_action:
   required: false
-  description: Action to take on tap.
+  description: Action taken on tap.
   type: map
   keys:
     action:
@@ -51,7 +51,7 @@ tap_action:
       description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
-    service_data:
+    data:
       required: false
       description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
@@ -75,7 +75,7 @@ hold_action:
 {% configuration hold_action %}
 hold_action:
   required: false
-  description: Action to take on tap-and-hold
+  description: Action taken on tap-and-hold
   type: map
   keys:
     action:
@@ -98,7 +98,7 @@ hold_action:
       description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
-    service_data:
+    data:
       required: false
       description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
@@ -122,7 +122,7 @@ double_tap_action:
 {% configuration double_tap_action %}
 double_tap_action:
   required: false
-  description: Action to take on double tap
+  description: Action taken on double tap
   type: map
   keys:
     action:
@@ -145,7 +145,7 @@ double_tap_action:
       description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
-    service_data:
+    data:
       required: false
       description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string

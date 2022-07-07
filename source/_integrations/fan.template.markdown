@@ -134,9 +134,9 @@ fan:
         default: 100
 {% endconfiguration %}
 
-### Template variables
+### Template and action variables
 
-State-based template entities have the special template variable `this` available in their templates. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates.
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates and actions.
 
 ## Converting from speeds to percentage
 

@@ -6,6 +6,7 @@ ha_category:
   - Presence Detection
   - Sensor
   - Switch
+  - Updates
 ha_release: 0.81
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -19,6 +20,7 @@ ha_platforms:
   - diagnostics
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 ---
 
@@ -29,6 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - [Presence Detection](#presence-detection)
 - [Switch](#switch)
 - [Sensor](#sensor)
+- [Firmware updates](#firmware-updates)
 
 {% include integrations/config_flow.md %}
 
@@ -103,6 +106,10 @@ Get entities reporting receiving and transmitting bandwidth per network client.
 ### Uptime sensor
 
 Get entities reporting uptime per network client.
+
+## Firmware updates
+
+This will show if there are firmware updates available for the UniFi network devices connected to the controller.
 
 ## Debugging integration
 

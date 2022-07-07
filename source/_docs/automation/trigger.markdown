@@ -858,6 +858,8 @@ Calendar trigger fires when a [Calendar](/integrations/calendar/) event starts o
 much more flexible automations that using the Calendar entity state which only supports a single
 event start at a time.
 
+An optional time offset can be given to have it fire a set time before or after the calendar event (e.g., 5 minutes before event start).
+
 ```yaml
 automation:
   trigger:
@@ -866,6 +868,8 @@ automation:
       event: start
       # The calendar entity_id
       entity_id: calendar.light_schedule
+      # Optional time offset
+      offset: "-00:05:00"
 ```
 
 See the [Calendar](/integrations/calendar/) integration for more details on event triggers and the

@@ -28,7 +28,7 @@ backup:
 ```
 
 You need to restart Home Assistant after you add this configuration.
-When it has started up again you will find a new "Backup" entry in the main menu (**Configuration** -> **Backup**).
+When it has started up again you will find a new "Backup" entry in the main menu (**Settings** -> **System** -> **Backup**).
 
 The backup files are stored in a new "backups" subdirectory in the root of your configuration directory.
 

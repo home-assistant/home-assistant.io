@@ -24,7 +24,7 @@ Please note that some devices, such as Samsung TVs, are rather picky about the s
 
 ## Options
 
-Options for DLNA DMR devices can be set going to **Configuration** -> **Devices & Services** -> **DLNA Digital Media Renderer** -> **Configuration**.
+Options for DLNA DMR devices can be set going to **Settings** -> **Devices & Services** -> **DLNA Digital Media Renderer** -> **Configuration**.
 
 {% configuration_basic %}
 Event listener port:
@@ -33,6 +33,8 @@ Event listener callback URL:
   description: "Local URL destination for events sent by the DLNA device. It should be of the form `http://{host}:{port}/notify`, where keywords `{host}` and `{port}` will be automatically filled-in but can be set explicitly here, e.g. `http://192.88.99.1:5555/notify`. Use this if the local IP address or port seen by Home Assistant is not what the device should connect to, because of Network Address Translation (NAT)."
 Poll for device availability:
   description: "Periodically try to connect to the DLNA device, even if it is unavailable. Enable this if SSDP advertisements sent by the device are not received by Home Assistant, e.g. when IP multicast is broken on your network."
+Show incompatible media when browsing:
+  description: "When browsing media, show all media files and links, even if the device reports that it is not compatible with the media type."
 {% endconfiguration_basic %}
 
 ## Services

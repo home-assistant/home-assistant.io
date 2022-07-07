@@ -154,7 +154,7 @@ The `condition` action only stops executing the current sequence block. When it 
       below: 20
 ```
 
-## Delay
+## Wait for time to pass (delay)
 
 Delays are useful for temporarily suspending your script and start it at a later moment. We support different syntaxes for a delay as shown below.
 
@@ -204,7 +204,7 @@ All forms accept templates.
 
 These actions allow a script to wait for entities in the system to be in a certain state as specified by a template, or some event to happen as expressed by one or more triggers.
 
-### Wait Template
+### Wait for a template
 
 This action evaluates the template, and if true, the script will continue. If not, then it will wait until it is true.
 
@@ -220,7 +220,7 @@ The template is re-evaluated whenever an entity ID that it references changes st
 
 {% endraw %}
 
-### Wait for Trigger
+### Wait for a trigger
 
 This action can use the same triggers that are available in an automation's `trigger` section. See [Automation Trigger](/docs/automation/trigger). The script will continue whenever any of the triggers fires. All previously defined [trigger variables](/docs/automation/trigger#trigger-variables), [variables](#variables) and [script variables] are passed to the trigger.
 {% raw %}
@@ -461,7 +461,7 @@ repeat:
     - language: English
       message: Hello World
     - language: Dutch
-      hello: Hallo Wereld
+      message: Hallo Wereld
   sequence:
     - service: notify.phone
       data:

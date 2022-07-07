@@ -1,5 +1,7 @@
 {
-  "filters": {},
+  "filters": {
+    "comments": true
+  },
   "rules": {
     "common-misspellings": {
       "ignore": ["Proove", "Alot"]

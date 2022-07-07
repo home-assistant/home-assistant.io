@@ -8,8 +8,6 @@ ha_category:
   - Switch
 ha_iot_class: Local Polling
 ha_release: 0.9
-ha_codeowners:
-  - '@fabaff'
 ha_domain: arest
 ha_platforms:
   - binary_sensor

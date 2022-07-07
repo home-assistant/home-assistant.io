@@ -38,6 +38,12 @@ ID:
 
 ## Binary Sensors
 
+For each Airzone system (HVAC machine), the following *binary sensors* are created:
+
+| Condition           | Description                        |
+| :------------------ | :--------------------------------- |
+| problems            | System has errors or warnings.     |
+
 For each Airzone zone (Thermostat), the following *binary sensors* are created:
 
 | Condition           | Description                        |
@@ -56,6 +62,12 @@ For each Airzone zone (Thermostat) a *climate entity* is created.
 *Slave zones* can only enable/disable the current HVAC mode selected on the corresponding *master zone*. Attempting to change the HVAC mode on a *slave zone* will result on a Home Assistant error.
 
 ## Sensors
+
+For the Airzone WebServer, the following *sensors* are created:
+
+| Condition           | Description                        |
+| :------------------ | :--------------------------------- |
+| rssi                | WiFi RSSI.                         |
 
 For each Airzone zone (Thermostat), the following *sensors* are created:
 

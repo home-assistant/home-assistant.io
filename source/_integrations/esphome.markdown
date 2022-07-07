@@ -22,6 +22,7 @@ ha_platforms:
   - fan
   - light
   - lock
+  - media_player
   - number
   - select
   - sensor

@@ -34,11 +34,11 @@ tap_action:
   type: map
 hold_action:
   required: false
-  description: Action to take on tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
+  description: Action taken on tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action to take on double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+  description: Action taken on double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 
@@ -79,6 +79,29 @@ entities:
       required: false
       description: Label for the button.
       type: string
+    show_icon:
+      required: false
+      description: Show entity icon.
+      type: boolean
+      default: "true"  
+    show_name:
+      required: false
+      description: Show entity name.
+      type: boolean
+      default: "false"
+    tap_action:
+      required: false
+      description: Action taken on button tap. See [action documentation](/dashboards/actions/#tap-action).
+      type: map
+    hold_action:
+      required: false
+      description: Action taken on tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
+      type: map
+    double_tap_action:
+      required: false
+      description: Action taken on double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+      type: map
+    
 {% endconfiguration %}
 
 ## Graph header & footer

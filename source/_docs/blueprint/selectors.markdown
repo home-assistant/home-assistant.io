@@ -34,6 +34,7 @@ The following selectors are currently available:
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [Target selector](#target-selector)
+- [Template selector](#template-selector)
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
 - [Time selector](#time-selector)

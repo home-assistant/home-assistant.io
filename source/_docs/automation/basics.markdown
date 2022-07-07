@@ -5,7 +5,7 @@ description: "A breakdown of what an automation consists of."
 
 All automations are made up of a trigger and an action. Optionally combined with a condition. Take for example the automation:
 
-> When Paulus arrives home and it is after sunset: Turn the lights on in the living room.".
+> When Paulus arrives home and it is after sunset: Turn the lights on in the living room.
 
 We can break up this automation into the following three parts:
 

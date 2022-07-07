@@ -78,15 +78,28 @@ When a device is not responding correctly the update interval will increase to 1
 
 ## Energy dashboard
 
-Recommended energy dashboard configuration for meter location in feed in path (`Meter location: 0`):
-
-- For `Grid consumption` use the meters `Energy real consumed` entity.
-- For `Return to grid` use the meters `Energy real produced` entity.
 - For `Solar production`: 
   - If no battery is connected to an inverter: Add each inverters `Energy total` entity.
   - If a battery is connected to an inverter: Use [Riemann sum](/integrations/integration/) over `Power photovoltaics` entity (from power_flow endpoint found in your `SolarNet` device)
 - `Battery systems` aren't supported directly. Use [Template](/integrations/template) to split and invert negative values of `Power battery` entity (from power_flow) for charging power (W) and positive values for discharging power (W). Then use [Riemann sum](/integrations/integration/) to integrate each into energy values (kWh).
 - For `Devices` use the Ohmpilots `Energy consumed` entity.
+
+The energy meter integrated with Fronius devices can be installed (and configured) in two different installation positions: _"feed in path"_ (`meter_location` = 0) or _"consumption path"_ (`meter_location` = 1). In the first case, the meter provides all data you need but, in the second case, it doesn't so you need to calculate some of them by using helpers.
+
+### Feed in path meter
+
+Recommended energy dashboard configuration for meter location in feed in path:
+
+- For `Grid consumption` use the meters `Energy real consumed` entity.
+- For `Return to grid` use the meters `Energy real produced` entity.
+
+### Consumption path meter
+
+Recommended energy dashboard configuration for meter location in consumption path:
+
+- The "Power Grid" entity provided by the Fronius API is positive on import and negative on export. Split it up into import- and export-power entities by using helpers with templates `max(states(sensor.power_grid) | float, 0)` and `max(0 - states(sensor.power_grid) | float, 0)`.
+- Then use [Riemann sum](/integrations/integration/) to integrate these import-/export-power entities into energy values (kWh).
+- Use these energy entities for `Grid consumption` and `Return to grid` in the energy dashboard configuration.
 
 ## Note
 

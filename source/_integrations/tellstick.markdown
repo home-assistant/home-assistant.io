@@ -175,4 +175,4 @@ switch:
   - platform: tellstick
 ```
 
-[tellstick-gateway]: https://telldus.com/produkt/z-wave-gateway-tellstick-znet-lite-ver-2/
+[tellstick-gateway]: https://telldus.com

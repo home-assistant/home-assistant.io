@@ -18,6 +18,6 @@ This integration is by default enabled, unless you've disabled or removed the [`
 system_health:
 ```
 
-System Health integration data can be viewed at **Configuration** -> **Info**.
+System Health integration data can be viewed at **Settings** -> **System** -> **System Health**.
 
 Data includes information about your system architecture, operating system and version, Home Assistant installation type and version, Python version, frontend version, the number of [Dashboards](/dashboards/dashboards/) and [Views](/dashboards/views/) you have, and more.

@@ -26,8 +26,10 @@ Currently supported and tested thermostats:
 - ColorTouch T7900  
 - ColorTouch T7850  (No Humidity control)
 - Explorer Mini T2000
+- Explorer IAQ T3950
 
 Currently supported functionality:
+
 - Setting heat/cool temperature when the thermostat is in the appropriate mode.
 - Changing the operation mode of the thermostat (heat/cool/off/auto)
 - Turning the fan on/off
@@ -36,8 +38,10 @@ Currently supported functionality:
 - Turning on hold mode preset
 - Remote temperature sensors
 - Thermostat alerts (Filter replacement/etc)
+- Reading IAQ and CO2 levels (on supported devices, e.g. T3950, only)
 
 The following values are supported for the preset_mode state attribute:
+
 - `none`: *Enables* the scheduling functionality.
 - `temperature`: *Disables* the schedule and holds the set temperature indefinitely.
 - `away`: Places the thermostat in away mode

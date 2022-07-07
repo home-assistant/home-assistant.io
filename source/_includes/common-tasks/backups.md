@@ -14,7 +14,7 @@ A partial backup consists of any number of the above default directories and ins
 
 ### Making a Backup from the UI
 
-1. Go to {% my supervisor_backups title="Configuration > Add-ons & Backups > Backups" %} in the UI.
+1. Go to {% my supervisor_backups title="Settings > System > Backups" %} in the UI.
 2. Provide a name for the backup.
 3. Choose full or partial.
 4. Choose to password protect or not. Password-protected backups cannot easily be browsed outside of Home Assistant OS.

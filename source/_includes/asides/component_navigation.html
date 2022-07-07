@@ -14,7 +14,7 @@
   </div>
 
   <div class='section'>
-    The {{ page.name | default: page.title }} integration was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
+    The {{ page.name | default: page.title }} {{ page.ha_integration_type | default: "integration" }} was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
     and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io/#integrations" target="_blank" rel="noopener">
     
     {% if percentage < 1 %}

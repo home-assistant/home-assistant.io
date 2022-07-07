@@ -17,7 +17,7 @@ The Emulated Kasa integration emulates a TP-Link Kasa smart plug and announces t
 For example, the [Sense Energy Monitor](/integrations/sense) can use this to identify power usage.
 
 The configuration includes a list of entities to expose with attributes for the published name and current power usage.
-If the entity is a sensor or has a `current_power_w` attribute (such as in a smart switch), that value will be reported as the current power usage unless the power field is defined.
+If the entity is a sensor, that value will be reported as the current power usage unless the power field is defined.
 The power field can contain a hardcoded value, a sensor, or a template (see configuration example).
 
 <div class='note'>
@@ -66,9 +66,6 @@ A full configuration sample looks like the one below.
 # Example configuration.yaml entry
 emulated_kasa:
   entities:
-    # uses the current_power_w attribute of the switch
-    switch.ac:
-      name: "A/C"
     # uses the sensor state value
     sensor.power_meter:
       name: "Power Meter"

@@ -14,6 +14,7 @@ ha_domain: tractive
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - diagnostics
   - sensor
   - switch
 ha_integration_type: integration

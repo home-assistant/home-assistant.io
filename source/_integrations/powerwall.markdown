@@ -32,16 +32,17 @@ There is currently support for the following device types within Home Assistant:
 
 The following binary sensors are added for each Powerwall:
 
-- Grid Service Active
-- Grid Status
-- Powerwall Charging
-- Powerwall Connected to Tesla
-- Powerwall Status
+- Grid Services - On/ Off
+- Grid Status - On/ Off
+- Powerwall Charging - Charging/ Not Charging
+- Powerwall Connected to Tesla - Connected / Not Connected
+- Powerwall Status - On/ Off
 
 ### Sensor
 
 The following sensors are added for each Powerwall:
 
+- Powerwall Backup Reserve - Reserve energy for grid outages in %
 - Powerwall Battery Now - Usage in kW
 - Powerwall Charge - Percent charge remaining in %
 - Powerwall Generator Now - Usage in kW (if applicable)
@@ -49,6 +50,7 @@ The following sensors are added for each Powerwall:
 - Powerwall Solar Now - Solar usage in kW (if applicable)
 - Powerwall Site Now - Site usage in kW
 - Powerwall Backup Reserve - Percentage of battery which will be reserved for a grid outage
+- Frequency/ Average Current/ Average Voltage Now
 
 The following sensors show the direction of energy:
 
@@ -62,3 +64,8 @@ The following sensors show the direction of energy:
 - Powerwall Load Import - Load energy imported in kWh
 - Powerwall Generator Export - Generator energy exported in kWh
 - Powerwall Generator Import - Generator energy imported in kWh
+
+### Device Info
+
+- Model number: PowerWall 2 (GW2) by Tesla
+- Firmware Revision

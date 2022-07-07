@@ -15,6 +15,7 @@ ha_platforms:
   - media_player
   - number
   - select
+  - switch
 ha_integration_type: integration
 ---
 

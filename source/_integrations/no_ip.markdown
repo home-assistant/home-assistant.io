@@ -5,8 +5,6 @@ ha_category:
   - Network
 ha_iot_class: Cloud Polling
 ha_release: 0.57
-ha_codeowners:
-  - '@fabaff'
 ha_domain: no_ip
 ha_integration_type: integration
 ---

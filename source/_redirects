@@ -8,6 +8,15 @@
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
 /latest-security-alert /blog/2021/01/23/security-disclosure2/
+/merch https://home-assistant-store.creator-spring.com
+/feature-requests https://community.home-assistant.io/c/feature-requests
+/issues https://github.com/home-assistant/core/issues
+/community https://community.home-assistant.io/
+
+
+# Matter workshop June 2022
+/skyconnect-interest https://docs.google.com/forms/d/e/1FAIpQLScEjHSBJszUZfgO3MIDO51IHr3Oeohcs8BLpRIjY1liJ58IpA/viewform?usp=sf_link
+/matter-june-22 https://docs.google.com/document/d/1MldgA337wHTEx-vPkoxlCqKHrhVm5QIcHV32iLsv_2k/edit?usp=sharing
 
 # Redirect for Energy
 /energy /home-energy-management
@@ -462,6 +471,7 @@
 /integrations/ptvsd /more-info/removed-integration 301
 /integrations/pushetta /more-info/removed-integration 301
 /integrations/raspihats /more-info/removed-integration 301
+/integrations/rpi_gpio /more-info/removed-integration 301
 /integrations/rpi_gpio_pwm /more-info/removed-integration 301
 /integrations/rpi_pfio /more-info/removed-integration 301
 /integrations/rpi_rf /more-info/removed-integration 301
@@ -472,6 +482,7 @@
 /integrations/simple_alarm /more-info/removed-integration 301
 /integrations/smarthab /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
+/integrations/somfy /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
 /integrations/srp_energy /more-info/removed-integration 301
 /integrations/synology /more-info/removed-integration 301
@@ -493,3 +504,6 @@
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
 /components/zwave /integrations/zwave_js
+
+# Lovelace images
+/images/dashboards/lovelace_* /images/dashboards/:splat

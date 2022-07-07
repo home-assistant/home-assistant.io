@@ -14,7 +14,7 @@ ha_integration_type: helper
 
 The `input_text` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
 
-The preferred way to configure an input text is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Text** option.
+The preferred way to configure an input text is via the user interface at **Settings** -> **Devices & Services** -> **Helpers**. Click the add button and then choose the **Text** option.
 
 To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
 If you removed `default_config:` from you configuration, you must add `input_text:` to your `configuration.yaml` first, then you can use the UI.

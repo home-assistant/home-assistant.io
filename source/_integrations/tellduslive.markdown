@@ -49,10 +49,4 @@ scan_interval:
   default: 60
 {% endconfiguration %}
 
-<div class='note'>
-
-It is only possible to configure the `scan_interval` when setting up the device. If the polling interval needs to be changed after the device is configured it must be changed manually by changing `"scan_interval": 60,` for the device in the file `.storage/core.config_entries`.
-
-</div>
-
 The integration will offer configuration through the Home Assistant user interface where it will let you associate it with your Telldus Live account.

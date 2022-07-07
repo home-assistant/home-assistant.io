@@ -10,6 +10,7 @@ ha_platforms:
   - lock
   - number
   - sensor
+  - switch
 ha_config_flow: true
 ha_codeowners:
   - '@hesselonline'
@@ -48,3 +49,7 @@ The number entity is only loaded if the supplied username has sufficient rights 
 ## Lock
 
 The integration adds a lock entity, allowing you to lock the charger. Please note, this only works with a user with admin rights.
+
+## Switch
+
+The integration adds a switch entity, allowing you to pause/resume the charging process.
