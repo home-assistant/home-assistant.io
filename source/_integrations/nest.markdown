@@ -182,7 +182,7 @@ Now that you have authentication configured, you will create a Nest Device Acces
 
 In this section you will authorize Home Assistant to access your account by generating an *Authentication Token*.
 
-Note that *OAuth for Auth* has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google and will break by October 2022.
+Note that *OAuth for Apps* has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google and will break by October 2022.
 
 1. A new tab opens, allowing you to choose a Google account. This should be the same developer account you configured above.
 
@@ -410,30 +410,32 @@ This feature is enabled by the following permissions:
 
 ## Deprecated App Auth Credentials
 
-To improve security and reduce phishing risk Google has [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) a previous authentication method used by Home Assistant. **This requires action by you to resolve.**
+To improve security and reduce phishing risk Google has [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) a previous authentication method used by Home Assistant. **This requires action by you to resolve** if you previously configured *Nest* using *App Auth*.
 
 {% details "Reconfigure the integration %}
 
 1. Make sure to upgrade to the latest version of Home Assistant.
-1. In the sidebar click on _**{% my config icon %}**_.
-1. From the configuration menu select: _**{% my integrations %}**_.
-1. The *Nest* integration should appear with alert. Click **Reconfigure**.
+2. In the sidebar click on _**{% my config icon %}**_.
+3. From the configuration menu select: _**{% my integrations %}**_.
+4. The *Nest* integration should appear with alert. Click **Reconfigure**.
+
+If the *Nest* integration does not have an Alert then you probably used *Web Auth* and have nothing to do.
 
 {% enddetails %}
 
 {% details "Create new Web Auth Application Credentials" %}
 
 1. In the Home Assistant flow confirm your *Google Cloud Project ID* and proceed to the next step.
-1. You will be prompted to enter new *Application Credentials*.
-1. In another tab visit the [Google Cloud Console](https://console.cloud.google.com/apis/credentials)
-1. On the *Credentials* page click **Create Credential**.
-1. From the drop-down list select **OAuth client ID**.
-1. Enter **Web Application** for the Application type.
-1.  Pick a new name for your credential.
-1.  Add **Authorized redirect URIs** end enter `https://my.home-assistant.io/redirect/oauth`
-1.  Click *Create* to create the credential.
-1.  You now have *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant.
-1. Back in Home Assistant, you should now be prompted to create [Application Credentials](/integrations/application_credentials) where you will enter the *Client ID* and *Client Secret*.
+2. You will be prompted to enter new *Application Credentials*.
+3. In another tab visit the [Google Cloud Console](https://console.cloud.google.com/apis/credentials)
+4. On the *Credentials* page click **Create Credential**.
+5. From the drop-down list select **OAuth client ID**.
+6. Enter **Web Application** for the Application type.
+7.  Pick a new name for your credential.
+8.  Add **Authorized redirect URIs** end enter `https://my.home-assistant.io/redirect/oauth`
+9.  Click *Create* to create the credential.
+10. You now have *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant.
+11. Back in Home Assistant, you should now be prompted to create [Application Credentials](/integrations/application_credentials) where you will enter the *Client ID* and *Client Secret*.
 
 {% enddetails %}
 
