@@ -16,7 +16,9 @@ The Application Credentials integration is used by integrations that use OAuth2 
 
 Some integrations like [Google Calendar](/integrations/google/) will automatically create application credentials as part of adding an integration. To view any entries:
 1. Go to **{% my integrations title="Settings -> Devices & Services" %}**
-2. Click the overflow menu **...** and choose **Application Credentials**
+2. Click the overflow menu on the top right **...** and choose **Application Credentials**
+
+![Devices and services overflow menu](/images/integrations/application_credentials/devices-and-services-menu.png)
 
 ![Application credential list](/images/integrations/application_credentials/application-credentials.png)
 
@@ -27,9 +29,10 @@ when setting up for the first time. You may also manually enter credentials with
 
 1. Obtain an OAuth *Client ID* and *Client Secret* from the cloud provider. The integration should have specific instructions for this.
 2. In Home Assistant navigate to **{% my integrations title="Settings -> Devices & Services" %}**
-3. Click the overflow menu **...** and choose **Application Credentials**
+3. Click the overflow menu on the top right **...** and choose **Application Credentials**
 4. Select the integration, enter a *Name* and your OAuth *Client ID* and *Client Secret*.
 5. Save the credentials
 
 ![Manual setup](/images/integrations/application_credentials/application-credential-setup.png)
+
 You may then visit **Integrations** and setup the integration.

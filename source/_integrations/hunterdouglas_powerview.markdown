@@ -11,13 +11,14 @@ ha_domain: hunterdouglas_powerview
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@bdraco"
-  - "@kingy444"
-  - "@trullock"
+  - '@bdraco'
+  - '@kingy444'
+  - '@trullock'
 ha_homekit: true
 ha_platforms:
   - button
   - cover
+  - diagnostics
   - scene
   - sensor
 ha_zeroconf: true

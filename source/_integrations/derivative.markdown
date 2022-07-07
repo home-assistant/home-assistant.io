@@ -58,7 +58,7 @@ source:
 name:
   description: Name to use in the frontend.
   required: false
-  default: source entity ID meter
+  default: source entity ID derivative
   type: string
 round:
   description: Round the calculated derivative value to at most N decimal places.
