@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[Velux](https://www.velux.com/) integration for Home Assistant allows you to connect to a Velux KLF 200 interface, to control [io-homecontrol](http://www.io-homecontrol.com) devices like windows and blinds. The module allows you to start scenes configured within KLF 200.
+[Velux](https://www.velux.com/) integration for Home Assistant allows you to connect to a Velux KLF 200 interface, to control [io-homecontrol](http://www.io-homecontrol.com) devices like windows and blinds. The integration discovers *programs* defined within the KLF 200 web interface and allows to control them as [scenes](https://www.home-assistant.io/integrations/scene/) within Home Assistant. The integration currently does not discover KLF200 controlled devices. Thus they don't appear as entities / devices. 
 
 At least firmware version > 2.0.0.0 is required on the KLF 200 device. The firmware images may be obtained [here](https://www.velux.com/klf200) and may be imported via the webinterface of your KLF 200.
 
@@ -34,7 +34,7 @@ A `velux` section must be present in the `configuration.yaml` file and contain t
 # Example configuration.yaml entry
 velux:
   host: IP_ADDRESS
-  password: VELUX_PASSWORD
+  password: VELUX_WIFI_PASSWORD
 ```
 
 {% configuration %}
