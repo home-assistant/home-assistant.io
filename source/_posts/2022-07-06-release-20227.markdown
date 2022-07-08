@@ -272,7 +272,7 @@ noteworthy changes this release:
   supported by [ZHA]! 
 - [@ghedo] has been busy improving the [Area Card]. It can now show
   moisture/flood alerts, humidity, and shows an icon for temperature. Nice!
-- [@king444] added support for Top/Down, Bottom/Up to [Hunter Douglas PowerView].
+- [@kingy444] added support for Top/Down, Bottom/Up to [Hunter Douglas PowerView].
   Additionally, buttons to calibrate and jog (identify) have been added. [@bdraco]
   added support for polling in case the device is mains powered.
 - Thanks to [@thrawnarn], you can now send polls via [Telegram bot]!
@@ -294,7 +294,7 @@ noteworthy changes this release:
 [@iAutom8]: https://github.com/@iAutom8
 [@j-stienstra]: https://github.com/j-stienstra
 [@jjlawren]: https://github.com/jjlawren
-[@king444]: https://github.com/king444
+[@kingy444]: https://github.com/kingy444
 [@matrixd2]: https://github.com/matrixd2
 [@mdegat01]: https://github.com/mdegat01
 [@thrawnarn]: https://github.com/thrawnarn
