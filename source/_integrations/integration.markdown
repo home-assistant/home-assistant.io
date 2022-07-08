@@ -93,7 +93,7 @@ method:
   default: trapezoidal
 {% endconfiguration %}
 
-In case you expect that your source sensor will provide several subsequent values that are equal, you should opt for the `left` method to get accurate readings. Due to limitations in Home Assistant, the `right` and `trapezoidal` methods will [provide incorrect values](https://github.com/home-assistant/core/issues/74434) in such cases.
+In case you expect that your source sensor will provide several subsequent values that are equal, you should opt for the `left` method to get accurate readings.
 
 The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product (e.g. a source in `W` with prefix `k` and time `h` would result in `kWh`). Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation. 
 
