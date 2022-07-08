@@ -52,6 +52,7 @@ like. So without further due: Enjoy the release!
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.7.1 - July 7](#release-202271---july-7)
+- [Release 2022.7.2 - July 8](#release-202272---july-8)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -400,6 +401,37 @@ The following integrations are now available via the Home Assistant UI:
 [skybell docs]: /integrations/skybell/
 [sonos docs]: /integrations/sonos/
 [zamg docs]: /integrations/zamg/
+[zha docs]: /integrations/zha/
+
+## Release 2022.7.2 - July 8
+
+- Add missing strings for here_travel_time ([@eifinger] - [#74641]) ([here_travel_time docs])
+- Add ssh-rsa as acceptable an host key algorithm ([@siyuan-nz] - [#74684]) ([unifi_direct docs])
+- Fix ZHA group not setting the correct color mode ([@TheJulianJES] - [#74687]) ([zha docs])
+- Bump deconz dependency to fix #74523 ([@Kane610] - [#74710]) ([deconz docs])
+- Bump atomicwrites ([@balloob] - [#74758])
+- Bump regenmaschine to 2022.07.0 ([@bachya] - [#74680]) ([rainmachine docs])
+- Fix error with HDD temperature report in Freebox integration ([@BenoitAnastay] - [#74718]) ([freebox docs])
+
+[#74641]: https://github.com/home-assistant/core/pull/74641
+[#74680]: https://github.com/home-assistant/core/pull/74680
+[#74684]: https://github.com/home-assistant/core/pull/74684
+[#74687]: https://github.com/home-assistant/core/pull/74687
+[#74710]: https://github.com/home-assistant/core/pull/74710
+[#74718]: https://github.com/home-assistant/core/pull/74718
+[#74758]: https://github.com/home-assistant/core/pull/74758
+[@BenoitAnastay]: https://github.com/BenoitAnastay
+[@Kane610]: https://github.com/Kane610
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@eifinger]: https://github.com/eifinger
+[@siyuan-nz]: https://github.com/siyuan-nz
+[deconz docs]: /integrations/deconz/
+[freebox docs]: /integrations/freebox/
+[here_travel_time docs]: /integrations/here_travel_time/
+[rainmachine docs]: /integrations/rainmachine/
+[unifi_direct docs]: /integrations/unifi_direct/
 [zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
