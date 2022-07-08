@@ -23,6 +23,7 @@ Integration for the [HomeWizard Energy](https://www.homewizard.nl/energy) platfo
 
 - [Wifi P1 Meter](https://www.homewizard.nl/p1-meter): Depending on the connected DSMR meter: sensors for power import/export, energy consumption (single or three phases) and gas. (Model: `HWE-P1`)
 - [Wifi Energy Socket](https://www.homewizard.nl/energy-socket): Sensors for power import/export and energy consumption and switches for controlling the outlet (model: `HWE-SKT`)
+- [Wifi Watermeter](https://www.homewizard.com/watermeter): Sensors for active and total water usage (model: `HWE-WTR`)
 - [Wifi kWh Meter](https://www.homewizard.nl/kwh-meter): Sensors for power import/export and energy consumption. (Models: `SDM230-wifi`, `SDM630-wifi`)
 
 ## Enable the API
@@ -42,19 +43,21 @@ The HomeWizard Energy API only exposes properties that are used within the HomeW
 
 | Name | Unit | Availability | Description |
 | --- | --- | --- | --- |
-| Wifi SSID | | HWE-P1, SDM230-wifi, SDM630-wifi, HWE-SKT | The SSID of the connected network. |
-| Wifi Strength | % | HWE-P1, SDM230-wifi, SDM630-wifi, HWE-SKT | Percentage of the wifi connection. |
-| Total Energy Import_t1 | kWh | HWE-P1, SDM230-wifi, SDM630-wifi, HWE-SKT | Energy import reading. |
+| Wifi SSID | | HWE-P1, HWE-SKT, HWE-WTR, SDM230-wifi, SDM630-wifi  | The SSID of the connected network. |
+| Wifi Strength | % | HWE-P1, HWE-SKT, HWE-WTR, SDM230-wifi, SDM630-wifi  | Percentage of the wifi connection. |
+| Total Energy Import_t1 | kWh | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Energy import reading. |
 | Total Energy Import_t2 | kWh | HWE-P1 | Energy import reading for other tariff. |
-| Total Energy Export_t1 | kWh | HWE-P1, SDM230-wifi, SDM630-wifi, HWE-SKT | Energy export reading. |
+| Total Energy Export_t1 | kWh | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Energy export reading. |
 | Total Energy Export_t2 | kWh | HWE-P1 | Energy export reading for other tariff. |
-| Active Power | w | HWE-P1, SDM230-wifi, SDM630-wifi, HWE-SKT | Active power usage. |
-| Active Power_l1 | w | HWE-P1, SDM230-wifi, SDM630-wifi, HWE-SKT | Active power usage Line 1, for `SDM230-wifi` and`HWE-SKT` this value is the same as `Active Power`. |
+| Active Power | w | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Active power usage. |
+| Active Power_l1 | w | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Active power usage Line 1, for `SDM230-wifi` and`HWE-SKT` this value is the same as `Active Power`. |
 | Active Power_l2 | w | HWE-P1, SDM630-wifi | Active power usage Line 2. |
 | Active Power_l3 | w | HWE-P1, SDM630-wifi | Active power usage Line 3. |
 | Total Gas | m3 | HWE-P1 | Current gas import reading, only available when your smart meter is connected to a gas meter. |
 | DSMR Version | | HWE-P1 | The detected DSMR version. |
 | Smart Meter Model | | HWE-P1 | The detected smart meter model. |
+| Active Water Usage | liter per minute | HWE-WTR | The current usage of water. |
+| Total Water Usage | m3 | HWE-WTR | Total of water measured since installation. |
 
 ## Switches
 
