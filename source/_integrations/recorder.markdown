@@ -306,6 +306,12 @@ If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.co
 
 </div>
 
+<div class='note warning'>
+
+Because it is a URL, if your database name, user or password contains special characters like brackets, you first need to [URL encode](https://en.wikipedia.org/wiki/Percent-encoding) them to avoid potential issues.
+
+</div>
+
 ### Database startup
 
 If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) you should edit the service file.
