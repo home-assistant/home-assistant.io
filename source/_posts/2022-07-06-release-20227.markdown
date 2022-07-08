@@ -29,7 +29,7 @@ the soon-to-be-released [Home Assistant Yellow]! 💛 More about that soon™.
 This release is definitely representing the "streamlining experiences"
 motto we have been using. The performance improvements in this release are
 once more: stunning! Furthermore, there are some wonderful new features to
-explore too. 
+explore too.
 
 This release has the perfect mix! I'm sure there is something in here you
 like. So without further due: Enjoy the release!
@@ -51,6 +51,7 @@ like. So without further due: Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2022.7.1 - July 7](#release-202271---july-7)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -269,7 +270,7 @@ noteworthy changes this release:
   locks, and vibration, CO, and Smoke Sensors!
 - [Jellyfin] now supports movie collections in the media browser, thanks [@j-stienstra]!
 - Thanks to [@dmulcahey], the widely discussed Aqara FP1 sensor is now
-  supported by [ZHA]! 
+  supported by [ZHA]!
 - [@ghedo] has been busy improving the [Area Card]. It can now show
   moisture/flood alerts, humidity, and shows an icon for temperature. Nice!
 - [@king444] added support for Top/Down, Bottom/Up to [Hunter Douglas PowerView].
@@ -332,6 +333,74 @@ The following integrations are now available via the Home Assistant UI:
 [Radio Thermostat]: /integrations/radiotherm
 [Simplepush]: /integrations/simplepush
 [SkyBell]: /integrations/skybell
+
+## Release 2022.7.1 - July 7
+
+- Bump deCONZ dependency to v96 ([@Kane610] - [#74460]) ([deconz docs])
+- Bump satel_integra to 0.3.7 to fix compat with python 3.10 ([@c-soft] - [#74543]) ([satel_integra docs])
+- fjaraskupan: Make sure we stop bleak on home assistant stop ([@elupus] - [#74545]) ([fjaraskupan docs])
+- Minimize Sonos `media_player.unjoin` timeout ([@jjlawren] - [#74549]) ([sonos docs])
+- Bump aioskybell to 22.7.0 ([@tkdrob] - [#74559]) ([skybell docs])
+- Bump pyenvisalink version to 4.6 ([@ufodone] - [#74561]) ([envisalink docs])
+- ElkM1 bump lib to support Python 3.10 SSL ([@gwww] - [#74569]) ([elkm1 docs])
+- Fix openweathermap hourly forecast ([@emontnemery] - [#74578]) ([openweathermap docs])
+- Fix mix of aiohttp and requests in Bloomsky ([@frenck] - [#74598]) ([bloomsky docs])
+- Update aiokafka to 0.7.2 ([@frenck] - [#74601]) ([apache_kafka docs])
+- Poll cast groups when media player is added or reconnected ([@emontnemery] - [#74610]) ([cast docs])
+- Ikea Starkvind support all models ([@arnemauer] - [#74615]) ([zha docs])
+- Update frontend to 20220707.0 ([@bramkragten] - [#74625]) ([frontend docs])
+- Fix mix of aiohttp and requests in ZAMG ([@frenck] - [#74628]) ([zamg docs])
+- Fix smart energy polling for Tuya plugs ([@TheJulianJES] - [#74640]) ([zha docs])
+- Fix exception in doorbird logbook during startup ([@bdraco] - [#74649]) ([doorbird docs])
+- Update kaiterra-async-client to 1.0.0 ([@Michsior14] - [#74677]) ([kaiterra docs])
+
+[#74460]: https://github.com/home-assistant/core/pull/74460
+[#74543]: https://github.com/home-assistant/core/pull/74543
+[#74545]: https://github.com/home-assistant/core/pull/74545
+[#74549]: https://github.com/home-assistant/core/pull/74549
+[#74559]: https://github.com/home-assistant/core/pull/74559
+[#74561]: https://github.com/home-assistant/core/pull/74561
+[#74569]: https://github.com/home-assistant/core/pull/74569
+[#74578]: https://github.com/home-assistant/core/pull/74578
+[#74598]: https://github.com/home-assistant/core/pull/74598
+[#74601]: https://github.com/home-assistant/core/pull/74601
+[#74610]: https://github.com/home-assistant/core/pull/74610
+[#74615]: https://github.com/home-assistant/core/pull/74615
+[#74625]: https://github.com/home-assistant/core/pull/74625
+[#74628]: https://github.com/home-assistant/core/pull/74628
+[#74640]: https://github.com/home-assistant/core/pull/74640
+[#74649]: https://github.com/home-assistant/core/pull/74649
+[#74677]: https://github.com/home-assistant/core/pull/74677
+[@Kane610]: https://github.com/Kane610
+[@Michsior14]: https://github.com/Michsior14
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@arnemauer]: https://github.com/arnemauer
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@c-soft]: https://github.com/c-soft
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gwww]: https://github.com/gwww
+[@jjlawren]: https://github.com/jjlawren
+[@tkdrob]: https://github.com/tkdrob
+[@ufodone]: https://github.com/ufodone
+[apache_kafka docs]: /integrations/apache_kafka/
+[bloomsky docs]: /integrations/bloomsky/
+[cast docs]: /integrations/cast/
+[deconz docs]: /integrations/deconz/
+[doorbird docs]: /integrations/doorbird/
+[elkm1 docs]: /integrations/elkm1/
+[envisalink docs]: /integrations/envisalink/
+[fjaraskupan docs]: /integrations/fjaraskupan/
+[frontend docs]: /integrations/frontend/
+[kaiterra docs]: /integrations/kaiterra/
+[openweathermap docs]: /integrations/openweathermap/
+[satel_integra docs]: /integrations/satel_integra/
+[skybell docs]: /integrations/skybell/
+[sonos docs]: /integrations/sonos/
+[zamg docs]: /integrations/zamg/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
@@ -540,7 +609,7 @@ entities from the Home Assistant Interface, selecting "REMOVE ENTITY", and
 then confirming the removal by clicking "REMOVE".
 
 - If you have automations to set shade position based on entity ID, you will
-  need to reconfigure these as the new entities will be named differently. 
+  need to reconfigure these as the new entities will be named differently.
 - If you only have automations set to trigger scenes you **do not** need to
   reconfigure automations.
 
@@ -631,7 +700,7 @@ Life360 is now configured via the UI. Any "advanced" options in
 YAML configuration will be imported. Once the migration is complete,
 any `life360` entries in YAML configuration should be removed.
 
-The following options are no longer supported: 
+The following options are no longer supported:
 
 - `circles`
 - `members`
@@ -1056,7 +1125,7 @@ Vesync switches that support energy monitoring will have their:
 - Voltage attribute moved from the switch entity to a dedicated Voltage Sensor
   entity
 - Weekly, monthly and yearly moved from the switch entity attributes into new
-  energy sensors. 
+  energy sensors.
 
 If you used these entity attributes in your automation or scripts, you'd need
 to adapt them to this change.
