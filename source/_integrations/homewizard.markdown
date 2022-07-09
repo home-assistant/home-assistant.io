@@ -26,6 +26,12 @@ Integration for the [HomeWizard Energy](https://www.homewizard.nl/energy) platfo
 - [Wifi Watermeter](https://www.homewizard.com/watermeter): Sensors for active and total water usage (model: `HWE-WTR`)
 - [Wifi kWh Meter](https://www.homewizard.nl/kwh-meter): Sensors for power import/export and energy consumption. (Models: `SDM230-wifi`, `SDM630-wifi`)
 
+<div class='note'>
+
+The Wifi Watermeter can be powered via a USB-C cable and with batteries. When using batteries the watermeter only connects to Wifi every couple of hours. Because of this the API can only be used when powered via the USB-C cable. It is not possible to add use this integration when the watermeter is powered with batteries. 
+
+</div>
+
 ## Enable the API
 
 You have to enable the local API to allow Home Assistant to communicate with your device. Do this in the HomeWizard Energy app:
