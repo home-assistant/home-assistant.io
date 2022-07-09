@@ -112,8 +112,8 @@ To include messages with embedding, use these attributes underneath the `embed` 
   data:
     message: "A message from Home Assistant"
     target: ["1234567890", "0987654321"]
-    verify_ssl: False
     data:
+      verify_ssl: False
       urls: 
       - "https://example.com/image.jpg"
       - "https://example.com/video.mp4"
