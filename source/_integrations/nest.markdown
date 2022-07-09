@@ -71,7 +71,7 @@ By the end of this section you will have a Cloud Project with the necessary APIs
 
 1. Go to the [Google Cloud Console](https://console.developers.google.com/apis/credentials).
 
-2. If this is your first time here, you likely need to create a new Google Cloud project. Click **Create Project** then **New
+1. If this is your first time here, you likely need to create a new Google Cloud project. Click **Create Project** then **New
 Project**.
     ![Screenshot of APIs and Services Cloud Console with no existing project](/images/integrations/nest/api_project_needed.png)
 
@@ -184,35 +184,35 @@ Now that you have authentication configured, you will create a Nest Device Acces
 
 In this section you will authorize Home Assistant to access your account by generating an *Authentication Token*.
 
-See [Troubleshooting](http://localhost:4001/integrations/nest/#troubleshooting) below for steps to resolve the common misconfigurations that result in errors such as *Can't link...* or *Error 400* from Google.
+See [Troubleshooting](#troubleshooting) below for steps to resolve the common misconfigurations that result in errors such as *Can't link...* or *Error 400* from Google.
 
 Note that *OAuth for Apps* has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google and will break by October 2022.
 
 
 1.  In Home Assistant, you should already be going through the setup flow. If not, go back and click the *My: Add Integration* button above to start the setup. The integration will ask you for all of the necessary integration configuration.
 
-2.  Once all configuration information is entered in Home Assistant, a new tab opens, allowing you to choose a Google account. This should be the same developer account you configured above.
+1.  Once all configuration information is entered in Home Assistant, a new tab opens, allowing you to choose a Google account. This should be the same developer account you configured above.
 
-3. The *Google Nest permissions* screen will allow you to choose which devices to configure and lets you select devices from multiple homes. You likely want to enable everything, however, you can leave out any feature you do not wish to use with Home Assistant.
+1. The *Google Nest permissions* screen will allow you to choose which devices to configure and lets you select devices from multiple homes. You likely want to enable everything, however, you can leave out any feature you do not wish to use with Home Assistant.
 
     ![Screenshot of Nest permissions authorization](/images/integrations/nest/oauth_approve.png)
 
-4. You will get redirected to another account selection page.
+1. You will get redirected to another account selection page.
 
-5. You may see a warning screen that says *Google hasn't verified this app* since you just set up an un-verified developer workflow. Click *Continue* to proceed.
+1. You may see a warning screen that says *Google hasn't verified this app* since you just set up an un-verified developer workflow. Click *Continue* to proceed.
 
     ![Screenshot OAuth warning](/images/integrations/nest/oauth_app_verification.png)
 
-6. Then you will be asked to grant access to additional permissions. Click *Allow*.
+1. Then you will be asked to grant access to additional permissions. Click *Allow*.
     ![Screenshot 1 of granting permissions](/images/integrations/nest/oauth_grant1.png)
     ![Screenshot 2 of granting permissions](/images/integrations/nest/oauth_grant2.png)
 
-7. Confirm you want to allow persistent access to Home Assistant.
+1. Confirm you want to allow persistent access to Home Assistant.
     ![Screenshot of OAuth confirmation](/images/integrations/nest/oauth_confirm.png)
 
-8. You will now see a page hosted by *My Home Assistant* asking if you would like to *Link account to Home Assistant?* Click **Link Account** to continue.
+1. You will now see a page hosted by *My Home Assistant* asking if you would like to *Link account to Home Assistant?* Click **Link Account** to continue.
 
-9.  If all went well, you are ready to go!
+1.  If all went well, you are ready to go!
 
     ![Screenshot of success](/images/integrations/nest/finished.png)
 
