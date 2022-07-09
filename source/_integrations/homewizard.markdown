@@ -28,7 +28,7 @@ Integration for the [HomeWizard Energy](https://www.homewizard.nl/energy) platfo
 
 <div class='note'>
 
-The Wifi Watermeter can be powered via a USB-C cable and with batteries. When using batteries the watermeter only connects to Wifi every couple of hours. Because of this the API can only be used when powered via the USB-C cable. It is not possible to add use this integration when the watermeter is powered with batteries. 
+The Wi-Fi Watermeter can be powered via a USB-C cable and with batteries. When using batteries they only connect to Wi-Fi every couple of hours. Because of this, the API can only be used when powered via the USB-C cable. It is not possible to add use this integration when the water meter is powered by batteries.
 
 </div>
 
