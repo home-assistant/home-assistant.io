@@ -21,10 +21,10 @@ Integration for the [HomeWizard Energy](https://www.homewizard.nl/energy) platfo
 
 **Supported devices**
 
-- [Wifi P1 Meter](https://www.homewizard.nl/p1-meter): Depending on the connected DSMR meter: sensors for power import/export, energy consumption (single or three phases) and gas. (Model: `HWE-P1`)
-- [Wifi Energy Socket](https://www.homewizard.nl/energy-socket): Sensors for power import/export and energy consumption and switches for controlling the outlet (model: `HWE-SKT`)
-- [Wifi Watermeter](https://www.homewizard.com/watermeter): Sensors for active and total water usage (model: `HWE-WTR`)
-- [Wifi kWh Meter](https://www.homewizard.nl/kwh-meter): Sensors for power import/export and energy consumption. (Models: `SDM230-wifi`, `SDM630-wifi`)
+- [Wi-Fi P1 Meter](https://www.homewizard.nl/p1-meter): Depending on the connected DSMR meter: sensors for power import/export, energy consumption (single or three phases) and gas. (Model: `HWE-P1`)
+- [Wi-Fi Energy Socket](https://www.homewizard.nl/energy-socket): Sensors for power import/export and energy consumption and switches for controlling the outlet (model: `HWE-SKT`)
+- [Wi-Fi Watermeter](https://www.homewizard.com/watermeter): Sensors for active and total water usage (model: `HWE-WTR`)
+- [Wi-Fi kWh Meter](https://www.homewizard.nl/kwh-meter): Sensors for power import/export and energy consumption. (Models: `SDM230-wifi`, `SDM630-wifi`)
 
 <div class='note'>
 
@@ -50,7 +50,7 @@ The HomeWizard Energy API only exposes properties that are used within the HomeW
 | Name | Unit | Availability | Description |
 | --- | --- | --- | --- |
 | Wifi SSID | | HWE-P1, HWE-SKT, HWE-WTR, SDM230-wifi, SDM630-wifi  | The SSID of the connected network. |
-| Wifi Strength | % | HWE-P1, HWE-SKT, HWE-WTR, SDM230-wifi, SDM630-wifi  | Percentage of the wifi connection. |
+| Wifi Strength | % | HWE-P1, HWE-SKT, HWE-WTR, SDM230-wifi, SDM630-wifi  | Percentage of the Wi-Fi connection. |
 | Total Energy Import_t1 | kWh | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Energy import reading. |
 | Total Energy Import_t2 | kWh | HWE-P1 | Energy import reading for other tariff. |
 | Total Energy Export_t1 | kWh | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Energy export reading. |
