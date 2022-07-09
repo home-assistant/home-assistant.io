@@ -28,10 +28,10 @@ Both [Anthem]'s current and last generation of A/V Receivers and Processors supp
 
 * [AVM 60](https://www.anthemav.com/products-current/model=avm-60/page=overview)
 
-### Distribution Solutions
+### Distribution Solution
 
 * [MDX 8](https://www.anthemav.com/products-current/type=distribution/model=mdx-8/page=overview), [MDX 16](https://www.anthemav.com/products-current/type=distribution/model=mdx-16/page=overview)
-* Marting Logan [MDA 8](https://www.martinlogan.com/en/product/mda8), [MDA 16](https://www.martinlogan.com/en/product/mda16)
+* Martin Logan [MDA 8](https://www.martinlogan.com/en/product/mda8), [MDA 16](https://www.martinlogan.com/en/product/mda16)
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list by clicking on the **Edit this page on GitHub** link above.
 
