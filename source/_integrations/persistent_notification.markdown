@@ -100,3 +100,13 @@ Choose the **Services** tab from the **Developer Tools** sidebar item, then sele
 }
 ```
 This will create the notification entry shown above.
+
+### Use as a notifier
+
+Persistent notifications can also be used as a pre-configured notifier for the [Notify integration](/integrations/notify/) if that integration is loaded. It is available as `notify.persistent_notification`. This enables it to be used with features that require a notifier like [Notify Groups](/integrations/group/#notify-groups) or the [Alert integration](/integrations/alert/).
+
+The following attributes can be placed inside `data` for extended functionality.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `notification_id`      |      yes | If `notification_id` is given, it will overwrite the notification if there already was a notification with that ID.
