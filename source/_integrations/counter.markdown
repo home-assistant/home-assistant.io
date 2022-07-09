@@ -47,7 +47,7 @@ counter:
       required: false
       type: string
     initial:
-      description: Initial value when Home Assistant starts or the counter is reset.
+      description: Initial value (0 or positive integer) when Home Assistant starts or the counter is reset.
       required: false
       type: integer
       default: 0

@@ -182,7 +182,7 @@ Now that you have authentication configured, you will create a Nest Device Acces
 
 In this section you will authorize Home Assistant to access your account by generating an *Authentication Token*.
 
-Note that *OAuth for Auth* has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google and will break by October 2022.
+Note that *OAuth for Apps* has been [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) by Google and will break by October 2022.
 
 1. A new tab opens, allowing you to choose a Google account. This should be the same developer account you configured above.
 
@@ -410,7 +410,7 @@ This feature is enabled by the following permissions:
 
 ## Deprecated App Auth Credentials
 
-To improve security and reduce phishing risk Google has [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) a previous authentication method used by Home Assistant. **This requires action by you to resolve.**
+To improve security and reduce phishing risk Google has [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) a previous authentication method used by Home Assistant. **This requires action by you to resolve** if you previously configured *Nest* using *App Auth*.
 
 {% details "Reconfigure the integration %}
 
@@ -418,6 +418,8 @@ To improve security and reduce phishing risk Google has [deprecated](https://dev
 1. In the sidebar click on _**{% my config icon %}**_.
 1. From the configuration menu select: _**{% my integrations %}**_.
 1. The *Nest* integration should appear with alert. Click **Reconfigure**.
+
+If the *Nest* integration does not have an Alert then you probably used *Web Auth* and have nothing to do.
 
 {% enddetails %}
 
@@ -432,7 +434,7 @@ To improve security and reduce phishing risk Google has [deprecated](https://dev
 1.  Pick a new name for your credential.
 1.  Add **Authorized redirect URIs** end enter `https://my.home-assistant.io/redirect/oauth`
 1.  Click *Create* to create the credential.
-1.  You now have *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant.
+1. You now have *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant.
 1. Back in Home Assistant, you should now be prompted to create [Application Credentials](/integrations/application_credentials) where you will enter the *Client ID* and *Client Secret*.
 
 {% enddetails %}
@@ -486,7 +488,19 @@ authentication process.
 
 - *Something went wrong: Please contact the developer of this app if the issue persists*: This typically means you are using the wrong type of credential (e.g. *Desktop Auth*). Make sure the credential in the [Google Cloud Console](https://console.developers.google.com/apis/credentials) is a *Web Application* credential following the instructions above.
 
-- *Can’t link to Home Assistant Local Dev: Please contact Home Assistant Local Dev if the issue persists* : This typically means that the [Device Access Project](https://console.nest.google.com/device-access/project-list) is set up with on old or incorrect *OAuth Client ID*
+- *Can’t link to [Project Name]: Please contact [Project Name] if the issue persists*: This typically means that the *OAuth Client ID* used is mismatched
+
+{% details "Resolving mismatched OAuth Client ID" %}
+
+The *OAuth Client ID* used must be consistent, so check these:
+
+- [Google Cloud Console](https://console.cloud.google.com/apis/credentials) - See instructions above to create new Web Auth OAuth Credentials if needed
+- [Device Access Project](https://console.nest.google.com/device-access/project-list) - The OAuth Client ID for your Device Access Project must refer to the Web Auth OAuth Client ID in the Google Cloud Console
+- Make sure you are using the same account in the Device Access Console and Google Cloud Console e.g. double-check the photo and account name in the top right of the screen
+- [Application Credentials](/integrations/application_credentials/) - You may need to delete existing credentials in Home Assistant, if they do not match then either manually enter or re-enter as part of the setup.
+
+
+{% enddetails %}
 
 - *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiugration or your authentication token was revoked by Google for some other reason.
 
