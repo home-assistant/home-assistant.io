@@ -18,8 +18,20 @@ Both [Anthem]'s current and last generation of A/V Receivers and Processors supp
 
 ## Supported Models
 
-* [MRX 520](https://www.anthemav.com/products-current/series=mrx-series-gen3/model=mrx-520/page=overview), [MRX 720](https://www.anthemav.com/products-current/collection=performance/model=mrx-720/page=overview), [MRX 1120](https://www.anthemav.com/products-current/collection=performance/model=mrx-1120/page=overview), and [AVM 60](https://www.anthemav.com/products-current/model=avm-60/page=overview)
+### A/V Receiver
+
+* [MRX 540](https://www.anthemav.com/products-current/type=av-receiver/model=mrx-540/page=overview), [MRX 740](https://www.anthemav.com/products-current/type=av-receiver/model=mrx-740/page=overview), [MRX 1140](https://www.anthemav.com/products-current/type=av-receiver/model=mrx-1140/page=overview)
+* [MRX 520](https://www.anthemav.com/products-current/series=mrx-series-gen3/model=mrx-520/page=overview), [MRX 720](https://www.anthemav.com/products-current/collection=performance/model=mrx-720/page=overview), [MRX 1120](https://www.anthemav.com/products-current/collection=performance/model=mrx-1120/page=overview)
 * [MRX 310](https://www.anthemav.com/products-archived/type=av-receiver/model=mrx-310/page=overview), [MRX 510](https://www.anthemav.com/products-archived/series=mrx-series/model=mrx-510/page=overview), [MRX 710](https://www.anthemav.com/products-archived/type=av-receiver/model=mrx-710/page=overview)
+
+### A/V Processor
+
+* [AVM 60](https://www.anthemav.com/products-current/model=avm-60/page=overview)
+
+### Distribution Solutions
+
+* [MDX 8](https://www.anthemav.com/products-current/type=distribution/model=mdx-8/page=overview), [MDX 16](https://www.anthemav.com/products-current/type=distribution/model=mdx-16/page=overview)
+* Marting Logan [MDA 8](https://www.martinlogan.com/en/product/mda8), [MDA 16](https://www.martinlogan.com/en/product/mda16)
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list by clicking on the **Edit this page on GitHub** link above.
 
@@ -41,7 +53,6 @@ port:
 
 * The tuner is currently unsupported as are the `media_player` play, pause, prev, and next controls.
 * Enabling this platform will set and enforce "Standby IP Control On" in your Anthem device.  You almost certainly want this.  If you disable it on the device, it will just get re-enabled by Home Assistant.
-* Only Zone 1 is currently supported.
 
 <div class='note warning'>
 
