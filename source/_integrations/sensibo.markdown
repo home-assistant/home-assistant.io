@@ -104,7 +104,7 @@ For Pure devices, these sensors are available:
 For AirQ device, these sensors are available:
 
 - TVOC
-- Co2
+- CO2
 
 For climate devices, these sensors are available:
 
