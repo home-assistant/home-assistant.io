@@ -1,6 +1,7 @@
 ---
 title: InelNet
 description: Instructions on how to integrate an InelNet Internet central control unit with Home Assistant by using the HTTP API the unit exposes.
+ha_release: "n/a"
 ha_category:
   - Hub
   - Cover
