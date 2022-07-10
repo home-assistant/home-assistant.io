@@ -24,6 +24,13 @@ Supported batteries are:
 - US2000
 - US2000C
 
+Reported USB to RS485 adapters working:
+- FTDI based
+
+Reported configurations working;
+- Main US5000 in mix with US3000
+
+
 High voltage Pylontech batteries are not supported!
 
 The Integration can be activated via the configuration wizard.
