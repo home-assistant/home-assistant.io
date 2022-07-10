@@ -53,6 +53,7 @@ like. So without further due: Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.7.1 - July 7](#release-202271---july-7)
 - [Release 2022.7.2 - July 8](#release-202272---july-8)
+- [Release 2022.7.3 - July 10](#release-202273---july-10)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -433,6 +434,70 @@ The following integrations are now available via the Home Assistant UI:
 [rainmachine docs]: /integrations/rainmachine/
 [unifi_direct docs]: /integrations/unifi_direct/
 [zha docs]: /integrations/zha/
+
+## Release 2022.7.3 - July 10
+
+- Fix Vicare One Time Charge ([@oischinger] - [#74872]) ([vicare docs])
+- Fix KeyError from zwave_js diagnostics ([@kpine] - [#74579]) ([zwave_js docs])
+- Update systembridgeconnector to 3.3.2 ([@timmo001] - [#74701]) ([system_bridge docs])
+- `air_quality` and `filter_life` fixes for Pur131S ([@jetpacktuxedo] - [#74740]) ([vesync docs])
+- Update pyCEC to version 0.5.2 ([@inytar] - [#74742]) ([hdmi_cec docs])
+- Bump pyezviz to 0.2.0.9 ([@regevbr] - [#74755]) ([ezviz docs])
+- Update aioqsw to v0.1.1 ([@Noltari] - [#74784]) ([qnap_qsw docs])
+- Bump python-gammu to 3.2.4 with Python 3.10 support ([@PaulAnnekov] - [#74797]) ([sms docs])
+- Bump deCONZ dependency to fix #74791 ([@Kane610] - [#74804]) ([deconz docs])
+- Bump regenmaschine to 2022.07.1 ([@bachya] - [#74815]) ([rainmachine docs])
+- Fixed unit of measurement. #70121 ([@StephanU] - [#74838]) ([edl21 docs])
+- Bump rokuecp to 0.17.0 ([@ctalkington] - [#74862]) ([roku docs])
+- Bump pymazda to 0.3.6 ([@bdr99] - [#74863]) ([mazda docs])
+- Fix Vicare One Time Charge ([@oischinger] - [#74872]) ([vicare docs])
+- Bump pysml to 0.0.8 (fixes #74382) ([@DavidMStraub] - [#74875]) ([edl21 docs])
+- Bump afsapi to 0.2.5 ([@wlcrs] - [#74907]) ([frontier_silicon docs])
+
+[#74579]: https://github.com/home-assistant/core/pull/74579
+[#74701]: https://github.com/home-assistant/core/pull/74701
+[#74740]: https://github.com/home-assistant/core/pull/74740
+[#74742]: https://github.com/home-assistant/core/pull/74742
+[#74755]: https://github.com/home-assistant/core/pull/74755
+[#74784]: https://github.com/home-assistant/core/pull/74784
+[#74797]: https://github.com/home-assistant/core/pull/74797
+[#74804]: https://github.com/home-assistant/core/pull/74804
+[#74815]: https://github.com/home-assistant/core/pull/74815
+[#74838]: https://github.com/home-assistant/core/pull/74838
+[#74862]: https://github.com/home-assistant/core/pull/74862
+[#74863]: https://github.com/home-assistant/core/pull/74863
+[#74872]: https://github.com/home-assistant/core/pull/74872
+[#74875]: https://github.com/home-assistant/core/pull/74875
+[#74907]: https://github.com/home-assistant/core/pull/74907
+[@DavidMStraub]: https://github.com/DavidMStraub
+[@Kane610]: https://github.com/Kane610
+[@Noltari]: https://github.com/Noltari
+[@PaulAnnekov]: https://github.com/PaulAnnekov
+[@StephanU]: https://github.com/StephanU
+[@bachya]: https://github.com/bachya
+[@bdr99]: https://github.com/bdr99
+[@ctalkington]: https://github.com/ctalkington
+[@inytar]: https://github.com/inytar
+[@jetpacktuxedo]: https://github.com/jetpacktuxedo
+[@kpine]: https://github.com/kpine
+[@oischinger]: https://github.com/oischinger
+[@regevbr]: https://github.com/regevbr
+[@timmo001]: https://github.com/timmo001
+[@wlcrs]: https://github.com/wlcrs
+[deconz docs]: /integrations/deconz/
+[edl21 docs]: /integrations/edl21/
+[ezviz docs]: /integrations/ezviz/
+[frontier_silicon docs]: /integrations/frontier_silicon/
+[hdmi_cec docs]: /integrations/hdmi_cec/
+[mazda docs]: /integrations/mazda/
+[qnap_qsw docs]: /integrations/qnap_qsw/
+[rainmachine docs]: /integrations/rainmachine/
+[roku docs]: /integrations/roku/
+[sms docs]: /integrations/sms/
+[system_bridge docs]: /integrations/system_bridge/
+[vesync docs]: /integrations/vesync/
+[vicare docs]: /integrations/vicare/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## Need help? Join the community!
 
