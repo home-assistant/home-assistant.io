@@ -27,7 +27,7 @@ What's important, the unit should have a **static IP address** assigned (see DHC
 
 The approach described below uses HTTP requests to send control commands to an InelNet unit. The example defines requests to raise, lower or stop a cover associated with a particular channel. The *inelnet_program* request, on the other hand, lets you switch a cover controller to programming mode when there is a need to pair a remote control with it.
 
-The listed commands will work with cover controllers (for example **Inel ST-01R**), but are not limited to them (for example, the *inelnet_up* command may trigger an **Inel ORS-X1T** switch as well).
+The listed commands will work with cover controllers (for example **Inel ST-01R**), but are not limited to them (for example, the *inelnet_up* or *inelnet_down* commands may trigger an **Inel ORS-X1T** switch as well).
 
 
 
