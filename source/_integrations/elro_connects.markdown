@@ -44,7 +44,7 @@ For each device discovered the following sensors are available:
 
 ### Siren platform
 
-The siren platform should support Elro Connects Fire, Heat, Smoke, Water and CO alarms.
+The siren platform supports Elro Connects Fire, Heat, Smoke, Water and CO alarms.
 When a siren is turned on manually `test alarm` request will be sent. Turning the siren off will send a `silence` request to the device.
 
 <div class='note info'>
