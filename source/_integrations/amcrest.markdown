@@ -48,7 +48,7 @@ host:
   required: true
   type: string
 username:
-  description: The username for accessing your camera.
+  description: The username for accessing your camera. Most Amcrest devices use "admin" for the username, even if you've configured another username in their app.
   required: true
   type: string
 password:
