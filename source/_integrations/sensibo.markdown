@@ -88,6 +88,7 @@ For supported devices, this integration provides support to set the following mo
 For motion sensors (supported by Sensibo Air devices), this integration provides the following sensors:
 
 - Temperature
+- Feels Like
 - Humidity
 
 For diagnostics, not automatically displayed on dashboards, these sensors are available:
@@ -99,6 +100,11 @@ For Pure devices, these sensors are available:
 
 - PM2.5
 - Pure Boost Sensitivity
+
+For AirQ device, these sensors are available:
+
+- TVOC
+- Co2
 
 For climate devices, these sensors are available:
 
