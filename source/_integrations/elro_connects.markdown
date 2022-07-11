@@ -11,7 +11,6 @@ ha_codeowners:
   - '@jbouwh'
 ha_domain: elro_connects
 ha_platforms:
-  - sensor
   - siren
 ha_integration_type: integration
 ---
@@ -33,14 +32,6 @@ The polling interval to the Elro Connects K1 connector is 15 seconds.
 </div>
 
 ## Platforms
-
-### Sensor platform
-
-For each device discovered the following sensors are available:
-
-- battery `{device name} battery` showing the battery level of the alarm in %.
-- device_state `{device name} state` showing device state of the alarm. Possible states are `ALARM`, `FAULT`, `FIRE ALARM`, `NORMAL`, `OFFLINE`, `SILENCE`, `TEST ALARM` and `UNKNOWN`.
-- signal `{device name} signal` showing the device RF signal of the alarm (value can be `0`, `25`, `75` or `100`%). This sensor is disabled by default.
 
 ### Siren platform
 
