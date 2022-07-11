@@ -69,10 +69,9 @@ Each device adds a set of sensors to Home Assistant.
   Detailed information about current, voltage, state, cycle count, capacity and more about installed batteries. Updated every minute.
 
 Note that some data (like photovoltaic production) is only provided by the Fronius device when non-zero.
-The corresponding sensors are added to Home Assistant as entities as soon as they are available.
-This means for example that when Home Assistant is started at night, there might be no sensor providing photovoltaic related data.
-This does not need to be problematic as the values will be added on sunrise, when the Fronius devices begins providing more data.
-When a device is not responding correctly the update interval will increase to 10 minutes (3 minutes for power flow) until valid data is received again. This reduces the amount of requests to Fronius devices using night mode (shutdown when no PV power is produced).
+When the integration is added at night, there might be no sensors added providing photovoltaic related data. Entities will be added on sunrise, when the Fronius devices begin to provide more data.
+
+When an endpoint is not responding correctly the update interval will increase to 10 minutes (3 minutes for power flow) until valid data is received again. This reduces the amount of requests to Fronius devices using night mode (shutdown when no PV power is produced).
 
 ## Energy dashboard
 
