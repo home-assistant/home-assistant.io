@@ -363,7 +363,7 @@ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config
 
 For more details please refer to the [MQTT testing section](/docs/mqtt/testing/).
 
-### Sensors with multiple values
+### Sensors
 
 Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
 
@@ -373,9 +373,9 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 - Configuration payload no2: `{"device_class": "humidity", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
 - Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
 
-### Switches
+### Entities with command topics
 
-Setting up a switch is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/integrations/switch.mqtt/).
+Setting up a light, switch etc. is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/integrations/switch.mqtt/).
 
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`
@@ -394,7 +394,7 @@ Set the state.
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/set" -m ON
 ```
 
-### Abbreviating topic names
+### Using abbreviations and base topic
 
 Setting up a switch using topic prefix and abbreviated configuration variable names to reduce payload length.
 
@@ -403,7 +403,7 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 - State topic: `homeassistant/switch/irrigation/state`
 - Configuration payload: `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", "stat_t": "~/state"}`
 
-### Lighting
+### Another example using abbreviations topic name and base topic
 
 Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-schema), with abbreviated configuration variable names:
 
@@ -424,78 +424,6 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
     "brightness": true
   }
   ```
-
-### Climate control
-
-Setting up a climate integration (heat only):
-
-- Configuration topic: `homeassistant/climate/livingroom/config`
-- Configuration payload:
-
-```json
-{
-  "name":"Livingroom",
-  "mode_cmd_t":"homeassistant/climate/livingroom/thermostatModeCmd",
-  "mode_stat_t":"homeassistant/climate/livingroom/state",
-  "mode_stat_tpl":"{{value_json.mode}}",
-  "avty_t":"homeassistant/climate/livingroom/available",
-  "pl_avail":"online",
-  "pl_not_avail":"offline",
-  "temp_cmd_t":"homeassistant/climate/livingroom/targetTempCmd",
-  "temp_stat_t":"homeassistant/climate/livingroom/state",
-  "temp_stat_tpl":"{{value_json.target_temp}}",
-  "curr_temp_t":"homeassistant/climate/livingroom/state",
-  "curr_temp_tpl":"{{value_json.current_temp}}",
-  "min_temp":"15",
-  "max_temp":"25",
-  "temp_step":"0.5",
-  "modes":["off", "heat"]
-}
-```
-
-- State topic: `homeassistant/climate/livingroom/state`
-- State payload:
-
-```json
-{
-  "mode":"off",
-  "target_temp":"21.50",
-  "current_temp":"23.60"
-}
-```
-
-### Presence detection (device tracker)
-
-Setting up a device tracker:
-
-- Configuration topic: `homeassistant/device_tracker/paulus/config`
-- Example configuration payload:
-
-```json
-{
-  "name":"Paulus",
-  "state_topic": "homeassistant/device_tracker/paulus/state",
-  "payload_home": "home",
-  "payload_not_home": "not_home",
-  "source_type": "bluetooth"
- }
-```
-
-- State topic: `homeassistant/device_tracker/paulus/state`
-- Example state payload: `home` or `not_home` or `location name`
-
-If the device supports GPS coordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
-
-- Attributes topic: `homeassistant/device_tracker/paulus/attributes`
-- Example attributes payload:
-
-```json
-{
-  "latitude": 32.87336,
-  "longitude": -117.22743,
-  "gps_accuracy": 1.2
- }
-```
 
 ### Use object_id to influence the entity id
 
