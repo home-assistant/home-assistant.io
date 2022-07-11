@@ -18,7 +18,7 @@ ha_dhcp: true
 ha_integration_type: integration
 ---
 
-The Fronius integration polls a [Fronius](https://www.fronius.com/) solar inverter or datalogger for details of your Fronius SolarNet setup and integrate it in your Home Assistant installation.
+The Fronius integration polls a [Fronius](https://www.fronius.com/) solar inverter or datalogger for details of a Fronius SolarNet setup and integrate it in your Home Assistant installation.
 
 ## Prerequisites
 
@@ -72,11 +72,11 @@ Note that some data (like photovoltaic production) is only provided by the Froni
 The corresponding sensors are added to Home Assistant as entities as soon as they are available.
 This means for example that when Home Assistant is started at night, there might be no sensor providing photovoltaic related data.
 This does not need to be problematic as the values will be added on sunrise, when the Fronius devices begins providing more data.
-When a device is not responding correctly the update interval will increase to 10 minutes (3 minutes for power flow) until valid data is received again. This reduces the amount of requests to the Fronius devices using night mode (shutdown when no PV power is produced).
+When a device is not responding correctly the update interval will increase to 10 minutes (3 minutes for power flow) until valid data is received again. This reduces the amount of requests to Fronius devices using night mode (shutdown when no PV power is produced).
 
 ## Energy dashboard
 
-- For _"Solar production"_: 
+- For _"Solar production"_:
   - If no battery is connected to an inverter: Add each inverters `Energy total` entity.
   - If a battery is connected to an inverter: Use [Riemann sum](/integrations/integration/) over `Power photovoltaics` entity (from your `SolarNet` device).
 - _"Battery systems"_ aren't supported directly. Use [Template](/integrations/template) to split and invert negative values of `Power battery` entity (from `SolarNet` device) for charging power (W) and positive values for discharging power (W). Then use [Riemann sum](/integrations/integration/) to integrate each into energy values (kWh).
