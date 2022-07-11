@@ -162,9 +162,8 @@ Home Assistant will take care of converting the values for you.
 
 <img class="no-shadow" src='/images/blog/2022-07/weather-units.png' alt='Screenshot showing energy usage being compared from last week with the week before that'>
 
-As a bonus, this same unit-changing feature is added to the number entities
-that represent a temperature. For those number entities, you can now change
-the units from Celsius to Fahrenheit (and the other way around).
+On a similar note, number entities that represent a temperature are now converted to
+the temperature unit used by the configured unit system.
 
 Thanks [@emontnemery] and [@gjohansson-ST] for adding this and updating
 all existing weather integrations to support this 👍.
