@@ -35,7 +35,7 @@ This section explains how to generate a Client ID and Client Secret on
 1. You then need to select a *Support email*. To do this, simply click the drop down box and select your email address.
 1. You finally need to complete the section: *Developer contact information*. To do this, simply enter your email address (same as above is fine).
 1.  Scroll to the bottom and click **Save and Continue**. Don't have to fill out anything else or it may enable additional review.
-1.  You will then be automatically taken to the *Scopes* page. You do not need to add any scopes here so click **Save and Continue** to move to the *Test users* page. You will need to add the Gmail address you will be using with this integration as a test user before you will be allowed to use the API. Once you have added your email address under *Test users* click **Save and Continue** which will take you to the *Summary* page. (you do not need to do anything here).
+1.  You will then be automatically taken to the Scopes page. You do not need to add any scopes here so click Save and Continue to move to the Optional info page. You do not need to add anything to the Optional info page so click Save and Continue which will take you to the Summary page. Click Back to Dashboard.
 1.  Click **OAuth consent screen** again and set *Publish Status* to **Production** otherwise your credentials will expire every 7 days.
 1.  Click **Credentials** in the menu on the left hand side of the screen, then click **Create credentials** (at the top of the screen), then select *OAuth client ID*.
 1.  Set the Application type to *TV and Limited Input* and give this credential set a name (like "Home Assistant Credentials") then click **Create**.
