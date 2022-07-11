@@ -13,6 +13,7 @@ ha_platforms:
   - button
   - diagnostics
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
