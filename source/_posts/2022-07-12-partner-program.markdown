@@ -22,7 +22,7 @@ Today we’re introducing the Works with Home Assistant program to allow manufac
 The program requires manufacturers to maintain the integration of their products in Home Assistant, offer a good user experience, provide product samples and give us an engineering contact to escalate issues. In return, manufacturers will be able to use the “Works with Home Assistant” badge on their products and documentation. The terms of the Works with Home Assistant program are enforced in an agreement signed by both Nabu Casa and the manufacturer.
 
 <img src='/images/blog/2022-07-12-partner-program/partner-program-logos.jpg' alt="Decorative header." class='no-shadow'>
-
+<br>
 
 With Home Assistant we are always working on educating our users about preferring local control and open standards when acquiring new products. This is also reflected in the “Works with Home Assistant” badges.
 
