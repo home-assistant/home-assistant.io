@@ -15,7 +15,7 @@ og_image: /images/blog/2022-07-12-partner-program/partner-program-logos.jpg
 
 With Home Assistant, we integrate with over 1000 different APIs. The majority of these integrations are created and maintained by the Home Assistant community. Over the years a number of companies have stepped up to work with our community offering samples and engineering support. In a few cases, we saw companies pick up the maintenance of integrating their products in Home Assistant.
 
-Sadly, a couple of times it happened that companies went silent after their initial contribution, causing users to be wondering why new devices are not being supported. We want to protect our users from investing in products for their home that won't work well with Home Assistant.
+Sadly, a couple of times it happened that companies went silent after their initial contribution, causing users to be wondering why new devices are not being supported. We want to protect our users from investing in products for their homes that won't work well with Home Assistant.
 
 Today we’re introducing the Works with Home Assistant program to allow manufacturers to show their support and commitment to Home Assistant and its community.
 
