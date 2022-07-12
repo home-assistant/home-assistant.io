@@ -9,7 +9,7 @@ author_twitter: balloob
 comments: true
 categories:
 - Announcements
-og_image: /images/blog/2022-07-12-partner-program/partner-program-logos.jpg
+og_image: /images/blog/2022-07-12-partner-program/partner_program_og.jpg
 ---
 
 
