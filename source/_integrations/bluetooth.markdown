@@ -1,0 +1,22 @@
+---
+title: Bluetooth Monitoring and Discovery
+description: Discover and monitor bluetooth devices.
+ha_category:
+  - Utility
+ha_iot_class: Local Push
+ha_release: 2022.8
+ha_domain: bluetooth
+ha_quality_scale: internal
+ha_codeowners:
+  - '@bdraco'
+ha_integration_type: integration
+---
+
+The Bluetooth Monitoring and Discovery integration will detect nearby bluetoth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
+
+## Configuration
+
+```yaml
+# Example configuration.yaml entry
+bluetooth:
+```
