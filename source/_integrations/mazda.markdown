@@ -6,6 +6,7 @@ ha_category:
   - Binary Sensor
   - Button
   - Car
+  - Climate
   - Lock
   - Presence Detection
   - Sensor
@@ -19,6 +20,7 @@ ha_domain: mazda
 ha_platforms:
   - binary_sensor
   - button
+  - climate
   - device_tracker
   - diagnostics
   - lock
@@ -91,6 +93,10 @@ Displays the current door lock status of the vehicle, and locks/unlocks the door
 ### Switch
 
 For electric vehicles, a "charging" switch entity will be created, which allows viewing and controlling the charging state of the vehicle battery.
+
+### Climate
+
+For electric vehicles, a climate entity will be created that allows controlling the vehicle's HVAC system. This includes turning the HVAC system on and off, setting a target temperature, and turning the front and rear defrosters on and off.
 
 ## Services
 
