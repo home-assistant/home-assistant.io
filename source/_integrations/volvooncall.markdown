@@ -86,6 +86,11 @@ scandinavian_miles:
   required: false
   type: boolean
   default: false
+usa_units:
+  description: "If set to true, USA units of measure are used.<br><br>If both usa_units and scandinavian_miles are set to true, scandinavian_miles takes precendence."
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Available Resources
