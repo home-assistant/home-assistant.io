@@ -54,6 +54,7 @@ like. So without further due: Enjoy the release!
 - [Release 2022.7.1 - July 7](#release-202271---july-7)
 - [Release 2022.7.2 - July 8](#release-202272---july-8)
 - [Release 2022.7.3 - July 10](#release-202273---july-10)
+- [Release 2022.7.4 - July 13](#release-202274---july-13)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -497,6 +498,88 @@ The following integrations are now available via the Home Assistant UI:
 [vesync docs]: /integrations/vesync/
 [vicare docs]: /integrations/vicare/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.7.4 - July 13
+
+- Migrate ecobee to native_* ([@emontnemery] - [#74043]) ([ecobee docs])
+- Migrate homematicip_cloud to native_* ([@emontnemery] - [#74385]) ([homematicip_cloud docs])
+- Update pyialarm to 2.2.0 ([@RyuzakiKK] - [#74874]) ([ialarm docs])
+- Correctly handle device triggers for missing ZHA devices ([@Adminiuga] - [#74894]) ([zha docs])
+- Remove pip --prefix workaround ([@henryptung] - [#74922])
+- Fix Pyload request content type headers ([@iMarkus] - [#74957]) ([pyload docs])
+- JSON serialize NamedTuple subclasses with aiohttp ([@bdraco] - [#74971])
+- Fix mix of aiohttp and requests in ClickSend TTS ([@frenck] - [#74985]) ([clicksend_tts docs])
+- Do not spam log when Life360 member location is missing ([@pnbruckner] - [#75029]) ([life360 docs])
+- Upgrade huawei-lte-api to 1.6.1 ([@scop] - [#75030]) ([huawei_lte docs])
+- Fix Ruckus Unleashed SSH connection failures ([@gabe565] - [#75032]) ([ruckus_unleashed docs])
+- Bump afsapi to 0.2.6 ([@wlcrs] - [#75041]) ([frontier_silicon docs])
+- Bump homematicip to 1.0.4 ([@hahn-th] - [#75053]) ([homematicip_cloud docs])
+- Bump AIOAladdinConnect to 0.1.23 ([@mkmer] - [#75065]) ([aladdin_connect docs])
+- Fix Insteon thermostat issues ([@teharris1] - [#75079]) ([insteon docs])
+- Fix missing ordered states in universal media player ([@Drafteed] - [#75099]) ([universal docs])
+- Make sure device tuple is a list on save ([@elupus] - [#75103]) ([rfxtrx docs])
+- Fix Powerview top shade open position ([@kingy444] - [#75110]) ([hunterdouglas_powerview docs])
+- Bump ZHA dependencies ([@puddly] - [#75133]) ([zha docs])
+- Ensure SimpliSafe diagnostics redact the `code` option ([@bachya] - [#75137]) ([simplisafe docs])
+- Block bad pubnub version ([@balloob] - [#75138])
+
+[#74043]: https://github.com/home-assistant/core/pull/74043
+[#74385]: https://github.com/home-assistant/core/pull/74385
+[#74874]: https://github.com/home-assistant/core/pull/74874
+[#74894]: https://github.com/home-assistant/core/pull/74894
+[#74922]: https://github.com/home-assistant/core/pull/74922
+[#74957]: https://github.com/home-assistant/core/pull/74957
+[#74971]: https://github.com/home-assistant/core/pull/74971
+[#74985]: https://github.com/home-assistant/core/pull/74985
+[#75029]: https://github.com/home-assistant/core/pull/75029
+[#75030]: https://github.com/home-assistant/core/pull/75030
+[#75032]: https://github.com/home-assistant/core/pull/75032
+[#75041]: https://github.com/home-assistant/core/pull/75041
+[#75053]: https://github.com/home-assistant/core/pull/75053
+[#75065]: https://github.com/home-assistant/core/pull/75065
+[#75079]: https://github.com/home-assistant/core/pull/75079
+[#75099]: https://github.com/home-assistant/core/pull/75099
+[#75103]: https://github.com/home-assistant/core/pull/75103
+[#75110]: https://github.com/home-assistant/core/pull/75110
+[#75133]: https://github.com/home-assistant/core/pull/75133
+[#75137]: https://github.com/home-assistant/core/pull/75137
+[#75138]: https://github.com/home-assistant/core/pull/75138
+[@Adminiuga]: https://github.com/Adminiuga
+[@Drafteed]: https://github.com/Drafteed
+[@RyuzakiKK]: https://github.com/RyuzakiKK
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gabe565]: https://github.com/gabe565
+[@hahn-th]: https://github.com/hahn-th
+[@henryptung]: https://github.com/henryptung
+[@iMarkus]: https://github.com/iMarkus
+[@kingy444]: https://github.com/kingy444
+[@mkmer]: https://github.com/mkmer
+[@pnbruckner]: https://github.com/pnbruckner
+[@puddly]: https://github.com/puddly
+[@scop]: https://github.com/scop
+[@teharris1]: https://github.com/teharris1
+[@wlcrs]: https://github.com/wlcrs
+[aladdin_connect docs]: /integrations/aladdin_connect/
+[clicksend_tts docs]: /integrations/clicksend_tts/
+[ecobee docs]: /integrations/ecobee/
+[frontier_silicon docs]: /integrations/frontier_silicon/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[huawei_lte docs]: /integrations/huawei_lte/
+[hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
+[ialarm docs]: /integrations/ialarm/
+[insteon docs]: /integrations/insteon/
+[life360 docs]: /integrations/life360/
+[pyload docs]: /integrations/pyload/
+[rfxtrx docs]: /integrations/rfxtrx/
+[ruckus_unleashed docs]: /integrations/ruckus_unleashed/
+[simplisafe docs]: /integrations/simplisafe/
+[universal docs]: /integrations/universal/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
