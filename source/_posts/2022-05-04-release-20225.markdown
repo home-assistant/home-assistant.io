@@ -1229,7 +1229,7 @@ This makes the discovery of LIFX faster and more reliable.
 
 Media Player now supports a new state, `buffering`. Integrations supporting this state previously reported `playing` but may now report `buffering`. This may also introduce new state transitions between the two states during playback.
 
-In order to maintain previous behaviour, replace usage of `playing` with both the `buffering` and `playing` states, and consider how to handle transitions between the two.
+In order to maintain previous behavior, replace usage of `playing` with both the `buffering` and `playing` states, and consider how to handle transitions between the two.
 
 ([@emontnemery] - [#70863]) ([documentation](/integrations/media_player))
 
