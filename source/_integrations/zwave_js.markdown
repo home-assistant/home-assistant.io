@@ -1,5 +1,5 @@
 ---
-title: Z-Wave JS
+title: Z-Wave
 description: Instructions on how to integrate Z-Wave with Home Assistant via Z-Wave JS.
 featured: true
 ha_category:
@@ -44,7 +44,7 @@ ha_zeroconf: true
 
 This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're migrating from the deprecated `zwave`, see [our migration instructions](#migrating-from-previous-z-wave-implementations).
 
-To Run Z-Wave JS you will need a [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules), a running Z-Wave JS server (using only **one** of the add-ons or installation methods described below), and the Z-Wave JS integration.
+To Run Z-Wave you will need a [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules), a running Z-Wave JS server (using only **one** of the add-ons or installation methods described below), and the Z-Wave integration.
 
 {% include integrations/config_flow.md %}
 
