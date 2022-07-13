@@ -1235,8 +1235,6 @@ In order to maintain previous behavior, replace usage of `playing` with both the
 
 [@emontnemery]: [https://github.com/emontnemery]
 [#70863]: https://github.com/home-assistant/core/pull/70863
-[#70864]: https://github.com/home-assistant/core/pull/70864
-[#70859]: https://github.com/home-assistant/core/pull/70859
 
 {% enddetails %}
 
