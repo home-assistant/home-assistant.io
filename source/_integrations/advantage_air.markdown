@@ -60,6 +60,10 @@ The `advantage_air` switch platform will create a switch entity to toggle fresh 
 
 The `advantage_air` select platform allows you to change the zone used for the "MyZone" feature.
 
+### Number
+
+The `advantage_air` number platform allows you to change the Time to On and Time to Off values.
+
 ## Services
 
 ### Service `advantage_air.set_time_to`
