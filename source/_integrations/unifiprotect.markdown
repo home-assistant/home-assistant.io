@@ -136,7 +136,7 @@ and in many cases, get a read-only sensor instead of an editable switch/select/n
 **Smart Detections**: The following cameras have Smart Detections:
 
 * All "AI" series cameras. This includes the AI 360 and the AI Bullet.
-* All "G4" series cameras _except_ the G4 Instant. This includes the G4 Doorbell, G4 Bullet and G4 Pro.
+* All "G4" series cameras. This includes the G4 Doorbell, G4 Bullet, G4 Pro and G4 Instant.
 
 G3 Series cameras do _not_ have Smart detections.
 
