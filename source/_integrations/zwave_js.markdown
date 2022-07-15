@@ -211,7 +211,7 @@ This service will refresh the value(s) for an entity. This service will generate
 
 ### Service `zwave_js.set_value`
 
-This service will set a value on a Z-Wave device. It is for advanced use cases where you need to modify the state of a node and can't do it using native Home Assistant entity functionality. Be warned that correctly using this service requires advanced knowledge of Z-Wave. The service provides minimal validation and blindly calls the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere. To set a config parameter, you should use the `zwave_js.set_config_parameter` or `zwave_js.bulk_set_partial_config_parameters` services instead of this one.
+This service will set a value on a Z-Wave device. It is for advanced use cases where you need to modify the state of a node and can't do it using native Home Assistant entity functionality. Be warned that correctly using this service requires advanced knowledge of Z-Wave. The service provides minimal validation and blindly calls the Z-Wave API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere. To set a config parameter, you should use the `zwave_js.set_config_parameter` or `zwave_js.bulk_set_partial_config_parameters` services instead of this one.
 
 | Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
 |------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
@@ -228,14 +228,14 @@ This service will set a value on a Z-Wave device. It is for advanced use cases w
 
 ### Service `zwave_js.multicast_set_value`
 
-This service will set a value on multiple Z-Wave devices using multicast. It is for advanced use cases where you need to set the same value on multiple nodes simultaneously. Be warned that correctly using this service requires advanced knowledge of Z-Wave. The service provides minimal validation beyond what is necessary to properly call the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere.
+This service will set a value on multiple Z-Wave devices using multicast. It is for advanced use cases where you need to set the same value on multiple nodes simultaneously. Be warned that correctly using this service requires advanced knowledge of Z-Wave. The service provides minimal validation beyond what is necessary to properly call the Z-Wave API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere.
 
 | Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
 |------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
 | `entity_id`            	| no        	| Entity (or list of entities) to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                       	|
 | `device_id`            	| no        	| Device ID (or list of device IDs) to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                                                	|
 | `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                                                	|
-| `broadcast`             | no          | Boolean that indicates whether you want the message to be broadcast to all nodes on the network. If you have only one Z-Wave JS network configured, you do not need to provide a `device_id` or `entity_id` when this is set to true. When you have multiple Z-Wave JS networks configured, you MUST provide at least one `device_id` or `entity_id` so the service knows which network to target.                                         |
+| `broadcast`             | no          | Boolean that indicates whether you want the message to be broadcast to all nodes on the network. If you have only one Z-Wave network configured, you do not need to provide a `device_id` or `entity_id` when this is set to true. When you have multiple Z-Wave networks configured, you MUST provide at least one `device_id` or `entity_id` so the service knows which network to target.                                         |
 | `command_class`       	| yes       	| ID of Command Class that you want to set the value for. 	                                                                                            |
 | `property`            	| yes       	| ID of Property that you want to set the value for. 	                                                                                                  |
 | `property_key`        	| no        	| ID of Property Key that you want to set the value for. 	                                                                                              |
@@ -261,7 +261,7 @@ Call this service to use the Command Class API directly. In most cases, the `zwa
 
 > NOTE: This service has been deprecated and replaced with a new button entity. The service will still work for now but will be removed in a future release. Users are advised to move their automations to use the `button.press` service with the new entity which is a like for like replacement.
 
-Calling this service forces Z-Wave JS to try to reach a node. This can be used to update the status of the node in Z-Wave JS when you think it doesn't accurately reflect reality, e.g. reviving a failed/dead node or marking the node as asleep.
+Calling this service forces Z-Wave to try to reach a node. This can be used to update the status of the node in Z-Wave when you think it doesn't accurately reflect reality, e.g. reviving a failed/dead node or marking the node as asleep.
 
 | Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
 |------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
@@ -481,7 +481,7 @@ The `Z-Wave` integration provides its own trigger platforms which can be used in
 
 ### `zwave_js.value_updated`
 
-This trigger platform can be used to trigger automations on any Z-Wave JS value update, including Z-Wave values that aren't supported in Home Assistant via entities. While they can't be authored from the automation UI, they can be authored in YAML directly in your `configuration.yaml`.
+This trigger platform can be used to trigger automations on any Z-Wave value update, including Z-Wave values that aren't supported in Home Assistant via entities. While they can't be authored from the automation UI, they can be authored in YAML directly in your `configuration.yaml`.
 
 #### Example automation trigger configuration
 
@@ -529,7 +529,7 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 
 ### `zwave_js.event`
 
-This trigger platform can be used to trigger automations on any Z-Wave JS controller, driver, or node event, including events that may not be handled by Home Assistant automatically. Refer to the linked [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/) to learn more about the available events and the data that is sent along with it.
+This trigger platform can be used to trigger automations on any Z-Wave controller, driver, or node event, including events that may not be handled by Home Assistant automatically. Refer to the linked [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/) to learn more about the available events and the data that is sent along with it.
 
 There is strict validation in place based on all known event types, so if you come across an event type that isn't supported, please open a GitHub issue in the `home-assistant/core` repository.
 
@@ -569,13 +569,13 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 
 ## Migrating from previous Z-Wave implementations
 
-If you are switching from the `zwave` integration to the new Z-Wave JS integration, you will not need to recreate your entire network, as the network is **stored on your stick**. A few things, such as how you receive [central scene events](#events) will work differently than they did before.
+If you are switching from the `zwave (deprecated)` integration to the new Z-Wave integration, you will not need to recreate your entire network, as the network is **stored on your stick**. A few things, such as how you receive [central scene events](#events) will work differently than they did before.
 
 ### Automatic migration wizard
 
-If you are using the `zwave` integration, there is a migration wizard that will help you set up the Z-Wave JS integration, remove the `zwave` integration and migrate the entities and devices that can be mapped from the `zwave` integration to the Z-Wave JS integration. The migration wizard is available from the `zwave` integration configuration panel in the GUI.
+If you are using the `zwave (deprecated)` integration, there is a migration wizard that will help you set up the Z-Wave integration, remove the `zwave (deprecated)` integration and migrate the entities and devices that can be mapped from the `zwave (deprecated)` integration to the Z-Wave integration. The migration wizard is available from the `zwave (deprecated)` integration configuration panel in the GUI.
 
-Some entities may not be able to migrate automatically and you will need to rename the corresponding available Z-Wave JS entities manually. Before completing the migration you will be shown a list of entities that could not be migrated automatically, and you'll have the option to abort or continue with the migration.
+Some entities may not be able to migrate automatically and you will need to rename the corresponding available Z-Wave entities manually. Before completing the migration you will be shown a list of entities that could not be migrated automatically, and you'll have the option to abort or continue with the migration.
 
 ### Manual migration path
 
@@ -599,7 +599,7 @@ Some entities may not be able to migrate automatically and you will need to rena
 
 5) Install the Z-Wave JS Server of your choice. If you run the supervisor and you'd like to run the standard add-on, you can skip this step if you want. The add-on is installed automatically for you when you choose so in the integration set-up. Remember to fill in the network key you've saved before.
 
-6) Set up the Z-Wave JS integration and connect it to the server. You should see your nodes being detected by Home Assistant. Carefully watch if the status of the node is "ready". This means it's been fully interviewed (and those details cached) by the Z-Wave JS driver. Battery-powered nodes will only be interviewed when they wake up (at scheduled intervals) or if you manually wakeup the device (refer to the device's manual for instructions).
+6) Set up the Z-Wave integration and connect it to the server. You should see your nodes being detected by Home Assistant. Carefully watch if the status of the node is "ready". This means it's been fully interviewed (and those details cached) by the Z-Wave JS driver. Battery-powered nodes will only be interviewed when they wake up (at scheduled intervals) or if you manually wakeup the device (refer to the device's manual for instructions).
 
   <div class='note info'>
 
@@ -611,7 +611,7 @@ Some entities may not be able to migrate automatically and you will need to rena
 
 8) Enjoy your super fast up-to-date Z-Wave network in Home Assistant with support for all modern devices!
 
-#### Need more help with your migration to Z-Wave JS?
+#### Need more help with your migration to Z-Wave?
 
 Please see our [Frequently Asked Questions](#frequently-asked-questions).
 
@@ -629,11 +629,11 @@ You can also visit the `#zwave` channel on [our discord](/join-chat/).
 
 ## Advanced installation instructions
 
-If you are using Home Assistant Container, Home Assistant Core, or you don't want to use the built-in Z-Wave JS Server add-on, you will need to run the Z-Wave JS server yourself, to which the Z-Wave JS integration will connect.
+If you are using Home Assistant Container, Home Assistant Core, or you don't want to use the built-in Z-Wave JS Server add-on, you will need to run the Z-Wave JS server yourself, to which the Z-Wave integration will connect.
 
 ### Running [Z-Wave JS Server](https://github.com/zwave-js/zwave-js-server).
 
-This application provides the connection between your Z-Wave USB stick and Home Assistant. The Home Assistant Z-Wave JS integration connects to this server via a websocket connection. You need to run this Z-Wave server before you can use the integration.
+This application provides the connection between your Z-Wave USB stick and Home Assistant. The Home Assistant Z-Wave integration connects to this server via a websocket connection. You need to run this Z-Wave server before you can use the integration.
 
 There are multiple ways to run this server:
 
@@ -641,7 +641,7 @@ There are multiple ways to run this server:
 
 _This option is only available for Home Assistant OS (the recommended installation type) and Home Assistant Supervised installations._
 
-This add-on can only be configured via the built-in Z-Wave JS control panel in Home Assistant.
+This add-on can only be configured via the built-in Z-Wave control panel in Home Assistant.
 
 **Option 2: The Zwavejs2Mqtt (aka "Z-Wave JS to MQTT") add-on installed from the community add-on store**
 
@@ -649,7 +649,7 @@ _This option is only available for Home Assistant OS (the recommended installati
 
 This add-on includes the Z-Wave JS Server as part of the Zwavejs2Mqtt application. Despite the name, MQTT is not required to run this add-on and both provide the same Z-Wave JS driver.
 
-The Z-Wave network can be configured via the built-in Z-Wave JS control panel in Home Assistant and alternatively via the Z-Wave JS control panel built into Zwavejs2Mqtt. It provides you with a full-fledged, attractive, and feature-complete UI to manage your Z-Wave nodes and settings, which may support more advanced use cases as development continues on the Z-Wave JS control panel.
+The Z-Wave network can be configured via the built-in Z-Wave control panel in Home Assistant and alternatively via the Z-Wave control panel built into Zwavejs2Mqtt. It provides you with a full-fledged, attractive, and feature-complete UI to manage your Z-Wave nodes and settings, which may support more advanced use cases as development continues on the Z-Wave control panel.
 
 **Option 3: The Zwavejs2Mqtt Docker container**
 
@@ -673,13 +673,13 @@ This is considered a very advanced use case. In this case you run the Z-Wave JS 
 
 For new installations, unique default keys will be auto-generated for you by the Z-Wave JS add-on. You can also generate those network keys in the Settings section of Zwavejs2Mqtt.
 
-If migrating from the `zwave` integration, your network key from those integration should be entered as the S0 network key. Those integrations did not support S2 security, so you will not yet have S2 network keys to configure.
+If migrating from the `zwave (deprecated)` integration, your network key from those integration should be entered as the S0 network key. Those integrations did not support S2 security, so you will not yet have S2 network keys to configure.
 
 Make sure that you keep a backup of these keys in a safe place. You will need to enter the same keys to be able to access securely paired devices.
 
 </div>
 
-### Installing and configuring the Z-Wave JS integration in Home Assistant
+### Installing and configuring the Z-Wave integration in Home Assistant
 
 Once you have the Z-Wave server up and running, you need to install and configure the integration in Home Assistant (as described above).
 
@@ -695,7 +695,7 @@ See the [Z-Wave JS device database](https://devices.zwave-js.io/).
 
 While there is support for the most common devices, some command classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6).
 
-You can also keep track of the Roadmap for the Z-Wave JS integration [here](https://github.com/home-assistant-libs/zwave-js-server-python/issues/56).
+You can also keep track of the roadmap for the Z-Wave integration [here](https://github.com/home-assistant-libs/zwave-js-server-python/issues/56).
 
 ### Installation and Configuration
 
@@ -705,9 +705,9 @@ Z-Wave supports all known 500 and 700 series Z-Wave controllers. If you are just
 
 For more information, see [Supported Z-Wave dongles](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules)
 
-#### Why was I (or why was I not) automatically prompted to install Z-Wave JS?
+#### Why was I (or why was I not) automatically prompted to install Z-Wave?
 
-Some Z-Wave USB sticks can be auto-discovered, which can simplify the Z-Wave setup process. The following devices have been tested with discovery, and offer a quick setup experience; however, these are **not** all of the devices supported by Z-Wave JS:
+Some Z-Wave USB sticks can be auto-discovered, which can simplify the Z-Wave setup process. The following devices have been tested with discovery, and offer a quick setup experience; however, these are **not** all of the devices supported by Z-Wave:
 
 | Device | Identifier | Vendor |
 | -------| ---------- | ------ |
@@ -858,7 +858,7 @@ If the interview is complete, then the device does not yet have a device file fo
 
 #### How do I get a dump of the current network state?
 
-When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow the menu:
+When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave sees as the current state of your Z-Wave network. To get a dump of your current network state, follow the menu:
 
 {% my integrations title="**Settings** -> **Devices & Services**" %} -> **Z-Wave** -> **...** -> **Download diagnostics**
 
