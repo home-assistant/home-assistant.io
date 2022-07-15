@@ -33,7 +33,11 @@ The wall-mounted Android table running the [MyPlace](https://play.google.com/sto
 
 ### Climate
 
-The integration will create a climate entity for each air conditioning system found and for each zone that is temperature-controlled.
+The integration will create a climate entity for each air conditioning system found and for each zone that is temperature-controlled. The main climate entity will have a preset for each [MyComfort](https://www.advantageair.com.au/wp-content/uploads/2019/10/MyComfort.pdf) temperature mode it supports.
+
+- MyZone (default) - Use the MyZone select platform to pick which zone will be used for temperature control. Setting this to "Inactive" will use the return air vent temperature. e-zone systems do not support any MyComfort temperature modes, so will always be in the MyZone preset with MyZone set as "Inactive".
+- MyTemp - Use the main climate entity to change between cool, heat, and off. Use the zone climate entities to set the desired temperature in each zone.
+- MyAuto - Uses the average temperature of all zones for temperature control. When set to the Heat/Cool mode, you can adjust the heating and cooling target temperatures seperately, and the MyAir system will automatically switch between heating and cooling as required.
 
 ### Cover
 
