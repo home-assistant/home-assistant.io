@@ -55,6 +55,7 @@ like. So without further due: Enjoy the release!
 - [Release 2022.7.2 - July 8](#release-202272---july-8)
 - [Release 2022.7.3 - July 10](#release-202273---july-10)
 - [Release 2022.7.4 - July 13](#release-202274---july-13)
+- [Release 2022.7.5 - July 14](#release-202275---july-14)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -579,6 +580,56 @@ The following integrations are now available via the Home Assistant UI:
 [ruckus_unleashed docs]: /integrations/ruckus_unleashed/
 [simplisafe docs]: /integrations/simplisafe/
 [universal docs]: /integrations/universal/
+[zha docs]: /integrations/zha/
+
+## Release 2022.7.5 - July 14
+
+- Address Blebox uniapi review sidenotes ([@riokuu] - [#74298]) ([blebox docs])
+- Fix Alexa: Only trigger doorbell event on actual state change to "ON" ([@Tho85] - [#74924]) ([alexa docs])
+- Fix Blebox light scenes ([@riokuu] - [#75106]) ([blebox docs])
+- Fix playback of hls cameras in stream ([@uvjustin] - [#75166]) ([stream docs])
+- Bump version of pyunifiprotect to 4.0.10 ([@AngellusMortis] - [#75180]) ([unifiprotect docs])
+- Bumped AIOAladdin Connect to 0.1.24 ([@mkmer] - [#75182]) ([aladdin_connect docs])
+- Bump zigpy from 0.47.2 to 0.47.3 ([@puddly] - [#75194]) ([zha docs])
+- Skip `iso4217` version 1.10, which includes a broken `__init__.pyi` file ([@puddly] - [#75200])
+- Fix Hive power unit of measurement ([@KJonline] - [#75210]) ([hive docs])
+- Bump frontend to 20220707.1 ([@zsarnett] - [#75232]) ([frontend docs])
+- Bump AIOAladdinConnect to 0.1.25 ([@mkmer] - [#75235]) ([aladdin_connect docs])
+- Bump pylitterbot to 2022.7.0 ([@natekspencer] - [#75241]) ([litterrobot docs])
+- Remove nest mac prefix that matches cast devices ([@allenporter] - [#75108]) ([nest docs])
+
+[#74298]: https://github.com/home-assistant/core/pull/74298
+[#74924]: https://github.com/home-assistant/core/pull/74924
+[#75106]: https://github.com/home-assistant/core/pull/75106
+[#75108]: https://github.com/home-assistant/core/pull/75108
+[#75166]: https://github.com/home-assistant/core/pull/75166
+[#75180]: https://github.com/home-assistant/core/pull/75180
+[#75182]: https://github.com/home-assistant/core/pull/75182
+[#75194]: https://github.com/home-assistant/core/pull/75194
+[#75200]: https://github.com/home-assistant/core/pull/75200
+[#75210]: https://github.com/home-assistant/core/pull/75210
+[#75232]: https://github.com/home-assistant/core/pull/75232
+[#75235]: https://github.com/home-assistant/core/pull/75235
+[#75241]: https://github.com/home-assistant/core/pull/75241
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@KJonline]: https://github.com/KJonline
+[@Tho85]: https://github.com/Tho85
+[@allenporter]: https://github.com/allenporter
+[@mkmer]: https://github.com/mkmer
+[@natekspencer]: https://github.com/natekspencer
+[@puddly]: https://github.com/puddly
+[@riokuu]: https://github.com/riokuu
+[@uvjustin]: https://github.com/uvjustin
+[@zsarnett]: https://github.com/zsarnett
+[aladdin_connect docs]: /integrations/aladdin_connect/
+[alexa docs]: /integrations/alexa/
+[blebox docs]: /integrations/blebox/
+[frontend docs]: /integrations/frontend/
+[hive docs]: /integrations/hive/
+[litterrobot docs]: /integrations/litterrobot/
+[nest docs]: /integrations/nest/
+[stream docs]: /integrations/stream/
+[unifiprotect docs]: /integrations/unifiprotect/
 [zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
