@@ -42,7 +42,7 @@ ha_integration_type: integration
 ha_zeroconf: true
 ---
 
-This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're migrating from the deprecated `zwave`, see [our migration instructions](#migrating-from-previous-z-wave-implementations).
+This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're migrating from the legacy `zwave`, see [our migration instructions](#migrating-from-previous-z-wave-implementations).
 
 To Run Z-Wave you will need a [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules), a running Z-Wave JS server (using only **one** of the add-ons or installation methods described below), and the Z-Wave integration.
 
@@ -569,11 +569,11 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 
 ## Migrating from previous Z-Wave implementations
 
-If you are switching from the `zwave (deprecated)` integration to the new Z-Wave integration, you will not need to recreate your entire network, as the network is **stored on your stick**. A few things, such as how you receive [central scene events](#events) will work differently than they did before.
+If you are switching from the legacy `zwave` integration to the new Z-Wave integration, you will not need to recreate your entire network, as the network is **stored on your stick**. A few things, such as how you receive [central scene events](#events) will work differently than they did before.
 
 ### Automatic migration wizard
 
-If you are using the `zwave (deprecated)` integration, there is a migration wizard that will help you set up the Z-Wave integration, remove the `zwave (deprecated)` integration and migrate the entities and devices that can be mapped from the `zwave (deprecated)` integration to the Z-Wave integration. The migration wizard is available from the `zwave (deprecated)` integration configuration panel in the GUI.
+If you are using the legacy `zwave` integration, there is a migration wizard that will help you set up the Z-Wave integration, remove the legacy `zwave` integration and migrate the entities and devices that can be mapped from the legacy `zwave` integration to the Z-Wave integration. The migration wizard is available from the legacy `zwave` integration configuration panel in the GUI.
 
 Some entities may not be able to migrate automatically and you will need to rename the corresponding available Z-Wave entities manually. Before completing the migration you will be shown a list of entities that could not be migrated automatically, and you'll have the option to abort or continue with the migration.
 
@@ -673,7 +673,7 @@ This is considered a very advanced use case. In this case you run the Z-Wave JS 
 
 For new installations, unique default keys will be auto-generated for you by the Z-Wave JS add-on. You can also generate those network keys in the Settings section of Zwavejs2Mqtt.
 
-If migrating from the `zwave (deprecated)` integration, your network key from those integration should be entered as the S0 network key. Those integrations did not support S2 security, so you will not yet have S2 network keys to configure.
+If migrating from the legacy `zwave` integration, your network key from those integration should be entered as the S0 network key. Those integrations did not support S2 security, so you will not yet have S2 network keys to configure.
 
 Make sure that you keep a backup of these keys in a safe place. You will need to enter the same keys to be able to access securely paired devices.
 
