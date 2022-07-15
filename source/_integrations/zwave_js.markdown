@@ -477,7 +477,7 @@ action:
 
 ## Automations
 
-The `Z-Wave JS` integration provides its own trigger platforms which can be used in automations.
+The `Z-Wave` integration provides its own trigger platforms which can be used in automations.
 
 ### `zwave_js.value_updated`
 
@@ -701,13 +701,13 @@ You can also keep track of the Roadmap for the Z-Wave JS integration [here](http
 
 #### Which Z-Wave controller should I buy?
 
-Z-Wave JS supports all known 500 and 700 series Z-Wave controllers. If you are just starting out, we recommend that you purchase a 500 series controller. 
+Z-Wave supports all known 500 and 700 series Z-Wave controllers. If you are just starting out, we recommend that you purchase a 500 series controller. 
 
 For more information, see [Supported Z-Wave dongles](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules)
 
 #### Why was I (or why was I not) automatically prompted to install Z-Wave JS?
 
-Some Z-Wave USB sticks can be auto-discovered, which can simplify the Z-Wave JS setup process. The following devices have been tested with discovery, and offer a quick setup experience; however, these are **not** all of the devices supported by Z-Wave JS:
+Some Z-Wave USB sticks can be auto-discovered, which can simplify the Z-Wave setup process. The following devices have been tested with discovery, and offer a quick setup experience; however, these are **not** all of the devices supported by Z-Wave JS:
 
 | Device | Identifier | Vendor |
 | -------| ---------- | ------ |
@@ -743,17 +743,17 @@ You can, but you cannot run them both at the same time. Only one of them can be 
 
 Switching does not require renaming your devices.
 
-1. Disable the Z-Wave JS integration. **Do not remove the Z-Wave JS integration or you will lose all device and entity naming.** This will automatically stop the official Z-Wave JS add-on.
+1. Disable the Z-Wave integration. **Do not remove the Z-Wave integration or you will lose all device and entity naming.** This will automatically stop the official Z-Wave JS add-on.
 
 2. Note your network security keys from the official add-on.
 
 3. Install and configure the Z-Wave JS to MQTT add-on, including setting the location of your Z-Wave device and the network security keys.
 
-4. Add the Z-Wave JS integration again (even though it is still installed), and uncheck the "Use the Z-Wave JS Supervisor add-on". Enter the correct address for the community add-on in the URL field in the next step.
+4. Add the Z-Wave integration again (even though it is still installed), and uncheck the "Use the Z-Wave JS Supervisor add-on". Enter the correct address for the community add-on in the URL field in the next step.
 
 5. Uninstall the official Z-Wave JS add-on.
 
-6. Enable the Z-Wave JS integration.
+6. Enable the Z-Wave integration.
 
 #### What's the benefit of using Zwavejs2Mqtt over the official Add-On?
 
@@ -780,11 +780,11 @@ Ultimately, this is a personal decision. If you provide a name or location for a
 
 Names set in Home Assistant will not import into Zwavejs2Mqtt.
 
-### Using Z-Wave JS
+### Using Z-Wave
 
 #### How can I add (include) a new device to my Z-Wave network?
 
-1. In Home Assistant: open Settings -> Devices & Services -> Z-Wave JS -> Configure.
+1. In Home Assistant: open Settings -> Devices & Services -> Z-Wave -> Configure.
 2. Press `+ ADD DEVICE`.
 3. The Z-Wave controller is now in inclusion mode and will not respond to other commands.
 4. Put the device you want to add in inclusion mode. Refer to its manual how this is done.
@@ -804,11 +804,11 @@ That depends. There are two generations of Z-Wave security, S0, and S2.
 
 S0 security imposes significant additional traffic on your mesh and is recommended only for devices that require security, such as door locks.
 
-S2 security does not impose additional network traffic and provides additional benefits, such as detecting packet corruption. By default, Z-Wave JS attempts S2 security during inclusion if supported, falling back to S0 security only when necessary.
+S2 security does not impose additional network traffic and provides additional benefits, such as detecting packet corruption. By default, Z-Wave attempts S2 security during inclusion if supported, falling back to S0 security only when necessary.
 
 #### How do I remove (exclude) a device from my Z-Wave network?
 
-1. In Home Assistant: open Settings -> Devices & Services -> Z-Wave JS -> Configure.
+1. In Home Assistant: open Settings -> Devices & Services -> Z-Wave -> Configure.
 2. Press `REMOVE DEVICE`.
 3. Press `START EXCLUSION`. The Z-Wave controller is now in exclusion mode and will not respond to other commands.
 4. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
@@ -818,7 +818,7 @@ S2 security does not impose additional network traffic and provides additional b
 
 #### I'm having a problem, what should I do first?
 
-_Many_ reported issues result from RF interference caused by the system's USB ports. This can manifest in many ways, including devices that won't include at all, devices that won't include securely, sensors with erroneous values (packets corrupted), delayed control of devices, or no ability to control devices. These problems can be intermittent, and they may be newly apparent after switching from `ozw`, though they existed before, as Z-Wave JS interviews devices and reports errors differently.
+_Many_ reported issues result from RF interference caused by the system's USB ports. This can manifest in many ways, including devices that won't include at all, devices that won't include securely, sensors with erroneous values (packets corrupted), delayed control of devices, or no ability to control devices. These problems can be intermittent, and they may be newly apparent after switching from `ozw`, though they existed before, as Z-Wave interviews devices and reports errors differently.
 
 **All users are encouraged to use a USB extension cable to prevent such interference.** Please try such a cable before opening an issue or requesting support on Discord. It will nearly always be the first troubleshooting step that we ask you to take anyway.
 
@@ -840,7 +840,7 @@ If you are certain that your device should have entities and you do not see them
 
 Your device might not send automatic status updates to the controller. While the best advice would be to update to recent Z-Wave Plus devices, there is a workaround with active polling (request the status).
 
-Z-Wave JS does not automatically poll devices on a regular basis. Polling can quickly lead to network congestion and should be used very sparingly and only where necessary.
+Z-Wave does not automatically poll devices on a regular basis. Polling can quickly lead to network congestion and should be used very sparingly and only where necessary.
 
 - We provide a `zwave_js.refresh_value` service to allow you to manually poll a value, for example from an automation that only polls a device when there is motion in that same room. If you **really** need polling, you can enable this in Zwavejs2Mqtt but not in the official add-on.
 
@@ -850,7 +850,7 @@ Z-Wave JS does not automatically poll devices on a regular basis. Polling can qu
 Polling should only be used as a last resort. You must use it with care and accept the negative impact on your network. Z-Wave is a very low speed network and poll requests can easily flood your network and slow down your commands.
 </div>
 
-#### My device is recognized as Unknown Manufacturer and/or some of its functionalities do not work in Z-Wave JS
+#### My device is recognized as Unknown Manufacturer and/or some of its functionalities do not work with the Z-Wave integration
 
 When your device is not yet fully interviewed, this info will not yet be present. So make sure your device is interviewed at least once.
 
@@ -860,16 +860,16 @@ If the interview is complete, then the device does not yet have a device file fo
 
 When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow the menu:
 
-{% my integrations title="**Settings** -> **Devices & Services**" %} -> **Z-Wave JS** -> **...** -> **Download diagnostics**
+{% my integrations title="**Settings** -> **Devices & Services**" %} -> **Z-Wave** -> **...** -> **Download diagnostics**
 
 ### Interference issues
 
 Many users have reported issues with interference when the USB stick was directly connected to the machine (proximity). If you are having issues try to use a short USB 2.0 A male to female extension cord.
 
-#### How to access the Z-Wave JS logs
+#### How to access the Z-Wave logs
 
-Z-Wave JS writes details to its logs. To access these logs go to the following.
+Z-Wave writes details to its logs. To access these logs go to the following.
 
-   **Configuraton** -> **Devices & Services** -> **Integrations(tab)** -> **Z-Wave JS (CONFIGURE)** -> **Logs(tab)**
+   **Configuraton** -> **Devices & Services** -> **Integrations(tab)** -> **Z-Wave (CONFIGURE)** -> **Logs(tab)**
 
 You need to keep this browser tab open for logging to be active.
