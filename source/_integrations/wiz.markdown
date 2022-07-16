@@ -46,10 +46,12 @@ These devices have been sold under at least the following brands:
 - [Laurie Lumiere](https://www.laurielumiere.com/)
 - [Lednify](https://lednify.com/)
 - [Leyton](https://www.leyton-lighting.co.uk/)
-- [Liteline](https://www.liteline.com/)
+- [Liteline](https://www.liteline.com/page/oncloud)
 - [Lutec](https://www.lutec.com/highlight/wiz)
 - [Philips Smart LED lights with WiZ Connected](https://www.usa.lighting.philips.com/consumer/smart-wifi-led)
+- [Spex](https://spexlighting.com/pages/smart-lights)
 - [SLV](https://www.slv.com/)
+- [Trenz](https://trenzlighting.com/pages/smart-lights)
 - [Trio](https://wiz.trio-lighting.com/en/)
 - [Wofi](https://wofi-wiz.com/)
 
