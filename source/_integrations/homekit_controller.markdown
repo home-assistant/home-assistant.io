@@ -78,7 +78,9 @@ HomeKit IP accessories for these device types may work with some caveats:
 
 HomeKit controller will poll your devices, but it will also automatically enable push updates for accessories that support it.
 
-Home Assistant does not currently support HomeKit BLE.
+## Bluetooth device support
+
+HomeKit Controller will automatically discover Bluetooth devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
 ## 'Stateless' switches and sensors
 
