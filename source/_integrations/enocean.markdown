@@ -130,6 +130,8 @@ automation:
 
 An EnOcean cover can take many forms. Currently only one device has been tested: NodOn SIN-2-RS-01 dimmer, which uses (a subset of) EEP D2-05-00.
 
+Note that this kind of device requires an EnOcean teach-in procedure not yet available in this integration. Hence you need to use a different EnOcean software to perform this teach-in.
+
 To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 
 ```yaml
