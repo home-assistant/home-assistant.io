@@ -154,6 +154,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Temperature and Humidity Sensor without display - indoor (*HmIP-STH*)
   * Temperature and Humidity Sensor with display - indoor (*HmIP-STHD*)
   * Temperature and Humidity sensor - outdoor (*HmIP-STHO, -A*)
+  * Temperature sensor with external probes - 2-way (*HmIP-STE2-PCB*)
   * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
   * Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
   * Presence Sensor – indoor (*HmIP-SPI*)
