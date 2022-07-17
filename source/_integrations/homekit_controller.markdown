@@ -16,6 +16,7 @@ ha_category:
   - Switch
 ha_release: 0.68
 ha_iot_class: Local Push
+ha_bluetooth: true
 ha_config_flow: true
 ha_codeowners:
   - '@Jc2k'
@@ -78,7 +79,9 @@ HomeKit IP accessories for these device types may work with some caveats:
 
 HomeKit controller will poll your devices, but it will also automatically enable push updates for accessories that support it.
 
-Home Assistant does not currently support HomeKit BLE.
+## Bluetooth device support
+
+HomeKit Controller will automatically discover Bluetooth devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. Bluetooth devices may take significantly longer to pair than IP devices. Battery-powered devices may require pressing a button on the device to wake it before pairing can be successful.
 
 ## 'Stateless' switches and sensors
 
