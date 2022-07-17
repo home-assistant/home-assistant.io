@@ -126,6 +126,45 @@ automation:
 
 {% endraw %}
 
+## Cover
+
+An EnOcean cover can take many forms. Currently only one device has been tested: NodOn SIN-2-RS-01 dimmer, which uses (a subset of) EEP D2-05-00.
+
+To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: enocean
+    id: [0x01,0x02,0x03,0x04]
+    sender_id: [0x05,0x06,0x07,0x08]
+    name: "Roller Shutter"
+    watchdog_timeout: 5
+```
+
+{% configuration %}
+id:
+  description: The ID of the device. This is the 4 bytes long number written on the roller shuter.
+  required: true
+  type: list
+sender_id:
+  description: The Sender ID of the device. This is a 4 bytes long number. It needs to be one of the EnOcean dongle's allowed sending ID's (its chip ID or one of the base IDs). Moreover, this sending ID must have been paired with the roller shutter using the EnOcean teach-in procedure.
+  required: true
+  type: list
+name:
+  description: An identifier for the light in the frontend.
+  required: false
+  default: EnOcean Light
+  type: string
+watchdog_timeout:
+  description: To detect stop of movement which was initiated from another control than Home Assistant (e.g. using a local switch), this integration uses a so-called watchdog timer. The number given here indicates the number of seconds this timer waits until requesting the current position from the device.
+  required: false
+  default: EnOcean Light
+  type: integer
+{% endconfiguration %}
+
+
+
 ## Light
 
 An EnOcean light can take many forms. Currently only one type has been tested: Eltako FUD61 dimmer.
