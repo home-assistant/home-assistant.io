@@ -4,6 +4,7 @@ description: Connect EnOcean devices to Home Assistant
 logo: enocean.png
 ha_category:
   - Binary Sensor
+  - Cover
   - Hub
   - Light
   - Sensor
@@ -16,6 +17,7 @@ ha_domain: enocean
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - cover
   - light
   - sensor
   - switch
@@ -29,6 +31,7 @@ The EnOcean integration adds support for some of these devices. You will need a 
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor) - Wall switches
+- [Cover](#cover) - Roller shutters using EEP D2-05-00
 - [Sensor](#sensor) - Power meters, temperature sensors, humidity sensors and window handles
 - [Light](#light) - Dimmers
 - [Switch](#switch)
@@ -39,6 +42,7 @@ The following devices have been confirmed to work out of the box:
 - Eltako FUD61 dimmer
 - Eltako FT55 battery-less wall switch
 - Jung ENOA590WW battery-less wall switch
+- NodOn SIN-2-RS-01 roller shutter
 - Omnio WS-CH-102-L-rw battery-less wall switch
 - Permundo PSC234 (switch and power monitor)
 - EnOcean STM-330 temperature sensor
@@ -46,7 +50,7 @@ The following devices have been confirmed to work out of the box:
 
 If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) (EEP). If it does, it will most likely work. The available profiles are usually listed somewhere in the device manual.
 
-Support for tech-in messages is not implemented.
+Support for teach-in messages is not implemented.
 
 {% include integrations/config_flow.md %}
 
@@ -121,6 +125,47 @@ automation:
 ```
 
 {% endraw %}
+
+## Cover
+
+An EnOcean cover can take many forms. Currently only one device has been tested: NodOn SIN-2-RS-01 dimmer, which uses (a subset of) EEP D2-05-00.
+
+Note that this kind of device requires an EnOcean teach-in procedure not yet available in this integration. Hence you need to use a different EnOcean software to perform this teach-in.
+
+To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: enocean
+    id: [0x01,0x02,0x03,0x04]
+    sender_id: [0x05,0x06,0x07,0x08]
+    name: "Roller Shutter"
+    watchdog_timeout: 5
+```
+
+{% configuration %}
+id:
+  description: The ID of the device. This is the 4 bytes long number written on the roller shuter.
+  required: true
+  type: list
+sender_id:
+  description: The Sender ID of the device. This is a 4 bytes long number. It needs to be one of the EnOcean dongle's allowed sending ID's (its chip ID or one of the base IDs). Moreover, this sending ID must have been paired with the roller shutter using the EnOcean teach-in procedure.
+  required: true
+  type: list
+name:
+  description: An identifier for the light in the frontend.
+  required: false
+  default: EnOcean Light
+  type: string
+watchdog_timeout:
+  description: To detect stop of movement which was initiated from another control than Home Assistant (e.g. using a local switch), this integration uses a so-called watchdog timer. The number given here indicates the number of seconds this timer waits until requesting the current position from the device.
+  required: false
+  default: EnOcean Light
+  type: integer
+{% endconfiguration %}
+
+
 
 ## Light
 
