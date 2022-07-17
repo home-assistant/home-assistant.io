@@ -4,6 +4,7 @@ description: Connect EnOcean devices to Home Assistant
 logo: enocean.png
 ha_category:
   - Binary Sensor
+  - Cover
   - Hub
   - Light
   - Sensor
@@ -16,6 +17,7 @@ ha_domain: enocean
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - cover
   - light
   - sensor
   - switch
@@ -29,6 +31,7 @@ The EnOcean integration adds support for some of these devices. You will need a 
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor) - Wall switches
+- [Cover](#cover) - Roller shutters using EEP D2-05-00
 - [Sensor](#sensor) - Power meters, temperature sensors, humidity sensors and window handles
 - [Light](#light) - Dimmers
 - [Switch](#switch)
@@ -39,6 +42,7 @@ The following devices have been confirmed to work out of the box:
 - Eltako FUD61 dimmer
 - Eltako FT55 battery-less wall switch
 - Jung ENOA590WW battery-less wall switch
+- NodOn SIN-2-RS-01 roller shutter
 - Omnio WS-CH-102-L-rw battery-less wall switch
 - Permundo PSC234 (switch and power monitor)
 - EnOcean STM-330 temperature sensor
@@ -46,7 +50,7 @@ The following devices have been confirmed to work out of the box:
 
 If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) (EEP). If it does, it will most likely work. The available profiles are usually listed somewhere in the device manual.
 
-Support for tech-in messages is not implemented.
+Support for teach-in messages is not implemented.
 
 {% include integrations/config_flow.md %}
 
