@@ -16,6 +16,7 @@ ha_category:
   - Switch
 ha_release: 0.68
 ha_iot_class: Local Push
+ha_bluetooth: true
 ha_config_flow: true
 ha_codeowners:
   - '@Jc2k'
