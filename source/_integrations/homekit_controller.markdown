@@ -80,7 +80,7 @@ HomeKit controller will poll your devices, but it will also automatically enable
 
 ## Bluetooth device support
 
-HomeKit Controller will automatically discover Bluetooth devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
+HomeKit Controller will automatically discover Bluetooth devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. Battery-powered devices may require pressing a button on the device to wake it before paring can be successful.
 
 ## 'Stateless' switches and sensors
 
