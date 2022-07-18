@@ -73,6 +73,26 @@ Note that if you use static device entries, you may want to set up your router (
 
 If the device doesn't seem to work and all you see is the state "unavailable" on your dashboard, check that your firewall doesn't block incoming requests on port 8989, since this is the port to which the WeMo devices send their updates.
 
+### Advanced scenario (multiple subnets):
+
+Wemo devices do not allow for update subscriptions between subnets. As a result, if your Wemo devices are on a different network than Home Assistant, you may notice that the device status is not instantly updated in Home Assistant when operating the devices physically (or by using the Wemo mobile app). This can be worked around by creating a destination NAT rule on your router and then configuring the Wemo integration to use your router as the callback address. For example, on a Unifi Dream Machine or other iptables-based router, you would create the DNAT rule like this:
+
+`iptables -t nat -A PREROUTING -s 192.168.2.0/24 -d 192.168.2.1/32 -p tcp --dport 8989 -j DNAT --to-destination 192.168.1.2`
+
+(where 192.168.2.0 is the subnet containing Wemo devices, and 192.168.1.2 is your Home Assistant instance)
+
+and then configure the Wemo integration like this:
+```yaml
+# Example configuration.yaml entry with subscriptions across VLANs, automatic discovery disabled, and 2 statically configured devices
+wemo:
+  discovery: false
+  callback_address: 192.168.2.1:8989
+  static:
+    - 192.168.1.23
+    - 192.168.52.172
+```
+(where 192.168.2.1 is the address of your router on the Wemo subnet)
+
 ## Emulated devices
 
 Various software that emulate WeMo devices often use alternative ports. Static configuration should include the port value:
