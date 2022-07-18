@@ -1487,7 +1487,7 @@ Main Brush Left*:
 Sensor Dirty Left*:
   description: How long the sensor can  be used in seconds
 Current Clean Time:
-  description: The current cleaning time of the vacuum. If the vaccuum is not cleaning, this sensor will have the same value as the "Last Clean Duration" sensor.
+  description: The current cleaning time of the vacuum. If the vacuum is not cleaning, this sensor will have the same value as the "Last Clean Duration" sensor.
 Current Clean Area:
   description: The current area that has been cleaned. If the vacuum is not cealning, this sensor will have the same value as the "Last Clean Area" sensor.
 Last Clean Area*:
@@ -1594,7 +1594,7 @@ vacuum_kitchen:
 Valid room numbers can be retrieved using miio command-line tool:
 
 ```bash
-miiocli vacuum --ip <ip of the vacuum> --token <your vacuum token> get_room_mapping
+miiocli roborockvacuum --ip <ip of the vacuum> --token <your vacuum token> get_room_mapping
 ```
 
 It will return the full mapping of room numbers to user-defined names as a list of (number,name) tuples.
