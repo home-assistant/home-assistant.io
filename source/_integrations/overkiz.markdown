@@ -56,6 +56,7 @@ The Overkiz (by Somfy) integration platform is used by many different vendors, l
 - Somfy Connexoon RTS
 - Somfy TaHoma
 - Somfy TaHoma Switch [(instructions)](#tahoma-switch)
+- Somfy Connection Kit
 - Thermor Cozytouch
 
 ### TaHoma Switch
@@ -86,4 +87,4 @@ This integration communicates via the cloud-based Overkiz API, since Overkiz doe
 
 #### Local API via HomeKit Controller
 
-If your hub (e.g. Somfy TaHoma) supports HomeKit natively, your setup code will be added as a sensor in Home Assistant. Look up your hub in Home Assistant and retrieve the value from the 'HomeKit Setup Code' sensor. You can now configure the [HomeKit Controller](/integrations/homekit_controller/) integration in Home Assistant and benefit from local support.
+If your hub (e.g. Somfy TaHoma or Somfy Connection Kit) supports HomeKit natively, your setup code will be added as a sensor in Home Assistant. Look up your hub in Home Assistant and retrieve the value from the 'HomeKit Setup Code' sensor. You can now configure the [HomeKit Controller](/integrations/homekit_controller/) integration in Home Assistant and benefit from local support.
