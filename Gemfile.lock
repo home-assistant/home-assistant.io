@@ -68,7 +68,7 @@ GEM
     mercenary (0.4.0)
     mini_portile2 (2.8.0)
     multi_json (1.15.0)
-    mustermann (1.1.1)
+    mustermann (1.1.2)
       ruby2_keywords (~> 0.0.1)
     nokogiri (1.13.7)
       mini_portile2 (~> 2.8.0)
