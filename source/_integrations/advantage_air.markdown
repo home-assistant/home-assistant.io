@@ -60,6 +60,10 @@ The `advantage_air` switch platform will create a switch entity to toggle fresh 
 
 The `advantage_air` select platform allows you to change the zone used for the "MyZone" feature.
 
+### Update
+
+The `advantage_air` update platform shows if the controller app requires an update.
+
 ## Services
 
 ### Service `advantage_air.set_time_to`
