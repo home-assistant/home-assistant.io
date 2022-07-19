@@ -77,7 +77,7 @@ In short, when any group member entity is `on`, the group will also be `on`. A c
 - Otherwise, the group state is `off`.
 
 ### Lock groups
-In short, when any group member entity is `unlocked`, the group will also be `unlocked`. A complete overview of how fan groups behave:
+In short, when any group member entity is `unlocked`, the group will also be `unlocked`. A complete overview of how lock groups behave:
 
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
