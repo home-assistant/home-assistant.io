@@ -116,6 +116,8 @@ For climate devices, this integration provides support to enable/disable a timer
 
 The switch uses a timer of 60 minutes delay. You can choose a custom delay using the custom `sensibo.enable_timer` service. See [Timer](#timer).
 
+You can also enable or disable Climate React mode using the currently configured settings with the Climate React mode switch entity for each Sensibo device.
+
 For Pure devices, this integration provides support to enable/disable Pure Boost.
 
 To customize the settings of Pure Boost, you can use the custom `sensibo.enable_pure_boost` service. See [Pure Boost](#pure-boost)
