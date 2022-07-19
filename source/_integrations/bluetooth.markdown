@@ -20,3 +20,15 @@ The Bluetooth Monitoring and Discovery integration will detect nearby bluetoth d
 # Example configuration.yaml entry
 bluetooth:
 ```
+
+## Installing a USB Bluetooth Adapter
+
+Some systems may not come with Bluetooth and require a USB adapter. Installing an adapter for the first time may require multiple restarts for the device to be fully recognized.
+
+### Known working adapters
+
+ASUS USB-BT400
+
+### Unsupported adapters
+
+tp-link UB500 - Frequent connection failures
