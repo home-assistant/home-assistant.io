@@ -28,6 +28,7 @@ Some systems may not come with Bluetooth and require a USB adapter. Installing a
 ### Known working adapters
 
 ASUS USB-BT400
+ASUS USB-BT500
 
 ### Unsupported adapters
 
