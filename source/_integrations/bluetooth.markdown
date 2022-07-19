@@ -20,3 +20,11 @@ The Bluetooth Monitoring and Discovery integration will detect nearby bluetoth d
 # Example configuration.yaml entry
 bluetooth:
 ```
+
+## Known working adapters
+
+ASUS USB-BT400
+
+## Unsupported adapters
+
+tp-link UB500 - Frequent connection failures
