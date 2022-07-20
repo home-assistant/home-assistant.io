@@ -203,7 +203,6 @@
 /integrations/telegram_chatbot /integrations/telegram_bot
 /integrations/vlc-telnet /integrations/vlc_telnet
 /integrations/xiaomi /integrations/xiaomi_aqara
-/integrations/zigbee /integrations/xbee
 
 # Moved documentation
 /details/database /docs/backend/database
@@ -318,6 +317,7 @@
 /common-tasks/os/#snapshots /common-tasks/os/#backups
 /common-tasks/supervised/#snapshots /common-tasks/supervised/#backups
 /more-info/unsupported/container /more-info/unsupported/software
+/integrations/zigbee /integrations/zha
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -500,6 +500,7 @@
 /integrations/weblink /more-info/removed-integration 301
 /integrations/wink /more-info/removed-integration 301
 /integrations/wunderground /more-info/removed-integration 301
+/integrations/xbee /more-info/removed-integration 301
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
