@@ -46,7 +46,7 @@ On the computer you intend to control via Home Assistant, you must install the [
 
 There are a number of ways to install the `hassmpris_agent` package, but perhaps the most straightforward one is using `pip` on the command line:
 
-```
+```bash
 pip3 install --user hassmpris_agent
 # The command above deploys the agent and all its dependencies to
 # ~/.local in your home directory.
@@ -58,7 +58,7 @@ At some point in the future, these packages may ship directly in your Linux dist
 
 The next step is to enable the MPRIS agent. See your desktop menus for an entry called *MPRIS media control settings* or *Multimedia control from Home Assistant*. If you can't find this, open up a terminal window and run the following command:
 
-```
+```bash
 python3 -m hassmpris_agent.settings
 ```
 
