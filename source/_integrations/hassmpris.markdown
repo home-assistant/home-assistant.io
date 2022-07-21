@@ -36,7 +36,7 @@ Your media player computer must have two important system packages:
 2. GTK+ version 4
 3. Python 3
 
-While both these packages are shipped in the overwhelming majority of Linux systems, do please ensure your system has these two libraries already available before proceeding with the next step.  Your operating system's package manager will help in this task.
+While both these packages are shipped in the overwhelming majority of Linux systems, do please ensure your system has these two libraries already available before proceeding with the next step. Your operating system's package manager will help in this task.
 
 ### Install the MPRIS agent on your media player computer
 
@@ -56,13 +56,13 @@ At some point in the future, these packages may ship directly in your Linux dist
 
 ### Enable the agent on your media player computer
 
-The next step is to enable the MPRIS agent.  See your desktop menus for an entry called *MPRIS media control settings* or *Multimedia control from Home Assistant*.  If you can't find this, open up a terminal window and run the following command:
+The next step is to enable the MPRIS agent. See your desktop menus for an entry called *MPRIS media control settings* or *Multimedia control from Home Assistant*. If you can't find this, open up a terminal window and run the following command:
 
 ```
 python3 -m hassmpris_agent.settings
 ```
 
-The settings window will pop up, with a slider titled *Enable remote control of media*.  Turn it on.  This will start the agent immediately, and ensure the agent starts on boot.
+The settings window will pop up, with a slider titled *Enable remote control of media*. Turn it on. This will start the agent immediately, and ensure the agent starts on boot.
 
 You can close the settings window now.
 
@@ -76,16 +76,16 @@ You are now ready to pair your Home Assistant with your media players.
 
 ### Pair your Home Assistant instance with your media player computer
 
-A window will then pop up where you can enter the host name or IP address of the media player computer.  Confirm that the information is correct, then proceed to the next step.
+A window will then pop up where you can enter the host name or IP address of the media player computer. Confirm that the information is correct, then proceed to the next step.
 
 At this point, you'll see two things:
 
 1. A pop-up notification will pop up on your media player computer, asking you to *verify* that Home Assistant is connecting.
 2. A series of emojis will appear on your Home Assistant setup screen.
 
-On your media player computer, click on the *Verify* button in the notification, then verify on the next window that the emojis match what you see onscreen in Home Assistant.  Then go back to Home Assistant and verify that the emojis match as well.
+On your media player computer, click on the *Verify* button in the notification, then verify on the next window that the emojis match what you see onscreen in Home Assistant. Then go back to Home Assistant and verify that the emojis match as well.
 
-*Congratulations!*  Your Home Assistant can now govern all media players on your desktop computer, which will appear as new `media_player` entities as you open them.  The completed pairing is secure and cannot be spoofed or snooped by any potential attacker.
+*Congratulations!*  Your Home Assistant can now govern all media players on your desktop computer, which will appear as new `media_player` entities as you open them. The completed pairing is secure and cannot be spoofed or snooped by any potential attacker.
 
 ## Use
 
