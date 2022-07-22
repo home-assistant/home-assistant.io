@@ -20,6 +20,8 @@ Integrates devices that implement the Xiaomi Mijia BLE MiBeacon protocol and oth
 
 The integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
+{% include integrations/config_flow.md %}
+
 ## Supported device classes
 
 It is possible that we detect your device because it uses the MiBeacon protocol but don't yet support any or all of its sensors. We currently actively test devices with the following sensor classes.
@@ -29,4 +31,3 @@ It is possible that we detect your device because it uses the MiBeacon protocol 
 - Battery
 
 
-{% include integrations/config_flow.md %}
