@@ -37,6 +37,16 @@
     {%- endif -%}.
   </div>
 
+  {% if page.works_with %}
+    {%- for type in page.works_with -%}
+      <div class="section">
+        <a href="/blog/2022/07/12/partner-program">
+          <img src="../../images/works_with/works-with-{{ type }}.png" alt="Works via {{ type }} with Home assistant">
+        </a>
+      </div>
+    {%- endfor -%}
+  {%- endif -%}
+
   {% if page.ha_domain %}
   <div class='section'>
     <a href="https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}" target="_blank"><i class="icon-github"></i> View source on GitHub</a><br />
