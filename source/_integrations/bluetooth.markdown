@@ -40,4 +40,6 @@ tp-link UB500 - Frequent connection failures
 
 ## Integrations that require exclusive use of the Bluetooth Adapter
 
-Deleting the config entry for this integration will release control of the adapter and allow another integration to gain exclusive use of the Bluetooth adapter.
+While newer integrations can share the Bluetooth Adapter, some legacy integrations require exclusive use of the adapter. Enabling this integration may prevent an integration that has not been updated to use newer methods from functioning.
+
+Deleting the config entry for this integration will release control of the adapter and allow another integration to gain exclusive use of the Bluetooth adapter. If you have manually added `bluetooth:` to your `confirguration.yaml`, you must also remove it to prevent the configuration from being recreated.
