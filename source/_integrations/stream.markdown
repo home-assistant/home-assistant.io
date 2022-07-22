@@ -61,7 +61,7 @@ stream:
 
 The integration currently supports proxying H.264 and H.265 source streams to the HLS (and LL-HLS) protocol.
 
-Note that while H.265 works on Android and iOS, it does not work in many browsers. This is a browser limitation and not a Home Assistant issue. Safari has native H.265 support, and H.265 also works in Edge on Windows when "HEVC Video Extensions" is installed. Chrome versions >= 104 may also work when started with the "--enable-features=PlatformHEVCDecoderSupport" option.
+Note that while H.265 works on Android and iOS, it does not work in many browsers. This is a browser limitation and not a Home Assistant issue. Safari has native H.265 support, and H.265 also works in Edge on Windows when "HEVC Video Extensions" is installed. Chrome versions >= 104 may also work when started with the `--enable-features=PlatformHEVCDecoderSupport` option.
 
 For testing HEVC browser support, do not rely on the https://www.caniuse.com charts or the https://html5test.com site. They are inaccurate. You can instead use the ["Unprefixed tests" from caniuse.com](https://tests.caniuse.com/?feat=hevc) or the [hls.js demo app with an HEVC HLS stream](https://hls-js.netlify.app/demo/?src=https%3A%2F%2Fbitmovin-a.akamaihd.net%2Fcontent%2Fdataset%2Fmulti-codec%2Fhevc%2Fstream_fmp4.m3u8). The videos there should play if your browser supports H.265.
 
