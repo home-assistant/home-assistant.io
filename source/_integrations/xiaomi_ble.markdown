@@ -1,6 +1,6 @@
 ---
-title: Xiaomi MiBeacon
-description: Instructions on how to integrate Xiaomi MiBeacon devices into Home Assistant.
+title: Xiaomi BLE
+description: Instructions on how to integrate Xiaomi BLE devices into Home Assistant.
 ha_category:
   - Sensor
 ha_zeroconf: true
@@ -16,13 +16,17 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-Integrates Xiaomi BLE devices into Home Assistant.
-
-## Supported devices
-
-- Flower care (HHCCJCY01)
-- Temperature and humidity sensor (LYWSDCGQ)
+Integrates devices that implement the Xiaomi Mijia BLE MiBeacon protocol and other Xiaomi BLE devicres that support passive collection. It listens to bluetooth broadcasts that the device makes by itself, allowing us to track the latest sensor values without needing to wake it up from deep sleep to poll and conserving its battery power.
 
 The integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
+
+## Supported device classes
+
+It is possible that we detect your device because it uses the MiBeacon protocol but don't yet support any or all of its sensors. We currently actively test devices with the following sensor classes.
+
+- Temperature
+- Humidity
+- Battery
+
 
 {% include integrations/config_flow.md %}
