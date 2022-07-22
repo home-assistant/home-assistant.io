@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-Integrates devices that implement the Xiaomi Mijia BLE MiBeacon protocol and other Xiaomi BLE devicres that support passive collection. It listens to Bluetooth broadcasts that the device makes by itself, allowing us to track the latest sensor values without needing to wake it up from deep sleep to poll and conserving its battery power.
+Integrates devices that implement the Xiaomi Mijia BLE MiBeacon protocol and other Xiaomi BLE devices that support passive collection. It listens to Bluetooth broadcasts that the device makes by itself, allowing us to track the latest sensor values without needing to wake it up from deep sleep to poll and conserving its battery power.
 
 The integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
