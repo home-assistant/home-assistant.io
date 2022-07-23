@@ -13,54 +13,15 @@ ha_integration_type: integration
 
 The `twitch` platform will allow you to monitor [Twitch](https://www.twitch.tv/) channel status from within Home Assistant and setup automation based on the information.
 
-## Setup Client ID and Client secret
+## Setup
 
-Create a new app at "Register Your Application" in the [Twitch developer portal](https://dev.twitch.tv/console/apps). Then get the __Client ID__ and __Client secret__ for the new application.
-
-## Setup OAuth Token
-
-To enable the follow and subscription attributes, the OAuth token is needed to get the right permissions on the Twitch API.
-If you don't need those, ignore the configuration setting: `token`.
-
-To get the OAuth token, visit the [OAuth Token Generator](https://twitchapps.com/tokengen/#), insert your __Client ID__ and `user:read:subscriptions` inside __scopes__.
-
-Before clicking Summit (the broken image below the form), visit the [Twitch dev console](https://dev.twitch.tv/console) and add a new application.
-
-As __OAuth Redirect URLs__ add `https://twitchapps.com/tokengen/` and click __Create__
-.
-Back at the Token Generator, click the __Summit__ button, accept the consent screen and get your __OAuth Token__.
+Create a new app at "Register Your Application" in the [Twitch developer portal](https://dev.twitch.tv/console/apps). Then get the __Client ID__ and __Client Secret__ for the new application.
 
 ## Configuration
 
-To use Twitch with your installation, add the following to your `configuration.yaml` file:
+You can then add the integration in the frontend via the steps below.
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  platform: twitch
-  client_id: YOUR_TWITCH_CLIENT_ID
-  client_secret: YOUR_TWITCH_CLIENT_SECRET
-  token: YOUR_TWITCH_OAUTH_TOKEN
-  channels:
-    - channel1
-    - channel2
-```
+{% include integrations/config_flow.md %}
 
-{% configuration %}
-client_id:
-  description: Your Twitch client ID.
-  required: true
-  type: string
-client_secret:
-  description: Your Twitch client secret.
-  required: true
-  type: string
-token:
-  description: Your Twitch OAuth Token.
-  required: false
-  type: string
-channels:
-  description: List of channels names
-  required: true
-  type: list
-{% endconfiguration %}
+The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
+
