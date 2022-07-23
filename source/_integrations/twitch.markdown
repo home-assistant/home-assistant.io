@@ -17,6 +17,21 @@ The `twitch` platform will allow you to monitor [Twitch](https://www.twitch.tv/)
 
 Create a new app at "Register Your Application" in the [Twitch developer portal](https://dev.twitch.tv/console/apps). Then get the __Client ID__ and __Client Secret__ for the new application.
 
+Set the OAuth Redirect URL to: `https://my.home-assistant.io/redirect/oauth`
+
+{% details "I have manually disabled My Home Assistant" %}
+
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
+instead.
+
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
+
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+
+{% enddetails %}
+
 ## Configuration
 
 You can then add the integration in the frontend via the steps below.
