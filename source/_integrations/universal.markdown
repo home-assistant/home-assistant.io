@@ -279,29 +279,29 @@ media_player:
       turn_on:
         service: remote.turn_on
         target:
-          entity_id: remote.remote.harmony_hub
+          entity_id: remote.harmony_hub
       turn_off:
         service: remote.turn_off
         target:
-          entity_id: remote.remote.harmony_hub
+          entity_id: remote.harmony_hub
       volume_up:
         service: remote.send_command
         target:
-          entity_id: remote.remote.harmony_hub
+          entity_id: remote.harmony_hub
         data:
           device: Receiver
           command: VolumeUp
       volume_down:
         service: remote.send_command
         target:
-          entity_id: remote.remote.harmony_hub
+          entity_id: remote.harmony_hub
         data:
           device: Receiver
           command: VolumeDown
       select_source:
         service: remote.turn_on
         target:
-          entity_id: remote.remote.harmony_hub
+          entity_id: remote.harmony_hub
         data:
           activity: "{{ source }}"
     device_class: tv
