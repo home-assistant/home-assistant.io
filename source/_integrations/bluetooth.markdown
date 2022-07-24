@@ -36,6 +36,7 @@ Some systems may not come with Bluetooth and require a USB adapter. Installing a
 - Maxuni BT-501
 - SUMEE BT501
 - UGREEN CM390
+- XDO BT802 (Long Range)
 - ZEXMTE BT-505 (Long Range)
 - ZEXMTE BT-DG54
 
