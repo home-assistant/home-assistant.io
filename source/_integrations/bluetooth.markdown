@@ -14,7 +14,11 @@ ha_integration_type: integration
 
 The Bluetooth Monitoring and Discovery integration will detect nearby bluetoth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
 
+{% include integrations/config_flow.md %}
+
 ## Configuration
+
+While this integration is part of [`default_config:`](/integrations/default_config/) to enable automatic discovery of the Bluetooth Adapter, it will only be enabled by setting up the configuration flow, or manually adding it to your `configuration.yaml`.
 
 ```yaml
 # Example configuration.yaml entry
@@ -27,9 +31,15 @@ Some systems may not come with Bluetooth and require a USB adapter. Installing a
 
 ### Known working adapters
 
-ASUS USB-BT400
-ASUS USB-BT500
+- ASUS USB-BT400
+- ASUS USB-BT500
 
 ### Unsupported adapters
 
-tp-link UB500 - Frequent connection failures
+- tp-link UB500 - Frequent connection failures
+
+## Integrations that require exclusive use of the Bluetooth Adapter
+
+While newer integrations can share the Bluetooth Adapter, some legacy integrations require exclusive use of the adapter. Enabling this integration may prevent an integration that has not been updated to use newer methods from functioning.
+
+Deleting the config entry for this integration will release control of the adapter and allow another integration to gain exclusive use of the Bluetooth adapter. If you have manually added `bluetooth:` to your `configuration.yaml`, you must also remove it to prevent the configuration from being recreated.
