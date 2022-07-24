@@ -27,14 +27,18 @@ This platform has been tested and is confirmed to be working with the Shark IQ R
 {% include integrations/config_flow.md %}
 
 ## Services
-
-Currently supported services are:
-
+### Native `vacuum` Services
+The following native `vacuum` services are supported:
 - `start`
 - `pause`
 - `stop`
 - `return_to_base`
 - `locate`
+
+For usage and required fields, refer to the [vacuum component services](https://www.home-assistant.io/integrations/vacuum/#component-services).
+
+### SharkIQ Services
+`clean_room`
 
 ## Troubleshooting
 
