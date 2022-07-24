@@ -17,10 +17,10 @@ ha_integration_type: integration
 
 Integrates [Moat](https://moat-tech.com/) devices into Home Assistant.
 
-## Supported devices
-
-- [S2 Smart Temperature & Humidity Sensor](https://www.moat-tech.com/product/smart-climate-sensor/)
+{% include integrations/config_flow.md %}
 
 The Moat integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
-{% include integrations/config_flow.md %}
+## Supported devices
+
+- [S2 Smart Temperature & Humidity Sensor](https://www.moat-tech.com/product/smart-climate-sensor/)
