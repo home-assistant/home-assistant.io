@@ -28,7 +28,7 @@ The SwitchBot integration allows you to control SwitchBot [devices](https://www.
 
 In order to use this integration, it is required to have working Bluetooth set up on the device running Home Assistant. A [SwitchBot Hub](https://www.switch-bot.com/search?type=product&q=hub) is not required for this integration.
 
-In order to set up this integration, you need to get the BTLE MAC address of your device. You can find the address for your device using the following steps:
+If you have multiple devices of the same type, you need to get the BTLE MAC address of your device to tell your devices apart. You can find the address for your device using the following steps:
 
 1. Open the SwitchBot app.
 2. Open device settings.
@@ -45,14 +45,10 @@ There are three attributes available on the SwitchBot entity to give you more in
 
 - `last_run_success`: If `true` if the last action sent to the SwitchBot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see home-assistant.log for specific error messages.
 - `Switch mode`: Specifies the mode of the SwitchBot. If `true` the the SwitchBot is in Pull/Retract mode for toggle switches otherwise the bot is in momentary switch mode.
-- `address`: The BTLE address for the device.
 
 ## SwitchBot Options
 
-There are four options that can be configured for the SwitchBot entities. Setting any of these options will apply to all of your SwitchBot devices.
-
 - `Retry count`: How many times to retry sending commands and retry polling your SwitchBot devices.
-- `Timeout between retries`: How long to wait before retries.
 
 ### Error codes and troubleshooting
 
