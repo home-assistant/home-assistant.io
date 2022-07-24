@@ -44,5 +44,5 @@ This key is called the bindkey or beaconkey.
 
 There are a few ways to obtain a bindkey for your device:
 
-* Set your own. The [Telink Flasher](https://atc1441.github.io/TelinkFlasher.html) allows you to generate new bindkeys for devices it supports. The new bind key will work with Home Assistant, but the Mi Home app will not recognise the sensor anymore once the device has been activated by the TeLink flasher application. To use the sensor again with the Xiaomi Mi Home app, the device needs to be removed and then re-added inside the Mi Home app.
+* Set your own. The [Telink Flasher](https://atc1441.github.io/TelinkFlasher.html) allows you to generate new bindkeys for devices it supports. The new bind key will work with Home Assistant, but the Mi Home app will not recognize the sensor anymore once the device has been activated by the TeLink flasher application. To use the sensor again with the Xiaomi Mi Home app, the device needs to be removed and then re-added inside the Mi Home app.
 * Extract the keys from Xiaomi Cloud using a [token extractor](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor) tool.
