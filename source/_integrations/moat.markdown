@@ -3,7 +3,7 @@ title: Moat
 description: Instructions on how to integrate Moat devices into Home Assistant.
 ha_category:
   - Sensor
-ha_zeroconf: true
+ha_bluetooth: true
 ha_release: 2022.8
 ha_iot_class: Local Push
 ha_codeowners:
