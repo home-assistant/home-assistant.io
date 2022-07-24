@@ -33,6 +33,7 @@ Some systems may not come with Bluetooth and require a USB adapter. Installing a
 
 - ASUS USB-BT400
 - ASUS USB-BT500
+- Avantree DG45
 - Maxuni BT-501
 - SUMEE BT501
 - UGREEN CM390
