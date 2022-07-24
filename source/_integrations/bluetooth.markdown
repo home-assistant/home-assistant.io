@@ -43,6 +43,7 @@ Some systems may not come with Bluetooth and require a USB adapter. Installing a
 
 ### Unsupported adapters
 
+- tp-link UB400 - Frequent connection failures
 - tp-link UB500 - Frequent connection failures
 
 ## Integrations that require exclusive use of the Bluetooth Adapter
