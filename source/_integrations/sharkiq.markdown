@@ -2,18 +2,18 @@
 title: Shark IQ
 description: Instructions on how to integrate your Shark IQ vacuum robot with Home Assistant.
 ha_category:
-  - Vacuum
-ha_iot_class: Cloud Polling
-ha_release: 0.115
-ha_config_flow: true
-ha_codeowners:
-  - '@JeffResc'
-  - '@funkybunch'
-  - '@AritroSaha10'
-ha_domain: sharkiq
-ha_platforms:
-  - vacuum
-ha_integration_type: integration
+- Vacuum
+  ha_iot_class: Cloud Polling
+  ha_release: 0.115
+  ha_config_flow: true
+  ha_codeowners:
+- '@JeffResc'
+- '@funkybunch'
+- '@AritroSaha10'
+  ha_domain: sharkiq
+  ha_platforms:
+- vacuum
+  ha_integration_type: integration
 ---
 
 The `sharkiq` integration allows you to control your [Shark IQ](https://www.sharkclean.com/vacuums/robot-vacuums/) vacuum.
@@ -27,14 +27,18 @@ This platform has been tested and is confirmed to be working with the Shark IQ R
 {% include integrations/config_flow.md %}
 
 ## Services
-
-Currently supported services are:
-
+### Native `vacuum` Services
+The following native `vacuum` services are supported:
 - `start`
 - `pause`
 - `stop`
 - `return_to_base`
 - `locate`
+
+For usage and required fields, refer to the [vacuum component services](https://www.home-assistant.io/integrations/vacuum/#component-services).
+
+### SharkIQ Services
+`clean_room`
 
 ## Troubleshooting
 
