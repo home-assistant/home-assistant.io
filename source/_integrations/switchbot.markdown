@@ -48,7 +48,7 @@ There are three attributes available on the SwitchBot entity to give you more in
 
 ## SwitchBot Options
 
-- `Retry count`: How many times to retry sending commands and retry polling your SwitchBot devices.
+- `Retry count`: How many times to retry sending commands to your SwitchBot devices.
 
 ### Error codes and troubleshooting
 
