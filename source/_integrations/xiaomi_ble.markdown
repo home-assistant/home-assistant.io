@@ -28,6 +28,9 @@ It is possible that we detect your device because it uses the MiBeacon protocol 
 
 - Temperature
 - Humidity
+- Moisture
+- Illumination
+- Conductivity
 - Battery
 
 
