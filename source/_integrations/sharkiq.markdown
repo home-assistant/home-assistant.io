@@ -21,10 +21,32 @@ The `sharkiq` integration allows you to control your [Shark IQ](https://www.shar
 <p class='img'>
 <img src='/images/screenshots/more-info-dialog-sharkiq.png' />
 </p>
-
-This platform has been tested and is confirmed to be working with the Shark IQ R101AE robot vacuum with self-empty base but should also work with the R100.
+<div class='note'>
+This integration uses your device's cloud API to communicate with the device.  It has been tested with the R101AE and
+AV2001 robots, but should be compatible with all smart SharkIQ robot vacuums.  If you are having issues with your device not
+responding as expected, please <a href="https://github.com/home-assistant/core/issues?q=is%3Aissue+is%3Aopen+label%3A%22integration%3A+sharkiq%22" target="_blank" rel="noreferrer">open an issue on Github</a>.
+</div>
 
 {% include integrations/config_flow.md %}
+
+## Entities
+A new device & entity will be created for each robot vacuum you have linked to your SharkIQ account.
+
+The state of your robot entities will be the current status of the robot (i.e `docked`, `cleaning`, `paused`, `returning`, etc).
+
+Each robot entity also has a series of attributes to help provide you with more details about your robot's state and specific sensors.
+
+| Attribute              | Type        | Description                                            |
+|------------------------|-------------|--------------------------------------------------------|
+| `fan_speed_list`       | `list`      | A list of fan speeds supported by the device.          |
+| `battery_level`        | `int`       | Battery charge percentage as an `integer` from 0-100.  |
+| `battery_icon`         | `string`    | Icon associated with the `battery_level` attribute.    |
+| `fan_speed`            | `string`    | Fan speed currently set on the device.                 |
+| `last_error_code`      | `int`       | Most recent error code returned by the device.         |
+| `last_error_message`   | `string`    | Most recent error message returned by the device.      |
+| `rssi`                 | `int`       | Wifi Received Signal Strength Indicator (RSSI) value.  |
+| `recharge_and_resume`  | `bool`      | Boolean value of the Recharge and Resume feature flag. |
+| `rooms`                | `list[Str]` | A list of rooms configured for your robot vacuum.      |
 
 ## Services
 ### Native `vacuum` Services
