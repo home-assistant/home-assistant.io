@@ -34,7 +34,8 @@ Some systems may not come with Bluetooth and require a USB adapter. Installing a
 - ASUS USB-BT400
 - ASUS USB-BT500
 - UGREEN CM390
-- ZEXMTE BT-505
+- ZEXMTE BT-505 (Long Range)
+- ZEXMTE BT-DG54
 
 ### Unsupported adapters
 
