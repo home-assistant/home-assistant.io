@@ -3,6 +3,9 @@ title: IntelliFire
 description: Instructions on the IntelliFire Fireplace integration for Home Assistant.
 ha_category:
   - Binary Sensor
+  - Climate
+  - Sensor
+  - Switch
 ha_iot_class: Local Polling
 ha_release: 2022.2
 ha_codeowners:
@@ -11,6 +14,7 @@ ha_domain: intellifire
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - climate
   - sensor
   - switch
 ha_dhcp: true
@@ -25,6 +29,19 @@ IntelliFire Wi-Fi fireplace modules provide app-based and Alexa control to vario
 ## API Credentials
 
 To fully configure the IntelliFire integration you will need to enter your IntelliFire credentials which are the same ones you would use with the mobile app.
+
+### Entities
+
+The following controllable entities are available:
+
+### Switch
+
+- **Flame** - Turn fireplace on/off.
+- **Pilot Light** - Turn pilot light on/off.
+
+### Climate
+
+- **Thermostat** - This entity will be present if your unit has thermostatic control.
 
 ### Sensor Types
 
