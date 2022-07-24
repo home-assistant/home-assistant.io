@@ -2,7 +2,9 @@
 title: SwitchBot
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
+  - Binary Sensor
   - Cover
+  - Sensor
   - Switch
 ha_release: 0.78
 ha_iot_class: Local Push
@@ -10,6 +12,7 @@ ha_codeowners:
   - '@danielhiversen'
   - '@RenierM26'
 ha_domain: switchbot
+ha_bluetooth: true
 ha_platforms:
   - binary_sensor
   - cover
