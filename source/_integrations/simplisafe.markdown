@@ -43,6 +43,10 @@ SimpliSafe offers several [monitoring plans](https://support.simplisafe.com/hc/e
 
 {% include integrations/config_flow.md %}
 
+## Getting an Authorization Code
+
+SimpliSafe authenticates users via its web app. Due to technical limitations, there is a manual step when adding the integration. For in-depth guidance, refer to [the `simplisafe-python` documentation](https://simplisafe-python.readthedocs.io/en/latest/usage.html#authentication).
+
 ## Services
 
 ### `simplisafe.clear_notifications`
