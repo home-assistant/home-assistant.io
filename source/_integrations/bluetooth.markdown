@@ -33,6 +33,8 @@ Some systems may not come with Bluetooth and require a USB adapter. Installing a
 
 Support for multiple Bluetooth adapters is available on Linux systems only. Select the adapter you wish to use via the options flow on the integrations page. The adapter selection only affects integrations that use the Bluetooth integration interfaces.
 
+{% include integrations/option_flow.md %}
+
 ### Known working adapters
 
 - ASUS USB-BT400
