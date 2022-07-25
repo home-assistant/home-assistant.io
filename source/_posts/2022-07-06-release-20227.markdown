@@ -56,6 +56,7 @@ like. So without further due: Enjoy the release!
 - [Release 2022.7.3 - July 10](#release-202273---july-10)
 - [Release 2022.7.4 - July 13](#release-202274---july-13)
 - [Release 2022.7.5 - July 14](#release-202275---july-14)
+- [Release 2022.7.6 - July 20](#release-202276---july-20)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -630,6 +631,92 @@ The following integrations are now available via the Home Assistant UI:
 [nest docs]: /integrations/nest/
 [stream docs]: /integrations/stream/
 [unifiprotect docs]: /integrations/unifiprotect/
+[zha docs]: /integrations/zha/
+
+## Release 2022.7.6 - July 20
+
+- Fix ZHA light turn on issues ([@dmulcahey] - [#75220]) ([zha docs])
+- Fix aruba ssh host key algorithm ([@apaperclip] - [#75224]) ([aruba docs])
+- Force `_attr_native_value` to metric in bmw_connected_drive ([@rikroe] - [#75225]) ([bmw_connected_drive docs])
+- Bump venstarcolortouch to 0.18 ([@craftyguy] - [#75237]) ([venstar docs]) (dependency)
+- Improve UniFi Protect unauth handling ([@AngellusMortis] - [#75269]) ([unifiprotect docs])
+- Update pyotgw to 2.0.0 ([@mvn23] - [#75285]) ([opentherm_gw docs]) (dependency)
+- Add fixes for hive light ([@KJonline] - [#75286]) ([hive docs])
+- Bump bimmer_connected to 0.10.1 ([@rikroe] - [#75287]) ([bmw_connected_drive docs]) (dependency)
+- Bump simplisafe-python to 2022.07.0 ([@bachya] - [#75294]) ([simplisafe docs]) (dependency)
+- Upgrade ness_alarm dependencies ([@nickw444] - [#75298]) ([ness_alarm docs])
+- Use the orjson equivalent default encoder when save_json is passed the default encoder ([@bdraco] - [#74377])
+- Use default encoder when saving storage ([@bdraco] - [#75319])
+- Apply filter to libav.hls logging namespace ([@uvjustin] - [#75330]) ([stream docs])
+- Handle (and better log) more AirVisual cloud API errors ([@bachya] - [#75332]) ([airvisual docs])
+- Fix HKC device triggers ([@bdraco] - [#75371]) ([homekit_controller docs])
+- Bump AIOAladdinConnect to 0.1.27 ([@mkmer] - [#75400]) ([aladdin_connect docs]) (dependency)
+- Bump pytomorrowio to 0.3.4 ([@raman325] - [#75478]) ([tomorrowio docs]) (dependency)
+- Bump pySwitchbot to 0.14.1 ([@pascalwinters] - [#75487]) ([switchbot docs]) (dependency)
+- Fix Netgear update entity ([@starkillerOG] - [#75496]) ([netgear docs])
+- Fix - Forcast.solar issue on saving settings in options flow without api key ([@klaasnicolaas] - [#75504]) ([forecast_solar docs])
+- Fix failure to raise on bad YAML syntax from include files ([@bdraco] - [#75510])
+- Fix incorrect Ambient PWS lightning strike sensor state classes ([@bachya] - [#75520]) ([ambient_station docs])
+- Bump aioshelly to 2.0.1 ([@thecode] - [#75523]) ([shelly docs]) (dependency)
+
+[#74377]: https://github.com/home-assistant/core/pull/74377
+[#75220]: https://github.com/home-assistant/core/pull/75220
+[#75224]: https://github.com/home-assistant/core/pull/75224
+[#75225]: https://github.com/home-assistant/core/pull/75225
+[#75237]: https://github.com/home-assistant/core/pull/75237
+[#75269]: https://github.com/home-assistant/core/pull/75269
+[#75285]: https://github.com/home-assistant/core/pull/75285
+[#75286]: https://github.com/home-assistant/core/pull/75286
+[#75287]: https://github.com/home-assistant/core/pull/75287
+[#75294]: https://github.com/home-assistant/core/pull/75294
+[#75298]: https://github.com/home-assistant/core/pull/75298
+[#75319]: https://github.com/home-assistant/core/pull/75319
+[#75330]: https://github.com/home-assistant/core/pull/75330
+[#75332]: https://github.com/home-assistant/core/pull/75332
+[#75371]: https://github.com/home-assistant/core/pull/75371
+[#75400]: https://github.com/home-assistant/core/pull/75400
+[#75478]: https://github.com/home-assistant/core/pull/75478
+[#75487]: https://github.com/home-assistant/core/pull/75487
+[#75496]: https://github.com/home-assistant/core/pull/75496
+[#75504]: https://github.com/home-assistant/core/pull/75504
+[#75510]: https://github.com/home-assistant/core/pull/75510
+[#75520]: https://github.com/home-assistant/core/pull/75520
+[#75523]: https://github.com/home-assistant/core/pull/75523
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@KJonline]: https://github.com/KJonline
+[@apaperclip]: https://github.com/apaperclip
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@craftyguy]: https://github.com/craftyguy
+[@dmulcahey]: https://github.com/dmulcahey
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@mkmer]: https://github.com/mkmer
+[@mvn23]: https://github.com/mvn23
+[@nickw444]: https://github.com/nickw444
+[@pascalwinters]: https://github.com/pascalwinters
+[@raman325]: https://github.com/raman325
+[@rikroe]: https://github.com/rikroe
+[@starkillerOG]: https://github.com/starkillerOG
+[@thecode]: https://github.com/thecode
+[@uvjustin]: https://github.com/uvjustin
+[airvisual docs]: /integrations/airvisual/
+[aladdin_connect docs]: /integrations/aladdin_connect/
+[ambient_station docs]: /integrations/ambient_station/
+[aruba docs]: /integrations/aruba/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[forecast_solar docs]: /integrations/forecast_solar/
+[hive docs]: /integrations/hive/
+[homekit_controller docs]: /integrations/homekit_controller/
+[ness_alarm docs]: /integrations/ness_alarm/
+[netgear docs]: /integrations/netgear/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[shelly docs]: /integrations/shelly/
+[simplisafe docs]: /integrations/simplisafe/
+[stream docs]: /integrations/stream/
+[switchbot docs]: /integrations/switchbot/
+[tomorrowio docs]: /integrations/tomorrowio/
+[unifiprotect docs]: /integrations/unifiprotect/
+[venstar docs]: /integrations/venstar/
 [zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
