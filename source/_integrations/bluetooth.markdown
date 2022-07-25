@@ -29,12 +29,6 @@ bluetooth:
 
 Some systems may not come with Bluetooth and require a USB adapter. Installing an adapter for the first time may require multiple restarts for the device to be fully recognized.
 
-### Multiple adapters
-
-Support for multiple Bluetooth adapters is available on Linux systems only. Select the adapter you wish to use via the options flow on the integrations page. The adapter selection only affects integrations that use the Bluetooth integration interfaces.
-
-{% include integrations/option_flow.md %}
-
 ### Known working adapters
 
 - ASUS USB-BT400
@@ -43,6 +37,12 @@ Support for multiple Bluetooth adapters is available on Linux systems only. Sele
 ### Unsupported adapters
 
 - tp-link UB500 - Frequent connection failures
+
+{% include integrations/option_flow.md %}
+
+### Multiple adapters
+
+Support for multiple Bluetooth adapters is available on Linux systems only. Select the adapter you wish to use via the options flow on the integrations page. The adapter selection only affects integrations that use the Bluetooth integration interfaces.
 
 ## Integrations that require exclusive use of the Bluetooth Adapter
 
