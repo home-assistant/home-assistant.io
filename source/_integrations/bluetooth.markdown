@@ -25,6 +25,15 @@ While this integration is part of [`default_config:`](/integrations/default_conf
 bluetooth:
 ```
 
+## D-Bus and BlueZ are required on Linux
+
+For Bluetooth to function on Linux systems, the [D-Bus](https://en.wikipedia.org/wiki/D-Bus) socket must be accessible to Home Assistant. The Bluetooth adapter must be accessible to D-Bus and running [BlueZ](http://www.bluez.org/) >= 5.43.
+
+- Home Assistant Operating System: no additional steps are required. Home Assistant OS version 8.4 or later is recommended for performance reasons.
+- Home Assistant Container: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
+- Home Assistant Supervised: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
+- Home Assistant Core: The system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant.
+
 ## Installing a USB Bluetooth Adapter
 
 Some systems may not come with Bluetooth and require a USB adapter. Installing an adapter for the first time may require multiple restarts for the device to be fully recognized.
