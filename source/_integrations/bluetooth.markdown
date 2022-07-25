@@ -1,6 +1,6 @@
 ---
-title: Bluetooth Monitoring and Discovery
-description: Discover and monitor bluetooth devices.
+title: Bluetooth
+description: Discover, connect, and monitor bluetooth devices.
 ha_category:
   - Utility
 ha_iot_class: Local Push
