@@ -37,8 +37,8 @@
     {%- endif -%}.
   </div>
 
-  {% if page.works_with %}
-    {%- for type in page.works_with -%}
+  {% if page.ha_works_with and page.ha_codeowners and page.ha_quality_scale and page.ha_quality_scale contains 'platinum' or page.ha_quality_scale contains 'gold'  %}
+    {%- for type in page.ha_works_with -%}
       <div class="section">
         <a href="/blog/2022/07/12/partner-program">
           <img src="../../images/works_with/works-with-{{ type }}.png" alt="Works via {{ type }} with Home assistant">

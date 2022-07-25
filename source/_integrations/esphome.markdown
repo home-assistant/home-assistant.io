@@ -29,7 +29,7 @@ ha_platforms:
   - switch
 ha_integration_type: integration
 ha_dhcp: true
-works_with: 
+ha_works_with: 
   - local
 ---
 
