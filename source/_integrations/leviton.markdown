@@ -4,7 +4,7 @@ description: Connect and control your Leviton devices using the Z-Wave integrati
 featured: true
 ha_release: '2022.8'
 ha_iot_class: Local Push
-ha_config_flow: true
+ha_config_flow: false
 ha_codeowners:
   - '@home-assistant/z-wave'
 ha_category:
