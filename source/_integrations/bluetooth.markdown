@@ -1,6 +1,6 @@
 ---
-title: Bluetooth Monitoring and Discovery
-description: Discover and monitor bluetooth devices.
+title: Bluetooth
+description: Discover, connect, and monitor bluetooth devices.
 ha_category:
   - Utility
 ha_iot_class: Local Push
@@ -57,11 +57,17 @@ If you experience an unreliable Bluetooth connection, installing a [USB extensio
 - tp-link UB400 - Frequent connection failures
 - tp-link UB500 - Frequent connection failures
 
+{% include integrations/option_flow.md %}
+
+### Multiple adapters
+
+Support for multiple Bluetooth adapters is available on Linux systems only. Select the adapter you wish to use via the options flow on the integrations page. The adapter selection only affects integrations that use the Bluetooth integration interfaces.
+
 ## Integrations that require exclusive use of the Bluetooth Adapter
 
 While newer integrations can share the Bluetooth Adapter, some legacy integrations require exclusive use of the adapter. Enabling this integration may prevent an integration that has not been updated to use newer methods from functioning.
 
-Deleting the config entry for this integration will release control of the adapter and allow another integration to gain exclusive use of the Bluetooth adapter. If you have manually added `bluetooth:` to your `configuration.yaml`, you must also remove it to prevent the configuration from being recreated.
+Deleting the config entry for this integration will release control of the adapter and allow another integration to gain exclusive use of the Bluetooth adapter. If you have manually added `bluetooth:` to your `configuration.yaml`, you must also remove it to prevent the configuration from being recreated. Consider adding a second Bluetooth adapter on Linux systems if you need to continue using legacy integrations, as more integrations will move to use the Bluetooth integration in the future.
 
 ## Bluetooth interference with other devices
 
