@@ -30,7 +30,7 @@ Supported by MQTT discovery:
 - [Vacuums](/integrations/vacuum.mqtt/)
 
 ## Configuration
-MQTT discovery is enabled by default, but can be disable. To do this, click on "Configure" in the integration page in the UI, then "Re-configure MQTT" and then "Next".
+MQTT discovery is enabled by default, but can be disabled. To do this, click on "Configure" in the integration page in the UI, then "Re-configure MQTT" and then "Next".
 
 ### Advanced discovery configuration
 
@@ -48,7 +48,7 @@ discovery_prefix:
 
 ## Discovery topic
 
-The discovery topic need to follow a specific format:
+The discovery topic needs to follow a specific format:
 
 ```text
 <discovery_prefix>/<component>/[<node_id>/]<object_id>/config
