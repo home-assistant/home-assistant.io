@@ -38,13 +38,23 @@ For Bluetooth to function on Linux systems, the [D-Bus](https://en.wikipedia.org
 
 Some systems may not come with Bluetooth and require a USB adapter. Installing an adapter for the first time may require multiple restarts for the device to be fully recognized.
 
+If you experience an unreliable Bluetooth connection, installing a [USB extension cable with a Ferrite Bead](https://a.co/d/fRnFIwy) may improve reliability.
+
 ### Known working adapters
 
 - ASUS USB-BT400
 - ASUS USB-BT500
+- Avantree DG45
+- Maxuni BT-501
+- SUMEE BT501
+- UGREEN CM390
+- XDO BT802 (Long Range)
+- ZEXMTE BT-505 (Long Range)
+- ZEXMTE BT-DG54
 
 ### Unsupported adapters
 
+- tp-link UB400 - Frequent connection failures
 - tp-link UB500 - Frequent connection failures
 
 ## Integrations that require exclusive use of the Bluetooth Adapter
