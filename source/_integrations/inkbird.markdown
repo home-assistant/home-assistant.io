@@ -23,6 +23,7 @@ Integrates [INKBIRD](https://www.inkbird.com/) devices into Home Assistant.
 - [Temperature and humidity Hygrometer IBS-TH2](https://inkbird.com/products/hygrometer-ibs-th2)
 - [Bluetooth Smart Sensor ITH-12S](https://inkbird.com/products/bluetooth-smart-sensor-ith-12s)
 - [Bluetooth Grill Thermometer IBT-4XS](https://inkbird.com/products/bluetooth-grill-thermometer-ibt-4xs)
+- [Bluetooth Grill Thermometer IBT-2X](https://inkbird.com/products/bluetooth-grill-thermometer-ibt-2x)
 
 The INKBIRD integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
