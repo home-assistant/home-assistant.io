@@ -46,7 +46,9 @@ Deleting the config entry for this integration will release control of the adapt
 
 ## Bluetooth interference with other devices
 
-Devices that are using the 2.4 GHz band, like Wifi, Zigbee and USB3 devices (and its cable connections) are known to affect Bluetooth reception. Especially external SSD-drives with USB3 cables are known to block the Bluetooth signal. Also, metal casings can decrease Bluetooth performance of internal Bluetooth Adapters. The following tips may improve reception of the Bluetooth Adapter.
+Devices that are using the 2.4 GHz band, like Wi-Fi, Zigbee, and USB3 devices (and their cable connections) are known to affect Bluetooth reception. Especially external SSD drives with USB3 cables are known to block the Bluetooth signal. Also, metal casings can decrease the Bluetooth performance of internal Bluetooth Adapters.
+
+The following tips may improve reception of the Bluetooth Adapter:
 
 - Try to place USB3 devices (SSD, etc.) as far away as possible from your Bluetooth Adapter, e.g., by using an extension cable.
 - Use an USB3 extension cable with proper shielding and ferrite clamps
