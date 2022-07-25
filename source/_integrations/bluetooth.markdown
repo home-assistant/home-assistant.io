@@ -51,6 +51,6 @@ Devices that are using the 2.4 GHz band, like Wi-Fi, Zigbee, and USB3 devices (a
 The following tips may improve reception of the Bluetooth Adapter:
 
 - Try to place USB3 devices (SSD, etc.) as far away as possible from your Bluetooth Adapter, e.g., by using an extension cable.
-- Use an USB3 extension cable with proper shielding and ferrite clamps
-- Use a (good quality) external Bluetooth adapter with antenna
+- Use a USB3 extension cable with proper shielding and ferrite clamps.
+- Use a (good quality) external Bluetooth adapter with an antenna.
 
