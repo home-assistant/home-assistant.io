@@ -10,7 +10,7 @@ Unless you really need this installation type, you should install Home Assistant
 
 1. First make sure you understand the <a href="https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md" target="_blank">requirements</a>.
 2. This installation method has very strict requirements, for example, it only
-   supports Debian (and **not** Ubuntu, Armbian, Raspberry Pi OS, those are not
+   supports Debian (and Ubuntu, Armbian, Raspberry Pi OS are **not** 
    supported). So, make sure you understand the requirements from step 1 above.
 3. Then head over to <a href="https://github.com/home-assistant/supervised-installer" target="_blank">home-assistant/supervised-installer</a> to set it up.
 
