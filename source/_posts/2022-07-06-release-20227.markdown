@@ -57,6 +57,7 @@ like. So without further due: Enjoy the release!
 - [Release 2022.7.4 - July 13](#release-202274---july-13)
 - [Release 2022.7.5 - July 14](#release-202275---july-14)
 - [Release 2022.7.6 - July 20](#release-202276---july-20)
+- [Release 2022.7.7 - July 26](#release-202277---july-26)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -718,6 +719,37 @@ The following integrations are now available via the Home Assistant UI:
 [unifiprotect docs]: /integrations/unifiprotect/
 [venstar docs]: /integrations/venstar/
 [zha docs]: /integrations/zha/
+
+## Release 2022.7.7 - July 26
+
+- Fix hvv departures authentication ([@vigonotion] - [#75146]) ([hvv_departures docs])
+- Fix Epson wrong volume value ([@pszafer] - [#75264]) ([epson docs])
+- Change monoprice config flow to sync ([@OnFreund] - [#75306]) ([monoprice docs])
+- Round up for stream record lookback ([@uvjustin] - [#75580]) ([stream docs])
+- Revert SimpliSafe auth flow to the quasi-manual OAuth method from 2021.11.0 ([@bachya] - [#75641]) ([simplisafe docs])
+- Update pyotgw to 2.0.1 ([@mvn23] - [#75663]) ([opentherm_gw docs]) (dependency)
+- Fix AssertionError in RainMachine ([@bachya] - [#75668]) ([rainmachine docs])
+
+[#75146]: https://github.com/home-assistant/core/pull/75146
+[#75264]: https://github.com/home-assistant/core/pull/75264
+[#75306]: https://github.com/home-assistant/core/pull/75306
+[#75580]: https://github.com/home-assistant/core/pull/75580
+[#75641]: https://github.com/home-assistant/core/pull/75641
+[#75663]: https://github.com/home-assistant/core/pull/75663
+[#75668]: https://github.com/home-assistant/core/pull/75668
+[@OnFreund]: https://github.com/OnFreund
+[@bachya]: https://github.com/bachya
+[@mvn23]: https://github.com/mvn23
+[@pszafer]: https://github.com/pszafer
+[@uvjustin]: https://github.com/uvjustin
+[@vigonotion]: https://github.com/vigonotion
+[epson docs]: /integrations/epson/
+[hvv_departures docs]: /integrations/hvv_departures/
+[monoprice docs]: /integrations/monoprice/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[rainmachine docs]: /integrations/rainmachine/
+[simplisafe docs]: /integrations/simplisafe/
+[stream docs]: /integrations/stream/
 
 ## Need help? Join the community!
 
