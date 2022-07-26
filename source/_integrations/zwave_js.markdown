@@ -228,7 +228,7 @@ This service will set a value on a Z-Wave device. It is for advanced use cases w
 
 ### Service `zwave_js.multicast_set_value`
 
-This service will set a value on multiple Z-Wave JS devices using multicast. It is for advanced use cases where you need to set the same value on multiple nodes simultaneously. Be warned that correctly using this service requires advanced knowledge of Z-Wave. The service provides minimal validation beyond what is necessary to properly call the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere.
+This service will set a value on multiple Z-Wave devices using multicast. It is for advanced use cases where you need to set the same value on multiple nodes simultaneously. Be warned that correctly using this service requires advanced knowledge of Z-Wave. The service provides minimal validation beyond what is necessary to properly call the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere.
 
 | Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
 |------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
