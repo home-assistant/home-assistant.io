@@ -577,7 +577,7 @@ If you are using the legacy `zwave` integration, there is a migration wizard tha
 
 Some entities may not be able to migrate automatically and you will need to rename the corresponding available Z-Wave entities manually. Before completing the migration you will be shown a list of entities that could not be migrated automatically, and you'll have the option to abort or continue with the migration.
 
-### Manual migration path
+### Manual migration path from legacy `zwave` or OpenZWave
 
 1) Make a **backup** of your Home Assistant configuration. You should do this so you'll be able to quickly revert if you encounter unexpected problems.
 
@@ -585,11 +585,11 @@ Some entities may not be able to migrate automatically and you will need to rena
 
   <div class='note info'>Make a list of what node ID belongs to each device. Your network (Nodes and their config etc) is stored on the stick but the names you gave your devices and entities are not. This step is optional but will save you a lot of time later.</div>
 
-2) Remove the Z-Wave integration from Home Assistant: Settings --> Devices & Services --> Z-Wave (or OpenZWave) --> Press the three dots and click Delete.
+2) Remove the legacy `zwave` or OpenZWave integration from Home Assistant: Settings --> Devices & Services --> Z-Wave (or OpenZWave) --> Press the three dots and click Delete.
 
   <div class='note info'>
 
-  If you have configured Z-Wave manually, make sure to also remove the `zwave:` section from your `configuration.yaml`.
+  If you have configured the legacy `zwave` manually, make sure to also remove the `zwave:` section from your `configuration.yaml`.
 
   </div>
 
