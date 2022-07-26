@@ -854,7 +854,7 @@ Polling should only be used as a last resort. You must use it with care and acce
 
 When your device is not yet fully interviewed, this info will not yet be present. So make sure your device is interviewed at least once.
 
-If the interview is complete, then the device does not yet have a device file for Z-Wave JS. Unlike other Z-Wave JS drivers, your device may very well work as intended even without such a file. If your device not fully supported, consider [contributing the device configuration file](https://zwave-js.github.io/node-zwave-js/#/config-files/contributing-files).
+If the interview is complete, then the device does not yet have a device file for Z-Wave JS. Unlike other Z-Wave drivers, your device may very well work as intended even without such a file. If your device not fully supported, consider [contributing the device configuration file](https://zwave-js.github.io/node-zwave-js/#/config-files/contributing-files).
 
 #### How do I get a dump of the current network state?
 
