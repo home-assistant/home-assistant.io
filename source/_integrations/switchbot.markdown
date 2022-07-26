@@ -39,6 +39,13 @@ Please note, device names configured in the SwitchBot app are not transferred in
 
 {% include integrations/config_flow.md %}
 
+## Supported Devices
+
+- Bot (WoHand)
+- Contact Sensor (WoContact)
+- Curtain (WoCurtain)
+- Meter (WoSensorTH)
+
 ## SwitchBot Entity
 
 There are three attributes available on the SwitchBot entity to give you more information about your device.
