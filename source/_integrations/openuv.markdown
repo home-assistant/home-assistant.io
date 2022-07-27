@@ -100,6 +100,8 @@ Perform an on-demand update of OpenUV `uv_protection_window` data, but not the s
 
 To perform an optimal amount of API calls you need to know the hours of daylight on the longest day of the year. If for example this is 17 hours, you can perform 2 calls around every 45 minutes without running into the 50 API call limit per day:
 
+{% raw %}
+
 ```yaml
 automation:
   - alias: "Update OpenUV"
@@ -123,6 +125,8 @@ automation:
       - service: openuv.update_data
 
 ```
+
+{% endraw %}
 
 Update the UV index data every 20 minutes while the sun is at least 10 degrees above the horizon:
 
