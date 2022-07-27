@@ -31,6 +31,9 @@ It is possible that we detect your device because it uses the MiBeacon protocol 
 - Moisture
 - Illumination
 - Conductivity
+- Formalehyde
+- Consumable
+- Voltage
 - Battery
 
 ## Encryption
