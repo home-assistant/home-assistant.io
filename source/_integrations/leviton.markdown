@@ -11,9 +11,6 @@ ha_category:
   - Light
   - Switch
 ha_domain: leviton
-ha_platforms:
-  - light
-  - switch
 ha_integration_type: integration
 works_with:
   - zwave
