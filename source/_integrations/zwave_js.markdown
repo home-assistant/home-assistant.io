@@ -370,6 +370,7 @@ These are notification events fired by devices using the Multilevel Switch comma
     "command_class": 38,
     "command_class_name": "Multilevel Switch",
     "event_type": 4,
+    "event_type_label": "label 1",
     "direction": "up"
 },
 ```
@@ -384,6 +385,7 @@ These are notification events fired by devices using the Multilevel Switch comma
     "command_class": 38,
     "command_class_name": "Multilevel Switch",
     "event_type": 5,
+    "event_type_label": "label 2",
     "direction": null
 },
 ```
@@ -401,7 +403,9 @@ These are notification events fired by devices using the Entry Control command c
     "command_class": 111,
     "command_class_name": "Entry Control",
     "event_type": 6,
+    "event_type_label": "label 1",
     "data_type": 5,
+    "data_type_label": "label 2",
     "event_data": "555"
 }
 ```
