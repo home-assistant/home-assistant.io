@@ -24,4 +24,4 @@ To find more information, please use the [Z-Wave integration](/integrations/zwav
 
 ### Firmware updates
 
-Leviton is providing device updates automatically in Home Assistant. When Leviton posts a new update, the update will show in your Home Assistant updates dashboard.
+Leviton is working on adding firmware updates that are publicly available to download. In Home Assistant, you can navigate to your device page and use the Update Device Firmware option to upload the firmware from Leviton for your device.
