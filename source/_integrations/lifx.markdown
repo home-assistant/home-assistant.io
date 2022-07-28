@@ -115,11 +115,11 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 
 ## HomeKit Accessory Protocol
 
-Many LIFX devices also support being controlled via HomeKit Accessory Protocol. If the LIFX device supports it and has not already paired with an `iOS` device, it can be paired using HomeKit Accessory Protocol via the [`homekit_controller`](/integrations/homekit_controller) integration. 
+Many LIFX devices also support being controlled via HomeKit Accessory Protocol. If the LIFX device supports it and has not already paired with an `iOS` device, it can be paired using HomeKit Accessory Protocol via the [HomeKit Controller](/integrations/homekit_controller) integration. 
 
-If the `lifx` integration does not yet support the device but supports HomeKit Accessory Protocol, this method enables control of the device from Home Assistant. See below for specific details on controlling LIFX Switches.
+If the LIFX integration does not yet support the device but supports HomeKit Accessory Protocol, this method enables control of the device from Home Assistant. See below for specific details on controlling LIFX Switches.
 
-The `lifx` integration currently has to poll the device every few seconds, as opposed to using the [`homekit_controller`](/integrations/homekit_controller) integration, which offers push updates, encrypted communications, and significantly less network traffic.
+The LIFX integration currently has to poll the device every few seconds, as opposed to using the [HomeKit Controller](/integrations/homekit_controller) integration, which offers push updates, encrypted communications, and significantly less network traffic.
 
 Discoveries from control protocols that are not desired can be ignored in the UI. LIFX devices that support the LAN protocol and the HomeKit Accessory Protocol may be discovered by both methods if they are unpaired with an `iOS` device. It is possible to simultaneously set up control of the device with both protocols.
 
