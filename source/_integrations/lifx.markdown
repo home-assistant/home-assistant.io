@@ -125,7 +125,7 @@ Discoveries from control protocols that are not desired can be ignored in the UI
 
 ## LIFX Switch
 
-The `lifx` integration does not support the LIFX Switch. However, the [`homekit_controller`](/integrations/homekit_controller) integration can be used instead for
+The LIFX integration does not support the LIFX Switch. However, the [HomeKit Controller](/integrations/homekit_controller) integration can be used instead for
 [LIFX Switch running firmware 3.90](https://support.lifx.com/en_us/switch-3-90-update-rk4zYiXVq) or higher. Follow the LIFX
 documentation to obtain a HomeKit code prior to integrating the Switch with Home Assistant as it will be needed during the process.
 
