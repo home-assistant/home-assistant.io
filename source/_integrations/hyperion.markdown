@@ -12,8 +12,10 @@ ha_quality_scale: platinum
 ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
+  - camera
   - light
   - switch
+ha_integration_type: integration
 ---
 
 The Hyperion integration allows you to integrate your

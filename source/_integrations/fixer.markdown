@@ -5,11 +5,10 @@ ha_category:
   - Finance
 ha_iot_class: Cloud Polling
 ha_release: 0.23
-ha_codeowners:
-  - '@fabaff'
 ha_domain: fixer
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `fixer` sensor will show you the current exchange rate from [Fixer.io](https://fixer.io/) which is using data from the [European Central Bank (ECB)](https://www.ecb.europa.eu).
@@ -18,7 +17,7 @@ To get an overview about the available [currencies](https://fixer.io/symbols).
 
 ## Setup
 
-You need to create an [API key](https://fixer.io/product). There is a rate limit of 1000 calls per month.
+You need to create an [API key](https://fixer.io/product). The free account is limited to only EUR as a base currency, allows 250 requests per month, and updates every hour.
 
 ## Configuration
 

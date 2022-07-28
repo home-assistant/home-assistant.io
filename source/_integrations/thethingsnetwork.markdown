@@ -11,7 +11,12 @@ ha_codeowners:
 ha_domain: thethingsnetwork
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
+
+<div class='note warning'>
+  This integration only supports TTNv2.
+</div>
 
 The `thethingsnetwork` integration allows one to interact with the [The Things Network](https://www.thethingsnetwork.org). This community-driven and open network supports [LoRaWAN](https://www.lora-alliance.org/) for long range (~5 to 15 km) communication with a low bandwidth (51 bytes/message). [Gateways](https://www.thethingsnetwork.org/docs/gateways/) transfers the received data from the sensors to the The Things Network.
 

@@ -3,18 +3,17 @@ title: Tado
 description: Instructions on how to integrate Tado devices with Home Assistant.
 ha_category:
   - Binary Sensor
-  - Hub
   - Climate
-  - Water Heater
+  - Hub
   - Presence Detection
   - Sensor
+  - Water Heater
   - Weather
 ha_release: 0.41
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@michaelarnauts'
-  - '@bdraco'
-  - '@noltari'
+  - '@north3221'
 ha_domain: tado
 ha_config_flow: true
 ha_homekit: true
@@ -25,6 +24,7 @@ ha_platforms:
   - sensor
   - water_heater
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The Tado integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
@@ -125,8 +125,9 @@ You can use the service `tado.set_climate_timer` to set your Tado climate device
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
-| `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
 | `temperature`          | no       | String, The required target temperature e.g., `20.5`                   |
+| `time_period`          | yes      | Time Period, Period of time the boost should last for e.g., `01:30:00` |
+| `overlay`              | yes      | Override your defaults setting. NB dont set this and the time period   |
 
 ### Service `tado.set_water_heater_timer`
 
@@ -140,7 +141,7 @@ You can use the service `tado.set_water_heater_timer` to set your water heater t
 
 ### Service `tado.set_climate_temperature_offset`
 
-You can use the service `tado.set_climate_temperature_offset` to set the temprature offset for Tado climate devices 
+You can use the service `tado.set_climate_temperature_offset` to set the temperature offset for Tado climate devices.
 
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
@@ -170,7 +171,7 @@ script:
 
 {% raw %}
 ```yaml
-# Example automation to set temprature offset based on another thermostat value
+# Example automation to set temperature offset based on another thermostat value
 automation:
     # Trigger if the state of either thermostat changes
     trigger:
@@ -179,13 +180,13 @@ automation:
         - sensor.temp_sensor_room
         - sensor.tado_temperature
     
-    # Check if the room temp is more than 0.5 higher than the tado thermostat reading
+    # Check if the room temp is more than 0.5 away from the tado thermostat reading condition. The sensors default to room temperature (20) when the reading is in error:
     condition:
     - condition: template
       value_template: >
-        {% set tado_temp = states('sensor.tado_temperature')|float %}
-        {% set room_temp = states('sensor.temp_sensor_room')|float %}
-        {{ (tado_temp - room_temp) > 0.5 }}
+        {% set tado_temp = states('sensor.tado_temperature')|float(20) %}
+        {% set room_temp = states('sensor.temp_sensor_room')|float(20) %}
+        {{ (tado_temp - room_temp) | abs > 0.5 }}
     
     # Work out what the new offset should be (tado temp less the room temp but add the current offset value) and turn that to a negative value for setting as the new offset
     action:
@@ -194,9 +195,9 @@ automation:
         entity_id: climate.tado
       data:
         offset: >
-          {% set tado_temp = states('sensor.tado_temperature')|float %}
-          {% set room_temp = states('sensor.temp_sensor_room')|float %}
+          {% set tado_temp = states('sensor.tado_temperature')|float(20) %}
+          {% set room_temp = states('sensor.temp_sensor_room')|float(20) %}
           {% set current_offset = state_attr('climate.tado', 'offset_celsius') %}
-          {{ (-(tado_temp - room_temp) + current_offset)|round }}
+          {{ (-(tado_temp - room_temp) + current_offset)|round(1) }}
 ```
 {% endraw %}

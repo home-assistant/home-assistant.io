@@ -2,9 +2,9 @@
 title: Minut Point
 description: Instructions on how to integrate Minut Point into Home Assistant.
 ha_category:
-  - Hub
   - Alarm
   - Binary Sensor
+  - Hub
   - Sensor
 ha_release: 0.83
 ha_config_flow: true
@@ -17,9 +17,10 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
-The Point hub enables integration with the [Minut Point](https://minut.com/). To connect with Point, you will have to [sign up for a developer account](https://minut.com/community/developers/) and get a `client_id` and `client_secret` with the `callback url` configured as your Home Assistant URL + `/api/minut`, e.g.,  `http://localhost:8123/api/minut`. The `client_id` and `client_secret` should be used as below.
+The Point hub enables integration with the [Minut Point](https://minut.com/). To connect with Point, you will have to [sign up for a developer account and have a Pro subscription](https://minut.com/community/developers/) and get a `client_id` and `client_secret` with the `callback url` configured as your Home Assistant URL + `/api/minut`, e.g.,  `http://localhost:8123/api/minut`. The `client_id` and `client_secret` should be used as below.
 
 Once Home Assistant is started, a configurator will pop up asking you to Authenticate your Point account via a link. When you follow the link and click on **Accept** you will be redirected to the `callback url` and the Point integration will be automatically configured and you can go back to the original dialog and press **Submit**.
 
@@ -68,7 +69,7 @@ Each home configured in the Point mobile application will show up as a separate 
 
 <div class="note">
 
-The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is implememented.
+The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is implemented.
 
 </div>
 
@@ -76,7 +77,7 @@ The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is im
 
 Each Point exposes the following binary sensors:
 
-- **alarm**: `On` means alarm sound was recognised, `Off` means normal
+- **alarm**: `On` means alarm sound was recognized, `Off` means normal
 - **battery**: `On` means low, `Off` means normal
 - **button_press**: `On` means the button was pressed, `Off` means normal
 - **cold**: `On` means cold, `Off` means normal
@@ -149,5 +150,4 @@ Each Point exposes the following sensors:
 
 - **temperature**: Temperature in °C.
 - **humidity**: Percentage of humidity in the air.
-- **pressure**: Pressure in hPa.
 - **sound_level**: Sound level in dBA

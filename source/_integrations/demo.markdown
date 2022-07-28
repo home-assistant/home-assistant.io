@@ -3,6 +3,7 @@ title: Demo
 description: Instructions on how to use the Platform demos with Home Assistant.
 ha_category:
   - Other
+  - Updates
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:
@@ -13,12 +14,14 @@ ha_platforms:
   - air_quality
   - alarm_control_panel
   - binary_sensor
+  - button
   - calendar
   - camera
   - climate
   - cover
   - device_tracker
   - fan
+  - geo_location
   - humidifier
   - light
   - lock
@@ -26,13 +29,17 @@ ha_platforms:
   - notify
   - number
   - remote
+  - select
   - sensor
+  - siren
   - stt
   - switch
   - tts
+  - update
   - vacuum
   - water_heater
   - weather
+ha_integration_type: integration
 ---
 
 The `demo` platform allows you to use integrations which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](/demo/) but combined with your own real/functional platforms.
@@ -60,7 +67,6 @@ Available demo platforms:
 - [Switch](/integrations/switch/) (`switch`)
 - [Text-to-speech](/integrations/tts/) (`tts`)
 - [Weather](/integrations/weather/) (`weather`)
-
 
 To integrate a demo platform in Home Assistant, add the following section to your `configuration.yaml` file:
 

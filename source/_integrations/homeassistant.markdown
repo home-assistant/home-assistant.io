@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: homeassistant
 ha_platforms:
   - scene
+ha_integration_type: integration
 ---
 
 The Home Assistant integration provides generic implementations like the generic `homeassistant.turn_on`.
@@ -26,11 +27,12 @@ Reads the configuration files and checks them for correctness, but **does not** 
 
 Reloads an integration config entry.
 
-| Service data attribute    | Description                                           |
-|---------------------------|-------------------------------------------------------|
-| `entity_id`               | List of entity ids used to reference a config entry.  |
-| `area_id`                 | List of area ids used to reference a config entry.    |
-| `device_id`               | List of device ids used to reference a config entry.  |
+| Service data attribute    | Description                                                 |
+|---------------------------|-------------------------------------------------------------|
+| `entity_id`               | List of entity ids used to reference a config entry.        |
+| `area_id`                 | List of area ids used to reference a config entry.          |
+| `device_id`               | List of device ids used to reference a config entry.        |
+| `entry_id`                | A single config entry id used to reference a config entry.  |
 
 ### Service `homeassistant.reload_core_config`
 
@@ -38,7 +40,7 @@ Reloads the core configuration under `homeassistant:` and all linked files. Once
 
 ### Service `homeassistant.restart`
 
-Restarts the Home Assistant instance (also reloading the configuration on start). 
+Restarts the Home Assistant instance (also reloading the configuration on start).
 
 This will also do a configuration check before doing a restart. If the configuration check fails then Home Assistant will not be restarted, instead a persistent notification with the ID `persistent_notification.homeassistant_check_config` will be created. The logs will show details on what failed the configuration check.
 
@@ -65,9 +67,12 @@ action:
     longitude: 117.22743
 ```
 
-### Service `homeassistant.toggle` 
+### Service `homeassistant.toggle`
 
-Generic service to toggle devices on/off under any domain. Same usage as the light.turn_on, switch.turn_on, etc. services.
+Generic service to toggle devices on/off. Same usage as the
+`light.toggle`, `switch.toggle`, etc. services. The difference with this
+service compared the others, is that is can be used to mix different domains,
+for example, a light and a switch can be toggled in a single service call.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
@@ -79,12 +84,17 @@ Generic service to toggle devices on/off under any domain. Same usage as the lig
 action:
   service: homeassistant.toggle
   target:
-    entity_id: light.living_room
+    entity_id: 
+      - light.living_room
+      - switch.tv
 ```
 
-### Service `homeassistant.turn_on` 
+### Service `homeassistant.turn_on`
 
-Generic service to turn devices on under any domain. Same usage as the light.turn_on, switch.turn_on, etc. services.
+Generic service to toggle devices on. Same usage as the
+`light.turn_on`, `switch.turn_on`, etc. services. The difference with this
+service compared the others, is that is can be used to mix different domains,
+for example, a light and a switch can be turned on in a single service call.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
@@ -96,12 +106,17 @@ Generic service to turn devices on under any domain. Same usage as the light.tur
 action:
   service: homeassistant.turn_on
   target:
-    entity_id: light.living_room
+    entity_id:
+      - light.living_room
+      - switch.tv
 ```
 
 ### Service `homeassistant.turn_off` 
 
-Generic service to turn devices off under any domain. Same usage as the light.turn_on, switch.turn_on, etc. services.
+Generic service to toggle devices off. Same usage as the
+`light.turn_off`, `switch.turn_off`, etc. services. The difference with this
+service compared the others, is that is can be used to mix different domains,
+for example, a light and a switch can be turned off in a single service call.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
@@ -113,10 +128,12 @@ Generic service to turn devices off under any domain. Same usage as the light.tu
 action:
   service: homeassistant.turn_off
   target:
-    entity_id: light.living_room
+    entity_id:
+      - light.living_room
+      - switch.tv
 ```
 
-### Service `homeassistant.update_entity` 
+### Service `homeassistant.update_entity`
 
 Force one or more entities to update its data rather than wait for the next scheduled update.
 
@@ -134,3 +151,10 @@ action:
     - light.living_room
     - switch.coffe_pot
 ```
+
+### Service `homeassistant.save_persistent_states`
+
+Save the persistent states (for entities derived from RestoreEntity) immediately.
+Maintain the normal periodic saving interval.
+
+Normally these states are saved at startup, every 15 minutes and at shutdown.

@@ -11,6 +11,7 @@ ha_codeowners:
   - '@engrbm87'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Islamic Prayer Times (`islamic_prayer_times`) integration displays the various prayer times for Muslims as sensors.

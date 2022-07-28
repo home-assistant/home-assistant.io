@@ -99,7 +99,7 @@ Also, don't forget to share your creations with us via Social Media:
 - Twitter it! Be sure to mention [@home_assistant][twitter]
 - Share it on our [Facebook group][facebook-group]
 - Post it to our [subreddit][reddit]
-- Tag [@homeasssistant][instagram] on Instagram
+- Tag [@homeassistant][instagram] on Instagram
 - Or via chat, drop us a line in the [#lounge at Discord][chat]
 
 See you next edition!

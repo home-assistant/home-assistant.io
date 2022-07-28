@@ -9,6 +9,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: persistent_notification
+ha_integration_type: integration
 ---
 
 The `persistent_notification` integration can be used to show a notification on the frontend that has to be dismissed by the user.
@@ -65,30 +66,6 @@ action:
   service: persistent_notification.dismiss
   data:
     notification_id: "1234"
-```
-
-This automation example shows a notification when the Z-Wave network is starting and removes it when the network is ready.
-
-```yaml
-- alias: "Z-Wave network is starting"
-  trigger:
-    - platform: event
-      event_type: zwave.network_start
-  action:
-    - service: persistent_notification.create
-      data:
-        title: "Z-Wave"
-        message: "Z-Wave network is starting..."
-        notification_id: zwave
-
-- alias: "Z-Wave network is ready"
-  trigger:
-    - platform: event
-      event_type: zwave.network_ready
-  action:
-    - service: persistent_notification.dismiss
-      data:
-        notification_id: zwave
 ```
 
 ### Markdown support

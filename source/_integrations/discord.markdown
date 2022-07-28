@@ -5,51 +5,45 @@ ha_category:
   - Notifications
 ha_iot_class: Cloud Push
 ha_release: 0.37
+ha_config_flow: true
 ha_domain: discord
+ha_codeowners:
+  - '@tkdrob'
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows integrations to send messages to the user using Discord.
 
-In order to get a token you need to go to the [Discord My Apps page](https://discordapp.com/developers/applications/me) and create a new application. Once the application is ready, create a [bot](https://discordapp.com/developers/docs/topics/oauth2#bots) user (**Create a Bot User**).
+## Prerequisites
 
-Retrieve the **Client ID** from the information section and the (hidden) **Token** of your bot for later.
+### Creating a Discord Application
+
+In order to create a bot user a Discord Application is required. Go to the [Discord My Apps page](https://discordapp.com/developers/applications/me) and create a new application.
 
 When setting up the application you can use this [icon](/images/favicon-192x192-full.png).
 
-To use Discord notifications, add the following to your `configuration.yaml` file:
+Once the application is ready, create a [bot](https://discordapp.com/developers/docs/topics/oauth2#bots) user (**Create a Bot User**).
 
-```yaml
-# Example configuration.yaml entry
-notify:
-  - platform: discord
-    token: YOUR_DISCORD_BOT_TOKEN
-```
+Retrieve the **Application ID** from the 'General Information' section and the (hidden) **Token** of your bot for later.
 
-{% configuration %}
-name:
-  description: The notifier will bind to the service `notify.NAME`.
-  required: false
-  type: string
-  default: notify
-token:
-  description: Your bot's token.
-  required: true
-  type: string
-{% endconfiguration %}
+<div class='note'>
+  
+The name you give your application on the [Discord My Apps page](https://discordapp.com/developers/applications/me) will determine the name of the notify service. For example: if you enter "Discord Chat", the service will be named `notify.discord_chat`.
+</div>
 
 ### Setting up the bot
 
-Bots can send messages to servers and users or attach local available images. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
+Bots can send messages to servers and users or attach locally available images. To add the bot to a server you are an admin on use the **Application ID** you noted above, found on the [Discord My Apps page](https://discordapp.com/developers/applications/me).
 
 <p class='img'>
   <img src='/images/screenshots/discord-bot.png' />
 </p>
 
-Now use the Discord Authorization page with the **Client ID** of your [bot](https://discordapp.com/developers/docs/topics/oauth2#bots).
+Now use the Discord Authorization page with the **Application ID** of your [application](https://discordapp.com/developers/docs/topics/oauth2#bots).
 
-`https://discordapp.com/api/oauth2/authorize?client_id=[CLIENT_ID]&scope=bot&permissions=0`
+`https://discordapp.com/api/oauth2/authorize?client_id=[APPLICATION_ID]&scope=bot&permissions=0`
 
 <p class='img'>
   <img src='/images/screenshots/discord-auth.png' />
@@ -65,9 +59,15 @@ Once the bot has been added to your server, get the channel ID of the channel yo
 
 Right click channel name and copy the channel ID (**Copy ID**).
 
-This channel or user ID has to be used as the target when calling the notification service. Multiple channel or user IDs can be specified, across multiple servers or direct messages.
+This channel or a user ID has to be used as the target when calling the notification service. Multiple channel or user IDs can be specified, across multiple servers or direct messages.
 
-### Discord Service Data
+## Add Discord integration to Home Assistant
+
+{% include integrations/config_flow.md %}
+
+When adding the Discord integration you will be asked for an API Key. Enter the hidden **Token** of your bot to link your Discord integration to the bot you created and allow Home Assistant to send messages as that bot.
+
+## Discord Service Data
 
 The following attributes can be placed inside the `data` key of the service call for extended functionality:
 
@@ -75,7 +75,6 @@ The following attributes can be placed inside the `data` key of the service call
 | ---------------------- | -------- | ----------- |
 | `images`               |      yes | The file(s) to attach to message.
 | `embed`                |      yes | Array of [Discord embeds](https://discordpy.readthedocs.io/en/latest/api.html#embed). *NOTE*: if using `embed`, `message` is still required.
-
 
 To include messages with embedding, use these attributes underneath the `embed` key:
 
@@ -88,10 +87,10 @@ To include messages with embedding, use these attributes underneath the `embed` 
 | `author`                    |      yes  | Sets the footer for the embed content.
 | `footer`               |      yes | Sets the footer for the embed content.
 | `thumbnail`               |      yes | Sets the thumbnail for the embed content.
+| `image`               |      yes | Sets the image for the embed content.
 | `fields`               |      yes | Adds a field to the embed object.  `name` and `value` are *required*, `inline` is *true* by default.
 
-
-#### Example service call
+### Example service call
 
 ```yaml
 - service: notify.discord
@@ -104,7 +103,8 @@ To include messages with embedding, use these attributes underneath the `embed` 
       - "/tmp/garage.jpg"
 ```
 
-#### Example embed service call
+### Example embed service call
+
 ```yaml
 - service: notify.discord
   data:
@@ -125,6 +125,8 @@ To include messages with embedding, use these attributes underneath the `embed` 
           icon_url: 'https://www.home-assistant.io'
         thumbnail:
           url: 'https://www.home-assistant.io/images/favicon-192x192-full.png'
+        image:
+          url: 'https://www.home-assistant.io/images/favicon-192x192-full.png'
         fields:
           - name: 'fieldname1'
             value: 'valuename1'
@@ -138,7 +140,7 @@ To include messages with embedding, use these attributes underneath the `embed` 
             inline: false
 ```
 
-### Notes
+## Notes
 
 You can tag any user inside a channel by using their user ID in the message like so: `<@userid>` replacing `userid` with the ID you copied. To get the user ID right click on the user name to copy the ID like you did for the channel ID up above.
 

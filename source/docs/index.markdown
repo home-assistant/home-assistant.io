@@ -7,7 +7,7 @@ feedback: false
 The documentation covers beginner to advanced topics around the installation, setup, configuration, and usage of Home Assistant.
 
 <div class="text-center hass-option-cards" markdown="0">
-  <a class='option-card' href='/hassio/'>
+  <a class='option-card' href='/getting-started/'>
     <div class='img-container'>
       <img src='https://brands.home-assistant.io/homeassistant/icon.png' />
     </div>
@@ -19,23 +19,17 @@ The documentation covers beginner to advanced topics around the installation, se
     </div>
     <div class='title'>Configuration</div>
   </a>
-  <a class='option-card' href='/docs/z-wave/'>
-    <div class='img-container'>
-      <img src='https://brands.home-assistant.io/zwave/icon.png' />
-    </div>
-    <div class='title'>Z-Wave</div>
-  </a>
   <a class='option-card' href='/docs/mqtt/'>
     <div class='img-container'>
       <img src='https://brands.home-assistant.io/mqtt/icon.png' />
     </div>
     <div class='title'>MQTT</div>
   </a>
-  <a class='option-card' href='/lovelace/'>
+  <a class='option-card' href='/dashboards/'>
     <div class='img-container'>
       <img src='/images/supported_brands/view-dashboard.png' />
     </div>
-    <div class='title'>User Interface</div>
+    <div class='title'>Dashboards</div>
   </a>
   <a class='option-card' href='https://companion.home-assistant.io/'>
     <div class='img-container'>

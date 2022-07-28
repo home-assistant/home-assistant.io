@@ -8,6 +8,7 @@ ha_iot_class: Cloud Push
 ha_domain: pushover
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The [Pushover service](https://pushover.net/) is a platform for the notify component. This allows integrations to send messages to the user using Pushover.
@@ -47,33 +48,33 @@ Example Automation:
 
 ```yaml
 - service: notify.entity_id
-      data:
-        message: "This is the message"
-        title: "Title of message"
-        data:
-          url: "https://www.home-assistant.io/"
-          sound: pianobar
-          priority: 0
-          attachment: "http://example.com/image.png"
+  data:
+    message: "This is the message"
+    title: "Title of message"
+    data:
+      url: "https://www.home-assistant.io/"
+      sound: pianobar
+      priority: 0
+      attachment: "local/image.png"
 ```
 
 Component specific values in the nested `data` section are optional.
 
-Image attachments can be added using the `attachment` parameter, which can either be a valid URL for an image (ex: `http://example.com/image.png`) or a local file reference (ex: `/tmp/image.png`).
+Image attachments can be added using the `attachment` parameter, which can either be a local file reference (ex: `/tmp/image.png`).
 
 To use a specific Pushover device, set it using `target`. If one of the entered devices doesn't exist or is disabled in your Pushover account it will send a message to all you devices. To send to all devices, just skip the target attribute.
 
 ```yaml
 - service: notify.entity_id
-      data:
-        message: "This is the message"
-        title: "Title of message"
-        target:
-          - pixel3
-          - pixel4a
-        data:
-          sound: pianobar
-          priority: 0
+  data:
+    message: "This is the message"
+    title: "Title of message"
+    target:
+      - pixel3
+      - pixel4a
+    data:
+      sound: pianobar
+      priority: 0
 ```
 
 

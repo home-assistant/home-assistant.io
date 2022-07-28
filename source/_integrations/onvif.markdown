@@ -11,8 +11,11 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - button
   - camera
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/) Profile S conformant device in Home Assistant. This requires the [`ffmpeg` component](/integrations/ffmpeg/) to be already configured.
@@ -24,7 +27,7 @@ The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/)
 </div>
 
 <div class='note'>
-If running Home Asssistant Core in a venv, ensure that libxml2 and libxslt python interfaces are installed via your package manager.
+If running Home assistant Core in a venv, ensure that libxml2 and libxslt python interfaces are installed via your package manager.
 </div>
 
 ### Configuration Notes
@@ -39,6 +42,7 @@ You can configure specific FFmpeg options through the integration options flow b
 | -------| ----------- |
 | RTSP transport mechanism | RTSP transport protocols. The possible options are: `tcp`, `udp`, `udp_multicast`, `http`. |
 | Extra FFmpeg arguments | Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [`ffmpeg` component](/integrations/ffmpeg). |
+| Use wallclock as timestamps | ([Advanced Mode](/blog/2019/07/17/release-96/#advanced-mode) only) Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (e.g., EZVIZ). |
 
 ### Supported Sensors
 
@@ -48,20 +52,25 @@ To help with development of this component, enable `info` level logging for `hom
 
 | Topic(s) | Entity Type | Device Class | Description |
 |----------|-------------|--------------|-------------|
-| `tns1:VideoSource/MotionAlarm` | Binary Sensor | Motion | Generic motion alarm. |
-| `tns1:RuleEngine/FieldDetector/ObjectsInside` | Binary Sensor | Motion | Polygonal field detection determines if each object in the scene is inside or outside the polygon. |
-| `tns1:RuleEngine/CellMotionDetector/Motion` | Binary Sensor | Motion | Cell based motion detection determined by placing a grid over the video source and determining changes. |
-| `tns1:AudioAnalytics/Audio/DetectedSound` | Binary Sensor | Sound | Device detected sound. |
-| `tns1:VideoSource/ImageTooBlurry/AnalyticsService`<br>`tns1:VideoSource/ImageTooBlurry/ImagingService`<br>`tns1:VideoSource/ImageTooBlurry/RecordingService` | Binary Sensor | Problem | Device reports blurry image. |
-| `tns1:VideoSource/ImageTooDark/AnalyticsService`<br>`tns1:VideoSource/ImageTooDark/ImagingService`<br>`tns1:VideoSource/ImageTooDark/RecordingService` | Binary Sensor | Problem | Device reports dark image. |
-| `tns1:VideoSource/ImageTooBright/AnalyticsService`<br>`tns1:VideoSource/ImageTooBright/ImagingService`<br>`tns1:VideoSource/ImageTooBright/RecordingService` | Binary Sensor | Problem | Device reports bright image. |
-| `tns1:VideoSource/GlobalSceneChange/AnalyticsService`<br>`tns1:VideoSource/GlobalSceneChange/ImagingService`<br>`tns1:VideoSource/GlobalSceneChange/RecordingService` | Binary Sensor | Problem | Device reports a large portion of the video content changing.  The cause can be tamper actions like camera movement or coverage. |
-| `tns1:RuleEngine/TamperDetector/Tamper` | Binary Sensor | Problem | Tamper Detection. |
-| `tns1:Device/HardwareFailure/StorageFailure` | Binary Sensor | Problem | Storage failure on device. |
-| `tns1:Monitoring/ProcessorUsage` | Sensor | Percent | Device processor usage. |
-| `tns1:Monitoring/OperatingTime/LastReboot` | Sensor | Timestamp | When the device was last rebooted. |
-| `tns1:Monitoring/OperatingTime/LastReset` | Sensor | Timestamp | When the device was last reset. |
-| `tns1:Monitoring/OperatingTime/LastClockSynchronization` | Sensor | Timestamp | When the device clock was last synchronized. |
+| Motion Alarm | Binary Sensor | Motion | Generic motion alarm. |
+| Field Detection | Binary Sensor | Motion | Polygonal field detection determines if each object in the scene is inside or outside the polygon. |
+| Cell Motion Detection | Binary Sensor | Motion | Cell based motion detection determined by placing a grid over the video source and determining changes. |
+| Motion Region Detector | Binary Sensor | Motion | Detects any motion against the specified motion region. The rule is configured for an area defined by a polygon. |
+| Detected Sound | Binary Sensor | Sound | Device detected sound. |
+| Digital Input | Binary Sensor | None | A digital input was triggered on the device. Amcrest is known to use this as a doorbell button press on the AD410. |
+| Relay Triggered | Binary Sensor | None | Device relay output was triggered. |
+| Image Too Blurry | Binary Sensor | Problem | Device reports blurry image. |
+| Image Too Dark | Binary Sensor | Problem | Device reports dark image. |
+| Image Too Bright | Binary Sensor | Problem | Device reports bright image. |
+| Global Scene Change | Binary Sensor | Problem | Device reports a large portion of the video content changing.  The cause can be tamper actions like camera movement or coverage. |
+| Tamper Detector | Binary Sensor | Problem |  Detects any kind of tampering to the image sensor. |
+| Storage Failure | Binary Sensor | Problem | Storage failure on device. |
+| Recording Job State | Binary Sensor | None | Whether or not the device is actively recording. |
+| Processor Usage | Sensor | Percent | Device processor usage. |
+| Last Reboot | Sensor | Timestamp | When the device was last rebooted. |
+| Last Reset | Sensor | Timestamp | When the device was last reset. |
+| Last Clock Synchronization | Sensor | Timestamp | When the device clock was last synchronized. |
+| Last Backup | Sensor | Timestamp | When the last backup of the device configuration has been retrieved. |
 
 ### Service `onvif.ptz`
 
@@ -77,6 +86,6 @@ If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your ca
 | `speed` | Speed coefficient. Sets how fast PTZ will be executed. Allowed values: floating point numbers, 0 to 1. Default : 0.5 |
 | `preset` | PTZ preset profile token. Sets the preset profile token which is executed with GotoPreset. |
 | `move_mode` | PTZ moving mode. Allowed values: `ContinuousMove`, `RelativeMove`, `AbsoluteMove`, `GotoPreset`, `Stop`. Default :`RelativeMove` |
-| `continuous_duration` | Set ContinuousMove delay in seconds before stoping the move. Allowed values: floating point numbers or integer. Default : 0.5 |
+| `continuous_duration` | Set ContinuousMove delay in seconds before stopping the move. Allowed values: floating point numbers or integer. Default : 0.5 |
 
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).

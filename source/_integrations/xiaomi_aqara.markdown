@@ -18,6 +18,7 @@ ha_platforms:
   - lock
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `xiaomi_aqara` integration allows you to integrate [Xiaomi](https://www.mi.com/en/) Aqara-compatible devices into Home Assistant.
@@ -65,7 +66,7 @@ Please note, there are two versions of the hub: v1 and v2. v1 can be used with H
 
 Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key (password) from within the app following [this tutorial](https://www.domoticz.com/wiki/Xiaomi_Gateway_(Aqara)#Adding_the_Xiaomi_Gateway_to_Domoticz).
 
-To enable {{ page.title }} in your installation, go to **Configuration** in the sidebar, then click **Integrations**. Xiaomi Aqara gateways should be discovered automatically and should show up in the overview. Hit configure and go through the steps to specify the optional settings. If your aqara gateway does not show up automatically, click the + icon in the lower right. Then search for "xiaomi_aqara" and enter the setup. Multiple gateways can be configured by simply repeating the setup multiple times.
+To enable {{ page.title }} in your installation, go to **Settings** -> **Devices & Services**. Xiaomi Aqara gateways should be discovered automatically and should show up in the overview. Hit configure and go through the steps to specify the optional settings. If your aqara gateway does not show up automatically, click the + icon in the lower right. Then search for "xiaomi_aqara" and enter the setup. Multiple gateways can be configured by simply repeating the setup multiple times.
 
 {% configuration %}
 interface:

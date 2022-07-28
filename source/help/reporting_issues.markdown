@@ -8,7 +8,7 @@ If you have an installation, a setup or a configuration issue please use our [Fo
 
 If you found a bug then please report it in one of our [trackers](/help/#bugs-feature-requests-and-alike). To help you and our developers to identify the issue quickly, please fill out the provided template. The "weird" content you will see is there to render your entry in a nice format after submitting. It's just [markdown](https://guides.github.com/features/mastering-markdown/).
 
-Please refer to the **Info** page, which is accessible inside the **Configuration** panel in the Home Assistant frontend.
+Please refer to the **Settings** -> **About** page, which is accessible inside the Home Assistant frontend.
 
 ## First Home Assistant release with the issue
 
@@ -48,7 +48,7 @@ Make sure that you don't post your username, password, API key, access token or 
 
 ### Traceback (if applicable)
 
-If things go wrong there will be a so-called traceback or an error message in other words in your log. Please include this. It starts with **Traceback** and can contain informations where the error was triggered in the code.
+If things go wrong there will be a so-called traceback or an error message in other words in your log. Please include this. It starts with **Traceback** and can contain information where the error was triggered in the code.
 
 ```bash
 Traceback (most recent call last):

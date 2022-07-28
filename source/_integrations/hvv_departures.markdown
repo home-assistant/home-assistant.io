@@ -1,6 +1,6 @@
 ---
 title: HVV Departures
-description: Display the departures of busses, trains and ferries in Hamburg within Home Assistant.
+description: Display the departures of buses, trains and ferries in Hamburg within Home Assistant.
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
@@ -12,9 +12,10 @@ ha_domain: hvv_departures
 ha_platforms:
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
-The `hvv_departures` sensor will display the departures of busses, trains and ferries in Hamburg.
+The `hvv_departures` sensor will display the departures of buses, trains and ferries in Hamburg.
 
 {% include integrations/config_flow.md %}
 

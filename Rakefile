@@ -33,6 +33,8 @@ task :generate do
   abort("Generating CSS failed") unless success
   success = system "rake analytics_data"
   abort("Generating analytics data failed") unless success
+  success = system "rake alerts_data"
+  abort("Generating alerts data failed") unless success
   success = system "rake version_data"
   abort("Generating version data failed") unless success
   success = system "rake blueprint_exchange_data"
@@ -74,6 +76,7 @@ task :preview, :listen do |t, args|
   system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
   system "rake analytics_data"
   system "rake version_data"
+  system "rake alerts_data"
   system "rake blueprint_exchange_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   compassPid = Process.spawn("compass watch")
@@ -191,6 +194,19 @@ task :analytics_data do
   end
 end
 
+
+desc "Download data from alerts.home-assistant.io"
+task :alerts_data do
+  uri = URI('https://alerts.home-assistant.io/alerts.json')
+
+  remote_data = JSON.parse(Net::HTTP.get(uri))
+
+  File.open("#{source_dir}/_data/alerts_data.json", "w") do |file|
+    file.write(JSON.generate(remote_data))
+  end
+end
+
+
 desc "Download version data from version.home-assistant.io"
 task :version_data do
   uri = URI('https://version.home-assistant.io/stable.json')
@@ -204,7 +220,7 @@ end
 
 desc "Download data from the blueprint exchange @ community.home-assistant.io"
 task :blueprint_exchange_data do
-  uri = URI('https://community.home-assistant.io/c/blueprints-exchange/53/l/top/all.json')
+  uri = URI('https://community.home-assistant.io/c/blueprints-exchange/53/l/top.json?period=all')
 
   remote_data = JSON.parse(Net::HTTP.get(uri))
 

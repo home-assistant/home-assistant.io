@@ -52,9 +52,22 @@ description:
 domain:
   description: >
     The domain name this blueprint provides a blueprint for. Currently, only
-    `automation` is supported.
+    `automation` and `script` are supported.
   type: string
   required: true
+homeassistant:
+  description: >
+    Home Assistant requirements to be able to use the blueprint successfully.
+  type: map
+  required: false
+  keys:
+    min_version:
+      description: >
+        Minimum required version of Home Assistant to use the blueprint (e.g. 
+        `2022.4.0`. It is important to set this if the blueprint uses any features
+        introduced in recent releases to head off issues.
+      type: string
+      required: false
 input:
   description: >
     A dictionary of defined user inputs. These are the input fields that the
@@ -70,6 +83,7 @@ input:
     description:
       description: >
         A short description of the input field. Keep this short and descriptive.
+        The description can include [Markdown](https://commonmark.org/help/).
       type: string
       required: false
     selector:
@@ -121,7 +135,7 @@ A blueprint can have as many inputs as you like.
 
 The inputs are available as custom YAML tags, but not as template variables.
 To use a blueprint input in a template, it first needs to be exposed as either
-a [script level variable](/integrations/script/#-configuration-variables) or in 
+a [script level variable](/integrations/script/#configuration-variables) or in 
 a [variable script step](/docs/scripts/#variables).
 
 ```yaml

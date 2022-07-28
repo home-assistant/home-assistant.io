@@ -11,7 +11,7 @@ categories:
 og_image: /images/blog/2020-09-12-android-240-release/Companion.png
 ---
 
-Hey there, I hope everyone has been enjoying the last release of the Android app. We have another update coming up where we felt its time to give everyone a heads up before release. There are several new changes done that you will immediately notice after installing the update to 2.4.0, so we wanted to cover what's new. You can expect this release to be available in the Google Play Store tomorrow.
+Hey there, I hope everyone has been enjoying the last release of the Android app. We have another update coming up where we felt it's time to give everyone a heads up before release. There are several new changes done that you will immediately notice after installing the update to 2.4.0, so we wanted to cover what's new. You can expect this release to be available in the Google Play Store tomorrow.
 
 ## Current and Future Breaking Changes
 

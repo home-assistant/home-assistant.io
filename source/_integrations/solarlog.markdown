@@ -1,7 +1,9 @@
 ---
 title: Solar-Log
 description: Instructions on how to integrate Solar-Log sensors within Home Assistant.
-ha_category: Sensor
+ha_category:
+  - Energy
+  - Sensor
 ha_release: 0.101
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -10,6 +12,7 @@ ha_codeowners:
 ha_domain: solarlog
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `solarlog` integration uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to allow you to get details from your Solar-Log device and integrate these into your Home Assistant installation.
@@ -33,11 +36,10 @@ In case you would like to convert the values, for example, to Wh instead of the 
 
 ```yaml
 # Example configuration.yaml entry for sensor template platform
-sensor:
-  - platform: template
-    sensors:
-      solarlog_yield_day_template:
-        value_template: "{{ (states('sensor.solarlog_yield_day') | float * 1000) | round(0) }}"
+template:
+  - sensor:
+    - name: "Solarlog yield day"
+      state: "{{ (states('sensor.solarlog_yield_day') | float(default=0) * 1000) | round(0,default=0) }}"
 ```
 
 {% endraw %}
@@ -64,12 +66,12 @@ The following sensors are available in the library:
 | consumption_month     | kWh    | Total consumption for the month from all of the consumption meters. |
 | consumption_year      | kWh    | Total consumption for the year from all of the consumption meters. |
 | consumption_total     | kWh    | Accumulated total consumption from all consumption meters. |
-| total_power           | Wp     | Installed generator power. |
+| installed_peak_power  | W      | Installed solar peak power. |
 | alternator_loss       | W      | Altenator loss (equals to power_dc - power_ac) |
 | capacity              | %      | Capacity (equals to power_dc / total power) |
-| efficiency            | % W/Wp | Efficiency (equals to power_ac / power_dc |
+| efficiency            | %      | Efficiency (equals to power_ac / power_dc) |
 | power_available       | W      | Available power (equals to power_ac - consumption_ac) | 
-| usage                 |        | Usage (equals to consumption_ac / power_ac) |
+| usage                 | %      | Usage (equals to consumption_ac / power_ac) |
 
 <div class='note'>
 The solarlog integration is using the sunwatcher pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the sunwatcher package.

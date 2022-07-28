@@ -54,12 +54,12 @@ cover:
         required: false
         type: string
       value_template:
-        description: Defines a template to get the state of the cover. Valid values are `open`/`true` or `opening`/`closing`/`closed`/`false`. [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
-        required: exclusive
+        description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `true` is valid as a synonym to `open` and `false` as a synonym to `closed`. If [both a `value_template` and a `position_template`](#combining_value_template_and_position_template) are specified, only `opening` and `closing` are set from the `value_template`.
+        required: false
         type: template
       position_template:
-        description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open). [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
-        required: exclusive
+        description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open).
+        required: false
         type: template
       icon_template:
         description: Defines a template to specify which icon to use.
@@ -70,7 +70,7 @@ cover:
         required: false
         type: template
       availability_template:
-        description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+        description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
         required: false
         type: template
         default: true
@@ -114,6 +114,10 @@ cover:
         type: template
 {% endconfiguration %}
 
+### Template and action variables
+
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates and actions.
+
 ## Considerations
 
 If you are using the state of a platform that takes extra time to load, the
@@ -137,6 +141,20 @@ forced into optimistic mode by using the [`optimistic`](#optimistic) attribute.
 There is an equivalent mode for `tilt_position` that is enabled when
 [`tilt_template`](#tilt_template) is not specified or when the
 [`tilt_optimistic`](#tilt_optimistic) attribute is used.
+
+## Combining `value_template` and `position_template`
+
+If both a [`value_template`](#value_template) and a [`position_template`](#position_template) are specified only `opening` and `closing` states are set directly from the `value_template`, the `open` and `closed` states will instead be derived from the cover position.
+
+| value_template output | result |
+| ------------- |-------------|
+| open | state defined by `position_template` |
+| close | state defined by `position_template` |
+| true | state defined by `position_template` |
+| false | state defined by `position_template` |
+| opening | state set to `opening` |
+| closing | state set to `closing` |
+| <any other output> | No change of state or position |
 
 ## Examples
 
@@ -219,6 +237,10 @@ cover:
           service: script.cover_group_position
           data:
             position: "{{position}}"
+        set_cover_tilt_position:
+          service: script.cover_group_tilt_position
+          data:
+            tilt: "{{tilt}}"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
         icon_template: >-
           {% if is_state('sensor.cover_group', 'open') %}
@@ -334,7 +356,7 @@ cover:
           data:
             modus: "stop"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
-        icon_template: >-
+        entity_picture_template: >-
           {% if is_state('sensor.cover_group', 'open') %}
             /local/cover-open.png
           {% else %}

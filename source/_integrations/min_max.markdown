@@ -2,38 +2,44 @@
 title: Min/Max
 description: Instructions on how to integrate min/max sensors into Home Assistant.
 ha_category:
-  - Utility
+  - Helper
   - Sensor
-ha_iot_class: Local Polling
+  - Utility
+ha_iot_class: Local Push
 ha_release: 0.31
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: min_max
+ha_config_flow: true
 ha_platforms:
   - sensor
+ha_integration_type: helper
 ---
 
-The `min_max` sensor platform consumes the state from other sensors to determine the minimum, maximum, latest (last), mean and median of the collected states. The sensor will always show you the lowest/highest/latest value which was received from all monitored sensors. If you have spikes in your values, it's recommended to filter/equalize your values with a [statistics sensor](/integrations/statistics) first.
+The Min/Max integration consumes the state from other sensors to determine the minimum, maximum, latest (last), mean and median of the collected states.
 
-This sensor is an alternative to the [template sensor](/integrations/template)'s `value_template:` to get the average or the median of multiple sensors.
+The sensor provided by this integration will always show you the lowest/highest/latest value which was received from all monitored sensors. If you have spikes in your values, it's recommended to filter/equalize your values with a [statistics sensor](/integrations/statistics) first.
 
-{% raw %}
+If the source sensor provides an unknown state, it will be ignored in the calculation. If the unit of measurement of the sensors differs, the Min/Max sensor will go to an error state where the value is `UNKNOWN` and unit of measurement is `ERR`.
 
-```yaml
-{{ ((float(states('sensor.kitchen_temperature')) +
-     float(states('sensor.living_room_temperature')) +
-     float(states('sensor.office_temperature'))) / 3) | round(2)
-}}
-```
+{% include integrations/config_flow.md %}
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have. You can change it again later.
+Input entities:
+  description: At least two entities to monitor. All entities must use the same unit of measurement.
+Type:
+  description: The type of the sensor, this can be either "min", "max", "last", "mean", or "median".
+Precision:
+  description: Round the calculated mean or median value to at most N decimal places.
+{% endconfiguration_basic %}
 
-{% endraw %}
+## YAML Configuration
 
-Sensors with an unknown state will be ignored in the calculation. If the unit of measurement of the sensors differs, the `min_max` sensor will go to an error state where the value is `UNKNOWN` and unit of measurement is `ERR`.
-
-## Configuration
-
-To enable the `min_max` sensor, add the following lines to your `configuration.yaml`:
+Alternatlively, this integration can be configured and set up manually via YAML
+instead. To enable the Integration sensor in your installation, add the
+following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

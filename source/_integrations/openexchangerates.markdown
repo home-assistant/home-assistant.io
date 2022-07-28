@@ -8,6 +8,7 @@ ha_release: 0.23
 ha_domain: openexchangerates
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `openexchangerates` sensor will show you the current exchange rate from [Open Exchange Rates](https://openexchangerates.org) that provides realtime exchange rates for [170 currencies](https://openexchangerates.org/currencies). The free account is limited to only USD as a base currency, allows 1000 requests per month, and updates every hour.
@@ -39,7 +40,7 @@ quote:
   required: true
   type: string
 base:
-  description: The symbol of the base currency.
+  description: The symbol of the base currency. Note that, changing the API `base` currency is not part of the freemium API plan.
   required: false
   type: string
   default: USD

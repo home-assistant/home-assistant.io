@@ -20,8 +20,10 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - camera
+  - diagnostics
   - light
   - switch
+ha_integration_type: integration
 ---
 
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras, speakers, access control and other security-related network connected hardware. Event API works with firmware 5.50 and newer.

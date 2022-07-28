@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: nsw_fuel_station
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `nsw_fuel_station` sensor platform uses the [NSW Fuel Check App](https://www.fuelcheck.nsw.gov.au/app) data as a source for current fuel price data.

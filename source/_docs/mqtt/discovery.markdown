@@ -4,40 +4,39 @@ description: "Instructions on how to setup MQTT Discovery within Home Assistant.
 logo: mqtt.png
 ---
 
-The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier and the remaining device configuration without the device type.
+The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier, and the remaining device configuration without the device type.
 
 Supported by MQTT discovery:
 
 - [Alarm control panels](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensors](/integrations/binary_sensor.mqtt/)
+- [Buttons](/integrations/button.mqtt/)
 - [Cameras](/integrations/camera.mqtt/)
 - [Covers](/integrations/cover.mqtt/)
 - [Device Trackers](/integrations/device_tracker.mqtt/)
 - [Device Triggers](/integrations/device_trigger.mqtt/)
 - [Fans](/integrations/fan.mqtt/)
+- [Humidifiers](/integrations/humidifier.mqtt/)
 - [HVACs](/integrations/climate.mqtt/)
 - [Lights](/integrations/light.mqtt/)
 - [Locks](/integrations/lock.mqtt/)
+- [Numbers](/integrations/number.mqtt/)
 - [Scenes](/integrations/scene.mqtt/)
+- [Selects](/integrations/select.mqtt/)
 - [Sensors](/integrations/sensor.mqtt/)
+- [Sirens](/integrations/siren.mqtt/)
 - [Switches](/integrations/switch.mqtt/)
 - [Tag Scanners](/integrations/tag.mqtt/)
 - [Vacuums](/integrations/vacuum.mqtt/)
 
-MQTT discovery is enabled by default. To disable MQTT discovery, add the following to your `configuration.yaml` file:
+## Configuration
+MQTT discovery is enabled by default, but can be disabled. To do this, click on "Configure" in the integration page in the UI, then "Re-configure MQTT" and then "Next".
 
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  discovery: false
-```
+### Advanced discovery configuration
+
+It's possible to configure the prefix of the discovery topic through `configuration.yaml`.
 
 {% configuration %}
-discovery:
-  description: If the MQTT discovery should be enabled or not.
-  required: false
-  default: true
-  type: boolean
 discovery_prefix:
   description: The prefix for the discovery topic.
   required: false
@@ -45,9 +44,11 @@ discovery_prefix:
   type: string
 {% endconfiguration %}
 
-### Discovery topic
+## Discovery messages
 
-The discovery topic need to follow a specific format:
+## Discovery topic
+
+The discovery topic needs to follow a specific format:
 
 ```text
 <discovery_prefix>/<component>/[<node_id>/]<object_id>/config
@@ -57,13 +58,15 @@ The discovery topic need to follow a specific format:
 - `<node_id>` (*Optional*):  ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic. The ID of the node must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 - `<object_id>`: The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`. The ID of the device must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 
+The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
+
 Best practice for entities with a `unique_id` is to set `<object_id>` to `unique_id` and omit the `<node_id>`.
 
-The payload must be a JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
+## Discovery payload
+
+The payload must be a serialized JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
 
 Subsequent messages on a topic where a valid payload has been received will be handled as a configuration update, and a configuration update with an empty payload will cause a previously discovered device to be deleted.
-
-The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
 
 A base topic `~` may be defined in the payload to conserve memory when the same topic base is used multiple times.
 In the value of configuration variables ending with `_topic`, `~` will be replaced with the base topic, if the `~` occurs at the beginning or end of the value.
@@ -79,14 +82,17 @@ Supported abbreviations:
     'aux_cmd_t':           'aux_command_topic',
     'aux_stat_tpl':        'aux_state_template',
     'aux_stat_t':          'aux_state_topic',
+    'av_tones':            'available_tones',
     'avty'                 'availability',
     'avty_mode':           'availability_mode',
     'avty_t':              'availability_topic',
+    'avty_tpl':            'availability_template',
     'away_mode_cmd_t':     'away_mode_command_topic',
     'away_mode_stat_tpl':  'away_mode_state_template',
     'away_mode_stat_t':    'away_mode_state_topic',
     'b_tpl':               'blue_template',
     'bri_cmd_t':           'brightness_command_topic',
+    'bri_cmd_tpl':         'brightness_command_template',
     'bri_scl':             'brightness_scale',
     'bri_stat_t':          'brightness_state_topic',
     'bri_tpl':             'brightness_template',
@@ -108,12 +114,15 @@ Supported abbreviations:
     'cmd_tpl':             'command_template',
     'cod_arm_req':         'code_arm_required',
     'cod_dis_req':         'code_disarm_required',
+    'cod_trig_req':        'code_trigger_required',
     'curr_temp_t':         'current_temperature_topic',
     'curr_temp_tpl':       'current_temperature_template',
     'dev':                 'device',
     'dev_cla':             'device_class',
     'dock_t':              'docked_topic',
     'dock_tpl':            'docked_template',
+    'e':                   'encoding',
+    'ent_cat':             'entity_category,
     'err_t':               'error_topic',
     'err_tpl':             'error_template',
     'fanspd_t':            'fan_speed_topic',
@@ -122,6 +131,7 @@ Supported abbreviations:
     'flsh_tlng':           'flash_time_long',
     'flsh_tsht':           'flash_time_short',
     'fx_cmd_t':            'effect_command_topic',
+    'fx_cmd_tpl':          'effect_command_template',
     'fx_list':             'effect_list',
     'fx_stat_t':           'effect_state_topic',
     'fx_tpl':              'effect_template',
@@ -142,6 +152,10 @@ Supported abbreviations:
     'hs_val_tpl':          'hs_value_template',
     'ic':                  'icon',
     'init':                'initial',
+    'hum_cmd_t':           'target_humidity_command_topic',
+    'hum_cmd_tpl':         'target_humidity_command_template',
+    'hum_stat_t':          'target_humidity_state_topic',
+    'hum_stat_tpl':        'target_humidity_state_template',
     'json_attr':           'json_attributes',
     'json_attr_t':         'json_attributes_topic',
     'json_attr_tpl':       'json_attributes_template',
@@ -149,11 +163,15 @@ Supported abbreviations:
     'min_mirs':            'min_mireds',
     'max_temp':            'max_temp',
     'min_temp':            'min_temp',
+    'max_hum':             'max_humidity',
+    'min_hum':             'min_humidity',
     'mode_cmd_tpl':        'mode_command_template',
     'mode_cmd_t':          'mode_command_topic',
     'mode_stat_tpl':       'mode_state_template',
     'mode_stat_t':         'mode_state_topic',
+    'modes':               'modes',
     'name':                'name',
+    'obj_id':              'object_id',
     'off_dly':             'off_delay',
     'on_cmd_type':         'on_command_type',
     'opt':                 'optimistic',
@@ -189,10 +207,13 @@ Supported abbreviations:
     'pl_strt':             'payload_start',
     'pl_stpa':             'payload_start_pause',
     'pl_ret':              'payload_return_to_base',
+    'pl_rst_hum':          'payload_reset_humidity',
+    'pl_rst_mode':         'payload_reset_mode',    
     'pl_rst_pct':          'payload_reset_percentage',
     'pl_rst_pr_mode':      'payload_reset_preset_mode',
     'pl_toff':             'payload_turn_off',
     'pl_ton':              'payload_turn_on',
+    'pl_trig':             'payload_trigger',
     'pl_unlk':             'payload_unlock',
     'pos_clsd':            'position_closed',
     'pos_open':            'position_open',
@@ -220,6 +241,7 @@ Supported abbreviations:
     'spd_rng_min':         'speed_range_min',
     'spd_rng_max':         'speed_range_max',
     'src_type':            'source_type',
+    'stat_cla':            'state_class',
     'stat_clsd':           'state_closed',
     'stat_closing':        'state_closing',
     'stat_off':            'state_off',
@@ -233,7 +255,10 @@ Supported abbreviations:
     'stat_tpl':            'state_template',
     'stat_val_tpl':        'state_value_template',
     'stype':               'subtype',
+    'sup_duration':        'support_duration',
+    'sup_vol':             'support_volume_set',
     'sup_feat':            'supported_features',
+    'sup_off':             'supported_turn_off',
     'swing_mode_cmd_tpl':  'swing_mode_command_template',
     'swing_mode_cmd_t':    'swing_mode_command_topic',
     'swing_mode_stat_tpl': 'swing_mode_state_template',
@@ -277,6 +302,7 @@ Supported abbreviations:
 Supported abbreviations for device registry configuration:
 
 ```txt
+    'cu':                  'configuration_url'
     'cns':                 'connections',
     'ids':                 'identifiers',
     'name':                'name',
@@ -290,15 +316,21 @@ Supported abbreviations for device registry configuration:
 
 The following software has built-in support for MQTT discovery:
 
-- [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
+- [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
+- [ebusd](https://github.com/john30/ebusd)
+- [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
+- [HASS.Agent](https://github.com/LAB02-Research/HASS.Agent)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
 - [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
 - [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [SmartHome](https://github.com/roncoa/SmartHome)
 - [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
+- [Teleinfo MQTT](https://fmartinou.github.io/teleinfo-mqtt/) (starting with 3.0.0)
+- [Tydom2MQTT](https://fmartinou.github.io/tydom2mqtt/)
+- [What's up Docker?](https://fmartinou.github.io/whats-up-docker/) (starting with 3.5.0)
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
@@ -313,11 +345,12 @@ A motion detection device which can be represented by a [binary sensor](/integra
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
 - State topic: `homeassistant/binary_sensor/garden/state`
 - Payload:  `{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}`
+- Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
-To create a new sensor manually. For more details please refer to the [MQTT testing section](/docs/mqtt/testing/).
+To create a new sensor manually.
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}'
+mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}'
 ```
 
 Update the state.
@@ -332,7 +365,9 @@ Delete the sensor by sending an empty message.
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m ''
 ```
 
-### Sensors with multiple values
+For more details please refer to the [MQTT testing section](/docs/mqtt/testing/).
+
+### Sensors
 
 Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
 
@@ -342,17 +377,18 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 - Configuration payload no2: `{"device_class": "humidity", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
 - Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
 
-### Switches
+### Entities with command topics
 
-Setting up a switch is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/integrations/switch.mqtt/).
+Setting up a light, switch etc. is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/integrations/switch.mqtt/).
 
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`
 - Command topic: `homeassistant/switch/irrigation/set`
 - Payload:  `{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state"}`
+- Retain: The -r switch is added to retain the configuration topic in the broker. Without this, the sensor will not be available after Home Assistant restarts.
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/config" \
+mosquitto_pub -r -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/config" \
   -m '{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state"}'
 ```
 
@@ -362,7 +398,7 @@ Set the state.
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/set" -m ON
 ```
 
-### Abbreviating topic names
+### Using abbreviations and base topic
 
 Setting up a switch using topic prefix and abbreviated configuration variable names to reduce payload length.
 
@@ -371,7 +407,7 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 - State topic: `homeassistant/switch/irrigation/state`
 - Configuration payload: `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", "stat_t": "~/state"}`
 
-### Lighting
+### Another example using abbreviations topic name and base topic
 
 Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-schema), with abbreviated configuration variable names:
 
@@ -393,74 +429,21 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
   }
   ```
 
-### Climate control
+### Use object_id to influence the entity id
 
-Setting up a climate integration (heat only):
 
-- Configuration topic: `homeassistant/climate/livingroom/config`
-- Configuration payload:
+The entity id is automatically generated from the entity's name. All MQTT entity components optionally support providing an `object_id` which will be used instead if provided.
 
-```json
-{
-  "name":"Livingroom",
-  "mode_cmd_t":"homeassistant/climate/livingroom/thermostatModeCmd",
-  "mode_stat_t":"homeassistant/climate/livingroom/state",
-  "mode_stat_tpl":"{{value_json.mode}}",
-  "avty_t":"homeassistant/climate/livingroom/available",
-  "pl_avail":"online",
-  "pl_not_avail":"offline",
-  "temp_cmd_t":"homeassistant/climate/livingroom/targetTempCmd",
-  "temp_stat_t":"homeassistant/climate/livingroom/state",
-  "temp_stat_tpl":"{{value_json.target_temp}}",
-  "curr_temp_t":"homeassistant/climate/livingroom/state",
-  "curr_temp_tpl":"{{value_json.current_temp}}",
-  "min_temp":"15",
-  "max_temp":"25",
-  "temp_step":"0.5",
-  "modes":["off", "heat"]
-}
-```
-
-- State topic: `homeassistant/climate/livingroom/state`
-- State payload:
-
-```json
-{
-  "mode":"off",
-  "target_temp":"21.50",
-  "current_temp":"23.60",
-}
-```
-
-### Presence detection (device tracker)
-
-Setting up a device tracker:
-
-- Configuration topic: `homeassistant/device_tracker/paulus/config`
+- Configuration topic: `homeassistant/sensor/device1/config`
 - Example configuration payload:
 
 ```json
 {
-  "name":"Paulus",
-  "state_topic": "homeassistant/device_tracker/paulus/state",
-  "payload_home": "home",
-  "payload_not_home": "not_home",
-  "source_type": "bluetooth"
+  "name":"My Super Device",
+  "object_id":"device1",
+  "state_topic": "homeassistant/sensor/device1/state"
  }
 ```
 
-- State topic: `homeassistant/device_tracker/paulus/state`
-- Example state payload: `home` or `not_home` or `location name`
+In the example above, the entity_id will be `sensor.device1` instead of `sensor.my_super_device`.
 
-If the device supports gps co-ordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
-
-- Attributes topic: `homeassistant/device_tracker/paulus/attributes`
-- Example attributes payload:
-
-```json
-{
-  "latitude": 32.87336,
-  "longitude": -117.22743,
-  "gps_accuracy": 1.2
- }
-```

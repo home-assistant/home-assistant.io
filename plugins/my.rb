@@ -20,11 +20,11 @@ module Jekyll
           MSG
         end
       end
-  
+
       def render(context)
         # We parse on render, as we now have context
         options = parse_options(@options, context)
-  
+
         # Base URI
         uri =  URI.join("https://my.home-assistant.io/redirect/", @redirect)
 
@@ -80,26 +80,29 @@ module Jekyll
       DEFAULT_ICONS = {
         "config_flow_start" => "icon-plus-sign",
         "config" => "icon-cog",
-        "integrations" => "icon-puzzle-piece",
       }
 
       # Default title used for in-line text
       DEFAULT_TITLES = {
+        "automations" => "Automations & Scenes",
         "blueprint_import" => "Import Blueprint",
         "cloud" => "Home Assistant Cloud",
+        "config_energy" => "Energy Configuration",
         "config_flow_start" => "Add Integration",
         "config_mqtt" => "MQTT Configuration",
-        "config_zha" => "ZHA Configuration", 
+        "config_zha" => "ZHA Configuration",
         "config_zwave_js" => "Z-Wave JS Configuration",
-        "config" => "Configuration",
+        "config" => "Settings",
         "developer_events" => "Events",
         "developer_services" => "Services",
         "developer_states" => "States",
         "developer_template" => "Templates",
+        "energy" => "Energy",
         "general" => "General Settings",
         "info" => "Information",
         "supervisor_info" => "Supervisor Information",
-        "supervisor_snapshots" => "Snapshots",
+        "supervisor_backups" => "Backups",
+        "integrations" => "Devices & Services",
       }
 
       def parse_options(input, context)
@@ -108,7 +111,7 @@ module Jekyll
         # Split along 3 possible forms: key="value", key=value, or just key
         input.scan(OPTIONS_REGEX) do |opt|
           key, value = opt.split("=")
-          if !value.nil? 
+          if !value.nil?
             if value&.include?('"')
               value.delete!('"')
             else

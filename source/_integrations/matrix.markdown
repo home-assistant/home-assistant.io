@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: matrix
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 This integration allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
@@ -81,6 +82,12 @@ commands:
       type: [string]
       default: empty
 {% endconfiguration %}
+
+<div class="note">
+
+In order to prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
+
+</div>
 
 ### Event Data
 
@@ -176,6 +183,24 @@ The target room has to be precreated, the room id can be obtained from the rooms
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
+
+### Message formats
+
+Matrix supports sending messages using a [limited HTML subset](https://spec.matrix.org/v1.2/client-server-api/#mroommessage-msgtypes). To specify the message format, add it in the notification `data`.
+
+Supported formats are: `text` (default), and `html`.
+
+```yaml
+# Example of notification as HTML
+action:
+  service: notify.matrix_notify
+  data:
+    message: >-
+      <h1>Hello, world!</h1>
+    data:
+      format: "html"
+```
+
 ### Images in notification
 
 It is possible to send images with notifications. To do so, add a list of paths in the notification `data`.
@@ -190,3 +215,17 @@ action:
       images:
         - /path/to/picture.jpg
 ```
+
+<div class='note'>
+
+If you need to include a file from an external folder in your notifications, you will have to [list the source folder as allowed](/docs/configuration/basic/).
+
+```yaml
+configuration.yaml
+...
+homeassistant:
+  allowlist_external_dirs:
+    - /tmp
+```
+
+</div>

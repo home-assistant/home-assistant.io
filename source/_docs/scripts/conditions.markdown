@@ -1,6 +1,8 @@
 ---
 title: "Conditions"
 description: "Documentation about all available conditions."
+toc: true
+no_toc: true
 ---
 
 Conditions can be used within a script or automation to prevent further execution. When a condition does not return true, the script or automation stops executing. A condition will look at the system at that moment. For example, a condition can test if a switch is currently turned on or off.
@@ -9,7 +11,11 @@ Unlike a trigger, which is always `or`, conditions are `and` by default - all co
 
 All conditions support an optional `alias`.
 
-## AND condition
+{{ page.content | markdownify | toc_only }}
+
+## Logical conditions
+
+### AND condition
 
 Test multiple conditions in one condition statement. Passes if all embedded conditions are valid.
 
@@ -31,7 +37,6 @@ If you do not want to combine AND and OR conditions, you can list them sequentia
 The following configuration works the same as the one listed above:
 
 ```yaml
-alias: "Paulus home AND temperature below 20"
 condition:
   - condition: state
     entity_id: "device_tracker.paulus"
@@ -43,7 +48,21 @@ condition:
 
 Currently you need to format your conditions like this to be able to edit them using the [automations editor](/docs/automation/editor/).
 
-## OR condition
+The AND condition also has a shorthand form. The following configuration works the same as the ones listed above:
+
+```yaml
+condition:
+  alias: "Paulus home AND temperature below 20"
+  and:
+    - condition: state
+      entity_id: "device_tracker.paulus"
+      state: "home"
+    - condition: numeric_state
+      entity_id: "sensor.temperature"
+      below: 20
+```
+
+### OR condition
 
 Test multiple conditions in one condition statement. Passes if any embedded condition is valid.
 
@@ -60,7 +79,21 @@ condition:
       below: 20
 ```
 
-## MIXED AND and OR conditions
+The OR condition also has a shorthand form. The following configuration works the same as the one listed above:
+
+```yaml
+condition:
+  alias: "Paulus home OR temperature below 20"
+  or:
+    - condition: state
+      entity_id: "device_tracker.paulus"
+      state: "home"
+    - condition: numeric_state
+      entity_id: "sensor.temperature"
+      below: 20
+```
+
+### Mixed AND and OR conditions
 
 Test multiple AND and OR conditions in one condition statement. Passes if any embedded condition is valid.
 This allows you to mix several AND and OR conditions together.
@@ -82,7 +115,24 @@ condition:
           below: 20
 ```
 
-## NOT condition
+Or in shorthand form:
+
+```yaml
+condition:
+  and:
+    - condition: state
+      entity_id: "device_tracker.paulus"
+      state: "home"
+    - or:
+      - condition: state
+        entity_id: sensor.weather_precip
+        state: "rain"
+      - condition: numeric_state
+        entity_id: "sensor.temperature"
+        below: 20
+```
+
+### NOT condition
 
 Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** valid.
 
@@ -91,6 +141,20 @@ condition:
   alias: "Paulus not home AND alarm not disarmed"
   condition: not
   conditions:
+    - condition: state
+      entity_id: device_tracker.paulus
+      state: "home"
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm
+      state: disarmed
+```
+
+The NOT condition also has a shorthand form. The following configuration works the same as the one listed above:
+
+```yaml
+condition:
+  alias: "Paulus not home AND alarm not disarmed"
+  not:
     - condition: state
       entity_id: device_tracker.paulus
       state: "home"
@@ -131,7 +195,7 @@ condition:
 {% endraw %}
 
 It is also possible to test the condition against multiple entities at once.
-The condition will pass if all entities match the thresholds.
+The condition will pass if **all** entities match the thresholds.
 
 ```yaml
 condition:
@@ -185,7 +249,7 @@ condition:
 ```
 
 It is also possible to test the condition against multiple entities at once.
-The condition will pass if all entities match the state.
+The condition will pass if **all** entities match the state.
 
 ```yaml
 condition:
@@ -193,6 +257,19 @@ condition:
   entity_id:
     - light.kitchen
     - light.living_room
+  state: "on"
+```
+
+Instead of matching all, it is also possible if one of the entities matches.
+In the following example the condition will pass if **any** entities match the state.
+
+```yaml
+condition:
+  condition: state
+  entity_id:
+    - binary_sensor.motion_sensor_left
+    - binary_sensor.motion_sensor_right
+  match: any
   state: "on"
 ```
 
@@ -204,8 +281,8 @@ condition:
   condition: state
   entity_id: alarm_control_panel.home
   state:
-    - armed_away
-    - armed_home
+    - "armed_away"
+    - "armed_home"
 ```
 
 Or, combine multiple entities with multiple states. In the following example,
@@ -218,8 +295,8 @@ condition:
     - media_player.living_room
     - media_player.kitchen
   state:
-    - playing
-    - paused
+    - "playing"
+    - "paused"
 ```
 
 Alternatively, the condition can test against a state attribute.
@@ -230,7 +307,7 @@ condition:
   condition: state
   entity_id: climate.living_room_thermostat
   attribute: hvac_modes
-  state: heat
+  state: "heat"
 ```
 
 Finally, the `state` option accepts helper entities (also known as `input_*`
@@ -311,6 +388,7 @@ The sunset/sunrise conditions do not work in locations inside the polar circles,
 In those cases it is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
 </div>
 
+This is an example of 1 hour offset before sunset:
 ```yaml
 condition:
   condition: sun
@@ -318,7 +396,16 @@ condition:
   after_offset: "-01:00:00"
 ```
 
-This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`.
+This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`:
+
+```yaml
+condition:
+  - condition: sun
+    after: sunset
+    before: sunrise
+```
+
+This is 'when light' - equivalent to a state condition on `sun.sun` of `above_horizon`:
 
 ```yaml
 condition:
@@ -326,8 +413,6 @@ condition:
     after: sunrise
     before: sunset
 ```
-
-This is 'when light' - equivalent to a state condition on `sun.sun` of `above_horizon`.
 
 We cannot use both keys in this case as it will always be `false`.
 
@@ -343,7 +428,7 @@ condition:
 
 A visual timeline is provided below showing an example of when these conditions are true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions are true.
 
-<img src='/images/docs/scripts/sun-conditions.svg' alt='Graphic showing an example of sun conditions' />
+![Graphic showing an example of sun conditions](/images/docs/scripts/sun-conditions.svg)
 
 ## Template condition
 
@@ -410,7 +495,7 @@ condition:
 
 {% endraw %}
 
-But also in the `repeat` action's `while` or `until` option, or in a `choose` action's `conditions` option:
+It's also supported in the `repeat` action's `while` or `until` option, or in a `choose` action's `conditions` option:
 
 {% raw %}
 
@@ -433,15 +518,15 @@ But also in the `repeat` action's `while` or `until` option, or in a `choose` ac
 
 {% endraw %}
 
-<div class="note warning">
+It's also supported in script or automation `condition` actions:
 
-While conditions can be used in script sequences or automation actions, the
-shorthand for template conditions cannot be used directly in those constructs.
+{% raw %}
 
-However, if an used action supports conditions itself, like `choose` and
- `repeat`, the shorthand template conditions will be accepted in those cases.
+```yaml
+- condition: "{{ is_state('device_tracker.iphone', 'away') }}"
+```
 
-</div>
+{% endraw %}
 
 [template]: /topics/templating/
 [automation-templating]: /getting-started/automation-templating/
@@ -603,3 +688,22 @@ condition:
 ```
 
 {% endraw %}
+
+## Disabling a condition
+
+Every individual condition can be disabled, without removing it.
+To do so, add `enabled: false` to the condition configuration.
+
+This can be useful if you want to temporarily disable a condition, for example,
+for testing. A disabled condition will always pass.
+
+For example:
+
+```yaml
+# This condition will always pass, as it is disabled.
+condition:
+  enabled: false
+  condition: state
+  entity_id: sun.sun
+  state: "above_horizon"
+```

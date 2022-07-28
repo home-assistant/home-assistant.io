@@ -37,6 +37,27 @@ This will load the blueprint and show a preview in the import dialog. You can ch
 
 The blueprint can now be used for creating automations.
 
+## Keeping blueprints up to date
+
+Blueprints created by the community may go through multiple revisions. Sometimes a user creates a blueprint,
+the community provides feedback, and new functionality is added.
+
+While there's no built-in functionality to update a blueprint you've already imported, you can manually edit
+its YAML content to keep it up to date:
+
+1. Navigate to the blueprints directory (`blueprints/automation/`).
+   The location of this directory depends on the installation method and it's
+   similar to how you find [`configuration.yaml`](/docs/configuration/#editing-configurationyaml).
+1. Next, you must find the blueprint to update. The path name of a blueprint consists of:
+   - The username of the user that created it, which depends from where you imported the blueprint,
+     the forum or GitHub.
+   - The name of the YAML file. For the forum it's the title of the topic in the URL, for GitHub
+     it's the name of the YAML file.
+1. Open the YAML file with your editor and update its contents.
+1. Reload the automations for the changes to take effect.
+
+The new changes will appear to your existing automations as well.
+
 ## Finding new blueprints
 
 The Home Assistant Community forums have a specific tag for blueprints. This tag is used to collect all blueprints.

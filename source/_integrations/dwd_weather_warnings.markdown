@@ -12,6 +12,7 @@ ha_codeowners:
   - '@Hummel95'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `dwd_weather_warnings` sensor platform uses the [Deutsche Wetter Dienst (DWD)](https://www.dwd.de) as a source for current and advance warnings.
@@ -33,7 +34,7 @@ sensor:
 <div class="note">
 
 - The `region_name` can either be a so called `warncell id` (integer) or a `warncell name` (string). It is heavily advised to use `warncell id` because `warncell name` is not unique in some cases.  
-A list of valid warncell ids and names can be found at https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html.
+A list of valid warncell ids and names can be found at [here](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html).
 - Some of the warncells are outdated but still listed. If setup fails search the list for a similar sounding warncell.
 - If you selected a `warncell name` and the name is not unique `" (not unique used ID)!"` will be added to the reported `region_name`.
 
@@ -71,14 +72,14 @@ monitored_conditions:
 | `warning_count` | *(int)* Number of issued warnings. There can be more than one warning issued at once. |
 | `warning_<x>` | *(list)* The warning as a whole object containing the following attributes as nested attributes. |
 | `warning_<x>_level` | *(int)* Issued warning level (0 - 4).<br/>0: Keine Warnungen <br/>1: Wetterwarnungen <br/>2: Warnungen vor markantem Wetter<br/>3: Unwetterwarnungen<br/>4: Warnungen vor extremem Unwetter |
-| `warning_<x>_type` | *(int)* Issued warning type. <br/>More information can be found at https://www.dwd.de/DE/leistungen/opendata/help/warnungen/neu_cap_dwd_profile_changes_de_pdf.pdf |
+| `warning_<x>_type` | *(int)* Issued warning type. <br/>More information can be found [here](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/warning_codes_pdf.pdf?__blob=publicationFile&v=5). |
 | `warning_<x>_name` | *(str)* Warning name correlates with the warning type and represents it as a short string. |
 | `warning_<x>_headline` | *(str)* Official headline of the weather warning. |
 | `warning_<x>_start` | *(time)* Starting time and date (UTC) of the issued warning. |
 | `warning_<x>_end` | *(time)* Ending time and date (UTC) of the issued warning. |
 | `warning_<x>_description` | *(str)* Details for the issued warning. |
 | `warning_<x>_instruction` | *(str)* The DWD sometimes provides helpful information about precautions to take for the issued warning. |
-| `warning_<x>_parameters` | *(list)* A list of additional warning parameters. <br/>More information can be found at https://www.dwd.de/DE/leistungen/opendata/help/warnungen/neu_cap_dwd_profile_changes_de_pdf.pdf |
+| `warning_<x>_parameters` | *(list)* A list of additional warning parameters. <br/>More information can be found [here](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/warning_codes_pdf.pdf?__blob=publicationFile&v=5). |
 | `warning_<x>_color` | *(str)* The DWD color of the warning encoded as `#rrggbb`. |
 
 <div class="note">

@@ -1,5 +1,6 @@
 .feature-cards {
   display: grid;
+  letter-spacing: normal;
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
   margin: auto;
@@ -41,6 +42,15 @@
       }
     }
   }
+}
+
+.sub-title {
+  letter-spacing: normal;
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 49px;
+  margin: 32px;
+  text-align: center;
 }
 
 @media only screen and (max-width: $palm-end) {

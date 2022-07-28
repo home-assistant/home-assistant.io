@@ -2,18 +2,23 @@
 title: Utility Meter
 description: Instructions on how to integrate the Utility Meter into Home Assistant.
 ha_category:
+  - Helper
   - Sensor
 ha_release: 0.87
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_config_flow: true
 ha_codeowners:
   - '@dgomes'
 ha_domain: utility_meter
 ha_platforms:
+  - select
   - sensor
+ha_config_flow: true
+ha_integration_type: helper
 ---
 
-The `utility meter` integration provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
+The Utility Meter integration provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
 
 From a user perspective, utility meters operate in cycles (usually monthly) for billing purposes. This sensor will track a source sensor values, automatically resetting the meter based on the configured cycle. On reset an attribute will store the previous meter value, providing the means for comparison operations (e.g., "did I spend more or less this month?") or billing estimation (e.g., through a sensor template that multiplies the metered value per the charged unit amount).
 
@@ -23,9 +28,44 @@ Some utility providers have different tariffs according to time/resource availab
 Sensors created with this integration are persistent, so values are retained across restarts of Home Assistant. The first cycle for each sensor will be incomplete; a sensor tracking daily usage will start to be accurate the next day after the integration was activated. A sensor tracking monthly usage will present accurate data starting the first of the next month after being added to Home Assistant.
 </div>
 
-## Configuration
+{% include integrations/config_flow.md %}
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have. It can be changed again later.
+Input sensor:
+  description: The sensor entity providing utility readings (energy, water, gas, heating).
+Meter reset cycle:
+  description: >
+    How often to reset the counter. If the offered reset cycles do not match
+    your use case, consider using the YAML configuration below, which allows
+    for creating CRON-style patterns.
+Meter reset offset:
+  description: >
+    Cycle reset occur at the beginning of the period. This option enables
+    the offsetting of these beginnings, counted in days. If you need a more
+    fine-grained offset, consider using the YAML configuration below, which
+    allows for that.
+Supported tariffs:
+  description: >
+    A list of supported tariffs, leave empty if only a single tariff is needed.
+Net consumption:
+  description: >
+    Enable this if you would like to treat the source as a net meter.
+    This will allow your counter to go both positive and negative.
+Delta values:
+  description: >
+    Enable this if the source values are delta values since the last reading instead of absolute values. When this option is enabled, each new value received will be added as-is to the utility meter instead of adding the _difference_ between the new value and previous value.
+{% endconfiguration_basic %}
 
-To enable the Utility Meter Sensor in your installation, add the following to your `configuration.yaml` file:
+If the meter reset cycle and reset offsets are to limited for your use case,
+consider using the YAML configuration below, which support CRON-style patterns
+that provide a greater flexibility.
+
+## YAML Configuration
+
+Alternatively, this integration can be configured and set up manually via YAML
+instead. To enable the Integration sensor in your installation, add the
+following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -40,9 +80,17 @@ source:
   description: The entity ID of the sensor providing utility readings (energy, water, gas, heating).
   required: true
   type: string
+name:
+  description: The friendly name to use in the GUI. 
+  required: false
+  type: string
+unique_id:
+    description: An ID that uniquely identifies the utility_meter. Set this to a unique value to allow customization through the UI.
+    required: false
+    type: string
 cycle:
   description: How often to reset the counter. Valid values are `quarter-hourly`, `hourly`, `daily`, `weekly`, `monthly`, `bimonthly`, `quarterly` and `yearly`. Cycle value `bimonthly` will reset the counter once in two months.
-  required: true
+  required: false
   type: string
 offset:
   description: "Cycle reset occur at the beginning of the period (0 minutes, 0h00 hours, Monday, day 1, January). This option enables the offsetting of these beginnings. Supported formats: `offset: 'HH:MM:SS'`, `offset: 'HH:MM'` and Time period dictionary (see example below)."
@@ -50,6 +98,15 @@ offset:
   default: 0
   type: time
   type: integer
+cron:
+  description: This option is *mutually exclusive* of `cycle` and `offset`. It provides an advanced method of defining when should the counter be reset. It follows common [crontab syntax](https://crontab.guru) but extended to support more advanced scheduling. See the [croniter](https://github.com/kiorky/croniter) library.
+  required: true
+  type: string
+delta_values:
+  description: Set this to True if the source values are delta values since the last reading instead of absolute values. When this option is enabled, each new value received will be added as-is to the utility meter instead of adding the _difference_ between the new value and previous value. For example, you should enable this when the source sensor returns readings like "1", "0.5", "0.75" versus "1", "1.5", "2.25".
+  required: false
+  default: false
+  type: boolean
 net_consumption:
   description: Set this to True if you would like to treat the source as a net meter. This will allow your counter to go both positive and negative.
   required: false
@@ -61,6 +118,10 @@ tariffs:
   default: []
   type: list
 {% endconfiguration %}
+
+<p class='note warning'>
+When using the `offset` configuration parameter, the defined period must not be longer than 28 days.
+</p>
 
 ### Time period dictionary example
 
@@ -93,26 +154,7 @@ Calibrate the Utility Meter. Change the value of a given sensor.
 | `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
 | `value` | no | Number | Value to calibrate the sensor with | 
 
-### Service `utility_meter.next_tariff`
-
-Change the current tariff to the next in the list.
-This service must be called by the user for the tariff switching logic to occur (e.g.,  using an automation)
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
-
-### Service `utility_meter.select_tariff`
-
-Change the current tariff to the given tariff.
-This service must be called by the user for the tariff switching logic to occur (e.g.,  using an automation)
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
-| `tariff` | no | String that is equal to one of the defined tariffs.
-
-# Advanced Configuration
+## Advanced Configuration
 
 The following configuration shows an example where 2 utility_meters (`daily_energy` and `monthly_energy`) track daily and monthly energy consumptions.
 
@@ -121,18 +163,20 @@ Both track the same sensor (`sensor.energy`) which continuously monitors the ene
 4 different sensors will be created, 2 per utility meter and corresponding to each tariff.
 Sensor `sensor.daily_energy_peak`, `sensor.daily_energy_offpeak`, `sensor.monthly_energy_peak` and `sensor.monthly_energy_offpeak` will automatically be created to track the consumption in each tariff for the given cycle.
 
-`utility_meter.daily_energy` and `utility_meter.monthly_energy` entities will track the current tariff and provide a service to change the tariff.
+The `select.daily_energy` and `select.monthly_energy` select entities will track the current tariff and allow changing the tariff.
 
 ```yaml
 utility_meter:
   daily_energy:
     source: sensor.energy
+    name: Daily Energy
     cycle: daily
     tariffs:
       - peak
       - offpeak
   monthly_energy:
     source: sensor.energy
+    name: Monthly Energy
     cycle: monthly
     tariffs:
       - peak
@@ -146,20 +190,46 @@ Assuming your energy provider tariffs are time based according to:
 
 a time based automation can be used:
 
+{% raw %}
+
 ```yaml
 automation:
   trigger:
     - platform: time
       at: "09:00:00"
+      variables:
+        tariff: "peak"
     - platform: time
       at: "21:00:00"
+      variables:
+        tariff: "offpeak"
   action:
-    - service: utility_meter.next_tariff
+    - service: select.select_option
       target:
-        entity_id: utility_meter.daily_energy
-    - service: utility_meter.next_tariff
+        entity_id: select.daily_energy
+      data:
+        option: "{{ tariff }}"
+    - service: select.select_option
       target:
-        entity_id: utility_meter.monthly_energy
+        entity_id: select.monthly_energy
+      data:
+        option: "{{ tariff }}"
+```
+
+{% endraw %}
+
+Assuming your utility provider cycle is offset from the last day of the month
+
+- cycles at 17h00 on the last day of the month
+
+a cron(extended syntax used for last day of month) based utility meter can be used:
+
+```yaml
+utility_meter:
+  monthly_energy:
+    source: sensor.energy
+    name: Monthly Energy
+    cron: "0 17 L * *"
 ```
 
 ## Advanced Configuration for DSMR users
@@ -178,40 +248,58 @@ So, tracking daily and monthly consumption for each sensor, will require setting
 utility_meter:
   daily_energy_offpeak:
     source: sensor.energy_consumption_tarif_1
+    name: Daily Energy (Offpeak)
     cycle: daily
   daily_energy_peak:
     source: sensor.energy_consumption_tarif_2
+    name: Daily Energy (Peak)
     cycle: daily
   daily_gas:
     source: sensor.gas_consumption
+    name: Daily Gas
     cycle: daily
   monthly_energy_offpeak:
     source: sensor.energy_consumption_tarif_1
+    name: Monthly Energy (Offpeak)
     cycle: monthly
   monthly_energy_peak:
     source: sensor.energy_consumption_tarif_2
+    name: Monthly Energy (Peak)
     cycle: monthly
   monthly_gas:
     source: sensor.gas_consumption
+    name: Monthly Gas
     cycle: monthly
 ```
 
-Additionally, you can add template sensors to compute daily and monthly total usage.
+Additionally, you can add template sensors to compute daily and monthly total usage. Important note, in these examples,
+we use the `is_number()` [function](/docs/configuration/templating/#numeric-functions-and-filters) to verify the values
+returned from the sensors are numeric. If this evalutes to false, `None` is returned.
 
 {% raw %}
 
 ```yaml
-sensor:
-  - platform: template
-    sensors:
-      daily_energy:
-        friendly_name: Daily Energy
-        unit_of_measurement: kWh
-        value_template: "{{ states('sensor.daily_energy_offpeak')|float + states('sensor.daily_energy_peak')|float }}"
-      monthly_energy:
-        friendly_name: Monthly Energy
-        unit_of_measurement: kWh
-        value_template: "{{ states('sensor.monthly_energy_offpeak')|float + states('sensor.monthly_energy_peak')|float }}"
+template:
+  - sensor:
+    - name: 'Daily Energy Total'
+      device_class: energy
+      unit_of_measurement: kWh
+      state: >
+        {% if is_number(states('sensor.daily_energy_offpeak')) and is_number(states('sensor.daily_energy_peak')) %}
+          {{ states('sensor.daily_energy_offpeak') | float + states('sensor.daily_energy_peak') | float }}
+        {% else %}
+          None
+        {% endif %}
+
+    - name: 'Monthly Energy Total'
+      device_class: energy
+      unit_of_measurement: kWh
+      state: >
+        {% if is_number(states('sensor.monthly_energy_offpeak')) and is_number(states('sensor.monthly_energy_peak')) %}
+          {{ states('sensor.monthly_energy_offpeak') | float + states('sensor.monthly_energy_peak') | float }}
+        {% else %}
+          None
+        {% endif %}
 ```
 
 {% endraw %}

@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/frontend'
 ha_domain: frontend
+ha_integration_type: integration
 ---
 
 This offers the official frontend to control Home Assistant. This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
@@ -45,7 +46,6 @@ frontend:
     required: false
     type: string
 {% endconfiguration %}
-
 
 ## Defining Themes
 
@@ -99,18 +99,19 @@ frontend:
 
 Theme `happy`: Same as in the previous example. This legacy format is still supported and will behave as before and automatically use the default light theme as the base.
 
-Theme `sad`: By using the new `mode` key plus the subkey `dark` this theme will now be based on the default dark theme. The final theme rules are determined in three steps: First, the default dark theme CSS variables will be applied, then second the CSS variables from the top level of the theme that are mode-independent (`primary-color: steelblue` in this example) and lastly the mode-specific CSS variables will be layered on top (`secondary-text-color: slategray`).
+Theme `sad`: By using the new `modes` key plus the subkey `dark` this theme will now be based on the default dark theme. The final theme rules are determined in three steps: First, the default dark theme CSS variables will be applied, then second the CSS variables from the top level of the theme that are mode-independent (`primary-color: steelblue` in this example) and lastly the mode-specific CSS variables will be layered on top (`secondary-text-color: slategray`).
 
 Note: Since this example theme only has a `dark` mode defined, this mode will automatically be used.
 
 Theme `day_and_night`: This theme has both a `light` and a `dark` mode section. That tells the frontend to allow the user to choose which mode to use from the user profile (default selection is based on the system settings). Independent of the selection, the primary color will be set to green, but based on the chosen mode either the default light or dark theme will be used as the basis for rendering, plus the secondary text color will be either olive or slategray.
 
 ### Theme configuration splitting
+
 As with all configuration, you can either:
 
-- Directly specify the themes inside your `configuration.yaml` file 
-- Put them into a separate file (e.g. `themes.yaml`) and include that in your configuration (`themes: !include themes.yaml`) 
-- Create a dedicated folder (e.g. `my_themes`) and include all files from within this folder (`themes: !include_dir_merge_named my_themes`)
+- Directly specify the themes inside your `configuration.yaml` file.
+- Put them into a separate file (e.g., `themes.yaml`) and include that in your configuration (`themes: !include themes.yaml`).
+- Create a dedicated folder (e.g., `my_themes`) and include all files from within this folder (`themes: !include_dir_merge_named my_themes`).
 
 For more details about splitting up the configuration into multiple files, see [this page](/docs/configuration/splitting_configuration/).
 
@@ -120,10 +121,10 @@ Check our [community forums](https://community.home-assistant.io/c/projects/them
 
 There are two themes-related services:
 
- - `frontend.reload_themes`: Reloads theme configuration from your `configuration.yaml` file.
- - `frontend.set_theme`: Sets backend-preferred theme name.
+- `frontend.reload_themes`: Reloads theme configuration from your `configuration.yaml` file.
+- `frontend.set_theme`: Sets backend-preferred theme name.
 
- ### Service `set_theme`
+### Service `set_theme`
 
 | Service data attribute | Description                                                                                         |
 | ---------------------- | --------------------------------------------------------------------------------------------------- |

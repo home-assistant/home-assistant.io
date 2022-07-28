@@ -15,6 +15,7 @@ ha_domain: omnilogic
 ha_platforms:
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 [Hayward OmniLogic](https://www.hayward-pool.com/shop/en/pools/omnilogic-i-auomni--1) smart pool and spa technology control.

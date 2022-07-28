@@ -9,6 +9,7 @@ ha_domain: xiaomi
 ha_platforms:
   - camera
   - device_tracker
+ha_integration_type: integration
 ---
 
 The `Xiaomi` camera platform allows you to utilize Xiaomi Cameras within Home Assistant.

@@ -18,6 +18,7 @@ ha_platforms:
   - sensor
   - switch
   - vacuum
+ha_integration_type: integration
 ---
 
 The Neato integration allows you to control your [Neato Botvac Connected Robots][botvac-connected].
@@ -31,44 +32,37 @@ There is support for the following platform types within Home Assistant:
 
 ## Prerequisites
 
-1. Visit [the Neato Developer Network](https://developers.neatorobotics.com/applications) and create a new app.
+Visit [the Neato Developer Network](https://developers.neatorobotics.com/applications) and create a new app.
 
 <div class='note'>
 
 You will have to enter a name, a description and your redirect URL.
 
-If Home Assistant runs on `https://hass.example.com` your redirect URL would be `https://hass.example.com/auth/external/callback`.
-
-Please note that your instance must be accessible via HTTPS. However, your instance does not need to be exposed to the Internet.
+Use `https://my.home-assistant.io/redirect/oauth` as the redirect URL.
 
 You have to select all three scopes (`public_profile`, `control_robots` and `maps`).
 
 </div>
 
-2. Add the newly created `client_id` and `client_secret` to your configuration.yaml:
+{% details "I have manually disabled My Home Assistant" %}
 
-```yaml
-# Example configuration.yaml entry
-neato:
-  client_id: YOUR_CLIENT_ID
-  client_secret: YOUR_CLIENT_SECRET
-```
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
+instead.
 
-3. Restart Home Assistant
-4. Make sure you visit Home Assistant via a the same domain you used as `redirect_url` before
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
 
-{% configuration %}
-client_id:
-  description: Client ID for the Neato account.
-  required: true
-  type: string
-client_secret:
-  description: Client Secret for the Neato account.
-  required: true
-  type: string
-{% endconfiguration %}
+Internal examples: `https://192.168.0.2:8123/auth/external/callback`, `https://homeassistant.local:8123/auth/external/callback`." 
+
+Please note that your instance must be accessible via HTTPS. However, your
+instance does not need to be exposed to the Internet.
+
+{% enddetails %}
 
 {% include integrations/config_flow.md %}
+
+The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
 <div class='note'>
 
@@ -125,7 +119,7 @@ Some information about the capabilities might be found on the [Neato Developer P
 
 Try to restart the vacuum and wait about 5 minutes to see if it is no longer unavailable. If you are still having issues check the Neato app and make sure your robot is connected and working. If it is not then follow the steps in the app to reset your robot and give it the same name as before then restart Home Assistant.
 
-### My robot is not deteced by Home Assistant
+### My robot is not detected by Home Assistant
 
 Please check your logs if there are any warnings. When there is a message about your robot being offline, check if it is connected to the internet and available though the app. If there is a message about a bad response, try to reset this robot via your app.
 

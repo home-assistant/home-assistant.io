@@ -2,6 +2,7 @@
 title: SolarEdge
 description: Instructions on how to integrate SolarEdge sensor within Home Assistant.
 ha_category:
+  - Energy
   - Sensor
 ha_release: 0.85
 ha_iot_class: Cloud Polling
@@ -12,6 +13,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@frenck'
+ha_integration_type: integration
 ---
 
 The `solaredge` platform uses the [SolarEdge Monitoring API](https://www.solaredge.com/sites/default/files/se_monitoring_api.pdf) to allow you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
@@ -32,11 +34,11 @@ In case you would like to convert the values for example to kWh instead of the d
 
 ```yaml
 # Example configuration.yaml entry for template platform
-sensor:
-  platform: template
-  sensors:
-    solaredge_energy_this_year_template:
-      value_template: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
+template:
+  - sensor:
+    - name: solaredge_energy_this_year_template
+      unit_of_measurement: kWh
+      state: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
 ```
 
 {% endraw %}

@@ -2,10 +2,10 @@
 title: LCN
 description: Instructions on how to integrate LCN components with Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Climate
   - Cover
+  - Hub
   - Light
   - Scene
   - Sensor
@@ -23,6 +23,7 @@ ha_platforms:
   - scene
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `lcn` integration for Home Assistant allows you to connect to [LCN](https://www.lcn.eu/) hardware devices.
@@ -42,8 +43,8 @@ There is currently support for the following device types within Home Assistant:
 
 <div class='note'>
 
-  Please note: Besides the implemented platforms, the `lcn` integration offers a variety of [service calls](#services).
-  These service calls cover functionalities of the LCN system, which cannot be represented by the platform implementations.
+  The implemented platforms do not cover the whole functionality of the LCN system.
+  Therefore the `lcn` integration offers a variety of [events](#events), [device triggers](#device-triggers) and [service calls](#services).
   They are ideal to be used in automation scripts or for the `template` platforms.
 
 </div>
@@ -483,8 +484,10 @@ The `lcn` sensor platform allows the monitoring of the following [LCN](https://w
 The sensor can be used in automation scripts or in conjunction with `template` platforms.
 
 <div class='note'>
+
   Ensure that the LCN module is configured properly to provide the requested value.
   Otherwise, the module might show unexpected behavior or return error messages.
+
 </div>
 
 ### Switch
@@ -494,12 +497,229 @@ The `lcn` switch platform allows the control of the following [LCN](https://www.
 - Output ports
 - Relays
 
+## Additional Features
+
+### Transponder, fingerprint sensor and code lock
+
+To use LCN transponders, fingerprint sensors or code locks ensure that the corresponding module's I-port property
+is enabled in the LCN-PRO software and properly configured.
+LCN transponders, fingerprints and code locks are identified by a six value hexadecimal code (e.g. *123abc*).
+If a code is received a corresponding event ([transponder event](#event-lcn_transponder), [fingerprint event](#event-lcn_fingerprint), [codelock event](#event-lcn_codelock))
+is fired and can be used to trigger an automation.
+Alternatively, you can use the corresponding [device triggers](#device-triggers).
+
+Example:
+
+This example shows how the `event_data` can be extracted and used in a condition using Home Assistant's templating engine.
+Trigger on a transponder event and ensure that the received code is in the given list:
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    - platform: event
+      event_type: lcn_transponder
+  condition: "{{ trigger.event.data.code in ['aabbcc', 'ddeeff', '112233'] }}"
+  action:
+    ...
+```
+
+{% endraw %}
+
+Further examples can be found in the [event section](#events).
+
+### Remote control
+
+To use LCN remote controls (e.g., LCN-RT or LCN-RT16) ensure that the corresponding module's I-port property
+is enabled in the LCN-PRO software and its behavior is properly configured as "IR access control".
+With this configuration each remote control is identified by a six value hexadecimal code (e.g. *123abc*).
+If a command from a remote control is received a corresponding event ([transponder event](#event-lcn_transponder))
+is fired and can be used to trigger an automation. Along with the transmitted code, the pressed key and the key action
+are transmitted.
+Alternatively, you can use the corresponding [device triggers](#device-triggers).
+
+Examples can be found in the [event section](#events).
+
+### LCN commands addressed to PCHK host (Home Assistant)
+
+A LCN module can not only be programmed to send commands to other modules/groups but also to the PCHK host configured
+in the LCN integration. These commands are directly passed to Home Assistant and can be evaluated. Only the *send keys*
+(former) command is supported.
+
+Within LCN-PRO program the *send keys* command (only "A-C former command" is supported) to a key. For the target address
+manually enter the PCHK host id (default: 4). Select the keys and key actions as desired.
+
+When a *send keys* command is received, the LCN integration will fire a [send keys event](#event-lcn_send_keys) for each
+key configured. These events can be used to trigger an automation.
+Alternatively, you can use the corresponding [device triggers](#device-triggers).
+
+Examples can be found in the [event section](#events).
+
+<div class='note'>
+
+  Only commands sent from physical buttons of a module are evaluated. The "Test command" button in the LCN-PRO software
+  is not evaluated and therefore cannot be used for testing purposes.
+
+</div>
+
+## Events
+
+There are several functionalities of the LCN system which are not exposed as regular entities by the integration, but as events.
+Examples are button presses from remote controls (transmitters), transponder findings, fingerprint sensors and so called *send keys* events.
+
+<div class='note'>
+
+  If you find it difficult to deal with events in scripted automations, you can also use [device triggers](#device-triggers)
+  which offer automation design via the UI.
+
+</div>
+
+All events have some common attributes in their `event_data` which identify the sending LCN hardware module (e.g., the module the transponder is connected to):
+
+| Event payload | Description  | Values |
+| ------------- | -----------  | ------ |
+| `device_id` | Internal device id of LCN module | string |
+| `segment_id` | Module's segment id | 5..128 |
+| `module_id` | Module id | 5..254 |
+
+In addition, every event has its own special attributes which are described below.
+All special attributes are optional and can be used as supplementary filters.
+
+### Event: `lcn_transmitter`
+
+The `lcn_transmitter` event is fired if a LCN remote control command is received.
+
+| Special payload | Description  | Values |
+| --------------- | -----------  | ------ |
+| `code` | Transmitter code | string (6 hex values) |
+| `level` | Key level | 0..4 |
+| `key` | Key | 0..4 |
+| `action` | Key action | `hit`, `make`, `break` |
+
+Example:
+
+The trigger will fire if any key on the remote control with code *123abc* is `hit` as long as the
+receiver hardware is connected to module 7 in segment 0.
+
+```yaml
+automation:
+  trigger:
+    - platform: event
+      event_type: lcn_transmitter
+      event_data:
+        segment_id: 0
+        module_id: 7
+        code: 123abc
+        action: hit
+```
+
+### Event: `lcn_transponder`
+
+The `lcn_transponder` event is fired if a LCN transponder command is received.
+
+| Special payload | Description  | Values |
+| --------------- | -----------  | ------ |
+| `code` | Transponder code | string (6 hex values) |
+
+Example:
+
+The trigger will fire if the transponder with code *123abc* was detected at
+any hardware module.
+
+```yaml
+automation:
+  trigger:
+    - platform: event
+      event_type: lcn_transponder
+      event_data:
+        code: 123abc
+```
+
+### Event: `lcn_fingerprint`
+
+The `lcn_fingerprint` event is fired if a LCN fingerprint command is received.
+
+| Special payload | Description  | Values |
+| --------------- | -----------  | ------ |
+| `code` | Fingerprint code | string (6 hex values) |
+
+Example:
+
+The trigger will fire if the fingerprint with code *123abc* was detected at
+any hardware module.
+
+```yaml
+automation:
+  trigger:
+    - platform: event
+      event_type: lcn_fingerprint
+      event_data:
+        code: 123abc
+```
+
+### Event: `lcn_codelock`
+
+The `lcn_codelock` event is fired if a LCN code lock command is received.
+
+| Special payload | Description  | Values |
+| --------------- | -----------  | ------ |
+| `code` | Code lock code | string (6 hex values) |
+
+Example:
+
+The trigger will fire if the code lock with code *123abc* was activated at
+any hardware module.
+
+```yaml
+automation:
+  trigger:
+    - platform: event
+      event_type: lcn_codelock
+      event_data:
+        code: 123abc
+```
+
+### Event: `lcn_send_keys`
+
+The `lcn_send_keys` event is fired if the PCHK host receives a *send keys* command.
+
+| Special payload | Description  | Values |
+| --------------- | -----------  | ------ |
+| `key` | LCN Key | a1..c8 |
+| `action` | Key action | `hit`, `make`, `break` |
+
+Example:
+
+The trigger will fire if the PCHK host receives a command that issues a `hit` of
+key `a1`.
+
+```yaml
+automation:
+  trigger:
+    - platform: event
+      event_type: lcn_send_keys
+      event_data:
+        key: a1
+        action: hit
+```
+
+## Device triggers
+
+To simplify using events in automations the LCN integration exposes them as device triggers.
+Those device triggers can be selected from the automation editor within Home Assistant.
+
+After creating a new automation select *Device* as trigger type and search for the module which is
+supposed to cause the event in the device list. You may select the trigger type and configure its
+attributes. If an attribute is optional it is considered as a supplementary filter for the trigger.
+For an explanation of the attributes refer to the corresponding [events](#events).
+
 ## Services
 
 In order to directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following service calls can be used.
-Refer to the (Services Calls)[/docs/scripts/service-calls] page for examples on how to use them.
+Refer to the [Services Calls](/docs/scripts/service-calls) page for examples on how to use them.
 
-### Service `output_abs`
+### Service: `output_abs`
 
 Set absolute brightness of output port in percent.
 
@@ -513,7 +733,7 @@ Set absolute brightness of output port in percent.
 Example:
 
 ```yaml
-service: output_abs
+service: lcn.output_abs
 data:
   address: myhome.0.7
   output: output1
@@ -521,7 +741,7 @@ data:
   transition: 0
 ```
 
-### Service `output_rel`
+### Service: `output_rel`
 
 Set relative brightness of output port in percent.
 
@@ -535,14 +755,14 @@ Set relative brightness of output port in percent.
 Example:
 
 ```yaml
-service: output_rel
+service: lcn.output_rel
 data:
   address: myhome.0.7
   output: output1
   brightness: 30
 ```
 
-### Service `output_toggle`
+### Service: `output_toggle`
 
 Toggle output port.
 
@@ -555,14 +775,14 @@ Toggle output port.
 Example:
 
 ```yaml
-service: output_toggle
+service: lcn.output_toggle
 data:
   address: myhome.0.7
   output: output1
   transition: 0
 ```
 
-### Service `relays`
+### Service: `relays`
 
 Set the relays status. The relays states are defined as a string with eight characters.
 Each character represents the state change of a relay (1=on, 0=off, t=toggle, -=nochange).
@@ -577,13 +797,13 @@ Example states:  `t---001-`
 Example:
 
 ```yaml
-service: relays
+service: lcn.relays
 data:
   address: myhome.0.7
   state: t---001-
 ```
 
-### Service `led`
+### Service: `led`
 
 Set the LED status.
 
@@ -595,14 +815,14 @@ Set the LED status.
 Example:
 
 ```yaml
-service: led
+service: lcn.led
 data:
   address: myhome.0.7
   led: led6
   state: blink
 ```
 
-### Service `var_abs`
+### Service: `var_abs`
 
 Set the absolute value of a variable or setpoint.
 If `value` is not defined, it is assumed to be 0.
@@ -618,7 +838,7 @@ If `unit_of_measurement` is not defined, it is assumed to be `native`.
 Example:
 
 ```yaml
-service: var_abs
+service: lcn.var_abs
 data:
   address: myhome.0.7
   variable: var1
@@ -627,11 +847,11 @@ data:
 ```
 
 <div class='note'>
-  Ensure that the LCN module is configured properly to provide acces to the defined variable.
+  Ensure that the LCN module is configured properly to provide access to the defined variable.
   Otherwise the module might show unexpected behaviors or return error messages.
 </div>
 
-### Service `var_rel`
+### Service: `var_rel`
 
 Set the relative value of a variable or setpoint.
 If `value` is not defined, it is assumed to be 0.
@@ -647,7 +867,7 @@ If `unit_of_measurement` is not defined, it is assumed to be `native`.
 Example:
 
 ```yaml
-service: var_rel
+service: lcn.var_rel
 data:
   address: myhome.0.7
   variable: var1
@@ -660,7 +880,7 @@ data:
   Otherwise the module might show unexpected behavior or return error messages.
 </div>
 
-### Service `var_reset`
+### Service: `var_reset`
 
 Reset value of variable or setpoint.
 
@@ -672,7 +892,7 @@ Reset value of variable or setpoint.
 Example:
 
 ```yaml
-service: var_reset:
+service: lcn.var_reset
 data:
   address: myhome.0.7
   variable: var1
@@ -683,7 +903,7 @@ data:
   Otherwise the module might show unexpected behavior or return error messages.
 </div>
 
-### Service `lock_regulator`
+### Service: `lock_regulator`
 
 Locks a regulator setpoint.
 If `state` is not defined, it is assumed to be `False`.
@@ -697,14 +917,14 @@ If `state` is not defined, it is assumed to be `False`.
 Example:
 
 ```yaml
-service: lock_regulator
+service: lcn.lock_regulator
 data:
   address: myhome.0.7
   setpoint: r1varsetpoint
   state: true
 ```
 
-### Service `send_keys`
+### Service: `send_keys`
 
 Send keys (which executes bound commands).
 The keys attribute is a string with one or more key identifiers. Example: `a1a5d8`
@@ -724,7 +944,7 @@ Examples:
 
 Send keys immediately:
 ```yaml
-service: send_keys
+service: lcn.send_keys
 data:
   address: myhome.0.7
   keys: a1a5d8
@@ -733,7 +953,7 @@ data:
 
 Send keys deferred:
 ```yaml
-service: send_keys
+service: lcn.send_keys
 data:
   address: myhome.0.7
   keys: a1a5d8
@@ -741,7 +961,7 @@ data:
   time_unit: s
 ```
 
-### Service `lock_keys`
+### Service: `lock_keys`
 
 Locks keys.
 If the table is not defined, it is assumed to be table `a`.
@@ -761,7 +981,7 @@ Examples:
 
 Lock keys forever:
 ```yaml
-service: lock_keys
+service: lcn.lock_keys
 data:
   address: myhome.0.7
   table: a
@@ -770,7 +990,7 @@ data:
 
 Lock keys for a specified time period:
 ```yaml
-service: lock_keys
+service: lcn.lock_keys
 data:
   address: myhome.0.7
   state: 1---t0--
@@ -778,7 +998,7 @@ data:
   time_unit: s
 ```
 
-### Service `dyn_text`
+### Service: `dyn_text`
 
 Send dynamic text to LCN-GTxD displays.
 The displays support four rows for text messages.
@@ -794,14 +1014,14 @@ Each row can be set independently and can store up to 60 characters (encoded in 
 Example:
 
 ```yaml
-service: dyn_text
+service: lcn.dyn_text
 data:
   address: myhome.0.7
   row: 1
   text: "text in row 1"
 ```
 
-### Service `pck`
+### Service: `pck`
 
 Send arbitrary PCK command. Only the command part of the PCK command has to be specified in the `pck` string.
 
@@ -813,7 +1033,7 @@ Send arbitrary PCK command. Only the command part of the PCK command has to be s
 Example:
 
 ```yaml
-service: pck
+service: lcn.pck
 data:
   address: myhome.0.7
   pck: PIN4

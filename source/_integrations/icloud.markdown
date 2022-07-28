@@ -14,6 +14,7 @@ ha_domain: icloud
 ha_platforms:
   - device_tracker
   - sensor
+ha_integration_type: integration
 ---
 
 The `icloud` integration allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices.
@@ -33,13 +34,15 @@ You may receive an email and a notification from Apple saying that someone has l
 For the notification, press "Allow", then "OK".
 </div>
 
-If two-step authentication is enabled for your iCloud account, some time after Home Assistant startup the integration will ask to enter the verification code you receive on your device via a notification in the Home Assistant UI. The duration of this authentication is determined by Apple, so you will need to verify your account every now and then.
-
 To prevent excessive battery drainage, a dynamic interval is used for each individual device instead of a fixed interval for all devices linked to one account. The dynamic interval is based on the current zone of a device, the distance towards home and the battery level of the device.
+
+## Two Factor Authentication
+
+If two-step authentication is enabled for your iCloud account, some time after Home Assistant startup the integration will ask to enter the verification code you receive on your device via a notification in the Home Assistant UI. The duration of this authentication is determined by Apple, so you will need to verify your account every now and then.
 
 ## In case of troubleshooting
 
-Go into your Home Assistant configuration `.storage` folder and delete the "icloud" folder, then retry.
+Go into your Home Assistant configuration `.storage` folder and delete the `icloud` folder, then retry.
 
 ## Platforms
 

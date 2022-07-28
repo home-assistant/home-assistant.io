@@ -6,6 +6,9 @@ ha_category:
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_domain: light
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 This integration allows you to track and control various light bulbs. Read the integration documentation for your particular light hardware to learn how to enable it.
@@ -22,7 +25,7 @@ profile,color_x,color_y,brightness,transition
 
 The field transition is optional and can be omitted.
 
-The `.default` suffix should be added to the entity identifier of each light to define a default value, e.g., for `light.ceiling_2` the `profile` field is `light.ceiling_2.default`. To define a default for all lights, the identifier `group.all_lights.default` can be used. Individual settings always supercede the `all_lights` default setting.
+The `.default` suffix should be added to the entity identifier of each light to define a default value, e.g., for `light.ceiling_2` the `profile` field is `light.ceiling_2.default`. To define a default for all lights, the identifier `group.all_lights.default` can be used. Individual settings always supersede the `all_lights` default setting.
 
 <div class='note'>
 
@@ -38,7 +41,7 @@ Most lights do not support all attributes. You can check the integration documen
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of lights. To target all the lights use `all` as `entity_id`.
+| `entity_id`  | no  | String or list of strings that point at `entity_id`s of lights. To target all lights, set `entity_id` to `all`.
 | `transition` | yes | Number that represents the time (in seconds) the light should take to transition to the new state.
 | `profile` | yes | String with the name of one of the [built-in profiles](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv) (relax, energize, concentrate, reading) or one of the custom profiles defined in `light_profiles.csv` in the current working directory. Light profiles define an xy color, brightness and a transition value (if no transition is desired, set to 0 or leave out the column entirely). If a profile is given, and a brightness is set, then the profile brightness will be overwritten.
 | `hs_color` | yes | A list containing two floats representing the hue and saturation of the color you want the light to be. Hue is scaled 0-360, and saturation is scaled 0-100.
@@ -53,6 +56,7 @@ Most lights do not support all attributes. You can check the integration documen
 | `brightness_pct`| yes | Alternatively, you can specify brightness in percent (a number between 0 and 100), where 0 means the light is off, 1 is the minimum brightness and 100 is the maximum brightness supported by the light.
 | `brightness_step` | yes | Change brightness by an amount. Should be between -255..255.
 | `brightness_step_pct` | yes | Change brightness by a percentage. Should be between -100..100.
+| `white` | yes | Set the light to white mode and change its brightness, where 0 means the light is off, 1 is the minimum brightness and 255 is the maximum brightness supported by the light. Note that `white` does not have a corresponding state attribute, the `color_mode` state attribute will to `white` and the `brightness` state attribute will be set to the requested brightness.
 | `flash` | yes | Tell light to flash, can be either value `short` or `long`.
 | `effect`| yes | Applies an effect such as `colorloop` or `random`.
 
@@ -106,7 +110,7 @@ Turns one or multiple lights off.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of lights. To target all the lights use all as `entity_id`.
+| `entity_id`  | no  | String or list of strings that point at `entity_id`s of lights. To target all lights, set `entity_id` to `all`.
 | `transition` | yes | Integer that represents the time the light should take to transition to the new state in seconds.
 
 ### Service `light.toggle`

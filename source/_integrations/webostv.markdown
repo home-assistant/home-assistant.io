@@ -4,14 +4,19 @@ description: Instructions on how to integrate a LG webOS Smart TV within Home As
 ha_category:
   - Media Player
   - Notifications
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_release: 0.18
 ha_codeowners:
   - '@bendavid'
+  - '@thecode'
 ha_domain: webostv
+ha_config_flow: true
+ha_ssdp: true
 ha_platforms:
   - media_player
   - notify
+ha_quality_scale: platinum
+ha_integration_type: integration
 ---
 
 The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS Smart TV.
@@ -21,93 +26,15 @@ There is currently support for the following device types within Home Assistant:
 - [Media Player](#media-player)
 - [Notifications](#notifications)
 
-To begin with enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](https://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others).
+To begin with enable *LG Connect Apps* feature in *Network* settings of the TV.
 
-Once basic configuration is added to your `configuration.yaml` file. A notification should be visible in the frontend's **Notification** section. Follow the instructions and accept the pairing request on your TV.
-
-Pairing information will be saved to a configuration file `webostv.conf` in the Home Assistant configuration directory. This process is IP address-sensitive, in case the IP address of your TV would change in future.
-
-## Configuration
-
-To add a TV to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-webostv:
-```
-
-{% configuration %}
-host:
-  description: "The IP of the LG webOS Smart TV, e.g., `192.168.0.10`."
-  required: true
-  type: string
-name:
-  description: The name you would like to give to the LG webOS Smart TV.
-  required: false
-  type: string
-turn_on_action:
-  description: Defines an [action](/docs/automation/action/) to turn the TV on.
-  required: false
-  type: string
-customize:
-  description: List of options to customize.
-  required: false
-  type: map
-  keys:
-    sources:
-      description: List of hardware and webOS App inputs.
-      required: false
-      type: list
-{% endconfiguration %}
-
-### Full configuration example
-
-A full configuration example will look like the sample below:
-
-```yaml
-# Example configuration.yaml entry
-webostv:
-  host: 192.168.0.10
-  name: Living Room TV
-  turn_on_action:
-    service: persistent_notification.create
-    data:
-      message: "Turn on action"
-  customize:
-    sources:
-      - livetv
-      - youtube
-      - makotv
-      - netflix
-
-media_player:
-
-notify:
-```
-
-Avoid using `[ ]` in the `name:` of your device.
-
-### Using multiple TVs
-
-It is also possible to use multiple TVs with this integration.
-
-```yaml
-# Example configuration.yaml entry with multiple TVs
-webostv:
-  - name: Living Room TV
-    host: 192.168.1.100
-  - name: Bedroom TV
-    host: 192.168.1.101
-```
-
-Please note, the above provides a minimal example, however, all options are
-available for each individual TV.
+{% include integrations/config_flow.md %}
 
 ## Turn on action
 
-Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, like HDMI-CEC or WakeOnLan.
+Home Assistant is able to turn on an LG webOS Smart TV if you specify an action, provided by an integration like [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/).
 
-Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](https://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others) (or *Mobile App* in *General* settings for older models) (*may vary by version).
+Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable the *LG Connect Apps* feature in *Network* settings of the TV (or *Mobile App* in *General* settings for older models) (*may vary by version).
 
 On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to Settings > General > Mobile TV On > Turn On Via WiFi [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
 
@@ -115,31 +42,29 @@ On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by 
 This usually only works if the TV is connected to the same network. Routing the WakeOnLan packet to a different subnet requires special configuration on your router or may not be possible.
 </div>
 
+You can create an automation from the user interface, from the device create a new automation and select the  **Device is requested to turn on** automation.
+Automations can also be created using an automation action:
+
 ```yaml
 # Example configuration.yaml entry
 wake_on_lan: # enables `wake_on_lan` integration
 
-webostv:
-  host: 192.168.0.10
-  #other settings
-  turn_on_action:
-    service: wake_on_lan.send_magic_packet
-    data:
-      mac: AA-BB-CC-DD-EE-FF
-      broadcast_address: 11.22.33.44
-
-media_player:
-
-notify:
+automation:
+  - alias: "Turn On Living Room TV with WakeOnLan"
+    trigger:
+      - platform: webostv.turn_on
+        entity_id: media_player.lg_webos_smart_tv
+    action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: aa:bb:cc:dd:ee:ff
 ```
 
 Any other [actions](/docs/automation/action/) to power on the device can be configured.
 
 ## Sources
 
-To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while its powered on head to the **Developer Tools** > **States**, find your `media_player.<name>` and use the sources listed in `source_list:` remembering to split them per line into your `sources:` configuration. If you leave the `sources:` configuration empty, the `media_player` will offer all sources of the TV. If you list a subset of sources in the configuration, only those will be displayed.
-
-Note: it is normal and expected behavior that for a switched-off TV only the Live TV source is offered in the `media_player`, even if you have configured other sources as well. These will show up as soon as the TV is switched on.
+It is possible to select which sources will be available to the media player. When the TV is powered on press the **CONFIGURE** button in the integration card and select the sources to enable. If you don't select any source the media player will offer all of the sources of the TV.
 
 ## Change channel through play_media service
 
@@ -195,7 +120,7 @@ Available services: `button`, `command`
 | Service data attribute | Optional | Description                                                                                                                                                                                                                                                                            |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                                                                                                                                |
-| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
+| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `NETFLIX`, `GUIDE`, `AMAZON`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
 
 ### Service `webostv.command`
 

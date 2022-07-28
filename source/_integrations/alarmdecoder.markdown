@@ -8,13 +8,12 @@ ha_category:
 ha_release: 0.43
 ha_iot_class: Local Push
 ha_domain: alarmdecoder
-ha_codeowners:
-  - '@ajschmidt8'
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 The `alarmdecoder` integration will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Nu Tech Software Solutions, known as the AlarmDecoder. The AlarmDecoder devices provide a serial, TCP/IP socket or USB interface to the alarm panel, where it emulates an alarm keypad.
@@ -42,7 +41,7 @@ You will be prompted to select a protocol (i.e. `socket` or `serial`). Depending
 
 ## Settings
 
-Once AlarmDecoder has been set up according to the instructions above, the arming settings and zones can be configured by selecting _Options_ on the _AlarmDecoder_ card on the **{% my integrations title="Configuration -> Integrations" %}** page.
+Once AlarmDecoder has been set up according to the instructions above, the arming settings and zones can be configured by selecting _Options_ on the _AlarmDecoder_ card on the **{% my integrations title="Settings -> Devices & Services" %}** page.
 
 ### Arming Settings
 
@@ -132,10 +131,14 @@ Using a combination of the available services and attributes, you can create swi
       value_template: "{{ is_state_attr('alarm_control_panel.alarm_panel', 'chime', true) }}"
       turn_on:
         service: alarmdecoder.alarm_toggle_chime
+        target:
+          entity_id: alarm_control_panel.alarm_panel
         data:
           code: !secret alarm_code
       turn_off:
         service: alarmdecoder.alarm_toggle_chime
+        target:
+          entity_id: alarm_control_panel.alarm_panel
         data:
           code: !secret alarm_code
       icon_template: >-
@@ -190,7 +193,6 @@ The tables below show the key press sequences used for arming for the different 
 The `chr(4)` and `chr(5)` sequences below are equivalent to pressing the <em>Stay</em> and <em>Away</em> keypad keys respectively (as outlined in the <a href='http://www.alarmdecoder.com/wiki/index.php/Protocol#Special_Keys'>AlarmDecoder documentation</a>).
 
 </div>
-
 
 | Mode                                                    | Key Sequence                   |
 | ------------------------------------------------------- | ------------------------------ |

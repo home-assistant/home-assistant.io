@@ -8,7 +8,12 @@ ha_iot_class: Cloud Polling
 ha_domain: uscis
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
+
+<div class='note warning'>
+  This integration is pending removal from Home Assistant and will be no longer available as of Home Assistant 2022.10.
+</div>
 
 The `uscis` sensor integration allows you get updates on your USCIS case using your case/receipt number. The sensor gets the case information from the [USCIS Website](https://egov.uscis.gov/casestatus/landing.do).
 

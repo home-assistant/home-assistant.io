@@ -1,7 +1,8 @@
 ---
 title: Kostal Plenticore Solar Inverter
 description: Instructions on how to integrate Kostal Plenticore solar inverter within Home Assistant.
-ha_category: Energy
+ha_category:
+  - Energy
 ha_release: 2021.5
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -9,7 +10,12 @@ ha_codeowners:
   - '@stegm'
 ha_domain: kostal_plenticore
 ha_platforms:
+  - diagnostics
+  - number
+  - select
   - sensor
+  - switch
+ha_integration_type: integration
 ---
 
 The Kostal Plenticore integration allows you to get data from [Kostal Plenticore](https://www.kostal-solar-electric.com/) solar inverters and integrate them into your Home Assistant installation. It allows you also to change some of settings values of the inverter.
@@ -43,6 +49,12 @@ The following sensors are available in the library:
 | DC1 Power               | W    | Power of string 1. |
 | DC2 Power               | W    | Power of string 2. |
 | DC3 Power               | W    | Power of string 3. |
+| DC1 Voltage             | V    | Voltage of string 1. |
+| DC2 Voltage             | V    | Voltage of string 2. |
+| DC3 Voltage             | V    | Voltage of string 3. |
+| DC1 Current             | A    | Current of string 1. |
+| DC2 Current             | A    | Current of string 2. |
+| DC3 Current             | A    | Current of string 3. |
 | PV to Battery Power     | W    | Power used to charge the battery. |
 | Energy Manager State    |      | State of the energy manager. |
 | Battery Cycles          |      | Number of full charge/discharge cylces. |
@@ -88,6 +100,18 @@ The following sensors are available in the library:
 | Energy Yield Month      | kWh  | Energy yield of the current month. |
 | Energy Yield Year       | kWh  | Energy yield of the current year. |
 | Energy Yield Total      | kWh  | Energy yield total. |
+| Energy Discharge to Grid Day    | kWh  | Energy discharged to the Grid of the current day. |
+| Energy Discharge to Grid Month  | kWh  | Energy discharged to the Grid of the current month. |
+| Energy Discharge to Grid Year   | kWh  | Energy discharged to the Grid of the current year. |
+| Energy Discharge to Grid Total  | kWh  | Energy discharged to the Grid total. |
+| Battery Charge from Grid Day    | kWh  | Energy charged to the battery from the Grid of the current day. |
+| Battery Charge from Grid Month  | kWh  | Energy charged to the battery from the Grid of the current month. |
+| Battery Charge from Grid Year   | kWh  | Energy charged to the battery from the Grid of the current year. |
+| Battery Charge from Grid Total  | kWh  | Energy charged to the battery from the Grid total. |
+| Battery Charge from PV Day    | kWh  | Energy charged to the battery from the PV of the current day. |
+| Battery Charge from PV Month  | kWh  | Energy charged to the battery from the PV of the current month. |
+| Battery Charge from PV Year   | kWh  | Energy charged to the battery from the PV of the current year. |
+| Battery Charge from PV Total  | kWh  | Energy charged to the battery from the PV total. |
 
 ### Settings Sensors
 
@@ -96,8 +120,6 @@ The following sensors are available in the library:
 | Name                    | Unit | RW | Description   |
 |-------------------------|------|----|:--------------|
 | Battery Dynamic Soc     |      | RW | Dynamic SoC. |
-| Battery min Home Consumption | W    | RW | Min. home consumption power for battery. |
-| Battery min Soc         | %    | RW | Min. SoC of battery. |
 | Battery Smart Control   |      | RW | Enable smart battery control |
 | Battery Strategy        |      | RW | Battery strategy. |
 | Shadow Management       |      | RW | PV string shadow management. |
@@ -106,22 +128,11 @@ The following sensors are available in the library:
 Setting values change less often, therefore these sensors are only polled every 5 minutes.
 </div>
 
-## Services
+## Number
 
-### Service `kostal_plenticore.write_setting_value`
+The following Number entities are available. The values could also be change from Home Assistant.
 
-Write a new value to a setting.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String that point to a setting `entity_id`.
-| `value` | no  | The new value to write to the setting.
-
-Example:
-
-Set the minimal SoC of the battery:
-
-```yaml
-entity_id: sensor.plenticore_battery_min_soc
-value: 10
-```
+| Name                    | Unit | RW | Description   |
+|-------------------------|------|----|:--------------|
+| Battery min Home Consumption | W    | RW | Min. home consumption power for battery. |
+| Battery min Soc         | %    | RW | Min. SoC of battery. |

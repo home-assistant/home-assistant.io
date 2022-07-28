@@ -10,6 +10,7 @@ ha_codeowners:
   - '@DarkFox'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `rejseplanen` sensor will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
@@ -162,7 +163,7 @@ The sensor can filter the timetables by one or more routes, directions and types
 | `type` | Transport type |
 | `route` | Route code |
 | `direction` | Destination stop |
-| `final_stop` | Final stop (if departure doesn't go all the way to the destionation stop) |
+| `final_stop` | Final stop (if departure doesn't go all the way to the destination stop) |
 | `stop` | Departure stop |
 | `stop_id` | ID of departure stop |
 | `track` | Departure track (if available) |
@@ -180,6 +181,6 @@ The sensor can filter the timetables by one or more routes, directions and types
 | `type` | Transport type |
 | `route` | Route code |
 | `direction` | Destination stop |
-| `final_stop` | Final stop (if departure doesn't go all the way to the destionation stop) |
+| `final_stop` | Final stop (if departure doesn't go all the way to the destination stop) |
 | `stop` | Departure stop |
 | `track` | Departure track (if available) |

@@ -8,9 +8,10 @@ ha_release: 0.22
 ha_domain: local_file
 ha_platforms:
   - camera
+ha_integration_type: integration
 ---
 
-The `local_file` camera platform allows you to integrate an image file from disk into Home Assistant as a camera. If the image is updated on the file system the image displayed in Home Assistant will also be updated. The service `local_file_update_file_path` can be used to update the image using an automation.
+The `local_file` camera platform allows you to integrate an image file from disk into Home Assistant as a camera. If the image is updated on the file system the image displayed in Home Assistant will also be updated. The service `local_file.update_file_path` can be used to update the image using an automation.
 
 The `local_file` camera can for example be used with various camera platforms that save a temporary images locally. It can also be used to display a graph that you render periodically and will then be displayed in Home Assistant.
 

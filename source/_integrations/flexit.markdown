@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: flexit
 ha_platforms:
   - climate
+ha_integration_type: integration
 ---
 
 Integrates [Flexit](https://www.flexit.no/en/) Air Conditioning unit into Home Assistant.

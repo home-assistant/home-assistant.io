@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.56
 ha_quality_scale: internal
 ha_domain: map
+ha_integration_type: integration
 ---
 
 This offers a map on the frontend to display the location of tracked devices. To set up tracked devices, look at the [device tracker](/integrations/device_tracker/) documentation. This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
@@ -21,6 +22,6 @@ Devices that are currently at home won't show on the map.
 
 <div class='note'>
   
-This map always shows the location of all tracked devices. If you want to hide certain entities, you should look into the [Map Card](/lovelace/map/).
+This map always shows the location of all tracked devices. If you want to hide certain entities, you should look into the [Map Card](/dashboards/map/).
 
 </div>

@@ -15,6 +15,7 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 This integration connects with Risco Alarms over [Risco Cloud](https://riscocloud.com/).
@@ -94,7 +95,7 @@ This undoes a zone bypass. You can only unbypass a zone when the partitions it b
 | ---------------------- | -------- | ----------- |
 | `entity_id`            | no     | String or list of strings of entity_ids of zones. Use entity_id: all to target all zones. |
 
-## Supported Plaforms:
+## Supported Platforms:
 
 - [Alarm Control Panel](/integrations/alarm_control_panel/)
 - [Binary Sensor](/integrations/binary_sensor/)
