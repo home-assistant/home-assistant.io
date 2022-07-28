@@ -45,7 +45,7 @@ SimpliSafe offers several [monitoring plans](https://support.simplisafe.com/hc/e
 
 ## Getting an Authorization Code
 
-SimpliSafe authenticates users via its web app. Due to technical limitations, there is a manual step when adding the integration. For in-depth guidance, refer to [the `simplisafe-python` documentation](https://simplisafe-python.readthedocs.io/en/latest/usage.html#authentication).
+SimpliSafe authenticates users via its web app. Due to technical limitations, there is a manual step when adding the integration. For in-depth guidance, refer to step 6 of [the `simplisafe-python` documentation on authentication](https://simplisafe-python.readthedocs.io/en/latest/usage.html#authentication).
 
 ## Services
 
