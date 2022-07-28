@@ -9,7 +9,7 @@ System Health integration data can be viewed at **Settings** -> **System** -> **
 
 {% my system_health badge %}
 
-![system_health](/images/more-info/system_health.png)
+<img class="no-shadow" src='/images/more-info/system_health.png' alt="Screenshot showing System Health dialog">
 
 ## GitHub issues
 
@@ -20,4 +20,4 @@ In the bottom-right corner of the System information dialog click on the copy bu
 This will format the content of the card and place it on your clipboard so you
 can easily paste it into a GitHub issue.
 
-![system_health_github](/images/more-info/system_health_github.png)
+<img class="no-shadow" src='/images/more-info/system_health_github.png' alt="Screenshot showing copy button in System Health dialog">
