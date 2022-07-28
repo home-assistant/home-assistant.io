@@ -12,7 +12,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The Bluetooth Monitoring and Discovery integration will detect nearby bluetoth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
+The Bluetooth integration will detect nearby Bluetooth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
 
 {% include integrations/config_flow.md %}
 
