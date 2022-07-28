@@ -120,7 +120,11 @@ automation:
       # We check if the last trigger has been 40 minutes or more ago so we don't run into timing issues.
       # By checking for 40 minutes or greater we ensure this is only true at the 45 minute mark.
       - condition: template
-        value_template: "{{ (now() - state_attr('automation.update_openuv', 'last_triggered')) >= timedelta(hours = 0, minutes = 40)  }}"
+        value_template: >- 
+          {{
+            state_attr('automation.openuv_update', 'last_triggered') == None or
+            (now() - state_attr('automation.openuv_update', 'last_triggered')) >= timedelta(hours = 0, minutes = 40)
+          }}
     action:
       - service: openuv.update_data
 
