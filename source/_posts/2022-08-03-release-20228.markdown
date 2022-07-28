@@ -51,10 +51,10 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [Introducing Repairs: You can fix it!](#introducing-repairs-you-can-fix-it)
-- [First class Bluetooth support](#first-class-bluetooth-support)
+- [First-class Bluetooth support](#first-class-bluetooth-support)
 - [Supported brands](#supported-brands)
 - [HomeKit Bluetooth support](#homekit-bluetooth-support)
-- [Improving the naming of entities and devices](#improving-the-naming-of-entities-and-devices)
+- [Maps colors have been improved](#maps-colors-have-been-improved)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -102,6 +102,8 @@ Home Assistant can notify you of issues that you can (and should) fix!
 From detected existing issues on your system and future issues, e.g., caused
 by the use of a feature that is going to be removed, and anything in between.
 These repairable issues can be anything and are specific to your system.
+
+The "System Health" setting menu item, have been moved to the "Repairs" 
 
 ## First-class Bluetooth support
 
@@ -180,46 +182,26 @@ guides you to set up that integration.
 The HomeKit Controller integration now has support for Bluetooth-based
 HomeKit devices. 🎉
 
-## Improving the naming of entities and devices
+## Maps colors have been improved
 
 {% details "TODO" %}
 
-- Unsure is we need to keep this as major featured item
-- Improve (and probably shorten) story
+- Improve story
 - Spelling/grammar
+- Add screenshot
+- The colors of maps have been adjusted, providing a much better contrast
+  (especially when using dark mode). Awesome [@bramkragten]!
 
 {% enddetails %}
 
-This is one that fits in the category: Streamlining experiences.
+Maps have had a small makeover and now use a new color palette. These new colors
+provide a much greater contrast and improve the readability of them.
 
-The names of entities are currently not bound by rules or standards in
-Home Assistant, and this has caused quite an inconsistent experience in
-how entities are displayed or created.
+If you are using the Home Assistant UI in dark mode, you will notice a big
+difference. These improvements make a ton of difference in readbility of
+the maps.
 
-For example, some integrations put the device names in their entities; others
-don't. For example, an device named "Multisensor" with a temperature entity
-could be named:
-
-- "Temperature"
-- "Multisensor Temperature"
-- "Multisensor - temperature"
-- "Multisensor: temperature"
-
-And variants that use different capitalization formats.
-
-We have started a project to improve the naming of entities across
-Home Assistant. This is a work in progress and will take quite some time
-to complete. This release, around 100 integrations have already updated to the
-new naming style. 
-
-Entities will now have their own name, without the device name in it
-(so, just "Temperature" in the above example). Additionally, they will be
-sentence cased. In the future, this will allow us to display an entity
-or device name (or both) depending on the UI context needed.
-
-During this change/migration path, we have added a backward compatible layer
-to keep changes minimal. However, it is possible you'll notice a slight
-difference in the names shown in the UI for some entities.
+__TODO: Insert before/after the screenshot__
 
 ## Other noteworthy changes
 
@@ -235,8 +217,11 @@ difference in the names shown in the UI for some entities.
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- The colors of maps have been adjusted, providing a much better contrast
-  (especially when using dark mode). Awesome [@bramkragten]!
+- "Z-Wave JS" is now shown and known as "Z-Wave" in Home Assistant.
+- In the backgroud a started project to standardize the names entities
+  and devices should have. This is a work in progress that will take
+  a long time to complete, as each possible entity has to be adjusted.
+  But, it will definitly streamline experiences!
 - You can now change the shown unit of measurement of number entities that
   provide a temperature. Thanks [@emontnemery]!
 - [@frenck] updated the events developer tools, to use YAML instead of JSON
