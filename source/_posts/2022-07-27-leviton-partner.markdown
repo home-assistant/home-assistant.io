@@ -31,4 +31,4 @@ Leviton Decora Smart Z-Wave Devices include their DZ6HD dimmer, DZ15S switch, ZW
 
 If you would like to learn more about the Leviton products and integration check out their [integration page](/integrations/leviton)! Leviton will also show up in the integrations list in Home Assistant version 2022.8!
 
-If you missed the announcement of the Works with Home Assistant partner program, make sure to check out the [blog post](/partner-program).
+If you missed the announcement of the Works with Home Assistant partner program, make sure to check out the [blog post](/blog/2022/07/12/partner-program/).
