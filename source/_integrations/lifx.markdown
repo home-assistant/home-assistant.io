@@ -115,7 +115,11 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 
 ## HomeKit Accessory Protocol
 
-Many LIFX devices also support being controlled via HomeKit Accessory Protocol. If the LIFX device supports it and has not already paired with an `iOS` device, it can be paired using HomeKit Accessory Protocol. If the LIFX device supports HomeKit and the `lifx` integration does not yet support the device, it can be controlled via the [`homekit_controller`](/integrations/homekit_controller) integration. The `lifx` integration currently has to poll the device every few seconds, as opposed to using the [`homekit_controller`](/integrations/homekit_controller) integration, which offers push updates, encrypted communications, and significantly less network traffic.
+Many LIFX devices also support being controlled via HomeKit Accessory Protocol. If the LIFX device supports it and has not already paired with an `iOS` device, it can be paired using HomeKit Accessory Protocol. 
+
+If the `lifx` integration does not yet support the device but supports HomeKit Accessory Protocol, it can be controlled via the [`homekit_controller`](/integrations/homekit_controller) integration. 
+
+The `lifx` integration currently has to poll the device every few seconds, as opposed to using the [`homekit_controller`](/integrations/homekit_controller) integration, which offers push updates, encrypted communications, and significantly less network traffic.
 
 ## LIFX Switch
 
