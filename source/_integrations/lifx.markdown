@@ -121,7 +121,7 @@ If the `lifx` integration does not yet support the device but supports HomeKit A
 
 The `lifx` integration currently has to poll the device every few seconds, as opposed to using the [`homekit_controller`](/integrations/homekit_controller) integration, which offers push updates, encrypted communications, and significantly less network traffic.
 
-LIFX devices that support the LAN protocol and the HomeKit Accessory Protocol may be discovered by both methods if they are unpaired with an `iOS` device. It is possible to control the device with both protocols. Discoveries from control protocols that are not desired can be ignored in the UI.
+Discoveries from control protocols that are not desired can be ignored in the UI. LIFX devices that support the LAN protocol and the HomeKit Accessory Protocol may be discovered by both methods if they are unpaired with an `iOS` device. It is possible to simultaneously set up control of the device with both protocols.
 
 ## LIFX Switch
 
