@@ -41,8 +41,12 @@ $primary-color: #049cdb;
   }
 }
 
-a.integration-alert {
+.integration-alert-container {
   margin: -1em 0;
+}
+
+a.integration-alert {
+  margin: 1em 0;
   background-color: wheat;
   padding: 8px;
   text-decoration: none !important;
