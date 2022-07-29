@@ -20,9 +20,11 @@ layout: default
       {% endfor %}
     {% endfor %}
     {% if active_alert != "" %}
-      <div class="integration-alert">
-        <a href="{{active_alert}}" target="_blank">⚠️ There is an active alert for this integration!</a>
-      </div>
+      <a class="integration-alert" href="{{active_alert}}" target="_blank">
+        <div class="icon">⚠️</div>
+        <div class="content">There is an active alert for this integration!</div>
+        <div class="learn-more">LEARN MORE</div>
+      </a>
     {% endif %}
   {% endif %}
   <hr class="divider" />
