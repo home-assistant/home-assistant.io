@@ -21,7 +21,9 @@ layout: default
     {% endfor %}
     {% if active_alert != "" %}
       <a class="integration-alert" href="{{active_alert}}" target="_blank">
-        <div class="icon">⚠️</div>
+        <svg preserveAspectRatio="xMidYMid meet" focusable="false" role="img" aria-hidden="true" viewBox="0 0 24 24" color="currentColor">
+          <g><path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path></g>
+        </svg>
         <div class="content">There is an active alert for this integration!</div>
         <div class="learn-more">LEARN MORE</div>
       </a>
