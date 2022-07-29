@@ -181,6 +181,40 @@ With strings:
 
 {% endraw %}
 
+### State translated
+
+Not supported in [limited templates](#limited-templates).
+
+Returns translated state of an entity if available or its state string otherwise.
+
+#### State translated examples
+
+{% raw %}
+
+```text
+{{ state_translated("sun.sun", "en") }}  # Below horizon
+{{ state_translated("sun.sun", "nl") }}  # Onder de horizon
+```
+
+{% endraw %}
+
+<div class='note warning'>
+
+In order to use this function you have to define `preload_translations` in [basic configuration](/docs/configuration/basic) to enable preloading translations for selected languages after a start of Home Assistant.
+
+{% raw %}
+
+```text
+homeassistant:
+  preload_translations:
+    - en
+    - nl
+```
+
+{% endraw %}
+
+</div>
+
 ### Working with Groups
 
 Not supported in [limited templates](#limited-templates).

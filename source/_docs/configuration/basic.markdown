@@ -27,6 +27,8 @@ homeassistant:
     media: "/media"
     recordings: "/mnt/recordings"
   legacy_templates: false
+  preload_translations:
+    - en
 ```
 
 <div class='note'>
@@ -105,6 +107,10 @@ legacy_templates:
   required: false
   type: boolean
   default: false
+preload_translations:
+  description: A list of languages to preload. Required for [`state_translated`](/docs/configuration/templating#state-translated) template function.
+  required: false
+  type: list
 {% endconfiguration %}
 
 ## Reload Core Service
