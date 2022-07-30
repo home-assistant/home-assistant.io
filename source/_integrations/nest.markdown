@@ -26,9 +26,14 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-<div class="integration-alert" style='margin-bottom: 16px'>
-<a href="/more-info/nest-auth-deprecation">⚠️ Nest authentication is changing. Existing users click here to learn more</a>
-</div>
+<a class="integration-alert" href="/more-info/nest-auth-deprecation">
+  <svg preserveAspectRatio="xMidYMid meet" focusable="false" role="img" aria-hidden="true" viewBox="0 0 24 24" color="currentColor">
+    <g><path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path></g>
+  </svg>
+  <div class="content">Existing users: Nest authentication is changing.</div>
+  <div class="learn-more">LEARN MORE</div>
+</a>
+
 
 The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
 
