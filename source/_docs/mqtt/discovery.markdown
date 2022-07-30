@@ -434,16 +434,16 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
 
 The entity id is automatically generated from the entity's name. All MQTT entity components optionally support providing an `object_id` which will be used instead if provided.
 
-- Configuration topic: `homeassistant/sensor/my_super_device/config`
+- Configuration topic: `homeassistant/sensor/device1/config`
 - Example configuration payload:
 
 ```json
 {
   "name":"My Super Device",
-  "object_id":"device1",
-  "state_topic": "homeassistant/sensor/device1/state"
+  "object_id":"my_super_device",
+  "state_topic": "homeassistant/sensor/my_super_device/state"
  }
 ```
 
-In the example above, the entity_id will be `sensor.device1` instead of `sensor.my_super_device`.
+In the example above, the entity_id will be `sensor.my_super_device` instead of `sensor.device1`.
 
