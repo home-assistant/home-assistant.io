@@ -13,6 +13,7 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - switch
+ha_config_flow: true
 ha_integration_type: integration
 ---
 
@@ -36,31 +37,18 @@ A list of all partition, zone and output IDs can be acquired by running DloadX p
 
 For the Binary Sensor check the [type/class](/integrations/binary_sensor/) list for a possible visualization of your zones. Note: If no zones or outputs are specified, Home Assistant will not load any binary_sensor components."
 
-## Configuration
+{% include integrations/config_flow.md %}
+
+## Zone Configuration
 
 A `satel_integra` section must be present in the `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 satel_integra:
-  host: IP_ADDRESS
 ```
 
 {% configuration %}
-host:
-  description: The IP address of the Satel Integra ETHM module on your home network, if using socket type.
-  required: true
-  default: localhost
-  type: string
-port:
-  description: The port on which the ETHM module listens for clients using integration protocol.
-  required: false
-  default: 7094
-  type: integer
-code:
-  description: User password, it's needed for making use of the switchable_outputs. It's recommended not to use admin password.
-  required: false
-  type: string
 partitions:
   description: List of the partitions to operate on.
   required: false
@@ -119,8 +107,6 @@ switchable_outputs:
 ```yaml
 # Example configuration.yaml entry
 satel_integra:
-  host: 192.168.1.100
-  port: 7094
   partitions:
     01:
       name: "House"
