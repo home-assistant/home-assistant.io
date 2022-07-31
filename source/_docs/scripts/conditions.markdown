@@ -383,26 +383,16 @@ Note that if only `before` key is used, the condition will be `true` _from midni
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
 
 <div class='note warning'>
-The sunset/sunrise conditions do not work in locations inside the polar circles, and also not in locations with a highly skewed local time zone.
-
-In those cases it is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
+The sunset/sunrise conditions do not work in locations inside the polar circles, and also not in locations with a highly skewed local time zone. In those cases it is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
 </div>
 
 This is an example of 1 hour offset before sunset:
+
 ```yaml
 condition:
   condition: sun
   after: sunset
   after_offset: "-01:00:00"
-```
-
-This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`:
-
-```yaml
-condition:
-  - condition: sun
-    after: sunset
-    before: sunrise
 ```
 
 This is 'when light' - equivalent to a state condition on `sun.sun` of `above_horizon`:
@@ -414,7 +404,7 @@ condition:
     before: sunset
 ```
 
-We cannot use both keys in this case as it will always be `false`.
+This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`. We cannot use both keys in this case as it will always be `false`:
 
 ```yaml
 condition:
