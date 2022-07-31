@@ -498,7 +498,7 @@ Buzzer                  | Turn on/off the buzzer
 Child Lock              | Turn on/off the child lock
 LED                     | Turn on/off the LED
 
-### Air Purifier 4/4 PRO (zhimi.airpurifier.mb5/zhimi.airpurifier.vb4)
+### Air Purifier 4/4 PRO (zhimi.airp.mb5/zhimi.airp.vb4)
 
 These models use newer MiOT communication protocol.
 
