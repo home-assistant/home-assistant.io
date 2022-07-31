@@ -2,7 +2,6 @@
 title: Elro Connects
 description: Instructions on integrating Elro Connects with Home Assistant.
 ha_category:
-  - Sensor
   - Siren
 ha_release: 2022.7.0
 ha_iot_class: Local Polling
@@ -25,11 +24,7 @@ Make sure the Elro Connects K1 connector connects to a Wi-Fi network where Home 
 
 {% include integrations/config_flow.md %}
 
-The Connector ID of the Elro Connects K1 connector can be found in the Elro Connects App at `Home -> Settings -> Current connector`. The format is `ST_xxxxxxxxxxxx`. The hostname or IP-address and port are related to the Elro Connects K1 connector. They be changed after setup.
-
-<div class='note info'>
-The polling interval to the Elro Connects K1 connector is 15 seconds.
-</div>
+The Connector ID of the Elro Connects K1 connector can be found in the Elro Connects App at `Home -> Settings -> Current connector`. The format is `ST_xxxxxxxxxxxx`. The hostname or IP-address and port are related to the Elro Connects K1 connector. They be changed after setup. Note that the polling interval to the Elro Connects K1 connector is 15 seconds.
 
 ## Platforms
 
@@ -40,8 +35,4 @@ When a siren is turned on manually `test alarm` request will be sent. Turning th
 
 <div class='note info'>
 When the K1 connector receives multiple test alarm requests simultaneously only the first siren signal will be processed. To test multiple alarms, make sure to add a few seconds delay between the requests.
-</div>
-
-<div class='note warning'>
-Not all device types have been fully tested yet. Fire alarm devices are tested should work as expected.
 </div>
