@@ -1,10 +1,10 @@
 ---
-title: Elro Connects
-description: Instructions on integrating Elro Connects with Home Assistant.
+title: "Elro Connects"
+description: "Instructions on integrating Elro Connects with Home Assistant."
 ha_category:
   - Siren
-ha_release: 2022.7.0
-ha_iot_class: Local Polling
+ha_release: "2022.9.0"
+ha_iot_class: "Local Polling"
 ha_config_flow: true
 ha_codeowners:
   - '@jbouwh'
