@@ -98,25 +98,39 @@ Perform an on-demand update of OpenUV `uv_protection_window` data, but not the s
 
 ## Examples of Updating Data
 
-One method to retrieve data every 30 minutes and still leave plenty of API key
-usage is to only retrieve data during the daytime:
+To perform an optimal amount of API calls you need to know the hours of daylight on the longest day of the year. If for example this is 17 hours, you can perform 2 calls around every 45 minutes without running into the 50 API call limit per day:
+
+{% raw %}
 
 ```yaml
 automation:
-  - alias: "Update OpenUV every 30 minutes during the daytime"
+  - alias: "Update OpenUV"
     trigger:
-      platform: time_pattern
-      minutes: "/30"
+      # Time pattern of /45 will not work as expected, it will trigger on the whole hour and on the whole hour + 45 minutes.
+      # Using more frequent time pattern and a condition to get the intended behavior.
+      - platform: time_pattern
+        minutes: "/15"
     condition:
-      condition: and
-      conditions:
-        - condition: sun
-          after: sunrise
-        - condition: sun
-          before: sunset
+      - condition: sun
+        after: sunrise
+        before: sunset
+        # The last call will most likely fall before the sunset, thus leaving an UV index value not at 0 for the remaining night.
+        # To fix this, we allow one more service call after the sun has set.
+        before_offset: "+00:45:00"
+      # We check if the last trigger has been 40 minutes or more ago so we don't run into timing issues.
+      # By checking for 40 minutes or greater we ensure this is only true at the 45 minute mark.
+      - condition: template
+        value_template: >- 
+          {{
+            state_attr('automation.openuv_update', 'last_triggered') == None or
+            (now() - state_attr('automation.openuv_update', 'last_triggered')) >= timedelta(hours = 0, minutes = 40)
+          }}
     action:
-      service: openuv.update_data
+      - service: openuv.update_data
+
 ```
+
+{% endraw %}
 
 Update the UV index data every 20 minutes while the sun is at least 10 degrees above the horizon:
 
@@ -157,7 +171,7 @@ etc.) might be to simply query the API less often:
 
 ```yaml
 automation:
-  - alias: "Update OpenUV every hour (24 of 50 calls per day)"
+  - alias: "Update OpenUV every hour (48 of 50 calls per day)"
     trigger:
       platform: time_pattern
       hours: "*"
