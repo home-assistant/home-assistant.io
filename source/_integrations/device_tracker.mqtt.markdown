@@ -78,6 +78,7 @@ source_type:
   description: Attribute of a device tracker that affects state when being used to track a [person](/integrations/person/). Valid options are `gps`, `router`, `bluetooth`, or `bluetooth_le`.
   required: false
   type: string
+  default: gps
 {% endconfiguration %}
 
 {% enddetails %}
