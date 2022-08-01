@@ -43,3 +43,16 @@ Switch entity:
 Type:
   description: The type of entity you want the switch to become.
 {% endconfiguration_basic %}
+
+## Alternatives
+Other ways to set a Switch as X include:
+ - [Helper](#helper)
+ - [Entity Properties](#entity-properties)
+
+### Helper
+{% my helpers title="Settings -> Devices & Services -> Helpers" %}
+![Helper example](/images/integrations/switch_as_x/Helper_Switch_as_X.png)
+
+### Entity Properties
+{% my entities title="Settings -> Devices & Services -> Entities" %}
+![Entity properties exampl](/images/integrations/switch_as_x/Entities_Properties.png)
