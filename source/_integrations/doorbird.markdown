@@ -25,11 +25,13 @@ The `doorbird` implementation allows you to integrate your [DoorBird](https://ww
 There is currently support for the following device types within Home Assistant:
 
 - [Camera](#camera) - View live and historical event based images.
-- [Button](#button) - Enable control of relays and camera night vision.
+- [Button](#button) - Enable control of relays and camera low-light/night vision (IR).
 
 ## Setup
 
-It is recommended to set up a new account on your Doorbird App for use with Home Assistant. This can be added via the Doorbird App by clicking settings (cog icon) -> Administration-> LOGIN (using your App Administration details). Under the "USER" section, choose "Add". This new user account requires specific permissions enabled (depending on what functionality you want). Permissions can be found under "Permissions". The following permissions are recommended:
+It is recommended to set up a new & dedicated account on your Doorbird App/web portal for use with Home Assistant. The instructions in this documentation refer specifically to the Doorbird IOS/Android app but most of the instructions can also be performed using the Doorbird web portal at https://webadmin.doorbird.com and logging in on your Doorbird admin account.
+
+To setup a new account for Home Assistant, open the Doorbird App by clicking settings (cog icon) -> Administration-> LOGIN (using your Doorbird App Administration details). Under the "USER" section, choose "Add". This new user account requires specific permissions enabled (depending on what functionality you want). Permissions can be found under "Permissions". The following permissions are recommended (or ammend depending on your requirements:
 
 - "Watch Always" (live view)
 - "History" (last motion)
@@ -80,7 +82,7 @@ The URLs on the event will be based on the configuration used to connect to your
 
 #### Schedules
 
-Once events have been registered on the DoorBird device, they must be attached to a schedule using the official DoorBird app on Android or iOS. Currently, there are schedules available for doorbell, motion, relay, and RFID events (on supported Doorbird devices).
+Once events have been registered on the DoorBird device, they must be attached to a schedule using the official DoorBird app on Android or iOS or the web portal at https://webadmin.doorbird.com. Currently, there are schedules available for doorbell, motion, relay, and RFID events (on supported Doorbird devices). Essentially, you can enable a HTTP(S) call from your Doorbird device to the Home Assistant Doorbird API by configuring an action/event (by enabling a schedule).
 
 The schedules can be found by navigating to the following area of the Doorbird app (Android or IOS):
 
@@ -94,9 +96,11 @@ Click on the dropdown button in the top left and choose your specific "Schedule 
 
 On the desired event, you should be able to specify blocks of time for when you would like the event to be sent to Home Assistant. If you want the event to always send, the square in the upper right can be used to populate the entire schedule. Events will be fired to Home Assistant for blocks of time that are blue.
 
-Note: Remember to complete the schedule assignment steps above for each event type that you registered.
+Note: Remember to complete the schedule assignment steps above for each event type that you registered. If you are configuring HTTP Call(s) schedules for registered RFID tags, please note you will have to enable/configure schedule for each individual RFID tag.
 
 ### Automation Example
+
+The example automation below shows how to turn on a light when somebody presses the Doorbird call button:
 
 ```yaml
 - alias: "Doorbird Ring"
@@ -109,6 +113,8 @@ Note: Remember to complete the schedule assignment steps above for each event ty
         entity_id: light.side_entry_porch
 ```
 
+You can also create automation actions based on the Doorbird RFID scanner being successfully triggered (configured per RFID tag) and motion events.
+
 ## Camera
 
 The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
@@ -116,4 +122,4 @@ The `doorbird` implementation allows you to view the live video, the last doorbe
 
 ## Button
 
-The `doorbird` button platform allows you to power connected relays and trigger the IR array in your [DoorBird](https://www.doorbird.com/) video doorbell device.
+The `doorbird` button platform allows you to power connected relays and trigger the low-light/dark Infra-Red (IR) array on your [DoorBird](https://www.doorbird.com/) video doorbell device.
