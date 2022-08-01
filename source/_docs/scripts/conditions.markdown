@@ -420,15 +420,6 @@ A visual timeline is provided below showing an example of when these conditions 
 
 ![Graphic showing an example of sun conditions](/images/docs/scripts/sun-conditions.svg)
 
-Note: the following is supposed to specify 'when dark' using a more intuitive syntax but as of 2022.7 it is not working (https://github.com/home-assistant/core/issues/70781)
-
-```yaml
-condition:
-  - condition: sun
-    after: sunset
-    before: sunrise
-```
-
 ## Template condition
 
 The template condition tests if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.
