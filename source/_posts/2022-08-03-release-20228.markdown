@@ -139,15 +139,27 @@ support for the reasonably popular Mi Flora plant sensors.
 
 ## HomeKit Bluetooth support
 
-{% details "TODO" %}
+To continue the story on Bluetooth, the [HomeKit Controller] now also
+supports Bluetooth and leverages the above-mentioned new Bluetooth
+integration 🎉
 
-- Extend and improve on story
-- Spelling/grammar
+In case you didn't know, the [HomeKit Controller] integration allows you
+to connect to HomeKit-capable devices and integrate them directly into
+Home Assistant. Allowing you to monitor and control these devices,
+they support push-based updates and, above all: Are entirely local!
 
-{% enddetails %}
+You don't need to own or have an Apple phone or computer to use this!
 
-The HomeKit Controller integration now has support for Bluetooth-based
-HomeKit devices. 🎉
+Supporting HomeKit Bluetooth-capable devices is fantastic! It makes a lot of
+devices out there compatible with Home Assistant that have no other way of
+integrating. There are lots of door locks, wall plugs, and other smart devices
+that you can use now.
+
+Thanks for the work on this [@Jc2k] and [@bdraco]!
+
+[@bdraco]: https://github.com/bdraco
+[@Jc2k]: https://github.com/Jc2k
+[HomeKit Controller]: /integrations/homekit_controller
 
 ## Finding the integration supporting your device
 
