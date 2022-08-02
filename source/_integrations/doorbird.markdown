@@ -29,9 +29,9 @@ There is currently support for the following device types within Home Assistant:
 
 ## Setup
 
-It is recommended to set up a new & dedicated account on your Doorbird App/web portal for use with Home Assistant. The instructions in this documentation refer specifically to the Doorbird IOS/Android app but most of the instructions can also be performed using the Doorbird web portal at [Doorbird - WebAdmin](https://webadmin.doorbird.com) and logging in on your Doorbird admin account.
+It is recommended to set up a new & dedicated account on your DoorBird App/web portal for use with Home Assistant. The instructions in this documentation refer specifically to the DoorBird IOS/Android app but most of the instructions can also be performed using the web-based [DoorBird - WebAdmin](https://webadmin.doorbird.com) portal and logging in on your DoorBird admin account.
 
-To setup a new account for Home Assistant, open the Doorbird App by clicking settings (cog icon) -> Administration-> LOGIN (using your Doorbird App Administration details). Under the "USER" section, choose "Add". This new user account requires specific permissions enabled (depending on what functionality you want). Permissions can be found under "Permissions". The following permissions are recommended (or ammend depending on your requirements:
+To setup a new account for Home Assistant, open the DoorBird App by clicking settings (cog icon) -> Administration-> LOGIN (using your DoorBird App Administration details). Under the "USER" section, choose "Add". This new user account requires specific permissions enabled (depending on what functionality you want). Permissions can be found under "Permissions". The following permissions are recommended (or ammend depending on your requirements:
 
 - "Watch Always" (live view)
 - "History" (last motion)
@@ -66,7 +66,7 @@ If DoorBird was setup using UI prompts, a token can be discovered through DoorBi
 
 #### Event Data
 
-Each event will include live image and video URLs for the Doorbird device that triggered the event. These URLs can be found on the event data and can be useful in automation actions. For example, you could use `html5_viewer_url` on a notification to be linked directly to the live view of the device that triggered the automation.
+Each event will include live image and video URLs for the DoorBird device that triggered the event. These URLs can be found on the event data and can be useful in automation actions. For example, you could use `html5_viewer_url` on a notification to be linked directly to the live view of the device that triggered the automation.
 
 The following keys are available on `event_data`:
 
@@ -77,14 +77,14 @@ The following keys are available on `event_data`:
 - `html5_viewer_url`
 
 <div class="note">
-The URLs on the event will be based on the configuration used to connect to your Doorbird device. Ability to connect from outside your network will depend on your configuration.
+The URLs on the event will be based on the configuration used to connect to your DoorBird device. Ability to connect from outside your network will depend on your configuration.
 </div>
 
 #### Schedules
 
-Once events have been registered on the DoorBird device, they must be attached to a schedule using the official DoorBird app on Android or iOS or the [Doorbird - WebAdmin](https://webadmin.doorbird.com) portal. Currently, there are schedules available for doorbell, motion, relay, and RFID events (on supported Doorbird devices). Essentially, you can enable a HTTP(S) call from your Doorbird device to the Home Assistant Doorbird API by configuring an action/event (by enabling a schedule).
+Once events have been registered on the DoorBird device, they must be attached to a schedule using the official DoorBird app on Android or iOS or the [DoorBird - WebAdmin](https://webadmin.doorbird.com) portal. Currently, there are schedules available for doorbell, motion, relay, and RFID events (on supported DoorbBrd devices). Essentially, you can enable a HTTP(S) call from your DoorBird device to the Home Assistant DoorBird API by configuring an action/event (by enabling a schedule).
 
-The schedules can be found by navigating to the following area of the Doorbird app (Android or IOS):
+The schedules can be found by navigating to the following area of the DoorBird app (Android or IOS):
 
 Settings (cog icon) -> Administration -> LOGIN LOGIN (using your App Administration details) -> (under "EXPERT SETTINGS") Schedule for doorbell
 
@@ -100,7 +100,7 @@ Note: Remember to complete the schedule assignment steps above for each event ty
 
 ### Automation Example
 
-The example automation below shows how to turn on a light when somebody presses the Doorbird call button:
+The example automation below shows how to turn on a light when somebody presses the DoorBird call button:
 
 ```yaml
 - alias: "Doorbird Ring"
@@ -113,7 +113,7 @@ The example automation below shows how to turn on a light when somebody presses 
         entity_id: light.side_entry_porch
 ```
 
-You can also create automation actions based on the Doorbird RFID scanner being successfully triggered (configured per RFID tag) and motion events.
+You can also create automation actions based on the DoorBird RFID scanner being successfully triggered (configured per RFID tag) and motion events.
 
 ## Camera
 
