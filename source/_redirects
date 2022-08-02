@@ -193,6 +193,7 @@
 /integrations/generic_ip_camera /integrations/generic
 /integrations/google /integrations/google_translate
 /integrations/input_slider /integrations/input_number
+/integrations/leviton /integrations/leviton_z_wave
 /integrations/light.switch /integrations/switch_as_x
 /integrations/openalpr /integrations/openalpr_local
 /integrations/pca /integrations/elv
