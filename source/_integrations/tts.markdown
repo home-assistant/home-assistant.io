@@ -66,7 +66,6 @@ tts:
     cache: true
     cache_dir: /tmp/tts
     time_memory: 300
-    base_url: http://192.168.0.10:8123
     service_name: google_say
 ```
 
@@ -87,7 +86,7 @@ The Google cast devices (Google Home, Chromecast, etc.) present the following pr
 
 * They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). If you are _not_ using SSL then setting an internal URL that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
 
-* If you are using an SSL (e.g., `https://yourhost.example.org/...`) then you _must_ use the hostname in the certificate (e.g., `base_url: https://yourhost.example.org`). You cannot use an IP address since the certificate won't be valid for the IP address, and the cast device will refuse the connection.
+* If you are using an SSL (e.g., `https://yourhost.example.org/...`) then you _must_ use the hostname in the certificate (e.g., `external_url: https://yourhost.example.org`). You cannot use an IP address since the certificate won't be valid for the IP address, and the cast device will refuse the connection.
 
 ## Service say
 
