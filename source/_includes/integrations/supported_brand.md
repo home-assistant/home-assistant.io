@@ -10,3 +10,8 @@ communication protocol, making it possible to use them using the
 integration.
 
 {% include integrations/config_flow.md domain=page.ha_supporting_domain %}
+
+## Usage information
+
+For more documentation on how to use {{ name }} in Home Assistant, please refer to the
+[{{ page.ha_supporting_integration }} integration documentation page](/integrations/{{ page.ha_supporting_domain }}).
