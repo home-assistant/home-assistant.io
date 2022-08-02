@@ -137,7 +137,7 @@ sampling_size:
   default: 20
   type: integer
 max_age:
-  description: Maximum age of source sensor measurements stored. Setting this to a time period will cause older values to be discarded. If omitted, the number of considered source sensor measurements is limitted by `sampling_size` only. Set both parameters appropriately to create suited limits for your use case. The sensor value will become `unknown` if the source sensor is not updated within the time period.
+  description: Maximum age of source sensor measurements stored. Setting this to a time period will cause older values to be discarded. If omitted, the number of considered source sensor measurements is limited by `sampling_size` only. Set both parameters appropriately to create suited limits for your use case. The sensor value will become `unknown` if the source sensor is not updated within the time period.
   required: false
   type: time
 precision:
