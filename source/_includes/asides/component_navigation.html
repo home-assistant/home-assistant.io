@@ -1,15 +1,16 @@
-{% assign active_installations = site.data.analytics_data.integrations[page.ha_domain] | default: 0 %}
+{% capture domain %}{{ page.ha_supporting_domain | default: page.ha_domain }}{% endcapture %}
+{% assign active_installations = site.data.analytics_data.integrations[domain] | default: 0 %}
 {% assign percentage = 100.0 | times: active_installations | divided_by: site.data.analytics_data.reports_integrations | round: 1 %}
 <section class="aside-module grid__item one-whole lap-one-half">
   <div class='brand-logo-container section'>
     {%- if page.logo -%}
       <img src='/images/supported_brands/{{ page.logo }}' />
     {%- else -%}
-      <img src='https://brands.home-assistant.io/_/{{ page.ha_domain }}/logo.png' srcset='https://brands.home-assistant.io/_/{{ page.ha_domain }}/logo@2x.png 2x' />
+      <img src='https://brands.home-assistant.io/_/{{ domain }}/logo.png' srcset='https://brands.home-assistant.io/_/{{ page.ha_domain }}/logo@2x.png 2x' />
     {%- endif -%}
 
-    {%- if page.ha_config_flow and page.ha_domain -%}
-      {% my config_flow_start badge domain=page.ha_domain %}
+    {%- if page.ha_config_flow and domain -%}
+      {% my config_flow_start badge domain=domain %}
     {%- endif -%}
   </div>
 
@@ -49,8 +50,8 @@
 
   {% if page.ha_domain %}
   <div class='section'>
-    <a href="https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}" target="_blank"><i class="icon-github"></i> View source on GitHub</a><br />
-    <a href="https://github.com/home-assistant/core/issues?q=is%3Aissue+is%3Aopen+label%3A%22integration%3A+{{ page.ha_domain }}%22" target="_blank"><i class="icon-bug"></i> View known issues</a>
+    <a href="https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ domain }}" target="_blank"><i class="icon-github"></i> View source on GitHub</a><br />
+    <a href="https://github.com/home-assistant/core/issues?q=is%3Aissue+is%3Aopen+label%3A%22integration%3A+{{ domain }}%22" target="_blank"><i class="icon-bug"></i> View known issues</a>
   </div>
   {%- endif -%}
 
