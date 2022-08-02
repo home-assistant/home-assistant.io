@@ -89,25 +89,36 @@ the recording of it right here!
 
 ## Introducing Repairs: You can fix it!
 
-{% details "TODO" %}
-
-- Improve on story
-- Spelling/grammar
-- Add screenshots
-- Remove note about the resolution center
-
-{% enddetails %}
-
-Introducing a completely new feature we hope you are going to love: Repairs! 👷‍♂️
+A completely new feature we hope you are going to love: **Repairs**! 👷‍♂️
 
 The repairs dashboard can be found in the settings menu and is a place where
 Home Assistant can notify you of issues that you can (and should) fix!
 
-From detected existing issues on your system and future issues, e.g., caused
-by the use of a feature that is going to be removed, and anything in between.
-These repairable issues can be anything and are specific to your system.
+From detected current issues on your system to future issues, e.g., caused
+by the use of a feature that will be removed, and anything in between.
+The problems reported by the repair dashboard are actionable and resolvable
+by you.
 
-The "System Health" setting menu item, have been moved to the "Repairs" 
+<img class="no-shadow" src='/images/blog/2022-08/repairs.png' alt='Screenshot showing the repairs dashboard, with some reported and repairable issues'>
+
+These repairable issues reported can be anything and are specifically tailored
+to your Home Assistant instance. Clicking on an issue will show you more
+information about it and tell you what you need to do to fix it.
+
+Sometimes, this needs manual intervention by, for example, updating your YAML
+configuration; Other times, it will automatically fix an issue for you after it
+asks you to confirm it or after asking you to make a choice.
+
+<img class="no-shadow" src='/images/blog/2022-08/repairs-issue-details.png' alt='Screenshot showing details shown by a repairable issue, providing information on how to resolve it.'>
+
+This release can detect about 25 issues now, and additionally, if a
+[Home Assistant Alert] is found that matches your system, it will also show up
+in the repairs dashboard.
+
+There are many use cases for the new repairs feature, and you can expect
+it to be extended a lot, with more issue detections, in the near future.
+
+[Home Assistant Alert]: /integrations/homeassistant_alerts
 
 ## First-class Bluetooth support
 
@@ -213,6 +224,8 @@ There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
 - "Z-Wave JS" is now shown and known as "Z-Wave" in Home Assistant.
+- The "System Health" setting menu item, have been moved to the "Repairs"
+  dashboard, in the overflow menu (three dots in the top right).
 - In the background, a started project to standardize the names entities and
   devices should have. This work in progress will take a long time to complete,
   as each possible entity has to be adjusted. But it will streamline experiences!
