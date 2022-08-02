@@ -51,7 +51,7 @@ ha_supporting_integration: Z-Wave
 Leviton Z-Wave devices work locally and integrate seamlessly with the Z-Wave integration in Home Assistant (Z-Wave stick required). As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant. Each device that is connected to power will also act as a Z-Wave router to extend your Z-Wave mesh network.
 
 {% include integrations/config_flow.md domain=page.ha_supporting_domain %}
-
+<br><br>
 To find more information, please use the [Z-Wave integration](/integrations/zwave_js) page.
 
 ### Firmware updates
