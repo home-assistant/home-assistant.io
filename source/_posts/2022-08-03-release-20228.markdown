@@ -54,7 +54,7 @@ Enjoy the (beta) release!
 - [First-class Bluetooth support](#first-class-bluetooth-support)
 - [HomeKit Bluetooth support](#homekit-bluetooth-support)
 - [Finding the integration supporting your device](#finding-the-integration-supporting-your-device)
-- [Maps colors have been improved](#maps-colors-have-been-improved)
+- [Better maps colors](#better-maps-colors)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -171,26 +171,22 @@ When you add a new integration that is supported by another integration,
 Home Assistant will tell you which integration provides the support and
 guides you to set up that integration.
 
-## Maps colors have been improved
+## Better maps colors
 
-{% details "TODO" %}
+Maps have had a slight makeover and now use a new color palette. These new
+colors provide much greater contrast and significantly improve their readability.
 
-- Improve story
-- Spelling/grammar
-- Add screenshot
-- The colors of maps have been adjusted, providing a much better contrast
-  (especially when using dark mode). Awesome [@bramkragten]!
+Especially if you are using the dark mode in the user interface of
+Home Assistant, you will notice a big difference.
 
-{% enddetails %}
+<img class="no-shadow" src='/images/blog/2022-08/maps-colors.png' alt='Screenshot demonstrating the new map colors in both light and dark mode'>
 
-Maps have had a small makeover and now use a new color palette. These new colors
-provide a much greater contrast and improve the readability of them.
+Thanks to [@KTibow] for getting the ball rolling on this one, [@matthiasdebaat]
+for providing UX feedback, and [@bramkragten] for making this change.
 
-If you are using the Home Assistant UI in dark mode, you will notice a big
-difference. These improvements make a ton of difference in readbility of
-the maps.
-
-__TODO: Insert before/after the screenshot__
+[@bramkragten]: https://github.com/bramkragten
+[@KTibow]: https://github.com/KTibow
+[@matthiasdebaat]: https://github.com/matthiasdebaat
 
 ## Other noteworthy changes
 
