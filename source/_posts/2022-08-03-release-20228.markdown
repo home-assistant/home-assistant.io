@@ -171,7 +171,6 @@ When you add a new integration that is supported by another integration,
 Home Assistant will tell you which integration provides the support and
 guides you to set up that integration.
 
-
 ## Maps colors have been improved
 
 {% details "TODO" %}
@@ -195,29 +194,20 @@ __TODO: Insert before/after the screenshot__
 
 ## Other noteworthy changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-- Maybe add/remove one or two....
-
-**Note**: Changes processed up to PR 75810
-
-{% enddetails %}
-
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
 - "Z-Wave JS" is now shown and known as "Z-Wave" in Home Assistant.
-- In the backgroud a started project to standardize the names entities
-  and devices should have. This is a work in progress that will take
-  a long time to complete, as each possible entity has to be adjusted.
-  But, it will definitly streamline experiences!
+- In the background, a started project to standardize the names entities and
+  devices should have. This work in progress will take a long time to complete,
+  as each possible entity has to be adjusted. But it will streamline experiences!
 - You can now change the shown unit of measurement of number entities that
-  provide a temperature. Thanks [@emontnemery]!
-- [@frenck] updated the events developer tools, to use YAML instead of JSON
+  provide a temperature. Thanks, [@emontnemery]!
+- [@frenck] updated the events developer tools to use YAML instead of JSON
   and added syntax highlighting.
-- The [LIFX] integration a big overhaul which should make it much more reliable.
-  Thanks for the work on this the past releases [@bdraco] and [@Djelibeybi]!
+- The [LIFX] integration got a significant overhaul, making it much more
+  reliable. Thanks for the work on this in the past releases 
+  [@bdraco] and [@Djelibeybi]!
 - The [UniFi Network] now has update entities, allowing you to update the
   firmware of UniFi devices directly from Home Assistant. Great addition [@J3173]!
 - The Material Design Icons have been updated to v7.0.96, giving you
@@ -228,14 +218,14 @@ noteworthy changes this release:
 - [@Noltari] added update entities to the [QNAP QSW] integration! Nice!
 - [@frenck] added multifactor authentication support for [Verisure]. So, you
   can add more security to your Verisure alarm system.
-- [HomeWizard Energy] added support for Watermeters! Thanks [@DCSBL]!
+- [HomeWizard Energy] added support for Watermeters! Thanks, [@DCSBL]!
 - [Yolink] now supports garage doors, nice [@matrixd2]!
 - [@simeon-simsoft] for bidirectional [Wallbox] chargers, thank you!
 - You can now view your current network connection details in the
-  Network settings screen. Thanks [@zsarnett]!
-- [Lutron Caséta] now supports the Lutron RA3 Sunnata Keypads. Thanks [@danaues]!
+  Network settings screen. Thanks, [@zsarnett]!
+- [Lutron Caséta] now supports the Lutron RA3 Sunnata Keypads. Thanks, [@danaues]!
 - [@mkmer] added a battery level sensor to [Aladdin Connect], thank you!
-- The [Sensibo] integration now support the AirQ sensor. Thanks [@gjohansson-ST]!
+- The [Sensibo] integration now supports the AirQ sensor. Thanks, [@gjohansson-ST]!
 
 [@bdraco]: https://github.com/bdraco
 [@bramkragten]: https://github.com/bramkragten
@@ -267,7 +257,7 @@ noteworthy changes this release:
 
 ## New Integrations
 
-We welcome the following new integrations this release:
+We welcome the following new integrations in this release:
 
 - [Bluetooth], added by [@bdraco]
 - [Govee Bluetooth], added by [@bdraco]
@@ -541,8 +531,8 @@ The following integrations are also no longer available as of this release:
 - **SoChain**
 - **Google Play Music Desktop Player (GPMDP)**
 
-All three have previously been disabled due to incompatibities and have now
-been removed.
+All three were previously disabled due to incompatibilities and have now been
+removed.
 
 ## All changes
 
