@@ -8,7 +8,6 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bbx-a'
-  - '@bbx-jp'
   - '@riokuu'
 ha_domain: blebox
 ha_platforms:

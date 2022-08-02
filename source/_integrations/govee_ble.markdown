@@ -1,5 +1,5 @@
 ---
-title: Govee BLE
+title: Govee Bluetooth
 description: Instructions on how to integrate Govee BLE devices into Home Assistant.
 ha_category:
   - Sensor
@@ -28,4 +28,3 @@ The Govee BLE integration will automatically discover devices once the [Bluetoot
 - 5181 Meat Thermometer
 - 5183 Meat Thermometer
 - 5185 Meat Thermometer
-

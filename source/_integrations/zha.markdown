@@ -23,6 +23,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@dmulcahey'
   - '@adminiuga'
+  - '@puddly'
 ha_domain: zha
 ha_platforms:
   - alarm_control_panel

@@ -9,8 +9,10 @@ ha_category:
 ha_release: 0.78
 ha_iot_class: Local Push
 ha_codeowners:
+  - '@bdraco'
   - '@danielhiversen'
   - '@RenierM26'
+  - '@murtas'
 ha_domain: switchbot
 ha_bluetooth: true
 ha_platforms:
