@@ -13,7 +13,7 @@ categories:
 og_image: /images/blog/2022-08/social.png
 ---
 
-<img src='/images/blog/2022-08/social.png' style='border: 0;box-shadow: none;'>
+<a href='/integrations/#version/2022.8'><img src='/images/blog/2022-08/social.png' style='border: 0;box-shadow: none;'></a>
 
 <!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
 These are the beta release notes for Home Assistant Core 2022.8 (and is thus a
