@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "2022.8: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2022.8"
+title: "2022.8: You can fix it!"
+description: "First-class support for Bluetooth, get notified about detected issues and how to repair them, find integrations by brands name, and maps with much better colors."
 date: 2022-07-27 00:00:00
 date_formatted: "August 3, 2022"
 author: Franck Nijhof
