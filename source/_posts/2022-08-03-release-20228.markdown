@@ -52,8 +52,8 @@ Enjoy the (beta) release!
 
 - [Introducing Repairs: You can fix it!](#introducing-repairs-you-can-fix-it)
 - [First-class Bluetooth support](#first-class-bluetooth-support)
-- [Supported brands](#supported-brands)
 - [HomeKit Bluetooth support](#homekit-bluetooth-support)
+- [Finding the integration supporting your device](#finding-the-integration-supporting-your-device)
 - [Maps colors have been improved](#maps-colors-have-been-improved)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
@@ -89,9 +89,6 @@ the recording of it right here!
 - Remove note about the resolution center
 
 {% enddetails %}
-
-__Note: If you followed along in the discussions and development progress, this
-feature was known as the "resolution center" during the early stages.__
 
 Introducing a completely new feature we hope you are going to love: Repairs! 👷‍♂️
 
@@ -141,34 +138,6 @@ support for the Mi Flora plant sensors.
 [Xiaomi BLE]: /integrations/xiaomi_ble
 [@bdraco]: https://github.com/bdraco
 
-## Supported brands
-
-{% details "TODO" %}
-
-- Improve on story
-- Spelling/grammar
-- Add image (multi window) of adding a supported brand
-
-{% enddetails %}
-
-Some integrations work with multiple different brands. This can happen because,
-for example, those devices share a communication protocol, or they are
-white-labeled and sold under multiple brand names.
-
-For example, if you have a Somfy TaHoma, you can actually use it using the
-Overkiz integration. The problem is, how do you know you can use Overkiz in
-that case? And this is not the only example, we have many more!
-
-To make setting up things in Home Assistant easier, integrations can now
-support multiple brands! So, if you now add an integration in Home Assistant
-and search for Somfy, you will actually find one!
-
-__TODO: Insert image of adding a supported brand__
-
-When you add a new integration that is supported by another integration,
-Home Assistant will tell you which integration provides the support and
-guides you to set up that integration.
-
 ## HomeKit Bluetooth support
 
 {% details "TODO" %}
@@ -180,6 +149,28 @@ guides you to set up that integration.
 
 The HomeKit Controller integration now has support for Bluetooth-based
 HomeKit devices. 🎉
+
+## Finding the integration supporting your device
+
+Some integrations work with multiple different brands. This can happen because,
+for example, those devices share a communication protocol, are white-labeled
+and sold under numerous brand names, or may carry different brand names
+depending on where in the world they are sold.
+
+For example, if you have a Luxaflex cover, you can actually use it using the
+Hunter Douglas PowerView integration. And this is not the only example;
+there are many more! The problem is, how would one know that?
+
+To make setting up things in Home Assistant easier, integrations can now
+support multiple brands! So, if you now add an integration in Home Assistant
+and search for Luxaflex, you will find one!
+
+<img class="no-shadow" src='/images/blog/2022-08/supported-brands.png' alt='Screenshot demonstrating the supported brands; it is now to search for a brand that is supported by another integration'>
+
+When you add a new integration that is supported by another integration,
+Home Assistant will tell you which integration provides the support and
+guides you to set up that integration.
+
 
 ## Maps colors have been improved
 
