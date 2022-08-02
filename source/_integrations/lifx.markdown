@@ -115,13 +115,13 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 
 ## HomeKit Accessory Protocol
 
-Many LIFX devices also support being controlled via HomeKit Accessory Protocol. If the LIFX device supports it and has not already paired with an `iOS` device, it can be paired using HomeKit Accessory Protocol via the [HomeKit Controller](/integrations/homekit_controller) integration. 
+Most LIFX devices support Apple HomeKit via the HomeKit Accessory Protocol (HAP). If a LIFX device has not already been added to HomeKit natively using an Apple iOS or macOS device, it can be paired with Home Assistant using via the [HomeKit Controller](/integrations/homekit_controller) integration which uses HAP.
 
-If the LIFX integration does not yet support the device but supports HomeKit Accessory Protocol, this method enables control of the device from Home Assistant. See below for specific details on controlling LIFX Switches.
+This enables the use of LIFX devices in Home Assistant that are not supported by the LIFX integration. See below for specific details on controlling LIFX Switches.
 
 The LIFX integration currently has to poll the device every few seconds, as opposed to using the [HomeKit Controller](/integrations/homekit_controller) integration, which offers push updates, encrypted communications, and significantly less network traffic.
 
-Discoveries from control protocols that are not desired can be ignored in the UI. LIFX devices that support the LAN protocol and the HomeKit Accessory Protocol may be discovered by both methods if they are unpaired with an `iOS` device. It is possible to simultaneously set up control of the device with both protocols.
+Discoveries from control protocols that are not desired can be ignored in the UI. LIFX devices that support HAP will be discovered by both methods if they have not been added to native HomeKit using an Apple iOS or macOS device. It is possible to set up control of the device in Home Assistant using both protocols simultaneously by configuring both the LIFX integration and the HomeKit Controller integration for the same device.
 
 ## LIFX Switch
 
