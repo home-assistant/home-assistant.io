@@ -103,31 +103,30 @@ The "System Health" setting menu item, have been moved to the "Repairs"
 
 ## First-class Bluetooth support
 
-{% details "TODO" %}
+Today, we proudly announce that Home Assistant now has **first-class**
+Bluetooth support! 🥇 
 
-- Improve on story
-- Spelling/grammar
-- Screenshot of Bluetooth devices being discovered
+A brand new [Bluetooth integration] has been added by [@bdraco], which provides
+absolutely amazing Bluetooth support to Home Assistant, including automatic
+discovery of new devices and the ability to push device updates.
 
-{% enddetails %}
+Integrations that implement device support can easily be built on top of these
+features, meaning we now have a solid base in Home Assistant to unlock
+support for many Bluetooth devices out there!
 
-Unfortunately, In the last release, we had to disable quite a few Bluetooth
-releated integrations because of compatibility reasons. Today, we are proud
-to announce Home Assistant now adds **first-class** Bluetooth support! 🥇
+In the screenshot below, you can see the Bluetooth integration is set up,
+and it is able to discover new devices. In this case, it discovered a Mi Flora
+Flower care sensor device.
 
-A brand new [Bluetooth integration] has been added
-by [@bdraco], which provides absolutely amazing Bluetooth support to
-Home Assistant, including automatic discovery of new devices and the ability
-to push device updates to other integrations providing those Bluetooth devices.
+<img class="no-shadow" src='/images/blog/2022-08/bluetooth.png' alt='Screenshot showing the integration page, with an active Bluetooth integration and a Mi Flora plant sensor device being discovered'>
 
-__TODO: Insert a screenshot of the Bluetooth devices being discovered.__
+A good example is the [SwitchBot] integration. It has been updated to support
+the new Bluetooth integration, and because of that, is now a push-based
+integration providing a much more stable experience.
 
-The [SwitchBot] integration has been updated to support this, and is thus
-now a push-based integration, providing a much more stable experience.
-
-This release adds five integrations that are built on this: [SensorPush],
-[Govee], [INKBIRD], [Moat], and [Xiaomi BLE]. The latter one also provides
-support for the Mi Flora plant sensors.
+This release adds five integrations built on this: [SensorPush],
+[Govee], [INKBIRD], [Moat], and [Xiaomi BLE]. The latter also provides
+support for the reasonably popular Mi Flora plant sensors.
 
 [Bluetooth integration]: /integrations/bluetooth
 [SwitchBot]: /integrations/switchbot
