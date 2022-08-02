@@ -38,13 +38,21 @@ Issues introduced in the beta are processed with priority.
 ---
 <!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
 
-Home Assistant Core 2022.8!
+Home Assistant Core 2022.8! 🏖
 
-I have nothing to tell yet... this is still all beta!
+While many of you enjoy a well-deserved vacation around this time, it seems
+like it didn't slow down the development/contributions made to Home Assistant.
+What a beautifully packed release this is again!
 
-Thanks for helping out testing the beta! ❤️
+I’m super stoked about the added Bluetooth support, opening up a whole new
+world of devices to Home Assistant. I’m even more excited about the new repairs
+and supported brands features. Those are going to help out A LOT 😃.
 
-Enjoy the (beta) release!
+Do you know what is really great about this release? All the major features and
+changes announced in this release are a step forward to our current goal:
+Streamlining experiences.
+
+Enjoy the release!
 
 ../Frenck
 
