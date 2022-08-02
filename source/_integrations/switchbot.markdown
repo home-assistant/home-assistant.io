@@ -47,6 +47,7 @@ Please note, device names configured in the SwitchBot app are not transferred in
 - Contact Sensor (WoContact)
 - Curtain (WoCurtain)
 - Meter (WoSensorTH)
+- Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
 
 ## SwitchBot Entity
 
