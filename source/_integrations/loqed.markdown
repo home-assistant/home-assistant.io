@@ -25,14 +25,12 @@ This integration supports:
 - Send real-time (!) status changes of the lock (open, unlock, lock)
 - Send battery status updates
 - Change the lock state (open, unlock, lock).
-  - IMPORTANT: The Home Assistant Lovelace standard card has only support for unlock and lock. By leveraging the lock-service: lock.open you can connect any button or action to opening the lock.
   - Only if your lock has a fixed knob on the outside of your door, you can use the “open” lock state. If you do not have this (thus you have a handle on the outside of your door that you can push down), this command will behave as if the unlock command is sent.
-- Future: change certain settings on the LOQED Touch Smart Lock
 - Switch the relay in the bridge (to open a shared access door or garage door)
 
 ## Prerequisites
 
-On https://app.loqed.com/API-Config/, please follow the following steps:
+On the [LOQED web-app](https://app.loqed.com/API-Config/), please follow the following steps:
 
 - Login with your LOQED App e-mail address (you need to be admin)
 - Tap “API Configuration tool”
@@ -41,26 +39,17 @@ On https://app.loqed.com/API-Config/, please follow the following steps:
   Back on the overview page, under the heading “API Keys”, tap the button “View / Edit” next to your newly created API key.
 - Copy the contents of the field “Integration information”. This starts with “{"lock_id":"....”
 
-NB 1: You do not need to create any webhooks (not for the web API, nor for the bridge), as the LOQED integration will take care of this.
-NB 2: The API call from the LOQED lock to Home Assistant is verified before the lock-status is updated and the event is generated. This is to prevent incoming calls to change the lock-status.
-
 {% include integrations/config_flow.md %}
 
 ## Services
 
-Please see the default lock integration for the services: https://www.home-assistant.io/integrations/lock/
+Please see the default [lock integration page](/integrations/lock/) for the services available for the lock.
 
 ## De-installation in Loqed
 
-On https://app.loqed.com/API-Config/, please follow the following steps:
+On [LOQED web-app](https://app.loqed.com/API-Config/), please follow the following steps:
 
 - Login with your LOQED App e-mail address (you need to be admin)
 - Tap “API Configuration tool”
 - Under the heading “API Keys”, remove the API key you created previously.
 - Ensure your computer is connected to your local home network. Under the heading “Outgoing Webhooks via LOQED Bridge”, tap “Add/delete webhooks” next to your LOQED Bridge. On the next page, ensure to remove all webhooks from your LOQED Bridge.
-
-# Security
-
-All commands that are sent to the lock contain a digital signature to prevent replay attacks. Also the webhooks that the LOQED Bridge sends to notify Home Assistant of a lock state change are digitally signed. As there is no TLS encryption to the bridge, people with access to your local network could potentially see the communication, but it cannot be altered.
-
-Via https://app.loqed.com/API-Config/ you have copy the config containing two different keys during setup: one key which is used to sign commands between you and the bridge (this key only changes if you re-install your lock), and one key to sign commands you send to the lock. The latter key is not accessible by LOQED (it’s encrypted with your LOQED account password, of which only a hash is stored on LOQED’s server). The LOQED Home Assistant integration uses this key to sign commands to the lock (e.g. to unlock). Thus, LOQED’s security architecture, where the keys are only stored on your phone and the lock (and now also on your Home Assistant system) is preserved.
