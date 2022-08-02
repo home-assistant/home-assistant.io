@@ -5,7 +5,7 @@ Support for devices by {{ name }} in Home Assistant is provided by the
 integration.
 
 {{ name }} devices are either rebranded devices or devices that share a common
-communication protocol, making it possible to use them using the
+communication protocol, making it possible to use them with the
 [{{ page.ha_supporting_integration }}](/integrations/{{ page.ha_supporting_domain }})
 integration.
 
