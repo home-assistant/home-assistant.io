@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2022.8: You can fix it!"
-description: "First-class support for Bluetooth, get notified about detected issues and how to repair them, find integrations by brands name, and maps with much better colors."
+description: "First-class support for Bluetooth, get notified about detected issues and how to repair them, find integrations by brand name, and maps with much better colors."
 date: 2022-08-03 00:00:00
 date_formatted: "August 3, 2022"
 author: Franck Nijhof
@@ -111,7 +111,7 @@ features, meaning we now have a solid base in Home Assistant to unlock
 support for many Bluetooth devices out there!
 
 The screenshot below shows that the Bluetooth integration is set up, and it
-discover a new device. In this case, it discovered a Mi Flora Flower
+discovered a new device. In this case, it discovered a Mi Flora Flower
 care sensor device.
 
 <img class="no-shadow" src='/images/blog/2022-08/bluetooth.png' alt='Screenshot showing the integration page, with an active Bluetooth integration and a Mi Flora plant sensor device being discovered'>
@@ -187,11 +187,11 @@ To make setting up things in Home Assistant easier, integrations can now
 support multiple brands! So, if you now add an integration in Home Assistant
 and search for Luxaflex, you will find one!
 
-<img class="no-shadow" src='/images/blog/2022-08/supported-brands.png' alt='Screenshot demonstrating the supported brands; it is now to search for a brand that is supported by another integration'>
+<img class="no-shadow" src='/images/blog/2022-08/supported-brands.png' alt='Screenshot demonstrating the supported brands; it is now possible to search for a brand that is supported by another integration'>
 
 When you add a new integration that is supported by another integration,
 Home Assistant will tell you which integration provides the support and
-guides you to set up that integration.
+guide you to set up that integration.
 
 ## Better maps colors
 
@@ -218,8 +218,8 @@ noteworthy changes this release:
 - "Z-Wave JS" is now shown and known as "Z-Wave" in Home Assistant.
 - The "System Health" setting menu item, has been moved to the "Repairs"
   dashboard, in the overflow menu (three dots in the top right).
-- In the background, a started project to standardize the names entities and
-  devices should have. This work in progress will take a long time to complete,
+- In the background, a project has been started to standardize the names of entities and
+  devices. This work is in progress and will take a long time to complete,
   as each possible entity has to be adjusted. But it will streamline experiences!
 - You can now change the shown unit of measurement of number entities that
   provide a temperature. Thanks, [@emontnemery]!
@@ -236,7 +236,7 @@ noteworthy changes this release:
 - [SwitchBot] now supports Hygrometers (thanks [@murtas]) and door/contact
   sensors (thanks [@bdraco])!
 - [@Noltari] added update entities to the [QNAP QSW] integration! Nice!
-- [@frenck] added multifactor authentication support for [Verisure]. So, you
+- [@frenck] added multifactor authentication support for [Verisure]. So now you
   can add more security to your Verisure alarm system.
 - [HomeWizard Energy] added support for Watermeters! Thanks, [@DCSBL]!
 - [Yolink] now supports garage doors, nice [@matrixd2]!
@@ -332,7 +332,7 @@ places you can go.
 
 Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
 to get the latest news about features, things happening in our community and
-[](https://github.com/home-assistant/core/pull/58768)other news about building an Open Home; straight into your inbox.
+other news about building an Open Home; straight into your inbox.
 
 ## Breaking Changes
 
@@ -352,7 +352,7 @@ Any automations or scripts that target the device will need to be corrected.
 
 ---
 
-The previsouly deprecated `advantage_air.set_myzone` has been removed.
+The previsouly deprecated service `advantage_air.set_myzone` has been removed.
 Use the available MyZone select entity instead.
 
 ([@Bre77] - [#75160]) ([documentation](/integrations/advantage_air))
@@ -403,11 +403,11 @@ on the climate entity which replaces this functionality.
 
 {% details "LIFX" %}
 
-Each LIFX device now has its integration entry. The existing entry will be
+Each LIFX device now has its own integration entry. The existing entry will be
 migrated to separate entries automatically as each device is discovered,
 and will automatically be removed once all devices are found.
 
-Migrating to a integration entry per device model allows Home Assistant to
+Migrating to an integration entry per device allows Home Assistant to
 take care of discovery IP updates and retries, dramatically improving the
 integration's reliability.
 
