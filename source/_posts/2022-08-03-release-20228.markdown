@@ -39,7 +39,7 @@ Enjoy the release!
 - [First-class Bluetooth support](#first-class-bluetooth-support)
 - [HomeKit Bluetooth support](#homekit-bluetooth-support)
 - [Finding the integration supporting your device](#finding-the-integration-supporting-your-device)
-- [Better maps colors](#better-maps-colors)
+- [Better map colors](#better-map-colors)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -193,10 +193,11 @@ When you add a new integration that is supported by another integration,
 Home Assistant will tell you which integration provides the support and
 guide you to set up that integration.
 
-## Better maps colors
+## Better map colors
 
-Maps have had a slight makeover and now use a new color palette. These new
-colors provide much greater contrast and significantly improve their readability.
+Maps shown in Home Assistant have had a slight makeover and now use a new color
+palette. These new colors provide much greater contrast and significantly
+improve their readability.
 
 Especially if you are using the dark mode in the user interface of
 Home Assistant, you will notice a big difference.
