@@ -44,7 +44,7 @@ For most systems, the Dbus socket is in `/run/dbus`. The socket must be availabl
 ### Additional details for Container and Supervised installs
 
 {% details Installing BlueZ %}
-On debian based host systems, the `sudo apt-get -y install bluez` command will install BlueZ.
+On Debian based host systems, the `sudo apt-get -y install bluez` command will install BlueZ.
 {% enddetails %}
 
 ## Installing a USB Bluetooth Adapter
