@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: aladdin_connect
 ha_platforms:
   - cover
+  - sensor
 ha_integration_type: integration
 ha_codeowners:
   - '@mkmer'

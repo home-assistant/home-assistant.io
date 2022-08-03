@@ -10,6 +10,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@bdraco'
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The Bluetooth integration will detect nearby Bluetooth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
@@ -78,4 +79,3 @@ The following tips may improve reception of the Bluetooth Adapter:
 - Try to place USB3 devices (SSD, etc.) as far away as possible from your Bluetooth Adapter, e.g., by using an extension cable.
 - Use a USB3 extension cable with proper shielding and ferrite clamps.
 - Use a (good quality) external Bluetooth adapter with an antenna.
-

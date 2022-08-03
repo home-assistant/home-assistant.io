@@ -1,5 +1,5 @@
 ---
-title: Inkbird
+title: INKBIRD
 description: Instructions on how to integrate INKBIRD devices into Home Assistant.
 ha_category:
   - Sensor

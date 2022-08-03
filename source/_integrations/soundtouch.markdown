@@ -12,6 +12,7 @@ ha_codeowners:
 ha_platforms:
   - media_player
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
 The Bose SoundTouch integration allows you to control your [Bose SoundTouch](https://www.soundtouch.com/) speakers from Home Assistant.
