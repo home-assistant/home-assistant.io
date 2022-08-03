@@ -49,7 +49,7 @@ Enjoy the release!
 - [All changes](#all-changes)
 
 
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=lorem) today at 12:00 PDT / 21:00 CET!
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=m9gKFH8WlzY) today at 12:00 PDT / 21:00 CET!
 
 <lite-youtube videoid="m9gKFH8WlzY" videotitle="Home Assistant 2022.8 Release Party"></lite-youtube>
 
