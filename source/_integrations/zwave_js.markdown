@@ -870,6 +870,6 @@ Many users have reported issues with interference when the USB stick was directl
 
 Z-Wave JS writes details to its logs. To access these logs go to the following.
 
-   **Configuraton** -> **Devices & Services** -> **Integrations(tab)** -> **Z-Wave (CONFIGURE)** -> **Logs(tab)**
+   **Settings** -> **Devices & Services** -> **Integrations(tab)** -> **Z-Wave (CONFIGURE)** -> **Logs(tab)**
 
 You need to keep this browser tab open for logging to be active.
