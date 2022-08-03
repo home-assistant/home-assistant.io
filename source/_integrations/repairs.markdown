@@ -34,7 +34,7 @@ in the repairs dashboard is shown in the sidebar on the "Settings" menu item.
 
 <p class='img'>
 <img class="no-shadow" src='/images/integrations/repairs/number-of-repairs.png' alt='Screenshot showing the number of updates and repairs pending on the settings menu item in the sidebar'>
-The settings menu item shows the number of updatesd and repairable issues pending.
+The settings menu item shows the number of updates and repairable issues pending.
 </p>
 
 Navigate to {% my repairs title="**Settings** -> **System** -> **Repairs**" %}
