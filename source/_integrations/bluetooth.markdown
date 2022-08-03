@@ -39,7 +39,7 @@ For Bluetooth to function on Linux systems, the [D-Bus](https://en.wikipedia.org
 
 Some systems may not come with Bluetooth and require a USB adapter. Installing an adapter for the first time may require multiple restarts for the device to be fully recognized.
 
-If you experience an unreliable Bluetooth connection, installing a [USB extension cable with a Ferrite Bead](https://a.co/d/fRnFIwy) may improve reliability.
+If you experience an unreliable Bluetooth connection, installing a [USB extension cable with a Ferrite Bead](https://amzn.eu/d/gZFaY7F) may improve reliability.
 
 ### Known working adapters
 
