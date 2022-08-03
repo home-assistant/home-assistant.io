@@ -2,7 +2,7 @@
 layout: post
 title: "2022.8: You can fix it!"
 description: "First-class support for Bluetooth, get notified about detected issues and how to repair them, find integrations by brands name, and maps with much better colors."
-date: 2022-07-27 00:00:00
+date: 2022-08-03 00:00:00
 date_formatted: "August 3, 2022"
 author: Franck Nijhof
 author_twitter: frenck
@@ -125,17 +125,17 @@ it to be extended a lot, with more issue detections, in the near future.
 Today, we proudly announce that Home Assistant now has **first-class**
 Bluetooth support! 🥇 
 
-A brand new [Bluetooth integration] has been added by [@bdraco], which provides
-absolutely amazing Bluetooth support to Home Assistant, including automatic
-discovery of new devices and the ability to push device updates.
+A brand new [Bluetooth integration] has been added, which provides absolutely
+amazing Bluetooth support to Home Assistant, including automatic discovery of
+new devices and the ability to push device updates.
 
 Integrations that implement device support can easily be built on top of these
 features, meaning we now have a solid base in Home Assistant to unlock
 support for many Bluetooth devices out there!
 
-In the screenshot below, you can see the Bluetooth integration is set up,
-and it is able to discover new devices. In this case, it discovered a Mi Flora
-Flower care sensor device.
+The screenshot below shows that the Bluetooth integration is set up, and it
+discover a new device. In this case, it discovered a Mi Flora Flower
+care sensor device.
 
 <img class="no-shadow" src='/images/blog/2022-08/bluetooth.png' alt='Screenshot showing the integration page, with an active Bluetooth integration and a Mi Flora plant sensor device being discovered'>
 
@@ -147,14 +147,29 @@ This release adds five integrations built on this: [SensorPush],
 [Govee], [INKBIRD], [Moat], and [Xiaomi BLE]. The latter also provides
 support for the reasonably popular Mi Flora plant sensors.
 
+Suppose you are using the Home Assistant OS on a Raspberry Pi 3 or 4, or are
+using a [supported Bluetooth adapter]. In that case, the Bluetooth integration
+will work out of the box for new installations and is automatically discovered
+on existing setups.
+
+Shout out to [@bdraco] for creating this fantastic new addition, [@Ernst79] for
+providing implementation feedback, and his excellent work on the
+[ble_monitor] custom integration, which was an inspiration for the
+Bluetooth integration. Lastly, a shout out to [@Jc2k] for implementing the
+[Xiaomi BLE] integration that greatly helped with testing. Thanks guys! 🙏
+
+[@bdraco]: https://github.com/bdraco
+[@Ernst79]: https://github.com/Ernst79
+[@Jc2k]: https://github.com/Jc2k
+[ble_monitor]: https://github.com/custom-components/ble_monitor
 [Bluetooth integration]: /integrations/bluetooth
-[SwitchBot]: /integrations/switchbot
 [Govee]: /integrations/govee_ble
 [INKBIRD]: /integrations/inkbird
 [Moat]: /integrations/moat
 [SensorPush]: /integrations/sensorpush
+[supported Bluetooth adapter]: /integrations/bluetooth#installing-a-usb-bluetooth-adapter
+[SwitchBot]: /integrations/switchbot
 [Xiaomi BLE]: /integrations/xiaomi_ble
-[@bdraco]: https://github.com/bdraco
 
 ## HomeKit Bluetooth support
 
@@ -224,7 +239,7 @@ There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
 - "Z-Wave JS" is now shown and known as "Z-Wave" in Home Assistant.
-- The "System Health" setting menu item, have been moved to the "Repairs"
+- The "System Health" setting menu item, has been moved to the "Repairs"
   dashboard, in the overflow menu (three dots in the top right).
 - In the background, a started project to standardize the names entities and
   devices should have. This work in progress will take a long time to complete,
@@ -396,7 +411,7 @@ to adapt them to this change.
 
 {% enddetails %}
 
-{% details "HomeKit Controler" %}
+{% details "HomeKit Controller" %}
 
 The ecobee Fan mode number entity has been removed as HomeKit Controller
 [now implements fan mode](/integrations/climate/#service-climateset_fan_mode)

@@ -6,7 +6,7 @@ description: Detailed changelog for the Home Assistant Core 2022.8 release
 These are all the changes included in the Home Assistant Core 2202.8 release.
 
 For a summary in a more readable format:
-[Release notes blog for this release](/blog/2022/07/27/release-20228/).
+[Release notes blog for this release](/blog/2022/08/03/release-20228/).
 
 ## Full Changelog
 
@@ -604,6 +604,27 @@ For a summary in a more readable format:
 - Lower bluetooth startup timeout to 9s to avoid warning ([@bdraco] - [#76050]) ([bluetooth docs]) (beta fix)
 - Bump bluetooth-adapters to 0.1.3 ([@bdraco] - [#76052]) ([bluetooth docs]) (beta fix)
 - Fix govee H5074 data ([@bdraco] - [#76057]) ([govee_ble docs]) (beta fix) (dependency)
+- Fix capitalization in mitemp_bt strings ([@lunmay] - [#76063]) ([mitemp_bt docs]) (beta fix)
+- Small title adjustment to the Home Assistant Alerts integration ([@frenck] - [#76070]) ([homeassistant_alerts docs]) (beta fix)
+- Handle missing attributes in meater objects ([@emontnemery] - [#76072]) ([meater docs]) (beta fix)
+- Remove Somfy from Overkiz title in manifest ([@frenck] - [#76073]) ([overkiz docs]) (beta fix)
+- Fix typo in new xiaomi_ble string ([@Jc2k] - [#76076]) ([xiaomi_ble docs]) (beta fix)
+- Bump AIOAladdinConnect to 0.1.39 ([@mkmer] - [#76082]) ([aladdin_connect docs]) (beta fix) (dependency)
+- Refresh homeassistant_alerts when hass has started ([@emontnemery] - [#76083]) ([homeassistant_alerts docs]) (beta fix)
+- Ensure ZHA devices load before validating device triggers ([@dmulcahey] - [#76084]) ([zha docs]) (beta fix)
+- Bump Frontend to 20220802.0 ([@zsarnett] - [#76087]) ([frontend docs]) (beta fix)
+- Add support for SwitchBot Plug Mini ([@Eloston] - [#76056]) ([switchbot docs]) (beta fix)
+- Add optional context parameter to async_start_reauth ([@Jc2k] - [#76077]) ([xiaomi_ble docs]) (beta fix)
+- Bump pyatv to 0.10.3 ([@bdraco] - [#76091]) ([apple_tv docs]) (beta fix)
+- Fix serialization of Xiaomi BLE reauth flow ([@Jc2k] - [#76095]) ([xiaomi_ble docs]) (beta fix)
+- Guard imports for type hinting in Bluetooth ([@frenck] - [#75984]) ([bluetooth docs]) (beta fix)
+- Handle additional bluetooth start exceptions ([@bdraco] - [#76096]) ([bluetooth docs]) (beta fix)
+- Only stat the .dockerenv file once ([@bdraco] - [#76097]) (beta fix)
+- Fix Xiaomi BLE UI string issues ([@Jc2k] - [#76099]) ([xiaomi_ble docs]) (beta fix)
+- Bump aiohomekit to 1.2.3 to fix hang at startup ([@bdraco] - [#76102]) ([homekit_controller docs]) (beta fix)
+- Bump pySwitchbot to 0.17.3 to fix hang at startup ([@bdraco] - [#76103]) ([switchbot docs]) (beta fix)
+- Bump `azure-servicebus` to support py3.10 ([@hfurubotten] - [#76092]) ([azure_service_bus docs]) (beta fix)
+- Fix deconz group log warning ([@Kane610] - [#76114]) ([deconz docs]) (beta fix)
 
 [#53268]: https://github.com/home-assistant/core/pull/53268
 [#64090]: https://github.com/home-assistant/core/pull/64090
@@ -1187,6 +1208,7 @@ For a summary in a more readable format:
 [#75974]: https://github.com/home-assistant/core/pull/75974
 [#75979]: https://github.com/home-assistant/core/pull/75979
 [#75980]: https://github.com/home-assistant/core/pull/75980
+[#75984]: https://github.com/home-assistant/core/pull/75984
 [#75986]: https://github.com/home-assistant/core/pull/75986
 [#75991]: https://github.com/home-assistant/core/pull/75991
 [#75997]: https://github.com/home-assistant/core/pull/75997
@@ -1198,7 +1220,27 @@ For a summary in a more readable format:
 [#76046]: https://github.com/home-assistant/core/pull/76046
 [#76050]: https://github.com/home-assistant/core/pull/76050
 [#76052]: https://github.com/home-assistant/core/pull/76052
+[#76056]: https://github.com/home-assistant/core/pull/76056
 [#76057]: https://github.com/home-assistant/core/pull/76057
+[#76063]: https://github.com/home-assistant/core/pull/76063
+[#76070]: https://github.com/home-assistant/core/pull/76070
+[#76072]: https://github.com/home-assistant/core/pull/76072
+[#76073]: https://github.com/home-assistant/core/pull/76073
+[#76076]: https://github.com/home-assistant/core/pull/76076
+[#76077]: https://github.com/home-assistant/core/pull/76077
+[#76082]: https://github.com/home-assistant/core/pull/76082
+[#76083]: https://github.com/home-assistant/core/pull/76083
+[#76084]: https://github.com/home-assistant/core/pull/76084
+[#76087]: https://github.com/home-assistant/core/pull/76087
+[#76091]: https://github.com/home-assistant/core/pull/76091
+[#76092]: https://github.com/home-assistant/core/pull/76092
+[#76095]: https://github.com/home-assistant/core/pull/76095
+[#76096]: https://github.com/home-assistant/core/pull/76096
+[#76097]: https://github.com/home-assistant/core/pull/76097
+[#76099]: https://github.com/home-assistant/core/pull/76099
+[#76102]: https://github.com/home-assistant/core/pull/76102
+[#76103]: https://github.com/home-assistant/core/pull/76103
+[#76114]: https://github.com/home-assistant/core/pull/76114
 [@0bmay]: https://github.com/0bmay
 [@AngellusMortis]: https://github.com/AngellusMortis
 [@BraveChicken1]: https://github.com/BraveChicken1
@@ -1206,6 +1248,7 @@ For a summary in a more readable format:
 [@BrianWithAHat]: https://github.com/BrianWithAHat
 [@DCSBL]: https://github.com/DCSBL
 [@DeerMaximum]: https://github.com/DeerMaximum
+[@Eloston]: https://github.com/Eloston
 [@EnochPrime]: https://github.com/EnochPrime
 [@EverythingSmartHome]: https://github.com/EverythingSmartHome
 [@Hyralex]: https://github.com/Hyralex
@@ -1267,6 +1310,7 @@ For a summary in a more readable format:
 [@krazos]: https://github.com/krazos
 [@kroimon]: https://github.com/kroimon
 [@ludeeus]: https://github.com/ludeeus
+[@lunmay]: https://github.com/lunmay
 [@matrixd2]: https://github.com/matrixd2
 [@mbo18]: https://github.com/mbo18
 [@mib1185]: https://github.com/mib1185
@@ -1310,10 +1354,12 @@ For a summary in a more readable format:
 [ambient_station docs]: /integrations/ambient_station/
 [androidtv docs]: /integrations/androidtv/
 [anthemav docs]: /integrations/anthemav/
+[apple_tv docs]: /integrations/apple_tv/
 [aussie_broadband docs]: /integrations/aussie_broadband/
 [auth docs]: /integrations/auth/
 [awair docs]: /integrations/awair/
 [axis docs]: /integrations/axis/
+[azure_service_bus docs]: /integrations/azure_service_bus/
 [baf docs]: /integrations/baf/
 [blebox docs]: /integrations/blebox/
 [blueprint docs]: /integrations/blueprint/
@@ -1428,6 +1474,7 @@ For a summary in a more readable format:
 [lyric docs]: /integrations/lyric/
 [matrix docs]: /integrations/matrix/
 [mazda docs]: /integrations/mazda/
+[meater docs]: /integrations/meater/
 [media_player docs]: /integrations/media_player/
 [melcloud docs]: /integrations/melcloud/
 [met docs]: /integrations/met/
@@ -1463,6 +1510,7 @@ For a summary in a more readable format:
 [opencv docs]: /integrations/opencv/
 [opentherm_gw docs]: /integrations/opentherm_gw/
 [openuv docs]: /integrations/openuv/
+[overkiz docs]: /integrations/overkiz/
 [philips_js docs]: /integrations/philips_js/
 [pilight docs]: /integrations/pilight/
 [plex docs]: /integrations/plex/
