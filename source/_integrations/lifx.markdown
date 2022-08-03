@@ -12,7 +12,9 @@ ha_platforms:
   - light
 ha_integration_type: integration
 ha_codeowners:
+  - '@bdraco'
   - '@Djelibeybi'
+ha_quality_scale: platinum 
 ---
 
 The LIFX integration automatically discovers [LIFX](https://www.lifx.com) bulbs on your network and adds them to Home Assistant.
@@ -111,42 +113,23 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 
+## HomeKit Accessory Protocol
 
-## Advanced configuration
+Most LIFX devices support Apple HomeKit via the HomeKit Accessory Protocol (HAP). If a LIFX device has not already been added to HomeKit natively using an Apple iOS or macOS device, it can be paired with Home Assistant using via the [HomeKit Controller](/integrations/homekit_controller) integration which uses HAP.
 
-There are some manual configuration options available. These are only needed with unusual network setups where automatic configuration does not find your LIFX devices.
+This enables the use of LIFX devices in Home Assistant that are not supported by the LIFX integration. See below for specific details on controlling LIFX Switches.
 
-```yaml
-# Example configuration.yaml entry
-lifx:
-  light:
-    - server: IP_ADDRESS
-      port: 56700
-      broadcast: IP_ADDRESS
-```
+The LIFX integration currently has to poll the device every few seconds, as opposed to using the [HomeKit Controller](/integrations/homekit_controller) integration, which offers push updates, encrypted communications, and significantly less network traffic.
 
-{% configuration %}
-server:
-  description: Your server address. Will listen on all interfaces if omitted.
-  required: false
-  type: string
-port:
-  description: The UDP port for discovery. Will listen on a random port if omitted.
-  required: false
-  type: integer
-broadcast:
-  description: The broadcast address for discovering lights. Can also set this to the IP address of a bulb to skip discovery.
-  required: false
-  type: string
-{% endconfiguration %}
+Discoveries from control protocols that are not desired can be ignored in the UI. LIFX devices that support HAP will be discovered by both methods if they have not been added to native HomeKit using an Apple iOS or macOS device. It is possible to set up control of the device in Home Assistant using both protocols simultaneously by configuring both the LIFX integration and the HomeKit Controller integration for the same device.
 
 ## LIFX Switch
 
-The `lifx` integration does not support the LIFX Switch. However, the `homekit_controller` integration can be used instead for
+The LIFX integration does not support the LIFX Switch. However, the [HomeKit Controller](/integrations/homekit_controller) integration can be used instead for
 [LIFX Switch running firmware 3.90](https://support.lifx.com/en_us/switch-3-90-update-rk4zYiXVq) or higher. Follow the LIFX
 documentation to obtain a HomeKit code prior to integrating the Switch with Home Assistant as it will be needed during the process.
 
-When using the `homekit_controller` integration, each button on the LIFX Switch is discovered as a
+When using the [HomeKit Controller](/integrations/homekit_controller) integration, each button on the LIFX Switch is discovered as a
 [stateless switch](/integrations/homekit_controller#stateless-switches-and-sensors) and will not appear as an entity in Home Assistant.
 Relays that are configured as wired to non-LIFX devices will appear as normal switches in Home Assistant.
 
@@ -154,7 +137,7 @@ Relays that are configured as wired to non-LIFX devices will appear as normal sw
 
 ### Lights
 
-Automated discovery of LIFX bulbs relies on Home Assistant having a [network interface](/integrations/network) connected to the same subnet as your LIFX bulbs. If you use a segregated IoT network to which Home Assistant is not directly connected, use the manual configuration method documented above to bypass discovery.
+LIFX and HomeKit based discovery of LIFX bulbs relies on Home Assistant having a [network interface](/integrations/network) connected to the same subnet as your LIFX bulbs. If you use a segregated IoT network to which Home Assistant is not directly connected, use the manual configuration method documented above to bypass discovery.
 
 If you have multiple network interfaces, ensure that the interface connected to the same subnet as your LIFX bulbs is enabled in Home Assistant's [network configuration](/integrations/network).
 
