@@ -24,8 +24,14 @@ Supported batteries are:
 - US2000
 - US2000C
 
-Reported USB to RS485 adapters working:
-- FTDI based
+Config options:
+- port: Serial port. This can be a device name (ex. /dev/ttyUSB0) for local attached USB to RS485 adapter or a URL handler (https://pyserial.readthedocs.io/en/latest/url_handlers.html) for Network to RS485 interfaces.
+- baudrate: set the RS485 Baudrate here it will be used at least for USB and RFC2217 interfaces. For socket type interfaces it has to be set also in the config of the network interface.
+- battery_count: Number of pylontech packs in the stack.
+
+Reported RS485 adapters working:
+- FTDI based USB
+- USR-DR302 in RFC2217 mode
 
 Reported configurations working;
 - Main US5000 in mix with US3000
