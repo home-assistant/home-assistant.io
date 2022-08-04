@@ -1,0 +1,561 @@
+---
+layout: post
+title: "2022.8: You can fix it!"
+description: "First-class support for Bluetooth, get notified about detected issues and how to repair them, find integrations by brand name, and maps with much better colors."
+date: 2022-08-03 00:00:00
+date_formatted: "August 3, 2022"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+- Release-Notes
+- Core
+og_image: /images/blog/2022-08/social.png
+---
+
+<a href='/integrations/#version/2022.8'><img src='/images/blog/2022-08/social.png' style='border: 0;box-shadow: none;'></a>
+
+Home Assistant Core 2022.8! 🏖
+
+While many of you enjoy a well-deserved vacation around this time, it seems
+like it didn't slow down the development/contributions made to Home Assistant.
+What a beautifully packed release this is again!
+
+I’m super stoked about the added Bluetooth support, opening up a whole new
+world of devices to Home Assistant. I’m even more excited about the new repairs
+and supported brands features. Those are going to help out A LOT 😃.
+
+Do you know what is really great about this release? All the major features and
+changes announced in this release are a step forward to our current goal:
+Streamlining experiences.
+
+Enjoy the release!
+
+../Frenck
+
+<!--more-->
+
+- [Introducing Repairs: You can fix it!](#introducing-repairs-you-can-fix-it)
+- [First-class Bluetooth support](#first-class-bluetooth-support)
+- [HomeKit Bluetooth support](#homekit-bluetooth-support)
+- [Finding the integration supporting your device](#finding-the-integration-supporting-your-device)
+- [Better map colors](#better-map-colors)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New Integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Breaking Changes](#breaking-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=m9gKFH8WlzY) today at 12:00 PDT / 21:00 CET!
+
+<lite-youtube videoid="m9gKFH8WlzY" videotitle="Home Assistant 2022.8 Release Party"></lite-youtube>
+
+{% comment %}
+
+<!-- Replace the wrapper above with the following after the livestream...-->
+
+Missed our release party live stream on YouTube? Don't worry! You can watch
+the recording of it right here!
+
+<lite-youtube videoid="m9gKFH8WlzY" videotitle="Home Assistant 2022.8 Release Party"></lite-youtube>
+
+{% endcomment %}
+
+## Introducing Repairs: You can fix it!
+
+A completely new feature we hope you are going to love: **Repairs**! 👷‍♂️
+
+The repairs dashboard can be found in the settings menu and is a place where
+Home Assistant can notify you of issues that you can (and should) fix!
+
+From detected current issues on your system to future issues, e.g., caused
+by the use of a feature that will be removed, and anything in between.
+The problems reported by the repair dashboard are actionable and resolvable
+by you.
+
+<img class="no-shadow" src='/images/blog/2022-08/repairs.png' alt='Screenshot showing the repairs dashboard, with some reported and repairable issues'>
+
+These repairable issues reported can be anything and are specifically tailored
+to your Home Assistant instance. Clicking on an issue will show you more
+information about it and tell you what you need to do to fix it.
+
+Sometimes, this needs manual intervention by, for example, updating your YAML
+configuration; Other times, it will automatically fix an issue for you after it
+asks you to confirm it or after asking you to make a choice.
+
+<img class="no-shadow" src='/images/blog/2022-08/repairs-issue-details.png' alt='Screenshot showing details shown by a repairable issue, providing information on how to resolve it.'>
+
+This release can detect about 25 issues now, and additionally, if a
+[Home Assistant Alert] is found that matches your system, it will also show up
+in the repairs dashboard.
+
+There are many use cases for the new repairs feature, and you can expect
+it to be extended a lot, with more issue detections, in the near future.
+
+[Home Assistant Alert]: /integrations/homeassistant_alerts
+
+## First-class Bluetooth support
+
+Today, we proudly announce that Home Assistant now has **first-class**
+Bluetooth support! 🥇 
+
+A brand new [Bluetooth integration] has been added, which provides absolutely
+amazing Bluetooth support to Home Assistant, including automatic discovery of
+new devices and the ability to push device updates.
+
+Integrations that implement device support can easily be built on top of these
+features, meaning we now have a solid base in Home Assistant to unlock
+support for many Bluetooth devices out there!
+
+The screenshot below shows that the Bluetooth integration is set up, and it
+discovered a new device. In this case, it discovered a Mi Flora Flower
+care sensor device.
+
+<img class="no-shadow" src='/images/blog/2022-08/bluetooth.png' alt='Screenshot showing the integration page, with an active Bluetooth integration and a Mi Flora plant sensor device being discovered'>
+
+A good example is the [SwitchBot] integration. It has been updated to support
+the new Bluetooth integration, and because of that, is now a push-based
+integration providing a much more stable experience.
+
+This release adds five integrations built on this: [SensorPush],
+[Govee], [INKBIRD], [Moat], and [Xiaomi BLE]. The latter also provides
+support for the reasonably popular Mi Flora plant sensors.
+
+Suppose you are using the Home Assistant OS on a Raspberry Pi 3 or 4, or are
+using a [supported Bluetooth adapter]. In that case, the Bluetooth integration
+will work out of the box for new installations and is automatically discovered
+on existing setups.
+
+Shout out to [@bdraco] for creating this fantastic new addition, [@Ernst79] for
+providing implementation feedback, and his excellent work on the
+[ble_monitor] custom integration, which was an inspiration for the
+Bluetooth integration. Lastly, a shout out to [@Jc2k] for implementing the
+[Xiaomi BLE] integration that greatly helped with testing. Thanks guys! 🙏
+
+[@bdraco]: https://github.com/bdraco
+[@Ernst79]: https://github.com/Ernst79
+[@Jc2k]: https://github.com/Jc2k
+[ble_monitor]: https://github.com/custom-components/ble_monitor
+[Bluetooth integration]: /integrations/bluetooth
+[Govee]: /integrations/govee_ble
+[INKBIRD]: /integrations/inkbird
+[Moat]: /integrations/moat
+[SensorPush]: /integrations/sensorpush
+[supported Bluetooth adapter]: /integrations/bluetooth#installing-a-usb-bluetooth-adapter
+[SwitchBot]: /integrations/switchbot
+[Xiaomi BLE]: /integrations/xiaomi_ble
+
+## HomeKit Bluetooth support
+
+To continue the story on Bluetooth, the [HomeKit Controller] now also
+supports Bluetooth and leverages the above-mentioned new Bluetooth
+integration 🎉
+
+In case you didn't know, the [HomeKit Controller] integration allows you
+to connect to HomeKit-capable devices and integrate them directly into
+Home Assistant. Allowing you to monitor and control these devices,
+they support push-based updates and, above all: Are entirely local!
+
+You don't need to own or have an Apple phone or computer to use this!
+
+Supporting HomeKit Bluetooth-capable devices is fantastic! It makes a lot of
+devices out there compatible with Home Assistant that have no other way of
+integrating. There are lots of door locks, wall plugs, and other smart devices
+that you can use now.
+
+Thanks for the work on this [@Jc2k] and [@bdraco]!
+
+[@bdraco]: https://github.com/bdraco
+[@Jc2k]: https://github.com/Jc2k
+[HomeKit Controller]: /integrations/homekit_controller
+
+## Finding the integration supporting your device
+
+Some integrations work with multiple different brands. This can happen because,
+for example, those devices share a communication protocol, are white-labeled
+and sold under numerous brand names, or may carry different brand names
+depending on where in the world they are sold.
+
+For example, if you have a Luxaflex cover, you can actually use it using the
+Hunter Douglas PowerView integration. And this is not the only example;
+there are many more! The problem is, how would one know that?
+
+To make setting up things in Home Assistant easier, integrations can now
+support multiple brands! So, if you now add an integration in Home Assistant
+and search for Luxaflex, you will find one!
+
+<img class="no-shadow" src='/images/blog/2022-08/supported-brands.png' alt='Screenshot demonstrating the supported brands; it is now possible to search for a brand that is supported by another integration'>
+
+When you add a new integration that is supported by another integration,
+Home Assistant will tell you which integration provides the support and
+guide you to set up that integration.
+
+## Better map colors
+
+Maps shown in Home Assistant have had a slight makeover and now use a new color
+palette. These new colors provide much greater contrast and significantly
+improve their readability.
+
+Especially if you are using the dark mode in the user interface of
+Home Assistant, you will notice a big difference.
+
+<img class="no-shadow" src='/images/blog/2022-08/maps-colors.png' alt='Screenshot demonstrating the new map colors in both light and dark mode'>
+
+Thanks to [@KTibow] for getting the ball rolling on this one, [@matthiasdebaat]
+for providing UX feedback, and [@bramkragten] for making this change.
+
+[@bramkragten]: https://github.com/bramkragten
+[@KTibow]: https://github.com/KTibow
+[@matthiasdebaat]: https://github.com/matthiasdebaat
+
+## Other noteworthy changes
+
+There is much more juice in this release; here are some of the other
+noteworthy changes this release:
+
+- "Z-Wave JS" is now shown and known as "Z-Wave" in Home Assistant.
+- The "System Health" setting menu item, has been moved to the "Repairs"
+  dashboard, in the overflow menu (three dots in the top right).
+- In the background, a project has been started to standardize the names of entities and
+  devices. This work is in progress and will take a long time to complete,
+  as each possible entity has to be adjusted. But it will streamline experiences!
+- You can now change the shown unit of measurement of number entities that
+  provide a temperature. Thanks, [@emontnemery]!
+- [@frenck] updated the events developer tools to use YAML instead of JSON
+  and added syntax highlighting.
+- The [LIFX] integration got a significant overhaul, making it much more
+  reliable. Thanks for the work on this in the past releases 
+  [@bdraco] and [@Djelibeybi]!
+- The [UniFi Network] now has update entities, allowing you to update the
+  firmware of UniFi devices directly from Home Assistant. Great addition [@J3173]!
+- The Material Design Icons have been updated to v7.0.96, giving you
+  [100](https://pictogrammers.github.io/@mdi/font/7.0.96/) brand new icons
+  to use 🤩 Thanks, [@goyney]!
+- [SwitchBot] now supports Hygrometers (thanks [@murtas]) and door/contact
+  sensors (thanks [@bdraco])!
+- [@Noltari] added update entities to the [QNAP QSW] integration! Nice!
+- [@frenck] added multifactor authentication support for [Verisure]. So now you
+  can add more security to your Verisure alarm system.
+- [HomeWizard Energy] added support for Watermeters! Thanks, [@DCSBL]!
+- [Yolink] now supports garage doors, nice [@matrixd2]!
+- [@simeon-simsoft] for bidirectional [Wallbox] chargers, thank you!
+- You can now view your current network connection details in the
+  Network settings screen. Thanks, [@zsarnett]!
+- [Lutron Caséta] now supports the Lutron RA3 Sunnata Keypads. Thanks, [@danaues]!
+- [@mkmer] added a battery level sensor to [Aladdin Connect], thank you!
+- The [Sensibo] integration now supports the AirQ sensor. Thanks, [@gjohansson-ST]!
+
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@danaues]: https://github.com/danaues
+[@DCSBL]: https://github.com/DCSBL
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@goyney]: https://github.com/goyney
+[@J3173]: https://github.com/J3173
+[@matrixd2]: https://github.com/matrixd2
+[@mkmer]: https://github.com/mkmer
+[@murtas]: https://github.com/murtas
+[@Noltari]: https://github.com/Noltari
+[@simeon-simsoft]: https://github.com/simeon-simsoft
+[@zsarnett]: https://github.com/zsarnett
+[Aladdin Connect]: /integrations/aladdin_connect
+[HomeWizard Energy]: /integrations/homewizard
+[LIFX]: /integrations/lifx
+[Lutron Caséta]: /integrations/lutron_caseta
+[QNAP QSW]: /integrations/qnap_qsw
+[Sensibo]: /integrations/sensibo
+[SwitchBot]: /integrations/switchbot
+[UniFi Network]: /integrations/unifi
+[Verisure]: /integrations/verisure
+[Wallbox]: /integrations/wallbox
+[Yolink]: /integrations/yolink
+
+## New Integrations
+
+We welcome the following new integrations in this release:
+
+- [Bluetooth], added by [@bdraco]
+- [Govee Bluetooth], added by [@bdraco]
+- [Home Assistant Alerts], added by [@emontnemery] & [@balloob]
+- [INKBIRD], added by [@bdraco]
+- [Moat], added by [@bdraco]
+- [NextDNS], added by [@bieniu]
+- [Repairs], added by [@emontnemery]
+- [Rhasspy], added by [@balloob]
+- [SensorPush], added by [@bdraco]
+- [Xiaomi BLE], added by [@Jc2k]
+
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@emontnemery]: https://github.com/emontnemery
+[@Jc2k]: https://github.com/Jc2k
+[Bluetooth]: /integrations/bluetooth
+[Govee Bluetooth]: /integrations/govee_ble
+[Home Assistant Alerts]: /integrations/homeassistant_alerts
+[INKBIRD]: /integrations/inkbird
+[Moat]: /integrations/moat
+[NextDNS]: /integrations/nextdns
+[Repairs]: /integrations/repairs
+[Rhasspy]: /integrations/rhasspy
+[SensorPush]: /integrations/sensorpush
+[Xiaomi BLE]: /integrations/xiaomi_ble
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- [Anthem A/V Receivers], done by [@Hyralex]
+- [Bose SoundTouch], done by [@kroimon]
+
+[@kroimon]: https://github.com/kroimon
+[@Hyralex]: https://github.com/Hyralex
+[Anthem A/V Receivers]: /integrations/anthemav
+[Bose SoundTouch]: /integrations/soundtouch
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Breaking Changes
+
+Below is a listing of the breaking change for this release, per subject or
+integration. Click on one of those to read more about the breaking change
+for that specific item.
+
+{% details "Advantage Air" %}
+
+Each AC will have its own device, different from the one previously created.
+Any automations or scripts that target the device will need to be corrected.
+
+([@Bre77] - [#75395]) ([documentation](/integrations/advantage_air))
+
+[@Bre77]: https://github.com/Bre77
+[#75395]: https://github.com/home-assistant/core/pull/75395
+
+---
+
+The previsouly deprecated service `advantage_air.set_myzone` has been removed.
+Use the available MyZone select entity instead.
+
+([@Bre77] - [#75160]) ([documentation](/integrations/advantage_air))
+
+[@Bre77]: https://github.com/Bre77
+[#75160]: https://github.com/home-assistant/core/pull/75160
+
+{% enddetails %}
+
+{% details "Calendar" %}
+
+Calendar description attributes are no longer written into the recorder database.
+
+([@allenporter] - [#75375]) ([documentation](/integrations/calendar))
+
+[@allenporter]: https://github.com/allenporter
+[#75375]: https://github.com/home-assistant/core/pull/75375
+
+{% enddetails %}
+
+{% details "HERE Travel Time" %}
+
+The single HERE Travel Time sensor with attributes is split up into separate
+sensors for Duration, Duration in Traffic, Route, Distance, Origin, Destination.
+
+If you used the entity attributes in your automation or scripts, you will need
+to adapt them to this change.
+
+([@eifinger] - [#72405]) ([documentation](/integrations/here_travel_time))
+
+[@eifinger]: https://github.com/eifinger
+[#72405]: https://github.com/home-assistant/core/pull/72405
+
+{% enddetails %}
+
+{% details "HomeKit Controller" %}
+
+The ecobee Fan mode number entity has been removed as HomeKit Controller
+[now implements fan mode](/integrations/climate/#service-climateset_fan_mode)
+on the climate entity which replaces this functionality.
+
+([@bdraco] - [#74440]) ([documentation](/integrations/homekit_controller))
+
+[@bdraco]: https://github.com/bdraco
+[#74440]: https://github.com/home-assistant/core/pull/74440
+
+{% enddetails %}
+
+{% details "LIFX" %}
+
+Each LIFX device now has its own integration entry. The existing entry will be
+migrated to separate entries automatically as each device is discovered,
+and will automatically be removed once all devices are found.
+
+Migrating to an integration entry per device allows Home Assistant to
+take care of discovery IP updates and retries, dramatically improving the
+integration's reliability.
+
+LIFX can now be configured manually by IP address. DHCP, HomeKit,
+and native discovery are supported for updating IP addresses to
+ensure we never lose track of a device.
+
+Advanced YAML configuration is deprecated and will be removed
+in a future release. Advanced YAML configuration is no longer necessary as the
+integration now fully utilizes [Network Configuration](/integrations/network/),
+and can also function without working discovery.
+
+([@bdraco] - [#74316]) ([documentation](/integrations/lifx))
+
+[@bdraco]: https://github.com/bdraco
+[#74316]: https://github.com/home-assistant/core/pull/74316
+
+{% enddetails %}
+
+{% details "Logger" %}
+
+Timestamps in the Home Assistant log file now include millisecond-level
+resolution.
+
+Scripts or external log system that rely on this will need to be updated
+to handle the extra decimal places.
+
+([@puddly] - [#74518]) ([documentation](/integrations/logger))
+
+[@puddly]: https://github.com/puddly
+[#74518]: https://github.com/home-assistant/core/pull/74518
+
+{% enddetails %}
+
+{% details "Material Design Icons" %}
+
+In the latest Material Design Icons update,
+[several icons have been renamed or removed](https://dev.materialdesignicons.com/changelog#version-7.0.96).
+Removed and renamed icons will continue to work for the next two releases.
+
+Please make sure you update any use of the following MDI icons:
+
+Removed:
+
+- `mdi:android-messages` - Use `mdi:message-text` instead.
+- `mdi:book-variant-multiple` - Use `mdi:bookmark-box-multiple` instead.
+- `mdi:desktop-mac` - Use `mdi:monitor` instead.
+- `mdi:desktop-mac-dashboard` - Use `mdi:monitor-dashboard` instead.
+- `mdi:discord`
+- `mdi:google-home`
+- `tablet-android` - Use `mdi:tablet` instead.
+ 
+Renamed:
+
+- `mdi:diving-scuba` to `mdi:diving-scuba-mask`
+- `mdi:email-send` to `mdi:email-arrow-right`
+- `mdi:email-send-outline` to `mdi:email-arrow-right-outline`
+- `mdi:email-receive` to `mdi:email-arrow-left`
+- `mdi:email-receive-outline` to `mdi:email-arrow-left-outline`
+- `mdi:format-textdirection-r-to-l` to `mdi:format-pilcrow-arrow-left`
+- `mdi:format-textdirection-l-to-r` to `mdi:format-pilcrow-arrow-right`
+- `mdi:globe-light` to `mdi:globe-light-outline`
+- `mdi:google-controller` to `mdi:controller`
+- `mdi:google-controller-off` to `mdi:controller-off`
+- `mdi:lecturn` to `mdi:lectern`
+- `mdi:mosque` to `mdi:mosque-outline`
+- `mdi:receipt` to `mdi:receipt-text`
+- `mdi:receipt-outline` to `mdi:receipt-text-outline`
+- `mdi:silo` to `mdi:silo-outline`
+- `mdi:text-to-speech` to `mdi:microphone-message`
+- `mdi:text-to-speech-off` to `mdi:microphone-message-off`
+- `mdi:timeline-help` to `mdi:timeline-question`
+- `mdi:timeline-help-outline` to `mdi:timeline-question-outline`
+- `mdi:vector-point` to `mdi:vector-point-select`
+
+([@goyney] - [#13175])
+
+[@bdraco]: https://github.com/goyney
+[#13175]: https://github.com/home-assistant/frontend/pull/13175
+
+{% enddetails %}
+
+{% details "Sonos" %}
+
+The previously deprecated `sonos.join` and `sonos.unjoin` services have been
+removed in favor of the standard `media_player.join` and `media_player.unjoin`
+services.
+
+([@jjlawren] - [#74476]) ([documentation](/integrations/sonos))
+
+[@jjlawren]: https://github.com/jjlawren
+[#74476]: https://github.com/home-assistant/core/pull/74476
+
+{% enddetails %}
+
+{% details "SwitchBot" %}
+
+The [Bluetooth integration](/integrations/bluetooth) must be enabled before
+switchbot can be used. Bluetooth is automatically discovered in most cases,
+but can be manually added from [the integrations page](/integrations/bluetooth)
+if it is not.
+
+The `Time between updates (seconds)` and `How long to scan for advertisement data`
+options have been removed as they are no longer needed since the integration
+is now push instead of polling.
+
+([@bdraco] - [#75645]) ([documentation](/integrations/switchbot))
+
+[@bdraco]: https://github.com/bdraco
+[#75645]: https://github.com/home-assistant/core/pull/75645
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+Carbon Monoxide binary sensors have changed their device class from
+`gas` to `co`.
+
+([@EnochPrime] - [#75649]) ([documentation](/integrations/zwave_js))
+
+[@EnochPrime]: https://github.com/EnochPrime
+[#75649]: https://github.com/home-assistant/core/pull/75649
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+- [Store is now a Generic class](https://developers.home-assistant.io/blog/2022/07/08/generic-store)
+- [Waiting for config entry platforms](https://developers.home-assistant.io/blog/2022/07/08/config_entry_forwards)
+- [Adopting a new way to name entities](https://developers.home-assistant.io/blog/2022/07/10/entity_naming)
+
+## Farewell to the following
+
+The following integrations are also no longer available as of this release:
+
+- **XBee**
+- **SoChain**
+- **Google Play Music Desktop Player (GPMDP)**
+
+All three were previously disabled due to incompatibilities and have now been
+removed.
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2022.8](/changelogs/core-2022.8)
