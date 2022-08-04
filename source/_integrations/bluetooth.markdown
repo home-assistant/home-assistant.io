@@ -62,6 +62,7 @@ If you experience an unreliable Bluetooth connection, installing a [USB extensio
 - ASUS USB-BT400
 - ASUS USB-BT500
 - Avantree DG45
+- Kinivo BTD-400
 - Maxuni BT-501
 - SUMEE BT501
 - UGREEN CM390
