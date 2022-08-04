@@ -65,5 +65,5 @@ Flower Care firmware update steps:
 * Press the "+" button on the top right in the devices tab of the app
 * Add the plant sensor to the app and select an arbitrary plant
 * Wait for the synchronization of the sensor to finish, and a dialog asking for a firmware update should appear (this might take a few minutes)
-* The installed and latest firmware version can be verified by selecting the plant -> three dot menu -> Hardware settings -> Hardware update
-* The Flower Care account and app are not reqired any further for this integration to work
+* The installed and latest firmware version can be verified by selecting the plant -> three-dot menu -> Hardware settings -> Hardware update
+* The Flower Care account and app are not required any further for this integration to work
