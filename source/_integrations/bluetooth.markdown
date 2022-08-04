@@ -38,13 +38,17 @@ For Bluetooth to function on Linux systems, the [D-Bus](https://en.wikipedia.org
 ### Additional details for Container installs
 
 {% details Making the DBus socket available in the Docker container %}
+
 For most systems, the Dbus socket is in `/run/dbus`. The socket must be available in the container for Home Assistant to be able to connect to Dbus and access the Bluetooth adapter. When starting with `docker run`, this can be accomplished by adding `-v /run/dbus:/run/dbus:ro` to the command. If the Dbus socket is in `/var/run/dbus` on the host system, use `-v /var/run/dbus:/run/dbus:ro` instead.
+
 {% enddetails %}
 
 ### Additional details for Container and Supervised installs
 
 {% details Installing BlueZ %}
+
 On Debian based host systems, the `sudo apt-get -y install bluez` command will install BlueZ.
+
 {% enddetails %}
 
 ## Installing a USB Bluetooth Adapter
