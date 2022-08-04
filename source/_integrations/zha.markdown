@@ -23,6 +23,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@dmulcahey'
   - '@adminiuga'
+  - '@puddly'
 ha_domain: zha
 ha_platforms:
   - alarm_control_panel
@@ -44,7 +45,7 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The ZHA (Zigbee Home Automation) integration allows you to connect many off-the-shelf [Zigbee based devices](https://zigbeealliance.org) directly to Home Assistant, using one of the many available Zigbee coordinators.
+The ZHA (Zigbee Home Automation) integration allows you to connect many off-the-shelf [Zigbee based devices](https://csa-iot.org/) directly to Home Assistant, using one of the many available Zigbee coordinators.
 
 ZHA uses an open-source Python library implementing a hardware-independent Zigbee stack called [zigpy](https://github.com/zigpy/zigpy). All coordinators compatible with zigpy can be used with ZHA.
 
@@ -460,7 +461,7 @@ Using a Philips Hue Dimmer Switch or Lutron Connected Bulb Remote is probably th
 1. Turn on your Hue bulb/light you want to reset. (It is important that the bulb has just been turned).
 2. Hold the Philips Hue Dimmer Switch near your bulb (closer than 10 centimeters / 4 inches).
 3. Press and hold the (I)/(ON) and (O)/(OFF) buttons on the Philips Hue Dimmer Switch. The bulb should start blinking in 10-20 seconds. The bulb will blink, then turn off, then turn on. You can now release the dimmer buttons.
-4. Your bulb is now factor resey and ready for pairing. A green light on the top left of the dimmer remote indicates that your bulb has been successfully reset to factory default settings.
+4. Your bulb is now factor reset and ready for pairing. A green light on the top left of the dimmer remote indicates that your bulb has been successfully reset to factory default settings.
 
 Note: If you are unable to reset the bulb, remove it from the Hue Bridge and retry the procedure.
 

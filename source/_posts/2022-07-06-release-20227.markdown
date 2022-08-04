@@ -29,7 +29,7 @@ the soon-to-be-released [Home Assistant Yellow]! 💛 More about that soon™.
 This release is definitely representing the "streamlining experiences"
 motto we have been using. The performance improvements in this release are
 once more: stunning! Furthermore, there are some wonderful new features to
-explore too. 
+explore too.
 
 This release has the perfect mix! I'm sure there is something in here you
 like. So without further due: Enjoy the release!
@@ -51,6 +51,13 @@ like. So without further due: Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2022.7.1 - July 7](#release-202271---july-7)
+- [Release 2022.7.2 - July 8](#release-202272---july-8)
+- [Release 2022.7.3 - July 10](#release-202273---july-10)
+- [Release 2022.7.4 - July 13](#release-202274---july-13)
+- [Release 2022.7.5 - July 14](#release-202275---july-14)
+- [Release 2022.7.6 - July 20](#release-202276---july-20)
+- [Release 2022.7.7 - July 26](#release-202277---july-26)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -159,9 +166,8 @@ Home Assistant will take care of converting the values for you.
 
 <img class="no-shadow" src='/images/blog/2022-07/weather-units.png' alt='Screenshot showing energy usage being compared from last week with the week before that'>
 
-As a bonus, this same unit-changing feature is added to the number entities
-that represent a temperature. For those number entities, you can now change
-the units from Celsius to Fahrenheit (and the other way around).
+On a similar note, number entities that represent a temperature are now converted to
+the temperature unit used by the configured unit system.
 
 Thanks [@emontnemery] and [@gjohansson-ST] for adding this and updating
 all existing weather integrations to support this 👍.
@@ -269,10 +275,10 @@ noteworthy changes this release:
   locks, and vibration, CO, and Smoke Sensors!
 - [Jellyfin] now supports movie collections in the media browser, thanks [@j-stienstra]!
 - Thanks to [@dmulcahey], the widely discussed Aqara FP1 sensor is now
-  supported by [ZHA]! 
+  supported by [ZHA]!
 - [@ghedo] has been busy improving the [Area Card]. It can now show
   moisture/flood alerts, humidity, and shows an icon for temperature. Nice!
-- [@king444] added support for Top/Down, Bottom/Up to [Hunter Douglas PowerView].
+- [@kingy444] added support for Top/Down, Bottom/Up to [Hunter Douglas PowerView].
   Additionally, buttons to calibrate and jog (identify) have been added. [@bdraco]
   added support for polling in case the device is mains powered.
 - Thanks to [@thrawnarn], you can now send polls via [Telegram bot]!
@@ -294,7 +300,7 @@ noteworthy changes this release:
 [@iAutom8]: https://github.com/@iAutom8
 [@j-stienstra]: https://github.com/j-stienstra
 [@jjlawren]: https://github.com/jjlawren
-[@king444]: https://github.com/king444
+[@kingy444]: https://github.com/kingy444
 [@matrixd2]: https://github.com/matrixd2
 [@mdegat01]: https://github.com/mdegat01
 [@thrawnarn]: https://github.com/thrawnarn
@@ -332,6 +338,418 @@ The following integrations are now available via the Home Assistant UI:
 [Radio Thermostat]: /integrations/radiotherm
 [Simplepush]: /integrations/simplepush
 [SkyBell]: /integrations/skybell
+
+## Release 2022.7.1 - July 7
+
+- Bump deCONZ dependency to v96 ([@Kane610] - [#74460]) ([deconz docs])
+- Bump satel_integra to 0.3.7 to fix compat with python 3.10 ([@c-soft] - [#74543]) ([satel_integra docs])
+- fjaraskupan: Make sure we stop bleak on home assistant stop ([@elupus] - [#74545]) ([fjaraskupan docs])
+- Minimize Sonos `media_player.unjoin` timeout ([@jjlawren] - [#74549]) ([sonos docs])
+- Bump aioskybell to 22.7.0 ([@tkdrob] - [#74559]) ([skybell docs])
+- Bump pyenvisalink version to 4.6 ([@ufodone] - [#74561]) ([envisalink docs])
+- ElkM1 bump lib to support Python 3.10 SSL ([@gwww] - [#74569]) ([elkm1 docs])
+- Fix openweathermap hourly forecast ([@emontnemery] - [#74578]) ([openweathermap docs])
+- Fix mix of aiohttp and requests in Bloomsky ([@frenck] - [#74598]) ([bloomsky docs])
+- Update aiokafka to 0.7.2 ([@frenck] - [#74601]) ([apache_kafka docs])
+- Poll cast groups when media player is added or reconnected ([@emontnemery] - [#74610]) ([cast docs])
+- Ikea Starkvind support all models ([@arnemauer] - [#74615]) ([zha docs])
+- Update frontend to 20220707.0 ([@bramkragten] - [#74625]) ([frontend docs])
+- Fix mix of aiohttp and requests in ZAMG ([@frenck] - [#74628]) ([zamg docs])
+- Fix smart energy polling for Tuya plugs ([@TheJulianJES] - [#74640]) ([zha docs])
+- Fix exception in doorbird logbook during startup ([@bdraco] - [#74649]) ([doorbird docs])
+- Update kaiterra-async-client to 1.0.0 ([@Michsior14] - [#74677]) ([kaiterra docs])
+
+[#74460]: https://github.com/home-assistant/core/pull/74460
+[#74543]: https://github.com/home-assistant/core/pull/74543
+[#74545]: https://github.com/home-assistant/core/pull/74545
+[#74549]: https://github.com/home-assistant/core/pull/74549
+[#74559]: https://github.com/home-assistant/core/pull/74559
+[#74561]: https://github.com/home-assistant/core/pull/74561
+[#74569]: https://github.com/home-assistant/core/pull/74569
+[#74578]: https://github.com/home-assistant/core/pull/74578
+[#74598]: https://github.com/home-assistant/core/pull/74598
+[#74601]: https://github.com/home-assistant/core/pull/74601
+[#74610]: https://github.com/home-assistant/core/pull/74610
+[#74615]: https://github.com/home-assistant/core/pull/74615
+[#74625]: https://github.com/home-assistant/core/pull/74625
+[#74628]: https://github.com/home-assistant/core/pull/74628
+[#74640]: https://github.com/home-assistant/core/pull/74640
+[#74649]: https://github.com/home-assistant/core/pull/74649
+[#74677]: https://github.com/home-assistant/core/pull/74677
+[@Kane610]: https://github.com/Kane610
+[@Michsior14]: https://github.com/Michsior14
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@arnemauer]: https://github.com/arnemauer
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@c-soft]: https://github.com/c-soft
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gwww]: https://github.com/gwww
+[@jjlawren]: https://github.com/jjlawren
+[@tkdrob]: https://github.com/tkdrob
+[@ufodone]: https://github.com/ufodone
+[apache_kafka docs]: /integrations/apache_kafka/
+[bloomsky docs]: /integrations/bloomsky/
+[cast docs]: /integrations/cast/
+[deconz docs]: /integrations/deconz/
+[doorbird docs]: /integrations/doorbird/
+[elkm1 docs]: /integrations/elkm1/
+[envisalink docs]: /integrations/envisalink/
+[fjaraskupan docs]: /integrations/fjaraskupan/
+[frontend docs]: /integrations/frontend/
+[kaiterra docs]: /integrations/kaiterra/
+[openweathermap docs]: /integrations/openweathermap/
+[satel_integra docs]: /integrations/satel_integra/
+[skybell docs]: /integrations/skybell/
+[sonos docs]: /integrations/sonos/
+[zamg docs]: /integrations/zamg/
+[zha docs]: /integrations/zha/
+
+## Release 2022.7.2 - July 8
+
+- Add missing strings for here_travel_time ([@eifinger] - [#74641]) ([here_travel_time docs])
+- Add ssh-rsa as acceptable an host key algorithm ([@siyuan-nz] - [#74684]) ([unifi_direct docs])
+- Fix ZHA group not setting the correct color mode ([@TheJulianJES] - [#74687]) ([zha docs])
+- Bump deconz dependency to fix #74523 ([@Kane610] - [#74710]) ([deconz docs])
+- Bump atomicwrites ([@balloob] - [#74758])
+- Bump regenmaschine to 2022.07.0 ([@bachya] - [#74680]) ([rainmachine docs])
+- Fix error with HDD temperature report in Freebox integration ([@BenoitAnastay] - [#74718]) ([freebox docs])
+
+[#74641]: https://github.com/home-assistant/core/pull/74641
+[#74680]: https://github.com/home-assistant/core/pull/74680
+[#74684]: https://github.com/home-assistant/core/pull/74684
+[#74687]: https://github.com/home-assistant/core/pull/74687
+[#74710]: https://github.com/home-assistant/core/pull/74710
+[#74718]: https://github.com/home-assistant/core/pull/74718
+[#74758]: https://github.com/home-assistant/core/pull/74758
+[@BenoitAnastay]: https://github.com/BenoitAnastay
+[@Kane610]: https://github.com/Kane610
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@eifinger]: https://github.com/eifinger
+[@siyuan-nz]: https://github.com/siyuan-nz
+[deconz docs]: /integrations/deconz/
+[freebox docs]: /integrations/freebox/
+[here_travel_time docs]: /integrations/here_travel_time/
+[rainmachine docs]: /integrations/rainmachine/
+[unifi_direct docs]: /integrations/unifi_direct/
+[zha docs]: /integrations/zha/
+
+## Release 2022.7.3 - July 10
+
+- Fix Vicare One Time Charge ([@oischinger] - [#74872]) ([vicare docs])
+- Fix KeyError from zwave_js diagnostics ([@kpine] - [#74579]) ([zwave_js docs])
+- Update systembridgeconnector to 3.3.2 ([@timmo001] - [#74701]) ([system_bridge docs])
+- `air_quality` and `filter_life` fixes for Pur131S ([@jetpacktuxedo] - [#74740]) ([vesync docs])
+- Update pyCEC to version 0.5.2 ([@inytar] - [#74742]) ([hdmi_cec docs])
+- Bump pyezviz to 0.2.0.9 ([@regevbr] - [#74755]) ([ezviz docs])
+- Update aioqsw to v0.1.1 ([@Noltari] - [#74784]) ([qnap_qsw docs])
+- Bump python-gammu to 3.2.4 with Python 3.10 support ([@PaulAnnekov] - [#74797]) ([sms docs])
+- Bump deCONZ dependency to fix #74791 ([@Kane610] - [#74804]) ([deconz docs])
+- Bump regenmaschine to 2022.07.1 ([@bachya] - [#74815]) ([rainmachine docs])
+- Fixed unit of measurement. #70121 ([@StephanU] - [#74838]) ([edl21 docs])
+- Bump rokuecp to 0.17.0 ([@ctalkington] - [#74862]) ([roku docs])
+- Bump pymazda to 0.3.6 ([@bdr99] - [#74863]) ([mazda docs])
+- Fix Vicare One Time Charge ([@oischinger] - [#74872]) ([vicare docs])
+- Bump pysml to 0.0.8 (fixes #74382) ([@DavidMStraub] - [#74875]) ([edl21 docs])
+- Bump afsapi to 0.2.5 ([@wlcrs] - [#74907]) ([frontier_silicon docs])
+
+[#74579]: https://github.com/home-assistant/core/pull/74579
+[#74701]: https://github.com/home-assistant/core/pull/74701
+[#74740]: https://github.com/home-assistant/core/pull/74740
+[#74742]: https://github.com/home-assistant/core/pull/74742
+[#74755]: https://github.com/home-assistant/core/pull/74755
+[#74784]: https://github.com/home-assistant/core/pull/74784
+[#74797]: https://github.com/home-assistant/core/pull/74797
+[#74804]: https://github.com/home-assistant/core/pull/74804
+[#74815]: https://github.com/home-assistant/core/pull/74815
+[#74838]: https://github.com/home-assistant/core/pull/74838
+[#74862]: https://github.com/home-assistant/core/pull/74862
+[#74863]: https://github.com/home-assistant/core/pull/74863
+[#74872]: https://github.com/home-assistant/core/pull/74872
+[#74875]: https://github.com/home-assistant/core/pull/74875
+[#74907]: https://github.com/home-assistant/core/pull/74907
+[@DavidMStraub]: https://github.com/DavidMStraub
+[@Kane610]: https://github.com/Kane610
+[@Noltari]: https://github.com/Noltari
+[@PaulAnnekov]: https://github.com/PaulAnnekov
+[@StephanU]: https://github.com/StephanU
+[@bachya]: https://github.com/bachya
+[@bdr99]: https://github.com/bdr99
+[@ctalkington]: https://github.com/ctalkington
+[@inytar]: https://github.com/inytar
+[@jetpacktuxedo]: https://github.com/jetpacktuxedo
+[@kpine]: https://github.com/kpine
+[@oischinger]: https://github.com/oischinger
+[@regevbr]: https://github.com/regevbr
+[@timmo001]: https://github.com/timmo001
+[@wlcrs]: https://github.com/wlcrs
+[deconz docs]: /integrations/deconz/
+[edl21 docs]: /integrations/edl21/
+[ezviz docs]: /integrations/ezviz/
+[frontier_silicon docs]: /integrations/frontier_silicon/
+[hdmi_cec docs]: /integrations/hdmi_cec/
+[mazda docs]: /integrations/mazda/
+[qnap_qsw docs]: /integrations/qnap_qsw/
+[rainmachine docs]: /integrations/rainmachine/
+[roku docs]: /integrations/roku/
+[sms docs]: /integrations/sms/
+[system_bridge docs]: /integrations/system_bridge/
+[vesync docs]: /integrations/vesync/
+[vicare docs]: /integrations/vicare/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.7.4 - July 13
+
+- Migrate ecobee to native_* ([@emontnemery] - [#74043]) ([ecobee docs])
+- Migrate homematicip_cloud to native_* ([@emontnemery] - [#74385]) ([homematicip_cloud docs])
+- Update pyialarm to 2.2.0 ([@RyuzakiKK] - [#74874]) ([ialarm docs])
+- Correctly handle device triggers for missing ZHA devices ([@Adminiuga] - [#74894]) ([zha docs])
+- Remove pip --prefix workaround ([@henryptung] - [#74922])
+- Fix Pyload request content type headers ([@iMarkus] - [#74957]) ([pyload docs])
+- JSON serialize NamedTuple subclasses with aiohttp ([@bdraco] - [#74971])
+- Fix mix of aiohttp and requests in ClickSend TTS ([@frenck] - [#74985]) ([clicksend_tts docs])
+- Do not spam log when Life360 member location is missing ([@pnbruckner] - [#75029]) ([life360 docs])
+- Upgrade huawei-lte-api to 1.6.1 ([@scop] - [#75030]) ([huawei_lte docs])
+- Fix Ruckus Unleashed SSH connection failures ([@gabe565] - [#75032]) ([ruckus_unleashed docs])
+- Bump afsapi to 0.2.6 ([@wlcrs] - [#75041]) ([frontier_silicon docs])
+- Bump homematicip to 1.0.4 ([@hahn-th] - [#75053]) ([homematicip_cloud docs])
+- Bump AIOAladdinConnect to 0.1.23 ([@mkmer] - [#75065]) ([aladdin_connect docs])
+- Fix Insteon thermostat issues ([@teharris1] - [#75079]) ([insteon docs])
+- Fix missing ordered states in universal media player ([@Drafteed] - [#75099]) ([universal docs])
+- Make sure device tuple is a list on save ([@elupus] - [#75103]) ([rfxtrx docs])
+- Fix Powerview top shade open position ([@kingy444] - [#75110]) ([hunterdouglas_powerview docs])
+- Bump ZHA dependencies ([@puddly] - [#75133]) ([zha docs])
+- Ensure SimpliSafe diagnostics redact the `code` option ([@bachya] - [#75137]) ([simplisafe docs])
+- Block bad pubnub version ([@balloob] - [#75138])
+
+[#74043]: https://github.com/home-assistant/core/pull/74043
+[#74385]: https://github.com/home-assistant/core/pull/74385
+[#74874]: https://github.com/home-assistant/core/pull/74874
+[#74894]: https://github.com/home-assistant/core/pull/74894
+[#74922]: https://github.com/home-assistant/core/pull/74922
+[#74957]: https://github.com/home-assistant/core/pull/74957
+[#74971]: https://github.com/home-assistant/core/pull/74971
+[#74985]: https://github.com/home-assistant/core/pull/74985
+[#75029]: https://github.com/home-assistant/core/pull/75029
+[#75030]: https://github.com/home-assistant/core/pull/75030
+[#75032]: https://github.com/home-assistant/core/pull/75032
+[#75041]: https://github.com/home-assistant/core/pull/75041
+[#75053]: https://github.com/home-assistant/core/pull/75053
+[#75065]: https://github.com/home-assistant/core/pull/75065
+[#75079]: https://github.com/home-assistant/core/pull/75079
+[#75099]: https://github.com/home-assistant/core/pull/75099
+[#75103]: https://github.com/home-assistant/core/pull/75103
+[#75110]: https://github.com/home-assistant/core/pull/75110
+[#75133]: https://github.com/home-assistant/core/pull/75133
+[#75137]: https://github.com/home-assistant/core/pull/75137
+[#75138]: https://github.com/home-assistant/core/pull/75138
+[@Adminiuga]: https://github.com/Adminiuga
+[@Drafteed]: https://github.com/Drafteed
+[@RyuzakiKK]: https://github.com/RyuzakiKK
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gabe565]: https://github.com/gabe565
+[@hahn-th]: https://github.com/hahn-th
+[@henryptung]: https://github.com/henryptung
+[@iMarkus]: https://github.com/iMarkus
+[@kingy444]: https://github.com/kingy444
+[@mkmer]: https://github.com/mkmer
+[@pnbruckner]: https://github.com/pnbruckner
+[@puddly]: https://github.com/puddly
+[@scop]: https://github.com/scop
+[@teharris1]: https://github.com/teharris1
+[@wlcrs]: https://github.com/wlcrs
+[aladdin_connect docs]: /integrations/aladdin_connect/
+[clicksend_tts docs]: /integrations/clicksend_tts/
+[ecobee docs]: /integrations/ecobee/
+[frontier_silicon docs]: /integrations/frontier_silicon/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[huawei_lte docs]: /integrations/huawei_lte/
+[hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
+[ialarm docs]: /integrations/ialarm/
+[insteon docs]: /integrations/insteon/
+[life360 docs]: /integrations/life360/
+[pyload docs]: /integrations/pyload/
+[rfxtrx docs]: /integrations/rfxtrx/
+[ruckus_unleashed docs]: /integrations/ruckus_unleashed/
+[simplisafe docs]: /integrations/simplisafe/
+[universal docs]: /integrations/universal/
+[zha docs]: /integrations/zha/
+
+## Release 2022.7.5 - July 14
+
+- Address Blebox uniapi review sidenotes ([@riokuu] - [#74298]) ([blebox docs])
+- Fix Alexa: Only trigger doorbell event on actual state change to "ON" ([@Tho85] - [#74924]) ([alexa docs])
+- Fix Blebox light scenes ([@riokuu] - [#75106]) ([blebox docs])
+- Fix playback of hls cameras in stream ([@uvjustin] - [#75166]) ([stream docs])
+- Bump version of pyunifiprotect to 4.0.10 ([@AngellusMortis] - [#75180]) ([unifiprotect docs])
+- Bumped AIOAladdin Connect to 0.1.24 ([@mkmer] - [#75182]) ([aladdin_connect docs])
+- Bump zigpy from 0.47.2 to 0.47.3 ([@puddly] - [#75194]) ([zha docs])
+- Skip `iso4217` version 1.10, which includes a broken `__init__.pyi` file ([@puddly] - [#75200])
+- Fix Hive power unit of measurement ([@KJonline] - [#75210]) ([hive docs])
+- Bump frontend to 20220707.1 ([@zsarnett] - [#75232]) ([frontend docs])
+- Bump AIOAladdinConnect to 0.1.25 ([@mkmer] - [#75235]) ([aladdin_connect docs])
+- Bump pylitterbot to 2022.7.0 ([@natekspencer] - [#75241]) ([litterrobot docs])
+- Remove nest mac prefix that matches cast devices ([@allenporter] - [#75108]) ([nest docs])
+
+[#74298]: https://github.com/home-assistant/core/pull/74298
+[#74924]: https://github.com/home-assistant/core/pull/74924
+[#75106]: https://github.com/home-assistant/core/pull/75106
+[#75108]: https://github.com/home-assistant/core/pull/75108
+[#75166]: https://github.com/home-assistant/core/pull/75166
+[#75180]: https://github.com/home-assistant/core/pull/75180
+[#75182]: https://github.com/home-assistant/core/pull/75182
+[#75194]: https://github.com/home-assistant/core/pull/75194
+[#75200]: https://github.com/home-assistant/core/pull/75200
+[#75210]: https://github.com/home-assistant/core/pull/75210
+[#75232]: https://github.com/home-assistant/core/pull/75232
+[#75235]: https://github.com/home-assistant/core/pull/75235
+[#75241]: https://github.com/home-assistant/core/pull/75241
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@KJonline]: https://github.com/KJonline
+[@Tho85]: https://github.com/Tho85
+[@allenporter]: https://github.com/allenporter
+[@mkmer]: https://github.com/mkmer
+[@natekspencer]: https://github.com/natekspencer
+[@puddly]: https://github.com/puddly
+[@riokuu]: https://github.com/riokuu
+[@uvjustin]: https://github.com/uvjustin
+[@zsarnett]: https://github.com/zsarnett
+[aladdin_connect docs]: /integrations/aladdin_connect/
+[alexa docs]: /integrations/alexa/
+[blebox docs]: /integrations/blebox/
+[frontend docs]: /integrations/frontend/
+[hive docs]: /integrations/hive/
+[litterrobot docs]: /integrations/litterrobot/
+[nest docs]: /integrations/nest/
+[stream docs]: /integrations/stream/
+[unifiprotect docs]: /integrations/unifiprotect/
+[zha docs]: /integrations/zha/
+
+## Release 2022.7.6 - July 20
+
+- Fix ZHA light turn on issues ([@dmulcahey] - [#75220]) ([zha docs])
+- Fix aruba ssh host key algorithm ([@apaperclip] - [#75224]) ([aruba docs])
+- Force `_attr_native_value` to metric in bmw_connected_drive ([@rikroe] - [#75225]) ([bmw_connected_drive docs])
+- Bump venstarcolortouch to 0.18 ([@craftyguy] - [#75237]) ([venstar docs]) (dependency)
+- Improve UniFi Protect unauth handling ([@AngellusMortis] - [#75269]) ([unifiprotect docs])
+- Update pyotgw to 2.0.0 ([@mvn23] - [#75285]) ([opentherm_gw docs]) (dependency)
+- Add fixes for hive light ([@KJonline] - [#75286]) ([hive docs])
+- Bump bimmer_connected to 0.10.1 ([@rikroe] - [#75287]) ([bmw_connected_drive docs]) (dependency)
+- Bump simplisafe-python to 2022.07.0 ([@bachya] - [#75294]) ([simplisafe docs]) (dependency)
+- Upgrade ness_alarm dependencies ([@nickw444] - [#75298]) ([ness_alarm docs])
+- Use the orjson equivalent default encoder when save_json is passed the default encoder ([@bdraco] - [#74377])
+- Use default encoder when saving storage ([@bdraco] - [#75319])
+- Apply filter to libav.hls logging namespace ([@uvjustin] - [#75330]) ([stream docs])
+- Handle (and better log) more AirVisual cloud API errors ([@bachya] - [#75332]) ([airvisual docs])
+- Fix HKC device triggers ([@bdraco] - [#75371]) ([homekit_controller docs])
+- Bump AIOAladdinConnect to 0.1.27 ([@mkmer] - [#75400]) ([aladdin_connect docs]) (dependency)
+- Bump pytomorrowio to 0.3.4 ([@raman325] - [#75478]) ([tomorrowio docs]) (dependency)
+- Bump pySwitchbot to 0.14.1 ([@pascalwinters] - [#75487]) ([switchbot docs]) (dependency)
+- Fix Netgear update entity ([@starkillerOG] - [#75496]) ([netgear docs])
+- Fix - Forcast.solar issue on saving settings in options flow without api key ([@klaasnicolaas] - [#75504]) ([forecast_solar docs])
+- Fix failure to raise on bad YAML syntax from include files ([@bdraco] - [#75510])
+- Fix incorrect Ambient PWS lightning strike sensor state classes ([@bachya] - [#75520]) ([ambient_station docs])
+- Bump aioshelly to 2.0.1 ([@thecode] - [#75523]) ([shelly docs]) (dependency)
+
+[#74377]: https://github.com/home-assistant/core/pull/74377
+[#75220]: https://github.com/home-assistant/core/pull/75220
+[#75224]: https://github.com/home-assistant/core/pull/75224
+[#75225]: https://github.com/home-assistant/core/pull/75225
+[#75237]: https://github.com/home-assistant/core/pull/75237
+[#75269]: https://github.com/home-assistant/core/pull/75269
+[#75285]: https://github.com/home-assistant/core/pull/75285
+[#75286]: https://github.com/home-assistant/core/pull/75286
+[#75287]: https://github.com/home-assistant/core/pull/75287
+[#75294]: https://github.com/home-assistant/core/pull/75294
+[#75298]: https://github.com/home-assistant/core/pull/75298
+[#75319]: https://github.com/home-assistant/core/pull/75319
+[#75330]: https://github.com/home-assistant/core/pull/75330
+[#75332]: https://github.com/home-assistant/core/pull/75332
+[#75371]: https://github.com/home-assistant/core/pull/75371
+[#75400]: https://github.com/home-assistant/core/pull/75400
+[#75478]: https://github.com/home-assistant/core/pull/75478
+[#75487]: https://github.com/home-assistant/core/pull/75487
+[#75496]: https://github.com/home-assistant/core/pull/75496
+[#75504]: https://github.com/home-assistant/core/pull/75504
+[#75510]: https://github.com/home-assistant/core/pull/75510
+[#75520]: https://github.com/home-assistant/core/pull/75520
+[#75523]: https://github.com/home-assistant/core/pull/75523
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@KJonline]: https://github.com/KJonline
+[@apaperclip]: https://github.com/apaperclip
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@craftyguy]: https://github.com/craftyguy
+[@dmulcahey]: https://github.com/dmulcahey
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@mkmer]: https://github.com/mkmer
+[@mvn23]: https://github.com/mvn23
+[@nickw444]: https://github.com/nickw444
+[@pascalwinters]: https://github.com/pascalwinters
+[@raman325]: https://github.com/raman325
+[@rikroe]: https://github.com/rikroe
+[@starkillerOG]: https://github.com/starkillerOG
+[@thecode]: https://github.com/thecode
+[@uvjustin]: https://github.com/uvjustin
+[airvisual docs]: /integrations/airvisual/
+[aladdin_connect docs]: /integrations/aladdin_connect/
+[ambient_station docs]: /integrations/ambient_station/
+[aruba docs]: /integrations/aruba/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[forecast_solar docs]: /integrations/forecast_solar/
+[hive docs]: /integrations/hive/
+[homekit_controller docs]: /integrations/homekit_controller/
+[ness_alarm docs]: /integrations/ness_alarm/
+[netgear docs]: /integrations/netgear/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[shelly docs]: /integrations/shelly/
+[simplisafe docs]: /integrations/simplisafe/
+[stream docs]: /integrations/stream/
+[switchbot docs]: /integrations/switchbot/
+[tomorrowio docs]: /integrations/tomorrowio/
+[unifiprotect docs]: /integrations/unifiprotect/
+[venstar docs]: /integrations/venstar/
+[zha docs]: /integrations/zha/
+
+## Release 2022.7.7 - July 26
+
+- Fix hvv departures authentication ([@vigonotion] - [#75146]) ([hvv_departures docs])
+- Fix Epson wrong volume value ([@pszafer] - [#75264]) ([epson docs])
+- Change monoprice config flow to sync ([@OnFreund] - [#75306]) ([monoprice docs])
+- Round up for stream record lookback ([@uvjustin] - [#75580]) ([stream docs])
+- Revert SimpliSafe auth flow to the quasi-manual OAuth method from 2021.11.0 ([@bachya] - [#75641]) ([simplisafe docs])
+- Update pyotgw to 2.0.1 ([@mvn23] - [#75663]) ([opentherm_gw docs]) (dependency)
+- Fix AssertionError in RainMachine ([@bachya] - [#75668]) ([rainmachine docs])
+
+[#75146]: https://github.com/home-assistant/core/pull/75146
+[#75264]: https://github.com/home-assistant/core/pull/75264
+[#75306]: https://github.com/home-assistant/core/pull/75306
+[#75580]: https://github.com/home-assistant/core/pull/75580
+[#75641]: https://github.com/home-assistant/core/pull/75641
+[#75663]: https://github.com/home-assistant/core/pull/75663
+[#75668]: https://github.com/home-assistant/core/pull/75668
+[@OnFreund]: https://github.com/OnFreund
+[@bachya]: https://github.com/bachya
+[@mvn23]: https://github.com/mvn23
+[@pszafer]: https://github.com/pszafer
+[@uvjustin]: https://github.com/uvjustin
+[@vigonotion]: https://github.com/vigonotion
+[epson docs]: /integrations/epson/
+[hvv_departures docs]: /integrations/hvv_departures/
+[monoprice docs]: /integrations/monoprice/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[rainmachine docs]: /integrations/rainmachine/
+[simplisafe docs]: /integrations/simplisafe/
+[stream docs]: /integrations/stream/
 
 ## Need help? Join the community!
 
@@ -540,7 +958,7 @@ entities from the Home Assistant Interface, selecting "REMOVE ENTITY", and
 then confirming the removal by clicking "REMOVE".
 
 - If you have automations to set shade position based on entity ID, you will
-  need to reconfigure these as the new entities will be named differently. 
+  need to reconfigure these as the new entities will be named differently.
 - If you only have automations set to trigger scenes you **do not** need to
   reconfigure automations.
 
@@ -601,6 +1019,30 @@ integration, you will have to re-add it manually via the user interface.
 
 {% details "Life360" %}
 
+### Overview
+
+The Life360 integration has been converted from the old "legacy"
+implementation (which uses `known_devices.yaml`) to the newer entity based
+design, similar to what was done back in the 0.94.0 release to many other
+device tracker integrations.
+
+Due to this change, all your existing Life360 entities will become
+non-functional, and there will be new entities, with different entity IDs,
+that _are_ functional.
+
+### Steps to replace old entities with new ones
+
+1. Edit the `known_devices.yaml` file in your configuration directory to
+remove any Life360-related entries. Or, if there are only Life360 entries in
+this file, simply delete the file entirely.
+2. Restart Home Assistant. All the old, non-functional Life360 entities
+should now be gone. (If you are still seeing the old entities, try refreshing
+your browser.)
+3. Go to the Entities page (under Settings -> Devices & Services -> Entities)
+and change the entity IDs for the new Life360 entities as desired.
+
+### Removed/changed functionality
+
 The previously deprecated YAML configuration of the Life360
 integration has been removed.
 
@@ -608,17 +1050,13 @@ Life360 is now configured via the UI. Any "advanced" options in
 YAML configuration will be imported. Once the migration is complete,
 any `life360` entries in YAML configuration should be removed.
 
-As per other device tracker platforms that have migrated to entity-based,
-entries in `known_devices.yaml` will no longer be created, and any existing
-entries for `life360` should be removed.
-
-The following options are no longer supported: 
+The following options are no longer supported:
 
 - `circles`
 - `members`
 - `error_threshold`
 - `warning_threshold`
-- `max_update_wait`
+- `max_update_wait` (including the `life360_update_overdue` & `life360_update_restored` events)
 - `show_as_state: moving`
 
 Additionally, the following entity attributes have been changed:
@@ -1037,7 +1475,7 @@ Vesync switches that support energy monitoring will have their:
 - Voltage attribute moved from the switch entity to a dedicated Voltage Sensor
   entity
 - Weekly, monthly and yearly moved from the switch entity attributes into new
-  energy sensors. 
+  energy sensors.
 
 If you used these entity attributes in your automation or scripts, you'd need
 to adapt them to this change.

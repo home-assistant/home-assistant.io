@@ -8,11 +8,11 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bbx-a'
-  - '@bbx-jp'
   - '@riokuu'
 ha_domain: blebox
 ha_platforms:
   - air_quality
+  - button
   - climate
   - cover
   - light
@@ -83,3 +83,11 @@ Currently, the following product classes are supported:
 - BleBox dimmerBox
 - BleBox wLightBoxS
 - BleBox wLightBox
+
+## Button
+
+This integration adds the BleBox device as a button in Home Assistant
+
+Currently, this includes support for the following product classes:
+
+- BleBox tvLiftBox

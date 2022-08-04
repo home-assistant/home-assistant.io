@@ -46,6 +46,15 @@ calendar:
 ```
 
 ```yaml
+# Example configuration.yaml entry for Radicale, calendars will be found automatically
+calendar:
+  - platform: caldav
+    username: john.doe
+    password: !secret caldav
+    url: https://radicale.example.com/
+```
+
+```yaml
 # Example configuration.yaml entry for iCloud, calendars will be found automatically
 calendar:
   - platform: caldav

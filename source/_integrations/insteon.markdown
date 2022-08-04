@@ -21,6 +21,7 @@ ha_platforms:
   - cover
   - fan
   - light
+  - lock
   - switch
 ha_integration_type: integration
 ha_dhcp: true

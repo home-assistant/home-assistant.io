@@ -27,6 +27,11 @@ geo_location_sources:
   required: true
   description: List of geolocation sources. All current entities with that source will be displayed on the map. See [Geolocation](/integrations/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this or the `entities` configuration option is required.
   type: list
+auto_fit:
+  required: false
+  description: The map will follow moving `entities` by adjusting the viewport of the map each time an entity is updated. 
+  type: boolean
+  default: false
 title:
   required: false
   description: The card title.
@@ -72,6 +77,7 @@ The card can also be configured using YAML, some examples below:
 type: map
 aspect_ratio: 16:9
 default_zoom: 8
+auto_fit: true
 entities:
   - device_tracker.demo_paulus
   - zone.home

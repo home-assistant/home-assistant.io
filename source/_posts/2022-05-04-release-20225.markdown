@@ -1225,6 +1225,19 @@ This makes the discovery of LIFX faster and more reliable.
 
 {% enddetails %}
 
+{% details "Media Player" %}
+
+Media Player now supports a new state, `buffering`. Integrations supporting this state previously reported `playing` but may now report `buffering`. This may also introduce new state transitions between the two states during playback.
+
+In order to maintain previous behavior, replace usage of `playing` with both the `buffering` and `playing` states, and consider how to handle transitions between the two.
+
+([@emontnemery] - [#70863]) ([documentation](/integrations/media_player))
+
+[@emontnemery]: [https://github.com/emontnemery]
+[#70863]: https://github.com/home-assistant/core/pull/70863
+
+{% enddetails %}
+
 {% details "Media Source" %}
 
 Filenames and directories starting with a `.` will no longer appear in the
