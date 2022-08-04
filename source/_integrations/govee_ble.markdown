@@ -19,12 +19,17 @@ Integrates [Govee](https://www.govee.com/) BLE devices into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-The Govee BLE integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
+The Govee BLE integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. No account credentials or API key is required.
 
 ## Supported devices
-
-- [H5177/5178 Bluetooth Thermo-Hygrometer](https://us.govee.com/collections/thermo-hydrometer/products/bluetooth-thermo-hygrometer)
-- [H5075 Bluetooth Hygrometer Thermometer](https://us.govee.com/collections/thermo-hydrometer/products/govee-bluetooth-hygrometer-thermometer-h5075)
-- 5181 Meat Thermometer
-- 5183 Meat Thermometer
-- 5185 Meat Thermometer
+Please note that this integration exclusively supports Bluetooth-compatible Govee sensors. Govee lights and appliances are not supported.
+### Thermohygrometers
+- H5074 Bluetooth Thermo-Hygrometer Lite
+- [H5075 Bluetooth Thermo-Hygrometer](https://us.govee.com/collections/thermo-hydrometer/products/govee-bluetooth-hygrometer-thermometer-h5075)
+- [H5177 Bluetooth Thermo-Hygrometer](https://us.govee.com/collections/thermo-hydrometer/products/bluetooth-thermo-hygrometer)
+- H5178 Bluetooth Thermo-Hygrometer
+- [H5179 WiFi + Bluetooth Thermo-Hygrometer](https://us.govee.com/collections/govee-home-accessories/products/wi-fi-temperature-humidity-sensor)
+### Meat Thermometers
+- H5181 Smart Meat Thermometer
+- H5183 Smart Meat Thermometer
+- H5185 Smart Meat Thermometer
