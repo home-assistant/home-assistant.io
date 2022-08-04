@@ -76,6 +76,7 @@ Time sensor states are represented as ISO8601 formatted *UTC time*.
 
 - `first_light`: First light of dawn (Alot Hashachar - עלות השחר)
 - `talit`: Earliest time for tallit and tefillin (Misheyakir - משיכיר)
+- `sunrise`: Earliest time for shacharit (Hanetz Hachama - הנץ החמה)
 - `gra_end_shma`: Last time for reading of the Shma according to the Gr"a.
 - `mga_end_shma`: Last time for reading of the Shma according to the MG"A.
 - `gra_end_tefilla`: Last time for full shacharit according to the Gr"a.
