@@ -31,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 
 It is recommended to set up a new & dedicated account on your DoorBird App/web portal for use with Home Assistant. The instructions in this documentation refer specifically to the DoorBird IOS/Android app but most of the instructions can also be performed using the web-based [DoorBird - WebAdmin](https://webadmin.doorbird.com) portal and logging in on your DoorBird admin account.
 
-To setup a new account for Home Assistant, open the DoorBird App by clicking settings (cog icon) -> Administration-> LOGIN (using your DoorBird App Administration details). Under the "USER" section, choose "Add". This new user account requires specific permissions enabled (depending on what functionality you want). Permissions can be found under "Permissions". The following permissions are recommended (or ammend depending on your requirements:
+To setup a new account for Home Assistant, open the DoorBird App by clicking settings (cog icon) -> Administration-> LOGIN (using your DoorBird App Administration details). Under the "USER" section, choose "Add". This new user account requires specific permissions enabled (depending on what functionality you want). Permissions can be found under "Permissions". The following permissions are recommended (or amend depending on your requirements:
 
 - "Watch Always" (live view)
 - "History" (last motion)
@@ -82,7 +82,7 @@ The URLs on the event will be based on the configuration used to connect to your
 
 #### Schedules
 
-Once events have been registered on the DoorBird device, they must be attached to a schedule using the official DoorBird app on Android or iOS or the [DoorBird - WebAdmin](https://webadmin.doorbird.com) portal. Currently, there are schedules available for doorbell, motion, relay, and RFID events (on supported DoorbBrd devices). Essentially, you can enable a HTTP(S) call from your DoorBird device to the Home Assistant DoorBird API by configuring an action/event (by enabling a schedule).
+Once events have been registered on the DoorBird device, they must be attached to a schedule using the official DoorBird app on Android or iOS or the [DoorBird - WebAdmin](https://webadmin.doorbird.com) portal. Currently, there are schedules available for doorbell, motion, relay, and RFID events (on supported DoorBird devices). Essentially, you can enable a HTTP(S) call from your DoorBird device to the Home Assistant DoorBird API by configuring an action/event (by enabling a schedule).
 
 The schedules can be found by navigating to the following area of the DoorBird app (Android or IOS):
 
