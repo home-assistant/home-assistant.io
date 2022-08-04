@@ -329,8 +329,10 @@ The following integrations are now available via the Home Assistant UI:
 - Fix Life360 recovery from server errors ([@pnbruckner] - [#76231]) ([life360 docs])
 - More explicitly call out special cases with SimpliSafe authorization code ([@bachya] - [#76232]) ([simplisafe docs])
 - Enable strict typing for HomeKit Controller config flow module ([@Jc2k] - [#76233]) ([homekit_controller docs])
+- Fix some homekit_controller pylint warnings and (local only) test failures ([@Jc2k] - [#76122]) ([homekit_controller docs])
 
 [#76044]: https://github.com/home-assistant/core/pull/76044
+[#76122]: https://github.com/home-assistant/core/pull/76122
 [#76136]: https://github.com/home-assistant/core/pull/76136
 [#76148]: https://github.com/home-assistant/core/pull/76148
 [#76161]: https://github.com/home-assistant/core/pull/76161
