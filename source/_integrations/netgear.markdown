@@ -43,7 +43,7 @@ Button entity to restart the router.
 
 ### Update entity
 
-Update entity to vieuw current and latest firmware version, and install the latest firmware of the router.
+Update entity to view current and latest firmware version, and install the latest firmware of the router.
 
 ### Traffic meter data
 
