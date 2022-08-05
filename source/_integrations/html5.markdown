@@ -21,7 +21,7 @@ HTML5 push notifications **do not** work on iOS.
 
 <div class='note warning'>
 
-The GCM configuration option is deprecated and stopped working in May 2019, see [https://developers.google.com/cloud-messaging/faq](https://developers.google.com/cloud-messaging/faq). If you are installing this platform for the first time, follow the VAPID configuration steps. To migrate your current installation from GCM to VAPID configuration, follow the instructions below. You can skip the first 3 steps and continue in step 4 with your existing project. You will also need to delete `html5_push_registrations.conf` and [re-enable the notifications in your browser](#setting-up-your-browser).
+The GCM configuration option is deprecated and stopped working in May 2019, see [https://developers.google.com/cloud-messaging](https://developers.google.com/cloud-messaging). If you are installing this platform for the first time, follow the VAPID configuration steps. To migrate your current installation from GCM to VAPID configuration, follow the instructions below. You can skip the first 3 steps and continue in step 4 with your existing project. You will also need to delete `html5_push_registrations.conf` and [re-enable the notifications in your browser](#setting-up-your-browser).
 
 </div>
 
@@ -39,17 +39,6 @@ notify:
     vapid_email: YOUR_EMAIL
 ```
 
-Or 
-
-```yaml
-# Example configuration.yaml entry. 
-# Warning: this option will be deprecated soon!
-notify:
-  - platform: html5
-    name: NOTIFIER_NAME
-    gcm_api_key: YOUR_API_KEY
-    gcm_sender_id: YOUR_SENDER_ID
-```
 
 {% configuration %}
 name:
@@ -67,14 +56,6 @@ vapid_prv_key:
   type: string
 vapid_email:
   description: The e-mail account of your Google account associated with your Firebase project, [see configuring the platform](#configuring-the-platform).
-  required: true
-  type: string
-gcm_api_key:
-  description: The API Server key provided to you by Google for Google Cloud Messaging (GCM).
-  required: true
-  type: string
-gcm_sender_id:
-  description: The sender ID provided to you by Google for Google Cloud Messaging (GCM).
   required: true
   type: string
 {% endconfiguration %}
