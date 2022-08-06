@@ -68,7 +68,7 @@ The command to retrieve the credentials does not need any additional software to
 
 The underlying Python library is currently unable to retrieve the credentials from some newer models (e.g. J7). See [this issue](https://github.com/pschmitt/roombapy/issues/97) for details. Luckily, the password can be retrieved from the cloud using a tool provided by the [dorita980](https://github.com/koalazak/dorita980) library. Follow [these instructions](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) to do this, you should receive output of the form:
 
-```
+```shell
 Found 1 robot(s)!
 Robot "RoombaJ7" (sku: j715800 SoftwareVer: sapphire+22.21.1+2022-06-02-570490a425b+Firmware-Production+70):
 BLID=> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
