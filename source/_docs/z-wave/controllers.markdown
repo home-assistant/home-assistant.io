@@ -63,7 +63,9 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
 
 <div class='note'>
 
-There are [known compatibility issues](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=245031#p1502030) with older hardware versions of the Aeotec stick not working on the Raspberry Pi 4. Aeotec has released a 2020 hardware revision ZW090-A/B/C Gen5+ with Pi 4 compatibility. Both hardware revisions are still being sold, make informed purchasing decisions if using paired with a Pi 4.
+There are [known compatibility issues](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=245031#p1502030) with older hardware versions of the Aeotec stick not working on the Raspberry Pi 4. Aeotec has released a 2020 hardware revision ZW090-A/B/C Gen5+ with Pi 4 compatibility. Both hardware revisions are still being sold. Make informed purchasing decisions if using paired with a Pi 4.
+
+If you already own a version of the Z-Stick that is incompatible with the Pi 4, it is possible to correct it via a [hardware modification](https://community.home-assistant.io/t/sticky-aeotec-z-stick-gen5-raspberry-pi4/218405). Be aware that while the change is simple, it involves very small components and requires skill with a soldering iron. Attempt it at your own risk.
 
 </div>
 
