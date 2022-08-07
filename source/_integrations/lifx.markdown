@@ -118,50 +118,15 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 
 ## Buttons
 
-The LIFX button platform creates two buttons for each LIFX device:
-
-| Entity ID                      | Default Status |
-| ------------------------------ | -------------- |
-| `button.{bulb_label}_identify` | Enabled        |
-| `button.{bulb_label}_restart`  | Disabled       |
+The LIFX button platform creates two buttons for each LIFX device.
 
 ### Identify Button
 
 The Identify button will flash the bulb three times at maximum brightness then return the bulb to the state it was in prior. Successful identification requires the bulb to be powered on and already configured in Home Assistant.
 
-### Identifying via Automation
-
-The following snippet demonstrates how to programmatically press the Identify button in a script or automation:
-
-```yaml
-identify_lifx_bulb:
-  alias: "Identify LIFX bulb"
-  sequence:
-    - service: button.press
-      target:
-        entity_id: button.kitchen_light_identify
-```
-
 ### Restart Button
 
-The Restart button triggers the bulb to restart in exactly the same way as a phsyical power cycle.
-
-<div class='note info'>
-  The Restart button entity is disabled by default and must be manually enabled on the Device page of each LIFX bulb before it can be referenced in a dashboard card or via automation.
-</div>
-
-### Restarting via Automation
-
-The following snippet demonstrates how to programmatically restart a LIFX bulb in a script or automation:
-
-```yaml
-restart_lifx_bulb:
-  alias: "Restart LIFX bulb"
-  sequence:
-    - service: button.press
-      target:
-        entity_id: button.lounge_light_restart
-```
+The Restart button triggers the bulb to restart in exactly the same way as a phsyical power cycle, which makes it ideal for triggering a new DHCP request from the bulb.
 
 ## HomeKit Accessory Protocol
 
