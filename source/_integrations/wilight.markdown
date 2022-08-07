@@ -53,7 +53,7 @@ There are several services which can be used for automations and control of the 
 ## Irrigation
 
 The `wilight` `switch` integration allows you to control your Irrigation from within Home Assistant.
-There are two switch types in Irrigation: `watering switch` and `pause switch`.
+There are two switch types for Irrigation: `watering switch` and `pause switch`.
 `Watering switch` turn on and off the irrigation valve, while the `pause switch` disable / enable the action of `watering switch`.
 `Triggers` activate (turn on) the `watering switch` (irrigation valve) at the programmed time, which can be defined on which days of the week it is desired or if only once (today).
 
