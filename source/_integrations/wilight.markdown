@@ -9,7 +9,7 @@ ha_category:
   - Switch
 ha_release: 0.115
 ha_config_flow: true
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@leofig-rj'
 ha_domain: wilight
