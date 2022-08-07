@@ -89,10 +89,43 @@ Deleting the config entry for this integration will release control of the adapt
 
 ## Bluetooth interference with other devices
 
-Devices that are using the 2.4 GHz band, like Wi-Fi, Zigbee, and USB3 devices (and their cable connections) are known to affect Bluetooth reception. Especially external SSD drives with USB3 cables are known to block the Bluetooth signal. Also, metal casings can decrease the Bluetooth performance of internal Bluetooth Adapters.
+Poor signal quality or interference can lead to transmission loss or connection problems and show symptoms such as or errors when sending and/or receiving Bluetooth messages that will cause significant degradation in performance. Below are some basic tips for a good setup starting point to achieve better signal quality, coverage and range, as well as some fundamental background information on root causes.
 
-The following tips may improve reception of the Bluetooth Adapter:
+Most important is to know that other devices that also broadcast on the 2.4 GHz radio band, like USB3 devices (and their cable connections), or other devices are known to affect Bluetooth radio reception. Especially external SSD drives with USB3 cables are known to block the Bluetooth signal. Also, metal casings can decrease the Bluetooth performance of internal Bluetooth Adapters. Recommendation is therefore to at least place USB3 devices and their cables (SSD, etc.) as far away as possible from your Bluetooth adapter, e.g., by using your Bluetooth adapter with a long extension cable that has proper shielding.
 
-- Try to place USB3 devices (SSD, etc.) as far away as possible from your Bluetooth Adapter, e.g., by using an extension cable.
-- Use a USB3 extension cable with proper shielding and ferrite clamps.
-- Use a (good quality) external Bluetooth adapter with an antenna.
+Following all theese essential optimization tips below can significantly improve reception of your Bluetooth radio adapter and may resolve or avoid many known issues caused by a bad setup your Bluetooth radio adapter or devices. At the very least taking these actions should improve most message transmitting and receiving issues caused by not knowing the basics needed to workaround related to low-power 2.4 GHz digital radio limitations.
+
+#### Simple actions that should improve most Bluetooth setups
+
+- Bluetooth adapter hardware:
+  - Buy and use a (good quality) Bluetooth USB adapter based on a newer/modern chip hardware.
+    - If possible consider buying or upgrading to a Bluetooth adapter that has an external antenna. 
+    - While older adapters might work they could have obsolete hardware and/or firmware.
+  - Update to a later released Bluetooth chip firmware on the Bluetooth adapter.
+    - Updating firmware is easy if one is provide by by the manufacturer or the chip maker.
+- Bluetooth devices are RFI sensitive and can be susceptible to all types of EMI/EMF interference:
+  - Use a long USB extension cable to place Bluetooth away from interference and obstacles.
+    - Try to make sure the USB extension cable has proper shielded (thick cables usually do).
+    - Make sure the extension cable has proper shielding and ferrite clamps
+    - Longer USB extension cable also make it easier to orient Bluetooth and antenna.
+  - Only connect the Bluetooth USB adapter to a USB 2.0 ports (or via a powered USB 2.0 hub). 
+    - USB 3.0 ports/peripherals are infamously known to cause EMI/EMF interference.
+  - Shield close unshielded computers and unshielded peripherals by using metal enclosures/chassis.
+    - Single-board-computers and USB hard drives are especially known as source of EMI/EMF.
+  - Try different physical placement and orientations of Bluetooth adapter or its antenna.
+    - Optimal placement of Bluetooth adapter is as much in middle of the house as possible.
+    - Try to place the Bluetooth adapter at some distance way from walls, ceilings and floors.
+    - Try different orientations of the adapters external antenna (or whole Bluetooth adapter).
+
+#### Understanding common root causes of problems in Bluetooth radio setups
+
+- Bluetooth adapter hardware:
+  - Poor placement of the Bluetooth adapter and/or wrong orientation of Bluetooth adapter antenna.
+  - Old, outdated Bluetooth adapter hardware or poor Bluetooth adapter antenna.
+  - Poor or outdated Bluetooth adapter firmware on the Bluetooth adapter.
+-  Bluetooth adapters and Bluetooth devices sensitive to all types of RFI/EMI/EMF interference:
+  - Electromagnetic interference (EMI) from electronics caused by Electromagnetic Fields (EMF).
+  - USB 3.0 ports and computer peripherals are known culprits of EMI/EMF disrupting. Ref. [1](https://www.usb.org/sites/default/files/327216.pdf) and [1](https://www.unit3compliance.co.uk/2-4ghz-intra-system-or-self-platform-interference-demonstration/).
+  - 2.4 GHz Radio Frequency Interference (RFI) from Wi-Fi Routers and Wi-Fi Access Points, or others.
+  - While unsual as Bluetooth is designed to coexist with Wi-Fi, their stronger signal can interfere.
+  - To play it safe best is to try to place your Bluetooth adapter awasy from Wi-Fi access-points.
