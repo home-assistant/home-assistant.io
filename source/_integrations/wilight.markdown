@@ -40,7 +40,7 @@ The `wilight` integration allows you to control your Fans from within Home Assis
 
 ### Fan Services
 
-There are several services which can be used for automations and control of the `fan`:
+There are several services which can be used for automations and control of the fan:
 
 | Service | Description |
 | --------- | ----------- |
