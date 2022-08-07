@@ -2,6 +2,7 @@
 title: LIFX
 description: Instructions on how to integrate LIFX into Home Assistant.
 ha_category:
+  - Button
   - Light
 ha_iot_class: Local Polling
 ha_release: 0.81
@@ -10,6 +11,7 @@ ha_domain: lifx
 ha_homekit: true
 ha_platforms:
   - light
+  - button
 ha_integration_type: integration
 ha_codeowners:
   - '@bdraco'
@@ -113,6 +115,53 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 | Service data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
+
+## Buttons
+
+The LIFX button platform creates two buttons for each LIFX device:
+
+| Entity ID                      | Default Status |
+| ------------------------------ | -------------- |
+| `button.{bulb_label}_identify` | Enabled        |
+| `button.{bulb_label}_restart`  | Disabled       |
+
+### Identify Button
+
+The Identify button will flash the bulb three times at maximum brightness then return the bulb to the state it was in prior. Successful identification requires the bulb to be powered on and already configured in Home Assistant.
+
+### Identifying via Automation
+
+The following snippet demonstrates how to programmatically press the Identify button in a script or automation:
+
+```yaml
+identify_lifx_bulb:
+  alias: "Identify LIFX bulb"
+  sequence:
+    - service: button.press
+      target:
+        entity_id: button.kitchen_light_identify
+```
+
+### Restart Button
+
+The Restart button triggers the bulb to restart in exactly the same way as a phsyical power cycle.
+
+<div class='note info'>
+  The Restart button entity is disabled by default and must be manually enabled on the Device page of each LIFX bulb before it can be referenced in a dashboard card or via automation.
+</div>
+
+### Restarting via Automation
+
+The following snippet demonstrates how to programmatically restart a LIFX bulb in a script or automation:
+
+```yaml
+restart_lifx_bulb:
+  alias: "Restart LIFX bulb"
+  sequence:
+    - service: button.press
+      target:
+        entity_id: button.lounge_light_restart
+```
 
 ## HomeKit Accessory Protocol
 
