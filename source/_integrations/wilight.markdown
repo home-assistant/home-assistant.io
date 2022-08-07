@@ -36,7 +36,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Fan
 
-The `wilight` `fan` integration allows you to control your Fans from within Home Assistant.
+The `wilight` integration allows you to control your Fans from within Home Assistant.
 
 ### Fan Services
 
