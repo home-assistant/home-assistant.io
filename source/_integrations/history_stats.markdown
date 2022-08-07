@@ -90,7 +90,7 @@ Depending on the sensor type you choose, the `history_stats` integration can sho
 
 - **time**: The default value, which is the tracked time, in hours
 - **ratio**: The tracked time divided by the length of your period, as a percentage
-- **count**: How many times the integration you track was changed to the state you track
+- **count**: How many times the tracked entity matched the configured state during the time period
 
 ## Time periods
 
@@ -107,12 +107,12 @@ The duration variable is used when the time period is fixed. Different syntaxes 
 
 ```yaml
 # 6 hours
-duration: 06:00
+duration: "06:00"
 ```
 
 ```yaml
 # 1 minute, 30 seconds
-duration: 00:01:30
+duration: "00:01:30"
 ```
 
 ```yaml
@@ -176,6 +176,17 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 
 ```yaml
     start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}"
+    end: "{{ now() }}"
+```
+
+{% endraw %}
+
+**Current month**: starts the first day of the current month at 00:00, ends right now.
+
+{% raw %}
+
+```yaml
+    start: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0 ) }}"
     end: "{{ now() }}"
 ```
 

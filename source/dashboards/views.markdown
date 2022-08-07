@@ -10,7 +10,7 @@ You can add a view to your user interface, by clicking the menu (three dots at t
 Click the `+` button in the top menu bar.
 
 <p class="img">
-  <img src="/images/dashboards/lovelace_views.png" alt="Views toolbar">
+  <img src="/images/dashboards/views.png" alt="Views toolbar">
   Use titles and icons to describe the content of views.
 </p>
 

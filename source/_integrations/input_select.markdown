@@ -14,7 +14,7 @@ ha_integration_type: helper
 
 The `input_select` integration allows the user to define a list of values that can be selected via the frontend and can be used within conditions of an automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
 
-The preferred way to configure an input select is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Dropdown** option.
+The preferred way to configure an input select is via the user interface at **Settings** -> **Devices & Services** -> **Helpers**. Click the add button and then choose the **Dropdown** option.
 
 To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
 If you removed `default_config:` from you configuration, you must add `input_select:` to your `configuration.yaml` first, then you can use the UI.

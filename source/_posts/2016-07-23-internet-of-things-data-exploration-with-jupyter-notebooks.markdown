@@ -26,11 +26,11 @@ One of the graphs created with this tutorial.
 _TL; DR: Use [this Jupyter Notebook][nb-prev] to visualize of your data_
 
 [blog post by Fabian]: /blog/2016/07/19/visualizing-your-iot-data/
-[DB Browser for SQLite]: http://sqlitebrowser.org/
-[Pandas]: http://pandas.pydata.org/
-[matplotlib]: http://matplotlib.org/
+[DB Browser for SQLite]: https://sqlitebrowser.org/
+[Pandas]: https://pandas.pydata.org/
+[matplotlib]: https://matplotlib.org/
 [Jupyter notebook]: https://jupyter.org/
-[nb-prev]: https://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/other/DataExploration-1/DataExploration-1.ipynb
+[nb-prev]: https://nbviewer.org/github/home-assistant/home-assistant-notebooks/blob/master/other/DataExploration-1/DataExploration-1.ipynb
 
 <!--more-->
 

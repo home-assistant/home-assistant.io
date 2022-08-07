@@ -19,7 +19,7 @@ like an automation.
 ## Configuration
 
 The preferred way to configure button helpers is via the user interface.
-To add one, go to **{% my helpers title="Configuration -> Helpers" %}**
+To add one, go to **{% my helpers title="Settings -> Devices & Services -> Helpers" %}**
 and click the add button; next choose the "**Button**" option.
 
 To be able to add **Helpers** via the user interface you should have

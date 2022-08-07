@@ -8,7 +8,7 @@ These below instructions are for an installation of Home Assistant Container run
 
 This guide assumes that you already have an operating system setup and a container runtime installed (like Docker).
   
-If you are using Docker then you need to be on at least version 19.03.9, ideally an even higher version, and `libseccomp` 2.42 or newer.
+If you are using Docker then you need to be on at least version 19.03.9, ideally an even higher version, and `libseccomp` 2.4.2 or newer.
 </div>
 
 ### Platform Installation
@@ -34,7 +34,7 @@ Once the Home Assistant Container is running Home Assistant should be accessible
 
 If you change the configuration you have to restart the server. To do that you have 3 options.
 
-1. In your Home Assistant UI go to the **Configuration** panel -> **Server management** and click the "Restart" button.
+1. In your Home Assistant UI go to the **Settings** -> **System** and click the "Restart" button.
 2. You can go to the **Developer Tools** -> **Services**, select the service `homeassistant.restart` and click "Call Service".
 3. Restart it from a terminal.
 
@@ -129,7 +129,7 @@ As jemalloc can cause issues on certain hardware, it can be disabled by passing 
       homeassistant:
       ...
       environment:
-        DISABLE_JEMALLOC: true
+        - DISABLE_JEMALLOC: true
     ```
 
 {% endtabbed_block %}

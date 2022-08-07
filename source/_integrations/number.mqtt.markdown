@@ -16,10 +16,28 @@ To enable MQTT Number in your installation, add the following to your `configura
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  number:
+    - command_topic: my-device/threshold
+```
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `number` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 number:
   - platform: mqtt
     command_topic: my-device/threshold
 ```
+
+{% enddetails %}
 
 {% configuration %}
 availability:
@@ -99,6 +117,11 @@ device:
       description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
+device_class:
+  description: The [type/class](/integrations/number/#device-class) of the number.
+  required: false
+  type: device_class
+  default: None
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false

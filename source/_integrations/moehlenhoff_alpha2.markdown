@@ -10,7 +10,9 @@ ha_codeowners:
   - '@j-a-n'
 ha_domain: moehlenhoff_alpha2
 ha_platforms:
+  - binary_sensor
   - climate
+  - sensor
 ha_integration_type: integration
 ---
 

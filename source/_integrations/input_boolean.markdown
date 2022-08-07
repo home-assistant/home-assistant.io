@@ -21,7 +21,7 @@ automations by using them in their conditions.
 
 The preferred way to configure input boolean helpers is via the user interface,
 in which they are known as Toggle Helpers. To add one, go to
-**{% my helpers title="Configuration -> Helpers" %}** and click the add button;
+**{% my helpers title="Settings -> Devices & Services -> Helpers" %}** and click the add button;
 next choose the "**Toggle**" option.
 
 To be able to add **Helpers** via the user interface you should have

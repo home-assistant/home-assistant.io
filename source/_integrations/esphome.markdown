@@ -22,11 +22,15 @@ ha_platforms:
   - fan
   - light
   - lock
+  - media_player
   - number
   - select
   - sensor
   - switch
 ha_integration_type: integration
+ha_dhcp: true
+works_with:
+  - local
 ---
 
 This integration allows [ESPHome](https://esphome.io) devices to connect directly to Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).

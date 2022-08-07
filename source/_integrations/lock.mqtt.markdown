@@ -24,10 +24,29 @@ To enable MQTT locks in your installation, add the following to your `configurat
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  lock:
+    - command_topic: "home/frontdoor/set"
+```
+
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `lock` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 lock:
   - platform: mqtt
     command_topic: "home/frontdoor/set"
 ```
+
+{% enddetails %}
 
 {% configuration %}
 availability:
@@ -229,19 +248,19 @@ The example below shows a full configuration for a MQTT lock.
 
 ```yaml
 # Example configuration.yaml entry
-lock:
-  - platform: mqtt
-    name: Frontdoor
-    state_topic: "home-assistant/frontdoor/"
-    command_topic: "home-assistant/frontdoor/set"
-    payload_lock: "LOCK"
-    payload_unlock: "UNLOCK"
-    state_locked: "LOCK"
-    state_unlocked: "UNLOCK"
-    optimistic: false
-    qos: 1
-    retain: true
-    value_template: "{{ value.x }}"
+mqtt:
+  lock:
+    - name: Frontdoor
+      state_topic: "home-assistant/frontdoor/"
+      command_topic: "home-assistant/frontdoor/set"
+      payload_lock: "LOCK"
+      payload_unlock: "UNLOCK"
+      state_locked: "LOCK"
+      state_unlocked: "UNLOCK"
+      optimistic: false
+      qos: 1
+      retain: true
+      value_template: "{{ value.x }}"
 ```
 
 {% endraw %}

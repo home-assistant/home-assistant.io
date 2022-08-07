@@ -41,7 +41,7 @@ You will be prompted to select a protocol (i.e. `socket` or `serial`). Depending
 
 ## Settings
 
-Once AlarmDecoder has been set up according to the instructions above, the arming settings and zones can be configured by selecting _Options_ on the _AlarmDecoder_ card on the **{% my integrations title="Configuration -> Integrations" %}** page.
+Once AlarmDecoder has been set up according to the instructions above, the arming settings and zones can be configured by selecting _Options_ on the _AlarmDecoder_ card on the **{% my integrations title="Settings -> Devices & Services" %}** page.
 
 ### Arming Settings
 

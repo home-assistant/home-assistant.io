@@ -113,7 +113,7 @@ homeassistant:
           - group: system-users
 ```
 
-First note, for `trusted_users` configuration you need to use `user id`, which you can find through {% my users title="Configuration -> Users" %} -> View User Detail. The `trusted_users` configuration will not validate the existence of the user, so please make sure you have put in the correct user id by yourself.
+First note, for `trusted_users` configuration you need to use `user id`, which you can find through {% my users title="Settings -> People" %} -> View User Detail. The `trusted_users` configuration will not validate the existence of the user, so please make sure you have put in the correct user id by yourself.
 
 Second note, a trusted user with an IPv6 address must put the IPv6 address in quotes as shown.
 
@@ -123,7 +123,9 @@ Specially, you can use `group: GROUP_ID` to assign all users in certain `user gr
 
 #### Skip Login Page Examples
 
-This is a feature to allow you bring back some of the experience before the user system was implemented. You can directly jump to main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose in the login form.
+This is a feature to allow you to bring back some of the experience before the user system was implemented. You can directly jump to the main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose from in the login form. 
+
+If you allow bypass login then your cookie will not be stored and every time you refresh the page in Home Assistant a new login will be created. This is because bypassing the login does not give you the option to save the login.
 
 ```yaml
 # assuming you have only one non-system user

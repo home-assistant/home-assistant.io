@@ -18,7 +18,7 @@ The recommended setup method is to use the [Mosquitto MQTT broker add-on](https:
 
 Neither ActiveMQ MQTT broker nor the RabbitMQ MQTT Plugin are supported, use a known working broker like Mosquitto instead.
 There are [at least two](https://issues.apache.org/jira/browse/AMQ-6360) [issues](https://issues.apache.org/jira/browse/AMQ-6575) with the ActiveMQ MQTT broker which break MQTT message retention.
-There is [an issue](https://github.com/rabbitmq/rabbitmq-mqtt/issues/154) with the RabbitMQ MQTT Plugin which breaks MQTT message retention.
+There is [an issue](https://github.com/rabbitmq/rabbitmq-server/issues/154) with the RabbitMQ MQTT Plugin which breaks MQTT message retention.
 
 </div>
 

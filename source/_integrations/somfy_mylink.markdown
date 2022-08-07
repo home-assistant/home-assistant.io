@@ -18,4 +18,4 @@ The `Somfy MyLink` integration is used as an interface to a compatible Somfy MyL
 
 {% include integrations/config_flow.md %}
 
-If any of your devices are reversed, they can be adjusted in **Configuration** >> **Devices & Services** >> **Somfy MyLink** >> `Options`.
+If any of your devices are reversed, they can be adjusted in **Settings** -> **Devices & Services** -> **Somfy MyLink** >> `Options`.

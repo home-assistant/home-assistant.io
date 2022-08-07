@@ -22,17 +22,18 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **None**: Generic sensor. This is the default and doesn't need to be set.
 - **apparent_power**: Apparent power in VA.
 - **aqi**: Air Quality Index
-- **battery**: Percentage of battery that is left.
+- **battery**: Percentage of battery that is left
 - **carbon_dioxide**: Carbon Dioxide in CO2 (Smoke)
 - **carbon_monoxide**: Carbon Monoxide in CO (Gas CNG/LPG)
-- **current**: Current in A.
-- **date**: Date string (ISO 8601).
-- **energy**: Energy in Wh, kWh or MWh.
-- **frequency**: Frequency in Hz, kHz, MHz or GHz.
-- **gas**: Gasvolume in m³ or ft³.
-- **humidity**: Percentage of humidity in the air.
-- **illuminance**: The current light level in lx or lm.
-- **monetary**: The monetary value.
+- **current**: Current in A
+- **date**: Date string (ISO 8601)
+- **duration**: Duration in days, hours, minutes or seconds
+- **energy**: Energy in Wh, kWh or MWh
+- **frequency**: Frequency in Hz, kHz, MHz or GHz
+- **gas**: Gasvolume in m³ or ft³
+- **humidity**: Percentage of humidity in the air
+- **illuminance**: The current light level in lx or lm
+- **monetary**: The monetary value
 - **nitrogen_dioxide**: Concentration of Nitrogen Dioxide in µg/m³
 - **nitrogen_monoxide**: Concentration of Nitrogen Monoxide in µg/m³
 - **nitrous_oxide**: Concentration of Nitrous Oxide in µg/m³
@@ -40,16 +41,16 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **pm1**: Concentration of particulate matter less than 1 micrometer in µg/m³
 - **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
-- **power_factor**: Power factor in %.
-- **power**: Power in W or kW.
-- **pressure**: Pressure in hPa or mbar.
-- **reactive_power**: Reactive power in var.
-- **signal_strength**: Signal strength in dB or dBm.
+- **power_factor**: Power factor in %
+- **power**: Power in W or kW
+- **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg or psi
+- **reactive_power**: Reactive power in var
+- **signal_strength**: Signal strength in dB or dBm
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
-- **temperature**: Temperature in °C or °F.
-- **timestamp**: Datetime object or timestamp string (ISO 8601).
-- **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³.
-- **voltage**: Voltage in V.
+- **temperature**: Temperature in °C or °F
+- **timestamp**: Datetime object or timestamp string (ISO 8601)
+- **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
+- **voltage**: Voltage in V
 
 <p class='img'>
 <img src='/images/screenshots/sensor_device_classes_icons.png' />

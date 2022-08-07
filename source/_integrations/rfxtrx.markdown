@@ -88,7 +88,7 @@ connection: &rfxtrx
 
 ## Settings options
 
-To configure options for RFXtrx integration go to **Configuration** >> **Devices & Services** and press **Options** on the RFXtrx card.
+To configure options for RFXtrx integration go to **Settings** -> **Devices & Services** and press **Options** on the RFXtrx card.
 
 <img src='/images/integrations/rfxtrx/options.png' />
 

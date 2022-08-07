@@ -34,6 +34,7 @@ The following selectors are currently available:
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [Target selector](#target-selector)
+- [Template selector](#template-selector)
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
 - [Time selector](#time-selector)
@@ -640,10 +641,10 @@ the select value.
 ![Screenshot of a number selector](/images/blueprints/selector-number.png)
 
 On the user interface, the input can either be in a slider or number mode.
-Both modes limit the user input by a minimal and maximum value, and can
+Both modes limit the user input by a minimum and maximum value, and can
 have a unit of measurement to go with it.
 
-In its most basic form, this selector requires a minimal and maximum value:
+In its most basic form, this selector requires a minimum and maximum value:
 
 ```yaml
 number:
@@ -653,7 +654,7 @@ number:
 
 {% configuration number %}
 min:
-  description: The minimal user-settable number value.
+  description: The minimum user-settable number value.
   type: [integer, float]
   required: true
 max:

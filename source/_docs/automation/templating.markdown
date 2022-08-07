@@ -9,7 +9,7 @@ The template variable `this` is also available when evaluating any `trigger_vari
 
 ## Available this Data
 
-Variable `this` is the [state object](/docs/configuration/state_object) of the automation. State objects also contain context data which can be used to identify the user that caused a script or automation to execute.
+The variable `this` is the [state object](/docs/configuration/state_object) of the automation at the moment of triggering the actions. State objects also contain context data which can be used to identify the user that caused a script or automation to execute. Note that `this` will not change while executing the actions.
 
 ## Available Trigger Data
 
@@ -22,14 +22,14 @@ The following describes trigger data associated with all platforms.
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.id` | Optional trigger `id`, or index of the trigger.
-| `trigger.idx` | Index of the trigger.
+| `trigger.idx` | Index of the trigger. (The first trigger idx is `0`.)
 
 ### Calendar
 
 | Template variable                    | Data                                                                                                                            |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
 | `trigger.platform`                   | Hardcoded: `calendar`                                                                                                           |
-| `trigger.event_type`                 | The trigger event type, either `start`  or `end`                                                                                |
+| `trigger.event`                      | The trigger event type, either `start`  or `end`                                                                                |
 | `trigger.calendar_event`             | The calendar event object matched.                                                                                              |
 | `trigger.calendar_event.summary`     | The title or summary of the calendar event.                                                                                     |
 | `trigger.calendar_event.start`       | String representation of the start date or date time of the calendar event e.g. `2022-04-10`, or `2022-04-10 11:30:00-07:00`    |
@@ -37,6 +37,8 @@ The following describes trigger data associated with all platforms.
 | `trigger.calendar_event.all_day`     | Indicates the event spans the entire day.                                                                                       |
 | `trigger.calendar_event.description` | A detailed description of the calendar event, if available.                                                                     |
 | `trigger.calendar_event.location`    | Location information for the calendar event, if available.                                                                      |
+| `trigger.offset`                     | Timedelta object with offset to the event, if any |
+
 ### Device
 
 | Template variable | Data |

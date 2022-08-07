@@ -13,6 +13,7 @@ ha_platforms:
   - binary_sensor
   - button
   - climate
+  - diagnostics
   - sensor
   - water_heater
 ha_dhcp: true

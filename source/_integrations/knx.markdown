@@ -23,7 +23,7 @@ ha_codeowners:
   - '@farmio'
   - '@marvin-w'
 ha_domain: knx
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - button
@@ -843,6 +843,11 @@ travelling_time_up:
   required: false
   default: 25
   type: integer
+invert_updown:
+  description: Set this to `true` to invert the binary up/down commands from/to your KNX actuator. Default is 0 for UP; 1 for DOWN.
+  required: false
+  default: false
+  type: boolean
 invert_position:
   description: Set this to `true` if your actuator reports fully closed position as 0% in KNX.
   required: false

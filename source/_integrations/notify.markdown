@@ -30,6 +30,8 @@ The notify integration supports specifying [templates](/topics/templating/). Thi
 
 In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
 
+Be aware that you might want to change the actual service to whatever service you are actually using since `notify.notify` is shorthand for the first notify service the system can find and might therefore not be working as intended.
+
 ```yaml
 action:
   service: notify.notify

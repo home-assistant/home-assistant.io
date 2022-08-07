@@ -10,7 +10,7 @@ The Picture Elements card is one of the most versatile types of cards.
 The cards allow you to position icons or text and even services on an image based on coordinates. Imagine floor plan, imagine [picture-glance](/dashboards/picture-glance/) with no restrictions!
 
 <p class='img'>
-  <img src='/images/dashboards/lovelace_picture_elements.gif' alt='A functional floorplan powered by picture elements'>
+  <img src='/images/dashboards/picture_elements.gif' alt='A functional floorplan powered by picture elements'>
   A functional floorplan powered by picture elements.
 </p>
 
@@ -135,41 +135,6 @@ state_color:
   description: Set to `true` to have icons colored when entity is active.
   type: boolean
   default: true
-tap_action:
-  required: false
-  description: Action to take on tap.
-  type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)."
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`."
-      type: string
-      default: none
-    url_path:
-      required: false
-      description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when `action` defined as `url`."
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`."
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`."
-      type: string
-      default: none
-    confirmation:
-      required: false
-      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below."
-      type: [boolean, map]
-      default: "false"
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
@@ -406,7 +371,7 @@ elements:
 ### Custom Elements
 
 The process for creating and referencing custom elements is the same as for custom cards.
-Please see the [developer documentation](https://developers.home-assistant.io/docs/frontend/custom-ui/lovelace-custom-card.html)
+Please see the [developer documentation](https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card)
 for more information.
 
 {% configuration %}
@@ -476,7 +441,7 @@ tap_action:
 hold_action:
   action: call-service
   service: light.turn_on
-  service_data:
+  data:
     entity_id: light.bed_light
     brightness_pct: 100
 ```
@@ -570,7 +535,7 @@ elements:
     tap_action:
       action: call-service
       service: media_player.media_play_pause
-      service_data:
+      data:
         entity_id: media_player.living_room
     image: /local/television.jpg
     filter: brightness(5%)

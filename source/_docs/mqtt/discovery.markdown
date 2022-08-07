@@ -30,7 +30,7 @@ Supported by MQTT discovery:
 - [Vacuums](/integrations/vacuum.mqtt/)
 
 ## Configuration
-MQTT discovery is enabled by default, but can be disable. To do this, click on "Configure" in the integration page in the UI, then "Re-configure MQTT" and then "Next".
+MQTT discovery is enabled by default, but can be disabled. To do this, click on "Configure" in the integration page in the UI, then "Re-configure MQTT" and then "Next".
 
 ### Advanced discovery configuration
 
@@ -44,9 +44,11 @@ discovery_prefix:
   type: string
 {% endconfiguration %}
 
+## Discovery messages
+
 ## Discovery topic
 
-The discovery topic need to follow a specific format:
+The discovery topic needs to follow a specific format:
 
 ```text
 <discovery_prefix>/<component>/[<node_id>/]<object_id>/config
@@ -56,13 +58,15 @@ The discovery topic need to follow a specific format:
 - `<node_id>` (*Optional*):  ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic. The ID of the node must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 - `<object_id>`: The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`. The ID of the device must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 
+The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
+
 Best practice for entities with a `unique_id` is to set `<object_id>` to `unique_id` and omit the `<node_id>`.
 
-The payload must be a JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
+## Discovery payload
+
+The payload must be a serialized JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
 
 Subsequent messages on a topic where a valid payload has been received will be handled as a configuration update, and a configuration update with an empty payload will cause a previously discovered device to be deleted.
-
-The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
 
 A base topic `~` may be defined in the payload to conserve memory when the same topic base is used multiple times.
 In the value of configuration variables ending with `_topic`, `~` will be replaced with the base topic, if the `~` occurs at the beginning or end of the value.
@@ -313,6 +317,7 @@ Supported abbreviations for device registry configuration:
 The following software has built-in support for MQTT discovery:
 
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
+- [ebusd](https://github.com/john30/ebusd)
 - [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
@@ -362,7 +367,7 @@ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config
 
 For more details please refer to the [MQTT testing section](/docs/mqtt/testing/).
 
-### Sensors with multiple values
+### Sensors
 
 Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
 
@@ -372,9 +377,9 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 - Configuration payload no2: `{"device_class": "humidity", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
 - Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
 
-### Switches
+### Entities with command topics
 
-Setting up a switch is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/integrations/switch.mqtt/).
+Setting up a light, switch etc. is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/integrations/switch.mqtt/).
 
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`
@@ -393,7 +398,7 @@ Set the state.
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/set" -m ON
 ```
 
-### Abbreviating topic names
+### Using abbreviations and base topic
 
 Setting up a switch using topic prefix and abbreviated configuration variable names to reduce payload length.
 
@@ -402,7 +407,7 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 - State topic: `homeassistant/switch/irrigation/state`
 - Configuration payload: `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", "stat_t": "~/state"}`
 
-### Lighting
+### Another example using abbreviations topic name and base topic
 
 Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-schema), with abbreviated configuration variable names:
 
@@ -423,78 +428,6 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
     "brightness": true
   }
   ```
-
-### Climate control
-
-Setting up a climate integration (heat only):
-
-- Configuration topic: `homeassistant/climate/livingroom/config`
-- Configuration payload:
-
-```json
-{
-  "name":"Livingroom",
-  "mode_cmd_t":"homeassistant/climate/livingroom/thermostatModeCmd",
-  "mode_stat_t":"homeassistant/climate/livingroom/state",
-  "mode_stat_tpl":"{{value_json.mode}}",
-  "avty_t":"homeassistant/climate/livingroom/available",
-  "pl_avail":"online",
-  "pl_not_avail":"offline",
-  "temp_cmd_t":"homeassistant/climate/livingroom/targetTempCmd",
-  "temp_stat_t":"homeassistant/climate/livingroom/state",
-  "temp_stat_tpl":"{{value_json.target_temp}}",
-  "curr_temp_t":"homeassistant/climate/livingroom/state",
-  "curr_temp_tpl":"{{value_json.current_temp}}",
-  "min_temp":"15",
-  "max_temp":"25",
-  "temp_step":"0.5",
-  "modes":["off", "heat"]
-}
-```
-
-- State topic: `homeassistant/climate/livingroom/state`
-- State payload:
-
-```json
-{
-  "mode":"off",
-  "target_temp":"21.50",
-  "current_temp":"23.60"
-}
-```
-
-### Presence detection (device tracker)
-
-Setting up a device tracker:
-
-- Configuration topic: `homeassistant/device_tracker/paulus/config`
-- Example configuration payload:
-
-```json
-{
-  "name":"Paulus",
-  "state_topic": "homeassistant/device_tracker/paulus/state",
-  "payload_home": "home",
-  "payload_not_home": "not_home",
-  "source_type": "bluetooth"
- }
-```
-
-- State topic: `homeassistant/device_tracker/paulus/state`
-- Example state payload: `home` or `not_home` or `location name`
-
-If the device supports GPS coordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
-
-- Attributes topic: `homeassistant/device_tracker/paulus/attributes`
-- Example attributes payload:
-
-```json
-{
-  "latitude": 32.87336,
-  "longitude": -117.22743,
-  "gps_accuracy": 1.2
- }
-```
 
 ### Use object_id to influence the entity id
 

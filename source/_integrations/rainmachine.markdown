@@ -14,6 +14,7 @@ ha_codeowners:
 ha_domain: rainmachine
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
   - sensor
   - switch
@@ -27,6 +28,7 @@ The RainMachine integration is the main integration to integrate all platforms r
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
+- Button
 - Sensor
 - [Switch](#switch)
 

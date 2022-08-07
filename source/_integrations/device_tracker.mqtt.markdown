@@ -9,19 +9,50 @@ ha_domain: mqtt
 ---
 
 
-The `mqtt` device tracker platform allows you to define new device_trackers through [manual YAML configuration](#yaml-configuration) in `configuration.yaml` and also to automatically discover device_trackers through a [discovery schema](#discovery-schema) using the MQTT Discovery protocol.
+The `mqtt` device tracker platform allows you to define new device_trackers through [manual YAML configuration](#yaml-configuration) in `configuration.yaml` and also to automatically discover device_trackers [using the MQTT Discovery protocol](#using-the-discovery-protocol).
 
-## YAML Configuration
+<div class='note info'>
+  At the moment, manual configured device trackers can only reloaded by restarting Home Assistant.
+</div>
+
+## Configuration
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  device_tracker:
+  - name: "annetherese_n4"
+    state_topic: "location/annetherese"
+  - name: "paulus_oneplus"
+    state_topic: "location/paulus"
+```
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `switch` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example and deprecated configuration schema:
+
+```yaml
 device_tracker:
   - platform: mqtt
     devices:
       paulus_oneplus: "location/paulus"
       annetherese_n4: "location/annetherese"
+```
+
+To set the state of the device_tracker then you need to publish a JSON message to the topic (e.g., via mqtt.publish service). As an example, the following JSON message would set the `paulus_oneplus` device_tracker to `home`:
+
+```json
+{
+  "topic": "location/paulus",
+  "payload": "home"
+}
 ```
 
 {% configuration %}
@@ -47,37 +78,10 @@ source_type:
   description: Attribute of a device tracker that affects state when being used to track a [person](/integrations/person/). Valid options are `gps`, `router`, `bluetooth`, or `bluetooth_le`.
   required: false
   type: string
+  default: gps
 {% endconfiguration %}
 
-## Complete YAML example configuration
-
-```yaml
-# Complete configuration.yaml entry
-device_tracker:
-  - platform: mqtt
-    devices:
-      paulus_oneplus: "location/paulus"
-      annetherese_n4: "location/annetherese"
-    qos: 1
-    payload_home: "present"
-    payload_not_home: "not present"
-    source_type: bluetooth
-```
-
-## YAML Usage
-
-To set the state of the device_tracker then you need to publish a JSON message to the topic (e.g., via mqtt.publish service). As an example, the following JSON message would set the `paulus_oneplus` device_tracker to `home`:
-
-```json
-{
-  "topic": "location/paulus",
-  "payload": "present"
-}
-```
-
-## Discovery Schema
-
-MQTT device_trackers are also supported through [MQTT discovery](/docs/mqtt/discovery/). This is different to the YAML configuration from above. Here, the device_tracker can be created via a discovery topic that follows the following topic name convention: `<discovery_prefix>/device_tracker/[<node_id>/]<object_id>/config` and the JSON message content of a specific format as defined below.
+{% enddetails %}
 
 {% configuration %}
 availability:
@@ -220,14 +224,18 @@ value_template:
   type: template
 {% endconfiguration %}
 
-## Discovery Example
+## Examples
 
-You can use the discovery protocol to create a new device tracker and set its state using the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
+### Using the discovery protocol
+
+The device_tracker can be created via a discovery topic that follows the following topic name convention: `<discovery_prefix>/device_tracker/[<node_id>/]<object_id>/config`.
+
+You can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
 
 To create the device_tracker:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t home-assistant/device_tracker/a4567d663eaf/config -m '{"state_topic": "a4567d663eaf/state", "name": "My Tracker", "payload_home": "home", "payload_not_home": "not_home"}'
+mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"state_topic": "a4567d663eaf/state", "name": "My Tracker", "payload_home": "home", "payload_not_home": "not_home"}'
 ```
 
 To set the state of the device tracker to "home":
@@ -235,3 +243,53 @@ To set the state of the device tracker to "home":
 ```bash
 mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/state -m 'home'
 ```
+
+To set the state of the device tracker to a named location:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/state -m 'location_name'
+```
+
+If the device supports GPS coordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
+
+- Attributes topic: `a4567d663eaf/attributes`
+- Example attributes payload:
+
+```json
+{
+  "latitude": 32.87336,
+  "longitude": -117.22743,
+  "gps_accuracy": 1.2
+ }
+```
+
+To create the device_tracker with GPS coordinates support:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"state_topic": "a4567d663eaf/state", "name": "My Tracker", "payload_home": "home", "payload_not_home": "not_home", "json_attributes_topic": "a4567d663eaf/attributes"}'
+```
+
+To set the state of the device tracker to specific coordinates:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/state -m '{"latitude": 32.87336, "longitude": -117.22743, "gps_accuracy": 1.2}'
+```
+
+
+### YAML configuration
+
+The following example shows how to configure the same device tracker through configuration.yaml
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  device_tracker:
+    - name: "My Tracker"
+      state_topic: "a4567d663eaf/state"
+      payload_home: "home"
+      payload_not_home: "not_home"
+```
+
+{% endraw %}

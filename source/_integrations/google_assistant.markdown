@@ -10,6 +10,9 @@ ha_codeowners:
   - '@home-assistant/cloud'
 ha_domain: google_assistant
 ha_integration_type: integration
+ha_platforms:
+  - button
+  - diagnostics
 ---
 
 The `google_assistant` integration allows you to control things via Google Assistant on your mobile, tablet or Google Home device.
@@ -115,7 +118,6 @@ Google Assistant devices can send their commands locally to Home Assistant allow
 Your Home Assistant instance needs to be connected to the same network as the Google Assistant device that you’re talking to so that it can be discovered via mDNS discovery (UDP broadcasts).
 
 Your Google Assistant devices will still communicate via the internet to:
-- Sync entities.
 - Get credentials to establish a local connection.
 - Send commands that involve a [secure device](#secure-device).
 - Send commands if local fulfillment fails.
@@ -123,16 +125,16 @@ Your Google Assistant devices will still communicate via the internet to:
 <div class='note'>
 
 The [HTTP integration](/integrations/http) must **not** be configured to use an SSL certificate with the [`ssl_certificate` option](/integrations/http/#ssl_certificate).
-  
+
 This is because the Google Assistant device will connect directly to the IP of your Home Assistant instance and will fail if it encounters an invalid SSL certificate.
-  
+
 For secure remote access, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} add-on instead of directing external traffic straight to Home Assistant.
 
 </div>
 
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
 2. Click `Develop` on the top of the page, then click `Actions` located in the hamburger menu on the top left.
-3. Upload [this Javascript file](/assets/integrations/google_assistant/app.js) for both Node and Chrome by clicking the `Upload Javascript files` button.
+3. Upload `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest) for both Node and Chrome by clicking the `Upload Javascript files` button.
 4. Add device scan configuration:
    1. Click `+ New scan config` if no configuration exists
    2. Select `MDNS`
@@ -251,7 +253,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - switch (on/off)
 - fan (on/off/speed percentage/preset mode)
 - light (on/off/brightness/rgb color/color temp)
-- lock 
+- lock
 - cover (on/off/set position)
 - media_player (on/off/set volume (via set volume)/source (via set input source)/control playback)
 - climate (temperature setting, hvac_mode)
@@ -298,7 +300,9 @@ There is no TV channel object in Home Assistant. TV channel can only be changed 
 
 #### 404 errors on request sync
 
-Syncing may fail after a period of time, likely around 30 days, due to the fact that your Actions on Google app is technically in testing mode and has never been published. Eventually, it seems that the test expires. Control of devices will continue to work but syncing may not. If you say "Ok Google, sync my devices" and get the response "Unable to sync Home Assistant" (or whatever you named your project), this can usually be resolved by going back to your test app in the [Actions on Google console](https://console.actions.google.com/) and clicking `Simulator` under `TEST`. Regenerate the draft version Test App and try asking Google to sync your devices again. If regenerating the draft does not work, go back to the `Action` section and just hit the `enter` key for the URL to recreate the Preview.
+Syncing from Google Assistant may fail after a period of time, likely around 30 days, due to the fact that your Actions on Google app is technically in testing mode and has never been published. Eventually, it seems that the test expires. Control of devices will continue to work but syncing may not. If you say "Ok Google, sync my devices" and get the response "Unable to sync Home Assistant" (or whatever you named your project), this can usually be resolved by going back to your test app in the [Actions on Google console](https://console.actions.google.com/) and clicking `Simulator` under `TEST`. Regenerate the draft version Test App and try asking Google to sync your devices again. If regenerating the draft does not work, go back to the `Action` section and just hit the `enter` key for the URL to recreate the Preview.
+
+Syncing from Home Assistant will always work and will automatically update entity changes.
 
 The `request_sync` service requires that the initial sync from Google includes the `agent_user_id`. If not, the service will log an error that reads something like "Request contains an invalid argument". If this happens, then [unlink the account](https://support.google.com/googlenest/answer/7126338) from Home Control and relink.
 
@@ -307,7 +311,7 @@ The `request_sync` service may fail with a 404 if the `project_id` of the HomeGr
   1. Removing your project from the [Google Cloud API Console](https://console.cloud.google.com).
   2. Add a new project to the [Actions on Google console](https://console.actions.google.com) Here you get a new `project_id`.
   3. Run through the previously mentioned [Actions on Google console] setup instructions until the step to create a `service_account`.
-  4. Once you begin to create a new `service_account` in the [Google Cloud API Console], ensure you select the project created in  [Actions on Google console] by verifying the `project_id`.  
+  4. Once you begin to create a new `service_account` in the [Google Cloud API Console], ensure you select the project created in  [Actions on Google console] by verifying the `project_id`.
   5. Enable HomeGraph API to the new project.
 
 Verify that the Google Assistant is available on `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` If it is working it should return `405: Method Not Allowed` when opened in a browser or via curl.

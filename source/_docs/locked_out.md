@@ -34,7 +34,7 @@ If you are running Home Assistant in a container, you can use the command line i
 #### To reset a user's password, as an administrator via the web interface
 
 1. Confirm that you have "Advanced Mode" activated on your "Profile" page.
-2. Click "Configuration" in the sidebar.
+2. Click "Settings" in the sidebar.
 3. Scroll down to "Users", and click in to that section.
 4. Click on the user, this should bring up a dialog box.
 5. At the bottom of the dialog box, click "Change Password".
@@ -45,7 +45,7 @@ If you are running Home Assistant in a container, you can use the command line i
 
 #### To delete a user, as an administrator via the web interface
 
-1. Click "Configuration" in the sidebar.
+1. Click "Settings" in the sidebar.
 2. Scroll down to "Users", and click in to that section.
 3. Click on the user, this should bring up a dialog box.
 4. At the bottom of the dialog box, click "Delete User".
