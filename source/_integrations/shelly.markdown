@@ -261,6 +261,18 @@ shelly:
   coap_port: 12345
 ```
 
+## Websocket port (generation 2)
+
+In some cases, it may be needed to customize the Websocket port (default: `5683`) your Home Assistant instance is listening to.
+
+In order to change it, add the following key to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+shelly:
+  ws_port: 12345
+```
+
 ## Additional info
 
 Shelly devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol#SNTP) for features like power measurement.
