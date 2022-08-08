@@ -231,7 +231,7 @@ The media source is split into 5 folders/levels:
    * By Month since start of recording - selecting a month lets you either view the whole month or a specific date
 5. Event Selector - lets you select the specific event for playback
 
-Since the media browser does not really have any pagination or filtering built in all of the events must be loaded into memory. AS a result, the number of events loaded at once is truncated to 10,000 by default. The number of events will be listed at "10000 (TRUNCATED)" if the event count was truncated. You can raise or lower the limit of the number of events that can be loaded using the Config Entry Options.
+Since the media browser does not have any pagination or filtering, all of the events must be loaded into memory. As a result, the number of events loaded at once is truncated to 10,000 by default. The number of events will be listed at "10000 (TRUNCATED)" if the event count was truncated. You can raise or lower the limit of the number of events that can be loaded using the Config Entry Options.
 
 ### Media Identifiers
 
