@@ -29,15 +29,15 @@ client id from the URL. I.e.: `https://dashboard.justnimbus.com/api/installation
 
 When configured, the platform will create twelve sensors for each configured client id:
 
-- Pump Flow, in `L/min` (Liters/minute)
-- Drink Flow, in `L/min` (Liters/minute)
-- Pump Pressure, in `bar`
-- Pump Starts, a number counting the amount of times the pump has started
-- Pump Hours, a number counting the amount of hours the pump has been used
-- Reservoir Temperature, in `°C`
-- Reservoir Content, in `L` (Liters)
-- Total Saved, in `L` (Liters)
-- Total Replenished, in `L` (Liters)
-- Error Code
-- Total Use, in `L` (Liters)
-- Max Reservoir Content, in `L` (Liters)
+- Pump flow, in `L/min` (Liters/minute)
+- Drink flow, in `L/min` (Liters/minute)
+- Pump pressure, in `bar`
+- Pump starts, a number counting the amount of times the pump has started
+- Pump hours, a number counting the amount of hours the pump has been used
+- Reservoir temperature, in `°C`
+- Reservoir content, in `L` (Liters)
+- Total saved, in `L` (Liters)
+- Total replenished, in `L` (Liters)
+- Error code
+- Total use, in `L` (Liters)
+- Max reservoir content, in `L` (Liters)
