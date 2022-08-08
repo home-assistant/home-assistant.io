@@ -73,14 +73,6 @@ mutable:
   required: false
   default: true
   type: boolean
-name:
-  description: "Make it possible to provide a name for the vehicles. Note: Use all lower case letters when inputting your VIN number."
-  required: false
-  type: string
-resources:
-  description: A list of resources to display (defaults to all available).
-  required: false
-  type: list
 scandinavian_miles:
   description: If set to true, Scandinavian miles ("mil") are used for distances and fuel range.
   required: false
@@ -130,20 +122,3 @@ The list of currently available resources:
 - `tyre_pressure_rear_right_tyre_pressure`
 - `any_door_open`
 - `any_window_open`
-
-## Advanced Examples
-
-A more advanced example for setting the vehicle name and selecting what resources to display:
-
-```yaml
-# Example configuration.yaml entry
-volvooncall:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  name:
-    YOUR_VIN_NUMBER: "NEW_NAME"
-  resources:
-    - odometer
-    - lock
-    - heater
-```
