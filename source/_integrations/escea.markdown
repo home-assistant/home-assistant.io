@@ -3,7 +3,7 @@ title: Escea
 description: Instructions on how to integrate Escea fireplaces with Home Assistant.
 ha_category:
   - Climate
-ha_release: '2021.10'
+ha_release: 2022.9
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
