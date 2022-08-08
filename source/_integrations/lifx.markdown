@@ -126,7 +126,7 @@ The Identify button will flash the bulb three times at maximum brightness then r
 
 ### Restart Button
 
-The Restart button triggers the bulb to restart in exactly the same way as a phsyical power cycle, which makes it ideal for triggering a new DHCP request from the bulb.
+The Restart button triggers the bulb to restart in exactly the same way as a physical power cycle, which makes it ideal for triggering a new DHCP request from the bulb.
 
 ## HomeKit Accessory Protocol
 
