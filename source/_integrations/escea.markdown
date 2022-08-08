@@ -23,7 +23,6 @@ Though these fireplaces are supported, they can only be integrated if they were 
 
 {% include integrations/config_flow.md %}
 
-
 ## Network settings
 
 The Escea system uses UDP over the local network to find and communicate with Escea devices. For this to work properly, UDP port  3300 must be available for broadcasting and messaging fireplaces, and similarly port UDP port 3300 must be available to listen for responses. The integration currently listens on `0.0.0.0` and broadcasts to all broadcast IPv4 local addresses, which is not configurable.
