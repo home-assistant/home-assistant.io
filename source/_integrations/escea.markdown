@@ -29,7 +29,7 @@ The Escea system uses UDP over the local network to find and communicate with Es
 
 ## Master controller
 
-Fireplace on / off, fan settings and desired temperature settings are supported. The current room temperature as measured by the fireplace is also supported.
+Fireplace on / off, fan settings, and desired temperature settings are supported. The current room temperature, as measured by the fireplace, is also supported.
 
 ## Debugging
 
