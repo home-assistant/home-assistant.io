@@ -12,28 +12,28 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The `JustNimbus` sensor platform queries the JustNumbus API used by the JustNimbus web dashboard.
+The JustNimbus integration queries the JustNumbus API used by the JustNimbus web dashboard.
 This integration allows you to collect and save data to get an historic overview of your water bag
 usage.
 
 ## Prerequisites
 
 To configure and use this integration, you need to have a
-[JustNimbus water bag](https://justnimbus.com/regenwatersysteem/) (Dutch) and
-you need to be subscribed for the web dashboard functionality. For this configuration you need the
-client id from the URL. I.e.: `https://dashboard.justnimbus.com/api/installation/<client_id>/data`.
+[JustNimbus water bag](https://justnimbus.com/regenwatersysteem/) (Dutch), and
+you need to be subscribed for the web dashboard functionality. For this configuration, you need the
+client ID from the URL. For example: `https://dashboard.justnimbus.com/api/installation/<client_id>/data`.
 
 {% include integrations/config_flow.md %}
 
 ## Sensor Types
 
-When configured, the platform will create twelve sensors for each configured client id:
+When configured, the integration will create twelve sensors for each configured client ID:
 
 - Pump flow, in `L/min` (Liters/minute)
 - Drink flow, in `L/min` (Liters/minute)
 - Pump pressure, in `bar`
-- Pump starts, a number counting the amount of times the pump has started
-- Pump hours, a number counting the amount of hours the pump has been used
+- Pump starts, a number counting the number of times the pump has started
+- Pump hours, a number counting the number of hours the pump has been used
 - Reservoir temperature, in `°C`
 - Reservoir content, in `L` (Liters)
 - Total saved, in `L` (Liters)
