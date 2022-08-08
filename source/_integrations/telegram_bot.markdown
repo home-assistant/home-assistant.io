@@ -253,7 +253,7 @@ Remove the bot from the chat group where it was added.
 
 ## Telegram notification platform
 
-The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification` and `message_tag` are also supported.
+The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification`, `message_tag` and `disable_web_page_preview` are also supported.
 
 The required YAML configuration now reduces to:
 
@@ -555,4 +555,17 @@ action:
     message: "Message with tag"
     data:
       message_tag: "example_tag"
+```
+
+## Example: send_message with disabled webpage preview:
+
+```yaml
+action:
+- service: notify.telegram
+  data:
+    message: >-
+      <a href="https://www.home-assistant.io/">HA site</a>
+    data:
+      parse_mode: html
+      disable_web_page_preview: true
 ```
