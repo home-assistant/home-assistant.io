@@ -98,6 +98,15 @@ Some older models also expose the installed applications through the WebSocket, 
 Samsung SmartTV does not allow WebSocket connections across different subnets or VLANs. If your TV is not on the same subnet as Home Assistant this will fail.
 It may be possible to bypass this issue by using IP masquerading or a proxy.
 
+An example for IP Masquerading on OPNSense can be accomplished as follows:
+
+1) Add a virtual IP to the network the Samsung TV is attached to
+2) Add an Outbound NAT rule as follows:
+```Interface: Samsung TV Interface
+Source: Homeassistant Network
+Destination: Samsung TV Network
+NAT Address: The virtual IP added in step 1. ```
+
 #### H and J models
 
 Some televisions from the H and J series use an encrypted protocol and require manual pairing with the TV. This should be detected automatically when attempting to send commands using the WebSocket connection, and trigger the corresponding authentication flow.
