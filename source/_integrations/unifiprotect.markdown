@@ -215,7 +215,7 @@ Your main UniFi Protect NVR device also gets a number of diagnostics sensors tha
 
 ## Media Source
 
-A media source is provided for your UniFi Protect cameras so you can fetch events and video clips and thumbnails.
+A media source is provided for your UniFi Protect cameras so you can fetch video clips and event thumbnails.
 
 ### Media Browser
 
