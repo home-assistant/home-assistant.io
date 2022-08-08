@@ -1,25 +1,25 @@
 ---
-title: Just Nimbus
-description: Instructions on how to configure the Just Nimbus integration within Home Assistant
+title: JustNimbus
+description: Instructions on how to configure the JustNimbus integration within Home Assistant
 ha_category:
   - Environment
 ha_release: 2022.9
 ha_iot_class: Cloud Polling
-ha_domain: just_nimbus
+ha_domain: justnimbus
 ha_platforms:
   - sensor
 ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The `JustNimbus` sensor platform queries the JustNumbus API used by the Just Nimbus web dashboard.
+The `JustNimbus` sensor platform queries the JustNumbus API used by the JustNimbus web dashboard.
 This integration allows you to collect and save data to get an historic overview of your water bag
 usage.
 
 ## Prerequisites
 
 To configure and use this integration, you need to have a
-[Just Nimbus water bag](https://justnimbus.com/regenwatersysteem/) (Dutch) and
+[JustNimbus water bag](https://justnimbus.com/regenwatersysteem/) (Dutch) and
 you need to be subscribed for the web dashboard functionality. For this configuration you need the
 client id from the URL. I.e.: `https://dashboard.justnimbus.com/api/installation/<client_id>/data`.
 
