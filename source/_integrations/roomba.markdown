@@ -77,4 +77,4 @@ Password=> XXXXXXXXXXXXXXXXXXXXXXXXXXXXX <= Yes, all this string.
 Use this credentials in dorita980 lib :)
 ```
 
-Copy the password (everthing between `=>` and `<=`, not including leading and trailing whitespace) into the Home Assistant password dialog.
+Copy the password (everything between `=>` and `<=`, not including leading and trailing whitespace) into the Home Assistant password dialog.
