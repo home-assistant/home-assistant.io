@@ -5,11 +5,10 @@ ha_category:
   - Notifications
 ha_iot_class: Cloud Push
 ha_release: pre 0.7
-ha_codeowners:
-  - '@fabaff'
 ha_domain: smtp
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The SMTP platform allows you to deliver notifications from Home Assistant to an e-mail recipient.
@@ -45,9 +44,9 @@ server:
   description: SMTP server which is used to send the notifications.
   required: false
   type: string
-  default: localhost  
+  default: localhost
 port:
-  description: The port that the SMTP server is using.  
+  description: The port that the SMTP server is using.
   required: false
   type: integer
   default: 587
@@ -73,11 +72,16 @@ sender_name:
   description: "Sets a custom 'sender name' in the emails headers (*From*: Custom name <example@mail.com>)."
   required: false
   type: string
-debug:  
+debug:
   description: Enables Debug, e.g., `true` or `false`.
   required: false
   type: boolean
   default: false
+verify_ssl:
+  description: If the SSL certificate of the server needs to be verified.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ### Usage
@@ -103,7 +107,7 @@ burglar:
                   - /home/pi/snapshot2.jpg
 ```
 
-The optional `target` field is used to specify recipient(s) for this specific service call. When `target` field is not used, this message will be sent to default recipient(s), in this example, james@example.com and bob@example.com.
+The optional `target` field is used to specify recipient(s) for this specific service call. When `target` field is not used, this message will be sent to default recipient(s), in this example, my_intruder_alert@example.com.
 
 The optional `images` field adds in-line image attachments to the email. This sends a text/HTML multi-part message instead of the plain text default.
 
@@ -176,8 +180,8 @@ To learn more about how to use notifications in your automations, please see the
 
 ## Specific E-Mail Provider Configuration
 
-Check below some configurations examples for specific e-mail providers. 
-If you are in doubt about the SMTP settings required, check your e-mail provider configuration or help pages for more information about its specific SMTP configuration. 
+Check below some configurations examples for specific e-mail providers.
+If you are in doubt about the SMTP settings required, check your e-mail provider configuration or help pages for more information about its specific SMTP configuration.
 
 ### Google Mail
 

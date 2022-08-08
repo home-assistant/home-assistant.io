@@ -75,7 +75,6 @@ Jay was not the only one, [debsahu] added some lights to the deck steps as well!
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Decks lights are in. It blinks now. Powered by <a href="https://twitter.com/hashtag/esp32?src=hash&amp;ref_src=twsrc%5Etfw">#esp32</a> <a href="https://twitter.com/esphome_?ref_src=twsrc%5Etfw">@esphome_</a> and controlled by <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> <a href="https://t.co/ukCcDw8Mhm">pic.twitter.com/ukCcDw8Mhm</a></p>&mdash; Debashish Sahu, PhD (@debsahu) <a href="https://twitter.com/debsahu/status/1292255588618043394?ref_src=twsrc%5Etfw">August 9, 2020</a>
 </blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 [JayBigGuy]: https://twitter.com/jaybigguy10
 [debsahu]: https://twitter.com/debsahu
@@ -102,7 +101,7 @@ Also, don't forget to share your creations with us via Social Media:
 - Twitter it! Be sure to mention [@home_assistant][twitter]
 - Share it on our [Facebook group][facebook-group]
 - Post it to our [subreddit][reddit]
-- Tag [@homeasssistant][instagram] on Instagram
+- Tag [@homeassistant][instagram] on Instagram
 - Or via chat, drop us a line in the [#lounge at Discord][chat]
 
 See you next edition!

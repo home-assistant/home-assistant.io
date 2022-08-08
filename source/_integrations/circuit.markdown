@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: circuit
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `Unify Circuit` platform allows you to send notifications from Home Assistant to a conversation in [Unify Circuit](https://www.circuit.com/).

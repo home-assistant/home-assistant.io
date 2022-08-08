@@ -11,7 +11,6 @@ categories:
 - Release-Notes
 - Core
 og_image: /images/blog/2021-05/social.png
-feedback: true
 ---
 
 <a href='/integrations/#version/2021.5'><img src='/images/blog/2021-05/social.png' style='border: 0;box-shadow: none;'></a>
@@ -840,7 +839,7 @@ Database migrations are now done in the background and no longer prevent
 Home Assistant from starting.
 
 The migration is started shortly after the started event since they are CPU
-intensive (mostly just sqlite since its in the same process) and we do not want
+intensive (mostly just sqlite since it's in the same process) and we do not want
 to compete with startup.
 
 Events created by your system are queued and processed when the migration is

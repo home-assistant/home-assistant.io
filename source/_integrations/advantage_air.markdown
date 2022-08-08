@@ -1,7 +1,8 @@
 ---
 title: Advantage Air
 description: Instructions on how to integrate Advantage Air A/C controller into Home Assistant.
-ha_category: Climate
+ha_category:
+  - Climate
 ha_release: 0.117
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -13,15 +14,18 @@ ha_platforms:
   - binary_sensor
   - climate
   - cover
+  - diagnostics
+  - select
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Advantage Air integration allows you to control [Advantage Air](https://www.advantageair.com.au/) Air Conditioning controllers into Home Assistant.
 
 ## Prerequisites
 
-The wall-mounted Android table running the [MyPlace](https://play.google.com/store/apps/details?id=com.air.advantage.myair5), [e-zone](https://play.google.com/store/apps/details?id=com.air.advantage.ezone), or [zone10e](https://play.google.com/store/apps/details?id=com.air.advantage.zone10) must have a static IP, which you will enter on the integrations page in Home Assistant.
+The wall-mounted Android tablet running the [MyPlace](https://play.google.com/store/apps/details?id=com.air.advantage.myair5), [e-zone](https://play.google.com/store/apps/details?id=com.air.advantage.ezone), or [zone10e](https://play.google.com/store/apps/details?id=com.air.advantage.zone10) must have a static IP, which you will enter on the integrations page in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -51,6 +55,10 @@ The `advantage_air` binary sensor platform will create a binary sensor for each 
 ### Switch
 
 The `advantage_air` switch platform will create a switch entity to toggle fresh air mode, if it is supported.
+
+### Select
+
+The `advantage_air` select platform allows you to change the zone used for the "MyZone" feature.
 
 ## Services
 

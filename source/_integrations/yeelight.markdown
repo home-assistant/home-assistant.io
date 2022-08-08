@@ -4,18 +4,22 @@ description: Instructions on how to setup Yeelight Wifi devices within Home Assi
 ha_category:
   - Light
 ha_release: 0.32
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - '@rytilahti'
   - '@zewelor'
   - '@shenxn'
+  - '@starkillerOG'
+  - '@alexyao2015'
 ha_domain: yeelight
 ha_platforms:
   - binary_sensor
   - light
 ha_homekit: true
 ha_dhcp: true
+ha_quality_scale: platinum
+ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.
@@ -169,32 +173,39 @@ This integration is tested to work with the following models. If you have a diff
 
 | Model ID   | Model number | Product name                                     |
 |------------|--------------|--------------------------------------------------|
+| `mono`     | YLTD03YL     | Yeelight Serene Eye-Friendly Desk Lamp           |
 | `mono1`    | YLDP01YL     | LED Bulb (White)                                 |
 | ?          | YLDP05YL     | LED Bulb (White) - 2nd generation                |
 | `color1`   | YLDP02YL     | LED Bulb (Color)                                 |
 | `color1`   | YLDP03YL     | LED Bulb (Color) - E26                           |
 | `color2`   | YLDP06YL     | LED Bulb (Color) - 2nd generation                |
 | `color4`   | YLDP13YL     | LED Bulb 1S (Color)                              |
+| `color4`   | YLDP04YL     | LED Bulb 1S (Color)                              |
 | `color6`   | YLDP13AYL    | LED Bulb 1S (Color)                              |
+| `colorb`   | YLDP005      | LED Bulb (Color)                                 |
 | `colorc`   | YLDP004-A    | GU10 W1 (Color)                                  |
 | `strip1`   | YLDD01YL     | Lightstrip (Color)                               |
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
 | ?          | YLDD04YL     | Lightstrip (Color)                               |
+| `strip6`   | YLDD05YL     | Lightstrip (Color)                               |
 | `bslamp1`  | MJCTD01YL    | Xiaomi Mijia Bedside Lamp - Wi-Fi Version!       |
 | `bslamp1`  | MJCTD02YL    | Xiaomi Mijia Bedside Lamp II                     |
 | `RGBW`     | MJDP02YL     | Mi LED smart Lamp - white and color Wi-Fi Version|
+| `lamp`     | MJTD02YL     | Xiaomi Mijia Desk Lamp Pro                       |
 | `lamp1`    | MJTD01YL     | Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM) |
+| `lamp15`   | YLTD003      | Yeelight LED Screen Light Bar Pro                |
 | `ceiling1` | YLXD01YL     | Yeelight Ceiling Light                           |
 | `ceiling2` | YLXD03YL     | Yeelight Ceiling Light - Youth Version           |
 | ?          | YLXD62YI     | Yeelight Ceiling Light (Jiaoyue 260)             |
 | ?, may be `ceiling3` | YLXD04YL     | Yeelight Ceiling Light (Jiaoyue 450)   |
 | `ceiling3` | YLXD05YL     | Yeelight Ceiling Light (Jiaoyue 480)             |
 | `ceiling4` | YLXD02YL     | Yeelight Ceiling Light (Jiaoyue 650)             |
-| `mono`     | YLTD03YL     | Yeelight Serene Eye-Friendly Desk Lamp           |
-| `ceiling10`     | YLDL01YL     | Yeelight Meteorite Pendant Light            |
-| `ceiling13`     | YLXD01YL     | Yeelight LED Ceiling Light           |
+| `ceiling10`| YLDL01YL     | Yeelight Meteorite Pendant Light                 |
+| `ceiling13`| YLXD01YL     | Yeelight LED Ceiling Light                       |
 | `ceil26`   | YLXD76YL     | Yeelight Ceiling Light - Updated HomeKit 23w     |
-| `lamp` | MJTD02YL | Xiaomi Mijia Desk Lamp Pro |
+| ?, may be `ceilb` | YLXD013-B    | Yeelight Arwen Ceiling Light 450C         |
+| ?, may be `ceilb` | YLXD013-C    | Yeelight Arwen Ceiling Light 550C         |
+| `ceilb`    | YLXD013      | Yeelight Arwen Ceiling Light 450S                |
 
 ## Services
 

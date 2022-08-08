@@ -4,7 +4,7 @@ description: "Install Home Assistant on a ODROID"
 installation_type: odroid
 ---
 {% comment %}
-Included sections for this page is located under source/_includes/getting-started/installation
+Included sections for this page is located under source/_includes/installation
 {% endcomment %}
 
 {% include installation/operating_system.md %}

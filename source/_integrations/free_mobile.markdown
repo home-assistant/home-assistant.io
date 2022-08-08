@@ -8,6 +8,7 @@ ha_iot_class: Cloud Push
 ha_domain: free_mobile
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `free_mobile` platform is using the French mobile operator [Free Mobile](http://mobile.free.fr/) to send SMS to your own cell phone. 

@@ -8,20 +8,21 @@ ha_iot_class: Cloud Polling
 ha_domain: twitch
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `twitch` platform will allow you to monitor [Twitch](https://www.twitch.tv/) channel status from within Home Assistant and setup automation based on the information.
 
-## Setup Client ID
+## Setup Client ID and Client secret
 
-Create a new app at "Register Your Application" in the [Twitch developer portal](https://dev.twitch.tv/console/apps). Then get the __Client ID__ for the new application.
+Create a new app at "Register Your Application" in the [Twitch developer portal](https://dev.twitch.tv/console/apps). Then get the __Client ID__ and __Client secret__ for the new application.
 
 ## Setup OAuth Token
 
 To enable the follow and subscription attributes, the OAuth token is needed to get the right permissions on the Twitch API.
 If you don't need those, ignore the configuration setting: `token`.
 
-To get the OAuth token, visit the [OAuth Token Generator](https://twitchapps.com/tokengen/#), insert your __Client ID__ and `user_read user_subscriptions` inside __scopes__.
+To get the OAuth token, visit the [OAuth Token Generator](https://twitchapps.com/tokengen/#), insert your __Client ID__ and `user:read:subscriptions` inside __scopes__.
 
 Before clicking Summit (the broken image below the form), visit the [Twitch dev console](https://dev.twitch.tv/console) and add a new application.
 
@@ -38,6 +39,8 @@ To use Twitch with your installation, add the following to your `configuration.y
 sensor:
   platform: twitch
   client_id: YOUR_TWITCH_CLIENT_ID
+  client_secret: YOUR_TWITCH_CLIENT_SECRET
+  token: YOUR_TWITCH_OAUTH_TOKEN
   channels:
     - channel1
     - channel2
@@ -46,6 +49,10 @@ sensor:
 {% configuration %}
 client_id:
   description: Your Twitch client ID.
+  required: true
+  type: string
+client_secret:
+  description: Your Twitch client secret.
   required: true
   type: string
 token:

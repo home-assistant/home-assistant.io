@@ -1,6 +1,6 @@
 ---
 title: Total Connect
-description: Instructions on how to integrate TotalConnect alarms into Home Assistant.
+description: Integrate Resideo Total Connect 2.0-enabled alarm systems into Home Assistant.
 ha_category:
   - Alarm
   - Binary Sensor
@@ -13,22 +13,25 @@ ha_domain: totalconnect
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - diagnostics
+ha_integration_type: integration
 ---
 
-The `totalconnect` integration provides connectivity with TotalConnect alarm systems used by many alarm companies.
+The `totalconnect` integration provides connectivity with Resideo Total Connect 2.0-enabled alarm systems.
+
+## Prerequisites
+
+Log in to the [Total Connect website](https://totalconnect2.com) and create a "standard" Total Connect user account specifically for use with Home Assistant. It should not have full administrative privileges.
+
+Give the user access to your Location, along with a user code, usually a 4 digit number.
 
 {% include integrations/config_flow.md %}
 
-To find your TotalConnect location number:
+## Configuration Options
 
- - Use a web browser to log in to the TotalConnect website as the administrator.
- - Click on your location.
- - The URL shows the location number after "mylocation/" like this `https://totalconnect2.com/home/mylocation/123456`.
-
-You are highly encouraged to create a Total Connect user account specifically for Home Assistant. It should not have full administrative privileges.
+**Auto Bypass Low Battery:** if enabled, TotalConnect zones will immediately be bypassed when they report low battery. This option helps because zones tend to report low battery in the middle of the night. The downside of this option is that when the alarm system is armed, the bypassed zone will not be monitored.
 
 ## Automation example
-
 ```yaml
 automation:
   - alias: "Alarm: Disarmed Daytime"
@@ -52,6 +55,15 @@ automation:
       service: scene.turn_on
       target:
         entity_id: scene.OnArmedAway
+  - alias: "Alarm: Arm Home Instant at Sunset"
+    trigger:
+      platform: sun
+      event: sunset
+      offset: '0'
+    action:
+      service: totalconnect.arm_home_instant
+      target:
+        entity_id: alarm_control_panel.total_connect
 ```
 
 {% details "Notes for Home Assistant Core Installations" %}
@@ -66,18 +78,18 @@ sudo apt install libxml2-dev libxmlsec1-dev
 
 ## Alarm Control Panel
 
-The integration provides an Alarm Control Panel for each TotalConnect location. It uses the name of your location from TotalConnect.  For example, if your location name in TotalConnect is "Home", then you will get `alarm_control_panel.home` in Home Assistant.
+The integration provides an Alarm Control Panel for each Total Connect location. It uses the name of your location from Total Connect.  For example, if your location name in Total Connect is "Home", Home Assistant will use `alarm_control_panel.home`.
 
-The alarm control panel supports the following services: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night` and `alarm_disarm`.
+The alarm control panel supports the following services: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night`, and `alarm_disarm`. The integration also provides unique services for `totalconnect.arm_home_instant` and `totalconnect.arm_away_instant` which arms the system with zero entry delay, triggering the alarm instantly if an entry/exit zone is faulted.
 
 The `triggered` state also provides a state attribute called `triggered_source` giving more detail on what triggered the alarm:
 
-- `Police/Medical` is when sensors detected a burglar and/or a person pushed the Police or Medical button
-- `Fire/Smoke` is when fire or smoke is detected, or a person pushed the Fire button
+- `Police/Medical` is when sensors detected a burglar and/or the Police or Medical button was pressed
+- `Fire/Smoke` is when fire or smoke is detected, and/or the Fire button was pressed
 - `Carbon Monoxide` is when carbon monoxide is detected
 
 ## Binary Sensor
 
-The integration provides a Binary Sensor for each TotalConnect zone. To see zones in TotalConnect "fault" status, your TotalConnect account must have "Sensor Events" enabled. Your alarm monitoring company may charge an extra fee to enable this. If available, these can be found in the Total Connect 2 web portal at **Notifications** -> **Sensor Events**. Alternately, they can be found in the Total Connect iOS app at **More** -> **Settings** -> **Notifications** -> **Sensor Events**. Enable each zone you want to monitor. TotalConnect zones will display as `Closed` in Home Assistant unless the Sensor Event is enabled.
+The integration provides a Binary Sensor for each Total Connect zone. To see faulted zones in Home Assistant, your Total Connect account must have "Sensor Activities" enabled. Your alarm monitoring company may charge an extra fee to enable this. If available, these can be found in the Total Connect 2 web portal at **Notifications** -> **Sensor Activities**. Alternately, they can be found in the Total Connect mobile app at **More** -> **Settings** -> **Notifications** -> **Sensor Activities**. Enable each zone you want to monitor. Unmonitored zones will display as `Closed` in Home Assistant.
 
-The TotalConnect API has limited zone type information. Home Assistant device class `door` is assigned to TotalConnect door, window, perimeter, motion sensor, and most alarm panel buttons. The sensor will appear as `True` if the door is open (either fault or triggered in TotalConnect) and `False` otherwise. Device class `smoke` is assigned to TotalConnect smoke detectors and buttons with physical alarm panel "Response Type" setting of "Fire No Verification". The sensor will appear as `True` if smoke is detected.  Device class `gas` is assigned to TotalConnect carbon monoxide detectors. The sensor will appear as `True` if gas is detected.
+The Total Connect API has limited zone type information. Home Assistant device class `door` is assigned to Total Connect entry/exit, perimeter, and motion zones; along with most alarm panel buttons. The sensor will appear as `True` if the zone is opened (either fault or triggered in Total Connect) and `False` if closed. Device class `smoke` is assigned to Total Connect smoke detectors and alarm panel buttons set to a "Fire No Verification" response type. The sensor will appear as `True` if smoke is detected or the respective button is pressed.  Device class `gas` is assigned to Total Connect carbon monoxide detectors. The sensor will appear as `True` if carbon monoxide is detected.

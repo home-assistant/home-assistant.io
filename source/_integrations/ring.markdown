@@ -2,12 +2,12 @@
 title: Ring
 description: Instructions on how to integrate your Ring.com devices within Home Assistant.
 ha_category:
-  - Doorbell
   - Binary Sensor
   - Camera
+  - Doorbell
+  - Light
   - Sensor
   - Switch
-  - Light
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -20,7 +20,9 @@ ha_platforms:
   - camera
   - light
   - sensor
+  - siren
   - switch
+ha_integration_type: integration
 ---
 
 The `ring` implementation allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant. Due to recent authentication changes of Ring, you will need to run at least Home Assistant 0.104.
@@ -59,7 +61,7 @@ downloader:
   download_dir: downloads
 ```
 
-Then you can use the following automation, with the entities from your system, which will save the video file under `<config>/downloads/ring_<camera_name>/`:
+Then you can use the following automation, with the entities from your system, which will save the video file under `<config>/downloads/<camera_name>/<camera_name>/`:
 
 {% raw %}
 
@@ -79,6 +81,19 @@ automation:
 ```
 
 {% endraw %}
+
+You may consider some modifications in the subdirectory and the filename to suit your needs. For example, you can add the date and the time and extension to the downloaded file: 
+
+{% raw %}
+```yaml
+    data:
+      url: "{{ state_attr('camera.front_door', 'video_url') }}"
+      subdir: "{{ state_attr('camera.front_door', 'friendly_name') }}/{{ now().strftime("%m.%Y") }}"
+      filename: "{{ now().strftime("%Y-%m-%d-at-%H-%M-%S") }}.mp4"
+```
+{% endraw %}
+
+the above modification will save the video file under `<config>/downloads/<camera_name>/YYYY-MM/YYYY-MM-DD-at-HH-MM-SS.mp4`. You can change the date according to your localization format.
 
 If you want to use `python_script`, enable it your `configuration.yaml` file first:
 

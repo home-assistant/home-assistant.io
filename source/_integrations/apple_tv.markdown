@@ -2,8 +2,8 @@
 title: Apple TV
 description: Instructions on how to integrate Apple TV devices into Home Assistant.
 ha_category:
-  - Multimedia
   - Media Player
+  - Multimedia
   - Remote
 ha_iot_class: Local Push
 ha_release: 0.49
@@ -15,6 +15,7 @@ ha_zeroconf: true
 ha_platforms:
   - media_player
   - remote
+ha_integration_type: integration
 ---
 
 The Apple TV integration allows you to control an Apple TV (any generation).
@@ -25,6 +26,7 @@ There is currently support for the following entities within the Apple TV device
 - [Remote](#remote)
 
 {% include integrations/config_flow.md %}
+
 ## Media Player
 
 The Apple TV media player platform will create a Media Player entity for each
@@ -63,7 +65,7 @@ The following commands are currently available:
 | `num_repeats`             | yes      | Number of times to repeat the commands |
 | `delay_secs`              | yes      | Interval in seconds between one send and another <br> This is a `float` value e.g. 1, 1.2 etc. |
 
-**Examples**
+### Examples
 
 Create a script to invoke the Netflix application based on the application icon
 being in a fixed place on the home screen:

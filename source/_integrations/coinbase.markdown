@@ -8,10 +8,12 @@ ha_release: 0.61
 ha_iot_class: Cloud Polling
 ha_domain: coinbase
 ha_platforms:
+  - diagnostics
   - sensor
 ha_codeowners:
   - '@tombrien'
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The `coinbase` integration lets you access account balances and exchange rates from [Coinbase](https://coinbase.com).
@@ -36,4 +38,6 @@ Exchange rates to report:
   description: Optional list of currencies to create exchange rate sensors for.
 Base currency for exchange rate sensors:
   description: Currency used as the currency unit for exchange rate sensors. The default is US Dollar (USD).
+Number of decimal places for exchange rates:
+  description: The number of decimals calculated in exchange rate sensors, a smaller number of decimal places may be returned when the upstream data from Coinbase lacks sufficient precision, this is usually the case when the exchange rate is much larger than the base currency and thus should have no significant effect on calculations.
 {% endconfiguration_basic %}

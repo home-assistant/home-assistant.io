@@ -1,20 +1,21 @@
-{% assign active_installations = site.data.analytics_data.integrations[page.ha_domain] | default: 0 %}
+{% capture domain %}{{ page.ha_supporting_domain | default: page.ha_domain }}{% endcapture %}
+{% assign active_installations = site.data.analytics_data.integrations[domain] | default: 0 %}
 {% assign percentage = 100.0 | times: active_installations | divided_by: site.data.analytics_data.reports_integrations | round: 1 %}
 <section class="aside-module grid__item one-whole lap-one-half">
   <div class='brand-logo-container section'>
     {%- if page.logo -%}
       <img src='/images/supported_brands/{{ page.logo }}' />
     {%- else -%}
-      <img src='https://brands.home-assistant.io/_/{{ page.ha_domain }}/logo.png' srcset='https://brands.home-assistant.io/_/{{ page.ha_domain }}/logo@2x.png 2x' />
+      <img src='https://brands.home-assistant.io/_/{{ domain }}/logo.png' srcset='https://brands.home-assistant.io/_/{{ page.ha_domain }}/logo@2x.png 2x' />
     {%- endif -%}
 
-    {%- if page.ha_config_flow and page.ha_domain -%}
-      {% my config_flow_start badge domain=page.ha_domain %}
+    {%- if page.ha_config_flow and domain -%}
+      {% my config_flow_start badge domain=domain %}
     {%- endif -%}
   </div>
 
   <div class='section'>
-    The {{ page.name | default: page.title }} integration was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
+    The {{ page.name | default: page.title }} {{ page.ha_integration_type | default: "integration" }} was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
     and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io/#integrations" target="_blank" rel="noopener">
     
     {% if percentage < 1 %}
@@ -35,11 +36,25 @@
       {% endif %}
       scores {{page.ha_quality_scale}} on our <a href='/docs/quality_scale/'>quality scale</a>
     {%- endif -%}.
-
-    {% if page.ha_domain %}
-    You can find the source for this integration on <a href='https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}'>GitHub</a>.
-    {%- endif -%}
   </div>
+
+  {% if page.works_with %}
+    {%- for type in page.works_with -%}
+      <div class="section">
+        <a href="/blog/2022/07/12/partner-program">
+          <img src="../../images/works_with/works-with-{{ type }}.png" alt="Works via {{ type }} with Home assistant">
+        </a>
+      </div>
+    {%- endfor -%}
+  {%- endif -%}
+
+  {% if page.ha_domain %}
+  <div class='section'>
+    <a href="https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ domain }}" target="_blank"><i class="icon-github"></i> View source on GitHub</a><br />
+    <a href="https://github.com/home-assistant/core/issues?q=is%3Aissue+is%3Aopen+label%3A%22integration%3A+{{ domain }}%22" target="_blank"><i class="icon-bug"></i> View known issues</a>
+  </div>
+  {%- endif -%}
+
 
   {%- if page.ha_category.first -%}
     <div class='section'>

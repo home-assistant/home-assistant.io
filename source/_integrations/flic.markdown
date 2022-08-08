@@ -8,6 +8,7 @@ ha_release: 0.35
 ha_domain: flic
 ha_platforms:
   - binary_sensor
+ha_integration_type: integration
 ---
 
 The `flic` platform allows you to receive click events from [flic](https://flic.io) smart buttons.
@@ -16,7 +17,7 @@ The platform does not directly interact with the buttons, *but communicates with
 
 ## Service setup
 
-If you are using Hass.io, you can run the service locally by [installing](/hassio/installing_third_party_addons/) the flicd add-on from [pschmitt's repository](https://github.com/pschmitt/hassio-addons).
+If you are using the Home Assistant Operating System, you can run the service locally by [installing](/hassio/installing_third_party_addons/) the flicd add-on from [pschmitt's repository](https://github.com/pschmitt/hassio-addons).
 
 For instructions on how to install the service manually, visit the GitHub repository of the service for [Linux](https://github.com/50ButtonsEach/fliclib-linux-hci), [macOS](https://github.com/50ButtonsEach/flic-service-osx) or [Windows](https://github.com/50ButtonsEach/fliclib-windows).
 

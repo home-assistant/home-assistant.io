@@ -8,6 +8,7 @@ ha_release: 0.27
 ha_domain: ffmpeg_motion
 ha_platforms:
   - binary_sensor
+ha_integration_type: integration
 ---
 
 The `ffmpeg` platform allows you to use any video feed with [FFmpeg](https://www.ffmpeg.org/) for motion sensors in Home Assistant.

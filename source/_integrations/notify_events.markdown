@@ -11,6 +11,7 @@ ha_codeowners:
 ha_iot_class: Cloud Push
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 ## Description

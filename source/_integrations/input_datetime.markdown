@@ -3,21 +3,23 @@ title: Input Datetime
 description: Instructions on how to integrate the Input Datetime integration into Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 0.55
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: input_datetime
+ha_integration_type: helper
 ---
 
 The `input_datetime` integration allows the user to define date and time values
 that can be controlled via the frontend and can be used within automations and
 templates.
 
-The preferred way to configure input datetime is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Date and/or time** option.
+The preferred way to configure input datetime is via the user interface at **Settings** -> **Devices & Services** -> **Helpers**. Click the add button and then choose the **Date and/or time** option.
 
 To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
-If you removed `default_config:` from you configuration, you must add `input_datetime:` to your `configuration.yaml` first, then you can use the UI.
+If you removed `default_config:` from your configuration, you must add `input_datetime:` to your `configuration.yaml` first, then you can use the UI.
 
 `input_datetime` can also be configured via YAML. To add three datetime inputs to your installation,
 one with both date and time, and one with date or time each,
@@ -85,7 +87,7 @@ automations and templates.
 
 ### Restore State
 
-If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
+If you set a valid value for `initial`, this integration will start with the state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
 
 ### Services
 

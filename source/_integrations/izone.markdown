@@ -4,7 +4,7 @@ description: Instructions on how to integrate iZone climate control devices with
 ha_category:
   - Climate
 ha_release: '0.100'
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@Swamp-Ig'
@@ -12,6 +12,7 @@ ha_domain: izone
 ha_homekit: true
 ha_platforms:
   - climate
+ha_integration_type: integration
 ---
 
 The `iZone` integration allows access of control of a local [iZone](https://izone.com.au/) ducted reverse-cycle climate control devices. These are largely available in Australia.
@@ -75,20 +76,16 @@ along with the supply temperature (use the ID of your unit):
 ```yaml
 # Example configuration.yaml entry to create sensors
 # from the izone controller state attributes
-sensor:
-  - platform: template
-    sensors:
-      control_zone:
-        friendly_name: "Control zone"
-        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_name') }}"
-      control_zone_target:
-        friendly_name: "Target temperature"
-        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_setpoint') }}"
-        unit_of_measurement: "°C" 
-      temperature_supply:
-        friendly_name: "Supply temperature"
-        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','supply_temperature') }}"
-        unit_of_measurement: "°C"
+template:
+  - sensor:
+    - name: "Control zone"
+      state: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_name') }}"
+    - name: "Target temperature"
+      state: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_setpoint') }}"
+      unit_of_measurement: "°C" 
+    - name : "Supply temperature"
+      state: "{{ state_attr('climate.izone_controller_0000XXXXX','supply_temperature') }}"
+      unit_of_measurement: "°C"
 ```
 
 {% endraw %}

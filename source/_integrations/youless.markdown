@@ -2,6 +2,7 @@
 title: YouLess
 description: Instructions on how to integrate your YouLess device into Home Assistant.
 ha_category:
+  - Energy
   - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -11,11 +12,16 @@ ha_codeowners:
   - '@gjong'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The YouLess integration for Home Assistant allows you to read the meter values from sensors created by [YouLess](https://www.youless.nl/home.html).
 
-The integration is tested and verified for the LS120 device.
+The integration is tested and verified for the following devices from YouLess:
+
+* LS110
+* LS120 running PVOutput firmware
+* LS120 running Enologic firmware
 
 {% include integrations/config_flow.md %}
 

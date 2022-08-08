@@ -2,11 +2,11 @@
 title: Universal Devices ISY994
 description: Instructions on how to setup the ISY994 controller within Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Climate
   - Cover
   - Fan
+  - Hub
   - Light
   - Lock
   - Sensor
@@ -29,6 +29,7 @@ ha_platforms:
   - sensor
   - switch
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The ISY994 is a home automation controller that is capable of controlling Insteon and X10 devices. Some models of the ISY994 can even control Z-Wave devices.
@@ -45,7 +46,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
-Home Assistant is capable of communicating with any binary sensor, cover, fan, light, lock, sensor and switch that is configured on the controller. Using the programs on the controller, custom binary sensors, cover, fan, lock, and switches can also be created.
+Home Assistant is capable of communicating with any binary sensor, cover, fan, light, lock, sensor and switch that is configured on the controller. Using the programs on the controller, custom binary sensors, covers, fans, locks, and switches can also be created.
 
 {% include integrations/config_flow.md %}
 
@@ -67,20 +68,20 @@ host:
   required: true
   type: string
 username:
-  description: The username that used to access the ISY interface.
+  description: The username that is used to access the ISY interface.
   required: true
   type: string
 password:
-  description: The password that used to access the ISY interface.
+  description: The password that is used to access the ISY interface.
   required: true
   type: string
 sensor_string:
-  description: This is the string that is used to identify which devices are to be assumed to be sensors instead of lights of switches. If this string is found in the device name or folder, Home Assistant will assume it is as a sensor or binary sensor (if the device has on/off or true/false states). This is only necessary for nodes that are not automatically detected as sensors by Home Assistant. Insteon door, window, motion and leak sensors should all be detected automatically.
+  description: This is the string that is used to identify which devices are to be assumed to be sensors instead of lights or switches. If this string is found in the device name or folder, Home Assistant will assume it is a sensor or binary sensor (if the device has on/off or true/false states). This is only necessary for nodes that are not automatically detected as sensors by Home Assistant. Insteon door, window, motion and leak sensors should all be detected automatically.
   required: false
   type: string
   default: sensor
 variable_sensor_string:
-  description: This is the string that is used to identify which Integer or State Variables are to be added as sensors. If this string is found in the device name, Home Assistant will assume it is as a sensor.
+  description: This is the string that is used to identify which Integer or State Variables are to be added as sensors. If this string is found in the device name, Home Assistant will assume it is a sensor.
   required: false
   type: string
   default: sensor
@@ -149,7 +150,7 @@ All `isy994_control` events will have an `entity_id` and `control` parameter in 
 
 ### Insteon Scenes & Keypad/Remote Buttons
 
-All Insteon scenes configured in the ISY994 will show up as a `switch` in Home Assistant, as they do not support dimming or setting specific brightness settings as Home Assisstant's `light` component.
+All Insteon scenes configured in the ISY994 will show up as a `switch` in Home Assistant, as they do not support dimming or setting specific brightness settings as Home Assistant's `light` component.
 
 Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant to allow support for using Control Events in Automations. These devices are added as `sensors` since they cannot be directly controlled (turned on/off); their state is the last ON level command they sent, in a range from `0` (Off) to `255` (On 100%).  Note: these devices may report incorrect states before being used after a reboot of the ISY. Secondary Keypad buttons may be turned on or off using ISY Scenes (refer to ISY Documentation for more details).
 
@@ -167,7 +168,7 @@ Send a command to an ISY Device using its Home Assistant entity ID. Valid comman
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |     no  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `entity_id`            |     no  | Name(s) of target entities for the command, e.g., `light.front_porch`. |
 | `command` | no | The command to be sent to the device, e.g., `"fast_on"` |
 
 #### Service `isy994.send_raw_node_command`
@@ -176,7 +177,7 @@ Send a "raw" (e.g., `DON`, `DOF`) ISY REST Device Command to a Node using its Ho
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |     no  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `entity_id`            |     no  | Name(s) of target entities for the command, e.g., `light.front_porch`. |
 | `command` | no | The ISY REST Command to be sent to the device, e.g., `"DON"` |
 | `value` | yes | The integer value to be sent with the command, if required by the command, e.g., `255` |
 | `parameters` | yes | A `dict` of parameters to be sent in the query string for controlling colored bulbs or advanced parameters, e.g., `{ GV2: 0, GV3: 0, GV4: 255 }` |
@@ -188,7 +189,7 @@ Request a Z-Wave Device parameter via the ISY. The parameter value will be retur
 
 | Service data attribute | Optional | Description                                                                                     |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of entity to send the command, e.g., `light.front_porch`. This must be an ISY Z-Wave Node. |
+| `entity_id`            | no       | Name of target entity for the command, e.g., `light.front_porch`. This must be an ISY Z-Wave Node. |
 | `parameter`            | no       | The parameter number to retrieve from the end device.                                           |
 
 #### Service `isy994.set_zwave_parameter`
@@ -197,7 +198,7 @@ Update a Z-Wave Device parameter via the ISY. The parameter value will also be r
 
 | Service data attribute | Optional | Description                                                                                     |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of entity to send the command, e.g., `light.front_porch`. This must be an ISY Z-Wave Node. |
+| `entity_id`            | no       | Name of target entity for the command, e.g., `light.front_porch`. This must be an ISY Z-Wave Node. |
 | `parameter`            | no       | The parameter number to set on the end device.                                                  |
 | `value`                | no       | The value to set for the parameter. May be an integer or byte string (e.g. "0xFFFF").           |
 | `size`                 | no       | The size of the parameter, either 1, 2, or 4 bytes.                                             |
@@ -208,7 +209,7 @@ Rename a node or group (scene) on the ISY994. Note: this will not automatically 
 
 | Service data attribute | Optional | Description                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------- |
-| `entity_id`            | no       | Name of entity to send the command, e.g., `light.front_porch`. |
+| `entity_id`            | no       | Name of target entity for the command, e.g., `light.front_porch`. |
 | `name`                 | no       | The new name to use within the ISY994.                         |
 
 #### Service `isy994.set_on_level`
@@ -217,7 +218,7 @@ Send an ISY set_on_level command to a `light` Node to set the devices' local On 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |     no  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `entity_id`            |     no  | Name(s) of target entities for the command, e.g., `light.front_porch`. |
 | `value` | no | The integer value to set the On Level to in a range of 0-255, e.g., `255` |
 
 #### Service `isy994.set_ramp_rate`
@@ -226,7 +227,7 @@ Send an ISY set_ramp_rate command to a `light` Node to set the devices' ramp rat
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |     no   | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `entity_id`            |     no   | Name(s) of target entities for the command, e.g., `light.front_porch`. |
 | `value` | no | The integer index value to set the Ramp Rate to in a range of `0` (9.5 minutes) to `31` (0.1 Seconds), e.g., `28` |
 
 #### Service `isy994.system_query`
@@ -330,13 +331,17 @@ A device is created by creating a directory, with the name for the device, under
 - *HA.lock* will create a lock.
 - *HA.switch* will create a switch.
 
-A program, named *status*, is required under the program device directory. A program, named *actions*, is required for all program devices except for binary_sensor. Any other programs in these device directories will be ignored. The *status* program requires that you create a variable with the name of your choice. This variable will store the actual status of the new device and will be updated by the *action* program.
+A program, named *status*, is required under the program device directory. A program, named *actions*, is required for all program devices except for binary_sensor. Any other programs in these device directories will be ignored.
 
 <p class='img'>
   <img src='/images/isy994/isy994_CoverExample.png' />
 </p>
 
-The *status* program in this directory is what indicates the state of the device:
+The *status* program requires that you create a state variable with the name of your choice. Note that you must use a state variable, not an integer variable. This variable will store the actual status of the new device and will be updated by the *action* program.
+
+![Screenshot of switch variable](/images/isy994/isy994_switch_variable_example.png)
+
+The IF clause of the *status* program in the device directory is what indicates the state of the device:
 
 - *binary_sensor* on if the clause returns true, otherwise off.
 - *cover* closed if the clause returns true, otherwise open.

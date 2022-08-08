@@ -17,7 +17,7 @@ before we publish a version that will require you to upgrade Docker.
 ## The solution
 
 If you are running an older version of our Home Assistant OS, update it the
-supervisor panel.
+{% my configuration title="Configuration" %} panel.
 
 If this is not our Home Assistant OS, you need to manually update Docker on your
 host for instructions on how to do that, check the official

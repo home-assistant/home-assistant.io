@@ -15,6 +15,7 @@ ha_platforms:
   - camera
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `ezviz` sensor platform uses the EzvizLife API to interact with the devices.

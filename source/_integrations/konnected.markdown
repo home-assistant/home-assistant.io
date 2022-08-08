@@ -4,13 +4,12 @@ description: Connect wired alarm sensors and siren using the NodeMCU based Konne
 ha_category:
   - Alarm
   - Binary Sensor
-  - Switch
   - Sensor
-ha_iot_class: Local Polling
+  - Switch
+ha_iot_class: Local Push
 ha_release: '0.70'
 ha_codeowners:
   - '@heythisisnate'
-  - '@kit-klein'
 ha_config_flow: true
 ha_domain: konnected
 ha_ssdp: true
@@ -18,6 +17,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `konnected` integration lets you connect wired sensors and switches to a Konnected Alarm Panel, or NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
@@ -48,7 +48,7 @@ Konnected devices communicate with Home Assistant over your local LAN -- there i
 
 ### Web Interface
 
-Starting with 0.106.0 Home Assistant requires UI based configuration of Konnected via **Configuration** -> **Integrations** in the Home Assistant (web) frontend. If you have Konnected Alarm Panels on your LAN, or in your configuration.yaml, you will see one or more **Konnected.io** entries appear in the **Discovered** integrations list.
+Starting with 0.106.0 Home Assistant requires UI based configuration of Konnected via **Settings** -> **Devices & Services** in the Home Assistant (web) frontend. If you have Konnected Alarm Panels on your LAN, or in your configuration.yaml, you will see one or more **Konnected.io** entries appear in the **Discovered** integrations list.
 
 Selecting one of these discovered panels will guide you through connecting and configuring the panel. If your panel was discovered via SSDP, you shouldn't need any information to complete configuration - simply confirm that the information displayed is correct. If the UI prompts you for IP/Port, you'll need to enter it. IP/Port info can be found using the Konnected mobile app.
 
@@ -56,15 +56,15 @@ Selecting one of these discovered panels will guide you through connecting and c
 
 If you have an existing `configuration.yaml` completing the UI configuration will do a one time import of the settings contained in `configuration.yaml`. Once the import creates a **Configured** integration the Konnected section of the `configuration.yaml` is no longer used - it is recommended to remove the `konnected` section of `configuration.yaml` and after the import occurs. Any future changes to settings should occur via the settings provided in the Home Assistant web interface.
 
-If you want to retain `configuration.yaml` and need to re-import any changes or updates you will need to delete the entry in **Configuration** -> **Integrations** -> **Configured** and repeat the UI configuration for that device.
+If you want to retain `configuration.yaml` and need to re-import any changes or updates you will need to delete the entry in **Settings** -> **Devices & Services** -> **Configured** and repeat the UI configuration for that device.
 
 </div>  
 
-Once configuration is completed you'll see a Konnected.io entry in **Configuration** -> **Integrations** => **Configured**.  If you imported settings from `configuration.yaml` you are now done! If you are setting up a new Konnected Alarm Panel or modifying settings, you'll need to utilize the settings UI to configure zone behavior.
+Once configuration is completed you'll see a Konnected.io entry in **Settings** -> **Devices & Services** -> **Configured**.  If you imported settings from `configuration.yaml` you are now done! If you are setting up a new Konnected Alarm Panel or modifying settings, you'll need to utilize the settings UI to configure zone behavior.
 
 #### Using Settings UI to Configure Zone Behavior
 
-The settings for each panel can be accessed by selecting the entry in **Configuration** -> **Integrations** => **Configured** and then clicking on the gear icon in the upper right corner. You can reconfigure these settings at any time and once completed the settings will be immediately applied.
+The settings for each panel can be accessed by selecting the entry in **Settings** -> **Devices & Services** -> **Configured** and then clicking on the gear icon in the upper right corner. You can reconfigure these settings at any time and once completed the settings will be immediately applied.
 
 The settings UI starts by having you configure the general behavior of each zone. You need to specify `Disabled`, `Binary Sensor`, `Digital Sensor`, or `Switchable Output` for each zone.  After that, you'll be prompted, for each zone that is not disabled, to configure details of the zones' behavior. All zones will allow entry of a Name. Additional fields depend on how you configured the general behavior of the zone.  
 **Note some zones do not support all behaviors. The UI will reflect specific options available to each zone.**
@@ -310,7 +310,7 @@ konnected:
 
 ## Unique IDs and the Entity Registry
 
-Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI at **Configuration** -> **Entities**.
+Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI at **Settings** -> **Devices & Services** -> **Entities**.
 
 Unique IDs are internally generated as follows:
 

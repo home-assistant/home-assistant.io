@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: russound_rnet
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `russound_rnet` platform allows you to control Russound devices that make use of the RNET protocol.

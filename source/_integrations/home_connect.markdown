@@ -1,10 +1,9 @@
 ---
 title: Home Connect
 description: Instructions on how to set up the Home Connect integration within Home Assistant.
-logo: homeconnect.png
 ha_category:
-  - Hub
   - Binary Sensor
+  - Hub
   - Light
   - Sensor
   - Switch
@@ -19,6 +18,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Home Connect integration allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).
@@ -31,7 +31,7 @@ The integration will add one Home Assistant device for each connected home appli
 - For hood's functional light a light switch including brightness control will be added.
 - For hood's and dishwasher's ambient light a light switch including brightness and color control will be added.
 
-Note that it depends on the appliance and on API permissions which of the features are supported. A notable limitation is that oven programs cannot be started currently.
+Note that it depends on the appliance and on API permissions which of the features are supported.
 
 ## Prerequisites
 
@@ -41,28 +41,98 @@ Note that it depends on the appliance and on API permissions which of the featur
 
 - Application ID: Home Assistant (or whatever name makes sense to you)
 - OAuth Flow: Authorization Code Grant Flow
-- Redirect URI: "`<INTERNAL_HOME_ASSISTANT_URL>/auth/external/callback`
-  Use your internal Home Assistant URL, if you didn't configure one manually, use your local IP address. Examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`."
+- Redirect URI: `https://my.home-assistant.io/redirect/oauth`
 
-Next, add the following to your `configuration.yaml` file:
+{% details "I have manually disabled My Home Assistant" %}
 
-```yaml
-# Example configuration.yaml entry
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
+instead.
 
-home_connect:
-  client_id: CLIENT_ID
-  client_secret: CLIENT_SECRET
-```
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
 
-{% configuration %}
-client_id:
-  description: Your Home Connect client ID.
-  required: true
-  type: string
-client_secret:
-  description: Your Home Connect client secret.
-  required: true
-  type: string
-{% endconfiguration %}
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+
+{% enddetails %}
 
 {% include integrations/config_flow.md %}
+
+The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
+
+## Services
+
+The Home Connect integration makes various services available.
+Available services: `set_option_active`, `set_option_selected`, `pause_program`, `resume_program`, `select_program`, `start_program` and `change_setting`
+
+### Service `home_connect.set_option_active`
+
+Sets an option for the active program.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `device_id` | no | Id of a device associated with the home appliance. |
+| `key` | no | Key of the option. |
+| `value` | no | Value of the option. |
+| `unit` | yes | Unit for the option. |
+
+### Service `home_connect.set_option_selected`
+
+Sets an option for the selected program.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `device_id` | no | Id of a device associated with the home appliance. |
+| `key` | no | Key of the option. |
+| `value` | no | Value of the option. |
+| `unit` | yes | Unit for the option. |
+
+### Service `home_connect.pause_program`
+
+Pauses the current running program.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `device_id` | no | Id of a device associated with the home appliance. |
+
+### Service `home_connect.resume_program`
+
+Resumes a paused program.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `device_id` | no | Id of a device associated with the home appliance. |
+
+### Service `home_connect.select_program`
+
+Selects a program without starting it.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `device_id` | no | Id of a device associated with the home appliance. |
+| `program` | no | Program to select. |
+| `key` | yes | Key of the option. |
+| `value` | yes | Value of the option. |
+| `unit` | yes | Unit for the option. |
+
+### Service `home_connect.start_program`
+
+Selects a program and starts it.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `device_id` | no | Id of a device associated with the home appliance. |
+| `program` | no | Program to select. |
+| `key` | yes | Key of the option. |
+| `value` | yes | Value of the option. |
+| `unit` | yes | Unit for the option. |
+
+### Service `home_connect.change_setting`
+
+Changes a setting.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `device_id` | no | Id of a device associated with the home appliance. |
+| `key` | no | Key of the setting. |
+| `value` | no | Value of the setting. |

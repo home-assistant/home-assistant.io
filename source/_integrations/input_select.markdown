@@ -3,16 +3,18 @@ title: Input Select
 description: Instructions on how to integrate the Input Select integration into Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 0.13
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: input_select
+ha_integration_type: helper
 ---
 
-The `input_select` integration allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
+The `input_select` integration allows the user to define a list of values that can be selected via the frontend and can be used within conditions of an automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
 
-The preferred way to configure an input select is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Dropdown** option.
+The preferred way to configure an input select is via the user interface at **Settings** -> **Devices & Services** -> **Helpers**. Click the add button and then choose the **Dropdown** option.
 
 To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
 If you removed `default_config:` from you configuration, you must add `input_select:` to your `configuration.yaml` first, then you can use the UI.
@@ -69,7 +71,7 @@ Because YAML defines [booleans](https://yaml.org/type/bool.html) as equivalent, 
 
 ### Restore State
 
-If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
+If you set a valid value for `initial` this integration will start with the state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
 
 ### Services
 
@@ -146,7 +148,7 @@ automation:
           option: Paulus
 ```
 
-To dynamically set the `input_select` options you can call `input_select.set_options`. The following example can be used in an automation rule:
+To dynamically set the `input_select` options you can call `input_select.set_options` in an automation:
 
 ```yaml
 # Example configuration.yaml entry

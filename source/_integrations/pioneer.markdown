@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: pioneer
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `pioneer` platform allows you to control Pioneer Network Receivers. Please note, however, that the more recent Pioneer models work with [Onkyo](/integrations/onkyo) platform instead.
@@ -58,6 +59,37 @@ Under these lines, you can find some sample `sources` lists per receiver model. 
 
 Codes must be defined as strings (between single or double quotation marks) so that `05` is not implicitly transformed to `5`, which wouldn't be valid source code.
 
+#### VSX-930
+
+```yaml
+sources:
+  'BD': '25'
+  'DVD': '04'
+  'SAT': '06'
+  'HDMI3': '21'
+  'HDMI4': '22'
+  'HDMI5': '23'
+  'HDMI6 - MHL': '24'
+  'Ipod/USB': '17'
+  'BT': '33'
+  'Tuner': '02'
+  'TV': '05'
+  'CD': '01'
+  'Internet Radio': '38'
+  'Media Server': '44'
+  'Favourites': '45'
+  'Spotify': '53'
+```
+
+Note that some other functionalities are available, but may not be relevant to use from this integration. A non exhaustive list of them are:
+```yaml
+sources:
+#  Correspond to the HDMI button on the remote, which loops over `HDMI3`, `HDMI4`, `HDMI5` and `HDMI6 - MHL`
+  'HDMI': '31' 
+# Correspond to the NET button the remote, which loops over `Internet Radio`, `Media Server`, `Favourites` and `Spotify`
+  'NET': '26'
+```
+
 #### VSX-921
 
 ```yaml
@@ -105,6 +137,7 @@ sources:
 #### VSX-824
 
 ```yaml
+port: 8102
 sources:
   'CD': '01'
   'Tuner': '02'

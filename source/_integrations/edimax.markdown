@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: edimax
 ha_platforms:
   - switch
+ha_integration_type: integration
 ---
 
 This `edimax` switch platform allows you to control the state of your [Edimax](https://www.edimax.com/edimax/merchandise/merchandise_list/data/edimax/global/home_automation_smart_plug/) switches.
@@ -50,17 +51,15 @@ Starting with [version 2 of the firmware](https://www.edimax.com/edimax/download
 {% raw %}
 
 ```yaml
-  - platform: template
-    sensors:
-      edimax_current_power:
-        friendly_name: Edimax Current power consumption
-        unit_of_measurement: "W"
-        value_template: "{{ state_attr('switch.edimax_smart_plug',  'current_power_w') | replace('None', 0) }}"
-
-      edimax_total_power:
-        friendly_name: Edimax Accumulated daily power consumption
-        unit_of_measurement: "kWh"
-        value_template: "{{ state_attr('switch.edimax_smart_plug',  'today_energy_kwh') | replace('None', 0) }}"
+template:
+  - sensor:
+    - name: Edimax Current power consumption
+      unit_of_measurement: "W"
+      state: "{{ state_attr('switch.edimax_smart_plug', 'current_power_w') | default(0, true) }}"
+      
+    - name: Edimax Accumulated daily power consumption
+      unit_of_measurement: "kWh"
+      state: "{{ state_attr('switch.edimax_smart_plug', 'today_energy_kwh') | default(0, true) }}"
 ```
 
 {% endraw %}

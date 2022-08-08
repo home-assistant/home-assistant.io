@@ -8,6 +8,7 @@ ha_iot_class: Cloud Push
 ha_domain: imap
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `imap` integration is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) and reporting the amount of unread emails.
@@ -66,7 +67,7 @@ charset:
 
 ### Gmail with App Password
 
-If you’re going to use Gmail, it’s always good practice to create a [App Password](https://support.google.com/mail/answer/185833?hl=en).
+If you’re going to use Gmail, it’s always good practice to create a [App Password](https://support.google.com/mail/answer/185833).
 
 1. Go to your [Google Account](https://myaccount.google.com/)
 2. Select **Security**

@@ -10,9 +10,16 @@ ha_codeowners:
 ha_domain: scrape
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `scrape` sensor platform is scraping information from websites. The sensor loads an HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/), it will most likely only work with simple web pages and it can be time-consuming to get the right section.
+
+If you are not using Home Assistant Container or Home Assistant Operating System, this integration requires `libxml2` to be installed. On Debian based installs, run:
+
+```bash
+sudo apt install libxml2
+```
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -55,6 +62,16 @@ unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
   required: false
   type: string
+device_class:
+  description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend.
+  required: false
+  type: device_class
+  default: None
+state_class:
+  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  required: false
+  type: string
+  default: None
 authentication:
   description: Type of the HTTP authentication. Either `basic` or `digest`.
   required: false
@@ -173,8 +190,9 @@ sensor:
   - platform: scrape
     resource: https://elen.nu/timpriser-pa-el-for-elomrade-se3-stockholm/
     name: Electricity price
-    select: ".elspot-content"
-    value_template: '{{ ((value.split(" ")[0]) | replace (",", ".")) }}'
+    select: ".text-lg:is(span)"
+    index: 1
+    value_template: '{{ value | replace (",", ".") | float }}'
     unit_of_measurement: "öre/kWh"
 ```
 

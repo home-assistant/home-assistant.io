@@ -1,7 +1,6 @@
 ---
 title: Obihai
 description: Instructions on how to integrate your Obihai device into Home Assistant.
-logo: obitalk.png
 ha_iot_class: Local Polling
 ha_category:
   - Sensor
@@ -11,6 +10,7 @@ ha_codeowners:
 ha_domain: obihai
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `obihai` integration allows you to view the call status for your [Obihai devices](https://www.obitalk.com/info/products#home_section).

@@ -41,11 +41,72 @@ or a template based request:
 sensor:
   - platform: rest
     resource_template: http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}
+    headers:
+      Authorization: >
+        Bearer {{ states("input_text.my_access_token") }}
+    params:
+      start_date: >
+        {{ (now() - timedelta(days = 1)).strftime('%Y-%m-%d') }}
 ```
 
 {% endraw %}
 
 {% configuration %}
+authentication:
+  description:  Type of the HTTP authentication. `basic` or `digest`.
+  required: false
+  type: string
+device_class:
+  description: Sets the [class of the device](/integrations/sensor#device-class), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
+force_update:
+  description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
+  required: false
+  type: boolean
+  default: false
+headers:
+  description: The headers for the requests.
+  required: false
+  type: [template, list]
+icon:
+  description: Defines a template for the icon of the REST sensor.
+  required: false
+  type: template
+json_attributes:
+  description: "A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. If the endpoint returns XML with the `text/xml`, `application/xml` or `application/xhtml+xml` content type, it will automatically be converted to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html)"
+  required: false
+  type: [string, list]
+json_attributes_path:
+  description: A [JSONPath](https://goessner.net/articles/JsonPath/) that references the location of the `json_attributes` in the JSON content.
+  required: false
+  type: string
+method:
+  description: The method of the request. Either `POST` or `GET`.
+  required: false
+  type: string
+  default: GET
+name:
+  description: Defines a template for the name of the REST sensor.
+  required: false
+  type: template
+  default: REST Sensor
+params:
+  description: The query params for the requests.
+  required: false
+  type: [template, list]  
+password:
+  description: The password for accessing the REST endpoint.
+  required: false
+  type: string
+payload:
+  description: The payload to send with a POST request. Depends on the service, but usually formed as JSON.
+  required: false
+  type: string
+picture:
+  description: Defines a template for the entity picture of the REST sensor.
+  required: false
+  type: template
 resource:
   description: The resource or endpoint that contains the value.
   required: true
@@ -54,75 +115,36 @@ resource_template:
   description: The resource or endpoint that contains the value with template support.
   required: true
   type: template
-method:
-  description: The method of the request. Either `POST` or `GET`.
+state_class:
+  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
   required: false
   type: string
-  default: GET
-name:
-  description: Name of the REST sensor.
-  required: false
-  type: string
-  default: REST Sensor
-device_class:
-  description: Sets the [class of the device](/integrations/sensor/), changing the device state and icon that is displayed on the frontend.
-  required: false
-  type: string
-value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
-  required: false
-  type: template
-payload:
-  description: The payload to send with a POST request. Depends on the service, but usually formed as JSON.
-  required: false
-  type: string
-verify_ssl:
-  description: Verify the SSL certificate of the endpoint.
-  required: false
-  type: boolean
-  default: True
 timeout:
   description: Defines max time to wait data from the endpoint.
   required: false
   type: integer
   default: 10
-unit_of_measurement:
-  description: Defines the units of measurement of the sensor, if any.
+unique_id:
+  description: An ID that uniquely identifies this entity. This allows changing the `name`, `icon` and `entity_id` from the web interface.
   required: false
   type: string
-authentication:
-  description:  Type of the HTTP authentication. `basic` or `digest`.
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
   required: false
   type: string
 username:
   description: The username for accessing the REST endpoint.
   required: false
   type: string
-password:
-  description: The password for accessing the REST endpoint.
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
   required: false
-  type: string
-headers:
-  description: The headers for the requests.
-  required: false
-  type: [string, list]
-params:
-  description: The query params for the requests.
-  required: false
-  type: [string, list]  
-json_attributes:
-  description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. If the endpoint returns XML with the "text/xml", "application/xml" or "application/xhtml+xml" content type, it will automatically be converted to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html)
-  required: false
-  type: [string, list]
-json_attributes_path:
-  description: A [JSONPath](https://goessner.net/articles/JsonPath/) that references the location of the `json_attributes` in the JSON content.
-  required: false
-  type: string
-force_update:
-  description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
+  type: template
+verify_ssl:
+  description: Verify the SSL certificate of the endpoint.
   required: false
   type: boolean
-  default: false
+  default: True
 {% endconfiguration %}
 
 <div class='note'>
@@ -261,7 +283,7 @@ sensor:
 
 {% endraw %}
 
-### Fetch multiple JSON values and present them as attributes
+### Fetch multiple JSON attributes and present them as values
 
 [JSON Test](https://www.jsontest.com/) returns the current time, date and milliseconds since epoch from [http://date.jsontest.com/](http://date.jsontest.com/).
 
@@ -329,7 +351,7 @@ sensor:
         entity_id: sensor.owm_report
       owm_temp:
         friendly_name: "Outside temp"
-        value_template: "{{ state_attr(['sensor.owm_report', 'main')['temp'] - 273.15 }}"
+        value_template: "{{ state_attr('sensor.owm_report', 'main')['temp'] - 273.15 }}"
         unit_of_measurement: "°C"
         entity_id: sensor.owm_report
       owm_pressure:

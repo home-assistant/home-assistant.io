@@ -15,6 +15,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `flo` integration integrates

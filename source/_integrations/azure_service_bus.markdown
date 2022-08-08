@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: azure_service_bus
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `Azure Service Bus` integration allows you to send messages to [Azure Service Bus](https://azure.microsoft.com/en-us/services/service-bus/) from within Home Assistant.
@@ -93,7 +94,7 @@ automation:
           custom_field: 123
           custom_object:
             trigger_more: true
-            explain: "Its starting to get dark"
+            explain: "It's starting to get dark"
 ```
 
 The message that can be retrieved from a queue or topic subscription:
@@ -106,7 +107,7 @@ The message that can be retrieved from a queue or topic subscription:
   "custom_field": 123,
   "custom_object": {
     "trigger_more": true,
-    "explain": "Its starting to get dark"
+    "explain": "It's starting to get dark"
   }
 }
 ```
