@@ -14,7 +14,7 @@ ha_platforms:
   - climate
 ---
 
-The `Escea` integration allows monitoring and control of local [Escea](https://escea.com/) fireplaces. These fireplaces are manufactured in New Zealand and sold throughout Australia and New Zealand.
+The Escea integration allows monitoring and control of local [Escea](https://escea.com/) fireplaces. These fireplaces are manufactured in New Zealand and sold throughout Australia and New Zealand.
 
 ## Supported hardware
 
