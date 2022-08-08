@@ -12,7 +12,7 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The `justnimbus` sensor platform queries the JustNumbus API used by the Just Nimbus web dashboard.
+The `JustNimbus` sensor platform queries the JustNumbus API used by the Just Nimbus web dashboard.
 This integration allows you to collect and save data to get an historic overview of your water bag
 usage.
 
