@@ -6,6 +6,7 @@ ha_category:
   - Irrigation
   - Sensor
   - Switch
+  - Update
 ha_release: 0.69
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -18,6 +19,7 @@ ha_platforms:
   - diagnostics
   - sensor
   - switch
+  - update
 ha_zeroconf: true
 ha_homekit: true
 ha_integration_type: integration
@@ -141,3 +143,8 @@ After Home Assistant loads, new switches will be added for every enabled program
 Programs and zones are linked. While a program is running, you will see both the program and zone switches turned on; turning either one off will turn the other one off (just like in the web app).
 
 [wnum reference]: https://github.com/sprinkler/rainmachine-developer-resources/blob/d47e1ad59dee59e34094ad41636ae289275eb973/sdk-parsers/RMDataFramework/rmWeatherData.py#L13
+
+## Firmware Updates
+
+The integration has an [update entity](/integrations/update/) that provides information on the latest available RainMachine firmware version. The firmware update can be triggered and installed onto your RainMachine controller
+directly from Home Assistant.
