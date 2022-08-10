@@ -21,15 +21,21 @@ Integrates [Yale Access](https://www.yalehome.com/us/en/products/smart-technolog
 
 The Yale Access Bluetooth integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
-## Supported devices
+Devices must have a Yale Access module installed to function with this integration if one is not already built-in.
 
-Devices must have the Yale Access module installed.
+## Supported devices
 
 - YRD216
 - YRL216
 - YRD226
 - YRL226
 - YRD256
+
+## Limited support devices
+
+These devices do not send updates, but can be locked and unlocked.
+
+- Conexis L1
 
 ## Push updates
 
