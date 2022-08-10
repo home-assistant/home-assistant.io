@@ -31,4 +31,5 @@ The Govee BLE integration will automatically discover devices once the [Bluetoot
 - H5179 Hygrometer Thermometer
 - 5181 Meat Thermometer
 - 5183 Meat Thermometer
+- 5184 Meat Thermometer
 - 5185 Meat Thermometer
