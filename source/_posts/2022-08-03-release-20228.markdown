@@ -45,6 +45,7 @@ Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.8.1 - August 4](#release-202281---august-4)
 - [Release 2022.8.2 - August 7](#release-202282---august-7)
+- [Release 2022.8.3 - August 9](#release-202283---august-9)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -419,6 +420,47 @@ The following integrations are now available via the Home Assistant UI:
 [philips_js docs]: /integrations/philips_js/
 [switchbot docs]: /integrations/switchbot/
 [zha docs]: /integrations/zha/
+
+## Release 2022.8.3 - August 9
+
+- Add debug logging for unknown Notion errors ([@bachya] - [#76395]) ([notion docs])
+- Automatically enable common RainMachine restriction entities ([@bachya] - [#76405]) ([rainmachine docs])
+- Fix bug where RainMachine entity states don't populate on startup ([@bachya] - [#76412]) ([rainmachine docs])
+- Fix Govee 5185 Meat Thermometers with older firmware not being discovered ([@bdraco] - [#76414]) ([govee_ble docs])
+- Fix iCloud listeners ([@epenet] - [#76437]) ([icloud docs])
+- Bump version of pyunifiprotect to 4.0.12 ([@AngellusMortis] - [#76465]) ([unifiprotect docs])
+- Bump aiohomekit to 1.2.6 ([@bdraco] - [#76488]) ([homekit_controller docs])
+- Fix inkbird ibbq2s that identify with xbbq ([@bdraco] - [#76492]) ([inkbird docs])
+- Bump govee-ble to 0.14.0 to fix H5052 sensors ([@bdraco] - [#76497]) ([govee_ble docs])
+- Fix pairing with HK accessories that do not provide format for vendor chars ([@bdraco] - [#76502]) ([homekit_controller docs])
+- Fix #76283 ([@ocalvo] - [#76531]) ([sms docs])
+- Bump aiohomekit to 1.2.8 ([@bdraco] - [#76532]) ([homekit_controller docs])
+
+[#76395]: https://github.com/home-assistant/core/pull/76395
+[#76405]: https://github.com/home-assistant/core/pull/76405
+[#76412]: https://github.com/home-assistant/core/pull/76412
+[#76414]: https://github.com/home-assistant/core/pull/76414
+[#76437]: https://github.com/home-assistant/core/pull/76437
+[#76465]: https://github.com/home-assistant/core/pull/76465
+[#76488]: https://github.com/home-assistant/core/pull/76488
+[#76492]: https://github.com/home-assistant/core/pull/76492
+[#76497]: https://github.com/home-assistant/core/pull/76497
+[#76502]: https://github.com/home-assistant/core/pull/76502
+[#76531]: https://github.com/home-assistant/core/pull/76531
+[#76532]: https://github.com/home-assistant/core/pull/76532
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@epenet]: https://github.com/epenet
+[@ocalvo]: https://github.com/ocalvo
+[govee_ble docs]: /integrations/govee_ble/
+[homekit_controller docs]: /integrations/homekit_controller/
+[icloud docs]: /integrations/icloud/
+[inkbird docs]: /integrations/inkbird/
+[notion docs]: /integrations/notion/
+[rainmachine docs]: /integrations/rainmachine/
+[sms docs]: /integrations/sms/
+[unifiprotect docs]: /integrations/unifiprotect/
 
 ## Need help? Join the community!
 
