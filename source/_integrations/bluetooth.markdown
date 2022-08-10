@@ -97,7 +97,7 @@ Computers, peripherals, and devices generate [electromagnetic interference (also
 
 For example, unshielded USB 3 port and their cables are especially infamously known to affect 2.4 GHz radio reception. Place your Bluetooth adapter far away as possible from any potential sources of EMI/EMI/RMI by using a long, adequately shielded USB extension cable.
 
-#### Simple actions that should improve most Bluetooth setups and common root causes of interference to be aware of
+#### Simple actions that should improve most Bluetooth setups and common root causes of interference
 
 - Bluetooth adapter hardware:
   - Bad performance from old/outdated Bluetooth adapter hardware or poor Bluetooth adapter antenna:
