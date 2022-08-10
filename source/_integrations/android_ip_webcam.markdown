@@ -21,7 +21,7 @@ ha_codeowners:
   - '@engrbm87'
 ---
 
-The `android_ip_webcam` integration connects with Android IP Webcam to turn any Android phone or tablet into a network camera with multiple viewing options.
+The Android IP Webcam integration connects with Android IP Webcam to turn any Android phone or tablet into a network camera with multiple viewing options.
 
 The integration is setup as an MJPEG camera with all settings as switches inside Home Assistant. You can also integrate the sensors exposed by the app. If you have multiple phones, you can use all options inside a list.
 
