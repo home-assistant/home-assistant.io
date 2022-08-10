@@ -33,7 +33,9 @@ Devices must have the Yale Access module installed.
 
 ## Push updates
 
-Some locks only sends push updates when they have an active HomeKit pairing. If your lock is not getting push updates, make sure its paired with a HomeKit controller. The lock cannot be paired via HomeKit Controller and the Yale Access Bluetooth integration on the same Home Assistant instance as they will both try to access the lock at the same time and fail.
+Some locks only send push updates when they have an active HomeKit pairing. If your lock is not sending push updates, ensure it's paired with a HomeKit using an iOS device or the HomeKit controller integration. The lock cannot be paired via HomeKit Controller and the Yale Access Bluetooth integration on the same Home Assistant instance as they will both try to access the lock simultaneously and fail.
+
+Alternatively, call the `homeassistant.update_entity` service to force the integration to update the lock state.
 
 ## Obtaining the offline key
 
