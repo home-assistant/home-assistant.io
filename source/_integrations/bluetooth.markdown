@@ -93,7 +93,7 @@ Sources of interference for radios can lead to transmission/reception loss or co
 
 Following all these optimization tips below should significantly improve the reception of your Bluetooth radio adapter. The below insights describe working around the well-known limitations of low-power 2.4 GHz digital radio. It can resolve or avoid many known issues caused by interference or poor placement of your Bluetooth radio adapter or devices.
 
-Most important is to understand and keep in mind that that other computers/peripherals/devices unintentially or intentionally generate [electromagnetic interference (also known as EMI/EMI/RMI)](https://en.wikipedia.org/wiki/Electromagnetic_interference) as blocking radio signals transmissions on on the 2.4 GHz radio band frequency, which in practice acts as radio jammers that block the wireless communication to and from your Bluetooth adapter/devices.
+Computers, peripherals, and devices generate [electromagnetic interference (also known as EMI/EMI/RMI)](https://en.wikipedia.org/wiki/Electromagnetic_interference), which can interfere with signals transmissions on the 2.4 GHz radio band frequency, and degrade the wireless communication with your Bluetooth adapter/devices.
 
 For example, unshielded USB 3.x computers/peripherals/devices and their cables are especially infamously known to affect 2.4 GHz radio reception. The general recommendation is therefore to add all-metal shielding to computers/peripherals/devices or at the very least try to place your Bluetooth adapter far away as possible from any potential sources of EMI/EMI/RMI (e.g., by connecting your Bluetooth adapter via a long USB extension cable that has proper shielding).
 
