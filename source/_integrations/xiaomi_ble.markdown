@@ -52,7 +52,7 @@ There are a few ways to obtain a bindkey for your device:
 
 ## Devices
 
-### HHCCJCY01 plant sensor
+### Plant sensor: Flower Care / MiFlora (HHCCJCY01)
 
 HHCCJCY01, also known as MiFlora or "Flower Care", should be automatically discovered. However, if the firmware is too old, it won't send the right BLE beacons and an update via the app is required. The lowest confirmed working firmware version is 3.2.1 (a lower 3.x version could also be alright).
 
