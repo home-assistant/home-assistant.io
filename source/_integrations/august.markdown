@@ -118,7 +118,7 @@ For locks that support the Yale Access system, the August integration can keep y
 
 ### Troubleshooting offline keys updates
 
-- If you do not know which account has the offline keys, configure august integration with each different Owner account. 
+- If you do not know which account has the offline keys, configure August integration with each different Owner account until you find the one that holds the keys. You may need to make a new owner account and grant the account access to your lock to force the keys to synchronize with the cloud service.
 - Ensure the lock is in range and discoverable by the [Yale Access Bluetooth integration](/integrations/yalexe_ble)
 
 ## Presence Detection with Lock Operation
