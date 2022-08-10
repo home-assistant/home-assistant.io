@@ -95,7 +95,7 @@ schedule:
 
 ### Attributes
 
-A scheduleentity's state exports attributes that can be useful in
+A schedule entity's state exports attributes that can be useful in
 automations and templates.
 
 | Attribute | Description |
