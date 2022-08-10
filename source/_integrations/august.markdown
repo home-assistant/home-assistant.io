@@ -109,7 +109,7 @@ Following Assa Abloy, Yale's parent company, purchasing August in 2017, most new
 
 The [Yale Access Bluetooth](/integrations/yalexe_ble) provides local control over Bluetooth of many Yale Access locks and some August locks that use the same system. 
 
-For locks that support the Yale Access system, the august integration can keep your offline access keys up to date to ensure you can operate your lock over Bluetooth.  The following requirements must be met for the offline key updates to work:
+For locks that support the Yale Access system, the August integration can keep your offline access keys up to date to ensure you can operate your lock over Bluetooth.  The following requirements must be met for the offline key updates to work:
 
 - The August integration must support the lock
 - The [Yale Access Bluetooth integration](/integrations/yalexe_ble) must support the lock
