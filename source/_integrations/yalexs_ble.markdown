@@ -31,6 +31,10 @@ Devices must have the Yale Access module installed.
 - YRL226
 - YRD256
 
+## Push updates
+
+Some locks only sends push updates when they have an active HomeKit pairing. If your lock is not getting push updates, make sure its paired with a HomeKit controller. The lock cannot be paired via HomeKit Controller and the Yale Access Bluetooth integration on the same Home Assistant instance as they will both try to access the lock at the same time and fail.
+
 ## Obtaining the offline key
 
 The offline key and slot number are required to operate the lock. These credentials reside in the Yale Access app storage on iOS or Android devices with owner access to the lock.
