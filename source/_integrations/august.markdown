@@ -114,6 +114,7 @@ For locks that support the Yale Access system, the August integration can keep y
 - The August integration must support the lock
 - The [Yale Access Bluetooth integration](/integrations/yalexe_ble) must support the lock
 - The Bluetooth integration must be active and functional
+- The lock must be discoverable by the [Yale Access Bluetooth integration](/integrations/yalexe_ble)
 - The account logged in with the August integration must have the offline keys.
 
 ### Troubleshooting offline keys updates
