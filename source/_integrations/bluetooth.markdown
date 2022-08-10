@@ -101,7 +101,7 @@ For example, unshielded USB 3 port and their cables are especially infamously kn
 
 - Bluetooth adapter hardware:
   - Bad performance from old/outdated Bluetooth adapter hardware or poor Bluetooth adapter antenna:
-    - Buy and use a (good quality) Bluetooth USB adapter based on a newer/modern chip hardware.
+    - Buy and use a (good quality) Bluetooth USB adapter based on newer/modern chip hardware.
       - If possible consider buying/upgrading to a Bluetooth adapter that has an external antenna. 
       - While older adapters might work they could have obsolete hardware and/or old firmware.
   - Poor or outdated Bluetooth adapter firmware on the Bluetooth adapter:
