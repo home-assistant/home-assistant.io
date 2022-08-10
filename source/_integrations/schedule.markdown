@@ -27,7 +27,7 @@ have `default_config:` in your `configuration.yaml`, it should already
 be there by default unless you removed it.
 
 If you removed `default_config:` from your configuration,
-you must add it back or, alternatively, `schedules:` to your
+you must add it back or, alternatively, `schedule:` to your
 `configuration.yaml` first, before you can create them via the UI.
 
 Alternatively, a schedule can also be created and configured via YAML
