@@ -56,23 +56,23 @@ The lock must be calibrated in the Yale Access App for the door sensors to funct
 
 ## Obtaining the offline key
 
-The offline key and slot number are required to operate the lock. These credentials can be found in multiple places depending on the lock model.
-
-- August branded locks: August Cloud, August iOS App, August Android App
-- Yale branded locks: Yale Access Cloud, Yale Access iOS App, Yale Access Android App
-
-The apps will only save the offline key to your device's filesystem if Auto-Unlock has been enabled and used at least once. Auto-Unlock can be disabled once the key has been loaded.
+The offline key and slot number are required to operate the lock. These credentials can be found in multiple places depending on the lock brand and model.
 
 ### Yale Access or August Cloud
 
-The [August](/integrations/august) integration will automatically provide the offline key if the configured account has the key loaded. You may need to create or use a non-primary existing account with owner-level access to the lock, as not all accounts will have the key loaded.
+The [August](/integrations/august) integration will automatically provision the offline key if the configured account has the key loaded. You may need to create or use a non-primary existing account with owner-level access to the lock, as not all accounts will have the key loaded.
 
-Yale branded locks can use the August cloud to obtain the keys. Accessing the August cloud to receive the key may not work unless the lock was purchased in a market that sells under both brands.
-### iOS
+Most Yale branded locks can use the August cloud to obtain the keys. Accessing the August cloud to receive the key may not work unless the lock was purchased in a market that sells under both brands.
+
+### iOS - Yale Access App or August App
+
+The iOS app will only save the offline key to your device's filesystem if Auto-Unlock has been enabled and used at least once. Auto-Unlock can be disabled once the key has been loaded.
 
 - Using [iMazing](https://imazing.com/) or [iPhone Backup Extractor](https://www.iphonebackupextractor.com/), find the backup files for the Yale Access app.
 - Look in the `Library/Preferences` `.plist` files for the Yale Access app and find the one with the value of `key` and `slot` using `Xcode` or any binary `plist` viewer.
 
-### Android
+### Android - Yale Access App or August App
+
+The Android app will only save the offline key to your device's filesystem if Auto-Unlock has been enabled and used at least once. Auto-Unlock can be disabled once the key has been loaded.
 
 Root access is required to read the `key` and `slot` stored in `/data/data/com.august.luna/shared_prefs/PeripheralInfoCache.xml`
