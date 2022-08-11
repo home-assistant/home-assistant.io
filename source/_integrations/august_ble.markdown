@@ -1,6 +1,6 @@
 ---
 title: August Bluetooth
-description: Instructions on how to integrate August Bluetooth devices into Home Assistant.
+description: Instructions on how to integrate August Bluetooth locks into Home Assistant.
 ha_category:
   - Binary Sensor
   - Lock
