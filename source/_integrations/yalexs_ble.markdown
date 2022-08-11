@@ -4,6 +4,7 @@ description: Instructions on how to integrate Yale Access Bluetooth devices into
 ha_category:
   - Binary Sensor
   - Lock
+  - Sensor
 ha_bluetooth: true
 ha_release: 2022.9
 ha_iot_class: Local Push
@@ -14,6 +15,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - lock
+  - sensor
 ha_integration_type: integration
 ---
 
