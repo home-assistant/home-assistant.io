@@ -43,9 +43,8 @@ The following controllable entities are available:
 
 ### Fan
 
-- **Fan** - If your unit is equipped with a fan - this entry will be present. 
+- **Fan** - If your unit is equipped with a fan - this entry will be present. There are 4 fan speeds (1-4), with 0 being off.
 
-	There are 4 configured speed modes available `quiet`, `low`, `medium`, `high` that can be used with the **Fan: Set preset mode** service.
 ### Climate
 
 - **Thermostat** - This entity will be present if your unit has thermostatic control.
