@@ -60,6 +60,8 @@
   description: "[Scripts](/docs/scripts/) are components that allow users to specify a sequence of actions to be executed by Home Assistant when turned on."
 - topic: Sensor
   description: "[Sensors](/integrations/sensor) return information about a thing, for instance the level of water in a tank."
+- topic: Selectors
+  description: "[Selectors](/docs/blueprint/selectors/) specify what values are accepted for a blueprint input and how the input is shown in the user interface."
 - topic: Service
   description: "[Services](/docs/scripts/service-calls/) are called to perform actions."
 - topic: Switch
@@ -70,5 +72,7 @@
   description: "A [trigger](/docs/automation/trigger/) is a set of values or conditions of a platform that are defined to cause an automation to run."
 - topic: TTS
   description: "TTS ([text to speech](/integrations/tts)) allows Home Assistant to talk to you."
+- topic: Variables
+  description: "[Variables](/docs/scripts/#variables) are a named storage for a value that can be processed e.g. in a script."
 - topic: Zone
   description: "[Zones](/integrations/zone/) are areas that can be used for presence detection."
