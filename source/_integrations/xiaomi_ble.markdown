@@ -2,8 +2,8 @@
 title: Xiaomi BLE
 description: Instructions on how to integrate Xiaomi BLE devices into Home Assistant.
 ha_category:
-  - Sensor
   - Binary Sensor
+  - Sensor
 ha_bluetooth: true
 ha_release: 2022.8
 ha_iot_class: Local Push
