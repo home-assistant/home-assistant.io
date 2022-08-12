@@ -46,6 +46,7 @@ Enjoy the release!
 - [Release 2022.8.1 - August 4](#release-202281---august-4)
 - [Release 2022.8.2 - August 7](#release-202282---august-7)
 - [Release 2022.8.3 - August 9](#release-202283---august-9)
+- [Release 2022.8.4 - August 12](#release-202284---august-12)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -461,6 +462,48 @@ The following integrations are now available via the Home Assistant UI:
 [rainmachine docs]: /integrations/rainmachine/
 [sms docs]: /integrations/sms/
 [unifiprotect docs]: /integrations/unifiprotect/
+
+## Release 2022.8.4 - August 12
+
+- Bump ZHA dependencies ([@puddly] - [#76565]) ([zha docs])
+- Replaces aiohttp.hdrs CONTENT_TYPE with plain string for the Swisscom integration ([@DeeVeX] - [#76568]) ([swisscom docs])
+- Fix homekit_controller not noticing ip and port changes that zeroconf has found ([@Jc2k] - [#76570]) ([homekit_controller docs])
+- Fix Spotify deviding None value in current progress ([@frenck] - [#76581]) ([spotify docs])
+- Improve code quality in huawei_lte ([@a-p-z] - [#76583]) ([huawei_lte docs])
+- Fix Govee 5181 with old firmware ([@bdraco] - [#76600]) ([govee_ble docs])
+- Fix evohome preset modes ([@MartinHjelmare] - [#76606]) ([evohome docs])
+- Add missing _abort_if_unique_id_configured to ble integrations ([@bdraco] - [#76624]) ([govee_ble docs]) ([sensorpush docs]) ([inkbird docs]) ([xiaomi_ble docs]) ([moat docs])
+- Fix non-awaited coroutine in BMW notify ([@rikroe] - [#76664]) ([bmw_connected_drive docs])
+
+[#76565]: https://github.com/home-assistant/core/pull/76565
+[#76568]: https://github.com/home-assistant/core/pull/76568
+[#76570]: https://github.com/home-assistant/core/pull/76570
+[#76581]: https://github.com/home-assistant/core/pull/76581
+[#76583]: https://github.com/home-assistant/core/pull/76583
+[#76600]: https://github.com/home-assistant/core/pull/76600
+[#76606]: https://github.com/home-assistant/core/pull/76606
+[#76624]: https://github.com/home-assistant/core/pull/76624
+[#76664]: https://github.com/home-assistant/core/pull/76664
+[@DeeVeX]: https://github.com/DeeVeX
+[@Jc2k]: https://github.com/Jc2k
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@a-p-z]: https://github.com/a-p-z
+[@bdraco]: https://github.com/bdraco
+[@frenck]: https://github.com/frenck
+[@puddly]: https://github.com/puddly
+[@rikroe]: https://github.com/rikroe
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[evohome docs]: /integrations/evohome/
+[govee_ble docs]: /integrations/govee_ble/
+[homekit_controller docs]: /integrations/homekit_controller/
+[huawei_lte docs]: /integrations/huawei_lte/
+[inkbird docs]: /integrations/inkbird/
+[moat docs]: /integrations/moat/
+[sensorpush docs]: /integrations/sensorpush/
+[spotify docs]: /integrations/spotify/
+[swisscom docs]: /integrations/swisscom/
+[xiaomi_ble docs]: /integrations/xiaomi_ble/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
