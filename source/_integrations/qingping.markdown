@@ -2,6 +2,7 @@
 title: Qingping
 description: Instructions on how to integrate Qingping devices into Home Assistant.
 ha_category:
+  - Binary Sensor
   - Sensor
 ha_bluetooth: true
 ha_release: 2022.9
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: qingping
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: integration
 ---
