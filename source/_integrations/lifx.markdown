@@ -2,6 +2,7 @@
 title: LIFX
 description: Instructions on how to integrate LIFX into Home Assistant.
 ha_category:
+  - Button
   - Light
 ha_iot_class: Local Polling
 ha_release: 0.81
@@ -9,12 +10,14 @@ ha_config_flow: true
 ha_domain: lifx
 ha_homekit: true
 ha_platforms:
+  - button
   - light
 ha_integration_type: integration
 ha_codeowners:
   - '@bdraco'
   - '@Djelibeybi'
-ha_quality_scale: platinum 
+ha_quality_scale: platinum
+ha_dhcp: true
 ---
 
 The LIFX integration automatically discovers [LIFX](https://www.lifx.com) bulbs on your network and adds them to Home Assistant.
@@ -112,6 +115,18 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 | Service data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
+
+## Buttons
+
+The LIFX button platform creates two buttons for each LIFX device.
+
+### Identify Button
+
+The Identify button will flash the bulb three times at maximum brightness then return the bulb to the state it was in prior. Successful identification requires the bulb to be powered on and already configured in Home Assistant.
+
+### Restart Button
+
+The Restart button triggers the bulb to restart in exactly the same way as a physical power cycle, which makes it ideal for triggering a new DHCP request from the bulb.
 
 ## HomeKit Accessory Protocol
 
