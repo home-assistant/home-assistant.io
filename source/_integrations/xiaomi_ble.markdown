@@ -38,7 +38,7 @@ It is possible that we detect your device because it uses the MiBeacon protocol 
 - Voltage
 - Battery
 
-It also supports the following classes of binary sensor:
+It also supports the following classes of binary sensors:
 
 - Light
 - Smoke
