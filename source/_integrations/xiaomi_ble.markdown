@@ -3,6 +3,7 @@ title: Xiaomi BLE
 description: Instructions on how to integrate Xiaomi BLE devices into Home Assistant.
 ha_category:
   - Sensor
+  - Binary Sensor
 ha_bluetooth: true
 ha_release: 2022.8
 ha_iot_class: Local Push
@@ -13,6 +14,7 @@ ha_domain: xiaomi_ble
 ha_config_flow: true
 ha_platforms:
   - sensor
+  - binary_sensor
 ha_integration_type: integration
 ---
 
@@ -35,6 +37,12 @@ It is possible that we detect your device because it uses the MiBeacon protocol 
 - Consumable
 - Voltage
 - Battery
+
+It also supports the following classes of binary sensor:
+
+- Light
+- Smoke
+- Moisture
 
 ## Encryption
 
