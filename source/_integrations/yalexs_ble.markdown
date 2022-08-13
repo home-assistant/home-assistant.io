@@ -36,6 +36,7 @@ Devices must have a Yale Access module installed to function with this integrati
 - YRD256 (Yale Assure Lock Keypad)
 - ASL-05 (August WiFi Smart Lock - Gen 4)
 - ASL-03 (August Smart Lock Pro - Gen 3)
+- ASL-02 (August Smart Lock Pro - Gen 2)
 
 ## Limited support devices
 
