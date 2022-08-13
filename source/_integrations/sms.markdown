@@ -42,7 +42,7 @@ action:
 
 ### Sending SMS as ANSI
 
-Some devices (recieving or sending) do not support Unicode (the default encoding). For these you can disable Unicode:
+Some devices (receiving or sending) do not support Unicode (the default encoding). For these you can disable Unicode:
 
 ```yaml
 action:
