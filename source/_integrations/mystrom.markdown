@@ -187,3 +187,41 @@ name:
   type: string
   default: myStrom Switch
 {% endconfiguration %}
+
+### Get the current power consumption and temperature
+
+The switch measures the current power consumption and temperature.
+This is currently not supported with the default integration but can be added with the [mystrom REST API](https://api.mystrom.ch/). 
+To expose this as a sensor use a [`template` sensor](/integrations/template).
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: rest
+    name: "mystrom Power"
+    resource: http://IP_ADRRESS/report
+    method: GET
+    unit_of_measurement: W
+    device_class: power
+    state_class: measurement
+    value_template: "{{ value_json.power }}"
+
+  - platform: integration
+    source: sensor.mystrom_power
+    name: "mystrom Energy Consumption"
+    unit_prefix: k
+    round: 3
+
+  - platform: rest
+    name: "mystrom Temperature"
+    resource: http://IP_ADRRESS/report
+    method: GET
+    unit_of_measurement: "°C"
+    device_class: temperature
+    state_class: measurement
+    value_template: "{{ value_json.temperature | round(1) }}"
+```
+
+{% endraw %}
