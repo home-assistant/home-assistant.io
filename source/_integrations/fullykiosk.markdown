@@ -18,6 +18,8 @@ ha_integration_type: integration
 
 [Fully Kiosk Browser](https://www.fully-kiosk.com) is a powerful kiosk browser for Android devices. It provides a number of features for monitoring and controlling your Android device. This integration gives you access to view the status of your device in Home Assistant.
 
+Please note that some features may require the Fully Plus license.
+
 There is currently support for the following information:
 
 - Current Page URL
