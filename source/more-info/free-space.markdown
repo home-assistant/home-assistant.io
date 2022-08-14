@@ -32,8 +32,7 @@ them in the UI and it will free up some space for you.
 
 Add-ons can take a lot of space, not just the add-on itself but also their data.
 
-Open the Home Assistant UI and go to {% my supervisor title="Settings > Add-ons" %} in the sidebar, you will be
-on the "Dashboard" tab when you click on {% my supervisor title="Settings > Add-ons" %}, here you will see
+Open the Home Assistant UI and go to {% my supervisor title="Settings > Add-ons" %} in the sidebar. Here you will see
 all your installed add-ons, maybe you have some that you no longer use, if
 you do those can be uninstalled to free up some space.
 
