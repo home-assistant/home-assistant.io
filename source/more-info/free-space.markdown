@@ -24,7 +24,7 @@ the database, and even change how long it stores the data
 
 ## Delete old backups
 
-Open the Home Assistant UI and go to {% my backups title="Settings > System > Backups" %}, here you will see all your backups,
+Open the Home Assistant UI and go to {% my backup title="Settings > System > Backups" %}, here you will see all your backups,
 these can be downloaded and placed somewhere safe. When you have done that, you can delete
 them in the UI and it will free up some space for you.
 
@@ -46,5 +46,5 @@ documentation for your hypervisor on how to expand disks for virtual machines.
 Home Assistant will auto-expand to use the newly added space.
 
 If you are not running a VM, you need to replace your storage medium
-(typically, this will be an SD card). You can use [backups](/hassio/haos_common_tasks/#home-assistant-os-backups) to quickly restore your Home Assistant
+(typically, this will be an SD card). You can use [backups](/common-tasks/os#home-assistant-os-backups) to quickly restore your Home Assistant
 installation on a new storage medium.
