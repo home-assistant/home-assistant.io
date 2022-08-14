@@ -25,5 +25,6 @@ The Qingping integration will automatically discover devices once the [Bluetooth
 
 ## Supported devices
 
-- [Motion & Ambient Light Sensor](https://www.qingping.co/motion-light-sensor/overview) (CGPR1)
+- [Air Monitor Lite](https://www.qingping.co/air-monitor-lite/overview) (CGDN1)
 - [Alarm Clock](https://www.qingping.co/bluetooth-alarm-clock/overview) (CGPR1)
+- [Motion & Ambient Light Sensor](https://www.qingping.co/motion-light-sensor/overview) (CGPR1)
