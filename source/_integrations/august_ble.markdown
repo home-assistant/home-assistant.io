@@ -21,10 +21,8 @@ ha_supporting_domain: yalexs_ble
 ha_supporting_integration: Yale Access Bluetooth
 ---
 
-Integrates [August](https://august.com/) locks over Bluetooth into Home Assistant. To integrate with the August cloud service, or non-lock devices, see the [August](/integrations/august) page.
+Integrates [August](https://august.com/) locks over Bluetooth into Home Assistant.
 
 Following Assa Abloy, Yale's parent company, purchasing August in 2017, most newer devices use the Yale Access branding.
 
-{% include integrations/config_flow.md domain=page.ha_supporting_domain %}
-<br><br>
-To find more information, please use the [Yale Access Bluetooth](/integrations/yalexs_ble) page.
+{% include integrations/supported_brand.md %}
