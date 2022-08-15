@@ -123,10 +123,10 @@ data:
 
 This is an array of actions that can be sent to the device. These are buttons that show below the title, message and image.
 
-| Parameter | Description                                                                                                    |
-| --------- | -------------------------------------------------------------------------------------------------------------- |
-| command   | The command to send to the device. For example `api` will send a request to the System Bridge API.             |
-| label     | The label of the button.                                                                                       |
+| Parameter | Description                                                                                                                |
+| --------- | -------------------------------------------------------------------------------------------------------------------------- |
+| command   | The command to send to the device. For example `api` will send a request to the System Bridge API.                         |
+| label     | The label of the button.                                                                                                   |
 | data      | The data to send to the device. The available parameters for the `api` command are: `endpoint`, `method` `body`, `params`. |
 
 Here is an example action that will open a URL in the device's browser:
