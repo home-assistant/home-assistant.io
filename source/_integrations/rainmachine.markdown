@@ -6,6 +6,7 @@ ha_category:
   - Irrigation
   - Sensor
   - Switch
+  - Update
 ha_release: 0.69
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -18,6 +19,7 @@ ha_platforms:
   - diagnostics
   - sensor
   - switch
+  - update
 ha_zeroconf: true
 ha_homekit: true
 ha_integration_type: integration
@@ -127,11 +129,7 @@ Unpause all paused watering activities.
 
 Remove all watering restrictions enforced by `rainmachine.restrict_watering`.
 
-## Switch
-
-The `rainmachine` switch platform allows you to control programs and zones within a [RainMachine smart Wi-Fi sprinkler controller](https://www.rainmachine.com/).
-
-### Controlling Your Device
+## Controlling Your Device
 
 After Home Assistant loads, new switches will be added for every enabled program and zone. These work as expected:
 
@@ -140,4 +138,13 @@ After Home Assistant loads, new switches will be added for every enabled program
 
 Programs and zones are linked. While a program is running, you will see both the program and zone switches turned on; turning either one off will turn the other one off (just like in the web app).
 
+## Entity Availability
+
+Many RainMachine entities are enabled by default. Others, like those related to flow sensors, are disabled by default if they only apply to some controllers. You can view all entities for a controller and enable/disable them as appropriate in the Device screen for your RainMachine controller.
+
 [wnum reference]: https://github.com/sprinkler/rainmachine-developer-resources/blob/d47e1ad59dee59e34094ad41636ae289275eb973/sdk-parsers/RMDataFramework/rmWeatherData.py#L13
+
+## Firmware Updates
+
+The integration has an [update entity](/integrations/update/) that provides information on the latest available RainMachine firmware version. The firmware update can be triggered and installed onto your RainMachine controller
+directly from Home Assistant.

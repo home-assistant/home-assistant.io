@@ -44,6 +44,8 @@ Enjoy the release!
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.8.1 - August 4](#release-202281---august-4)
+- [Release 2022.8.2 - August 7](#release-202282---august-7)
+- [Release 2022.8.3 - August 9](#release-202283---august-9)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -91,7 +93,7 @@ it to be extended a lot, with more issue detections, in the near future.
 ## First-class Bluetooth support
 
 Today, we proudly announce that Home Assistant now has **first-class**
-Bluetooth support! 🥇 
+Bluetooth support! 🥇
 
 A brand new [Bluetooth integration] has been added, which provides absolutely
 amazing Bluetooth support to Home Assistant, including automatic discovery of
@@ -218,7 +220,7 @@ noteworthy changes this release:
 - [@frenck] updated the events developer tools to use YAML instead of JSON
   and added syntax highlighting.
 - The [LIFX] integration got a significant overhaul, making it much more
-  reliable. Thanks for the work on this in the past releases 
+  reliable. Thanks for the work on this in the past releases
   [@bdraco] and [@Djelibeybi]!
 - The [UniFi Network] now has update entities, allowing you to update the
   firmware of UniFi devices directly from Home Assistant. Great addition [@J3173]!
@@ -378,6 +380,88 @@ The following integrations are now available via the Home Assistant UI:
 [simplisafe docs]: /integrations/simplisafe/
 [zwave_js docs]: /integrations/zwave_js/
 
+## Release 2022.8.2 - August 7
+
+- Update gree to use the network component to set discovery interfaces ([@Jc2k] - [#75812]) ([gree docs])
+- Use stored philips_js system data on start ([@elupus] - [#75981]) ([philips_js docs])
+- Ensure bluetooth recovers if Dbus gets restarted ([@bdraco] - [#76249]) ([bluetooth docs])
+- Fix default sensor names in NextDNS integration ([@bieniu] - [#76264]) ([nextdns docs])
+- Bump ZHA dependencies ([@puddly] - [#76275]) ([zha docs])
+- Bump pydeconz to v102 ([@Kane610] - [#76287]) ([deconz docs])
+- Fix ZHA light color temp support ([@dmulcahey] - [#76305]) ([zha docs])
+- Bump pySwitchbot to 0.18.4 ([@bdraco] - [#76322]) ([switchbot docs])
+- Bump aiobafi6 to 0.7.2 to unblock #76328 ([@jfroy] - [#76330]) ([baf docs])
+- Postpone broadlink platform switch until config entry is ready ([@elupus] - [#76371]) ([broadlink docs])
+
+[#75812]: https://github.com/home-assistant/core/pull/75812
+[#75981]: https://github.com/home-assistant/core/pull/75981
+[#76249]: https://github.com/home-assistant/core/pull/76249
+[#76264]: https://github.com/home-assistant/core/pull/76264
+[#76275]: https://github.com/home-assistant/core/pull/76275
+[#76287]: https://github.com/home-assistant/core/pull/76287
+[#76305]: https://github.com/home-assistant/core/pull/76305
+[#76322]: https://github.com/home-assistant/core/pull/76322
+[#76330]: https://github.com/home-assistant/core/pull/76330
+[#76371]: https://github.com/home-assistant/core/pull/76371
+[@Jc2k]: https://github.com/Jc2k
+[@Kane610]: https://github.com/Kane610
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@dmulcahey]: https://github.com/dmulcahey
+[@elupus]: https://github.com/elupus
+[@jfroy]: https://github.com/jfroy
+[@puddly]: https://github.com/puddly
+[baf docs]: /integrations/baf/
+[bluetooth docs]: /integrations/bluetooth/
+[broadlink docs]: /integrations/broadlink/
+[deconz docs]: /integrations/deconz/
+[gree docs]: /integrations/gree/
+[nextdns docs]: /integrations/nextdns/
+[philips_js docs]: /integrations/philips_js/
+[switchbot docs]: /integrations/switchbot/
+[zha docs]: /integrations/zha/
+
+## Release 2022.8.3 - August 9
+
+- Add debug logging for unknown Notion errors ([@bachya] - [#76395]) ([notion docs])
+- Automatically enable common RainMachine restriction entities ([@bachya] - [#76405]) ([rainmachine docs])
+- Fix bug where RainMachine entity states don't populate on startup ([@bachya] - [#76412]) ([rainmachine docs])
+- Fix Govee 5185 Meat Thermometers with older firmware not being discovered ([@bdraco] - [#76414]) ([govee_ble docs])
+- Fix iCloud listeners ([@epenet] - [#76437]) ([icloud docs])
+- Bump version of pyunifiprotect to 4.0.12 ([@AngellusMortis] - [#76465]) ([unifiprotect docs])
+- Bump aiohomekit to 1.2.6 ([@bdraco] - [#76488]) ([homekit_controller docs])
+- Fix inkbird ibbq2s that identify with xbbq ([@bdraco] - [#76492]) ([inkbird docs])
+- Bump govee-ble to 0.14.0 to fix H5052 sensors ([@bdraco] - [#76497]) ([govee_ble docs])
+- Fix pairing with HK accessories that do not provide format for vendor chars ([@bdraco] - [#76502]) ([homekit_controller docs])
+- Fix #76283 ([@ocalvo] - [#76531]) ([sms docs])
+- Bump aiohomekit to 1.2.8 ([@bdraco] - [#76532]) ([homekit_controller docs])
+
+[#76395]: https://github.com/home-assistant/core/pull/76395
+[#76405]: https://github.com/home-assistant/core/pull/76405
+[#76412]: https://github.com/home-assistant/core/pull/76412
+[#76414]: https://github.com/home-assistant/core/pull/76414
+[#76437]: https://github.com/home-assistant/core/pull/76437
+[#76465]: https://github.com/home-assistant/core/pull/76465
+[#76488]: https://github.com/home-assistant/core/pull/76488
+[#76492]: https://github.com/home-assistant/core/pull/76492
+[#76497]: https://github.com/home-assistant/core/pull/76497
+[#76502]: https://github.com/home-assistant/core/pull/76502
+[#76531]: https://github.com/home-assistant/core/pull/76531
+[#76532]: https://github.com/home-assistant/core/pull/76532
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@epenet]: https://github.com/epenet
+[@ocalvo]: https://github.com/ocalvo
+[govee_ble docs]: /integrations/govee_ble/
+[homekit_controller docs]: /integrations/homekit_controller/
+[icloud docs]: /integrations/icloud/
+[inkbird docs]: /integrations/inkbird/
+[notion docs]: /integrations/notion/
+[rainmachine docs]: /integrations/rainmachine/
+[sms docs]: /integrations/sms/
+[unifiprotect docs]: /integrations/unifiprotect/
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
@@ -519,7 +603,7 @@ Removed:
 - `mdi:discord`
 - `mdi:google-home`
 - `tablet-android` - Use `mdi:tablet` instead.
- 
+
 Renamed:
 
 - `mdi:diving-scuba` to `mdi:diving-scuba-mask`
