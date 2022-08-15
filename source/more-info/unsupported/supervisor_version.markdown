@@ -5,8 +5,8 @@ description: "More information on why supervisor_version marks the installation 
 
 ## The issue
 
-Only the latest version of supervisor is supported. Users may control when Supervisor
-updates by disabling its default auto update behavior and updating it manually.
+Only the latest version of the supervisor is supported. Users may control when Supervisor
+updates by disabling its default auto-update behavior and updating it manually.
 But using any version of Supervisor besides the latest is not supported.
 
 ## The solution
