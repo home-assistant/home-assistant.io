@@ -45,46 +45,103 @@ This integration provides the following binary sensors:
 
 This integration provides the following sensors:
 
-| Name                   | Description                                         |
-| ---------------------- | --------------------------------------------------- |
-| Battery                | Battery level of the device                         |
-| Boot Time              | Time the device was turned on                       |
-| CPU Speed              | The current CPU speed                               |
-| Displays Connected     | Number of displays connected                        |
-| Display Resolution X   | Display resolution (across)                         |
-| Display Resolution Y   | Display resolution (down)                           |
-| Display Refresh Rate   | Display refresh rate                                |
-| Filesystem(s)          | Space used for each drive letter / filesystem mount |
-| GPU Memory Free        | GPU memory free in GB                               |
-| GPU Usage %            | GPU usage percentage                                |
-| Kernel                 | Version information of the Kernel                   |
-| Latest Version         | System Bridge Latest Version                        |
-| Load                   | System load percentage                              |
-| Memory Free            | Memory (RAM) free in GB                             |
-| Memory Used            | Memory (RAM) used in GB                             |
-| Memory Used %          | Memory (RAM) % used                                 |
-| Operating System       | Version information of the Operating System         |
-| Version                | System Bridge Version                               |
+| Name                 | Description                                         |
+| -------------------- | --------------------------------------------------- |
+| Battery              | Battery level of the device                         |
+| Boot Time            | Time the device was turned on                       |
+| CPU Speed            | The current CPU speed                               |
+| Displays Connected   | Number of displays connected                        |
+| Display Resolution X | Display resolution (across)                         |
+| Display Resolution Y | Display resolution (down)                           |
+| Display Refresh Rate | Display refresh rate                                |
+| Filesystem(s)        | Space used for each drive letter / filesystem mount |
+| GPU Memory Free      | GPU memory free in GB                               |
+| GPU Usage %          | GPU usage percentage                                |
+| Kernel               | Version information of the Kernel                   |
+| Latest Version       | System Bridge Latest Version                        |
+| Load                 | System load percentage                              |
+| Memory Free          | Memory (RAM) free in GB                             |
+| Memory Used          | Memory (RAM) used in GB                             |
+| Memory Used %        | Memory (RAM) % used                                 |
+| Operating System     | Version information of the Operating System         |
+| Version              | System Bridge Version                               |
 
 These sensors are also available, but are not enabled by default:
 
-| Name                   | Description                              |
-| ---------------------- | ---------------------------------------- |
-| CPU Temperature        | The current temperature of the CPU       |
-| CPU Voltage            | The current voltage of the CPU           |
-| GPU Core Clock Speed   | GPU core clock speed in MHz              |
-| GPU Memory Clock Speed | GPU memory clock speed in MHz            |
-| GPU Fan Speed          | GPU fan speed percentage                 |
-| GPU Memory Used        | GPU memory used in GB                    |
-| GPU Memory Used %      | GPU memory used percentage               |
-| GPU Power Usage        | GPU power usage                          |
-| GPU Temperature        | The current temperature of the GPU       |
+| Name                   | Description                        |
+| ---------------------- | ---------------------------------- |
+| CPU Temperature        | The current temperature of the CPU |
+| CPU Voltage            | The current voltage of the CPU     |
+| GPU Core Clock Speed   | GPU core clock speed in MHz        |
+| GPU Memory Clock Speed | GPU memory clock speed in MHz      |
+| GPU Fan Speed          | GPU fan speed percentage           |
+| GPU Memory Used        | GPU memory used in GB              |
+| GPU Memory Used %      | GPU memory used percentage         |
+| GPU Power Usage        | GPU power usage                    |
+| GPU Temperature        | The current temperature of the GPU |
 
 ## Media Source
 
 This integration is available as a media source to use with the media browser integration. You can browse and view media from your system to media players such as your web browser and other supported media players.
 
 ## Services
+
+### Notifications `notify.notify`
+
+You can send notifications to the device using the `notify.notify` service.
+
+```yaml
+service: notify.notify
+data:
+  target:
+    - abc123
+  data:
+    image: https://brands.home-assistant.io/system_bridge/logo@2x.png
+    timeout: 30
+    actions:
+      - command: api
+        data:
+          endpoint: open
+          method: POST
+          body:
+            url: http://homeassistant.local:8123/lovelace/cameras
+        label: Open Cameras
+  title: Test Title
+  message: This is a message
+```
+
+#### Parameters
+
+| Parameter | Description                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------- |
+| target    | The target to send the notification to. This is the same as the device used other services. |
+| title     | The title of the notification.                                                              |
+| message   | The message of the notification.                                                            |
+| data      | The data to send to the device. See below for info.                                         |
+
+##### Actions (`data` parameter)
+
+This is an array of actions that can be sent to the device. These are buttons that show below the title, message and image.
+
+| Parameter | Description                                                                                                    |
+| --------- | -------------------------------------------------------------------------------------------------------------- |
+| command   | The command to send to the device. For example `api` will send a request to the System Bridge API.             |
+| label     | The label of the button.                                                                                       |
+| data      | The data to send to the device. The available parameters for the `api` command are: `endpoint`, `method` `body`, `params`. |
+
+Here is an example action that will open a URL in the device's browser:
+
+```yaml
+- command: api
+  label: Open Cameras
+  data:
+    endpoint: open
+    method: POST
+    body:
+      url: http://homeassistant.local:8123/lovelace/cameras
+```
+
+For more API commands, refer to the API documentation [here](https://system-bridge.timmo.dev/docs/api).
 
 ### Service `system_bridge.open_path`
 
