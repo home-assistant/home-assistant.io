@@ -34,3 +34,5 @@ There is currently support for the following information:
 This integration requires the Fully Remote Admin feature to be enabled in the Fully Kiosk Browser app. This feature requires the paid Fully Plus license. You can test it out for free, but Fully Kiosk Browser will display a watermark on your device.
 
 You will need the IP address of your device, and the Fully Remote Admin password you set in the Fully Kiosk Browser app.
+
+{% include integrations/config_flow.md %}
