@@ -47,6 +47,7 @@ Enjoy the release!
 - [Release 2022.8.2 - August 7](#release-202282---august-7)
 - [Release 2022.8.3 - August 9](#release-202283---august-9)
 - [Release 2022.8.4 - August 12](#release-202284---august-12)
+- [Release 2022.8.5 - August 15](#release-202285---august-15)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -504,6 +505,70 @@ The following integrations are now available via the Home Assistant UI:
 [swisscom docs]: /integrations/swisscom/
 [xiaomi_ble docs]: /integrations/xiaomi_ble/
 [zha docs]: /integrations/zha/
+
+## Release 2022.8.5 - August 15
+
+- Update systembridgeconnector to 3.4.4 ([@timmo001] - [#75362]) ([system_bridge docs])
+- 🐛 Fix "The request content was malformed" error in home_connect ([@hansgoed] - [#76411]) ([home_connect docs])
+- Bump pySwitchbot to 0.18.5 ([@bdraco] - [#76640]) ([switchbot docs])
+- Bump pySwitchbot to 0.18.6 to fix disconnect race ([@bdraco] - [#76656]) ([switchbot docs])
+- Bump pySwitchbot to 0.18.10 to handle empty data and disconnects ([@bdraco] - [#76684]) ([switchbot docs])
+- Fix google calendar disabled entity handling ([@allenporter] - [#76699]) ([google docs])
+- Motion Blinds fix OperationNotAllowed ([@starkillerOG] - [#76712]) ([motion_blinds docs])
+- Update xknx to 1.0.0 🎉 ([@marvin-w] - [#76734]) ([knx docs])
+- Bump aiohomekit to 1.2.10 ([@bdraco] - [#76738]) ([homekit_controller docs])
+- Fix bad data with inkbird bbq sensors ([@bdraco] - [#76739]) ([inkbird docs])
+- Bump bimmer_connected to 0.10.2 ([@rikroe] - [#76751]) ([bmw_connected_drive docs])
+- Bump aiohue to 4.5.0 ([@marcelveldt] - [#76757]) ([hue docs])
+- Fix stale data with SensorPush sensors ([@bdraco] - [#76771]) ([sensorpush docs])
+- Bump homeconnect to 0.7.2 ([@BraveChicken1] - [#76773]) ([home_connect docs])
+- Bump aiohomekit to 1.2.11 ([@bdraco] - [#76784]) ([homekit_controller docs])
+- Fix bluetooth callback registration not surviving a reload ([@bdraco] - [#76817]) ([bluetooth docs])
+- Correct referenced entities and devices for event triggers ([@emontnemery] - [#76818]) ([automation docs])
+- Fix lifx homekit discoveries not being ignorable or updating the IP ([@bdraco] - [#76825]) ([lifx docs])
+
+[#75362]: https://github.com/home-assistant/core/pull/75362
+[#76411]: https://github.com/home-assistant/core/pull/76411
+[#76640]: https://github.com/home-assistant/core/pull/76640
+[#76656]: https://github.com/home-assistant/core/pull/76656
+[#76684]: https://github.com/home-assistant/core/pull/76684
+[#76699]: https://github.com/home-assistant/core/pull/76699
+[#76712]: https://github.com/home-assistant/core/pull/76712
+[#76734]: https://github.com/home-assistant/core/pull/76734
+[#76738]: https://github.com/home-assistant/core/pull/76738
+[#76739]: https://github.com/home-assistant/core/pull/76739
+[#76751]: https://github.com/home-assistant/core/pull/76751
+[#76757]: https://github.com/home-assistant/core/pull/76757
+[#76771]: https://github.com/home-assistant/core/pull/76771
+[#76773]: https://github.com/home-assistant/core/pull/76773
+[#76784]: https://github.com/home-assistant/core/pull/76784
+[#76817]: https://github.com/home-assistant/core/pull/76817
+[#76818]: https://github.com/home-assistant/core/pull/76818
+[#76825]: https://github.com/home-assistant/core/pull/76825
+[@BraveChicken1]: https://github.com/BraveChicken1
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@hansgoed]: https://github.com/hansgoed
+[@marcelveldt]: https://github.com/marcelveldt
+[@marvin-w]: https://github.com/marvin-w
+[@rikroe]: https://github.com/rikroe
+[@starkillerOG]: https://github.com/starkillerOG
+[@timmo001]: https://github.com/timmo001
+[automation docs]: /integrations/automation/
+[bluetooth docs]: /integrations/bluetooth/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[google docs]: /integrations/google/
+[home_connect docs]: /integrations/home_connect/
+[homekit_controller docs]: /integrations/homekit_controller/
+[hue docs]: /integrations/hue/
+[inkbird docs]: /integrations/inkbird/
+[knx docs]: /integrations/knx/
+[lifx docs]: /integrations/lifx/
+[motion_blinds docs]: /integrations/motion_blinds/
+[sensorpush docs]: /integrations/sensorpush/
+[switchbot docs]: /integrations/switchbot/
+[system_bridge docs]: /integrations/system_bridge/
 
 ## Need help? Join the community!
 
