@@ -80,6 +80,10 @@ These sensors are also available, but are not enabled by default:
 | GPU Power Usage        | GPU power usage                          |
 | GPU Temperature        | The current temperature of the GPU       |
 
+## Media Source
+
+This integration is available as a media source to use with the media browser integration. You can browse and view media from your system to media players such as your web browser and other supported media players.
+
 ## Services
 
 ### Service `system_bridge.open_path`
