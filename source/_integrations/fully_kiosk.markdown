@@ -3,6 +3,7 @@ title: Fully Kiosk Browser
 description: Instructions on how to integrate Fully Kiosk Browser with Home Assistant
 ha_category:
   - Binary Sensor
+  - Sensor
 ha_release: 2022.9
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: fully_kiosk
 ha_platforms:
   - binary_sensor
+  - sensor
 ha_integration_type: integration
 ---
 
@@ -20,6 +22,11 @@ There is currently support for the following information:
 
 - Device plugged in
 - Kiosk mode enabled/disabled
+- Battery level
+- Current page
+- Current foreground app
+- Device storage space available
+- Device RAM available
 
 ## Requirements
 
