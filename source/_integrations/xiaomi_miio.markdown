@@ -629,6 +629,13 @@ Button                  | Description
 Reset Dust Filter       | Resets filter lifetime and usage of the dust filter  
 Reset Upper Filter      | Resets filter lifetime and usage of the upper filter 
 
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+Auxiliary Heat Level    | Controls the level of the heater (Low, Medium, High)
+Display Orientation     | Controls the orientation of the display (Forward, Left, Right)
+
 - Sensor entities
 
 Sensor                           | Description                                                   
