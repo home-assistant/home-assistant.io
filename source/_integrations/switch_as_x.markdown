@@ -44,6 +44,8 @@ Type:
   description: The type of entity you want the switch to become.
 {% endconfiguration_basic %}
 
-## Switch as X from existing entity
+## Switch as X from the existing entity
+
 Where compatible, Switch as X will appear on entity properties. A list of entities can be found in {% my entities title="Settings -> Devices & Services -> Entities" %}.
+
 ![Entity properties exampl](/images/integrations/switch_as_x/Entities_Properties.png)
