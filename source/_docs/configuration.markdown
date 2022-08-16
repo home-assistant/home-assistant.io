@@ -13,12 +13,12 @@ The easiest option to edit `configuration.yaml` is to use the {% my supervisor_a
 
 If you prefer to use a file editor on your computer, use the {% my supervisor_addon title="Samba add-on" addon="core_samba" %} to access the files as a network share.
 
-The path to your configuration directory can be found in the Home Assistant frontend by going to {% my system_health title="Settings > System > System Health" %}
+The path to your configuration directory can be found in the Home Assistant frontend by going to {% my system_health title="Settings > System > Repair > System information from the top right menu" %}
 
-<p class='img'>
-  <img src='/images/screenshots/system_health_config_dir.png' alt='Screenshot showing the top of the system health panel'>
-  Right under the version you are running, you will find what path Home Assistant has loaded the configuration from.
-</div>
+![Show system menu option](/images/screenshots/System_information_menu.png)
+
+Right under the version you are running, you will find what path Home Assistant has loaded the configuration from.
+![Screenshot showing the top of the system health panel](/images/screenshots/system_health_config_dir.png)
 
 _If you use Home Assistant Container, you can find `configuration.yaml` in the config folder that you mounted in your container._
 
