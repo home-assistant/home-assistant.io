@@ -36,7 +36,7 @@ things like locks or garage doors.
 Using the Switch as X integration, you can convert those switches into the
 entity types that best matches your use case.
 
-{% include integrations/config_flow.md %}
+{% include integrations/config_flow.md name="Change device type of a switch" %}
 {% configuration_basic %}
 Switch entity:
   description: The switch entity you want to convert into something else.
