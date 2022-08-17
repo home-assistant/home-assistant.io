@@ -54,4 +54,5 @@ The following controls are available:
 - Motion detection on/off
 - Screensaver timer
 - Screen off timer
+- Screen brightness
 - Screensaver brightness
