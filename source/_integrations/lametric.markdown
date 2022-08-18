@@ -146,7 +146,7 @@ However, please note! At this point, it is easier to choose the "Enter manually"
 option during the integration setup; this also avoids the use of the account
 linking service and doesn't need all the steps below either.
 
-If you still want to set up your own account linking service for importing
+If you still want to set up your own LaMetric application for importing
 your LaMetric devices, use the following steps:
 
 1. Log in with your LaMetric device account to [developer.lametric.com](https://developer.lametric.com).
