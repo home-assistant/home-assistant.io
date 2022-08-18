@@ -140,7 +140,7 @@ notify service calls:
 ## Manual automatic import configuration
 
 If you prefer not to use the Home Assistant account linking service, you
-can do so manually.
+can set up the LaMetric application manually.
 
 However, please note! At this point, it is easier to choose the "Enter manually"
 option during the integration setup; this also avoids the use of the account
