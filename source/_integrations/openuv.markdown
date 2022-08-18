@@ -76,8 +76,10 @@ Note that in the case of UV and ozone data, selecting any one of:
 * Skin Type 6 Safe Exposure Time
 
 ...as the target for the `homeassistant.update_entity` service will update the data for
-_all_ of these entities. This is important to keep in mind, as updating each entity
-separately will result in wasted API calls.
+_all_ of these entities.
+
+To protect against possible API call waste, all calls to `homeassistant.update_entity`
+that reference an OpenUV entity are throttled to a minimum of 15 minutes between calls.
 
 ### Protection Window
 
