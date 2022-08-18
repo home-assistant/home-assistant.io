@@ -50,7 +50,7 @@ sources:
 
 Notes:
 
-- Some Pioneer AVRs use the port 23 default and some are reported to use 8102.
+- Some Pioneer AVRs use the port 23 default and some are reported to use 8102. Depending on the model you may be able to configure the port setting through the receiver's http interface, e.g. `http://192.168.0.10/1000/port_number.asp`. On models that can listen to multiple ports you could consider leaving the default port for use by hardcoded tools, and open another port for configurable tools such as Home Assistant.
 - `timeout` is a socket level option and should only be configured if you know what you are doing.
 
 ### Source codes
