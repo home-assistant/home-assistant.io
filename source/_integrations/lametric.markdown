@@ -3,7 +3,7 @@ title: LaMetric
 description: Instructions on how to integrate LaMetric TIME with Home Assistant.
 ha_category:
   - Notifications
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_release: 0.49
 ha_codeowners:
   - '@robbiet480'
