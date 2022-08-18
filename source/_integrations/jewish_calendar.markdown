@@ -94,6 +94,8 @@ Time sensor states are represented as ISO8601 formatted *UTC time*.
 ### Binary sensors
 
 - `issur_melacha_in_effect`: A boolean sensor indicating if melacha is currently not permitted. The value is _on_ when it is currently Shabbat or Yom Tov and _off_ otherwise.
+- `erev_shabbat_hag`: A boolean sensor indicating that there is an upcoming Shabbat or Hag.
+- `motzei_shabbat_hag`: A boolean sensor indicating that Shabbat or Hag has ended.
 
 ### Holiday sensor
 

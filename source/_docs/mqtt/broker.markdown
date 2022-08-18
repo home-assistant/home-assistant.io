@@ -24,7 +24,7 @@ There is [an issue](https://github.com/rabbitmq/rabbitmq-server/issues/154) with
 
 ## Connect to a public broker
 
-The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home. To use the public mosquitto broker, confiure the MQTT integration to connect to broker `test.mosquitto.org` on port 1183 or 8883.
+The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home. To use the public mosquitto broker, configure the MQTT integration to connect to broker `test.mosquitto.org` on port 1183 or 8883.
 
 <div class='note'>
 

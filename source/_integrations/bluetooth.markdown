@@ -35,17 +35,34 @@ For Bluetooth to function on Linux systems, the [D-Bus](https://en.wikipedia.org
 - Home Assistant Supervised: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
 - Home Assistant Core: The system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant.
 
+### Additional details for Container installs
+
+{% details Making the DBus socket available in the Docker container %}
+
+For most systems, the Dbus socket is in `/run/dbus`. The socket must be available in the container for Home Assistant to be able to connect to Dbus and access the Bluetooth adapter. When starting with `docker run`, this can be accomplished by adding `-v /run/dbus:/run/dbus:ro` to the command. If the Dbus socket is in `/var/run/dbus` on the host system, use `-v /var/run/dbus:/run/dbus:ro` instead.
+
+{% enddetails %}
+
+### Additional details for Container and Supervised installs
+
+{% details Installing BlueZ %}
+
+On Debian based host systems, the `sudo apt-get -y install bluez` command will install BlueZ.
+
+{% enddetails %}
+
 ## Installing a USB Bluetooth Adapter
 
 Some systems may not come with Bluetooth and require a USB adapter. Installing an adapter for the first time may require multiple restarts for the device to be fully recognized.
 
-If you experience an unreliable Bluetooth connection, installing a [USB extension cable with a Ferrite Bead](https://a.co/d/fRnFIwy) may improve reliability.
+If you experience an unreliable Bluetooth connection, installing a short USB extension cable between your Bluetooth adapter and your Home Assistant server may improve reliability.
 
 ### Known working adapters
 
 - ASUS USB-BT400
 - ASUS USB-BT500
 - Avantree DG45
+- Kinivo BTD-400
 - Maxuni BT-501
 - SUMEE BT501
 - UGREEN CM390
