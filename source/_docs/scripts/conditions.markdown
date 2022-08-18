@@ -396,15 +396,6 @@ condition:
   after_offset: "-01:00:00"
 ```
 
-This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`:
-
-```yaml
-condition:
-  - condition: sun
-    after: sunset
-    before: sunrise
-```
-
 This is 'when light' - equivalent to a state condition on `sun.sun` of `above_horizon`:
 
 ```yaml
@@ -414,7 +405,16 @@ condition:
     before: sunset
 ```
 
-We cannot use both keys in this case as it will always be `false`.
+This is (invalid) 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`:
+
+```yaml
+condition:
+  - condition: sun
+    after: sunset
+    before: sunrise
+```
+
+However, we cannot use both keys in this case as it will always be `false`, so instead you have to use:
 
 ```yaml
 condition:
