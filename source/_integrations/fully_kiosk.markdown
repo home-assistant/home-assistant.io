@@ -48,11 +48,12 @@ The following controls are available:
 - Load the start URL
 - Restart the Fully Kiosk Browser app
 - Reboot your device (requires root)
-- Screensaver on/off
 - Maintenance mode on/off
 - Lock/unlock kiosk mode
 - Motion detection on/off
+- Screensaver on/off
 - Screensaver timer
+- Screensaver brightness
+- Screen on/off
 - Screen off timer
 - Screen brightness
-- Screensaver brightness
