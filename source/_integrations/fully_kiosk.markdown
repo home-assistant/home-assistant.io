@@ -52,3 +52,7 @@ The following controls are available:
 - Maintenance mode on/off
 - Lock/unlock kiosk mode
 - Motion detection on/off
+- Screensaver timer
+- Screen off timer
+- Screen brightness
+- Screensaver brightness
