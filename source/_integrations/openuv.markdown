@@ -35,12 +35,6 @@ To generate an API key,
 
 ## Sensors
 
-<div class='note info'>
-The approximate number of minutes of a particular skin type can be exposed to
-the sun before burning/tanning starts is based on the
-[Fitzpatrick scale](https://en.wikipedia.org/wiki/Fitzpatrick_scale).
-</div>
-
 | Name | Type | Value |
 |------|------|-------|
 | Current Ozone Level | Sensor | ozone level in du (Dobson Units) |
@@ -48,12 +42,12 @@ the sun before burning/tanning starts is based on the
 | Current UV Level | Sensor | UV Level (as literal) |
 | Max UV Index | Sensor | max UV Index for the day (at solar noon) |
 | Protection Window | Binary Sensor | whether sunblock protection should be used |
-| Skin Type 1 Safe Exposure Time | Sensor | the amount of time Fitzpatrick skin type 1 can be in the sun unprotected |
-| Skin Type 2 Safe Exposure Time | Sensor | the amount of time Fitzpatrick skin type 2 can be in the sun unprotected |
-| Skin Type 3 Safe Exposure Time | Sensor | the amount of time Fitzpatrick skin type 3 can be in the sun unprotected |
-| Skin Type 4 Safe Exposure Time | Sensor | the amount of time Fitzpatrick skin type 4 can be in the sun unprotected |
-| Skin Type 5 Safe Exposure Time | Sensor | the amount of time Fitzpatrick skin type 5 can be in the sun unprotected |
-| Skin Type 6 Safe Exposure Time | Sensor | the amount of time Fitzpatrick skin type 6 can be in the sun unprotected |
+| Skin Type 1 Safe Exposure Time | Sensor | the amount of time [Fitzpatrick skin type 1](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
+| Skin Type 2 Safe Exposure Time | Sensor | the amount of time [Fitzpatrick skin type 2](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
+| Skin Type 3 Safe Exposure Time | Sensor | the amount of time [Fitzpatrick skin type 3](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
+| Skin Type 4 Safe Exposure Time | Sensor | the amount of time [Fitzpatrick skin type 4](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
+| Skin Type 5 Safe Exposure Time | Sensor | the amount of time [Fitzpatrick skin type 5](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
+| Skin Type 6 Safe Exposure Time | Sensor | the amount of time [Fitzpatrick skin type 6](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
 
 ## Updating Data
 
