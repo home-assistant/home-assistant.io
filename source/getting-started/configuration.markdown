@@ -41,7 +41,7 @@ Now let's make a change using the file editor: we are going to change the name, 
 </div>
 
  - Click the save icon in the top right to commit changes.
- - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a configuration check. Do this by navigating to {% my server_controls title="Developer-Tools -> YAML" %} and and then clicking on the **Check configuration** button. When it's valid, it will show the text "Configuration valid!". In order for the **Check Configuration**" button to be visible, you must enable "Advanced Mode" on your user profile.
+ - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a configuration check. Do this by navigating to {% my server_controls title="Developer Tools -> YAML" %} and and then clicking on the **Check configuration** button. When it's valid, it will show the text "Configuration valid!". In order for the **Check Configuration**" button to be visible, you must enable "Advanced Mode" on your user profile.
  - Now Restart Home Assistant. You can do so by either using the **Restart HASS** option in the ⚙ menu of the File Editor UI, or by navigating to {% my system_dashboard title="Settings -> System" %} and then clicking on the **Restart** button on the top right of the page.
 
 ![Screenshot of the "General" page in the configuration panel.](/images/screenshots/configuration-validation.png)
