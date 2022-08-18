@@ -142,7 +142,7 @@ notify service calls:
 If you prefer not to use the Home Assistant account linking service, you
 can do so manually.
 
-However, please note! At this point, is it easier to choose the "Enter manually"
+However, please note! At this point, it is easier to choose the "Enter manually"
 option during the integration setup; this also avoids the use of the account
 linking service and doesn't need all the steps below either.
 
