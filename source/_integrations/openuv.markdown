@@ -66,7 +66,7 @@ Beginning February 1, 2019, the "Limited" plan (which is what new users are give
 default) is limited to 50 API requests per day. Because different API plans and
 locations will have different requirements, the `openuv` component does not automatically
 query the API for new data after it initially loads. To request new data, the
-`homeassistant.update_entity` service may be used.
+`homeassistant.update_entity` service should be used.
 
 Note that in the case of UV and ozone data, selecting any one of:
 
