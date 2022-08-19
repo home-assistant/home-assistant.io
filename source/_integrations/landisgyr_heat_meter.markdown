@@ -25,19 +25,23 @@ The device is read through the optical interface. An (USB) IR reader is needed a
 Every time the Heat Meter values are read, battery time of the device will supposedly go down by about 30 minutes. To prevent battery drain, the integration will not poll automatically.
 </div>
 
-
 {% include integrations/config_flow.md %}
+
+## Sensors
 
 The integration will create the following sensors:
 
-- heat usage gj
-- volume usage m3
-- ownership number
-- volume previous year m3
+- heat usage (MWh)
+- volume usage (m3)
+
+To be compatible with the Home Assistant energy units of measurement, heat usage is converted to MWh, from usage in GJ which is supplied by the device, using conversion factor: 1 GJ = 0.277778 MWh.  
 
 Further data that is read from the device is added as diagnostic entities: 
 
-- heat previous year gj
+- heat usage measured in GJ, as is read from the device before conversion
+- ownership number
+- volume previous year (m3)
+- heat previous year (MWh)
 - error number
 - device number
 - measurement period minutes
@@ -58,6 +62,10 @@ Further data that is read from the device is added as diagnostic entities:
 - measuring range m3ph
 - settings and firmware
 - flow hours
+
+## Energy Dashboard
+
+Either heat usage or volume usage can be used as "Gas" on the energy dashboard. If you want to supply a price per MWh, make sure to apply the conversion factor first.
 
 ## Polling the device
 
