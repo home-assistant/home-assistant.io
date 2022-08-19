@@ -86,15 +86,13 @@ This integration is available as a media source to use with the media browser in
 
 ## Services
 
-### Notifications `notify.notify`
+### Notifications `notify.system_bridge_hostname`
 
-You can send notifications to the device using the `notify.notify` service.
+You can send notifications to the device using the `notify` platform.
 
 ```yaml
-service: notify.notify
+service: notify.system_bridge_hostname
 data:
-  target:
-    - abc123
   data:
     image: https://brands.home-assistant.io/system_bridge/logo@2x.png
     timeout: 30
@@ -114,7 +112,7 @@ data:
 
 | Parameter | Description                                                                                 |
 | --------- | ------------------------------------------------------------------------------------------- |
-| target    | The target to send the notification to. This is the same as the device used other services. |
+| target    | The target to send the notification to. This can be ignored.
 | title     | The title of the notification.                                                              |
 | message   | The message of the notification.                                                            |
 | data      | The data to send to the device. See below for info.                                         |
