@@ -33,6 +33,7 @@ The following selectors are currently available:
 - [Object selector](#object-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
+- [State selector](#state-selector)
 - [Target selector](#target-selector)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
@@ -819,6 +820,25 @@ it returns: `g`, in the first example it would return `Green`.
 When `multiple` is `true`, the output of this selector is the list of selected
 option values. In this case, if `Green` was selected, in the first example it
 would return ["Green"] and in the last example it returns ["g"].
+
+## State selector
+
+The state selector shows a list of states for a provided entity of which
+one can be selected.
+
+![Screenshot of an state selector](/images/blueprints/selector-state.png)
+
+{% configuration state %}
+entity_id:
+  description: The entity ID of which an state can be selected from.
+  type: string
+  required: true
+{% endconfiguration %}
+
+The output of this selector is the select state (not the translated or
+prettified name shown in the frontend).
+
+For example: `heat_cool`.
 
 ## Target selector
 
