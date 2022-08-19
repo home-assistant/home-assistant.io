@@ -112,7 +112,7 @@ data:
 
 | Parameter | Description                                                                                 |
 | --------- | ------------------------------------------------------------------------------------------- |
-| target    | The target to send the notification to. This can be ignored.
+| target    | The target to send the notification to. This can be ignored.                                |
 | title     | The title of the notification.                                                              |
 | message   | The message of the notification.                                                            |
 | data      | The data to send to the device. See below for info.                                         |
