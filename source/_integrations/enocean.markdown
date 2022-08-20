@@ -141,7 +141,6 @@ cover:
     id: [0x01,0x02,0x03,0x04]
     sender_id: [0x05,0x06,0x07,0x08]
     name: "Roller Shutter"
-    watchdog_timeout: 5
 ```
 
 {% configuration %}
@@ -158,11 +157,6 @@ name:
   required: false
   default: EnOcean Light
   type: string
-watchdog_timeout:
-  description: To detect stop of movement which was initiated from another control than Home Assistant (e.g. using a local switch), this integration uses a so-called watchdog timer. The number given here indicates the number of seconds this timer waits until requesting the current position from the device.
-  required: false
-  default: EnOcean Light
-  type: integer
 {% endconfiguration %}
 
 
