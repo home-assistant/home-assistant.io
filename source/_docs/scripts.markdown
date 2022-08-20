@@ -598,6 +598,18 @@ script:
           message: "Skipped cleaning, someone is home!"
 ```
 
+<div class='note'>
+When testing for a state, you cannot use a template for the `entity_id` and it has to be a constant.
+  
+If you need to check a dynamically changing entity use a template check instead:
+```yaml
+if:
+  condition: template
+  value_template: "{{ is_state(repeat.item, 'off') }}"
+
+```
+</div>
+
 This action supports nesting, however, if you find yourself using nested if-then
 actions in the `else` part, you may want to consider using
 [choose](#choose-a-group-of-actions) instead.
