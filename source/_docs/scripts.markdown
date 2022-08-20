@@ -599,7 +599,7 @@ script:
 ```
 
 <div class='note'>
-When testing for a state, you cannot use a template for the `entity_id` and it has to be a constant.
+When testing for a state, you cannot use a template for the `entity_id` as it has to be a constant.
   
 If you need to check a dynamically changing entity use a template check instead:
 ```yaml
