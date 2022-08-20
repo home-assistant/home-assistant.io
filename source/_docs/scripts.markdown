@@ -599,17 +599,19 @@ script:
 ```
 
 <div class='note'>
+
 When testing for a state, you cannot use a template for the `entity_id` as it has to be a constant.
   
 If you need to check a dynamically changing entity use a template check instead:
+  
 {% raw %}
 ```yaml
 if:
   condition: template
-  value_template: "{{ is_state(repeat.item, 'off') }}"
-
+  value_template: "{{ is_state('zone_home', 0) }}"
 ```
 {% endraw %}
+
 </div>
 
 This action supports nesting, however, if you find yourself using nested if-then
