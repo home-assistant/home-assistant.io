@@ -13,7 +13,7 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The Bluetooth integration will detect nearby Bluetooth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
+The Bluetooth integration will detect nearby Bluetooth devices. Discovered adapters will show up in the discovered section on the integrations page in the configuration panel.
 
 {% include integrations/config_flow.md %}
 
@@ -75,19 +75,27 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - tp-link UB400 - Frequent connection failures
 - tp-link UB500 - Frequent connection failures
 
-{% include integrations/option_flow.md %}
+## Multiple adapters
 
-### Multiple adapters
+Support for multiple Bluetooth adapters is available on Linux systems only. Place adapters far enough away from each other to reduce interference.
 
-Support for multiple Bluetooth adapters is available on Linux systems only. Select the adapter you wish to use via the options flow on the integrations page. The adapter selection only affects integrations that use the Bluetooth integration interfaces.
+The following methods are known to work to add multiple adapters:
 
-## Integrations that require exclusive use of the Bluetooth Adapter
+- Long USB Extension cables
+- USB-Ethernet extenders
+- [USB/IP](http://usbip.sourceforge.net/)
+
+Integrations that have followed the (Best practices for library authors)[https://developers.home-assistant.io/docs/network_discovery?_highlight=bluetooth#best-practices-for-library-authors] will automatically connect via the adapter with the best signal.
+
+## Troubleshooting
+
+### Integrations that require exclusive use of the Bluetooth Adapter
 
 While newer integrations can share the Bluetooth Adapter, some legacy integrations require exclusive use of the adapter. Enabling this integration may prevent an integration that has not been updated to use newer methods from functioning.
 
 Deleting the config entry for this integration will release control of the adapter and allow another integration to gain exclusive use of the Bluetooth adapter. If you have manually added `bluetooth:` to your `configuration.yaml`, you must also remove it to prevent the configuration from being recreated. Consider adding a second Bluetooth adapter on Linux systems if you need to continue using legacy integrations, as more integrations will move to use the Bluetooth integration in the future.
 
-## Bluetooth interference with other devices
+### Bluetooth interference with other devices
 
 Devices that are using the 2.4 GHz band, like Wi-Fi, Zigbee, and USB3 devices (and their cable connections) are known to affect Bluetooth reception. Especially external SSD drives with USB3 cables are known to block the Bluetooth signal. Also, metal casings can decrease the Bluetooth performance of internal Bluetooth Adapters.
 
