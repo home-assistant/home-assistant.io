@@ -74,12 +74,21 @@ device_class:
   description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
+force_update:
+  description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
+  required: false
+  type: boolean
+  default: false
 headers:
   description: The headers for the requests.
   required: false
   type: [list, template]
+icon:
+  description: Defines a template for the icon of the REST sensor.
+  required: false
+  type: template
 method:
-  description: The method of the request.
+  description: The method of the request. Either `POST` or `GET`.
   required: false
   type: string
   default: GET
@@ -97,9 +106,13 @@ password:
   required: false
   type: string
 payload:
-  description: The payload to send with a POST request. Usually formed as a dictionary.
+  description: The payload to send with a POST request. Depends on the service, but usually formed as JSON.
   required: false
   type: string
+picture:
+  description: Defines a template for the entity picture of the REST binary sensor.
+  required: false
+  type: template
 resource:
   description: The resource or endpoint that contains the value.
   required: true
@@ -114,6 +127,10 @@ timeout:
   required: false
   type: integer
   default: 10
+unique_id:
+  description: An ID that uniquely identifies this entity. This allows changing the `name`, `icon` and `entity_id` from the web interface.
+  required: false
+  type: string
 username:
   description: The username for accessing the REST endpoint.
   required: false
