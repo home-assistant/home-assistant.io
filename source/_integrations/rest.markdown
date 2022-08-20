@@ -158,16 +158,16 @@ params:
   required: false
   type: [list, template]
 scan_interval:
-  description: Define the refrequency to call the REST endpoint in seconds.
+  description: Define the frequency to call the REST endpoint in seconds.
   required: false
   type: integer
   default: 30
 sensor:
-  description: A list of sensors to create from the shared data. All configuration settings that are supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
+  description: A list of [RESTful Sensor](/integrations/sensor.rest) to create from the shared data. All configuration settings supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) that are not listed above can be used here.
   required: false
   type: list
 binary_sensor:
-  description: A list of binary sensors to create from the shared data. All configuration settings that are supported by [RESTful Binary Sensor](/integrations/binary_sensor.rest#configuration-variables) not listed above can be used here.
+  description: A list of [RESTful Binary Sensor](/integrations/binary_sensor.rest) to create from the shared data. All configuration settings supported by [RESTful Binary Sensor](/integrations/binary_sensor.rest#configuration-variables) that are not listed above can be used here.
   required: false
   type: list
 {% endconfiguration %}
