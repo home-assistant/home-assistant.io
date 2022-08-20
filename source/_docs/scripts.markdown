@@ -608,7 +608,7 @@ If you need to check a dynamically changing entity use a template check instead:
 ```yaml
 if:
   condition: template
-  value_template: "{{ is_state('zone_home', 0) }}"
+  value_template: "{{ is_state('zone.home', 0) }}"
 ```
 {% endraw %}
 
