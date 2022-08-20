@@ -110,6 +110,35 @@ rest:
 ```
 
 {% configuration %}
+authentication:
+  description:  Type of the HTTP authentication. `basic` or `digest`.
+  required: false
+  type: string
+binary_sensor:
+  description: A list of [RESTful Binary Sensor](/integrations/binary_sensor.rest) to create from the shared data. All configuration settings supported by [RESTful Binary Sensor](/integrations/binary_sensor.rest#configuration-variables) that are not listed above can be used here.
+  required: false
+  type: list
+headers:
+  description: The headers for the requests.
+  required: false
+  type: [list, template]
+method:
+  description: The method of the request. Either `POST` or `GET`.
+  required: false
+  type: string
+  default: GET
+params:
+  description: The query params for the requests.
+  required: false
+  type: [list, template]
+password:
+  description: The password for accessing the REST endpoint.
+  required: false
+  type: string
+payload:
+  description: The payload to send with a POST request. Depends on the service, but usually formed as JSON.
+  required: false
+  type: string
 resource:
   description: The resource or endpoint that contains the value.
   required: true
@@ -118,45 +147,6 @@ resource_template:
   description: The resource or endpoint that contains the value with template support.
   required: true
   type: template
-method:
-  description: The method of the request. Either `POST` or `GET`.
-  required: false
-  type: string
-  default: GET
-payload:
-  description: The payload to send with a POST request. Depends on the service, but usually formed as JSON.
-  required: false
-  type: string
-verify_ssl:
-  description: Verify the SSL certificate of the endpoint.
-  required: false
-  type: boolean
-  default: True
-timeout:
-  description: Defines max time to wait data from the endpoint.
-  required: false
-  type: integer
-  default: 10
-authentication:
-  description:  Type of the HTTP authentication. `basic` or `digest`.
-  required: false
-  type: string
-username:
-  description: The username for accessing the REST endpoint.
-  required: false
-  type: string
-password:
-  description: The password for accessing the REST endpoint.
-  required: false
-  type: string
-headers:
-  description: The headers for the requests.
-  required: false
-  type: [list, template]
-params:
-  description: The query params for the requests.
-  required: false
-  type: [list, template]
 scan_interval:
   description: Define the frequency to call the REST endpoint in seconds.
   required: false
@@ -166,8 +156,18 @@ sensor:
   description: A list of [RESTful Sensor](/integrations/sensor.rest) to create from the shared data. All configuration settings supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) that are not listed above can be used here.
   required: false
   type: list
-binary_sensor:
-  description: A list of [RESTful Binary Sensor](/integrations/binary_sensor.rest) to create from the shared data. All configuration settings supported by [RESTful Binary Sensor](/integrations/binary_sensor.rest#configuration-variables) that are not listed above can be used here.
+timeout:
+  description: Defines max time to wait data from the endpoint.
   required: false
-  type: list
+  type: integer
+  default: 10
+username:
+  description: The username for accessing the REST endpoint.
+  required: false
+  type: string
+verify_ssl:
+  description: Verify the SSL certificate of the endpoint.
+  required: false
+  type: boolean
+  default: True
 {% endconfiguration %}
