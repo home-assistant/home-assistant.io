@@ -59,17 +59,21 @@ Further data that is read from the device is added as diagnostic entities:
 - Settings and firmware
 - Flow hours
 
-Every time the Heat Meter values are read, battery time of the device will supposedly go down by about 30 minutes. To prevent battery drain, the integration will not poll automatically.
-
 ## Energy Dashboard
 
 Either heat usage or volume usage can be used as "Gas" on the energy dashboard. If you want to supply a price per MWh, make sure to apply the conversion factor first.
 
 ## Polling the device
 
-Polling is not done automatically (see battery warning), except once after adding the integration.
-To update the values from the device, create an automation that will update one of the entities. The other entities will be updated as well.
+Polling is by default done only once per day (and once right after adding the integration). Every time the Heat Meter values are read, battery time of the device will (supposedly) go down by about 30 minutes.
 
+For detailed control on polling and time of polling, consider disabling polling in the integration panel and poll manually. For instructions, see below.
+
+### Polling manually (optional)
+
+For detailed control on when the device is polled. disable default polling for this integration and create an automation that will update one of the entities. The other entities will be updated as well.
+
+If you're comfortable with yaml, this yaml could be used:
 ```yaml
 alias: Heat Meter daily update
 description: ''
