@@ -66,15 +66,18 @@ binary_sensor:
 {% endraw %}
 
 {% configuration %}
-resource:
-  description: The resource or endpoint that contains the value.
-  required: true
-  type: string
-  default: string
-resource_template:
-  description: The resource or endpoint that contains the value with template support.
+authentication:
+  description: "Type of the HTTP authentication. `basic` or `digest`."
   required: false
-  type: template
+  type: string
+device_class:
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
+headers:
+  description: The headers for the requests.
+  required: false
+  type: [list, template]
 method:
   description: The method of the request.
   required: false
@@ -85,8 +88,34 @@ name:
   required: false
   type: string
   default: REST Binary Sensor
-device_class:
-  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
+params:
+  description: The query params for the requests.
+  required: false
+  type: [list, template]
+password:
+  description: The password for accessing the REST endpoint.
+  required: false
+  type: string
+payload:
+  description: The payload to send with a POST request. Usually formed as a dictionary.
+  required: false
+  type: string
+resource:
+  description: The resource or endpoint that contains the value.
+  required: true
+  type: string
+  default: string
+resource_template:
+  description: The resource or endpoint that contains the value with template support.
+  required: false
+  type: template
+timeout:
+  description: Defines max time to wait data from the endpoint.
+  required: false
+  type: integer
+  default: 10
+username:
+  description: The username for accessing the REST endpoint.
   required: false
   type: string
 value_template:
@@ -95,10 +124,6 @@ value_template:
     to extract the value.
   required: false
   type: template
-payload:
-  description: The payload to send with a POST request. Usually formed as a dictionary.
-  required: false
-  type: string
 unique_id:
   description: An ID that uniquely identifies this entity. This allows changing the `name`, `icon` and `entity_id` from the web interface.
   required: false
@@ -108,31 +133,6 @@ verify_ssl:
   required: false
   type: boolean
   default: true
-timeout:
-  description: Defines max time to wait data from the endpoint.
-  required: false
-  type: integer
-  default: 10
-authentication:
-  description: "Type of the HTTP authentication. `basic` or `digest`."
-  required: false
-  type: string
-username:
-  description: The username for accessing the REST endpoint.
-  required: false
-  type: string
-password:
-  description: The password for accessing the REST endpoint.
-  required: false
-  type: string
-headers:
-  description: The headers for the requests.
-  required: false
-  type: [list, template]
-params:
-  description: The query params for the requests.
-  required: false
-  type: [list, template]
 {% endconfiguration %}
 
 ## Examples
