@@ -75,16 +75,12 @@ For detailed control on when the device is polled. disable default polling for t
 
 If you're comfortable with yaml, this yaml could be used:
 ```yaml
-alias: Heat Meter daily update
-description: ''
+alias: "Heat Meter manual update"
 trigger:
   - platform: time
-    at: '23:30:00'
-condition: []
+    at: "23:30:00"
 action:
   - service: homeassistant.update_entity
-    data: {}
     target:
       entity_id: sensor.heat_meter_heat_usage_gj
-mode: single
 ```
