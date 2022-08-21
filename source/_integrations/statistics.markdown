@@ -62,7 +62,7 @@ The following characteristics are supported for `sensor` source sensors:
 | `total` | The sum of all source sensor measurements within the given time and sampling size limits.
 | `value_max` | The biggest value among the number of measurements.
 | `value_min` | The smallest value among the number of measurements.
-| `variance` | The [variance](https://en.wikipedia.org/wiki/Standard_deviation) of an assumed normal distribution from all measurements.
+| `variance` | The [variance](https://en.wikipedia.org/wiki/Variance) of an assumed normal distribution from all measurements.
 
 ### Binary Source Sensor
 
