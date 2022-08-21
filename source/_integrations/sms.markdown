@@ -26,7 +26,7 @@ This integration provides the following platforms:
 
 ## Notifications
 
-An SMS message can be send by calling the `notify.sms`. It will send the message to all phone numbers specified in the `target` parameter.
+An SMS message can be sent by calling the `notify.sms`. It will send the message to all phone numbers specified in the `target` parameter.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
