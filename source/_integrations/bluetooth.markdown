@@ -35,17 +35,34 @@ For Bluetooth to function on Linux systems, the [D-Bus](https://en.wikipedia.org
 - Home Assistant Supervised: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
 - Home Assistant Core: The system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant.
 
+### Additional details for Container installs
+
+{% details Making the DBus socket available in the Docker container %}
+
+For most systems, the Dbus socket is in `/run/dbus`. The socket must be available in the container for Home Assistant to be able to connect to Dbus and access the Bluetooth adapter. When starting with `docker run`, this can be accomplished by adding `-v /run/dbus:/run/dbus:ro` to the command. If the Dbus socket is in `/var/run/dbus` on the host system, use `-v /var/run/dbus:/run/dbus:ro` instead.
+
+{% enddetails %}
+
+### Additional details for Container and Supervised installs
+
+{% details Installing BlueZ %}
+
+On Debian based host systems, the `sudo apt-get -y install bluez` command will install BlueZ.
+
+{% enddetails %}
+
 ## Installing a USB Bluetooth Adapter
 
 Some systems may not come with Bluetooth and require a USB adapter. Installing an adapter for the first time may require multiple restarts for the device to be fully recognized.
 
-If you experience an unreliable Bluetooth connection, installing a [USB extension cable with a Ferrite Bead](https://a.co/d/fRnFIwy) may improve reliability.
+If you experience an unreliable Bluetooth connection, installing a short USB extension cable between your Bluetooth adapter and your Home Assistant server may improve reliability.
 
 ### Known working adapters
 
 - ASUS USB-BT400
 - ASUS USB-BT500
 - Avantree DG45
+- Kinivo BTD-400
 - Maxuni BT-501
 - SUMEE BT501
 - UGREEN CM390
@@ -58,19 +75,27 @@ If you experience an unreliable Bluetooth connection, installing a [USB extensio
 - tp-link UB400 - Frequent connection failures
 - tp-link UB500 - Frequent connection failures
 
-{% include integrations/option_flow.md %}
+## Multiple adapters
 
-### Multiple adapters
+Support for multiple local Bluetooth adapters is available on Linux systems only. Place adapters far enough away from each other to reduce interference.
 
-Support for multiple Bluetooth adapters is available on Linux systems only. Select the adapter you wish to use via the options flow on the integrations page. The adapter selection only affects integrations that use the Bluetooth integration interfaces.
+The following methods are known to work to add multiple adapters:
 
-## Integrations that require exclusive use of the Bluetooth Adapter
+- Long USB Extension cables
+- USB-Ethernet extenders
+- [USB/IP](http://usbip.sourceforge.net/)
+
+Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/network_discovery?_highlight=bluetooth#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
+
+## Troubleshooting
+
+### Integrations that require exclusive use of the Bluetooth Adapter
 
 While newer integrations can share the Bluetooth Adapter, some legacy integrations require exclusive use of the adapter. Enabling this integration may prevent an integration that has not been updated to use newer methods from functioning.
 
 Deleting the config entry for this integration will release control of the adapter and allow another integration to gain exclusive use of the Bluetooth adapter. If you have manually added `bluetooth:` to your `configuration.yaml`, you must also remove it to prevent the configuration from being recreated. Consider adding a second Bluetooth adapter on Linux systems if you need to continue using legacy integrations, as more integrations will move to use the Bluetooth integration in the future.
 
-## Bluetooth interference with other devices
+### Bluetooth interference with other devices
 
 Devices that are using the 2.4 GHz band, like Wi-Fi, Zigbee, and USB3 devices (and their cable connections) are known to affect Bluetooth reception. Especially external SSD drives with USB3 cables are known to block the Bluetooth signal. Also, metal casings can decrease the Bluetooth performance of internal Bluetooth Adapters.
 

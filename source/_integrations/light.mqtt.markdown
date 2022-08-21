@@ -720,13 +720,18 @@ state_topic:
   required: false
   type: string
 supported_color_modes:
-  description: A list of color modes supported by the list. This is required if `color_mode` is `True`. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`.
+  description: A list of color modes supported by the list. This is required if `color_mode` is `True`. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`.
   required: false
   type: list
 unique_id:
    description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
    required: false
    type: string
+white_scale:
+  description: "Defines the maximum white level (i.e., 100%) of the MQTT device. This is used when setting the light to white mode."
+  required: false
+  type: integer
+  default: 255
 {% endconfiguration %}
 
 <div class='note warning'>
