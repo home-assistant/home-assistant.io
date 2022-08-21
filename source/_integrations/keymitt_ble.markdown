@@ -37,6 +37,8 @@ This Integration is for the MicroBot Push only. The Keymitt lock is not supporte
 
 The Calibration service will locally set the MicroBot Push depth, duration, and mode.
 
+Please note: The push arm will extend or retract (dependant on the mode set) after the service call is invoked. The mode and depth will be demomstrated but not the duration. The setting is however stored and can be confirmed by manually operating the device.
+
 | Service Data Attribute | Required | Description                                                                                   |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | Entity ID of the MicroBot Push to calibrate.                                                  |
@@ -49,6 +51,8 @@ The Calibration service will locally set the MicroBot Push depth, duration, and 
 ### Error codes and troubleshooting
 
 The integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
+
+Due to the device going into deep sleep after prelonged disuse, the response time can be up to a minute in extreme cases. On average it will be much quicker.
 
 {% configuration_basic %}
 "Failed to pair":
