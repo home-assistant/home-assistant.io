@@ -66,7 +66,7 @@ notify_sms_user1:
   - service: notify.sms
     data:
       message: "{{ message }}"
-      target: "{{ states('sensor.user1_phone_number') }}"
+      target: states(sensor.user1_phone_number)
   mode: single
   icon: mdi:chat-alert
 ```
