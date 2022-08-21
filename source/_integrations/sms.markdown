@@ -47,7 +47,7 @@ Every time there is a message received, `event: sms.incoming_sms` is fired with 
 Sample automation that forward all SMS to `user1`:
 
 #### Define a sensor in `configuration.yaml` to protect user phone number
-```
+```yaml
 template:
   - sensor:
     - name: "User1 Phone Number"
@@ -55,7 +55,7 @@ template:
 ```
 
 #### Define a script in `scripts.yaml` to use the sensor
-```
+```yaml
 notify_sms_user1:
   alias: Notify via SMS to User1
   fields:
@@ -73,7 +73,7 @@ notify_sms_user1:
 ```
 
 #### Putting it all together in `automations.yaml`
-```
+```yaml
 - id: 'forward_sms'
   alias: Forward SMS
   description: ''
