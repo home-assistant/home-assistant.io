@@ -71,9 +71,10 @@ For detailed control on polling and time of polling, consider disabling polling 
 
 ### Polling manually (optional)
 
-For detailed control on when the device is polled. disable default polling for this integration and create an automation that will update one of the entities. The other entities will be updated as well.
+For detailed control on when the device is polled, disable the default polling for this integration and create an automation that will update one of the entities (the other entities will be updated as well)
 
-If you're comfortable with yaml, this yaml could be used:
+If you're comfortable with YAML, this game could be used:
+
 ```yaml
 alias: "Heat Meter manual update"
 trigger:
