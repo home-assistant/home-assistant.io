@@ -1,8 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.8.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     chunky_png (1.4.0)
     colorator (1.1.0)
     commonmarker (0.23.5)
@@ -73,11 +73,9 @@ GEM
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    nokogiri (1.13.8-x64-mingw32)
-      racc (~> 1.4)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
-    public_suffix (4.0.7)
+    public_suffix (5.0.0)
     racc (1.6.0)
     rack (2.2.4)
     rack-protection (2.2.2)
@@ -111,6 +109,7 @@ GEM
     tzinfo-data (1.2022.3)
       tzinfo (>= 1.0.0)
     unicode-display_width (1.8.0)
+    webrick (1.7.0)
 
 PLATFORMS
   ruby
@@ -131,9 +130,10 @@ DEPENDENCIES
   stringex (= 2.8.5)
   tzinfo (~> 2.0)
   tzinfo-data
+  webrick (= 1.7.0)
 
 RUBY VERSION
    ruby 2.6.2p47
 
 BUNDLED WITH
-   2.2.28
+   2.3.20
