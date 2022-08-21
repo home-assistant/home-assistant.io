@@ -11,6 +11,6 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `pjlink` integration allows you to control from Home Assistant, projectors with support for the [PJLink protocol](https://pjlink.jbmia.or.jp/english/index.html).
+The PJLink integration allows you to control from Home Assistant, projectors with support for the [PJLink protocol](https://pjlink.jbmia.or.jp/english/index.html).
 
 {% include integrations/config_flow.md %}
