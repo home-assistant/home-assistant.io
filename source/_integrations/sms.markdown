@@ -40,7 +40,7 @@ action:
     target: '+5068081-8181'
 ```
 
-### Sending SMS as ANSI
+### Sending SMS using GSM alphabet
 
 Some devices (receiving or sending) do not support Unicode (the default encoding). For these you can disable Unicode:
 
@@ -66,8 +66,6 @@ notify:
   - platform: sms
     name: sms_person2
     recipient: PHONE_NUMBER
-  - platform: sms
-    name: sms
 ```
 
 ### Getting SMS messages
