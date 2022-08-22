@@ -41,7 +41,6 @@ Please note: The push arm will extend or retract (dependant on the mode set) aft
 
 | Service Data Attribute | Required | Description                                                                                   |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | Entity ID of the MicroBot Push to calibrate.                                                  |
 | `depth`                | yes      | How far (in percent) to extend the push arm.                                                  |
 | `duration`             | yes      | Duration (in seconds) to hold the arm extended.                                               |
 | `mode`                 | yes      |'Normal' - extend and retract the arm.                                                         |
