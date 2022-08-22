@@ -46,7 +46,10 @@ The following devices have been confirmed to work out of the box:
 
 If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) (EEP). If it does, it will most likely work. The available profiles are usually listed somewhere in the device manual.
 
-Support for tech-in messages is not implemented.
+
+Teach-in of 4BS- and UTE-telegrams is supported through a call to an integration service named "Teach-In Device". One can specify the base-id to use. This id must be within the allowed range of your devices base-id ([base-id .. base-id + 127]). One can set the time range the service accepts new teach-in request. During the wait for teach-in queries no other telegram gets processed. The maximum allowed time to run is 600 seconds.
+When either the time is over or a teach-in request has been received the listening stops and the result pushes a notification. When successful, one can see the sender_id of the device in the UI.
+
 
 {% include integrations/config_flow.md %}
 
