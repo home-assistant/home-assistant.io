@@ -8,6 +8,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Climate
 ha_release: 0.21
 ha_iot_class: Local Push
 ha_codeowners:
@@ -19,6 +20,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - climate
 ha_integration_type: integration
 ---
 
@@ -32,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor) - Power meters, temperature sensors, humidity sensors and window handles
 - [Light](#light) - Dimmers
 - [Switch](#switch)
+- [Climate](#climate)
 
 However, due to the wide range of message types, not all devices will work without code changes.
 The following devices have been confirmed to work out of the box:
@@ -365,3 +368,35 @@ switch nodon01_1:
     name: enocean_nodon01_1
     channel: 1
 ```
+
+## Climate
+This has been tested with a Kieback & Peter MD15-FTL-HE. It supports the EEP A5-20-01
+You can set a set point temperature in the dashboard and the thermostat decides whether the valve has to be opened or not. It uses it's integrated temperature sensor for reference.
+
+Add the following to your `configurationn.yaml` file:
+```yaml
+# Example configuration.yaml entry
+climate:
+  - name: KP Thermostat
+    platform: enocean
+    id: [0x01,0x50,0x23,0x3C]
+    sender_id: [0xDE, 0xAD, 0x01, 0x02]
+    inverse: False
+```
+{% configuration %}
+id:
+  description: The ID of the device. This is a 4 bytes long number.
+  required: true
+  type: list
+name:
+  description: An identifier for the thermostat.
+  required: false
+  type: string
+sender_id:
+  description: The number base-id to use of your EnOcean transceiver module. It has to be the same which you used when teaching in your device.
+  required: true
+  type: list
+inverse:
+  description: The thermostat can inverse the interpretation whether a valve is open or closed 
+{% endconfiguration %}
+
