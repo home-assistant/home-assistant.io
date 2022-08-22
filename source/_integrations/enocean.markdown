@@ -381,7 +381,7 @@ climate:
     platform: enocean
     id: [0x01,0x50,0x23,0x3C]
     sender_id: [0xDE, 0xAD, 0x01, 0x02]
-    inverse: False
+    inverse: false
 ```
 {% configuration %}
 id:
