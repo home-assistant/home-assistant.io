@@ -399,5 +399,6 @@ sender_id:
 inverse:
   description: The thermostat can inverse the interpretation whether a valve is open or closed
   type: boolean
+  default: false
 {% endconfiguration %}
 
