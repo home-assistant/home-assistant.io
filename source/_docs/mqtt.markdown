@@ -9,6 +9,8 @@ To integrate MQTT into Home Assistant, you need to setup the [MQTT integration](
 
 You will also need to setup an MQTT broker, please refer to the [MQTT broker](/docs/mqtt/broker) documentation.
 
+All [MQTT supported platforms](/integrations/mqtt/#supported-platforms) support discovery, alternatively most platforms can be setup manually using `configuration.yaml`.
+
 ## Additional features
 
 - [Certificate](/docs/mqtt/certificate/)
@@ -17,3 +19,4 @@ You will also need to setup an MQTT broker, please refer to the [MQTT broker](/d
 - [Birth and last will messages](/docs/mqtt/birth_will/)
 - [Testing your setup](/docs/mqtt/testing/)
 - [Logging](/docs/mqtt/logging/)
+- [Using templates](/docs/configuration/templating/#using-templates-with-the-mqtt-integration)

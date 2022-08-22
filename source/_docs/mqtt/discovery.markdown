@@ -6,30 +6,10 @@ logo: mqtt.png
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier, and the remaining device configuration without the device type.
 
-Supported by MQTT discovery:
-
-- [Alarm control panels](/integrations/alarm_control_panel.mqtt/)
-- [Binary sensors](/integrations/binary_sensor.mqtt/)
-- [Buttons](/integrations/button.mqtt/)
-- [Cameras](/integrations/camera.mqtt/)
-- [Covers](/integrations/cover.mqtt/)
-- [Device Trackers](/integrations/device_tracker.mqtt/)
-- [Device Triggers](/integrations/device_trigger.mqtt/)
-- [Fans](/integrations/fan.mqtt/)
-- [Humidifiers](/integrations/humidifier.mqtt/)
-- [HVACs](/integrations/climate.mqtt/)
-- [Lights](/integrations/light.mqtt/)
-- [Locks](/integrations/lock.mqtt/)
-- [Numbers](/integrations/number.mqtt/)
-- [Scenes](/integrations/scene.mqtt/)
-- [Selects](/integrations/select.mqtt/)
-- [Sensors](/integrations/sensor.mqtt/)
-- [Sirens](/integrations/siren.mqtt/)
-- [Switches](/integrations/switch.mqtt/)
-- [Tag Scanners](/integrations/tag.mqtt/)
-- [Vacuums](/integrations/vacuum.mqtt/)
+All [MQTT supported platforms](/integrations/mqtt/#supported-platforms) support discovery, alternatively platforms can be setup manually using `configuration.yaml`.
 
 ## Configuration
+
 MQTT discovery is enabled by default, but can be disabled. To do this, click on "Configure" in the integration page in the UI, then "Re-configure MQTT" and then "Next".
 
 ### Advanced discovery configuration

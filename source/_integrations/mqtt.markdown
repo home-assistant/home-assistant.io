@@ -49,9 +49,37 @@ This includes configuring SSL [certificate](/docs/mqtt/certificate/) options.
 - [Birth and last will messages](/docs/mqtt/birth_will/)
 - [Testing your setup](/docs/mqtt/testing/)
 - [Logging](/docs/mqtt/logging/)
+- [Using templates](/docs/configuration/templating/#using-templates-with-the-mqtt-integration)
 
 ## Event `event_mqtt_reloaded`
 
 Event `event_mqtt_reloaded` is fired when Manually configured MQTT entities have been reloaded and entities thus might have changed.
 
 This event has no additional data.
+
+## Supported platforms
+
+MQTT supports discovery and in in most cases a manual setup through the `configuration.yaml` file. The following platforms are supported.
+
+Platform | Discovery | Manual setup
+--- | --- | ---
+[Alarm control panel](/integrations/alarm_control_panel.mqtt/) | ✔ | ✔
+[Binary sensor](/integrations/binary_sensor.mqtt/) | ✔ | ✔
+[Button](/integrations/button.mqtt/) | ✔ | ✔
+[Camera](/integrations/camera.mqtt/) | ✔ | ✔
+[Cover](/integrations/cover.mqtt/) | ✔ | ✔
+[Device Tracker](/integrations/device_tracker.mqtt/) | ✔ | ✔
+[Device Trigger](/integrations/device_trigger.mqtt/) | ✔ | ✘
+[Fan](/integrations/fan.mqtt/) | ✔ | ✔
+[Humidifier](/integrations/humidifier.mqtt/) | ✔ | ✔
+[Climate/HVAC](/integrations/climate.mqtt/) | ✔ | ✔
+[Light](/integrations/light.mqtt/) | ✔ | ✔
+[Lock](/integrations/lock.mqtt/) | ✔ | ✔
+[Number](/integrations/number.mqtt/) | ✔ | ✔
+[Scene](/integrations/scene.mqtt/) | ✔ | ✔
+[Select](/integrations/select.mqtt/) | ✔ | ✔
+[Sensor](/integrations/sensor.mqtt/) | ✔ | ✔
+[Siren](/integrations/siren.mqtt/) | ✔ | ✔
+[Switch](/integrations/switch.mqtt/) | ✔ | ✔
+[Tag](/integrations/tag.mqtt/) | ✔ | ✘
+[Vacuum](/integrations/vacuum.mqtt/) | ✔ | ✔
