@@ -27,7 +27,7 @@ Values for your account:
 - Logo: Any reasonable picture will do.
 - Description: Personal app for collecting my data.
 - Contact Email: Your email address
-- Callback Uri: `https://my.home-assistant.io/redirect/oauth`.
+- Callback Uri: `https://_my.home-assistant.io_/auth/external/callback`.
 - Company: Home Assistant
 
 Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You will need these in the next step.
