@@ -8,13 +8,13 @@ ha_iot_class: Local Polling
 ha_domain: rest
 ---
 
+_This format still works but is no longer recommended. [Use modern configuration via RESTful integration](/integrations/rest)._
+
 The `rest` binary sensor platform is consuming a given endpoint which is exposed
 by a
 [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer)
 of a device, an application, or a web service.
 The binary sensor has support for GET and POST requests.
-
-_Tip:_ If you want to create multiple `sensors` using the same endpoint, use the [RESTful](/integrations/rest) configuration instructions.
 
 The JSON messages can contain different values like `1`, `"1"`,
 `TRUE`, `true`, `on`, or `open`. If the value is nested then use a

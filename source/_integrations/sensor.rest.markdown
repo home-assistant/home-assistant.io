@@ -8,9 +8,9 @@ ha_iot_class: Local Polling
 ha_domain: rest
 ---
 
-The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
+_This format still works but is no longer recommended. [Use modern configuration via RESTful integration](/integrations/rest)._
 
-_Tip:_ If you want to create multiple `sensors` using the same endpoint, use the [RESTful](/integrations/rest) configuration instructions.
+The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
 
 To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
 
@@ -94,7 +94,7 @@ name:
 params:
   description: The query params for the requests.
   required: false
-  type: [template, list]  
+  type: [template, list]
 password:
   description: The password for accessing the REST endpoint.
   required: false
@@ -491,7 +491,7 @@ switch:
                entity_id: sensor.steam_system_data
         friendly_name: Steam
 
-rest_command:  
+rest_command:
   set_steam_led:
     url: http://192.168.1.105/leds.cgi?led={{ led }}
 ```
