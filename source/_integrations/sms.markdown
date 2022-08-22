@@ -26,6 +26,36 @@ This integration provides the following platforms:
 
 ## Notifications
 
+An SMS message can be sent by calling the `notify.sms`. It will send the message to all phone numbers specified in the `target` parameter.
+
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+### Send message
+
+```yaml
+action:
+  service: notify.sms
+  data:
+    message: "This is a message for you!"
+    target: "+5068081-8181"
+```
+
+### Sending SMS using GSM alphabet
+
+Some devices (receiving or sending) do not support Unicode (the default encoding). For these you can disable Unicode:
+
+```yaml
+action:
+  service: notify.sms
+  data:
+    message: "This is a message for you in ANSI"
+    target: "+5068081-8181"
+    data:
+      unicode: False
+```
+
+### Manual confiration
+
 To configure the notification service, edit your `configuration.yaml` file:
 
 ```yaml
@@ -38,10 +68,12 @@ notify:
     recipient: PHONE_NUMBER
 ```
 
+### Getting SMS messages
+
 You can also receive SMS messages that are sent to the SIM card number in your device.
 Every time there is a message received, `event: sms.incoming_sms` is fired with date, phone number and text message.
 
-To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+## Notes about the operation system
 
 If the integration is used with the Home Assistant Operating System, then version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher is required.
 
