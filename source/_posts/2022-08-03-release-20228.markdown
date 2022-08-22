@@ -48,6 +48,7 @@ Enjoy the release!
 - [Release 2022.8.3 - August 9](#release-202283---august-9)
 - [Release 2022.8.4 - August 12](#release-202284---august-12)
 - [Release 2022.8.5 - August 15](#release-202285---august-15)
+- [Release 2022.8.6 - August 17](#release-202286---august-17)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -569,6 +570,41 @@ The following integrations are now available via the Home Assistant UI:
 [sensorpush docs]: /integrations/sensorpush/
 [switchbot docs]: /integrations/switchbot/
 [system_bridge docs]: /integrations/system_bridge/
+
+## Release 2022.8.6 - August 17
+
+- Fix displayed units for BMW Connected Drive ([@rikroe] - [#76613]) ([bmw_connected_drive docs])
+- Fix Overkiz startup order to prevent unnamed device showing up ([@iMicknl] - [#76695]) ([overkiz docs])
+- Bump pynetgear to 0.10.7 ([@starkillerOG] - [#76754]) ([netgear docs])
+- Correct restoring of mobile_app sensors ([@emontnemery] - [#76886]) ([mobile_app docs])
+- Fix acmeda set cover tilt position ([@epenet] - [#76927]) ([acmeda docs])
+- Fix race in notify setup ([@bdraco] - [#76954]) ([notify docs])
+- Pass the real config for Discord ([@tkdrob] - [#76959]) ([discord docs])
+- Pass the real config for Slack ([@tkdrob] - [#76960]) ([slack docs])
+
+[#76613]: https://github.com/home-assistant/core/pull/76613
+[#76695]: https://github.com/home-assistant/core/pull/76695
+[#76754]: https://github.com/home-assistant/core/pull/76754
+[#76886]: https://github.com/home-assistant/core/pull/76886
+[#76927]: https://github.com/home-assistant/core/pull/76927
+[#76954]: https://github.com/home-assistant/core/pull/76954
+[#76959]: https://github.com/home-assistant/core/pull/76959
+[#76960]: https://github.com/home-assistant/core/pull/76960
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@iMicknl]: https://github.com/iMicknl
+[@rikroe]: https://github.com/rikroe
+[@starkillerOG]: https://github.com/starkillerOG
+[@tkdrob]: https://github.com/tkdrob
+[acmeda docs]: /integrations/acmeda/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[discord docs]: /integrations/discord/
+[mobile_app docs]: /integrations/mobile_app/
+[netgear docs]: /integrations/netgear/
+[notify docs]: /integrations/notify/
+[overkiz docs]: /integrations/overkiz/
+[slack docs]: /integrations/slack/
 
 ## Need help? Join the community!
 

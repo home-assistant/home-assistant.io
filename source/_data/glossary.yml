@@ -61,7 +61,7 @@
 - topic: Sensor
   description: "[Sensors](/integrations/sensor) return information about a thing, for instance the level of water in a tank."
 - topic: Selectors
-  description: "[Selectors](/docs/blueprint/selectors/) specify what values are accepted for a blueprint input and how the input is shown in the user interface."
+  description: "[Selectors](/docs/blueprint/selectors/) are components for the user interface. Some selectors can, for example, show a toggle button to turn something on or off, while another select can filter a list of devices to show only devices that have motion-sensing capabilities."
 - topic: Service
   description: "[Services](/docs/scripts/service-calls/) are called to perform actions."
 - topic: Switch
@@ -73,6 +73,6 @@
 - topic: TTS
   description: "TTS ([text to speech](/integrations/tts)) allows Home Assistant to talk to you."
 - topic: Variables
-  description: "[Variables](/docs/scripts/#variables) are a named storage for a value that can be processed e.g. in a script."
+  description: "[Variables](/docs/scripts/#variables) are used to store values in memory that can be processed e.g. in a script."
 - topic: Zone
   description: "[Zones](/integrations/zone/) are areas that can be used for presence detection."

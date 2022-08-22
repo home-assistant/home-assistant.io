@@ -36,8 +36,22 @@ To use notifications, please see the [getting started with automation page](/get
 action:
   service: notify.sms
   data:
-    message: 'This is a message for you!'
-    target: '+5068081-8181'
+    message: "This is a message for you!"
+    target: "+5068081-8181"
+```
+
+### Sending SMS using GSM alphabet
+
+Some devices (receiving or sending) do not support Unicode (the default encoding). For these you can disable Unicode:
+
+```yaml
+action:
+  service: notify.sms
+  data:
+    message: "This is a message for you in ANSI"
+    target: "+5068081-8181"
+    data:
+      unicode: False
 ```
 
 ### Getting SMS messages
