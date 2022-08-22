@@ -14,10 +14,12 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Ukraine Alarm integration uses the siren.pp.ua API - public wrapper for [Ukraine Alarm](https://www.ukrainealarm.com/) web service to offer air-raid siren notifications. The integration will create 4 binary sensors for your selected region in Ukraine:
+The Ukraine Alarm integration uses the siren.pp.ua API - public wrapper for [Ukraine Alarm](https://www.ukrainealarm.com/) web service to offer air-raid siren notifications. The integration will create 6 binary sensors for your selected region in Ukraine:
 
 - Air
 - Artillery
+- Chemical
+- Nuclear
 - Urban Fights
 - Unknown
 
