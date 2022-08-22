@@ -34,7 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor) - Power meters, temperature sensors, humidity sensors and window handles
 - [Light](#light) - Dimmers
 - [Switch](#switch)
-- [Climate](#climate)
+- [Climate](#climate) - Thermostat
 
 However, due to the wide range of message types, not all devices will work without code changes.
 The following devices have been confirmed to work out of the box:
@@ -397,6 +397,7 @@ sender_id:
   required: true
   type: list
 inverse:
-  description: The thermostat can inverse the interpretation whether a valve is open or closed 
+  description: The thermostat can inverse the interpretation whether a valve is open or closed
+  type: bool
 {% endconfiguration %}
 
