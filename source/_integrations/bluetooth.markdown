@@ -87,6 +87,25 @@ The following methods are known to work to add multiple adapters:
 
 Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/network_discovery?_highlight=bluetooth#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
 
+## Remote adapters
+
+The Bluetooth integration supports receiving advertisement data from external adapters for devices and sensors that do not need an active connection. The number of remote scanners is limited only by the performance of the host system.
+
+The following remote adapters are supported:
+
+- ESPHome
+
+### ESPHome requirements
+
+Devices with an ESP32 chip running [ESPHome](/integrations/esphome/) must enable the `bluetooth_proxy` component and be added to Home Assistant before advertisements are forwarded.
+
+```yaml
+esp32_ble_tracker:
+bluetooth_proxy:
+```
+
+Many integrations require an active scan for discovery. By default, the [ESPHome tracker](https://esphome.io/components/esp32_ble_tracker.html) runs in active mode. Adding ESPHome remotes that have active scanning disabled may cause some integrations to malfunction.
+
 ## Troubleshooting
 
 ### Integrations that require exclusive use of the Bluetooth Adapter
