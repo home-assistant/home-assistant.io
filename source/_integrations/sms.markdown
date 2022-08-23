@@ -103,7 +103,7 @@ notify_sms_user1:
   mode: single
 ```
 
-## Notes about the operation system
+## Notes about the operating system
 
 If the integration is used with the Home Assistant Operating System, then version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher is required.
 
