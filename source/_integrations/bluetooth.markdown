@@ -59,15 +59,16 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 
 ### Known working adapters
 
-- ASUS USB-BT400
-- ASUS USB-BT500
+- ASUS USB-BT400 [BCM20702A1]
+- ASUS USB-BT500 [RTL8761BU]
 - Avantree DG45
-- Kinivo BTD-400
-- Maxuni BT-501
-- SUMEE BT501
-- UGREEN CM390
-- XDO BT802 (Long Range)
-- ZEXMTE BT-505 (Long Range)
+- EDUP LOVE EP-B3536 [RTL8761BU] (Long Range)
+- Kinivo BTD-400 [BCM20702A1]
+- Maxuni BT-501 [RTL8761B]
+- SUMEE BT501 [RTL8761B]
+- UGREEN CM390 [RTL8761BU]
+- XDO BT802 [RTL8761BU] (Long Range)
+- ZEXMTE BT-505 [RTL8761BU] (Long Range)
 - ZEXMTE BT-DG54
 
 ### Unsupported adapters
