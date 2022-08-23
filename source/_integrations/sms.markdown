@@ -54,26 +54,66 @@ action:
       unicode: False
 ```
 
-### Manual confiration
-
-To configure the notification service, edit your `configuration.yaml` file:
-
-```yaml
-notify:
-  - platform: sms
-    name: sms_person1
-    recipient: PHONE_NUMBER
-  - platform: sms
-    name: sms_person2
-    recipient: PHONE_NUMBER
-```
-
 ### Getting SMS messages
 
 You can also receive SMS messages that are sent to the SIM card number in your device.
 Every time there is a message received, `event: sms.incoming_sms` is fired with date, phone number and text message.
+Sample automation that forward all SMS to `user1`:
 
-## Notes about the operation system
+#### Define a sensor in `configuration.yaml` to protect user phone number
+```yaml
+template:
+  - sensor:
+    - name: "User1 Phone Number"
+      state: !secret user1_phone_number
+```
+
+#### Define a script in `scripts.yaml` to use the sensor
+
+{% raw %}
+
+```yaml
+notify_sms_user1:
+  alias: Notify via SMS to User1
+  fields:
+    message:
+      description: The message content
+      example: The light is on!
+  sequence:
+  - service: notify.sms
+    data:
+      message: "{{ message }}"
+      target: states(sensor.user1_phone_number)
+  mode: single
+  icon: mdi:chat-alert
+```
+
+{% endraw %}
+
+#### Putting it all together in `automations.yaml`
+
+{% raw %}
+
+```yaml
+- id: 'forward_sms'
+  alias: Forward SMS
+  description: ''
+  trigger:
+  - platform: event
+    event_type: sms.incoming_sms
+  condition: []
+  action:
+  - service: script.notify_sms_user1
+    data:
+      message: 'From: {{trigger.event.data.phone}}
+        {{trigger.event.data.text}}
+        '
+  mode: single
+```
+
+{% endraw %}
+
+## Notes about the operating system
 
 If the integration is used with the Home Assistant Operating System, then version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher is required.
 
