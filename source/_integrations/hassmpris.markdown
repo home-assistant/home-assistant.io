@@ -63,7 +63,7 @@ This does not work with media players that can change their playback rate (as yo
 3. Subtract from `now()` the `media_position_last_updated` — this gives you an offset in seconds between the last time that the media player updated the position, and now.  **Now multiply this value by the playback rate** from step (2).
 4. Sum the value from (3) to the value from (1).  This gives you a reasonable estimate (to within one second accuracy) of how far ahead the play head of your media player is.
 
-To make sure that the values needed for this computation are trustworthy, the agent is smart enough to update the play head position in Home Assistant, whenever media is paused, played, seeked, or its rate of playback changes.
+To make sure that the values needed for this computation are trustworthy, the agent is smart enough to update the play head position in Home Assistant, whenever media is paused, played, sought, or its rate of playback changes.
 
 ## Agent setup
 
