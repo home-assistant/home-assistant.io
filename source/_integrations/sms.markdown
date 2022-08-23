@@ -69,6 +69,9 @@ template:
 ```
 
 #### Define a script in `scripts.yaml` to use the sensor
+
+{% raw %}
+
 ```yaml
 notify_sms_user1:
   alias: Notify via SMS to User1
@@ -85,7 +88,12 @@ notify_sms_user1:
   icon: mdi:chat-alert
 ```
 
+{% endraw %}
+
 #### Putting it all together in `automations.yaml`
+
+{% raw %}
+
 ```yaml
 - id: 'forward_sms'
   alias: Forward SMS
@@ -102,6 +110,8 @@ notify_sms_user1:
         '
   mode: single
 ```
+
+{% endraw %}
 
 ## Notes about the operating system
 
