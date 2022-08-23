@@ -37,7 +37,7 @@ This Integration is for the MicroBot Push only. The Keymitt lock is not supporte
 
 The Calibration service will locally set the MicroBot Push depth, duration, and mode.
 
-Please note: The push arm will extend or retract (dependant on the mode set) after the service call is invoked. The mode and depth will be demonstrated, but not the duration. The setting is, however, stored and can be confirmed by manually operating the device.
+Please note: The push arm will extend or retract (dependent on the mode set) after the service call is invoked. The mode and depth will be demonstrated, but not the duration. The setting is, however, stored and can be confirmed by manually operating the device.
 
 | Service Data Attribute | Required | Description                                                                                   |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------- |
