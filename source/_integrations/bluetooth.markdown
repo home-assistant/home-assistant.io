@@ -93,11 +93,11 @@ The Bluetooth integration supports receiving advertisement data from external ad
 
 The following remote adapters are supported:
 
-- ESPHome
+- [ESPHome](https://esphome.io)
 
 ### ESPHome requirements
 
-Devices with an ESP32 chip running [ESPHome](/integrations/esphome/) must enable the `bluetooth_proxy` component and be added to Home Assistant before advertisements are forwarded.
+Devices with an ESP32 chip running ESPHome must enable the `bluetooth_proxy` component and be added to Home Assistant before advertisements are forwarded.
 
 ```yaml
 esp32_ble_tracker:
