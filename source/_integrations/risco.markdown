@@ -22,7 +22,7 @@ This integration connects with Risco Alarms, in one of two ways:
 
 ## Risco Cloud (recommended)
 
-The integration will connect with your alamr over [Risco Cloud](https://riscocloud.com/).
+The integration will connect with your alarm over [Risco Cloud](https://riscocloud.com/).
 This is easiest to configure, and is widely supported, but is cloud based, and requires polling. 
 
 <div class='note'>
@@ -41,11 +41,11 @@ If you have multiple sites, only the first site will be used.
 ## Local (advanced)
 
 The integration will connect locally to your system.
-No depency on the cloud, and instantenous updates, but is harder to set up.
+No dependency on the cloud, and instantaneous updates, but is harder to set up.
 You will need the master code to your system, and with older models,
-you might need to either disconnect your system from the cloud, or setup a proxy that will allow you to connect both.
+you might need to either disconnect your system from the cloud, or set up a proxy that will allow you to connect both locally and via the cloud.
 
-The loacl version of the integration does not support events, and the `arming` state.
+The local version of the integration does not support events, and the `arming` state.
 
 {% include integrations/config_flow.md %}
 
