@@ -28,4 +28,6 @@ The Qingping integration will automatically discover devices once the [Bluetooth
 - [Air Monitor Lite](https://www.qingping.co/air-monitor-lite/overview) (CGDN1)
 - [Alarm Clock](https://www.qingping.co/bluetooth-alarm-clock/overview) (CGD1)
 - [BT Clock Lite](https://www.qingping.co/bluetooth-clock/overview) (CGC1)
+- [Door/Window Sensor](https://www.qingping.co/door-window-sensor/overview) (CGH1)
+- [LEE GUITARS Thermo-Hygrometer](https://www.qingping.co/lee-guitars-thermo-hygrometer/overview) (CGM1)
 - [Motion & Ambient Light Sensor](https://www.qingping.co/motion-light-sensor/overview) (CGPR1)
