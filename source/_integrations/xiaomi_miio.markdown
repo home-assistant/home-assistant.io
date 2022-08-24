@@ -218,6 +218,7 @@ Supported devices:
 | Air Purifier 3C        | zhimi.airpurifier.mb4  | |
 | Air Fresh A1           | dmaker.airfresh.a1     | MJXFJ-150-A1 |
 | Air Fresh VA2          | zhimi.airfresh.va2     | |
+| Air Fresh VA4          | zhimi.airfresh.va4     | |
 | Air Fresh T2017        | dmaker.airfresh.t2017  | MJXFJ-300-G1 |
 | Air Humidifier         | zhimi.humidifier.v1    | |
 | Air Humidifier CA1     | zhimi.humidifier.ca1   | |
@@ -565,6 +566,40 @@ Switch                  | Description
 Buzzer                  | Turn on/off `buzzer`
 Child Lock              | Turn on/off `child lock`
 LED                     | Turn on/off `led`
+
+### Air Fresh VA4
+
+- Power (on, off)
+- Operation modes (Auto, Silent, Interval, Low, Middle, Strong)
+- Attributes (fan platform)
+  - `use_time`
+  - `extra_features`
+- Sensor entities
+
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Carbon Dioxide          | The current carbon dioxide measured in ppm                     | True
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+LED                     | Turn on/off `led`
+Auxiliary Heat          | Turn on/off `heater`
 
 
 ### Air Fresh T2017 (dmaker.airfresh.t2017)
