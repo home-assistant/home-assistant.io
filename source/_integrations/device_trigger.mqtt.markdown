@@ -85,7 +85,7 @@ device:
       required: false
       type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the value."
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
   required: false
   type: template
 {% endconfiguration %}

@@ -21,7 +21,7 @@ topic:
   required: true
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that returns a tag ID."
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) that returns a tag ID."
   required: false
   type: string
 device:
