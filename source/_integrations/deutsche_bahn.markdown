@@ -11,6 +11,10 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
+<div class='note warning'>
+  This integration is pending removal from Home Assistant and will be no longer available as of Home Assistant 2022.11.
+</div>
+
 The `deutsche_bahn` sensor will give you the departure time of the next train for the given connection. In case of a delay, the delay is also shown. Additional details are used to inform about, e.g., the type of the train, price, and if it is on time.
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
