@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-Integrates [ThermoPro](https://www.thermopro.com/) devices into Home Assistant.
+Integrates [ThermoPro](https://buythermopro.com/) devices into Home Assistant.
 
 ## Supported devices
 
