@@ -75,19 +75,46 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - tp-link UB400 - Frequent connection failures
 - tp-link UB500 - Frequent connection failures
 
-{% include integrations/option_flow.md %}
+## Multiple adapters
 
-### Multiple adapters
+Support for multiple local Bluetooth adapters is available on Linux systems only. Place adapters far enough away from each other to reduce interference.
 
-Support for multiple Bluetooth adapters is available on Linux systems only. Select the adapter you wish to use via the options flow on the integrations page. The adapter selection only affects integrations that use the Bluetooth integration interfaces.
+The following methods are known to work to add multiple adapters:
 
-## Integrations that require exclusive use of the Bluetooth Adapter
+- Long USB Extension cables
+- USB-Ethernet extenders
+- [USB/IP](http://usbip.sourceforge.net/)
+
+Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/network_discovery?_highlight=bluetooth#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
+
+## Remote adapters
+
+The Bluetooth integration supports receiving advertisement data from external adapters for devices and sensors that do not need an active connection. The number of remote scanners is limited only by the performance of the host system.
+
+The following remote adapters are supported:
+
+- [ESPHome](https://esphome.io)
+
+### ESPHome requirements
+
+Devices with an ESP32 chip running ESPHome must enable the `bluetooth_proxy` component and be added to Home Assistant before advertisements are forwarded.
+
+```yaml
+esp32_ble_tracker:
+bluetooth_proxy:
+```
+
+Many integrations require an active scan for discovery. By default, the [ESPHome tracker](https://esphome.io/components/esp32_ble_tracker.html) runs in active mode. Adding ESPHome remotes that have active scanning disabled may cause some integrations to malfunction.
+
+## Troubleshooting
+
+### Integrations that require exclusive use of the Bluetooth Adapter
 
 While newer integrations can share the Bluetooth Adapter, some legacy integrations require exclusive use of the adapter. Enabling this integration may prevent an integration that has not been updated to use newer methods from functioning.
 
 Deleting the config entry for this integration will release control of the adapter and allow another integration to gain exclusive use of the Bluetooth adapter. If you have manually added `bluetooth:` to your `configuration.yaml`, you must also remove it to prevent the configuration from being recreated. Consider adding a second Bluetooth adapter on Linux systems if you need to continue using legacy integrations, as more integrations will move to use the Bluetooth integration in the future.
 
-## Bluetooth interference with other devices
+### Bluetooth interference with other devices
 
 Devices that are using the 2.4 GHz band, like Wi-Fi, Zigbee, and USB3 devices (and their cable connections) are known to affect Bluetooth reception. Especially external SSD drives with USB3 cables are known to block the Bluetooth signal. Also, metal casings can decrease the Bluetooth performance of internal Bluetooth Adapters.
 
