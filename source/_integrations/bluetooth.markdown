@@ -73,8 +73,8 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 
 ### Unsupported adapters
 
-- tp-link UB400 [BCM20702A1] - Frequent connection failures
-- tp-link UB500 [RTL8761BU] - Frequent connection failures
+- tp-link UB400 [BCM20702A1] - Frequent connection failures with active connections
+- tp-link UB500 [RTL8761BU] - Frequent connection failures with active connections
 
 ## Multiple adapters
 
