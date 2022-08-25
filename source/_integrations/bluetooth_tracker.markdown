@@ -11,6 +11,8 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
+>**_NOTE:_** As of Core 2022.7 this integration does not work anymore for the installation methods Home Assistant Operating System, Container and Supervised due to the update to Python 3.10 (see [Breaking Changes](https://www.home-assistant.io/blog/2022/07/06/release-20227/#breaking-changes)).
+
 This tracker discovers new devices on boot and tracks Bluetooth devices periodically based on `interval_seconds` value. It is not required to pair the devices with each other! Devices discovered are stored with 'bt_' as the prefix for device MAC addresses in `known_devices.yaml`.
 
 {% details "Notes for Home Assistant Core Installations" %}
