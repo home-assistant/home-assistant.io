@@ -103,10 +103,9 @@ notify_sms_user1:
   action:
   - service: script.notify_sms_user1
     data:
-      message: "From: {{trigger.event.data.phone}}
-        {{trigger.event.data.text}}
-        "
-  mode: single
+      message: |
+        From: {{trigger.event.data.phone}}
+        {{trigger.event.data.text}}  mode: single
 ```
 
 {% endraw %}
