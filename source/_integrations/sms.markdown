@@ -61,6 +61,7 @@ Every time there is a message received, `event: sms.incoming_sms` is fired with 
 Sample automation that forward all SMS to `user1`:
 
 #### Define a sensor in `configuration.yaml` to protect user phone number
+
 ```yaml
 template:
   - sensor:
@@ -74,16 +75,16 @@ template:
 
 ```yaml
 notify_sms_user1:
-  alias: Notify via SMS to User1
+  alias: "Notify via SMS to User1"
   fields:
     message:
-      description: The message content
-      example: The light is on!
+      description: "The message content"
+      example: "The light is on!"
   sequence:
   - service: notify.sms
     data:
       message: "{{ message }}"
-      target: states(sensor.user1_phone_number)
+      target: "{{ states('sensor.user1_phone_number') }}"
   mode: single
   icon: mdi:chat-alert
 ```
@@ -95,41 +96,19 @@ notify_sms_user1:
 {% raw %}
 
 ```yaml
-- id: 'forward_sms'
-  alias: Forward SMS
-  description: ''
+- alias: "Forward SMS"
   trigger:
   - platform: event
     event_type: sms.incoming_sms
-  condition: []
   action:
   - service: script.notify_sms_user1
     data:
-      message: 'From: {{trigger.event.data.phone}}
-        {{trigger.event.data.text}}
-        '
-  mode: single
+      message: |
+        From: {{trigger.event.data.phone}}
+        {{trigger.event.data.text}}  mode: single
 ```
 
 {% endraw %}
-
-## Notes about the operating system
-
-If the integration is used with the Home Assistant Operating System, then version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher is required.
-
-For installations not running on Home Assistant or Home Assistant Core using Docker, you must install `gammu-dev` package:
-
-```bash
-sudo apt-get install libgammu-dev
-```
-
-Before running for the first time, check that the system recognizes the modem by running:
-
-```bash
-ls -l /dev/*USB*
-```
-
-Note: When running Home Assistant, you need to install the SSH add-on.
 
 ## Required Hardware
 
