@@ -62,8 +62,6 @@ Sample automation that forward all SMS to `user1`:
 
 #### Define a sensor in `configuration.yaml` to protect user phone number
 
-{% raw %}
-
 ```yaml
 template:
   - sensor:
