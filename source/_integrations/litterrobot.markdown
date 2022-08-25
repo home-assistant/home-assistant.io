@@ -26,7 +26,7 @@ The Litter-Robot integration allows you to control and monitor your Wi-Fi-enable
 
 You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot unit that has already been associated with your account.
 
-The Feeder-Robot and Litter-Robot 4 are not currently supported by this integration.
+The Feeder-Robot is not currently supported by this integration.
 
 {% include integrations/config_flow.md %}
 
@@ -61,11 +61,11 @@ Some entities have attributes in addition to the default ones that are available
 
 ## Services
 
-Services are utilized for additional functionality that is available in the Litter-Robot companion app. The following are currently available:
+Services are utilized for additional functionality that is available in the Whisker (previously Litter-Robot) companion app. The following are currently available:
 
 ### set_sleep_mode
 
-Enables (with `start_time` parameter) or disables sleep mode on the Litter-Robot.
+Enables (with `start_time` parameter) or disables sleep mode on the Litter-Robot. Currently, this is limited to only the Litter-Robot 3. To make changes to the sleep schedule on your Litter-Robot 4, please continue to use the Whisker app.
 
 | Parameter  | Type   | Required | Description                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
