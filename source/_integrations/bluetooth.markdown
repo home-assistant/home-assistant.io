@@ -69,7 +69,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - UGREEN CM390 [RTL8761BU]
 - XDO BT802 [RTL8761BU] (Long Range)
 - ZEXMTE BT-505 [RTL8761BU] (Long Range)
-- ZEXMTE BT-DG54
+- ZEXMTE BT-DG54 [RTL8761BU]
 
 ### Unsupported adapters
 
