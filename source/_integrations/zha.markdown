@@ -419,6 +419,20 @@ Such a custom "ZHA Device Handler" are Python scripts that internally are also r
 
 The custom quirks implementations for zigpy implemented as ZHA Device Handlers for Home Assistant are a similar concept to that of [Hub-connected Device Handlers for the SmartThings Classics platform](https://docs.smartthings.com/en/latest/device-type-developers-guide/) as well as that of [Zigbee-Herdsman Converters (formerly Zigbee-Shepherd Converters) as used by Zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html), meaning they are each virtual representations of a physical device that expose additional functionality that is not provided out-of-the-box by the existing integration between these platforms.
 
+#### Manually add and use a not yet merged custom ZHA quirk
+
+If you have bought a non-standard Zigbee device that is not yet supported by ZHA but someone have written a ZHA "quirk" module (ZHA Device Handler/Zigbee Converter) that not get been merged into a "[ZHA Device Handlers"](https://github.com/zigpy/zha-device-handlers)" library release then you can add that manually as a custom ZHA quirk to your Home Assistant instance, (using something like File Editor or Samba share add-ons in Home Assistant).
+
+1. Get a copy of an existing custom ZHA quirk or code your own quirks. Tip is to search using Zigbee device signature https://github.com/zigpy/zha-device-handlers/issues?q=is%3Aissue+is%3Aopen
+2. Create a directory/folder for your custom quirks (for example `/config/zha_quirks/`)
+3. Copy or create a quirk file in this directory (called it for example “`devicemodelzyz_devicetypexyz.py`”). This file should contain the Python script for the quirk and its specific Zigbee device signature unique to it. 
+4. Add configuration with the full path to the directory that now containing custom quirk module(s) that will override and take precedence over any built-in quirks matching any device that has the same Zigbee device signature. to Home Assistant's config.yaml
+```
+zha:
+  custom_quirks_path: /config/zha_quirks/
+```
+5. Restart Home Assistant to make the quirk take effect.
+
 ### Reporting issues
 
 When reporting issues, please provide the following information in addition to information requested by issue template:
