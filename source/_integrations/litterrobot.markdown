@@ -45,7 +45,9 @@ The following entities are created for this component and identified by a single
 | Status Code                   | `sensor` | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc). |
 | Waste Drawer                  | `sensor` | Displays the current waste drawer level.                                                                                                        |
 | Clean Cycle Wait Time Minutes | `select` | View and select the clean cycle wait time.                                                                                                      |
-| Reset Waste Drawer            | `button` | Button to reset the waste drawer level to 0%.                                                                                                   |
+| Reset Waste Drawer*           | `button` | Button to reset the waste drawer level to 0%.                                                                                                   |
+
+\* Litter-Robot 3 only
 
 ## Additional Attributes
 
