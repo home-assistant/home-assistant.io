@@ -69,8 +69,6 @@ template:
       state: !secret user1_phone_number
 ```
 
-{% endraw %}
-
 #### Define a script in `scripts.yaml` to use the sensor
 
 {% raw %}
