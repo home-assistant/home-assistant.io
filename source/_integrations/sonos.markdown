@@ -284,7 +284,7 @@ action:
 
 ## Network requirements
 
-To work optimally, the Sonos devices must be able to connect back to the Home Assistant host on TCP port 1400. This will allow the push-based updates to work properly. If this port is blocked or otherwise unreachable from the Sonos devices, the integration will fall back to a polling mode which is slower to update and much less efficient. The integration will alert the user if this problem is detected.
+To work optimally, the Sonos devices must be able to connect back to the Home Assistant host on a TCP port; the default port is 1400. This will allow the push-based updates to work properly. If this port is blocked or otherwise unreachable from the Sonos devices, the integration will fall back to a polling mode which is slower to update and much less efficient. The integration will alert the user if this problem is detected.
 
 See [Advanced use](#advanced-use) below for additional configuration options which may be needed to address this issue in setups with more complex network topologies.
 
@@ -306,11 +306,12 @@ sonos:
 
 If your Home Assistant instance has multiple IP addresses, you can select the specific IP address that should be used for Sonos auto-discovery with the [Network](/integrations/network/) integration. This should only be necessary if the Sonos speakers are on a network segment not reachable from the default interface.
 
-The Sonos speakers will attempt to connect back to Home Assistant to deliver change events. By default, Home Assistant will listen on port 1400 but will try the next 100 ports above 1400 if it is in use. You can change the IP address that Home Assistant advertises to Sonos speakers. This can help in NAT scenarios such as when _not_ using the Docker option `--net=host`:
+The Sonos speakers will attempt to connect back to Home Assistant to deliver change events. By default, Home Assistant will listen on port 1400; this can be configured using the `listener_port` configuration option. If the listener port is in use, Home Assistant will try the next 100 ports above the listener port. You can also change the IP address that Home Assistant advertises to Sonos speakers. This can help in NAT scenarios such as when _not_ using the Docker option `--net=host`:
 
 ```yaml
-# Example configuration.yaml entry modifying the advertised host address
+# Example configuration.yaml entry modifying the advertised host address and port
 sonos:
   media_player:
     advertise_addr: 192.0.2.1
+    listener_port: 8400
 ```
