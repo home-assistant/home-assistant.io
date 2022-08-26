@@ -63,7 +63,7 @@ The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you 
 
 Since UniFi Protect has its own release cycle, you should only upgrade UniFi Protect _after_ the next Home Assistant release to ensure the new version is fully supported. Most importantly, that means **do not use Early Access versions of UniFi Protect if you want your UniFi Protect integration to be stable**. Early Access versions can and will break the UniFi Protect Home Assistant integration unexpectedly. If you desire to use Early Access versions of UniFi Protect, you can disable automatic updates and wait for the next bugfix version of UniFi Protect to come out.
 
-For example, the latest UniFi Protect Early Access version as of `2022.5.4` is UniFi Protect `2.0.0-beta.5` and the latest Early Access version of UniFi Protect is `2.0.0-beta.7`. So that means:
+For example, the latest UniFi Protect Early Access version as of Home Assistant version `2022.5.4` was UniFi Protect `2.0.0-beta.5` and the latest Early Access version of UniFi Protect was `2.0.0-beta.7`. So that means:
 
 * **do not** upgrade to `2.0.0-beta.7` until `2022.5.5` or `2022.6.0` comes out
 * the recommended version of UniFi Protect are any `1.21.x` version or `2.0.0-beta` version before `2.0.0-beta.7`
@@ -213,6 +213,14 @@ Your main UniFi Protect NVR device also gets a number of diagnostics sensors tha
 * **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as a state attribute though to help map sensor to disk.
 * **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
 
+## Ignoring Devices
+
+If for some reason you want to not have a UniFi Protect device appear in Home Assistant, you can simply "delete" the device from Home Assistant.
+
+![Delete Device](/images/integrations/unifiprotect/delete_device.png)
+
+This will ignore the MAC address of the device so it is never added back to Home Assistant again. If you change your mind and want to add the device back to Home Assistant, there is an ignored devices Config Option with the a comma separated list of devices you have ignored. Due to an [existing frontend bug](https://github.com/home-assistant/frontend/issues/9506), you may have to set the value to a single space (`" "` without quotes) to clear out all of the existing MAC addresses.
+
 ## Media Source
 
 A media source is provided for your UniFi Protect cameras so you can fetch video clips and event thumbnails.
@@ -337,3 +345,7 @@ Similarly, a `502 Bad Gateway` also means that your UniFi Protect application ma
 ```log
 pyunifiprotect.NvrError: Fetching Camera List failed: 404 - Reason: Not Found
 ```
+
+### Cannot Remove Ignored Device
+
+Due to an [existing frontend bug](https://github.com/home-assistant/frontend/issues/9506), you may have to set the value to a single space (`" "` without quotes) to clear out all of the existing ignored MAC addresses.
