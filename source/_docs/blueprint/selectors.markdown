@@ -283,7 +283,7 @@ The output of this selector is the number of mired selected, for example, `243`.
 
 ## Config entry selector
 
-The config entry selector allows to user to select an configured integration
+The config entry selector allows to user to select a configured integration
 configuration entry. The selector returns the entry ID of the selected
 integration configuration entry.
 
@@ -300,7 +300,7 @@ integration:
   required: false
 {% endconfiguration %}
 
-The output of this selector is entry ID of the config entry, for example, `6b68b250388cbe0d620c92dd3acc93ec`.
+The output of this selector is the entry ID of the config entry, for example, `6b68b250388cbe0d620c92dd3acc93ec`.
 
 ## Date selector
 
