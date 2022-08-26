@@ -59,21 +59,22 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 
 ### Known working adapters
 
-- ASUS USB-BT400
-- ASUS USB-BT500
-- Avantree DG45
-- Kinivo BTD-400
-- Maxuni BT-501
-- SUMEE BT501
-- UGREEN CM390
-- XDO BT802 (Long Range)
-- ZEXMTE BT-505 (Long Range)
-- ZEXMTE BT-DG54
+- ASUS USB-BT400 [BCM20702A1]
+- ASUS USB-BT500 [RTL8761BU]
+- Avantree DG45 [RTL8761BU]
+- EDUP LOVE EP-B3536 [RTL8761BU] (Long Range)
+- Kinivo BTD-400 [BCM20702A1]
+- Maxuni BT-501 [RTL8761B]
+- SUMEE BT501 [RTL8761B]
+- UGREEN CM390 [RTL8761BU]
+- XDO BT802 [RTL8761BU] (Long Range)
+- ZEXMTE BT-505 [RTL8761BU] (Long Range)
+- ZEXMTE BT-DG54 [RTL8761BU]
 
 ### Unsupported adapters
 
-- tp-link UB400 - Frequent connection failures
-- tp-link UB500 - Frequent connection failures
+- tp-link UB400 [BCM20702A1] - Frequent connection failures with active connections
+- tp-link UB500 [RTL8761BU] - Frequent connection failures with active connections
 
 ## Multiple adapters
 
@@ -86,6 +87,14 @@ The following methods are known to work to add multiple adapters:
 - [USB/IP](http://usbip.sourceforge.net/)
 
 Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/network_discovery?_highlight=bluetooth#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
+
+## Passive Scanning
+
+Passive Scanning on Linux can be enabled in the options flow per adapter if the host system runs BlueZ 4.63 or later with experimental features enabled.
+
+Many integrations require active scanning and may not function when scanning is passive.
+
+{% include integrations/option_flow.md %}
 
 ## Remote adapters
 
