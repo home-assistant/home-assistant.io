@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `braviatv` platform allows you to control a [Sony Bravia TV](https://www.sony.com/).
+The Bravia TV integration allows you to control a [Sony Bravia TV](https://www.sony.com/).
 
 Almost all [Sony Bravia TV 2013 and newer](https://info.tvsideview.sony.net/en_ww/home_device.html#bravia) are supported. For older TVs see more generic methods to control your device [below](#for-tvs-older-than-2013).
 
@@ -36,10 +36,9 @@ If you have previously set up your TV with any Home Assistant instances, you mus
 
 The integration supports `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` service.
 
-The commands that can be sent to the TV depends on the model of your TV. To display a list of available commands for your TV, call the service `remote.send_command` with non-valid command (e.g. `Test`). A list of available commands will be displayed in [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs).
+The commands that can be sent to the TV depends on the model of your TV. To display a list of supported commands for your TV, call the service `remote.send_command` with non-valid command (e.g. `Test`). A list of available commands will be displayed in [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs).
 
-Some valid and commonly used commands:
-
+{% details "Some commonly used commands" %}
 - `Up`
 - `Down`
 - `Left`
@@ -62,10 +61,11 @@ Some valid and commonly used commands:
 - `Num7`
 - `Num8`
 - `Num9`
+{% enddetails %}
 
-## Extra configuration
+{% include integrations/option_flow.md %}
 
-The integration allows you to customize the list of ignored sources. To set up this, go to [Devices & Services](https://my.home-assistant.io/redirect/integrations/), find your Sony Bravia TV and press **Configure**.
+The integration allows you to customize the list of ignored sources.
 
 ## For TVs older than 2013
 
