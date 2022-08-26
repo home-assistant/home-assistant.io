@@ -88,6 +88,14 @@ The following methods are known to work to add multiple adapters:
 
 Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/network_discovery?_highlight=bluetooth#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
 
+## Passive Scanning
+
+Passive Scanning on Linux can be enabled in the options flow per adapter if the host system runs BlueZ 4.63 or later with experimental features enabled.
+
+Many integrations require active scanning and may not function when scanning is passive.
+
+{% include integrations/option_flow.md %}
+
 ## Remote adapters
 
 The Bluetooth integration supports receiving advertisement data from external adapters for devices and sensors that do not need an active connection. The number of remote scanners is limited only by the performance of the host system.
