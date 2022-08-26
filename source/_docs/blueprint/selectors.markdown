@@ -833,10 +833,6 @@ entity_id:
   description: The entity ID of which an state can be selected from.
   type: string
   required: true
-attribute:
-  description: The attribute of which an attribute state can be selected from.
-  type: string
-  required: false
 {% endconfiguration %}
 
 The output of this selector is the select state (not the translated or
