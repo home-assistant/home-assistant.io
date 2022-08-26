@@ -26,7 +26,7 @@ The Litter-Robot integration allows you to control and monitor your Wi-Fi-enable
 
 You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot unit that has already been associated with your account.
 
-The Feeder-Robot and Litter-Robot 4 are not currently supported by this integration.
+The Feeder-Robot is not currently supported by this integration.
 
 {% include integrations/config_flow.md %}
 
@@ -45,7 +45,9 @@ The following entities are created for this component and identified by a single
 | Status Code                   | `sensor` | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc). |
 | Waste Drawer                  | `sensor` | Displays the current waste drawer level.                                                                                                        |
 | Clean Cycle Wait Time Minutes | `select` | View and select the clean cycle wait time.                                                                                                      |
-| Reset Waste Drawer            | `button` | Button to reset the waste drawer level to 0%.                                                                                                   |
+| Reset Waste Drawer*           | `button` | Button to reset the waste drawer level to 0%.                                                                                                   |
+
+\* Litter-Robot 3 only
 
 ## Additional Attributes
 
@@ -61,11 +63,11 @@ Some entities have attributes in addition to the default ones that are available
 
 ## Services
 
-Services are utilized for additional functionality that is available in the Litter-Robot companion app. The following are currently available:
+Services are utilized for additional functionality that is available in the Whisker (previously Litter-Robot) companion app. The following are currently available:
 
 ### set_sleep_mode
 
-Enables (with `start_time` parameter) or disables sleep mode on the Litter-Robot.
+Enables (with `start_time` parameter) or disables sleep mode on the Litter-Robot. Currently, this is limited to only the Litter-Robot 3. To make changes to the sleep schedule on your Litter-Robot 4, please continue to use the Whisker app.
 
 | Parameter  | Type   | Required | Description                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
