@@ -215,11 +215,11 @@ Your main UniFi Protect NVR device also gets a number of diagnostics sensors tha
 
 ## Ignoring Devices
 
-If for some reason you want to not have a UniFi Protect device appear in Home Assistant, you can simply "delete" the device from Home Assistant.
+If, for some reason, you do not want to have an UniFi Protect device appear in Home Assistant, you can "delete" the device from Home Assistant.
 
 ![Delete Device](/images/integrations/unifiprotect/delete_device.png)
 
-This will ignore the MAC address of the device so it is never added back to Home Assistant again. If you change your mind and want to add the device back to Home Assistant, there is an ignored devices Config Option with the a comma separated list of devices you have ignored.
+This will ignore the device, preventing it from being added back to Home Assistant again. If you change your mind later, there is an ignored devices configuration option with a comma-separated list of devices you have ignored.
 
 ## Media Source
 
