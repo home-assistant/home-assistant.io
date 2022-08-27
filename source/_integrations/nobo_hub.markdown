@@ -34,8 +34,6 @@ The possible operation modes are as follows:
   (according to calendar setup).
 - "Heat" - In this mode the zone in the override setting and in the state selected by preset ("Away", "Eco"
   or "Comfort").
-- "Off" - In this optional mode the zone is in the normal setting and will configure it to use a week profile that
-  turns the heater(s) in the zone completely off (more info below).
 
 This can be utilized the following ways:
 
@@ -43,20 +41,11 @@ This can be utilized the following ways:
 - Changing preset to none will automatically change operation to "Auto" and update preset.
 - Changing operation to "Auto" will automatically update preset.
 - Changing operation to "Heat" will set preset to "Comfort".
-- Changing operation to "Off" will change operation to "Auto" and change the week profile to the predefined
-  "completely off" profile.
 
-## There is no override in Nobø Ecohub for "completely off", but there is a workaround
+### No preset "Off"
 
-Nobø heaters can normally not be set to override "off". This is not a limitation in the integration, but a
-safety mechanism in the Nobø system (maybe they don't want you to accidentally turn off all your heaters and get
-frozen pipes). However, it is possible to create a week profile that makes the heaters stay off all the time. And then
-you can configure the system to switch a zone to this week's profile to be able to turn the heater(s) off.
+Nobø heaters does not support preset "Off". This is not a limitation in the integration, but a safety mechanism in the
+Nobø  system (maybe they don't want you to accidentally turn off all your heaters and get frozen pipes). "Away"
+temperature is fixed to 7°C and cannot be altered. On/off receivers will be off when the zone is in "Away" status.
 
-If you configure the integration with the name of the "off" week profile and the name for the normal ("on") week
-profile for each of your zones, you can use this module to turn off (and on) your heaters. The week profiles
-must already exist in your Nobø system, and you need to list the "on" week profile for each zone in the Nobø Ecohub
-configuration. Use the Nobø app to create them and configure them correctly.
-
-If you don't configure any "off" or "on" week profiles, then turning off heaters will not be supported (and this may
-be fine for your use).
+For more information, see the [Nobø Ecohub manual](https://help.nobo.no/en/user-manual/before-you-start/what-is-a-weekly-program/).
