@@ -219,7 +219,7 @@ If for some reason you want to not have a UniFi Protect device appear in Home As
 
 ![Delete Device](/images/integrations/unifiprotect/delete_device.png)
 
-This will ignore the MAC address of the device so it is never added back to Home Assistant again. If you change your mind and want to add the device back to Home Assistant, there is an ignored devices Config Option with the a comma separated list of devices you have ignored. Due to an [existing frontend bug](https://github.com/home-assistant/frontend/issues/9506), you may have to set the value to a single space (`" "` without quotes) to clear out all of the existing MAC addresses.
+This will ignore the MAC address of the device so it is never added back to Home Assistant again. If you change your mind and want to add the device back to Home Assistant, there is an ignored devices Config Option with the a comma separated list of devices you have ignored.
 
 ## Media Source
 
@@ -345,7 +345,3 @@ Similarly, a `502 Bad Gateway` also means that your UniFi Protect application ma
 ```log
 pyunifiprotect.NvrError: Fetching Camera List failed: 404 - Reason: Not Found
 ```
-
-### Cannot Remove Ignored Device
-
-Due to an [existing frontend bug](https://github.com/home-assistant/frontend/issues/9506), you may have to set the value to a single space (`" "` without quotes) to clear out all of the existing ignored MAC addresses.
