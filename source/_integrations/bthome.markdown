@@ -40,10 +40,4 @@ The current release supports the following sensor measurement types. More (binar
 
 ## Encryption
 
-BThome optionally supports AES encryption to protect the sensor data that are broadcasted. You will need to set a 32 character hexadecimal (16 bytes) key to decrypt the data, when using encryption. This key is called the bindkey.
-
-## ATC pvvx firmware support
-
-Temperature / humidity sensors like the Xiaomi LYWSD03MMC and MHO-C401 and the Qinping CGG1-Mijia and CGDK2 support custom [ATC pvvx firmware](https://github.com/pvvx/ATC_MiThermometer#readme), which can broadcast data via BThome.
-
-Use their [TelinkMiFlasher](https://pvvx.github.io/ATC_MiThermometer/TelinkMiFlasher.html) tool to upgrade your device directly from your browser. Once installed, change the advertising type to "HA BLE" and click "Send Config". Optionally, you can set a bindkey to protect your data.
+BThome optionally supports AES encryption to protect the sensor data that is broadcasted. You will need to set a 32 character hexadecimal (16 bytes) key to decrypt the data, when using encryption. This key is called the bindkey.
