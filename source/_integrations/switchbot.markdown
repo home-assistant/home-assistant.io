@@ -49,6 +49,7 @@ Please note, device names configured in the SwitchBot app are not transferred in
 - Bot (WoHand)
 - Contact Sensor (WoContact)
 - Curtain (WoCurtain)
+- Light Strip (WoStrip)
 - Meter (WoSensorTH)
 - Motion Sensor (WoPresence)
 - Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
