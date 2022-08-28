@@ -34,6 +34,28 @@ Reloads an integration config entry.
 | `device_id`               | List of device ids used to reference a config entry.        |
 | `entry_id`                | A single config entry id used to reference a config entry.  |
 
+### Service `homeassistant.enable_config_entry`
+
+Enables an integration config entry (if the integration config entry is already enabled, this service does nothing).
+
+| Service data attribute    | Description                                                 |
+|---------------------------|-------------------------------------------------------------|
+| `entity_id`               | List of entity ids used to reference a config entry.        |
+| `area_id`                 | List of area ids used to reference a config entry.          |
+| `device_id`               | List of device ids used to reference a config entry.        |
+| `entry_id`                | A single config entry id used to reference a config entry.  |
+
+### Service `homeassistant.disable_config_entry`
+
+Disables an integration config entry (if the integration config entry is already disabled, this service does nothing).
+
+| Service data attribute    | Description                                                 |
+|---------------------------|-------------------------------------------------------------|
+| `entity_id`               | List of entity ids used to reference a config entry.        |
+| `area_id`                 | List of area ids used to reference a config entry.          |
+| `device_id`               | List of device ids used to reference a config entry.        |
+| `entry_id`                | A single config entry id used to reference a config entry.  |
+
 ### Service `homeassistant.reload_core_config`
 
 Reloads the core configuration under `homeassistant:` and all linked files. Once loaded the new configuration is applied. New `customize:` information will be applied the next time the state of the entity gets updated.
