@@ -38,6 +38,6 @@ The current release supports the following sensor measurement types.
 - CO2
 - VOC
 
-## Encryption
+## Bindkey
 
-BThome optionally supports AES encryption to protect the sensor data that is broadcasted. You will need to set a 32 character hexadecimal (16 bytes) key to decrypt the data, when using encryption. This key is called the bindkey.
+When using encryption for your BThome sensor, you will promted to enter your 32 character hexadecimal (16 bytes) encryption key. This key is called the bindkey. More information about the bindkey can be found in the [specifications](https://bthome.io/).
