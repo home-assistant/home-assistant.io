@@ -21,6 +21,7 @@ The following selectors are currently available:
 - [Attribute selector](#attribute-selector)
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
+- [Config entry selector](#config-entry-selector)
 - [Date selector](#date-selector)
 - [Date & time selector](#date--time-selector)
 - [Device selector](#device-selector)
@@ -279,6 +280,27 @@ max_mireds:
 {% endconfiguration %}
 
 The output of this selector is the number of mired selected, for example, `243`.
+
+## Config entry selector
+
+The config entry selector allows to user to select a configured integration
+configuration entry. The selector returns the entry ID of the selected
+integration configuration entry.
+
+![Screenshot of the Configuration entry selector](/images/blueprints/selector-config-entry.png)
+
+```yaml
+config_entry:
+```
+
+{% configuration config_entry %}
+integration:
+  description: Limits the list of selectable configuration entries to a single integration domain.
+  type: string
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the entry ID of the config entry, for example, `6b68b250388cbe0d620c92dd3acc93ec`.
 
 ## Date selector
 
@@ -833,10 +855,6 @@ entity_id:
   description: The entity ID of which an state can be selected from.
   type: string
   required: true
-attribute:
-  description: The attribute of which an attribute state can be selected from.
-  type: string
-  required: false
 {% endconfiguration %}
 
 The output of this selector is the select state (not the translated or
