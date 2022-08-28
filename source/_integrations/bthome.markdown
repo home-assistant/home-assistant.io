@@ -25,7 +25,7 @@ BTHome is an energy effective but flexible BLE format to broadcast data with Blu
 
 ## Supported sensor measurements
 
-The current release supports the following sensor measurement types. More (binary) sensor types will be added in a future release.
+The current release supports the following sensor measurement types.
 
 - Temperature
 - Humidity
