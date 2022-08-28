@@ -1,5 +1,5 @@
 ---
-title: Lutron Homeworks QS
+title: Lutron HomeWorks QS
 description: Instructions on how to use Lutron devices with Home Assistant.
 ha_category:
   - Cover
