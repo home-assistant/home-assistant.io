@@ -291,6 +291,10 @@ conditions:
       required: true
       description: Entity ID.
       type: string
+    attribute:
+      required: false
+      description: Attribute to test against instead of entity's state.
+      type: string
     state:
       required: false
       description: Entity state is equal to this value.*
