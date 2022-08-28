@@ -18,19 +18,16 @@ ha_integration_type: integration
 
 Integrates Airthings BLE sensors into Home Assistant.
 
-## Prerequisites
+[Airthings](https://www.airthings.com/) provide different sensors for measuring the air quality. The focus specially on Radon sensors.
 
-In order to use this integration, it is required to have working Bluetooth set up on the device running Home Assistant.
+Requires Airthings hardware and a compatible Bluetooth dongle.
 
-It is good if you know the MAC address of your Airthings Device. As of writing, the Airthings app does not show you the address of a device. 
-
-There are some apps and scripts to find the MAC address of BLE devices. A hands-on approach to find which one it is is to add the device to Home Assistant and:
-- remove the battery or move it out of range to see if it becomes unavailable, or
-- alter the sensors (lux or co2)
-
-Please note, device names configured in the Airthings app are not transferred into Home Assistant.
 
 {% include integrations/config_flow.md %}
+
+The Airthings BLE integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. This will include the device name and it's serial number.
+
+The serial number is located at the back of the device, consisting of the last 6 digits.
 
 ## Supported Devices
 
