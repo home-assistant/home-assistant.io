@@ -2,11 +2,12 @@
 title: August
 description: Instructions on how to integrate your August devices into Home Assistant.
 ha_category:
-  - Doorbell
   - Binary Sensor
-  - Sensor
+  - Button
   - Camera
+  - Doorbell
   - Lock
+  - Sensor
 ha_release: 0.64
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -16,42 +17,58 @@ ha_domain: august
 ha_dhcp: true
 ha_platforms:
   - binary_sensor
+  - button
   - camera
+  - diagnostics
   - lock
   - sensor
+ha_integration_type: integration
 ---
 
 The `august` integration allows you to integrate your [August](https://august.com/) and some Yale Access devices in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-### Known Working Devices
+## Known Working Devices
 
-- August Wi-Fi Smart Lock (Gen 4)
-- August Smart Lock Pro (Gen 3)
-- August Smart Lock (Gen 2)
-- August Doorbell Cam (Gen 1, Gen2)
-- August View
-- Yale Assure Locks with August/Yale Connect Module
+| Device                            | Requires [Connect Bridge](https://august.com/products/august-connect/) or Doorbell |
+| --------------------------------- | ------------------------------------|
+| August Wi-Fi Smart Lock (Gen 4) | no |
+| August Smart Lock Pro (Gen 3) | yes |
+| August Smart Lock (Gen 2) | yes |
+| August Smart Lock (Gen 1) | no |
+| August Doorbell Cam (Gen 1, Gen2) | no |
+| August View | no |
+| Yale Assure Lock | yes |
+| Yale Conexis L1 | yes |
+| Yale Linus | yes |
 
 There is currently support for the following device types within Home Assistant:
 
 - Doorbell
 - Binary Sensor
+- Button
 - Sensor
 - Camera
 - Lock
 
 <div class='note'>
-August Lock 2nd Gen will need either August Connect or Doorbell to connect to Home Assistant.
+Most devices will need either August Connect Bridge or Doorbell to connect to Home Assistant.
 </div>
 
-### Known Unsupported Devices
+## Known Issues with battery reporting 
+
+The August Wi-Fi Smart Lock (Gen 4) uses different battery technology (lithium-ion) than the other locks. The battery charge value reported by the lock detail API has frequently been reported as incorrect for these models.
+		
+Other August locks expect to be powered by AA alkaline (non-rechargeable) batteries. Rechargeable batteries in these locks will result in incorrect reporting of battery charge.
+
+## Known Unsupported Devices
+
 - The Yale Doorman L3
 
 Other devices not listed above have not been tested and may not function as expected.
 
-### Binary Sensor
+## Binary Sensor
 
 If you have an August Doorbell, once you have enabled the August component, you should see following sensors:
 
@@ -63,11 +80,15 @@ If you have an August Smart Lock with DoorSense, once you have enabled the Augus
 
 - Door sensor
 
-### Camera
+## Button
+
+Buttons are created to wake locks from a deep sleep. If your lock is not reporting a status, it may be in a deep sleep, and the button can be used to wake it. Locks are not automatically woken from deep sleep to preserve battery life.
+
+## Camera
 
 The `august` camera platform allows you to view the latest camera image (triggered by motion) by your [August](https://august.com/) device in Home Assistant.
 
-### Sensor
+## Sensor
 
 If you have an August Doorbell with a battery, once you have enabled the August component, you should see the following sensors:
 
@@ -82,7 +103,26 @@ If you have an August Keypad, once you have enabled the August component, you sh
 
 - Keypad Battery
 
-### Presence Detection with Lock Operation
+## Integration with Yale Access Bluetooth
+
+Following Assa Abloy, Yale's parent company, purchasing August in 2017, most newer devices use the Yale Access branding. 
+
+The [Yale Access Bluetooth](/integrations/yalexe_ble) provides local control over Bluetooth of many Yale Access locks and some August locks that use the same system. 
+
+For locks that support the Yale Access system, the August integration can keep your offline access keys up to date to ensure you can operate your lock over Bluetooth. The following requirements must be met for the offline key updates to work:
+
+- The August integration must support the lock.
+- The [Yale Access Bluetooth integration](/integrations/yalexe_ble) must support the lock.
+- The Bluetooth integration must be active and functional.
+- The lock must be discoverable by the [Yale Access Bluetooth integration](/integrations/yalexe_ble).
+- The account logged in with the August integration must have the offline keys.
+
+### Troubleshooting offline keys updates
+
+- If you do not know which account has the offline keys, configure August integration with each different Owner account until you find the one that holds the keys. You may need to make a new owner account and grant the account access to your lock to force the keys to synchronize with the cloud service.
+- Ensure the lock is in range and discoverable by the [Yale Access Bluetooth integration](/integrations/yalexe_ble).
+
+## Presence Detection with Lock Operation
 
 Using the lock operation sensors, you can detect when a user operates a lock and is physically present (not remote). The below automation example (added to `automations.yaml`) will trigger when the user named “John Doe” in August locks or unlocks the door from the keypad (if present), via Bluetooth from their phone, or by auto-unlock. The state of the sensor will be the name of the party operating the lock as returned by August.
 

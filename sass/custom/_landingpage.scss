@@ -220,10 +220,9 @@ $ha__primary_color: #03a9f4;
       margin: -36px auto 0;
 
       &.with-box {
-        display: flex;
 
         .banner-overlay-content {
-          width: 420px;
+          max-width: 416px;
         }
       }
 
@@ -243,14 +242,16 @@ $ha__primary_color: #03a9f4;
         margin-top: 16px;
       }
 
-      .banner-overlay {
+      .box {
+        position: absolute;
+        right: 0;
+        top: 0;
         width: 210px;
         border-radius: 8px;
-        margin: -50px -50px 0 0;
+        margin: -50px -50px 0 4px;
         padding: 22px;
         display: flex;
-        flex-flow: wrap;
-        justify-content: space-between;
+        flex-direction: column;
 
         .banner-overlay-header {
           font-weight: 500;
@@ -330,7 +331,15 @@ $ha__primary_color: #03a9f4;
           color: #ffffff;
         }
       }
-
+      .banner-overlay-button.disabled {
+        background-color: #bdbdbd;
+        cursor: initial;
+       }
+      .below-button {
+        margin-top: 8px;
+        text-align: center;
+        font-size: .8em;
+      }
     }
     .banner-overlay-disclaimer {
       font-size: 12px;
@@ -1160,6 +1169,15 @@ $ha__primary_color: #03a9f4;
 
 @media only screen and (max-width: $lap-end) {
   #landingpage {
+    .banner-overlay {
+      display: block !important;
+
+      .box {
+        position: relative !important;
+        margin: 10px auto -22px !important;
+      }
+    }
+
     .page-content {
       .content {
         .bullet-points {

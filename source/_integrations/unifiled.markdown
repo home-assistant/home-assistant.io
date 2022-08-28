@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: unifiled
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 [UniFi LED](https://unifi-led.ui.com/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a system of controller managed LED light panels and dimmers.

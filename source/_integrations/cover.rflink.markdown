@@ -9,13 +9,13 @@ ha_release: 0.55
 ha_domain: rflink
 ---
 
-The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` integration supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/en/21-rflink-). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 First, you have to set up your [RFLink hub](/integrations/rflink/).
 
 After configuring the RFLink hub, covers will be automatically discovered and added. Except the Somfy RTS devices.
 
-### Setting up a Somfy RTS device
+## Setting up a Somfy RTS device
 
 You have to add the Somfy RTS manually with the supplied RFlinkLoader (Windows only).
 
@@ -53,7 +53,7 @@ RTS Record: 15 Address: FFFFFF RC: FFFF
 
 After configuring the RFLink Somfy RTS you have to add the cover to the `configuration.yaml` file like any other RFlink device.
 
-RFLink cover ID's are composed of: protocol, id, and gateway. For example: `RTS_0100F2_0`. 
+RFLink cover ID's are composed of: protocol, id, and gateway. For example: `RTS_0100F2_0`.
 
 Once the ID of a cover is known, it can be used to configure the cover in Home Assistant, for example, to add it to a different group or set a nice name.
 
@@ -131,7 +131,7 @@ devices:
           type: string
 {% endconfiguration %}
 
-### Setting up a KAKU ASUN-650 device
+## Setting up a KAKU ASUN-650 device
 
 In RFLink, the ON and DOWN command are used to close the cover and the OFF and UP command are used to open the cover. The KAKU (COCO) ASUN-650 works the other way around, it uses the ON command to open the cover and the OFF command to close the cover.
 
@@ -166,13 +166,46 @@ cover:
         name: non_kaku_not_inverted_by_default
 ```
 
-The configuration above shows that the `type` property may be omitted. When the ID starts with `newkaku`, the component will make sure that the on and off commands are inverted. When the ID does not start with `newkaku`, the on and off commands are not inverted. 
+The configuration above shows that the `type` property may be omitted. When the ID starts with `newkaku`, the component will make sure that the on and off commands are inverted. When the ID does not start with `newkaku`, the on and off commands are not inverted.
 
-### Device support
+## Setting up a non-RTS cover
+
+Configure `automatic_add` for the light domain (yes, the light domain)
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: rflink
+    automatic_add: true
+```
+
+When you press the remote buttons, a new light will show up in {% my entities title="the list of entities" %}.
+
+Also you can enable rflink logs and look for the device_id, for example: `dooya_v4_654321_0f` or `brelmotor_3b35c7_47`.
+
+```yaml
+# Example configuration.yaml entry
+logger:
+  logs:
+    rflink: debug
+    homeassistant.components.rflink: debug
+```
+
+Once the `device_id` is known, the light domain configuration can be removed and configure the device as a cover:
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: rflink
+    devices:
+      dooya_v4_654321_0f:
+        name: "Room blinds"
+```
+
+## Device support
 
 See [device support](/integrations/rflink/#device-support).
 
-### Additional configuration examples
+## Additional configuration examples
 
 Multiple covers with custom names and aliases
 

@@ -10,8 +10,14 @@ ha_codeowners:
 ha_domain: flunearyou
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
+
+<div class='note warning'>
+  This integration is pending removal from Home Assistant and will be no longer available as of Home Assistant 2022.10.
+</div>
 
 The `flunearyou` sensor platform allows users in the United States and its
 territories to get information regarding reported flu symptoms from [Flu Near

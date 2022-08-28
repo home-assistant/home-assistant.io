@@ -9,6 +9,7 @@ ha_iot_class: Local Push
 ha_domain: homeworks
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. The Lutron Homeworks Series 4 & 8 systems are relatively old (~2003), and use RS-232 connections to communicate with home automation systems.  The `homeworks` integration in Home Assistant is responsible for communicating with the main controller for these systems.  Communication is through an ethernet to serial converter (NPort, for example).
@@ -42,7 +43,7 @@ homeworks:
 
 {% configuration %}
 host:
-  description: The IP address of the ethernet to serial adapter.  It is assumed that the adaptor has been preconfigured.
+  description: The IP address of the ethernet to serial adapter.  It is assumed that the adapter has been preconfigured.
   required: true
   type: string
 port:

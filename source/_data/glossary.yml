@@ -1,9 +1,9 @@
 - topic: Action
   description: "An [Action](/docs/automation/action/) is an event that can be fired as a response to a trigger,  once all conditions have been met."
 - topic: Add-on
-  description: "Add-ons provide additional, standalone, applications that can run beside Home Assistant. Most of these, add-on provided, applications can be integrated into Home Assistant using integrations. Examples of add-ons are: an MQTT broker, database service or a file server."
+  description: "Add-ons are additional standalone third-party software packages that can be installed on Home Assistant OS. Most of these, add-on provided, applications can be integrated into Home Assistant using integrations. Examples of add-ons are: an MQTT broker, database service or a file server."
 - topic: Automation
-  description: "[Automations](/docs/automation/) offer the capability to call a service based on a simple or complex trigger. Automation allows a condition such as a sunset to cause an event, such as a light turning on."
+  description: "[Automations](/docs/automation/) connect one or more triggers to one or more actions in a 'when trigger then do action' fashion with additional optional conditions. For example, an automation might connect the trigger 'sunset' to the action 'turn the lights on' but only if the condition 'someone is home' is met. Pre-made automations for common use-cases are available via [the blueprints feature](/docs/automation/using_blueprints/)."
 - topic: Binary sensor
   description: "A [binary sensor](/integrations/binary_sensor) returns information about things that only have two states - such as on or off."
 - topic: Component
@@ -15,15 +15,15 @@
 - topic: Customize
   description: "[Customization](/docs/configuration/customizing-devices/) allows you to overwrite the default parameters of your devices in the configuration."
 - topic: Device
-  description: "A device is usually a physical unit which can do or observe something."
+  description: "A device is a named collection of entities that all represent the same physical/logical unit, which can do or observe something. An example for a device would be a smart plug named 'Coffee Machine' which provides a `switch` entity plus one or more `sensor` entities for power monitoring or similar."
 - topic: Device tracker
   description: "[Device trackers](/integrations/device_tracker) are used to track the presence, or location, of a device."
 - topic: Discovery
   description: "[Discovery](/integrations/discovery/) is the automatic setup of zeroconf/mDNS and uPnP devices after they are discovered."
 - topic: Domain
-  description: "Entities and services belong to a domain, which is the first part of the entity or service, before the `.`. For example `light.kitchen` is an entity in the `light` domain, while `homeassistant.turn_on` is the `turn_on` service for the `homeassistant` domain."
+  description: "Each integration in Home Assitant has a unique identifier: a domain. All of the entities and services available in Home Assistant are provided by integrations and thus belong to such a domain. The first part of the entity or service, before the `.` shows the domain they belong to. For example `light.kitchen` is an entity in the `light` domain from the [light integration](/integrations/light), while `hue.activate_scene` is the `activate_scene` service for the `hue` domain which belongs to the [Hue integration](/integrations/hue)."
 - topic: Entity
-  description: "An [entity](/docs/configuration/platform_options/) is the representation of a function of a single device, unit, or web service. There may be multiple entities for a single device, unit, or web service, or there may be only one."
+  description: "An entity is the representation of a single control or data point of a device or service inside Home Assistant. A single device or service can thus provide multiple entities to be able to monitor and control all features a device provides. For example, a combined temperature and humidity sensor, in general, provides two `sensor` entities. One for the temperature (e.g., `sensor.temperature` with state `21.0` and unit `°C`) and one for the humity (e.g., `sensor.humidity` with state `65.4` and unit `%`)."
 - topic: Event
   description: "An [event](/docs/configuration/events/) is when something happens."
 - topic: Frontend
@@ -37,15 +37,15 @@
 - topic: Home Assistant Core
   description: Home Assistant Core is a Python program. It can be run on various operating systems and is the basis for Home Assistant. When people are talking about Home Assistant Core they usually refer to a standalone installation method that can be installed using a Virtual Environment or Docker. Home Assistant Core does not use the Home Assistant Supervisor.
 - topic: Home Assistant Supervised (Previously Hass.io)
-  description: "[Home Assistant](/hassio/) is a full UI managed home automation ecosystem that runs Home Assistant, the Home Assistant Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Home Assistant Supervisor."
+  description: "Home Assistant Supervised is a full UI managed home automation ecosystem that runs Home Assistant, the Home Assistant Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Home Assistant Supervisor."
 - topic: Home Assistant Supervisor
   description: "The Home Assistant Supervisor is a program that manages a Home Assistant installation, taking care of installing and updating Home Assistant, add-ons, itself and, if used, updating the Home Assistant Operating System."
 - topic: Home Assistant Operating System
   description: "Home Assistant OS, the Home Assistant Operating System, is an embedded, minimalistic, operating system designed to run the Home Assistant ecosystem on single board computers (like the Raspberry Pi) or Virtual Machines. The Home Assistant Supervisor can keep it up to date, removing the need for you to manage an operating system."
 - topic: Integration
-  description: "[Integrations](/integrations/) provide the core logic for the functionality in Home Assistant. Like `notify` provides sending notifications."
+  description: "[Integrations](/integrations/) connect and integrates Home Assistant with devices, services, and more. Such an integration contains all the logic that takes care of vendor- and device-specific implementations such as authentication or special protocols and brings those into Home Assistant in a standardized way. For example, the [Hue](/integrations/hue) integration integrates the Philips Hue bridge and its connected bulbs into Home Assistant, making them available as Home Assistant light entities you can control."
 - topic: Lovelace
-  description: "[Lovelace](/lovelace/) is the name of the current frontend."
+  description: "Lovelace is the original code name of the UI that is now known as [Home Assistant dashboards](/dashboards)."
 - topic: Light
   description: "A [light](/integrations/light) has a brightness you can control, and optionally color temperature or RGB color control."
 - topic: Notification
@@ -53,13 +53,15 @@
 - topic: Packages
   description: "[Packages](/docs/configuration/packages/) allow you to bundle different component configurations together."
 - topic: Platform
-  description: "[Platforms](/docs/configuration/platform_options/) make the connection to a specific software or hardware platform. For example, the `pushbullet` platform works with the service pushbullet.com to send notifications."
+  description: "[Platforms](/docs/configuration/platform_options/) are building blocks provided by some integrations to be used by other integrations. For example, the [Light](/integrations/light) integration provides the `light platform` that is utilized by all integrations providing `light` entities such as e.g. [Hue](/integrations/hue)."
 - topic: Scene
   description: "[Scenes](/integrations/scene/) capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red."
 - topic: Script
   description: "[Scripts](/docs/scripts/) are components that allow users to specify a sequence of actions to be executed by Home Assistant when turned on."
 - topic: Sensor
   description: "[Sensors](/integrations/sensor) return information about a thing, for instance the level of water in a tank."
+- topic: Selectors
+  description: "[Selectors](/docs/blueprint/selectors/) are components for the user interface. Some selectors can, for example, show a toggle button to turn something on or off, while another select can filter a list of devices to show only devices that have motion-sensing capabilities."
 - topic: Service
   description: "[Services](/docs/scripts/service-calls/) are called to perform actions."
 - topic: Switch
@@ -70,5 +72,7 @@
   description: "A [trigger](/docs/automation/trigger/) is a set of values or conditions of a platform that are defined to cause an automation to run."
 - topic: TTS
   description: "TTS ([text to speech](/integrations/tts)) allows Home Assistant to talk to you."
+- topic: Variables
+  description: "[Variables](/docs/scripts/#variables) are used to store values in memory that can be processed e.g. in a script."
 - topic: Zone
   description: "[Zones](/integrations/zone/) are areas that can be used for presence detection."

@@ -14,6 +14,7 @@ ha_config_flow: true
 ha_platforms:
   - media_player
   - remote
+ha_integration_type: integration
 ---
 
 The `braviatv` platform allows you to control a [Sony Bravia TV](https://www.sony.com/).
@@ -33,11 +34,11 @@ To ensure a clean re-configuration, please perform the following steps:
 - Perform the [TV does not generate new pin](#tv-does-not-generate-new-pin) steps.
 - Retry [configuration](#configuration).
 
-### TV does not generate new pin:
+### TV does not generate new pin
 
 If you have previously set up your TV with any Home Assistant instances, you must remove Home Assistant from your TV in order for your TV to generate a new pin. To do this, you must do **one** of the following:
 
-- On your TV, go to: **Settings** -> **Network** -> **Remote device settings** -> **Deregister remote device**. Disable and re-enable the **Control remotely** after. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidiance.
+- On your TV, go to: **Settings** -> **Network** -> **Remote device settings** -> **Deregister remote device**. Disable and re-enable the **Control remotely** after. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidance.
 - Reset your TV to factory condition.
 
 ## Remote
@@ -181,7 +182,6 @@ Users of TVs older than 2013 have another option for controlling their TV via Ho
 ### Using HDMI-CEC
 
 If you have a Raspberry Pi connected to your TV:
-
 
 {% raw %}
 

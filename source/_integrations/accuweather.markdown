@@ -11,8 +11,10 @@ ha_codeowners:
 ha_domain: accuweather
 ha_quality_scale: platinum
 ha_platforms:
+  - diagnostics
   - sensor
   - weather
+ha_integration_type: integration
 ---
 
 The AccuWeather integration uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location.

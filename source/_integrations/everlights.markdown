@@ -1,7 +1,6 @@
 ---
 title: EverLights
 description: Instructions on how to set up EverLights within Home Assistant.
-logo: everlights.png
 ha_category:
   - Light
 ha_iot_class: Local Polling
@@ -9,6 +8,7 @@ ha_release: 0.87
 ha_domain: everlights
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 [EverLights](https://myeverlights.com/) are permanent Christmas lights installed on a home's gutters or flashing. This integration can change all LEDs in a zone to a single color or activate a pattern that was previously saved to the control box.

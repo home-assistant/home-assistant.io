@@ -11,6 +11,7 @@ The `mqtt` vacuum integration allows you to control your MQTT-enabled vacuum.
 There are two possible message schemas - `legacy` and `state`, chosen by setting the `schema` configuration parameter.
 New installations should use the `state` schema as `legacy` is deprecated and might be removed someday in the future.
 The `state` schema is preferred because the vacuum will then be represented as a `StateVacuumDevice` which is the preferred parent vacuum entity.
+The initial state of the state vacuum entity will set to `unknown` and can be reset by a device by sending a `null` payload as state. The legacy `mqtt` vacuum does not support handling an `unknown` state.
 
 This documentation has 3 sections. Configuration for `legacy` vacuum with examples, configuration for `state` vacuum with examples and shared section with examples which are the same for both schemas.
 
@@ -20,9 +21,29 @@ To add your MQTT vacuum to your installation, add the following to your `configu
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  vacuum:
+    - command_topic: "vacuum/command"
+```
+
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `vacuum` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 vacuum:
   - platform: mqtt
+    command_topic: "vacuum/command"
 ```
+
+{% enddetails %}
 
 ## Legacy Configuration
 
@@ -48,11 +69,19 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
 availability_mode:
   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
   required: false
   type: string
   default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -98,6 +127,16 @@ enabled_by_default:
   required: false
   type: boolean
   default: true
+encoding:
+  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
+  required: false
+  type: string
+  default: "utf-8"
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 error_template:
   description: Defines a [template](/topics/templating/) to define potential error messages emitted by the vacuum. This is required if `error_topic` is set.
   required: false
@@ -123,7 +162,7 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -135,6 +174,10 @@ name:
   required: false
   type: string
   default: MQTT Vacuum
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -220,41 +263,41 @@ unique_id:
 
 ```yaml
 # Example configuration.yaml entry
-vacuum:
-  - platform: mqtt
-    name: "MQTT Vacuum"
-    supported_features:
-      - turn_on
-      - turn_off
-      - pause
-      - stop
-      - return_home
-      - battery
-      - status
-      - locate
-      - clean_spot
-      - fan_speed
-      - send_command
-    command_topic: "vacuum/command"
-    battery_level_topic: "vacuum/state"
-    battery_level_template: "{{ value_json.battery_level }}"
-    charging_topic: "vacuum/state"
-    charging_template: "{{ value_json.charging }}"
-    cleaning_topic: "vacuum/state"
-    cleaning_template: "{{ value_json.cleaning }}"
-    docked_topic: "vacuum/state"
-    docked_template: "{{ value_json.docked }}"
-    error_topic: "vacuum/state"
-    error_template: "{{ value_json.error }}"
-    fan_speed_topic: "vacuum/state"
-    fan_speed_template: "{{ value_json.fan_speed }}"
-    set_fan_speed_topic: "vacuum/set_fan_speed"
-    fan_speed_list:
-      - min
-      - medium
-      - high
-      - max
-    send_command_topic: "vacuum/send_command"
+mqtt:
+  vacuum:
+    - name: "MQTT Vacuum"
+      supported_features:
+        - turn_on
+        - turn_off
+        - pause
+        - stop
+        - return_home
+        - battery
+        - status
+        - locate
+        - clean_spot
+        - fan_speed
+        - send_command
+      command_topic: "vacuum/command"
+      battery_level_topic: "vacuum/state"
+      battery_level_template: "{{ value_json.battery_level }}"
+      charging_topic: "vacuum/state"
+      charging_template: "{{ value_json.charging }}"
+      cleaning_topic: "vacuum/state"
+      cleaning_template: "{{ value_json.cleaning }}"
+      docked_topic: "vacuum/state"
+      docked_template: "{{ value_json.docked }}"
+      error_topic: "vacuum/state"
+      error_template: "{{ value_json.error }}"
+      fan_speed_topic: "vacuum/state"
+      fan_speed_template: "{{ value_json.fan_speed }}"
+      set_fan_speed_topic: "vacuum/set_fan_speed"
+      fan_speed_list:
+        - min
+        - medium
+        - high
+        - max
+      send_command_topic: "vacuum/send_command"
 ```
 
 {% endraw %}
@@ -319,11 +362,19 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
 availability_mode:
   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
   required: false
   type: string
   default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -337,10 +388,18 @@ device:
   required: false
   type: map
   keys:
+    configuration_url:
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      required: false
+      type: string
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list
+    hw_version:
+      description: The hardware version of the device.
+      required: false
+      type: string
     identifiers:
       description: A list of IDs that uniquely identify the device. For example a serial number.
       required: false
@@ -369,12 +428,17 @@ device:
       description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
+encoding:
+  description: The encoding of the payloads received and published messages. Set to `""` to disable decoding of incoming payload.
+  required: false
+  type: string
+  default: "utf-8"
 fan_speed_list:
   description: List of possible fan speeds for the vacuum.
   required: false
   type: [string, list]
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -386,6 +450,10 @@ name:
   required: false
   type: string
   default: MQTT Vacuum
+object_id:
+  description: Used instead of `name` for automatic generation of `entity_id`
+  required: false
+  type: string
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -468,30 +536,30 @@ unique_id:
 
 ```yaml
 # Example configuration.yaml entry
-vacuum:
-  - platform: mqtt
-    name: "MQTT Vacuum"
-    schema: state
-    supported_features:
-      - start
-      - pause
-      - stop
-      - return_home
-      - battery
-      - status
-      - locate
-      - clean_spot
-      - fan_speed
-      - send_command
-    command_topic: "vacuum/command"
-    state_topic: "vacuum/state"
-    set_fan_speed_topic: "vacuum/set_fan_speed"
-    fan_speed_list:
-      - min
-      - medium
-      - high
-      - max
-    send_command_topic: "vacuum/send_command"
+mqtt:
+  vacuum:
+    - name: "MQTT Vacuum"
+      schema: state
+      supported_features:
+        - start
+        - pause
+        - stop
+        - return_home
+        - battery
+        - status
+        - locate
+        - clean_spot
+        - fan_speed
+        - send_command
+      command_topic: "vacuum/command"
+      state_topic: "vacuum/state"
+      set_fan_speed_topic: "vacuum/set_fan_speed"
+      fan_speed_list:
+        - min
+        - medium
+        - high
+        - max
+      send_command_topic: "vacuum/send_command"
 ```
 
 ### State MQTT Protocol

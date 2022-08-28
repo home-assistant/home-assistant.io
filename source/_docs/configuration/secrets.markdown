@@ -40,7 +40,7 @@ When you start splitting your configuration into multiple files, you might end u
 - A `secrets.yaml` located in the same folder as the YAML file referencing the secret,
 - next, parent folders will be searched for a `secrets.yaml` file with the secret, stopping at the folder with the main `configuration.yaml`.
 
-To see where secrets are being loaded from, you can either add an option to your `secrets.yaml` file or use the `check_config` script.
+To see where secrets are being loaded from, you can either add an option to your `secrets.yaml` file or use the `check_config` script. The latter is only available for Home Assistant Core installations given it's available through [`hass`](/docs/tools/hass/).
 
 *Option 1*: Print where secrets are retrieved from to the Home Assistant log by adding the following to `secrets.yaml`:
 
@@ -50,7 +50,7 @@ logger: debug
 
 This will not print the actual secret's value to the log.
 
-*Option 2*: To view where secrets are retrieved from and the contents of all `secrets.yaml` files used, you can use the [`check_config` script](/docs/tools/check_config/) from the command line:
+*Option 2*: For Home Assistant Core installations, you can also view where secrets are retrieved from and the contents of all `secrets.yaml` files using the [`check_config` script](/docs/tools/check_config/) from the command line:
 
 ```bash
 hass --script check_config --secrets

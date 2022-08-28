@@ -6,7 +6,7 @@ ha_category:
   - Fan
   - Light
 ha_release: 2021.9
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@elupus'
@@ -15,6 +15,9 @@ ha_platforms:
   - binary_sensor
   - fan
   - light
+  - number
+  - sensor
+ha_integration_type: integration
 ---
 
 [Fjäråskupan](https://fjaraskupan.se/) allows you to control your Bluetooth equipped kitchen fan.

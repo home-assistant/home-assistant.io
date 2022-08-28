@@ -8,15 +8,22 @@ To install Home Assistant Core on Windows, you will need to use the Windows Subs
 As an alternative, Home Assistant OS can be installed in a Linux guest VM. Running Home Assistant Core directly on Windows is not supported.
 {% endif %}
 
+<div class='note warning'>
+
+This is an advanced installation process, and some steps might differ on your system. Considering the nature of this installation type, we assume you can handle subtle differences between this document and the system configuration you are using. When in doubt, please consider one of the [other installation methods](/installation/), as they might be a better fit instead.
+
+</div>
+
 <div class='note'>
 <b>Prerequisites</b>
 
 This guide assumes that you already have an operating system setup and have installed Python {{site.installation.versions.python}} (including the package `python3-dev`) or newer.
+
 </div>
 
 ### Install dependencies
 
-Before you start make sure your system is fully updated, all packages in this guide are installed with `apt`, if your OS does not have that, look for alternatives.
+Before you start, make sure your system is fully updated, all packages in this guide are installed with `apt`, if your OS does not have that, look for alternatives.
 
 ```bash
 sudo apt-get update
@@ -26,8 +33,10 @@ sudo apt-get upgrade -y
 Install the dependencies:
 
 ```bash
-sudo apt-get install -y python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev libjpeg-dev zlib1g-dev autoconf build-essential libopenjp2-7 libtiff5 tzdata
+sudo apt-get install -y python3 python3-dev python3-venv python3-pip bluez libffi-dev libssl-dev libjpeg-dev zlib1g-dev autoconf build-essential libopenjp2-7 libtiff5 libturbojpeg0-dev tzdata
 ```
+
+The above-listed dependencies might differ or missing, depending on your system or personal use of Home Assistant.
 
 ### Create an account
 
@@ -62,7 +71,7 @@ Next up is to create and change to a virtual environment for Home Assistant Core
 ```bash
 sudo -u homeassistant -H -s
 cd /srv/homeassistant
-python{{site.installation.versions.python}} -m venv .
+python3 -m venv .
 source bin/activate
 ```
 
@@ -72,7 +81,7 @@ Once you have activated the virtual environment (notice the prompt change to `(h
 python3 -m pip install wheel
 ```
 
-Once you have installed the required Python package it is now time to install Home Assistant Core!
+Once you have installed the required Python package, it is now time to install Home Assistant Core!
 
 ```bash
 pip3 install homeassistant

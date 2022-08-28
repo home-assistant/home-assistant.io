@@ -6,19 +6,20 @@ logo: mqtt.png
 
 The MQTT integration will register the service `mqtt.publish` which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/topics/templating/) that will be rendered to generate the payload.
 
-### Service `mqtt.publish`
+## Service `mqtt.publish`
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `topic` | no | Topic to publish payload to.
+| `topic_template` | no | Template to render as topic to publish payload to.
 | `payload` | yes | Payload to publish.
-| `payload_template` | yes | Template to render as payload value. Ignored if payload given.
+| `payload_template` | yes | Template to render as payload value.
 | `qos` | yes | Quality of Service to use. (default: 0)
 | `retain` | yes | If message should have the retain flag set. (default: false)
 
-<div class='note'>
-You need to include either payload or payload_template, but not both.
-</div>
+<p class='note'>
+You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
+</p>
 
 ```yaml
 topic: home-assistant/light/1/command
@@ -26,8 +27,17 @@ payload: on
 ```
 
 {% raw %}
+
 ```yaml
 topic: home-assistant/light/1/state
+payload_template: "{{ states('device_tracker.paulus') }}"
+```
+
+{% endraw %}
+
+{% raw %}
+```yaml
+topic_template: "home-assistant/light/{{ states('sensor.light_active') }}/state"
 payload_template: "{{ states('device_tracker.paulus') }}"
 ```
 {% endraw %}

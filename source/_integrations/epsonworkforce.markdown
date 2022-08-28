@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: epsonworkforce
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `epson workforce` platform allows you to monitor the ink levels of a Epson Workforce printer from Home
@@ -37,7 +38,7 @@ host:
   required: true
   type: string
 monitored_conditions:
-  description: The cartridge colours to monitor. 
+  description: The cartridge colours to monitor.
   required: true
   type: list
   keys:
@@ -50,24 +51,28 @@ monitored_conditions:
     magenta:
       description: The magenta (=red) ink cartridge.
     cyan:
-      description: The cyan (=blue) ink cartridge.      
+      description: The cyan (=blue) ink cartridge.
     clean:
-      description: The cleaning cartridge.      
+      description: The cleaning cartridge.
 {% endconfiguration %}
 
 Supported devices:
 
-- Epson Workforce (and some EcoTank) printers who publish a HTTP page containing the ink cardridge levels
+- Epson Workforce (and some EcoTank) printers who publish a HTTP page containing the ink cartridge levels
 
 Tested devices:
 
+- Epson WF2630
 - Epson WF2660
 - Epson WF3540
 - Epson WF3620
 - Epson WF3640
+- Epson WF4820
 - Epson EcoTank ET-77x0
 - Epson ET-2650
+- Epson ET-4750
+- Epson EcoTank ET-5150 (51x0)
 - Epson Expression Home XP-2105
 
 To make this module work you need to connect your printer to your LAN.
-The best is to navigate to the status page of the printer to check if it shows the page with the ink levels on the URL http://<IP_ADDRESS>/PRESENTATION/HTML/TOP/PRTINFO.HTML
+The best is to navigate to the status page of the printer to check if it shows the page with the ink levels on the URL `http://<IP_ADDRESS>/PRESENTATION/HTML/TOP/PRTINFO.HTML`

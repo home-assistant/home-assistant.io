@@ -14,19 +14,20 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@javicalle'
+ha_integration_type: integration
 ---
 
-The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.rflink.nl/blog2/download), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` integration supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/en/21-rflink-). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 The 433 MHz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
 
-RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](http://www.rflink.nl/blog2/) provides details for various RF transmitters, receivers and transceiver modules for 433MHz, 868MHz and 2.4 GHz.
+RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](https://www.rflink.nl) provides details for various RF transmitters, receivers and transceiver modules for 433MHz, 868MHz and 2.4 GHz.
 
 <div class='note'>
 Note: Versions later than R44 add support for Ikea Ansluta, Philips Living Colors Gen1 and MySensors devices.
 </div>
 
-A complete list of devices supported by RFLink can be found [here](http://www.rflink.nl/blog2/devlist).
+A complete list of devices supported by RFLink can be found [here](https://www.rflink.nl/devlist.php).
 
 This integration is tested with the following hardware/software:
 
@@ -69,7 +70,7 @@ tcp_keepalive_idle_timer:
   description: Time in seconds to wait since last data packet was seen before a TCP KEEPALIVE is sent. Value of 0 will disable this feature.
   required: false
   default: 3600
-  type: integer 
+  type: integer
 {% endconfiguration %}
 
 ### Full example
@@ -91,7 +92,7 @@ TCP mode allows you to connect to an RFLink device over a TCP/IP network. This i
 To expose the USB/serial interface over TCP on a different host (Linux) the following command can be used:
 
 ```bash
-socat /dev/ttyACM0,b57600 TCP-LISTEN:1234,reuseaddr
+socat /dev/ttyACM0,b57600,rawer TCP-LISTEN:1234,reuseaddr
 ```
 
 Other methods of exposing the serial interface over TCP are possible (eg: ESP8266 or using Arduino Wifi shield). Essentially the serial stream should be directly mapped to the TCP stream.
@@ -154,13 +155,33 @@ rflink:
 
 This configuration will ignore the button `1` of the `newkaku` device with ID `000001`, all devices of the `digitech` protocol and all switches of the `kaku` protocol device with codewheel ID `1`.
 
+### Invert cover
+
+Devices can be configure to work in inverted mode by adding option in `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry for inverted RTS cover
+cover:
+  - platform: rflink
+    devices:
+      # Rfloader created remote control which is used by Home Assistant
+      RTS_0a0a0a_1:
+        name: "Blind office"
+        aliases: 
+          - rts_0f1f2f_01 # ID of the remote control (Somfy smove in this case)
+        type: inverted
+ ```
+
+This configuration uses `0a0a0a` to control the inverted shutter (send UP to close and Down to open) and listen commands sent by `0f1f2f` remote control.
+
+
 ### Device support
 
 Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this integration please consider testing and adding support yourself.
 
 ### Device Incorrectly Identified
 
-If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFLink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). [Link to further detail.](http://www.rflink.nl/blog2/faq#RFFind)
+If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFLink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). [Link to further detail.](https://www.rflink.nl/faq.php#RFFind)
 
 ### Technical Overview
 

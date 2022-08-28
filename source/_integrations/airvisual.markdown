@@ -10,7 +10,9 @@ ha_codeowners:
 ha_domain: airvisual
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The `airvisual` sensor platform queries the [AirVisual](https://www.iqair.com) cloud API for air quality data. Data can be collected via latitude/longitude, by city/state/country, or from an [AirVisual Node/Pro unit](https://www.iqair.com/air-quality-monitors/airvisual-pro).
@@ -35,7 +37,7 @@ For example:
 
 ## Using an AirVisual Node/Pro Unit
 
-The integration can communicate to Node/Pro units over the local network. You will need the IP address/hostname of the unit and its Samba password (which can be found on the unit; instructions here: https://support.iqair.com/en/articles/3029331-download-the-airvisual-node-pro-s-data-using-samba).
+The integration can communicate to Node/Pro units over the local network. You will need the IP address/hostname of the unit and its Samba password (which can be found on the unit; [instructions here](https://support.iqair.com/en/articles/3029331-download-the-airvisual-node-pro-s-data-using-samba)).
 
 {% include integrations/config_flow.md %}
 
@@ -45,9 +47,9 @@ In addition to using latitude and longitude, the AirVisual integration may be co
 
 For example, Sao Paulo, Brazil shows a breadcrumb title of `Brazil > Sao Paulo > Sao Paulo`. Thus, the values to use in the UI would be:
 
-* City: `Sao Paulo`
-* State: `Sao Paulo`
-* Country: `Brazil`
+- City: `Sao Paulo`
+- State: `Sao Paulo`
+- Country: `Brazil`
 
 ## Sensor Types
 
@@ -96,12 +98,12 @@ Carbon Monoxide | CO | [EPA: Carbon Monoxide (CO) Pollution in Outdoor Air](http
 
 Node/Pro units will create a variety of sensors:
 
-* Air Quality Index (AQI)
-* Battery Level
-* Carbon Dioxide (CO2)
-* Humidity
-* Particulate (<= 0.1 μm) (PM0.1)
-* Particulate (<= 2.5 μm) (PM2.5)
-* Particulate (<= 10 μm) (PM10)
-* Temperature
-* Volatile Organic Compounds (VOC)
+- Air Quality Index (AQI)
+- Battery Level
+- Carbon Dioxide (CO2)
+- Humidity
+- Particulate (<= 0.1 μm) (PM0.1)
+- Particulate (<= 2.5 μm) (PM2.5)
+- Particulate (<= 10 μm) (PM10)
+- Temperature
+- Volatile Organic Compounds (VOC)

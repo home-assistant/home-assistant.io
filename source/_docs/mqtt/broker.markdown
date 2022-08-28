@@ -18,27 +18,30 @@ The recommended setup method is to use the [Mosquitto MQTT broker add-on](https:
 
 Neither ActiveMQ MQTT broker nor the RabbitMQ MQTT Plugin are supported, use a known working broker like Mosquitto instead.
 There are [at least two](https://issues.apache.org/jira/browse/AMQ-6360) [issues](https://issues.apache.org/jira/browse/AMQ-6575) with the ActiveMQ MQTT broker which break MQTT message retention.
-There is [an issue](https://github.com/rabbitmq/rabbitmq-mqtt/issues/154) with the RabbitMQ MQTT Plugin which breaks MQTT message retention.
+There is [an issue](https://github.com/rabbitmq/rabbitmq-server/issues/154) with the RabbitMQ MQTT Plugin which breaks MQTT message retention.
 
 </div>
 
-## Configuration
+## Connect to a public broker
 
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  broker: 192.168.1.100
-```
+The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home. To use the public mosquitto broker, configure the MQTT integration to connect to broker `test.mosquitto.org` on port 1183 or 8883.
+
+<div class='note'>
+
+If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then add `certificate: auto` to your broker configuration and restart Home Assistant.
+
+</div>
+
+## Broker configuration
+
+MQTT broker settings are configured when the MQTT integration is first setup, and can be changed if needed. To change the settings, click on "Configure" in the integration page in the UI, then "Re-configure MQTT".
+
+## Advanced broker configuration
+
+Some broker configuration options can't be set via the user interface, but require changes of your `configuration.yaml` file.
+Additional SSL certificate options are documented [here](/docs/mqtt/certificate/).
 
 {% configuration %}
-broker:
-  required: false
-  description: The IP address or hostname of your MQTT broker, e.g., 192.168.1.32.
-  type: string
-port:
-  required: false
-  description: The network port to connect to. Default is 1883.
-  type: integer
 client_id:
   required: false
   description: The client ID that Home Assistant will use. Has to be unique on the server. Default is a randomly generated one.
@@ -47,14 +50,6 @@ keepalive:
   required: false
   description: The time in seconds between sending keep alive messages for this client. Default is 60.
   type: integer
-username:
-  required: false
-  description: The username to use with your MQTT broker.
-  type: string
-password:
-  required: false
-  description: The corresponding password for the username to use with your MQTT broker.
-  type: string
 protocol:
   required: false
   description: "Protocol to use: 3.1 or 3.1.1. By default it connects with 3.1.1 and falls back to 3.1 if server does not support 3.1.1."
@@ -76,24 +71,3 @@ If you are running a Mosquitto instance on a different server with proper SSL en
 
 </div>
 
-### Public broker
-
-The Mosquitto project runs a [public broker](http://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home.
-
-```yaml
-mqtt:
-  broker: test.mosquitto.org
-  port: 1883 or 8883
-
-  # Optional, replace port 1883 with following if you want encryption
-  # (doesn't really matter because broker is public)
-  port: 8883
-  # Download certificate from http://test.mosquitto.org/ssl/mosquitto.org.crt
-  certificate: /home/paulus/downloads/mosquitto.org.crt
-```
-
-<div class='note'>
-
-If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then add `certificate: auto` to your broker configuration and restart Home Assistant.
-
-</div>

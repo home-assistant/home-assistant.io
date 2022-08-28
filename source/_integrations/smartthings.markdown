@@ -3,15 +3,15 @@ title: SmartThings
 description: Instructions on setting up SmartThings within Home Assistant.
 featured: true
 ha_category:
-  - Hub
   - Binary Sensor
   - Climate
   - Cover
   - Fan
+  - Hub
   - Light
   - Lock
-  - Sensor
   - Scene
+  - Sensor
   - Switch
 ha_release: 0.87
 ha_iot_class: Cloud Push
@@ -30,6 +30,7 @@ ha_platforms:
   - sensor
   - switch
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The features of this integration include:
@@ -63,7 +64,7 @@ The PAT is used to create a Home Assistant SmartApp in your SmartThings account 
 This integration requires an internet accessible incoming webhook to receive push updates from SmartThings. The preferred approach is to subscribe to [Home Assistant Cloud (Nabu Casa)](https://www.nabucasa.com/) and the integration will configure and use a cloudhook automatically. Alternatively, you will have to configure and setup an internet accessible webhook in Home Assistant as described below:
 
 1. Setup [remote access](/docs/configuration/remote/) via a domain name secured with SSL. *Self-signed SSL certificates are not supported by the SmartThings Cloud API.*
-1. Set the external URL in the Home Assistant [configuration](/docs/configuration/basic) to the URL that Home Assistant is available on the internet (this must start with `https://`).
+1. Set the external URL in the Home Assistant [configuration](/docs/configuration/basic) to the URL that Home Assistant is available on the internet (this must start with `https://`). This must be port 443. If you do not use Nabu Casa you must configure your network to allow TCP traffic from the internet on port 443 to reach the IP address of the device running Home Assistant.
 
 ## Setup instructions
 
@@ -96,7 +97,7 @@ The SmartThings integration triggers events for select device capabilities.
 
 ### smartthings.button
 
-The integration will trigger an event when a device with the [button](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Button) capability is actuated and can be used to trigger automations within Home Assistant. Below is an example of the data payload:
+The integration will trigger an event when a device with the [button](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#button) capability is actuated and can be used to trigger automations within Home Assistant. Below is an example of the data payload:
 
 ```json
 {
@@ -113,14 +114,14 @@ The integration will trigger an event when a device with the [button](https://sm
 | `component_id` | Describes which integration of the device triggered the event. `main` represents the parent device. For devices with child-devices, this attribute identifies the child that raised the event.                                             |
 | `device_id`    | The unique id of the device in SmartThings. This can be located in the Home Assistant device registry or in the [SmartThings Developer Workspace](https://smartthings.developer.samsung.com/workspace/).                                   |
 | `location_id`  | The unique id of the location the device is part of. This can be found in the configuration entry registry or in the [SmartThings Developer Workspace](https://smartthings.developer.samsung.com/workspace/).                                     |
-| `value`        | Describes the action taken on the button. See the [button](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Button) capability reference for a list of possible values (not all are supported by every device). |
+| `value`        | Describes the action taken on the button. See the [button](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#button) capability reference for a list of possible values (not all are supported by every device). |
 | `name`         | The name given to the device in SmartThings.                                                                                                                                                                                               |
 
 Event data payloads are logged at the debug level, see [debugging](#debugging) for more information.
 
 ## Platforms
 
-SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings integration maps those to entity platforms in Home Assistant. A single device may be represented by one or more platforms.
+SmartThings represents devices as a set of [capabilities](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities) and the SmartThings integration maps those to entity platforms in Home Assistant. A single device may be represented by one or more platforms.
 
 - [Binary Sensor](#binary-sensor)
 - [Climate](#climate)
@@ -140,14 +141,14 @@ The SmartThings Binary Sensor platform lets you view devices that have binary se
 
 | Capability                                                                                                              | Attribute      | On-Value   |
 | ----------------------------------------------------------------------------------------------------------------------- | -------------- | ---------- |
-| [`accelerationSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Acceleration-Sensor) | `acceleration` | `active`   |
-| [`contactSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Contact-Sensor)           | `contact`      | `open`     |
-| [`filterStatus`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Filter-Status)             | `filterStatus` | `replace`  |
-| [`motionSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Motion-Sensor)             | `motion`       | `active`   |
-| [`presenceSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Presence-Sensor)         | `presence`     | `present`  |
-| [`tamperAlert`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tamper-Alert)               | `tamper`       | `detected` |
-| [`valve`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Valve)                            | `valve`        | `open`     |
-| [`waterSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Water-Sensor)               | `water`        | `wet`      |
+| [`accelerationSensor`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#accelerationSensor) | `acceleration` | `active`   |
+| [`contactSensor`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#contactSensor)           | `contact`      | `open`     |
+| [`filterStatus`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#filterStatus)             | `filterStatus` | `replace`  |
+| [`motionSensor`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#motionSensor)             | `motion`       | `active`   |
+| [`presenceSensor`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#presenceSensor)         | `presence`     | `present`  |
+| [`tamperAlert`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#tamperAlert)               | `tamper`       | `detected` |
+| [`valve`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#valve)                            | `valve`        | `open`     |
+| [`waterSensor`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#waterSensor)               | `water`        | `wet`      |
 
 ### Climate
 
@@ -159,12 +160,11 @@ For a SmartThings Air Conditioner to be represented by the climate platform, it 
 
 | Capability                                                                                                                                        | Climate Features                                                                                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`airConditionerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Air-Conditioner-Mode) (required)               | `hvac mode`, `hvac action`                                                                                                                                                        |
-| `airConditionerFanMode` (required)                                                                                                                | `fan mode`                                                                                                                                                                        |
-| [`temperatureMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Temperature-Measurement) (required)        | `temperature`                                                                                                                                                                     |
-| [`thermostatCoolingSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Cooling-Setpoint) (required) | `target temp`                                                                                                                                                                     |
-| [`demandResponseLoadControl`](https://docs.smartthings.com/en/latest/capabilities-reference.html#demand-response-load-control)                    | `drlc_status_duration` (state attribute), `drlc_status_level` (state attribute), `drlc_status_override` (state attribute), `drlc_status_start` (state attribute)                  |
-| [`powerConsumptionReport`](https://docs.smartthings.com/en/latest/capabilities-reference.html#power-consumption-report)                           | `power_consumption_end` (state attribute), `power_consumption_energy` (state attribute), `power_consumption_power` (state attribute), `power_consumption_start` (state attribute) |
+| [`airConditionerMode`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#airConditionerMode) (required)               | `hvac mode`, `hvac action`                                                                                                                                                        |
+| [`airConditionerFanMode`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#airConditionerFanMode) (required)                                                                                                                | `fan mode`                                                                                                                                                                        |
+| [`temperatureMeasurement`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#temperatureMeasurement) (required)        | `temperature`                                                                                                                                                                     |
+| [`thermostatCoolingSetpoint`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatCoolingSetpoint) (required) | `target temp`                                                                                                                                                                     |
+| [`demandResponseLoadControl`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#demandResponseLoadControl)                    | `drlc_status_duration` (state attribute), `drlc_status_level` (state attribute), `drlc_status_override` (state attribute), `drlc_status_start` (state attribute)                  |
 
 #### Thermostats
 
@@ -172,14 +172,14 @@ For a SmartThings thermostat to be represented by the climate platform, it must 
 
 | Capability                                                                                                                                     | Climate Features                                                                 |
 | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| [`thermostat`](https://docs.smartthings.com/en/latest/capabilities-reference.html#thermostat) (set a)                                          | `hvac mode`, `hvac action`, `target temp high`, `target temp low` and `fan mode` |
-| [`thermostatMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Mode) (set b)                        | `hvac mode`                                                                      |
-| [`thermostatCoolingSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Cooling-Setpoint) (seb b) | `target temp low`                                                                |
-| [`thermostatHeatingSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Heating-Setpoint) (set b) | `target temp high`                                                               |
-| [`temperatureMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Temperature-Measurement) (set b)        |
-| [`thermostatOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Operating-State)           | `hvac action`                                                                    |
-| [`thermostatFanMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Fan-Mode)                         | `fan mode`                                                                       |
-| [`relativeHumidityMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Relative-Humidity-Measurement)     | `humidity` (state attribute)                                                     |
+| [`thermostat`](https://developer-preview.smartthings.com/docs/devices/capabilities/deprecated#thermostat) (set a)                                          | `hvac mode`, `hvac action`, `target temp high`, `target temp low` and `fan mode` |
+| [`thermostatMode`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatMode) (set b)                        | `hvac mode`                                                                      |
+| [`thermostatCoolingSetpoint`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatCoolingSetpoint) (seb b) | `target temp low`                                                                |
+| [`thermostatHeatingSetpoint`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatHeatingSetpoint) (set b) | `target temp high`                                                               |
+| [`temperatureMeasurement`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#temperatureMeasurement) (set b)        |
+| [`thermostatOperatingState`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatOperatingState)           | `hvac action`                                                                    |
+| [`thermostatFanMode`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatFanMode)                         | `fan mode`                                                                       |
+| [`relativeHumidityMeasurement`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#relativeHumidityMeasurement)     | `humidity` (state attribute)                                                     |
 
 ### Cover
 
@@ -187,11 +187,11 @@ The SmartThings Cover platform lets you control devices that have open/close rel
 
 | Capability                                                                                                                     | Cover Features                    |
 | ------------------------------------------------------------------------------------------------------------------------------ | --------------------------------- |
-| [`doorControl`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Door-Control) (set a)              | `open` and `close`                |
-| [`garageDoorControl`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Garage-Door-Control) (seb a) | `open` and `close`                |
-| [`windowShade`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Window-Shade) (set a)              | `open` and `close`                |
-| [`switchLevel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch-Level)                      | `position`                        |
-| [`battery`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Battery)                               | `battery_level` (state attribute) |
+| [`doorControl`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#doorControl) (set a)              | `open` and `close`                |
+| [`garageDoorControl`](https://developer-preview.smartthings.com/docs/devices/capabilities/deprecated#garageDoorControl) (seb a) | `open` and `close`                |
+| [`windowShade`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#windowShade) (set a)              | `open` and `close`                |
+| [`switchLevel`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#switchLevel)                      | `position`                        |
+| [`battery`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#battery)                               | `battery_level` (state attribute) |
 
 ### Fan
 
@@ -199,7 +199,7 @@ The SmartThings Fan platform lets you control devices that have fan-related capa
 
 | Capability                                                                                          | Fan Features                                 |
 | --------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| [`fanSpeed`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Fan-Speed) | `speed` (`off`, `low`, `medium`, and `high`) |
+| [`fanSpeed`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#fanSpeed) | `speed` (`off`, `low`, `medium`, and `high`) |
 
 ### Light
 
@@ -207,13 +207,13 @@ The SmartThings Light platform lets you control devices that have light-related 
 
 | Capability                                                                                                          | Light Features                |
 | ------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| [`switchLevel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch-Level)           | `brightness` and `transition` |
-| [`colorControl`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Color-Control)         | `color`                       |
-| [`colorTemperature`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Color-Temperature) | `color_temp`                  |
+| [`switchLevel`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#switchLevel)           | `brightness` and `transition` |
+| [`colorControl`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#colorControl)         | `color`                       |
+| [`colorTemperature`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#colorTemperature) | `color_temp`                  |
 
 ### Lock
 
-The SmartThings Lock platform lets you control devices that have the [`lock`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Lock) capability, showing current lock status and supporting lock and unlock commands.
+The SmartThings Lock platform lets you control devices that have the [`lock`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#lock) capability, showing current lock status and supporting lock and unlock commands.
 
 ### Sensor
 
@@ -221,59 +221,60 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 
 | Capability                                                                                                                                                | Attributes                                                |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| [`activityLightingMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Activity-Lighting-Mode)                              | `lightingMode`                                            |
-| [`airConditionerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Air-Conditioner-Mode)                                  | `airConditionerMode`                                      |
-| [`airQualitySensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Air-Quality-Sensory)                                     | `airQuality`                                              |
-| [`alarm`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Alarm)                                                              | `alarm`                                                   |
-| [`audioVolume`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Audio-Volume)                                                 | `volume`                                                  |
-| [`battery`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Battery)                                                          | `battery`                                                 |
-| [`bodyMassIndexMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Body-Mass-Index-Measurement)                     | `bmiMeasurement`                                          |
-| [`bodyWeightMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Body-Weight-Measurement)                            | `bodyWeightMeasurement`                                   |
-| [`carbonDioxideMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Carbon-Dioxide-Measurement)                      | `carbonDioxide`                                           |
-| [`carbonMonoxideDetector`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Carbon-Monoxide-Detector)                          | `carbonMonoxide`                                          |
-| [`carbonMonoxideMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Carbon-Monoxide-Measurement)                    | `carbonMonoxideLevel`                                     |
-| [`dishwasherOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Dishwasher-Operating-State)                      | `machineState`, `dishwasherJobState` and `completionTime` |
-| [`dryerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Dryer-Mode)                                                     | `dryerMode`                                               |
-| [`dryerOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Dryer-Operating-State)                                | `machineState`, `dryerJobState` and `completionTime`      |
-| [`dustSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Dust-Sensor)                                                   | `fineDustLevel` and `dustLevel`                           |
-| [`energyMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Energy-Meter)                                                 | `energy`                                                  |
-| [`equivalentCarbonDioxideMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Equivalent-Carbon-Dioxide-Measurement) | `equivalentCarbonDioxideMeasurement`                      |
-| [`formaldehydeMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Formaldehyde-Measurement)                         | `formaldehydeLevel`                                       |
-| `gasMeter`                                                                                                                                                | `gasMeter`, `meterCalorific`, `meterTime`, and `meterVolume` |
-| [`illuminanceMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Illuminance-Measurement)                           | `illuminance`                                             |
-| [`infraredLevel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Infrared-Level)                                             | `infraredLevel`                                           |
-| [`lock`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Lock)                                                                | `lock`                                                    |
-| [`mediaInputSource`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Media-Input-Source)                                      | `inputSource`                                             |
-| [`mediaPlaybackRepeat`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Media-Playback-Repeat)                                | `playbackRepeatMode`                                      |
-| [`mediaPlaybackShuffle`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Media-Playback-Shuffle)                              | `playbackShuffle`                                         |
-| [`mediaPlayback`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Media-Playback)                                             | `playbackStatus`                                          |
-| [`odorSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Odor-Sensor)                                                   | `odorLevel`                                               |
-| [`ovenMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Oven-Mode)                                                       | `ovenMode`                                                |
-| [`ovenOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Oven-Operating-State)                                  | `machineState`, `ovenJobState` and `completionTime`       |
-| [`ovenSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Oven-Setpoint)                                               | `ovenSetpoint`                                            |
-| [`powerMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Power-Meter)                                                   | `power`                                                   |
-| [`powerSource`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Power-Source)                                                 | `powerSource`                                             |
-| [`refrigerationSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Refrigeration-Setpoint)                             | `refrigerationSetpoint`                                   |
-| [`relativeHumidityMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Relative-Humidity-Measurement)                | `humidity`                                                |
-| [`robotCleanerCleaningMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Robot-Cleaner-CleaningMode)                      | `robotCleanerCleaningMode`                                |
-| [`robotCleanerMovement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Robot-Cleaner-Movement)                              | `robotCleanerMovement`                                    |
-| [`robotCleanerTurboMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Robot-Cleaner-Turbo-Mode)                           | `robotCleanerTurboMode`                                   |
-| [`signalStrength`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Signal-Strength)                                           | `lqi` and `rssi`                                          |
-| [`smokeDetector`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Smoke-Detector)                                             | `smoke`                                                   |
-| [`temperatureMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Temperature-Measurement)                           | `temperature`                                             |
-| [`thermostatCoolingSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Cooling-Setpoint)                    | `coolingSetpoint`                                         |
-| [`thermostatFanMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Fan-Mode)                                    | `thermostatFanMode`                                       |
-| [`thermostatHeatingSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Heating-Setpoint)                    | `heatingSetpoint`                                         |
-| [`thermostatMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Mode)                                           | `thermostatMode`                                          |
-| [`thermostatOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Operating-State)                      | `thermostatOperatingState`                                |
-| [`thermostatSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Setpoint)                                   | `thermostatSetpoint`                                      |
-| [`threeAxis`](https://docs.smartthings.com/en/latest/capabilities-reference.html#three-axis)                                                              | `threeAxis` (as discrete sensors `X`, `Y` and `Z`)        |
-| [`tvChannel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tv-Channel)                                                     | `tvChannel` and `tvChannelName`                           |
-| [`tvocMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tvoc-Measurement)                                         | `tvocLevel`                                               |
-| [`ultravioletIndex`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Ultraviolet-Index)                                       | `ultravioletIndex`                                        |
-| [`voltageMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Voltage-Measurement)                                   | `voltage`                                                 |
-| [`washerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Washer-Mode)                                                   | `washerMode`                                              |
-| [`washerOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Washer-Operating-State)                              | `machineState`, `washerJobState` and `completionTime`     |
+| [`activityLightingMode`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#activityLightingMode)                              | `lightingMode`                                            |
+| [`airConditionerMode`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#airConditionerMode)                                  | `airConditionerMode`                                      |
+| [`airQualitySensor`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#airQualitySensor)                                     | `airQuality`                                              |
+| [`alarm`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#alarm)                                                              | `alarm`                                                   |
+| [`audioVolume`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#audioVolume)                                                 | `volume`                                                  |
+| [`battery`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#battery)                                                          | `battery`                                                 |
+| [`bodyMassIndexMeasurement`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#bodyMassIndexMeasurement)                     | `bmiMeasurement`                                          |
+| [`bodyWeightMeasurement`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#bodyWeightMeasurement)                            | `bodyWeightMeasurement`                                   |
+| [`carbonDioxideMeasurement`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#carbonDioxideMeasurement)                      | `carbonDioxide`                                           |
+| [`carbonMonoxideDetector`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#carbonMonoxideDetector)                          | `carbonMonoxide`                                          |
+| [`carbonMonoxideMeasurement`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#carbonMonoxideMeasurement)                    | `carbonMonoxideLevel`                                     |
+| [`dishwasherOperatingState`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#dishwasherOperatingState)                      | `machineState`, `dishwasherJobState` and `completionTime` |
+| [`dryerMode`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#dryerMode)                                                     | `dryerMode`                                               |
+| [`dryerOperatingState`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#dryerOperatingState)                                | `machineState`, `dryerJobState` and `completionTime`      |
+| [`dustSensor`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#dustSensor)                                                   | `fineDustLevel` and `dustLevel`                           |
+| [`energyMeter`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#energyMeter)                                                 | `energy`                                                  |
+| [`equivalentCarbonDioxideMeasurement`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#equivalentCarbonDioxideMeasurement) | `equivalentCarbonDioxideMeasurement`                      |
+| [`formaldehydeMeasurement`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#formaldehydeMeasurement)                         | `formaldehydeLevel`                                       |
+| [`gasMeter`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#gasMeter)                                                                                                                                                | `gasMeter`, `meterCalorific`, `meterTime`, and `meterVolume` |
+| [`illuminanceMeasurement`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#illuminanceMeasurement)                           | `illuminance`                                             |
+| [`infraredLevel`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#infraredLevel)                                             | `infraredLevel`                                           |
+| [`lock`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#lock)                                                                | `lock`                                                    |
+| [`mediaInputSource`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#mediaInputSource)                                      | `inputSource`                                             |
+| [`mediaPlaybackRepeat`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#mediaPlaybackRepeat)                                | `playbackRepeatMode`                                      |
+| [`mediaPlaybackShuffle`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#mediaPlaybackShuffle)                              | `playbackShuffle`                                         |
+| [`mediaPlayback`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#mediaPlayback)                                             | `playbackStatus`                                          |
+| [`odorSensor`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#odorSensor)                                                   | `odorLevel`                                               |
+| [`ovenMode`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#ovenMode)                                                       | `ovenMode`                                                |
+| [`ovenOperatingState`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#ovenOperatingState)                                  | `machineState`, `ovenJobState` and `completionTime`       |
+| [`ovenSetpoint`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#ovenSetpoint)                                               | `ovenSetpoint`                                            |
+| [`powerConsumptionReport`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#powerConsumptionReport)                                  | `deltaEnergy`, `energy`, `energySaved`, `power`, `powerEnergy`  |
+| [`powerMeter`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#powerMeter)                                                   | `power`                                                   |
+| [`powerSource`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#powerSource)                                                 | `powerSource`                                             |
+| [`refrigerationSetpoint`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#refrigerationSetpoint)                             | `refrigerationSetpoint`                                   |
+| [`relativeHumidityMeasurement`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#relativeHumidityMeasurement)                | `humidity`                                                |
+| [`robotCleanerCleaningMode`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#robotCleanerCleaningMode)                      | `robotCleanerCleaningMode`                                |
+| [`robotCleanerMovement`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#robotCleanerMovement)                              | `robotCleanerMovement`                                    |
+| [`robotCleanerTurboMode`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#robotCleanerTurboMode)                           | `robotCleanerTurboMode`                                   |
+| [`signalStrength`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#signalStrength)                                           | `lqi` and `rssi`                                          |
+| [`smokeDetector`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#smokeDetector)                                             | `smoke`                                                   |
+| [`temperatureMeasurement`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#temperatureMeasurement)                           | `temperature`                                             |
+| [`thermostatCoolingSetpoint`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatCoolingSetpoint)                    | `coolingSetpoint`                                         |
+| [`thermostatFanMode`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatFanMode)                                    | `thermostatFanMode`                                       |
+| [`thermostatHeatingSetpoint`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatHeatingSetpoint)                    | `heatingSetpoint`                                         |
+| [`thermostatMode`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatMode)                                           | `thermostatMode`                                          |
+| [`thermostatOperatingState`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatOperatingState)                      | `thermostatOperatingState`                                |
+| [`thermostatSetpoint`](https://developer-preview.smartthings.com/docs/devices/capabilities/deprecated#thermostatSetpoint)                                   | `thermostatSetpoint`                                      |
+| [`threeAxis`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#threeAxis)                                                              | `threeAxis` (as discrete sensors `X`, `Y` and `Z`)        |
+| [`tvChannel`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#tvChannel)                                                     | `tvChannel` and `tvChannelName`                           |
+| [`tvocMeasurement`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#tvocMeasurement)                                         | `tvocLevel`                                               |
+| [`ultravioletIndex`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#ultravioletIndex)                                       | `ultravioletIndex`                                        |
+| [`voltageMeasurement`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#voltageMeasurement)                                   | `voltage`                                                 |
+| [`washerMode`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#washerMode)                                                   | `washerMode`                                              |
+| [`washerOperatingState`](https://developer-preview.smartthings.com/docs/devices/capabilities/proposed#washerOperatingState)                              | `machineState`, `washerJobState` and `completionTime`     |
 
 ### Scene
 
@@ -281,12 +282,12 @@ The SmartThings Scene platform lets you activate scenes defined in SmartThings w
 
 ### Switch
 
-The SmartThings Switch platform lets you control devices that have the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability that are not already represented by a more specific platform. The following optional capabilities will provide energy and power utilization information:
+The SmartThings Switch platform lets you control devices that have the [`switch`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#switch) capability that are not already represented by a more specific platform. The following optional capabilities will provide energy and power utilization information:
 
 | Capability                                                                                                | Switch Features                                         |
 | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| [`energyMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Energy-Meter) | energy consumption (`today_energy_kwh` state attribute) |
-| [`powerMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Power-Meter)   | power consumption (`current_power_w` state attribute)   |
+| [`energyMeter`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#energyMeter) | energy consumption (`today_energy_kwh` state attribute) |
+| [`powerMeter`](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#powerMeter)   | power consumption (`current_power_w` state attribute)   |
 
 ## Troubleshooting
 

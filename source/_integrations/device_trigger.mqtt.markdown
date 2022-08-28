@@ -48,6 +48,10 @@ device:
   required: true
   type: map
   keys:
+    configuration_url:
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      required: false
+      type: string
     connections:
       description: "A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `'connections': ['mac', '02:5b:26:a8:dc:12']`."
       required: false
@@ -80,6 +84,10 @@ device:
       description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the value."
+  required: false
+  type: template
 {% endconfiguration %}
 
 ### Example
@@ -88,19 +96,26 @@ This shows a complete example of defining a remote control type device with two 
 
 Note that it is not necessary to provide the full device information in each message, but the identifying information, `identifier` in the example, must be the same.
 
-#### Left arrow click configuration:
+#### Left arrow click configuration
+
 - Discovery topic: `homeassistant/device_automation/0x90fd9ffffedf1266/action_arrow_left_click/config`
-- Discovery payload: 
+- Discovery payload:
+
   ```json
   {"automation_type":"trigger","type":"action","subtype":"arrow_left_click","payload":"arrow_left_click","topic":"zigbee2mqtt/0x90fd9ffffedf1266/action","device":{"identifiers":["zigbee2mqtt_0x90fd9ffffedf1266"],"name":"0x90fd9ffffedf1266","sw_version":"Zigbee2mqtt 1.14.0","model":"TRADFRI remote control (E1524/E1810)","manufacturer":"IKEA"}}
   ```
+
 - Trigger topic: `zigbee2mqtt/0x90fd9ffffedf1266/action`
 - Trigger payload: `arrow_left_click`
-#### Right arrow click configuration:
+
+#### Right arrow click configuration
+
 - Discovery topic: `homeassistant/device_automation/0x90fd9ffffedf1266/action_arrow_right_click/config`
 - Discovery payload:
+
   ```json
    {"automation_type":"trigger","type":"action","subtype":"arrow_right_click","payload":"arrow_right_click","topic":"zigbee2mqtt/0x90fd9ffffedf1266/action","device":{"identifiers":["zigbee2mqtt_0x90fd9ffffedf1266"]}}
    ```
+
 - Trigger topic: `zigbee2mqtt/0x90fd9ffffedf1266/action`
 - Trigger payload: `arrow_right_click`

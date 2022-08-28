@@ -9,6 +9,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: shell_command
+ha_integration_type: integration
 ---
 
 This integration can expose regular shell commands as services. Services can be called from a [script] or in [automation].
@@ -38,6 +39,18 @@ The commands can be dynamic, using templates to insert values for arguments. Whe
 Any service data passed into the service call to activate the shell command will be available as a variable within the template.
 
 `stdout` and `stderr` output from the command are both captured and will be logged by setting the [log level](/integrations/logger/) to debug.
+
+## Execution
+
+The `command` is executed within the [configuration directory](/docs/configuration/).
+
+<div class='note'>
+
+If you are using [Home Assistant Operating System](https://github.com/home-assistant/operating-system), the commands are executed in the `homeassistant` container context. So if you test or debug your script, it might make sense to do this in the context of this container to get the same runtime environment.
+
+</div>
+
+With a `0` exit code, the output (stdout) of the command is used as `value`. In case a command results in a non `0` exit code or is terminated after a timeout of 60 seconds, the result is only logged to Home Assistant log and the value of the sensor is not updated.
 
 ## Examples
 

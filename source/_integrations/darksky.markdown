@@ -11,6 +11,7 @@ ha_domain: darksky
 ha_platforms:
   - sensor
   - weather
+ha_integration_type: integration
 ---
 
 The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as a source for meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in your `configuration.yaml` file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by Dark Sky, you can refine them down to your exact home address. GPS coordinates can be found by using [Google Maps](https://www.google.com/maps) and clicking on your home or [Openstreetmap](https://www.openstreetmap.org/).

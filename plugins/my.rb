@@ -80,11 +80,11 @@ module Jekyll
       DEFAULT_ICONS = {
         "config_flow_start" => "icon-plus-sign",
         "config" => "icon-cog",
-        "integrations" => "icon-puzzle-piece",
       }
 
       # Default title used for in-line text
       DEFAULT_TITLES = {
+        "automations" => "Automations & Scenes",
         "blueprint_import" => "Import Blueprint",
         "cloud" => "Home Assistant Cloud",
         "config_energy" => "Energy Configuration",
@@ -92,7 +92,7 @@ module Jekyll
         "config_mqtt" => "MQTT Configuration",
         "config_zha" => "ZHA Configuration",
         "config_zwave_js" => "Z-Wave JS Configuration",
-        "config" => "Configuration",
+        "config" => "Settings",
         "developer_events" => "Events",
         "developer_services" => "Services",
         "developer_states" => "States",
@@ -102,6 +102,7 @@ module Jekyll
         "info" => "Information",
         "supervisor_info" => "Supervisor Information",
         "supervisor_backups" => "Backups",
+        "integrations" => "Devices & Services",
       }
 
       def parse_options(input, context)

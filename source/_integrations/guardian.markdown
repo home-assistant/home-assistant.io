@@ -5,6 +5,7 @@ ha_iot_class: Local Polling
 ha_release: '0.111'
 ha_category:
   - Binary Sensor
+  - Button
   - Sensor
   - Switch
 ha_config_flow: true
@@ -14,9 +15,12 @@ ha_domain: guardian
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - button
+  - diagnostics
   - sensor
   - switch
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The `guardian` integration integrates
@@ -25,6 +29,7 @@ The `guardian` integration integrates
 There is currently support for the following device types within Home Assistant:
 
 - **Binary Sensor**: reports the status of the onboard leak detector and access point
+- **Button**: add various configuration controls
 - **Sensor**: reports on the device's detected temperature and uptime
 - **Switch**: allows the user to open and close the valve
 
@@ -47,14 +52,6 @@ Add a new paired sensor to the valve controller.
 | Service Data Attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
-
-### `guardian.reboot`
-
-Reboot the device.
-
-### `guardian.reset_valve_diagnostics`
-
-Fully (and irrecoverably) reset all valve diagnostics.
 
 ### `guardian.unpair_sensor`
 

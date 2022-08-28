@@ -2,20 +2,22 @@
 title: DoorBird
 description: Instructions on how to integrate your DoorBird video doorbell with Home Assistant.
 ha_category:
-  - Doorbell
+  - Button
   - Camera
-  - Switch
+  - Doorbell
 ha_release: 0.54
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@oblogic7'
   - '@bdraco'
+  - '@flacjacket'
 ha_domain: doorbird
 ha_zeroconf: true
 ha_platforms:
+  - button
   - camera
-  - switch
+ha_integration_type: integration
 ---
 
 The `doorbird` implementation allows you to integrate your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
@@ -23,7 +25,7 @@ The `doorbird` implementation allows you to integrate your [DoorBird](https://ww
 There is currently support for the following device types within Home Assistant:
 
 - [Camera](#camera) - View live and historical event based images.
-- [Switch](#switch) - Enable control of relays and camera night vision.
+- [Button](#button) - Enable control of relays and camera night vision.
 
 ## Setup
 
@@ -112,6 +114,6 @@ Note: Remember to complete the schedule assignment steps above for each event ty
 The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
 
 
-## Switch
+## Button
 
-The `doorbird` switch platform allows you to power connected relays and trigger the IR array in your [DoorBird](https://www.doorbird.com/) video doorbell device.
+The `doorbird` button platform allows you to power connected relays and trigger the IR array in your [DoorBird](https://www.doorbird.com/) video doorbell device.

@@ -12,9 +12,12 @@ ha_codeowners:
 ha_domain: philips_js
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - light
   - media_player
   - remote
+  - switch
+ha_integration_type: integration
 ---
 
 The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API.
@@ -133,3 +136,8 @@ Limits:
  - The integration does not expose current ambilight measured values since it would
 overload the event bus in Home Assistant.
  - There is no support to control the standard, non-expert, styles of the TV.
+
+#### Ambilight+Hue
+
+Some TV's allow you to sync the processed ambilight color data to your Philips Hue bridge. This will make your Hue lights sync with the TV ambilight without the need to purchase a Hue Play HDMI Sync Box.
+The integration exposes a "Ambilight+Hue" switch entity when your TV supports it which enables you to toggle this.

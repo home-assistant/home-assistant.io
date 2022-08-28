@@ -9,9 +9,10 @@ ha_iot_class: Local Polling
 ha_domain: tplink_lte
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
-The TP-Link LTE integration for Home Assistant allows you to observe and control TP-Link LTE routers, currently only tested with TL-MR6400 (firmware 1.4.0).
+The TP-Link LTE integration for Home Assistant makes it possible to send SMS's from the TP-Link LTE router. Phone numbers have to be pre-defined as part of the YAML configuration, and each phone number will turn up as additional notify service in Home Assistant. The integration adds a new notify service for each adds a notification service to Home Assistant that can be used to send SMSs provides a notification service that will send an SMS. Tested only with TL-MR6400 v4.
 
 The integration provides a notification service that will send an SMS.
 
@@ -45,7 +46,7 @@ notify:
   required: false
   type: list
   keys:
-    target:
+    recipient:
       description: The phone number of a default recipient or a list with multiple recipients.
       required: true
       type: [string, list]

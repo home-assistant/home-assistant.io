@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.81
 ha_domain: route53
+ha_integration_type: integration
 ---
 
 With the `route53` integration can you keep your AWS Route53 DNS records up to date.

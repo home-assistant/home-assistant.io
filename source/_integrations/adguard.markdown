@@ -14,6 +14,7 @@ ha_domain: adguard
 ha_platforms:
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 AdGuard Home is a network-wide ad- and tracker-blocking DNS server with parental

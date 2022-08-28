@@ -7,11 +7,11 @@ ha_category:
 ha_release: 0.9
 ha_iot_class: Local Push
 ha_codeowners:
-  - '@fabaff'
   - '@mdegat01'
 ha_domain: influxdb
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `influxdb` integration makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
@@ -168,7 +168,7 @@ tags_attributes:
   default: 0
 ignore_attributes:
   type: [string, list]
-  description: The list of attribute names to ignore when reporting to InfluxDB. This can be used to filter out attributes that either don't change or don't matter to you in order to reduce the amount of data stored in InfluxDB.
+  description: The list of attribute names to ignore when reporting to InfluxDB. This can be used to filter out attributes that either don't change or don't matter to you in order to reduce the amount of data stored in InfluxDB. Please be aware of the underlying InfluxDB mechanism that converts non-string attributes to strings and adds a `_str` suffix to the attribute name in this case. It means that when you want to ignore, for example, the `icon_str` attribute that shows in your InfluxDB instance, you need to provide `icon` to `ignore_attributes`.
   required: false
 component_config:
   type: string
@@ -229,23 +229,7 @@ influxdb:
       - light.kitchen_light
 ```
 
-Filters are applied as follows:
-
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes:
-   - Include domain and/or glob patterns specified
-      - If domain is included, and entity not excluded or match exclude glob pattern, pass
-      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
-      - If domain is not included, glob pattern does not match, and entity not included, fail
-   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - If domain is excluded and entity not included, fail
-      - If entity matches exclude glob pattern and entity not included, fail
-      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
-   - Neither include or exclude specifies domains or glob patterns
-      - If entity is included, pass (as #2 above)
-      - If entity include and exclude, the entity exclude is ignored
+{% include common-tasks/filters.md %}
 
 ## Examples
 
@@ -417,13 +401,17 @@ bucket:
   default: Home Assistant
 queries:
   type: list
-  description: 1.xx only - List of InfluxQL queries.
+  description: 1.xx only - List of sensors to expose in Home Assistant. Each sensor's state is set by configuring an InfluxQL query.
   required: true
   keys:
     name:
       type: string
       description: The name of the sensor.
       required: true
+    unique_id:
+      type: string
+      description: The unique ID for this query. This allows changing the name, icon and entity_id from the web interface.
+      required: false
     unit_of_measurement:
       type: string
       description: Defines the units of measurement of the sensor, if any.
@@ -457,13 +445,17 @@ queries:
       default: value
 queries_flux:
   type: list
-  description: 2.xx only - List of Flux queries.
+  description: 2.xx only - List of sensors to expose in Home Assistant. Each sensor's state is set by configuring a Flux query.
   required: true
   keys:
     name:
       type: string
       description: The name of the sensor.
       required: true
+    unique_id:
+      type: string
+      description: The unique ID for this query. This allows changing the name, icon and entity_id from the web interface.
+      required: false
     unit_of_measurement:
       type: string
       description: Defines the units of measurement of the sensor, if any.

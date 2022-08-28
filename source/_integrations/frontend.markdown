@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/frontend'
 ha_domain: frontend
+ha_integration_type: integration
 ---
 
 This offers the official frontend to control Home Assistant. This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
@@ -102,7 +103,7 @@ Theme `sad`: By using the new `modes` key plus the subkey `dark` this theme will
 
 Note: Since this example theme only has a `dark` mode defined, this mode will automatically be used.
 
-Theme `day_and_night`: This theme has both a `light` and a `dark` mode section. That tells the frontend to allow the user to choose which mode to use from the user profile (default selection is based on the system settings). Independent of the selection, the primary color will be set to green, but based on the chosen mode either the default light or dark theme will be used as the basis for rendering, plus the secondary text color will be either olive or slategray.
+Theme `day_and_night`: This theme has both a `light` and a `dark` mode section. That tells the frontend to allow the user to choose which mode to use from the user profile (default selection is based on the system settings). Independent of the selection, the primary color will be set to coral, but based on the chosen mode either the default light or dark theme will be used as the basis for rendering, plus the secondary text color will be either olive or slategray.
 
 ### Theme configuration splitting
 

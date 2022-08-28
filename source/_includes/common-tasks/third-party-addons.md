@@ -11,8 +11,8 @@ Home Assistant cannot guarantee the quality or security of third-party add-ons. 
 </div>
 
 <p class='img'>
-<img src='/images/hassio/screenshots/main_panel_addon_store.png' />
-From the Supervisor main panel open the add-on store.
+<img src='/images/hassio/screenshots/dashboard.png' />
+From {% my supervisor title="Settings > Add-ons" %} open the add-on store.
 </p>
 
 <p class='img'>
@@ -22,4 +22,4 @@ Add the URL of the repository and then press "Add". A new card for the repositor
 
 ### Help: Repository is not showing up
 
-If you have added a repository, but it's not showing up, it means that the repository contains invalid configuration. Go to the Supervisor panel and then the System tab to find the System log. It should tell you what went wrong. Report this information to the repository author.
+If you have added a repository, but it's not showing up, it means that the repository contains invalid configuration. Go to {% my logs title="Settings > System > Logs" %} to find the System log. It should tell you what went wrong. Report this information to the repository author.

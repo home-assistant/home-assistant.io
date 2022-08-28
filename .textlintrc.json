@@ -1,5 +1,7 @@
 {
-  "filters": {},
+  "filters": {
+    "comments": true
+  },
   "rules": {
     "common-misspellings": {
       "ignore": ["Proove", "Alot"]
@@ -13,7 +15,6 @@
         "ABB Solar PV",
         "ABB",
         "Abode",
-        "AC",
         "Acer",
         "Actiontec",
         "AdGuard Home",
@@ -234,7 +235,7 @@
         "SwitchBot",
         "Synology",
         "Tado",
-        "Tahoma",
+        "TaHoma",
         "TCP/IP",
         "TensorFlow",
         "Tesla",
@@ -271,7 +272,6 @@
         "Vultr",
         "WebDAV",
         "WeMo",
-        "Wink",
         "WLED",
         "WWLLN",
         "Xiaomi",

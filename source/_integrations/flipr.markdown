@@ -10,7 +10,9 @@ ha_codeowners:
   - '@cnico'
 ha_domain: flipr
 ha_platforms:
+  - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 [Flipr](https://www.goflipr.com) is a smart pool monitor that publishes data to the cloud via SigFox.

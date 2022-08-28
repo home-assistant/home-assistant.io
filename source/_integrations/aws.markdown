@@ -8,6 +8,7 @@ ha_release: '0.91'
 ha_domain: aws
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `aws` integration provides a single place to interact with [Amazon Web Services](https://aws.amazon.com/). Currently it provides a notification platform that can send a message to [AWS SQS](https://aws.amazon.com/sqs/), [AWS SNS](https://aws.amazon.com/sns/), or invoke [AWS Lambda](https://aws.amazon.com/lambda/) functions.
@@ -138,7 +139,7 @@ If one exists, the SNS Subject will be set to the title. All attributes from the
 ### Setting up SNS within AWS
 
 - Log into your AWS console and under "Security and Identity", select "Identity & Access Management".
-- On the left-hand side, select "Users" then click "Create New Users". Enter a name here and then click "Create". 
+- On the left-hand side, select "Users" then click "Create New Users". Enter a name here and then click "Create".
 - You can either download the credentials or click the arrow to display them one time.
 
 <div class='note warning'>
