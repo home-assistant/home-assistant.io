@@ -40,7 +40,7 @@ This integration uses the last 6 digits of the serial number.
 
 ## Sensors
 
-Sensors exposed, depending on Wave hardware:
+Sensor entities added to Home Assistant, depending on the device model:
 - Humidity
 - Illuminance
 - Pressure (relative depending on home elevation)
