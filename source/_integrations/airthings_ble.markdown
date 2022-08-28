@@ -22,7 +22,6 @@ Integrates Airthings BLE sensors into Home Assistant.
 
 Requires Airthings hardware and a compatible Bluetooth dongle.
 
-
 {% include integrations/config_flow.md %}
 
 The Airthings BLE integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. This will include the device name and it's serial number.
@@ -38,3 +37,15 @@ This integration uses the last 6 digits of the serial number.
 - Wave
 - Wave+
 - Wave mini
+
+## Sensors
+
+Sensors exposed, depending on Wave hardware:
+- Humidity
+- Illuminance
+- Pressure (relative depending on home elevation)
+- Radon 1-day and longterm average, as well as levels
+- Temperature
+- VOC
+- Co2
+- Battery
