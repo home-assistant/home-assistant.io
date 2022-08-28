@@ -58,6 +58,6 @@ use is automatically detected when using a username and password.
   - Still Image URL: `http://IP/webcam/?action=snapshot`
 
 - Legacy Foscam / wanscam
-  - MJPEG URL: `http://192.168.1.13:8080/videostream.cgi` (add ?resultion=32 for 640x480 or ?resultion=32 for 320x240)
+  - MJPEG URL: `http://IP:PORT/videostream.cgi` (add ?resultion=32 for 640x480 or ?resultion=32 for 320x240)
   - Still Image URL: `http://192.168.1.13:8080/snapshot.cgi`
 
