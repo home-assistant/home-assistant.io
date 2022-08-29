@@ -5,7 +5,7 @@ ha_category:
   - Light
 ha_bluetooth: true
 ha_release: 2022.9
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@bdraco'
 ha_domain: led_ble
