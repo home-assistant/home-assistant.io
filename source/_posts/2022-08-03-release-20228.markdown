@@ -49,6 +49,7 @@ Enjoy the release!
 - [Release 2022.8.4 - August 12](#release-202284---august-12)
 - [Release 2022.8.5 - August 15](#release-202285---august-15)
 - [Release 2022.8.6 - August 17](#release-202286---august-17)
+- [Release 2022.8.7 - August 25](#release-202287---august-25)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -605,6 +606,56 @@ The following integrations are now available via the Home Assistant UI:
 [notify docs]: /integrations/notify/
 [overkiz docs]: /integrations/overkiz/
 [slack docs]: /integrations/slack/
+
+## Release 2022.8.7 - August 25
+
+- Add edl21 sensor unit mapping for Hz ([@StephanU] - [#76783]) ([edl21 docs])
+- Change growatt server URL ([@coffeedave] - [#76824]) ([growatt_server docs])
+- Bump pySwitchbot to 0.18.12 ([@bdraco] - [#77040]) ([switchbot docs])
+- Bump pySwitchbot to 0.18.14 ([@bdraco] - [#77090]) ([switchbot docs])
+- Protect against an exception in Shelly climate platform ([@bieniu] - [#77102]) ([shelly docs])
+- Bump ZHA dependencies ([@puddly] - [#77125]) ([zha docs])
+- Minor deCONZ clean up ([@Kane610] - [#76323]) ([deconz docs])
+- Fix level controllable output controls in deCONZ ([@Kane610] - [#77223]) ([deconz docs])
+- Fix Aladdin connect multiple doors on one device ([@mkmer] - [#77226]) ([aladdin_connect docs])
+- Fix met_eireann default wind speed unit ([@donoghdb] - [#77229]) ([met_eireann docs])
+- Update xknx to 1.0.1 ([@farmio] - [#77244]) ([knx docs])
+- Fix grid_export_limit unit for DT inverters ([@mletenay] - [#77290]) ([goodwe docs])
+- Add BLE sensor to Aladdin_connect ([@mkmer] - [#76221]) ([aladdin_connect docs])
+
+[#76221]: https://github.com/home-assistant/core/pull/76221
+[#76323]: https://github.com/home-assistant/core/pull/76323
+[#76783]: https://github.com/home-assistant/core/pull/76783
+[#76824]: https://github.com/home-assistant/core/pull/76824
+[#77040]: https://github.com/home-assistant/core/pull/77040
+[#77090]: https://github.com/home-assistant/core/pull/77090
+[#77102]: https://github.com/home-assistant/core/pull/77102
+[#77125]: https://github.com/home-assistant/core/pull/77125
+[#77223]: https://github.com/home-assistant/core/pull/77223
+[#77226]: https://github.com/home-assistant/core/pull/77226
+[#77229]: https://github.com/home-assistant/core/pull/77229
+[#77244]: https://github.com/home-assistant/core/pull/77244
+[#77290]: https://github.com/home-assistant/core/pull/77290
+[@Kane610]: https://github.com/Kane610
+[@StephanU]: https://github.com/StephanU
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@coffeedave]: https://github.com/coffeedave
+[@donoghdb]: https://github.com/donoghdb
+[@farmio]: https://github.com/farmio
+[@mkmer]: https://github.com/mkmer
+[@mletenay]: https://github.com/mletenay
+[@puddly]: https://github.com/puddly
+[aladdin_connect docs]: /integrations/aladdin_connect/
+[deconz docs]: /integrations/deconz/
+[edl21 docs]: /integrations/edl21/
+[goodwe docs]: /integrations/goodwe/
+[growatt_server docs]: /integrations/growatt_server/
+[knx docs]: /integrations/knx/
+[met_eireann docs]: /integrations/met_eireann/
+[shelly docs]: /integrations/shelly/
+[switchbot docs]: /integrations/switchbot/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
