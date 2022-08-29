@@ -14,6 +14,7 @@ ha_codeowners:
   - '@danielhiversen'
   - '@RenierM26'
   - '@murtas'
+  - '@Eloston'
 ha_domain: switchbot
 ha_bluetooth: true
 ha_platforms:
