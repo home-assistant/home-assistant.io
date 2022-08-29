@@ -31,7 +31,9 @@ You can also specify a weather station to use by providing a identification code
 
 ## Entities
 
-The integration will create the entities listed below. Note that many of the entities are disabled by default and can be enabled via the Configuration / Entities screen.
+The integration will create the entities listed below. 
+
+Note that many of the entities, such as radar imagery and hourly forecasts, are disabled by default and can be enabled via the Entity status settings available through the Configuration / Entities screen.
 
 ### Weather
 
