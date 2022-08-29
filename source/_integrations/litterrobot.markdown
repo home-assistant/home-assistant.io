@@ -12,7 +12,9 @@ ha_release: 2021.3
 ha_config_flow: true
 ha_codeowners:
   - '@natekspencer'
+  - '@tkdrob'
 ha_domain: litterrobot
+ha_dhcp: true
 ha_platforms:
   - button
   - select
