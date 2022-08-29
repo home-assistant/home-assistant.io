@@ -51,6 +51,10 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [Lorem ipsum](#lorem-ipsum)
+- [Automation editor](#automation-editor)
+- [Multi and remote adapter support for Bluetooth](#multi-and-remote-adapter-support-for-bluetooth)
+- [New helper: Weekly schedule](#new-helper-weekly-schedule)
+- [Z-Wave JS Updates](#z-wave-js-updates)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -85,6 +89,22 @@ the recording of it right here!
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
+## Automation editor
+
+Lorem
+
+## Multi and remote adapter support for Bluetooth
+
+Lorem
+
+## New helper: Weekly schedule
+
+Lorem
+
+## Z-Wave JS Updates
+
+Lorem
+
 ## Other noteworthy changes
 
 {% details "TODO" %}
@@ -107,6 +127,25 @@ To process core PR candidates:
 - Add multi-zone support to Anthem AV receiver and distribution solution ([@Hyralex] - [#74779]) ([anthemav docs])
 - Add telegram disable_web_page_preview ([@ildar170975] - [#75898]) ([telegram docs])
 - Enable air quality sensor for Core300s ([@jetpacktuxedo] - [#75695]) ([vesync docs])
+- Add homekit_controller thread node capabilties diagnostic sensor ([@Jc2k] - [#76120]) ([homekit_controller docs]) (noteworthy)
+- Add a Thread network status sensor to homekit_controller ([@Jc2k] - [#76209]) ([homekit_controller docs]) (noteworthy)
+- Add UniFi Protect media source ([@AngellusMortis] - [#73244]) ([unifiprotect docs]) (noteworthy)
+- Add ecobee CO2, VOC, and AQI sensors ([@rlippmann] - [#76366]) ([ecobee docs]) (noteworthy)
+- Support polling the MiFlora battery ([@Jc2k] - [#76342]) ([bluetooth docs]) ([xiaomi_ble docs]) (noteworthy)
+- Add Awair Local API support ([@zachberger] - [#75535]) ([awair docs]) (noteworthy)
+- Add schedule helper ([@frenck] - [#76566]) ([schedule docs]) (new-integration) (noteworthy)
+- Add support for August locks to Yale Access Bluetooth ([@bdraco] - [#76625]) ([yalexs_ble docs]) (noteworthy)
+- Add System Bridge Media Source ([@timmo001] - [#72865]) ([system_bridge docs]) (noteworthy)
+- Add support for multiple Bluetooth adapters ([@bdraco] - [#76963]) ([bluetooth docs]) (noteworthy)
+- Add state selector ([@frenck] - [#77024]) (noteworthy)
+- Set quality scale to platinum in the NextDNS integration ([@bieniu] - [#77099]) ([nextdns docs]) (noteworthy)
+- Add support for scanners that do not provide connectable devices ([@bdraco] - [#77132]) (noteworthy)
+- Add `this` object to MQTT templates ([@jbouwh] - [#77142]) ([mqtt docs]) (noteworthy)
+- ESPHome BLE scanner support ([@bdraco] - [#77123]) ([esphome docs]) ([bluetooth docs]) (noteworthy)
+- Add support for bleak passive scanning on linux ([@bdraco] - [#75542]) ([bluetooth docs]) (noteworthy)
+- Implement websocket message coalescing ([@bdraco] - [#77238]) ([websocket_api docs]) (noteworthy)
+- Add support for Litter-Robot 4 ([@natekspencer] - [#75790]) ([litterrobot docs]) (dependency) (noteworthy)
+- Add light platform to switchbot ([@bdraco] - [#77430]) ([switchbot docs]) (new-platform) (noteworthy)
 
 To process frontend PR candidates:
 
