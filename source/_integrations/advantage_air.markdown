@@ -60,6 +60,10 @@ The `advantage_air` switch platform will create a switch entity to toggle fresh 
 
 The `advantage_air` select platform allows you to change the zone used for the "MyZone" feature.
 
+### Light
+
+The `advantage_air` light platform will create a light entity for each light in MyLights tab of the MyPlace app.
+
 ## Services
 
 ### Service `advantage_air.set_time_to`
