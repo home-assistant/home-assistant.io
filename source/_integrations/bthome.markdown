@@ -40,4 +40,4 @@ The current release supports the following sensor measurement types.
 
 ## Bindkey
 
-When using encryption for your BThome sensor, you will promted to enter your 32 character hexadecimal (16 bytes) encryption key. This key is called the bindkey. More information about the bindkey can be found in the [specifications](https://bthome.io/).
+When using encryption for your BThome sensor, you will promted to enter your 32 character hexadecimal (16 bytes) encryption key. This key is called the bindkey. More information about the bindkey can be found in the [specifications](https://bthome.io/#encryption).
