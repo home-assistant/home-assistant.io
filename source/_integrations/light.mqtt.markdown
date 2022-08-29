@@ -89,7 +89,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -98,7 +98,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -123,7 +123,7 @@ brightness_state_topic:
   required: false
   type: string
 brightness_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the brightness value."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the brightness value."
   required: false
   type: string
 color_mode_state_topic:
@@ -131,7 +131,7 @@ color_mode_state_topic:
   required: false
   type: string
 color_mode_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the color mode."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the color mode."
   required: false
   type: string
 color_temp_command_template:
@@ -147,7 +147,7 @@ color_temp_state_topic:
   required: false
   type: string
 color_temp_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the color temperature value."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the color temperature value."
   required: false
   type: string
 command_topic:
@@ -227,7 +227,7 @@ effect_state_topic:
   required: false
   type: string
 effect_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the effect value."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the effect value."
   required: false
   type: string
 hs_command_topic:
@@ -242,7 +242,7 @@ hs_state_topic:
   required: false
   type: string
 hs_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the HS value."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the HS value."
   required: false
   type: string
 icon:
@@ -250,7 +250,7 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -326,7 +326,7 @@ rgb_state_topic:
   required: false
   type: string
 rgb_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the RGB value."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the RGB value."
   required: false
   type: string
 rgbw_command_template:
@@ -342,7 +342,7 @@ rgbw_state_topic:
   required: false
   type: string
 rgbw_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the RGBW value."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the RGBW value."
   required: false
   type: string
 rgbww_command_template:
@@ -358,7 +358,7 @@ rgbww_state_topic:
   required: false
   type: string
 rgbww_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the RGBWW value."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the RGBWW value."
   required: false
   type: string
 schema:
@@ -371,7 +371,7 @@ state_topic:
   required: false
   type: string
 state_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the state value. The template should match the payload `on` and `off` values, so if your light uses `power on` to turn on, your `state_value_template` string should return `power on` when the switch is on. For example if the message is just `on`, your `state_value_template` should be `power {{ value }}`."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the state value. The template should match the payload `on` and `off` values, so if your light uses `power on` to turn on, your `state_value_template` string should return `power on` when the switch is on. For example if the message is just `on`, your `state_value_template` should be `power {{ value }}`."
   required: false
   type: string
 unique_id:
@@ -396,7 +396,7 @@ xy_state_topic:
   required: false
   type: string
 xy_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the XY value."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the XY value."
   required: false
   type: string
 {% endconfiguration %}
@@ -554,7 +554,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -563,7 +563,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -661,7 +661,7 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -913,7 +913,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -922,7 +922,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -930,23 +930,23 @@ availability_topic:
   required: false
   type: string
 blue_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract blue color from the state payload value. Expected result of the template is an integer from 0-255 range."
+  description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract blue color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: string
 brightness_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract brightness from the state payload value. Expected result of the template is an integer from 0-255 range."
+  description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract brightness from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: string
 color_temp_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract color temperature from the state payload value. Expected result of the template is an integer representing mired units."
+  description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract color temperature from the state payload value. Expected result of the template is an integer representing mired units."
   required: false
   type: string
 command_off_template:
-  description: "The [template](/docs/configuration/templating/#processing-incoming-data) for *off* state changes. Available variables: `state` and `transition`."
+  description: "The [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) for *off* state changes. Available variables: `state` and `transition`."
   required: true
   type: string
 command_on_template:
-  description: "The [template](/docs/configuration/templating/#processing-incoming-data) for *on* state changes. Available variables: `state`, `brightness`, `color_temp`, `red`, `green`, `blue`, `flash`, `transition` and `effect`. Values `red`, `green`, `blue`, `brightness` are provided as integers from range 0-255. Value of `color_temp` is provided as integer representing mired units."
+  description: "The [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) for *on* state changes. Available variables: `state`, `brightness`, `color_temp`, `red`, `green`, `blue`, `flash`, `transition` and `effect`. Values `red`, `green`, `blue`, `brightness` are provided as integers from range 0-255. Value of `color_temp` is provided as integer representing mired units."
   required: true
   type: string
 command_topic:
@@ -1006,11 +1006,11 @@ effect_list:
   required: false
   type: [string, list]
 effect_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract effect from the state payload value."
+  description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract effect from the state payload value."
   required: false
   type: string
 green_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract green color from the state payload value. Expected result of the template is an integer from 0-255 range."
+  description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract green color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: string
 icon:
@@ -1018,7 +1018,7 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -1063,7 +1063,7 @@ qos:
   type: integer
   default: 0
 red_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract red color from the state payload value. Expected result of the template is an integer from 0-255 range."
+  description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract red color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
   type: string
 schema:
@@ -1072,7 +1072,7 @@ schema:
   type: string
   default: default
 state_template:
-  description: "[Template](/docs/configuration/templating/#processing-incoming-data) to extract state from the state payload value."
+  description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract state from the state payload value."
   required: false
   type: string
 state_topic:

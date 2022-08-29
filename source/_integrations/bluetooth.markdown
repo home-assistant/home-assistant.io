@@ -55,13 +55,14 @@ On Debian based host systems, the `sudo apt-get -y install bluez` command will i
 
 Some systems may not come with Bluetooth and require a USB adapter. Installing an adapter for the first time may require multiple restarts for the device to be fully recognized.
 
-If you experience an unreliable Bluetooth connection, installing a [USB extension cable with a Ferrite Bead](https://a.co/d/fRnFIwy) may improve reliability.
+If you experience an unreliable Bluetooth connection, installing a short USB extension cable between your Bluetooth adapter and your Home Assistant server may improve reliability.
 
 ### Known working adapters
 
 - ASUS USB-BT400
 - ASUS USB-BT500
 - Avantree DG45
+- Kinivo BTD-400
 - Maxuni BT-501
 - SUMEE BT501
 - UGREEN CM390
