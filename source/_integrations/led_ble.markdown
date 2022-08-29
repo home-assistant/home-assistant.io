@@ -35,3 +35,4 @@ These devices have been sold under many brands, including:
 - Happy Lighting
 - Zengee
 - LEDBlue
+- Zerproc
