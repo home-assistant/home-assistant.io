@@ -392,13 +392,12 @@ changes and new features available for your integration: Be sure to follow our
 
 [devblog]: https://developers.home-assistant.io/blog/
 
+- [AutomationActionType deprecation for 2022.9](https://developers.home-assistant.io/blog/2022/08/15/automation-action-type-deprecation)
+- [Bluetooth passive sensor API changes for 2022.9](https://developers.home-assistant.io/blog/2022/08/08/bluetooth-api-changes)
 - [Device tracker deprecations for 2022.9](https://developers.home-assistant.io/blog/2022/07/29/device-tracker_source-type-deprecation/)
-
-## Farewell to the following
-
-The following integrations are also no longer available as of this release:
-
-- **Lorem**
+- [Globally available HomeAssistant object (hass)](https://developers.home-assistant.io/blog/2022/08/24/globally_accessible_hass)
+- [LightEntity no longer supports white_value](https://developers.home-assistant.io/blog/2022/08/18/light_white_value_removed)
+- [The issue registry has been moved to homeassistant.helpers](https://developers.home-assistant.io/blog/2022/08/25/issue_registry_moved_to_helpers)
 
 ## All changes
 
