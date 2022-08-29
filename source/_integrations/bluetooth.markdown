@@ -11,6 +11,8 @@ ha_codeowners:
   - '@bdraco'
 ha_integration_type: integration
 ha_config_flow: true
+ha_platforms:
+  - diagnostics
 ---
 
 The Bluetooth integration will detect nearby Bluetooth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.

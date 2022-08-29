@@ -10,6 +10,8 @@ ha_platforms:
   - sensor
 ha_config_flow: true
 ha_integration_type: integration
+ha_codeowners:
+  - '@kvanzuijlen'
 ---
 
 The JustNimbus integration queries the JustNumbus API used by the JustNimbus web dashboard.
