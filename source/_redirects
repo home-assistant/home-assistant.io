@@ -402,6 +402,7 @@
 /getting-started/installation-raspberry-pi-all-in-one /getting-started
 /docs/tools/keyring/ /docs/configuration/secrets
 /docs/tools/credstash/ /docs/configuration/secrets
+/docs/scripts/editor/ /docs/scripts
 
 # Blog
 /blog/2019/05/29/release-94 /blog/2019/06/05/release-94
