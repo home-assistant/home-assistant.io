@@ -116,10 +116,42 @@ To process frontend PR candidates:
 
 We welcome the following new integrations in this release:
 
+- [BThome], added by [@Ernst79]
+- [Escea], added by [@lazdavila]
+- [File Upload], added by [@balloob]
+- [Fully Kiosk Browser], added by [@cgarwood]
+- [JustNimbus], added by [@kvanzuijlen]
 - [LaCrosse View], added by [@IceBotYT]
+- [Landis+Gyr Heat Meter], added by [@vpathuis]
+- [LED BLE], added by  [@bdraco]
+- [Qingping], added by [@bdraco]
+- [Schedule], added by [@frenck]
+- [ThermoBeacon], added by [@bdraco]
+- [ThermoPro], added by [@bdraco]
+- [Yale Access Bluetooth], added by [@bdraco]
 
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@cgarwood]: https://github.com/cgarwood
+[@Ernst79]: https://github.com/Ernst79
+[@frenck]: https://github.com/frenck
 [@IceBotYT]: https://github.com/IceBotYT
+[@kvanzuijlen]: https://github.com/kvanzuijlen
+[@lazdavila]: https://github.com/lazdavila
+[@vpathuis]: https://github.com/vpathuis
+[BThome]:  /integrations/bthome
+[Escea]: /integrations/escea
+[File Upload]: /integrations/file_upload
+[Fully Kiosk Browser]: /integrations/fully_kiosk
+[JustNimbus]: /integrations/just_nimbus
 [LaCrosse View]: /integrations/lacrosse_view
+[Landis+Gyr Heat Meter]: /integrations/landisgyr_heat_meter
+[LED BLE]: /integrations/led_ble
+[Qingping]: /integrations/qingping
+[Schedule]: /integrations/schedule
+[ThermoBeacon]: /integrations/thermobeacon
+[ThermoPro]: /integrations/thermopro
+[Yale Access Bluetooth]: /integrations/yalexs_ble
 
 ## Integrations now available to set up from the UI
 
