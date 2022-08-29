@@ -157,10 +157,21 @@ We welcome the following new integrations in this release:
 
 The following integrations are now available via the Home Assistant UI:
 
-- [Lorem], done by [@frenck]
+- [Android IP Webcam], done by [@engrbm87]
+- [LaMetric], done by [@frenck]
+- [Open Exchange Rates], done by [@MartinHjelmare]
+- [Pushover], done by [@engrbm87]
+- [Volvo On Call], done by [@y34hbuddy]
 
+[@engrbm87]: https://github.com/engrbm87
 [@frenck]: https://github.com/frenck
-[Lorem]: /integrations/anthemav
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@y34hbuddy]: https://github.com/y34hbuddy
+[Android IP Webcam]: /integrations/android_ip_webcam
+[LaMetric]: /integrations/lametric
+[Open Exchange Rates]: /integrations/openexchangerates
+[Pushover]: /integrations/pushover
+[Volvo On Call]: /integrations/volvooncall
 
 ## Need help? Join the community!
 
