@@ -195,13 +195,80 @@ other news about building an Open Home; straight into your inbox.
 
 - Proof read/spelling/grammar
 
-**Note**: Breaking changes processed up to PR 76017
+**Note**: Breaking changes processed up to PR 76903
 
 {% enddetails %}
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
+
+{% details "BMW Connected Drive" %}
+
+Entity `sensor.<your_vehicle>_charging_time_label` (disabled by default) has
+been removed as it is not provided by the upstream library/API anymore.
+
+([@rikroe] - [#76616]) ([documentation](/integrations/bmw_connected_drive))
+
+[@rikroe]: https://github.com/rikroe
+[#76616]: https://github.com/home-assistant/core/pull/76616
+
+---
+
+The attribute `charging_status` of `binary_sensor.<your_car>_charging_status`
+has been removed. Please use `sensor.charging_status` instead.
+
+([@rikroe] - [#74921]) ([documentation](/integrations/bmw_connected_drive))
+
+[@rikroe]: https://github.com/rikroe
+[#74921]: https://github.com/home-assistant/core/pull/74921
+
+{% enddetails %}
+
+{% details "HomeKit" %}
+
+The Homekit PM2.5 µg/m3 mappings in the HomeKit integration now use the values
+based on the [US AQI set by the EPA](https://www.epa.gov/sites/default/files/2016-04/documents/2012_aqi_factsheet.pdf).
+
+| HomeKit | Previous PM2.5 µg/m3 | New PM2.5 µg/m3 |
+|---|---|---|
+| Excellent | <= 25 | <= 12 |
+| Good | <= 50 | <= 35.4 |
+| Fair | <= 100 | <= 55.4 |
+| Inferior | <= 300 | <= 150.4 |
+| Poor | > 300 | > 150.4 |
+
+([@sarabveer] - [#76358]) ([documentation](/integrations/homekit))
+
+[@sarabveer]: https://github.com/sarabveer
+[#76358]: https://github.com/home-assistant/core/pull/76358
+
+{% enddetails %}
+
+{% details "Litter-Robot" %}
+
+The previously deprecated `reset_waste_drawer` and `set_wait_time` services from
+the litterrobot vacuum entity, have been removed.
+
+([@natekspencer] - [#77052]) ([documentation](/integrations/litterrobot))
+
+[@natekspencer]: https://github.com/natekspencer
+[#77052]: https://github.com/home-assistant/core/pull/77052
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+Support for MQTT climate `hold` and `away` modes, which was deprecated in
+Home Assistant Core 2022.3.0, has been removed. The `hold` and `away` modes
+are replaced by `preset_mode`.
+
+([@jbouwh] - [#76299]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#76299]: https://github.com/home-assistant/core/pull/76299
+
+{% enddetails %}
 
 {% details "Open Exchange Rates" %}
 
@@ -214,7 +281,47 @@ The sensor now has a unit of measurement according to the exchange rate quote.
 
 {% enddetails %}
 
-{% details "Z-Wave" %}
+{% details "Roku" %}
+
+Roku media player will indicate `IDLE` instead of `HOME` when at home screen.
+You can still detect home screen by looking at `app_id` attribute.
+
+([@elupus] - [#77385]) ([documentation](/integrations/roku))
+
+[@elupus]: https://github.com/elupus
+[#77385]: https://github.com/home-assistant/core/pull/77385
+
+{% enddetails %}
+
+{% details "SMS notifications via GSM-modem" %}
+
+Setting up the notify platform of the SMS integration by a platform section in
+YAML configuration is no longer supported. The `sms` platform section 
+under `notify:` can be removed from your YAML configuration files.
+
+A recipient can be specified by using the `target` parameter in the notify
+service call instead.
+
+([@ocalvo] - [#76733]) ([documentation](/integrations/sms))
+
+[@ocalvo]: https://github.com/ocalvo
+[#76733]: https://github.com/home-assistant/core/pull/76733
+
+{% enddetails %}
+
+{% details "Utility Meter" %}
+
+The previously deprecated `utility_meter` entities, used to change tariffs,
+has been removed. Please use the provided `select` entity instead.
+
+([@dgomes] - [#76480]) ([documentation](/integrations/utility_meter))
+
+[@dgomes]: https://github.com/dgomes
+[#76480]: https://github.com/home-assistant/core/pull/76480
+
+{% enddetails %}
+
+{% details "Z-Wave: TODO!" %}
 
 You must use zwave-js-server 1.21.0 or greater (schema 21).
 
@@ -229,6 +336,14 @@ With this release, you will need to update your zwave-js-server instance.
 
 [@raman325]: https://github.com/raman325
 [#75795]: https://github.com/home-assistant/core/pull/75795
+
+
+TODO: The versions changed  in  the following PR:
+
+- Bump zwave-js-server-python to 0.41.0 ([@raman325] - [#76903]) ([zwave_js docs]) (breaking-change) (dependency)
+
+Once all versions are known, the above breaking change note needs to be adjusted.
+
 
 {% enddetails %}
 
