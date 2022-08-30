@@ -2,6 +2,7 @@
 title: LIFX
 description: Instructions on how to integrate LIFX into Home Assistant.
 ha_category:
+  - Button
   - Light
 ha_iot_class: Local Polling
 ha_release: 0.81
@@ -9,12 +10,14 @@ ha_config_flow: true
 ha_domain: lifx
 ha_homekit: true
 ha_platforms:
+  - button
   - light
 ha_integration_type: integration
 ha_codeowners:
   - '@bdraco'
   - '@Djelibeybi'
-ha_quality_scale: platinum 
+ha_quality_scale: platinum
+ha_dhcp: true
 ---
 
 The LIFX integration automatically discovers [LIFX](https://www.lifx.com) bulbs on your network and adds them to Home Assistant.
@@ -113,13 +116,35 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 
+## Buttons
+
+The LIFX button platform creates two buttons for each LIFX device.
+
+### Identify Button
+
+The Identify button will flash the bulb three times at maximum brightness then return the bulb to the state it was in prior. Successful identification requires the bulb to be powered on and already configured in Home Assistant.
+
+### Restart Button
+
+The Restart button triggers the bulb to restart in exactly the same way as a physical power cycle, which makes it ideal for triggering a new DHCP request from the bulb.
+
+## HomeKit Accessory Protocol
+
+Most LIFX devices support Apple HomeKit via the HomeKit Accessory Protocol (HAP). If a LIFX device has not already been added to HomeKit natively using an Apple iOS or macOS device, it can be paired with Home Assistant using via the [HomeKit Controller](/integrations/homekit_controller) integration which uses HAP.
+
+This enables the use of LIFX devices in Home Assistant that are not supported by the LIFX integration. See below for specific details on controlling LIFX Switches.
+
+The LIFX integration currently has to poll the device every few seconds, as opposed to using the [HomeKit Controller](/integrations/homekit_controller) integration, which offers push updates, encrypted communications, and significantly less network traffic.
+
+Discoveries from control protocols that are not desired can be ignored in the UI. LIFX devices that support HAP will be discovered by both methods if they have not been added to native HomeKit using an Apple iOS or macOS device. It is possible to set up control of the device in Home Assistant using both protocols simultaneously by configuring both the LIFX integration and the HomeKit Controller integration for the same device.
+
 ## LIFX Switch
 
-The `lifx` integration does not support the LIFX Switch. However, the `homekit_controller` integration can be used instead for
+The LIFX integration does not support the LIFX Switch. However, the [HomeKit Controller](/integrations/homekit_controller) integration can be used instead for
 [LIFX Switch running firmware 3.90](https://support.lifx.com/en_us/switch-3-90-update-rk4zYiXVq) or higher. Follow the LIFX
 documentation to obtain a HomeKit code prior to integrating the Switch with Home Assistant as it will be needed during the process.
 
-When using the `homekit_controller` integration, each button on the LIFX Switch is discovered as a
+When using the [HomeKit Controller](/integrations/homekit_controller) integration, each button on the LIFX Switch is discovered as a
 [stateless switch](/integrations/homekit_controller#stateless-switches-and-sensors) and will not appear as an entity in Home Assistant.
 Relays that are configured as wired to non-LIFX devices will appear as normal switches in Home Assistant.
 

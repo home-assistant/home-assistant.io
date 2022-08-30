@@ -193,6 +193,7 @@
 /integrations/generic_ip_camera /integrations/generic
 /integrations/google /integrations/google_translate
 /integrations/input_slider /integrations/input_number
+/integrations/leviton /integrations/leviton_z_wave
 /integrations/light.switch /integrations/switch_as_x
 /integrations/openalpr /integrations/openalpr_local
 /integrations/pca /integrations/elv
@@ -203,7 +204,6 @@
 /integrations/telegram_chatbot /integrations/telegram_bot
 /integrations/vlc-telnet /integrations/vlc_telnet
 /integrations/xiaomi /integrations/xiaomi_aqara
-/integrations/zigbee /integrations/xbee
 
 # Moved documentation
 /details/database /docs/backend/database
@@ -318,6 +318,7 @@
 /common-tasks/os/#snapshots /common-tasks/os/#backups
 /common-tasks/supervised/#snapshots /common-tasks/supervised/#backups
 /more-info/unsupported/container /more-info/unsupported/software
+/integrations/zigbee /integrations/zha
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -401,6 +402,7 @@
 /getting-started/installation-raspberry-pi-all-in-one /getting-started
 /docs/tools/keyring/ /docs/configuration/secrets
 /docs/tools/credstash/ /docs/configuration/secrets
+/docs/scripts/editor/ /docs/scripts
 
 # Blog
 /blog/2019/05/29/release-94 /blog/2019/06/05/release-94
@@ -438,6 +440,7 @@
 /integrations/gearbest /more-info/removed-integration 301
 /integrations/geizhals /more-info/removed-integration 301
 /integrations/gntp /more-info/removed-integration 301
+/integrations/gpmdp /more-info/removed-integration 301
 /integrations/griddy /more-info/removed-integration 301
 /integrations/history_graph /more-info/removed-integration 301
 /integrations/htu21d /more-info/removed-integration 301
@@ -454,6 +457,8 @@
 /integrations/lyft /more-info/removed-integration 301
 /integrations/mcp23017 /more-info/removed-integration 301
 /integrations/mhz19 /more-info/removed-integration 301
+/integrations/miflora /integrations/xiaomi_ble
+/integrations/mitemp_bt /integrations/xiaomi_ble
 /integrations/mopar /more-info/removed-integration 301
 /integrations/mpchc /more-info/removed-integration 301
 /integrations/mychevy /more-info/removed-integration 301
@@ -481,6 +486,7 @@
 /integrations/sht31 /more-info/removed-integration 301
 /integrations/simple_alarm /more-info/removed-integration 301
 /integrations/smarthab /more-info/removed-integration 301
+/integrations/sochain /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
 /integrations/somfy /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
@@ -500,6 +506,7 @@
 /integrations/weblink /more-info/removed-integration 301
 /integrations/wink /more-info/removed-integration 301
 /integrations/wunderground /more-info/removed-integration 301
+/integrations/xbee /more-info/removed-integration 301
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
