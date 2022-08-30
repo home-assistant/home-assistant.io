@@ -4,7 +4,8 @@ description: Instructions on setting up Melnor Bluetooth devices within Home Ass
 ha_category:
   - Switch
 ha_iot_class: Local Polling
-ha_release: 2022.5
+ha_bluetooth: true
+ha_release: 2022.9
 ha_config_flow: true
 ha_codeowners:
   - '@vanstinator'
