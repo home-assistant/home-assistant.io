@@ -31,7 +31,7 @@ To use this DSMR Reader sensor integration, you need to have a DSMR Reader insta
    - Meter Statistics: Split topic
    - Telegram: Split topic
 
-{% include integrations/config_flow.md discovery="true" %}
+{% include integrations/config_flow.md %}
 
 ## Difference with the DSMR integration
 
