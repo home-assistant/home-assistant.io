@@ -11,6 +11,10 @@ ha_domain: mqtt
 
 The `mqtt` device tracker platform allows you to define new device_trackers through [manual YAML configuration](#yaml-configuration) in `configuration.yaml` and also to automatically discover device_trackers [using the MQTT Discovery protocol](#using-the-discovery-protocol).
 
+<div class='note info'>
+  At the moment, manual configured device trackers can only reloaded by restarting Home Assistant.
+</div>
+
 ## Configuration
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
@@ -74,6 +78,7 @@ source_type:
   description: Attribute of a device tracker that affects state when being used to track a [person](/integrations/person/). Valid options are `gps`, `router`, `bluetooth`, or `bluetooth_le`.
   required: false
   type: string
+  default: gps
 {% endconfiguration %}
 
 {% enddetails %}
@@ -99,7 +104,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -108,7 +113,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -128,6 +133,10 @@ device:
       description: "A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `'connections': ['mac', '02:5b:26:a8:dc:12']`."
       required: false
       type: [list, map]
+    hw_version:
+      description: The hardware version of the device.
+      required: false
+      type: string
     identifiers:
       description: A list of IDs that uniquely identify the device. For example a serial number.
       required: false
@@ -161,7 +170,7 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -214,7 +223,7 @@ unique_id:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) that returns a device tracker state."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that returns a device tracker state."
   required: false
   type: template
 {% endconfiguration %}
@@ -230,7 +239,7 @@ You can use the command line tool `mosquitto_pub` shipped with `mosquitto` or th
 To create the device_tracker:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t home-assistant/device_tracker/a4567d663eaf/config -m '{"state_topic": "a4567d663eaf/state", "name": "My Tracker", "payload_home": "home", "payload_not_home": "not_home"}'
+mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"state_topic": "a4567d663eaf/state", "name": "My Tracker", "payload_home": "home", "payload_not_home": "not_home"}'
 ```
 
 To set the state of the device tracker to "home":
@@ -238,6 +247,38 @@ To set the state of the device tracker to "home":
 ```bash
 mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/state -m 'home'
 ```
+
+To set the state of the device tracker to a named location:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/state -m 'location_name'
+```
+
+If the device supports GPS coordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
+
+- Attributes topic: `a4567d663eaf/attributes`
+- Example attributes payload:
+
+```json
+{
+  "latitude": 32.87336,
+  "longitude": -117.22743,
+  "gps_accuracy": 1.2
+ }
+```
+
+To create the device_tracker with GPS coordinates support:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"state_topic": "a4567d663eaf/state", "name": "My Tracker", "payload_home": "home", "payload_not_home": "not_home", "json_attributes_topic": "a4567d663eaf/attributes"}'
+```
+
+To set the state of the device tracker to specific coordinates:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/state -m '{"latitude": 32.87336, "longitude": -117.22743, "gps_accuracy": 1.2}'
+```
+
 
 ### YAML configuration
 

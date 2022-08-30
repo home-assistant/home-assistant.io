@@ -10,14 +10,13 @@ The steps would be:
 - Wait for some time until your NAS has pulled the image
 - Move to the "Image"-section of the Docker-app
 - Click on "Launch"
+- Within "Network" select "Use same network as Docker Host" and click Next
 - Choose a container-name you want (e.g., "homeassistant")
-- Click on "Advanced Settings"
 - Set "Enable auto-restart" if you like
-- Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount path" has to be "/config", so that Home Assistant will use it for the configs and logs. It is therefore recommended that the folder you choose should be named "config" or "homeassistant/config" to avoid confusion when referencing it within service calls.
-- Within "Network" select "Use same network as Docker Host"
-- To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
-- Confirm the "Advanced Settings"
-- Click on "Next" and then "Apply"
+- Click on "Advanced Settings". To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Click Save to exit Advanced Settings.
+- Click Next
+- Within "Volume Settings" click on "Add Folder" and choose either an existing folder or add a new folder (e.g. in "docker" shared folder, add new folder named "homeassistant" and then within that new folder add another new folder "config"), then click Select. Then edit the "mount path" to be "/config". This configures where Home Assistant will store configs and logs.
+- Ensure "Run this container after the wizard is finished" is checked and click Done
 - Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Synology NAS IP address - for example `http://192.168.1.10:8123`)
 
 If you are using the built-in firewall, you must also add the port 8123 to allowed list. This can be found in "Control Panel -> Security" and then the Firewall tab. Click "Edit Rules" besides the Firewall Profile dropdown box. Create a new rule and select "Custom" for Ports and add 8123. Edit Source IP if you like or leave it at default "All". Action should stay at "Allow".
@@ -89,51 +88,3 @@ The steps would be:
 - Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Qnap NAS IP address - for example `http://192.xxx.xxx.xxx:8123`)
 
 Remark: To update your Home Assistant on your Docker within Qnap NAS, you just remove container and image and do steps again (Don't remove "config" folder).
-
-If you want to use a USB Bluetooth adapter or Z-Wave USB stick with Home Assistant on Qnap Docker, follow those steps:
-
-#### Z-Wave
-
-- Connect to your NAS over SSH
-- Load cdc-acm kernel module(when NAS restart need to run this command)
-  `insmod /usr/local/modules/cdc-acm.ko`
-- Find USB devices attached. Type command:
-  `ls /dev/tty*`
-  The above command should show you any USB devices plugged into your NAS. If you have more than one, you may get multiple items returned. Like : `ttyACM0`
-
-- Run Docker command:
-
-  ```bash
-  docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London --device /dev/ttyACM0 {{ site.installation.container }}:stable
-  ```
-
-  `-v` is your configuration path
-  `-e` is set timezone
-
-- Edit `configuration.yaml`
-
-```yaml
-zwave:
-  usb_path: /dev/ttyACM0
-```
-
-That will tell Home Assistant where to look for our Z-Wave radio.
-
-#### Bluetooth
-
-- Connect to your NAS over SSH
-- Run Docker command:
-
-  ```bash
-  docker run --init --name homeassistant --net=host --privileged -itd -v /share/CACHEDEV1_DATA/Public/homeassistant/config:/config -e TZ=Europe/London -v /dev/bus/usb:/dev/bus/usb -v /var/run/dbus:/var/run/dbus {{ site.installation.container }}:stable
-  ```
-
-  First `-v` is your configuration path
-  `-e` is set timezone
-
-- Edit the `configuration.yaml` file
-
-```yaml
-device_tracker:
-  - platform: bluetooth_tracker
-```

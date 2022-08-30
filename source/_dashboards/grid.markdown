@@ -8,7 +8,7 @@ description: "The Grid card allows you to show multiple cards in a grid."
 The Grid card allows you to show multiple cards in a grid. It will first fill the columns, automatically adding new rows as needed.
 
 <p class='img'>
-  <img src='/images/dashboards/lovelace_grid.png' alt='Screenshot of the grid card'>
+  <img src='/images/dashboards/grid.png' alt='Screenshot of the grid card'>
   Screenshot of the Grid card.
 </p>
 

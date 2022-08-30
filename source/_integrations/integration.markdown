@@ -46,7 +46,7 @@ Integration time:
 
 ## YAML Configuration
 
-Alternatlively, this integration can be configured and set up manually via YAML
+Alternatively, this integration can be configured and set up manually via YAML
 as well. To enable the Integration sensor in your installation, add the
 following to your `configuration.yaml` file:
 
@@ -65,7 +65,7 @@ source:
 name:
   description: Name to use in the frontend.
   required: false
-  default: source entity ID meter
+  default: source entity ID integral
   type: string
 unique_id:
    description: An ID that uniquely identifies the integration sensor. Set this to a unique value to allow customization through the UI.
@@ -93,7 +93,7 @@ method:
   default: trapezoidal
 {% endconfiguration %}
 
-In case you have an appliance which produces spikey consumption (like an on/off electrical boiler) you should opt for the `left` method to get accurate readings.
+In case you expect that your source sensor will provide several subsequent values that are equal, you should opt for the `left` method to get accurate readings.
 
 The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product (e.g. a source in `W` with prefix `k` and time `h` would result in `kWh`). Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation. 
 

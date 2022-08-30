@@ -8,12 +8,12 @@ description: "The Gauge card is a basic card that allows visually seeing sensor 
 The Gauge card is a basic card that allows visually seeing sensor data.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_gauge_card.gif' alt='Screenshot of the Gauge card'>
+<img src='/images/dashboards/gauge_card.gif' alt='Screenshot of the Gauge card'>
 Screenshot of the Gauge card.
 </p>
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_gauge_needle_card.png' alt='Screenshot of the Gauge card in needle mode'>
+<img src='/images/dashboards/gauge_needle_card.png' alt='Screenshot of the Gauge card in needle mode'>
 Screenshot of the Gauge card in needle mode.
 </p>
 
@@ -61,7 +61,7 @@ max:
   default: 100
 needle:
   required: false
-  description: Show the gauge as a needle gauge.
+  description: Show the gauge as a needle gauge. Required to be set to true, if using segments.
   type: boolean
   default: false
 severity:
@@ -83,7 +83,7 @@ severity:
       type: integer
 segments:
   required: false
-  description: List of colors and their corresponding start values. Segments will override the severity settings.
+  description: List of colors and their corresponding start values. Segments will override the severity settings. Needle required to be true.
   type: list
   keys:
     from:
@@ -93,6 +93,10 @@ segments:
     color:
       required: true
       description: Color of the segment, may be any CSS color declaration like "red", "#0000FF" or "rgb(255, 120, 0)".
+      type: string
+    label:
+      required: false
+      description: Label of the segment. This will be shown instead of the value.
       type: string
 {% endconfiguration %}
 
@@ -108,7 +112,7 @@ entity: sensor.cpu_usage
 ```
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_gauge_card.gif' alt='Screenshot of the gauge card with custom title and unit of measurement'>
+<img src='/images/dashboards/gauge_card.gif' alt='Screenshot of the gauge card with custom title and unit of measurement'>
 Screenshot of the gauge card with custom title and unit of measurement.
 </p>
 
@@ -128,7 +132,7 @@ severity:
 Multiple segments:
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_gauge_segments.png' alt='Screenshot of the gauge card with multiple colored segments.'>
+<img src='/images/dashboards/gauge_segments.png' alt='Screenshot of the gauge card with multiple colored segments.'>
 Screenshot of the gauge card with multiple colored segments.
 </p>
 

@@ -3,6 +3,8 @@ title: YoLink
 description: Instructions on how to integrate YoLink Devices into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Climate
+  - Cover
   - Lock
   - Sensor
   - Siren
@@ -15,6 +17,8 @@ ha_codeowners:
 ha_domain: yolink
 ha_platforms:
   - binary_sensor
+  - climate
+  - cover
   - lock
   - sensor
   - siren
@@ -44,3 +48,5 @@ The integration is tested and verified for the following devices from YoLink:
 * YS4909 (valve controller)
 * YS5705 (switch)
 * YS7A01 (CO & Smoke Sensor)
+* YS4002 (Thermostat)
+* YS4906/YS7706 (Garage Door Sensor/ Garage Door Controller)
