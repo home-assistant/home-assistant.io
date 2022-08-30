@@ -1,3 +1,4 @@
+[![Version](https://img.shields.io/badge/dynamic/json?color=blue&label=version&query=current_version&url=https%3A%2F%2Fwww.home-assistant.io%2Fversion.json)](https://github.com/home-assistant/core/releases)
 [![Discord](https://img.shields.io/discord/330944238910963714.svg)](https://discord.gg/CxqDrfU)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
