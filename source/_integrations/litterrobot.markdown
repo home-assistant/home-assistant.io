@@ -53,6 +53,7 @@ You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot or 
 
 | Entity     | Domain   | Description                                                  |
 | ---------- | -------- | ------------------------------------------------------------ |
+| Give snack | `button` | Button to dispense a single snack portion.                   |
 | Food level | `sensor` | Displays the approximate food level remaining in the hopper. |
 
 ## Additional Attributes
