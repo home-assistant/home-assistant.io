@@ -12,7 +12,7 @@ ha_domain: prusalink
 ha_integration_type: integration
 ---
 
-The PrusaLink integration allows you to monitor your [Prusa 3D printer](https://www.prusa3d.com) and it's progress with your Home Assistant installation.
+The PrusaLink integration allows you to monitor your [Prusa 3D printer](https://www.prusa3d.com) and its progress with your Home Assistant installation.
 
 {% include integrations/config_flow.md %}
 
