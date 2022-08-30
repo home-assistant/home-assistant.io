@@ -14,10 +14,6 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-<div class='note'>
-The Melnor Bluetooth integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
-</div>
-
 The Melnor Bluetooth integration allows you to control your Melnor Bluetooth watering valves.
 The devices are set up through Bluetooth and don't need any additional bridge or gateway.
 
@@ -29,6 +25,8 @@ These devices have been sold under at least the following brands:
 - [Eden](https://edengarden.com/)
 
 {% include integrations/config_flow.md %}
+
+The Melnor Bluetooth integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth/) integration is enabled and functional.
 
 ## Troubleshooting
 
