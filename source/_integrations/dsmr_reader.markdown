@@ -23,7 +23,7 @@ The `dsmr_reader` sensor integration allows you to easily add all sensors that [
 - DSMR Reader
 - MQTT broker
 
-## Preparation
+## Prerequisites
 
 1. Add the MQTT broker integration in Home Assistant, if you haven't done so already
 2. Configure the MQTT broker in the DSMR Reader application
