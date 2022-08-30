@@ -6,6 +6,7 @@ ha_category:
   - Sensor
 ha_iot_class: Local Push
 ha_config_flow: true
+ha_mqtt: true
 ha_release: 0.103
 ha_codeowners:
   - '@depl0y'
@@ -20,10 +21,7 @@ The `dsmr_reader` sensor integration allows you to easily add all sensors that [
 
 ## Prerequisites
 
-- DSMR Reader
-- MQTT broker
-
-## Prerequisites
+To use this DSMR Reader sensor integration, you need to have a DSMR Reader instance running and an MQTT broker to send sensor data through.
 
 1. Add the MQTT broker integration in Home Assistant, if you haven't done so already
 2. Configure the MQTT broker in the DSMR Reader application
