@@ -26,7 +26,6 @@ An automation can be triggered by an event, with a certain entity state, at a gi
 - [Calendar trigger](#calendar-trigger)
 - [Multiple triggers](#multiple-triggers)
 - [Multiple Entity IDs for the same Trigger](#multiple-entity-ids-for-the-same-trigger)
-- [Disabling a trigger](#disabling-a-trigger)
 
 ## Trigger ID
 
