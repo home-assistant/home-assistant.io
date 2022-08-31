@@ -44,6 +44,12 @@ Enjoy the release!
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.8.1 - August 4](#release-202281---august-4)
+- [Release 2022.8.2 - August 7](#release-202282---august-7)
+- [Release 2022.8.3 - August 9](#release-202283---august-9)
+- [Release 2022.8.4 - August 12](#release-202284---august-12)
+- [Release 2022.8.5 - August 15](#release-202285---august-15)
+- [Release 2022.8.6 - August 17](#release-202286---august-17)
+- [Release 2022.8.7 - August 25](#release-202287---august-25)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -91,7 +97,7 @@ it to be extended a lot, with more issue detections, in the near future.
 ## First-class Bluetooth support
 
 Today, we proudly announce that Home Assistant now has **first-class**
-Bluetooth support! 🥇 
+Bluetooth support! 🥇
 
 A brand new [Bluetooth integration] has been added, which provides absolutely
 amazing Bluetooth support to Home Assistant, including automatic discovery of
@@ -218,7 +224,7 @@ noteworthy changes this release:
 - [@frenck] updated the events developer tools to use YAML instead of JSON
   and added syntax highlighting.
 - The [LIFX] integration got a significant overhaul, making it much more
-  reliable. Thanks for the work on this in the past releases 
+  reliable. Thanks for the work on this in the past releases
   [@bdraco] and [@Djelibeybi]!
 - The [UniFi Network] now has update entities, allowing you to update the
   firmware of UniFi devices directly from Home Assistant. Great addition [@J3173]!
@@ -378,6 +384,279 @@ The following integrations are now available via the Home Assistant UI:
 [simplisafe docs]: /integrations/simplisafe/
 [zwave_js docs]: /integrations/zwave_js/
 
+## Release 2022.8.2 - August 7
+
+- Update gree to use the network component to set discovery interfaces ([@Jc2k] - [#75812]) ([gree docs])
+- Use stored philips_js system data on start ([@elupus] - [#75981]) ([philips_js docs])
+- Ensure bluetooth recovers if Dbus gets restarted ([@bdraco] - [#76249]) ([bluetooth docs])
+- Fix default sensor names in NextDNS integration ([@bieniu] - [#76264]) ([nextdns docs])
+- Bump ZHA dependencies ([@puddly] - [#76275]) ([zha docs])
+- Bump pydeconz to v102 ([@Kane610] - [#76287]) ([deconz docs])
+- Fix ZHA light color temp support ([@dmulcahey] - [#76305]) ([zha docs])
+- Bump pySwitchbot to 0.18.4 ([@bdraco] - [#76322]) ([switchbot docs])
+- Bump aiobafi6 to 0.7.2 to unblock #76328 ([@jfroy] - [#76330]) ([baf docs])
+- Postpone broadlink platform switch until config entry is ready ([@elupus] - [#76371]) ([broadlink docs])
+
+[#75812]: https://github.com/home-assistant/core/pull/75812
+[#75981]: https://github.com/home-assistant/core/pull/75981
+[#76249]: https://github.com/home-assistant/core/pull/76249
+[#76264]: https://github.com/home-assistant/core/pull/76264
+[#76275]: https://github.com/home-assistant/core/pull/76275
+[#76287]: https://github.com/home-assistant/core/pull/76287
+[#76305]: https://github.com/home-assistant/core/pull/76305
+[#76322]: https://github.com/home-assistant/core/pull/76322
+[#76330]: https://github.com/home-assistant/core/pull/76330
+[#76371]: https://github.com/home-assistant/core/pull/76371
+[@Jc2k]: https://github.com/Jc2k
+[@Kane610]: https://github.com/Kane610
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@dmulcahey]: https://github.com/dmulcahey
+[@elupus]: https://github.com/elupus
+[@jfroy]: https://github.com/jfroy
+[@puddly]: https://github.com/puddly
+[baf docs]: /integrations/baf/
+[bluetooth docs]: /integrations/bluetooth/
+[broadlink docs]: /integrations/broadlink/
+[deconz docs]: /integrations/deconz/
+[gree docs]: /integrations/gree/
+[nextdns docs]: /integrations/nextdns/
+[philips_js docs]: /integrations/philips_js/
+[switchbot docs]: /integrations/switchbot/
+[zha docs]: /integrations/zha/
+
+## Release 2022.8.3 - August 9
+
+- Add debug logging for unknown Notion errors ([@bachya] - [#76395]) ([notion docs])
+- Automatically enable common RainMachine restriction entities ([@bachya] - [#76405]) ([rainmachine docs])
+- Fix bug where RainMachine entity states don't populate on startup ([@bachya] - [#76412]) ([rainmachine docs])
+- Fix Govee 5185 Meat Thermometers with older firmware not being discovered ([@bdraco] - [#76414]) ([govee_ble docs])
+- Fix iCloud listeners ([@epenet] - [#76437]) ([icloud docs])
+- Bump version of pyunifiprotect to 4.0.12 ([@AngellusMortis] - [#76465]) ([unifiprotect docs])
+- Bump aiohomekit to 1.2.6 ([@bdraco] - [#76488]) ([homekit_controller docs])
+- Fix inkbird ibbq2s that identify with xbbq ([@bdraco] - [#76492]) ([inkbird docs])
+- Bump govee-ble to 0.14.0 to fix H5052 sensors ([@bdraco] - [#76497]) ([govee_ble docs])
+- Fix pairing with HK accessories that do not provide format for vendor chars ([@bdraco] - [#76502]) ([homekit_controller docs])
+- Fix #76283 ([@ocalvo] - [#76531]) ([sms docs])
+- Bump aiohomekit to 1.2.8 ([@bdraco] - [#76532]) ([homekit_controller docs])
+
+[#76395]: https://github.com/home-assistant/core/pull/76395
+[#76405]: https://github.com/home-assistant/core/pull/76405
+[#76412]: https://github.com/home-assistant/core/pull/76412
+[#76414]: https://github.com/home-assistant/core/pull/76414
+[#76437]: https://github.com/home-assistant/core/pull/76437
+[#76465]: https://github.com/home-assistant/core/pull/76465
+[#76488]: https://github.com/home-assistant/core/pull/76488
+[#76492]: https://github.com/home-assistant/core/pull/76492
+[#76497]: https://github.com/home-assistant/core/pull/76497
+[#76502]: https://github.com/home-assistant/core/pull/76502
+[#76531]: https://github.com/home-assistant/core/pull/76531
+[#76532]: https://github.com/home-assistant/core/pull/76532
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@epenet]: https://github.com/epenet
+[@ocalvo]: https://github.com/ocalvo
+[govee_ble docs]: /integrations/govee_ble/
+[homekit_controller docs]: /integrations/homekit_controller/
+[icloud docs]: /integrations/icloud/
+[inkbird docs]: /integrations/inkbird/
+[notion docs]: /integrations/notion/
+[rainmachine docs]: /integrations/rainmachine/
+[sms docs]: /integrations/sms/
+[unifiprotect docs]: /integrations/unifiprotect/
+
+## Release 2022.8.4 - August 12
+
+- Bump ZHA dependencies ([@puddly] - [#76565]) ([zha docs])
+- Replaces aiohttp.hdrs CONTENT_TYPE with plain string for the Swisscom integration ([@DeeVeX] - [#76568]) ([swisscom docs])
+- Fix homekit_controller not noticing ip and port changes that zeroconf has found ([@Jc2k] - [#76570]) ([homekit_controller docs])
+- Fix Spotify deviding None value in current progress ([@frenck] - [#76581]) ([spotify docs])
+- Improve code quality in huawei_lte ([@a-p-z] - [#76583]) ([huawei_lte docs])
+- Fix Govee 5181 with old firmware ([@bdraco] - [#76600]) ([govee_ble docs])
+- Fix evohome preset modes ([@MartinHjelmare] - [#76606]) ([evohome docs])
+- Add missing _abort_if_unique_id_configured to ble integrations ([@bdraco] - [#76624]) ([govee_ble docs]) ([sensorpush docs]) ([inkbird docs]) ([xiaomi_ble docs]) ([moat docs])
+- Fix non-awaited coroutine in BMW notify ([@rikroe] - [#76664]) ([bmw_connected_drive docs])
+
+[#76565]: https://github.com/home-assistant/core/pull/76565
+[#76568]: https://github.com/home-assistant/core/pull/76568
+[#76570]: https://github.com/home-assistant/core/pull/76570
+[#76581]: https://github.com/home-assistant/core/pull/76581
+[#76583]: https://github.com/home-assistant/core/pull/76583
+[#76600]: https://github.com/home-assistant/core/pull/76600
+[#76606]: https://github.com/home-assistant/core/pull/76606
+[#76624]: https://github.com/home-assistant/core/pull/76624
+[#76664]: https://github.com/home-assistant/core/pull/76664
+[@DeeVeX]: https://github.com/DeeVeX
+[@Jc2k]: https://github.com/Jc2k
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@a-p-z]: https://github.com/a-p-z
+[@bdraco]: https://github.com/bdraco
+[@frenck]: https://github.com/frenck
+[@puddly]: https://github.com/puddly
+[@rikroe]: https://github.com/rikroe
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[evohome docs]: /integrations/evohome/
+[govee_ble docs]: /integrations/govee_ble/
+[homekit_controller docs]: /integrations/homekit_controller/
+[huawei_lte docs]: /integrations/huawei_lte/
+[inkbird docs]: /integrations/inkbird/
+[moat docs]: /integrations/moat/
+[sensorpush docs]: /integrations/sensorpush/
+[spotify docs]: /integrations/spotify/
+[swisscom docs]: /integrations/swisscom/
+[xiaomi_ble docs]: /integrations/xiaomi_ble/
+[zha docs]: /integrations/zha/
+
+## Release 2022.8.5 - August 15
+
+- Update systembridgeconnector to 3.4.4 ([@timmo001] - [#75362]) ([system_bridge docs])
+- 🐛 Fix "The request content was malformed" error in home_connect ([@hansgoed] - [#76411]) ([home_connect docs])
+- Bump pySwitchbot to 0.18.5 ([@bdraco] - [#76640]) ([switchbot docs])
+- Bump pySwitchbot to 0.18.6 to fix disconnect race ([@bdraco] - [#76656]) ([switchbot docs])
+- Bump pySwitchbot to 0.18.10 to handle empty data and disconnects ([@bdraco] - [#76684]) ([switchbot docs])
+- Fix google calendar disabled entity handling ([@allenporter] - [#76699]) ([google docs])
+- Motion Blinds fix OperationNotAllowed ([@starkillerOG] - [#76712]) ([motion_blinds docs])
+- Update xknx to 1.0.0 🎉 ([@marvin-w] - [#76734]) ([knx docs])
+- Bump aiohomekit to 1.2.10 ([@bdraco] - [#76738]) ([homekit_controller docs])
+- Fix bad data with inkbird bbq sensors ([@bdraco] - [#76739]) ([inkbird docs])
+- Bump bimmer_connected to 0.10.2 ([@rikroe] - [#76751]) ([bmw_connected_drive docs])
+- Bump aiohue to 4.5.0 ([@marcelveldt] - [#76757]) ([hue docs])
+- Fix stale data with SensorPush sensors ([@bdraco] - [#76771]) ([sensorpush docs])
+- Bump homeconnect to 0.7.2 ([@BraveChicken1] - [#76773]) ([home_connect docs])
+- Bump aiohomekit to 1.2.11 ([@bdraco] - [#76784]) ([homekit_controller docs])
+- Fix bluetooth callback registration not surviving a reload ([@bdraco] - [#76817]) ([bluetooth docs])
+- Correct referenced entities and devices for event triggers ([@emontnemery] - [#76818]) ([automation docs])
+- Fix lifx homekit discoveries not being ignorable or updating the IP ([@bdraco] - [#76825]) ([lifx docs])
+
+[#75362]: https://github.com/home-assistant/core/pull/75362
+[#76411]: https://github.com/home-assistant/core/pull/76411
+[#76640]: https://github.com/home-assistant/core/pull/76640
+[#76656]: https://github.com/home-assistant/core/pull/76656
+[#76684]: https://github.com/home-assistant/core/pull/76684
+[#76699]: https://github.com/home-assistant/core/pull/76699
+[#76712]: https://github.com/home-assistant/core/pull/76712
+[#76734]: https://github.com/home-assistant/core/pull/76734
+[#76738]: https://github.com/home-assistant/core/pull/76738
+[#76739]: https://github.com/home-assistant/core/pull/76739
+[#76751]: https://github.com/home-assistant/core/pull/76751
+[#76757]: https://github.com/home-assistant/core/pull/76757
+[#76771]: https://github.com/home-assistant/core/pull/76771
+[#76773]: https://github.com/home-assistant/core/pull/76773
+[#76784]: https://github.com/home-assistant/core/pull/76784
+[#76817]: https://github.com/home-assistant/core/pull/76817
+[#76818]: https://github.com/home-assistant/core/pull/76818
+[#76825]: https://github.com/home-assistant/core/pull/76825
+[@BraveChicken1]: https://github.com/BraveChicken1
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@hansgoed]: https://github.com/hansgoed
+[@marcelveldt]: https://github.com/marcelveldt
+[@marvin-w]: https://github.com/marvin-w
+[@rikroe]: https://github.com/rikroe
+[@starkillerOG]: https://github.com/starkillerOG
+[@timmo001]: https://github.com/timmo001
+[automation docs]: /integrations/automation/
+[bluetooth docs]: /integrations/bluetooth/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[google docs]: /integrations/google/
+[home_connect docs]: /integrations/home_connect/
+[homekit_controller docs]: /integrations/homekit_controller/
+[hue docs]: /integrations/hue/
+[inkbird docs]: /integrations/inkbird/
+[knx docs]: /integrations/knx/
+[lifx docs]: /integrations/lifx/
+[motion_blinds docs]: /integrations/motion_blinds/
+[sensorpush docs]: /integrations/sensorpush/
+[switchbot docs]: /integrations/switchbot/
+[system_bridge docs]: /integrations/system_bridge/
+
+## Release 2022.8.6 - August 17
+
+- Fix displayed units for BMW Connected Drive ([@rikroe] - [#76613]) ([bmw_connected_drive docs])
+- Fix Overkiz startup order to prevent unnamed device showing up ([@iMicknl] - [#76695]) ([overkiz docs])
+- Bump pynetgear to 0.10.7 ([@starkillerOG] - [#76754]) ([netgear docs])
+- Correct restoring of mobile_app sensors ([@emontnemery] - [#76886]) ([mobile_app docs])
+- Fix acmeda set cover tilt position ([@epenet] - [#76927]) ([acmeda docs])
+- Fix race in notify setup ([@bdraco] - [#76954]) ([notify docs])
+- Pass the real config for Discord ([@tkdrob] - [#76959]) ([discord docs])
+- Pass the real config for Slack ([@tkdrob] - [#76960]) ([slack docs])
+
+[#76613]: https://github.com/home-assistant/core/pull/76613
+[#76695]: https://github.com/home-assistant/core/pull/76695
+[#76754]: https://github.com/home-assistant/core/pull/76754
+[#76886]: https://github.com/home-assistant/core/pull/76886
+[#76927]: https://github.com/home-assistant/core/pull/76927
+[#76954]: https://github.com/home-assistant/core/pull/76954
+[#76959]: https://github.com/home-assistant/core/pull/76959
+[#76960]: https://github.com/home-assistant/core/pull/76960
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@iMicknl]: https://github.com/iMicknl
+[@rikroe]: https://github.com/rikroe
+[@starkillerOG]: https://github.com/starkillerOG
+[@tkdrob]: https://github.com/tkdrob
+[acmeda docs]: /integrations/acmeda/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[discord docs]: /integrations/discord/
+[mobile_app docs]: /integrations/mobile_app/
+[netgear docs]: /integrations/netgear/
+[notify docs]: /integrations/notify/
+[overkiz docs]: /integrations/overkiz/
+[slack docs]: /integrations/slack/
+
+## Release 2022.8.7 - August 25
+
+- Add edl21 sensor unit mapping for Hz ([@StephanU] - [#76783]) ([edl21 docs])
+- Change growatt server URL ([@coffeedave] - [#76824]) ([growatt_server docs])
+- Bump pySwitchbot to 0.18.12 ([@bdraco] - [#77040]) ([switchbot docs])
+- Bump pySwitchbot to 0.18.14 ([@bdraco] - [#77090]) ([switchbot docs])
+- Protect against an exception in Shelly climate platform ([@bieniu] - [#77102]) ([shelly docs])
+- Bump ZHA dependencies ([@puddly] - [#77125]) ([zha docs])
+- Minor deCONZ clean up ([@Kane610] - [#76323]) ([deconz docs])
+- Fix level controllable output controls in deCONZ ([@Kane610] - [#77223]) ([deconz docs])
+- Fix Aladdin connect multiple doors on one device ([@mkmer] - [#77226]) ([aladdin_connect docs])
+- Fix met_eireann default wind speed unit ([@donoghdb] - [#77229]) ([met_eireann docs])
+- Update xknx to 1.0.1 ([@farmio] - [#77244]) ([knx docs])
+- Fix grid_export_limit unit for DT inverters ([@mletenay] - [#77290]) ([goodwe docs])
+- Add BLE sensor to Aladdin_connect ([@mkmer] - [#76221]) ([aladdin_connect docs])
+
+[#76221]: https://github.com/home-assistant/core/pull/76221
+[#76323]: https://github.com/home-assistant/core/pull/76323
+[#76783]: https://github.com/home-assistant/core/pull/76783
+[#76824]: https://github.com/home-assistant/core/pull/76824
+[#77040]: https://github.com/home-assistant/core/pull/77040
+[#77090]: https://github.com/home-assistant/core/pull/77090
+[#77102]: https://github.com/home-assistant/core/pull/77102
+[#77125]: https://github.com/home-assistant/core/pull/77125
+[#77223]: https://github.com/home-assistant/core/pull/77223
+[#77226]: https://github.com/home-assistant/core/pull/77226
+[#77229]: https://github.com/home-assistant/core/pull/77229
+[#77244]: https://github.com/home-assistant/core/pull/77244
+[#77290]: https://github.com/home-assistant/core/pull/77290
+[@Kane610]: https://github.com/Kane610
+[@StephanU]: https://github.com/StephanU
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@coffeedave]: https://github.com/coffeedave
+[@donoghdb]: https://github.com/donoghdb
+[@farmio]: https://github.com/farmio
+[@mkmer]: https://github.com/mkmer
+[@mletenay]: https://github.com/mletenay
+[@puddly]: https://github.com/puddly
+[aladdin_connect docs]: /integrations/aladdin_connect/
+[deconz docs]: /integrations/deconz/
+[edl21 docs]: /integrations/edl21/
+[goodwe docs]: /integrations/goodwe/
+[growatt_server docs]: /integrations/growatt_server/
+[knx docs]: /integrations/knx/
+[met_eireann docs]: /integrations/met_eireann/
+[shelly docs]: /integrations/shelly/
+[switchbot docs]: /integrations/switchbot/
+[zha docs]: /integrations/zha/
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
@@ -519,7 +798,7 @@ Removed:
 - `mdi:discord`
 - `mdi:google-home`
 - `tablet-android` - Use `mdi:tablet` instead.
- 
+
 Renamed:
 
 - `mdi:diving-scuba` to `mdi:diving-scuba-mask`
