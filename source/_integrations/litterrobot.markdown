@@ -24,32 +24,37 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Litter-Robot integration allows you to control and monitor your Wi-Fi-enabled, automatic, self-cleaning litter box for cats.
+The Litter-Robot integration allows you to control and monitor your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders.
 
-You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot unit that has already been associated with your account.
-
-The Feeder-Robot is not currently supported by this integration.
+You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot or Feeder-Robot unit that has already been associated with your account.
 
 {% include integrations/config_flow.md %}
 
 ## Entities
 
-The following entities are created for this component and identified by a single device per Litter-Robot unit:
+### Litter-Robot
 
-| Entity                        | Domain   | Description                                                                                                                                     |
-| ----------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| Litter Box                    | `vacuum` | Main entity that represents a Litter-Robot unit.                                                                                                |
-| Night Light Mode              | `switch` | When turned on, automatically turns on the night light in darker settings.                                                                      |
-| Panel Lockout                 | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings.                                                                |
-| Last Seen                     | `sensor` | Displays the time the unit was last seen / reported an update.                                                                                  |
-| Sleep Mode Start Time         | `sensor` | When sleep mode is enabled, displays the current or next sleep mode start time.                                                                 |
-| Sleep Mode End Time           | `sensor` | When sleep mode is enabled, displays the current or last sleep mode end time.                                                                   |
-| Status Code                   | `sensor` | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc). |
-| Waste Drawer                  | `sensor` | Displays the current waste drawer level.                                                                                                        |
-| Clean Cycle Wait Time Minutes | `select` | View and select the clean cycle wait time.                                                                                                      |
-| Reset Waste Drawer*           | `button` | Button to reset the waste drawer level to 0%.                                                                                                   |
+| Entity                        | Domain   | Description                                                                      |
+| ----------------------------- | -------- | -------------------------------------------------------------------------------- |
+| Litter Box                    | `vacuum` | Main entity that represents a Litter-Robot unit.                                 |
+| Night Light Mode              | `switch` | When turned on, automatically turns on the night light in darker settings.       |
+| Panel Lockout                 | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
+| Last Seen                     | `sensor` | Displays the time the unit was last seen / reported an update.                   |
+| Pet weight                    | `sensor` | Displays the last measured pet weight, only for Litter-Robot 4.                  |
+| Sleep Mode Start Time         | `sensor` | When sleep mode is enabled, displays the current or next sleep mode start time.  |
+| Sleep Mode End Time           | `sensor` | When sleep mode is enabled, displays the current or last sleep mode end time.    |
+| Status Code                   | `sensor` | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc).     |
+| Waste Drawer                  | `sensor` | Displays the current waste drawer level.                                         |
+| Clean Cycle Wait Time Minutes | `select` | View and select the clean cycle wait time.                                       |
+| Reset Waste Drawer            | `button` | Button to reset the waste drawer level to 0%, only for Litter-Robot 3.           |
 
-\* Litter-Robot 3 only
+### Feeder-Robot
+
+| Entity           | Domain   | Description                                                  |
+| ---------------- | -------- | ------------------------------------------------------------ |
+| Give snack       | `button` | Button to dispense a single snack portion.                   |
+| Meal insert size | `select` | View and select the meal insert size.                        |
+| Food level       | `sensor` | Displays the approximate food level remaining in the hopper. |
 
 ## Additional Attributes
 
