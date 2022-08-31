@@ -46,6 +46,8 @@ Thanks for helping out testing the beta! ❤️
 
 Enjoy the (beta) release!
 
+Birthday month! Home Assistant turning 9, Nabu Casa turning 4 😱
+
 ../Frenck
 
 <!--more-->
@@ -91,7 +93,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 ## Automation editor
 
-- UX updates to make it easier to see what is going on
+- UX updates to easier get overview of your automation and focus on what you're working on
+- State triggers/conditions now offer auto complete for entity states
 
 ## Multi and remote adapter support for Bluetooth
 
@@ -102,7 +105,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 ## New helper: Weekly schedule
 
-New schedule helper allows you to create schedules and use in automations.
+New schedule helper allows you to easily create schedules and use in automations.
 
 ## Z-Wave JS Firmware updates now live
 
