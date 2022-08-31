@@ -176,17 +176,17 @@ The SQS event payload will contain everything passed in the service call payload
 
 AWS EventBridge is a notification platform and thus can be controlled by calling the `notify` service [as described here](/integrations/notify/). It will publish a message to the event bus for all targets given in the notification payload. A target must be a name of an event bus accessible by the given credentials. A target is not required, and the default event bus will be used if none are specified. For more information, please see the [EventBridge documentation](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus.html) and [bototcore documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/events.html#EventBridge.Client.put_events)
 
-There are two options for generating the event detail based on the service call payload. If the `detail` attribute is specified, then its value will be serialized as a json and used for the event detail. If the attribute is not specified, then the value of the `message` attribute is serialized as a simple json object with a single key named `message` and the value of the message supplied to the service call.
+There are two options for generating the event detail based on the service call payload. If the `detail` attribute is specified, then its value will be serialized as a JSON object and used for the event detail. If the attribute is not specified, then the value of the `message` attribute is serialized as a simple JSON object with a single key named `message` and the value of the message supplied to the service call.
 
 Here are a couple of examples showing the service call input and corresponding API entry:
 
-```
-# Service call payload
+```jsonc
+// Service call payload
 {
   "message": "Hello world!"
 }
 
-# Corresponding Entries
+// Corresponding Entries
 {
   "Detail": "{\"message\": \"Hello world!\"}"
   "DetailType": "",
@@ -195,8 +195,8 @@ Here are a couple of examples showing the service call input and corresponding A
 }
 ```
 
-```
-# Service Call Payload:
+```jsonc
+// Service Call Payload:
 {
   "target": ["eventbus1", "eventbus2"]
   "data": {
@@ -211,7 +211,7 @@ Here are a couple of examples showing the service call input and corresponding A
   
 }
 
-# Corresponding Entries
+// Corresponding Entries
 [
   {
     "Detail": "{\"key1\": \"value1\",\"key2\": \"key2\": \"value2\"}"
