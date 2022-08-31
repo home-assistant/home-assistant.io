@@ -14,18 +14,29 @@ An automation can be triggered by an event, with a certain entity state, at a gi
 - [MQTT trigger](#mqtt-trigger)
 - [Numeric state trigger](#numeric-state-trigger)
 - [State trigger](#state-trigger)
+  - [Triggering on attribute changes](#triggering-on-attribute-changes)
+  - [Holding a state or attribute](#holding-a-state-or-attribute)
 - [Sun trigger](#sun-trigger)
+  - [Sunset / Sunrise trigger](#sunset--sunrise-trigger)
+  - [Sun elevation trigger](#sun-elevation-trigger)
 - [Tag trigger](#tag-trigger)
 - [Template trigger](#template-trigger)
 - [Time trigger](#time-trigger)
+  - [Time String](#time-string)
+  - [Input Datetime](#input-datetime)
+  - [Sensors of datetime device class](#sensors-of-datetime-device-class)
+  - [Multiple Times](#multiple-times)
 - [Time pattern trigger](#time-pattern-trigger)
 - [Webhook trigger](#webhook-trigger)
+  - [Webhook data](#webhook-data)
+  - [Webhook security](#webhook-security)
 - [Zone trigger](#zone-trigger)
 - [Geolocation trigger](#geolocation-trigger)
 - [Device triggers](#device-triggers)
 - [Calendar trigger](#calendar-trigger)
 - [Multiple triggers](#multiple-triggers)
 - [Multiple Entity IDs for the same Trigger](#multiple-entity-ids-for-the-same-trigger)
+- [Disabling a trigger](#disabling-a-trigger)
 
 ## Trigger ID
 
@@ -346,6 +357,11 @@ automation:
       from: "not_home"
       # Optional
       to: "home"
+      # If given, will trigger when the condition has been true for X time; you can also use days and milliseconds.
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0
 ```
 
 It's possible to give a list of `from` states or `to` states:
