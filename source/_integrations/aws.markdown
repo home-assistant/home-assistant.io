@@ -17,7 +17,7 @@ The `aws` integration provides a single place to interact with [Amazon Web Servi
 
 You have to have an AWS account to use Amazon Web Services, create one [here](https://aws.amazon.com/free/) with a 12 months free tier benefit. Please note, even in the first 12-months, you may still be billed if you use more resources than offered in the free tier. We advise you to monitor your costs in the [AWS Billing Console](https://console.aws.amazon.com/billing/) closely. You can read the [Control your AWS costs](https://aws.amazon.com/getting-started/tutorials/control-your-costs-free-tier-budgets/) guide for more information.
 
-The `lambda`, `sns` and `sqs` services, used in the `aws` component, all provide an **Always Free** tier for all users even after the 12-month period. The general usage in Home Automation will most likely not reach the free tier limit. Please read [Lambda Pricing](https://aws.amazon.com/lambda/pricing/), [SNS Pricing](https://aws.amazon.com/sns/pricing/) and [SQS Pricing](https://aws.amazon.com/sqs/pricing/) for more details.
+The `lambda`, `sns`, `sqs`, and `events` services, used in the `aws` component, all provide an **Always Free** tier for all users even after the 12-month period. The general usage in Home Automation will most likely not reach the free tier limit. Please read [Lambda Pricing](https://aws.amazon.com/lambda/pricing/), [SNS Pricing](https://aws.amazon.com/sns/pricing/), [SQS Pricing](https://aws.amazon.com/sqs/pricing/), and [EventBridge Pricing](https://aws.amazon.com/eventbridge/pricing/) for more details.
 
 The `aws` integration is using [botocore](https://botocore.amazonaws.com/v1/documentation/api/latest/index.html) to communicate with Amazon Web Services, which is also used by the [AWS Command Client Interface](https://aws.amazon.com/cli/) tool. Therefore, `aws` shares the same credential and profiles with `awscli` tool. Please read [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) to learn how to get access keys and how to manage them on your local system securely.
 
@@ -171,4 +171,62 @@ The SQS event payload will contain everything passed in the service call payload
   },
   "message": "Hello world!"
 }
+```
+## EventBridge Notify Usage
+
+AWS EventBridge is a notification platform and thus can be controlled by calling the `notify` service [as described here](/integrations/notify/). It will publish a message to the event bus for all targets given in the notification payload. A target must be a name of an event bus accessible by the given credentials. A target is not required, and the default event bus will be used if none are specified. For more information, please see the [EventBridge documentation](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus.html) and [bototcore documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/events.html#EventBridge.Client.put_events)
+
+There are two options for generating the event detail based on the service call payload. If the `detail` attribute is specified, then its value will be serialized as a json and used for the event detail. If the attribute is not specified, then the value of the `message` attribute is serialized as a simple json object with a single key named `message` and the value of the message supplied to the service call.
+
+Here are a couple of examples showing the service call input and corresponding API entry:
+
+```
+# Service call payload
+{
+  "message": "Hello world!"
+}
+
+# Corresponding Entries
+{
+  "Detail": "{\"message\": \"Hello world!\"}"
+  "DetailType": "",
+  "Source": "homeassistant",
+  "Resources": [],
+}
+```
+
+```
+# Service Call Payload:
+{
+  "target": ["eventbus1", "eventbus2"]
+  "data": {
+    "detail_type": "test_event":
+    "detail": {
+      "key1", "value1",
+      "key2", "value2"
+    },
+    "resources": ["resource1", "resource2"],
+    "source": "example"
+  }
+  
+}
+
+# Corresponding Entries
+[
+  {
+    "Detail": "{\"key1\": \"value1\",\"key2\": \"key2\": \"value2\"}"
+    "DetailType": "test_event",
+    "EventBusName": "eventbus1",
+    "Resources": ["resource1", "resource2"],
+    "Source": "example"
+  },
+  {
+    "Detail": "{\"key1\": \"value1\",\"key2\": \"key2\": \"value2\"}"
+    "DetailType": "test_event",
+    "EventBusName": "eventbus2",
+    "Resources": ["resource1", "resource2"],
+    "Source": "example"
+  }
+]
+
 ```
