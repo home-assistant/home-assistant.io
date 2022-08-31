@@ -58,6 +58,7 @@ Birthday month! Home Assistant turning 9, Nabu Casa turning 4 😱
 - [New helper: Weekly schedule](#new-helper-weekly-schedule)
 - [Z-Wave JS Firmware updates now live](#z-wave-js-firmware-updates-now-live)
 - [Zigbee backup and restore + migration](#zigbee-backup-and-restore--migration)
+- [Processor and memory usage](#processor-and-memory-usage)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -114,6 +115,10 @@ Update Z-Wave devices from inside Home Assistant.
 ## Zigbee backup and restore + migration
 
 Create backups of Zigbee and restore on a new device. Restoration also supports Zigbee2MQTT backups.
+
+## Processor and memory usage
+
+Get insight in total usage of your processor and memory from the hardware tab
 
 ## Other noteworthy changes
 
