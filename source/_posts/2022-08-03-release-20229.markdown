@@ -110,7 +110,7 @@ New schedule helper allows you to easily create schedules and use in automations
 
 ## Z-Wave JS Firmware updates now live
 
-Update Z-Wave devices from inside Home Assistant.
+Get offered firmware updates for your Z-Wave devices inside Home Assistant. Powered by the Z-Wave JS Firmware server.
 
 ## Zigbee backup and restore + migration
 
