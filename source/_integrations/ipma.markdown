@@ -20,4 +20,4 @@ The `ipma` weather platform uses the [Instituto Português do Mar e Atmosfera](h
 
 ## Configuration
 
-IPMA provides both *hourly* (72h) and *daily* forecasts (10 days), but you must choose which one will be exposed by the weather entity during initial setup of the integration.
+IPMA provides both *hourly* (72h) and *daily* (10 days) forecasts, but you must choose which one will be exposed by the weather entity during initial setup of the integration.
