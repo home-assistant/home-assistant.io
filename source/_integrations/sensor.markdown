@@ -33,6 +33,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **gas**: Gasvolume in m³ or ft³
 - **humidity**: Percentage of humidity in the air
 - **illuminance**: The current light level in lx or lm
+- **moisture**: Percentage of water in a substance
 - **monetary**: The monetary value
 - **nitrogen_dioxide**: Concentration of Nitrogen Dioxide in µg/m³
 - **nitrogen_monoxide**: Concentration of Nitrogen Monoxide in µg/m³
