@@ -346,6 +346,11 @@ automation:
       from: "not_home"
       # Optional
       to: "home"
+      # If given, will trigger when the condition has been true for X time; you can also use days and milliseconds.
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0
 ```
 
 It's possible to give a list of `from` states or `to` states:
