@@ -76,7 +76,7 @@ Example service call:
 ```yaml
 service: media_player.play_media
 target:
-  entity_id: all
+  entity_id: media_player.sonos_speaker1
 data:
   media_content_type: "favorite_item_id"
   media_content_id: "FV:2/31"
