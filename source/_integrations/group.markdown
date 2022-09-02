@@ -3,6 +3,7 @@ title: Group
 description: Instructions on how to setup groups within Home Assistant.
 ha_category:
   - Binary Sensor
+  - Climate
   - Cover
   - Fan
   - Helper
@@ -22,6 +23,7 @@ ha_domain: group
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - climate
   - cover
   - fan
   - light
@@ -38,7 +40,7 @@ The group integration lets you combine multiple entities into a single entity. E
 This can be useful for cases where you want to control, for example, the
 multiple bulbs in a light fixture as a single light in Home Assistant.
 
-Home Assistant can group multiple binary sensors, covers, fans, lights, locks, media players, switches as a single entity, with the option of hiding the individual member entities.
+Home Assistant can group multiple binary sensors, climate devices, covers, fans, lights, locks, media players, switches as a single entity, with the option of hiding the individual member entities.
 
 {% include integrations/config_flow.md %}
 
@@ -59,6 +61,21 @@ Binary sensor, light, and switch groups allow you set the "All entities" option.
 - Otherwise, the group state is `unknown` if at least one group member is `unknown` or `unavailable`.
 - Otherwise, the group state is `off` if at least one group member is `off`.
 - Otherwise, the group state is `on`.
+
+### Climate groups
+In short, the state shown is using the order in the `HVACMode` enum (except that `off` is the least priority). E.g. when any group member entity is `heat`, the group will also be `heat`. A complete overview of how climate groups behave:
+
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
+- Otherwise, the group state is `heat` if at least one group member is `heat`.
+- Otherwise, the group state is `cool` if at least one group member is `cool`.
+- Otherwise, the group state is `heat_cool` if at least one group member is `heat_cool`.
+- Otherwise, the group state is `auto` if at least one group member is `auto`.
+- Otherwise, the group state is `dry` if at least one group member is `dry`.
+- Otherwise, the group state is `fan_only` if at least one group member is `fan_only`.
+- Otherwise, the group state is `off`.
+
+For other modes, the most common mode is reported (e.g. for `PRESET_MODES`, `FAN_MODE` and `SWING_MODE`). The reported temperatures are the averages from the given entities.
 
 ### Cover groups
 In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover groups behave:
@@ -135,6 +152,19 @@ binary_sensor:
     entities:
       - binary_sensor.door_left_contact
       - binary_sensor.door_right_contact
+```
+
+Example YAML configuration of a climate group:
+
+```yaml
+# Example configuration.yaml entry
+climate:
+  - platform: group
+    name: "Downstairs Climate"
+    entities:
+      - climate.hall
+      - climate.living_room
+    temperature_unit: '°C' # optional '°F' or '°C'
 ```
 
 Example YAML configuration of a cover group:
