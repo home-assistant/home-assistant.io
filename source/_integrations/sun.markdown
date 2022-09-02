@@ -81,6 +81,12 @@ which event (sunset or sunrise) and the offset.
 | `next_dusk` | Date and time of the next dusk (in UTC).
 | `next_noon` | Date and time of the next solar noon (in UTC).
 | `next_midnight` | Date and time of the next solar midnight (in UTC).
+| `previous_rising` | Date and time of the previous sun rising (in UTC).
+| `previous_setting` | Date and time of the previous sun setting (in UTC).
+| `previous_dawn` | Date and time of the previous dawn (in UTC).
+| `previous_dusk` | Date and time of the previous dusk (in UTC).
+| `previous_noon` | Date and time of the previous solar noon (in UTC).
+| `previous_midnight` | Date and time of the previous solar midnight (in UTC).
 | `elevation` |  Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon.
 | `azimuth` | Solar azimuth. The angle is shown clockwise from north.
 | `rising` | True if the Sun is currently rising, after solar midnight and before solar noon.
