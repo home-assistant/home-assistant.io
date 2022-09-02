@@ -22,6 +22,9 @@ Currently known supported models:
 - DMP-BDT500
 - DMP-BBT01
 
+Models which do not appear to work:
+- DP-UB420
+
 If your model is not on the list, then give it a try, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_bluray.markdown).
 
 Example configuration:
