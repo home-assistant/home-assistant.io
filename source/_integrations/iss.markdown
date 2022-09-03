@@ -1,8 +1,8 @@
 ---
 title: International Space Station (ISS)
-description: Know if or when ISS will be above your home location
+description: Show the ISS location and how many people are in space
 ha_category:
-  - Binary Sensor
+  - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.36
 ha_domain: iss
@@ -14,13 +14,11 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The `iss` platform uses the
+The International Space Station (ISS) integration uses the
 [Open Notify API](http://open-notify.org/Open-Notify-API/ISS-Location-Now/)
-to let you know if the station is above your home location.
-This means that ISS is 10° above the horizon of your home.
+to let you know where the station is.
 
-You can check in the attributes of the sensor to see the timestamp for the next
-rise of the station, its current coordinates, and the number of people in space.
+It will also tell you how many people are in space.
 
 {% include integrations/config_flow.md %}
 
