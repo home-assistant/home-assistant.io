@@ -19,7 +19,6 @@ ha_integration_type: integration
 
 After configuring this component, the binary sensors automatically appear.
 
-## Configuration
 {% include integrations/config_flow.md %}
 
 ## Binary Sensor
