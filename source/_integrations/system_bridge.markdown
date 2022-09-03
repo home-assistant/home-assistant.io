@@ -54,7 +54,8 @@ This integration provides the following sensors:
 | Display Resolution X   | Display resolution (across)                         |
 | Display Resolution Y   | Display resolution (down)                           |
 | Display Refresh Rate   | Display refresh rate                                |
-| Filesystem(s)          | Space used for each drive letter / filesystem mount |
+| Filesystem Used        | Space used for each drive letter / filesystem mount |
+| Filesystem Free        | Space free for each drive letter / filesystem mount |
 | GPU Memory Free        | GPU memory free in GB                               |
 | GPU Usage %            | GPU usage percentage                                |
 | Kernel                 | Version information of the Kernel                   |
