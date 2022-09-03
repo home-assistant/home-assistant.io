@@ -1,6 +1,6 @@
 ---
 title: International Space Station (ISS)
-description: Will show you the ISS location and how many people are in space
+description: Show the ISS location and how many people are in space
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
