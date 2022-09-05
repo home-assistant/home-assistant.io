@@ -49,25 +49,25 @@ The HomeWizard Energy API only exposes properties that are used within the HomeW
 
 | Name | Unit | Availability | Description |
 | --- | --- | --- | --- |
-| Wifi SSID | | HWE-P1, HWE-SKT, HWE-WTR, SDM230-wifi, SDM630-wifi  | The SSID of the connected network. |
-| Wifi Strength | % | HWE-P1, HWE-SKT, HWE-WTR, SDM230-wifi, SDM630-wifi  | Percentage of the Wi-Fi connection. |
-| Total Energy Import_t1 | kWh | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Energy import reading. |
-| Total Energy Import_t2 | kWh | HWE-P1 | Energy import reading for other tariff. |
-| Total Energy Export_t1 | kWh | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Energy export reading. |
-| Total Energy Export_t2 | kWh | HWE-P1 | Energy export reading for other tariff. |
-| Active Power | w | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Active power usage. |
-| Active Power_l1 | w | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Active power usage Line 1, for `SDM230-wifi` and`HWE-SKT` this value is the same as `Active Power`. |
-| Active Power_l2 | w | HWE-P1, SDM630-wifi | Active power usage Line 2. |
-| Active Power_l3 | w | HWE-P1, SDM630-wifi | Active power usage Line 3. |
-| Total Gas | m3 | HWE-P1 | Current gas import reading, only available when your smart meter is connected to a gas meter. |
-| DSMR Version | | HWE-P1 | The detected DSMR version. |
-| Smart Meter Model | | HWE-P1 | The detected smart meter model. |
-| Active Water Usage | liter per minute | HWE-WTR | The current usage of water. |
-| Total Water Usage | m3 | HWE-WTR | Total of water measured since installation. |
+| Wi-Fi SSID | | HWE-P1, HWE-SKT, HWE-WTR, SDM230-wifi, SDM630-wifi  | The SSID of the connected network. |
+| Wi-Fi strength | % | HWE-P1, HWE-SKT, HWE-WTR, SDM230-wifi, SDM630-wifi  | Percentage of the Wi-Fi connection. |
+| Total energy import T1 | kWh | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Energy import reading. |
+| Total energy import T2 | kWh | HWE-P1 | Energy import reading for other tariff. |
+| Total energy export T1 | kWh | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Energy export reading. |
+| Total energy export T2 | kWh | HWE-P1 | Energy export reading for other tariff. |
+| Active power | w | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Active power usage. |
+| Active power L1 | w | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Active power usage line 1, for `SDM230-wifi` and`HWE-SKT` this value is the same as `Active power`. |
+| Active power L2 | w | HWE-P1, SDM630-wifi | Active power usage line 2. |
+| Active power L3 | w | HWE-P1, SDM630-wifi | Active power usage line 3. |
+| Total gas | m3 | HWE-P1 | Current gas import reading, only available when your smart meter is connected to a gas meter. |
+| DSMR version | | HWE-P1 | The detected DSMR version. |
+| Smart meter model | | HWE-P1 | The detected smart meter model. |
+| Active water usage | liter per minute | HWE-WTR | The current usage of water. |
+| Total water usage | m3 | HWE-WTR | Total of water measured since installation. |
 
 ## Switches
 
 The Wifi Energy Socket (`HWE-SKT`) outlet state can be controlled the switch platform. There are two switches:
 
 - **Switch**: Controls the outlet state of the Energy Socket. This switch is locked out when `Switch Lock` is turned on. 
-- **Switch Lock**: Forces the outlet state in the `on` position and disables the physical button. This option is useful when the socket is used for a device that must not be turned off, such as a refrigerator.
+- **Switch lock**: Forces the outlet state in the `on` position and disables the physical button. This option is useful when the socket is used for a device that must not be turned off, such as a refrigerator.

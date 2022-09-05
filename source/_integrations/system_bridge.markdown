@@ -18,7 +18,7 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-[System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API/WebSocket. You can also send commands to be to the device such as opening a URL or sending keyboard keypresses.
+[System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API/WebSocket. You can also send commands to the device such as opening a URL or sending keyboard keypresses.
 
 ## Prerequisites
 
@@ -79,6 +79,10 @@ These sensors are also available, but are not enabled by default:
 | GPU Memory Used %      | GPU memory used percentage               |
 | GPU Power Usage        | GPU power usage                          |
 | GPU Temperature        | The current temperature of the GPU       |
+
+## Media Source
+
+This integration is available as a media source to use with the media browser integration. You can browse and view media from your system to media players such as your web browser and other supported media players.
 
 ## Services
 

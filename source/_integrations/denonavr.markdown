@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `denonavr` platform allows you to control [Denon Network Receivers](https://www.denon.com/en-gb/shop/networkmusicsystem/ceolpiccolon4) from Home Assistant. It might be that your device is supported by the [Denon] platform.
+The `denonavr` platform allows you to control [Denon Network Receivers](https://www.denon.com/category/heos) from Home Assistant. It might be that your device is supported by the [Denon] platform.
 
 Known supported devices:
 
@@ -51,6 +51,7 @@ Known supported devices:
 - Denon AVR-X6500H
 - Denon AVR-X6700H
 - Denon AVR-1912
+- Denon AVR-2112CI
 - Denon AVR-2312CI
 - Denon AVR-3311CI
 - Denon AVR-3312
@@ -61,6 +62,7 @@ Known supported devices:
 - Denon AVR-S720W
 - Denon AVR-S750H
 - Denon AVR-S760H
+- Denon AVR-S950H
 - Denon AVR-S960H
 - Denon DN-500AV
 - Marantz AV7702
@@ -76,6 +78,7 @@ Known supported devices:
 - Marantz SR5011
 - Marantz SR6007 - SR6012
 - Marantz SR7007
+- Marantz SR7012
 - Marantz SR8015
 - Marantz NR1504
 - Marantz NR1506
@@ -118,7 +121,7 @@ A few notes:
 - The `denonavr` platform supports some additional functionalities like album covers, custom input source names and auto discovery.
 - Marantz receivers seem to a have quite a similar interface. Thus if you own one, give it a try.
 - To remotely power on Marantz receivers with Home Assistant, the Auto-Standby feature must be enabled in the receiver's settings.
-- Sound mode: The command to set a specific sound mode is different from the value of the current sound mode reported by the receiver (sound_mode_raw). There is a key-value structure (sound_mode_dict) that matches the raw sound mode to one of the possible commands to set a sound mode (for instance {'MUSIC':['PLII MUSIC']}. If you get a "Not able to match sound mode" warning, please open an issue on the [denonavr library](https://github.com/scarface-4711/denonavr), stating which raw sound mode could not be matched so it can be added to the matching dictionary. You can find the current raw sound mode under **Developer Tools** -> **States**.
+- Sound mode: The command to set a specific sound mode is different from the value of the current sound mode reported by the receiver (sound_mode_raw). There is a key-value structure (sound_mode_dict) that matches the raw sound mode to one of the possible commands to set a sound mode (for instance {'MUSIC':['PLII MUSIC']}. If you get a "Not able to match sound mode" warning, please open an issue on the [denonavr library](https://github.com/ol-iver/denonavr), stating which raw sound mode could not be matched so it can be added to the matching dictionary. You can find the current raw sound mode under **Developer Tools** -> **States**.
 
 #### Service `denonavr.get_command`
 
