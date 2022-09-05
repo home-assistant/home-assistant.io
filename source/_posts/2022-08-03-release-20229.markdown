@@ -66,18 +66,17 @@ Birthday month! Home Assistant turning 9, Nabu Casa turning 4 😱
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
 
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=UTltO1-d56s) today at 12:00 PDT / 21:00 CET!
+
+<lite-youtube videoid="UTltO1-d56s" videotitle="Home Assistant 9th Birthday Release Party (2022.9)"></lite-youtube>
+
 {% comment %}
-
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=lorem) today at 12:00 PDT / 21:00 CET!
-
-<lite-youtube videoid="lorem" videotitle="Home Assistant 2022.9 Release Party"></lite-youtube>
-
 <!-- Replace the wrapper above with the following after the livestream...-->
 
 Missed our release party live stream on YouTube? Don't worry! You can watch
 the recording of it right here!
 
-<lite-youtube videoid="lorem" videotitle="Home Assistant 2022.9 Release Party"></lite-youtube>
+<lite-youtube videoid="UTltO1-d56s" videotitle="Home Assistant 9th Birthday Release Party (2022.9)"></lite-youtube>
 
 {% endcomment %}
 
