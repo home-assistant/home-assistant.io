@@ -151,7 +151,7 @@ binary_sensor:
 Example usage for automation:
 
 ```yaml
-automation:
+automation workday_heating:
   alias: "Turn on heater on workdays"
   trigger:
     platform: time
@@ -168,6 +168,6 @@ automation:
 
 <div class='note'>
 
-Please remember that [as explained here](/docs/configuration/devices/) you can only have a single `automation:` entry. Add the automation to your existing automations.
+Please remember that [as explained here](/docs/automation/yaml/) you should use labeled `automation` entries. You can create as many as you want.
 
 </div>
