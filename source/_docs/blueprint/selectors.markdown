@@ -21,6 +21,7 @@ The following selectors are currently available:
 - [Attribute selector](#attribute-selector)
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
+- [Config entry selector](#config-entry-selector)
 - [Date selector](#date-selector)
 - [Date & time selector](#date--time-selector)
 - [Device selector](#device-selector)
@@ -33,6 +34,7 @@ The following selectors are currently available:
 - [Object selector](#object-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
+- [State selector](#state-selector)
 - [Target selector](#target-selector)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
@@ -278,6 +280,27 @@ max_mireds:
 {% endconfiguration %}
 
 The output of this selector is the number of mired selected, for example, `243`.
+
+## Config entry selector
+
+The config entry selector allows to user to select a configured integration
+configuration entry. The selector returns the entry ID of the selected
+integration configuration entry.
+
+![Screenshot of the Configuration entry selector](/images/blueprints/selector-config-entry.png)
+
+```yaml
+config_entry:
+```
+
+{% configuration config_entry %}
+integration:
+  description: Limits the list of selectable configuration entries to a single integration domain.
+  type: string
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the entry ID of the config entry, for example, `6b68b250388cbe0d620c92dd3acc93ec`.
 
 ## Date selector
 
@@ -641,10 +664,10 @@ the select value.
 ![Screenshot of a number selector](/images/blueprints/selector-number.png)
 
 On the user interface, the input can either be in a slider or number mode.
-Both modes limit the user input by a minimal and maximum value, and can
+Both modes limit the user input by a minimum and maximum value, and can
 have a unit of measurement to go with it.
 
-In its most basic form, this selector requires a minimal and maximum value:
+In its most basic form, this selector requires a minimum and maximum value:
 
 ```yaml
 number:
@@ -654,7 +677,7 @@ number:
 
 {% configuration number %}
 min:
-  description: The minimal user-settable number value.
+  description: The minimum user-settable number value.
   type: [integer, float]
   required: true
 max:
@@ -819,6 +842,25 @@ it returns: `g`, in the first example it would return `Green`.
 When `multiple` is `true`, the output of this selector is the list of selected
 option values. In this case, if `Green` was selected, in the first example it
 would return ["Green"] and in the last example it returns ["g"].
+
+## State selector
+
+The state selector shows a list of states for a provided entity of which
+one can be selected.
+
+![Screenshot of an state selector](/images/blueprints/selector-state.png)
+
+{% configuration state %}
+entity_id:
+  description: The entity ID of which an state can be selected from.
+  type: string
+  required: true
+{% endconfiguration %}
+
+The output of this selector is the select state (not the translated or
+prettified name shown in the frontend).
+
+For example: `heat_cool`.
 
 ## Target selector
 

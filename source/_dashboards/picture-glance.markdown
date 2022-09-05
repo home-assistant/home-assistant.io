@@ -8,7 +8,7 @@ description: "The Picture Glance card shows an image and corresponding entity st
 The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog.
 
 <p class='img'>
-  <img src='/images/dashboards/lovelace_picture_glance.gif' alt='Picture glance card for a living room'>
+  <img src='/images/dashboards/picture_glance.gif' alt='Picture glance card for a living room'>
   Picture glance card for a living room.
 </p>
 
