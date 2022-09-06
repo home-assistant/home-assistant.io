@@ -11,7 +11,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@pvizeli'
 ha_platforms:
+  - binary_sensor
   - diagnostics
+  - sensor
 ha_integration_type: integration
 ---
 
