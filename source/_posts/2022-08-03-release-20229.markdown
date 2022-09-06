@@ -262,7 +262,7 @@ other news about building an Open Home; straight into your inbox.
 
 - Proof read/spelling/grammar
 
-**Note**: Breaking changes processed up to PR 76903
+**Note**: Breaking changes processed up to PR 77218
 
 {% enddetails %}
 
@@ -309,6 +309,24 @@ based on the [US AQI set by the EPA](https://www.epa.gov/sites/default/files/201
 
 [@sarabveer]: https://github.com/sarabveer
 [#76358]: https://github.com/home-assistant/core/pull/76358
+
+{% enddetails %}
+
+{% details "International Space Station (ISS)" %}
+
+It will no longer be possible to know if the international space station (ISS)
+is above you nor the timestamp for the next rise of the station as these
+features have been removed in the underlying API.
+
+The binary sensor will be removed and all automations relying on this will no
+longer work. Unfortunately there is no substitute for this. Instead we have
+introduced a new sensor, that still tells you the location of the ISS,
+while showing how many people are in space, as main state.
+
+([@DurgNomis-drol] - [#77218]) ([documentation](/integrations/iss))
+
+[@DurgNomis-drol]: https://github.com/DurgNomis-drol
+[#77218]: https://github.com/home-assistant/core/pull/77218
 
 {% enddetails %}
 
@@ -388,29 +406,22 @@ has been removed. Please use the provided `select` entity instead.
 
 {% enddetails %}
 
-{% details "Z-Wave: TODO!" %}
+{% details "Z-Wave" %}
 
-You must use zwave-js-server 1.21.0 or greater (schema 21).
+You must use zwave-js-server 1.22.1 or greater (schema 22).
 
 With this release, you will need to update your zwave-js-server instance.
 
-- If you use the zwave_js addon, you need to have at least version `0.1.65`.
-- If you use the zwavejs2mqtt addon, you need to have at least version `0.44.1`.
-- If you use the zwavejs2mqtt Docker container, you need to have at least version `6.14.1`.
-- If you run your own Docker container, or some other installation method, you will need to update your zwave-js-server instance to at least `1.21.0`.
+- If you use the zwave_js addon, you need to have at least version `0.1.66`.
+- If you use the zwavejs2mqtt addon, you need to have at least version `0.45.0`.
+- If you use the zwavejs2mqtt Docker container, you need to have at least version `7.0.0`.
+- If you run your own Docker container, or some other installation method, you will need to update your zwave-js-server instance to at least `1.22.1`.
 
-([@raman325] - [#75795]) ([documentation](/integrations/zwave_js))
+([@raman325] - [#75795] [#76903]) ([documentation](/integrations/zwave_js))
 
 [@raman325]: https://github.com/raman325
 [#75795]: https://github.com/home-assistant/core/pull/75795
-
-
-TODO: The versions changed  in  the following PR:
-
-- Bump zwave-js-server-python to 0.41.0 ([@raman325] - [#76903]) ([zwave_js docs]) (breaking-change) (dependency)
-
-Once all versions are known, the above breaking change note needs to be adjusted.
-
+[#76903]: https://github.com/home-assistant/core/pull/76903
 
 {% enddetails %}
 
