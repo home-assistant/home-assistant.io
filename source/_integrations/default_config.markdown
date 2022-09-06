@@ -21,6 +21,7 @@ This integration is a meta-component and configures a default set of integration
 - [DHCP Discovery](/integrations/dhcp/) (`dhcp`)
 - [Energy](/integrations/energy/) (`energy`)
 - [Frontend](/integrations/frontend/) (`frontend`)
+- [Hardware](/integrations/hardware/) (`hardware`)
 - [History](/integrations/history/) (`history`)
 - [Home Assistant Alerts](/integrations/homeassistant_alerts) (`homeassistant_alerts`)
 - [Home Assistant Cloud](/integrations/cloud/) (`cloud`)
