@@ -63,6 +63,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - ASUS USB-BT500 [RTL8761BU]
 - Avantree DG45 [RTL8761BU]
 - EDUP LOVE EP-B3536 [RTL8761BU] (Long Range)
+- Feasycom FSC-BP119 [CSR8510A10] (Long Range)
 - Kinivo BTD-400 [BCM20702A1]
 - Maxuni BT-501 [RTL8761B]
 - SUMEE BT501 [RTL8761B]
