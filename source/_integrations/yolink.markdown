@@ -40,6 +40,7 @@ The integration is tested and verified for the following devices from YoLink:
 * YS6602/4 YS6704 (outlet | plug)
 * YS7103/4/5 (siren)
 * YS7704 (door sensor)
+* YS7707 (Contact Sensor)
 * YS7804/5 (motion sensor)
 * YS7903/4 (leak sensor)
 * YS8003/4/5/6 (temperature/humidity sensor)
