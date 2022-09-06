@@ -40,7 +40,28 @@ The commands that can be sent to the TV depends on the model of your TV. To disp
 
 {% details "Some commonly used commands" %}
 
-Up, Down, Left, Right, Confirm, Return, Home, Exit, Rewind, Forward, ActionMenu, SyncMenu, Num0, Num1, Num2, Num3, Num4, Num5, Num6, Num7, Num8, Num9
+- Up
+- Down
+- Left
+- Right
+- Confirm
+- Return
+- Home
+- Exit
+- Rewind
+- Forward
+- ActionMenu
+- SyncMenu
+- Num0
+- Num1
+- Num2
+- Num3
+- Num4
+- Num5
+- Num6
+- Num7
+- Num8
+- Num9
 
 {% enddetails %}
 
