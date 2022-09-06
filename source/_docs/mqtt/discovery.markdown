@@ -308,6 +308,7 @@ Supported abbreviations for device registry configuration:
     'name':                'name',
     'mf':                  'manufacturer',
     'mdl':                 'model',
+    'hw':                  'hw_version',
     'sw':                  'sw_version',
     'sa':                  'suggested_area',
 ```
@@ -440,10 +441,10 @@ The entity id is automatically generated from the entity's name. All MQTT entity
 ```json
 {
   "name":"My Super Device",
-  "object_id":"device1",
+  "object_id":"my_super_device",
   "state_topic": "homeassistant/sensor/device1/state"
  }
 ```
 
-In the example above, the entity_id will be `sensor.device1` instead of `sensor.my_super_device`.
+In the example above, the entity_id will be `sensor.my_super_device` instead of `sensor.device1`.
 

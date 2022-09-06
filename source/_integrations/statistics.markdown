@@ -62,7 +62,7 @@ The following characteristics are supported for `sensor` source sensors:
 | `total` | The sum of all source sensor measurements within the given time and sampling size limits.
 | `value_max` | The biggest value among the number of measurements.
 | `value_min` | The smallest value among the number of measurements.
-| `variance` | The [variance](https://en.wikipedia.org/wiki/Standard_deviation) of an assumed normal distribution from all measurements.
+| `variance` | The [variance](https://en.wikipedia.org/wiki/Variance) of an assumed normal distribution from all measurements.
 
 ### Binary Source Sensor
 
@@ -137,7 +137,7 @@ sampling_size:
   default: 20
   type: integer
 max_age:
-  description: Maximum age of source sensor measurements stored. Setting this to a time period will cause older values to be discarded. If omitted, the number of considered source sensor measurements is limitted by `sampling_size` only. Set both parameters appropriately to create suited limits for your use case. The sensor value will become `unknown` if the source sensor is not updated within the time period.
+  description: Maximum age of source sensor measurements stored. Setting this to a time period will cause older values to be discarded. If omitted, the number of considered source sensor measurements is limited by `sampling_size` only. Set both parameters appropriately to create suited limits for your use case. The sensor value will become `unknown` if the source sensor is not updated within the time period.
   required: false
   type: time
 precision:

@@ -1,5 +1,5 @@
 ---
-title: Overkiz (by Somfy)
+title: Overkiz
 description: Instructions on how to integrate hubs whom use the Overkiz platform with Home Assistant.
 ha_category:
   - Alarm Control Panel

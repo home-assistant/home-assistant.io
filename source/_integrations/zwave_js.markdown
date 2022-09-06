@@ -17,6 +17,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+  - Updates
 ha_release: '2021.2'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -38,6 +39,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - update
 ha_integration_type: integration
 ha_zeroconf: true
 ---
@@ -370,6 +372,7 @@ These are notification events fired by devices using the Multilevel Switch comma
     "command_class": 38,
     "command_class_name": "Multilevel Switch",
     "event_type": 4,
+    "event_type_label": "label 1",
     "direction": "up"
 },
 ```
@@ -384,6 +387,7 @@ These are notification events fired by devices using the Multilevel Switch comma
     "command_class": 38,
     "command_class_name": "Multilevel Switch",
     "event_type": 5,
+    "event_type_label": "label 2",
     "direction": null
 },
 ```
@@ -401,7 +405,9 @@ These are notification events fired by devices using the Entry Control command c
     "command_class": 111,
     "command_class_name": "Entry Control",
     "event_type": 6,
+    "event_type_label": "label 1",
     "data_type": 5,
+    "data_type_label": "label 2",
     "event_data": "555"
 }
 ```
@@ -870,6 +876,6 @@ Many users have reported issues with interference when the USB stick was directl
 
 Z-Wave JS writes details to its logs. To access these logs go to the following.
 
-   **Configuraton** -> **Devices & Services** -> **Integrations(tab)** -> **Z-Wave (CONFIGURE)** -> **Logs(tab)**
+   **Settings** -> **Devices & Services** -> **Integrations(tab)** -> **Z-Wave (CONFIGURE)** -> **Logs(tab)**
 
 You need to keep this browser tab open for logging to be active.

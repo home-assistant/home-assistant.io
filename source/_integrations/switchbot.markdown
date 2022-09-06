@@ -4,18 +4,22 @@ description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary Sensor
   - Cover
+  - Light
   - Sensor
   - Switch
 ha_release: 0.78
 ha_iot_class: Local Push
 ha_codeowners:
+  - '@bdraco'
   - '@danielhiversen'
   - '@RenierM26'
+  - '@murtas'
 ha_domain: switchbot
 ha_bluetooth: true
 ha_platforms:
   - binary_sensor
   - cover
+  - light
   - sensor
   - switch
 ha_config_flow: true
@@ -41,10 +45,14 @@ Please note, device names configured in the SwitchBot app are not transferred in
 
 ## Supported Devices
 
+- Color Bulb (WoBulb)
 - Bot (WoHand)
 - Contact Sensor (WoContact)
 - Curtain (WoCurtain)
+- Light Strip (WoStrip)
 - Meter (WoSensorTH)
+- Motion Sensor (WoPresence)
+- Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
 
 ## SwitchBot Entity
 

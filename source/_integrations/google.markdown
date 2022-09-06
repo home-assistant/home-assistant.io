@@ -29,7 +29,7 @@ This section explains how to generate a Client ID and Client Secret on
 1. The wizard will ask you to choose a project to manage your application. Select a project and click continue.
 1. Verify that your calendar API was enabled and click 'Go to credentials'
 1. Navigate to APIs & Services (left sidebar) > [Credentials](https://console.cloud.google.com/apis/credentials)
-1. Click on the field on the right of the screen, **OAuth Consent Screen**.
+1. Click on the field on the left of the screen, **OAuth Consent Screen**.
 1. Select **External** and **Create**.
 1. Set the *App Name* (the name of the application asking for consent) to anything you want e.g.  *Home Assistant*.
 1. You then need to select a *Support email*. To do this, simply click the drop down box and select your email address.
