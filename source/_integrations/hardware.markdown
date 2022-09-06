@@ -2,7 +2,7 @@
 title: Hardware
 ha_category:
   - Other
-ha_release: 2022.7
+ha_release: 2022.6
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
@@ -16,5 +16,5 @@ This integration is by default enabled, unless you've disabled or removed the [`
 
 ```yaml
 # Example configuration.yaml entry
-system_health:
+hardware:
 ```
