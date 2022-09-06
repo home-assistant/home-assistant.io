@@ -50,11 +50,13 @@ You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot or 
 
 ### Feeder-Robot
 
-| Entity           | Domain   | Description                                                  |
-| ---------------- | -------- | ------------------------------------------------------------ |
-| Give snack       | `button` | Button to dispense a single snack portion.                   |
-| Meal insert size | `select` | View and select the meal insert size.                        |
-| Food level       | `sensor` | Displays the approximate food level remaining in the hopper. |
+| Entity           | Domain   | Description                                                                      |
+| ---------------- | -------- | -------------------------------------------------------------------------------- |
+| Give snack       | `button` | Button to dispense a single snack portion.                                       |
+| Meal insert size | `select` | View and select the meal insert size.                                            |
+| Food level       | `sensor` | Displays the approximate food level remaining in the hopper.                     |
+| Night light mode | `switch` | When turned on, automatically turns on the night light in darker settings.       |
+| Panel lockout    | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
 
 ## Additional Attributes
 

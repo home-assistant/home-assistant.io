@@ -2,6 +2,7 @@
 title: Melnor Bluetooth
 description: Instructions on setting up Melnor Bluetooth devices within Home Assistant.
 ha_category:
+  - Sensor
   - Switch
 ha_iot_class: Local Polling
 ha_bluetooth: true
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@vanstinator'
 ha_domain: melnor
 ha_platforms:
+  - sensor
   - switch
 ha_integration_type: integration
 ---
