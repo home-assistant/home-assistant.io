@@ -2,7 +2,7 @@
 title: Nobø Ecohub
 description: Instructions on how to integrate Nobø Ecohub into Home Assistant.
 ha_category: Climate
-ha_release: 2021.6
+ha_release: 2021.10
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
