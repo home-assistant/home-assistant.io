@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_domain: lifx
 ha_homekit: true
 ha_platforms:
+  - binary_sensor
   - button
   - light
 ha_integration_type: integration

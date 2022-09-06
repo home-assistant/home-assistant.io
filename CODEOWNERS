@@ -154,7 +154,8 @@ source/_integrations/dwd_weather_warnings.markdown @runningman84 @stephan192 @Hu
 source/_integrations/dynalite.markdown @ziv1234
 source/_integrations/ecobee.markdown @marthoc
 source/_integrations/econet.markdown @vangorra @w1ll1am23
-source/_integrations/ecovacs.markdown @OverloadUT
+source/_integrations/ecovacs.markdown @OverloadUT @mib1185
+source/_integrations/ecowitt.markdown @pvizeli
 source/_integrations/edl21.markdown @mtdcr
 source/_integrations/efergy.markdown @tkdrob
 source/_integrations/egardia.markdown @jeroenterheerdt
@@ -364,6 +365,7 @@ source/_integrations/media_source.markdown @hunterjm
 source/_integrations/mediaroom.markdown @dgomes
 source/_integrations/melcloud.markdown @vilppuvuorinen
 source/_integrations/melissa.markdown @kennedyshead
+source/_integrations/melnor.markdown @vanstinator
 source/_integrations/met.markdown @danielhiversen @thimic
 source/_integrations/met_eireann.markdown @DylanGore
 source/_integrations/meteo_france.markdown @hacf-fr @oncleben31 @Quentame
@@ -424,6 +426,7 @@ source/_integrations/nuki.markdown @pschmitt @pvizeli @pree
 source/_integrations/numato.markdown @clssn
 source/_integrations/number.markdown @home-assistant/core @Shulyaka
 source/_integrations/nut.markdown @bdraco @ollo69
+source/_integrations/nutrichef.markdown @bdraco
 source/_integrations/nws.markdown @MatthewFlamm
 source/_integrations/nzbget.markdown @chriscla
 source/_integrations/obihai.markdown @dshokouhi
@@ -469,6 +472,7 @@ source/_integrations/progettihwsw.markdown @ardaseremet
 source/_integrations/prometheus.markdown @knyar
 source/_integrations/prosegur.markdown @dgomes
 source/_integrations/proxmoxve.markdown @jhollowe @Corbeno
+source/_integrations/prusalink.markdown @balloob
 source/_integrations/ps4.markdown @ktnrg45
 source/_integrations/pure_energie.markdown @klaasnicolaas
 source/_integrations/push.markdown @dgomes
@@ -533,6 +537,7 @@ source/_integrations/senseme.markdown @mikelawrence @bdraco
 source/_integrations/sensibo.markdown @andrey-git @gjohansson-ST
 source/_integrations/sensor.markdown @home-assistant/core
 source/_integrations/sensorblue.markdown @bdraco
+source/_integrations/sensorpro.markdown @bdraco
 source/_integrations/sensorpush.markdown @bdraco
 source/_integrations/sentry.markdown @dcramer @frenck
 source/_integrations/senz.markdown @milanmeu

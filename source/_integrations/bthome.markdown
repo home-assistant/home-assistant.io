@@ -1,5 +1,5 @@
 ---
-title: BThome
+title: BTHome
 description: Instructions on how to integrate BThome BLE devices into Home Assistant.
 ha_category:
   - Sensor

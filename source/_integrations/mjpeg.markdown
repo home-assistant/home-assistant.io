@@ -60,4 +60,3 @@ use is automatically detected when using a username and password.
 - Legacy Foscam / wanscam
   - MJPEG URL: `http://IP:PORT/videostream.cgi` (add ?resultion=32 for 640x480 or ?resultion=32 for 320x240)
   - Still Image URL: `http://IP:PORT/snapshot.cgi`
-

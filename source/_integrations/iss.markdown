@@ -7,7 +7,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.36
 ha_domain: iss
 ha_platforms:
-  - binary_sensor
+  - sensor
 ha_codeowners:
   - '@DurgNomis-drol'
 ha_config_flow: true
