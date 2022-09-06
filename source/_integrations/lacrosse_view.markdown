@@ -1,4 +1,4 @@
----
+git co---
 title: LaCrosse View
 description: Get data for LaCrosse View-connected sensors
 ha_release: '2022.6'
