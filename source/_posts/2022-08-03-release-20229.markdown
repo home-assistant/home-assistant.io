@@ -171,7 +171,9 @@ To process frontend PR candidates:
 
 We welcome the following new integrations in this release:
 
+- [BlueMaestro], added by [@bdraco]
 - [BThome], added by [@Ernst79]
+- [Ecowitt], added by [@pvizeli] 
 - [Escea], added by [@lazdavila]
 - [File Upload], added by [@balloob]
 - [Fully Kiosk Browser], added by [@cgarwood]
@@ -179,8 +181,11 @@ We welcome the following new integrations in this release:
 - [LaCrosse View], added by [@IceBotYT]
 - [Landis+Gyr Heat Meter], added by [@vpathuis]
 - [LED BLE], added by  [@bdraco]
+- [Melnor Bluetooth], added by [@vanstinator]
+- [PrusaLink], added by [@balloob]
 - [Qingping], added by [@bdraco]
 - [Schedule], added by [@frenck]
+- [SensorPro], added by [@bdraco]
 - [ThermoBeacon], added by [@bdraco]
 - [ThermoPro], added by [@bdraco]
 - [Yale Access Bluetooth], added by [@bdraco]
@@ -193,8 +198,12 @@ We welcome the following new integrations in this release:
 [@IceBotYT]: https://github.com/IceBotYT
 [@kvanzuijlen]: https://github.com/kvanzuijlen
 [@lazdavila]: https://github.com/lazdavila
+[@pvizeli]: https://github.com/pvizeli
+[@vanstinator]: https://github.com/vanstinator
 [@vpathuis]: https://github.com/vpathuis
+[BlueMaestro]: /integrations/bluemaestro
 [BThome]:  /integrations/bthome
+[Ecowitt]: /integrations/ecowitt
 [Escea]: /integrations/escea
 [File Upload]: /integrations/file_upload
 [Fully Kiosk Browser]: /integrations/fully_kiosk
@@ -202,8 +211,11 @@ We welcome the following new integrations in this release:
 [LaCrosse View]: /integrations/lacrosse_view
 [Landis+Gyr Heat Meter]: /integrations/landisgyr_heat_meter
 [LED BLE]: /integrations/led_ble
+[Melnor Bluetooth]: /integrations/melnor
+[PrusaLink]: /integrations/prusalink
 [Qingping]: /integrations/qingping
 [Schedule]: /integrations/schedule
+[SensorPro]: /integrations/sensorpro
 [ThermoBeacon]: /integrations/thermobeacon
 [ThermoPro]: /integrations/thermopro
 [Yale Access Bluetooth]: /integrations/yalexs_ble
