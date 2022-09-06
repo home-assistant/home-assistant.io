@@ -20,7 +20,10 @@ Its unique solutions are patented technology, leading the smart home growing dem
 
 There is currently support for the following device types within Home Assistant:
 
-- Switch
+- Switch 
+- Timed Power Switch (Boiler)
+- Group Switch
+- Timed Switch
 
 Supported devices will be discovered after the `SwitchBee` integration is configured
 
@@ -31,6 +34,14 @@ You will need to provide the following parameters in order to set up the `Switch
 - Central Unit IP
 - Username
 - Password
+- Initialize switches as light entities (False by default)
+
+
+## SwitchBee Options
+
+- `Polling interval in seconds`: Increase/Decrease the update interval for the device.
+
+- `Devices to include`: Select the devices (by type) you wish to control from Home Assistant.
 
 
 {% include integrations/config_flow.md %}
