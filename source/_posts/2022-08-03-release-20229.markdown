@@ -30,6 +30,7 @@ Birthday month! Home Assistant turning 9, Nabu Casa turning 4 😱
 <!--more-->
 
 - [Lorem ipsum](#lorem-ipsum)
+- [Paul Bottein Joins Nabu Casa](#paul-bottein-joins-nabu-casa)
 - [Automation editor revamp](#automation-editor-revamp)
 - [New helper: Weekly schedule](#new-helper-weekly-schedule)
 - [Z-Wave Firmware updates now live](#z-wave-firmware-updates-now-live)
@@ -38,7 +39,7 @@ Birthday month! Home Assistant turning 9, Nabu Casa turning 4 😱
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
-- [Need help? Join the community!](#need-help-join-the-community)
+- [Need help? Join the community](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
 
@@ -62,12 +63,18 @@ the recording of it right here!
 
 - Add an actual story instead of lorem ipsum
 - Spelling/grammar
-- add a section about Paul
 
 {% enddetails %}
 
-## Automation editor revamp
+## Paul Bottein Joins Nabu Casa
 
+We are excited to announce the newest member of the Nabu Casa team, [Paul Bottein](https://github.com/piitaya).
+
+Paul is most known for his [Mushroom cards](https://github.com/piitaya/lovelace-mushroom) and a few additions to Home Assistant frontend like the Icon Picker. Paul is an incredible developer and his expertise in dashboard design will bring a lot to the Home Assistant frontend.
+
+Welcome aboard and excited to see what Paul will bring to Home Assistant!
+
+## Automation editor revamp
 
 We felt that there could be quite a few improvements we could do in order to better streamline Automation creation. That's why this release we really
 took a long look at some of the main issues from a user experience. The new automation editor improvements focus on readability and ease of use. This
@@ -83,20 +90,22 @@ Next, there were a few items and options moved. You can see most of these in the
 of your automation you can do that via the overflow menu > Rename. Moving these items to the overflow ensures that the main editor page is used for the main functions of
 your automation.
 
-/ Add image of the overflow
+<img class="no-shadow" src='/images/blog/2022-09/automation_overflow.png' alt='Screenshot showing the new automation editor overflow menus'><br>
 
 Last, but definitely not least, Frenck added some long requested features to the automation forms. **State and Attribute value auto-completion!** Now if you are adding a
 state trigger you can choose from a list of known states for that device type. These are also all translated to your language. Now there is no need to remember or find
 the states possible or format the state needs to be entered, just choose from the dropdown and let your worries wisp away!
 
-/ Gif of auto completion
+<img class="no-shadow" src='/images/blog/2022-09/automation_state_selector.gif' alt='Screenshot showing the new automation editor state and attribute value selector'><br>
 
 ## New helper: Weekly schedule
 
-Have you ever wanted to run a schedule based automation for the same time each week or day? Well you are now in luck! With the addition of the Schedule Helper you are now able
+Have you ever wanted to run a schedule-based automation for the same time each week or day? Well, you are now in luck! With the addition of the Schedule helper, you are now able
 to easily create these schedules to build more consistent automations and timings.
 
 <img class="no-shadow" src='/images/blog/2022-09/create_schedule.gif' alt='A gif showcasing the new schedule helper and how to use the user interface'><br>
+
+{% my config_flow_start badge domain="schedule" %}
 
 ## Z-Wave Firmware updates now live
 
@@ -112,7 +121,7 @@ Create backups of Zigbee and restore on a new device. Restoration also supports 
 
 ## Processor and memory usage
 
-The Hardware page just got a lot more interesting. You can go check out live statistics on your Memory and Processor usage when you load the Hardware page in your system menu. These statistics will represent your entire Home Assistant instance, giving you insight in how your hardware is handling your day to day tasks. This will not show any history but will display 5 mins of live data once your load the page.
+The Hardware page just got a lot more interesting. You can go check out live statistics on your Memory and Processor usage when you load the Hardware page in your system menu. These statistics will represent your entire Home Assistant instance, giving you insight in how your hardware is handling your day to day tasks. This will not show any history but will display 5 minutes of live data once you load the page.
 
 <img class="no-shadow" src='/images/blog/2022-09/hardware_page.png' alt='Screenshot showing the processor and memory usage on the hardware page'><br>
 
@@ -138,7 +147,7 @@ We welcome the following new integrations in this release:
 
 - [BlueMaestro], added by [@bdraco]
 - [BThome], added by [@Ernst79]
-- [Ecowitt], added by [@pvizeli] 
+- [Ecowitt], added by [@pvizeli]
 - [Escea], added by [@lazdavila]
 - [File Upload], added by [@balloob]
 - [Fully Kiosk Browser], added by [@cgarwood]
@@ -156,6 +165,7 @@ We welcome the following new integrations in this release:
 - [Yale Access Bluetooth], added by [@bdraco]
 
 [@AlCalzone]: https://github.com/alcalzone
+[@zachberger]: https://github.com/zachberger
 [@balloob]: https://github.com/balloob
 [@bdraco]: https://github.com/bdraco
 [@cgarwood]: https://github.com/cgarwood
@@ -207,7 +217,7 @@ The following integrations are now available via the Home Assistant UI:
 [Pushover]: /integrations/pushover
 [Volvo On Call]: /integrations/volvooncall
 
-## Need help? Join the community!
+## Need help? Join the community
 
 Home Assistant has a great community of users who are all more than willing
 to help each other out. So, join us!
@@ -254,7 +264,6 @@ has been removed. Please use `sensor.charging_status` instead.
 
 ([@rikroe] - [#74921]) ([documentation](/integrations/bmw_connected_drive))
 
-[@rikroe]: https://github.com/rikroe
 [#74921]: https://github.com/home-assistant/core/pull/74921
 
 {% enddetails %}
@@ -328,7 +337,6 @@ The sensor now has a unit of measurement according to the exchange rate quote.
 
 ([@MartinHjelmare] - [#76017]) ([documentation](/integrations/openexchangerates))
 
-[@MartinHjelmare]: https://github.com/MartinHjelmare
 [#76017]: https://github.com/home-assistant/core/pull/76017
 
 {% enddetails %}
