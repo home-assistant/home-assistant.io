@@ -283,7 +283,7 @@ The output of this selector is the number of mired selected, for example, `243`.
 
 ## Config entry selector
 
-The config entry selector allows to user to select a configured integration
+The config entry selector allows the user to select an integration
 configuration entry. The selector returns the entry ID of the selected
 integration configuration entry.
 
