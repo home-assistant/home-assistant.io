@@ -26,13 +26,28 @@ This integration works with devices that identify with the following names:
 - LEDBLE
 - Triones
 - LEDBlue
+- Dream
+- QHM
+- AP
 
 These devices have been sold under many brands, including:
 
-- LED BLE
+- ALED
+- AVERYSHOP
 - BLE-LED
-- Triones
+- EPBOWPT
+- HaoDeng (some models)
 - Happy Lighting
-- Zengee
+- hun hun
+- ILC
 - LEDBlue
+- LED BLE
+- MCWOFI
+- PHOPOLLO
+- RESHAKE
+- REYSURPIUS
+- SUPERNIGHT
+- Triones
+- Zengee
+- YONEDA
 - Zerproc
