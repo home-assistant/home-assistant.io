@@ -15,21 +15,18 @@ og_image: /images/blog/2022-09/social.png
 
 <a href='/integrations/#version/2022.9'><img src='/images/blog/2022-09/social.png' style='border: 0;box-shadow: none;'></a>
 
-Home Assistant Core 2022.9!
+Home Assistant Core 2022.9! 🎂
 
-I have nothing to tell yet... this is still all beta!
+If you don't know yet, this month is Home Assistant's birthday! 🎉🎉 On September 17th, 2013 [Paulus Schoutsen](https://twitter.com/balloob) made the first commit for Home Assistant that started a snowball of Home Automation enthusiasts willing to contribute to the open-source project. 9 Years later, Home Assistant is actively used by more than 500,000 people and growing every day. Nabu Casa also turns 4 this month. Turning 4 years old and gaining a new full-time employee 🍄. This month it seems everyone was in the birthday spirit as we have a jam-packed release!
 
-Thanks for helping out testing the beta! ❤️
+The automation engine is a big reason why Home Assistant has so many users. So in the spirit of [Streamlining Experiences](https://www.home-assistant.io/blog/2022/01/19/streamlining-experiences/), we thought a revamp was due. You will notice some huge improvements to the look and feel of the Automation Editor that we think will greatly improve its usability. I know I for sure see a huge difference!
 
-Enjoy the (beta) release!
+Now I know that everyone usually expects [@frenck] to be writing these release notes, but he took a well deserved vacation! And now you are stuck with me. Zack 😀. I hope you enjoy the release and everything that was packed into it!
 
-Birthday month! Home Assistant turning 9, Nabu Casa turning 4 😱
-
-../Frenck
+-- Zack
 
 <!--more-->
 
-- [Lorem ipsum](#lorem-ipsum)
 - [Paul Bottein joins Nabu Casa](#paul-bottein-joins-nabu-casa)
 - [Streamlining automations](#streamlining-automations)
 - [New helper: Weekly schedule](#new-helper-weekly-schedule)
@@ -58,15 +55,6 @@ the recording of it right here!
 
 {% endcomment %}
 
-## Lorem ipsum
-
-{% details "TODO" %}
-
-- Add an actual story instead of lorem ipsum
-- Spelling/grammar
-
-{% enddetails %}
-
 ## Paul Bottein joins Nabu Casa
 
 We are excited to announce the newest member of the Nabu Casa team, [Paul Bottein](https://github.com/piitaya).
@@ -77,12 +65,12 @@ Welcome aboard and excited to see what Paul will bring to Home Assistant!
 
 ## Streamlining automations
 
-We felt that there could be quite a few improvements we could do in order to better streamline automation creation. That's why this release we really
-took a long look at some of the main issues from a user experience. The new automation editor improvements focus on readability and ease of use. This
+We felt that there were quite a few improvements we could do in order to better streamline automation creation. That's why this release, we really
+took a long look at some of the main user experience issues. The new automation editor improvements focus on readability and ease of use. This
 will also make editing automations on your phone much easier!
 
-First, you will notice the biggest change, collapsible cards for triggers, conditions and actions. This change allows you to really focus on what you
-are currently working on instead of have everything open all at once. When you first open your automation in the editor, you will see all cards collapsed with
+First, you will notice the biggest change, collapsible cards for triggers, conditions, and actions. This change allows you to really focus on what you
+are currently working on instead of having everything open all at once. When you first open your automation in the editor, you will see all cards collapsed with
 an auto-generated explanation of what that section is doing. This allows you to easily choose which section you want to edit and focus in on it.
 
 <img class="no-shadow" src='/images/blog/2022-09/automation_editor_new.png' alt='Screenshot showing the new automation editor with an easier overview'><br>
@@ -94,8 +82,8 @@ your automation.
 <img class="no-shadow" src='/images/blog/2022-09/automation_overflow.png' alt='Screenshot showing the new automation editor overflow menus'><br>
 
 Last, but definitely not least, Frenck added some long requested features to the automation forms. **State and Attribute value auto-completion!** Now if you are adding a
-state trigger you can choose from a list of known states for that device type. These are also all translated to your language. Now there is no need to remember or find
-the states possible or format the state needs to be entered, just choose from the dropdown and let your worries wisp away!
+state trigger, you can choose from a list of known states for that device type. These are also all translated into your language. Now there is no need to remember or find
+the states possible or format the state that needs to be entered. Just choose a state from the dropdown and let your worries wisp away!
 
 <img class="no-shadow" src='/images/blog/2022-09/automation_state_selector.gif' alt='Screenshot showing the new automation editor state and attribute value selector'><br>
 
@@ -110,7 +98,7 @@ to easily create these schedules to build more consistent automations and timing
 
 ## Bluetooth everywhere
 
-Last release we introduced the Bluetooth integration. This release, it's on fire 🔥 Not only do we now support multiple Bluetooth adapters, we also support ESPHome acting as [Bluetooth proxies](https://esphome.io/components/bluetooth_proxy.html) for your home. Wait what?!
+Last release we introduced the Bluetooth integration. This release, it's on fire 🔥 Not only do we now support multiple Bluetooth adapters, we also support ESPHome devices acting as [Bluetooth proxies](https://esphome.io/components/bluetooth_proxy.html) for your home. Wait what?!
 
 Yes 😎. You can now greatly expand the Bluetooth reach of Home Assistant using ordinary ESP32 devices. No extra hardware needed.
 
@@ -128,15 +116,13 @@ Thanks to [@bdraco], [@Ernst79], [@JesseRockz], [@jc2k] for all the hard, amazin
 
 <img class="no-shadow" src='/images/blog/2022-09/zwave_updates.png' alt='Screenshot showing zwave device updates in the settings page'><br>
 
-In 2022.7, we added support for updating Z-Wave device firmware, but the catch was that you needed the firmware files from the manufacturer in order to complete the update. [@AlCalzone] wasn't satisfied with this approach and began working on a better solution. That better solution is here with the introduction of the Z-Wave JS Firmware Update Service! For supported manufacturers, Z-Wave JS can now automatically detect, download, and install a firmware update if it is available for your device. This will be done the same way you are currently updating Home Assistant. You will see a notification in your settings menu and you can update right from there.
+In 2022.7, we added support for updating Z-Wave device firmware, but the catch was that you needed the firmware files from the manufacturer in order to complete the update. [@AlCalzone] wasn't satisfied with this approach and began working on a better solution. That better solution is here with the introduction of the Z-Wave JS Firmware Update Service! For supported manufacturers, Z-Wave JS can now automatically detect, download, and install a firmware update if it is available for your device. This will be done the same way you are currently updating Home Assistant. You will see a notification in your settings menu and you can update right from there. Thanks [@raman325]
 
 For now, only Jasco products are supported. Nabu Casa has been talking to other manufacturers to get more devices supported. To ensure our users can take advantage of this feature, we added update entities for your devices that will check once a day for new firmware updates. Nifty!
 
 ## Zigbee backup and restore + migration
 
-The Zigbee Home Automation (ZHA) integration now supports creation of backups through the configuration page that then can be restored when setting up a new ZHA integration. This will allow you to move to a new Zigbee radio without any loss of your settings or devices that were connected. This is helpful if your current radio fails or a new radio comes out that you may want to migrate to.
-
-If you are currently using Zigbee2MQTT, you can upload a Z2M backup while setting up the ZHA integration.
+The Zigbee Home Automation (ZHA) integration now supports network backups and migrating between Zigbee coordinators. Backups are taken automatically but can also be manually created from the configuration page. After restoring a Home Assistant backup, you can re-configure ZHA and migrate to a new Zigbee coordinator without any loss of your settings or devices that were connected. This is helpful if your current radio fails or a new radio comes out that you may want to migrate to.s
 
 <img class="no-shadow" src='/images/blog/2022-09/zigbee.png' alt='Screenshot showing the Zigbee Home Automation configuration page and the new backup functionality'><br>
 
@@ -257,14 +243,6 @@ to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
 ## Breaking Changes
-
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-
-**Note**: Breaking changes processed up to PR 77218
-
-{% enddetails %}
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
@@ -395,7 +373,7 @@ service call instead.
 {% details "Utility Meter" %}
 
 The previously deprecated `utility_meter` entities, used to change tariffs,
-has been removed. Please use the provided `select` entity instead.
+have been removed. Please use the provided `select` entity instead.
 
 ([@dgomes] - [#76480]) ([documentation](/integrations/utility_meter))
 
@@ -411,7 +389,7 @@ You must use zwave-js-server 1.22.1 or greater (schema 22).
 With this release, you will need to update your zwave-js-server instance.
 
 - If you use the zwave_js addon, you need to have at least version `0.1.66`.
-- If you use the zwavejs2mqtt addon, you need to have at least version `0.45.0`.
+- If you use the zwavejs2mqtt addon, you need to have at least version `0.46.0`.
 - If you use the zwavejs2mqtt Docker container, you need to have at least version `7.0.0`.
 - If you run your own Docker container, or some other installation method, you will need to update your zwave-js-server instance to at least `1.22.1`.
 
