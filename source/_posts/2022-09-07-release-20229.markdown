@@ -117,7 +117,7 @@ For now, only Jasco products are supported but Nabu Casa has been talking to oth
 
 ## Zigbee backup and restore + migration
 
-The Zigbee Home Automation (ZHA) integration now supports creation and restoration of backups right through the configuration page. This will allow you to move to a new Zigbee radio without any loss of your settings or devices that were connected. This is helpful if your current radio fails or a new radio comes out that you may want to migrate to.
+The Zigbee Home Automation (ZHA) integration now supports creation of backups through the configuration page that then can be restored when setting up a new ZHA integration. This will allow you to move to a new Zigbee radio without any loss of your settings or devices that were connected. This is helpful if your current radio fails or a new radio comes out that you may want to migrate to.
 
 If you are currently using Zigbee2MQTT, you can upload a Z2M backup while setting up the ZHA integration.
 
