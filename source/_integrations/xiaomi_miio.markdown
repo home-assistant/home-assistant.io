@@ -216,8 +216,11 @@ Supported devices:
 | Air Purifier 3 (2019)  | zhimi.airpurifier.ma4  | |
 | Air Purifier 3H (2019) | zhimi.airpurifier.mb3  | |
 | Air Purifier 3C        | zhimi.airpurifier.mb4  | |
+| Air Purifier 4         | zhimi.airp.mb5         | |
+| Air Purifier 4 PRO     | zhimi.airp.vb4         | |
 | Air Fresh A1           | dmaker.airfresh.a1     | MJXFJ-150-A1 |
 | Air Fresh VA2          | zhimi.airfresh.va2     | |
+| Air Fresh VA4          | zhimi.airfresh.va4     | |
 | Air Fresh T2017        | dmaker.airfresh.t2017  | MJXFJ-300-G1 |
 | Air Humidifier         | zhimi.humidifier.v1    | |
 | Air Humidifier CA1     | zhimi.humidifier.ca1   | |
@@ -496,6 +499,49 @@ Buzzer                  | Turn on/off the buzzer
 Child Lock              | Turn on/off the child lock
 LED                     | Turn on/off the LED
 
+### Air Purifier 4/4 PRO (zhimi.airp.mb5/zhimi.airp.vb4)
+
+These models use newer MiOT communication protocol.
+
+- Power (on, off)
+- Operation modes (Auto, Silent, Favorite, Fan)
+- Attributes (fan platform)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Fan Level               | Set the fan level
+Favorite Level          | Set the favorite level
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the Display (bright, dim, off)
+
+- Sensor entities
+
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Filter Life Remaining   | The remaining life of the filter in %                          | True
+Filter Time Left        | The remaining life of the filter in days                       | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+PM10                    | The current particulate matter 10 measured(4 PRO only)         | True
+Purify Volume           | The volume of purified air in qubic meter                      | False
+Temperature             | The current temperature measured                               | True
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
+Ionizer                 | Turn on/off the negative ion generator
+
+
 ### Air Fresh A1 (dmaker.airfresh.a1)
 
 - Power (on, off)
@@ -567,6 +613,41 @@ Child Lock              | Turn on/off `child lock`
 LED                     | Turn on/off `led`
 
 
+### Air Fresh VA4
+
+- Power (on, off)
+- Operation modes (Auto, Silent, Interval, Low, Middle, Strong)
+- Attributes (fan platform)
+  - `use_time`
+  - `extra_features`
+- Sensor entities
+
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Carbon Dioxide          | The current carbon dioxide measured in ppm                     | True
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+LED                     | Turn on/off `led`
+Auxiliary Heat          | Turn on/off `heater`
+
+
 ### Air Fresh T2017 (dmaker.airfresh.t2017)
 
 - Power (on, off)
@@ -583,6 +664,13 @@ Button                  | Description
 ----------------------- | ------------------------------------------ 
 Reset Dust Filter       | Resets filter lifetime and usage of the dust filter  
 Reset Upper Filter      | Resets filter lifetime and usage of the upper filter 
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+Auxiliary Heat Level    | Controls the level of the heater (Low, Medium, High)
+Display Orientation     | Controls the orientation of the display (Forward, Left, Right)
 
 - Sensor entities
 
