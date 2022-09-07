@@ -39,9 +39,15 @@ Change the light to a new state.
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 | `transition` | Duration (in seconds) for the light to fade to the new state.
 | `zones` | List of integers for the zone numbers to affect (each LIFX Z strip has 8 zones, starting at 0).
-| `infrared` | Automatic infrared level (0..255) when light brightness is low (for compatible bulbs).
+| `infrared` | **Deprecated.** Automatic infrared level (0..255) when light brightness is low (for compatible bulbs).
 | `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
 | `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`](/integrations/light/#service-lightturn_on) to specify the new state.
+
+<div class='note warning'>
+
+  The `infrared` attribute is deprecated and will be removed in Home Assistant 2022.11. Automations or scripts that adjust this value should be modified to target the Infrared Brightness select entity instead.
+
+</div>
 
 ## Set HEV cycle state
 
@@ -130,15 +136,21 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 
+## Infrared brightness
+
+Home Assistant will automatically create an Infrared Brightness configuration entity for LIFX Night Vision bulbs. Changing the state of this entity will change the brightness of the LEDs on the bulb.
+
+Using the `lifx.set_state` service to modify the infrared brightness of Night Vision bulbs was deprecated in Home Assistant 2022.9 and the `infrared` attribute will be removed from the service in 2022.11.
+
 ## Buttons
 
 The LIFX button platform creates two buttons for each LIFX device.
 
-### Identify Button
+### Identify button
 
 The Identify button will flash the bulb three times at maximum brightness then return the bulb to the state it was in prior. Successful identification requires the bulb to be powered on and already configured in Home Assistant.
 
-### Restart Button
+### Restart button
 
 The Restart button triggers the bulb to restart in exactly the same way as a physical power cycle, which makes it ideal for triggering a new DHCP request from the bulb.
 
