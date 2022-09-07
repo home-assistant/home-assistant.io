@@ -6,7 +6,7 @@ description: Detailed changelog for the Home Assistant Core 2022.9 release
 These are all the changes included in the Home Assistant Core 2202.9 release.
 
 For a summary in a more readable format:
-[Release notes blog for this release](/blog/2022/08/03/release-20229/).
+[Release notes blog for this release](/blog/2022/09/07/release-20229/).
 
 ## Full Changelog
 
@@ -697,6 +697,17 @@ For a summary in a more readable format:
 - Bump pybravia to 0.2.2 ([@Drafteed] - [#77867]) ([braviatv docs]) (beta fix)
 - Bump bluetooth-auto-recovery to 0.3.1 ([@bdraco] - [#77898]) ([bluetooth docs]) (beta fix)
 - Update frontend to 20220906.0 ([@bramkragten] - [#77910]) ([frontend docs]) (beta fix)
+- Bump btsmarthub_devicelist to 0.2.2 ([@typhoon2099] - [#77609]) ([bt_smarthub docs]) (beta fix) (dependency)
+- Fix ZHA lighting initial hue/saturation attribute read ([@puddly] - [#77727]) ([zha docs]) (beta fix)
+- Add additional method of retrieving UUID for LG soundbar configuration ([@chrismccurdy] - [#77856]) ([lg_soundbar docs]) (beta fix)
+- Bump zwave-js-server-python to 0.41.1 ([@raman325] - [#77915]) ([zwave_js docs]) (beta fix) (dependency)
+- Revert "Add ability to ignore devices for UniFi Protect" ([@frenck] - [#77916]) ([unifiprotect docs]) (beta fix)
+- Bump aiohomekit to 1.5.2 ([@bdraco] - [#77927]) ([homekit_controller docs]) (beta fix) (dependency)
+- Bump led-ble to 0.7.1 ([@bdraco] - [#77931]) ([led_ble docs]) (beta fix) (dependency)
+- Small tweaks to improve performance of bluetooth matching ([@bdraco] - [#77934]) ([bluetooth docs]) (beta fix)
+- Bump PySwitchbot to 0.18.25 ([@bdraco] - [#77935]) ([switchbot docs]) (beta fix) (dependency)
+- Handle stale switchbot advertisement data while connected ([@bdraco] - [#77956]) ([switchbot docs]) (beta fix)
+- Update frontend to 20220907.0 ([@bramkragten] - [#77963]) ([frontend docs]) (beta fix)
 
 [#56039]: https://github.com/home-assistant/core/pull/56039
 [#57866]: https://github.com/home-assistant/core/pull/57866
@@ -1322,6 +1333,7 @@ For a summary in a more readable format:
 [#77601]: https://github.com/home-assistant/core/pull/77601
 [#77603]: https://github.com/home-assistant/core/pull/77603
 [#77605]: https://github.com/home-assistant/core/pull/77605
+[#77609]: https://github.com/home-assistant/core/pull/77609
 [#77610]: https://github.com/home-assistant/core/pull/77610
 [#77611]: https://github.com/home-assistant/core/pull/77611
 [#77612]: https://github.com/home-assistant/core/pull/77612
@@ -1348,6 +1360,7 @@ For a summary in a more readable format:
 [#77705]: https://github.com/home-assistant/core/pull/77705
 [#77711]: https://github.com/home-assistant/core/pull/77711
 [#77719]: https://github.com/home-assistant/core/pull/77719
+[#77727]: https://github.com/home-assistant/core/pull/77727
 [#77732]: https://github.com/home-assistant/core/pull/77732
 [#77734]: https://github.com/home-assistant/core/pull/77734
 [#77753]: https://github.com/home-assistant/core/pull/77753
@@ -1377,6 +1390,7 @@ For a summary in a more readable format:
 [#77849]: https://github.com/home-assistant/core/pull/77849
 [#77854]: https://github.com/home-assistant/core/pull/77854
 [#77855]: https://github.com/home-assistant/core/pull/77855
+[#77856]: https://github.com/home-assistant/core/pull/77856
 [#77859]: https://github.com/home-assistant/core/pull/77859
 [#77860]: https://github.com/home-assistant/core/pull/77860
 [#77862]: https://github.com/home-assistant/core/pull/77862
@@ -1385,6 +1399,14 @@ For a summary in a more readable format:
 [#77867]: https://github.com/home-assistant/core/pull/77867
 [#77898]: https://github.com/home-assistant/core/pull/77898
 [#77910]: https://github.com/home-assistant/core/pull/77910
+[#77915]: https://github.com/home-assistant/core/pull/77915
+[#77916]: https://github.com/home-assistant/core/pull/77916
+[#77927]: https://github.com/home-assistant/core/pull/77927
+[#77931]: https://github.com/home-assistant/core/pull/77931
+[#77934]: https://github.com/home-assistant/core/pull/77934
+[#77935]: https://github.com/home-assistant/core/pull/77935
+[#77956]: https://github.com/home-assistant/core/pull/77956
+[#77963]: https://github.com/home-assistant/core/pull/77963
 [@AngellusMortis]: https://github.com/AngellusMortis
 [@AnilDaoud]: https://github.com/AnilDaoud
 [@Bre77]: https://github.com/Bre77
@@ -1427,6 +1449,7 @@ For a summary in a more readable format:
 [@cgarwood]: https://github.com/cgarwood
 [@chaimt]: https://github.com/chaimt
 [@chemelli74]: https://github.com/chemelli74
+[@chrismccurdy]: https://github.com/chrismccurdy
 [@danaues]: https://github.com/danaues
 [@danieldietzler]: https://github.com/danieldietzler
 [@decompil3d]: https://github.com/decompil3d
@@ -1490,6 +1513,7 @@ For a summary in a more readable format:
 [@timmo001]: https://github.com/timmo001
 [@tkdrob]: https://github.com/tkdrob
 [@trunet]: https://github.com/trunet
+[@typhoon2099]: https://github.com/typhoon2099
 [@uvjustin]: https://github.com/uvjustin
 [@vanstinator]: https://github.com/vanstinator
 [@vpathuis]: https://github.com/vpathuis
@@ -1536,6 +1560,7 @@ For a summary in a more readable format:
 [braviatv docs]: /integrations/braviatv/
 [brottsplatskartan docs]: /integrations/brottsplatskartan/
 [bsblan docs]: /integrations/bsblan/
+[bt_smarthub docs]: /integrations/bt_smarthub/
 [bthome docs]: /integrations/bthome/
 [bthome_ble docs]: /integrations/bthome_ble/
 [button docs]: /integrations/button/
@@ -1655,6 +1680,7 @@ For a summary in a more readable format:
 [lametric docs]: /integrations/lametric/
 [landisgyr_heat_meter docs]: /integrations/landisgyr_heat_meter/
 [led_ble docs]: /integrations/led_ble/
+[lg_soundbar docs]: /integrations/lg_soundbar/
 [lifx docs]: /integrations/lifx/
 [light docs]: /integrations/light/
 [limitlessled docs]: /integrations/limitlessled/
@@ -1813,3 +1839,4 @@ For a summary in a more readable format:
 [zoneminder docs]: /integrations/zoneminder/
 [zwave_js docs]: /integrations/zwave_js/
 [zwave_me docs]: /integrations/zwave_me/
+
