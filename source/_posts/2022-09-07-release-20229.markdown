@@ -2,7 +2,7 @@
 layout: post
 title: "2022.9: Home Assistant Birthday Release!"
 description: "New revamped Automation Editor, Weekly Schedule helper to help with automations, and Paul Bottein (Mushroom Cards) joins Nabu Casa"
-date: 2022-09-07 02:00:00
+date: 2022-09-06 02:00:00
 date_formatted: "September 7, 2022"
 author: Zack Barett
 author_twitter: zackbarettha
