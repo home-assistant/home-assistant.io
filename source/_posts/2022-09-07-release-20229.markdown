@@ -108,7 +108,11 @@ To get a proxy up and running, head over to the [Bluetooth proxy installer websi
 
 Bluetooth proxies are currently limited to forwarding passive data. Active connections are coming in a future release. Bluetooth integrations in Home Assistant will transparently use Bluetooth proxies without any extra coding!
 
+Most integrations now support using the adapter with the best signal to connect devices that need an active connection. Extension cables, USB-Ethernet extenders, or USB-IP coupled with an additional Bluetooth adapter can significantly extend your active connection range.
+
 There is more! Besides 9 new supported brands, there is also support for a new open standard: [BTHome](https://bthome.io) by [@Ernst79]. It is automatically discovered by Home Assistant, devices can run over a year on a single battery and it supports data encryption.
+
+Finally, suppose you are using the Home Assistant Operating System. In that case, we recommend upgrading to version 9 or later when it is released, as it comes with a faster D-Bus broker and newer Bluetooth firmware which can significantly enhance Bluetooth performance.
 
 Thanks to [@bdraco], [@Ernst79], [@JesseRockz], [@jc2k] for all the hard, amazing and epic work 🙏.
 
