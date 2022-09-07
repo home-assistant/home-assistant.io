@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "2022.9: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2022.9."
-date: 2022-08-31 02:00:00
+title: "2022.9: Home Assistant Birthday Release!"
+description: "New revamped Automation Editor, Weekly Schedule helper to help with automations, and Paul Bottein (Mushroom Cards) joins Nabu Casa"
+date: 2022-09-07 02:00:00
 date_formatted: "September 7, 2022"
-author: Franck Nijhof
-author_twitter: frenck
+author: Zack Barett
+author_twitter: zackbarettha
 comments: true
 categories:
 - Release-Notes
@@ -117,7 +117,11 @@ For now, only Jasco products are supported but Nabu Casa has been talking to oth
 
 ## Zigbee backup and restore + migration
 
-Create backups of Zigbee and restore on a new device. Restoration also supports Zigbee2MQTT backups.
+The Zigbee Home Automation (ZHA) integration now supports creation and restoration of backups right through the configuration page. This will allow you to move to a new Zigbee radio without any loss of your settings or devices that were connected. This is helpful if your current radio fails or a new radio comes out that you may want to migrate to.
+
+If you are currently using Zigbee2MQTT, you can upload a Z2M backup while setting up the ZHA integration.
+
+<img class="no-shadow" src='/images/blog/2022-09/zigbee.png' alt='Screenshot showing the Zigbee Home Automation configuration page and the new backup functionality'><br>
 
 ## Processor and memory usage
 
