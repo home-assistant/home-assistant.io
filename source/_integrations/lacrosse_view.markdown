@@ -1,7 +1,7 @@
-git co---
+---
 title: LaCrosse View
 description: Get data for LaCrosse View-connected sensors
-ha_release: '2022.6'
+ha_release: '2022.9'
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling

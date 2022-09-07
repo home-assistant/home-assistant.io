@@ -194,7 +194,7 @@ We welcome the following new integrations in this release:
 [Escea]: /integrations/escea
 [File Upload]: /integrations/file_upload
 [Fully Kiosk Browser]: /integrations/fully_kiosk
-[JustNimbus]: /integrations/just_nimbus
+[JustNimbus]: /integrations/justnimbus
 [LaCrosse View]: /integrations/lacrosse_view
 [Landis+Gyr Heat Meter]: /integrations/landisgyr_heat_meter
 [LED BLE]: /integrations/led_ble
