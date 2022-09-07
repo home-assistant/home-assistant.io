@@ -3,7 +3,7 @@ title: MicroBot Push
 description: Instructions on how to set up the MicroBot Push.
 ha_category:
   - Switch
-ha_release: 2022.8
+ha_release: "2022.10"
 ha_iot_class: Assumed State
 ha_codeowners:
   - '@spycle'
