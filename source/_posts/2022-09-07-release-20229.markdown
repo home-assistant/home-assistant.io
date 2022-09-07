@@ -17,7 +17,7 @@ og_image: /images/blog/2022-09/social.png
 
 Home Assistant Core 2022.9! 🎂
 
-If you don't know yet, this month is Home Assistant's birthday! 🎉🎉 On September 17th, 2013 [Paulus Schoutsen](https://twitter.com/balloob) made the first commit for Home Assistant that started a snowball of Home Automation enthusiasts willing to contribute to the open-source project. 9 years later, Home Assistant is actively used by more than 500,000 people and growing everyday. Nabu Casa also turns 4 this month. Turning 4 years old and gaining a new full time employee 🍄. This month it seems everyone was in the birthday spirit as we have a jam-packed release!
+If you don't know yet, this month is Home Assistant's birthday! 🎉🎉 On September 17th, 2013 [Paulus Schoutsen](https://twitter.com/balloob) made the first commit for Home Assistant that started a snowball of Home Automation enthusiasts willing to contribute to the open-source project. 9 Years later, Home Assistant is actively used by more than 500,000 people and growing every day. Nabu Casa also turns 4 this month. Turning 4 years old and gaining a new full-time employee 🍄. This month it seems everyone was in the birthday spirit as we have a jam-packed release!
 
 The automation engine is a big reason why Home Assistant has so many users. So in the spirit of [Streamlining Experiences](https://www.home-assistant.io/blog/2022/01/19/streamlining-experiences/), we thought a revamp was due. You will notice some huge improvements to the look and feel of the Automation Editor that we think will greatly improve its usability. I know I for sure see a huge difference!
 
@@ -65,11 +65,11 @@ Welcome aboard and excited to see what Paul will bring to Home Assistant!
 
 ## Streamlining automations
 
-We felt that there were quite a few improvements we could do in order to better streamline automation creation. That's why this release we really
+We felt that there were quite a few improvements we could do in order to better streamline automation creation. That's why this release, we really
 took a long look at some of the main user experience issues. The new automation editor improvements focus on readability and ease of use. This
 will also make editing automations on your phone much easier!
 
-First, you will notice the biggest change, collapsible cards for triggers, conditions and actions. This change allows you to really focus on what you
+First, you will notice the biggest change, collapsible cards for triggers, conditions, and actions. This change allows you to really focus on what you
 are currently working on instead of having everything open all at once. When you first open your automation in the editor, you will see all cards collapsed with
 an auto-generated explanation of what that section is doing. This allows you to easily choose which section you want to edit and focus in on it.
 
@@ -82,7 +82,7 @@ your automation.
 <img class="no-shadow" src='/images/blog/2022-09/automation_overflow.png' alt='Screenshot showing the new automation editor overflow menus'><br>
 
 Last, but definitely not least, Frenck added some long requested features to the automation forms. **State and Attribute value auto-completion!** Now if you are adding a
-state trigger you can choose from a list of known states for that device type. These are also all translated to your language. Now there is no need to remember or find
+state trigger, you can choose from a list of known states for that device type. These are also all translated into your language. Now there is no need to remember or find
 the states possible or format the state that needs to be entered. Just choose a state from the dropdown and let your worries wisp away!
 
 <img class="no-shadow" src='/images/blog/2022-09/automation_state_selector.gif' alt='Screenshot showing the new automation editor state and attribute value selector'><br>
@@ -122,7 +122,7 @@ For now, only Jasco products are supported. Nabu Casa has been talking to other 
 
 ## Zigbee backup and restore + migration
 
-The Zigbee Home Automation (ZHA) integration now supports network backups and migrating between Zigbee coordinators.  Backups are taken automatically but can also be manually created from the configuration page.  After restoring a Home Assistant backup, you can re-configure ZHA and migrate to a new Zigbee coordinator without any loss of your settings or devices that were connected. This is helpful if your current radio fails or a new radio comes out that you may want to migrate to.s
+The Zigbee Home Automation (ZHA) integration now supports network backups and migrating between Zigbee coordinators. Backups are taken automatically but can also be manually created from the configuration page. After restoring a Home Assistant backup, you can re-configure ZHA and migrate to a new Zigbee coordinator without any loss of your settings or devices that were connected. This is helpful if your current radio fails or a new radio comes out that you may want to migrate to.s
 
 <img class="no-shadow" src='/images/blog/2022-09/zigbee.png' alt='Screenshot showing the Zigbee Home Automation configuration page and the new backup functionality'><br>
 
