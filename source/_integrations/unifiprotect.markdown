@@ -281,6 +281,18 @@ Use to dynamically set the message on a Doorbell LCD screen. This service should
 | `message`              | No       | The message you would like to display on the LCD screen of your Doorbell. Must be less than 30 characters.   |
 | `duration`             | Yes      | Number of minutes to display the message for before returning to the default message. The default is to not expire. |
 
+### Service unifiprotect.set_chime_duration
+
+Use to set the chime duration for a G4 Doorbell.
+
+| Service data attribute | Optional | Description                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `device_id`            | No       | The device ID of the Doorbell you want to change the chime duration for.                                     |
+| `duration`             | No       | Number of milliseconds the chime rings. Default values:                                                      |
+|                        |          | 0 - Off                                                                                                      |
+|                        |          | 300 - Mechanical                                                                                             |
+|                        |          | 1000 - Digital                                                                                               |
+
 ### Service unifiprotect.set_chime_paired_doorbells
 
 Use to set the paired doorbell(s) with a smart chime.
