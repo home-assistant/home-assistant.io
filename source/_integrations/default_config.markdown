@@ -38,6 +38,7 @@ This integration is a meta-component and configures a default set of integration
 - [Mobile App Support](/integrations/mobile_app/) (`mobile_app`)
 - [My Home Assistant](/integrations/my/) (`my`)
 - [Person](/integrations/person/) (`person`)
+- [Schedule](integrations/schedule/) (`schedule`)
 - [Scene](/integrations/scene/) (`scene`)
 - [Scripts](/integrations/script/) (`script`)
 - [Simple Service Discovery Protocol (SSDP)](/integrations/ssdp/) (`ssdp`)
