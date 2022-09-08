@@ -37,6 +37,7 @@ Now I know that everyone usually expects [@frenck] to be writing these release n
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2022.9.1 - September 8](#release-202291---september-8)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -229,6 +230,60 @@ The following integrations are now available via the Home Assistant UI:
 [Open Exchange Rates]: /integrations/openexchangerates
 [Pushover]: /integrations/pushover
 [Volvo On Call]: /integrations/volvooncall
+
+## Release 2022.9.1 - September 8
+
+- Show progress for zwave_js.update entity ([@raman325] - [#77905]) ([zwave_js docs])
+- Fix `len` method typo for Osram light ([@Vaskivskyi] - [#78008]) ([osramlightify docs])
+- Add value ID to zwave_js device diagnostics ([@raman325] - [#78015]) ([zwave_js docs])
+- Fix zwave_js default emulate hardware in options flow ([@MartinHjelmare] - [#78024]) ([zwave_js docs])
+- Extract lametric device from coordinator in notify ([@ludeeus] - [#78027]) ([lametric docs])
+- Bump velbus-aio to 2022.9.1 ([@Cereal2nd] - [#78039]) ([velbus docs])
+- Fix zwave_js device re-interview ([@MartinHjelmare] - [#78046]) ([zwave_js docs])
+- Bump bluetooth-adapters to 0.3.5 ([@bdraco] - [#78052]) ([bluetooth docs])
+- Bump bluetooth-auto-recovery to 0.3.2 ([@bdraco] - [#78063]) ([bluetooth docs])
+- Fix bug with 1st gen RainMachine controllers and unknown API calls ([@bachya] - [#78070]) ([rainmachine docs])
+- Bump pylitterbot to 2022.9.1 ([@natekspencer] - [#78071]) ([litterrobot docs])
+- Allow OpenWeatherMap config flow to test using old API to pass ([@jbouwh] - [#78074]) ([openweathermap docs])
+- Fix Ecobee remote sensors not updating ([@rlippmann] - [#78035]) ([ecobee docs])
+
+[#77905]: https://github.com/home-assistant/core/pull/77905
+[#77968]: https://github.com/home-assistant/core/pull/77968
+[#78008]: https://github.com/home-assistant/core/pull/78008
+[#78015]: https://github.com/home-assistant/core/pull/78015
+[#78024]: https://github.com/home-assistant/core/pull/78024
+[#78027]: https://github.com/home-assistant/core/pull/78027
+[#78035]: https://github.com/home-assistant/core/pull/78035
+[#78039]: https://github.com/home-assistant/core/pull/78039
+[#78046]: https://github.com/home-assistant/core/pull/78046
+[#78052]: https://github.com/home-assistant/core/pull/78052
+[#78063]: https://github.com/home-assistant/core/pull/78063
+[#78070]: https://github.com/home-assistant/core/pull/78070
+[#78071]: https://github.com/home-assistant/core/pull/78071
+[#78074]: https://github.com/home-assistant/core/pull/78074
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@Vaskivskyi]: https://github.com/Vaskivskyi
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@ludeeus]: https://github.com/ludeeus
+[@natekspencer]: https://github.com/natekspencer
+[@raman325]: https://github.com/raman325
+[@rlippmann]: https://github.com/rlippmann
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[bluetooth docs]: /integrations/bluetooth/
+[ecobee docs]: /integrations/ecobee/
+[lametric docs]: /integrations/lametric/
+[litterrobot docs]: /integrations/litterrobot/
+[openweathermap docs]: /integrations/openweathermap/
+[osramlightify docs]: /integrations/osramlightify/
+[rainmachine docs]: /integrations/rainmachine/
+[velbus docs]: /integrations/velbus/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## Need help? Join the community
 
