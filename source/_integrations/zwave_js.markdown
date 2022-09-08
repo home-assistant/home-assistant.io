@@ -717,9 +717,9 @@ Some Z-Wave USB sticks can be auto-discovered, which can simplify the Z-Wave set
 
 | Device | Identifier | Vendor |
 | -------| ---------- | ------ |
-| Aeotec Z-Stick Gen5+ | 0658:0200 | https://aeotec.com/z-wave-usb-stick/ |
+| Aeotec Z-Stick Gen5+ | 0658:0200 | https://aeotec.com/products/aeotec-z-stick-gen5/ |
 | Nortek HUSBZB-1 | 10C4:8A2A | https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/ |
-| Zooz ZST10 | 10C4:EA60 | https://www.getzooz.com/zooz-zst10-s2-stick.html |
+| Zooz ZST10 | 10C4:EA60 | https://www.getzooz.com/zooz-zst10-s2-stick/ |
 | Z-WaveMe UZB | 0658:0200 | https://z-wave.me/products/uzb/ |
 
 Additional devices may be discoverable, however only devices that have been confirmed discoverable are listed above.
