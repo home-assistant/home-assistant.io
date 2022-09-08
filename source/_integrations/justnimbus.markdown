@@ -14,7 +14,7 @@ ha_codeowners:
   - '@kvanzuijlen'
 ---
 
-The JustNimbus integration queries the JustNumbus API used by the JustNimbus web dashboard.
+The JustNimbus integration queries the JustNimbus API used by the JustNimbus web dashboard.
 This integration allows you to collect and save data to get an historic overview of your water bag
 usage.
 
