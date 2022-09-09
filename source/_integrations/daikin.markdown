@@ -117,7 +117,7 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 
 <div class='note'>
 
-- The 'Today's total energy consumption' and 'Estimated power consumption' sensor is updated every time 100 Wh are consumed by all different operating modes summed together. This values are the values for the whole installation, not per device (unless, you have only one device).
+- The 'Today's total energy consumption' and 'Estimated power consumption' sensor is updated every time 100 Wh are consumed by all different operating modes summed together. These values are the values for the whole installation, not per device (unless, you have only one device).
 - The 'Estimated power consumption' sensor is derived from the energy consumption and not provided by the AC directly.
 - The 'cool/heat' energy sensors are updated hourly with the previous hour energy consumption
   of a given mode and a given AC.
