@@ -15,7 +15,7 @@
   </div>
 
   <div class='section'>
-    The {{ page.name | default: page.title }} {{ page.ha_integration_type | default: "integration" }} was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
+    The {{ page.name | default: page.title }} {{ page.ha_integration_type | default: "integration" }} was introduced in Home Assistant <a href="https://www.home-assistant.io/integrations/#version/{{page.ha_release}}">{{ page.ha_release | default: "unknown" }}</a>,
     and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io/#integrations" target="_blank" rel="noopener">
     
     {% if percentage < 1 %}
@@ -34,7 +34,7 @@
       {% else %}
         It
       {% endif %}
-      scores {{page.ha_quality_scale}} on our <a href='/docs/quality_scale/'>quality scale</a>
+      scores <strong>{{page.ha_quality_scale}}</strong> on our <a href='/docs/quality_scale/'>quality scale</a>
     {%- endif -%}.
   </div>
 
