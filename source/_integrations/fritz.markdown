@@ -6,7 +6,7 @@ ha_category:
   - Presence Detection
   - Sensor
   - Updates
-ha_release: '0.10'
+ha_release: 0.10
 ha_domain: fritz
 ha_config_flow: true
 ha_codeowners:

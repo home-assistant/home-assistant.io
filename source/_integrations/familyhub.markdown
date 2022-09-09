@@ -3,7 +3,7 @@ title: Samsung Family Hub
 description: Instructions on how to integrate Samsung Family Hub refrigerator cameras within Home Assistant.
 ha_category:
   - Camera
-ha_release: '0.70'
+ha_release: 0.70
 ha_iot_class: Local Polling
 ha_domain: familyhub
 ha_platforms:

@@ -8,7 +8,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
-ha_release: '0.60'
+ha_release: 0.60
 ha_iot_class: Local Push
 ha_domain: ads
 ha_platforms:

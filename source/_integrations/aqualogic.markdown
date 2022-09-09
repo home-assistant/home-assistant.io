@@ -5,7 +5,7 @@ ha_category:
   - Hub
   - Sensor
   - Switch
-ha_release: '0.80'
+ha_release: 0.80
 ha_iot_class: Local Push
 ha_domain: aqualogic
 ha_platforms:

@@ -3,7 +3,7 @@ title: "Xiaomi Sensor"
 description: "Instructions on how to setup the Xiaomi sensor within Home Assistant."
 ha_category:
   - Sensor
-ha_release: "0.50"
+ha_release: 0.50
 ha_iot_class: Local Push
 ha_domain: xiaomi_aqara
 ---

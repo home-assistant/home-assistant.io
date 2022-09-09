@@ -5,7 +5,7 @@ ha_category:
   - Alarm
   - Camera
 ha_config_flow: true
-ha_release: '0.110'
+ha_release: 0.110
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@ispysoftware'

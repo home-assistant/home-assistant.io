@@ -9,7 +9,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
-ha_release: '0.110'
+ha_release: 0.110
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:

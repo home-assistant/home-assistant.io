@@ -4,7 +4,7 @@ description: Instructions on setting up Rhasspy within Home Assistant.
 ha_category:
   - Voice
 ha_iot_class: Local Push
-ha_release: '2022.8'
+ha_release: 2022.8
 ha_config_flow: true
 ha_codeowners:
   - '@balloob'

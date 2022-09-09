@@ -4,7 +4,7 @@ description: Instructions on how to integrate the Ziggo Mediabox XL into Home As
 ha_category:
   - Media Player
 ha_iot_class: Local Polling
-ha_release: '0.60'
+ha_release: 0.60
 ha_domain: ziggo_mediabox_xl
 ha_platforms:
   - media_player

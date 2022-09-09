@@ -7,7 +7,7 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Local Push
-ha_release: '0.70'
+ha_release: 0.70
 ha_codeowners:
   - '@heythisisnate'
 ha_config_flow: true

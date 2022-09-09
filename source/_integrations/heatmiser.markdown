@@ -3,7 +3,7 @@ title: Heatmiser
 description: Instructions on how to integrate Heatmiser thermostats within Home Assistant.
 ha_category:
   - Climate
-ha_release: '0.10'
+ha_release: 0.10
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@andylockran'

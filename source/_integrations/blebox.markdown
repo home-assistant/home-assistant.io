@@ -3,7 +3,7 @@ title: BleBox devices
 description: Instructions on how to integrate BleBox devices with Home Assistant.
 ha_category:
   - Cover
-ha_release: '0.110'
+ha_release: 0.110
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:

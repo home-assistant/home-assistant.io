@@ -3,7 +3,7 @@ title: Twitch
 description: Instructions on how to integrate Twitch sensors into Home Assistant.
 ha_category:
   - Social
-ha_release: '0.10'
+ha_release: 0.10
 ha_iot_class: Cloud Polling
 ha_domain: twitch
 ha_platforms:

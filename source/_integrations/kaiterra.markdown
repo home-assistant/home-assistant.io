@@ -4,7 +4,7 @@ description: Instructions on how to integrate your Kaiterra device into Home Ass
 ha_iot_class: Cloud Polling
 ha_category:
   - Health
-ha_release: '0.100'
+ha_release: 0.100
 ha_codeowners:
   - '@Michsior14'
 ha_domain: kaiterra

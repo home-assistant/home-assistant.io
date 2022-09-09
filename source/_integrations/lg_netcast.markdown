@@ -4,7 +4,7 @@ description: Instructions on how to integrate a LG TV (Netcast 3.0 & 4.0) within
 ha_category:
   - Media Player
 ha_iot_class: Local Polling
-ha_release: '0.20'
+ha_release: 0.20
 ha_domain: lg_netcast
 ha_platforms:
   - media_player

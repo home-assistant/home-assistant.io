@@ -5,7 +5,7 @@ ha_category:
   - Binary Sensor
   - Switch
   - System Monitor
-ha_release: '0.30'
+ha_release: 0.30
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'

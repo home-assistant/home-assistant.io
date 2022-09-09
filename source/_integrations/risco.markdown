@@ -4,7 +4,7 @@ description: Instructions on how to integrate Risco alarms into HA using Risco C
 ha_category:
   - Alarm
   - Binary Sensor
-ha_release: '0.115'
+ha_release: 0.115
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:

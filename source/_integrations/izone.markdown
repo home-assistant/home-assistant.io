@@ -3,7 +3,7 @@ title: iZone
 description: Instructions on how to integrate iZone climate control devices with Home Assistant.
 ha_category:
   - Climate
-ha_release: '0.100'
+ha_release: 0.100
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:

@@ -5,7 +5,7 @@ ha_category:
   - Presence Detection
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: '0.10'
+ha_release: 0.10
 ha_config_flow: true
 ha_codeowners:
   - '@Quentame'

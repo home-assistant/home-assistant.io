@@ -4,7 +4,7 @@ description: Instructions on how to integrate timetable data for traveling in Sw
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
-ha_release: '0.30'
+ha_release: 0.30
 ha_domain: vasttrafik
 ha_platforms:
   - sensor

@@ -5,7 +5,7 @@ ha_category:
   - Voice
 ha_iot_class: Cloud Push
 featured: true
-ha_release: '0.10'
+ha_release: 0.10
 ha_codeowners:
   - '@home-assistant/cloud'
   - '@ochlocracy'

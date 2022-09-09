@@ -4,7 +4,7 @@ description: Instructions on how to integrate Last.fm sensors into Home Assistan
 ha_category:
   - Social
 ha_iot_class: Cloud Polling
-ha_release: '0.20'
+ha_release: 0.20
 ha_domain: lastfm
 ha_platforms:
   - sensor

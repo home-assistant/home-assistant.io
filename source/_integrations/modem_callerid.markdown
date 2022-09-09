@@ -3,7 +3,7 @@ title: Phone Modem
 description: Instructions on how to integrate the Caller ID sensor into Home Assistant.
 ha_category:
   - Sensor
-ha_release: '0.40'
+ha_release: 0.40
 ha_iot_class: Local Polling
 ha_domain: modem_callerid
 ha_codeowners:

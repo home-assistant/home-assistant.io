@@ -5,7 +5,7 @@ ha_category:
   - Network
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_release: '0.40'
+ha_release: 0.40
 ha_domain: dnsip
 ha_platforms:
   - sensor

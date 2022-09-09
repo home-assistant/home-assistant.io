@@ -4,7 +4,7 @@ description: Instructions on how to integrate the KWB Easyfire sensor into Home 
 ha_category:
   - Sensor
 ha_iot_class: Local Polling
-ha_release: '0.40'
+ha_release: 0.40
 ha_domain: kwb
 ha_platforms:
   - sensor

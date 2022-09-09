@@ -18,7 +18,7 @@ ha_category:
   - Siren
   - Switch
   - Updates
-ha_release: '2021.2'
+ha_release: 2021.2
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:

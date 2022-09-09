@@ -4,7 +4,7 @@ description: Instructions on how to integrate ANEL PwrCtrl switches within Home 
 ha_category:
   - Switch
 ha_iot_class: Local Polling
-ha_release: '0.30'
+ha_release: 0.30
 ha_domain: anel_pwrctrl
 ha_platforms:
   - switch

@@ -3,7 +3,7 @@ title: "Amazon Alexa Custom Skill"
 description: "Instructions on how to build your Alexa/Amazon Echo custom commands to connect with Home Assistant."
 ha_category:
   - Voice
-ha_release: "0.10"
+ha_release: 0.10
 ha_domain: alexa
 ---
 

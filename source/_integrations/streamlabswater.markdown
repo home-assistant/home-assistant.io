@@ -4,7 +4,7 @@ description: Instructions on how to integrate Streamlabs Water devices with Home
 ha_category:
   - Binary Sensor
   - Sensor
-ha_release: '0.95'
+ha_release: 0.95
 ha_iot_class: Cloud Polling
 ha_domain: streamlabswater
 ha_platforms:

@@ -4,7 +4,7 @@ description: Instructions on how to integrate Meraki-based presence detection in
 ha_category:
   - Presence Detection
 ha_iot_class: Cloud Polling
-ha_release: '0.60'
+ha_release: 0.60
 ha_domain: meraki
 ha_platforms:
   - device_tracker

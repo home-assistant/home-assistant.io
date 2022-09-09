@@ -3,7 +3,7 @@ title: Twilio
 description: Instructions on how to add Twilio notifications to Home Assistant.
 ha_category:
   - Hub
-ha_release: '0.40'
+ha_release: 0.40
 ha_config_flow: true
 ha_domain: twilio
 ha_iot_class: Cloud Push

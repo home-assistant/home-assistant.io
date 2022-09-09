@@ -3,7 +3,7 @@ title: FinTS
 description: Instructions on how to use the FinTS sensor.
 ha_category:
   - Finance
-ha_release: '0.70'
+ha_release: 0.70
 ha_iot_class: Cloud Polling
 ha_domain: fints
 ha_platforms:

@@ -4,7 +4,7 @@ description: Instructions on how to configure the SpaceAPI for Home Assistant.
 ha_category:
   - Social
 ha_iot_class: Cloud Polling
-ha_release: '0.70'
+ha_release: 0.70
 ha_codeowners:
   - '@fabaff'
 ha_domain: spaceapi

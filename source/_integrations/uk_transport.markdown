@@ -4,7 +4,7 @@ description: Display the current status of UK train and bus departures.
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
-ha_release: '0.50'
+ha_release: 0.50
 ha_domain: uk_transport
 ha_platforms:
   - sensor

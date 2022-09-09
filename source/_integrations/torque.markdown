@@ -3,7 +3,7 @@ title: Torque
 description: Instructions on how to integrate Torque sensors into Home Assistant.
 ha_category:
   - Car
-ha_release: '0.10'
+ha_release: 0.10
 ha_iot_class: Cloud Polling
 ha_domain: torque
 ha_platforms:

@@ -5,7 +5,7 @@ ha_category:
   - Alarm
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_release: '2021.5'
+ha_release: 2021.5
 ha_domain: ialarm
 ha_codeowners:
   - '@RyuzakiKK'

@@ -3,7 +3,7 @@ title: Stream
 description: Instructions on how to integrate live streams within Home Assistant.
 ha_category:
   - Other
-ha_release: '0.90'
+ha_release: 0.90
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:

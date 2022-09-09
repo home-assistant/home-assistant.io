@@ -2,7 +2,7 @@
 title: Leviton Z-Wave
 description: Connect and control your Leviton Z-Wave devices using the Z-Wave integration
 featured: true
-ha_release: '2021.2'
+ha_release: 2021.2
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:

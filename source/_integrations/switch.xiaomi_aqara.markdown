@@ -3,7 +3,7 @@ title: "Xiaomi Switch"
 description: "Instructions on how to set up the Xiaomi switch within Home Assistant."
 ha_category:
   - Switch
-ha_release: "0.50"
+ha_release: 0.50
 ha_iot_class: Local Push
 ha_domain: xiaomi_aqara
 ---

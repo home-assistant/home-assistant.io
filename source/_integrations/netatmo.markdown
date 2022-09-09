@@ -10,7 +10,7 @@ ha_category:
   - Media Source
   - Sensor
   - Weather
-ha_release: '0.20'
+ha_release: 0.20
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@cgtobi'

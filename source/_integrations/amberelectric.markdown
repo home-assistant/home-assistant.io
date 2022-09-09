@@ -4,7 +4,7 @@ description: Instructions on how to integrate Amber Electric live prices within 
 ha_category:
   - Energy
   - Sensor
-ha_release: '2021.10'
+ha_release: 2021.10
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:

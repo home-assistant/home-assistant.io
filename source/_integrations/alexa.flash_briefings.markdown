@@ -3,7 +3,7 @@ title: "Amazon Alexa Flash Briefing"
 description: "Instructions on how to create your Flash Briefing skills with Home Assistant."
 ha_category:
   - Voice
-ha_release: "0.31"
+ha_release: 0.31
 ha_domain: alexa
 ---
 

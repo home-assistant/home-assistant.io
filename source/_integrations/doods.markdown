@@ -4,7 +4,7 @@ description: Detect and recognize objects with DOODS.
 ha_category:
   - Image Processing
 ha_iot_class: Local Polling
-ha_release: '0.100'
+ha_release: 0.100
 ha_domain: doods
 ha_integration_type: integration
 ---

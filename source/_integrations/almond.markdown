@@ -4,7 +4,7 @@ description: Instructions on how to setup Almond within Home Assistant.
 ha_category:
   - Voice
 ha_iot_class: Local Polling
-ha_release: '0.102'
+ha_release: 0.102
 ha_config_flow: true
 ha_codeowners:
   - '@gcampax'

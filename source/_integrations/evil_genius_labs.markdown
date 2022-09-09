@@ -4,7 +4,7 @@ description: Instructions on setting up Evil Genius Labs products within Home As
 ha_category:
   - Light
 ha_iot_class: Local Polling
-ha_release: '2021.12'
+ha_release: 2021.12
 ha_config_flow: true
 ha_codeowners:
   - '@balloob'

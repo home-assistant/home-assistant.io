@@ -4,7 +4,7 @@ description: Instructions on how to integrate Frontier Silicon Internet Radios i
 ha_category:
   - Media Player
 ha_iot_class: Local Polling
-ha_release: '0.40'
+ha_release: 0.40
 ha_domain: frontier_silicon
 ha_platforms:
   - media_player

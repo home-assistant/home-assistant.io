@@ -7,7 +7,7 @@ ha_category:
   - Hub
   - Sensor
   - Switch
-ha_release: '0.40'
+ha_release: 0.40
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: android_ip_webcam

@@ -7,7 +7,7 @@ ha_category:
   - Camera
   - Hub
   - Sensor
-ha_release: '0.40'
+ha_release: 0.40
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fronzbot'

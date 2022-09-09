@@ -8,7 +8,7 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Local Push
-ha_release: '0.20'
+ha_release: 0.20
 ha_codeowners:
   - '@kellerza'
 ha_domain: qwikswitch

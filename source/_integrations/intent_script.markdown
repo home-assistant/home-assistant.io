@@ -3,7 +3,7 @@ title: Intent Script
 description: Instructions on how to setup scripts to run on intents.
 ha_category:
   - Intent
-ha_release: '0.50'
+ha_release: 0.50
 ha_quality_scale: internal
 ha_domain: intent_script
 ha_integration_type: integration

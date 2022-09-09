@@ -3,7 +3,7 @@ title: Flick Electric
 description: Instructions on how to set up the Flick Electric Pricing sensor in Home Assistant.
 ha_category:
   - Energy
-ha_release: '0.110'
+ha_release: 0.110
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@ZephireNZ'

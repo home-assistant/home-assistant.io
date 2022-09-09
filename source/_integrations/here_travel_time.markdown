@@ -4,7 +4,7 @@ description: Instructions on how to add HERE travel time to Home Assistant.
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
-ha_release: '0.100'
+ha_release: 0.100
 ha_config_flow: true
 ha_codeowners:
   - '@eifinger'

@@ -3,7 +3,7 @@ title: Mold Indicator
 description: How to use the mold growth indication integration in Home Assistant
 ha_category:
   - Environment
-ha_release: '0.20'
+ha_release: 0.20
 ha_iot_class: Local Polling
 ha_quality_scale: internal
 ha_domain: mold_indicator

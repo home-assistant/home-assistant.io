@@ -3,7 +3,7 @@ title: "Amazon Alexa Smart Home Skill"
 description: "Instructions on how to build Smart Home skill to connect Amazon Alexa with Home Assistant."
 ha_category:
   - Voice
-ha_release: "0.54"
+ha_release: 0.54
 ha_codeowners:
   - '@home-assistant/cloud'
   - '@ochlocracy'

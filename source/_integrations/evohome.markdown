@@ -5,7 +5,7 @@ ha_category:
   - Climate
   - Hub
   - Water Heater
-ha_release: '0.80'
+ha_release: 0.80
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@zxdavb'

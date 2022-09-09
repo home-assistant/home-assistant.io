@@ -3,7 +3,7 @@ title: Twilio SMS
 description: Instructions on how to add user notifications to Home Assistant.
 ha_category:
   - Notifications
-ha_release: '0.20'
+ha_release: 0.20
 ha_domain: twilio_sms
 ha_iot_class: Cloud Push
 ha_platforms:

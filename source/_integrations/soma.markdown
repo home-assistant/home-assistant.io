@@ -6,7 +6,7 @@ ha_category:
   - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_release: '0.100'
+ha_release: 0.100
 ha_codeowners:
   - '@ratsept'
   - '@sebfortier2288'

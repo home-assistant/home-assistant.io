@@ -4,7 +4,7 @@ description: Instructions on how to setup the Crownstone integration within Home
 ha_category:
   - Light
 ha_iot_class: Cloud Push
-ha_release: '2021.10'
+ha_release: 2021.10
 ha_config_flow: true
 ha_codeowners:
   - '@Crownstone'

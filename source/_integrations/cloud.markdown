@@ -1,7 +1,7 @@
 ---
 title: Home Assistant Cloud
 description: Enable the Home Assistant Cloud integration.
-ha_release: '0.60'
+ha_release: 0.60
 ha_category:
   - Text-to-speech
   - Voice

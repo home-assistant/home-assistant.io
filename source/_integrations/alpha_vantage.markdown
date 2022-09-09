@@ -4,7 +4,7 @@ description: Instructions on how to setup Alpha Vantage within Home Assistant.
 ha_category:
   - Finance
 ha_iot_class: Cloud Polling
-ha_release: '0.60'
+ha_release: 0.60
 ha_domain: alpha_vantage
 ha_platforms:
   - sensor

@@ -3,7 +3,7 @@ title: Dark Sky
 description: How to integrate Dark Sky within Home Assistant.
 ha_category:
   - Weather
-ha_release: '0.30'
+ha_release: 0.30
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'

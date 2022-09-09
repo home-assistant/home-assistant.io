@@ -5,7 +5,7 @@ ha_category:
   - Sensor
   - Utility
 ha_iot_class: Calculated
-ha_release: '2021.5'
+ha_release: 2021.5
 ha_codeowners:
   - '@Petro31'
 ha_domain: compensation
