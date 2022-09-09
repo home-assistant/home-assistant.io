@@ -16,6 +16,10 @@ ha_quality_scale: platinum
 ha_integration_type: integration
 ---
 
+<div class='note warning'>
+  This integration is pending removal from Home Assistant and will be no longer available as of Home Assistant 2022.10.
+</div>
+
 The Ambee integration integrates the [Ambee](https://www.getambee.com/) API
 platform with Home Assistant.
 

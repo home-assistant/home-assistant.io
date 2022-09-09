@@ -103,6 +103,14 @@ panels:
           description: Defines an action to run when the alarm is armed to vacation mode.
           required: false
           type: action
+        arm_custom_bypass:
+          description: Defines an action to run when the alarm is armed to custom bypass mode.
+          required: false
+          type: action
+        trigger:
+          description: Defines an action to run when the alarm is triggered.
+          required: false
+          type: action
         code_arm_required:
           description: If true, the code is required to arm the alarm.
           required: false

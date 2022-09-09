@@ -10,9 +10,11 @@ ha_domain: simplepush
 ha_platforms:
   - notify
 ha_integration_type: integration
+ha_codeowners:
+  - '@engrbm87'
 ---
 
-The `simplepush` platform uses [Simplepush](https://simplepush.io/) to delivery notifications from Home Assistant to your Android device. Unlike similar apps the Simplepush app requires no registration.
+The `simplepush` platform uses [Simplepush](https://simplepush.io/) to deliver notifications from Home Assistant to your Android device. Unlike similar apps the Simplepush app requires no registration.
 
 {% include integrations/config_flow.md %}
 

@@ -3,6 +3,7 @@ title: NETGEAR
 description: Instructions on how to integrate NETGEAR routers into Home Assistant.
 ha_category:
   - Presence Detection
+  - Updates
 ha_iot_class: Local Polling
 ha_release: pre 0.7
 ha_domain: netgear
@@ -11,6 +12,7 @@ ha_platforms:
   - device_tracker
   - sensor
   - switch
+  - update
 ha_config_flow: true
 ha_codeowners:
   - '@hacf-fr'
@@ -41,7 +43,7 @@ Button entity to restart the router.
 
 ### Update entity
 
-Update entity to vieuw current and latest firmware version, and install the latest firmware of the router.
+Update entity to view current and latest firmware version, and install the latest firmware of the router.
 
 ### Traffic meter data
 
