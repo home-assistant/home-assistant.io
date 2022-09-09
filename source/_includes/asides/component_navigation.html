@@ -17,9 +17,9 @@
   <div class='section'>
     The {{ page.name | default: page.title }} {{ page.ha_integration_type | default: "integration" }} was introduced in Home Assistant 
     {% if ha_release == "pre 0.7" %}
-    <a href="https://www.home-assistant.io/integrations/#version/0.7">{{ page.ha_release | default: "unknown" }}</a>,
+    <a href="/integrations/#version/0.7">{{ page.ha_release | default: "unknown" }}</a>,
     {% else %}
-    <a href="https://www.home-assistant.io/integrations/#version/{{page.ha_release}}">{{ page.ha_release | default: "unknown" }}</a>,
+    <a href="/integrations/#version/{{page.ha_release}}">{{ page.ha_release | default: "unknown" }}</a>,
     {% endif %}
 
     and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io/#integrations" target="_blank" rel="noopener">
