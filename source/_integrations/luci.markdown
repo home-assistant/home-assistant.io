@@ -56,7 +56,7 @@ verify_ssl:
   type: boolean
   default: true
 only_reachable:
-  description: Set this to true to filter for only reachable devices (enabling this is only recommended for openwrt versions below v18)
+  description: Set this to true to filter for only reachable devices (enabling this is only recommended for OpenWrt versions below v18)
   required: false
   type: boolean
   default: false
