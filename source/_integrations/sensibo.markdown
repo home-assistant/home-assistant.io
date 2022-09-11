@@ -109,12 +109,20 @@ For AirQ device, these sensors are available:
 For climate devices, these sensors are available:
 
 - Filter last reset
+- Climate React low temperature threshold
+- Climate React high temperature threshold
 
 ## Switch Entities
 
-For climate devices, this integration provides support to enable/disable a timer to delay a start or stop (depending on the current state) of your device.
+For climate devices, these switches are available:
+
+Support to enable/disable a timer to delay a start or stop (depending on the current state) of your device.
 
 The switch uses a timer of 60 minutes delay. You can choose a custom delay using the custom `sensibo.enable_timer` service. See [Timer](#timer).
+
+Support to enable/disable Climate React
+
+Usage of Climate React switch requires that the service has been configured previously in the app or by using the custom `sensibo.enable_climate_react` service. See [Climate React](#climate-react)
 
 For Pure devices, this integration provides support to enable/disable Pure Boost.
 
@@ -137,6 +145,31 @@ You can enable a timer with a custom delay using the service `sensibo.enable_tim
 ## Adding a quick switch example
 
 If you want a "Quick Switch" to turn your AC On / Off, you can do that using the following `Switch Template`:
+
+### Climate React
+
+You can configure your Climate React settings using the services `sensibo.enable_climate_react`.
+
+- Configuring this service also turns Climate React on
+
+When using the service the state needs to be set to exactly what Sensibo API expects. First time it's recommended to use the app to set it, from that point you can see from the Climate React switch attribute what the api requires and how to write it.
+
+Example for low threshold state:
+
+{% raw %}
+
+```yaml
+on: true
+fanLevel: "high"
+temperatureUnit: "C"
+targetTemperature: 23
+mode: "cool"
+swing: "stopped"
+horizontalSwing: "stopped"
+light: "on"
+```
+
+{% endraw %}
 
 {% raw %}
 
