@@ -456,3 +456,45 @@ mqtt:
       swing_mode_command_topic: "study/ac/swing/set"
       precision: 1.0
 ```
+
+## Example of multiple devices
+
+{% raw %}
+
+```yaml
+mqtt:
+  climate:
+    - name: Study
+      modes:
+        - "off"
+        - "heat"
+        - "auto"
+      mode_command_topic: "study/ac/mode/set"
+      mode_state_topic: "study/ac/mode/state"
+      mode_state_template: "{{ value_json }}"
+
+    - name: Living
+      modes:
+        - "off"
+        - "auto"
+        - "cool"
+        - "heat"
+        - "dry"
+        - "fan_only
+      swing_modes:
+        - "on"
+        - "off"
+      fan_modes:
+        - "quiet"
+        - "lvl_1"
+        - "lvl_2"
+        - "lvl_3"
+        - "lvl_4"
+        - "lvl_5"
+        - "auto"
+      mode_command_topic: "living/ac/mode/set"
+      mode_state_topic: "living/ac/mode/state"
+      mode_state_template: "{{ value_json }}"
+```
+
+{% endraw %}
