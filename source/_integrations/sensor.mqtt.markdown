@@ -148,7 +148,7 @@ expire_after:
   type: integer
   default: 0
 force_update:
-  description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
+  description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in integrations like [InfluxDB](/integrations/influxdb). Use this option sparingly as it has performance and disk IO implications. This is not needed for Home Assistant's built-in graphs.
   required: false
   type: boolean
   default: false
