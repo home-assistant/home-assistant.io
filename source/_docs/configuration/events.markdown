@@ -87,7 +87,7 @@ If you want to trigger automation on a Home Assistant stop event, we recommend u
 
 | Field       | Description                                         |
 | ----------- | --------------------------------------------------- |
-| `name`      | Name of the entity. Example: `Litchen light`.       |
+| `name`      | Name of the entity. Example: `Kitchen light`.       |
 | `message`   | Message. Example: `was turned on`                   |
 | `domain`    | Optional, domain of the entry. Example: `light`     |
 | `entity_id` | Optional, identifier of the entity that was logged. |

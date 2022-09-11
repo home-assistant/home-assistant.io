@@ -103,6 +103,25 @@ If you have an August Keypad, once you have enabled the August component, you sh
 
 - Keypad Battery
 
+## Integration with Yale Access Bluetooth
+
+Following Assa Abloy, Yale's parent company, purchasing August in 2017, most newer devices use the Yale Access branding. 
+
+The [Yale Access Bluetooth](/integrations/yalexe_ble) provides local control over Bluetooth of many Yale Access locks and some August locks that use the same system. 
+
+For locks that support the Yale Access system, the August integration can keep your offline access keys up to date to ensure you can operate your lock over Bluetooth. The following requirements must be met for the offline key updates to work:
+
+- The August integration must support the lock.
+- The [Yale Access Bluetooth integration](/integrations/yalexe_ble) must support the lock.
+- The Bluetooth integration must be active and functional.
+- The lock must be discoverable by the [Yale Access Bluetooth integration](/integrations/yalexe_ble).
+- The account logged in with the August integration must have the offline keys.
+
+### Troubleshooting offline keys updates
+
+- If you do not know which account has the offline keys, configure August integration with each different Owner account until you find the one that holds the keys. You may need to make a new owner account and grant the account access to your lock to force the keys to synchronize with the cloud service.
+- Ensure the lock is in range and discoverable by the [Yale Access Bluetooth integration](/integrations/yalexe_ble).
+
 ## Presence Detection with Lock Operation
 
 Using the lock operation sensors, you can detect when a user operates a lock and is physically present (not remote). The below automation example (added to `automations.yaml`) will trigger when the user named “John Doe” in August locks or unlocks the door from the keypad (if present), via Bluetooth from their phone, or by auto-unlock. The state of the sensor will be the name of the party operating the lock as returned by August.
