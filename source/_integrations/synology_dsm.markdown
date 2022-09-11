@@ -4,7 +4,7 @@ description: Instructions on how to integrate the Synology DSM sensor within Hom
 ha_category:
   - Camera
   - System Monitor
-  - Updates
+  - Update
 ha_release: 0.32
 ha_iot_class: Local Polling
 ha_domain: synology_dsm
