@@ -95,16 +95,20 @@ _When "Holiday mode" is enabled, the following action take place:_
 
 ## Sensor
 
-The `daikin` sensor platform integrates Daikin air conditioning systems into Home Assistant, enabling displaying the following parameters:
+The `daikin` sensor platform integrates Daikin air conditioning systems into Home Assistant, enabling displaying the following parameters by device:
 
 - Inside temperature
-- Outside temperature
 - Inside humidity
-- Estimated power consumption
 - Hourly energy consumption in cool mode
 - Hourly energy consumption in heat mode
+- Today's total energy consumption (updated hourly, resets at 00:00)
+
+The integration displays the following parameters for all devices:
+
+- All devices estimated power consumption
+- All devices today's total energy consumption (resets at 00:00)
+- Outside temperature
 - Outside unit's compressor frequency
-- Today's total energy consumption (resets at 00:00)
 
 <div class='note'>
 
@@ -117,7 +121,7 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 
 <div class='note'>
 
-- The 'Today's total energy consumption' and 'Estimated power consumption' sensor is updated every time 100 Wh are consumed by all different operating modes summed together.
+- The 'All devices today's total energy consumption' and 'All devices estimated power consumption' sensor is updated every time 100 Wh are consumed by all different operating modes summed together.
 - The 'Estimated power consumption' sensor is derived from the energy consumption and not provided by the AC directly.
 - The 'cool/heat' energy sensors are updated hourly with the previous hour energy consumption
   of a given mode and a given AC.
