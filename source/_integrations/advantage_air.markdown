@@ -3,6 +3,7 @@ title: Advantage Air
 description: Instructions on how to integrate Advantage Air A/C controller into Home Assistant.
 ha_category:
   - Climate
+  - Updates
 ha_release: 0.117
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -15,9 +16,11 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - light
   - select
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 ---
 
@@ -60,6 +63,14 @@ The `advantage_air` switch platform will create a switch entity to toggle fresh 
 
 The `advantage_air` select platform allows you to change the zone used for the "MyZone" feature.
 
+### Update
+
+The `advantage_air` update platform shows if the controller app requires an update.
+
+### Light
+
+The `advantage_air` light platform will create a light entity for each light in MyLights tab of the MyPlace app.
+
 ## Services
 
 ### Service `advantage_air.set_time_to`
@@ -70,11 +81,3 @@ Set the On/Off Timer using the relevant sensor entity.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | `sensor.[name]_time_to_on` or `sensor.[name]_time_to_off`
 | `minutes` | no | Number of minutes between `0` and `720`.
-
-### Service `advantage_air.set_myzone`
-
-Change the MyZone setting to the provided zone climate entity.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | `climate.[zone name]`

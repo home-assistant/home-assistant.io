@@ -1,0 +1,479 @@
+---
+layout: post
+title: "2022.9: Home Assistant Birthday Release!"
+description: "New revamped Automation Editor, Weekly Schedule helper to help with automations, and Paul Bottein (Mushroom Cards) joins Nabu Casa"
+date: 2022-09-07 02:00:00
+date_formatted: "September 7, 2022"
+author: Zack Barett
+author_twitter: zackbarettha
+comments: true
+categories:
+- Release-Notes
+- Core
+og_image: /images/blog/2022-09/social.png
+---
+
+<a href='/integrations/#version/2022.9'><img src='/images/blog/2022-09/social.png' style='border: 0;box-shadow: none;'></a>
+
+Home Assistant Core 2022.9! 🎂
+
+If you don't know yet, this month is Home Assistant's birthday! 🎉🎉 On September 17th, 2013 [Paulus Schoutsen](https://twitter.com/balloob) made the first commit for Home Assistant that started a snowball of Home Automation enthusiasts willing to contribute to the open-source project. 9 Years later, Home Assistant is actively used by more than 500,000 people and growing every day. Nabu Casa also turns 4 this month. Turning 4 years old and gaining a new full-time employee 🍄. This month it seems everyone was in the birthday spirit as we have a jam-packed release!
+
+The automation engine is a big reason why Home Assistant has so many users. So in the spirit of [Streamlining Experiences](https://www.home-assistant.io/blog/2022/01/19/streamlining-experiences/), we thought a revamp was due. You will notice some huge improvements to the look and feel of the Automation Editor that we think will greatly improve its usability. I know I for sure see a huge difference!
+
+Now I know that everyone usually expects [@frenck] to be writing these release notes, but he took a well deserved vacation! And now you are stuck with me. Zack 😀. I hope you enjoy the release and everything that was packed into it!
+
+-- Zack
+
+<!--more-->
+
+- [Paul Bottein joins Nabu Casa](#paul-bottein-joins-nabu-casa)
+- [Streamlining automations](#streamlining-automations)
+- [New helper: Weekly schedule](#new-helper-weekly-schedule)
+- [Bluetooth everywhere](#bluetooth-everywhere)
+- [Z-Wave Firmware updates now live](#z-wave-firmware-updates-now-live)
+- [Zigbee backup and restore + migration](#zigbee-backup-and-restore--migration)
+- [Processor and memory usage](#processor-and-memory-usage)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New Integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2022.9.1 - September 8](#release-202291---september-8)
+- [Need help? Join the community](#need-help-join-the-community)
+- [Breaking Changes](#breaking-changes)
+- [All changes](#all-changes)
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=UTltO1-d56s) today at 12:00 PDT / 21:00 CET!
+
+<lite-youtube videoid="UTltO1-d56s" videotitle="Home Assistant 9th Birthday Release Party (2022.9)"></lite-youtube>
+
+{% comment %}
+<!-- Replace the wrapper above with the following after the livestream...-->
+
+Missed our release party live stream on YouTube? Don't worry! You can watch
+the recording of it right here!
+
+<lite-youtube videoid="UTltO1-d56s" videotitle="Home Assistant 9th Birthday Release Party (2022.9)"></lite-youtube>
+
+{% endcomment %}
+
+## Paul Bottein joins Nabu Casa
+
+We are excited to announce the newest member of the Nabu Casa team, [Paul Bottein](https://github.com/piitaya).
+
+Paul is most known for his [Mushroom cards](https://github.com/piitaya/lovelace-mushroom) and a few additions to Home Assistant frontend like the Icon Picker. Paul is an incredible developer and his expertise in dashboard design will bring a lot to the Home Assistant frontend.
+
+Welcome aboard and excited to see what Paul will bring to Home Assistant!
+
+## Streamlining automations
+
+We felt that there were quite a few improvements we could do in order to better streamline automation creation. That's why this release, we really
+took a long look at some of the main user experience issues. The new automation editor improvements focus on readability and ease of use. This
+will also make editing automations on your phone much easier!
+
+First, you will notice the biggest change, collapsible cards for triggers, conditions, and actions. This change allows you to really focus on what you
+are currently working on instead of having everything open all at once. When you first open your automation in the editor, you will see all cards collapsed with
+an auto-generated explanation of what that section is doing. This allows you to easily choose which section you want to edit and focus in on it.
+
+<img class="no-shadow" src='/images/blog/2022-09/automation_editor_new.png' alt='Screenshot showing the new automation editor with an easier overview'><br>
+
+Next, there were a few items and options moved. You can see most of these in the top right overflow menu. For example, if you want to rename or update the description
+of your automation you can do that via the overflow menu > Rename. Moving these items to the overflow ensures that the main editor page is used for the main functions of
+your automation.
+
+<img class="no-shadow" src='/images/blog/2022-09/automation_overflow.png' alt='Screenshot showing the new automation editor overflow menus'><br>
+
+Last, but definitely not least, Frenck added some long requested features to the automation forms. **State and Attribute value auto-completion!** Now if you are adding a
+state trigger, you can choose from a list of known states for that device type. These are also all translated into your language. Now there is no need to remember or find
+the states possible or format the state that needs to be entered. Just choose a state from the dropdown and let your worries wisp away!
+
+<img class="no-shadow" src='/images/blog/2022-09/automation_state_selector.gif' alt='Screenshot showing the new automation editor state and attribute value selector'><br>
+
+## New helper: Weekly schedule
+
+Have you ever wanted to run a schedule-based automation for the same time each week or day? Well, you are now in luck! With the addition of the Schedule helper, you are now able
+to easily create these schedules to build more consistent automations and timings.
+
+<img class="no-shadow" src='/images/blog/2022-09/create_schedule.gif' alt='A gif showcasing the new schedule helper and how to use the user interface'><br>
+
+{% my config_flow_start badge domain="schedule" %}
+
+## Bluetooth everywhere
+
+Last release we introduced the Bluetooth integration. This release, it's on fire 🔥 Not only do we now support multiple Bluetooth adapters, we also support ESPHome devices acting as [Bluetooth proxies](https://esphome.io/components/bluetooth_proxy.html) for your home. Wait what?!
+
+Yes 😎. You can now greatly expand the Bluetooth reach of Home Assistant using ordinary ESP32 devices. No extra hardware needed.
+
+<img class="no-shadow" src='/images/blog/2022-09/bluetooth-proxy-overview.png' alt='Picture of a home showing how Bluetooth data is proxied via ESPHome devices to Home Assistant'><br>
+
+To get a proxy up and running, head over to the [Bluetooth proxy installer website](https://esphome.github.io/bluetooth-proxies/) and install one straight from your browser.
+
+Bluetooth proxies are currently limited to forwarding passive data. Active connections are coming in a future release. Bluetooth integrations in Home Assistant will transparently use Bluetooth proxies without any extra coding!
+
+Most integrations now support using the adapter with the best signal to connect devices that need an active connection. Extension cables, USB-Ethernet extenders, or USB-IP coupled with an additional Bluetooth adapter can significantly extend your active connection range.
+
+There is more! Besides 9 new supported brands, there is also support for a new open standard: [BTHome](https://bthome.io) by [@Ernst79]. It is automatically discovered by Home Assistant, devices can run over a year on a single battery and it supports data encryption.
+
+Finally, suppose you are using the Home Assistant Operating System. In that case, we recommend upgrading to version 9 or later when it is released, as it comes with a faster D-Bus broker and newer Bluetooth firmware which can significantly enhance Bluetooth performance.
+
+Thanks to [@bdraco], [@Ernst79], [@JesseRockz], [@jc2k] for all the hard, amazing and epic work 🙏.
+
+## Z-Wave Firmware updates now live
+
+<img class="no-shadow" src='/images/blog/2022-09/zwave_updates.png' alt='Screenshot showing zwave device updates in the settings page'><br>
+
+In 2022.7, we added support for updating Z-Wave device firmware, but the catch was that you needed the firmware files from the manufacturer in order to complete the update. [@AlCalzone] wasn't satisfied with this approach and began working on a better solution. That better solution is here with the introduction of the Z-Wave JS Firmware Update Service! For supported manufacturers, Z-Wave JS can now automatically detect, download, and install a firmware update if it is available for your device. This will be done the same way you are currently updating Home Assistant. You will see a notification in your settings menu and you can update right from there. Thanks [@raman325]
+
+For now, only Jasco products are supported. Nabu Casa has been talking to other manufacturers to get more devices supported. To ensure our users can take advantage of this feature, we added update entities for your devices that will check once a day for new firmware updates. Nifty!
+
+## Zigbee backup and restore + migration
+
+The Zigbee Home Automation (ZHA) integration now supports network backups and migrating between Zigbee coordinators. Backups are taken automatically but can also be manually created from the configuration page. After restoring a Home Assistant backup, you can re-configure ZHA and migrate to a new Zigbee coordinator without any loss of your settings or devices that were connected. This is helpful if your current radio fails or a new radio comes out that you may want to migrate to.
+
+<img class="no-shadow" src='/images/blog/2022-09/zigbee.png' alt='Screenshot showing the Zigbee Home Automation configuration page and the new backup functionality'><br>
+
+## Processor and memory usage
+
+The Hardware page just got a lot more interesting. You can go check out live statistics on your Memory and Processor usage when you load the Hardware page in your system menu. These statistics will represent your entire Home Assistant instance, giving you insight in how your hardware is handling your day to day tasks. This will not show any history but will display 5 minutes of live data once you load the page.
+
+<img class="no-shadow" src='/images/blog/2022-09/hardware_page.png' alt='Screenshot showing the processor and memory usage on the hardware page'><br>
+
+## Other noteworthy changes
+
+There is much more juice in this release; here are some of the other
+noteworthy changes this release:
+
+- Entity more info dialog merged with entity settings. Thanks [@balloob]
+- You can now enable local control of your Awair Element device. Thanks [@zachberger]
+- MiFlora now supports polling of the Battery sensor. Thanks [@bdraco]
+- August locks are now supported under the Yale Access Bluetooth integration. Thanks [@bdraco]
+- Many more Bluetooth adapters are now supported for the Bluetooth integration. Thanks [@bdraco]
+- The SwitchBot integration now supports the Color Bulb and Light strips. Thanks [@bdraco]
+- Automations, Scripts and Scenes tables received a new overflow menu that will allow for more actions directly from the picker. Thanks [@bramkragten] and [@piitaya]
+- You can now reorder automation elements using drag and drop. Thanks [@piitaya]
+- Icons have been added to more menus throughout the UI. Thanks [@frenck]
+- Automation triggers can now be aliased. Thanks [@frenck]
+
+## New Integrations
+
+We welcome the following new integrations in this release:
+
+- [BlueMaestro], added by [@bdraco]
+- [BThome], added by [@Ernst79]
+- [Ecowitt], added by [@pvizeli]
+- [Escea], added by [@lazdavila]
+- [File Upload], added by [@balloob]
+- [Fully Kiosk Browser], added by [@cgarwood]
+- [JustNimbus], added by [@kvanzuijlen]
+- [LaCrosse View], added by [@IceBotYT]
+- [Landis+Gyr Heat Meter], added by [@vpathuis]
+- [LED BLE], added by  [@bdraco]
+- [Melnor Bluetooth], added by [@vanstinator]
+- [PrusaLink], added by [@balloob]
+- [Qingping], added by [@bdraco]
+- [Schedule], added by [@frenck]
+- [SensorPro], added by [@bdraco]
+- [ThermoBeacon], added by [@bdraco]
+- [ThermoPro], added by [@bdraco]
+- [Yale Access Bluetooth], added by [@bdraco]
+
+[@AlCalzone]: https://github.com/alcalzone
+[@zachberger]: https://github.com/zachberger
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@jesserockz]: https://github.com/jesserockz
+[@jc2k]: https://github.com/jc2k
+[@cgarwood]: https://github.com/cgarwood
+[@Ernst79]: https://github.com/Ernst79
+[@frenck]: https://github.com/frenck
+[@IceBotYT]: https://github.com/IceBotYT
+[@kvanzuijlen]: https://github.com/kvanzuijlen
+[@lazdavila]: https://github.com/lazdavila
+[@pvizeli]: https://github.com/pvizeli
+[@vanstinator]: https://github.com/vanstinator
+[@vpathuis]: https://github.com/vpathuis
+[BlueMaestro]: /integrations/bluemaestro
+[@piitaya]: https://github.com/piitaya
+[@bramkragten]: https://github.com/bramkragten
+[BThome]:  /integrations/bthome
+[Ecowitt]: /integrations/ecowitt
+[Escea]: /integrations/escea
+[File Upload]: /integrations/file_upload
+[Fully Kiosk Browser]: /integrations/fully_kiosk
+[JustNimbus]: /integrations/justnimbus
+[LaCrosse View]: /integrations/lacrosse_view
+[Landis+Gyr Heat Meter]: /integrations/landisgyr_heat_meter
+[LED BLE]: /integrations/led_ble
+[Melnor Bluetooth]: /integrations/melnor
+[PrusaLink]: /integrations/prusalink
+[Qingping]: /integrations/qingping
+[Schedule]: /integrations/schedule
+[SensorPro]: /integrations/sensorpro
+[ThermoBeacon]: /integrations/thermobeacon
+[ThermoPro]: /integrations/thermopro
+[Yale Access Bluetooth]: /integrations/yalexs_ble
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- [Android IP Webcam], done by [@engrbm87]
+- [LaMetric], done by [@frenck]
+- [Open Exchange Rates], done by [@MartinHjelmare]
+- [Pushover], done by [@engrbm87]
+- [Volvo On Call], done by [@y34hbuddy]
+
+[@engrbm87]: https://github.com/engrbm87
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@y34hbuddy]: https://github.com/y34hbuddy
+[Android IP Webcam]: /integrations/android_ip_webcam
+[LaMetric]: /integrations/lametric
+[Open Exchange Rates]: /integrations/openexchangerates
+[Pushover]: /integrations/pushover
+[Volvo On Call]: /integrations/volvooncall
+
+## Release 2022.9.1 - September 8
+
+- Show progress for zwave_js.update entity ([@raman325] - [#77905]) ([zwave_js docs])
+- Fix `len` method typo for Osram light ([@Vaskivskyi] - [#78008]) ([osramlightify docs])
+- Add value ID to zwave_js device diagnostics ([@raman325] - [#78015]) ([zwave_js docs])
+- Fix zwave_js default emulate hardware in options flow ([@MartinHjelmare] - [#78024]) ([zwave_js docs])
+- Extract lametric device from coordinator in notify ([@ludeeus] - [#78027]) ([lametric docs])
+- Bump velbus-aio to 2022.9.1 ([@Cereal2nd] - [#78039]) ([velbus docs])
+- Fix zwave_js device re-interview ([@MartinHjelmare] - [#78046]) ([zwave_js docs])
+- Bump bluetooth-adapters to 0.3.5 ([@bdraco] - [#78052]) ([bluetooth docs])
+- Bump bluetooth-auto-recovery to 0.3.2 ([@bdraco] - [#78063]) ([bluetooth docs])
+- Fix bug with 1st gen RainMachine controllers and unknown API calls ([@bachya] - [#78070]) ([rainmachine docs])
+- Bump pylitterbot to 2022.9.1 ([@natekspencer] - [#78071]) ([litterrobot docs])
+- Allow OpenWeatherMap config flow to test using old API to pass ([@jbouwh] - [#78074]) ([openweathermap docs])
+- Fix Ecobee remote sensors not updating ([@rlippmann] - [#78035]) ([ecobee docs])
+
+[#77905]: https://github.com/home-assistant/core/pull/77905
+[#77968]: https://github.com/home-assistant/core/pull/77968
+[#78008]: https://github.com/home-assistant/core/pull/78008
+[#78015]: https://github.com/home-assistant/core/pull/78015
+[#78024]: https://github.com/home-assistant/core/pull/78024
+[#78027]: https://github.com/home-assistant/core/pull/78027
+[#78035]: https://github.com/home-assistant/core/pull/78035
+[#78039]: https://github.com/home-assistant/core/pull/78039
+[#78046]: https://github.com/home-assistant/core/pull/78046
+[#78052]: https://github.com/home-assistant/core/pull/78052
+[#78063]: https://github.com/home-assistant/core/pull/78063
+[#78070]: https://github.com/home-assistant/core/pull/78070
+[#78071]: https://github.com/home-assistant/core/pull/78071
+[#78074]: https://github.com/home-assistant/core/pull/78074
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@Vaskivskyi]: https://github.com/Vaskivskyi
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@ludeeus]: https://github.com/ludeeus
+[@natekspencer]: https://github.com/natekspencer
+[@raman325]: https://github.com/raman325
+[@rlippmann]: https://github.com/rlippmann
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[bluetooth docs]: /integrations/bluetooth/
+[ecobee docs]: /integrations/ecobee/
+[lametric docs]: /integrations/lametric/
+[litterrobot docs]: /integrations/litterrobot/
+[openweathermap docs]: /integrations/openweathermap/
+[osramlightify docs]: /integrations/osramlightify/
+[rainmachine docs]: /integrations/rainmachine/
+[velbus docs]: /integrations/velbus/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Need help? Join the community
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Breaking Changes
+
+Below is a listing of the breaking change for this release, per subject or
+integration. Click on one of those to read more about the breaking change
+for that specific item.
+
+{% details "BMW Connected Drive" %}
+
+Entity `sensor.<your_vehicle>_charging_time_label` (disabled by default) has
+been removed as it is not provided by the upstream library/API anymore.
+
+([@rikroe] - [#76616]) ([documentation](/integrations/bmw_connected_drive))
+
+[@rikroe]: https://github.com/rikroe
+[#76616]: https://github.com/home-assistant/core/pull/76616
+
+---
+
+The attribute `charging_status` of `binary_sensor.<your_car>_charging_status`
+has been removed. Please use `sensor.charging_status` instead.
+
+([@rikroe] - [#74921]) ([documentation](/integrations/bmw_connected_drive))
+
+[#74921]: https://github.com/home-assistant/core/pull/74921
+
+{% enddetails %}
+
+{% details "HomeKit" %}
+
+The Homekit PM2.5 µg/m3 mappings in the HomeKit integration now use the values
+based on the [US AQI set by the EPA](https://www.epa.gov/sites/default/files/2016-04/documents/2012_aqi_factsheet.pdf).
+
+| HomeKit | Previous PM2.5 µg/m3 | New PM2.5 µg/m3 |
+|---|---|---|
+| Excellent | <= 25 | <= 12 |
+| Good | <= 50 | <= 35.4 |
+| Fair | <= 100 | <= 55.4 |
+| Inferior | <= 300 | <= 150.4 |
+| Poor | > 300 | > 150.4 |
+
+([@sarabveer] - [#76358]) ([documentation](/integrations/homekit))
+
+[@sarabveer]: https://github.com/sarabveer
+[#76358]: https://github.com/home-assistant/core/pull/76358
+
+{% enddetails %}
+
+{% details "International Space Station (ISS)" %}
+
+It will no longer be possible to know if the international space station (ISS)
+is above you nor the timestamp for the next rise of the station as these
+features have been removed in the underlying API.
+
+The binary sensor will be removed and all automations relying on this will no
+longer work. Unfortunately there is no substitute for this. Instead we have
+introduced a new sensor, that still tells you the location of the ISS,
+while showing how many people are in space, as main state.
+
+([@DurgNomis-drol] - [#77218]) ([documentation](/integrations/iss))
+
+[@DurgNomis-drol]: https://github.com/DurgNomis-drol
+[#77218]: https://github.com/home-assistant/core/pull/77218
+
+{% enddetails %}
+
+{% details "Litter-Robot" %}
+
+The previously deprecated `reset_waste_drawer` and `set_wait_time` services from
+the litterrobot vacuum entity, have been removed.
+
+([@natekspencer] - [#77052]) ([documentation](/integrations/litterrobot))
+
+[@natekspencer]: https://github.com/natekspencer
+[#77052]: https://github.com/home-assistant/core/pull/77052
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+Support for MQTT climate `hold` and `away` modes, which was deprecated in
+Home Assistant Core 2022.3.0, has been removed. The `hold` and `away` modes
+are replaced by `preset_mode`.
+
+([@jbouwh] - [#76299]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#76299]: https://github.com/home-assistant/core/pull/76299
+
+{% enddetails %}
+
+{% details "Open Exchange Rates" %}
+
+The sensor now has a unit of measurement according to the exchange rate quote.
+
+([@MartinHjelmare] - [#76017]) ([documentation](/integrations/openexchangerates))
+
+[#76017]: https://github.com/home-assistant/core/pull/76017
+
+{% enddetails %}
+
+{% details "Roku" %}
+
+Roku media player will indicate `IDLE` instead of `HOME` when at home screen.
+You can still detect home screen by looking at `app_id` attribute.
+
+([@elupus] - [#77385]) ([documentation](/integrations/roku))
+
+[@elupus]: https://github.com/elupus
+[#77385]: https://github.com/home-assistant/core/pull/77385
+
+{% enddetails %}
+
+{% details "SMS notifications via GSM-modem" %}
+
+Setting up the notify platform of the SMS integration by a platform section in
+YAML configuration is no longer supported. The `sms` platform section
+under `notify:` can be removed from your YAML configuration files.
+
+A recipient can be specified by using the `target` parameter in the notify
+service call instead.
+
+([@ocalvo] - [#76733]) ([documentation](/integrations/sms))
+
+[@ocalvo]: https://github.com/ocalvo
+[#76733]: https://github.com/home-assistant/core/pull/76733
+
+{% enddetails %}
+
+{% details "Utility Meter" %}
+
+The previously deprecated `utility_meter` entities, used to change tariffs,
+have been removed. Please use the provided `select` entity instead.
+
+([@dgomes] - [#76480]) ([documentation](/integrations/utility_meter))
+
+[@dgomes]: https://github.com/dgomes
+[#76480]: https://github.com/home-assistant/core/pull/76480
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+You must use zwave-js-server 1.22.1 or greater (schema 22).
+
+With this release, you will need to update your zwave-js-server instance.
+
+- If you use the zwave_js addon, you need to have at least version `0.1.66`.
+- If you use the zwavejs2mqtt addon, you need to have at least version `0.46.0`.
+- If you use the zwavejs2mqtt Docker container, you need to have at least version `7.0.0`.
+- If you run your own Docker container, or some other installation method, you will need to update your zwave-js-server instance to at least `1.22.1`.
+
+([@raman325] - [#75795] [#76903]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#75795]: https://github.com/home-assistant/core/pull/75795
+[#76903]: https://github.com/home-assistant/core/pull/76903
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+- [AutomationActionType deprecation for 2022.9](https://developers.home-assistant.io/blog/2022/08/15/automation-action-type-deprecation)
+- [Bluetooth passive sensor API changes for 2022.9](https://developers.home-assistant.io/blog/2022/08/08/bluetooth-api-changes)
+- [Device tracker deprecations for 2022.9](https://developers.home-assistant.io/blog/2022/07/29/device-tracker_source-type-deprecation/)
+- [Globally available HomeAssistant object (hass)](https://developers.home-assistant.io/blog/2022/08/24/globally_accessible_hass)
+- [LightEntity no longer supports white_value](https://developers.home-assistant.io/blog/2022/08/18/light_white_value_removed)
+- [The issue registry has been moved to homeassistant.helpers](https://developers.home-assistant.io/blog/2022/08/25/issue_registry_moved_to_helpers)
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2022.9](/changelogs/core-2022.9)

@@ -17,6 +17,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+  - Updates
 ha_release: '2021.2'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -38,6 +39,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - update
 ha_integration_type: integration
 ha_zeroconf: true
 ---
@@ -370,6 +372,7 @@ These are notification events fired by devices using the Multilevel Switch comma
     "command_class": 38,
     "command_class_name": "Multilevel Switch",
     "event_type": 4,
+    "event_type_label": "label 1",
     "direction": "up"
 },
 ```
@@ -384,6 +387,7 @@ These are notification events fired by devices using the Multilevel Switch comma
     "command_class": 38,
     "command_class_name": "Multilevel Switch",
     "event_type": 5,
+    "event_type_label": "label 2",
     "direction": null
 },
 ```
@@ -401,7 +405,9 @@ These are notification events fired by devices using the Entry Control command c
     "command_class": 111,
     "command_class_name": "Entry Control",
     "event_type": 6,
+    "event_type_label": "label 1",
     "data_type": 5,
+    "data_type_label": "label 2",
     "event_data": "555"
 }
 ```
@@ -711,9 +717,9 @@ Some Z-Wave USB sticks can be auto-discovered, which can simplify the Z-Wave set
 
 | Device | Identifier | Vendor |
 | -------| ---------- | ------ |
-| Aeotec Z-Stick Gen5+ | 0658:0200 | https://aeotec.com/z-wave-usb-stick/ |
+| Aeotec Z-Stick Gen5+ | 0658:0200 | https://aeotec.com/products/aeotec-z-stick-gen5/ |
 | Nortek HUSBZB-1 | 10C4:8A2A | https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/ |
-| Zooz ZST10 | 10C4:EA60 | https://www.getzooz.com/zooz-zst10-s2-stick.html |
+| Zooz ZST10 | 10C4:EA60 | https://www.getzooz.com/zooz-zst10-s2-stick/ |
 | Z-WaveMe UZB | 0658:0200 | https://z-wave.me/products/uzb/ |
 
 Additional devices may be discoverable, however only devices that have been confirmed discoverable are listed above.

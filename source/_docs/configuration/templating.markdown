@@ -857,7 +857,7 @@ With given payload:
 
 Template {% raw %}```{{ value_json.temperature | round(1) }}```{% endraw %} renders to `21.9`.
 
-Additional the MQTT entity attributes `entity_id` and `name` can be used as variables in the template.
+Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
  </div>
 
@@ -877,7 +877,7 @@ With given value `21.9` template {% raw %}```{"temperature": {{ value }} }```{% 
 }
 ```
 
-Additional the MQTT entity attributes `entity_id` and `name` can be used as variables in the template.
+Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
 </div>
 
