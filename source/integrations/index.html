@@ -57,7 +57,7 @@ regenerate: false
   <div class="grid__item five-sixths lap-one-whole palm-one-whole">
     <div class="component-search">
       <form onsubmit="event.preventDefault(); return false">
-        <input type="text" name="search" id="search" class="search" placeholder="Search integrations..." autofocus />
+        <input type="text" name="search" id="search" class="search" placeholder="Search integrations..." />
       </form>
     </div>
     <div class="hass-option-cards" id="componentContainer"> </div>
@@ -140,11 +140,6 @@ allComponents.pop(); // remove placeholder element at the end
         // set default value in search from URL
         jQuery('.component-search input').val(decodeURIComponent(location.hash).substring(8));
       }
-
-      // add focus to the search field - even on IE
-      setTimeout(function () {
-        jQuery('.component-search input').focus();
-      }, 1);
     }
     init();
 
@@ -285,7 +280,7 @@ allComponents.pop(); // remove placeholder element at the end
     };
 
     // update view by search text
-    $('.component-search input').keyup(debounce(function () {
+    $('.component-search input').on('input', debounce(function () {
       var text = $(this).val();
       // sanitize input
       text = text.replace(/[(\?|\&\{\}\(\))]/gi, '').trim();
