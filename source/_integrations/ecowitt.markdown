@@ -30,4 +30,4 @@ The following steps must be performed to set up this integration. For security r
 5. Path have to match!.
 6. Save configuration.
 
-Ecowitt don't support TLS/SSL, you can use the Nginx TLS Proxy Add-on to support HTTPS and HTTP at the same time.
+Ecowitt don't support TLS/SSL, you can use the NGINX TLS Proxy Add-on to support HTTPS and HTTP at the same time.
