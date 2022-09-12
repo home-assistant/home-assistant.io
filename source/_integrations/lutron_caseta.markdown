@@ -17,6 +17,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@swails'
   - '@bdraco'
+  - '@danaues'
 ha_zeroconf: true
 ha_homekit: true
 ha_platforms:
