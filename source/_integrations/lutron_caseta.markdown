@@ -172,6 +172,10 @@ Because Lutron Caseta devices automatically report state to Home Assistant (rath
 
 For more information on working with binary sensors in Home Assistant, see the [Binary Sensors Component](/components/binary_sensor/)
 
+## Scenes
+
+Scenes are not currently supported on RA3 and QSX models.
+
 ## Pico and Shade Remotes
 
 Pico and Shade remotes are supported on the Smart Bridge (L-BDG2-WH), Smart Bridge PRO (L-BDGPRO2-WH), and RA2 Select (RR-SEL-REP2-BL) models.
