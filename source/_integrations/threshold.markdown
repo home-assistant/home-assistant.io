@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: helper
 ---
 
-The threshold integration observes the state of another sensor. If the value is below or higher than the given threshold then state of the threshold sensor is changed. It support also a range both the upper and lower limits are given.
+The threshold integration observes the state of another sensor. If the value is below or higher than the given threshold, then the state of the threshold sensor is changed. It also supports a range if both the upper and lower limits are given.
 
 If the sensor is configured with no hysteresis and the sensor value is equal to the threshold, the sensor is turned off since it is not upper or lower with respect to the threshold.
 

@@ -90,5 +90,6 @@ sensor:
 The list above indicates all supported sensors. It is recommended to only include the ones you need.
 
 <div class='note'>
-Note that it's not possible to have multiple connection to the bridge at the same time. This integration will keep the connection open, and if you open the app, it will ask you to disconnect Home Assistant. If you close the app again, Home Assistant will reconnect automatically.
+Note that multiple connections to the bridge only work version >= U1.2.6 of the ComfoConnect LAN C bridge.
+In older versions it's not possible to have multiple connections to the bridge at the same time. This integration will then keep the connection open, and if you open the app, it will ask you to disconnect Home Assistant. If you close the app again, Home Assistant will reconnect automatically.
 </div>

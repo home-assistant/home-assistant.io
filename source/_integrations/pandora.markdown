@@ -13,6 +13,10 @@ ha_integration_type: integration
 
 If you have a Pandora account, you can control it from Home Assistant with this media player.
 
+<div class='note'>
+This integration is only available on Home Assistant Core installation types. Unfortunately, it cannot be used with Home Assistant OS, Supervised or Container.
+</div>
+
 ### Installation of Pianobar
 
 This media player uses the [Pianobar command-line Pandora client](https://github.com/PromyLOPh/pianobar), which you have to install separately. This can be done on a Raspberry Pi 2/3 with Raspbian Jessie as follows . _(Note: Other platforms may have different installation processes)_

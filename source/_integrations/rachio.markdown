@@ -58,7 +58,7 @@ panel_iframe:
   rachio:
     title: Rachio
     url: "https://app.rach.io"
-    icon: mdi:water-pump
+    icon: mdi:sprinkler-variant
 ```
 
 ## Switch

@@ -74,6 +74,11 @@ value_template:
       description: The subject of the email.git.
     date:
       description: The date and time the email was sent.
+verify_ssl:
+  description: If the SSL certificate of the server needs to be verified.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Example - keyword spotting

@@ -12,7 +12,7 @@ You can't embed sites using HTTP if you are using HTTPS for your Home Assistant.
 </div>
 
 <p class='img'>
-  <img width="500" src='/images/dashboards/lovelace_iframe.png' alt='Windy weather radar as Webpage'>
+  <img width="500" src='/images/dashboards/iframe.png' alt='Windy weather radar as Webpage'>
   Windy weather radar as Webpage.
 </p>
 

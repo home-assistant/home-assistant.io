@@ -44,9 +44,9 @@ server:
   description: SMTP server which is used to send the notifications.
   required: false
   type: string
-  default: localhost  
+  default: localhost
 port:
-  description: The port that the SMTP server is using.  
+  description: The port that the SMTP server is using.
   required: false
   type: integer
   default: 587
@@ -72,11 +72,16 @@ sender_name:
   description: "Sets a custom 'sender name' in the emails headers (*From*: Custom name <example@mail.com>)."
   required: false
   type: string
-debug:  
+debug:
   description: Enables Debug, e.g., `true` or `false`.
   required: false
   type: boolean
   default: false
+verify_ssl:
+  description: If the SSL certificate of the server needs to be verified.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ### Usage
@@ -175,8 +180,8 @@ To learn more about how to use notifications in your automations, please see the
 
 ## Specific E-Mail Provider Configuration
 
-Check below some configurations examples for specific e-mail providers. 
-If you are in doubt about the SMTP settings required, check your e-mail provider configuration or help pages for more information about its specific SMTP configuration. 
+Check below some configurations examples for specific e-mail providers.
+If you are in doubt about the SMTP settings required, check your e-mail provider configuration or help pages for more information about its specific SMTP configuration.
 
 ### Google Mail
 

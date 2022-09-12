@@ -3,10 +3,11 @@ title: Timer
 description: Instructions on how to integrate timers into Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 0.57
 ha_quality_scale: internal
 ha_domain: timer
-ha_integration_type: integration
+ha_integration_type: helper
 ---
 
 The `timer` integration aims to simplify automations based on (dynamic) durations.
@@ -15,7 +16,7 @@ When a timer finishes or gets canceled the corresponding events are fired. This 
 
 
 ## Configuration
-The preferred way to configure timer helpers is via the user interface. To add one, go to Settings -> Automations & Scenes, select the "Helpers" tab and click the add button; next choose the “Timer” option.
+The preferred way to configure timer helpers is via the user interface at **Settings** -> **Devices & Services** -> **Helpers** and click the add button; next choose the **Timer** option.
 
 You can also click the following button to be redirected to the Helpers page of your Home Assistant instance.
 

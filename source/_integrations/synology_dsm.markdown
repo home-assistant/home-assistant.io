@@ -39,6 +39,12 @@ Having cameras or the Home mode toggle from [Surveillance Station](https://www.s
 
 </div>
 
+<div class='note'>
+
+If you have two or more NICs with different IP addresses from the same subnet and SSDP is activated, this leads to problems with this integration, as the NAS is detected several times with different IPs and the integration always adopts the new "detected" IP address in its configuration and then reloads it.
+In this case, it is recommended to use NIC bonding instead or to deactivate SSDP.
+
+</div>
 
 ## Separate User Configuration
 

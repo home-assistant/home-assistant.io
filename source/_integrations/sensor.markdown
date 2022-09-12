@@ -33,6 +33,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **gas**: Gasvolume in m³ or ft³
 - **humidity**: Percentage of humidity in the air
 - **illuminance**: The current light level in lx or lm
+- **moisture**: Percentage of water in a substance
 - **monetary**: The monetary value
 - **nitrogen_dioxide**: Concentration of Nitrogen Dioxide in µg/m³
 - **nitrogen_monoxide**: Concentration of Nitrogen Monoxide in µg/m³
@@ -43,7 +44,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
 - **power_factor**: Power factor in %
 - **power**: Power in W or kW
-- **pressure**: Pressure in hPa or mbar
+- **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg or psi
 - **reactive_power**: Reactive power in var
 - **signal_strength**: Signal strength in dB or dBm
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³

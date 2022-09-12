@@ -64,7 +64,7 @@ like this.
 Please note, you'll need to enable advanced mode in your user profile in order
 to set this up.
 
-Go to **Settings** -> **System** -> **General**.
+Go to **Settings** -> **System** -> **Network**.
 
 On this page, two fields that can resolve this issue: "External URL"
 and "Internal URL".

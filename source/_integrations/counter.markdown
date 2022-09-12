@@ -3,12 +3,13 @@ title: Counter
 description: Instructions on how to integrate counters into Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 0.53
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: counter
-ha_integration_type: integration
+ha_integration_type: helper
 ---
 
 The `counter` integration allows one to count occurrences fired by automations.
@@ -46,7 +47,7 @@ counter:
       required: false
       type: string
     initial:
-      description: Initial value when Home Assistant starts or the counter is reset.
+      description: Initial value (0 or positive integer) when Home Assistant starts or the counter is reset.
       required: false
       type: integer
       default: 0

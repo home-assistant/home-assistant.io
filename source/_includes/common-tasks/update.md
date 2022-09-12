@@ -5,9 +5,9 @@ Best practice for updating a Home Assistant installation:
 1. Backup your installation{% if page.installation == "os" or page.installation == "supervised" %}, using the backup functionality Home Assistant offers{% endif %}.
 1. Check the release notes for breaking changes on [Home Assistant release notes](/blog/categories/core/). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f` / `CMD + f`) and search for **Breaking Changes**.
 {% if page.installation == "os" or page.installation == "supervised" %}
-1. Check your configuration using the [Check Home Assistant configuration](/addons/check_config/) add-on.
-1. If the check passes, you can safely update. If not, update your configuration accordingly.
+1. Select "Create backup before updating" in case you encounter an issue that requires a rollback.
 1. Update Home Assistant.
+1. Review persistent notifications and log to see if there are any issues with your configuration that need to be addressed.
 {% endif %}
 
 {% if page.installation == "os" or page.installation == "supervised" %}
@@ -61,24 +61,26 @@ To update Home Assistant Core when you run Home Assistant {{ page.installation_n
 
 {% elsif page.installation == "core" %}
 
-1. Switch to the user that is running Home Assistant
+1. Stop the Home Assistant service.
+
+2. Switch to the user that is running Home Assistant
 
     ```bash
     sudo -u homeassistant -H -s
     ```
 
-2. Activate the virtual environment that Home Assistant is running in
+3. Activate the virtual environment that Home Assistant is running in
 
     ```bash
     source /srv/homeassistant/bin/activate
     ```
 
-3. Download and install the new version
+4. Download and install the new version
 
     ```bash
     pip3 install --upgrade homeassistant
     ```
 
-4. When that is complete restart the service for it to use the new files.
+5. When that is complete start the service again for it to use the new files.
 
 {% endif %}
