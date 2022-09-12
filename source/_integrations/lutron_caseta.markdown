@@ -32,7 +32,17 @@ ha_integration_type: integration
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, HVAC controls, etc. The `lutron_caseta` integration in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](https://www.casetawireless.com/) product line of dimmers, switches, shades, and sensors. It will also communicate with the Lutron Radio RA2 Main Repeater for the [RA2 Select](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RA2Select/Overview.aspx) product line of dimmers, switches, shades, and sensors.
 
-This integration supports the [Caseta](https://www.casetawireless.com/), [RadioRA 3](https://radiora3.lutron.com/), and Homeworks QSX (not QS) lines of products. The Smart Bridge (L-BDG2-WH), Smart Bridge PRO (L-BDGPRO2-WH), RA2 Select (RR-SEL-REP2-BL), QSX Processor (HQP7), and RadioRA 3 All-in-One Processor (RR-PROC3) models are supported. For the RadioRA 2 and HomeWorks QS product lines, see the [Lutron component](/integrations/lutron/).
+This integration supports the [Caseta](https://www.casetawireless.com/), [RadioRA 3](https://radiora3.lutron.com/), and Homeworks QSX (not QS) lines of products. 
+
+Supports Bridges:
+
+- Lutron Caséta Smart Hub (L-BDG2-WH)
+- Lutron Caséta Smart Bridge PRO (L-BDGPRO2-WH)
+- RA2 Select Main Repeaters (RR-SEL-REP2-BL)
+- QSX Processor (HQP7)
+- RadioRA 3 All-in-One Processor (RR-PROC3)
+ 
+For the RadioRA 2 and HomeWorks QS product lines, see the [Lutron component](/integrations/lutron/).
 
 The currently supported devices are:
 
