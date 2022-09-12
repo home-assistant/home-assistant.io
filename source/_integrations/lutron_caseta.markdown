@@ -32,7 +32,7 @@ ha_integration_type: integration
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, HVAC controls, etc. The `lutron_caseta` integration in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](https://www.casetawireless.com/) product line of dimmers, switches, shades, and sensors. It will also communicate with the Lutron Radio RA2 Main Repeater for the [RA2 Select](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RA2Select/Overview.aspx) product line of dimmers, switches, shades, and sensors.
 
-This integration supports the [Caséta](https://www.casetawireless.com/), [RA2 Select](https://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RA2Select/Overview.aspx), [RadioRA 3](https://radiora3.lutron.com/), and Homeworks QSX (not QS) lines of products. 
+This integration supports the [Caséta](https://www.casetawireless.com/), [RA2 Select](https://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RA2Select/Overview.aspx), [RadioRA 3](https://radiora3.lutron.com/), and [Homeworks QSX](https://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/Homeworks/Overview.aspx) (not QS) lines of products. 
 
 Supports Bridges:
 
