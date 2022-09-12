@@ -15,6 +15,7 @@ ha_ssdp: true
 ha_platforms:
   - binary_sensor
   - climate
+  - cover
   - diagnostics
   - light
   - sensor
@@ -31,22 +32,24 @@ There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
 - Climate
+- Cover
 - Light
 - Sensor
 - Switch
 
 #### Tested Devices
 
-- [FRITZ!Box 6490 Cable](https://en.avm.de/products/fritzbox/fritzbox-6490-cable/)
+- FRITZ!Box 6490 Cable
 - [FRITZ!Box 6591 Cable](https://en.avm.de/products/fritzbox/fritzbox-6591-cable/)
 - [FRITZ!Box 7590](https://en.avm.de/products/fritzbox/fritzbox-7590/)
-- [FRITZ!Box 7490](https://en.avm.de/service/fritzbox/fritzbox-7490/overview/)
-- [FRITZ!Box 7430](https://en.avm.de/service/fritzbox/fritzbox-7430/overview/)
+- FRITZ!Box 7490
+- FRITZ!Box 7430
 - [FRITZ!DECT 200](https://en.avm.de/products/fritzdect/fritzdect-200/)
 - [FRITZ!DECT 301](https://en.avm.de/products/fritzdect/fritzdect-301/)
 - [FRITZ!DECT 500](https://en.avm.de/products/fritzdect/fritzdect-500/)
-- [Eurotronic Comet DECT](https://eurotronic.org/produkte/elektronische-heizkoerperthermostate/sparmatic-comet/)
+- [Eurotronic Comet DECT](https://eurotronic.org/produkte/dect-ule-heizkoerperthermostat/comet-dect/)
 - [Magenta SmartHome LED E27](https://www.smarthome.de/geraete/smarthome-led-lampe-e27-farbig-weiss)
+- [Rademacher RolloTron DECT 1213](https://www.rademacher.de/shop/rollladen-sonnenschutz/elektrischer-gurtwickler/rollotron-dect-1213)
 
 {% include integrations/config_flow.md %}
 
@@ -108,3 +111,7 @@ To get AVM FRITZ!DECT lightbulbs (e.g., FRITZ!DECT 500) follow the [configuratio
 <div class='note'>
 The FRITZ!DECT 500 lightbulb supports only 36 colors. When a color is picked in home assistant that is not supported by the device, a color that comes close will be activated.
 </div>
+
+## Cover
+
+To get AVM FRITZ!DECT compatible covers (e.g., Rademacher RolloTron DECT 1213) follow the [configuration instructions](#configuration) above.

@@ -17,6 +17,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@swails'
   - '@bdraco'
+  - '@danaues'
 ha_zeroconf: true
 ha_homekit: true
 ha_platforms:
@@ -51,7 +52,7 @@ When configured, the Lutron Caséta integration will automatically discover the 
 
 ## Manual hub configuration
 
-To use Lutron Caseta devices in your installation, you must first log in to your Lutron account and generate a certificate that allows Home Assistant to connect to your bridge. This can be accomplished by downloading and executing [get_lutron_cert.py](https://github.com/gurumitts/pylutron-caseta/blob/master/get_lutron_cert.py), which will generate three files: caseta.key, caseta.crt, caseta-bridge.crt when you run it. See the instructions at the top of the script for more information.
+To use Lutron Caseta devices in your installation, you must first log in to your Lutron account and generate a certificate that allows Home Assistant to connect to your bridge. This can be accomplished by following the [steps here](https://github.com/gurumitts/pylutron-caseta/tree/master#getting-started), which will generate three files: caseta.key, caseta.crt, caseta-bridge.crt when you run it.
 
 If you already have `caseta.key`, `caseta.crt`, `caseta-bridge.crt`, and cannot physically access the bridge to press the button, pairing can be done by utilizing these existing files.
 

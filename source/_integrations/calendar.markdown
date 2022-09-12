@@ -99,8 +99,10 @@ automation:
         - "{{ trigger.event == 'start' }}"
       then:
         - service: light.turn_on
+          entity_id: light.front
       else:
         - service: light.turn_off
+          entity_id: light.front
   mode: queued
 ```
 {% endraw %}

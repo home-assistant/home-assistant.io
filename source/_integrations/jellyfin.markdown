@@ -13,7 +13,7 @@ ha_integration_type: integration
 ---
 
 The Jellyfin integration exposes a [Jellyfin](https://jellyfin.org/) server as a Media Source in Home Assistant.
-Support is currently limited to music libraries only. Other libraries will not appear in the Media Browser. This integration has been tested with Jellyfin server version 10.6.4 and later.
+Support is currently limited to music and movie libraries only. Other libraries will not appear in the Media Browser. This integration has been tested with Jellyfin server version 10.6.4 and later.
 
 {% include integrations/config_flow.md %}
 

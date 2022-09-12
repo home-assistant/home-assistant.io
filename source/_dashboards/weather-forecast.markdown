@@ -8,7 +8,7 @@ description: "The Weather Forecast card displays the weather. Very useful to inc
 The Weather Forecast card displays the weather. Very useful to include on interfaces that people display on the wall.
 
 <p class='img'>
-  <img src='/images/dashboards/lovelace_weather.png' alt='Screenshot of the weather card'>
+  <img src='/images/dashboards/weather.png' alt='Screenshot of the weather card'>
   Screenshot of the Weather card.
 </p>
 
