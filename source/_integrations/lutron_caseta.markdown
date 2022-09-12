@@ -138,6 +138,8 @@ After setup, scenes will appear in Home Assistant using an `entity_id` based on 
 
 For more information on working with scenes in Home Assistant, see the [Scenes component](/integrations/scene/).
 
+Scenes are not currently supported on RA3 and QSX models.
+
 Available services: `scene.turn_on`.
 
 ## Switch
@@ -171,10 +173,6 @@ Lutron Caseta occupancy sensors support 4 different timeouts and 3 different sen
 Because Lutron Caseta devices automatically report state to Home Assistant (rather than relying on polling), occupancy status updates occur almost instantaneously.
 
 For more information on working with binary sensors in Home Assistant, see the [Binary Sensors Component](/components/binary_sensor/)
-
-## Scenes
-
-Scenes are not currently supported on RA3 and QSX models.
 
 ## Pico and Shade Remotes
 
