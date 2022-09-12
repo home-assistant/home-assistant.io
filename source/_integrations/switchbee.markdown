@@ -16,8 +16,6 @@ ha_integration_type: integration
 
 [SwitchBee](https://www.switchbee.com), is an innovation company making smart homes more accessible and affordable to any household environment. 
 
-Its unique solutions are patented technology, leading the smart home growing demand.
-
 There is currently support for the following device types within Home Assistant:
 
 - Switch 
@@ -38,8 +36,6 @@ You will need to provide the following parameters in order to set up the `Switch
 
 
 ## SwitchBee Options
-
-- `Polling interval in seconds`: Increase/Decrease the update interval for the device.
 
 - `Devices to include`: Select the devices (by type) you wish to control from Home Assistant.
 
