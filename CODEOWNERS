@@ -417,6 +417,7 @@ source/_integrations/nina.markdown @DeerMaximum
 source/_integrations/nissan_leaf.markdown @filcole
 source/_integrations/nmbs.markdown @thibmaek
 source/_integrations/noaa_tides.markdown @jdelaney72
+source/_integrations/nobo_hub.markdown @echoromeo @oyvindwe
 source/_integrations/notify.markdown @home-assistant/core
 source/_integrations/notify_events.markdown @matrozov @papajojo
 source/_integrations/notion.markdown @bachya
