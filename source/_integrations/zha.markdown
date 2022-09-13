@@ -451,6 +451,8 @@ logger:
     zhaquirks: debug
 ```
 
+Note! The location of the log files, and how to view the logs, is described in the documentation for the [logger](/integrations/logger/) integration.
+
 ### Add Philips Hue bulbs that have previously been added to another bridge
 
 Philips Hue bulbs/lights that have previously been paired/added to another bridge/gateway will not show up during search in ZHA to pair/add a Zigbee device. That is because you have to first manually restore your bulbs/lights back to their factory default settings first, and just removing them from your old bridge/gateway is not enough to do so. Instead to achieve a proper device factory reset you can use one of these methods below.
