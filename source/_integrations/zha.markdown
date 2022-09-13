@@ -410,7 +410,7 @@ After restoring a Home Assistant backup, you can re-configure ZHA and migrate to
 
 The ZHA integration currently store and export the Zigbee network backup files in a [zigpy](https://github.com/zigpy/zigpy) specific format.
 
-Within ZHA is possible to use this backup and restore feature to migrate between some different radio types if the respective radio livrary supports it, and currently ZHA support migrating Zigbee network between based Zigbee Coordinator adapters based on Silicon Labs, Texas Instruments, or ConBee/RaspBee if the backup was made from inside ZHA.
+Within ZHA is possible to use this backup and restore feature to migrate between some different radio types, if the respective radio library supports it. Currently, ZHA supports migrating the Zigbee network between based Zigbee Coordinator adapters based on Silicon Labs, Texas Instruments, or ConBee/RaspBee if the backup was made from inside ZHA.
 
 ## Troubleshooting
 
