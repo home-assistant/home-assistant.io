@@ -59,21 +59,23 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 
 ### Known working adapters
 
-- ASUS USB-BT400
-- ASUS USB-BT500
-- Avantree DG45
-- Kinivo BTD-400
-- Maxuni BT-501
-- SUMEE BT501
-- UGREEN CM390
-- XDO BT802 (Long Range)
-- ZEXMTE BT-505 (Long Range)
-- ZEXMTE BT-DG54
+- ASUS USB-BT400 [BCM20702A1]
+- ASUS USB-BT500 [RTL8761BU]
+- Avantree DG45 [RTL8761BU]
+- EDUP LOVE EP-B3536 [RTL8761BU] (Long Range)
+- Feasycom FSC-BP119 [CSR8510A10] (Long Range)
+- Kinivo BTD-400 [BCM20702A1]
+- Maxuni BT-501 [RTL8761B]
+- SUMEE BT501 [RTL8761B]
+- UGREEN CM390 [RTL8761BU]
+- XDO BT802 [RTL8761BU] (Long Range)
+- ZEXMTE BT-505 [RTL8761BU] (Long Range)
+- ZEXMTE BT-DG54 [RTL8761BU]
 
 ### Unsupported adapters
 
-- tp-link UB400 - Frequent connection failures
-- tp-link UB500 - Frequent connection failures
+- tp-link UB400 [BCM20702A1] - Frequent connection failures with active connections
+- tp-link UB500 [RTL8761BU] - Frequent connection failures with active connections
 
 ## Multiple adapters
 
@@ -85,7 +87,34 @@ The following methods are known to work to add multiple adapters:
 - USB-Ethernet extenders
 - [USB/IP](http://usbip.sourceforge.net/)
 
-Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/network_discovery?_highlight=bluetooth#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
+Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/bluetooth/?_highlight=Best+practices#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
+
+## Passive Scanning
+
+Passive Scanning on Linux can be enabled in the options flow per adapter if the host system runs BlueZ 4.63 or later with experimental features enabled.
+
+Many integrations require active scanning and may not function when scanning is passive.
+
+{% include integrations/option_flow.md %}
+
+## Remote adapters
+
+The Bluetooth integration supports receiving advertisement data from external adapters for devices and sensors that do not need an active connection. The number of remote scanners is limited only by the performance of the host system.
+
+The following remote adapters are supported:
+
+- [ESPHome](https://esphome.io)
+
+### ESPHome requirements
+
+Devices with an ESP32 chip running ESPHome must enable the `bluetooth_proxy` component and be added to Home Assistant before advertisements are forwarded.
+
+```yaml
+esp32_ble_tracker:
+bluetooth_proxy:
+```
+
+Many integrations require an active scan for discovery. By default, the [ESPHome tracker](https://esphome.io/components/esp32_ble_tracker.html) runs in active mode. Adding ESPHome remotes that have active scanning disabled may cause some integrations to malfunction.
 
 ## Troubleshooting
 

@@ -172,6 +172,7 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 
 | Device | Discovery Method | Identifier |
 | -------| ---------------- | ---------- |
+| [ITead SONOFF Zigbee 3.0 USB Dongle Plus V2 Model "ZBDongle-E" (EFR32MG21 variant)](https://itead.cc/product/zigbee-3-0-usb-dongle/) | USB | 1A86:55D4 |
 | [ITead SONOFF Zigbee 3.0 USB Dongle Plus Model "ZBDongle-P" (CC2652P variant)](https://itead.cc/product/sonoff-zigbee-3-0-usb-dongle-plus/) | USB | 10C4:EA60 |
 | [Bitron Video/SMaBiT BV AV2010/10](https://bv.smabit.eu/index.php/smart-home-produkte/zb-funkstick/) | USB | 10C4:8B34 |
 | [ConBee II](https://phoscon.de/conbee2) | USB | 1CF1:0030 |
@@ -179,6 +180,8 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 | [slae.sh CC2652RB development stick](https://slae.sh/projects/cc2652/) | USB | 10C4:EA60 |
 | [ZigStar Stick (CC2652 + CH340B variant)](https://zig-star.com/projects/zigbee-stick-v4/) | USB | 1A86:7523 |
 | [Tube’s EFR32 Pro Ethernet/Serial Coordinator](https://www.tubeszb.com/) | USB| 10C4:EA60 |
+| [ZigStar Coordinators](https://zig-star.com/) | USB| 1A86:7523 |
+| [ZigStar LAN/POE Coordinators ](https://zig-star.com/projects/zigbee-gw-lan/) | Zeroconf | zigstargw.local. |
 | [Tube's CC2652P2 USB-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/) | Zeroconf | tube_zb_gw_cc2652p2.local. |
 | [Tube's CC2652P2 PoE-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/) | Zeroconf | tube_zb_gw_cc2652p2_poe.local. |
 | [Tube's EFR32 Based Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/) | Zeroconf | tube_zb_gw_efr32.local. |

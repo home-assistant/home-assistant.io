@@ -43,6 +43,20 @@ Change the light to a new state.
 | `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
 | `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`](/integrations/light/#service-lightturn_on) to specify the new state.
 
+## Set HEV cycle state
+
+You can control the HEV LEDs in LIFX Clean bulbs using the `set_hev_cycle_state` service. The service can start or stop a HEV (or "Clean") cycle either using the default duration configured on the bulb or for a custom duration specified when calling the service. Home Assistant will return or log an error if an incompatible bulb is specified when calling the service.
+
+To determine whether or not a HEV cycle is currently running, Home Assistant exposes a Clean Cycle binary sensor for all HEV-enabled bulbs. This sensor can be used to trigger automations to occur when a HEV cycle starts or stops. To reduce network load, HEV cycle status is only checked every 10 seconds so this sensor may not update instantaneously.
+
+### Service `lifx.set_hev_cycle_state`
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of LIFX Clean bulbs.
+| `power` | Start a HEV cycle (`True`) or stop a cycle (`False`).
+| `duration` | Duration (in seconds) for the HEV cycle. The default duration of two hours (7200 seconds) is used if this attribute is omitted.
+
 ## Light effects
 
 The LIFX platform supports several light effects. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/integrations/light/#service-lightturn_on) service, for example like this:
