@@ -27,7 +27,7 @@ Supported devices will be discovered after the `SwitchBee` integration is config
 
 ## Preliminary Steps
 
-You will need to provide the following parameters in order to set up the `SwitchBee` integration:
+You will need to provide the following parameters in order to set up the SwitchBee integration:
 
 - Central Unit IP
 - Username
