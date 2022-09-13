@@ -39,6 +39,7 @@ Now I know that everyone usually expects [@frenck] to be writing these release n
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.9.1 - September 8](#release-202291---september-8)
 - [Release 2022.9.2 - September 11](#release-202292---september-11)
+- [Release 2022.9.3 - September 13](#release-202293---september-13)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -393,6 +394,117 @@ The following integrations are now available via the Home Assistant UI:
 [yalexs_ble docs]: /integrations/yalexs_ble/
 [zha docs]: /integrations/zha/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.9.3 - September 13
+
+- 2022.9.0 ([@frenck] - [#77968]) ([abode docs]) ([acmeda docs]) ([accuweather docs])
+- 2022.9.1 ([@balloob] - [#78081])
+- 2022.9.2 ([@balloob] - [#78169])
+- Move up setup of service to make it more robust when running multiple instances of deCONZ ([@Kane610] - [#77621]) ([deconz docs])
+- Bump blinkpy to 0.19.2 ([@Vaskivskyi] - [#78097]) ([blink docs])
+- Bump PyViCare==2.17.0 ([@TheJulianJES] - [#78232]) ([vicare docs])
+- Fix missing dependency for dbus_next ([@d-walsh] - [#78235]) ([bluetooth docs])
+- Bump bluetooth-auto-recovery to 0.3.3 ([@bdraco] - [#78245]) ([bluetooth docs])
+- Bump aiodiscover to 1.4.13 ([@bdraco] - [#78253]) ([dhcp docs])
+- Bump pySwitchbot to 0.19.6 ([@bdraco] - [#78304]) ([switchbot docs])
+- Make yalexs_ble matcher more specific ([@bdraco] - [#78307]) ([yalexs_ble docs])
+- Fix sengled bulbs in ZHA ([@dmulcahey] - [#78315]) ([zha docs])
+- Fix calculating gas cost for gas measured in ft3 ([@emontnemery] - [#78327]) ([energy docs])
+- Bump bleak to 0.17.0 ([@bdraco] - [#78333]) ([bluetooth docs])
+- Drop initial when loading input_number from storage ([@emontnemery] - [#78354]) ([input_number docs])
+- Don't allow partial update of input_number settings ([@emontnemery] - [#78356]) ([input_number docs])
+- Bump PySwitchbot to 0.19.8 ([@bdraco] - [#78361]) ([switchbot docs])
+- Bump yalexs-ble to 1.9.0 ([@bdraco] - [#78362]) ([yalexs_ble docs])
+- Bump xiaomi-ble to 0.9.3 ([@bdraco] - [#78301]) ([xiaomi_ble docs])
+- Bump xiaomi-ble to 0.10.0 ([@bdraco] - [#78365]) ([xiaomi_ble docs])
+- Bump led-ble to 0.10.0 ([@bdraco] - [#78367]) ([led_ble docs])
+- Bump aiohomekit to 1.5.7 ([@bdraco] - [#78369]) ([homekit_controller docs])
+- Don't allow partial update of counter settings ([@emontnemery] - [#78371]) ([counter docs])
+- Don't allow partial update of input_boolean settings ([@emontnemery] - [#78372]) ([input_boolean docs])
+- Don't allow partial update of input_datetime settings ([@emontnemery] - [#78373]) ([input_datetime docs])
+- Don't allow partial update of input_button settings ([@emontnemery] - [#78374]) ([input_button docs])
+- Don't allow partial update of input_select settings ([@emontnemery] - [#78376]) ([input_select docs])
+- Don't allow partial update of input_text settings ([@emontnemery] - [#78377]) ([input_text docs])
+- Don't allow partial update of timer settings ([@emontnemery] - [#78378]) ([timer docs])
+- Unregister EcoWitt webhook at unload ([@pvizeli] - [#78388]) ([ecowitt docs])
+- Fix flapping system log test ([@bdraco] - [#78391]) ([system_log docs])
+- Fix CI workflow caching ([@cdce8p] - [#78398])
+- Update frontend to 20220907.1 ([@bramkragten] - [#78404]) ([frontend docs])
+- Bump govee-ble to 0.17.3 ([@bdraco] - [#78405]) ([govee_ble docs])
+
+[#77621]: https://github.com/home-assistant/core/pull/77621
+[#77968]: https://github.com/home-assistant/core/pull/77968
+[#78081]: https://github.com/home-assistant/core/pull/78081
+[#78097]: https://github.com/home-assistant/core/pull/78097
+[#78169]: https://github.com/home-assistant/core/pull/78169
+[#78232]: https://github.com/home-assistant/core/pull/78232
+[#78235]: https://github.com/home-assistant/core/pull/78235
+[#78245]: https://github.com/home-assistant/core/pull/78245
+[#78253]: https://github.com/home-assistant/core/pull/78253
+[#78301]: https://github.com/home-assistant/core/pull/78301
+[#78304]: https://github.com/home-assistant/core/pull/78304
+[#78307]: https://github.com/home-assistant/core/pull/78307
+[#78315]: https://github.com/home-assistant/core/pull/78315
+[#78327]: https://github.com/home-assistant/core/pull/78327
+[#78333]: https://github.com/home-assistant/core/pull/78333
+[#78354]: https://github.com/home-assistant/core/pull/78354
+[#78356]: https://github.com/home-assistant/core/pull/78356
+[#78361]: https://github.com/home-assistant/core/pull/78361
+[#78362]: https://github.com/home-assistant/core/pull/78362
+[#78365]: https://github.com/home-assistant/core/pull/78365
+[#78367]: https://github.com/home-assistant/core/pull/78367
+[#78369]: https://github.com/home-assistant/core/pull/78369
+[#78371]: https://github.com/home-assistant/core/pull/78371
+[#78372]: https://github.com/home-assistant/core/pull/78372
+[#78373]: https://github.com/home-assistant/core/pull/78373
+[#78374]: https://github.com/home-assistant/core/pull/78374
+[#78376]: https://github.com/home-assistant/core/pull/78376
+[#78377]: https://github.com/home-assistant/core/pull/78377
+[#78378]: https://github.com/home-assistant/core/pull/78378
+[#78388]: https://github.com/home-assistant/core/pull/78388
+[#78391]: https://github.com/home-assistant/core/pull/78391
+[#78398]: https://github.com/home-assistant/core/pull/78398
+[#78404]: https://github.com/home-assistant/core/pull/78404
+[#78405]: https://github.com/home-assistant/core/pull/78405
+[@Kane610]: https://github.com/Kane610
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@Vaskivskyi]: https://github.com/Vaskivskyi
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cdce8p]: https://github.com/cdce8p
+[@d-walsh]: https://github.com/d-walsh
+[@dmulcahey]: https://github.com/dmulcahey
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@pvizeli]: https://github.com/pvizeli
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[blink docs]: /integrations/blink/
+[bluetooth docs]: /integrations/bluetooth/
+[counter docs]: /integrations/counter/
+[deconz docs]: /integrations/deconz/
+[dhcp docs]: /integrations/dhcp/
+[ecowitt docs]: /integrations/ecowitt/
+[energy docs]: /integrations/energy/
+[frontend docs]: /integrations/frontend/
+[govee_ble docs]: /integrations/govee_ble/
+[homekit_controller docs]: /integrations/homekit_controller/
+[input_boolean docs]: /integrations/input_boolean/
+[input_button docs]: /integrations/input_button/
+[input_datetime docs]: /integrations/input_datetime/
+[input_number docs]: /integrations/input_number/
+[input_select docs]: /integrations/input_select/
+[input_text docs]: /integrations/input_text/
+[led_ble docs]: /integrations/led_ble/
+[switchbot docs]: /integrations/switchbot/
+[system_log docs]: /integrations/system_log/
+[timer docs]: /integrations/timer/
+[vicare docs]: /integrations/vicare/
+[xiaomi_ble docs]: /integrations/xiaomi_ble/
+[yalexs_ble docs]: /integrations/yalexs_ble/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community
 
