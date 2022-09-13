@@ -404,7 +404,7 @@ Binding a remote directly to a bulb or group has the benefit of faster response 
 
 ## Zigbee backup and restore in ZHA
 
-Zigbee Home Automation (ZHA) integration now features Zigbee network backup, restore/recovery, and migrating between Zigbee coordinators since Home Assistant 2022.9 release. Backups are taken automatically however a single backup to file for easy download can also be manually created from the configuration page under Network Settings.
+Zigbee Home Automation (ZHA) integration now features Zigbee network backup, restore/recovery, and migrating between Zigbee coordinators. Backups are taken automatically however, a single backup to a file for easy download can also be manually created from the configuration page under Network Settings.
 
 After restoring a Home Assistant backup, you can re-configure ZHA and migrate to a new Zigbee Coordinator adapter without any loss of your settings or devices that were connected. This is helpful if your current radio fails or a new radio adapter type and model comes out that you may want to migrate to.
 
