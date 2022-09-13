@@ -30,14 +30,8 @@ Supported devices will be discovered after the `SwitchBee` integration is config
 You will need to provide the following parameters in order to set up the SwitchBee integration:
 
 - Central Unit IP
-- Username
+- Username (e-mail)
 - Password
-- Initialize switches as light entities (False by default)
-
-
-## SwitchBee Options
-
-- `Devices to include`: Select the devices (by type) you wish to control from Home Assistant.
 
 
 {% include integrations/config_flow.md %}
