@@ -10,6 +10,7 @@ ha_category:
   - Light
   - Lock
   - Media Player
+  - Media Source
   - Number
   - Select
   - Sensor
@@ -116,7 +117,7 @@ check that this is done. To check and enable the feature:
 
 {% include integrations/config_flow.md %}
 
-## Features
+## Device Support
 
 All known UniFi Protect devices should be supported. Each UniFi Protect device will get a variety of entities added for
 each of the different entity platforms.
@@ -212,6 +213,35 @@ Your main UniFi Protect NVR device also gets a number of diagnostics sensors tha
 * **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as a state attribute though to help map sensor to disk.
 * **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
 
+## Media Source
+
+A media source is provided for your UniFi Protect cameras so you can fetch video clips and event thumbnails.
+
+### Media Browser
+
+The media source is split into 5 folders/levels:
+
+1. NVR Console Selector - only appears if you have more then one Protect NVR Console. Allows you to select your NVR Console you want to view events for.
+2. Camera Selector - either lets you select all cameras or a specific camera to view events for.
+3. Event Selector - either lets you select all events or a specific event type to view events for.
+4. Time Selector - filters events for a given time range:
+   * Last 24 Hours
+   * Last 7 Days
+   * Last 30 Days
+   * By Month since start of recording - selecting a month lets you either view the whole month or a specific date
+5. Event Selector - lets you select the specific event for playback
+
+Since the media browser does not have any pagination or filtering, all of the events must be loaded into memory. As a result, the number of events loaded at once is truncated to 10,000 by default. The number of events will be listed at "10000 (TRUNCATED)" if the event count was truncated. You can raise or lower the limit of the number of events that can be loaded using the Config Entry Options.
+
+### Media Identifiers
+
+Below are the accepted identifiers to resolve media. Since events do not necessarily map to any Home Assistant entity, all IDs are in reference to the UniFi Protect IDs, not Home Assistant ones.
+
+| Identifier Format                | Description                        |
+| -------------------------------- | ---------------------------------- |
+| `{nvr_id}:event:{event_id}`      | MP4 video clip for specific event. |
+| `{nvr_id}:eventthumb:{event_id}` | JPEG thumbnail for specific event. |
+
 ## Services
 
 ### Service unifiprotect.set_default_doorbell_text
@@ -259,6 +289,17 @@ Use to set the paired doorbell(s) with a smart chime.
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
 | `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to.                                          |
 | `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime. No value means unpair all.      |
+
+## Views
+
+The integration provides two proxy views to proxy media content from your Home Assistant instance so you can access thumbnails and video clips from within the context of Home Assistant without having to expose your UniFi Protect NVR Console. As with the media identifiers, all IDs are UniFi Protect IDs as they may not map to specific Home Assistant entities depending on how you have configured your integration.
+
+These URLs work great when trying to send notifications. Home Assistant will automatically sign the URLs and make them safe for external consumption if used in an automation or [notify service](/integrations/notify/).
+
+| View URL                                                     | Description                                        |
+| ------------------------------------------------------------ | -------------------------------------------------- |
+| `/api/unifiprotect/thumbnail/{nvr_id}/{event_id}`            | Proxies a JPEG event thumbnail from UniFi Protect. |
+| `/api/unifiprotect/video/{nvr_id}/{camera_id}/{start}/{end}` | Proxies a MP4 video clip from UniFi Protect for a specific camera. Start and end must be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html). |
 
 ## Troubleshooting
 
