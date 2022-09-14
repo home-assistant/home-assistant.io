@@ -559,7 +559,7 @@ Examples:
 
 - `{{ version("2099.9.9") > "2000.0.0" }}` Will return `True`
 - `{{ version("2099.9.9") < "2099.10" }}` Will return `True`
-- `{{ "2099.9.9" | version < "2000.10" }}` Will return `True`
+- `{{ "2099.9.9" | version < "2099.10" }}` Will return `True`
 
 {% endraw %}
 
