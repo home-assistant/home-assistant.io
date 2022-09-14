@@ -165,7 +165,7 @@ This can be accomplished either by using a live operating system (e.g. Ubuntu) a
 
   ```text
   efibootmgr --create --disk /dev/<drivename> --part 1 --label "HAOS" \
-     --loader "\EFI\BOOT\bootx64.efi"
+     --loader '\EFI\BOOT\bootx64.efi'
   ```
 
 Or else, the BIOS might provide you with a tool to add boot options, there you can specify the path to the EFI file:

@@ -17,6 +17,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@swails'
   - '@bdraco'
+  - '@danaues'
 ha_zeroconf: true
 ha_homekit: true
 ha_platforms:
@@ -32,9 +33,19 @@ ha_integration_type: integration
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, HVAC controls, etc. The `lutron_caseta` integration in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](https://www.casetawireless.com/) product line of dimmers, switches, shades, and sensors. It will also communicate with the Lutron Radio RA2 Main Repeater for the [RA2 Select](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RA2Select/Overview.aspx) product line of dimmers, switches, shades, and sensors.
 
-This integration only supports the [Caseta](https://www.casetawireless.com/) line of products. The Smart Bridge (L-BDG2-WH), Smart Bridge PRO (L-BDGPRO2-WH), and RA2 Select (RR-SEL-REP2-BL) models are supported. For the RadioRA 2 and HomeWorks QS product lines, see the [Lutron component](/integrations/lutron/).
+This integration supports the [Caséta](https://www.casetawireless.com/), [RA2 Select](https://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RA2Select/Overview.aspx), [RadioRA 3](https://radiora3.lutron.com/), and [Homeworks QSX](https://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/Homeworks/Overview.aspx) **(not QS)** lines of products. 
 
-The currently supported Caseta and RA2 Select devices are:
+Supports Bridges:
+
+- Lutron Caséta Smart Hub (L-BDG2-WH)
+- Lutron Caséta Smart Bridge PRO (L-BDGPRO2-WH)
+- RA2 Select Main Repeaters (RR-SEL-REP2-BL)
+- QSX Processor (HQP7)
+- RadioRA 3 All-in-One Processor (RR-PROC3)
+ 
+For the RadioRA 2 and HomeWorks QS product lines, see the [Lutron component](/integrations/lutron/).
+
+The currently supported devices are:
 
 - Wall and plug-in dimmers as [lights](#light)
 - Wall switches as [switches](#switch)
@@ -126,6 +137,8 @@ The Lutron Caseta scene platform allows you to control your Smart Bridge Scenes 
 After setup, scenes will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a scene called 'Entertain' will appear in Home Assistant as `scene.entertain`.
 
 For more information on working with scenes in Home Assistant, see the [Scenes component](/integrations/scene/).
+
+Scenes are not currently supported on RA3 and QSX models.
 
 Available services: `scene.turn_on`.
 

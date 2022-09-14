@@ -27,7 +27,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.
+The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -154,6 +154,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Temperature and Humidity Sensor without display - indoor (*HmIP-STH*)
   * Temperature and Humidity Sensor with display - indoor (*HmIP-STHD*)
   * Temperature and Humidity sensor - outdoor (*HmIP-STHO, -A*)
+  * Temperature sensor with external probes - 2-way (*HmIP-STE2-PCB*)
   * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
   * Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
   * Presence Sensor – indoor (*HmIP-SPI*)
