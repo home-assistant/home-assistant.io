@@ -397,9 +397,6 @@ The following integrations are now available via the Home Assistant UI:
 
 ## Release 2022.9.3 - September 13
 
-- 2022.9.0 ([@frenck] - [#77968]) ([abode docs]) ([acmeda docs]) ([accuweather docs])
-- 2022.9.1 ([@balloob] - [#78081])
-- 2022.9.2 ([@balloob] - [#78169])
 - Move up setup of service to make it more robust when running multiple instances of deCONZ ([@Kane610] - [#77621]) ([deconz docs])
 - Bump blinkpy to 0.19.2 ([@Vaskivskyi] - [#78097]) ([blink docs])
 - Bump PyViCare==2.17.0 ([@TheJulianJES] - [#78232]) ([vicare docs])
@@ -505,6 +502,14 @@ The following integrations are now available via the Home Assistant UI:
 [xiaomi_ble docs]: /integrations/xiaomi_ble/
 [yalexs_ble docs]: /integrations/yalexs_ble/
 [zha docs]: /integrations/zha/
+
+## Release 2022.9.4 - September 14
+
+- Update frontend to 20220907.2 ([@bramkragten] - [#78431]) ([frontend docs])
+
+[#78431]: https://github.com/home-assistant/core/pull/78431
+[@bramkragten]: https://github.com/bramkragten
+[frontend docs]: /integrations/frontend
 
 ## Need help? Join the community
 
