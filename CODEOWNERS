@@ -30,7 +30,6 @@ source/_integrations/alert.markdown @home-assistant/core
 source/_integrations/alexa.markdown @home-assistant/cloud @ochlocracy
 source/_integrations/alexa.smart_home.markdown @home-assistant/cloud @ochlocracy
 source/_integrations/almond.markdown @gcampax @balloob
-source/_integrations/ambee.markdown @frenck
 source/_integrations/amberelectric.markdown @madpilot
 source/_integrations/ambiclimate.markdown @danielhiversen
 source/_integrations/ambient_station.markdown @bachya
