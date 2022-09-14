@@ -1,18 +1,18 @@
 ---
-title: Google Drive
-description: Instructions on how to use Google Drive in Home Assistant.
+title: Google Sheets
+description: Instructions on how to use Google Sheets in Home Assistant.
 ha_category:
   - Utility
 ha_iot_class: Cloud Polling
 ha_release: 2022.10
 ha_config_flow: true
-ha_domain: google_drive
+ha_domain: google_sheets
 ha_codeowners:
   - '@tkdrob'
 ha_integration_type: integration
 ---
 
-The Google Drive integration allows you to connect your [Google Drive](https://drive.google.com) to Home Assistant. The integration adds a service to allow you to append rows to a Sheets document. The idea is that you can store data on there for further processing. When you set up a config entry, your drive will have a new sheet called Home Assistant. You can then rename this to whatever you like.
+The Google Sheets integration allows you to connect your [Google Drive](https://drive.google.com) to Home Assistant. The integration adds a service to allow you to append rows to a Sheets document. The idea is that you can store data on there for further processing. When you set up a config entry, your drive will have a new sheet called Home Assistant. You can then rename this to whatever you like.
 
 **Note**:
 The integration currently only has access to that one document that is created during setup.
@@ -50,7 +50,7 @@ This section explains how to generate a Client ID and Client Secret on
 
 {% include integrations/config_flow.md %}
 
-The integration setup will next give you instructions to enter the [Application Credentials](/integrations/application_credentials/) (OAuth Client ID and Client Secret) and authorize Home Assistant to access your Google Drive.
+The integration setup will next give you instructions to enter the [Application Credentials](/integrations/application_credentials/) (OAuth Client ID and Client Secret) and authorize Home Assistant to access your Google Sheets.
 
 {% details "OAuth and Device Authorization steps" %}
 
@@ -70,9 +70,9 @@ The integration setup will next give you instructions to enter the [Application 
 
 If you have an error with your credentials you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
 
-### Service `google_drive.append_sheet`
+### Service `google_sheets.append_sheet`
 
-You can use the service `google_drive.append_sheet` to add a row of data to the Sheets document created at setup.
+You can use the service `google_sheets.append_sheet` to add a row of data to the Sheets document created at setup.
 
 {% details "Create Event Service details" %}
 
