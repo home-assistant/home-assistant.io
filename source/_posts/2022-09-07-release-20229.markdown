@@ -40,6 +40,7 @@ Now I know that everyone usually expects [@frenck] to be writing these release n
 - [Release 2022.9.1 - September 8](#release-202291---september-8)
 - [Release 2022.9.2 - September 11](#release-202292---september-11)
 - [Release 2022.9.3 - September 13](#release-202293---september-13)
+- [Release 2022.9.4 - September 14](#release-202294---september-14)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
