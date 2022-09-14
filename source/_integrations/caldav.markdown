@@ -133,6 +133,10 @@ verify_ssl:
   required: false
   type: boolean
   default: true
+ssl_client_cert:
+  description: Used to enable SSL client authentication. Value points to a file on the filesystem containing both the unencrypted private key and certificate for the client. This file should be protected. Make sure the owner is set to the user Home Assistant runs as and permissions are set to be readable by that user only. You should consider putting the file outside of the Home Assistant configuration directories as well. 
+  required: optional
+  type: string
 {% endconfiguration %}
 
 ## Sensor attributes
