@@ -408,8 +408,6 @@ Zigbee Home Automation (ZHA) integration now features Zigbee network backup, res
 
 After restoring a Home Assistant backup, you can re-configure ZHA and migrate to a new Zigbee Coordinator adapter without any loss of your settings or devices that were connected. This is helpful if your current radio fails or a new radio adapter type and model comes out that you may want to migrate to.
 
-The ZHA integration currently store and export the Zigbee network backup files in a [zigpy](https://github.com/zigpy/zigpy) specific format.
-
 Within ZHA is possible to use this backup and restore feature to migrate between some different radio types, if the respective radio library supports it. Currently, ZHA supports migrating the Zigbee network between based Zigbee Coordinator adapters based on Silicon Labs, Texas Instruments, or ConBee/RaspBee if the backup was made from inside ZHA.
 
 ## Troubleshooting
