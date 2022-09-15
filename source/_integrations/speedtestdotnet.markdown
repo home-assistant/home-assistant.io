@@ -18,7 +18,6 @@ ha_integration_type: integration
 
 The Speedtest.net integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
 
-
 {% include integrations/config_flow.md %}
 
 Most Speedtest.net servers require TCP port 8080 outbound to function. Without this port open you may experience significant delays or no results at all. See note on their [help page](https://www.speedtest.net/help).
