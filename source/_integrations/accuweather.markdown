@@ -32,7 +32,7 @@ To generate an AccuWeather API key, go to [AccuWeather APIs](https://developer.a
 - What will you be creating with this API?
   - **Internal App**
 - What programming language is your APP written in? 
-  - **Other**
+  - **Python**
 - Is this for Business to Business or Business to Consumer use?
   - **Business to Business**
 - Is this Worldwide or Country specific use?
