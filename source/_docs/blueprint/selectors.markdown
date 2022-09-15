@@ -685,8 +685,8 @@ max:
   type: [integer, float]
   required: true
 step:
-  description: The step value of the number value.
-  type: [integer, float]
+  description: The step size of the number value. Set to `"any"` to allow any number.
+  type: [integer, float, "any"]
   required: false
   default: 1
 unit_of_measurement:
