@@ -551,7 +551,7 @@ This will throw an error `UndefinedError: 'value_json' is undefined` if the JSON
 ### Version
 
 - `version()` Returns a [AwesomeVersion object](https://github.com/ludeeus/awesomeversion) for the value given inside the brackets.
-  - This is also available as a filter (`| version`
+  - This is also available as a filter (`| version`).
 
 Examples:
 
