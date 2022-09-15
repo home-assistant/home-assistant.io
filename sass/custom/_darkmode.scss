@@ -1,0 +1,26 @@
+:root{
+    --default-darktheme-background-color: #202124;
+    --default-darktheme-button-hover-color: #454545;
+    --default-darktheme-card-background-color: #292A2D;
+    --default-darktheme-font-color: #FFFFFF;
+  }
+  
+@media screen and (prefers-color-scheme: dark) {
+
+    ul.menu li ul li a, ul.menu li ul li a {
+        background-color: var(--default-darktheme-button-hover-color);
+    }
+
+    body, html, body>header, body>footer, .page-content>footer, select, .search-container, .search-container .search input, ul.menu li ul li a:hover, ul.menu li ul li a:focus {
+        background-color: var(--default-darktheme-background-color);
+    }
+
+    body, html, .ha-title a>*, .material-card, .material-card h1, .feedback h4 a, .aside-module .title, ul.sidebar-menu a.active, #components-page .filter-button-group .btn, .hass-option-cards .option-card .title, select, #components-page .component-search input, .search-container .search input {
+        color: var(--default-darktheme-font-color);
+    }
+
+    .menu>li>a:hover, .menu>li>a:focus, code, .material-card, .hass-option-cards .option-card, p.note, div.note, #components-page .component-search input {
+        background-color: var(--default-darktheme-card-background-color);
+    }
+
+}
