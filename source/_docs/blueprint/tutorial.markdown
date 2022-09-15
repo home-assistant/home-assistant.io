@@ -1,9 +1,15 @@
 ---
-title: "Blueprint tutorial"
-description: "Tutorial on creating a blueprint."
+title: "Automation blueprint tutorial"
+description: "Tutorial on creating an automation blueprint."
 ---
 
-In this tutorial, we're going to create a blueprint that controls a light based on a motion sensor. We will do this by taking an existing automation and converting it to a blueprint.
+<div class='note'>
+
+While the tutorial is only showing how to create an automation blueprints, scripts also support blueprints in exactly the same way.
+
+</div>
+
+In this tutorial, we're going to create an automation blueprint that controls a light based on a motion sensor. We will do this by taking an existing automation and converting it to a blueprint.
 
 For this tutorial, we use a simple automation. The process for converting a complex automation is not any different.
 
