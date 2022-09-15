@@ -11,7 +11,7 @@ If you're looking on how to use blueprints, see the [automation documentation](/
 
 <div class='note'>
 
-While the documentation is using automation blueprints in the examples, scripts also support blueprints in exactly the same way.
+While the tutorial only shows how to create an automation blueprint, scripts also support blueprints in the same way.
 
 </div>
 
@@ -21,7 +21,7 @@ Imagine a blueprint that controls a light based on motion, that allows you to co
 
 <div class='note'>
 
-This is an advanced feature and requires knowledge of writing [automations](/docs/automation/yaml/) and [scripts](/docs/scripts/) in YAML
+This is an advanced feature and requires knowledge of writing [automations](/docs/automation/yaml/) and [scripts](/docs/scripts/) in YAML.
 
 </div>
 

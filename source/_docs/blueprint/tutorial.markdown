@@ -5,7 +5,7 @@ description: "Tutorial on creating an automation blueprint."
 
 <div class='note'>
 
-While the tutorial is only showing how to create an automation blueprints, scripts also support blueprints in exactly the same way.
+While the tutorial only shows how to create an automation blueprint, scripts also support blueprints in the same way.
 
 </div>
 
