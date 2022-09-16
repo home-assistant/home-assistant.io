@@ -22,6 +22,7 @@ There is currently support for the following device types:
 - Timed Power Switch (Boiler)
 - Group Switch
 - Timed Switch
+- Scenario
 
 Supported devices will be discovered after the SwitchBee integration is configured.
 
