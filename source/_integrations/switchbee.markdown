@@ -3,6 +3,7 @@ title: SwitchBee
 description: Instructions for how to integrate SwitchBee accessories within Home Assistant.
 ha_category:
   - Switch
+  - Button
 ha_release: 2022.10
 ha_iot_class: local Polling
 ha_config_flow: true
@@ -11,6 +12,8 @@ ha_codeowners:
 ha_domain: switchbee
 ha_platforms:
   - switch
+  - button
+
 ha_integration_type: integration
 ---
 
