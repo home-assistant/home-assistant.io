@@ -23,6 +23,6 @@ There is currently support for the following device types:
 - Group Switch
 - Timed Switch
 
-Supported devices will be discovered after the `SwitchBee` integration is configured
+Supported devices will be discovered after the SwitchBee integration is configured.
 
 {% include integrations/config_flow.md %}
