@@ -20,7 +20,7 @@ The integration currently only has access to that one document that is created d
 ## Prerequisites
 
 You need to configure developer credentials to allow Home Assistant to access your Google Account.
-These credentials are not the same as the ones for [Google Calendar](https://www.home-assistant.io/integrations/google).
+These credentials are not the same as the ones for [Google Calendar](/integrations/google).
 If you have already set up Google Calendar, you can do step 1 and then skip to step 13 on the below instructions.
 
 {% details "Generate Client ID and Client Secret" %}
@@ -60,7 +60,7 @@ The integration setup will next give you instructions to enter the [Application 
 
 3. You can now see the details of what you are authorizing Home Assistant to access with two options at the bottom. Click **Continue**.
 
-4. The page will now display *Link account to Home Assistant?*, note *Your instance URL*. If this is not correct, please refer to [My Home Assistant](https://home-assistant.io/integrations/my). If everything looks good, click **Link Account**.
+4. The page will now display *Link account to Home Assistant?*, note *Your instance URL*. If this is not correct, please refer to [My Home Assistant](/integrations/my). If everything looks good, click **Link Account**.
 
 5. You may close the window, and return back to Home Assistant where you should see a *Success!* message from Home Assistant.
 
