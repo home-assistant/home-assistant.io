@@ -25,13 +25,4 @@ There is currently support for the following device types:
 
 Supported devices will be discovered after the `SwitchBee` integration is configured
 
-## Prerequisites
-
-You will need to provide the following parameters in order to set up the SwitchBee integration:
-
-- Central Unit IP
-- Username (e-mail)
-- Password
-
-
 {% include integrations/config_flow.md %}
