@@ -63,7 +63,7 @@ This can be built using a Raspberry Pi with a RS485 hat, a Arduino with RS485 su
 
 #### ESPHome
 
-A ESPHome base hardware solution also works well and integrate nicely into home assistant.
+A ESPHome base hardware solution also works well and integrate nicely into Home Assistant.
 
 - [Homepage](https://github.com/elupus/esphome-nibe)
 
@@ -76,7 +76,7 @@ An Arduino-based solution has been tested by OpenHAB community with Arduino uno 
 
 #### Raspberry Pi / Linux
 
-A standard linux application for running the Nibe Gateway software is also available.
+A standard Linux application for running the Nibe Gateway software is also available.
 
 - [Documentation from OpenHAB](https://www.openhab.org/addons/bindings/nibeheatpump/#raspberry-pi-or-other-linux-unix-based-boards)
 - [Source code in OpenHAB Contrib](https://github.com/openhab/openhab-addons/tree/main/bundles/org.openhab.binding.nibeheatpump/contrib/NibeGW/RasPi)
