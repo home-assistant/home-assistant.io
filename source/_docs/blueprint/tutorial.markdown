@@ -126,6 +126,7 @@ Blueprints are easier to use if it's easy to see what each field is used for. We
 ```yaml
 blueprint:
   name: Motion Light Tutorial
+  description: Turn a light on based on detected motion
   domain: automation
   input:
     motion_sensor:
