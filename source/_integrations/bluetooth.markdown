@@ -93,7 +93,7 @@ Integrations that have followed the [Best practices for library authors](https:/
 
 ## Passive Scanning
 
-Passive Scanning on Linux can be enabled in the options flow per adapter if the host system runs BlueZ 4.63 or later with experimental features enabled.
+Passive Scanning on Linux can be enabled in the options flow per adapter if the host system runs BlueZ 5.63 or later with experimental features enabled.
 
 Many integrations require active scanning and may not function when scanning is passive.
 
