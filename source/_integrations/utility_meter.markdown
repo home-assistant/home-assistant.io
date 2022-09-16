@@ -154,6 +154,20 @@ Calibrate the Utility Meter. Change the value of a given sensor.
 | `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
 | `value` | no | Number | Value to calibrate the sensor with | 
 
+### Service `select.select_option`
+
+Change the current tariff to the given tariff. This service must be called by the user for the tariff switching logic to occur (e.g., using an automation)
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
+| `option` | no | String that is equal to one of the defined tariffs. e.g.: peak | offpeak | 
+
+**Note !**
+
+The service call utility_meter.select_tariff with argument tariff is deprecated in favor of service call select.select_option with argument option.
+The service call utility_meter.next_tariff is deprecated with no replacement.
+
 ## Advanced Configuration
 
 The following configuration shows an example where 2 utility_meters (`daily_energy` and `monthly_energy`) track daily and monthly energy consumptions.
