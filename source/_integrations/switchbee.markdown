@@ -16,7 +16,7 @@ ha_integration_type: integration
 
 [SwitchBee](https://www.switchbee.com), is an innovation company making smart homes more accessible and affordable to any household environment. 
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following device types:
 
 - Switch 
 - Timed Power Switch (Boiler)
