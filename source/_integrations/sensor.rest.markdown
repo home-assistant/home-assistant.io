@@ -145,6 +145,15 @@ verify_ssl:
   required: false
   type: boolean
   default: True
+attributes:
+  description: Defines templates for attributes of the sensor.
+  required: false
+  type: map
+  keys:
+    "attribute: template":
+      description: The attribute and corresponding template.
+      required: true
+      type: template
 {% endconfiguration %}
 
 <div class='note'>
