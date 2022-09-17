@@ -6,7 +6,7 @@ ha_category:
   - Irrigation
   - Sensor
   - Switch
-  - Updates
+  - Update
 ha_release: 0.69
 ha_iot_class: Local Polling
 ha_config_flow: true

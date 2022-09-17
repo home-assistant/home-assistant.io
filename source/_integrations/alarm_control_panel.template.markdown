@@ -50,7 +50,7 @@ alarm_control_panel:
           - condition: state
             entity_id: device_tracker.paulus
             state: "home"
-          - service: alarm_control_panel.alarm_arm_home
+          - service: alarm_control_panel.alarm_disarm
             target:
               entity_id: alarm_control_panel.real_alarm
             data:
