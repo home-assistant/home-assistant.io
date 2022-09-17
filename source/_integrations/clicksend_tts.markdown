@@ -22,8 +22,6 @@ notify:
   - platform: clicksend_tts
     username: test@example.com
     api_key: D83DED51-9E35-4D42-9BB9-0E34B7CA85AE
-    language: fr-fr
-    voice: male
     recipient: +61411111111
 ```
 
