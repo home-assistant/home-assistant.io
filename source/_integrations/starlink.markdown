@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `starlink` integration allows you to integrate your [Starlink](https://www.starlink.com/) into Home Assistant.
+The Starlink integration allows you to integrate your [Starlink](https://www.starlink.com/) into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
