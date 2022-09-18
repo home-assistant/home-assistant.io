@@ -63,6 +63,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - ASUS USB-BT500 [RTL8761BU]
 - Avantree DG45 [RTL8761BU]
 - EDUP LOVE EP-B3536 [RTL8761BU] (Long Range)
+- Feasycom FSC-BP119 [CSR8510A10] (Long Range)
 - Kinivo BTD-400 [BCM20702A1]
 - Maxuni BT-501 [RTL8761B]
 - SUMEE BT501 [RTL8761B]
@@ -86,7 +87,7 @@ The following methods are known to work to add multiple adapters:
 - USB-Ethernet extenders
 - [USB/IP](http://usbip.sourceforge.net/)
 
-Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/network_discovery?_highlight=bluetooth#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
+Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/bluetooth/?_highlight=Best+practices#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
 
 ## Passive Scanning
 

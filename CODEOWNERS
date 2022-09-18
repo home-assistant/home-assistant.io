@@ -30,7 +30,6 @@ source/_integrations/alert.markdown @home-assistant/core
 source/_integrations/alexa.markdown @home-assistant/cloud @ochlocracy
 source/_integrations/alexa.smart_home.markdown @home-assistant/cloud @ochlocracy
 source/_integrations/almond.markdown @gcampax @balloob
-source/_integrations/ambee.markdown @frenck
 source/_integrations/amberelectric.markdown @madpilot
 source/_integrations/ambiclimate.markdown @danielhiversen
 source/_integrations/ambient_station.markdown @bachya
@@ -405,6 +404,7 @@ source/_integrations/nina.markdown @DeerMaximum
 source/_integrations/nissan_leaf.markdown @filcole
 source/_integrations/nmbs.markdown @thibmaek
 source/_integrations/noaa_tides.markdown @jdelaney72
+source/_integrations/nobo_hub.markdown @echoromeo @oyvindwe
 source/_integrations/notify.markdown @home-assistant/core
 source/_integrations/notify_events.markdown @matrozov @papajojo
 source/_integrations/notion.markdown @bachya
