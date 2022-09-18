@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `geo_json_events` integration lets you ingest events from GeoJSON feeds. It retrieves events from a feed and shows information of those events filtered by distance to Home Assistant's location.
+The GeoJSON integration lets you ingest events from GeoJSON feeds. It retrieves events from a feed and shows information of those events filtered by distance to Home Assistant's location.
 All entries in the GeoJSON feed must define a `geometry` which typically is a point or polygon with geo coordinates. In addition, this platform will look for a `title` key in the entry's `properties` and use that as the entity's name.
 
 Entities are generated, updated and removed automatically with each update from the GeoJSON feed. Each entity defines latitude and longitude and will be shown on the map automatically. The distance is available as the state of each entity converted to the configured unit system (kilometers or miles).
