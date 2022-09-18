@@ -41,6 +41,7 @@ Now I know that everyone usually expects [@frenck] to be writing these release n
 - [Release 2022.9.2 - September 11](#release-202292---september-11)
 - [Release 2022.9.3 - September 13](#release-202293---september-13)
 - [Release 2022.9.4 - September 14](#release-202294---september-14)
+- [Release 2022.9.5 - September 18](#release-202295---september-18)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -429,6 +430,8 @@ The following integrations are now available via the Home Assistant UI:
 - Fix CI workflow caching ([@cdce8p] - [#78398])
 - Update frontend to 20220907.1 ([@bramkragten] - [#78404]) ([frontend docs])
 - Bump govee-ble to 0.17.3 ([@bdraco] - [#78405]) ([govee_ble docs])
+- Fix bug with RainMachine update entity ([@bachya] - [#78411]) ([rainmachine docs])
+- Retry on unavailable IPMA api ([@dgomes] - [#78332]) ([ipma docs])
 
 [#77621]: https://github.com/home-assistant/core/pull/77621
 [#77968]: https://github.com/home-assistant/core/pull/77968
@@ -444,6 +447,7 @@ The following integrations are now available via the Home Assistant UI:
 [#78307]: https://github.com/home-assistant/core/pull/78307
 [#78315]: https://github.com/home-assistant/core/pull/78315
 [#78327]: https://github.com/home-assistant/core/pull/78327
+[#78332]: https://github.com/home-assistant/core/pull/78332
 [#78333]: https://github.com/home-assistant/core/pull/78333
 [#78354]: https://github.com/home-assistant/core/pull/78354
 [#78356]: https://github.com/home-assistant/core/pull/78356
@@ -464,14 +468,17 @@ The following integrations are now available via the Home Assistant UI:
 [#78398]: https://github.com/home-assistant/core/pull/78398
 [#78404]: https://github.com/home-assistant/core/pull/78404
 [#78405]: https://github.com/home-assistant/core/pull/78405
+[#78411]: https://github.com/home-assistant/core/pull/78411
 [@Kane610]: https://github.com/Kane610
 [@TheJulianJES]: https://github.com/TheJulianJES
 [@Vaskivskyi]: https://github.com/Vaskivskyi
+[@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
 [@bdraco]: https://github.com/bdraco
 [@bramkragten]: https://github.com/bramkragten
 [@cdce8p]: https://github.com/cdce8p
 [@d-walsh]: https://github.com/d-walsh
+[@dgomes]: https://github.com/dgomes
 [@dmulcahey]: https://github.com/dmulcahey
 [@emontnemery]: https://github.com/emontnemery
 [@frenck]: https://github.com/frenck
@@ -495,7 +502,9 @@ The following integrations are now available via the Home Assistant UI:
 [input_number docs]: /integrations/input_number/
 [input_select docs]: /integrations/input_select/
 [input_text docs]: /integrations/input_text/
+[ipma docs]: /integrations/ipma/
 [led_ble docs]: /integrations/led_ble/
+[rainmachine docs]: /integrations/rainmachine/
 [switchbot docs]: /integrations/switchbot/
 [system_log docs]: /integrations/system_log/
 [timer docs]: /integrations/timer/
@@ -511,6 +520,87 @@ The following integrations are now available via the Home Assistant UI:
 [#78431]: https://github.com/home-assistant/core/pull/78431
 [@bramkragten]: https://github.com/bramkragten
 [frontend docs]: /integrations/frontend
+
+## Release 2022.9.5 - September 18
+
+- Fix fan speed regression for some xiaomi fans ([@peteh] - [#78406]) ([xiaomi_miio docs])
+- Only redact zwave_js values that are worth redacting ([@raman325] - [#78420]) ([zwave_js docs])
+- Prevent deleting blueprints which are in use ([@emontnemery] - [#78444]) ([automation docs]) ([script docs]) ([blueprint docs])
+- Bump bleak-retry-connector to 0.17.1 ([@bdraco] - [#78474]) ([bluetooth docs])
+- Bump python-songpal to 0.15.1 ([@rytilahti] - [#78481]) ([songpal docs])
+- Bump PySwitchbot to 0.19.9 ([@bdraco] - [#78504]) ([switchbot docs])
+- Bump yalexs_ble to 1.9.2 ([@bdraco] - [#78508]) ([yalexs_ble docs])
+- Bump led-ble to 0.10.1 ([@bdraco] - [#78511]) ([led_ble docs])
+- Bump aiohomekit to 1.5.8 ([@bdraco] - [#78515]) ([homekit_controller docs])
+- Fix zwave_js update entity startup state ([@raman325] - [#78563]) ([zwave_js docs])
+- Bump pyrisco to v0.5.5 ([@OnFreund] - [#78566]) ([risco docs])
+- Fix WebSocket condition testing ([@frenck] - [#78570]) ([websocket_api docs])
+- Fix switchbot not accepting the first advertisement ([@bdraco] - [#78610]) ([switchbot docs])
+- Fix reconnect race in HomeKit Controller ([@bdraco] - [#78629]) ([homekit_controller docs])
+- Bump qingping-ble to 0.7.0 ([@skgsergio] - [#78630]) ([qingping docs])
+- Add a helpful message to the config_entries.OperationNotAllowed exception ([@bdraco] - [#78631])
+- Update demetriek to 0.2.4 ([@frenck] - [#78646]) ([lametric docs])
+- Handle multiple files properly in zwave_js update entity ([@raman325] - [#78658]) ([zwave_js docs])
+- Remove mDNS iteration from Plugwise unique ID ([@frenck] - [#78680]) ([plugwise docs])
+- Fix bluetooth callback matchers when only matching on connectable ([@bdraco] - [#78687]) ([bluetooth docs])
+- Bump thermobeacon-ble to 0.3.2 ([@bdraco] - [#78693]) ([thermobeacon docs])
+
+[#77968]: https://github.com/home-assistant/core/pull/77968
+[#78081]: https://github.com/home-assistant/core/pull/78081
+[#78169]: https://github.com/home-assistant/core/pull/78169
+[#78406]: https://github.com/home-assistant/core/pull/78406
+[#78410]: https://github.com/home-assistant/core/pull/78410
+[#78420]: https://github.com/home-assistant/core/pull/78420
+[#78438]: https://github.com/home-assistant/core/pull/78438
+[#78444]: https://github.com/home-assistant/core/pull/78444
+[#78474]: https://github.com/home-assistant/core/pull/78474
+[#78481]: https://github.com/home-assistant/core/pull/78481
+[#78504]: https://github.com/home-assistant/core/pull/78504
+[#78508]: https://github.com/home-assistant/core/pull/78508
+[#78511]: https://github.com/home-assistant/core/pull/78511
+[#78515]: https://github.com/home-assistant/core/pull/78515
+[#78563]: https://github.com/home-assistant/core/pull/78563
+[#78566]: https://github.com/home-assistant/core/pull/78566
+[#78570]: https://github.com/home-assistant/core/pull/78570
+[#78610]: https://github.com/home-assistant/core/pull/78610
+[#78629]: https://github.com/home-assistant/core/pull/78629
+[#78630]: https://github.com/home-assistant/core/pull/78630
+[#78631]: https://github.com/home-assistant/core/pull/78631
+[#78646]: https://github.com/home-assistant/core/pull/78646
+[#78658]: https://github.com/home-assistant/core/pull/78658
+[#78680]: https://github.com/home-assistant/core/pull/78680
+[#78687]: https://github.com/home-assistant/core/pull/78687
+[#78693]: https://github.com/home-assistant/core/pull/78693
+[@OnFreund]: https://github.com/OnFreund
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@peteh]: https://github.com/peteh
+[@raman325]: https://github.com/raman325
+[@rytilahti]: https://github.com/rytilahti
+[@skgsergio]: https://github.com/skgsergio
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[automation docs]: /integrations/automation/
+[blueprint docs]: /integrations/blueprint/
+[bluetooth docs]: /integrations/bluetooth/
+[frontend docs]: /integrations/frontend/
+[homekit_controller docs]: /integrations/homekit_controller/
+[lametric docs]: /integrations/lametric/
+[led_ble docs]: /integrations/led_ble/
+[plugwise docs]: /integrations/plugwise/
+[qingping docs]: /integrations/qingping/
+[risco docs]: /integrations/risco/
+[script docs]: /integrations/script/
+[songpal docs]: /integrations/songpal/
+[switchbot docs]: /integrations/switchbot/
+[thermobeacon docs]: /integrations/thermobeacon/
+[websocket_api docs]: /integrations/websocket_api/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[yalexs_ble docs]: /integrations/yalexs_ble/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## Need help? Join the community
 
