@@ -128,4 +128,4 @@ For example, unshielded USB 3 port and their cables are especially infamously kn
   - 2.4 GHz RF Interference (RFI) from Wi-Fi Routers and Wi-Fi Access Points or other devices:
     - While Bluetooth is designed to coexist with Wi-Fi, its stronger signal can interfere.
       - To play it safe, try to place your Bluetooth adapter away from Wi-Fi access points.
-    - Place away from any electrical/power wires/cables, power supplies, and household appliances.
+    - Place Bluetooth adapters far away from electrical/power wires/cables, power supplies, and household appliances.
