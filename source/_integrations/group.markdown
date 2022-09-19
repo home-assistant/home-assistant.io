@@ -63,6 +63,7 @@ Binary sensor, light, and switch groups allow you set the "All entities" option.
 - Otherwise, the group state is `on`.
 
 ### Climate groups
+
 In short, the state shown is using the order in the `HVACMode` enum (except that `off` is the least priority). E.g. when any group member entity is `heat`, the group will also be `heat`. A complete overview of how climate groups behave:
 
 - The group state is `unavailable` if all group members are `unavailable`.
