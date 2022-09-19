@@ -40,9 +40,22 @@ Change the light to a new state.
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 | `transition` | Duration (in seconds) for the light to fade to the new state.
 | `zones` | List of integers for the zone numbers to affect (each LIFX Z strip has 8 zones, starting at 0).
-| `infrared` | Automatic infrared level (0..255) when light brightness is low (for compatible bulbs).
 | `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
 | `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`](/integrations/light/#service-lightturn_on) to specify the new state.
+
+## Set HEV cycle state
+
+You can control the HEV LEDs in LIFX Clean bulbs using the `set_hev_cycle_state` service. The service can start or stop a HEV (or "Clean") cycle either using the default duration configured on the bulb or for a custom duration specified when calling the service. Home Assistant will return or log an error if an incompatible bulb is specified when calling the service.
+
+To determine whether or not a HEV cycle is currently running, Home Assistant exposes a Clean Cycle binary sensor for all HEV-enabled bulbs. This sensor can be used to trigger automations to occur when a HEV cycle starts or stops. To reduce network load, HEV cycle status is only checked every 10 seconds so this sensor may not update instantaneously.
+
+### Service `lifx.set_hev_cycle_state`
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of LIFX Clean bulbs.
+| `power` | Start a HEV cycle (`True`) or stop a cycle (`False`).
+| `duration` | Duration (in seconds) for the HEV cycle. The default duration of two hours (7200 seconds) is used if this attribute is omitted.
 
 ## Light effects
 
@@ -117,15 +130,19 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 
+## Infrared brightness
+
+Home Assistant will automatically create an Infrared Brightness configuration entity for LIFX Night Vision bulbs. Changing the state of this entity will change the brightness of the LEDs on the bulb.
+
 ## Buttons
 
 The LIFX button platform creates two buttons for each LIFX device.
 
-### Identify Button
+### Identify button
 
 The Identify button will flash the bulb three times at maximum brightness then return the bulb to the state it was in prior. Successful identification requires the bulb to be powered on and already configured in Home Assistant.
 
-### Restart Button
+### Restart button
 
 The Restart button triggers the bulb to restart in exactly the same way as a physical power cycle, which makes it ideal for triggering a new DHCP request from the bulb.
 

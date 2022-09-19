@@ -548,6 +548,23 @@ Example using `is_defined` to parse a JSON payload:
 
 This will throw an error `UndefinedError: 'value_json' is undefined` if the JSON payload has no `val` attribute.
 
+### Version
+
+- `version()` Returns a [AwesomeVersion object](https://github.com/ludeeus/awesomeversion) for the value given inside the brackets.
+  - This is also available as a filter (`| version`).
+
+Examples:
+
+{% raw %}
+
+- `{{ version("2099.9.9") > "2000.0.0" }}` Will return `True`
+- `{{ version("2099.9.9") < "2099.10" }}` Will return `True`
+- `{{ "2099.9.9" | version < "2099.10" }}` Will return `True`
+- `{{ (version("2099.9.9") - "2100.9.10").major }}` Will return `True`
+- `{{ (version("2099.9.9") - "2099.10.9").minor }}` Will return `True`
+- `{{ (version("2099.9.9") - "2099.9.10").patch }}` Will return `True`
+
+{% endraw %}
 
 ### Distance
 
@@ -555,6 +572,7 @@ Not supported in [limited templates](#limited-templates).
 
 - `distance()` will measure the distance in kilometers between home, entity, coordinates.
 - `closest()` will find the closest entity.
+
 
 #### Distance examples
 

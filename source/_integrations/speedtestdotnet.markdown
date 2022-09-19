@@ -18,7 +18,6 @@ ha_integration_type: integration
 
 The Speedtest.net integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
 
-
 {% include integrations/config_flow.md %}
 
 Most Speedtest.net servers require TCP port 8080 outbound to function. Without this port open you may experience significant delays or no results at all. See note on their [help page](https://www.speedtest.net/help).
@@ -34,15 +33,6 @@ sensors:
 - Ping sensor: Reaction time in ms of your connection (how fast you get a response after you’ve sent out a request).
 - Download sensor: The download speed (Mbit/s).
 - Upload sensor: The upload speed (Mbit/s).
-  
-### Service
-
-Once loaded, the integration will expose a service (`speedtestdotnet.speedtest`) that can be called to run a Speedtest.net speed test on demand. This service takes no parameters. This can be useful when auto update has been disabled in the integration options.
-
-```yaml
-action:
-  service: speedtestdotnet.speedtest
-```
 
 This integration uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from Speedtest.net.
 Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this integration may display.
