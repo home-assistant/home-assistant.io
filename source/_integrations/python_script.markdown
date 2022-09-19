@@ -16,6 +16,12 @@ This integration allows you to write Python scripts that are exposed as services
 | `hass` | The Home Assistant object. Access is only allowed to call services, set/remove states and fire events. [API reference][hass-api]
 | `data` | The data passed to the Python Script service call.
 | `logger` | A logger to allow you to log messages: `logger.info()`, `logger.warning()`, `logger.error()`. [API reference][logger-api]
+| `time` | The stdlib `time` available as limited access.
+| `datetime` | The stdlib `datetime` available as limited access.
+| `dt_util` | The ` homeassistant.util.dt` module.
+
+Other imports like `min`, `max` are available as builtins. See the [python_script](https://github.com/home-assistant/core/blob/dev/homeassistant/components/python_script/__init__.py) source code for up to date information on the available objects inside the scritp.
+  
 
 [hass-api]: /developers/development_hass_object/
 [logger-api]: https://docs.python.org/3.7/library/logging.html#logger-objects
@@ -26,30 +32,79 @@ It is not possible to use Python imports with this integration. If you want to d
 
 </div>
 
-## Writing your first script
+## Writing your first script, reading input and logging the activity
+
+This is a very simple example that does no real work.
+It is created as a first step, to help with:
+
+- demonstrate how to setup the script
+- how to process the input data
+- how to log the script activity
+- how to troubleshoot / manually call the script.
+
+Start by enabling the python script and create the first script.
 
 - Add to `configuration.yaml`: `python_script:`
 - Create folder `<config>/python_scripts`
-- Create a file `hello_world.py` in the folder and give it this content:
+- Create a file `<config>/python_scripts/hello_world.py` in the folder and give it this content:
 
 ```python
+# `data` is available as builtin and is a dictionary with the input data.
 name = data.get("name", "world")
-logger.info("Hello %s", name)
-hass.bus.fire(name, {"wow": "from a Python script!"})
+# `logger` and `time` are available as builtin without the need of explicit import.
+logger.info("Hello {} at {}".format(name, time.time()))
 ```
 
-- Start Home Assistant
-- Call your new {% my developer_call_service service="python_script.hello_world" %} service (with parameters) from the {% my developer_services %}. 
+- Start Home Assistant to reload the script configuration.
+- Call your new {% my developer_call_service service="python_script.hello_world" %} service (with parameters) from the {% my developer_services %}, using the YAML mode. 
 
 ```yaml
-name: you
+service: python_script.hello_world
+data:
+  name: Input-Text
 ```
 
 <div class='note'>
 
 Running this script show absolutely no output on the screen, but it logs with level `info`. You must have the [Logger](/integrations/logger/) enabled at least for level `info`.
 
+ Your `confiuration.yaml` should include something like this.
+ 
+```yaml
+logger:
+  default: info
+```
+  
 </div>
+
+## Triggering events
+
+The following example shows how to trigger a custom event over the `hass.bus`.
+
+We will use the same `hello_world.py` file.
+Edit the file and add this at the end.
+No need to restart Home Assistant or reload any configuration.
+The script is (re)loaded at each call.
+
+```python
+hass.bus.fire("hello_world_event", {"wow": "from a Python script!"})
+```
+
+Running this script show absolutely no output on the screen.
+From a separate tab (session) you will need to go to `Developer Tools -> Events` and at `Listen to events` type `hello_world_event` and then press `Start listening`.
+You should see something like this:
+
+```yaml
+event_type: hello_world_event
+data:
+  wow: from a Python script!
+origin: LOCAL
+time_fired: "2022-09-19T16:15:39.613378+00:00"
+context:
+  id: 01GDB8H9JXJ1N23Q62SHX6PTBK
+  parent_id: null
+  user_id: null
+```
 
 ## Calling Services
 
@@ -101,5 +156,7 @@ Available services: `reload`.
 ### Service `python_script.reload`
 
 Reload all available python_scripts from the `<config>/python_scripts` folder. Use this when creating a new Python script and you're not restarting Home Assistant.
+
+You don't have to call this service when you edit an existing python script.
 
 This service takes no service data attributes.
