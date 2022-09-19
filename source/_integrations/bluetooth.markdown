@@ -11,6 +11,8 @@ ha_codeowners:
   - '@bdraco'
 ha_integration_type: integration
 ha_config_flow: true
+ha_platforms:
+  - diagnostics
 ---
 
 The Bluetooth integration will detect nearby Bluetooth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
@@ -91,7 +93,7 @@ Integrations that have followed the [Best practices for library authors](https:/
 
 ## Passive Scanning
 
-Passive Scanning on Linux can be enabled in the options flow per adapter if the host system runs BlueZ 4.63 or later with experimental features enabled.
+Passive Scanning on Linux can be enabled in the options flow per adapter if the host system runs BlueZ 5.63 or later with experimental features enabled.
 
 Many integrations require active scanning and may not function when scanning is passive.
 

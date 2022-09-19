@@ -404,6 +404,14 @@ Note that not all devices support binding as it depends on the Zigbee implementa
 
 Binding a remote directly to a bulb or group has the benefit of faster response time and smoother control. This greatly improves user feedback experience functions like dimming as the remote then directly dims the lightbulb and thus does not have to make the software roundtrip via the ZHA coordinator.
 
+## Zigbee backup and restore in ZHA
+
+Zigbee Home Automation (ZHA) integration now features Zigbee network backup, restore/recovery, and migrating between Zigbee coordinators. Backups are taken automatically however, a single backup to a file for easy download can also be manually created from the configuration page under Network Settings.
+
+After restoring a Home Assistant backup, you can re-configure ZHA and migrate to a new Zigbee Coordinator adapter without any loss of your settings or devices that were connected. This is helpful if your current radio fails or a new radio adapter type and model comes out that you may want to migrate to.
+
+Within ZHA is possible to use this backup and restore feature to migrate between some different radio types, if the respective radio library supports it. Currently, ZHA supports migrating the Zigbee network between different Zigbee Coordinator adapters based on chips from Silicon Labs, Texas Instruments, or ConBee/RaspBee if the backup was made from inside ZHA.
+
 ## Troubleshooting
 
 To help resolve any kinks or compatibility problems, report bugs as issues with debug logs. Please follow the instructions in this troubleshooting section.

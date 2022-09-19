@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@ChrisMandich'
   - '@bdraco'
+  - '@jeeftor'
 ha_domain: flume
 ha_dhcp: true
 ha_platforms:

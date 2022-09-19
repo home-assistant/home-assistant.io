@@ -15,6 +15,7 @@ ha_ssdp: true
 ha_platforms:
   - binary_sensor
   - climate
+  - cover
   - diagnostics
   - light
   - sensor

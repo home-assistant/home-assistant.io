@@ -47,6 +47,10 @@ SimpliSafe offers several [monitoring plans](https://support.simplisafe.com/hc/e
 
 ## Getting an Authorization Code
 
+<div class='note warning'>
+You must have multi-factor authentication (MFA) enabled on your SimpliSafe account for the below instructions to work. Without MFA enabled, you will never receive the correct authorization code!
+</div>
+
 SimpliSafe authenticates users via its web app. Due to technical limitations, there is a manual step when adding the integration. For in-depth guidance, refer to step 6 of [the `simplisafe-python` documentation on authentication](https://simplisafe-python.readthedocs.io/en/latest/usage.html#authentication).
 
 ## Services
