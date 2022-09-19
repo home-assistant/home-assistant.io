@@ -42,7 +42,7 @@ It is created as a first step, to help with:
 - how to log the script activity
 - how to troubleshoot / manually call the script.
 
-Start by enabling the python script and create the first script.
+Start by enabling the Python script and create the first script.
 
 - Add to `configuration.yaml`: `python_script:`
 - Create folder `<config>/python_scripts`
@@ -157,6 +157,6 @@ Available services: `reload`.
 
 Reload all available python_scripts from the `<config>/python_scripts` folder. Use this when creating a new Python script and you're not restarting Home Assistant.
 
-You don't have to call this service when you edit an existing python script.
+You don't have to call this service when you edit an existing Python script.
 
 This service takes no service data attributes.
