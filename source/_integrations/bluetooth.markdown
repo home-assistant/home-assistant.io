@@ -112,7 +112,7 @@ For example, unshielded USB 3 port and their cables are especially infamously kn
       - Make sure the USB extension cable has proper shielded (thick cables usually have this).
         - Preferably by a longer extension cable specified to have proper shielding and ferrite clamps.
         - Using a USB extension cable also make it easier to orient the Bluetooth adapter/antenna.
-    - Try different physical placement and orientations of Bluetooth adapter or its antenna:
+    - Try different physical placement and orientations of the Bluetooth adapter or its antenna:
       - Optimal placement of Bluetooth adapter is as much in middle of the house as possible.
       - Try to place the Bluetooth adapter at some distance away from walls, ceilings, and floors.
       - Try different orientations of the adapters external antenna (or whole Bluetooth adapter).
