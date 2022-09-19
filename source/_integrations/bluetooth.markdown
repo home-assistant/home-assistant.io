@@ -105,7 +105,7 @@ For example, unshielded USB 3 port and their cables are especially infamously kn
       - Consider a Bluetooth adapter that has an external antenna. 
       - While older adapters might work, they could have obsolete hardware or old firmware, which prevents reliable operation.
   - Poor or outdated Bluetooth adapter firmware on the Bluetooth adapter:
-    - Update to a later released Bluetooth chip firmware on the Bluetooth adapter. Updating firmware is usually straightforward if the manufacturer or the chip maker provides one.
+    - Update to the latest Bluetooth chip firmware on the Bluetooth adapter. Updating firmware is usually straightforward if the manufacturer or the chip maker provides one.
 - Bluetooth adapters are RFI sensitive and can be very susceptible to all types of EMI/EMF interference:
   - Poor placement of the Bluetooth adapter or wrong orientation of Bluetooth adapter antenna:
     - Use a long USB extension cable to place the Bluetooth adapter away from interference and obstacles.
