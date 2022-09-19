@@ -108,7 +108,7 @@ For example, unshielded USB 3 port and their cables are especially infamously kn
     - Update to a later released Bluetooth chip firmware on the Bluetooth adapter. Updating firmware is usually straightforward if the manufacturer or the chip maker provides one.
 - Bluetooth adapters are RFI sensitive and can be very susceptible to all types of EMI/EMF interference:
   - Poor placement of the Bluetooth adapter and/or wrong orientation of Bluetooth adapter antenna:
-    - Use a long USB extension cable to place Bluetooth adapter away from interference and obstacles.
+    - Use a long USB extension cable to place the Bluetooth adapter away from interference and obstacles.
       - Ensure the USB extension cable is adequately shielded (thick cables usually have this).
         - A USB extension cable makes orienting the Bluetooth adapter/antenna easier.
     - Try different physical placement and orientations of the Bluetooth adapter or its antenna:
