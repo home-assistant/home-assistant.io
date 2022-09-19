@@ -1,6 +1,6 @@
 ---
 title: Whirlpool Appliances
-description: Instructions on how to integrate Whirlpool/Maytag appliances with Home Assistant.
+description: Instructions on how to integrate Whirlpool appliances with Home Assistant.
 ha_category:
   - Climate
   - Sensor
@@ -21,8 +21,8 @@ The `whirlpool` integration integrates Whirlpool 6th Sense Live, and Whirlpool/M
 There is currently support for the following device types within Home Assistant:
 
 - [Supported hardware](#supported-hardware)
-- [Climate](#climate)
 - [Sensor](#sensor)
+- [Climate](#climate)
 
 ## Supported hardware
 
@@ -38,16 +38,18 @@ Washer:
 - WTW6120HW2
 
 Dryer:
-Not confirmed
+
+- Not confirmed
 
 {% include integrations/config_flow.md %}
 
-## Climate
-
 ## Sensor
 
+The `whirlpool` sensor platform integrates Whirlpool Washer and Dryer systems into Home Assitant, allowing views of the machine state and time remaining as sensors for each device.
+
+## Climate
+
 The `whirlpool` climate platform integrates Whirlpool air conditioning systems into Home Assistant, allowing control of the appliance trough the user interface. The current inside temperature is also displayed on the thermostat card.
-The `whirlpool` sensor platform integrates Whirlpool/Maytag Washer and Dryer systems into Home Assitant, allowing views of the machine state and time remaining as sensors for each device.
 
 The following services are also available:
 
