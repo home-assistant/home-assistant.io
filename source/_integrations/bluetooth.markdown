@@ -125,7 +125,7 @@ For example, unshielded USB 3 port and their cables are especially infamously kn
       - Single-board-computers and USB 3.x hard drives are especially known as source of EMF/EMI/RFI.
         - Be aware metal casings can decrease performance of internal/built-in Bluetooth adapters.
       - Also be sure to use properly shielded USB cables for any such peripherals/devices too.
-  - 2.4 GHz RF Interference (RFI) from Wi-Fi Routers and Wi-Fi Access Points, or other type of devices.
+  - 2.4 GHz RF Interference (RFI) from Wi-Fi Routers and Wi-Fi Access Points or other devices:
     - While Bluetooth is designed to coexist with Wi-Fi, its stronger signal can interfere.
       - To play it safe, try to place your Bluetooth adapter away from Wi-Fi access points.
     - Place away from any electrical/power wires/cables, power supplies, and household appliances.
