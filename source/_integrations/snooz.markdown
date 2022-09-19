@@ -33,7 +33,7 @@ Once a device is discovered, it needs to be put into pairing mode to complete se
 
 ### Entering pairing mode
 
-1. Ensure the device is not connected to a mobile app or any other bluetooth controller.
+1. Ensure the device is not connected to a mobile app or any other Bluetooth controller.
 2. Hold your finger on the power button until all buttons begin pulsing on and off (~ 5 seconds).
 
 <p class='img'>
@@ -102,7 +102,7 @@ automation:
 
 ### Service `snooz.disconnect`
 
-Disconnect the underlying bluetooth connection for a device. This does nothing when the device isn't connected.
+Disconnect the underlying Bluetooth connection for a device. This does nothing when the device isn't connected.
 
 {% my developer_call_service badge service="snooz.disconnect" %}
 
