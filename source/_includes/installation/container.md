@@ -51,7 +51,7 @@ If you change the configuration you have to restart the server. To do that you h
   content: |
 
     ```bash
-    docker-compose restart
+    docker compose restart
     ```
 
 {% endtabbed_block %}
