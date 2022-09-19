@@ -59,19 +59,19 @@ If you change the configuration you have to restart the server. To do that you h
 ### Docker Compose
 
 <div class="note tip">
-
-  In order to use `docker-compose` you first need to [install `docker-compose`](https://docs.docker.com/compose/install/) on your system.
+   
+  `docker compose` should [already be installed](https://www.docker.com/blog/announcing-compose-v2-general-availability/) on your system. If not, you can [manually](https://docs.docker.com/compose/install/linux/) install it
 
 </div>
 
-As the Docker command becomes more complex, switching to `docker-compose` can be preferable and support automatically restarting on failure or system restart. Create a `docker-compose.yml` file:
+As the Docker command becomes more complex, switching to `docker compose` can be preferable and support automatically restarting on failure or system restart. Create a `compose.yml` file:
 
 {% include installation/container/compose.md %}
 
 Start it by running:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 Once the Home Assistant Container is running Home Assistant should be accessible using `http://<host>:8123` (replace <host> with the hostname or IP of the system). You can continue with onboarding.
