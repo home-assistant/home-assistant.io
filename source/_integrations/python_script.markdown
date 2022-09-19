@@ -155,7 +155,11 @@ Available services: `reload`.
 
 ### Service `python_script.reload`
 
-Reload all available python_scripts from the `<config>/python_scripts` folder. Use this when creating a new Python script and you're not restarting Home Assistant.
+Reload all available python_scripts from the `<config>/python_scripts` folder.
+
+Use this when creating a new Python script and you're not restarting Home Assistant.
+
+Use this after updating the `<config>/python_scripts/services.yaml` file. 
 
 You don't have to call this service when you edit an existing Python script.
 
