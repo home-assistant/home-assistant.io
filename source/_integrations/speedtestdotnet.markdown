@@ -64,6 +64,26 @@ automation:
 
 {% endraw %}
 
+### Using as a button to manually run a speed test
+
+{% raw %}
+
+```yaml
+
+type: button
+name: Test Speed
+tap_action:
+  action: call-service
+  service: homeassistant.update_entity
+  target:
+    entity_id:
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - sensor.speedtest_ping
+
+```
+{% endraw %}
+
 ## Notes
 
 - When running on Raspberry Pi the maximum speed is limited by the LAN adapter. The Raspberry Pi 3+ models come with a Gigabit LAN adapter which supports a [maximum throughput](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) of 300 Mbit/s.
