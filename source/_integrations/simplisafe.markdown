@@ -5,6 +5,7 @@ ha_release: 0.81
 ha_iot_class: Cloud Polling
 ha_category:
   - Alarm
+  - Button
   - Lock
 ha_config_flow: true
 ha_codeowners:
@@ -13,6 +14,7 @@ ha_domain: simplisafe
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - button
   - diagnostics
   - lock
   - sensor
@@ -43,13 +45,15 @@ SimpliSafe offers several [monitoring plans](https://support.simplisafe.com/hc/e
 
 {% include integrations/config_flow.md %}
 
+## Getting an Authorization Code
+
+<div class='note warning'>
+You must have multi-factor authentication (MFA) enabled on your SimpliSafe account for the below instructions to work. Without MFA enabled, you will never receive the correct authorization code!
+</div>
+
+SimpliSafe authenticates users via its web app. Due to technical limitations, there is a manual step when adding the integration. For in-depth guidance, refer to step 6 of [the `simplisafe-python` documentation on authentication](https://simplisafe-python.readthedocs.io/en/latest/usage.html#authentication).
+
 ## Services
-
-### `simplisafe.clear_notifications`
-
-Clear any existing notifications within the SimpliSafe cloud; this will mark existing
-notifications as "read" in the SimpliSafe web and mobile apps, as well as prevent them
-from triggering future `SIMPLISAFE_NOTIFICATION` events.
 
 ### `simplisafe.remove_pin`
 
@@ -91,14 +95,14 @@ Set one or more system properties.
 web and mobile apps. When received, they come with event data that contains the
 following keys:
 
-* `changed_by`: the PIN that triggered the event (if appropriate)
-* `event_type`: the type of event
-* `info`: a human-friendly string describing the event in more detail
-* `sensor_name`: the sensor that triggered the event (if appropriate)
-* `sensor_serial`: the serial number of the sensor that triggered the event (if appropriate)
-* `sensor_type`: the type of sensor that triggered the event (if appropriate)
+* `last_event_changed_by`: the PIN that triggered the event (if appropriate)
+* `last_event_type`: the type of event
+* `last_event_info`: a human-friendly string describing the event in more detail
+* `last_event_sensor_name`: the sensor that triggered the event (if appropriate)
+* `last_event_sensor_serial`: the serial number of the sensor that triggered the event (if appropriate)
+* `last_event_sensor_type`: the type of sensor that triggered the event (if appropriate)
 * `system_id`: the system ID to which the event belongs
-* `timestamp`: the UTC datetime at which the event was received
+* `last_event_timestamp`: the UTC datetime at which the event was received
 
 For example, when someone rings the doorbell, a
 `SIMPLISAFE_EVENT` event will fire with the following event data:

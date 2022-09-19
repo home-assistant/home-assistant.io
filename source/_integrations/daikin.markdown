@@ -38,7 +38,7 @@ There is currently support for the following device types within Home Assistant:
 - The European versions of the Wifi Controller Unit (BRP069A41, 42, 43, 45), which is powered by the [Daikin Online Controller](https://play.google.com/store/apps/details?id=eu.daikin.remoapp) application. The new version of WiFi Controller Unit BRP069Bxx is also confirmed to work, tested and working devices are the BRP069B41 and BRP069B45.
 - The Australian version of the Daikin Wifi Controller Unit BRP072A42, which is operated by the [Daikin Mobile Controller (iOS)](https://itunes.apple.com/au/app/daikin-mobile-controller/id917168708?mt=8) ([Android](https://play.google.com/store/apps/details?id=ao.daikin.remoapp)) application. Confirmed working on a Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA with operation mode, temp, fan swing (3d, horizontal, vertical).
   - BRP072Cxx based units (including Zena devices)*.
-- The United States version of the Wifi Controller Unit (BRP069A43), which is powered by the [Daikin Comfort Control](https://play.google.com/store/apps/details?id=us.daikin.wwapp) application. Confirmed working on a Daikin Wall Unit FTXS15LVJU and a Floor Unit FVXS15NVJU with operation mode, temp, fan swing (3d, horizontal, vertical).
+- The United States version of the Wifi Controller Unit (BRP069A43), which is powered by the [Daikin Comfort Control](https://play.google.com/store/apps/details?id=us.daikin.wwapp) application. Confirmed working on a Daikin Wall Units FTXS09LVJU, FTXS15LVJU, FTXS18LVJU and a Floor Unit FVXS15NVJU with operation mode, temp, fan swing (3d, horizontal, vertical).
 - The Australian version of the Daikin Wifi Controller for **AirBase** units (BRP15B61), which is operated by the [Daikin Airbase](https://play.google.com/store/apps/details?id=au.com.daikin.airbase) application.
 - **SKYFi** based units, which is operated by the SKYFi application*.
 
@@ -100,11 +100,11 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 - Inside temperature
 - Outside temperature
 - Inside humidity
-- Estimated power consumption
+- Estimated power consumption (not per device, but sum of installation)
 - Hourly energy consumption in cool mode
 - Hourly energy consumption in heat mode
 - Outside unit's compressor frequency
-- Today's total energy consumption (resets at 00:00)
+- Today's total energy consumption (not per device, but sum of installation, resets at 00:00)
 
 <div class='note'>
 
@@ -117,7 +117,7 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 
 <div class='note'>
 
-- The 'Today's total energy consumption' and 'Estimated power consumption' sensor is updated every time 100 Wh are consumed by all different operating modes summed together.
+- The 'Today's total energy consumption' and 'Estimated power consumption' sensor is updated every time 100 Wh are consumed by all different operating modes summed together. These values are the values for the whole installation, not per device (unless, you have only one device).
 - The 'Estimated power consumption' sensor is derived from the energy consumption and not provided by the AC directly.
 - The 'cool/heat' energy sensors are updated hourly with the previous hour energy consumption
   of a given mode and a given AC.

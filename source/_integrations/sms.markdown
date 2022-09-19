@@ -26,38 +26,89 @@ This integration provides the following platforms:
 
 ## Notifications
 
-To configure the notification service, edit your `configuration.yaml` file:
-
-```yaml
-notify:
-  - platform: sms
-    name: sms_person1
-    recipient: PHONE_NUMBER
-  - platform: sms
-    name: sms_person2
-    recipient: PHONE_NUMBER
-```
-
-You can also receive SMS messages that are sent to the SIM card number in your device.
-Every time there is a message received, `event: sms.incoming_sms` is fired with date, phone number and text message.
+An SMS message can be sent by calling the `notify.sms`. It will send the message to all phone numbers specified in the `target` parameter.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-If the integration is used with the Home Assistant Operating System, then version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher is required.
+### Send message
 
-For installations not running on Home Assistant or Home Assistant Core using Docker, you must install `gammu-dev` package:
-
-```bash
-sudo apt-get install libgammu-dev
+```yaml
+action:
+  service: notify.sms
+  data:
+    message: "This is a message for you!"
+    target: "+5068081-8181"
 ```
 
-Before running for the first time, check that the system recognizes the modem by running:
+### Sending SMS using GSM alphabet
 
-```bash
-ls -l /dev/*USB*
+Some devices (receiving or sending) do not support Unicode (the default encoding). For these you can disable Unicode:
+
+```yaml
+action:
+  service: notify.sms
+  data:
+    message: "This is a message for you in ANSI"
+    target: "+5068081-8181"
+    data:
+      unicode: False
 ```
 
-Note: When running Home Assistant, you need to install the SSH add-on.
+### Getting SMS messages
+
+You can also receive SMS messages that are sent to the SIM card number in your device.
+Every time there is a message received, `event: sms.incoming_sms` is fired with date, phone number and text message.
+Sample automation that forward all SMS to `user1`:
+
+#### Define a sensor in `configuration.yaml` to protect user phone number
+
+```yaml
+template:
+  - sensor:
+    - name: "User1 Phone Number"
+      state: !secret user1_phone_number
+```
+
+#### Define a script in `scripts.yaml` to use the sensor
+
+{% raw %}
+
+```yaml
+notify_sms_user1:
+  alias: "Notify via SMS to User1"
+  fields:
+    message:
+      description: "The message content"
+      example: "The light is on!"
+  sequence:
+  - service: notify.sms
+    data:
+      message: "{{ message }}"
+      target: "{{ states('sensor.user1_phone_number') }}"
+  mode: single
+  icon: mdi:chat-alert
+```
+
+{% endraw %}
+
+#### Putting it all together in `automations.yaml`
+
+{% raw %}
+
+```yaml
+- alias: "Forward SMS"
+  trigger:
+  - platform: event
+    event_type: sms.incoming_sms
+  action:
+  - service: script.notify_sms_user1
+    data:
+      message: |
+        From: {{trigger.event.data.phone}}
+        {{trigger.event.data.text}}  mode: single
+```
+
+{% endraw %}
 
 ## Required Hardware
 
@@ -70,7 +121,7 @@ You will need a USB GSM stick modem or device like SIM800L v2 connected via USB 
 Need to unlock it using [this guide](http://blog.asiantuntijakaveri.fi/2015/07/convert-huawei-e3372h-153-from.html))
 - [Huawei E3531](https://www.amazon.com/Modem-Huawei-Unlocked-Caribbean-Desbloqueado/dp/B011YZZ6Q2/ref=sr_1_1?keywords=Huawei+E3531&qid=1581447800&sr=8-1)
 - [Huawei E3272](https://www.amazon.com/Huawei-E3272s-506-Unlocked-Americas-Europe/dp/B00HBL51OQ)
-
+- ZTE K3565-Z
 
 ### List of modems known to NOT work
 
@@ -80,13 +131,17 @@ Need to unlock it using [this guide](http://blog.asiantuntijakaveri.fi/2015/07/c
 
 Search in the [Gammu database](https://wammu.eu/phones/) for modems with AT connection.
 
-### Huawei modems on Raspberry Pi (and similar) devices
+### Huawei/ZTE modems (and similar) devices - NOT applicable for users of Home Assistant OS, Container or Supervised.
 
-For some unknown reason, the rule that converts these modems from storage devices into serial devices does not run automatically. To work around this problem, follow the procedure to create `udev` rule on a configuration USB stick for the device to switch to serial mode.
+For some unknown reason, the rule that converts these modems from storage devices into serial devices may not run automatically. To work around this problem, follow the procedure below to change the modem mode and (optionally) create `udev` rule on a configuration USB stick for the device to switch to serial mode persistently.
 
-0. Try disable virtual cd-rom and change work mode "only modem". After this modem correct work on Raspberry Pi without 'udev' rule.
+1. Install the `usb_modeswitch` software to switch the modem operational mode (for Debian/Ubuntu distros):
 
-1. Run `lsusb`, its output looks like this:
+```bash
+sudo apt update && sudo apt install usb-modeswitch -y
+```
+
+2. Run `lsusb`, its output should be similar to this:
 
 ```bash
 bus 000 device 001: ID 1FFF:342a
@@ -96,6 +151,15 @@ bus 000 device 002: ID 1232:15ca
 ```
 
 Identify the brand for your GSM modem, copy the `brand_Id` and `product_id` (In this case `brand_id = 12d1` and `product_Id = 15ca`)
+
+3. Try disabling virtual cd-rom and change work mode to "only modem": 
+
+```bash
+sudo /sbin/usb_modeswitch -X -v 12d1 -p 15ca
+```
+Re-plug the device. After this the modem correct should work without the following 'udev' rule.
+
+4. (Optional) Configure the udev rule to persist the correct modem configuration even after disconnecting it:
 
 Set this content in file `udev\10-gsm-modem.rules` in the [configuration USB](https://github.com/home-assistant/operating-system/blob/master/Documentation/configuration.md#automatic):
 (Replace `brand_Id` and `product_id` for the numbers reported by `lsusb`)
@@ -116,7 +180,7 @@ ACTION=="add" \
 , RUN+="/sbin/usb_modeswitch -X -v 12d1 -p 15ca"
 ```
 
-Plug the USB stick, reboot the device, run `lsusb` again.
+Re-plug the USB stick, reboot the device, run `lsusb` again.
 The resulting product id now should be different and the brand id should be the same.
 And `ls -l /dev/*USB*` should now report your device.
 

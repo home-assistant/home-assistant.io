@@ -50,7 +50,7 @@ alarm_control_panel:
           - condition: state
             entity_id: device_tracker.paulus
             state: "home"
-          - service: alarm_control_panel.alarm_arm_home
+          - service: alarm_control_panel.alarm_disarm
             target:
               entity_id: alarm_control_panel.real_alarm
             data:
@@ -80,7 +80,7 @@ panels:
           required: false
           type: string
         value_template:
-          description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `arming`, `disarmed`, `pending`, `triggered` and `unavailable` are used."
+          description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `pending`, `triggered` and `unavailable` are used."
           required: false
           type: template
         disarm:
@@ -97,6 +97,18 @@ panels:
           type: action
         arm_night:
           description: Defines an action to run when the alarm is armed to night mode.
+          required: false
+          type: action
+        arm_vacation:
+          description: Defines an action to run when the alarm is armed to vacation mode.
+          required: false
+          type: action
+        arm_custom_bypass:
+          description: Defines an action to run when the alarm is armed to custom bypass mode.
+          required: false
+          type: action
+        trigger:
+          description: Defines an action to run when the alarm is triggered.
           required: false
           type: action
         code_arm_required:

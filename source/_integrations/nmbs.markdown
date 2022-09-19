@@ -63,5 +63,5 @@ show_on_map:
 
 <p class='img'>
   <img src='/images/screenshots/nmbs-card-example.png' />
-  <p>Example using the <a href="https://github.com/custom-cards/entity-attributes-card">Lovelace Attributes custom card</a> </p>
+  <p>Example using the <a href="https://github.com/custom-cards/entity-attributes-card">Entity Attributes custom card</a> </p>
 </p>

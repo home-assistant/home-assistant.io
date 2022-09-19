@@ -9,7 +9,7 @@ The template variable `this` is also available when evaluating any `trigger_vari
 
 ## Available this Data
 
-Variable `this` is the [state object](/docs/configuration/state_object) of the automation. State objects also contain context data which can be used to identify the user that caused a script or automation to execute.
+The variable `this` is the [state object](/docs/configuration/state_object) of the automation at the moment of triggering the actions. State objects also contain context data which can be used to identify the user that caused a script or automation to execute. Note that `this` will not change while executing the actions.
 
 ## Available Trigger Data
 
@@ -22,7 +22,7 @@ The following describes trigger data associated with all platforms.
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.id` | Optional trigger `id`, or index of the trigger.
-| `trigger.idx` | Index of the trigger.
+| `trigger.idx` | Index of the trigger. (The first trigger idx is `0`.)
 
 ### Calendar
 
