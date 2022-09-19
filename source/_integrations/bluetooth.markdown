@@ -113,7 +113,7 @@ For example, unshielded USB 3 port and their cables are especially infamously kn
         - Preferably by a longer extension cable specified to have proper shielding and ferrite clamps.
         - Using a USB extension cable also make it easier to orient the Bluetooth adapter/antenna.
     - Try different physical placement and orientations of the Bluetooth adapter or its antenna:
-      - Optimal placement of Bluetooth adapter is as much in middle of the house as possible.
+      - The optimal placement of the Bluetooth adapter is close to the middle of the house as possible.
       - Try to place the Bluetooth adapter at some distance away from walls, ceilings, and floors.
       - Try different orientations of the adapter's external antenna (or whole Bluetooth adapter).
   - USB 3.0 ports/computers/peripherals are known culprits of RFI/EMI/EMF disruption. (See Ref. [1](https://www.usb.org/sites/default/files/327216.pdf) and [2](https://www.unit3compliance.co.uk/2-4ghz-intra-system-or-self-platform-interference-demonstration/)).
