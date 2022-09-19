@@ -121,7 +121,7 @@ For example, unshielded USB 3 port and their cables are especially infamously kn
       - If your computer only has a USB 3.x port then connect the adapter via a powered USB 2.0 hub:
         - A USB 2.0 hub will convert USB 3.0 to a USB 2.0 port and thus you avoid USB 3.0 EMF.
           - A USB 2.0 hub that uses an external power supply will ensure power requirements are fulfilled.
-    - Shield to unshielded computers/peripherals/devices by adding all-metal enclosures/chassis/casings.
+    - Shield any unshielded computers/peripherals/devices by adding all-metal enclosures/chassis/casings.
       - Single-board-computers and USB 3.x hard drives are especially known as source of EMF/EMI/RFI.
         - Be aware metal casings can decrease performance of internal/built-in Bluetooth adapters.
       - Also be sure to use properly shielded USB cables for any such peripherals/devices too.
