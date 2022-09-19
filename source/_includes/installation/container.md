@@ -60,7 +60,7 @@ If you change the configuration you have to restart the server. To do that you h
 
 <div class="note tip">
    
-  `docker compose` should [already be installed](https://www.docker.com/blog/announcing-compose-v2-general-availability/) on your system. If not, you can [manually](https://docs.docker.com/compose/install/linux/) install it
+  `docker compose` should [already be installed](https://www.docker.com/blog/announcing-compose-v2-general-availability/) on your system. If not, you can [manually](https://docs.docker.com/compose/install/linux/) install it.
 
 </div>
 
