@@ -9,14 +9,14 @@ ha_codeowners:
   - '@kaareseras'
 ha_domain: azure_data_explorer
 ---
-[Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/)  is a high performace timeseries database, query engine and dashboarding tool.
-
-The Home Assistant `Azure Data Explorer` integration allows you to hook into the Home Assistant event bus and forward events to Azure Data Explorer for analytics and dashboarding.
+[Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/)  is a high performace timeseries database, query engine and dashboarding tool. The Home Assistant `Azure Data Explorer` integration allows you to hook into the Home Assistant event bus and forward events to Azure Data Explorer for analytics and dashboarding. From here data can be viewed in buildin dashboards, PowerBi and Grafana amoung others.
 
 ## Create a free Azure account
+
 * Create a  [free Azure account](https://azure.microsoft.com/). you will be asked for creditcard info, but all rescources created here are free.
 
 ## Create a Service Principal (App registration)
+
 For Home Assistant to authenticate with Azure Data Explorer, it need a **Service Principal**
 1. Create a [Service Principal](https://docs.microsoft.com/en-us/azure/data-explorer/provision-azure-ad-app) follow guide step 1-7
 2. Copy values for later use:
@@ -25,6 +25,7 @@ For Home Assistant to authenticate with Azure Data Explorer, it need a **Service
     * Secret value             <--From when the secret was created in 1.7
 
 ## Create Free Azure Dataexplorer cluster and Database
+
 There are two ways of creating an Azure Data Explorer Cluster: **Pay as you go (PAYG)** or **Free**
 to create a paid cluster follow instructions from here: [Microsoft quickstart](https://docs.microsoft.com/en-us/azure/data-explorer/create-cluster-database-portal)
 However Microsoft has released a free offer and this guide describes how to set up a free Azure Data Explorer Cluster and database:
@@ -47,6 +48,7 @@ Within a minute, you will have a Azure Data Explorer cluster ready
 After the creation of the database, copy the **Data ingestion URI** from the top of the page
 
 ## Create Azure Data Table
+
 1. Navigate to [aka.ms/kustofree](https://aka.ms/kustofree).
 2. Navigate to **Query**.
 3. Write and execute the foloing statements one by one, replacing the content between the <> with the copied values (including the brackets)
@@ -78,6 +80,7 @@ This is an example with a free cluster for reference
 ```
 
 ## Configuration
+
 >if using a free cluste, check the **Use Queueing client** in the form
 
 {% include integrations/config_flow.md %}
@@ -102,7 +105,7 @@ azure_data_explorer:
 
 {% configuration %}
 filter:
-  description: Filter domains and entities for Event Hub. ([Configure Filter](#configure-filter))
+  description: Filter domains and entities for Data Explorer. ([Configure Filter](#configure-filter))
   required: true
   type: map
   default: Includes all entities from all domains
@@ -137,9 +140,6 @@ filter:
 Not filtering domains or entities will send every event to Azure Data Explorer.
 </div>
 
-<div class='note warning'>
-Event Hubs have a retention time of at most 7 days, if you do not capture or use the events they are deleted automatically from the Event Hub, the default retention is 1 day.
-</div>
 
 ### Configure Filter
 
@@ -147,7 +147,7 @@ By default, no entity will be excluded. To limit which entities are being expose
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
-azure_event_hub:
+azure_data_explorer:
   filter:
     include_domains:
       - alarm_control_panel
@@ -178,6 +178,7 @@ Filters are applied as follows:
 
 
 ## Using Azure Data Explorer
+
 As the setup is complete, data is being sent to Azure Data Explorer, and you can start exploring your data.
 Here are som rescources to learn to use Azure Data Explorer
 
