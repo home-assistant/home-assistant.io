@@ -45,7 +45,7 @@ Dryer:
 
 ## Sensor
 
-The `whirlpool` sensor platform integrates Whirlpool Washer and Dryer systems into Home Assitant, allowing views of the machine state and time remaining as sensors for each device.
+The `whirlpool` sensor platform integrates Whirlpool Washer and Dryer systems into Home Assistant, allowing views of the machine state and time remaining as sensors for each device.
 
 ## Climate
 
