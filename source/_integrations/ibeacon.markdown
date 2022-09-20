@@ -39,7 +39,7 @@ iBeacon devices that do not have stable Major and Minor values are not supported
 
 ## Fixed MAC address iBeacons
 
-iBeacons with a fixed MAC address will each get their own set of entities. This allows distance and presence detection on a per physical device basis. In this type of setup it is permissible to have multiple iBeacons broadcasting the same UUID, Major, and Minor combination as long as you do not exceed 5 devices doing so.
+iBeacons with a fixed MAC address will get their own set of entities for each UUID, major, minor, and MAC address combination, enabling distance and presence detection per physical device basis. In this type of setup, it is permissible to have multiple iBeacons broadcasting the same UUID, Major, and Minor combination as long as you do not exceed five devices.
 
 ## Random MAC address iBeacons
 
