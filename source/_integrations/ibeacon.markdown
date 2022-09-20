@@ -35,7 +35,7 @@ Consider setting up your iBeacons with a schema similar to the following:
 - uuid=UUID major=2000 minor=1002 Upstairs Guest Bedroom
 - uuid=UUID major=3000 minor=1000 Attic
 
-iBeacon devices that do not have stable Major and Minor values are not supported and will automatically be removed once 10 or more Major and Minor values are discovered for the same UUID from a devices with a fixed MAC address.
+iBeacon devices that do not have stable Major and Minor values are not supported. The system automatically removes iBeacon devices with unstable Major and Minor values once ten (10) or more Major and Minor values have been seen with the same UUID from an iBeacon device with a fixed MAC address.
 
 ## Fixed MAC address iBeacons
 
