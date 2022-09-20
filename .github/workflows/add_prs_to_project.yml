@@ -5,8 +5,11 @@ on:
     types:
       - opened
 
+permissions: {}
 jobs:
   add-to-project:
+    permissions:
+      repository-projects: write # to add to projects 
     name: Add new PR to project
     runs-on: ubuntu-latest
     steps:
