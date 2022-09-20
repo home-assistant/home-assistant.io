@@ -47,6 +47,6 @@ iBeacons with a random MAC address will be combined into a single set of entitie
 
 ## Sensors
 
-The integration will create an Estimated Distance sensor by default. This distance is an estimated that assumes perfect RF conditions and line of sight between the iBeacon between the Bluetooth adapter. The distance is an estimate and is generally only useful to tell if the iBeacon is in the immediate vicinity, near, or far away from the adapter. If the system has multiple adapters, the adapter with the best RSSI value for the iBeacon will be the one reporting the distance. As this can change it is important to check the source attribute when considering the distance.
+The integration will create an Estimated Distance sensor by default. This estimated distance assumes perfect RF conditions and line of sight between the iBeacon and the Bluetooth adapter. Estimated distance is generally only helpful to tell if the iBeacon is in the immediate vicinity, near, or far away from the adapter. If the system has multiple adapters, the adapter with the best RSSI value for the iBeacon will be the one reporting the distance. As this can change, checking the source attribute when considering the distance is essential.
 
 
