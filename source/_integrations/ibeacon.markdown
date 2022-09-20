@@ -18,7 +18,7 @@ ha_integration_type: integration
 
 {% include integrations/config_flow.md %}
 
-iBeacon devices will be automatically detected and added as they are discovered once the integration has been added in the UI.
+iBeacon devices will be automatically detected and added as they are discovered once the integration has been added via the UI.
 
 iBeacon Devices are tracked by a combination of the following data:
 
