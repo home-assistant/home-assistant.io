@@ -25,6 +25,7 @@ iBeacon Devices are tracked by a combination of the following data:
 - UUID (universally unique identifier) is a 128-bit identifier that is generally set the same for all iBeacons at the same physical location.
 - Major is an integer to differentiate between iBeacons with the same UUID.
 - Minor is an integer to differentiate between iBeacons with the same UUID and Major value.
+- MAC address (except for devices with a randomized MAC address)
 
 Consider setting up your iBeacons with a schema similar to the following:
 
