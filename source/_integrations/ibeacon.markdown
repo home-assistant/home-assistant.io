@@ -43,7 +43,7 @@ iBeacons with a fixed MAC address will get their own set of entities for each UU
 
 ## Random MAC address iBeacons
 
-iBeacons with a random MAC address will be combined into a single set of entities once the integration discovers the same UUID, Major, and Minor combination has been seen coming from 10 or more MAC addresses. This allows distance and presence detection based on the last reporting data. It is important that only one device is broadcasting the unique UUID, Major, and Minor combination when using random MAC addresses.
+iBeacons with a random MAC address will be combined into a single set of entities once the integration discovers the same UUID, Major, and Minor combination has been seen coming from 10 or more MAC addresses. This allows distance and presence detection based on the last reporting data. When using random MAC addresses, only one device must broadcast the unique UUID, Major, and Minor combination.
 
 ## Sensors
 
