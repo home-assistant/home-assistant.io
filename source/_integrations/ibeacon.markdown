@@ -1,0 +1,52 @@
+---
+title: iBeacon Tracker
+description: Instructions on how to integrate iBeacon devices into Home Assistant.
+ha_category:
+  - Presence Detection
+  - Device Tracker
+  - Sensor
+ha_release: 2022.10
+ha_iot_class: Local Push
+ha_domain: ibeacon
+ha_platforms:
+  - device_tracker
+  - sensor
+ha_bluetooth: true
+ha_config_flow: true
+ha_integration_type: integration
+---
+
+{% include integrations/config_flow.md %}
+
+iBeacon devices will be automatically detected and added as they are discovered once the integration has been added via the UI.
+
+iBeacon Devices are tracked by a combination of the following data:
+
+- UUID (universally unique identifier) is a 128-bit identifier that is generally set the same for all iBeacons at the same physical location.
+- Major is an integer to differentiate between iBeacons with the same UUID.
+- Minor is an integer to differentiate between iBeacons with the same UUID and Major value.
+- MAC address (except for devices with a randomized MAC address)
+
+Consider setting up your iBeacons with a schema similar to the following:
+
+- uuid=UUID major=1000 minor=1000 Downstairs Front Room
+- uuid=UUID major=1000 minor=1001 Downstairs Bathroom
+- uuid=UUID major=2000 minor=1001 Upstairs Main Bedroom
+- uuid=UUID major=2000 minor=1002 Upstairs Guest Bedroom
+- uuid=UUID major=3000 minor=1000 Attic
+
+iBeacon devices that do not have stable Major and Minor values are not supported. The system automatically removes iBeacon devices with unstable Major and Minor values once ten (10) or more Major and Minor values have been seen with the same UUID from an iBeacon device with a fixed MAC address.
+
+## Fixed MAC address iBeacons
+
+iBeacons with a fixed MAC address will get their own set of entities for each UUID, major, minor, and MAC address combination, enabling distance and presence detection per physical device basis. In this type of setup, it is permissible to have multiple iBeacons broadcasting the same UUID, Major, and Minor combination as long as you do not exceed five devices.
+
+## Random MAC address iBeacons
+
+iBeacons with a random MAC address will be combined into a single set of entities once the integration discovers the same UUID, Major, and Minor combination has been seen coming from 10 or more MAC addresses. This allows distance and presence detection based on the last reporting data. When using random MAC addresses, only one device must broadcast the unique UUID, Major, and Minor combination.
+
+## Sensors
+
+The integration will create an Estimated Distance sensor by default. This estimated distance assumes perfect RF conditions and line of sight between the iBeacon and the Bluetooth adapter. Estimated distance is generally only helpful to tell if the iBeacon is in the immediate vicinity, near, or far away from the adapter. If the system has multiple adapters, the adapter with the best RSSI value for the iBeacon will be the one reporting the distance. As this can change, checking the source attribute when considering the distance is essential.
+
+
