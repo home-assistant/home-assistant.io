@@ -471,7 +471,7 @@ description: "The Home Assistant contributor license agreement (CLA) signature p
         }
         $.ajax({
           type: "POST",
-          url: "https://cla.home-assistant.io/sign",
+          url: "https://service-hub-bots.home-assistant.io/cla-sign",
           data: JSON.stringify(payload),
           contentType: "application/json",
         }).done(function(data){
