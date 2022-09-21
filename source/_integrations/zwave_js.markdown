@@ -739,9 +739,9 @@ Node {{ node }};{{ s.name }};{{ s.entity_id }}{% endfor %}
 
 {% endraw %}
 
-#### What happened to ZwaveJS2MQTT or the Z-Wave JS to MQTT add-on?
+#### What happened to Zwavejs2Mqtt or the Z-Wave JS to MQTT add-on?
 
-ZWaveJS2MQTT was renamed Z-Wave JS UI in September 2022. They are synonymous with no difference between their capabilities.
+Zwavejs2Mqtt was renamed Z-Wave JS UI in September 2022. They are synonymous with no difference between their capabilities.
 
 #### Can I switch between the Official Z-Wave JS add-on and the Z-Wave JS UI add-on?
 
