@@ -91,7 +91,7 @@ twitter_user: balloob
 twitter_tweet_button: true
 
 # Google Analytics
-google_analytics_tracking_id: UA-57927901-1
+# google_analytics_tracking_id: UA-57927901-1
 
 # Facebook Like
 facebook_like: true
