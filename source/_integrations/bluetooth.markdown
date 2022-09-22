@@ -34,7 +34,7 @@ For Bluetooth to function on Linux systems:
 
 - The [D-Bus](https://en.wikipedia.org/wiki/D-Bus) socket must be accessible to Home Assistant. 
 - The Bluetooth adapter must be accessible to D-Bus and running [BlueZ](http://www.bluez.org/) >= 5.43. It is highly recommended to use BlueZ >= 5.63 as older versions have been reported to be unreliable.
-- The DBus implementation should be [dbus-broker](https://github.com/bus1/dbus-broker)
+- The D-Bus implementation should be [dbus-broker](https://github.com/bus1/dbus-broker)
 - The host system should be running Linux kernel 5.15.62 or later
 
 ### Additional requirements by install method
