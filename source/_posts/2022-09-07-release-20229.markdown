@@ -42,6 +42,7 @@ Now I know that everyone usually expects [@frenck] to be writing these release n
 - [Release 2022.9.3 - September 13](#release-202293---september-13)
 - [Release 2022.9.4 - September 14](#release-202294---september-14)
 - [Release 2022.9.5 - September 18](#release-202295---september-18)
+- [Release 2022.9.6 - September 22](#release-202296---september-22)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -601,6 +602,90 @@ The following integrations are now available via the Home Assistant UI:
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [yalexs_ble docs]: /integrations/yalexs_ble/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.9.6 - September 22
+
+- Handle Modalias missing from the bluetooth adapter details on older BlueZ ([@bdraco] - [#78716]) ([bluetooth docs])
+- Refactor MQTT tests to use modern platform schema part 1 ([@jbouwh] - [#77387]) ([mqtt docs])
+- Refactor MQTT tests to use modern platform schema part 2 ([@jbouwh] - [#77525]) ([mqtt docs])
+- Refactor common MQTT tests to use modern schema ([@jbouwh] - [#77583]) ([mqtt docs])
+- Make hass.data["mqtt"] an instance of a DataClass ([@jbouwh] - [#77972]) ([mqtt docs])
+- Add status codes 23 and 26 to Xiaomi Miio vacuum ([@starkillerOG] - [#78289]) ([xiaomi_miio docs])
+- Link manually added MQTT entities the the MQTT config entry ([@jbouwh] - [#78547]) ([mqtt docs])
+- Drop PARALLEL_UPDATES from switchbot ([@bdraco] - [#78713]) ([switchbot docs])
+- Bump aioimaplib to 1.0.1 ([@N1c093] - [#78738]) ([imap docs]) (dependency)
+- Fix bug wherein RainMachine services use the wrong controller ([@bachya] - [#78780]) ([rainmachine docs])
+- Guard Guardian switches from redundant on/off calls ([@bachya] - [#78791]) ([guardian docs])
+- Bump dbus-fast to 1.5.1 ([@bdraco] - [#78802]) ([bluetooth docs]) (dependency)
+- If brightness is not available, don't set a value ([@elupus] - [#78827]) ([google_assistant docs])
+- Pin Python patch versions [ci] ([@cdce8p] - [#78830])
+- Fix parsing Eve Energy characteristic data ([@Jc2k] - [#78880]) ([homekit_controller docs])
+- Check Surveillance Station permissions during setup of Synology DSM integration ([@mib1185] - [#78884]) ([synology_dsm docs])
+- Handle default RSSI values from bleak in bluetooth ([@bdraco] - [#78908]) ([bluetooth docs])
+- Disable force update Netatmo ([@balloob] - [#78913]) ([netatmo docs])
+- Correct return typing for `catch_log_exception` ([@jbouwh] - [#78399])
+- Fix samsungtv to abort when ATTR_UPNP_MANUFACTURER is missing ([@bdraco] - [#78895]) ([samsungtv docs])
+- Handle timeout fetching bond token in config flow ([@bdraco] - [#78896]) ([bond docs])
+- Bump bimmer_connected to 0.10.4 ([@rikroe] - [#78910]) ([bmw_connected_drive docs]) (dependency)
+
+[#77387]: https://github.com/home-assistant/core/pull/77387
+[#77525]: https://github.com/home-assistant/core/pull/77525
+[#77583]: https://github.com/home-assistant/core/pull/77583
+[#77968]: https://github.com/home-assistant/core/pull/77968
+[#77972]: https://github.com/home-assistant/core/pull/77972
+[#78081]: https://github.com/home-assistant/core/pull/78081
+[#78169]: https://github.com/home-assistant/core/pull/78169
+[#78289]: https://github.com/home-assistant/core/pull/78289
+[#78399]: https://github.com/home-assistant/core/pull/78399
+[#78410]: https://github.com/home-assistant/core/pull/78410
+[#78438]: https://github.com/home-assistant/core/pull/78438
+[#78547]: https://github.com/home-assistant/core/pull/78547
+[#78703]: https://github.com/home-assistant/core/pull/78703
+[#78713]: https://github.com/home-assistant/core/pull/78713
+[#78716]: https://github.com/home-assistant/core/pull/78716
+[#78738]: https://github.com/home-assistant/core/pull/78738
+[#78780]: https://github.com/home-assistant/core/pull/78780
+[#78791]: https://github.com/home-assistant/core/pull/78791
+[#78802]: https://github.com/home-assistant/core/pull/78802
+[#78827]: https://github.com/home-assistant/core/pull/78827
+[#78830]: https://github.com/home-assistant/core/pull/78830
+[#78880]: https://github.com/home-assistant/core/pull/78880
+[#78884]: https://github.com/home-assistant/core/pull/78884
+[#78895]: https://github.com/home-assistant/core/pull/78895
+[#78896]: https://github.com/home-assistant/core/pull/78896
+[#78908]: https://github.com/home-assistant/core/pull/78908
+[#78910]: https://github.com/home-assistant/core/pull/78910
+[#78913]: https://github.com/home-assistant/core/pull/78913
+[@Jc2k]: https://github.com/Jc2k
+[@N1c093]: https://github.com/N1c093
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@mib1185]: https://github.com/mib1185
+[@rikroe]: https://github.com/rikroe
+[@starkillerOG]: https://github.com/starkillerOG
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[bluetooth docs]: /integrations/bluetooth/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[bond docs]: /integrations/bond/
+[frontend docs]: /integrations/frontend/
+[google_assistant docs]: /integrations/google_assistant/
+[guardian docs]: /integrations/guardian/
+[homekit_controller docs]: /integrations/homekit_controller/
+[imap docs]: /integrations/imap/
+[mqtt docs]: /integrations/mqtt/
+[netatmo docs]: /integrations/netatmo/
+[rainmachine docs]: /integrations/rainmachine/
+[samsungtv docs]: /integrations/samsungtv/
+[switchbot docs]: /integrations/switchbot/
+[synology_dsm docs]: /integrations/synology_dsm/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
 
 ## Need help? Join the community
 
