@@ -14,7 +14,6 @@ ha_integration_type: integration
 The `mqtt_room` sensor platform allows you to detect the indoor location of devices using MQTT clients.
 
 ## Configuration
-
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -48,6 +47,11 @@ away_timeout:
   description: The time in seconds after which the state should be set to `not_home` if there were no updates. `0` disables the check.
   required: false
   default: 0
+  type: integer
+extra_rooms:
+  description: "Have the integration track any number of extra rooms/base stations in addition to the closest base station. The next most closest base stations and their distance will be stored in the extra_rooms sensor attribute. This data can be used for improved tracking, tie-breaking and semi-triangulation."
+  default: 0
+  required: false
   type: integer
 {% endconfiguration %}
 
