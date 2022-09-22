@@ -767,7 +767,7 @@ Switching does not require renaming your devices.
 
 The official add-on provides the Z-Wave Server in its bare minimum variant, just enough to serve the Home Assistant integration.
 
-The Z-Wave JS UI project includes the Z-Wave JS Server for convenience but also provides a Z-Wave Control panel and the ability to serve your Z-Wave network to MQTT. This allows you to use the Control Panel, and if you so choose, to also use MQTT at the same time. For example, some users may use MQTT to interact with Z-Wave from other devices, while the Home Assistant integration still works (as long as you keep the WS Server enabled in Z-Wave JS UI).
+The Z-Wave JS UI project includes the Z-Wave JS Server for convenience but also provides a Z-Wave Control panel and the ability to serve your Z-Wave network to MQTT. This allows you to use the control panel, and if you so choose, to also use MQTT at the same time. For example, some users may use MQTT to interact with Z-Wave from other devices, while the Home Assistant integration still works (as long as you keep the WS Server enabled in Z-Wave JS UI).
 
 #### Z-Wave JS UI seems to provide discovery of Home Assistant devices on its own too, now I'm confused
 
