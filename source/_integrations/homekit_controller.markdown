@@ -83,6 +83,14 @@ HomeKit controller will poll your devices, but it will also automatically enable
 
 HomeKit Controller will automatically discover Bluetooth devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. Bluetooth devices may take significantly longer to pair than IP devices. Battery-powered devices may require pressing a button on the device to wake it before pairing can be successful.
 
+## Thread device support
+
+In order to use HomeKit over Thread you need a working border router (like a HomePod mini). Your Home Assistant instance will need to be on the same VLAN as the border router.
+
+HomeKit Controller will automatically discover supported Thread devices using the [Zeroconf](/integrations/zerconf) integration. Battery powered devices may go to sleep and require a button pressing to wake them up before pairing works.
+
+In order to provision a Thread device onto a mesh network using a HomePod as a border router, first pair it with an iOS device. Then unpair it from the Home app. Don't reset it. This will leave the Thread network details on the device. Home Assistant can now pair with it over Thread.
+
 ## 'Stateless' switches and sensors
 
 Some HomeKit devices (like buttons, remotes and doorbells) don't have sensors that can be read like a normal HomeKit device - they only inform Home Assistant when something happens. This means Home Assistant can't show an entity for them, as they have no state. But they are available for use as [device automations](/integrations/device_automation/).
