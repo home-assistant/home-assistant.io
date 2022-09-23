@@ -103,22 +103,25 @@ This will create the notification entry shown above.
 
 ### Example Markdown variable notification
 
+{% raw %}
+
 ```yaml
 service: persistent_notification.create
 data:
   notification_id: os-agent            ## <<< this can be whatever 12343232
   title: "There is an update in Os-Agent!"
   message: >-
-    OS_Agent \{{ states('sensor.home_assistant_os_agent_latest_tag') }\} is
+    OS_Agent {{ states('sensor.home_assistant_os_agent_latest_tag') }} is
     available<br></br> [os-agent](https://github.com/home-assistant/os-agent)
     <br></br> wget
-    https://github.com/home-assistant/os-agent/releases/download/\{{
+    https://github.com/home-assistant/os-agent/releases/download/{{
     states('sensor.home_assistant_os_agent_latest_tag')
-    }\}/os-agent_1.4.0_linux_x86_64.deb<br></br> sudo dpkg -i os-agent_\{{
+    }}/os-agent_1.4.0_linux_x86_64.deb<br></br> sudo dpkg -i os-agent_{{
     states('sensor.home_assistant_os_agent_latest_tag')
-    }\}_linux_x86_64.deb<br></br>
+    }}_linux_x86_64.deb<br></br>
 
 ```
+{% endraw %}
 
 This is the output.
 
