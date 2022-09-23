@@ -87,7 +87,7 @@ HomeKit Controller will automatically discover Bluetooth devices once the [Bluet
 
 In order to use HomeKit over Thread you need a working border router (like a HomePod mini). Your Home Assistant instance will need to be on the same VLAN as the border router.
 
-HomeKit Controller will automatically discover supported Thread devices using the [Zeroconf](/integrations/zerconf) integration. Battery powered devices may go to sleep and require a button pressing to wake them up before pairing works.
+HomeKit Controller will automatically discover supported Thread devices using the [Zeroconf](/integrations/zeroconf) integration. Battery powered devices may go to sleep and require a button pressing to wake them up before pairing works.
 
 In order to provision a Thread device onto a mesh network using a HomePod as a border router, first pair it with an iOS device. Then unpair it from the Home app. Don't reset it. This will leave the Thread network details on the device. Home Assistant can now pair with it over Thread.
 
