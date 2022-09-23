@@ -23,3 +23,9 @@ We have worked with creator [Marcel Zuidwijk](https://www.zuidwijk.com) to devel
 
 ![Photo of SlimmeLezer attached to a smart electricity meter](/images/docs/energy/slimmelezer.jpg)
 
+
+## Project: AI-on-the-Edge
+
+Checkout [AI-on-the-Edge project](https://github.com/jomjol/AI-on-the-edge-device).
+
+It uses a ESP32-CAM module (about 10 €) to read analog and digital meters with AI and publishes the value via MQTT.
