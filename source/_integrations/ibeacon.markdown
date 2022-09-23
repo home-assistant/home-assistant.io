@@ -18,7 +18,9 @@ ha_integration_type: integration
 
 {% include integrations/config_flow.md %}
 
-iBeacon devices will be automatically detected and added as they are discovered once the integration has been added via the UI.
+iBeacons are Bluetooth-enabled devices that advertise identifiers to announce their location. For example, an iBeacon attached to a trash can be used to determine if the trash can is in the garage or on the street. Home Assistant can estimate the distance of an iBeacon device in proximity to the nearest Bluetooth adapter.
+
+iBeacon devices will be automatically detected and added as they are discovered once the integration has been added via the UI and the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
 iBeacon Devices are tracked by a combination of the following data:
 
@@ -49,4 +51,32 @@ iBeacons with a random MAC address will be combined into a single set of entitie
 
 The integration will create an Estimated Distance sensor by default. This estimated distance assumes perfect RF conditions and line of sight between the iBeacon and the Bluetooth adapter. Estimated distance is generally only helpful to tell if the iBeacon is in the immediate vicinity, near, or far away from the adapter. If the system has multiple adapters, the adapter with the best RSSI value for the iBeacon will be the one reporting the distance. As this can change, checking the source attribute when considering the distance is essential.
 
+## Example automation
 
+```yaml
+alias: The black trash can has left the building
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.black_trash_bin_estimated_distance
+    to: unavailable
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  - platform: numeric_state
+    entity_id: sensor.black_trash_bin_estimated_distance
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+    above: 20
+condition: []
+action:
+  - service: notify.notify
+    data:
+      message: The black trash can has left the building
+      title: The black trash can has left the building
+mode: single
+```
