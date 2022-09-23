@@ -101,7 +101,7 @@ Choose the **Services** tab from the **Developer Tools** sidebar item, then sele
 ```
 This will create the notification entry shown above.
 
-### Example markdown variable notification 
+### Example Markdown variable notification
 
 ```yaml
 service: persistent_notification.create
@@ -119,6 +119,5 @@ data:
     }}_linux_x86_64.deb<br></br>
 
 ```
-
 
 ![persistant_notification_msgCapture](https://user-images.githubusercontent.com/36288425/191888076-0895e15a-2cc2-4e31-9755-c758135b108e.PNG)
