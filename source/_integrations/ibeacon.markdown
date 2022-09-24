@@ -39,13 +39,13 @@ Consider setting up your iBeacons with a schema similar to the following:
 
 iBeacon devices that do not have stable Major and Minor values are not supported. The system automatically removes iBeacon devices with unstable Major and Minor values once ten (10) or more Major and Minor values have been seen with the same UUID from an iBeacon device with a fixed MAC address.
 
-## Fixed MAC address iBeacons
+## iBeacons with Fixed MAC addresses
 
 iBeacons with a fixed MAC address will get their own set of entities for each UUID, major, minor, and MAC address combination, enabling distance and presence detection per physical device basis. In this type of setup, it is permissible to have multiple iBeacons broadcasting the same UUID, Major, and Minor combination as long as you do not exceed five devices.
 
-## Random MAC address iBeacons
+## iBeacon with randomized MAC addresses
 
-iBeacons with a random MAC address will be combined into a single set of entities once the integration discovers the same UUID, Major, and Minor combination has been seen coming from 10 or more MAC addresses. This allows distance and presence detection based on the last reporting data. When using random MAC addresses, only one device must broadcast the unique UUID, Major, and Minor combination.
+iBeacons with a randomized MAC address will be combined into a single set of entities once the integration discovers the same UUID, Major, and Minor combination has been seen coming from 10 or more MAC addresses. This allows distance and presence detection based on the last reporting data. When using randomized MAC addresses, only one device must broadcast the unique UUID, Major, and Minor combination.
 
 ## Sensors
 
