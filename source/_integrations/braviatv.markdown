@@ -2,6 +2,7 @@
 title: Sony Bravia TV
 description: Instructions on how to integrate a Sony Bravia TV into Home Assistant.
 ha_category:
+  - Button
   - Media Player
   - Remote
 ha_release: 0.23
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: braviatv
 ha_config_flow: true
 ha_platforms:
+  - button
   - media_player
   - remote
 ha_integration_type: integration
@@ -64,6 +66,10 @@ The commands that can be sent to the TV depends on the model of your TV. To disp
 - Num9
 
 {% enddetails %}
+
+## Buttons
+
+The integration supports `button` platform and allows you to reboot the device or terminate all running applications.
 
 {% include integrations/option_flow.md %}
 
