@@ -43,7 +43,7 @@ iBeacon devices that do not have stable Major and Minor values are not supported
 
 iBeacons with a fixed MAC address will get their own set of entities for each UUID, major, minor, and MAC address combination, enabling distance and presence detection per physical device basis. In this type of setup, it is permissible to have multiple iBeacons broadcasting the same UUID, Major, and Minor combination as long as you do not exceed five devices.
 
-## iBeacon with randomized MAC addresses
+## Randomized MAC addresses
 
 iBeacons with a randomized MAC address will be combined into a single set of entities once the integration discovers the same UUID, Major, and Minor combination has been seen coming from 10 or more MAC addresses. This allows distance and presence detection based on the last reporting data. When using randomized MAC addresses, only one device must broadcast the unique UUID, Major, and Minor combination.
 
