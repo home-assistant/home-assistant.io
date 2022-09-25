@@ -5,6 +5,7 @@ ha_category:
   - Camera
   - System Monitor
   - Update
+  - Media Source
 ha_release: 0.32
 ha_iot_class: Local Polling
 ha_domain: synology_dsm
@@ -22,10 +23,11 @@ ha_platforms:
   - sensor
   - switch
   - update
+  - media_source
 ha_integration_type: integration
 ---
 
-The Synology DSM sensor platform provides access to various statistics from your [Synology NAS](https://www.synology.com) as well as cameras from the [Surveillance Station](https://www.synology.com/en-us/surveillance).
+The Synology DSM integration provides access to various statistics from your [Synology NAS](https://www.synology.com) (_DSM 5.x and higher_) as well as cameras from the [Surveillance Station](https://www.synology.com/en-us/surveillance).
 
 {% include integrations/config_flow.md %}
 
@@ -51,6 +53,8 @@ In this case, it is recommended to use NIC bonding instead or to deactivate SSDP
 Due to the nature of the Synology DSM API, it is required to grant the user admin rights. This is related to the fact that utilization information is stored in the core module.
 
 When creating the user, it is possible to deny access to all locations and applications. By doing this, the user will not be able to login to the web interface or view any of the files on the Synology NAS. It is still able to read the utilization and storage information using the API.
+
+If you want to add cameras from [Surveillance Station](https://www.synology.com/en-us/surveillance), the user needs application permission for [Surveillance Station](https://www.synology.com/en-us/surveillance).
 
 ### If you utilize 2-Step Verification or Two Factor Authentication (2FA) with your Synology NAS
 
@@ -123,3 +127,10 @@ Reboot the NAS.
 ### Button `shutdown`
 
 Shutdown the NAS.
+
+## Media Source
+A media source is provided for your [Synology Photos](https://www.synology.com/en-global/dsm/feature/photos).
+The media source URIs will look like `media-source://synology_dsm/<unique_id>/<album_id>/<image>`.
+This media browser supports multiple Synology Photos instances>. `<unique_id>` is the Home Assistant ID for the Nas. You can find this id when using the media browser, when you hover over the nas name, you get shown the simple name followed by the unique id ex: `192.168.0.100:5001 - 18C0PEN253705`. 
+To find the `<album_id>` you need to go to the album in your photos instance, and the id will be in the url ex: `https://192.168.0.100:5001/#/album/19`, where 19 is the album id. An `<album_id>` of 0 will contain all images.
+For performance reasons a maximum of 1000 images will be shown in the Media Browser.
