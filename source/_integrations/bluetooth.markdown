@@ -28,16 +28,23 @@ While this integration is part of [`default_config:`](/integrations/default_conf
 bluetooth:
 ```
 
-## D-Bus and BlueZ are required on Linux
+## Requirements for Linux systems
 
-For Bluetooth to function on Linux systems, the [D-Bus](https://en.wikipedia.org/wiki/D-Bus) socket must be accessible to Home Assistant. The Bluetooth adapter must be accessible to D-Bus and running [BlueZ](http://www.bluez.org/) >= 5.43.
+For Bluetooth to function on Linux systems:
 
-- Home Assistant Operating System: no additional steps are required. Home Assistant OS version 8.4 or later is recommended for performance reasons.
+- The [D-Bus](https://en.wikipedia.org/wiki/D-Bus) socket must be accessible to Home Assistant. 
+- The Bluetooth adapter must be accessible to D-Bus and running [BlueZ](http://www.bluez.org/) >= 5.43. It is highly recommended to use BlueZ >= 5.63 as older versions have been reported to be unreliable.
+- The D-Bus implementation should be [dbus-broker](https://github.com/bus1/dbus-broker).
+- The host system should be running Linux kernel 5.15.62 or later.
+
+### Additional requirements by install method
+
+- Home Assistant Operating System: Upgrade to Home Assistant OS version 9.0 or later.
 - Home Assistant Container: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
 - Home Assistant Supervised: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
 - Home Assistant Core: The system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant.
 
-### Additional details for Container installs
+### Additional details for Container, Core, and Supervised installs
 
 {% details Making the DBus socket available in the Docker container %}
 
@@ -45,7 +52,11 @@ For most systems, the Dbus socket is in `/run/dbus`. The socket must be availabl
 
 {% enddetails %}
 
-### Additional details for Container and Supervised installs
+{% details Switching from dbus-daemon to dbus-broker %}
+
+Follow [the instructions](https://github.com/bus1/dbus-broker/wiki) to switch to dbus-broker.
+
+{% enddetails %}
 
 {% details Installing BlueZ %}
 
