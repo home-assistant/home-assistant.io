@@ -108,7 +108,7 @@ This will create the notification entry shown above.
 ```yaml
 service: persistent_notification.create
 data:
-  notification_id: os-agent            ## <<< this can be whatever 12343232
+  notification_id: os-agent
   title: "There is an update in Os-Agent!"
   message: >-
     OS_Agent {{ states('sensor.home_assistant_os_agent_latest_tag') }} is
