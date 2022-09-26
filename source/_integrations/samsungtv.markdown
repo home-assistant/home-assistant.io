@@ -4,17 +4,19 @@ description: Instructions on how to integrate a Samsung Smart TV into Home Assis
 ha_category:
   - Media Player
 ha_release: 0.13
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - '@escoand'
   - '@chemelli74'
+  - '@epenet'
 ha_domain: samsungtv
 ha_ssdp: true
 ha_platforms:
+  - diagnostics
   - media_player
 ha_zeroconf: true
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).
@@ -87,13 +89,15 @@ media_content_type: channel
 #### Selecting a source
 
 It's possible to switch between the 2 sources `TV` and `HDMI`.
+Some older models also expose the installed applications through the WebSocket, in which case the source list is adjusted accordingly.
 
-### Home Assistant Core additional requirements
+### Known issues and restrictions
 
-You will need to install the `websocket-client` Python package in your Home Assistant install. This will probably be done with:
+#### Subnet/VLAN
 
-```bash
-pip3 install websocket-client
-```
+Samsung SmartTV does not allow WebSocket connections across different subnets or VLANs. If your TV is not on the same subnet as Home Assistant this will fail.
+It may be possible to bypass this issue by using IP masquerading or a proxy.
 
-Remembering to activate your venv if you're using a venv install.
+#### H and J models
+
+Some televisions from the H and J series use an encrypted protocol and require manual pairing with the TV. This should be detected automatically when attempting to send commands using the WebSocket connection, and trigger the corresponding authentication flow.

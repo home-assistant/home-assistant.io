@@ -14,6 +14,7 @@ ha_platforms:
   - binary_sensor
   - cover
   - sensor
+ha_integration_type: integration
 ---
 
 The OpenGarage integration lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.

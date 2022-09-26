@@ -2,11 +2,11 @@
 title: Abode
 description: Instructions on integrating Abode home security with Home Assistant.
 ha_category:
-  - Hub
   - Alarm
   - Binary Sensor
   - Camera
   - Cover
+  - Hub
   - Light
   - Lock
   - Sensor
@@ -27,6 +27,7 @@ ha_platforms:
   - lock
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `abode` integration will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.
@@ -58,6 +59,7 @@ They are grouped into the below events:
 - **abode_panel_restore**: Fired when the panel fault is restored.
 - **abode_disarm**: Fired when the alarm is disarmed.
 - **abode_arm**: Fired when the alarm is armed (home or away).
+- **abode_arm_fault**: Fired when the alarm is armed (home or away) and has a fault. This includes open door/windows, low battery, backup connection. abode_arm is not fired if a fault is present.
 - **abode_test**: Fired when a sensor is in test mode.
 - **abode_capture**: Fired when an image is captured.
 - **abode_device**: Fired for device changes/additions/deletions.

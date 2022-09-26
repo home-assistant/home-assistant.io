@@ -8,6 +8,9 @@ ha_release: 0.79
 ha_domain: geo_json_events
 ha_codeowners:
   - '@exxamalte'
+ha_platforms:
+  - geo_location
+ha_integration_type: integration
 ---
 
 The `geo_json_events` platform lets you integrate GeoJSON feeds. It retrieves events from a feed and shows information of those events filtered by distance to Home Assistant's location.

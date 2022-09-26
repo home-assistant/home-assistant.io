@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_platforms:
   - climate
   - sensor
+ha_integration_type: integration
 ---
 
 Integrates Mill heater into Home Assistant.

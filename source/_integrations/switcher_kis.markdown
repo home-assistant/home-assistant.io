@@ -13,6 +13,8 @@ ha_platforms:
   - sensor
   - switch
 ha_config_flow: true
+ha_quality_scale: platinum
+ha_integration_type: integration
 ---
 
 This `Switcher` integration allows you to control your [Switcher Devices](https://www.switcher.co.il/).
@@ -61,3 +63,7 @@ Note: This does not affect the auto off timer.
 | ------------- | --------- | -------------------------------------------------------------------------------------- | -------------------------- |
 | `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation  | switch.switcher_kis_boiler |
 | `timer_minutes`    | Yes       | Integer containing timer minutes (valid range 1 to 150)                                      | 90                    |
+
+## Notes
+
+If Home Assistant and your Switcher are not on the same network, you need to create a firewall rule, which allows a connection on port 20002 with the UDP protocol from Switcher to your Home Assistant and port 9957 with the TCP protocol from Home Assistant to your Switcher.

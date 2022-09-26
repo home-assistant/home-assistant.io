@@ -4,7 +4,9 @@ description: Integrate Shelly devices
 ha_category:
   - Binary Sensor
   - Cover
+  - Energy
   - Light
+  - Number
   - Sensor
   - Switch
 ha_release: 0.115
@@ -21,10 +23,14 @@ ha_zeroconf: true
 ha_platforms:
   - binary_sensor
   - button
+  - climate
   - cover
+  - diagnostics
   - light
+  - number
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
@@ -77,6 +83,16 @@ The integration uses the following strategy to name its entities:
 
 - If `Channel Name` is set in the device, the integration will use it to generate the entities' name, e.g. `Kitchen Light`
 - If `Channel Name` is set to the default value, the integration will use the `Device ID` and default channel name to generate the entities' name, e.g. `ShellyPro4PM-9808D1D8B912 switch_0`.
+
+## Binary input sensors
+
+### Binary input sensors (generation 1)
+
+Depending on how a device's button type is configured, the integration will create binary sensors corresponding to those inputs. binary sensors are not created when the button type is `momentary` or `momentary_on_release`, for these types you need to use events for your automations.
+
+### Binary input sensors (generation 2)
+
+For generation 2 hardware it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the input mode is set to `switch`. When the input is of type `button` you need to use events for your automations.
 
 ## Events
 
@@ -223,6 +239,16 @@ Trigger reboot of device.
 
 - Reboot
   - triggers the reboot
+
+## Shelly Thermostatic Radiator Valve (TRV)
+
+Shelly TRV generates 2 entities that can be used to control the device behavior: `climate` and `number`.
+The first will allow specifying a temperature, the second instead of a percentage of the valve position.
+
+**Note**: that if you change the valve position then automatic temperature control
+ will be disabled.
+As soon as you change the temperature, it gets enabled again.
+
 ## CoAP port (generation 1)
 
 In some cases, it may be needed to customize the CoAP port (default: `5683`) your Home Assistant instance is listening to.
@@ -245,6 +271,5 @@ Please check from the device Web UI that the configured server is reachable.
 - Only supports firmware 1.8 and later for generation 1 devices
 - Only supports firmware 0.8 and later for generation 2 devices
 - Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
-- Device authentication for generation 2 devices is not supported
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - OTA update service does not support battery-powered devices

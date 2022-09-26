@@ -3,11 +3,13 @@ title: Counter
 description: Instructions on how to integrate counters into Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 0.53
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: counter
+ha_integration_type: helper
 ---
 
 The `counter` integration allows one to count occurrences fired by automations.
@@ -15,7 +17,7 @@ The `counter` integration allows one to count occurrences fired by automations.
 ## Configuration
 
 The preferred way to configure counter helpers is via the user interface. To add one, go to
-**{% my helpers title="Configuration -> Helpers" %}** and click the add button;
+**{% my helpers title="Settings -> Devices & Services -> Helpers" %}** and click the add button;
 next choose the "**Counter**" option.
 
 To be able to add **Helpers** via the user interface you should have
@@ -45,7 +47,7 @@ counter:
       required: false
       type: string
     initial:
-      description: Initial value when Home Assistant starts or the counter is reset.
+      description: Initial value (0 or positive integer) when Home Assistant starts or the counter is reset.
       required: false
       type: integer
       default: 0
@@ -79,7 +81,7 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 
 This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity has `restore` set to `true`, which is the default. To disable this feature, set `restore` to `false`.
 
-If `restore` is set to `false`, the `initial` value will only be used when no previous state is found or when the counter is reset.
+If `restore` is set to `true`, the `initial` value will only be used when no previous state is found or when the counter is reset.
 
 ## Services
 

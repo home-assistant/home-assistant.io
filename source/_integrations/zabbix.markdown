@@ -2,13 +2,14 @@
 title: Zabbix
 description: Instructions on how to integrate Zabbix into Home Assistant.
 ha_category:
-  - System Monitor
   - Sensor
+  - System Monitor
 ha_release: 0.37
 ha_iot_class: Local Polling
 ha_domain: zabbix
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `zabbix` integration is the main integration to connect to a [Zabbix](https://www.zabbix.com/) monitoring instance via the Zabbix API.
@@ -133,23 +134,7 @@ zabbix:
 
 {% endraw %}
 
-Filters are applied as follows:
-
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes:
-   - Include domain and/or glob patterns specified
-      - If domain is included, and entity not excluded or match exclude glob pattern, pass
-      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
-      - If domain is not included, glob pattern does not match, and entity not included, fail
-   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - If domain is excluded and entity not included, fail
-      - If entity matches exclude glob pattern and entity not included, fail
-      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
-   - Neither include or exclude specifies domains or glob patterns
-      - If entity is included, pass (as #2 above)
-      - If entity include and exclude, the entity exclude is ignored
+{% include common-tasks/filters.md %}
 
 ## Sensor
 

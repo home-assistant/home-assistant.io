@@ -11,6 +11,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
 ha_zeroconf: true
+ha_platforms:
+  - diagnostics
+ha_integration_type: integration
 ---
 
 The HomeKit integration allows you to make your Home Assistant entities available in Apple HomeKit,
@@ -156,6 +159,10 @@ homekit:
               type: string
             linked_doorbell_sensor:
               description: The `entity_id` of a `binary_sensor` entity to use as the doorbell sensor of the camera accessory to enable doorbell notifications. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+              required: false
+              type: string
+            linked_humidity_sensor:
+              description: The `entity_id` of a `sensor` entity to use as the humidity sensor of the humidifier/dehumidifier accessory. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
               required: false
               type: string
             linked_motion_sensor:
@@ -306,7 +313,7 @@ The HomeKit Accessory Protocol Specification only allows a maximum of 150 unique
 
 ### Multiple HomeKit instances
 
-If you create a HomeKit integration via the UI (i.e., **Configuration** >> **Integrations**), it must be configured via the UI **only**. While the UI only offers limited configuration options at the moment, any attempt to configure a HomeKit instance created in the UI via the `configuration.yaml` file will result in another instance of HomeKit running on a different port.
+If you create a HomeKit integration via the UI (i.e., **Settings** -> **Devices & Services**), it must be configured via the UI **only**. While the UI only offers limited configuration options at the moment, any attempt to configure a HomeKit instance created in the UI via the `configuration.yaml` file will result in another instance of HomeKit running on a different port.
 
 It is recommended to only edit a HomeKit instance in the UI that was created in the UI, and likewise, only edit a HomeKit instance in YAML that was created in YAML.
 
@@ -316,7 +323,7 @@ When exposing a Camera, Activity based remote (a `remote` that supports activiti
 
 To quickly add all accessory mode entities in the UI:
 
-1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Configuration >> Integrations" domain=page.ha_domain %}**).
+1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings >> Devices & Services" domain=page.ha_domain %}**).
 2. Select `media_player`, `remote`, `lock`, and `camera` domains.
 3. Complete the flow as normal.
 4. Additional HomeKit entries for each entity that must operate in accessory mode will be created for each entity that does not already have one.
@@ -325,7 +332,7 @@ To quickly add all accessory mode entities in the UI:
 
 To add a single entity in accessory mode:
 
-1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Configuration >> Integrations" domain=page.ha_domain %}**)
+1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings >> Devices & Services" domain=page.ha_domain %}**)
 2. Before pairing the bridge, access the options for the bridge.
 3. Change the mode to `accessory`
 4. Select the entity.
@@ -334,7 +341,7 @@ To add a single entity in accessory mode:
 
 ## Configure Filter
 
-By default, no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
+By default, all entities except categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -349,23 +356,9 @@ homekit:
       - light.kitchen_light
 ```
 
-Filters are applied as follows:
+{% include common-tasks/filters.md %}
 
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes:
-   - Include domain and/or glob patterns specified
-      - If domain is included, and entity not excluded or match exclude glob pattern, pass
-      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
-      - If domain is not included, glob pattern does not match, and entity not included, fail
-   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - If domain is excluded and entity not included, fail
-      - If entity matches exclude glob pattern and entity not included, fail
-      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
-   - Neither include or exclude specifies domains or glob patterns
-      - If entity is included, pass (as #2 above)
-      - If entity include and exclude, the entity exclude is ignored
+Categorized entities are not included (config, diagnostic, and system entities) unless they are explicitly matched by `include_entity_globs` or `include_entities` or selected in the UI in include mode.
 
 ## Docker Network Isolation
 
@@ -413,7 +406,7 @@ The following integrations are currently supported:
 | lock | DoorLock | Support for `lock / unlock`. |
 | media_player | MediaPlayer | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`. |
 | media_player | TelevisionMediaPlayer | All media players that have `tv` as their `device_class`.  Represented as Television and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later. |
-| sensor | TemperatureSensor | All sensors that have `Celsius` or `Fahrenheit` as their `unit_of_measurement` or `temperature` as their `device_class`. |
+| sensor | TemperatureSensor | All sensors that have `°C` or `°F` as their `unit_of_measurement` and `temperature` as their `device_class`. |
 | sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`. |
 | sensor | AirQualitySensor | All sensors that have `pm25` as part of their `entity_id` or `pm25` as their `device_class` |
 | sensor | CarbonMonoxideSensor | All sensors that have `co` as their `device_class` |
@@ -425,7 +418,7 @@ The following integrations are currently supported:
 
 # Device Triggers
 
-Devices that support triggers can be added to the bridge by accessing options for the bridge in **{% my integrations title="Configuration >> Integrations" %}**.
+Devices that support triggers can be added to the bridge by accessing options for the bridge in **{% my integrations title="Settings >> Devices & Services" %}**. To use this feature, Advanced Mode must be enabled in your user profile.
 
 Bridged device triggers are represented as a single press button on stateless programmable switches. This allows a HomeKit automation to run when a device trigger fires. Because the Apple Home app currently only shows the number of the button and not the name, users may find it easier to identify the name of the button in the `Eve for HomeKit` app.
 
@@ -454,6 +447,25 @@ automation:
     packet: XXXXXXXX
 ```
 
+## Events
+
+The HomeKit integration emits `homekit_state_change` events. These events can be used in automations to know when an entity's state was changed from HomeKit.
+
+```yaml
+# Example for handling a HomeKit event
+automation:
+  trigger:
+    - platform: event
+      event_type: homekit_state_change
+      event_data:
+        entity_id: cover.garage_door
+        service: open_cover
+  action:
+    - service: persistent_notification.create
+      data:
+        message: "The garage door got opened via HomeKit"
+```
+
 ## Troubleshooting
 
 ### All or some devices are intermittently unresponsive
@@ -479,15 +491,15 @@ The following home hubs have been reported to have trouble with a large number o
 
 ### Resetting when created via YAML
 
- 1. Delete the `HomeKit` integration in the **{% my integrations %}** screen.
+ 1. Delete the `HomeKit` integration in the **{% my integrations %}** panel.
  2. **Restart** Home Assistant.
  3. The configuration will be automatically reimported from YAML.
  4. [Pair the bridge or accessory](#setup).
 
-### Resetting when created via the **Integrations** screen
+### Resetting when created via the **Integrations** panel
 
- 1. Delete the `HomeKit` integration in the **Integrations** screen.
- 2. Recreate the `HomeKit` integration in the **Integrations** screen.
+ 1. Delete the `HomeKit` integration in the **Integrations** panel.
+ 2. Recreate the `HomeKit` integration in the **Integrations** panel.
  3. [Pair the bridge or accessory](#setup).
 
 ### Errors during pairing
@@ -539,6 +551,10 @@ You can also try to use `avahi-daemon` in reflector mode together with the optio
 
 Configure the network mode as `networkbridge`. Otherwise the Home Assistant Bridge won't be exposed to the network.
 
+#### Accessory does not appear in the Home App (for pairing) - Libvirt QEMU/KVM virtual machine with macvtap adapter
+
+Please see the [Zero-configuration networking](/integrations/zeroconf/#troubleshooting) integration for more details.
+
 #### Pairing hangs - zeroconf error
 
 Pairing eventually fails, you might see the error message, `NonUniqueNameException`, you likely need to enable `default_interface: true` in the `zeroconf` integration configuration and set a unique name such as `name: MyHASS42`.
@@ -555,6 +571,10 @@ Pairing works fine when the filter is set to only include `demo.demo`, but fails
 2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge connected to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable.
 
 ### Issues during normal use
+
+#### Bridge spontaneously unpairs
+
+Multiple users have reported that iOS 12 and earlier devices will spontaneously remove pairings. Ensure all iOS devices that have administrator access to the Home are running iOS 13 or later. If you cannot update the device to iOS 13, disable `Home` in the device iCloud settings.
 
 #### My entity doesn't show up
 
@@ -600,7 +620,7 @@ Ensure that the [`ffmpeg`](/integrations/ffmpeg) integration is configured corre
 
 #### Camera streaming is unstable or slow 
 
-If your camera supports native H.264 streams, Home Assistant can avoid converting the video stream, which is an expensive operation. To enable native H.264 streaming when configured via YAML, change the `video_codec` to `copy`. To allow native H.264 streaming when setting up HomeKit via the UI, go to **Configuration** >> **Integrations** in the UI, click **Options** for your HomeKit Bridge, and check the box for your camera on the `Cameras that support native H.264 streams` screen.
+If your camera supports native H.264 streams, Home Assistant can avoid converting the video stream, which is an expensive operation. To enable native H.264 streaming when configured via YAML, change the `video_codec` to `copy`. To allow native H.264 streaming when setting up HomeKit via the UI, go to **Settings** -> **Devices & Services** in the UI, click **Options** for your HomeKit Bridge, and check the box for your camera on the `Cameras that support native H.264 streams` screen.
 
 #### Multiple camera streams
 

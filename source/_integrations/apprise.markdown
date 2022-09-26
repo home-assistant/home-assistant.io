@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: apprise
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The [Apprise service](https://github.com/caronc/apprise/) is an all-in-one solution to open up Home Assistant to _just about_ every Notification platform (such as Amazon SNS, Discord, Telegram, Slack, MSTeams, Twilio, etc.)

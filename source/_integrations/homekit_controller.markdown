@@ -2,20 +2,21 @@
 title: HomeKit Controller
 description: Instructions for how to integrate your HomeKit devices within Home Assistant.
 ha_category:
-  - Hub
   - Alarm
+  - Binary Sensor
   - Climate
   - Cover
-  - Light
-  - Lock
-  - Switch
-  - Binary Sensor
-  - Sensor
   - Fan
   - Health
+  - Hub
   - Humidifier
+  - Light
+  - Lock
+  - Sensor
+  - Switch
 ha_release: 0.68
 ha_iot_class: Local Push
+ha_bluetooth: true
 ha_config_flow: true
 ha_codeowners:
   - '@Jc2k'
@@ -25,17 +26,21 @@ ha_zeroconf: true
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - button
   - camera
   - climate
   - cover
+  - diagnostics
   - fan
   - humidifier
   - light
   - lock
   - media_player
   - number
+  - select
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The [HomeKit](https://developer.apple.com/homekit/) controller integration allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
@@ -74,7 +79,17 @@ HomeKit IP accessories for these device types may work with some caveats:
 
 HomeKit controller will poll your devices, but it will also automatically enable push updates for accessories that support it.
 
-Home Assistant does not currently support HomeKit BLE.
+## Bluetooth device support
+
+HomeKit Controller will automatically discover Bluetooth devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. Bluetooth devices may take significantly longer to pair than IP devices. Battery-powered devices may require pressing a button on the device to wake it before pairing can be successful.
+
+## Thread device support
+
+In order to use HomeKit over Thread you need a working border router (like a HomePod mini). Your Home Assistant instance will need to be on the same VLAN as the border router.
+
+HomeKit Controller will automatically discover supported Thread devices using the [Zeroconf](/integrations/zeroconf) integration. Battery powered devices may go to sleep and require a button pressing to wake them up before pairing works.
+
+In order to provision a Thread device onto a mesh network using a HomePod as a border router, first pair it with an iOS device. Then unpair it from the Home app. Don't reset it. This will leave the Thread network details on the device. Home Assistant can now pair with it over Thread.
 
 ## 'Stateless' switches and sensors
 

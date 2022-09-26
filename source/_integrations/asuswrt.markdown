@@ -14,7 +14,9 @@ ha_codeowners:
 ha_domain: asuswrt
 ha_platforms:
   - device_tracker
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The ASUSWRT integration can connect Home Assistant to a ASUS router that runs on ASUSWRT firmware.
@@ -22,13 +24,9 @@ The ASUSWRT integration can connect Home Assistant to a ASUS router that runs on
 There is currently support for the following device types within Home Assistant:
 
 - **Presence Detection** - The ASUSWRT platform offers presence detection by looking at connected devices to a ASUSWRT based router.
-- **Sensor** - The ASUSWRT sensor platform allows you to get upload and download data from your ASUSWRT within Home Assistant.
+- **Sensor** - The ASUSWRT sensors platform allows you to get information from your ASUS router within Home Assistant.
 
-## Configuration
-
-To add your ASUSWRT devices into your Home Assistant installation, go to:
-
-**Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **ASUSWRT**.
+{% include integrations/config_flow.md %}
 
 <div class='note warning'>
 
@@ -36,7 +34,7 @@ You need to enable telnet on your router if you choose to use `protocol: telnet`
 
 </div>
 
-### Sensor Configuration
+### Sensors Configuration
 
 These sensors are automatically created and associated to the router device:
 
@@ -46,21 +44,29 @@ These sensors are automatically created and associated to the router device:
 - Upload sensor (unit_of_measurement: Gigabyte - *Daily accumulation*)
 - Upload Speed sensor (unit_of_measurement: Mbit/s)
 - Load average sensors (1min, 5min, 15min)
+- Temperature sensors (2ghz, 5ghz, cpu). NB: only temperature sensors available on your router will be created
 
-Only `Connected devices sensor` is created in status **enabled**, all other sensors are created in status **disabled**.
-To use them, simply **enable** on the devices page.
+Only `Connected devices sensor` is created in status **enabled**, all other sensors are created in status **disabled**. To use them, simply **enable** on the devices page.
 
-## Integration Options
+{% include integrations/option_flow.md %}
+{% configuration_basic %}
+Consider home:
+  description: Number of seconds that must elapse before considering a disconnected device `not at home`.
+Track unknown:
+  description: Enable this option to track also devices that do not have a name. Name will be replaced by mac address.
+Interface:
+  description: The interface that you want statistics from (e.g. eth0,eth1 etc).
+Dnsmasq:
+  description: The location in the router of the `dnsmasq.leases` file.
+Require IP:
+  description: If devices must have IP (this option is available only for access point mode).
+{% endconfiguration_basic %}
 
-It is possible to change some behaviors through the integration options. These can be changed at **ASUSWRT** -> **Options** on the Integrations page.
+<div class='note'>
 
-- **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home"
-- **Track unknown**: Enable this option to track also devices that do not have a name. Name will be replaced by mac address.
-- **Interface**: The interface that you want statistics from (e.g. eth0,eth1 etc)
-- **Dnsmasq**: The location in the router of the dnsmasq.leases files
-- **Require IP**: If devices must have IP (this option is available only for access point mode)
+If you don't want to automatically track new detected device, disable the integration system option `Enable new added entities`
 
-**Note**: if you don't want to automatically track new detected device, disable the integration system option `Enable new added entities`
+</div>
 
 ## Padavan custom firmware (The rt-n56u project)
 

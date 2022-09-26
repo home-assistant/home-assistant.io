@@ -8,6 +8,7 @@ ha_release: 0.14
 ha_domain: dlink
 ha_platforms:
   - switch
+ha_integration_type: integration
 ---
 
 The `dlink` switch platform allows you to control the state of your [D-Link Wi-Fi Smart Plugs](https://us.dlink.com/en/consumer/smart-plugs).
@@ -22,10 +23,10 @@ To use your D-Link smart plugs in your installation, add the following to your `
 ```yaml
 # Example configuration.yaml entry
 switch:
-  platform: dlink
-  host: IP_ADRRESS
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
+  - platform: dlink
+    host: IP_ADRRESS
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
 {% configuration %}

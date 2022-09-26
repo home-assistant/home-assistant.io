@@ -5,18 +5,44 @@ description: "Extended instructions how to setup Z-Wave."
 
 ## Supported Z-Wave USB Sticks & Hardware Modules
 
-You need to have a compatible Z-Wave stick or module installed. This needs to be a *static controller*, which most Z-Wave sticks and modules will be, and not a *bridge* device. The following devices have been confirmed to work:
+You need to have a compatible Z-Wave stick or module installed. The following devices have been confirmed to work with Z-Wave JS:
 
-- Aeotec Z-Stick Gen5 (see note below)
-- Everspring USB stick - Gen 5
-- GoControl HUSBZB-1 stick
-- Sigma Designs UZB stick
-- Silicon Labs SLUSB7000A
-- Vision USB stick - Gen5
-- ZWave.me Razberry Board
-- ZWave.me UZB1 stick
+<div class='note warning'>
 
-We recommend that you purchase a [Z-Wave Plus](https://z-wavealliance.org/z-wave_plus_certification/) controller, to take advantage of the improvements this provides.
+Until recently, 700 series Z-Wave Controllers had a bug that could cause the mesh to be flooded on some networks and the controller to become unresponsive. At present, all 700 series controllers share the same firmware and are subject to this bug. It appears that this bug is largely, if not completely, resolved as of firmware version 7.17.2.
+
+Users should upgrade the firmware on all 700 series controllers to version 7.17.2 or greater. Firmware can be upgraded using the below directions:
+
+- [Upgrade instructions using Linux](https://github.com/kpine/zwave-js-server-docker/wiki/700-series-Controller-Firmware-Updates-(Linux))
+- [Upgrade instructions using Windows (Aeotec)](https://help.aeotec.com/support/solutions/articles/6000252296-update-z-stick-7-with-windows)
+- [Upgrade instructions using Windows (Zooz)](https://www.support.getzooz.com/kb/article/931-how-to-perform-an-ota-firmware-update-on-your-zst10-700-z-wave-stick/)
+- [Upgrade instructions using Windows/Linux (Z-Wave.Me)](https://z-wave.me/support/uzbrazberry-firmwares/)
+
+</div>
+
+- 700 series controllers
+  - Aeotec Z-Stick 7 USB stick (ZWA010)
+  - Aeotec Z-Pi 7 Raspberry Pi HAT/Shield (ZWA025)
+  - Silicon Labs UZB-7 USB Stick (Silabs SLUSB7000A / SLUSB001A)
+  - Zooz S2 Stick 700 (ZST10 700)
+  - Z-Wave.Me RaZberry 7 (ZME_RAZBERRY7)
+  - Z-Wave.Me RaZberry 7 Pro (ZMEERAZBERRY7_ANT or ZMEURAZBERRY7_ANT)
+
+- 500 series controllers
+  - Aeotec Z-Stick Gen5 (see note below)
+  - Everspring USB stick - Gen 5
+  - GoControl HUSBZB-1 stick
+  - Sigma Designs UZB stick
+  - Vision USB stick - Gen5
+  - Z-Wave.Me UZB1 stick
+
+- Rasberry Pi Modules
+  - Aeotec Z-Pi 7 (700 series)
+  - Z-Wave.Me RaZberry 7 (700 series)
+  - Z-Wave.Me RaZberry 7 Pro (700 series)
+  - Z-Wave.Me Razberry 2 (500 series)
+
+If you are just starting out, we recommend that you purchase a 500 series controller.
 
 <div class='note'>
   If you're using Home Assistant OS, Supervised, or Container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
@@ -29,6 +55,7 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
 - [Vera](/integrations/vera/)
 - [Fibaro](/integrations/fibaro/)
 - [SmartThings](/integrations/smartthings/)
+- [Z-Wave.Me Z-Way](/integrations/zwave_me)
 
 ## Controller Notes
 

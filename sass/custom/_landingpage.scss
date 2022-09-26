@@ -331,6 +331,10 @@ $ha__primary_color: #03a9f4;
           color: #ffffff;
         }
       }
+      .banner-overlay-button.disabled {
+        background-color: #bdbdbd;
+        cursor: initial;
+       }
       .below-button {
         margin-top: 8px;
         text-align: center;

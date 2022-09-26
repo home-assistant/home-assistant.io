@@ -8,9 +8,12 @@ ha_release: 0.19
 ha_domain: fitbit
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Fitbit sensor allows you to expose data from [Fitbit](https://fitbit.com/) to Home Assistant.
+
+Prior to enabling the sensor, your Home Assistant instance must be enabled with SSL, using services such as [Home Assistant cloud](/cloud/) or [Duck DNS](/integrations/duckdns/) integrating Let's Encrypt. Fitbit will not allow insecure integrations. Your Fitbit account must also be registered as an Developer account at the [Fitbit Developer Portal](https://dev.fitbit.com), and have a verified email address. 
 
 Enable the sensor by adding the following to your `configuration.yaml` file:
 
@@ -23,7 +26,7 @@ sensor:
       - "body/weight"
 ```
 
-Restart Home Assistant once this is complete. Go to the frontend. You will see a new entry for configuring Fitbit. Follow the instructions there to complete the setup process.
+Restart Home Assistant once this is complete. Go to the frontend. You will see a new notification for configuring Fitbit. Follow the instructions there to complete the setup process. You will need to visit this notification multiple times to set your API keys and authorize your custom app with your Fitbit account.
 
 Please be aware that Fitbit has very low rate limits, 150 per user per hour. The clock resets at the _top_ of the hour (meaning it is not a rolling 60 minutes). There is no way around the limits. Due to the rate limits, the sensor only updates every 30 minutes. You can manually trigger an update by restarting Home Assistant. Keep in mind that 1 request is used for every entry in `monitored_resources`.
 

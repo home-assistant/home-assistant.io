@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.37
 ha_domain: microsoft_face_identify
+ha_integration_type: integration
 ---
 
 The `microsoft_face_identify` image processing platform lets you use

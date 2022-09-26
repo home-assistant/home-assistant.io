@@ -2,10 +2,10 @@
 title: Vultr
 description: Instructions on how to integrate Vultr within Home Assistant.
 ha_category:
-  - System Monitor
   - Binary Sensor
   - Sensor
   - Switch
+  - System Monitor
 ha_release: 0.58
 ha_iot_class: Cloud Polling
 ha_domain: vultr
@@ -13,6 +13,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `vultr` integration allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.

@@ -11,9 +11,10 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@tkdrob'
+ha_integration_type: integration
 ---
 
-This `radarr` sensor platform pulls data from a given [Radarr](https://radarr.video/) instance.
+This Radarr integration pulls data from a given [Radarr](https://radarr.video/) instance.
 Your API key can be found in Settings > General in the Radarr Web UI.
 
 {% include integrations/config_flow.md %}
@@ -22,7 +23,7 @@ Your API key can be found in Settings > General in the Radarr Web UI.
 
 Each added configuration entry will create the following sensors:
 
-- **Disk Space**: Shows the diskspace available to Radarr.
+- **Disk Space**: Shows the disk space available to Radarr.
 - **Upcoming**: Shows the number of upcoming movie releases from the Radarr calendar.
 - **Movies**: Shows the number of movies in the Radarr database. (disabled by default)
 - **Commands**: Shows the number of recently ran and pending tasks.

@@ -8,6 +8,7 @@ ha_release: 0.36
 ha_domain: dublin_bus_transport
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `dublin_bus_transport` sensor will give you the time until the next two departures from a Dublin bus stop using the RTPI information.

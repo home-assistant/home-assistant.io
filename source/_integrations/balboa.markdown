@@ -1,6 +1,6 @@
 ---
-title: "Balboa Spa"
-description: "Instructions on how to integrate Balboa Spa WiFi within Home Assistant."
+title: Balboa Spa Client
+description: Instructions on how to integrate Balboa Spa WiFi within Home Assistant.
 ha_category:
   - Binary Sensor
   - Climate
@@ -13,6 +13,7 @@ ha_platforms:
 ha_codeowners:
   - '@garbled1'
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 This integration adds support for [Balboa](http://www.balboawatergroup.com/) Spa WiFi Modules to be used within Home Assistant.

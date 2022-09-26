@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: cover
+ha_integration_type: integration
 ---
 
 Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.
@@ -27,6 +28,10 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **shade**: Control of shades, which are a continuous plane of material or connected cells that expanded or collapsed over an opening, such as window shades.
 - **shutter**: Control of shutters, which are linked slats that swing out/in to covering an opening or may be tilted to partially cover an opening, such as indoor or exterior window shutters.
 - **window**: Control of a physical window that opens and closes or may tilt.
+
+Here are a few examples of this representation in the UI:
+
+<p class='img'><img src='/images/screenshots/cover_classes_icons.png' />Example of various device classes icons in `open` and `closed` state. The open image in this example has `state_color: true` specified in the Entities card configuration to receive the icon coloring.</p>
 
 ## Services
 

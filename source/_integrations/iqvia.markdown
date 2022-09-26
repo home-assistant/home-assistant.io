@@ -10,7 +10,9 @@ ha_codeowners:
   - '@bachya'
 ha_domain: iqvia
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: integration
 ---
 
 The `iqvia` sensor platform collects and displays allergy, asthma and disease

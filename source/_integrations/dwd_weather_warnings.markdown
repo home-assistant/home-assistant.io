@@ -12,6 +12,7 @@ ha_codeowners:
   - '@Hummel95'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `dwd_weather_warnings` sensor platform uses the [Deutsche Wetter Dienst (DWD)](https://www.dwd.de) as a source for current and advance warnings.
@@ -67,7 +68,7 @@ monitored_conditions:
 | ------------ | -------------------------------------- |
 | `last_update` | *(time)* Time and date (UTC) of last update from DWD. |
 | `region_name` | *(str)* Requested region name. This should be the same as the region name in the configuration if a name was given. |
-| `region_id` | *(int)* Region ID assigned by DWD. This should be the same as the region name in the configuration if an id was given. |
+| `region_id` | *(int)* Region ID assigned by DWD. This should be the same as the region id in the configuration if an id was given. |
 | `warning_count` | *(int)* Number of issued warnings. There can be more than one warning issued at once. |
 | `warning_<x>` | *(list)* The warning as a whole object containing the following attributes as nested attributes. |
 | `warning_<x>_level` | *(int)* Issued warning level (0 - 4).<br/>0: Keine Warnungen <br/>1: Wetterwarnungen <br/>2: Warnungen vor markantem Wetter<br/>3: Unwetterwarnungen<br/>4: Warnungen vor extremem Unwetter |

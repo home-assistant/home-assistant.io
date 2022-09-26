@@ -4,10 +4,14 @@ description: Instructions on how to add Pushover notifications to Home Assistant
 ha_category:
   - Notifications
 ha_release: pre 0.7
+ha_config_flow: true
 ha_iot_class: Cloud Push
 ha_domain: pushover
 ha_platforms:
   - notify
+ha_integration_type: integration
+ha_codeowners:
+  - '@engrbm87'
 ---
 
 The [Pushover service](https://pushover.net/) is a platform for the notify component. This allows integrations to send messages to the user using Pushover.
@@ -16,64 +20,39 @@ The [Pushover service](https://pushover.net/) is a platform for the notify compo
 
 In order to get an API key you need to [register an application](https://pushover.net/apps/clone/home_assistant) on the Pushover website. Your Pushover user key can be found on the [Pushover dashboard](https://pushover.net/dashboard).
 
-To use Pushover notifications, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-notify:
-  - name: NOTIFIER_NAME
-    platform: pushover
-    api_key: YOUR_API_KEY
-    user_key: YOUR_USER_KEY
-```
-
-{% configuration %}
-name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-  required: false
-  default: notify
-  type: string
-api_key:
-  description: Your API key.
-  required: true
-  type: string
-user_key:
-  description: Your user key for Pushover.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 Example Automation:
 
 ```yaml
 - service: notify.entity_id
-      data:
-        message: "This is the message"
-        title: "Title of message"
-        data:
-          url: "https://www.home-assistant.io/"
-          sound: pianobar
-          priority: 0
-          attachment: "http://example.com/image.png"
+  data:
+    message: "This is the message"
+    title: "Title of message"
+    data:
+      url: "https://www.home-assistant.io/"
+      sound: pianobar
+      priority: 0
+      attachment: "local/image.png"
 ```
 
 Component specific values in the nested `data` section are optional.
 
-Image attachments can be added using the `attachment` parameter, which can either be a valid URL for an image (ex: `http://example.com/image.png`) or a local file reference (ex: `/tmp/image.png`).
+Image attachments can be added using the `attachment` parameter, which can either be a local file reference (ex: `/tmp/image.png`).
 
 To use a specific Pushover device, set it using `target`. If one of the entered devices doesn't exist or is disabled in your Pushover account it will send a message to all you devices. To send to all devices, just skip the target attribute.
 
 ```yaml
 - service: notify.entity_id
-      data:
-        message: "This is the message"
-        title: "Title of message"
-        target:
-          - pixel3
-          - pixel4a
-        data:
-          sound: pianobar
-          priority: 0
+  data:
+    message: "This is the message"
+    title: "Title of message"
+    target:
+      - pixel3
+      - pixel4a
+    data:
+      sound: pianobar
+      priority: 0
 ```
 
 

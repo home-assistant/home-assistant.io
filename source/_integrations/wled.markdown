@@ -5,6 +5,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Update
 ha_release: 0.102
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -14,11 +15,16 @@ ha_codeowners:
 ha_domain: wled
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
+  - button
+  - diagnostics
   - light
   - number
-  - sensor
   - select
+  - sensor
   - switch
+  - update
+ha_integration_type: integration
 ---
 
 [WLED](https://kno.wled.ge) is a fast and feature-rich
@@ -99,13 +105,25 @@ Can be configured on the WLED itself under settings > Sync Interfaces > WLED Bro
 
 [WLED Sync documentation](https://kno.wled.ge/interfaces/udp-realtime/)
 
+## Firmware Updates
+
+The integration has an [update entity](/integrations/update/) that provides
+information on the latest available version of WLED and indicates if a
+firmware update is available for installation.
+
+The firmware update can be triggered and installed onto your WLED device
+directly from Home Assistant.
+
+The update entity will only provide updates to stable versions, unless you are
+using a beta version of WLED. In that case, the update entity will also provide
+updates to newer beta versions.
+
 {% include integrations/option_flow.md %}
 
 {% configuration_basic %}
 Keep Master Light:
   description: Keep the master light, even if there is only 1 segment. This ensures the master light is always there, in case you are automating segments to appear and remove dynamically.
 {% endconfiguration_basic %}
-
 ## Example Automations
 
 ### Activating Random Effect
@@ -141,3 +159,59 @@ data:
 ```
 
 {% endraw %}
+
+### Activating a preset
+
+Activating a preset is an easy way to set a WLED light to a specific
+configuration. Here is an example service call to set a WLED light 
+to a preset called My Preset:
+
+```yaml
+- service: light.turn_on
+  target:
+    entity_id: light.wled
+- service: select.select_option
+  target:
+    entity_id: select.wled_preset
+  data:
+    option: "My Preset"
+```
+
+### Automation Using Specific Palette Name
+
+An automation to turn on a WLED light and select a specific palette and
+set intensity, and speed can be created by first calling the `light.turn_on`
+service, then calling the `select.select_option` service to select the
+palette, then call the `number.set_value` service to set the intensity
+and again to set the speed. 
+
+Here is an example of all of these put together into an automation:
+
+```yaml
+- alias: "Turn on WLED rain effect when weather changes to rainy"
+  trigger:
+    - platform: state
+      entity_id: sensor.weather_condition
+      to: "rainy"
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.wled
+      data:
+        effect: "Rain"
+    - service: select.select_option
+      target:
+        entity_id: select.wled_color_palette
+      data:
+        option: "Breeze"
+    - service: number.set_value
+      target:
+        entity_id: number.wled_intensity
+      data:
+        value: 200
+    - service: number.set_value
+      target:
+        entity_id: number.wled_speed
+      data:
+        value: 255
+```

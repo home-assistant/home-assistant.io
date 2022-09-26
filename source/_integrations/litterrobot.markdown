@@ -7,42 +7,57 @@ ha_category:
   - Sensor
   - Switch
   - Vacuum
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_release: 2021.3
 ha_config_flow: true
 ha_codeowners:
   - '@natekspencer'
+  - '@tkdrob'
 ha_domain: litterrobot
+ha_dhcp: true
 ha_platforms:
   - button
   - select
   - sensor
   - switch
   - vacuum
+ha_integration_type: integration
 ---
 
-The Litter-Robot integration allows you to control and monitor your Wi-Fi-enabled, automatic, self-cleaning litter box for cats.
+The Litter-Robot integration allows you to control and monitor your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders.
 
-You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot unit that has already been associated with your account.
-
-The Feeder-Robot is not currently supported by this integration.
+You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot or Feeder-Robot unit that has already been associated with your account.
 
 {% include integrations/config_flow.md %}
 
 ## Entities
 
-The following entities are created for this component and identified by a single device per Litter-Robot unit:
+### Litter-Robot
 
 | Entity                        | Domain   | Description                                                                      |
 | ----------------------------- | -------- | -------------------------------------------------------------------------------- |
 | Litter Box                    | `vacuum` | Main entity that represents a Litter-Robot unit.                                 |
 | Night Light Mode              | `switch` | When turned on, automatically turns on the night light in darker settings.       |
 | Panel Lockout                 | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
+| Last Seen                     | `sensor` | Displays the time the unit was last seen / reported an update.                   |
+| Litter level                  | `sensor` | Displays the litter level, only for Litter-Robot 4.                              |
+| Pet weight                    | `sensor` | Displays the last measured pet weight, only for Litter-Robot 4.                  |
 | Sleep Mode Start Time         | `sensor` | When sleep mode is enabled, displays the current or next sleep mode start time.  |
 | Sleep Mode End Time           | `sensor` | When sleep mode is enabled, displays the current or last sleep mode end time.    |
+| Status Code                   | `sensor` | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc).     |
 | Waste Drawer                  | `sensor` | Displays the current waste drawer level.                                         |
 | Clean Cycle Wait Time Minutes | `select` | View and select the clean cycle wait time.                                       |
-| Reset Waste Drawer            | `button` | Button to reset the waste drawer level to 0%.                                    |
+| Reset Waste Drawer            | `button` | Button to reset the waste drawer level to 0%, only for Litter-Robot 3.           |
+
+### Feeder-Robot
+
+| Entity           | Domain   | Description                                                                      |
+| ---------------- | -------- | -------------------------------------------------------------------------------- |
+| Give snack       | `button` | Button to dispense a single snack portion.                                       |
+| Meal insert size | `select` | View and select the meal insert size.                                            |
+| Food level       | `sensor` | Displays the approximate food level remaining in the hopper.                     |
+| Night light mode | `switch` | When turned on, automatically turns on the night light in darker settings.       |
+| Panel lockout    | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
 
 ## Additional Attributes
 
@@ -50,22 +65,19 @@ Some entities have attributes in addition to the default ones that are available
 
 ### Litter Box `vacuum` entity
 
-| Attribute                     | Type    | Description                                                                                                                                                                             |
-| ----------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| clean_cycle_wait_time_minutes | integer | Current wait time, in minutes, between when your cat uses the Litter-Robot and when the unit cycles automatically.                                                                      |
-| is_sleeping                   | boolean | Whether or not the unit is currently in sleep mode.                                                                                                                                     |
-| sleep_mode_enabled            | boolean | Whether or not sleep mode is enabled.                                                                                                                                                   |
-| power_status                  | string  | Current power status of the unit. `AC` indicates normal power, `DC` indicates battery backup and `NC` indicates that the unit is not connected and/or powered off.                      |
-| status_code                   | string  | The [status code](https://github.com/natekspencer/pylitterbot/blob/884944b011f5fea9639b7d21d19fa3f7708e25a7/pylitterbot/enums.py#L44) associated with the current status of the vacuum. |
-| last_seen                     | string  | UTC datetime the unit last reported its status.                                                                                                                                         |
+| Attribute          | Type    | Description                                                                                                                                                        |
+| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| is_sleeping        | boolean | Whether or not the unit is currently in sleep mode.                                                                                                                |
+| sleep_mode_enabled | boolean | Whether or not sleep mode is enabled.                                                                                                                              |
+| power_status       | string  | Current power status of the unit. `AC` indicates normal power, `DC` indicates battery backup and `NC` indicates that the unit is not connected and/or powered off. |
 
 ## Services
 
-Services are utilized for additional functionality that is available in the Litter-Robot companion app. The following are currently available:
+Services are utilized for additional functionality that is available in the Whisker (previously Litter-Robot) companion app. The following are currently available:
 
 ### set_sleep_mode
 
-Enables (with `start_time` parameter) or disables sleep mode on the Litter-Robot.
+Enables (with `start_time` parameter) or disables sleep mode on the Litter-Robot. Currently, this is limited to only the Litter-Robot 3. To make changes to the sleep schedule on your Litter-Robot 4, please continue to use the Whisker app.
 
 | Parameter  | Type   | Required | Description                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -80,6 +92,6 @@ target:
   entity_id: vacuum.litter_robot_litter_box
 data:
   enabled: true
-  start_time: '23:30:00'
+  start_time: "22:30:00"
 
 ```

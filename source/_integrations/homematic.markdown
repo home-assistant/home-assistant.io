@@ -2,10 +2,10 @@
 title: Homematic
 description: Instructions for integrating Homematic into Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Climate
   - Cover
+  - Hub
   - Light
   - Lock
   - Notifications
@@ -26,6 +26,7 @@ ha_platforms:
   - notify
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The [Homematic](https://www.homematic.com/) integration provides bi-directional communication with your CCU/Homegear. It uses an XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
@@ -208,7 +209,7 @@ Resolving names can take some time. So when you start Home Assistant you won't s
 
 ### Multiple hosts
 
-In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and ip), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
+In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and IP), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
 Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.
 This does *not* affect the entities in Home Assistant. They all use their own connection and work as expected.
 
@@ -450,7 +451,7 @@ lock:
   - platform: template
     name: Basedoor
     unique_id: basedoor
-    value_template: "{{ state_attr('homematic.ccu2', 'base_lock_status') }}"
+    value_template: "{{ is_state('sensor.lock_status', 'locked') }}"
     lock:
       service: homematic.set_device_value
       data:
@@ -469,9 +470,6 @@ lock:
 
 {% endraw %}
 
-To get the current value of the current lock status, you have to create a system variable (in the example above it is `base_lock_status`) and create a program on CCU, which updates the variable with every change of the Lock level to `true` for locked and `false` for unlocked.
-
-
 #### Detecting lost connections
 
 When the connection to your Homematic CCU or Homegear is lost, Home Assistant will stop getting updates from devices. This may happen after rebooting the CCU for example. Due to the nature of the communication protocol this cannot be handled automatically, so you must call *homematic.reconnect* in this case. That's why it is usually a good idea to check if your Homematic integrations are still updated properly, in order to detect connection losses. This can be done in several ways through an automation:
@@ -485,16 +483,16 @@ template:
   - binary_sensor:
       - name: "Homematic is sending updates"
         state: >-
-          {{ now() - as_timestamp(state_attr('sensor.office_voltage', 'last_changed'), 601) < 600 }}
+          {{ (now() - states.sensor.office_voltage.last_changed).seconds < 600 }}
 
 automation:
   - alias: "Homematic Reconnect"
     trigger:
       platform: state
-      entity_id: binary_sensor.homematic_up
+      entity_id: binary_sensor.homematic_is_sending_updates
       to: "off"
     action:
-      # Reconnect, if sensor has not been updated for over 3 hours
+      # Reconnect, if sensor has not been updated for over 10 minutes
       service: homematic.reconnect
 ```
 

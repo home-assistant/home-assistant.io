@@ -13,7 +13,7 @@ Electrical Power is measured in Watts (W) and Electrical Energy is measured in k
 
 Think of this in a parallel to speed and distance: Power is the speed you are going and Energy is the distance driven.
 
-Therefore Energy (kiloWatt-hour) is not an average of the Power you are consuming over a given period of time (that would be kiloWatt/hour). Energy is the integral (mathematical operation) of the Power function.
+Therefore Energy (kiloWatt-hour) is not an average of the Power you are consuming over a given period of time (the unit of the average power would be Watt or kiloWatt again). Energy is the integral (mathematical operation) of the Power function.
 
 This difference is very important as you need to use the proper entities in our Energy Panel.
 

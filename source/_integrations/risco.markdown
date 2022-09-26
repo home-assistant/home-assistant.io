@@ -5,7 +5,7 @@ ha_category:
   - Alarm
   - Binary Sensor
 ha_release: '0.115'
-ha_iot_class: Cloud Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@OnFreund'
@@ -15,15 +15,19 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
-This integration connects with Risco Alarms over [Risco Cloud](https://riscocloud.com/).
+This integration connects with Risco Alarms, in one of two ways:
+
+## Risco Cloud (recommended)
+
+The integration will connect with your alarm over [Risco Cloud](https://riscocloud.com/).
+This is easiest to configure, and is widely supported, but is cloud based, and requires polling. 
 
 <div class='note'>
-As from January 2021, Risco have implemented charges for use of their Cloud Features.
+As of January 2021, Risco have implemented charges for use of their Cloud Features.
 </div>
-
-{% include integrations/config_flow.md %}
 
 <div class='note warning'>
 It is recommended to use a regular (non-owner) account with the Risco app/website, and use a different regular account with the integration. Risco has restrictions on concurrent uses by different users, especially if they have different permission levels.
@@ -33,6 +37,17 @@ It is recommended to use a regular (non-owner) account with the Risco app/websit
 has the event timestamp as the state, and other event information in attributes.
 
 If you have multiple sites, only the first site will be used.
+
+## Local (advanced)
+
+The integration will connect locally to your system.
+No dependency on the cloud, and instantaneous updates, but is harder to set up.
+You will need the master code to your system, and with older models,
+you might need to either disconnect your system from the cloud, or set up a proxy that will allow you to connect both locally and via the cloud.
+
+The local version of the integration does not support events, and the `arming` state.
+
+{% include integrations/config_flow.md %}
 
 ## Options
 

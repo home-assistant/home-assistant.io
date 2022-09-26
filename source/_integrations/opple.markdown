@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: opple
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 The `opple` light platform allows you to control the state of your Opple smart light.

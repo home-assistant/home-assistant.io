@@ -7,22 +7,19 @@ The onboarding process takes care of the initial setup for Home Assistant, such 
 
 <div class='note'>
 
-The steps below do not apply to Home Assistant Core installations, for those types of installations, [see here](/docs/configuration/).
+The steps below do not apply to Home Assistant Core & Container installations, for those types of installations, [see here](/docs/configuration/).
 
 </div>
 
-We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Home Assistant add-on store: the File editor. To get to the add-on store, click on the menu icon in the top left, then click on Supervisor. On the new page, open the add-on store tab.
+We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Home Assistant add-on store: the File editor. To get to the add-on store, go to {% my supervisor title="Settings > Add-ons" %}. On the new page, open the add-on store tab.
 
-<p class='img'>
-<img src='/images/hassio/screenshots/main_panel_addon_store.png' />
-From the Supervisor main panel, open the add-on store.
-</p>
+![Add-on store.](/images/hassio/screenshots/dashboard.png)
 
 Under the "Official add-ons" section you will find the File editor add-on.
 
- - Click on File Editor and click on INSTALL. When installation is complete, the UI will go to the add-on details page for the file editor.
- - Now start the add-on by clicking on START.
- - Open the user interface by clicking on OPEN WEB UI.
+ - Click on File Editor and click on **Install**. When installation is complete, the UI will go to the add-on details page for the file editor.
+ - Now start the add-on by clicking on **Start**.
+ - Open the user interface by clicking on **Open Web UI**.
 
 Now let's make a change using the file editor: we are going to change the name, location, unit system, and time zone of your Home Assistant installation.
 
@@ -44,13 +41,10 @@ Now let's make a change using the file editor: we are going to change the name, 
 </div>
 
  - Click the save icon in the top right to commit changes.
- - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a configuration check. Do this by clicking on Configuration in the sidebar, click on "Server Controls" and click on the "CHECK configuration" button. When it's valid, it will show the text "Configuration valid!". In order for the "CHECK configuration" button to be visible, you must enable "Advanced Mode" on your user profile.
- - Now Restart Home Assistant using the "RESTART" button in the Server management section on the same page.
+ - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a configuration check. Do this by navigating to {% my server_controls title="Developer Tools -> YAML" %} and and then clicking on the **Check configuration** button. When it's valid, it will show the text "Configuration valid!". In order for the **Check Configuration**" button to be visible, you must enable "Advanced Mode" on your user profile.
+ - Now Restart Home Assistant. You can do so by either using the **Restart** option in the ⚙ menu of the File Editor UI or by navigating to {% my system_dashboard title="Settings -> System" %} and then clicking on the **Restart** button on the top right of the page.
 
-<p class='img'>
-<img src='/images/screenshots/configuration-validation.png' />
-Screenshot of the "General" page in the configuration panel.
-</p>
+![Screenshot of the "General" page in the configuration panel.](/images/screenshots/configuration-validation.png)
 
 <div class='note'>
 

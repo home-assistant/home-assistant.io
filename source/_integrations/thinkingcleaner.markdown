@@ -10,6 +10,7 @@ ha_domain: thinkingcleaner
 ha_platforms:
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 There is currently support for the following device types within Home Assistant:

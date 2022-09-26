@@ -2,8 +2,8 @@
 title: Lutron
 description: Instructions on how to use Lutron devices with Home Assistant.
 ha_category:
-  - Hub
   - Cover
+  - Hub
   - Light
   - Scene
   - Switch
@@ -18,6 +18,7 @@ ha_platforms:
   - light
   - scene
   - switch
+ha_integration_type: integration
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The `lutron` integration in Home Assistant is responsible for communicating with the main hub for these systems.

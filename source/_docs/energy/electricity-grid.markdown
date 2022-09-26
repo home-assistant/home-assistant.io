@@ -59,6 +59,10 @@ _Attention! Installing CT clamp sensor devices requires opening your electrical 
 
 Some energy providers will provide you real-time information about your usage and have this data integrated into Home Assistant.
 
+### Troubleshooting ###
+
+If you are unable to select your energy sensor in the grid consumption drop-down, make sure that its value is being recorded in the Recorder settings.
+
 [Energy integrations](/integrations/#energy)
 
-_Disclaimer: Some links on this page are affiliate links._
+_Disclaimer: Some links on this page are affiliate links helping support the Home Assistant project._

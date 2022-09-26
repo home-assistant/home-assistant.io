@@ -2,8 +2,8 @@
 title: Speedtest.net
 description: How to integrate Speedtest.net within Home Assistant.
 ha_category:
-  - System Monitor
   - Sensor
+  - System Monitor
 ha_release: 0.13
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -13,10 +13,10 @@ ha_codeowners:
 ha_domain: speedtestdotnet
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Speedtest.net integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
-
 
 {% include integrations/config_flow.md %}
 
@@ -33,15 +33,6 @@ sensors:
 - Ping sensor: Reaction time in ms of your connection (how fast you get a response after you’ve sent out a request).
 - Download sensor: The download speed (Mbit/s).
 - Upload sensor: The upload speed (Mbit/s).
-  
-### Service
-
-Once loaded, the integration will expose a service (`speedtestdotnet.speedtest`) that can be called to run a Speedtest.net speed test on demand. This service takes no parameters. This can be useful when auto update has been disabled in the integration options.
-
-```yaml
-action:
-  service: speedtestdotnet.speedtest
-```
 
 This integration uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from Speedtest.net.
 Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this integration may display.

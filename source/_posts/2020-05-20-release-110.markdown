@@ -148,7 +148,7 @@ You can also set the attribute you want to show as the secondary information.
 Screenshot of the updated weather card.
 </p>
 
-Check the [documentation](/lovelace/weather-forecast/) for more information.
+Check the [documentation](/dashboards/weather-forecast/) for more information.
 
 ## Internal & External URLs
 

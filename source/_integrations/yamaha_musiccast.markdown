@@ -13,6 +13,10 @@ ha_config_flow: true
 ha_domain: yamaha_musiccast
 ha_platforms:
   - media_player
+  - number
+  - select
+  - switch
+ha_integration_type: integration
 ---
 
 The Yamaha MusicCast integration allows you to control [Yamaha MusicCast Receivers](https://usa.yamaha.com/products/audio_visual/musiccast/index.html) from Home Assistant.
@@ -75,6 +79,44 @@ The following entities will be added, if they are supported by the MusicCast dev
   - Set the vertical position of the dialogues in the surround system
 - DTS Dialogue Control (configuration, zone level)
   - Control the volume of dialogues for DTS:X content
+
+### Select Entities
+The following entities will be added, if they are supported by the MusicCast device:
+- Dimmer (configuration, device level)
+  - Set the display brightness
+- Surround Decoder Type (configuration, zone level)
+  - If sound program is set to surround decoder, the decoder type can be selected here
+- Sleep (configuration, zone level)
+  - Set a sleep timer for the device
+- Equalizer Mode (configuration, zone level)
+  - Some devices support multiple different equalizer modes
+- Tone Control Mode (configuration, zone level)
+  - Some devices support multiple different tone control modes
+- Link Audio Delay (configuration, zone level)
+  - Some devices let the user select, whether he prefers to have audio and video in sync or the audio of linked speakers in a group
+- Link Control (configuration, zone level)
+  - Some devices support compressed audio for groups
+- Link Audio Quality (configuration, zone level)
+  - Set the audio quality for grouped speakers
+
+### Switch Entities
+The following entities will be added, if they are supported by the MusicCast device:
+- Speaker A (configuration, device level)
+  - A switch to turn on the speaker set A
+- Speaker B (configuration, device level)
+  - A switch to turn on the speaker set B
+- Party Mode (configuration, device level)
+  - Lets all zones play the same content like the main zone
+- Bass Extension (configuration, zone level)
+  - Extend the bass to more speakers (especially useful in configurations without a subwoofer)
+- Extra Bass (configuration, zone level)
+  - Seems to be the same as bass extension, but on other devices
+- Enhancer (configuration, zone level)
+  - Enhances compressed audio formats
+- Pure Direct (configuration, zone level)
+  - Lets the device play the audio directly without any additional processing
+- Adaptive DRC (configuration, zone level)
+  - Adjusts the volume of high and low frequency levels for better sound at low volume
 
 ## Troubleshooting
 

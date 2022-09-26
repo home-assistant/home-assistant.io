@@ -8,9 +8,10 @@ ha_release: 0.59
 ha_domain: unifi_direct
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
-This platform allows you to detect presence by looking at devices connected to a [UniFi AP](https://www.ui.com/products/#unifi). This device tracker differs form [Ubiquiti UniFi](/integrations/unifi) because it doesn't require the UniFi controller software.
+This platform allows you to detect presence by looking at devices connected to a [UniFi AP](https://www.ui.com/products/#unifi). This device tracker differs from [Ubiquiti UniFi](/integrations/unifi) because it doesn't require the UniFi controller software.
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 

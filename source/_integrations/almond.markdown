@@ -10,9 +10,10 @@ ha_codeowners:
   - '@gcampax'
   - '@balloob'
 ha_domain: almond
+ha_integration_type: integration
 ---
 
-[Almond](https://almond.stanford.edu/) is an open, privacy-preserving virtual assistant by [Stanford Open Virtual Assistant Lab](https://oval.cs.stanford.edu/). It allows you, among other things, to control Home Assistant using natural language. Once installed, it will be available on Lovelace via the microphone icon in the top right.
+[Almond](https://almond.stanford.edu/) is an open, privacy-preserving virtual assistant by [Stanford Open Virtual Assistant Lab](https://oval.cs.stanford.edu/). It allows you, among other things, to control Home Assistant using natural language. Once installed, it will be available in the user interface via the microphone icon in the top right.
 
 Almond consists of three parts:
 
@@ -26,7 +27,7 @@ Almond consists of three parts:
 
 ### Home Assistant add-on installation
 
-To install Almond Server, go to the Home Assistant add-on store, search for Almond and click on Install. Once started, it will initiate a configuration flow to finish set up in Home Assistant. You can find it on the integrations page in the configuration panel.
+To install Almond Server, go to the Home Assistant add-on store, search for Genie and click on Install. Once started, it will initiate a configuration flow to finish set up in Home Assistant. You can find it on the integrations page in the configuration panel.
 
 ### Manual installation
 
