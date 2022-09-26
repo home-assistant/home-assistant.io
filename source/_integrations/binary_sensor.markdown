@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.9
 ha_quality_scale: internal
 ha_domain: binary_sensor
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 Binary sensors are similar to other [sensors](/integrations/sensor) in that they

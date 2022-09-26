@@ -4,10 +4,10 @@ description: Instructions on how to integrate your August devices into Home Assi
 ha_category:
   - Binary Sensor
   - Button
-  - Doorbell
-  - Sensor
   - Camera
+  - Doorbell
   - Lock
+  - Sensor
 ha_release: 0.64
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -17,10 +17,12 @@ ha_domain: august
 ha_dhcp: true
 ha_platforms:
   - binary_sensor
-  - camera
   - button
+  - camera
+  - diagnostics
   - lock
   - sensor
+ha_integration_type: integration
 ---
 
 The `august` integration allows you to integrate your [August](https://august.com/) and some Yale Access devices in Home Assistant.
@@ -100,6 +102,25 @@ If you have an August Smart Lock, once you have enabled the August component, yo
 If you have an August Keypad, once you have enabled the August component, you should see the following sensors:
 
 - Keypad Battery
+
+## Integration with Yale Access Bluetooth
+
+Following Assa Abloy, Yale's parent company, purchasing August in 2017, most newer devices use the Yale Access branding. 
+
+The [Yale Access Bluetooth](/integrations/yalexe_ble) provides local control over Bluetooth of many Yale Access locks and some August locks that use the same system. 
+
+For locks that support the Yale Access system, the August integration can keep your offline access keys up to date to ensure you can operate your lock over Bluetooth. The following requirements must be met for the offline key updates to work:
+
+- The August integration must support the lock.
+- The [Yale Access Bluetooth integration](/integrations/yalexe_ble) must support the lock.
+- The Bluetooth integration must be active and functional.
+- The lock must be discoverable by the [Yale Access Bluetooth integration](/integrations/yalexe_ble).
+- The account logged in with the August integration must have the offline keys.
+
+### Troubleshooting offline keys updates
+
+- If you do not know which account has the offline keys, configure August integration with each different Owner account until you find the one that holds the keys. You may need to make a new owner account and grant the account access to your lock to force the keys to synchronize with the cloud service.
+- Ensure the lock is in range and discoverable by the [Yale Access Bluetooth integration](/integrations/yalexe_ble).
 
 ## Presence Detection with Lock Operation
 

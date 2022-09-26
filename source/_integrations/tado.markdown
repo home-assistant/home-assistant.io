@@ -3,16 +3,17 @@ title: Tado
 description: Instructions on how to integrate Tado devices with Home Assistant.
 ha_category:
   - Binary Sensor
-  - Hub
   - Climate
-  - Water Heater
+  - Hub
   - Presence Detection
   - Sensor
+  - Water Heater
   - Weather
 ha_release: 0.41
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@michaelarnauts'
+  - '@north3221'
 ha_domain: tado
 ha_config_flow: true
 ha_homekit: true
@@ -23,6 +24,7 @@ ha_platforms:
   - sensor
   - water_heater
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The Tado integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
@@ -123,8 +125,9 @@ You can use the service `tado.set_climate_timer` to set your Tado climate device
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
-| `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
 | `temperature`          | no       | String, The required target temperature e.g., `20.5`                   |
+| `time_period`          | yes      | Time Period, Period of time the boost should last for e.g., `01:30:00` |
+| `overlay`              | yes      | Override your defaults setting. NB dont set this and the time period   |
 
 ### Service `tado.set_water_heater_timer`
 

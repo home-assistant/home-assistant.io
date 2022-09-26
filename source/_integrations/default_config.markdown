@@ -6,18 +6,25 @@ ha_category:
 ha_release: 0.88
 ha_domain: default_config
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
 This integration is a meta-component and configures a default set of integrations for Home Assistant to load. The integrations that will be loaded are:
 
 - [Automation](/integrations/automation/) (`automation`)
-- [Home Assistant Cloud](/integrations/cloud/) (`cloud`)
+- [Backup](/integrations/backup/) (`backup`)
+- [Bluetooth](/integrations/bluetooth/) (`bluetooth`)
 - [Configuration](/integrations/config/) (`config`)
 - [Counter](/integrations/counter/) (`counter`)
 - [DHCP Discovery](/integrations/dhcp/) (`dhcp`)
 - [Energy](/integrations/energy/) (`energy`)
 - [Frontend](/integrations/frontend/) (`frontend`)
+- [Hardware](/integrations/hardware/) (`hardware`)
 - [History](/integrations/history/) (`history`)
+- [Home Assistant Alerts](/integrations/homeassistant_alerts) (`homeassistant_alerts`)
+- [Home Assistant Cloud](/integrations/cloud/) (`cloud`)
 - [Image](/integrations/image/) (`image`)
 - [Input boolean](/integrations/input_boolean/) (`input_boolean`)
 - [Input button](/integrations/input_button/) (`input_button`)
@@ -31,6 +38,7 @@ This integration is a meta-component and configures a default set of integration
 - [Mobile App Support](/integrations/mobile_app/) (`mobile_app`)
 - [My Home Assistant](/integrations/my/) (`my`)
 - [Person](/integrations/person/) (`person`)
+- [Schedule](/integrations/schedule/) (`schedule`)
 - [Scene](/integrations/scene/) (`scene`)
 - [Scripts](/integrations/script/) (`script`)
 - [Simple Service Discovery Protocol (SSDP)](/integrations/ssdp/) (`ssdp`)

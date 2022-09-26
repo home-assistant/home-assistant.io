@@ -2,8 +2,8 @@
 title: Renault
 description: Instructions on how to integrate Renault car into Home Assistant.
 ha_category:
-  - Car
   - Binary Sensor
+  - Car
   - Presence Detection
   - Select
   - Sensor
@@ -16,10 +16,11 @@ ha_domain: renault
 ha_platforms:
   - binary_sensor
   - button
-  - diagnostics
   - device_tracker
-  - sensor
+  - diagnostics
   - select
+  - sensor
+ha_integration_type: integration
 ---
 
 The Renault integration offers integration with the **MyRenault** cloud service and provides sensors such as charger state and temperature.

@@ -39,6 +39,6 @@ cards:
 ```
 
 <p class='img'>
-  <img src='/images/dashboards/lovelace_horizontal_stack.PNG' alt='Two picture cards in a horizontal stack card'>
+  <img src='/images/dashboards/horizontal_stack.png' alt='Two picture cards in a horizontal stack card'>
   Two Picture cards in a Horizontal Stack card.
 </p>

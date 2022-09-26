@@ -10,9 +10,11 @@ ha_codeowners:
   - '@klaasnicolaas'
 ha_domain: pure_energie
 ha_platforms:
+  - diagnostics
   - sensor
 ha_quality_scale: platinum
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The Pure Energie integration integrates the [Pure Energie Monitor](https://pure-energie.nl/kennisbank/pure-energie-meter/)

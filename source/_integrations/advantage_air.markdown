@@ -1,7 +1,9 @@
 ---
 title: Advantage Air
 description: Instructions on how to integrate Advantage Air A/C controller into Home Assistant.
-ha_category: Climate
+ha_category:
+  - Climate
+  - Update
 ha_release: 0.117
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -11,19 +13,22 @@ ha_domain: advantage_air
 ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
-  - diagnostics
   - climate
   - cover
-  - sensor
+  - diagnostics
+  - light
   - select
+  - sensor
   - switch
+  - update
+ha_integration_type: integration
 ---
 
 The Advantage Air integration allows you to control [Advantage Air](https://www.advantageair.com.au/) Air Conditioning controllers into Home Assistant.
 
 ## Prerequisites
 
-The wall-mounted Android table running the [MyPlace](https://play.google.com/store/apps/details?id=com.air.advantage.myair5), [e-zone](https://play.google.com/store/apps/details?id=com.air.advantage.ezone), or [zone10e](https://play.google.com/store/apps/details?id=com.air.advantage.zone10) must have a static IP, which you will enter on the integrations page in Home Assistant.
+The wall-mounted Android tablet running the [MyPlace](https://play.google.com/store/apps/details?id=com.air.advantage.myair5), [e-zone](https://play.google.com/store/apps/details?id=com.air.advantage.ezone), or [zone10e](https://play.google.com/store/apps/details?id=com.air.advantage.zone10) must have a static IP, which you will enter on the integrations page in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -58,6 +63,14 @@ The `advantage_air` switch platform will create a switch entity to toggle fresh 
 
 The `advantage_air` select platform allows you to change the zone used for the "MyZone" feature.
 
+### Update
+
+The `advantage_air` update platform shows if the controller app requires an update.
+
+### Light
+
+The `advantage_air` light platform will create a light entity for each light in MyLights tab of the MyPlace app.
+
 ## Services
 
 ### Service `advantage_air.set_time_to`
@@ -68,11 +81,3 @@ Set the On/Off Timer using the relevant sensor entity.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | `sensor.[name]_time_to_on` or `sensor.[name]_time_to_off`
 | `minutes` | no | Number of minutes between `0` and `720`.
-
-### Service `advantage_air.set_myzone`
-
-Change the MyZone setting to the provided zone climate entity.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | `climate.[zone name]`

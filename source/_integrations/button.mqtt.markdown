@@ -14,10 +14,29 @@ The `mqtt` button platform lets you send an MQTT message when the button is pres
 
 ```yaml
 # Example configuration.yaml entry
+mqtt:
+  button:
+    - command_topic: "home/bedroom/switch1/reboot"
+```
+
+<a id='new_format'></a>
+
+{% details "Previous configuration format" %}
+
+The configuration format of manual configured MQTT items has changed.
+The old format that places configurations under the `button` platform key
+should no longer be used and is deprecated.
+
+The above example shows the new and modern way,
+this is the previous/old example:
+
+```yaml
 button:
   - platform: mqtt
     command_topic: "home/bedroom/switch1/reboot"
 ```
+
+{% enddetails %}
 
 {% configuration %}
 availability:
@@ -40,7 +59,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -49,7 +68,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -57,7 +76,7 @@ availability_topic:
   required: false
   type: string
 command_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic`.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `command_topic`.
   required: false
   type: template
 command_topic:
@@ -77,6 +96,10 @@ device:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list
+    hw_version:
+      description: The hardware version of the device.
+      required: false
+      type: string
     identifiers:
       description: A list of IDs that uniquely identify the device. For example a serial number.
       required: false
@@ -130,7 +153,7 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -193,16 +216,16 @@ The example below shows a full configuration for a button.
 
 ```yaml
 # Example configuration.yaml entry
-button:
-  - platform: mqtt
-    unique_id: bedroom_switch_reboot_btn
-    name: "Restart Bedroom Switch"
-    command_topic: "home/bedroom/switch1/commands"
-    payload_press: "restart"
-    availability:
-      - topic: "home/bedroom/switch1/available"
-    qos: 0
-    retain: false
-    entity_category: "config"
-    device_class: "restart"
+mqtt:
+  button:
+    - unique_id: bedroom_switch_reboot_btn
+      name: "Restart Bedroom Switch"
+      command_topic: "home/bedroom/switch1/commands"
+      payload_press: "restart"
+      availability:
+        - topic: "home/bedroom/switch1/available"
+      qos: 0
+      retain: false
+      entity_category: "config"
+      device_class: "restart"
 ```

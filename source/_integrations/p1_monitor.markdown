@@ -13,6 +13,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_quality_scale: platinum
+ha_integration_type: integration
 ---
 
 The P1 Monitor integration integrates the [P1 Monitor](https://www.ztatz.nl/p1-monitor/)
@@ -47,6 +48,14 @@ See per phase what your voltage, current and power consumption/production is.
 - Current Phases L1/2/3 (A)
 - Power consumed phases L1/2/3 (W)
 - Power Produced phases L1/2/3 (W)
+
+### WaterMeter
+
+See how much water you consume per day, in total and the number of counted pulses.
+
+- Water Consumption - day (liters)
+- Water Consumption - total (m3)
+- Pulse Count
 
 ### Settings
 

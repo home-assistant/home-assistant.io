@@ -1,7 +1,8 @@
 ---
-title: Overkiz (by Somfy)
+title: Overkiz
 description: Instructions on how to integrate hubs whom use the Overkiz platform with Home Assistant.
 ha_category:
+  - Alarm Control Panel
   - Binary Sensor
   - Button
   - Climate
@@ -26,19 +27,21 @@ ha_domain: overkiz
 ha_dhcp: true
 ha_zeroconf: true
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
-  - diagnostics
   - climate
   - cover
+  - diagnostics
   - light
   - lock
   - number
   - scene
-  - sensor
   - select
+  - sensor
   - siren
   - switch
+ha_integration_type: integration
 ---
 
 The Overkiz (by Somfy) integration platform is used by many different vendors, like Somfy, Hitachi, and Atlantic. This integration will allow users to integrate their devices into Home Assistant using the Overkiz API.
@@ -49,17 +52,14 @@ The Overkiz (by Somfy) integration platform is used by many different vendors, l
 - Hitachi Hi Kumo
 - Nexity Eugénie
 - Rexel Energeasy Connect
+- Somfy Connectivity Kit
 - Somfy Connexoon IO
 - Somfy Connexoon RTS
 - Somfy TaHoma
-- Somfy TaHoma Switch [(instructions)](#tahoma-switch)
+- Somfy TaHoma Beecon
+- Somfy TaHoma Switch
 - Thermor Cozytouch
 
-If you own a Somfy hub, you could also use the [Somfy integration](/integrations/somfy/) which uses the official API.
-
-### TaHoma Switch
-
-Multiple users reported that the TaHoma Switch will work with this integration **after** you create a scene in the TaHoma app and wait for a few hours.
 
 ## Supported devices
 
@@ -81,8 +81,10 @@ During peak hours, it could happen that the Overkiz platform is unable to execut
 
 ### Internet connectivity required
 
-This integration communicates via the cloud-based Overkiz API, since Overkiz doesn't expose a local API on their hubs. If you are only using Somfy IO compatible devices, you could purchase a Velux KLF200 hub and use [the Velux integration](/integrations/velux/) which has a local API.
+This integration communicates via the cloud-based Overkiz API. The Somfy TaHoma v2 and the Somfy TaHoma Switch offer the [Somfy TaHoma Developer Mode (local API)](https://developer.somfy.com/developer-mode), which is not supported in Home Assistant yet.
+
+Another option if you are only using Somfy IO compatible devices is to purchase a Velux KLF200 hub and use [the Velux integration](/integrations/velux/) which has a local API.
 
 #### Local API via HomeKit Controller
 
-If your hub (e.g. Somfy TaHoma) supports HomeKit natively, your setup code will be added as a sensor in Home Assistant. Look up your hub in Home Assistant and retrieve the value from the 'HomeKit Setup Code' sensor. You can now configure the [HomeKit Controller](/integrations/homekit_controller/) integration in Home Assistant and benefit from local support.
+If your hub (e.g. Somfy TaHoma) supports HomeKit natively, your setup code will be added as a sensor in Home Assistant. Look up your hub in Home Assistant and retrieve the value from the 'HomeKit Setup Code' sensor. You can now configure the [HomeKit Controller](/integrations/homekit_controller/) integration in Home Assistant and benefit from local support. Only a [limited amount of devices is supported](https://service.somfy.com/downloads/nl_v5/tahoma-homekitcompatibilitylist_eng.pdf).

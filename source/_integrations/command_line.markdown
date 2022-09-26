@@ -2,8 +2,8 @@
 title: Command Line
 description: Instructions on how to integrate Command binary sensors within Home Assistant.
 ha_category:
-  - Utility
   - Binary Sensor
+  - Utility
 ha_release: 0.12
 ha_iot_class: Local Polling
 ha_domain: command_line
@@ -13,6 +13,7 @@ ha_platforms:
   - notify
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `command_line` binary sensor platform issues specific commands to get data.

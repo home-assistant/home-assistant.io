@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: zodiac
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `zodiac` integration tracks the current zodiac sign.

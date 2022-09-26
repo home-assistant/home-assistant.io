@@ -13,6 +13,7 @@ ha_ssdp: true
 ha_platforms:
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 The Samsung SyncThru Printer platform allows Home Asssitant to read current data from a local Samsung printer.  

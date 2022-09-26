@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: pioneer
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `pioneer` platform allows you to control Pioneer Network Receivers. Please note, however, that the more recent Pioneer models work with [Onkyo](/integrations/onkyo) platform instead.
@@ -175,4 +176,32 @@ sources:
   'Media Server': '44'
   'Favorites': '45'
   'Game': '49'
+```
+
+#### VSX-1021
+
+```yaml
+port: 8102
+sources:
+  'Phono': '00'
+  'CD': '01'
+  'Tuner': '02'
+  'CD-R/Tape': '03'
+  'DVD': '04'
+  'TV/Sat': '05'
+  'Video 1': '10'
+  'Multi Channel In': '12'
+  'Video 2': '14'
+  'DVR/BDR': '15'
+  'iPod/USB': '17'
+  'XM Radio': '18'
+  'HDMI 1': '19'
+  'HDMI 2': '20'
+  'HDMI 3': '21'
+  'HDMI 4': '22'
+  'HDMI 5': '23'
+  'Blu-Ray': '25'
+  'Home Media Gallery (Internet Radio)': '26'
+  'Sirius': '27'
+  'Adapter Port': '33'
 ```

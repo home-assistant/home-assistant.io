@@ -8,6 +8,7 @@ ha_release: 0.36
 ha_domain: picotts
 ha_platforms:
   - tts
+ha_integration_type: integration
 ---
 
 The `picotts` text-to-speech platform uses [Pico TTS library](https://github.com/naggety/picotts) to read out text with natural sounding voices.

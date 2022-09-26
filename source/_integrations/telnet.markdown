@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: telnet
 ha_platforms:
   - switch
+ha_integration_type: integration
 ---
 
 The `telnet` switch platform allows you to control devices with telnet commands.

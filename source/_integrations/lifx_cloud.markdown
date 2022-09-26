@@ -9,6 +9,7 @@ ha_release: 0.43
 ha_domain: lifx_cloud
 ha_platforms:
   - scene
+ha_integration_type: integration
 ---
 
 The `lifx_cloud` scene platform allows you to activate the scenes that LIFX smartphone apps store in the LIFX cloud.

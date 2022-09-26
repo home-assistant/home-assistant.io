@@ -3,8 +3,8 @@ title: OpenWeatherMap
 description: Instructions on how to integrate OpenWeatherMap within Home Assistant.
 ha_release: 0.32
 ha_category:
-  - Weather
   - Sensor
+  - Weather
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -15,6 +15,7 @@ ha_domain: openweathermap
 ha_platforms:
   - sensor
   - weather
+ha_integration_type: integration
 ---
 
 The OpenWeatherMap weather integrations uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location.
@@ -29,7 +30,7 @@ You need an API key, which is free, but requires a [registration](https://home.o
 <div class='note'>
 If you register an new API key with OpenWeatherMap, it will be activated automatically, this typically takes between 10 minutes and 2 hours
 after your successful registration. Keep in mind when configuring this integration, that you new API key might
-not be activated yet.
+not be activated yet. Recent policy changes limit the API access for new registered users with a free plan, they should select the `hourly` mode. The other modes require a paid subscription plan. Invalid API-key errors might occur if your API key is used with the other modes.
 </div>
 
 {% include integrations/config_flow.md %}
@@ -75,6 +76,7 @@ The Weather entity provides data only in English. Home Assistant automatically t
 | `snow`                   | Snow volume for the last hour, mm.                                                                                                |
 | `temperature`            | Temperature, ºC.                                                                                                                  |
 | `uv_index`               | UV Index.                                                                                                                         |
+| `visibility`             | Average visibility, m.                                                                                                            |
 | `weather`                | A human-readable description of the [weather condition](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2). |
 | `weather_code`           | ID of the [weather condition](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2).                           |
 | `wind_bearing`           | Wind direction, degrees (meteorological).                                                                                         |

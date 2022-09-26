@@ -8,6 +8,7 @@ ha_release: pre 0.7
 ha_domain: temper
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 This `temper` sensor platform allows you to get the current temperature from a TEMPer device.

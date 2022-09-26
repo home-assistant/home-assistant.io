@@ -16,8 +16,8 @@ ha_platforms:
   - diagnostics
   - light
   - number
-  - sensor
   - select
+  - sensor
   - switch
 ha_codeowners:
   - '@icemanch'
@@ -25,6 +25,7 @@ ha_codeowners:
 ha_quality_scale: platinum
 ha_config_flow: true
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The Magic Home integration supports several brands of switches, bulbs, and controllers that use the same protocol. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the Magic Home app or the Surp Life app.
@@ -131,7 +132,7 @@ These devices have been sold under at least the following brands:
 
 {% include integrations/config_flow.md %}
 
-After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Magic Home" configuration for the bulb or controller. 
+After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Settings -> Integrations and selecting the "Magic Home" configuration for the bulb or controller. 
 
 **Custom Effect**\
 A list of RGB colors can be entered to create an effect. The effect speed can be adjusted using the slider underneath.

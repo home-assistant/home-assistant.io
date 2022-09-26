@@ -6,12 +6,11 @@ description: December 11, 2021 we will host the State of the Open Home.
 og_image: /images/state-of-the-open-home/social.png
 ---
 
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6ZMXE5PXPqU?start=294" frameborder="0" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="6ZMXE5PXPqU" videotitle="State of the Open Home 2021" videoStartAt="290" posterquality="maxresdefault"></lite-youtube>
 
 The State of the Open Home took place on December 11, 2021. Watch the recording of the event above. The following blog posts have been published based on State of the Open Home presentations:
 
+- [Energy management research using Home Assistant](/blog/2021/12/28/northeastern-university-home-energy-management/)
 - [Multi-server support in iOS 2021.12](/blog/2021/12/18/ios-multi-server/)
 - [Android 2021.12: Wear OS Beta!](/blog/2021/12/20/android-december-2021-release/)
 - [Demo: Genie, privacy-preserving virtual assistant by Stanford](/blog/2021/12/21/stanford-genie/)

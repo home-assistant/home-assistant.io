@@ -2,10 +2,10 @@
 title: Broadlink
 description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
-  - Remote
-  - Switch
-  - Sensor
   - Light
+  - Remote
+  - Sensor
+  - Switch
 ha_release: 0.35
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -20,6 +20,7 @@ ha_platforms:
   - sensor
   - switch
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
@@ -39,7 +40,7 @@ There is no more need to set up platforms, except for custom IR/RF switches. Onc
 
 The entities have the same name as the device by default. To change the name, icon or entity id, click the entity on the frontend and click the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. Don't forget to click _Update_ to save your changes when you're done.
 
-The entities are divided into three subdomains:
+The entities are divided into four subdomains:
 
 - [Remote](#remote)
 - [Sensor](#sensor)

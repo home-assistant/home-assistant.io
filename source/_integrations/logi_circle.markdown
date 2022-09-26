@@ -13,6 +13,7 @@ ha_domain: logi_circle
 ha_platforms:
   - camera
   - sensor
+ha_integration_type: integration
 ---
 
 The `logi_circle` implementation allows you to integrate your [Logi Circle](https://circle.logi.com/) cameras in Home Assistant. To connect Logi Circle, you will have to [sign up for API access](#requesting-api-access) and get a `client_id`, `client_secret` and `api_key`.

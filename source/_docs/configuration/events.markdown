@@ -87,7 +87,7 @@ If you want to trigger automation on a Home Assistant stop event, we recommend u
 
 | Field       | Description                                         |
 | ----------- | --------------------------------------------------- |
-| `name`      | Name of the entity. Example: `Litchen light`.       |
+| `name`      | Name of the entity. Example: `Kitchen light`.       |
 | `message`   | Message. Example: `was turned on`                   |
 | `domain`    | Optional, domain of the entry. Example: `light`     |
 | `entity_id` | Optional, identifier of the entity that was logged. |
@@ -123,22 +123,6 @@ This event is fired when a state has changed. It contains the entity identifier 
 ### `themes_updated`
 
 This event is fired after a theme has been set or reloaded. It contains no additional data.
-
-### `timer_out_of_sync`
-
-This event is fired after `time_changed` if there was more that one second delay.
-
-| Field     | Description           |
-| --------- | --------------------- |
-| `seconds` | The delay in seconds. |
-
-### `time_changed`
-
-This event is fired every second by the timer and contains the current time.
-
-| Field | Description                                                                                                                |
-| ----- | -------------------------------------------------------------------------------------------------------------------------- |
-| `now` | A [datetime object](https://docs.python.org/3/library/datetime.html#datetime.datetime) containing the current time in UTC. |
 
 ## `user_added`
 

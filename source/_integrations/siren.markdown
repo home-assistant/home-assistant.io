@@ -9,6 +9,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
   - '@raman325'
+ha_integration_type: integration
 ---
 
 The Siren integration is built for the controlling and monitoring of siren/chime devices.

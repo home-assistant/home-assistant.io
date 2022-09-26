@@ -8,6 +8,7 @@ ha_release: 0.19
 ha_domain: fitbit
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Fitbit sensor allows you to expose data from [Fitbit](https://fitbit.com/) to Home Assistant.

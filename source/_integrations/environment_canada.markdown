@@ -2,9 +2,9 @@
 title: Environment Canada
 description: Weather data from Environment Canada.
 ha_category:
-  - Weather
-  - Sensor
   - Camera
+  - Sensor
+  - Weather
 ha_platforms:
   - camera
   - sensor
@@ -16,6 +16,7 @@ ha_codeowners:
   - '@michaeldavie'
 ha_domain: environment_canada
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The Environment Canada integration provides meteorological data for Canadian locations from [Environment and Climate Change Canada](https://weather.gc.ca/index_e.html).
@@ -30,7 +31,9 @@ You can also specify a weather station to use by providing a identification code
 
 ## Entities
 
-The integration will create the entities listed below. Note that many of the entities are disabled by default and can be enabled via the Configuration / Entities screen.
+The integration will create the entities listed below. 
+
+Note that many of the entities, such as radar imagery and hourly forecasts, are disabled by default and can be enabled via the Entity status settings available through the Configuration / Entities screen.
 
 ### Weather
 
@@ -59,11 +62,11 @@ By default, the radar entity uses the rain layer from 1 April to 30 November and
 #### Temperature
 
 - Temperature
-- Wind chill
-- Humidex
 - Forecast high temperature
 - Forecast low temperature
 - Dewpoint
+- Wind chill (only at temperatures below 0ºC)
+- Humidex (only at temperatures above 19ºC)
 
 #### Wind
 
@@ -112,3 +115,15 @@ template:
 ```
 
 {% endraw %}
+
+
+## Services
+
+### Service `environment_canada.set_radar_type`
+
+Sets the type of radar to retrieve for the camera.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | Camera to set the radar type for.
+| `radar_type` | no | One of "Auto", "Rain", or "Snow".

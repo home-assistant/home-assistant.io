@@ -11,6 +11,7 @@ ha_codeowners:
   - '@engrbm87'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Islamic Prayer Times (`islamic_prayer_times`) integration displays the various prayer times for Muslims as sensors.
@@ -21,6 +22,7 @@ This platform calculates prayer times using the following calculation methods:
 - Islamic Society of North America
 - Muslim World League
 - Umm Al-Qura University in Makkah
+- Moonsighting
 
 {% include integrations/config_flow.md %}
 

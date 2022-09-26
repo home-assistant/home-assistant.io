@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: whirlpool
 ha_platforms:
   - climate
+ha_integration_type: integration
 ---
 
 The `whirlpool` integration integrates Whirlpool 6th Sense Live appliances into Home Assistant.

@@ -8,6 +8,7 @@ ha_release: 0.25
 ha_domain: imap_email_content
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `imap_email_content` integration will read emails from an IMAP email server and report them as a state change within Home Assistant. This is useful if you have a device that only reports its state via email.
@@ -73,6 +74,11 @@ value_template:
       description: The subject of the email.git.
     date:
       description: The date and time the email was sent.
+verify_ssl:
+  description: If the SSL certificate of the server needs to be verified.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Example - keyword spotting

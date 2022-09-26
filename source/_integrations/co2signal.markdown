@@ -10,6 +10,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The `co2signal` sensor platform queries the [CO2Signal](https://www.co2signal.com/) API for the CO2 intensity of a specific region. Data can be collected for your home, a specific latitude/longitude or by country code. This API uses the same data as <https://www.electricitymap.org>. Not all countries/regions in the world are supported so please consult this website to check local availability.

@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: blackbird
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `blackbird` platform allows you to control [Monoprice Blackbird Matrix Switch](https://www.monoprice.com/product?p_id=21819) (8x8) using a serial or IP connection, this integration does not support the 4x4 matrix switch.

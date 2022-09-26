@@ -11,6 +11,7 @@ ha_domain: brunt
 ha_platforms:
   - cover
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The `brunt` integration allows one to control Blind Engines by [Brunt](https://www.brunt.co). To use it, you need a Brunt App Account. All Brunt Blind devices registered to your account are automatically added to your Home Assistant with the names given them through the Brunt app.

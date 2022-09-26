@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@robmarkcole'
 ha_domain: sighthound
+ha_integration_type: integration
 ---
 
 Detect people in camera images using [Sighthound Cloud](https://www.sighthound.com/products/cloud). The Sighthound Developer tier (free for non-commercial use) allows 5000 images to be processed per month. If you need more processing per month you will need to sign up for a production account (i.e., a Basic or Pro account).

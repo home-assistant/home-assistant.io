@@ -14,6 +14,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - diagnostics
+ha_integration_type: integration
 ---
 
 The Stookalert integration queries the [RIVM Stookalert](https://www.rivm.nl/stookalert) API for unfavorable weather conditions or poor air quality. With a Stookalert, the RIVM calls on people not to burn wood. This can prevent health problems in people in the area.

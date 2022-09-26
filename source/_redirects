@@ -4,10 +4,19 @@
 # General use redirects
 /join-chat https://discord.gg/home-assistant
 /twitter https://twitter.com/home_assistant/
-/newsletter https://home-assistant.ghost.io/
+/newsletter https://building.open-home.io/
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
 /latest-security-alert /blog/2021/01/23/security-disclosure2/
+/merch https://home-assistant-store.creator-spring.com
+/feature-requests https://community.home-assistant.io/c/feature-requests
+/issues https://github.com/home-assistant/core/issues
+/community https://community.home-assistant.io/
+
+
+# Matter workshop June 2022
+/skyconnect-interest https://docs.google.com/forms/d/e/1FAIpQLScEjHSBJszUZfgO3MIDO51IHr3Oeohcs8BLpRIjY1liJ58IpA/viewform?usp=sf_link
+/matter-june-22 https://docs.google.com/document/d/1MldgA337wHTEx-vPkoxlCqKHrhVm5QIcHV32iLsv_2k/edit?usp=sharing
 
 # Redirect for Energy
 /energy /home-energy-management
@@ -142,6 +151,12 @@
 /integrations/notify.mysensors /integrations/mysensors#notify
 /integrations/sensor.mysensors /integrations/mysensors#sensor
 /integrations/switch.mysensors /integrations/mysensors#switch
+/integrations/binary_sensor.group /integrations/group
+/integrations/cover.group /integrations/group
+/integrations/fan.group /integrations/group
+/integrations/light.group /integrations/group
+/integrations/media_player.group /integrations/group
+/integrations/notify.group /integrations/group#notify-groups
 
 /components/air_pollutants.* /integrations/:splat
 /components/air_quality.* /integrations/:splat
@@ -173,9 +188,13 @@
 /components /integrations
 
 # Renamed integrations
+/integrationss/air_pollutants /integrations/air_quality
+/integrations/climacell /integrations/tomorrowio
 /integrations/generic_ip_camera /integrations/generic
 /integrations/google /integrations/google_translate
 /integrations/input_slider /integrations/input_number
+/integrations/leviton /integrations/leviton_z_wave
+/integrations/light.switch /integrations/switch_as_x
 /integrations/openalpr /integrations/openalpr_local
 /integrations/pca /integrations/elv
 /integrations/pollen /integrations/iqvia
@@ -185,8 +204,6 @@
 /integrations/telegram_chatbot /integrations/telegram_bot
 /integrations/vlc-telnet /integrations/vlc_telnet
 /integrations/xiaomi /integrations/xiaomi_aqara
-/integrations/zigbee /integrations/xbee
-/integrationss/air_pollutants /integrations/air_quality
 
 # Moved documentation
 /details/database /docs/backend/database
@@ -214,26 +231,16 @@
 /docs/frontend/mobile https://companion.home-assistant.io
 /docs/script/editor /docs/scripts/editor
 /docs/z-wave /integrations/zwave_js
-/docs/z-wave/adding /integrations/zwave/#adding-and-removing-devices
-/docs/z-wave/control-panel /integrations/zwave/#control-panel
+/docs/z-wave/adding /integrations/zwave_js#how-can-i-add-include-a-new-device-to-my-z-wave-network
+/docs/z-wave/control-panel /integrations/zwave_js#using-z-wave-js
 /docs/z-wave/controllers/#aeotec-stick /docs/z-wave/controllers/#aeotec-z-stick
-/docs/z-wave/devices /integrations/zwave/#device-support
-/docs/z-wave/devices/#instant-status /integrations/zwave/#instant-status
-/docs/z-wave/devices/#polling /integrations/zwave/#polling
-/docs/z-wave/device-specific /integrations/zwave/#device-specific-information
-/docs/z-wave/device-specific/#device-categories /integrations/zwave/#device-support
-/docs/z-wave/device-specific/#motion-or-alarm-sensors /integrations/zwave/#binary-sensor
-/docs/z-wave/device-specific/#locks-and-other-secure-devices /integrations/zwave/#lock
-/docs/z-wave/device-specific/#specific-devices /integrations/zwave/#device-specific-information
-/docs/z-wave/device-specific/#aeotec-z-stick /docs/z-wave/controllers/#aeotec-z-stick
-/docs/z-wave/device-specific/#razberry-board /docs/z-wave/controllers/#razberry-board
-/docs/z-wave/device-specific/#raspberry-pi-3-procedure /docs/z-wave/controllers/#raspberry-pi-3-procedure
-/docs/z-wave/device-specific/#raspberry-pi-4-procedure /docs/z-wave/controllers/#raspberry-pi-4-procedure
-/docs/z-wave/entities /integrations/zwave/#device-support
-/docs/z-wave/events /integrations/zwave/#events
-/docs/z-wave/installation /integrations/zwave/#detailed-installation-instructions
-/docs/z-wave/query-stage /integrations/zwave/#query-stage
-/docs/z-wave/services /integrations/zwave/#services
+/docs/z-wave/device-specific /integrations/zwave_js
+/docs/z-wave/devices /integrations/zwave_js#supported-devices-and-command-classes
+/docs/z-wave/entities /integrations/zwave_js#using-z-wave-js
+/docs/z-wave/events /integrations/zwave_js#events
+/docs/z-wave/installation /integrations/zwave_js#configuration
+/docs/z-wave/query-stage /integrations/zwave_js
+/docs/z-wave/services /integrations/zwave_js#services
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 /ecosystem/notebooks https://data.home-assistant.io
 /ecosystem/notebooks/api https://data.home-assistant.io
@@ -311,6 +318,7 @@
 /common-tasks/os/#snapshots /common-tasks/os/#backups
 /common-tasks/supervised/#snapshots /common-tasks/supervised/#backups
 /more-info/unsupported/container /more-info/unsupported/software
+/integrations/zigbee /integrations/zha
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -394,23 +402,36 @@
 /getting-started/installation-raspberry-pi-all-in-one /getting-started
 /docs/tools/keyring/ /docs/configuration/secrets
 /docs/tools/credstash/ /docs/configuration/secrets
+/docs/scripts/editor/ /docs/scripts
 
 # Blog
 /blog/2019/05/29/release-94 /blog/2019/06/05/release-94
 /state-of-the-union /blog/2019/11/22/state-of-the-union
+/blog/2022/03/30/release-20224 /blog/2022/04/06/release-20224/
 
 # Removed integrations
 /integrations/alarmdotcom /more-info/removed-integration 301
+/integrations/apns /more-info/removed-integration 301
+/integrations/arlo /more-info/removed-integration 301
 /integrations/arduino /more-info/removed-integration 301
+/integrations/bbb_gpio /more-info/removed-integration 301
+/integrations/bh1750 /more-info/removed-integration 301
 /integrations/binary_sensor.mychevy /more-info/removed-integration 301
+/integrations/blinkt /more-info/removed-integration 301
+/integrations/bme280 /more-info/removed-integration 301
+/integrations/bme680 /more-info/removed-integration 301
+/integrations/bmp280 /more-info/removed-integration 301
 /integrations/bom /more-info/removed-integration 301
 /integrations/ciscospark /more-info/removed-integration 301
 /integrations/coinmarketcap /more-info/removed-integration 301
 /integrations/crimereports /more-info/removed-integration 301
 /integrations/device_tracker.trackr /more-info/removed-integration 301
+/integrations/dht /more-info/removed-integration 301
+/integrations/digitalloggers /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/edp_redy /more-info/removed-integration 301
 /integrations/ee_brightbox /more-info/removed-integration 301
+/integrations/envirophat /more-info/removed-integration 301
 /integrations/essent /more-info/removed-integration 301
 /integrations/fedex /more-info/removed-integration 301
 /integrations/fortigate /more-info/removed-integration 301
@@ -419,8 +440,10 @@
 /integrations/gearbest /more-info/removed-integration 301
 /integrations/geizhals /more-info/removed-integration 301
 /integrations/gntp /more-info/removed-integration 301
+/integrations/gpmdp /more-info/removed-integration 301
 /integrations/griddy /more-info/removed-integration 301
 /integrations/history_graph /more-info/removed-integration 301
+/integrations/htu21d /more-info/removed-integration 301
 /integrations/huawei_router /more-info/removed-integration 301
 /integrations/hydroquebec /more-info/removed-integration 301
 /integrations/ialarm /more-info/removed-integration 301
@@ -432,20 +455,40 @@
 /integrations/loop_energy /more-info/removed-integration 301
 /integrations/loopenergy /more-info/removed-integration 301
 /integrations/lyft /more-info/removed-integration 301
+/integrations/mcp23017 /more-info/removed-integration 301
+/integrations/mhz19 /more-info/removed-integration 301
+/integrations/miflora /integrations/xiaomi_ble
+/integrations/mitemp_bt /integrations/xiaomi_ble
 /integrations/mopar /more-info/removed-integration 301
+/integrations/mpchc /more-info/removed-integration 301
 /integrations/mychevy /more-info/removed-integration 301
 /integrations/n26 /more-info/removed-integration 301
 /integrations/nello /more-info/removed-integration 301
 /integrations/nma /more-info/removed-integration 301
 /integrations/nuimo_controller /more-info/removed-integration 301
+/integrations/orangepi_gpio /more-info/removed-integration 301
+/integrations/ozw /more-info/removed-integration 301
+/integrations/pcal9535a /more-info/removed-integration 301
+/integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
+/integrations/piglow /more-info/removed-integration 301
 /integrations/postnl /more-info/removed-integration 301
 /integrations/prezzibenzina /more-info/removed-integration 301
 /integrations/ptvsd /more-info/removed-integration 301
 /integrations/pushetta /more-info/removed-integration 301
+/integrations/raspihats /more-info/removed-integration 301
+/integrations/rpi_gpio /more-info/removed-integration 301
+/integrations/rpi_gpio_pwm /more-info/removed-integration 301
+/integrations/rpi_pfio /more-info/removed-integration 301
+/integrations/rpi_rf /more-info/removed-integration 301
 /integrations/ruter /more-info/removed-integration 301
 /integrations/salt /more-info/removed-integration 301
+/integrations/sensehat /more-info/removed-integration 301
+/integrations/sht31 /more-info/removed-integration 301
 /integrations/simple_alarm /more-info/removed-integration 301
+/integrations/smarthab /more-info/removed-integration 301
+/integrations/sochain /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
+/integrations/somfy /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
 /integrations/srp_energy /more-info/removed-integration 301
 /integrations/synology /more-info/removed-integration 301
@@ -453,14 +496,21 @@
 /integrations/tahoma /more-info/removed-integration 301
 /integrations/teksavvy /more-info/removed-integration 301
 /integrations/tesla /more-info/removed-integration 301
+/integrations/tof /more-info/removed-integration 301
 /integrations/trackr /more-info/removed-integration 301
 /integrations/ubee /more-info/removed-integration 301
 /integrations/uber /more-info/removed-integration 301
+/integrations/updater /more-info/removed-integration 301
 /integrations/ups /more-info/removed-integration 301
 /integrations/usps /more-info/removed-integration 301
 /integrations/weblink /more-info/removed-integration 301
 /integrations/wink /more-info/removed-integration 301
 /integrations/wunderground /more-info/removed-integration 301
+/integrations/xbee /more-info/removed-integration 301
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
+/components/zwave /integrations/zwave_js
+
+# Lovelace images
+/images/dashboards/lovelace_* /images/dashboards/:splat

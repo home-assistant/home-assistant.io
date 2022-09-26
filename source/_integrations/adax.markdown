@@ -11,6 +11,7 @@ ha_domain: adax
 ha_config_flow: true
 ha_platforms:
   - climate
+ha_integration_type: integration
 ---
 
 Integrates Adax heater into Home Assistant.

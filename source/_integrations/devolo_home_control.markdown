@@ -26,6 +26,7 @@ ha_platforms:
   - siren
   - switch
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 devolo Home Control is a Z-Wave ecosystem with a Z-Wave to IP gateway in the center. The integration allows you to control devices connected to the gateway.

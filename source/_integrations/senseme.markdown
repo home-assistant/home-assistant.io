@@ -21,6 +21,7 @@ ha_platforms:
   - light
   - select
   - switch
+ha_integration_type: integration
 ---
 
 Integrates SenseME devices into Home Assistant.

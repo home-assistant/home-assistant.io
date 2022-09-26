@@ -3,13 +3,13 @@ title: Lutron Caséta
 description: Instructions on how to use Lutron Caseta devices with Home Assistant.
 featured: true
 ha_category:
-  - Hub
+  - Binary Sensor
   - Cover
+  - Fan
+  - Hub
   - Light
   - Scene
   - Switch
-  - Fan
-  - Binary Sensor
 ha_release: 0.41
 ha_iot_class: Local Push
 ha_domain: lutron_caseta
@@ -17,16 +17,18 @@ ha_config_flow: true
 ha_codeowners:
   - '@swails'
   - '@bdraco'
+  - '@danaues'
 ha_zeroconf: true
 ha_homekit: true
 ha_platforms:
   - binary_sensor
-  - diagnostics
   - cover
+  - diagnostics
   - fan
   - light
   - scene
   - switch
+ha_integration_type: integration
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, HVAC controls, etc. The `lutron_caseta` integration in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](https://www.casetawireless.com/) product line of dimmers, switches, shades, and sensors. It will also communicate with the Lutron Radio RA2 Main Repeater for the [RA2 Select](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RA2Select/Overview.aspx) product line of dimmers, switches, shades, and sensors.
@@ -50,7 +52,7 @@ When configured, the Lutron Caséta integration will automatically discover the 
 
 ## Manual hub configuration
 
-To use Lutron Caseta devices in your installation, you must first log in to your Lutron account and generate a certificate that allows Home Assistant to connect to your bridge. This can be accomplished by downloading and executing [get_lutron_cert.py](https://github.com/gurumitts/pylutron-caseta/blob/master/get_lutron_cert.py), which will generate three files: caseta.key, caseta.crt, caseta-bridge.crt when you run it. See the instructions at the top of the script for more information.
+To use Lutron Caseta devices in your installation, you must first log in to your Lutron account and generate a certificate that allows Home Assistant to connect to your bridge. This can be accomplished by following the [steps here](https://github.com/gurumitts/pylutron-caseta/tree/master#getting-started), which will generate three files: caseta.key, caseta.crt, caseta-bridge.crt when you run it.
 
 If you already have `caseta.key`, `caseta.crt`, `caseta-bridge.crt`, and cannot physically access the bridge to press the button, pairing can be done by utilizing these existing files.
 

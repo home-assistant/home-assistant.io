@@ -7,6 +7,9 @@ ha_release: 0.27
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: emulated_hue
+ha_integration_type: integration
+ha_codeowners:
+  - '@bdraco'
 ---
 
 <div class='note warning'>

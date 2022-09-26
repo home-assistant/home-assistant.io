@@ -40,6 +40,8 @@ Enjoy the release!
 
 ../Frenck
 
+<!--more-->
+
 - [Updates from Nabu Casa](#updates-from-nabu-casa)
 - [Media improvements](#media-improvements)
 - [Check for updates](#check-for-updates)
@@ -320,7 +322,7 @@ a "Yes" or "No" (or similar) value in templates. Some examples:
 ```yaml
 {{ iif(is_state('light.kitchen', 'on'), 'Yes', 'No') }}
 {{ is_state('light.kitchen', 'on') | iif('Yes', 'No') }}
-{{ (state('light.kitchen') == 'on') | iif('Yes', 'No') }}
+{{ (states('light.kitchen') == 'on') | iif('Yes', 'No') }}
 ```
 
 {% endraw %}

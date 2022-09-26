@@ -2,6 +2,8 @@
 title: devolo Home Network
 description: Instructions on how to integrate devolo Home Network devices with Home Assistant.
 ha_category:
+  - Binary Sensor
+  - Presence Detection
   - Sensor
 ha_release: '2021.12'
 ha_iot_class: Local Polling
@@ -12,8 +14,11 @@ ha_codeowners:
 ha_domain: devolo_home_network
 ha_quality_scale: platinum
 ha_platforms:
+  - binary_sensor
+  - device_tracker
   - sensor
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The devolo Home Network integration allows you to monitor your PLC network.
@@ -23,6 +28,18 @@ The devolo Home Network integration allows you to monitor your PLC network.
 ## Device Types
 
 Currently the following device types within Home Assistant are supported.
+
+### Binary Sensors
+
+* Device attached to the router
+  * Updates every 5 minutes
+  * Is disabled by default because it typically rarely changes
+
+### Presence Detection
+
+* Detect presence of devices connected to the main or the guest wifi
+  * Updates every 10 seconds
+  * Automatically adds new devices as disabled entities unless disabled via system option
 
 ### Sensors
 
@@ -47,3 +64,10 @@ The list of supported devolo devices depends on the device firmware and the devi
 * dLAN 1200+ WiFi ac
 * dLAN 550+ Wifi
 * dLAN 550 WiFi
+
+Since firmware 7.10 also the following device without Wifi can be used as long as the corresponding entities are supported:
+
+* Magic 2 LAN triple
+* Magic 2 DinRail
+* Magic 2 LAN 1-1
+* Magic 1 LAN 1-1

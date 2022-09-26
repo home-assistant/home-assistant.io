@@ -15,6 +15,7 @@ ha_platforms:
   - button
   - diagnostics
   - light
+ha_integration_type: integration
 ---
 
 The [Elgato](https://www.elgato.com/) Lights sets the bar for high-end studio

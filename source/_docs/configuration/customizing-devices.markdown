@@ -115,7 +115,7 @@ homeassistant:
 
 Home Assistant offers a service to reload the core configuration while Home Assistant is running. This allows you to change your customize section and see your changes being applied without having to restart Home Assistant.
 
-To reload customizations, navigate to Configuration > Server Controls and then press the "Reload Location & Customizations" button. If you don't see this, enable Advanced Mode on your user profile page first.
+To reload customizations, navigate to Developer Tools > YAML and then press the "Reload Location & Customizations" button. If you don't see this, enable Advanced Mode on your user profile page first.
 
 You can also use the [Quick bar](/docs/tools/quick-bar/#command-palette), and choose "Reload Location & Customizations".
 

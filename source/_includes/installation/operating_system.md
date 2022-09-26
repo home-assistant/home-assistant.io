@@ -12,7 +12,7 @@ Follow this guide if you want to get started with Home Assistant easily or if yo
 
 We will need a few things to get started with installing Home Assistant. Links below lead to Amazon US. If you’re not in the US, you should be able to find these items in web stores in your country.
 
-- [Raspberry Pi 4](https://amzn.to/2S0Gcl1) (Raspberry Pi 3 is ok too, if you have one laying around). Raspberry Pi are currently hard to come by, use [RPilocator](https://rpilocator.com/?cat=PI4) to find webshops with stock.
+- [Raspberry Pi 4](https://amzn.to/2S0Gcl1) (Raspberry Pi 3 is ok too, if you have one laying around). Raspberry Pi are currently hard to come by, use [RPilocator](https://rpilocator.com/?cat=PI4) or [Fast Alerts (US)](https://fastalerts.io/product/raspberry-pi-4/) to find webshops with stock.
 - [Power Supply for Raspberry Pi 4](https://amzn.to/2ReZ2Vq) or [Power Supply for Raspberry Pi 3](https://amzn.to/2R8yG7h)
 - [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. A 32 GB or bigger card is recommended.
 - SD Card reader. This is already part of most laptops, but you can purchase a [standalone USB adapter](https://amzn.to/2WWxntY) if you don't have one. The brand doesn't matter, just pick the cheapest.
@@ -99,7 +99,7 @@ To use this method, follow the steps described in the procedure below: [Write th
 {% if page.installation_type == 'odroid' %}
    If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
 {% endif %}
-2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>
+2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. (You may need to run it with administrator privileges on Windows).
 3. Select "Flash from URL"
 ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
 
@@ -157,6 +157,25 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 3. Power the system on.
 
    - Wait for the Home Assistant welcome banner to show up in the console of the generic-x86-64 system.
+
+<div class="note">
+
+If the machine complains about not being able to find a bootable medium, you might need to specify the EFI entry in your BIOS.
+This can be accomplished either by using a live operating system (e.g. Ubuntu) and running the following command (replace `<drivename>` with the appropriate drive name assigned by Linux, typically this will be `sda` or `nvme0n1` on NVMe SSDs):
+
+  ```text
+  efibootmgr --create --disk /dev/<drivename> --part 1 --label "HAOS" \
+     --loader '\EFI\BOOT\bootx64.efi'
+  ```
+
+Or else, the BIOS might provide you with a tool to add boot options, there you can specify the path to the EFI file:
+
+  ```text
+  \EFI\BOOT\bootx64.efi
+  ```
+
+</div>
+
 {% else %}
 
 1. Insert the boot media ({{site.installation.types[page.installation_type].installation_media}}) you just created.
@@ -194,8 +213,8 @@ Load the appliance image into your virtual machine hypervisor. (Note: You are fr
 
 Minimum recommended assignments:
 
-- 2GB RAM
-- 32GB Storage
+- 2 GB RAM
+- 32 GB Storage
 - 2vCPU
 
 _All these can be extended if your usage calls for more resources._
@@ -207,24 +226,39 @@ _All these can be extended if your usage calls for more resources._
 - title: VirtualBox
   content: |
     1. Create a new virtual machine
-    2. Select Type “Linux” and Version “Other Linux (64-bit)”
+    2. Select Type “Linux” and Version “Linux 2.6 / 3.x / 4.x (64-bit)”
     3. Select “Use an existing virtual hard disk file”, select the unzipped VDI file from above
     4. Edit the “Settings” of the VM and go “System” then “Motherboard” and select “Enable EFI”
     5. Then go to “Network” “Adapter 1” choose “Bridged Adapter” and choose your Network adapter
     6. Then go to “Audio” and choose “Intel HD Audio” as Audio Controller.
+    <div class="note info">
 
-- title: KVM
+    By default VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
+    the `discard` option must be enabled:
+    ```bash
+    VBoxManage storageattach <VM name> --storagectl "SATA" --port 0 --device 0 --nonrotational on --discard on
+    ```
+
+    </div>
+
+- title: KVM (virt-manager)
   content: |
     1. Create a new virtual machine in `virt-manager`
     2. Select “Import existing disk image”, provide the path to the QCOW2 image above
     3. Choose “Generic Default” for the operating system
     4. Check the box for “Customize configuration before install”
     5. Select your bridge under “Network Selection”
-    6. Under customization select “Overview” -> “Firmware” -> “UEFI x86_64: …”
+    6. Under customization select “Overview” -> “Firmware” -> “UEFI x86_64: ...”
     7. Click "Add Hardware" (bottom left), and select "Channel"
     8. Select device type: "unix"
     9. Select name: "org.qemu.guest_agent.0"
-    10. Finally select "Begin Instalation" (upper left corner)
+    10. Finally select "Begin Installation" (upper left corner)
+
+- title: KVM (virt-install)
+  content: |
+    ```bash
+    virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --graphics none --boot uefi
+    ```
 
 {% if page.installation_type == 'windows' or page.installation_type == 'linux' %}
 

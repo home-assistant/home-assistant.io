@@ -11,6 +11,7 @@ ha_domain: foscam
 ha_config_flow: true
 ha_platforms:
   - camera
+ha_integration_type: integration
 ---
 
 The `foscam` platform allows you to watch the live stream of your [Foscam](https://www.foscam.com) IP camera in Home Assistant.
@@ -69,7 +70,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: up
   - type: icon
@@ -81,7 +82,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: down
   - type: icon
@@ -93,7 +94,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: left
   - type: icon
@@ -105,7 +106,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: right
   - type: icon
@@ -117,7 +118,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: top_left
   - type: icon
@@ -129,7 +130,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: top_right
   - type: icon
@@ -141,7 +142,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: bottom_left
   - type: icon
@@ -153,7 +154,7 @@ elements:
     tap_action:
       action: call-service
       service: foscam.ptz
-      service_data:
+      data:
         entity_id: camera.bedroom
         movement: bottom_right
 ```

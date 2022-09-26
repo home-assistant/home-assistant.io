@@ -8,6 +8,7 @@ ha_release: '0.91'
 ha_domain: aws
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `aws` integration provides a single place to interact with [Amazon Web Services](https://aws.amazon.com/). Currently it provides a notification platform that can send a message to [AWS SQS](https://aws.amazon.com/sqs/), [AWS SNS](https://aws.amazon.com/sns/), or invoke [AWS Lambda](https://aws.amazon.com/lambda/) functions.
@@ -146,7 +147,7 @@ If you do not download them, you will lose them and will have to recreate a new 
 </div>
 
 - Copy/Paste the two keys that are shown here in your `configuration.yaml` file.
-- On the left-hand side of the screen go back to "Users" and select the user you just created. On the "Permissions" tab click the "Attach Policy" icon. Search for "SNS" and attach the policy "AmazonSNSFUullAccess".
+- On the left-hand side of the screen go back to "Users" and select the user you just created. On the "Permissions" tab click the "Attach Policy" icon. Search for "SNS" and attach the policy "AmazonSNSFullAccess".
 - Back to the AWS Console you now need to find "SNS" and click in to that service. It is under the Mobile Services group.
 - On the left-hand side, select "Topics" then "Create new topic".
 - Choose a Topic Name and Display Name.

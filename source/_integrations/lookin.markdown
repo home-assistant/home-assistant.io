@@ -19,6 +19,7 @@ ha_platforms:
   - media_player
   - sensor
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 Integrates LOOKin devices into Home Assistant.

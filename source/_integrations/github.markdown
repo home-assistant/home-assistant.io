@@ -13,6 +13,7 @@ ha_platforms:
 ha_codeowners:
   - '@timmo001'
   - '@ludeeus'
+ha_integration_type: integration
 ---
 
 The GitHub integration allows you to monitor your favorite [GitHub][github] repositories.
@@ -25,7 +26,7 @@ When you have authorized the integration, you select repositories you want to mo
 
 ## Remove authorization
 
-After you have removed the integration from {% my integrations title="Configuration -> Devices & Services" %}, you need to manually revoke OAuth app authorization.
+After you have removed the integration from {% my integrations title="Settings -> Devices & Services" %}, you need to manually revoke OAuth app authorization.
 
 1. Go to your [Authorized OAuth Apps][github_apps]
 2. Find the "Home Assistant GitHub Integration" application

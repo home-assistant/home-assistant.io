@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: nederlandse_spoorwegen
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 This sensor will provide you with time table information of the [Nederlandse Spoorwegen](https://www.ns.nl/) train service in the Netherlands.

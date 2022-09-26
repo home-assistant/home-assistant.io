@@ -7,6 +7,7 @@ ha_release: 0.88
 ha_quality_scale: internal
 ha_domain: person
 ha_iot_class: Calculated
+ha_integration_type: integration
 ---
 
 The `person` integration allows connecting [device tracker](/integrations/device_tracker/) entities to one or more person entities. The state updates of a connected device tracker will set the state of the person. When multiple device trackers are used, the state of person will be determined in this order:
@@ -92,12 +93,9 @@ If you change the YAML, you can reload it by calling the `person.reload` service
 
 ### Customizing the picture for a person
 
-You can easily upload a picture in the frontend. Simply click on a person, select or drop an image in the input field, and then crop it. 
+You can easily upload a picture in the frontend. Simply click on a person, select or drop an image in the input field, and then crop it.
 
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rOlRnwaaT7Y" frameborder="0" allowfullscreen></iframe>
-</div>
-
+<lite-youtube videoid="rOlRnwaaT7Y" videotitle="Changing a profile picture" posterquality="maxresdefault"></lite-youtube>
 
 You can also do this using YAML. By following the instructions on the [customizing entities](/docs/configuration/customizing-devices#entity_picture) page, you can customize the picture used for a person entity in the `customize:` section of your configuration. For example:
 

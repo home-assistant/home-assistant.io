@@ -13,6 +13,7 @@ ha_domain: gdacs
 ha_platforms:
   - geo_location
   - sensor
+ha_integration_type: integration
 ---
 
 The `gdacs` integration lets you use a GeoRSS feed provided by 

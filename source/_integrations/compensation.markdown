@@ -2,8 +2,8 @@
 title: Compensation
 description: Instructions on how to integrate compensation sensors into Home Assistant.
 ha_category:
-  - Utility
   - Sensor
+  - Utility
 ha_iot_class: Calculated
 ha_release: '2021.5'
 ha_codeowners:
@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: compensation
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Compensation integration consumes the state from other sensors. It exports the compensated value as state and the following values as attributes: `entity_id` and `coefficients`.  A single polynomial, linear by default, is fit to all data points provided.

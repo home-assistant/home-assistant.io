@@ -112,7 +112,7 @@ component, which is ideal for if you want to measure all your energy via a
 pulse LED on your smart meter or when you want to read what your water
 consumption is.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The pulse meter component is also what I’ve used for the hardware I’ve been working on. I’ve made a range of improvements since the last time I shared it. Now including a status LED so it’s easy to check if it’s working. <a href="https://t.co/GwaVZS0HQj">pic.twitter.com/GwaVZS0HQj</a></p>&mdash; Klaas Schoute (@klaasnicolaas) <a href="https://twitter.com/klaasnicolaas/status/1389683162683518979?ref_src=twsrc%5Etfw">May 4, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The pulse meter component is also what I’ve used for the hardware I’ve been working on. I’ve made a range of improvements since the last time I shared it. Now including a status LED so it’s easy to check if it’s working. <a href="https://t.co/GwaVZS0HQj">pic.twitter.com/GwaVZS0HQj</a></p>&mdash; Klaas Schoute (@klaasnicolaas) <a href="https://twitter.com/klaasnicolaas/status/1389683162683518979?ref_src=twsrc%5Etfw">May 4, 2021</a></blockquote>
 
 By combining measuring how many pulses there are within a time frame and
 the time between each pulse, you get even better accurate readings!

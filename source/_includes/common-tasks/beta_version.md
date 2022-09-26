@@ -9,10 +9,11 @@ If you would like to test next release before anyone else, you can install the b
 - title: From the UI
   content: |
 
-   1. In your Home Assistant UI navigate to {% my supervisor_info title="Configuration > Add-ons & Backups > System" %}
-   2. Click the link that says "Join beta"
-   3. Navigate to Configuration panel
-   4. Install the update that is presented to you
+   1. In your Home Assistant UI navigate to {% my updates title="System > Updates" %}
+   2. Click the overflow menu in the top right corner
+   3. Click "Join beta"
+   4. Navigate to Configuration panel
+   5. Install the update that is presented to you
 
 - title: From the CLI
   content: |
@@ -47,24 +48,26 @@ docker pull {{ site.installation.container }}:beta
 
 {% elsif page.installation == "core" %}
 
-1. Switch to the user that is running Home Assistant
+1. Stop the Home Assistant service.
+
+2. Switch to the user that is running Home Assistant
 
     ```bash
     sudo -u homeassistant -H -s
     ```
 
-2. Activate the virtual environment that Home Assistant is running in
+3. Activate the virtual environment that Home Assistant is running in
 
     ```bash
     source /srv/homeassistant/bin/activate
     ```
 
-3. Download and install the beta version
+4. Download and install the beta version
 
     ```bash
     pip3 install --pre --upgrade homeassistant
     ```
 
-4. When that is complete restart the service for it to use the new files.
+5. When that is complete start the service again for it to use the new files.
 
 {% endif %}
