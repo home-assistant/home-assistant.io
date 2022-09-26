@@ -176,14 +176,14 @@ script:
 
 The current implementation of the Python module (Plugwise-Smile) includes:
 
-Adam (zone_control):
+Adam (zone_control) with On/Off, OpenTherm and Loria/Thermastage heating and cooling support:
 
  - v3.x
  - v2.3
 
- - Devices supported are Anna, Lisa, Jip, Floor, Tom, Koen and Plug - note a Koen always comes with a Plug (the active part) 
+ - Devices supported are Anna, Lisa, Jip, Floor, Tom, Plug, Aqara Smart Plug and Koen (a Koen always comes with a Plug, the active part)  
 
-Anna (thermostat):
+Anna (thermostat) with OpenTherm heating, and Elga and Loria/Thermastage heating and cooling support:
 
  - v4.x
  - v3.x
