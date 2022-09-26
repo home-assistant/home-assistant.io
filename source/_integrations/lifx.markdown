@@ -126,7 +126,7 @@ Run an effect with colors looping around the color wheel. All participating ligh
 
 ### Service `lifx.effect_move`
 
-Harware-based effect available on LIFX multizone devices that creates a movement animation of the colors currently set on the device. The direction and speed of the animation are controlled by the `speed` and `direction` atttributes. You can change the colors of the effect while it is running using the `lifx.set_state` service.
+A harware-based effect available on LIFX multizone devices that creates a movement animation of the colors currently set on the device. The direction and speed of the animation are controlled by the `speed` and `direction` attributes. You can change the colors of the effect while it is running using the `lifx.set_state` service.
 
 The effect will not be visible if all LEDs on the device are set to the same color and is ignored by unsupported devices.
 
