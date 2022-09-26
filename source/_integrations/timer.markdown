@@ -22,7 +22,7 @@ You can also click the following button to be redirected to the Helpers page of 
 
 {% my helpers badge %}
 
-To be able to add Helpers via the user interface you should have default_config: in your configuration.yaml, it should already be there by default unless you removed it. If you removed default_config: from your configuration, you must add timer: to your configuration.yaml first, then you can use the UI.
+To be able to add Helpers via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it. If you removed `default_config:` from your configuration, you must add `timer:` to your `configuration.yaml` first, then you can use the UI.
 
 Timers can also be configured via configuration.yaml:
 To add a timer to your installation, add the following to your `configuration.yaml` file:
