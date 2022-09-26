@@ -21,7 +21,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `nibe_heatpump` integration allows you to control and monitor [Nibe Heat Pumps](https://www.nibe.eu/en-eu/products/heat-pumps) in Home Assistant.
+The Nibe Heat Pump integration allows you to control and monitor [Nibe Heat Pumps](https://www.nibe.eu/en-eu/products/heat-pumps) in Home Assistant.
 
 Supported devices:
 
@@ -47,19 +47,17 @@ Supported devices:
 
 ## Connection Methods
 
-To communicate with the pump there are a few different connection methods available depending on hardware.
+To communicate with the pump there are a few different connection methods available depending on hardware. At the moment the following methods are supported.
 
 - [UDP Gateway using NibeGw](#udp-gateway-using-nibegw)
-- TCP Modbus for S Models (not yet implemented)
-- Serial Modbus for Nibe Modbus 40 (not yet implemented)
 
 ### UDP Gateway using NibeGw
 
-The heat pump exposes a RS485 interface for communication with extensions. This can be used to speak to the pump by emulating the Nibe MODBUS40 accessory.
+The heat pump exposes an RS485 interface for communication with extensions. This can be used to speak to the pump by emulating the Nibe MODBUS40 accessory.
 
-Since the pump will go into an error state if the accessory is not responding, a dedicated hardware running a gateway software is the preferable choice.
+Since the pump will go into an error state if the accessory is not responding, dedicated hardware running a gateway software is the preferable choice.
 
-This can be built using a Raspberry Pi with a RS485 hat, a Arduino with RS485 support or an ESP32 with RS485 converters.
+This can be built using a Raspberry Pi with an RS485 hat, an Arduino with RS485 support or an ESP32 with RS485 converters.
 
 #### ESPHome
 
