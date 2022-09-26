@@ -36,9 +36,12 @@ Consider_home:
 
 ## Router entities
 The NETGEAR router will have the following entities.
-Note that not all routers support all features, if a router does not support a feature the corresponding entity will have the unavailable status even when the enity is disabled.
-You might also see the following error in the log `404 service '...', method '...' not found`, to prevent these errors, keep the unsuported entities disabled.
-All posibly unsupported enities are disabled by default.
+
+Note that not all routers support all features, if a router does not support a feature, the corresponding entity will have the unavailable status even when the entity is disabled.
+
+You might also see the following error in the log `404 service '...', method '...' not found`, to prevent these errors, keep the unsupported entities disabled.
+
+All possibly unsupported entities are disabled by default.
 
 ### Reboot button
 
@@ -56,7 +59,8 @@ Enable the `Traffic Meter` switch entity and turn it on.
 
 ### Router feature switches
 
-The following router features can be turned on/off and the status can be read:
+The following router features can be turned on/off, and the status can be read:
+
 - Access Control
 - Traffic Meter
 - Parental Control
