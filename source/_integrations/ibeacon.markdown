@@ -63,13 +63,12 @@ The integration will create an Estimated Distance sensor by default. This estima
 ## Example automation
 
 ```yaml
-alias: The black trash can has left the building
-description: ""
+alias: "The black trash can has left the building"
+mode: single
 trigger:
   - platform: state
-    entity_id:
-      - sensor.black_trash_bin_estimated_distance
-    to: unavailable
+    entity_id: sensor.black_trash_bin_estimated_distance
+    to: "unavailable"
     for:
       hours: 0
       minutes: 5
@@ -81,11 +80,9 @@ trigger:
       minutes: 5
       seconds: 0
     above: 20
-condition: []
 action:
   - service: notify.notify
     data:
-      message: The black trash can has left the building
-      title: The black trash can has left the building
-mode: single
+      message: "The black trash can has left the building"
+      title: "The black trash can has left the building"
 ```
