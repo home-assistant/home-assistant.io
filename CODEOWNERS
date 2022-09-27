@@ -200,7 +200,6 @@ source/_integrations/flick_electric.markdown @ZephireNZ
 source/_integrations/flipr.markdown @cnico
 source/_integrations/flo.markdown @dmulcahey
 source/_integrations/flume.markdown @ChrisMandich @bdraco @jeeftor
-source/_integrations/flunearyou.markdown @bachya
 source/_integrations/flux_led.markdown @icemanch @bdraco
 source/_integrations/forecast_solar.markdown @klaasnicolaas @frenck
 source/_integrations/forked_daapd.markdown @uvjustin
