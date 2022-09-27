@@ -92,37 +92,72 @@ The message attribute supports the [Markdown formatting syntax](https://daringfi
 
 Choose the **Services** tab from the **Developer Tools** sidebar item, then select the `persistent_notification.create` service from the "Service" dropdown. Enter something like the sample below into the **Service Data** field and press the **CALL SERVICE** button.
 
-```json
-{
-  "notification_id": "1234",
-  "title": "Sample notification",
-  "message": "This is a sample text"
-}
+```yaml
+service: persistent_notification.create
+data:
+   notification_id: "1234"
+   title: "Sample notification"
+   message: "This is a sample text"
+
 ```
 This will create the notification entry shown above.
 
-### Example Markdown variable notification
+### Example variable notification
+
+This Example assumes a sensor exists as `sensor.os_agent_version_github` and it's current value is `1.4.0`.
+
+Any existing sensor can be choosen to create dynamic messages. 
 
 {% raw %}
+
+### Markdown
 
 ```yaml
 service: persistent_notification.create
 data:
-  notification_id: os-agent
-  title: "There is an update in Os-Agent!"
+  notification_id: markdown
+  title: "There is an update in OS-Agent!"
   message: >-
-    OS_Agent {{ states('sensor.home_assistant_os_agent_latest_tag') }} is
-    available<br></br> [os-agent](https://github.com/home-assistant/os-agent)
-    <br></br> wget
-    https://github.com/home-assistant/os-agent/releases/download/{{
-    states('sensor.home_assistant_os_agent_latest_tag')
-    }}/os-agent_1.4.0_linux_x86_64.deb<br></br> sudo dpkg -i os-agent_{{
-    states('sensor.home_assistant_os_agent_latest_tag')
-    }}_linux_x86_64.deb<br></br>
+    ## OS_Agent {{ states('sensor.os_agent_version_github') }} is available
 
+    
+    [os-agent changes](https://github.com/home-assistant/os-agent)
+    
+    
+    **Commands for copying for Docker/Supervisor Install**
+    
+    *caution this is not for HAOS installs*
+
+
+    ```
+    wget https://github.com/home-assistant/os-agent/releases/download/{{ states('sensor.os_agent_version_github') }}/os-agent_1.4.0_linux_x86_64.deb
+    ```
+    
+    
+    `sudo dpkg -i os-agent_{{ states('sensor.sensor.os_agent_version_github') }}_linux_x86_64.deb`
+
+```
+
+### HTML
+
+```yaml
+service: persistent_notification.create
+data:
+  notification_id: html
+  title: "There is an update in OS-Agent!"
+  message: >-
+    <p><h2>OS_Agent {{ states('sensor.os_agent_version_github') }} is available</h2></p>
+    <p><a href="https://github.com/home-assistant/os-agent" title="Title">os-agent changes</a></p>
+    <b>Commands for copying for Docker/Supervisor Install</b></br>
+    <i>caution this is not for HAOS installs</i><br></p>
+    <p><code>wget https://github.com/home-assistant/os-agent/releases/download/{{ states('sensor.os_agent_version_github') }}/os-agent_1.4.0_linux_x86_64.deb</code>
+    <br></br>
+    <code>sudo dpkg -i os-agent_{{ states('sensor.os_agent_version_github') }}_linux_x86_64.deb</code></p>
 ```
 {% endraw %}
 
-This is the output.
+This is the output or either the Markdown or HTML example.
 
-![persistant_notification_msgCapture](https://user-images.githubusercontent.com/36288425/191888076-0895e15a-2cc2-4e31-9755-c758135b108e.PNG)
+<p class='img'>
+  <img src='/images/screenshots/persistant_notification2_capture.png' />
+</p>
