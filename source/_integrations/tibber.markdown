@@ -55,39 +55,37 @@ The `tibber` sensor provides the current electricity price if you are a [Tibber]
 You also get sensors for monthly consumption, monthly cost, and monthly peak hour
 If you have a Tibber Pulse it will also show the electricity consumption in real time.
 
-
 ## Available Sensors
 
-|Sensor Name:|Value:|Comment:|
-| --------------- | --------------- | --------------- |
-|sensor.accumulated_cost_HOMEID|Accumulated cost since midnight (requires active Tibber power deal)|
-|sensor.accumulated_consumption_HOMEID|kWh consumed since midnight|
-|sensor.accumulated_production_HOMEID|net kWh produced since midnight|
-|sensor.accumulated_production_current_hour_HOMEID|net kWh produced since last hour shift|
-|sensor.current_l1_HOMEID|Current on L1; on Kaifa and Aidon meters the value is not part of every HAN data frame therefore the value is null at timestamps with second value other than 0, 10, 20, 30, 40, 50. There can be other deviations based on concrete meter firmware.|
-|sensor.current_l2_HOMEID|Current on L2; on Kaifa and Aidon meters the value is not part of every HAN data frame therefore the value is null at timestamps with second value other than 0, 10, 20, 30, 40, 50. There can be other deviations based on concrete meter firmware.|
-|sensor.current_l3_HOMEID|Current on L3; on Kaifa and Aidon meters the value is not part of every HAN data frame therefore the value is null at timestamps with second value other than 0, 10, 20, 30, 40, 50. There can be other deviations based on concrete meter firmware.|
-|sensor.estimated_consumption_current_hour_HOMEID|Estimate of kWh consumption current hour|
-|sensor.accumulated_consumption_current_hour_HOMEID|kWh consumed since since last hour shift|
-|sensor.average_power_HOMEID|Average consumption since midnight (Watt)|
-|sensor.last_meter_consumption_HOMEID|Last meter active import register state (kWh)|
-|sensor.last_meter_production_HOMEID|Last meter active export register state (kWh)|
-|sensor.max_power_HOMEID|Peak consumption since midnight (Watt)|
-|sensor.min_power_HOMEID|Min consumption since midnight (Watt)|
-|sensor.monthly_cost_HOMEID||Deprecated?|
-|sensor.monthly_net_consumption_HOMEID||Deprecated?|
-|sensor.monthly_peak_hour_consumption_HOMEID||Deprecated?|
-|sensor.power_HOMEID|Consumption at the moment (Watt)|
-|sensor.power_factor_HOMEID|Consumption at the moment (Watt)|
-|sensor.power_production_HOMEID|Net production (A-) at the moment (Watt)|
-|sensor.electricity_price_HOMEID|The total price (energy + taxes)|
-|sensor.signal_strength_HOMEID|Device signal strength (Pulse - dB; Watty - percent)|
-|sensor.time_of_max_hour_consumption_HOMEID||Deprecated?|
-|sensor.voltage_phase1_HOMEID|Voltage on phase 1; on Kaifa and Aidon meters the value is not part of every HAN data frame therefore the value is null at timestamps with second value other than 0, 10, 20, 30, 40, 50. There can be other deviations based on concrete meter firmware.|
-|sensor.voltage_phase2_HOMEID|Voltage on phase 2; on Kaifa and Aidon meters the value is not part of every HAN data frame therefore the value is null at timestamps with second value other than 0, 10, 20, 30, 40, 50. There can be other deviations based on concrete meter firmware.|
-|sensor.voltage_phase3_HOMEID|Voltage on phase 3; on Kaifa and Aidon meters the value is not part of every HAN data frame therefore the value is null at timestamps with second value other than 0, 10, 20, 30, 40, 50. There can be other deviations based on concrete meter firmware.|
+- Accumulated cost since midnight (requires active Tibber power deal)
+- kWh consumed since midnight
+- net kWh produced since midnight
+- net kWh produced since last hour shift
+- Current on L1, L2 and L3
+- Estimate of kWh consumption current hour
+- kWh consumed since since last hour shift
+- Average consumption since midnight (Watt)
+- Last meter active import register state (kWh)
+- Last meter active export register state (kWh)
+- Peak consumption since midnight (Watt)
+- Min consumption since midnight (Watt)
+- Consumption at the moment (Watt)
+- Consumption at the moment (Watt)
+- Net production (A-) at the moment (Watt)
+- The total price (energy + taxes)
+- Device signal strength (Pulse - dB; Watty - percent)
+- Voltage on phase 1, 2 and 3
 
-Tibber API Reference: https://developer.tibber.com/docs/reference
+<div class='note'>
+
+Sensors for information below are created but suspected to be deprecated from Tibbers side since they aren't populated
+
+- Monthly cost
+- Monthly net consumption
+- Monthly peak hour
+- Time of max hour consumption
+
+</div>
 
 ## Examples
 
@@ -115,10 +113,6 @@ The electricity price can be used to make automations. The sensor has a `max_pri
        target: "device/daniel_telefon_cat"
        message: "The electricity price is now {{ states('sensor.electricity_price_hamretunet_10') }}"
 ```
-
-### URL
-
-https://www.home-assistant.io/integrations/tibber/
 
 
 
