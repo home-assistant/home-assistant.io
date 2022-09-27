@@ -106,7 +106,7 @@ This will create the notification entry shown above.
 
 This Example assumes a sensor exists as `sensor.os_agent_version_github` and it's current value is `1.4.0`.
 
-Any existing sensor can be choosen to create dynamic messages. 
+Any existing sensor can be chosen to create dynamic messages. 
 
 {% raw %}
 
