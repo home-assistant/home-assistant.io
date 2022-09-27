@@ -22,7 +22,7 @@ ha_integration_type: integration
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
-- [Sensor](#sensor)
+- [Sensor](#sensors)
 
 ## Home Assistant add-on installation
 
@@ -39,7 +39,7 @@ If you get `ConnectionRefusedError: Connection refused` errors in the Home Assis
 </div>
 
 
-## Binary sensors
+## Binary sensor
 
 This integration provides a binary sensor for the following information from apcupsd:
 
