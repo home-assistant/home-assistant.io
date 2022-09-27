@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[Apcupsd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) [is configured](http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver) on the APC device.
+[apcupsd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) [is configured](http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver) on the APC device.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -34,20 +34,20 @@ After installation, follow the instructions on the GitHub page to configure the 
 
 <div class='note'>
 
-If you get `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs, ensure the [Apcupsd](http://www.apcupsd.org/) configuration directives used by its Network Information Server is set to permit connections from all addresses [NISIP 0.0.0.0](http://www.apcupsd.org/manual/manual.html#configuration-directives-used-by-the-network-information-server), else non-local addresses will not connect.
+If you get `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs, ensure the [apcupsd](http://www.apcupsd.org/) configuration directives used by its Network Information Server is set to permit connections from all addresses [NISIP 0.0.0.0](http://www.apcupsd.org/manual/manual.html#configuration-directives-used-by-the-network-information-server), else non-local addresses will not connect.
 
 </div>
 
 
 ## Binary sensors
 
-This integration provides a binary sensor for the following information from APCUPSd:
+This integration provides a binary sensor for the following information from apcupsd:
 
 - UPS status
 
 ## Sensors
 
-This integration provides sensors for the following information from APCUPSd based on their availability. Each sensor is listed here along with their corresponding resource name obtained from `apcaccess`. 
+This integration provides sensors for the following information from apcupsd based on their availability. Each sensor is listed here along with their corresponding resource name obtained from `apcaccess`. 
 
 <div class='note'>
 
