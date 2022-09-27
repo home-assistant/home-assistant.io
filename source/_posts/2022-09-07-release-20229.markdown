@@ -43,6 +43,7 @@ Now I know that everyone usually expects [@frenck] to be writing these release n
 - [Release 2022.9.4 - September 14](#release-202294---september-14)
 - [Release 2022.9.5 - September 18](#release-202295---september-18)
 - [Release 2022.9.6 - September 22](#release-202296---september-22)
+- [Release 2022.9.7 - September 26](#release-202297---september-26)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -686,6 +687,66 @@ The following integrations are now available via the Home Assistant UI:
 [switchbot docs]: /integrations/switchbot/
 [synology_dsm docs]: /integrations/synology_dsm/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
+
+## Release 2022.9.7 - September 26
+
+- Bump pyipma to 3.0.5 ([@dgomes] - [#78936]) ([ipma docs])
+- Bump motionblinds to 0.6.13 ([@starkillerOG] - [#78946]) ([motion_blinds docs])
+- Set OWM default mode to hourly legacy API ([@jbouwh] - [#78951]) ([openweathermap docs])
+- Bump yalexs to 1.2.2 ([@bdraco] - [#78978]) ([august docs])
+- Fix velbus matching ignored entries in config flow ([@Cereal2nd] - [#78999]) ([velbus docs])
+- Bumped boschshcpy 0.2.30 to 0.2.35 ([@tschamm] - [#79017]) ([bosch_shc docs])
+- Fix failing LaMetric pairing message during config flow ([@frenck] - [#79031]) ([lametric docs])
+- Fix MQTT device_tracker generating unique id-s - regression on #78547 ([@jbouwh] - [#79033]) ([mqtt docs])
+- Bump govee-ble to 0.19.0 ([@bdraco] - [#79038]) ([govee_ble docs])
+- Always install requirements of after_dependencies ([@emontnemery] - [#79094])
+- Pin pyOpenSSL to 22.0.0 ([@balloob] - [#79066])
+
+[#77968]: https://github.com/home-assistant/core/pull/77968
+[#78081]: https://github.com/home-assistant/core/pull/78081
+[#78169]: https://github.com/home-assistant/core/pull/78169
+[#78410]: https://github.com/home-assistant/core/pull/78410
+[#78438]: https://github.com/home-assistant/core/pull/78438
+[#78703]: https://github.com/home-assistant/core/pull/78703
+[#78916]: https://github.com/home-assistant/core/pull/78916
+[#78936]: https://github.com/home-assistant/core/pull/78936
+[#78946]: https://github.com/home-assistant/core/pull/78946
+[#78951]: https://github.com/home-assistant/core/pull/78951
+[#78978]: https://github.com/home-assistant/core/pull/78978
+[#78999]: https://github.com/home-assistant/core/pull/78999
+[#79017]: https://github.com/home-assistant/core/pull/79017
+[#79031]: https://github.com/home-assistant/core/pull/79031
+[#79033]: https://github.com/home-assistant/core/pull/79033
+[#79038]: https://github.com/home-assistant/core/pull/79038
+[#79066]: https://github.com/home-assistant/core/pull/79066
+[#79094]: https://github.com/home-assistant/core/pull/79094
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@dgomes]: https://github.com/dgomes
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@starkillerOG]: https://github.com/starkillerOG
+[@tschamm]: https://github.com/tschamm
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[august docs]: /integrations/august/
+[bluetooth docs]: /integrations/bluetooth/
+[bosch_shc docs]: /integrations/bosch_shc/
+[frontend docs]: /integrations/frontend/
+[google_assistant docs]: /integrations/google_assistant/
+[govee_ble docs]: /integrations/govee_ble/
+[guardian docs]: /integrations/guardian/
+[homekit_controller docs]: /integrations/homekit_controller/
+[imap docs]: /integrations/imap/
+[ipma docs]: /integrations/ipma/
+[lametric docs]: /integrations/lametric/
+[motion_blinds docs]: /integrations/motion_blinds/
+[mqtt docs]: /integrations/mqtt/
+[openweathermap docs]: /integrations/openweathermap/
+[velbus docs]: /integrations/velbus/
 
 ## Need help? Join the community
 
