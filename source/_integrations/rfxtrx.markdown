@@ -351,9 +351,8 @@ Alternatively:
 
 ```yaml
 service: rfxtrx.send
-data: {
-    event: 0b1111e003af16aa10000060
-}
+data:
+  event: "0b1111e003af16aa10000060"
 ```
 
 ## Generate codes
