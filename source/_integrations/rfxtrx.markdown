@@ -346,7 +346,7 @@ action:
 
 Alternatively:
 
-- Go to https://my.home-assistant.io/redirect/developer_services/
+- Go to [Developer Tools: Services](https://my.home-assistant.io/redirect/developer_services/)
 - Select: `RFXCOM RFXtrx: Send` from the Service drop-down menu.
 
 ```yaml
@@ -359,7 +359,7 @@ data:
 
 If you need to generate codes for switches and lights, you can use a template (useful, for example, COCO switches).
 
-- Go to https://my.home-assistant.io/redirect/developer_template/
+- Go to [Developer Tools: Templates](https://my.home-assistant.io/redirect/developer_template/)
 - Use the following codes to generate an event:
 
 ### Switch: ARC
