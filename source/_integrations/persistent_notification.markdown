@@ -156,7 +156,7 @@ data:
 ```
 {% endraw %}
 
-This is the output or either the Markdown or HTML example.
+This is the output of either the Markdown or HTML example.
 
 <p class='img'>
   <img src='/images/screenshots/persistant_notification2_capture.png' />
