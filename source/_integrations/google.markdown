@@ -1,5 +1,5 @@
 ---
-title: Google Calendars
+title: Google Calendar
 description: Instructions on how to use Google Calendars in Home Assistant.
 ha_category:
   - Calendar

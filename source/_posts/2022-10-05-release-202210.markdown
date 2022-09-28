@@ -1,0 +1,533 @@
+---
+layout: post
+title: "2022.10: Beta release notes"
+description: "Beta release notes for Home Assistant Core 2022.10."
+date: 2022-09-28 00:00:00
+date_formatted: "October 10, 2022"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+- Release-Notes
+- Core
+og_image: /images/blog/2022-10/social.png
+---
+
+<a href='/integrations/#version/2022.10'><img src='/images/blog/2022-10/social.png' style='border: 0;box-shadow: none;'></a>
+
+<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+These are the beta release notes for Home Assistant Core 2022.10 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/Lovelace:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the Supervisor:<br>
+  <https://github.com/home-assistant/supervisor/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+version field (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+---
+<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+Home Assistant Core 2022.10!
+
+I have nothing to tell yet... this is still all beta!
+
+Thanks for helping out testing the beta! ❤️
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [Integrations v2](#integrations-v2)
+- [Sub-views for dashboards](#sub-views-for-dashboards)
+- [Restyling of all dialogs](#restyling-of-all-dialogs)
+- [Viewing manual automations in the automation editor](#viewing-manual-automations-in-the-automation-editor)
+- [New template thingies](#new-template-thingies)
+- [Google sheets?](#google-sheets)
+- [iBeacon?](#ibeacon)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New Integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Breaking Changes](#breaking-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=nlbwmnLi4Ms) today at 12:00 PDT / 21:00 CET!
+
+<lite-youtube videoid="nlbwmnLi4Ms" videotitle="Home Assistant 2022.10 Release Party"></lite-youtube>
+
+{% comment %}
+<!-- Replace the wrapper above with the following after the livestream...-->
+
+Missed our release party live stream on YouTube? Don't worry! You can watch
+the recording of it right here!
+
+<lite-youtube videoid="nlbwmnLi4Ms" videotitle="Home Assistant 2022.10 Release Party"></lite-youtube>
+
+{% endcomment %}
+
+## Integrations v2
+
+(Working title, need to be changed to something useful)
+
+{% details "TODO" %}
+
+- Needs a better title
+- Improve story
+- Screenshots
+- Spelling/grammar
+- https://github.com/home-assistant/frontend/pull/13887
+
+{% enddetails %}
+
+Recently we introduced "Supported brands" in Home Assistant, this release
+is taking that concept a step further to improve the experience in adding
+new devices or services to Home Assistant.
+
+For some brands of devices, we have actually multiple integrations available.
+For example, some devices can work via Zigbee (e.g, ZHA) but also via their
+matching Hub (e.g., Hue bridge). Other might work locally via HomeKit or
+Bluetooh, or by using their cloud using a different integration.
+
+To make it more clear on the choices available, you can now add integration
+by brand. Home Assistant will show the options available for that specific
+brand.
+
+This way, you no longer have to "find out" how your device could be integrated.
+
+## Active connections for Bluetooth remote proxies
+
+{% details "TODO" %}
+
+- Improve story
+- Needs a better title
+- Spelling/grammar
+
+{% enddetails %}
+
+Support for active Bluetooth connections via Bluetooth proxies in ESPHome
+has been added.
+
+**At the time of reading this, we are in beta**, the ESPHome part is not yet
+available. So this feature is coming, we are working on making all
+parts available asap.
+
+## Sub-views for dashboards
+
+{% details "TODO" %}
+
+- Improve story
+- Needs a better title
+- Screenshots
+- Spelling/grammar
+
+{% enddetails %}
+
+Dashboard views now can be marked as "Subview".
+
+<p class='img'>
+<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/191509109-68d10563-739c-4dd0-91af-b209ca303059.png'>
+Temporary image, which needs to be replaced.
+</p>
+
+Subviews won't show up in the navigation bar, but can be linked to,
+from e.g., a button. Subviews only show a back button. Here is an
+example of a subview in a short movie clip (need replacement):
+
+<video controls="controls">
+<source src="https://user-images.githubusercontent.com/5878303/191218073-b3ba3bff-c75d-4544-bec9-3417b7941ddc.mp4" type="video/mp4">
+</video>
+
+## Restyling of all dialogs
+
+{% details "TODO" %}
+
+- Probably can be moved to the other noteworthy
+- Add an actual story
+- Needs a better title
+- Screenshots (before after?)
+- What is next?
+- Spelling/grammar
+
+{% enddetails %}
+
+All dialogs that are shown in the Home Assistant UI have been slightly updated.
+They now have a more consistent look and contents (in terms of action buttons &
+icons) and are styled closer towards the Material Design v3 styling.
+
+## Viewing manual automations in the automation editor
+
+{% details "TODO" %}
+
+- Add an actual story
+- Needs a better title
+- Screenshots
+- Spelling/grammar
+- Allow fetching automation config ([@balloob] - [#79130]) ([automation docs])
+- Allow fetching script config ([@balloob] - [#79131]) ([script docs])
+- WIP: https://github.com/home-assistant/frontend/pull/13900
+
+{% enddetails %}
+
+In the last release, we revamped our automation editor and we are very
+happy to read how many of you loved these changes ❤️
+
+However, if you manage your automations manually in YAML you'd always be
+served an error message when trying to open an automation in the UI.
+
+This has been improved! You can now open any automation (or script) in the UI,
+allowing you to view your automation, giving a quick glance and their
+workings.
+
+Besides, as an additional bonus, if you have considered moving your automation
+to the UI, you can now actually view and experience how it would look/work
+for those automations.
+
+## New template thingies
+
+{% details "TODO" %}
+
+- Consider moving to noteworthy
+- Needs a better title
+- Needs link to documentation
+- Improve on story
+- Spelling/grammar
+
+{% enddetails %}
+
+A new `version()` template function/filter has been added that allows
+you to do awesome things with version numbers.
+
+It allows for getting information about a number, comparing version
+numbers and even check the difference between 2 version numbers.
+
+{% raw %}
+
+- `{{ version("2022.10.0") > "2022.9.7" }}`  Will return true, as `2022.10.0` is newer.
+- `{{ (version("2022.10.0") - "209.9.7").patch }}` Will return false, as this is not a patch release.
+- `{{ version("2022.10.0b0").beta }}` will return true, as this is a beta version.
+
+{% endraw %}
+
+## Google sheets
+
+Nice new integration, consider doing a section about it (TODO).
+
+
+## iBeacon
+
+Nice new integration, consider doing a section about it (TODO).
+
+## Other noteworthy changes
+
+{% details "TODO" %}
+
+- Proof read/spelling/grammar
+
+**Note**: Changes processed up to PR 79201
+
+{% enddetails %}
+
+There is much more juice in this release; here are some of the other
+noteworthy changes this release:
+
+- Lorem ipsum
+
+To process core PR candidates:
+
+- Support unique_id for Universal Media Player ([@holysoles] - [#77461]) ([universal docs])
+- Add version to templates ([@ludeeus] - [#78484])
+- Add unique_id to ohmconnect ([@magic7s] - [#78479]) ([ohmconnect docs])
+- Allow selecting display unit when fetching statistics ([@emontnemery] - [#78578]) ([recorder docs]) ([sensor docs])
+- Add Button platform to Bravia TV ([@Drafteed] - [#78093]) ([braviatv docs])
+- Enable Thread transport in homekit_controller ([@Jc2k] - [#78994]) ([homekit_controller docs])
+- Add range to min_max ([@jsherman256] - [#78282]) ([min_max docs])
+- IntelliFire Fan Support ([@jeeftor] - [#74181]) ([intellifire docs]) (new-platform)
+- Netgear add router switches ([@starkillerOG] - [#72171]) ([netgear docs]) (dependency))
+- Add browse media to forked-daapd ([@uvjustin] - [#79009]) ([forked_daapd docs])
+- Add spotify support to forked-daapd ([@uvjustin] - [#79136]) ([forked_daapd docs]))
+- Allow controlling PrusaLink print jobs ([@balloob] - [#78720]) ([prusalink docs]))
+
+- Expose battery and rssi sensors in Melnor Bluetooth integration ([@vanstinator] - [#77576]) ([melnor docs])
+- Add BTHome binary sensors ([@Ernst79] - [#78151]) ([bthome docs])
+- Add binary sensor to Radarr ([@tkdrob] - [#79043]) ([radarr docs])
+- IntelliFire Fan Support ([@jeeftor] - [#74181]) ([intellifire docs])
+
+To process frontend PR candidates:
+
+* Simplify energy settings (#13846) @emontnemery
+* Prompt user to remove application credentials when deleting the integration configuration (#13159) @allenporter
+* Improve statistics graph editor (#13630) @emontnemery
+
+## New Integrations
+
+We welcome the following new integrations in this release:
+
+- [Google Sheets], added by [@tkdrob]
+- [iBeacon Tracker], added by [@bdraco]
+- [Kegtron], added by [@Ernst79]
+- [Keymitt MicroBot Push], added by [@spycle]
+- [Lidarr], added by [@tkdrob]
+- [Nibe Heat Pump], added by [@elupus]
+- [Nobø Ecohub], added by [@oyvindwe]
+- [SwitchBee], added by [@jafar-atili]
+- [Tilt Hydrometer Bluetooth], added by [@apt-itude]
+
+[@apt-itude]: https://github.com/apt-itude
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@Ernst79]: https://github.com/Ernst79
+[@jafar-atili]: https://github.com/jafar-atili
+[@oyvindwe]: https://github.com/oyvindwe
+[@spycle]: https://github.com/spycle
+[@tkdrob]: https://github.com/tkdrob
+[Google Sheets]: /integrations/google_sheets
+[iBeacon Tracker]: /integrations/ibeacon
+[Kegtron]: /integrations/kegtron
+[Keymitt MicroBot Push]: /integrations/keymitt_ble
+[Lidarr]: /integrations/lidarr
+[Nibe Heat Pump]: /integrations/nibe_heatpump
+[Nobø Ecohub]: /integrations/nobo_hub
+[SwitchBee]: /integrations/switchbee
+[Tilt Hydrometer Bluetooth]: /integrations/tilt_ble
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- [DSMR Reader], done by [@Glodenox]
+- [Radarr], done by [@tkdrob]
+
+[@Glodenox]: https://github.com/Glodenox
+[@tkdrob]: https://github.com/tkdrob
+[DSMR Reader]: /integrations/dsmr_reader
+[Radarr]: /integrations/radarr
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Breaking Changes
+
+{% details "TODO" %}
+
+- Proof read/spelling/grammar
+
+**Note**: Breaking changes processed up to PR 78832
+
+{% enddetails %}
+
+Below is a listing of the breaking change for this release, per subject or
+integration. Click on one of those to read more about the breaking change
+for that specific item.
+
+{% details "Bayesian" %}
+
+The `prob_given_false` configuration variable, is now a required configuration
+variable as there was no mathematical rationale for the previous default value.
+
+`numeric_state`, `template`, and `state` entries with only one `to_state`
+configured will also now update the prior probability accordingly if the
+observation is false. Those who have used duplicate, mirrored `state`
+configurations as a work-around will have their functionality preserved.
+However for `numeric_state` and `template` entries this will cause duplication
+of the Bayesian updating.
+
+([@HarvsG] - [#67631]) ([documentation](/integrations/bayesian))
+
+[@HarvsG]: https://github.com/HarvsG
+[#67631]: https://github.com/home-assistant/core/pull/67631
+
+{% enddetails %}
+
+{% details "Bluesound" %}
+
+When the player is grouped and isn't master, the state no longer reports as
+"grouped" but instead reports as "idle".
+
+([@epenet] - [#78096]) ([documentation](/integrations/bluesound))
+
+[@epenet]: https://github.com/epenet
+[#78096]: https://github.com/home-assistant/core/pull/78096
+
+{% enddetails %}
+
+{% details "Elexa Guardian" %}
+
+The previously deprecated `guardian.reboot` and
+`guardian.reset_valve_diagnostics` services have been removed and replaced
+by button entities on the guardian valve controller device.
+
+([@bachya] - [#78663]) ([documentation](/integrations/guardian))
+
+[@bachya]: https://github.com/bachya
+[#78663]: https://github.com/home-assistant/core/pull/78663
+
+{% enddetails %}
+
+{% details "Frontier Silicon" %}
+
+When the player is loading, the state no longer reports as "opening",
+but instead reports as "buffering".
+
+([@epenet] - [#78101]) ([documentation](/integrations/frontier_silicon))
+
+[@epenet]: https://github.com/epenet
+[#78101]: https://github.com/home-assistant/core/pull/78101
+
+{% enddetails %}
+
+{% details "HERE Travel Time" %}
+
+The previously deprecated YAML configuration of the HERE Travel Time
+integration has been removed.
+
+HERE Travel Time is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files
+
+([@eifinger] - [#77959]) ([documentation](/integrations/here_travel_time))
+
+[@eifinger]: https://github.com/eifinger
+[#77959]: https://github.com/home-assistant/core/pull/77959
+
+{% enddetails %}
+
+{% details "HomeKit Controller" %}
+
+When the player is not active, the state no longer reports as "problem",
+but instead reports as "off".
+
+When the player is active, but the state doesn't match known states,
+the state no longer reports as "ok" but instead reports as "on".
+
+([@epenet] - [#78105]) ([documentation](/integrations/homekit_controller))
+
+[@epenet]: https://github.com/epenet
+[#78105]: https://github.com/home-assistant/core/pull/78105
+
+{% enddetails %}
+
+{% details "Radarr" %}
+
+Some breaking changes has been made in disabling the Movies count sensor out
+of caution. This sensor can cause problems with massive databases.
+If the you still wish to use it, you may do so.
+
+Movie names are no longer included as attributes in the movies sensor. Upcoming
+has been removed. It is being modernized as calendar items should be.
+Diskspace is now split into different sensors, one for each folder.
+Status and commands have been removed as they don't appear to have real
+value for automations.
+
+([@tkdrob] - [#78965]) ([documentation](/integrations/radarr))
+
+[@tkdrob]: https://github.com/tkdrob
+[#78965]: https://github.com/home-assistant/core/pull/78965
+
+{% enddetails %}
+
+{% details "Supervisor" %}
+
+In Home Assistant 2022.4 the binary sensors for showing an update from the
+Supervisor integration were deprecated in favor of
+[update entities](/integrations/hassio/#update-entities).
+
+These binary sensors for showing an update now have been removed.
+
+([@ludeeus] - [#60677]) ([documentation](/integrations/hassio))
+
+[@ludeeus]: https://github.com/ludeeus
+[#60677]: https://github.com/home-assistant/core/pull/60677
+
+{% enddetails %}
+
+{% details "Workday" %}
+
+Due to changes in the upstream library, the following is no longer supported by
+the Workday integration:
+- UK subdivisions (Wales, Scotland, England...) can no longer be provided as
+  values to `country` configuration key, they are still available for use as
+  values to the `province` setting.
+- `IsleOfMan` if no longer a recognised province of the UK,
+  use the `IM` code for `country` instead.
+- The extended Portuguese holiday set (`PortugalExt`) is no longer available
+  as a separate country, instead you should use the country code `PT` and
+  the province `Ext`.
+
+([@TomBrien] - [#78832]) ([documentation](/integrations/workday))
+
+[@TomBrien]: https://github.com/TomBrien
+[#78832]: https://github.com/home-assistant/core/pull/78832
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+The fan speed levels of Leviton ZW4SF fan controllers are now mapped correctly
+to corresponding percentage levels in Home Assistant.
+
+This may change which fan speed is selected at certain percentages.
+You should adjust any automations and scripts that target these devices
+as needed.
+
+([@mkowalchuk] - [#60677]) ([documentation](/integrations/zwave_js))
+
+[@mkowalchuk]: https://github.com/mkowalchuk
+[#60677]: https://github.com/home-assistant/core/pull/60677
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+- [Bluetooth async_track_unavailable API changes](https://developers.home-assistant.io/blog/2022/09/16/bluetooth-unavailable-api-changes)
+- [Calendar Data Model improvements and deprecations](https://developers.home-assistant.io/blog/2022/04/18/calendar-data-model/)
+- [Deprecating media player constants](https://developers.home-assistant.io/blog/2022/09/06/media-player-repeat-mode-deprecation)
+- [The issue registry has been moved to homeassistant.helpers](https://developers.home-assistant.io/blog/2022/08/25/issue_registry_moved_to_helpers)
+- [New sensor device classes](https://developers.home-assistant.io/blog/2022/09/28/new_sensor_device_classes)
+
+## Farewell to the following
+
+The following integrations are also no longer available as of this release:
+
+- **Ambee** as is became impossible to get API keys for private use.
+- **Climacell** has been replaced by [Tomorrow.io](/integrations/tomorrowio).
+- **Flu Near You** the resource is no longer available, causing the integration
+  no longer to work.
+- **U.S. Citizenship and Immigration Services (USCIS)** the integration relied
+  on webscraping, which is no longer allowed.
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2022.10](/changelogs/core-2022.10)

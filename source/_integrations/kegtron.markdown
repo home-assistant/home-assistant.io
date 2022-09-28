@@ -4,7 +4,7 @@ description: Instructions on how to integrate Kegtron Smart Keg Monitor (Gen 1) 
 ha_category:
   - Sensor
 ha_bluetooth: true
-ha_release: 2022.10
+ha_release: '2022.10'
 ha_iot_class: Local Push
 ha_codeowners:
   - '@Ernst79'
