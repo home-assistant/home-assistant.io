@@ -10,7 +10,6 @@ ha_codeowners:
   - '@osohotwateriot'
 ha_domain: osoenergy
 ha_platforms:
-  - sensor
   - water_heater
 ha_config_flow: true
 ha_integration_type: integration
@@ -21,12 +20,6 @@ The OSO Energy integration for Home Assistant allows you to interact with suppor
 This OSO Energy integration uses a subscription key, which a user can create for his account on the [OSO Energy website](https://portal.osoenergy.no/), to configure it within Home Assistant. Once configured Home Assistant will detect and add all OSO Energy devices.
 
 {% include integrations/config_flow.md %}
-
-## Options
-
-Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press the options button*
-
-- **Scan Interval**: Update the scan interval allowing the integration to poll for data more frequently (Cannot be set lower than 15 seconds).
 
 ## Services
 
@@ -169,19 +162,6 @@ script:
 ```
 
 ## Platforms
-
-### Sensor
-
-The `osoenergy` sensor integration exposes OSO Energy data as a sensor.
-
-The platform exposes the following sensors:
-
-- Power Save status for water heaters.
-- Extra Energy status for water heaters.
-- Power load (kW) for water heaters.
-- Tapping capacity (kWh) for water heaters.
-- Capacity mixed water at 40°C (L) for water heaters.
-- V40 Min (L) for water heaters.
 
 ### Water Heater
 
