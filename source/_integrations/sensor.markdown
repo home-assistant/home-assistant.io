@@ -52,7 +52,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **timestamp**: Datetime object or timestamp string (ISO 8601)
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
 - **voltage**: Voltage in V
-- **volume**: Generic volume
+- **volume**: Generic volume in L, mL, gal, fl. oz., m³ or ft³
 
 <p class='img'>
 <img src='/images/screenshots/sensor_device_classes_icons.png' />
