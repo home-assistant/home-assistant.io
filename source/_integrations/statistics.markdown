@@ -43,9 +43,9 @@ The following characteristics are supported for `sensor` source sensors:
 | `average_linear` | The average value of stored measurements under consideration of the time distances between them. A linear interpolation is applied per measurement pair. Good suited to observe a source sensor with non-periodic sensor updates and when continuous behavior is represented by the measurements (e.g. outside temperature).
 | `average_step` | The average value of stored measurements under consideration of the time distances between them. LOCF (last observation carried forward weighting) is applied, meaning, that the old value is assumed between two measurements. The resulting step function represents well the behavior of non-continuous behavior, like the set temperature of a boiler.
 | `average_timeless` | The average value of stored measurements. This method assumes that all measurements are equally spaced and, therefore, time is ignored and a simple average of values is computed. Equal to `mean`.
-| `change_sample` | The average change per sample. The difference between the oldest and newest measurement is divided by the number of in-between measurements (n-1).
-| `change_second` | The average change per second. The difference between the oldest and newest measurement is divided by seconds between them.
-| `change` | The difference between the oldest and newest measurement.
+| `change_sample` | The average change per sample. The difference between the newest and the oldest measurement is divided by the number of in-between measurements (n-1).
+| `change_second` | The average change per second. The difference between the newest and the oldest measurement is divided by seconds between them.
+| `change` | The difference between the newest and the oldest measurement.
 | `count` | The number of stored source sensor readings. This number is limited by `sampling_size` and can be low within the bounds of `max_age`.
 | `datetime_newest` | The timestamp of the newest measurement.
 | `datetime_oldest` | The timestamp of the oldest measurement.

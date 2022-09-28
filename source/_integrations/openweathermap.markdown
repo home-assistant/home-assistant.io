@@ -30,7 +30,7 @@ You need an API key, which is free, but requires a [registration](https://home.o
 <div class='note'>
 If you register an new API key with OpenWeatherMap, it will be activated automatically, this typically takes between 10 minutes and 2 hours
 after your successful registration. Keep in mind when configuring this integration, that you new API key might
-not be activated yet.
+not be activated yet. Recent policy changes limit the API access for new registered users with a free plan, they should select the `hourly` mode. The other modes require a paid subscription plan. Invalid API-key errors might occur if your API key is used with the other modes.
 </div>
 
 {% include integrations/config_flow.md %}

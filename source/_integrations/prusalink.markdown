@@ -10,6 +10,10 @@ ha_codeowners:
   - '@balloob'
 ha_domain: prusalink
 ha_integration_type: integration
+ha_platforms:
+  - camera
+  - sensor
+ha_dhcp: true
 ---
 
 The PrusaLink integration allows you to monitor your [Prusa 3D printer](https://www.prusa3d.com) and its progress with your Home Assistant installation.

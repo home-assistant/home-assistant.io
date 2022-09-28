@@ -15,6 +15,6 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `rpi_power` integration allows you to detect [bad power supply](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md) on Raspberry Pi. 
+The `rpi_power` integration allows you to detect [bad power supply](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply-warnings) on Raspberry Pi.
 
 {% include integrations/config_flow.md %}

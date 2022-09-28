@@ -283,7 +283,7 @@ The output of this selector is the number of mired selected, for example, `243`.
 
 ## Config entry selector
 
-The config entry selector allows to user to select a configured integration
+The config entry selector allows the user to select an integration
 configuration entry. The selector returns the entry ID of the selected
 integration configuration entry.
 
@@ -685,8 +685,8 @@ max:
   type: [integer, float]
   required: true
 step:
-  description: The step value of the number value.
-  type: [integer, float]
+  description: The step size of the number value. Set to `"any"` to allow any number.
+  type: [integer, float, "any"]
   required: false
   default: 1
 unit_of_measurement:

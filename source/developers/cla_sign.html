@@ -464,14 +464,15 @@ description: "The Home Assistant contributor license agreement (CLA) signature p
           "region": $("#region").val(),
           "signing_for": $('input[name="signing_for"]:checked').val(),
           "i_agree": $("#i_agree").val(),
-          "github_user_id": $("#github_user_id").val()
+          "github_user_id": $("#github_user_id").val(),
+          "pull_request": localStorage.getItem("pr"),
         };
         if ($("#company_name").val() != "") {
           payload.company_name = $("#company_name").val();
         }
         $.ajax({
           type: "POST",
-          url: "https://cla.home-assistant.io/sign",
+          url: "https://service-hub-bots.home-assistant.io/cla-sign",
           data: JSON.stringify(payload),
           contentType: "application/json",
         }).done(function(data){

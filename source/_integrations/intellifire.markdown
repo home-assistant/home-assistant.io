@@ -4,6 +4,7 @@ description: Instructions on the IntelliFire Fireplace integration for Home Assi
 ha_category:
   - Binary Sensor
   - Climate
+  - Fan
   - Sensor
   - Switch
 ha_iot_class: Local Polling
@@ -15,6 +16,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - climate
+  - fan
   - sensor
   - switch
 ha_dhcp: true
@@ -38,6 +40,10 @@ The following controllable entities are available:
 
 - **Flame** - Turn fireplace on/off.
 - **Pilot Light** - Turn pilot light on/off.
+
+### Fan
+
+- **Fan** - If your unit is equipped with a fan - this entry will be present. There are 4 fan speeds (1-4), with 0 being off.
 
 ### Climate
 
