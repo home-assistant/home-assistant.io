@@ -48,6 +48,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg or psi
 - **reactive_power**: Reactive power in var
 - **signal_strength**: Signal strength in dB or dBm
+- **speed**: Generic speed
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
 - **temperature**: Temperature in °C or °F
 - **timestamp**: Datetime object or timestamp string (ISO 8601)
