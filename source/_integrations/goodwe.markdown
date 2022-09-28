@@ -12,6 +12,7 @@ ha_codeowners:
   - '@starkillerOG'
 ha_domain: goodwe
 ha_platforms:
+  - button
   - number
   - select
   - sensor

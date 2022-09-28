@@ -4,7 +4,7 @@ description: Control Supervisor Add-ons and OS from Home Assistant
 ha_category:
   - Binary Sensor
   - Sensor
-  - Updates
+  - Update
 ha_iot_class: Local Polling
 ha_release: 0.42
 ha_domain: hassio

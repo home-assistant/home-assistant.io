@@ -37,14 +37,6 @@ There is currently support for the following device types within Home Assistant:
 
 ## Services
 
-### `guardian.disable_ap`
-
-Disable the device's onboard access point.
-
-### `guardian.enable_ap`
-
-Enable the device's onboard access point.
-
 ### `guardian.pair_sensor`
 
 Add a new paired sensor to the valve controller.
