@@ -51,12 +51,13 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [Integrations v2](#integrations-v2)
+- [Active connections for Bluetooth remote proxies](#active-connections-for-bluetooth-remote-proxies)
 - [Sub-views for dashboards](#sub-views-for-dashboards)
 - [Restyling of all dialogs](#restyling-of-all-dialogs)
 - [Viewing manual automations in the automation editor](#viewing-manual-automations-in-the-automation-editor)
 - [New template thingies](#new-template-thingies)
-- [Google sheets?](#google-sheets)
-- [iBeacon?](#ibeacon)
+- [Google sheets](#google-sheets)
+- [iBeacon](#ibeacon)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -218,7 +219,8 @@ numbers and even check the difference between 2 version numbers.
 {% raw %}
 
 - `{{ version("2022.10.0") > "2022.9.7" }}`  Will return true, as `2022.10.0` is newer.
-- `{{ (version("2022.10.0") - "209.9.7").patch }}` Will return false, as this is not a patch release.
+- `{{ (version("2022.10.1") - "2022.10.0").patch }}` Will return true, as the patch number of the version changed.
+- `{{ (version("2022.10.1") - "2022.10.0").minor }}` Will return false, as there is just a patch difference.
 - `{{ version("2022.10.0b0").beta }}` will return true, as this is a beta version.
 
 {% endraw %}
