@@ -4,11 +4,11 @@ description: Home Assistant Alerts notifies you about alerts put out by the Home
 ha_release: 2022.8
 ha_category:
   - Other
-ha_iot_class: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: homeassistant_alerts
 ha_integration_type: integration
+ha_quality_scale: internal
 ---
 
 The Home Assistant Alerts integration integrates the 

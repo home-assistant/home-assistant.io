@@ -9,6 +9,7 @@ ha_category:
   - Number
   - Sensor
   - Switch
+  - Update
 ha_release: 0.115
 ha_codeowners:
   - '@balloob'
@@ -30,6 +31,7 @@ ha_platforms:
   - number
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 ---
 

@@ -16,6 +16,7 @@ ha_codeowners:
 ha_domain: litterrobot
 ha_dhcp: true
 ha_platforms:
+  - binary_sensor
   - button
   - select
   - sensor

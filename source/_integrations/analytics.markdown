@@ -10,7 +10,7 @@ ha_codeowners:
   - '@home-assistant/core'
   - '@ludeeus'
 ha_domain: analytics
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 {% assign current_version = site.current_major_version | append: "." | append: site.current_minor_version | append: "." | append: site.current_patch_version  %}

@@ -1,16 +1,18 @@
 ---
 title: Nobø Ecohub
 description: Instructions on how to integrate Nobø Ecohub into Home Assistant.
-ha_category: Climate
-ha_release: 2021.10
+ha_category:
+  - Climate
+ha_release: '2021.10'
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-- '@echoromeo'
-- '@oyvindwe'
+  - '@echoromeo'
+  - '@oyvindwe'
 ha_domain: nobo_hub
 ha_platforms:
-- climate
+  - climate
+ha_integration_type: integration
 ---
 
 Integrates [Nobø Ecohub](https://www.glendimplex.no/produkter/varmestyring/11123610/noboe-hub/c-77/p-330)

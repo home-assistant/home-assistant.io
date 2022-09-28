@@ -13,6 +13,7 @@ ha_platforms:
   - binary_sensor
   - button
   - light
+  - select
 ha_integration_type: integration
 ha_codeowners:
   - '@bdraco'

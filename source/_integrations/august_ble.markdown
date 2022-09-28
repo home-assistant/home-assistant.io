@@ -1,6 +1,6 @@
 ---
 title: August Bluetooth
-description: Instructions on how to integrate August Bluetooth locks into Home Assistant.
+description: Connect and control your August Bluetooth devices using the Yale Access Bluetooth integration
 ha_category:
   - Binary Sensor
   - Lock

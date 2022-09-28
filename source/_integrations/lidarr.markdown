@@ -3,15 +3,15 @@ title: Lidarr
 description: Instructions on how to integrate Lidarr with Home Assistant
 ha_category:
   - Downloading
-ha_release: "2022.10"
+ha_release: '2022.10'
 ha_iot_class: Local Polling
 ha_domain: lidarr
 ha_config_flow: true
 ha_codeowners:
   - '@tkdrob'
-ha_quality_scale: silver
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Lidarr integration pulls data from a given [Lidarr](https://lidarr.audio/) instance.
