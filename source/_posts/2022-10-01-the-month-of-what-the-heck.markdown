@@ -17,8 +17,8 @@ issue, suggestion, or annoyance you have with Home Assistant
 
 ## Welcome to the month of “What the heck?!” 2022! 🎉
 
-[Two years ago], we had the first month of "What the heck?!", and it
-[was great]! So, this year, for the entire month of October,
+[Two years ago], we had the first month of "What the heck?!",
+and [it was great]! So, this year, for the entire month of October,
 we are doing it again!
 
 Home Assistant is growing fast, and the development pace is high! Every month's
@@ -27,7 +27,7 @@ improvements. But did everything turn out the way it should? Are there
 things missing? Could it be [streamlined] more? Or, worse, maybe something
 started annoying you?
 
-👆 That is what this month is about!
+That is what this month is about!
 
 ## Lowering the barrier for sharing WTH?! moments
 
@@ -166,4 +166,4 @@ participants of Hacktoberfest ❤️
 [streamlined]: /blog/2022/01/19/streamlining-experiences/
 [tweet]:https://twitter.com/Frenck/status/1571961147305218055
 [Two years ago]: /blog/2020/08/18/the-month-of-what-the-heck/
-[was great]: /blog/2020/09/19/summing-up-the-month-of-what-the-heck/
+[it was great]: /blog/2020/09/19/summing-up-the-month-of-what-the-heck/
