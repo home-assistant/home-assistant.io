@@ -681,7 +681,7 @@ Like `float` and `int`, `bool` has a filter form. Using `none` as the default va
 - `sqrt(value, default)` will return the square root of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `max([x, y, ...])` will obtain the largest item in a sequence. Uses the same parameters as the built-in [max](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.max) filter.
 - `min([x, y, ...])` will obtain the smallest item in a sequence. Uses the same parameters as the built-in [min](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.min) filter.
-- `average([x, y, ...])` will return the average value of the sequence. Can be used as a filter.
+- `average([x, y, ...], default)` will return the average value of the sequence. If list is empty or contains non-numeric value, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
