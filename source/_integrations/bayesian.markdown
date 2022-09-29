@@ -101,7 +101,7 @@ observations:
       required: true
       type: float
     prob_given_false:
-      description: Assuming the bayesian binary_sensor is `false` the probability of this entity state is occurring.
+      description: Assuming the bayesian binary_sensor is `false` the probability the entity state is occurring.
       required: true
       type: float
 {% endconfiguration %}
@@ -122,12 +122,12 @@ binary_sensor:
       entity_id: "sensor.living_room_motion"
       prob_given_true: 0.05 # If I am in bed then I shouldn't be in the living room, very occasionally I have guests, however
       prob_given_false: 0.2 # My sensor history shows If I am not in bed I spend about a fifth of my time in the living room
-      to_state: "off"
+      to_state: "on"
     - platform: "state"
       entity_id: "sensor.basement_motion"
       prob_given_true: 0.5 # My sensor history shows, when I am in bed, my basement motion sensor is active about half the time because of my cat
       prob_given_false: 0.3 # As above but my cat tends to spend more time upstairs or outside when I am awake and I rarely use the basement
-      to_state: "off"
+      to_state: "on"
     - platform: "state"
       entity_id: "sensor.bedroom_motion"
       prob_given_true: 0.5 # My sensor history shows when I am in bed the sensor picks me up about half the time
@@ -136,6 +136,7 @@ binary_sensor:
     - platform: "state"
       entity_id: "sun.sun"
       prob_given_true: 0.7 # If I am in bed then there is a good chance the sun will be down, but in the summer mornings I may still be in bed
+      prob_given_false: 0.45 # If I am am awake then there is a reasonable chance the sun will be below the horizon - especially in winter
       to_state: "below_horizon"
     - platform: "state"
       entity_id: "sensor.android_charger_type"
