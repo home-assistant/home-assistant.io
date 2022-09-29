@@ -31,7 +31,7 @@ In the configuration use the probability of the observation (the sensor state in
 4. Use your Home Assistant history to help estimate the probabilities.
    - `prob_given_true:` - Select the sensor in question over a time range when you think the `bayesian` sensor should have been `true`. `prob_given_true:` is the fraction of the time the sensor was in `to_state:`.
    - `prob_given_false:` - Select the sensor in question over a time range when you think the `bayesian` sensor should have been `false`. `prob_given_false:` is the fraction of the time the sensor was in `to_state:`.
-5. Don't work backwards by tweaking `prob_given_true:` and `prob_given_false:` to give the results and behaviors you want, use #4 to try and get probabilities as close to the 'truth' as you can, if your behavior is not as expected consider adding more sensors or see #7.
+5. Don't work backwards by tweaking `prob_given_true:` and `prob_given_false:` to give the results and behaviors you want, use #4 to try and get probabilities as close to the 'truth' as you can, if your behavior is not as expected consider adding more sensors or see #6.
 6. If your Bayesian sensor ends up triggering `on` too easily, re-check that the probabilities set and estimated make sense, then consider increasing `probability_threshold:` and vice-versa.
 
 ## Configuration
