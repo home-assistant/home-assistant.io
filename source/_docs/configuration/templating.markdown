@@ -259,6 +259,20 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
+### Config Entries
+
+- `entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
+
+#### Config entries examples
+
+{% raw %}
+
+```text
+{{ entry_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+{% endraw %}
+
 ### Areas
 
 - `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
