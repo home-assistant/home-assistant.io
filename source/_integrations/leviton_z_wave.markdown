@@ -22,6 +22,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+  - Update
 ha_domain: leviton_z_wave
 ha_integration_type: integration
 works_with:
@@ -41,6 +42,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - update
 ha_zeroconf: true
 ha_supporting_domain: zwave_js
 ha_supporting_integration: Z-Wave

@@ -3,7 +3,7 @@ title: NETGEAR
 description: Instructions on how to integrate NETGEAR routers into Home Assistant.
 ha_category:
   - Presence Detection
-  - Updates
+  - Update
 ha_iot_class: Local Polling
 ha_release: pre 0.7
 ha_domain: netgear
@@ -35,7 +35,13 @@ Consider_home:
 {% endconfiguration_basic %}
 
 ## Router entities
-The NETGEAR router will have the following entities:
+The NETGEAR router will have the following entities.
+
+Note that not all routers support all features, if a router does not support a feature, the corresponding entity will have the unavailable status even when the entity is disabled.
+
+You might also see the following error in the log `404 service '...', method '...' not found`, to prevent these errors, keep the unsupported entities disabled.
+
+All possibly unsupported entities are disabled by default.
 
 ### Reboot button
 
@@ -49,7 +55,19 @@ Update entity to view current and latest firmware version, and install the lates
 
 The total and average amount of downloaded/uploaded data through the router can be tracked per day/week/month.
 In order for these entities to display the data (instead of 0), the "Traffic Meter" should be enabled in the router settings.
-Log into your router > Select **ADVANCED** > **Advanced Setup** > **Traffic Meter** > **Enable Traffic Meter** check box.
+Enable the `Traffic Meter` switch entity and turn it on.
+
+### Router feature switches
+
+The following router features can be turned on/off, and the status can be read:
+
+- Access Control
+- Traffic Meter
+- Parental Control
+- Quality of Service
+- 2.4G Guest Wifi
+- 5G Guest Wifi
+- Smart Connect
 
 ### Speed test data
 
@@ -77,7 +95,7 @@ Displays if the device is currently connected to the router (Home) or not (Away)
 
 Switch that lets you Allow or Block a device on the Network.
 For this entity to actually Block the device, "Access Control" needs to be turned on in the Router settings.
-Log into your router > Select **ADVANCED** > **Security** > **Access Control** > **Turn on Access Control** check box.
+Enable the `Access Control` switch entity and turn it on.
 
 ### Signal strength
 

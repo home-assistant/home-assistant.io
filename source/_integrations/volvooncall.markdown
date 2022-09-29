@@ -14,71 +14,13 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@molobrakos'
-  - '@decompil3d'
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The `volvooncall` integration offers integration with the [Volvo On Call](https://www.volvocars.com/intl/why-volvo/human-innovation/future-of-driving/connectivity/volvo-on-call) cloud service and offers presence detection as well as sensors such as odometer and fuel level.
 
-## Configuration
-
-To use Volvo On Call in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-volvooncall:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-```
-
-Users registered with Volvo in North America or China will need to specify a region:
-
-```yaml
-# North America
-volvooncall:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  region: na
-```
-
-or
-
-```yaml
-# China
-volvooncall:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  region: cn
-```
-
-{% configuration %}
-username:
-  description: The username associated with your Volvo On Call account.
-  required: true
-  type: string
-password:
-  description: The password for your given Volvo On Call account.
-  required: true
-  type: string
-region:
-  description: The region where the Volvo is registered. Needs to be set for users in North America or China.
-  required: false
-  type: string
-service_url:
-  description: The service URL to use for Volvo On Call. Normally not necessary to specify.
-  required: false
-  type: string
-mutable:
-  description: If set to true, include components that can make changes to the vehicle (unlock, start engine, start heater etc).
-  required: false
-  default: true
-  type: boolean
-scandinavian_miles:
-  description: If set to true, Scandinavian miles ("mil") are used for distances and fuel range.
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ### Available Resources
 

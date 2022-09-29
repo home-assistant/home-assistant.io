@@ -402,6 +402,7 @@
 /getting-started/installation-raspberry-pi-all-in-one /getting-started
 /docs/tools/keyring/ /docs/configuration/secrets
 /docs/tools/credstash/ /docs/configuration/secrets
+/docs/scripts/editor/ /docs/scripts
 
 # Blog
 /blog/2019/05/29/release-94 /blog/2019/06/05/release-94
@@ -410,6 +411,7 @@
 
 # Removed integrations
 /integrations/alarmdotcom /more-info/removed-integration 301
+/integrations/ambee /more-info/removed-integration 301
 /integrations/apns /more-info/removed-integration 301
 /integrations/arlo /more-info/removed-integration 301
 /integrations/arduino /more-info/removed-integration 301
@@ -433,6 +435,7 @@
 /integrations/envirophat /more-info/removed-integration 301
 /integrations/essent /more-info/removed-integration 301
 /integrations/fedex /more-info/removed-integration 301
+/integrations/flunearyou /more-info/removed-integration 301
 /integrations/fortigate /more-info/removed-integration 301
 /integrations/fritzbox_netmonitor  /more-info/removed-integration 301
 /integrations/garmin_connect /more-info/removed-integration 301
@@ -501,6 +504,7 @@
 /integrations/uber /more-info/removed-integration 301
 /integrations/updater /more-info/removed-integration 301
 /integrations/ups /more-info/removed-integration 301
+/integrations/uscis /more-info/removed-integration 301
 /integrations/usps /more-info/removed-integration 301
 /integrations/weblink /more-info/removed-integration 301
 /integrations/wink /more-info/removed-integration 301

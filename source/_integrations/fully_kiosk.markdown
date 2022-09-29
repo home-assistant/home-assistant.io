@@ -14,9 +14,13 @@ ha_domain: fully_kiosk
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
+  - media_player
+  - number
   - sensor
   - switch
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 [Fully Kiosk Browser](https://www.fully-kiosk.com) is a powerful kiosk browser for Android devices. It provides a number of features for monitoring and controlling your Android device. This integration gives you access to control your device and view the status in Home Assistant.
@@ -57,3 +61,9 @@ The following controls are available:
 - Screen on/off
 - Screen off timer
 - Screen brightness
+- Play and stop media files
+- Set device volume
+
+<div class='note warning'>
+  The Fully Kiosk Browser app does not provide feedback on the device volume or media playback status, so we are unable to display the current volume level or playback status.
+</div>
