@@ -19,8 +19,7 @@ This can also be done with the CLI, by running the following command:
 ha supervisor restart
 ```
 
-If this does not help, you can try to reboot the host.
-If you are running Home Assistant Operating System, this can be done from the "System" tab in the Supervisor panel. On the card for "Host System", there is a button to reboot the host.
+If this does not help or you do not have any way to access the CLI, you can try to reboot the host. This can be done by going to [Settings -> System -> Hardware](https://my.home-assistant.io/redirect/hardware/), opening the menu in the top right corner and selecting "Reboot Host".
 
 To help us make the setup more robust, please enable the sharing of diagnostics and crash logs on the {% my analytics title="Settings > System > Analytics" %} panel.
 
