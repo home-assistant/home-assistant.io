@@ -5,6 +5,7 @@ ha_release: 0.81
 ha_iot_class: Cloud Polling
 ha_category:
   - Alarm
+  - Button
   - Lock
 ha_config_flow: true
 ha_codeowners:
@@ -13,6 +14,7 @@ ha_domain: simplisafe
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - button
   - diagnostics
   - lock
   - sensor
@@ -45,15 +47,13 @@ SimpliSafe offers several [monitoring plans](https://support.simplisafe.com/hc/e
 
 ## Getting an Authorization Code
 
+<div class='note warning'>
+You must have multi-factor authentication (MFA) enabled on your SimpliSafe account for the below instructions to work. Without MFA enabled, you will never receive the correct authorization code!
+</div>
+
 SimpliSafe authenticates users via its web app. Due to technical limitations, there is a manual step when adding the integration. For in-depth guidance, refer to step 6 of [the `simplisafe-python` documentation on authentication](https://simplisafe-python.readthedocs.io/en/latest/usage.html#authentication).
 
 ## Services
-
-### `simplisafe.clear_notifications`
-
-Clear any existing notifications within the SimpliSafe cloud; this will mark existing
-notifications as "read" in the SimpliSafe web and mobile apps, as well as prevent them
-from triggering future `SIMPLISAFE_NOTIFICATION` events.
 
 ### `simplisafe.remove_pin`
 
