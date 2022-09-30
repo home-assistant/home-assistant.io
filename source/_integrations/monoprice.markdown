@@ -55,3 +55,66 @@ Restore a previously taken snapshot of one or more speakers. If `entity_id` is `
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of zones.
+
+
+## Examples
+
+### Script
+
+```
+# Take Snapshot of current state, turn on zones, select source.
+alias: Notify - Media Announment
+sequence:
+  - service: monoprice.snapshot
+    data: {}
+    target:
+      entity_id:
+        - media_player.basement
+        - media_player.garage
+        - media_player.great_room
+        - media_player.kitchen
+        - media_player.upstairs_master
+  - service: media_player.turn_on
+    data: {}
+    target:
+      entity_id:
+        - media_player.kitchen
+        - media_player.great_room
+        - media_player.garage
+        - media_player.upstairs_master
+        - media_player.basement
+  - service: media_player.select_source
+    data:
+      source: Server
+    target:
+      entity_id:
+        - media_player.basement
+        - media_player.kitchen
+        - media_player.upstairs_master
+        - media_player.great_room
+        - media_player.garage
+mode: single
+icon: mdi:speaker-message
+```
+
+### Automations
+```
+alias: Notify - Doorbell
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.doorbell
+condition:
+  - condition: time
+    before: "22:00:00"
+    after: "07:00:00"
+action:
+  - service: script.notify_media_announment
+    data: {}
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.doorbell_announce
+mode: single
+```
