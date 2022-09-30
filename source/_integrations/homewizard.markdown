@@ -62,8 +62,8 @@ The HomeWizard Energy API only exposes properties that are used within the HomeW
 | Total gas | m3 | HWE-P1 | Current gas import reading, only available when your smart meter is connected to a gas meter. |
 | DSMR version | | HWE-P1 | The detected DSMR version. |
 | Smart meter model | | HWE-P1 | The detected smart meter model. |
-| Active water usage | liter per minute | HWE-WTR | The current usage of water. |
-| Total water usage | m3 | HWE-WTR | Total of water measured since installation. |
+| Active water usage | liter per minute | HWE-WTR | The current usage of water. Added in Home Assistant `2022.8`. |
+| Total water usage | m3 | HWE-WTR | Total of water measured since installation. Added in Home Assistant `2022.8`. |
 
 ## Switches
 
