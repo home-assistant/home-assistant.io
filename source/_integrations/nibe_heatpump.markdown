@@ -16,8 +16,6 @@ ha_platforms:
   - number
   - switch
   - select
-  - climate
-  - water_heater
 ha_integration_type: integration
 ---
 
