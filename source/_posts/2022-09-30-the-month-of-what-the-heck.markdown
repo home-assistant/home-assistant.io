@@ -1,8 +1,8 @@
 ---
 title: The month of 'What the Heck?!' 2022
 description: "Ever felt that 'What the heck Home Assistant?!' moment? This month, we would like to learn about your 'what the heck?!' moments..."
-date: 2022-09-29 00:00:00
-date_formatted: "September 29, 2022"
+date: 2022-09-30 00:00:00
+date_formatted: "September 30, 2022"
 author: Franck Nijhof
 author_twitter: frenck
 categories: Announcements
@@ -11,9 +11,8 @@ og_image: /images/blog/2022-09-30-the-month-of-what-the-heck/social.png
 
 <a href='https://community.home-assistant.io/c/what-the-heck/56'><img src='/images/blog/2022-09-30-the-month-of-what-the-heck/social.png' style='border: 0;box-shadow: none;'></a>
 
-**TL;DR**: For all of October, we are opening up our forums to report any
-issue, suggestion, or annoyance you have with Home Assistant
-[on the forums!][forum]
+**TL;DR**: For all of October, we are opening up to report any issue,
+suggestion, or annoyance you have with Home Assistant [on the forums!][forum]
 
 ## Welcome to the month of “What the heck?!” 2022! 🎉
 
