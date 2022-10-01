@@ -53,7 +53,7 @@ The following characteristics are supported for `sensor` source sensors:
 | `datetime_value_min` | The timestamp of the numerically smallest measurement.
 | `distance_95_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 95% of all stored values fall into a range of returned size.
 | `distance_99_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 99% of all stored values fall into a range of returned size.
-| `distance_absolute` | The difference between the extreme values of measurements. Equals `value_max` minus `value_min`.
+| `distance_absolute` | The difference or "spread" between the extreme values of measurements. Equals `value_max` minus `value_min`.
 | `mean` | The average value computed for all measurements. Be aware that this does not take into account uneven time intervals between measurements.
 | `median` | The [median](https://en.wikipedia.org/wiki/Mode_(statistics)#Comparison_of_mean,_median_and_mode) value computed for all measurements.
 | `noisiness` | A simplified version of a signal-to-noise ratio. A high value indicates a quickly changing source sensor value, a small value will be seen for a steady source sensor. The absolute change between subsequent source sensor measurement values is summed up and divided by the number of intervals.
