@@ -2,7 +2,6 @@
 title: SNOOZ
 description: Instructions on how to integrate SNOOZ devices into Home Assistant.
 ha_category:
-  - Sensor
   - Fan
 ha_bluetooth: true
 ha_release: 2022.10
@@ -13,7 +12,6 @@ ha_domain: snooz
 ha_config_flow: true
 ha_platforms:
   - fan
-  - sensor
 ha_integration_type: integration
 ---
 
@@ -39,6 +37,16 @@ Once a device is discovered, it needs to be put into pairing mode to complete se
 <p class='img'>
   <img src='/images/integrations/snooz/pairing_mode.jpg' alt='Top down view of a SNOOZ White Noise Machine, highlighting the power button.'>
 </p>
+
+## Platforms
+
+### Fan
+
+Devices are exposed as Fan entities. Fan speed percentage is mapped to volume level on the device.
+
+<div class='note'>
+Speed percentages less than 10 have no effect - they all map to a value of 1 on the device.
+</div>
 
 ## Services
 
@@ -109,29 +117,3 @@ Disconnect the underlying Bluetooth connection for a device. This does nothing w
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that define the entity ID(s) of SNOOZ fan entities(s) to disconnect.
-
-## Platforms
-
-### Fan
-
-Devices are exposed as Fan entities. Fan speed percentage is mapped to volume level on the device.
-
-<div class='note'>
-Speed percentages less than 10 have no effect - they all map to a value of 1 on the device.
-</div>
-
-### Sensor
-
-Diagnostic sensors are available but disabled by default. Enable these sensors in the device settings UI.
-
-#### Signal strength
-
-The Bluetooth Received Signal Strength Indication (RSSI).
-
-#### Connection status
-
-The last known connection status of the device.
-
-- `disconnected`
-- `connecting`
-- `connected`
