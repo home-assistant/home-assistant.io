@@ -58,7 +58,7 @@ or a template based request:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+binary_sensor:
   - platform: rest
     resource_template: "http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}"
 ```
@@ -97,6 +97,10 @@ value_template:
   type: template
 payload:
   description: The payload to send with a POST request. Usually formed as a dictionary.
+  required: false
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this entity. This allows changing the `name`, `icon` and `entity_id` from the web interface.
   required: false
   type: string
 verify_ssl:
