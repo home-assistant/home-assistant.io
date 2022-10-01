@@ -12,6 +12,7 @@ ha_domain: elmax
 ha_platforms:
   - binary_sensor
   - switch
+  - cover
 ha_integration_type: integration
 ---
 
