@@ -132,7 +132,7 @@ trigger:
   - platform: state
     entity_id: sensor.awesome_repository_latest_release
 action:
-  - service: telegram_bot.send_message
+  - service: notify.notify
     data:
       title: New github/repository release
       message: >-
@@ -150,7 +150,7 @@ trigger:
   - platform: state
     entity_id: sensor.awesome_repository_stars
 action:
-  - service: telegram_bot.send_message
+  - service: notify.notify
     data:
       title: New github/repository new star
       message: >-
