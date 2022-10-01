@@ -13,6 +13,7 @@ ha_platforms:
   - binary_sensor
   - switch
   - cover
+  - alarm_control_panel
 ha_integration_type: integration
 ---
 
