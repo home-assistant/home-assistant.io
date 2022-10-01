@@ -24,6 +24,8 @@ On time:
   description: The time when the sensor should turn on.
 Off time:
   description: The time when the sensor should turn off.
+Unique id:
+  description: Provide a unique id to support customization
 {% endconfiguration_basic %}
 
 ## YAML Configuration
@@ -45,11 +47,13 @@ binary_sensor:
     after: sunrise
     after_offset: "-02:00"
     before: "07:00"
+    unique_id: early_morning_sensor
 
   - platform: tod
     name: Late Morning
     after: "10:00"
     before: "12:00"
+    unique_id: late_morning_sensor
 ```
 
 {% configuration %}
@@ -72,6 +76,10 @@ after:
 after_offset:
   description: The time offset of the beginning time range.
   type: time
+  required: false
+unique_id:
+  description: Unique id for sensor
+  type: string
   required: false
 {% endconfiguration %}
 
