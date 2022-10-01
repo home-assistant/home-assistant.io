@@ -161,7 +161,7 @@ This (large) sensor configuration gives us another example:
 - platform: steam_online
   api_key: ["not telling"]
   accounts:
-      - 76561198012067051
+    - 76561198012067051
 
 #### TIME/DATE ##################################
 - platform: time_date

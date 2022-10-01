@@ -411,7 +411,7 @@ template:
 
 {% endraw %}
 
-### State based sensor modyfying another sensor's output
+### State based sensor modifying another sensor's output
 
 If you don't like the wording of a sensor output, then the Template Sensor can help too. Let's rename the output of the [Sun component](/integrations/sun/) as a simple example:
 

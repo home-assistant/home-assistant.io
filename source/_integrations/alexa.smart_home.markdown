@@ -140,7 +140,7 @@ The first thing you need to do after signing into the [AWS console](https://cons
   <img src='/images/integrations/alexa/create_iam_role_attach_permission.png' alt='Screenshot: Attach permission policy to IAM role'>
 </p>
 
-- Give your new role a name, such as `AWSLambdaBasicExecutionRole-SmartHome`, then click the `Create role` button at the bottom of the pahe. You should be able to find your new role in the roles list now.
+- Give your new role a name, such as `AWSLambdaBasicExecutionRole-SmartHome`, then click the `Create role` button at the bottom of the page. You should be able to find your new role in the roles list now.
 
 ### Add Code to the Lambda Function
 
