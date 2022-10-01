@@ -107,20 +107,20 @@ If you have an August Keypad, once you have enabled the August component, you sh
 
 Following Assa Abloy, Yale's parent company, purchasing August in 2017, most newer devices use the Yale Access branding. 
 
-The [Yale Access Bluetooth](/integrations/yalexe_ble) provides local control over Bluetooth of many Yale Access locks and some August locks that use the same system. 
+The [Yale Access Bluetooth](/integrations/yalexs_ble) provides local control over Bluetooth of many Yale Access locks and some August locks that use the same system. 
 
 For locks that support the Yale Access system, the August integration can keep your offline access keys up to date to ensure you can operate your lock over Bluetooth. The following requirements must be met for the offline key updates to work:
 
 - The August integration must support the lock.
-- The [Yale Access Bluetooth integration](/integrations/yalexe_ble) must support the lock.
+- The [Yale Access Bluetooth integration](/integrations/yalexs_ble) must support the lock.
 - The Bluetooth integration must be active and functional.
-- The lock must be discoverable by the [Yale Access Bluetooth integration](/integrations/yalexe_ble).
+- The lock must be discoverable by the [Yale Access Bluetooth integration](/integrations/yalexs_ble).
 - The account logged in with the August integration must have the offline keys.
 
 ### Troubleshooting offline keys updates
 
 - If you do not know which account has the offline keys, configure August integration with each different Owner account until you find the one that holds the keys. You may need to make a new owner account and grant the account access to your lock to force the keys to synchronize with the cloud service.
-- Ensure the lock is in range and discoverable by the [Yale Access Bluetooth integration](/integrations/yalexe_ble).
+- Ensure the lock is in range and discoverable by the [Yale Access Bluetooth integration](/integrations/yalexs_ble).
 
 ## Presence Detection with Lock Operation
 
