@@ -44,6 +44,8 @@ It also supports the following classes of binary sensors:
 - Smoke
 - Moisture
 
+The entities for the sensor classes are added only after the values are actually received. This means entities for values that are broadcasted at an lower interval (e.g. battery) might show up later.
+
 ## Encryption
 
 Some devices use AES encryption to protect the sensor values they are broadcasting.
