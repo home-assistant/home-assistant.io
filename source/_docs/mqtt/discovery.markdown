@@ -329,7 +329,7 @@ The following software has built-in support for MQTT discovery:
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [SmartHome](https://github.com/roncoa/SmartHome)
 - [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
-- [Teleinfo MQTT](https://fmartinou.github.io/teleinfo-mqtt/) (starting with 3.0.0)
+- [Teleinfo MQTT](https://github.com/fmartinou/teleinfo2mqtt) (starting with 3.0.0)
 - [Tydom2MQTT](https://fmartinou.github.io/tydom2mqtt/)
 - [What's up Docker?](https://fmartinou.github.io/whats-up-docker/) (starting with 3.5.0)
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
