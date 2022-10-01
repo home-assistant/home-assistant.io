@@ -40,6 +40,7 @@ The `august` integration allows you to integrate your [August](https://august.co
 | August Doorbell Cam (Gen 1, Gen2) | no |
 | August View | no |
 | Yale Assure Lock | yes |
+| Yale Assure Lock 2 | yes |
 | Yale Conexis L1 | yes |
 | Yale Linus | yes |
 
