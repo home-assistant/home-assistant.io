@@ -6,7 +6,7 @@ ha_category:
   - Sensor
   - Utility
 ha_iot_class: Local Push
-ha_release: 2022.10.0
+ha_release: 2022.11.0
 ha_quality_scale: internal
 ha_codeowners:
   - '@gjohansson-ST'
