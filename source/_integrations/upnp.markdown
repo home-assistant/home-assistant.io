@@ -30,11 +30,17 @@ Please note that UPnP or NAT-PMP needs to be enabled on your router for this int
 
 {% include integrations/config_flow.md %}
 
-## Manual configuration 
+## Debugging integration
 
-Alternatively, you can use YAML by adding the following section to your `configuration.yaml` file:
+If you have problems with this integration you can add debug prints to the log.
 
 ```yaml
-# Example configuration.yaml entry
-upnp:
+logger:
+  default: info
+  logs:
+    homeassistant.components.upnp: debug
+    async_upnp_client: debug
+    async_upnp_client.traffic: error
 ```
+
+When creating an issue, please include the (relevant) logging with the issue. Any sensitive information such as IPs can be obfuscated.
