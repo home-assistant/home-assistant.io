@@ -26,6 +26,7 @@ Supported devices:
 - Switcher V2 (Espressif chipset - from firmware 3.21)
 - Switcher V2 (Qualcomm chipset - from firmware 72.32)
 - Switcher V4
+- Switcher Breeze
 
 If you completed the integration setup but are still unable to control the device, please make sure your device's firmware is up-to-date.
 
@@ -66,5 +67,5 @@ Note: This does not affect the auto off timer.
 
 ## Notes
 
-Make sure that Home Assistant host's firewall allows incoming traffic on UDP port 20002 and outgoing connections to Switcher device(s) on TCP port 9957.
+Make sure that Home Assistant host's firewall allows incoming traffic on UDP ports 20002 & 20003 and outgoing connections to Switcher device(s) on TCP ports 9957 & 10000.
 If Home Assistant and the Switcher device(s) are not on the same network, you will also need to have their traffic properly forwarded between the two networks.
