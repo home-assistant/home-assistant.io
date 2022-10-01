@@ -94,7 +94,7 @@ If you want to allow other household users to control the devices:
 If you want to support active reporting of state to Google's server (configuration option `report_state`) and synchronize Home Assistant devices with the Google Home app (`google_assistant.request_sync` service), you will need to create a service account. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device in Home Assistant that you wish to control via the Google Assistant integration. This allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting)).
 
 1. Service Account
-    1. In the Google Cloud Platform Console, go to the [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) page.
+    1. In the Google Cloud Platform Console, go to the [Create Service account key](https://console.cloud.google.com/iam-admin/serviceaccounts/create) page.
     2. At the top left of the page next to "Google Cloud Platform" logo, select your project created in the Actions on Google console. Confirm this by reviewing the project ID and it ensure it matches.
     3. From the Service account list, select `CREATE SERVICE ACCOUNT`.
     4. In the Service account name field, enter a name.
