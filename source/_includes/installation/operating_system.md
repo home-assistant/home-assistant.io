@@ -157,6 +157,25 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 3. Power the system on.
 
    - Wait for the Home Assistant welcome banner to show up in the console of the generic-x86-64 system.
+
+<div class="note">
+
+If the machine complains about not being able to find a bootable medium, you might need to specify the EFI entry in your BIOS.
+This can be accomplished either by using a live operating system (e.g. Ubuntu) and running the following command (replace `<drivename>` with the appropriate drive name assigned by Linux, typically this will be `sda` or `nvme0n1` on NVMe SSDs):
+
+  ```text
+  efibootmgr --create --disk /dev/<drivename> --part 1 --label "HAOS" \
+     --loader '\EFI\BOOT\bootx64.efi'
+  ```
+
+Or else, the BIOS might provide you with a tool to add boot options, there you can specify the path to the EFI file:
+
+  ```text
+  \EFI\BOOT\bootx64.efi
+  ```
+
+</div>
+
 {% else %}
 
 1. Insert the boot media ({{site.installation.types[page.installation_type].installation_media}}) you just created.
@@ -194,8 +213,8 @@ Load the appliance image into your virtual machine hypervisor. (Note: You are fr
 
 Minimum recommended assignments:
 
-- 2GB RAM
-- 32GB Storage
+- 2 GB RAM
+- 32 GB Storage
 - 2vCPU
 
 _All these can be extended if your usage calls for more resources._
@@ -222,18 +241,24 @@ _All these can be extended if your usage calls for more resources._
 
     </div>
 
-- title: KVM
+- title: KVM (virt-manager)
   content: |
     1. Create a new virtual machine in `virt-manager`
     2. Select “Import existing disk image”, provide the path to the QCOW2 image above
     3. Choose “Generic Default” for the operating system
     4. Check the box for “Customize configuration before install”
     5. Select your bridge under “Network Selection”
-    6. Under customization select “Overview” -> “Firmware” -> “UEFI x86_64: …”
+    6. Under customization select “Overview” -> “Firmware” -> “UEFI x86_64: ...”
     7. Click "Add Hardware" (bottom left), and select "Channel"
     8. Select device type: "unix"
     9. Select name: "org.qemu.guest_agent.0"
-    10. Finally select "Begin Instalation" (upper left corner)
+    10. Finally select "Begin Installation" (upper left corner)
+
+- title: KVM (virt-install)
+  content: |
+    ```bash
+    virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --graphics none --boot uefi
+    ```
 
 {% if page.installation_type == 'windows' or page.installation_type == 'linux' %}
 

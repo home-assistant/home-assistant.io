@@ -112,7 +112,7 @@ owntracks:
 
 ## Using Owntracks regions
 
-Owntracks can track regions, and send region entry and exit information to Home Assistant. You set up a region in the Owntracks app which you should name the same as your Home Assistant Zone, and then make sure to turn on the `share` option for the region in the owntracks app. Please see the [owntracks documentation](https://owntracks.org/booklet/guide/waypoints/).
+Owntracks can track regions, and send region entry and exit information to Home Assistant. You set up a region in the Owntracks app which you should name the same as your Home Assistant Zone. Please see the [owntracks documentation](https://owntracks.org/booklet/guide/waypoints/).
 
 Home Assistant will use the enter and leave messages to set your zone location. Your location will be set to the center of zone when you enter. Location updates from OwnTracks will be ignored while you are inside a zone.
 
@@ -150,7 +150,7 @@ You can use iBeacons of both types together, so if you have a Zone `drive` with 
 
 ## Importing Owntracks waypoints as zones
 
-By default, any Owntracks user connected to Home Assistant can export their waypoint definitions (from the *Export - Export to Endpoint* menu item) which will then be translated to zone definitions in Home Assistant. The zones will be named `<user>-<device> - <waypoint name>`. This functionality can be controlled in 2 ways:
+By default, any Owntracks user connected to Home Assistant can export their waypoint definitions (from the *Export - Export to Endpoint* menu item) which will then be translated to zone definitions in Home Assistant. The zones will be named `<user>-<device> - <region name>:<region uuid>`. This functionality can be controlled in 2 ways:
 
 1. The configuration variable `waypoints` can be set to `false` which will disable importing waypoints for all users.
 2. The configuration variable `waypoint_whitelist` can contain a list of users who are allowed to import waypoints.

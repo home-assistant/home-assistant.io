@@ -6,6 +6,7 @@ ha_category:
   - Binary Sensor
   - Button
   - Sensor
+  - Update
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: qnap_qsw
@@ -14,9 +15,11 @@ ha_platforms:
   - button
   - diagnostics
   - sensor
+  - update
 ha_codeowners:
   - '@Noltari'
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 This integration interacts with the local API of [QNAP QSW managed switches](https://www.qnap.com/en/product/series/qsw-managed-switches).
@@ -58,3 +61,9 @@ The following *sensors* are created:
 | fan_2_speed         | Fan 2 Speed.                       |
 | temperature         | Switch temperature.                |
 | uptime              | Uptime seconds.                    |
+
+## Update
+
+| Update              | Description                        |
+| :------------------ | :--------------------------------- |
+| firmware_update     | Firmware update status.            |

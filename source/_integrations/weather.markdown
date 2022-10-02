@@ -6,7 +6,7 @@ ha_category:
 ha_release: 0.32
 ha_quality_scale: internal
 ha_codeowners:
-  - '@fabaff'
+  - '@home-assistant/core'
 ha_domain: weather
 ha_integration_type: integration
 ---

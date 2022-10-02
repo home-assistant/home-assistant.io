@@ -170,6 +170,8 @@ data:
   aiohttp: error
 ```
 
+## Viewing logs
+
 The log information are stored in the
 [configuration directory](/docs/configuration/) as `home-assistant.log`
 and you can read it with the command-line tool `cat` or follow it dynamically

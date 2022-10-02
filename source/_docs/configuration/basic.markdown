@@ -49,7 +49,7 @@ longitude:
   required: false
   type: float
 elevation:
-  description: Altitude above sea level in meters. Impacts weather/sunrise data.
+  description: Altitude above sea level in meters. Impacts sunrise data.
   required: false
   type: integer
 unit_system:

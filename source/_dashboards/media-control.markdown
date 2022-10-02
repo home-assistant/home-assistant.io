@@ -8,7 +8,7 @@ description: "The Media Control card is used to display media player entities on
 The Media Control card is used to display [Media Player](/integrations/#media-player) entities on an interface with easy to use controls.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_mediaplayer.png' alt='Screenshot of the media player control card'>
+<img src='/images/dashboards/mediaplayer.png' alt='Screenshot of the media player control card'>
 Screenshot of the Media Control card.
 </p>
 

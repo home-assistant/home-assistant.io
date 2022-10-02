@@ -1,6 +1,6 @@
 ## Backups
 
-Backup of your Home Assistant and add-on data and configuration. They are stored in a compressed archive file (.tar). Backups are made from the Supervisor Backups panel. There is also a service available that allows you to trigger the creation of a backup from an automation. Backups are stored in the /backup directory.
+Backup of your Home Assistant and add-on data and configuration. They are stored in a compressed archive file (.tar). Backups are made from the Supervisor Backups panel. There is also a service available that allows you to trigger the creation of a backup from an automation. Backups are stored in the `/backup` directory.
 
 A full backup includes the following directories:
 
@@ -15,10 +15,11 @@ A partial backup consists of any number of the above default directories and ins
 ### Making a Backup from the UI
 
 1. Go to {% my supervisor_backups title="Settings > System > Backups" %} in the UI.
-2. Provide a name for the backup.
-3. Choose full or partial.
-4. Choose to password protect or not. Password-protected backups cannot easily be browsed outside of Home Assistant OS.
-5. Click "Create" to begin the backup.
+2. Click the **Create backup** button in the lower right.
+3. Provide a name for the backup.
+4. Choose full or partial.
+5. Choose to password protect or not. Password-protected backups cannot easily be browsed outside of Home Assistant OS.
+6. Click "Create" to begin the backup.
 
 ### Restoring a Backup on a new install
 
@@ -57,3 +58,4 @@ You often need a backup in case your system has crashed. If you only store them 
 - [Nextcloud Backup](https://github.com/Sebclem/hassio-nextcloud-backup)
 - [Samba backup](https://github.com/thomasmauerer/hassio-addons/tree/master/samba-backup)
 - [Remote Backup (scp/rsync/rclone)](https://github.com/ikifar2012/remote-backup-addon)
+- [Syncthing](https://github.com/Poeschl/Hassio-Addons/tree/main/syncthing)

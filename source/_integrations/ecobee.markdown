@@ -34,7 +34,7 @@ The `ecobee` integration lets you control and view sensor data from [ecobee](htt
 You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this integration. To get the key, your thermostat must be registered on ecobee's website (which you likely would have already done while installing your thermostat). Once you have done that, perform the following steps.
 
 1. Click on the **Become a developer** link on the [developer site](https://www.ecobee.com/home/developer/loginDeveloper.jsp).
-2. Log in with your ecobee credentials. (Make sure your password is at most 16 characters and multifactor authentication is disabled to meet the developer login form's limits. If you've already enabled MFA, the web portal and iOS apps don't support disabling it. The Android app does under Account > Account Security. You can re-enable MFA after becoming a developer.)
+2. Log in with your ecobee credentials. (Make sure multifactor authentication is disabled to meet the developer login form's limits. If you've already enabled MFA, the web portal doesn't support disabling it. The iOS and Android apps do under Account > Account Security. You can re-enable MFA after becoming a developer.)
 3. Accept the SDK agreement.
 4. Fill in the fields.
 5. Click **save**.

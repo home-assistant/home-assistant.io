@@ -4,6 +4,7 @@ description: Plugwise Smile platform integration.
 ha_category:
   - Binary Sensor
   - Climate
+  - Number
   - Select
   - Sensor
   - Switch
@@ -21,6 +22,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - diagnostics
+  - number
   - select
   - sensor
   - switch
@@ -37,6 +39,7 @@ Platforms available - depending on your Smile and setup include:
  - `binary_sensor` (for showing the status of e.g. domestic hot water heating or secondary heater)
  - `switch` (for Plugs connected to Adam or Stealths and Circles connected to a Stretch)
  - `select` (for changing a thermostat schedule)
+ - `number` (for changing a boiler setpoint)
 
 The password can be found on the bottom of your Smile or Stretch, the ID, it should consist of 8 characters. To find your IP address use the Plugwise App: 
 
@@ -117,6 +120,22 @@ script:
           option: "Regulier"
 ```
 
+#### Change boiler setpoint
+
+Service: `number.set_value`
+
+```yaml
+# Example script change the boiler setpoint
+script:
+  change_max_boiler_tempeture_setpoint:
+    sequence:
+      - service: number.set_value
+        target:
+          entity_id: number.opentherm_max_boiler_temperature_setpoint
+        data:
+          value: 60
+```
+
 #### Set temperature
 
 Service: `climate.set_temperature`
@@ -139,7 +158,7 @@ script:
 
 Service: `climate.set_preset_mode`
 
-Available options include: `home`, `vacation`, `no_frost`, `asleep` & `away`.
+Available options include: `home`, `vacation` (Anna only), `no_frost`, `asleep` & `away`.
 
 Example:
 

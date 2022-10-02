@@ -304,6 +304,48 @@ intent_script:
       text: OK
 ```
 
+### Support for Session Ended Requests
+
+There may be times when you want to act to a session ended request initiated from a lack of voice response.
+
+To start, you need to get the skill id:
+
+- Log into [Amazon developer console][amazon-dev-console]
+- Click the Alexa button at the top of the console
+- Click the Alexa Skills Kit Get Started button
+  - Locate the skill for which you would like Launch Request support
+  - Click the "View Skill ID" link and copy the ID
+
+The configuration is the same as an intent with the exception being you will use your skill ID instead of the intent name.
+
+```yaml
+intent_script:
+  amzn1.ask.skill.08888888-7777-6666-5555-444444444444:
+    speech:
+      text: It is late already. Do I turn off lights ?
+    reprompt:
+      text: Do I turn off lights ?
+  AMAZON.YesIntent:
+    speech:
+      text: Done. Good night!
+    action:
+      service: switch.turn_off
+      target:
+        entity_id:
+          - switch.room1
+          - switch.room2
+  AMAZON.NoIntent:
+    speech:
+      text: Alright
+  amzn1.ask.skill.08888888-7777-6666-5555-444444444444.SessionEndedRequest:
+    action:
+      service: switch.turn_off
+      target:
+        entity_id:
+          - switch.room1
+          - switch.room2
+```
+
 ## Giving Alexa Some Personality
 
 In the examples above, we told Alexa to say `OK` when she successfully completed the task. This is effective but a little dull! We can again use [templates] to spice things up a little.

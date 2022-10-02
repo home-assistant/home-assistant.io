@@ -8,6 +8,7 @@ ha_iot_class: Cloud Push
 ha_release: 0.77
 ha_codeowners:
   - '@OverloadUT'
+  - '@mib1185'
 ha_domain: ecovacs
 ha_platforms:
   - vacuum

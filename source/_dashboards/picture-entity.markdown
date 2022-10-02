@@ -8,7 +8,7 @@ description: The Picture Entity card displays an entity in the form of an image.
 The Picture Entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of `camera` entities.
 
 <p class='img'>
-  <img src='/images/dashboards/lovelace_picture_entity.gif' alt='Picture entity card'>
+  <img src='/images/dashboards/picture_entity.gif' alt='Picture entity card'>
   Background changes according to the entity state.
 </p>
 

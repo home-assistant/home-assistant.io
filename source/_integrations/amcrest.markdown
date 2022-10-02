@@ -48,7 +48,7 @@ host:
   required: true
   type: string
 username:
-  description: The username for accessing your camera.
+  description: The username for accessing your camera. Most Amcrest devices use "admin" for the username, even if you've configured another username in their app.
   required: true
   type: string
 password:
@@ -86,7 +86,7 @@ stream_source:
   default: snapshot
 ffmpeg_arguments:
   description: >
-    Extra options to pass to ffmpeg, e.g.,
+    Extra options to pass to FFmpeg, e.g.,
     image quality or video filter options.
   required: false
   type: string

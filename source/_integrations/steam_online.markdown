@@ -18,6 +18,18 @@ The Steam integration will allow you to track the online status of public [Steam
 
 {% include integrations/config_flow.md %}
 
+<div class='note'>
+
+Steam has a friends list privacy feature that interferes with easily adding sensors to track friends' activities. Setting the friends list to Public during initial setup will allow the integration to see them for easy adding. It is **not** necessary to keep the friends list Public.
+
+Go to your profile, select "Edit Profile", "Privacy Settings".
+
+</div>
+
+<p class='img'>
+  <img src='/images/screenshots/steam_privacy_settings.png' />
+</p>
+
 ## Setup
 
 You need a [free API key](https://steamcommunity.com/dev/apikey) to use the platform.

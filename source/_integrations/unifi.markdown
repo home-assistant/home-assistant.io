@@ -6,7 +6,7 @@ ha_category:
   - Presence Detection
   - Sensor
   - Switch
-  - Updates
+  - Update
 ha_release: 0.81
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -43,7 +43,7 @@ All configuration options are offered from the front end. Enter what UniFi Netwo
 
 ### Configuring Users
 
-The UniFi Network application allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the UniFi Network device tracker. If you want blocking of network access or POE control as well you would need to have 'admin' permissions.
+The UniFi Network application allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the UniFi Network device tracker. If you want blocking of network access, POE control, or firmware upgrades as well you would need to have 'admin' permissions.
 
 ### UniFi OS
 
@@ -109,7 +109,7 @@ Get entities reporting uptime per network client.
 
 ## Firmware updates
 
-This will show if there are firmware updates available for the UniFi network devices connected to the controller.
+This will show if there are firmware updates available for the UniFi network devices connected to the controller. If the configured user has admin privileges, the firmware upgrades can also be installed directly from Home Assistant.
 
 ## Debugging integration
 

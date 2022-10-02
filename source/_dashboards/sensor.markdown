@@ -8,7 +8,7 @@ description: "The Sensor card gives you a quick overview of your sensors state w
 The Sensor card gives you a quick overview of your sensors state with an optional graph to visualize change over time.
 
 <p class='img'>
-  <img src='/images/dashboards/lovelace_sensor.png' alt='Screenshot of the sensor card'>
+  <img src='/images/dashboards/sensor.png' alt='Screenshot of the sensor card'>
   Screenshot of the sensor card.
 </p>
 

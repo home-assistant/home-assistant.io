@@ -8,7 +8,7 @@ description: "The Picture Elements card is one of the most versatile types of ca
 The Picture Elements card is one of the most versatile types of cards.
 
 <p class='img'>
-  <img src='/images/dashboards/lovelace_picture_elements.gif' alt='A functional floorplan powered by picture elements'>
+  <img src='/images/dashboards/picture_elements.gif' alt='A functional floorplan powered by picture elements'>
   A functional floorplan powered by picture elements.
 </p>
 
