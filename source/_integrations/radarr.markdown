@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This `radarr` sensor platform pulls data from a given [Radarr](https://radarr.video/) instance.
+The `radarr` sensor platform pulls data from a given [Radarr](https://radarr.video/) instance.
 
 ## Configuration
 
@@ -42,7 +42,8 @@ port:
 urlbase:
   required: false
   type: string
-  description: The base URL Radarr is running under. Defaults to `/`.
+  description: The base URL Radarr is running under.
+  default: "`/`"
 monitored_conditions:
   required: false
   type: list
