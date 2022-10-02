@@ -44,9 +44,10 @@ The following describes trigger data associated with all platforms.
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `device`.
-| `trigger.event` | Event object that matched.
-| `trigger.event.event_type` | Event type.
-| `trigger.event.data` | Optional event data.
+| `trigger.entity_id` | Entity ID that we observe.
+| `trigger.from_state` | The previous [state object] of the entity.
+| `trigger.to_state` | The new [state object] that triggered trigger.
+| `trigger.for` | Timedelta object how long state has been to state, if any.
 
 ### Event
 
