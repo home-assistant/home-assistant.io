@@ -113,7 +113,7 @@ Entities that are on
 
 {% raw %}
 
-```
+```text
 {{ ['light.kitchen', 'light.dinig_room'] | select('is_state', 'on') | list }}
 ```
 
@@ -198,7 +198,7 @@ List of friendly names
 
 {% raw %}
 
-```
+```text
 {{ ['binary_sensor.garage_door', 'binary_sensor.front_door'] | map('state_attr', 'friendly_name') | list }}
 ```
 
@@ -208,7 +208,7 @@ List of lights that are on with a brightness of 255
 
 {% raw %}
 
-```
+```text
 {{ ['light.kitchen', 'light.dinig_room'] | select('is_state', 'on') | select('is_state_attr', 'brightness', 255) | list }}
 ```
 
