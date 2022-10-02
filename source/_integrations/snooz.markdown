@@ -42,7 +42,9 @@ Once a device is discovered, it needs to be put into pairing mode to complete se
 
 ### Fan
 
-Devices are exposed as Fan entities. Fan speed percentage is mapped to volume level on the device.
+Devices are exposed as Fan entities with a persistent connection to the device.
+
+Fan speed percentage is mapped to device volume level.
 
 <div class='note'>
 Speed percentages less than 10 have no effect - they all map to a value of 1 on the device.
