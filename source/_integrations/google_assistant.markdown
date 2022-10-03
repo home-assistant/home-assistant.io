@@ -279,6 +279,12 @@ For the Alarm Control Panel if a code is set it must be the same as the `secure_
 
 Entities that have not been explicitly assigned to rooms but have been placed in Home Assistant areas will return room hints to Google with the devices in those areas.
 
+<div class='note'>
+
+Some devices, such as `scene` or `script`, must be assigned to an `area` before other members of a shared Google Home Household can use them. This is because household members in a shared Google Home will not be able to view devices that are not assigned to a room _unless_ they were the user who linked the service to Google Home. This issue isn't immediately apparent because `script` and `scene` devices aren't visible in the main Google Home dashboard.
+
+</div>
+
 ### Climate Operation Modes
 
 There is not an exact 1-1 match between Home Assistant and Google Assistant for the available operation modes.
