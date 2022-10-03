@@ -76,6 +76,7 @@ Not supported in [limited templates](#limited-templates).
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None`. 
+- `is_nominal('sensor.my_sensor')` will test if the given entity exist and is not unknown or unavailable. A list of entities can be provided instead of a string. Can be used as a filter and as a test for example in select or reject.
 <div class='note warning'>
 
   Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
@@ -123,6 +124,18 @@ Other state examples:
 {% if states('sensor.train_departure_time') in ("unavailable", "unknown") %}
   {{ ... }}
 
+{% if is_nominal('sensor.train_departure_time') %}
+  {{ ... }}
+
+#check sensor.train_departure_time and sensor.train_arrival_time state
+{% if is_nominal(['sensor.train_departure_time', 'sensor.train_arrival_time']) %}
+  {{ ... }}
+
+{% if ['sensor.train_departure_time', 'sensor.train_arrival_time']|is_nominal() %}
+  {{ ... }}
+
+#Get state for sensor.train_departure_time if exist, not unknown and available otherwise for sensor.train_arrival_time
+{{ states(['sensor.train_departure_time', 'sensor.train_arrival_time'] | select('is_nominal') | first | default) }}
 {% set state = states('sensor.temperature') %}{{ state | float + 1 if is_number(state) else "invalid temperature" }}
 
 {% set state = states('sensor.temperature') %}{{ (state | float * 10) | round(2) if is_number(state)}}
