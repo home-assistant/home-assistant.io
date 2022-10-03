@@ -1,6 +1,6 @@
 ---
-title: Google Calendars
-description: Instructions on how to use Google Calendars in Home Assistant.
+title: Google Calendar
+description: Instructions on how to use Google Calendar in Home Assistant.
 ha_category:
   - Calendar
 ha_iot_class: Cloud Polling
@@ -14,7 +14,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The *Google Calendars* integration allows you to connect your [Google Calendars](https://calendar.google.com) to Home Assistant. The integration adds calendar entities that are shown on the *Calendar* dashboard, and can be used for automations based on any event, or limited to specific matching criteria.
+The *Google Calendar* integration allows you to connect your [Google Calendar](https://calendar.google.com) to Home Assistant. The integration adds calendar entities that are shown on the *Calendar* dashboard, and can be used for automations based on any event, or limited to specific matching criteria.
 
 ## Prerequisites
 
