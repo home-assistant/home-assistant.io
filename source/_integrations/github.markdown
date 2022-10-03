@@ -134,7 +134,7 @@ trigger:
 action:
   - service: notify.notify
     data:
-      title: New github/repository release
+      title: "New github/repository release"
       message: >-
         Link to the new release:
         https://github.com/github/repository/releases/{{ trigger.to_state.state }}
@@ -152,7 +152,7 @@ trigger:
 action:
   - service: notify.notify
     data:
-      title: New github/repository new star
+      title: "New github/repository new star"
       message: >-
         github/repository was starred again!
         Total stars are now: {{ trigger.to_state.state }}
