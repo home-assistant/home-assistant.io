@@ -624,11 +624,11 @@ The following values are valid for the Home Assistant [Climate](/integrations/cl
 
 The following presets are valid for the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute. Supported values for your KNX thermostats can be specified via `operation_modes` configuration variable:
 
-- `Auto` (maps internally to `PRESET_NONE` within Home Assistant)
-- `Comfort` (maps internally to `PRESET_COMFORT` within Home Assistant)
-- `Standby` (maps internally to `PRESET_AWAY` within Home Assistant)
-- `Night` (maps internally to `PRESET_SLEEP` within Home Assistant)
-- `Frost` Protection (maps internally to `PRESET_ECO` within Home Assistant)
+- `Auto` (maps to `none` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
+- `Comfort` (maps to `comfort` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
+- `Standby` (maps to `away` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
+- `Night` (maps to `sleep` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
+- `Frost Protection` (maps to `eco` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
 
 {% configuration %}
 name:
