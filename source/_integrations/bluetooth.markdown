@@ -52,7 +52,7 @@ For most systems, the Dbus socket is in `/run/dbus`. The socket must be availabl
 
 If you are using Docker Compose, add something like the following (adjust as necessary) to your `volumes` section:
 
-```
+```dockerfile
 volumes:
   - /run/dbus:/run/dbus:ro
 ```
