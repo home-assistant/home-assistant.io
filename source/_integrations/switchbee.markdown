@@ -4,6 +4,8 @@ description: Instructions for how to integrate SwitchBee accessories within Home
 ha_category:
   - Switch
   - Cover
+  - Light
+  - Button
 ha_release: 2022.10
 ha_iot_class: local Polling
 ha_config_flow: true
@@ -13,6 +15,8 @@ ha_domain: switchbee
 ha_platforms:
   - switch
   - cover
+  - light
+  - button
 ha_integration_type: integration
 ---
 
@@ -26,6 +30,8 @@ There is currently support for the following device types:
 - Timed Switch
 - Shutter
 - Somfy Shutter
+- Light (Dimmer)
+- Scenario
 
 Supported devices will be discovered after the SwitchBee integration is configured.
 
