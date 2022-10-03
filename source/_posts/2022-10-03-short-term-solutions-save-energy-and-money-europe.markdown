@@ -36,7 +36,7 @@ A thermostat works by measuring the temperature. If the current temperature is b
 
 If you’re renting your home, you can skip this section as upgrading a thermostat is generally not an option.
 
-The way a thermostat can help you save the most energy is by controlling the boiler, and preferably the boiler temperature. Heating the water is what drives the energy usage, so you wouldn’t want the boiler to heat the water to a higher temperature than that you would want your home to heat up to.
+The way a thermostat can help you save the most energy is by controlling the boiler, and preferably the boiler temperature. Heating the water is what drives the energy usage, so you wouldn’t want the boiler to heat the water to a higher temperature than is necessary to reach your target temperature.
 
 Thermostats measure the temperature from the thermostat device. If the thermostat hangs in the last place in your home that gets warm, it might be heating more than you need. A smart thermostat can help by allowing you to pair extra temperature sensors to report the temperature in different rooms in your home. This allows the thermostat to turn off the heating earlier.
 
