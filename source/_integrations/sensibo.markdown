@@ -10,7 +10,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
-  - Updates
+  - Update
 ha_release: 0.44
 ha_iot_class: Cloud Polling
 ha_config_flow: true
