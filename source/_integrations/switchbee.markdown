@@ -2,10 +2,11 @@
 title: SwitchBee
 description: Instructions for how to integrate SwitchBee accessories within Home Assistant.
 ha_category:
-  - Switch
+  - Button
+  - Climate
   - Cover
   - Light
-  - Button
+  - Switch
 ha_release: 2022.10
 ha_iot_class: local Polling
 ha_config_flow: true
@@ -13,10 +14,11 @@ ha_codeowners:
   - '@jafar-atili'
 ha_domain: switchbee
 ha_platforms:
-  - switch
+  - button
+  - climate
   - cover
   - light
-  - button
+  - switch
 ha_integration_type: integration
 ---
 
@@ -32,6 +34,7 @@ There is currently support for the following device types:
 - Somfy Shutter
 - Light (Dimmer)
 - Scenario
+- Thermostat
 
 Supported devices will be discovered after the SwitchBee integration is configured.
 
