@@ -29,22 +29,20 @@ The integration automatically determines the closest weather station based on th
 
 You can also specify a weather station to use by providing a identification code of the form `AB/s0000123`, based on those listed in [this CSV file](https://dd.weather.gc.ca/citypage_weather/docs/site_list_towns_en.csv).
 
+Note that not all weather stations provide a complete set of data weather/sensor data. The data that is retrieved by this integration can be found [here](https://dd.weather.gc.ca/citypage_weather/xml/). Browsing the XML data for your station will help understand what data is available.
+
 ## Entities
 
-The integration will create the entities listed below. 
-
-Note that many of the entities, such as radar imagery and hourly forecasts, are disabled by default and can be enabled via the Entity status settings available through the Configuration / Entities screen.
+The integration will create the entities listed below. Some of the entities are disabled by default and can be enabled via the integration's Entities page.
 
 ### Weather
 
 - Current conditions and daily forecast
-- Current conditions and hourly forecast
+- Current conditions and hourly forecast (disabled by default)
 
 ### Camera
 
-- Loop of radar imagery from the last 3 hours
-
-By default, the radar entity uses the rain layer from 1 April to 30 November and the snow layer from 1 December to 31 March.
+- Loop of radar imagery from the last 3 hours (disabled by default). Also, by default this entity uses the radar rain layer from 1 April to 30 November and the snow layer from 1 December to 31 March. The rain/snow layer can be changed using the service described below.
 
 ### Sensors
 
@@ -58,6 +56,7 @@ By default, the radar entity uses the rain layer from 1 April to 30 November and
 - Humidity
 - Visibility
 - UV index
+- Air Quality (AQHI)
 
 #### Temperature
 
