@@ -86,7 +86,7 @@ It is preferred to pick an icon to use for your zone. Pick any icon that you can
 
 ## State
 
-The state of a zone is a number, which represends the number of
+The state of a zone is a number, which represents the number of
 {% my people title="persons" %} that are currently in a zone.
 
 The number of persons in a zone can be helpful for automations, for example,
