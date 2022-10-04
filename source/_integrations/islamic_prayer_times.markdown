@@ -18,11 +18,21 @@ The Islamic Prayer Times (`islamic_prayer_times`) integration displays the vario
 
 This platform calculates prayer times using the following calculation methods:
 
-- University of Islamic Sciences in Karachi
+- Shia Ithna-Ansari
+- University of Islamic Sciences, Karachi
 - Islamic Society of North America
 - Muslim World League
-- Umm Al-Qura University in Makkah
-- Moonsighting
+- Umm Al-Qura University, Makkah
+- Egyptian General Authority of Survey
+- Institute of Geophysics, University of Tehran
+- Gulf Region
+- Kuwait
+- Qatar
+- Majlis Ugama Islam Singapura, Singapore
+- Union Organization islamic de France
+- Diyanet İşleri Başkanlığı, Turkiye
+- Spiritual Administration of Muslims of Russia
+- Moonsighting Committee Worldwide
 
 {% include integrations/config_flow.md %}
 
