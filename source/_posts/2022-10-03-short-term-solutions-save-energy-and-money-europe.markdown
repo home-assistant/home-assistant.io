@@ -54,7 +54,7 @@ Home Assistant core developer Frenck researched this topic a couple of months ag
 
 Another popular solution is [Homematic IP](https://homematic-ip.com). It too has a local API to integrate with Home Assistant.
 
-Here at Home Assistant we prefer devices that work locally. Any device that stores your data in the cloud will eventually need a way to recoup the cost of hosting your data. It also means that if the company goes out of business, the devices tend to stop working. However, we understand that your priority today is saving energy. If the above solutions don’t work well for your home, you can also consider [Tado](https://www.tado.com).
+Here at Home Assistant we prefer devices that work locally. Any device that stores your data in the cloud will eventually need a way to recoup the cost of hosting your data. It also means that if the company goes out of business, the devices tend to stop working. However, we understand that your priority today is saving energy. If the above solutions don’t work well for your home, you can also consider [Netatmo](https://www.netatmo.com) or [Tado](https://www.tado.com).
 
 We don’t recommend Google Nest because its ecosystem is not fully featured enough, as it does not support TRVs.
 
