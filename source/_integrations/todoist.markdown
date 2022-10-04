@@ -37,9 +37,10 @@ token:
   required: true
   type: string
 utc_offset_hours:
-  description: The number of [hours offset from UTC](https://en.wikipedia.org/wiki/List_of_UTC_offsets) for your time zone. If not provided, the timezone of your Home Assistant instance will be used. This value is used for setting the timezone correctly on due dates imported from todoist.
+  description: The number of [hours offset from UTC](https://en.wikipedia.org/wiki/List_of_UTC_offsets) for your time zone. This value is used for setting the timezone correctly on due dates imported from todoist.
   required: false
   type: integer
+  default: The UTC offset based on your Home Assistant instance's time zone.
 custom_projects:
   description: Details on any "custom" binary sensor projects you want to create.
   required: false
