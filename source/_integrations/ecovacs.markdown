@@ -52,7 +52,7 @@ continent:
   type: string
 {% endconfiguration %}
 
-Note: For some countries, you will need to set `continent` to `ww` (meaning worldwide.) There is unfortunately no way to know the correct settings other than guessing and checking. See the [sucks library protocol documentation](https://github.com/wpietri/sucks/blob/master/protocol.md) for more information about what has been figured out about the Ecovacs servers.
+Note: For some countries, you will need to set `continent` to `ww` (meaning worldwide.) There is unfortunately no way to know the correct settings other than guessing and checking. See the [py-sucks library protocol documentation](https://github.com/mib1185/py-sucks) for more information about what has been figured out about the Ecovacs servers.
 
 Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
 
@@ -60,7 +60,7 @@ Additional note: There are some issues during the password encoding. Using some 
 
 The library that talks to the Ecovacs servers is in a very early state and still under development. As such, it is likely that not all regions and devices will work at the current time.
 
-Please see the [sucks library documentation](https://github.com/wpietri/sucks) for some more information about what has been tested, and check out the GitHub issues to see if the issue you're having is known or being worked on.
+Please see the [py-sucks library documentation](https://github.com/mib1185/py-sucks) for some more information about what has been tested, and check out the GitHub issues to see if the issue you're having is known or being worked on.
 
 If you have an issue with the Ecovacs component, please file a [GitHub Issue](https://github.com/home-assistant/home-assistant/issues) and include your Home Assistant logs in the report. To get full debug output from both the Ecovacs integration and the underlying `sucks` library, place this in your `configuration.yaml` file:
 
