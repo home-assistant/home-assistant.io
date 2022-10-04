@@ -28,6 +28,7 @@ To integrate Todoist in Home Assistant, add the following section to your `confi
 calendar:
   - platform: todoist
     token: YOUR_API_TOKEN
+    utc_offset_hours: -7
 ```
 
 {% configuration %}
@@ -35,6 +36,10 @@ token:
   description: The API token used to authorize Home Assistant to access your projects. Above you have more info about it.
   required: true
   type: string
+utc_offset_hours:
+  description: The number of [hours offset from UTC](https://en.wikipedia.org/wiki/List_of_UTC_offsets) for your time zone. If not provided, the timezone of your Home Assistant instance will be used. This value is used for setting the timezone correctly on due dates imported from todoist.
+  required: false
+  type: integer
 custom_projects:
   description: Details on any "custom" binary sensor projects you want to create.
   required: false
