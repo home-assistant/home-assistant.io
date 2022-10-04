@@ -282,7 +282,7 @@ template:
 
 ## Template and action variables
 
-State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attribute in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/templating/). 
+State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attribute in templates and actions. See also [considerations](#considerations) below for some caveats. Trigger-based entities also provide [the trigger data](/docs/automation/templating/). 
 
 ## Rate limiting updates
 
@@ -338,6 +338,20 @@ If you are using the state of a platform that might not be available during star
 ```
 
 {% endraw %}
+
+### Template errors
+
+If any of the templates generate an error when rendered, the sensor will become `unavailable`.
+
+### Caveats using the `this` variable
+
+The `this.state` data will be initialized with `unknown` during startup. 
+
+The `this.attributes` will be initialized with the empty mapping `{}` during startup. For that reason, using any attribute in your template, such as `this.attributes.my_attribute` will result in an `UndefinedError` during startup. To avoid this, use `state_attr(this.entity_id, 'my_attribute')` instead.
+
+The `this` variable will hold the state at the time of triggering an update. It will _not_ change during the update. Thus, if you want to use self-referencing in a trigger-based entity, you will likely have to add an explicit state trigger on the entity itself. Use `to: ~`, if you want to ignore attribute changes in the trigger. State-based entities will infer this self-referencing trigger autoamtically, if needed.
+
+Whenever the entity updates, the `state` as well as all `attributes` are re-rendered. So, self-referencing is prone to generating endless update loops. Fortunately, Home Assistant has a safeguard to stop endless re-triggering of updates. As a rule of thumb, Home Assistant allows as many repeated updates as there are attributes defined on the sensor. In order to avoid endless update loops, try to define your states and attributes as a fix-point. This means: when you accidentally trigger an update while the sensor is already in its target state, neither states nor attributes should change. For example, instead of `state: "{{ trigger.idx == 1 }}"` use `state: "{{ trigger.idx == 1 or this.state == 'on' }}"`.
 
 ## Examples
 
