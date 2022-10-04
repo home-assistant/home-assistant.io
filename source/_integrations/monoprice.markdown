@@ -61,7 +61,7 @@ Restore a previously taken snapshot of one or more speakers. If `entity_id` is `
 
 ### Script
 
-```
+```yaml
 # Take Snapshot of current state, turn on zones, select source.
 alias: Notify - Media Announment
 sequence:
