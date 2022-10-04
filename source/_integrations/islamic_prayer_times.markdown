@@ -19,8 +19,6 @@ The Islamic Prayer Times (`islamic_prayer_times`) integration displays the vario
 This platform calculates prayer times using the following calculation methods:
 
 - Shia Ithna-Ansari
-<<<<<<< Updated upstream
-
 - Islamic Society of North America
 - University of Islamic Sciences, Karachi
 - Muslim World League
