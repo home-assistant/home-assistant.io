@@ -62,9 +62,11 @@ There are a few ways to obtain a bindkey for your device:
 
 ## Devices
 
-### Plant sensor: Flower Care / MiFlora (HHCCJCY01)
+### Plant sensor: Flower Care / MiFlora (model HHCCJCY01)
 
-HHCCJCY01, also known as MiFlora or "Flower Care", should be automatically discovered. However, if the firmware is too old, it won't send the right BLE beacons and an update via the app is required. The lowest confirmed working firmware version is 3.2.1 (a lower 3.x version could also be alright).
+Model HHCCJCY01, also known as "MiFlora", "Mi Flora", or "Flower Care", should be automatically discovered. However, if the firmware is too old, it won't send the right BLE beacons and an update via the app is required. The lowest confirmed working firmware version is 3.2.1 (a lower 3.x version could also be alright).
+
+Note! Before buying, be aware that there are also other models in the HHCC series that look identical or similar but may not yet be supported. For example the Pink-colored version have model HHCCJCY10 instead and is not yet supported by this Xiaomi BLE integration.
 
 Flower Care firmware update steps:
 
