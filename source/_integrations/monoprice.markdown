@@ -98,7 +98,8 @@ icon: mdi:speaker-message
 ```
 
 ### Automations
-```
+
+```yaml
 alias: Notify - Doorbell
 description: ""
 trigger:
