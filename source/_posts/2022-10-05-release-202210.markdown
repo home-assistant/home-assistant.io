@@ -55,7 +55,7 @@ Enjoy the (beta) release!
 - [Support for iBeacons](#support-for-ibeacons)
 - [Finding the right integration](#finding-the-right-integration)
 - [Sub-views for dashboards](#sub-views-for-dashboards)
-- [Restyling of all dialogs](#restyling-of-all-dialogs)
+- [All dialogs restyled](#all-dialogs-restyled)
 - [Viewing manual automations in the automation editor](#viewing-manual-automations-in-the-automation-editor)
 - [New template thingies](#new-template-thingies)
 - [Google sheets](#google-sheets)
@@ -196,22 +196,15 @@ example of a subview in a short movie clip (need replacement):
 <source src="https://user-images.githubusercontent.com/5878303/191218073-b3ba3bff-c75d-4544-bec9-3417b7941ddc.mp4" type="video/mp4">
 </video>
 
-## Restyling of all dialogs
+## All dialogs restyled
 
-{% details "TODO" %}
+All dialogs that are shown in the Home Assistant have been slightly updated.
 
-- Probably can be moved to the other noteworthy
-- Add an actual story
-- Needs a better title
-- Screenshots (before after?)
-- What is next?
-- Spelling/grammar
+Most notably: The dialogs are now rounder on the edges, and the action buttons
+have been styled and named more consistently. It brings Home Assistant closer
+to version 3 of the Material Design that Home Assistant follows.
 
-{% enddetails %}
-
-All dialogs that are shown in the Home Assistant UI have been slightly updated.
-They now have a more consistent look and contents (in terms of action buttons &
-icons) and are styled closer towards the Material Design v3 styling.
+<img class="no-shadow" src='/images/blog/2022-10/new-dialogs.png' alt='Screenshosts showing one of the restyled dialogs.'><br>
 
 ## Viewing manual automations in the automation editor
 
