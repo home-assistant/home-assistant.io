@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "2022.10: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2022.10."
+title: "2022.10: All over the place"
+description: "Bluetooth proxies supporting active connections, subviews for your dashboards, YAML automations in the UI editor, export data to Google Sheets, and iBeacons for your trash."
 date: 2022-10-05 00:00:00
 date_formatted: "October 5 2022"
 author: Franck Nijhof
@@ -15,38 +15,27 @@ og_image: /images/blog/2022-10/social.png
 
 <a href='/integrations/#version/2022.10'><img src='/images/blog/2022-10/social.png' style='border: 0;box-shadow: none;'></a>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-These are the beta release notes for Home Assistant Core 2022.10 (and is thus a
-work in progress).
+Happy October! October is always a special month for the project. It is the
+month everybody starts working on their home automations again, the month that
+Hacktoberfest brings in lots of new contributions and contributors to the
+project (👋 welcome!), and also this year: [the Month of "What the Heck?!"](/blog/2022/09/30/the-month-of-what-the-heck/).
 
-If you encounter any issues with the beta release, please report them on GitHub:
+The Month of WTH already [looks very promising](https://community.home-assistant.io/c/what-the-heck/56),
+and many good and interesting issues, ideas, and suggestions to streamline
+have been proposed. Keep those topics and votes going ❤️.
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+Oh! And Home Assistant Core 2022.10! 🎉
 
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
+Last month's release was a big one; this month's release mostly continues to
+improving on that. I guess it is no surprise that the biggest improvement can
+be found (once again) in Bluetooth! There is a lot more, though this release
+is a bit "all over the place", which is actually kinda nice.
 
-Issues introduced in the beta are processed with priority.
-
----
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
-Home Assistant Core 2022.10!
-
-I have nothing to tell yet... this is still all beta!
-
-Thanks for helping out testing the beta! ❤️
-
-Enjoy the (beta) release!
+Enjoy the release!
 
 ../Frenck
+
+PS: I noticed the [Home Assistant SkyConnect is now available for pre-order](/skyconnect/) 🥳
 
 <!--more-->
 
@@ -155,7 +144,7 @@ To make it more clear on the choices available, you can now categorize
 integrations by brand. Home Assistant will show the options available
 for that specific brand. For example, the "Google" brand:
 
-<img class="no-shadow" src='/images/blog/2022-10/add-integration.png' alt='Screenshosts showing adding an integration by the Google brands. Once you select Google, you will be offererd all Google integrations'><br>
+<img class="no-shadow" src='/images/blog/2022-10/add-integration.png' alt='Screenshots showing adding an integration by the Google brands. Once you select Google, you will be offererd all Google integrations'><br>
 
 This way, you no longer have to "find out" how your device could be integrated.
 We now show if an integration uses "the cloud" or not, so you are aware upfront.
@@ -176,7 +165,7 @@ added to our Dashboards lately: Subviews!
 
 Each view on a dashboard can now be marked as being a "Subview":
 
-<img class="no-shadow" src='/images/blog/2022-10/subview-toggle.png' alt='Screenshosts showing the new subview toggle in the view options'><br>
+<img class="no-shadow" src='/images/blog/2022-10/subview-toggle.png' alt='Screenshot showing the new subview toggle in the view options'><br>
 
 Subviews won't show up in the navigation bar of your dashboard, meaning
 you can only navigate to them by using, for example, a navigation action on
@@ -202,7 +191,7 @@ Most notably: The dialogs are now rounder on the edges, and the action buttons
 have been styled and named more consistently. It brings Home Assistant closer
 to version 3 of the Material Design that Home Assistant follows.
 
-<img class="no-shadow" src='/images/blog/2022-10/new-dialogs.png' alt='Screenshosts showing one of the restyled dialogs.'><br>
+<img class="no-shadow" src='/images/blog/2022-10/new-dialogs.png' alt='Screenshot showing one of the restyled dialogs.'><br>
 
 ## Viewing YAML automations in the automation editor
 
@@ -217,7 +206,7 @@ This has been improved! You can now open **any** automation (or script) in the
 UI. This lets you view your automation, providing a quick glance at its
 workings.
 
-<img class="no-shadow" src='/images/blog/2022-10/yaml-automation-editor.png' alt='Screenshosts showing an YAML automation as read-only in the automation editor.'><br>
+<img class="no-shadow" src='/images/blog/2022-10/yaml-automation-editor.png' alt='Screenshot showing an YAML automation as read-only in the automation editor.'><br>
 
 Besides, as an bonus, if you have considered moving your automation to the UI,
 you can now view and experience how it would look/work for those automations
