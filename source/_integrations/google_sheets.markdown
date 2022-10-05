@@ -81,6 +81,6 @@ You can use the service `google_sheets.append_sheet` to add a row of data to the
 | ---------------------- | -------- | ----------- | --------|
 | `config_entry` | no | Config entry to use.
 | `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1
-| `data` | no | Data to be appended to the worksheet. This puts the data on a new row, one value per column. | ["foo"]
+| `data` | no | Data to be appended to the worksheet. This puts the data on a new row, one value per column. | {"hello": world, "cool": True, "count": 5}
 
 {% enddetails %}
