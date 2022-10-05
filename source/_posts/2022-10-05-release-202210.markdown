@@ -54,7 +54,7 @@ Enjoy the (beta) release!
 - [Active Bluetooth everywhere](#active-bluetooth-everywhere)
 - [Support for iBeacons](#support-for-ibeacons)
 - [Finding the right integration](#finding-the-right-integration)
-- [Sub-views for dashboards](#sub-views-for-dashboards)
+- [Subviews for dashboards](#subviews-for-dashboards)
 - [All dialogs restyled](#all-dialogs-restyled)
 - [Viewing YAML automations in the automation editor](#viewing-yaml-automations-in-the-automation-editor)
 - [Handling version numbers in templates](#handling-version-numbers-in-templates)
@@ -66,7 +66,6 @@ Enjoy the (beta) release!
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
-
 
 Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=nlbwmnLi4Ms) today at 12:00 PDT / 21:00 CET!
 
@@ -170,31 +169,30 @@ integration, including those only available via YAML. While they cannot be
 set up via the user interface, we now do provide links to the documentation
 with the instructions on how to set it up.
 
-## Sub-views for dashboards
+## Subviews for dashboards
 
-{% details "TODO" %}
+This might be one of the coolest and most impractful features that has been
+added to our Dashboards lately: Subviews!
 
-- Improve story
-- Needs a better title
-- Screenshots
-- Spelling/grammar
+Each view on a dashboard can now be marked as being a "Subview":
 
-{% enddetails %}
+<img class="no-shadow" src='/images/blog/2022-10/subview-toggle.png' alt='Screenshosts showing the new subview toggle in the view options'><br>
 
-Dashboard views now can be marked as "Subview".
+Subviews won't show up in the navigation bar of your dashboard, meaning
+you can only navigate to them by using, for example, a navigation action on
+a button.
+
+When you navigate to a subview, the subview itself will not show the Dashboard
+navigation bar. Instead, it will show a back button to the previous view
+you came from.
 
 <p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/191509109-68d10563-739c-4dd0-91af-b209ca303059.png'>
-Temporary image, which needs to be replaced.
+<img class="no-shadow" src='/images/blog/2022-10/subview-navigation.gif' alt='Screen recording showing a Kitchen subview in action'>
+Screen recording showing a Kitchen subview in action.
 </p>
 
-Subviews won't show up in the navigation bar, but can be linked to,
-from e.g., a button. Subviews only show a back button. Here is an
-example of a subview in a short movie clip (need replacement):
-
-<video controls="controls">
-<source src="https://user-images.githubusercontent.com/5878303/191218073-b3ba3bff-c75d-4544-bec9-3417b7941ddc.mp4" type="video/mp4">
-</video>
+This allows for creating cool navigation concepts that are particularly helpful
+on a mobile or tablet device.
 
 ## All dialogs restyled
 
