@@ -90,8 +90,11 @@ source/_integrations/broadlink.markdown @danielhiversen @felipediel @L-I-Am
 source/_integrations/brother.markdown @bieniu
 source/_integrations/brunt.markdown @eavanvalkenburg
 source/_integrations/bsblan.markdown @liudger
+source/_integrations/bswitch.markdown @jafar-atili
 source/_integrations/bt_smarthub.markdown @jxwolstenholme
 source/_integrations/bthome.markdown @Ernst79
+source/_integrations/bticino.markdown @cgtobi
+source/_integrations/bubendorff.markdown @cgtobi
 source/_integrations/buienradar.markdown @mjj4791 @ties @Robbie1221
 source/_integrations/button.markdown @home-assistant/core
 source/_integrations/calendar.markdown @home-assistant/core
@@ -340,6 +343,7 @@ source/_integrations/launch_library.markdown @ludeeus @DurgNomis-drol
 source/_integrations/laundrify.markdown @xLarry
 source/_integrations/lcn.markdown @alengwenus
 source/_integrations/led_ble.markdown @bdraco
+source/_integrations/legrand.markdown @cgtobi
 source/_integrations/leviton_z_wave.markdown @home-assistant/z-wave
 source/_integrations/lg_netcast.markdown @Drafteed
 source/_integrations/lidarr.markdown @tkdrob
@@ -419,6 +423,7 @@ source/_integrations/nextbus.markdown @vividboarder
 source/_integrations/nextcloud.markdown @meichthys
 source/_integrations/nextdns.markdown @bieniu
 source/_integrations/nfandroidtv.markdown @tkdrob
+source/_integrations/nibe_heatpump.markdown @elupus
 source/_integrations/nightscout.markdown @marciogranzotto
 source/_integrations/nilu.markdown @hfurubotten
 source/_integrations/nina.markdown @DeerMaximum
@@ -576,6 +581,7 @@ source/_integrations/smappee.markdown @bsmappee
 source/_integrations/smart_blinds.markdown @starkillerOG
 source/_integrations/smart_home.markdown @starkillerOG
 source/_integrations/smart_meter_texas.markdown @grahamwetzler
+source/_integrations/smarther.markdown @cgtobi
 source/_integrations/smartthings.markdown @andrewsayre
 source/_integrations/smarttub.markdown @mdz
 source/_integrations/smarty.markdown @z0mbieprocess
