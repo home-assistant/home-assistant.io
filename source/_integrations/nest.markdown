@@ -1,5 +1,5 @@
 ---
-title: Nest
+title: Google Nest
 description: Instructions on how to integrate Nest into Home Assistant.
 ha_category:
   - Binary Sensor
