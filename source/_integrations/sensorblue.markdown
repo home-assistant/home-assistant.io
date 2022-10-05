@@ -1,6 +1,6 @@
 ---
 title: SensorBlue
-description: Instructions on how to integrate SensorBlue devices into Home Assistant.
+description: Connect and control your SensorBlue devices using the ThermoBeacon integration
 ha_category:
   - Sensor
 ha_bluetooth: true

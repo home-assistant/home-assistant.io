@@ -7,7 +7,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: hardware
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 The Hardware integration provides an API which offers information about certain board types, USB dongles, and resource usage.

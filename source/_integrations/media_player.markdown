@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: media_player
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 Interacts with media players on your network.
