@@ -261,6 +261,11 @@ With this integration, you can add new rows to a Google Sheet document
 from a service call, allowing you to export data from automations for
 further processing, visualization, or insights.
 
+<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-10/google-sheets.png' alt='Screenshots exporting energy data to Google Sheets from Home Assistant'>
+Export anything you like to a sheet in Google Sheets, like your energy usage.
+</p>
+
 Maybe you like to export your daily energy usage or keep track of the number
 of diapers you have used in your baby feeding diary spreadsheet.
 
