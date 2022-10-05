@@ -47,6 +47,9 @@ Supported devices:
 To communicate with the pump there are a few different connection methods available depending on hardware. At the moment the following methods are supported.
 
 - [UDP Gateway using NibeGw](#udp-gateway-using-nibegw)
+- [ESPHome](#ESPHome)
+- [Arduino](#Arduino)
+- [Raspberry Pi-Linux](#Raspberry-Pi-Linux)
 
 ### UDP Gateway using NibeGw
 
@@ -58,20 +61,20 @@ This can be built using a Raspberry Pi with an RS485 hat, an Arduino with RS485 
 
 #### ESPHome
 
-A ESPHome base hardware solution also works well and integrate nicely into Home Assistant.
+A ESPHome based hardware solution also works well and integrate nicely into Home Assistant.
 
 - [Homepage](https://github.com/elupus/esphome-nibe)
 
 #### Arduino
 
-An Arduino-based solution has been tested by OpenHAB community with Arduino uno + RS485 and Ethernet shields. The ProDiNo NetBoards are also supported. A ProDiNo has an Ethernet and RS-485 port on the board.
+An Arduino-based solution has been tested by OpenHAB community with Arduino UNO + RS485 and Ethernet shields. The ProDiNo NetBoards are also supported. A ProDiNo has an Ethernet and RS-485 port on the board.
 
 - [Documentation from OpenHAB](https://www.openhab.org/addons/bindings/nibeheatpump/#arduino)
 - [Source code in OpenHAB Contrib](https://github.com/openhab/openhab-addons/tree/main/bundles/org.openhab.binding.nibeheatpump/contrib/NibeGW/Arduino/NibeGW)
 
-#### Raspberry Pi / Linux
+#### Raspberry Pi Linux
 
-A standard Linux application for running the Nibe Gateway software is also available.
+A standard Linux application for emulating the Nibe Gateway is also available.
 
 - [Documentation from OpenHAB](https://www.openhab.org/addons/bindings/nibeheatpump/#raspberry-pi-or-other-linux-unix-based-boards)
 - [Source code in OpenHAB Contrib](https://github.com/openhab/openhab-addons/tree/main/bundles/org.openhab.binding.nibeheatpump/contrib/NibeGW/RasPi)
