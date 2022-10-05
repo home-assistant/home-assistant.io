@@ -81,7 +81,22 @@ the recording of it right here!
 
 {% endcomment %}
 
-## Integrations v2
+## Marcel van der Veldt joins Nabu Casa
+
+We are excited to announce that [Marcel van der Veldt](https://github.com/marcelveldt)
+has joined [Nabu Casa](https://www.nabucasa.com/)!
+
+Marcel is known for his contributions to the [Z-Wave integration](/integrations/zwave_js),
+the rewrite of the [Hue integration](/integrations/hue), the
+[Music Assistant custom integration](https://github.com/music-assistant/hass-music-assistant),
+and many more!
+
+Marcel is going to be working on [Matter](https://csa-iot.org/all-solutions/matter/)
+support in Home Assistant. Just in case you missed it, Matter [is now officially
+available/released](https://twitter.com/balloob/status/1576421490106384385) 🎉.
+
+Welcome aboard Marcel!
+
 
 (Working title, need to be changed to something useful)
 
