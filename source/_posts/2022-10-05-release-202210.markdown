@@ -56,7 +56,7 @@ Enjoy the (beta) release!
 - [Finding the right integration](#finding-the-right-integration)
 - [Sub-views for dashboards](#sub-views-for-dashboards)
 - [All dialogs restyled](#all-dialogs-restyled)
-- [Viewing manual automations in the automation editor](#viewing-manual-automations-in-the-automation-editor)
+- [Viewing YAML automations in the automation editor](#viewing-yaml-automations-in-the-automation-editor)
 - [New template thingies](#new-template-thingies)
 - [Google sheets](#google-sheets)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -206,33 +206,24 @@ to version 3 of the Material Design that Home Assistant follows.
 
 <img class="no-shadow" src='/images/blog/2022-10/new-dialogs.png' alt='Screenshosts showing one of the restyled dialogs.'><br>
 
-## Viewing manual automations in the automation editor
+## Viewing YAML automations in the automation editor
 
-{% details "TODO" %}
-
-- Add an actual story
-- Needs a better title
-- Screenshots
-- Spelling/grammar
-- Allow fetching automation config ([@balloob] - [#79130]) ([automation docs])
-- Allow fetching script config ([@balloob] - [#79131]) ([script docs])
-- WIP: https://github.com/home-assistant/frontend/pull/13900
-
-{% enddetails %}
-
-In the last release, we revamped our automation editor and we are very
+In the last release, we revamped our automation editor, and we are very
 happy to read how many of you loved these changes ❤️
 
-However, if you manage your automations manually in YAML you'd always be
-served an error message when trying to open an automation in the UI.
+However, if you manage your automations manually in YAML, you'd always be
+served an error message when trying to open an automation in the UI. Not very
+helpful, right?
 
-This has been improved! You can now open any automation (or script) in the UI,
-allowing you to view your automation, giving a quick glance and their
+This has been improved! You can now open **any** automation (or script) in the
+UI. This lets you view your automation, providing a quick glance at its
 workings.
 
-Besides, as an additional bonus, if you have considered moving your automation
-to the UI, you can now actually view and experience how it would look/work
-for those automations.
+<img class="no-shadow" src='/images/blog/2022-10/yaml-automation-editor.png' alt='Screenshosts showing an YAML automation as read-only in the automation editor.'><br>
+
+Besides, as an bonus, if you have considered moving your automation to the UI,
+you can now view and experience how it would look/work for those automations
+and import them into the UI with the click of a button in the top right.
 
 ## New template thingies
 
@@ -262,11 +253,6 @@ numbers and even check the difference between 2 version numbers.
 {% endraw %}
 
 ## Google sheets
-
-Nice new integration, consider doing a section about it (TODO).
-
-
-## iBeacon
 
 Nice new integration, consider doing a section about it (TODO).
 
