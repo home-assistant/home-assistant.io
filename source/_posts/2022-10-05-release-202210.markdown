@@ -52,13 +52,13 @@ Enjoy the (beta) release!
 
 - [Marcel van der Veldt joins Nabu Casa](#marcel-van-der-veldt-joins-nabu-casa)
 - [Active Bluetooth everywhere](#active-bluetooth-everywhere)
+- [Support for iBeacons](#support-for-ibeacons)
 - [Finding the right integration](#finding-the-right-integration)
 - [Sub-views for dashboards](#sub-views-for-dashboards)
 - [Restyling of all dialogs](#restyling-of-all-dialogs)
 - [Viewing manual automations in the automation editor](#viewing-manual-automations-in-the-automation-editor)
 - [New template thingies](#new-template-thingies)
 - [Google sheets](#google-sheets)
-- [iBeacon](#ibeacon)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -125,6 +125,19 @@ a simple ESP32 device.
 
 Oh! Bonus: the Bluetooth performance has been improved too! Especially local
 Bluetooth adapters should be quite a bit faster. 🚀
+
+## Support for iBeacons
+
+This release also adds support for iBeacons. These are Bluetooth-enabled devices
+that send out identifiers to announce their location. Home Assistant can
+now pick those up and show an approximate distance to such an iBeacon.
+
+iBeacons can open up a lot of awesome use cases for automations. For example,
+you could attach an iBeacon to your car, so you'll know the car is at home. Or,
+on the trashcan and use it to determine if the garbage is still sitting in the
+garage on pick-up day and send out a notification.
+
+[Read more about iBeacons in our documentation](/integrations/ibeacon).
 
 ## Finding the right integration
 
