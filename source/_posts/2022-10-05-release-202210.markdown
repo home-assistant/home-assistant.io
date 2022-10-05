@@ -2,8 +2,8 @@
 layout: post
 title: "2022.10: Beta release notes"
 description: "Beta release notes for Home Assistant Core 2022.10."
-date: 2022-09-28 00:00:00
-date_formatted: "October 10, 2022"
+date: 2022-10-05 00:00:00
+date_formatted: "October 5 2022"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true

@@ -6,7 +6,7 @@ description: Detailed changelog for the Home Assistant Core 2022.10 release
 These are all the changes included in the Home Assistant Core 2202.10 release.
 
 For a summary in a more readable format:
-[Release notes blog for this release](/blog/2022/09/28/release-202210/).
+[Release notes blog for this release](/blog/2022/10/05/release-202210/).
 
 ## Full Changelog
 
