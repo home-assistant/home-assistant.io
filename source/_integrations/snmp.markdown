@@ -20,8 +20,11 @@ A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Manage
 
 There is currently support for the following device types within Home Assistant:
 
-- [Presence Detection](#precense-detection)
+- [Presence Detection](#presence-detection)
 - [Sensor](#sensor)
+  - [Finding OIDs](#finding-oids)
+  - [Examples](#examples)
+    - [Printer uptime minutes](#printer-uptime-minutes)
 - [Switch](#switch)
 
 <div class='note warning'>
@@ -363,6 +366,10 @@ vartype:
   required: false
   type: string  
   default: 'none'
+unique_id:
+  description: An ID that uniquely identifies this entity. This allows changing the `name`, `icon` and `entity_id` from the web interface.
+  required: false
+  type: string
 {% endconfiguration %}
 
 You should check with your device's vendor to find out the correct BaseOID and what values turn the switch on and off.
