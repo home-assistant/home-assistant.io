@@ -337,29 +337,21 @@ other news about building an Open Home; straight into your inbox.
 
 ## Breaking Changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-
-**Note**: Breaking changes processed up to PR 78832
-
-{% enddetails %}
-
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
 
 {% details "Bayesian" %}
 
-The `prob_given_false` configuration variable, is now a required configuration
-variable as there was no mathematical rationale for the previous default value.
+The `prob_given_false` configuration variable is now a required as there
+was no mathematical rationale for the previous default value.
 
 `numeric_state`, `template`, and `state` entries with only one `to_state`
-configured will also now update the prior probability accordingly if the
+configured will update the prior probability accordingly if the
 observation is false. Those who have used duplicate, mirrored `state`
-configurations as a work-around will have their functionality preserved.
-However for `numeric_state` and `template` entries this will cause duplication
-of the Bayesian updating.
+configurations as a workaround will have their functionality preserved.
+However, for `numeric_state` and `template` entries, this will cause
+duplication of the Bayesian updating.
 
 ([@HarvsG] - [#67631]) ([documentation](/integrations/bayesian))
 
@@ -438,9 +430,9 @@ the state no longer reports as "ok" but instead reports as "on".
 
 {% details "Radarr" %}
 
-Some breaking changes has been made in disabling the Movies count sensor out
+Some breaking changes have been made in disabling the Movies count sensor out
 of caution. This sensor can cause problems with massive databases.
-If the you still wish to use it, you may do so.
+If you still wish to use it, you may do so.
 
 Movie names are no longer included as attributes in the movies sensor. Upcoming
 has been removed. It is being modernized as calendar items should be.
@@ -457,11 +449,11 @@ value for automations.
 
 {% details "Supervisor" %}
 
-In Home Assistant 2022.4 the binary sensors for showing an update from the
+In Home Assistant 2022.4, the binary sensors for showing an update from the
 Supervisor integration were deprecated in favor of
 [update entities](/integrations/hassio/#update-entities).
 
-These binary sensors for showing an update now have been removed.
+These binary sensors for showing an update have now been removed.
 
 ([@ludeeus] - [#60677]) ([documentation](/integrations/hassio))
 
@@ -470,17 +462,31 @@ These binary sensors for showing an update now have been removed.
 
 {% enddetails %}
 
+{% details "Synology DSM" %}
+
+In Home Assistant 2022.4 the binary sensor of Synology DSM for showing an
+update was deprecated in favor of the newer update entity.
+
+This binary sensor for showing an update has now been removed.
+
+([@mib1185] - [#79509]) ([documentation](/integrations/synology_dsm))
+
+[@mib1185]: https://github.com/mib1185
+[#79509]: https://github.com/home-assistant/core/pull/79509
+
+{% enddetails %}
+
 {% details "Workday" %}
 
 Due to changes in the upstream library, the following is no longer supported by
 the Workday integration:
 - UK subdivisions (Wales, Scotland, England...) can no longer be provided as
-  values to `country` configuration key, they are still available for use as
+  values to the `country` configuration key. They are still available for use as
   values to the `province` setting.
-- `IsleOfMan` if no longer a recognised province of the UK,
-  use the `IM` code for `country` instead.
+- `IsleOfMan` is no longer a recognized province of the UK,
+  use the `IM` code for the `country` instead.
 - The extended Portuguese holiday set (`PortugalExt`) is no longer available
-  as a separate country, instead you should use the country code `PT` and
+  as a separate country; instead you should use the country code `PT` and
   the province `Ext`.
 
 ([@TomBrien] - [#78832]) ([documentation](/integrations/workday))
@@ -491,6 +497,22 @@ the Workday integration:
 {% enddetails %}
 
 {% details "Z-Wave" %}
+
+You must use `zwave-js-server` 1.24.0 or greater (schema 24).
+
+With this release, you will need to update your `zwave-js-server` instance.
+
+- If you use the `Z-Wave JS` addon, you need to have at least version 0.1.74.
+- If you use the `Z-Wave JS UI` addon, you need to have at least version 1.1.0.
+- If you use the `Z-Wave JS UI` Docker container, you need to have at least version 8.1.0.
+- If you run your own Docker container, or some other installation method, you will need to update your `zwave-js-server` instance to at least 1.24.0.
+
+([@raman325] - [#79342]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#79342]: https://github.com/home-assistant/core/pull/79342
+
+---
 
 The fan speed levels of Leviton ZW4SF fan controllers are now mapped correctly
 to corresponding percentage levels in Home Assistant.
