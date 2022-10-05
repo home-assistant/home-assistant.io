@@ -286,6 +286,11 @@ type:
   required: true
   description: "`conditional`"
   type: string
+link_conditions:
+  required: false
+  description: Link between the conditions (`and` or `or`)
+  type: string
+  default: and
 conditions:
   required: true
   description: List of entity IDs and matching states.
@@ -311,7 +316,12 @@ row:
 
 *one is required (`state` or `state_not`)
 
-Note: Conditions with more than one entity are treated as an 'and' condition. This means that for the card to show, *all* entities must meet the state requirements set.
+#### Link between conditions
+
+Conditions can be either linked with `and` or with `or`. This can be set via the `link_conditions` configuration.
+
+- If the conditions are linked with `and`, then **all** entities must meet the state requirement.
+- If the conditions are linked with `or`, then only **one** entity of all entities must meet the state requirement.
 
 ### Divider
 

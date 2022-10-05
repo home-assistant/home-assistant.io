@@ -345,6 +345,11 @@ type:
   required: true
   description: "`conditional`"
   type: string
+link_conditions:
+  required: false
+  description: Link between the conditions (`and` or `or`)
+  type: string
+  default: and  
 conditions:
   required: true
   description: List of entity IDs and matching states.
@@ -367,6 +372,15 @@ elements:
   description: One or more elements of any type to show when conditions are met. See below for an example.
   type: list
 {% endconfiguration %}
+
+*one is required (`state` or `state_not`)
+
+#### Link between conditions
+
+Conditions can be either linked with `and` or with `or`. This can be set via the `link_conditions` configuration.
+
+- If the conditions are linked with `and`, then **all** entities must meet the state requirement.
+- If the conditions are linked with `or`, then only **one** entity of all entities must meet the state requirement.
 
 ### Custom Elements
 
