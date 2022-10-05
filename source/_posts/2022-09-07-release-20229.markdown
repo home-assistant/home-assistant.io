@@ -38,6 +38,12 @@ Now I know that everyone usually expects [@frenck] to be writing these release n
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.9.1 - September 8](#release-202291---september-8)
+- [Release 2022.9.2 - September 11](#release-202292---september-11)
+- [Release 2022.9.3 - September 13](#release-202293---september-13)
+- [Release 2022.9.4 - September 14](#release-202294---september-14)
+- [Release 2022.9.5 - September 18](#release-202295---september-18)
+- [Release 2022.9.6 - September 22](#release-202296---september-22)
+- [Release 2022.9.7 - September 26](#release-202297---september-26)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -284,6 +290,463 @@ The following integrations are now available via the Home Assistant UI:
 [rainmachine docs]: /integrations/rainmachine/
 [velbus docs]: /integrations/velbus/
 [zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.9.2 - September 11
+
+- Fix reload of MQTT config entries ([@jbouwh] - [#76089]) ([mqtt docs])
+- Clear MQTT discovery topic when a disabled entity is removed ([@jbouwh] - [#77757]) ([mqtt docs])
+- Improve warning messages on invalid received modes ([@jbouwh] - [#77909]) ([mqtt docs])
+- Handle missing supported brands ([@balloob] - [#78090]) ([websocket_api docs])
+- Fix switchbot writing state too frequently ([@bdraco] - [#78094]) ([switchbot docs])
+- Fix LIFX light turning on while fading off ([@amelchio] - [#78095]) ([lifx docs])
+- Fix zwave_js update entity ([@raman325] - [#78116]) ([zwave_js docs])
+- Improve unique_id collision checks in entity_platform ([@emontnemery] - [#78132])
+- Allow non-integers in threshold sensor config flow ([@emontnemery] - [#78137]) ([threshold docs])
+- Bump bluetooth-adapters to 0.3.6 ([@bdraco] - [#78138]) ([bluetooth docs])
+- Add missing strings for errors in amberelectric config flow ([@Vaskivskyi] - [#78140]) ([amberelectric docs])
+- Bump aioecowitt to 2022.09.1 ([@pvizeli] - [#78142]) ([ecowitt docs])
+- Add missing moisture sensor to xiaomi_ble ([@Jc2k] - [#78160]) ([xiaomi_ble docs])
+- Bump pySwitchbot to 0.19.1 ([@bdraco] - [#78168]) ([switchbot docs])
+- Bump aiohomekit to 1.5.3 ([@bdraco] - [#78170]) ([homekit_controller docs])
+- Fix ecowitt typing ([@balloob] - [#78171]) ([ecowitt docs])
+- Fix sending notification to multiple targets in Pushover ([@engrbm87] - [#78111]) ([pushover docs])
+- Add dependencies to ecowitt ([@pvizeli] - [#78187]) ([ecowitt docs])
+- Bump led-ble to 0.8.3 ([@bdraco] - [#78188]) ([led_ble docs])
+- Fix switchbot not setting up when already connected at startup ([@bdraco] - [#78198]) ([switchbot docs])
+- Fix Yale Access Bluetooth not setting up when already connected at startup ([@bdraco] - [#78199]) ([yalexs_ble docs])
+- Bump ZHA dependencies ([@puddly] - [#78201]) ([zha docs])
+- Close stale switchbot connections at setup time ([@bdraco] - [#78202]) ([switchbot docs])
+- Bump aiohomekit to 1.5.4 to handle stale ble connections at startup ([@bdraco] - [#78203]) ([homekit_controller docs])
+- Landis+Gyr integration: increase timeout and add debug logging ([@vpathuis] - [#78025]) ([landisgyr_heat_meter docs])
+- Bump bluetooth-adapters to 0.4.1 ([@bdraco] - [#78205]) ([bluetooth docs])
+- Bump `regenmaschine` to 2022.09.1 ([@bachya] - [#78210]) ([rainmachine docs])
+- Bump led_ble to 0.8.5 ([@bdraco] - [#78215]) ([led_ble docs])
+- Bump pysensibo to 1.0.20 ([@gjohansson-ST] - [#78222]) ([sensibo docs])
+- Bump PySwitchbot to 0.19.5 ([@bdraco] - [#78224]) ([switchbot docs])
+- Bump yalexs-ble to 1.8.1 ([@bdraco] - [#78225]) ([yalexs_ble docs])
+- Bump led-ble to 0.9.1 ([@bdraco] - [#78226]) ([led_ble docs])
+- Bump aiohomekit to 1.5.6 ([@bdraco] - [#78228]) ([homekit_controller docs])
+
+[#76089]: https://github.com/home-assistant/core/pull/76089
+[#77757]: https://github.com/home-assistant/core/pull/77757
+[#77909]: https://github.com/home-assistant/core/pull/77909
+[#77968]: https://github.com/home-assistant/core/pull/77968
+[#78025]: https://github.com/home-assistant/core/pull/78025
+[#78081]: https://github.com/home-assistant/core/pull/78081
+[#78090]: https://github.com/home-assistant/core/pull/78090
+[#78094]: https://github.com/home-assistant/core/pull/78094
+[#78095]: https://github.com/home-assistant/core/pull/78095
+[#78111]: https://github.com/home-assistant/core/pull/78111
+[#78116]: https://github.com/home-assistant/core/pull/78116
+[#78132]: https://github.com/home-assistant/core/pull/78132
+[#78137]: https://github.com/home-assistant/core/pull/78137
+[#78138]: https://github.com/home-assistant/core/pull/78138
+[#78140]: https://github.com/home-assistant/core/pull/78140
+[#78142]: https://github.com/home-assistant/core/pull/78142
+[#78160]: https://github.com/home-assistant/core/pull/78160
+[#78168]: https://github.com/home-assistant/core/pull/78168
+[#78170]: https://github.com/home-assistant/core/pull/78170
+[#78171]: https://github.com/home-assistant/core/pull/78171
+[#78187]: https://github.com/home-assistant/core/pull/78187
+[#78188]: https://github.com/home-assistant/core/pull/78188
+[#78198]: https://github.com/home-assistant/core/pull/78198
+[#78199]: https://github.com/home-assistant/core/pull/78199
+[#78201]: https://github.com/home-assistant/core/pull/78201
+[#78202]: https://github.com/home-assistant/core/pull/78202
+[#78203]: https://github.com/home-assistant/core/pull/78203
+[#78205]: https://github.com/home-assistant/core/pull/78205
+[#78210]: https://github.com/home-assistant/core/pull/78210
+[#78215]: https://github.com/home-assistant/core/pull/78215
+[#78222]: https://github.com/home-assistant/core/pull/78222
+[#78224]: https://github.com/home-assistant/core/pull/78224
+[#78225]: https://github.com/home-assistant/core/pull/78225
+[#78226]: https://github.com/home-assistant/core/pull/78226
+[#78228]: https://github.com/home-assistant/core/pull/78228
+[@Jc2k]: https://github.com/Jc2k
+[@Vaskivskyi]: https://github.com/Vaskivskyi
+[@amelchio]: https://github.com/amelchio
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@engrbm87]: https://github.com/engrbm87
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jbouwh]: https://github.com/jbouwh
+[@puddly]: https://github.com/puddly
+[@pvizeli]: https://github.com/pvizeli
+[@raman325]: https://github.com/raman325
+[@vpathuis]: https://github.com/vpathuis
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[amberelectric docs]: /integrations/amberelectric/
+[bluetooth docs]: /integrations/bluetooth/
+[ecowitt docs]: /integrations/ecowitt/
+[homekit_controller docs]: /integrations/homekit_controller/
+[landisgyr_heat_meter docs]: /integrations/landisgyr_heat_meter/
+[led_ble docs]: /integrations/led_ble/
+[lifx docs]: /integrations/lifx/
+[mqtt docs]: /integrations/mqtt/
+[pushover docs]: /integrations/pushover/
+[rainmachine docs]: /integrations/rainmachine/
+[sensibo docs]: /integrations/sensibo/
+[switchbot docs]: /integrations/switchbot/
+[threshold docs]: /integrations/threshold/
+[websocket_api docs]: /integrations/websocket_api/
+[xiaomi_ble docs]: /integrations/xiaomi_ble/
+[yalexs_ble docs]: /integrations/yalexs_ble/
+[zha docs]: /integrations/zha/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.9.3 - September 13
+
+- Move up setup of service to make it more robust when running multiple instances of deCONZ ([@Kane610] - [#77621]) ([deconz docs])
+- Bump blinkpy to 0.19.2 ([@Vaskivskyi] - [#78097]) ([blink docs])
+- Bump PyViCare==2.17.0 ([@TheJulianJES] - [#78232]) ([vicare docs])
+- Fix missing dependency for dbus_next ([@d-walsh] - [#78235]) ([bluetooth docs])
+- Bump bluetooth-auto-recovery to 0.3.3 ([@bdraco] - [#78245]) ([bluetooth docs])
+- Bump aiodiscover to 1.4.13 ([@bdraco] - [#78253]) ([dhcp docs])
+- Bump pySwitchbot to 0.19.6 ([@bdraco] - [#78304]) ([switchbot docs])
+- Make yalexs_ble matcher more specific ([@bdraco] - [#78307]) ([yalexs_ble docs])
+- Fix sengled bulbs in ZHA ([@dmulcahey] - [#78315]) ([zha docs])
+- Fix calculating gas cost for gas measured in ft3 ([@emontnemery] - [#78327]) ([energy docs])
+- Bump bleak to 0.17.0 ([@bdraco] - [#78333]) ([bluetooth docs])
+- Drop initial when loading input_number from storage ([@emontnemery] - [#78354]) ([input_number docs])
+- Don't allow partial update of input_number settings ([@emontnemery] - [#78356]) ([input_number docs])
+- Bump PySwitchbot to 0.19.8 ([@bdraco] - [#78361]) ([switchbot docs])
+- Bump yalexs-ble to 1.9.0 ([@bdraco] - [#78362]) ([yalexs_ble docs])
+- Bump xiaomi-ble to 0.9.3 ([@bdraco] - [#78301]) ([xiaomi_ble docs])
+- Bump xiaomi-ble to 0.10.0 ([@bdraco] - [#78365]) ([xiaomi_ble docs])
+- Bump led-ble to 0.10.0 ([@bdraco] - [#78367]) ([led_ble docs])
+- Bump aiohomekit to 1.5.7 ([@bdraco] - [#78369]) ([homekit_controller docs])
+- Don't allow partial update of counter settings ([@emontnemery] - [#78371]) ([counter docs])
+- Don't allow partial update of input_boolean settings ([@emontnemery] - [#78372]) ([input_boolean docs])
+- Don't allow partial update of input_datetime settings ([@emontnemery] - [#78373]) ([input_datetime docs])
+- Don't allow partial update of input_button settings ([@emontnemery] - [#78374]) ([input_button docs])
+- Don't allow partial update of input_select settings ([@emontnemery] - [#78376]) ([input_select docs])
+- Don't allow partial update of input_text settings ([@emontnemery] - [#78377]) ([input_text docs])
+- Don't allow partial update of timer settings ([@emontnemery] - [#78378]) ([timer docs])
+- Unregister EcoWitt webhook at unload ([@pvizeli] - [#78388]) ([ecowitt docs])
+- Fix flapping system log test ([@bdraco] - [#78391]) ([system_log docs])
+- Fix CI workflow caching ([@cdce8p] - [#78398])
+- Update frontend to 20220907.1 ([@bramkragten] - [#78404]) ([frontend docs])
+- Bump govee-ble to 0.17.3 ([@bdraco] - [#78405]) ([govee_ble docs])
+- Fix bug with RainMachine update entity ([@bachya] - [#78411]) ([rainmachine docs])
+- Retry on unavailable IPMA api ([@dgomes] - [#78332]) ([ipma docs])
+
+[#77621]: https://github.com/home-assistant/core/pull/77621
+[#77968]: https://github.com/home-assistant/core/pull/77968
+[#78081]: https://github.com/home-assistant/core/pull/78081
+[#78097]: https://github.com/home-assistant/core/pull/78097
+[#78169]: https://github.com/home-assistant/core/pull/78169
+[#78232]: https://github.com/home-assistant/core/pull/78232
+[#78235]: https://github.com/home-assistant/core/pull/78235
+[#78245]: https://github.com/home-assistant/core/pull/78245
+[#78253]: https://github.com/home-assistant/core/pull/78253
+[#78301]: https://github.com/home-assistant/core/pull/78301
+[#78304]: https://github.com/home-assistant/core/pull/78304
+[#78307]: https://github.com/home-assistant/core/pull/78307
+[#78315]: https://github.com/home-assistant/core/pull/78315
+[#78327]: https://github.com/home-assistant/core/pull/78327
+[#78332]: https://github.com/home-assistant/core/pull/78332
+[#78333]: https://github.com/home-assistant/core/pull/78333
+[#78354]: https://github.com/home-assistant/core/pull/78354
+[#78356]: https://github.com/home-assistant/core/pull/78356
+[#78361]: https://github.com/home-assistant/core/pull/78361
+[#78362]: https://github.com/home-assistant/core/pull/78362
+[#78365]: https://github.com/home-assistant/core/pull/78365
+[#78367]: https://github.com/home-assistant/core/pull/78367
+[#78369]: https://github.com/home-assistant/core/pull/78369
+[#78371]: https://github.com/home-assistant/core/pull/78371
+[#78372]: https://github.com/home-assistant/core/pull/78372
+[#78373]: https://github.com/home-assistant/core/pull/78373
+[#78374]: https://github.com/home-assistant/core/pull/78374
+[#78376]: https://github.com/home-assistant/core/pull/78376
+[#78377]: https://github.com/home-assistant/core/pull/78377
+[#78378]: https://github.com/home-assistant/core/pull/78378
+[#78388]: https://github.com/home-assistant/core/pull/78388
+[#78391]: https://github.com/home-assistant/core/pull/78391
+[#78398]: https://github.com/home-assistant/core/pull/78398
+[#78404]: https://github.com/home-assistant/core/pull/78404
+[#78405]: https://github.com/home-assistant/core/pull/78405
+[#78411]: https://github.com/home-assistant/core/pull/78411
+[@Kane610]: https://github.com/Kane610
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@Vaskivskyi]: https://github.com/Vaskivskyi
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cdce8p]: https://github.com/cdce8p
+[@d-walsh]: https://github.com/d-walsh
+[@dgomes]: https://github.com/dgomes
+[@dmulcahey]: https://github.com/dmulcahey
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@pvizeli]: https://github.com/pvizeli
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[blink docs]: /integrations/blink/
+[bluetooth docs]: /integrations/bluetooth/
+[counter docs]: /integrations/counter/
+[deconz docs]: /integrations/deconz/
+[dhcp docs]: /integrations/dhcp/
+[ecowitt docs]: /integrations/ecowitt/
+[energy docs]: /integrations/energy/
+[frontend docs]: /integrations/frontend/
+[govee_ble docs]: /integrations/govee_ble/
+[homekit_controller docs]: /integrations/homekit_controller/
+[input_boolean docs]: /integrations/input_boolean/
+[input_button docs]: /integrations/input_button/
+[input_datetime docs]: /integrations/input_datetime/
+[input_number docs]: /integrations/input_number/
+[input_select docs]: /integrations/input_select/
+[input_text docs]: /integrations/input_text/
+[ipma docs]: /integrations/ipma/
+[led_ble docs]: /integrations/led_ble/
+[rainmachine docs]: /integrations/rainmachine/
+[switchbot docs]: /integrations/switchbot/
+[system_log docs]: /integrations/system_log/
+[timer docs]: /integrations/timer/
+[vicare docs]: /integrations/vicare/
+[xiaomi_ble docs]: /integrations/xiaomi_ble/
+[yalexs_ble docs]: /integrations/yalexs_ble/
+[zha docs]: /integrations/zha/
+
+## Release 2022.9.4 - September 14
+
+- Update frontend to 20220907.2 ([@bramkragten] - [#78431]) ([frontend docs])
+
+[#78431]: https://github.com/home-assistant/core/pull/78431
+[@bramkragten]: https://github.com/bramkragten
+[frontend docs]: /integrations/frontend
+
+## Release 2022.9.5 - September 18
+
+- Fix fan speed regression for some xiaomi fans ([@peteh] - [#78406]) ([xiaomi_miio docs])
+- Only redact zwave_js values that are worth redacting ([@raman325] - [#78420]) ([zwave_js docs])
+- Prevent deleting blueprints which are in use ([@emontnemery] - [#78444]) ([automation docs]) ([script docs]) ([blueprint docs])
+- Bump bleak-retry-connector to 0.17.1 ([@bdraco] - [#78474]) ([bluetooth docs])
+- Bump python-songpal to 0.15.1 ([@rytilahti] - [#78481]) ([songpal docs])
+- Bump PySwitchbot to 0.19.9 ([@bdraco] - [#78504]) ([switchbot docs])
+- Bump yalexs_ble to 1.9.2 ([@bdraco] - [#78508]) ([yalexs_ble docs])
+- Bump led-ble to 0.10.1 ([@bdraco] - [#78511]) ([led_ble docs])
+- Bump aiohomekit to 1.5.8 ([@bdraco] - [#78515]) ([homekit_controller docs])
+- Fix zwave_js update entity startup state ([@raman325] - [#78563]) ([zwave_js docs])
+- Bump pyrisco to v0.5.5 ([@OnFreund] - [#78566]) ([risco docs])
+- Fix WebSocket condition testing ([@frenck] - [#78570]) ([websocket_api docs])
+- Fix switchbot not accepting the first advertisement ([@bdraco] - [#78610]) ([switchbot docs])
+- Fix reconnect race in HomeKit Controller ([@bdraco] - [#78629]) ([homekit_controller docs])
+- Bump qingping-ble to 0.7.0 ([@skgsergio] - [#78630]) ([qingping docs])
+- Add a helpful message to the config_entries.OperationNotAllowed exception ([@bdraco] - [#78631])
+- Update demetriek to 0.2.4 ([@frenck] - [#78646]) ([lametric docs])
+- Handle multiple files properly in zwave_js update entity ([@raman325] - [#78658]) ([zwave_js docs])
+- Remove mDNS iteration from Plugwise unique ID ([@frenck] - [#78680]) ([plugwise docs])
+- Fix bluetooth callback matchers when only matching on connectable ([@bdraco] - [#78687]) ([bluetooth docs])
+- Bump thermobeacon-ble to 0.3.2 ([@bdraco] - [#78693]) ([thermobeacon docs])
+
+[#77968]: https://github.com/home-assistant/core/pull/77968
+[#78081]: https://github.com/home-assistant/core/pull/78081
+[#78169]: https://github.com/home-assistant/core/pull/78169
+[#78406]: https://github.com/home-assistant/core/pull/78406
+[#78410]: https://github.com/home-assistant/core/pull/78410
+[#78420]: https://github.com/home-assistant/core/pull/78420
+[#78438]: https://github.com/home-assistant/core/pull/78438
+[#78444]: https://github.com/home-assistant/core/pull/78444
+[#78474]: https://github.com/home-assistant/core/pull/78474
+[#78481]: https://github.com/home-assistant/core/pull/78481
+[#78504]: https://github.com/home-assistant/core/pull/78504
+[#78508]: https://github.com/home-assistant/core/pull/78508
+[#78511]: https://github.com/home-assistant/core/pull/78511
+[#78515]: https://github.com/home-assistant/core/pull/78515
+[#78563]: https://github.com/home-assistant/core/pull/78563
+[#78566]: https://github.com/home-assistant/core/pull/78566
+[#78570]: https://github.com/home-assistant/core/pull/78570
+[#78610]: https://github.com/home-assistant/core/pull/78610
+[#78629]: https://github.com/home-assistant/core/pull/78629
+[#78630]: https://github.com/home-assistant/core/pull/78630
+[#78631]: https://github.com/home-assistant/core/pull/78631
+[#78646]: https://github.com/home-assistant/core/pull/78646
+[#78658]: https://github.com/home-assistant/core/pull/78658
+[#78680]: https://github.com/home-assistant/core/pull/78680
+[#78687]: https://github.com/home-assistant/core/pull/78687
+[#78693]: https://github.com/home-assistant/core/pull/78693
+[@OnFreund]: https://github.com/OnFreund
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@peteh]: https://github.com/peteh
+[@raman325]: https://github.com/raman325
+[@rytilahti]: https://github.com/rytilahti
+[@skgsergio]: https://github.com/skgsergio
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[automation docs]: /integrations/automation/
+[blueprint docs]: /integrations/blueprint/
+[bluetooth docs]: /integrations/bluetooth/
+[frontend docs]: /integrations/frontend/
+[homekit_controller docs]: /integrations/homekit_controller/
+[lametric docs]: /integrations/lametric/
+[led_ble docs]: /integrations/led_ble/
+[plugwise docs]: /integrations/plugwise/
+[qingping docs]: /integrations/qingping/
+[risco docs]: /integrations/risco/
+[script docs]: /integrations/script/
+[songpal docs]: /integrations/songpal/
+[switchbot docs]: /integrations/switchbot/
+[thermobeacon docs]: /integrations/thermobeacon/
+[websocket_api docs]: /integrations/websocket_api/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[yalexs_ble docs]: /integrations/yalexs_ble/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.9.6 - September 22
+
+- Handle Modalias missing from the bluetooth adapter details on older BlueZ ([@bdraco] - [#78716]) ([bluetooth docs])
+- Refactor MQTT tests to use modern platform schema part 1 ([@jbouwh] - [#77387]) ([mqtt docs])
+- Refactor MQTT tests to use modern platform schema part 2 ([@jbouwh] - [#77525]) ([mqtt docs])
+- Refactor common MQTT tests to use modern schema ([@jbouwh] - [#77583]) ([mqtt docs])
+- Make hass.data["mqtt"] an instance of a DataClass ([@jbouwh] - [#77972]) ([mqtt docs])
+- Add status codes 23 and 26 to Xiaomi Miio vacuum ([@starkillerOG] - [#78289]) ([xiaomi_miio docs])
+- Link manually added MQTT entities the the MQTT config entry ([@jbouwh] - [#78547]) ([mqtt docs])
+- Drop PARALLEL_UPDATES from switchbot ([@bdraco] - [#78713]) ([switchbot docs])
+- Bump aioimaplib to 1.0.1 ([@N1c093] - [#78738]) ([imap docs]) (dependency)
+- Fix bug wherein RainMachine services use the wrong controller ([@bachya] - [#78780]) ([rainmachine docs])
+- Guard Guardian switches from redundant on/off calls ([@bachya] - [#78791]) ([guardian docs])
+- Bump dbus-fast to 1.5.1 ([@bdraco] - [#78802]) ([bluetooth docs]) (dependency)
+- If brightness is not available, don't set a value ([@elupus] - [#78827]) ([google_assistant docs])
+- Pin Python patch versions [ci] ([@cdce8p] - [#78830])
+- Fix parsing Eve Energy characteristic data ([@Jc2k] - [#78880]) ([homekit_controller docs])
+- Check Surveillance Station permissions during setup of Synology DSM integration ([@mib1185] - [#78884]) ([synology_dsm docs])
+- Handle default RSSI values from bleak in bluetooth ([@bdraco] - [#78908]) ([bluetooth docs])
+- Disable force update Netatmo ([@balloob] - [#78913]) ([netatmo docs])
+- Correct return typing for `catch_log_exception` ([@jbouwh] - [#78399])
+- Fix samsungtv to abort when ATTR_UPNP_MANUFACTURER is missing ([@bdraco] - [#78895]) ([samsungtv docs])
+- Handle timeout fetching bond token in config flow ([@bdraco] - [#78896]) ([bond docs])
+- Bump bimmer_connected to 0.10.4 ([@rikroe] - [#78910]) ([bmw_connected_drive docs]) (dependency)
+
+[#77387]: https://github.com/home-assistant/core/pull/77387
+[#77525]: https://github.com/home-assistant/core/pull/77525
+[#77583]: https://github.com/home-assistant/core/pull/77583
+[#77968]: https://github.com/home-assistant/core/pull/77968
+[#77972]: https://github.com/home-assistant/core/pull/77972
+[#78081]: https://github.com/home-assistant/core/pull/78081
+[#78169]: https://github.com/home-assistant/core/pull/78169
+[#78289]: https://github.com/home-assistant/core/pull/78289
+[#78399]: https://github.com/home-assistant/core/pull/78399
+[#78410]: https://github.com/home-assistant/core/pull/78410
+[#78438]: https://github.com/home-assistant/core/pull/78438
+[#78547]: https://github.com/home-assistant/core/pull/78547
+[#78703]: https://github.com/home-assistant/core/pull/78703
+[#78713]: https://github.com/home-assistant/core/pull/78713
+[#78716]: https://github.com/home-assistant/core/pull/78716
+[#78738]: https://github.com/home-assistant/core/pull/78738
+[#78780]: https://github.com/home-assistant/core/pull/78780
+[#78791]: https://github.com/home-assistant/core/pull/78791
+[#78802]: https://github.com/home-assistant/core/pull/78802
+[#78827]: https://github.com/home-assistant/core/pull/78827
+[#78830]: https://github.com/home-assistant/core/pull/78830
+[#78880]: https://github.com/home-assistant/core/pull/78880
+[#78884]: https://github.com/home-assistant/core/pull/78884
+[#78895]: https://github.com/home-assistant/core/pull/78895
+[#78896]: https://github.com/home-assistant/core/pull/78896
+[#78908]: https://github.com/home-assistant/core/pull/78908
+[#78910]: https://github.com/home-assistant/core/pull/78910
+[#78913]: https://github.com/home-assistant/core/pull/78913
+[@Jc2k]: https://github.com/Jc2k
+[@N1c093]: https://github.com/N1c093
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@mib1185]: https://github.com/mib1185
+[@rikroe]: https://github.com/rikroe
+[@starkillerOG]: https://github.com/starkillerOG
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[bluetooth docs]: /integrations/bluetooth/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[bond docs]: /integrations/bond/
+[frontend docs]: /integrations/frontend/
+[google_assistant docs]: /integrations/google_assistant/
+[guardian docs]: /integrations/guardian/
+[homekit_controller docs]: /integrations/homekit_controller/
+[imap docs]: /integrations/imap/
+[mqtt docs]: /integrations/mqtt/
+[netatmo docs]: /integrations/netatmo/
+[rainmachine docs]: /integrations/rainmachine/
+[samsungtv docs]: /integrations/samsungtv/
+[switchbot docs]: /integrations/switchbot/
+[synology_dsm docs]: /integrations/synology_dsm/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+
+## Release 2022.9.7 - September 26
+
+- Bump pyipma to 3.0.5 ([@dgomes] - [#78936]) ([ipma docs])
+- Bump motionblinds to 0.6.13 ([@starkillerOG] - [#78946]) ([motion_blinds docs])
+- Set OWM default mode to hourly legacy API ([@jbouwh] - [#78951]) ([openweathermap docs])
+- Bump yalexs to 1.2.2 ([@bdraco] - [#78978]) ([august docs])
+- Fix velbus matching ignored entries in config flow ([@Cereal2nd] - [#78999]) ([velbus docs])
+- Bumped boschshcpy 0.2.30 to 0.2.35 ([@tschamm] - [#79017]) ([bosch_shc docs])
+- Fix failing LaMetric pairing message during config flow ([@frenck] - [#79031]) ([lametric docs])
+- Fix MQTT device_tracker generating unique id-s - regression on #78547 ([@jbouwh] - [#79033]) ([mqtt docs])
+- Bump govee-ble to 0.19.0 ([@bdraco] - [#79038]) ([govee_ble docs])
+- Always install requirements of after_dependencies ([@emontnemery] - [#79094])
+- Pin pyOpenSSL to 22.0.0 ([@balloob] - [#79066])
+
+[#77968]: https://github.com/home-assistant/core/pull/77968
+[#78081]: https://github.com/home-assistant/core/pull/78081
+[#78169]: https://github.com/home-assistant/core/pull/78169
+[#78410]: https://github.com/home-assistant/core/pull/78410
+[#78438]: https://github.com/home-assistant/core/pull/78438
+[#78703]: https://github.com/home-assistant/core/pull/78703
+[#78916]: https://github.com/home-assistant/core/pull/78916
+[#78936]: https://github.com/home-assistant/core/pull/78936
+[#78946]: https://github.com/home-assistant/core/pull/78946
+[#78951]: https://github.com/home-assistant/core/pull/78951
+[#78978]: https://github.com/home-assistant/core/pull/78978
+[#78999]: https://github.com/home-assistant/core/pull/78999
+[#79017]: https://github.com/home-assistant/core/pull/79017
+[#79031]: https://github.com/home-assistant/core/pull/79031
+[#79033]: https://github.com/home-assistant/core/pull/79033
+[#79038]: https://github.com/home-assistant/core/pull/79038
+[#79066]: https://github.com/home-assistant/core/pull/79066
+[#79094]: https://github.com/home-assistant/core/pull/79094
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@dgomes]: https://github.com/dgomes
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@starkillerOG]: https://github.com/starkillerOG
+[@tschamm]: https://github.com/tschamm
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[acmeda docs]: /integrations/acmeda/
+[august docs]: /integrations/august/
+[bluetooth docs]: /integrations/bluetooth/
+[bosch_shc docs]: /integrations/bosch_shc/
+[frontend docs]: /integrations/frontend/
+[google_assistant docs]: /integrations/google_assistant/
+[govee_ble docs]: /integrations/govee_ble/
+[guardian docs]: /integrations/guardian/
+[homekit_controller docs]: /integrations/homekit_controller/
+[imap docs]: /integrations/imap/
+[ipma docs]: /integrations/ipma/
+[lametric docs]: /integrations/lametric/
+[motion_blinds docs]: /integrations/motion_blinds/
+[mqtt docs]: /integrations/mqtt/
+[openweathermap docs]: /integrations/openweathermap/
+[velbus docs]: /integrations/velbus/
 
 ## Need help? Join the community
 
