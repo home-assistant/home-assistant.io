@@ -20,7 +20,7 @@ ha_codeowners:
 
 {% include integrations/config_flow.md %}
 
-iBeacons are Bluetooth-enabled devices that advertise identifiers to announce their location. For example, an iBeacon attached to a trash can be used to determine if the trash can is in the garage or on the street. Home Assistant can estimate the distance of an iBeacon device in proximity to the nearest Bluetooth adapter.
+iBeacons are Bluetooth-enabled devices that advertise identifiers to announce their location. For example, an iBeacon attached to a trash can can be used to determine if the trash can is in the garage or on the street. Home Assistant can estimate the distance of an iBeacon device in proximity to the nearest Bluetooth adapter.
 
 iBeacon devices will be automatically detected and added as they are discovered once the integration has been added via the UI and the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
