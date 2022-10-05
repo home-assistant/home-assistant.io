@@ -537,8 +537,10 @@ changes and new features available for your integration: Be sure to follow our
 - [Bluetooth async_track_unavailable API changes](https://developers.home-assistant.io/blog/2022/09/16/bluetooth-unavailable-api-changes)
 - [Calendar Data Model improvements and deprecations](https://developers.home-assistant.io/blog/2022/04/18/calendar-data-model/)
 - [Deprecating media player constants](https://developers.home-assistant.io/blog/2022/09/06/media-player-repeat-mode-deprecation)
-- [The issue registry has been moved to homeassistant.helpers](https://developers.home-assistant.io/blog/2022/08/25/issue_registry_moved_to_helpers)
+- [Deprecating unit conversion utilities](https://developers.home-assistant.io/blog/2022/09/28/deprecate-conversion-utilities/)
+- [Long term statistics now tracks the source entity's unit](https://developers.home-assistant.io/blog/2022/09/29/statistics_refactoring)
 - [New sensor device classes](https://developers.home-assistant.io/blog/2022/09/28/new_sensor_device_classes)
+- [The issue registry has been moved to homeassistant.helpers](https://developers.home-assistant.io/blog/2022/08/25/issue_registry_moved_to_helpers)
 
 ## Farewell to the following
 
