@@ -1,0 +1,330 @@
+---
+layout: landingpage
+title: "Home Assistant SkyConnect"
+description: "Best way to add Zigbee and Matter to Home Assistant"
+date: 2022-10-05
+tagline: Home Assistant SkyConnect
+tagline_wide: false
+og_image: /images/skyconnect/skyconnect-cover.png
+hero_image: /images/skyconnect/skyconnect_horizontal.png
+frontpage: false
+frontpage_image: /images/skyconnect/skyconnect-cover.png
+---
+
+<style>
+  #landingpage .banner .title {
+    text-shadow: 0px 0px 10px rgba(0, 0, 0), 0px 0px 10px rgba(0, 0, 0);
+  }
+  #landingpage .content .bullet-points,
+  #landingpage .sub-title {
+    margin-top: 100px;
+  }
+  .multi-pan {
+    max-width: 750px;
+    margin: 100px auto;
+  }
+</style>
+
+<div class="content">
+  <div class="material-card text banner-overlay with-box">
+    <div>
+      <div class="banner-overlay-header">Available soon</div>
+      <div class="banner-overlay-content">
+        The Home Assistant SkyConnect is the easiest way to add Zigbee support
+        to your Home Assistant instance and make it Matter-ready.
+        <br /><br />
+        A future firmware update will bring Thread support; allowing SkyConnect
+        to power your Matter and Zigbee networks at the same time.
+      </div>
+    </div>
+    <div class="material-card text box">
+      <div class="banner-overlay-images">
+        <div class="img-container">
+          <img src="/images/skyconnect/skyconnect_square.jpg" />
+        </div>
+        <div class="img-container">
+          <img src="/images/skyconnect/skyconnect_horizontal.png" />
+        </div>
+        <div class="img-container">
+          <img src="/images/skyconnect/skyconnect_isometric.png" />
+        </div>
+      </div>
+      <div class="banner-overlay-button" onclick="showBuyDialog()">
+        <div>Pre-order</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bullet-points">
+    <div class="item">
+      <span>Compatible</span>
+      <span>Zigbee</span>
+      <span>Works with Home Assistant and Zigbee2MQTT</span>
+    </div>
+    <div class="item">
+      <span>Reliable</span>
+      <span>Range</span>
+      <span>+20 dBm</span>
+    </div>
+    <div class="item">
+      <span>Future Proof</span>
+      <span>Updatable</span>
+      <span>Updates delivered via Home Assistant</span>
+    </div>
+    <div class="item">
+      <span>Zero Setup</span>
+      <span>Plug and Play</span>
+      <span>Automatically detected by Home Assistant</span>
+    </div>
+  </div>
+</div>
+
+<div class="material-card text multi-pan">
+  <h1>Concurrent Zigbee and Thread on a single chip</h1>
+  <p>
+    Out of the box the Home Assistant SkyConnect will support only Zigbee. We're
+    working on a firmware update that makes it possible to run both Zigbee and
+    Thread at the same time. Thread is the mesh networking protocol that powers
+    Matter, the new standard for smart home devices.
+  </p>
+  <p>
+    Once available, Home Assistant SkyConnect will run part of the software that
+    normally runs inside Zigbee and Thread chips inside Home Assistant add-ons.
+    These add-ons will be installed and updated automatically without requiring
+    user interaction.
+  </p>
+  <p style="margin-bottom: 0">
+    We will make this multi-protocol set-up first available for Home Assistant
+    OS installations. We will be looking into making this available for Home
+    Assistant Supervised and Home Assistant Container installations afterwards.
+  </p>
+</div>
+
+<div class="sub-title">Specifications</div>
+<div class="flex">
+  <div class="specifications">
+    <div class="specifications-components">
+      <h3>Components</h3>
+      <div class="component-list">
+        <div class="spec-title">Radio Chipset</div>
+        <div class="spec-content">Silabs EFR32MG21</div>
+
+        <div class="spec-title">Frequency</div>
+        <div class="spec-content">2.4GHz</div>
+
+        <div class="spec-title">TX Power</div>
+        <div class="spec-content">up to +20dBm</div>
+
+        <div class="spec-title">Protocols</div>
+        <div class="spec-content">Zigbee, Thread (Matter)</div>
+
+        <div class="spec-title">USB</div>
+        <div class="spec-content">
+          2.0 full-speed, Silicon Labs CP2102N USB-to-UART bridge
+        </div>
+
+        <div class="spec-title">Supply</div>
+        <div class="spec-content">5V DC / up to 150mA</div>
+      </div>
+    </div>
+  </div>
+  <div class="specifications">
+    <div class="specifications-components" style="margin-right: 0">
+      <h3>Form Factor</h3>
+      <div class="component-list">
+        <div class="spec-title">Width</div>
+        <div class="spec-content">18&nbsp;mm/0.7&nbsp;inch</div>
+        <div class="spec-title">Height</div>
+        <div class="spec-content">4.5&nbsp;mm/1.4&nbsp;inch</div>
+        <div class="spec-title">Depth</div>
+        <div class="spec-content">38.5&nbsp;mm/1.5&nbsp;inch</div>
+        <div class="spec-title">Weight</div>
+        <div class="spec-content">4 g/0.14 oz</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1 class="sub-title">FAQs</h1>
+<div class="faq-list">
+  {% details "Why start with Home Assistant OS support for multi-protocol?" %} A
+  standalone Zigbee or standalone Thread stick works by turning radio signals
+  into radio packets and then processing those radio packets and making that
+  available over a serial port.<br /><br />
+  With multi-protocol, the processing of the radio packets is moved into Linux
+  daemons. This means we run one daemon to split the radio packets into Zigbee
+  and Thread streams, one daemon to process the Zigbee radio packets and one
+  daemon to process the Thread radio packets.<br /><br />
+  To make this all work together, we need to strictly manage the version of the
+  firmware on the stick and the three different Linux daemons. The easiest way
+  for us to do this is using Home Assistant add-ons in a known host environment,
+  which is Home Assistant OS. {% enddetails %} {% details "Why include a USB
+  extension cable?" %} USB 3.0 ports (the ones with blue on the inside)
+  interfere with any radio at 2.4Ghz frequency. This includes Zigbee and Thread.
+  If you don't use the extension cable it might not work at all, or flaky at
+  best. {% enddetails %}
+</div>
+
+<div id="buy-dialog" class="dialog">
+  <div class="material-card text dialog-content">
+    <div class="close-container"></div>
+    <div class="dialog-header">
+      <span>Home Assistant SkyConnect</span>
+      <span class="dialog-close" onclick="closeDialog()" title="close">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div class="box-contents">
+      <span>Home Assistant SkyConnect box includes:</span>
+      <ul>
+        <li>Home Assistant SkyConnect USB Stick</li>
+        <li>50cm/19.6in USB extension cable</li>
+      </ul>
+    </div>
+    <div class="distributors">
+      <a href="https://ameridroid.com/products/skyconnect" target="_blank">
+        <div class="distributor">
+          <div>
+            <div>🇺🇸</div>
+            <div>ameriDroid</div>
+            <div>Located in USA</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
+
+      <a
+        href="https://ewelinkstore.com/product/home-assistant-skyconnect-a-zigbee-thread-matter-usb-stick-for-home-assistant/"
+        target="_blank"
+      >
+        <div class="distributor">
+          <div>
+            <div>🇭🇺</div>
+            <div>eWeLink device store</div>
+            <div>Located in Hungary</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
+
+      <a
+        href="https://en.m.nu/zigbee/controllers-zigbee/home-assistant-skyconnect-zigbee-matter-thread"
+        target="_blank"
+      >
+        <div class="distributor">
+          <div>
+            <div>🇸🇪</div>
+            <div>m.nu</div>
+            <div>Located in Sweden</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
+
+      <a
+        href="https://okosotthon.bolt.hu/webaruhaz/termek/home-assistant-skyconnect-egy-zigbee-thread-matter-usb-kulcs-home-assistant-hoz/"
+        target="_blank"
+      >
+        <div class="distributor">
+          <div>
+            <div>🇭🇺</div>
+            <div>OkosOtthon Bolt</div>
+            <div>Located in Hungary</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
+
+      <a
+        href="https://raspberrypi.dk/en/product/home-assistant-skyconnect/"
+        target="_blank"
+      >
+        <div class="distributor">
+          <div>
+            <div>🇩🇰</div>
+            <div>RaspberryPi.dk</div>
+            <div>Located in Denmark</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
+
+      <a
+        href="https://www.seeedstudio.com/Home-Assistant-SkyConnect-p-5479.html"
+        target="_blank"
+      >
+        <div class="distributor">
+          <div>
+            <div>🇨🇳</div>
+            <div>Seeed Studio</div>
+            <div>Located in China</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div
+  class="fab"
+  onclick="showBuyDialog()"
+  title="pre-order Home Assistant SkyConnect"
+>
+  <svg style="width: 32px; height: 32px" viewBox="0 0 32 32">
+    <path
+      fill="currentColor"
+      d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z"
+    />
+  </svg>
+  PRE-ORDER SKYCONNECT
+</div>
+
+<script>
+  const buyDialog = document.getElementById("buy-dialog");
+  const buyFab = document.querySelector(".fab");
+
+  function showBuyDialog() {
+    buyDialog.style.display = "flex";
+    buyFab.style.display = "none";
+  }
+
+  function closeDialog() {
+    buyDialog.style.display = "none";
+    buyFab.style.display = "flex";
+  }
+
+  window.onclick = function (event) {
+    if (event.target === buyDialog) {
+      closeDialog();
+    }
+  };
+</script>
