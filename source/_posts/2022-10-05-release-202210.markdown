@@ -57,7 +57,7 @@ Enjoy the (beta) release!
 - [Sub-views for dashboards](#sub-views-for-dashboards)
 - [All dialogs restyled](#all-dialogs-restyled)
 - [Viewing YAML automations in the automation editor](#viewing-yaml-automations-in-the-automation-editor)
-- [New template thingies](#new-template-thingies)
+- [Handling version numbers in templates](#handling-version-numbers-in-templates)
 - [Google sheets](#google-sheets)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
@@ -225,32 +225,34 @@ Besides, as an bonus, if you have considered moving your automation to the UI,
 you can now view and experience how it would look/work for those automations
 and import them into the UI with the click of a button in the top right.
 
-## New template thingies
+## Handling version numbers in templates
 
-{% details "TODO" %}
+A new `version()` template function/filter has been added, allowing you to do
+awesome things with version numbers in templates.
 
-- Consider moving to noteworthy
-- Needs a better title
-- Needs link to documentation
-- Improve on story
-- Spelling/grammar
-
-{% enddetails %}
-
-A new `version()` template function/filter has been added that allows
-you to do awesome things with version numbers.
-
-It allows for getting information about a number, comparing version
-numbers and even check the difference between 2 version numbers.
+It allows for getting information about a version number, comparing version
+numbers, and even checking the difference between two versions.
 
 {% raw %}
 
-- `{{ version("2022.10.0") > "2022.9.7" }}`  Will return true, as `2022.10.0` is newer.
-- `{{ (version("2022.10.1") - "2022.10.0").patch }}` Will return true, as the patch number of the version changed.
-- `{{ (version("2022.10.1") - "2022.10.0").minor }}` Will return false, as there is just a patch difference.
-- `{{ version("2022.10.0b0").beta }}` will return true, as this is a beta version.
+- `{{ version("2022.10.0") > "2022.9.7" }}`  
+  Returns true, as `2022.10.0` is newer.
+
+- `{{ (version("2022.10.1") - "2022.10.0").patch }}`  
+  Returns true, as the patch number of the version changed.
+
+- `{{ (version("2022.10.1") - "2022.10.0").minor }}`  
+  Returns false, as there is just a patch difference.
+
+- `{{ version("2022.10.0b0").beta }}`  
+  Return true, as this is a beta version.
 
 {% endraw %}
+
+`version()` can be helpful when building automations or Blueprints for
+[update](/integrations/update) entities. You could, for example, easier
+decide to automatically upgrade or send more detailed notification messages
+in case a patch version is available.
 
 ## Google sheets
 
