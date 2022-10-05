@@ -135,6 +135,8 @@ This will only be available if you have given Home Assistant `read-write` access
 
 </div>
 
+A calendar `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
+
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `summary` | no | Acts as the title of the event. | Bowling
@@ -150,6 +152,18 @@ This will only be available if you have given Home Assistant `read-write` access
 You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
 
 </div>
+
+This is a full example of service call in YAML:
+
+```yaml
+service: google.create_event
+target:
+  entity_id: calendar.device_automation_schedules
+data:
+  summary: "Example"
+  start_date: "2022-10-1"
+  end_date: "2022-10-2"
+```
 
 {% enddetails %}
 

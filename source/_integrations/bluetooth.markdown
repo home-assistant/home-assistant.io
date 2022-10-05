@@ -50,6 +50,13 @@ For Bluetooth to function on Linux systems:
 
 For most systems, the Dbus socket is in `/run/dbus`. The socket must be available in the container for Home Assistant to be able to connect to Dbus and access the Bluetooth adapter. When starting with `docker run`, this can be accomplished by adding `-v /run/dbus:/run/dbus:ro` to the command. If the Dbus socket is in `/var/run/dbus` on the host system, use `-v /var/run/dbus:/run/dbus:ro` instead.
 
+If you are using Docker Compose, add something like the following (adjust as necessary) to your `volumes` section:
+
+```dockerfile
+volumes:
+  - /run/dbus:/run/dbus:ro
+```
+
 {% enddetails %}
 
 {% details Switching from dbus-daemon to dbus-broker %}
