@@ -267,10 +267,10 @@ The possibilities with this are endless.
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- The long-term statics card now use in the unit you have selected a sensor to
+- The long-term statics card now uses the unit you have selected a sensor to
   be in. So, if you've changed the sensor, it will now match! Also, more sensors
   are now able to change/convert units. Thanks, [@emontnemery] and [@epenet]!
-- When removing integrations that use application credentials, we will now
+- When removing integrations that use application credentials, we will now ask
   if you want to clean up those credentials. Nice touch, [@allenporter]!
 - The [Netatmo] integration got lots of love! It now supports the Netatmo
   Doorbell, modulating thermostats and now also supports devices from Legrand,
