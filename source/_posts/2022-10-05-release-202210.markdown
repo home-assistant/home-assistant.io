@@ -258,44 +258,51 @@ Nice new integration, consider doing a section about it (TODO).
 
 ## Other noteworthy changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-
-**Note**: Changes processed up to PR 79201
-
-{% enddetails %}
-
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- Lorem ipsum
+- The long-term statics card now use in the unit you have selected a sensor to
+  be in. So, if you've changed the sensor, it will now match! Also, more sensors
+  are now able to change/convert units. Thanks, [@emontnemery] and [@epenet]!
+- When removing integrations that use application credentials, we will now
+  if you want to clean up those credentials. Nice touch, [@allenporter]!
+- If you have a Prusa printer, you can now use the [PrusaLink] integration
+  control your print job using the new job control buttons available!
+  Thanks, [@balloob]!
+- [BTHome] now supports binary sensors! Thanks, [@Ernst79]!
+- The [HomeKit Controller] now supports [Thread] transport. Thanks, [@roysjosh]
+  and [@Jc2k]!
+- [forked-daapd] (OwnTone) now supports the media browser and can leverage
+  the Spotify integration. Thanks, [@uvjustin]!
+- The [Min/Max] helper now supports calculating the statisical range. For
+  example, helpful if you want to show the difference between the coolest and
+  warmed rooms. Thanks, [@jsherman256]!
+- [@holysoles] added unique ID support to the [Universal Media Player],
+  [@magic7s] added support for it to [OhmConnect]. Thanks!
+- [NETGEAR] now has a bunch of switches to control things like parental
+  controls, Wi-Fi availability, and access. Thanks, [@starkillerOG]!
 
-To process core PR candidates:
-
-- Support unique_id for Universal Media Player ([@holysoles] - [#77461]) ([universal docs])
-- Add version to templates ([@ludeeus] - [#78484])
-- Add unique_id to ohmconnect ([@magic7s] - [#78479]) ([ohmconnect docs])
-- Allow selecting display unit when fetching statistics ([@emontnemery] - [#78578]) ([recorder docs]) ([sensor docs])
-- Add Button platform to Bravia TV ([@Drafteed] - [#78093]) ([braviatv docs])
-- Enable Thread transport in homekit_controller ([@Jc2k] - [#78994]) ([homekit_controller docs])
-- Add range to min_max ([@jsherman256] - [#78282]) ([min_max docs])
-- IntelliFire Fan Support ([@jeeftor] - [#74181]) ([intellifire docs]) (new-platform)
-- Netgear add router switches ([@starkillerOG] - [#72171]) ([netgear docs]) (dependency))
-- Add browse media to forked-daapd ([@uvjustin] - [#79009]) ([forked_daapd docs])
-- Add spotify support to forked-daapd ([@uvjustin] - [#79136]) ([forked_daapd docs]))
-- Allow controlling PrusaLink print jobs ([@balloob] - [#78720]) ([prusalink docs]))
-
-- Expose battery and rssi sensors in Melnor Bluetooth integration ([@vanstinator] - [#77576]) ([melnor docs])
-- Add BTHome binary sensors ([@Ernst79] - [#78151]) ([bthome docs])
-- Add binary sensor to Radarr ([@tkdrob] - [#79043]) ([radarr docs])
-- IntelliFire Fan Support ([@jeeftor] - [#74181]) ([intellifire docs])
-
-To process frontend PR candidates:
-
-* Simplify energy settings (#13846) @emontnemery
-* Prompt user to remove application credentials when deleting the integration configuration (#13159) @allenporter
-* Improve statistics graph editor (#13630) @emontnemery
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@Ernst79]: https://github.com/Ernst79
+[@holysoles]: https://github.com/holysoles
+[@Jc2k]: https://github.com/Jc2k
+[@jsherman256]: https://github.com/jsherman256
+[@magic7s]: https://github.com/magic7s
+[@roysjosh]: https://github.com/roysjosh
+[@starkillerOG]: https://github.com/starkillerOG
+[@uvjustin]: https://github.com/uvjustin
+[BTHome]: /integrations/bthome
+[forked-daapd]: /integrations/forked_daapd
+[HomeKit Controller]: /integrations/homekit_controller
+[Min/Max]: /integrations/min_max
+[NETGEAR]: /integrations/netgear
+[OhmConnect]: /integrations/ohmconnect
+[PrusaLink]: /integrations/prusalink
+[Thread]: https://en.wikipedia.org/wiki/Thread_(network_protocol)
+[Universal Media Player]: /integrations/universal
 
 ## New Integrations
 
