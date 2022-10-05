@@ -276,7 +276,7 @@ noteworthy changes this release:
   Doorbell, modulating thermostats and now also supports devices from Legrand,
   Bubendorff, BTicino and Smarther! Thank you [@cgtobi]!
 - If you have a Prusa printer, you can now use the [PrusaLink] integration
-  control your print job using the new job control buttons available!
+  to control your print job using the new job control buttons available!
   Thanks, [@balloob]!
 - [BTHome] now supports binary sensors! Thanks, [@Ernst79]!
 - The [HomeKit Controller] now supports [Thread] transport. Thanks, [@roysjosh]
