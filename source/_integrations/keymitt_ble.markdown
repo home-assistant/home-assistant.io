@@ -25,7 +25,7 @@ The device will need to be in pairing mode before adding to Home Assistant. To r
 
 If you have multiple devices, you will need to know the BTLE MAC address of your device to tell them apart.
 
-Please note, that devices cannot remain paired to the MicroBot app for this integration to function. They will be paired to Home Assistant exclusively.
+Please note, that the devices cannot remain paired to the MicroBot application for this integration to function. They will be paired to Home Assistant exclusively.
 
 {% include integrations/config_flow.md %}
 
@@ -37,7 +37,7 @@ This Integration is for the MicroBot Push only. The Keymitt lock is not supporte
 
 The Calibration service will locally set the MicroBot Push depth, duration, and mode.
 
-Please note: The push arm will extend or retract (dependent on the mode set) after the service call is invoked. The mode and depth will be demonstrated, but not the duration. The setting is, however, stored and can be confirmed by manually operating the device.
+Please note: The push arm will extend or retract (depending on the mode defined) after the service call is invoked. The mode and depth will be demonstrated, but not the duration. The setting is, however, stored and can be confirmed by manually operating the device.
 
 | Service Data Attribute | Required | Description                                                                                   |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------- |
@@ -51,7 +51,7 @@ Please note: The push arm will extend or retract (dependent on the mode set) aft
 
 The integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
-Due to the device going into deep sleep after prelonged disuse, the response time can be up to a minute in extreme cases. On average it will be much quicker.
+Due to the device going into deep sleep after extended periods of no activity, the response time can be up to a minute in extreme cases. On average it will be much quicker.
 
 {% configuration_basic %}
 "Failed to pair":
