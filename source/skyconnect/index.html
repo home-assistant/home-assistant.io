@@ -1,18 +1,28 @@
 ---
 layout: landingpage
 frontpage: false
-title: "Home Assistant SkyConnect!"
-description: "Home Assistant's Zigbee and Matter USB stick"
+title: "Home Assistant SkyConnect"
+description: "Best way to add Zigbee and Matter to Home Assistant"
 date: 2022-10-05
 tagline: Home Assistant SkyConnect
 tagline_wide: false
 og_image: /images/skyconnect/skyconnect-cover.png
-frontpage_image: /images/frontpage/blue-frontpage.jpg
+hero_image: /images/skyconnect/skyconnect_horizontal.png
+frontpage: false
+frontpage_image: /images/skyconnect/skyconnect-cover.png
 ---
 
 <style>
   #landingpage .banner .title {
     text-shadow: 0px 0px 10px rgba(0, 0, 0), 0px 0px 10px rgba(0, 0, 0);
+  }
+  #landingpage .content .bullet-points,
+  #landingpage .sub-title {
+    margin-top: 100px;
+  }
+  .multi-pan {
+    max-width: 750px;
+    margin: 100px auto;
   }
 </style>
 
@@ -70,7 +80,7 @@ frontpage_image: /images/frontpage/blue-frontpage.jpg
   </div>
 </div>
 
-<div class="material-card text" style="max-width: 750px; margin: 0 auto">
+<div class="material-card text multi-pan">
   <h1>Concurrent Zigbee and Thread on a single chip</h1>
   <p>
     Out of the box the Home Assistant SkyConnect will support only Zigbee. We're
@@ -97,7 +107,7 @@ frontpage_image: /images/frontpage/blue-frontpage.jpg
     <div class="specifications-components">
       <h3>Components</h3>
       <div class="component-list">
-        <div class="spec-title">Transceiver</div>
+        <div class="spec-title">Radio Chipset</div>
         <div class="spec-content">Silabs EFR32MG21</div>
 
         <div class="spec-title">Frequency</div>
@@ -107,13 +117,12 @@ frontpage_image: /images/frontpage/blue-frontpage.jpg
         <div class="spec-content">up to +20dBm</div>
 
         <div class="spec-title">Protocols</div>
-        <div class="spec-content">Zigbee, Matter, Thread</div>
+        <div class="spec-content">Zigbee, Thread (Matter)</div>
 
         <div class="spec-title">USB</div>
-        <div class="spec-content">v2.0 full speed (12Mbps)</div>
-
-        <div class="spec-title">Bridge</div>
-        <div class="spec-content">USB to UART, Silabs CP2102N</div>
+        <div class="spec-content">
+          2.0 full-speed, Silicon Labs CP2102N USB-to-UART bridge
+        </div>
 
         <div class="spec-title">Supply</div>
         <div class="spec-content">5V DC / up to 150mA</div>
@@ -125,11 +134,11 @@ frontpage_image: /images/frontpage/blue-frontpage.jpg
       <h3>Form Factor</h3>
       <div class="component-list">
         <div class="spec-title">Width</div>
-        <div class="spec-content">18 mm/0.7 inch</div>
+        <div class="spec-content">18&nbsp;mm/0.7&nbsp;inch</div>
         <div class="spec-title">Height</div>
-        <div class="spec-content">4.5 mm/1.4 inch</div>
+        <div class="spec-content">4.5&nbsp;mm/1.4&nbsp;inch</div>
         <div class="spec-title">Depth</div>
-        <div class="spec-content">38.5 mm/1.5 inch</div>
+        <div class="spec-content">38.5&nbsp;mm/1.5&nbsp;inch</div>
         <div class="spec-title">Weight</div>
         <div class="spec-content">4 g/0.14 oz</div>
       </div>
@@ -178,7 +187,7 @@ frontpage_image: /images/frontpage/blue-frontpage.jpg
       </ul>
     </div>
     <div class="distributors">
-      <a href="#" target="_blank">
+      <a style="opacity: 0.8">
         <div class="distributor">
           <div>
             <div>🇺🇸</div>
@@ -187,7 +196,7 @@ frontpage_image: /images/frontpage/blue-frontpage.jpg
           </div>
           <svg width="24" height="24" viewBox="0 0 24 24">
             <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+              d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"
             />
           </svg>
         </div>
