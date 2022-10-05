@@ -58,7 +58,7 @@ Enjoy the (beta) release!
 - [All dialogs restyled](#all-dialogs-restyled)
 - [Viewing YAML automations in the automation editor](#viewing-yaml-automations-in-the-automation-editor)
 - [Handling version numbers in templates](#handling-version-numbers-in-templates)
-- [Google sheets](#google-sheets)
+- [Google Sheets](#google-sheets)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -254,9 +254,21 @@ numbers, and even checking the difference between two versions.
 decide to automatically upgrade or send more detailed notification messages
 in case a patch version is available.
 
-## Google sheets
+## Google Sheets
 
-Nice new integration, consider doing a section about it (TODO).
+This release introduces a new way to export data from Home Assistant:
+**[Google Sheets]**.
+
+With this integration, you can add new rows to a Google Sheet document
+from a service call, allowing you to export data from automations for
+further processing, visualization, or insights.
+
+Maybe you like to export your daily energy usage or keep track of the number
+of diapers you have used in your baby feeding diary spreadsheet.
+
+The possibilities with this are endless.
+
+[Google Sheets]: /integrations/google_sheets
 
 ## Other noteworthy changes
 
