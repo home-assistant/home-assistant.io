@@ -50,8 +50,9 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Integrations v2](#integrations-v2)
-- [Active connections for Bluetooth remote proxies](#active-connections-for-bluetooth-remote-proxies)
+- [Marcel van der Veldt joins Nabu Casa](#marcel-van-der-veldt-joins-nabu-casa)
+- [Active Bluetooth everywhere](#active-bluetooth-everywhere)
+- [Finding the right integration](#finding-the-right-integration)
 - [Sub-views for dashboards](#sub-views-for-dashboards)
 - [Restyling of all dialogs](#restyling-of-all-dialogs)
 - [Viewing manual automations in the automation editor](#viewing-manual-automations-in-the-automation-editor)
@@ -125,52 +126,36 @@ a simple ESP32 device.
 Oh! Bonus: the Bluetooth performance has been improved too! Especially local
 Bluetooth adapters should be quite a bit faster. 🚀
 
-## Extending adding integrations
+## Finding the right integration
 
+Recently we [introduced "Supported brands"](/blog/2022/08/03/release-20228/#finding-the-integration-supporting-your-device),
+allowing you to find integrations available under different brandings.
+Now, we are taking it a step further streamlining the experience of adding new
+devices or services.
 
-(Working title, need to be changed to something useful)
+For some brands of devices, we have multiple integrations available.
+For example, we have a lot of "Google" integrations. Some brands provide devices
+that can work via Zigbee or their matching hub, meaning you'd have a choice
+in integrating their hub or using it directly via Zigbee
+(e.g., using [ZHA](/integrations/zha)).
 
-{% details "TODO" %}
+To make it more clear on the choices available, you can now categorize
+integrations by brand. Home Assistant will show the options available
+for that specific brand. For example, the "Google" brand:
 
-- Needs a better title
-- Improve story
-- Screenshots
-- Spelling/grammar
-- https://github.com/home-assistant/frontend/pull/13887
-
-{% enddetails %}
-
-Recently we introduced "Supported brands" in Home Assistant, this release
-is taking that concept a step further to improve the experience in adding
-new devices or services to Home Assistant.
-
-For some brands of devices, we have actually multiple integrations available.
-For example, some devices can work via Zigbee (e.g, ZHA) but also via their
-matching Hub (e.g., Hue bridge). Other might work locally via HomeKit or
-Bluetooh, or by using their cloud using a different integration.
-
-To make it more clear on the choices available, you can now add integration
-by brand. Home Assistant will show the options available for that specific
-brand.
+<img class="no-shadow" src='/images/blog/2022-10/add-integration.png' alt='Screenshosts showing adding an integration by the Google brands. Once you select Google, you will be offererd all Google integrations'><br>
 
 This way, you no longer have to "find out" how your device could be integrated.
+We now show if an integration uses "the cloud" or not, so you are aware upfront.
 
-## Active connections for Bluetooth remote proxies
+We often get questions about YAML-only integrations that cannot be found in the
+user interface. While we love them to be available via the UI, we can
+understand not finding them at all can be confusing.
 
-{% details "TODO" %}
-
-- Improve story
-- Needs a better title
-- Spelling/grammar
-
-{% enddetails %}
-
-Support for active Bluetooth connections via Bluetooth proxies in ESPHome
-has been added.
-
-**At the time of reading this, we are in beta**, the ESPHome part is not yet
-available. So this feature is coming, we are working on making all
-parts available asap.
+To help with that, we now show **all** integrations when adding a new
+integration, including those only available via YAML. While they cannot be
+set up via the user interface, we now do provide links to the documentation
+with the instructions on how to set it up.
 
 ## Sub-views for dashboards
 
