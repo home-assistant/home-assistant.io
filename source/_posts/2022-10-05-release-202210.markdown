@@ -95,7 +95,7 @@ Let's not stop there!
 
 In this release, those proxies now support active Bluetooth connections! 🤯
 
-To explain this quick: Previously, we could listen for Bluetooth devices
+To explain this quickly: Previously, we could listen for Bluetooth devices
 and only receive data via the proxies (passive connection); now, we can actively
 set up a conversation with those devices and send data (active connection). This
 adds the capability to extend the range of Bluetooth devices that can be
@@ -107,7 +107,7 @@ For this occasion, ESPHome will have an additional release, which adds this
 functionality. We have also updated our [Bluetooth proxy installer website](https://esphome.github.io/bluetooth-proxies/)
 to install with support for active connections.
 
-So, want to control that SwitchBot Bluetooth device on the other end of your
+So, you want to control that SwitchBot Bluetooth device on the other end of your
 home that seems out of reach? Now you can by installing a proxy on
 a simple ESP32 device.
 
@@ -122,7 +122,7 @@ now pick those up and show an approximate distance to such an iBeacon.
 
 iBeacons can open up a lot of awesome use cases for automations. For example,
 you could attach an iBeacon to your car, so you'll know the car is at home. Or,
-on the trashcan and use it to determine if the garbage is still sitting in the
+on the trash can and use it to determine if the garbage is still sitting in the
 garage on pick-up day and send out a notification.
 
 [Read more about iBeacons in our documentation](/integrations/ibeacon).
@@ -137,14 +137,14 @@ devices or services.
 For some brands of devices, we have multiple integrations available.
 For example, we have a lot of "Google" integrations. Some brands provide devices
 that can work via Zigbee or their matching hub, meaning you'd have a choice
-in integrating their hub or using it directly via Zigbee
+of integrating their hub or using the devices directly via Zigbee
 (e.g., using [ZHA](/integrations/zha)).
 
 To make it more clear on the choices available, you can now categorize
 integrations by brand. Home Assistant will show the options available
 for that specific brand. For example, the "Google" brand:
 
-<img class="no-shadow" src='/images/blog/2022-10/add-integration.png' alt='Screenshots showing adding an integration by the Google brands. Once you select Google, you will be offererd all Google integrations'><br>
+<img class="no-shadow" src='/images/blog/2022-10/add-integration.png' alt='Screenshots showing adding an integration by the Google brands. Once you select Google, you will be offered all Google integrations'><br>
 
 This way, you no longer have to "find out" how your device could be integrated.
 We now show if an integration uses "the cloud" or not, so you are aware upfront.
@@ -160,7 +160,7 @@ with the instructions on how to set it up.
 
 ## Subviews for dashboards
 
-This might be one of the coolest and most impractful features that has been
+This might be one of the coolest and most impactful features that has been
 added to our Dashboards lately: Subviews!
 
 Each view on a dashboard can now be marked as being a "Subview":
@@ -208,7 +208,7 @@ workings.
 
 <img class="no-shadow" src='/images/blog/2022-10/yaml-automation-editor.png' alt='Screenshot showing an YAML automation as read-only in the automation editor.'><br>
 
-Besides, as an bonus, if you have considered moving your automation to the UI,
+Besides, as a bonus, if you have considered moving your automation to the UI,
 you can now view and experience how it would look/work for those automations
 and import them into the UI with the click of a button in the top right.
 
@@ -283,9 +283,9 @@ noteworthy changes this release:
   and [@Jc2k]!
 - [forked-daapd] (OwnTone) now supports the media browser and can leverage
   the Spotify integration. Thanks, [@uvjustin]!
-- The [Min/Max] helper now supports calculating the statisical range. For
+- The [Min/Max] helper now supports calculating the statistical range. For
   example, helpful if you want to show the difference between the coolest and
-  warmed rooms. Thanks, [@jsherman256]!
+  warmest rooms. Thanks, [@jsherman256]!
 - [@holysoles] added unique ID support to the [Universal Media Player],
   [@magic7s] added support for it to [OhmConnect]. Thanks!
 - [NETGEAR] now has a bunch of switches to control things like parental
@@ -383,7 +383,7 @@ for that specific item.
 
 {% details "Bayesian" %}
 
-The `prob_given_false` configuration variable is now a required as there
+The `prob_given_false` configuration variable is now a required parameter as there
 was no mathematical rationale for the previous default value.
 
 `numeric_state`, `template`, and `state` entries with only one `to_state`
@@ -586,7 +586,7 @@ changes and new features available for your integration: Be sure to follow our
 
 The following integrations are also no longer available as of this release:
 
-- **Ambee** as is became impossible to get API keys for private use.
+- **Ambee** as it became impossible to get API keys for private use.
 - **Climacell** has been replaced by [Tomorrow.io](/integrations/tomorrowio).
 - **Flu Near You** the resource is no longer available, causing the integration
   no longer to work.
