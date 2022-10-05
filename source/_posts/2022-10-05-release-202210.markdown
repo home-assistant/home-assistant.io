@@ -97,6 +97,36 @@ available/released](https://twitter.com/balloob/status/1576421490106384385) 🎉
 
 Welcome aboard Marcel!
 
+## Active Bluetooth everywhere
+
+Two releases back, we [introduced the Bluetooth integration](/blog/2022/08/03/release-20228/#first-class-bluetooth-support).
+The previous release we brought Bluetooth everywhere in your home by adding
+support for [Bluetooth Proxies](/blog/2022/09/07/release-20229/#bluetooth-everywhere).
+Let's not stop there!
+
+In this release, those proxies now support active Bluetooth connections! 🤯
+
+To explain this quick: Previously, we could listen for Bluetooth devices
+and only receive data via the proxies (passive connection); now, we can actively
+set up a conversation with those devices and send data (active connection). This
+adds the capability to extend the range of Bluetooth devices that can be
+controlled 💙.
+
+<img class="no-shadow" src='/images/blog/2022-09/bluetooth-proxy-overview.png' alt='Picture of a home showing how Bluetooth data is proxied via ESPHome devices to Home Assistant'><br>
+
+For this occasion, ESPHome will have an additional release, which adds this
+functionality. We have also updated our [Bluetooth proxy installer website](https://esphome.github.io/bluetooth-proxies/)
+to install with support for active connections.
+
+So, want to control that SwitchBot Bluetooth device on the other end of your
+home that seems out of reach? Now you can by installing a proxy on
+a simple ESP32 device.
+
+Oh! Bonus: the Bluetooth performance has been improved too! Especially local
+Bluetooth adapters should be quite a bit faster. 🚀
+
+## Extending adding integrations
+
 
 (Working title, need to be changed to something useful)
 
