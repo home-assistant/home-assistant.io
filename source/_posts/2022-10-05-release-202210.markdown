@@ -272,6 +272,9 @@ noteworthy changes this release:
   are now able to change/convert units. Thanks, [@emontnemery] and [@epenet]!
 - When removing integrations that use application credentials, we will now
   if you want to clean up those credentials. Nice touch, [@allenporter]!
+- The [Netatmo] integration got lots of love! It now supports the Netatmo
+  Doorbell, modulating thermostats and now also supports devices from Legrand,
+  Bubendorff, BTicino and Smarther! Thank you [@cgtobi]!
 - If you have a Prusa printer, you can now use the [PrusaLink] integration
   control your print job using the new job control buttons available!
   Thanks, [@balloob]!
@@ -290,6 +293,7 @@ noteworthy changes this release:
 
 [@allenporter]: https://github.com/allenporter
 [@balloob]: https://github.com/balloob
+[@cgtobi]: https://github.com/cgtobi
 [@emontnemery]: https://github.com/emontnemery
 [@epenet]: https://github.com/epenet
 [@Ernst79]: https://github.com/Ernst79
@@ -304,6 +308,7 @@ noteworthy changes this release:
 [forked-daapd]: /integrations/forked_daapd
 [HomeKit Controller]: /integrations/homekit_controller
 [Min/Max]: /integrations/min_max
+[Netatmo]: /integrations/netatmo
 [NETGEAR]: /integrations/netgear
 [OhmConnect]: /integrations/ohmconnect
 [PrusaLink]: /integrations/prusalink

@@ -3,7 +3,7 @@ title: Full Changelog for Home Assistant Core 2022.10
 description: Detailed changelog for the Home Assistant Core 2022.10 release
 ---
 
-These are all the changes included in the Home Assistant Core 2202.10 release.
+These are all the changes included in the Home Assistant Core 2022.10 release.
 
 For a summary in a more readable format:
 [Release notes blog for this release](/blog/2022/10/05/release-202210/).
@@ -195,7 +195,7 @@ For a summary in a more readable format:
 - Import network constants from root ([@epenet] - [#78342]) ([nmap_tracker docs])
 - Import humidifier constants from root ([@epenet] - [#78343]) ([ecobee docs]) ([homekit_controller docs]) ([generic_hygrostat docs])
 - Prevent use of deprecated media-player constants ([@epenet] - [#77937])
-- Bump home-assistant/builder from 2022.07.0 to 2022.09.0 (@dependabot- [#78103]) (dependency)
+- Bump home-assistant/builder from 2022.07.0 to 2022.09.0 ([@dependabot[bot]] - [#78103]) (dependency)
 - Improve type hints in image-processing ([@epenet] - [#78351]) ([image_processing docs])
 - Improve type hints in trace ([@epenet] - [#78366]) ([trace docs])
 - Fix Sensibo Pure sensitivity sensor text ([@gjohansson-ST] - [#78313]) ([sensibo docs])
@@ -377,7 +377,7 @@ For a summary in a more readable format:
 - Fix failing bluetooth tests ([@bdraco] - [#78757]) ([bluetooth docs])
 - Create an issue when Bluetooth is active on old HAOS ([@bdraco] - [#78430]) ([bluetooth docs])
 - Add iBeacon Tracker integration ([@bdraco] - [#78671]) ([ibeacon docs]) (new-integration)
-- Bump codecov/codecov-action from 3.1.0 to 3.1.1 (@dependabot- [#78812]) (dependency)
+- Bump codecov/codecov-action from 3.1.0 to 3.1.1 ([@dependabot[bot]] - [#78812]) (dependency)
 - Cleanup DeviceClass and StateClass in tests ([@epenet] - [#78811])
 - Cleanup EntityCategory in tests ([@epenet] - [#78808]) ([zha docs]) ([hue docs])
 - Cleanup SourceType in tests ([@epenet] - [#78809]) ([device_tracker docs]) ([zha docs]) ([person docs]) ([dhcp docs]) ([mazda docs])
@@ -427,7 +427,7 @@ For a summary in a more readable format:
 - Support for nibe heat pumps with local access ([@elupus] - [#78542]) ([nibe_local docs]) (new-integration)
 - Add NORMALISED_UNIT to UnitConverter ([@epenet] - [#78920]) ([recorder docs]) ([sensor docs])
 - Add debug logging to tomorrowio and mask API key ([@raman325] - [#78915]) ([tomorrowio docs])
-- Bump actions/stale from 5 to 6.0.0 (@dependabot- [#78922]) (dependency)
+- Bump actions/stale from 5 to 6.0.0 ([@dependabot[bot]] - [#78922]) (dependency)
 - Nibe Heat Pump after merge fixups ([@elupus] - [#78931]) ([nibe_heatpump docs])
 - Convert UnitConverter protocol to a class ([@epenet] - [#78934]) ([recorder docs]) ([sensor docs]) ([number docs])
 - Add Button platform to switchbee integration ([@jafar-atili] - [#78386]) ([switchbee docs]) (new-platform)
@@ -643,7 +643,7 @@ For a summary in a more readable format:
 - Make temperature conversions private ([@epenet] - [#79349]) ([prometheus docs]) ([mold_indicator docs]) ([openweathermap docs]) (beta fix)
 - Realign util constants with 2022.9.7 ([@epenet] - [#79357]) (beta fix)
 - Fjaraskupan stop on 0 percentage ([@elupus] - [#79367]) ([fjaraskupan docs]) (beta fix)
-- Make Shelly update sensors disabled by default ([@thecode] - [#79376]) ([shelly docs]) (breaking-change) (beta fix)
+- Make Shelly update sensors disabled by default ([@thecode] - [#79376]) ([shelly docs]) (beta fix)
 - Address Google Sheets PR feedback ([@allenporter] - [#78889]) ([google_sheets docs]) (beta fix)
 - Powerview bump aiopvapi to 2.0.2 ([@kingy444] - [#79274]) ([hunterdouglas_powerview docs]) (beta fix)
 - Enable delete device support for iBeacon ([@bdraco] - [#79339]) ([ibeacon docs]) (beta fix)
@@ -707,6 +707,9 @@ For a summary in a more readable format:
 - Bump ZHA dependencies ([@puddly] - [#79623]) (beta fix) (dependency)
 - Allow picking multiple entity targets for zwave_js.refresh_value service ([@kpine] - [#79634]) ([zwave_js docs]) (beta fix)
 - Fix search throwing on templated services ([@emontnemery] - [#79637]) ([search docs]) (beta fix)
+- Enhanced switchbee device naming ([@jafar-atili] - [#79641]) ([switchbee docs]) (beta fix)
+- Normalize to kWh when handling WS energy/fossil_energy_consumption ([@emontnemery] - [#79649]) ([energy docs]) (beta fix)
+- Update frontend to 20221005.0 ([@bramkragten] - [#79656]) ([frontend docs]) (beta fix)
 
 [#50913]: https://github.com/home-assistant/core/pull/50913
 [#59989]: https://github.com/home-assistant/core/pull/59989
@@ -1405,6 +1408,9 @@ For a summary in a more readable format:
 [#79623]: https://github.com/home-assistant/core/pull/79623
 [#79634]: https://github.com/home-assistant/core/pull/79634
 [#79637]: https://github.com/home-assistant/core/pull/79637
+[#79641]: https://github.com/home-assistant/core/pull/79641
+[#79649]: https://github.com/home-assistant/core/pull/79649
+[#79656]: https://github.com/home-assistant/core/pull/79656
 [@Bre77]: https://github.com/Bre77
 [@Cereal2nd]: https://github.com/Cereal2nd
 [@ColinRobbins]: https://github.com/ColinRobbins
@@ -1447,6 +1453,7 @@ For a summary in a more readable format:
 [@chemelli74]: https://github.com/chemelli74
 [@danaues]: https://github.com/danaues
 [@dennisschroer]: https://github.com/dennisschroer
+[@dependabot[bot]]: https://github.com/apps/dependabot
 [@dgomes]: https://github.com/dgomes
 [@dmulcahey]: https://github.com/dmulcahey
 [@dshokouhi]: https://github.com/dshokouhi
