@@ -28,7 +28,7 @@ If you have already set up credentials, you can do step 1 and then skip to step 
 This section explains how to generate a Client ID and Client Secret on
 [Google Developers Console](https://console.developers.google.com/start/api?id=drive).
 
-1. First go to the [Google Developers Console](https://console.developers.google.com/start/api?id=drive)
+1. First go to the Google Developers Console to enable [Google Drive API](https://console.developers.google.com/start/api?id=drive) and [Google Sheets API](https://console.cloud.google.com/apis/enableflow?apiid=sheets.googleapis.com)
 2. The wizard will ask you to choose a project to manage your application. Select a project and click continue.
 3. Verify that your drive API was enabled and click 'Go to credentials'
 4. Navigate to APIs & Services (left sidebar) > [Credentials](https://console.cloud.google.com/apis/credentials)
