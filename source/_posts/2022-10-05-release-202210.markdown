@@ -51,6 +51,7 @@ PS: I noticed the [Home Assistant SkyConnect is now available for pre-order](/sk
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2022.10.1 - October 6](#release-2022101---october-6)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -358,6 +359,34 @@ The following integrations are now available via the Home Assistant UI:
 [@tkdrob]: https://github.com/tkdrob
 [DSMR Reader]: /integrations/dsmr_reader
 [Radarr]: /integrations/radarr
+
+## Release 2022.10.1 - October 6
+
+- Simplify long term statistics by always supporting unit conversion ([@emontnemery] - [#79557]) ([sensor docs])
+- ZHA radio migration: reset the old adapter ([@puddly] - [#79663]) ([zha docs])
+- Fix bluetooth diagnostics on macos ([@bdraco] - [#79680]) ([bluetooth docs])
+- Bump btsmarthub_devicelist to 0.2.3 ([@typhoon2099] - [#79705]) ([bt_smarthub docs])
+- Correct how unit used for statistics is determined ([@emontnemery] - [#79725]) ([sensor docs])
+- Update frontend to 20221006.0 ([@bramkragten] - [#79745]) ([frontend docs])
+
+[#79557]: https://github.com/home-assistant/core/pull/79557
+[#79659]: https://github.com/home-assistant/core/pull/79659
+[#79663]: https://github.com/home-assistant/core/pull/79663
+[#79680]: https://github.com/home-assistant/core/pull/79680
+[#79705]: https://github.com/home-assistant/core/pull/79705
+[#79725]: https://github.com/home-assistant/core/pull/79725
+[#79745]: https://github.com/home-assistant/core/pull/79745
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@puddly]: https://github.com/puddly
+[@typhoon2099]: https://github.com/typhoon2099
+[bluetooth docs]: /integrations/bluetooth/
+[bt_smarthub docs]: /integrations/bt_smarthub/
+[frontend docs]: /integrations/frontend/
+[sensor docs]: /integrations/sensor/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
