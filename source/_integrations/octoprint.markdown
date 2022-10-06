@@ -89,7 +89,7 @@ If the OctoPrint host is equipped with a web camera it is possible to add this a
 
 ## Buttons
 
-The OctoPrint integration provides the following buttons.
+The OctoPrint integration provides the following buttons:
 
 - Pause Job
 - Resume Job
