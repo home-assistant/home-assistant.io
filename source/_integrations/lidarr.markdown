@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Lidarr integration pulls data from a given [Lidarr](https://lidarr.audio/) instance.
+The Lidarr integration pulls data from a specified [Lidarr](https://lidarr.audio/) instance.
 
 {% include integrations/config_flow.md %}
 
@@ -25,5 +25,5 @@ To retrieve your API key, open your Lidarr web interface and navigate to Setting
 The Lidarr integration will add the following sensors:
 
 - Available disk space for each root folder.
-- The number of episodes in the queue.
+- The number of tracks in the queue.
 - The number of albums still wanted.
