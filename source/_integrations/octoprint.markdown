@@ -80,7 +80,7 @@ Supported sensors:
 
 ## Camera
 
-The OctoPrint integration provides a camera feed if one is configured in octoprint.
+The OctoPrint integration provides a camera feed if one is configured in OctoPrint.
 
 ## Buttons
 
