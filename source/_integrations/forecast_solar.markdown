@@ -35,7 +35,7 @@ As an example automation idea, you could determine if:
 
 ## Prerequisites
 
-Forecast.Solar relies on data provided by the [EU Photovoltaic geographical information system](https://re.jrc.ec.europa.eu/pvg_tools/en/tools.html) and your solar panels must be in a location that is covered by this tool. Data is currently not available for most of the Asia Pacific region. 
+Forecast.Solar relies on data provided by the [EU Photovoltaic geographical information system](https://re.jrc.ec.europa.eu/pvg_tools/en/tools.html) and your solar panels must be in a location that is covered by this tool. Data is available for almost the entire world. 
 
 To use the Forecast.Solar integration, it will need some information about your
 solar panel system: **latitude**, **longitude**, **declination**, **azimuth**
