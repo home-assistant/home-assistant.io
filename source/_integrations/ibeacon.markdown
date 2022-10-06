@@ -43,7 +43,7 @@ iBeacon devices that do not have stable Major and Minor values are not supported
 
 ## Considering an iBeacon Away
 
-iBeacons will be marked as "Away" after 180 seconds of not being seen.
+Due to various factors such as individual system settings and iBeacon firmware, iBeacons may not be marked as "Away" immediately. This could take several minutes.
 
 ## Fixed MAC addresses
 
