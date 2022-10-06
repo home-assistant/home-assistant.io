@@ -38,6 +38,7 @@ Further data that is read from the device is added as diagnostic entities:
 - Ownership number
 - Volume previous year (m3)
 - Heat previous year (MWh)
+- Heat previous year (GJ)
 - Error number
 - Device number
 - Measurement period minutes
