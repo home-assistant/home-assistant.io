@@ -94,3 +94,15 @@ The OctoPrint integration provides the following buttons:
 - Pause Job
 - Resume Job
 - Stop Job
+
+## Troubleshooting
+
+### Device is already configured for a second instance
+
+This is typically caused by copying/backup/restoring part of the config files between OctoPrint instances.
+
+1. SSH into the OctoPrint instance that is being added.
+2. Edit the `config.yaml` for the instance (Typically `/home/pi/.octoprint`)
+3. Under `plugins/discovery`, change the value of `upnpUuid` to have a different uuid.
+4. Restart the OctoPrint service
+5. Attempt to add the instance once again.
