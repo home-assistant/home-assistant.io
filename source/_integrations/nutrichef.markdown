@@ -1,6 +1,6 @@
 ---
 title: Nutrichef
-description: Instructions on how to integrate Nutrichef devices into Home Assistant.
+description: Connect and control your Nutrichef devices using the INKBIRD integration
 ha_category:
   - Sensor
 ha_bluetooth: true
