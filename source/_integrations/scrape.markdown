@@ -93,6 +93,11 @@ headers:
   description: Headers to use for the web request.
   required: false
   type: string
+scan_interval:
+  description: Interval (in seconds) for polling the information.
+  required: false
+  type: integer
+  default: 600
 {% endconfiguration %}
 
 ## Examples
