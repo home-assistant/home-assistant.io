@@ -17,8 +17,8 @@ All modes:
 - Voltage (V)
 
 Advanced and extended modes:
-- Energy Daily (Wh)
-- Energy Monthly (Wh)
+- Energy Daily (kWh)
+- Energy Monthly (kWh)
 - Power Factor (%)
 
 In addition to above MTU sensors, nine utility sensors are added in extended mode.
