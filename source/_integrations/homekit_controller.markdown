@@ -91,6 +91,8 @@ HomeKit Controller will automatically discover supported Thread devices using th
 
 In order to provision a Thread device onto a mesh network using a HomePod as a border router, first pair it with an iOS device. Then unpair it from the Home app. Don't reset it. This will leave the Thread network details on the device. Home Assistant can now pair with it over Thread.
 
+Note: requires ipv6 to be enabled
+
 ## 'Stateless' switches and sensors
 
 Some HomeKit devices (like buttons, remotes and doorbells) don't have sensors that can be read like a normal HomeKit device - they only inform Home Assistant when something happens. This means Home Assistant can't show an entity for them, as they have no state. But they are available for use as [device automations](/integrations/device_automation/).
