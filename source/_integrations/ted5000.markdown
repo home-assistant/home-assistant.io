@@ -80,8 +80,8 @@ For each plugged MTU, using an index starting at 1
 ```yaml
 sensor.<name>_mtu<MTU id>_power
 sensor.<name>_mtu<MTU id>_voltage
-sensor.<name>_mtu<MTU id>_daily_energy
-sensor.<name>_mtu<MTU id>_monthly_energy
+sensor.<name>_mtu<MTU id>_energy_daily
+sensor.<name>_mtu<MTU id>_energy_monthly
 sensor.<name>_mtu<MTU id>_power_factor
 ```
 
