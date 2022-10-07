@@ -440,7 +440,7 @@ All electric devices/appliance, especially computers and computer peripherals, g
 
 For example, interference from USB 3.0 ports and unshielded USB peripheral cables are especially infamously known to affect 2.4 GHz radio reception for low-power/low-bandwidth devices. Therefor you should always place your Zigbee adapter far away as possible from any potential sources of EMI/EMI/RMI, preferably by using an adequately long shielded USB extension cable connected to a USB 2.0 port.
 
-Zigbee also uses [mesh networking topology](https://en.wikipedia.org/wiki/Mesh_networking), which means that most mains-powered devices are a "Zigbee Router" that can act as signal repeater and range extended by transmitting data over long distances by passing data messages through the Zigbee network mesh of intermediate devices to reach more distant Zigbee devices. Thus to have a healthy Zigbee network you need many Zigbee Router devices relativly close to each other in order to achieve good coverage and range.
+Zigbee also uses [mesh networking topology](https://en.wikipedia.org/wiki/Mesh_networking), which means that most mains-powered devices are a "Zigbee Router" that can act as signal repeater and range extended by transmitting data over long distances by passing data messages through the Zigbee network mesh of intermediate devices to reach more distant Zigbee devices. Thus to have a healthy Zigbee network you need many Zigbee Router devices relatively close to each other in order to achieve good coverage and range.
 
 #### Simple actions that should improve most Zigbee setups and common root causes of interference
 
