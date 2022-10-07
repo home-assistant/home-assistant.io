@@ -80,21 +80,21 @@ For each plugged MTU, using an index starting at 1
 ```yaml
 sensor.<name>_mtu<MTU id>_power
 sensor.<name>_mtu<MTU id>_voltage
-sensor.<name>_mtu<MTU id>_energy_daily
-sensor.<name>_mtu<MTU id>_energy_monthly
-sensor.<name>_mtu<MTU id>_pf
+sensor.<name>_mtu<MTU id>_daily_energy
+sensor.<name>_mtu<MTU id>_monthly_energy
+sensor.<name>_mtu<MTU id>_power_factor
 ```
 
 Extended mode:
 All sensors from advanced mode and the following in addition:
 ```yaml
-sensor.<name>_utility_mtus
-sensor.<name>_utility_currentrate
-sensor.<name>_utility_daysleftinbillingcycle
-sensor.<name>_utility_plantype
-sensor.<name>_utility_currentiter
-sensor.<name>_utility_currenttou
-sensor.<name>_utility_currenttoudescription
-sensor.<name>_utility_carbonrate
-sensor.<name>_utility_meterreaddate
+sensor.<name>_utility_mtu_quantity
+sensor.<name>_utility_current_rate
+sensor.<name>_utility_days_left_billing_cycle
+sensor.<name>_utility_plan_type
+sensor.<name>_utility_current_tier
+sensor.<name>_utility_current_tou
+sensor.<name>_utility_current_tou_description
+sensor.<name>_utility_carbon_rate
+sensor.<name>_utility_meter_read_date
 ```
