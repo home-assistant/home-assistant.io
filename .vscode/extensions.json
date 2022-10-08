@@ -2,7 +2,11 @@
     "recommendations": [
         "davidanson.vscode-markdownlint",
         "editorconfig.editorconfig",
+        "GitHub.vscode-pull-request-github",
+        "mrmlnc.vscode-scss",
+        "rebornix.Ruby",
         "streetsidesoftware.code-spell-checker",
+        "taichi.vscode-textlint",
         "yzhang.markdown-all-in-one"
     ]
 }
