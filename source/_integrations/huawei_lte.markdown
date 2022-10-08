@@ -1,6 +1,6 @@
 ---
-title: Huawei LTE
-description: Instructions on how to integrate Huawei LTE router and modem devices with Home Assistant.
+title: Huawei/SoyeaLink LTE
+description: Instructions on how to integrate Huawei/SoyeaLink LTE router and modem devices with Home Assistant.
 ha_category:
   - Binary Sensor
   - Network
@@ -25,7 +25,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Huawei LTE router and modem integration for Home Assistant allows you to observe and control [Huawei LTE devices](https://consumer.huawei.com/en/smart-home/).
+The Huawei/SoyeaLink LTE router and modem integration for Home Assistant allows
+you to observe and control various [Huawei](https://consumer.huawei.com/en/routers/)
+and [SoyeaLink](https://www.soyea-tech.com/) LTE devices.
 
 There is currently support for the following platforms within Home Assistant:
 
@@ -39,7 +41,7 @@ There is currently support for the following platforms within Home Assistant:
 
 The integration can be enabled using the frontend, see below for details.
 Additionally, if the [SSDP integration](/integrations/ssdp) is
-enabled in Home Assistant, automatically discovered Huawei LTE devices
+enabled in Home Assistant, automatically discovered devices
 which support and have UPnP enabled are made available for further
 optional configuration in the frontend.
 
