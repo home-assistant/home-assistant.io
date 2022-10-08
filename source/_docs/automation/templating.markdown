@@ -41,13 +41,11 @@ The following describes trigger data associated with all platforms.
 
 ### Device
 
+Inherites template variables from [event](#event) or [state](#state) template based on the type of trigger selected for the device.
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `device`.
-| `trigger.entity_id` | Entity ID that we observe.
-| `trigger.from_state` | The previous [state object] of the entity.
-| `trigger.to_state` | The new [state object] that triggered trigger.
-| `trigger.for` | Timedelta object how long state has been to state, if any.
 
 ### Event
 
