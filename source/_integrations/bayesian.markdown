@@ -71,6 +71,10 @@ name:
   required: false
   type: string
   default: Bayesian Binary Sensor
+unique_id:
+  description: An ID that uniquely identifies this bayesian entity. If two entities have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
 observations:
   description: The observations which should influence the probability that the given event is occurring.
   required: true
