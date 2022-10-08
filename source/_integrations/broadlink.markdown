@@ -370,6 +370,10 @@ switches:
       description: The name of the switch.
       required: true
       type: string
+    unique_id:
+      description: An ID that uniquely identifies this switch. Set this to a unique value to allow customization through the UI.
+      required: false
+      type: string
     command_on:
       description: A base64 code to be sent as "turn on" command.
       required: false
