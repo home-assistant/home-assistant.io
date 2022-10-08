@@ -26,14 +26,14 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 
 ## Additional attributes
 
-- Departure date and time by made selections.
-- Departure sensor for following two departures after next (disabled by default)
-- Departure harbor.
-- Destination harbor.
-- Modified time (this sensor is deactivated as standard).
+- Deleted (is the camera discountinued)
+- Description (free text description)
+- Direction (which heading has the camera)
+- Full size photo (support full size photo)
+- Last modified
+- Photo time
+- Photo url
+- Status
+- Type (Type of camera)
 
 Other information provided by Trafikverket related to the specific departure is shown as attribute on all sensors.
-
-## Ferry harbour names
-
-Click [here](https://www.trafikverket.se/trafikinformation/vag/?TrafficType=personalTraffic&map=1/373767.82/6890962.41/&Layers=Ferries%2b) to see examples of harbor names, use city name as harbor, as for example "Ekerö", "Svanesund".
