@@ -32,7 +32,7 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 - Full size photo (support full size photo)
 - Last modified
 - Photo time
-- Photo url
+- Photo URL
 - Status
 - Type (Type of camera)
 
