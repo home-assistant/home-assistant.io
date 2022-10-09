@@ -52,6 +52,7 @@ PS: I noticed the [Home Assistant SkyConnect is now available for pre-order](/sk
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.10.1 - October 6](#release-2022101---october-6)
+- [Release 2022.10.2 - October 9](#release-2022102---october-9)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -386,6 +387,76 @@ The following integrations are now available via the Home Assistant UI:
 [bt_smarthub docs]: /integrations/bt_smarthub/
 [frontend docs]: /integrations/frontend/
 [sensor docs]: /integrations/sensor/
+[zha docs]: /integrations/zha/
+
+## Release 2022.10.2 - October 9
+
+- 2022.10.0 ([@frenck] - [#79659])
+- 2022.10.1 ([@balloob] - [#79751]) ([zha docs]) ([frontend docs]) ([sensor docs]) ([bt_smarthub docs]) ([bluetooth docs])
+- Fix london_underground TUBE_LINES to match current API output ([@zhibek] - [#79410]) ([london_underground docs])
+- Process abbreviated availability options in mqtt discovery payload ([@bertmelis] - [#79712]) ([mqtt docs])
+- Show all valid heatpump selections ([@elupus] - [#79756]) ([nibe_heatpump docs])
+- Bump pydaikin version ([@fredrike] - [#79761]) ([daikin docs])
+- Fix Bluetooth failover when esphome device unexpectedly disconnects ([@bdraco] - [#79769]) ([esphome docs])
+- Fix state updating for crossfade switch on Sonos ([@jjlawren] - [#79776]) ([sonos docs])
+- Revert "Improve device_automation trigger validation" ([@emontnemery] - [#79778]) ([rfxtrx docs]) ([webostv docs]) ([device_automation docs])
+- Update pyoverkiz to 1.5.5 ([@cdce8p] - [#79798]) ([overkiz docs])
+- Fix realtime option for hvv_departures ([@lennart-k] - [#79799]) ([hvv_departures docs])
+- Fix keymitt_ble discovery ([@spycle] - [#79809]) ([keymitt_ble docs])
+- Fix POE control port_idx error in UniFi ([@Kane610] - [#79838]) ([unifi docs])
+- Update typing-extensions constraint to >=4.4.0 ([@cdce8p] - [#79860])
+- Bump ZHA dependencies ([@puddly] - [#79898]) ([zha docs])
+- Bump pyatmo to 7.1.1 ([@cgtobi] - [#79918]) ([netatmo docs])
+
+[#79410]: https://github.com/home-assistant/core/pull/79410
+[#79659]: https://github.com/home-assistant/core/pull/79659
+[#79712]: https://github.com/home-assistant/core/pull/79712
+[#79751]: https://github.com/home-assistant/core/pull/79751
+[#79756]: https://github.com/home-assistant/core/pull/79756
+[#79761]: https://github.com/home-assistant/core/pull/79761
+[#79769]: https://github.com/home-assistant/core/pull/79769
+[#79776]: https://github.com/home-assistant/core/pull/79776
+[#79778]: https://github.com/home-assistant/core/pull/79778
+[#79798]: https://github.com/home-assistant/core/pull/79798
+[#79799]: https://github.com/home-assistant/core/pull/79799
+[#79809]: https://github.com/home-assistant/core/pull/79809
+[#79838]: https://github.com/home-assistant/core/pull/79838
+[#79860]: https://github.com/home-assistant/core/pull/79860
+[#79898]: https://github.com/home-assistant/core/pull/79898
+[#79918]: https://github.com/home-assistant/core/pull/79918
+[@Kane610]: https://github.com/Kane610
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bertmelis]: https://github.com/bertmelis
+[@cdce8p]: https://github.com/cdce8p
+[@cgtobi]: https://github.com/cgtobi
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@fredrike]: https://github.com/fredrike
+[@frenck]: https://github.com/frenck
+[@jjlawren]: https://github.com/jjlawren
+[@lennart-k]: https://github.com/lennart-k
+[@puddly]: https://github.com/puddly
+[@spycle]: https://github.com/spycle
+[@zhibek]: https://github.com/zhibek
+[bluetooth docs]: /integrations/bluetooth/
+[bt_smarthub docs]: /integrations/bt_smarthub/
+[daikin docs]: /integrations/daikin/
+[device_automation docs]: /integrations/device_automation/
+[esphome docs]: /integrations/esphome/
+[frontend docs]: /integrations/frontend/
+[hvv_departures docs]: /integrations/hvv_departures/
+[keymitt_ble docs]: /integrations/keymitt_ble/
+[london_underground docs]: /integrations/london_underground/
+[mqtt docs]: /integrations/mqtt/
+[netatmo docs]: /integrations/netatmo/
+[nibe_heatpump docs]: /integrations/nibe_heatpump/
+[overkiz docs]: /integrations/overkiz/
+[rfxtrx docs]: /integrations/rfxtrx/
+[sensor docs]: /integrations/sensor/
+[sonos docs]: /integrations/sonos/
+[unifi docs]: /integrations/unifi/
+[webostv docs]: /integrations/webostv/
 [zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
