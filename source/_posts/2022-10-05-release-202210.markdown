@@ -396,7 +396,7 @@ To solve (1) all you need do is delete the mirrored entry as shown below:
 ```yaml
 # Example of a mirrored entry used a workaround
 binary_sensor:
-  name: "Heat On"
+  - name: "Heat On"
   platform: "bayesian"
   prior: 0.2
   probability_threshold: 0.9
