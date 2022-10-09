@@ -79,7 +79,7 @@ You can use the service `google_sheets.append_sheet` to add a row of data to a S
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `config_entry` | no | Config entry to use. [See selectors here](/docs/blueprint/selectors/#config-entry-selector)
+| `config_entry` | no | Config entry to use. | [See selectors here](/docs/blueprint/selectors/#config-entry-selector)
 | `document_id` | yes | The id of the document. Default to the one created at setup. See below.
 | `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1
 | `data` | no | Data to be appended to the worksheet. This puts the data on a new row, one value per column. | {"foo": "bar"} [See templating here](/integrations/template)
@@ -94,7 +94,7 @@ You can use the service `google_sheets.edit_sheet` to edit cells of a Sheets doc
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `config_entry` | no | Config entry to use. [See selectors here](/docs/blueprint/selectors/#config-entry-selector)
+| `config_entry` | no | Config entry to use. | [See selectors here](/docs/blueprint/selectors/#config-entry-selector)
 | `document_id` | yes | The id of the document. Default to the one created at setup. See below.
 | `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1
 | `data` | no | Data to be appended to the worksheet. This puts the data on a new row, one value per column. | {"A1": "bar} [See templating here](/integrations/template)
