@@ -2,6 +2,8 @@
 title: Switcher
 description: Integrate Switcher devices.
 ha_category:
+  - Climate
+  - Sensor
   - Switch
 ha_release: 0.93
 ha_iot_class: Local Push
@@ -10,6 +12,7 @@ ha_codeowners:
   - '@thecode'
 ha_domain: switcher_kis
 ha_platforms:
+  - cover
   - sensor
   - switch
 ha_config_flow: true
