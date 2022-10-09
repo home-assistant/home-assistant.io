@@ -424,7 +424,7 @@ binary_sensor:
         to_state: "off" # line no longer needed - delete
 ```
 
-To solve (2) you need to re-estimate your probabilities using this documentation - this will likely result in better performance in the long term. 
+To solve (2), you need to re-estimate your probabilities using this documentation - this will likely result in better performance in the long term.
 
 A hacky and *not recommended* workaround to restore your previous functionality would be to put in a mirrored entry for each observation where `prob_given_false` is equal to `prob_given_true`. This will induce the same behavior as before - the negative, counterfactual observation is essentially ignored. Be warned - this may break or cause errors in future versions and will not work for `template` or `numeric_state` observations. For templates, instead, make them return `None` where they would have returned `False` to induce Bayesian to ignore them.
 
