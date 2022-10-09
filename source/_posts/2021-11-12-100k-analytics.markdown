@@ -1,0 +1,122 @@
+---
+layout: post
+title: "100,000 installations in analytics!"
+description: "Our opt-in analytics have reached their first milestone: 100k users."
+date: 2021-11-12 00:00:00
+date_formatted: "November 12, 2021"
+author: Paulus Schoutsen
+author_twitter: balloob
+comments: true
+categories:
+- Announcements
+og_image: /images/blog/2021-11-analytics/social.png
+---
+
+<img src='/images/blog/2021-11-analytics/social.png' style='border: 0;box-shadow: none;'>
+
+Today we have reached a major milestone for [Home Assistant Analytics][analytics]: 100,000 users have opted in to be included!
+
+This is a big deal because it's not enabled by default, users have to opt-in, and we only launched Home Assistant Analytics last April. We promoted it in the release blog post and during live streams, but have never nagged existing users in the interface. New users did get asked to opt-in as part of onboarding.
+
+The 100,000 installations are not the total number of Home Assistant users. The truth here is that we don't know the total number of installations because Home Assistant is private by design. Our estimate is that there are 4-5x more installations than people that opt-in to analytics.
+
+_For the latest version of the graphs in this post, visit [Home Assistant Analytics][analytics]_
+
+![Line graph showing active installations over time hitting 100000 installations.](/images/blog/2021-11-analytics/active-installations.png)
+
+<!--more-->
+
+## Why we collect data
+
+It's good to start off with why we allow users to opt-in to share some data with us.
+
+Manufacturers of IoT products live in their own world in which we have little presence. We don't have stands at CES or other trade shows. Instead, manufacturers see we're open source and assume it's a small user base. They assume the ability to integrate with Home Assistant and other platforms is not profitable enough to allocate resources to add the necessary APIs to integrate.
+
+With the data collected by Home Assistant Analytics, we can show that providing an API can expand their market around the globe.
+
+<p class='img'>
+<img src='/images/blog/2021-11-analytics/onboarding-analytics.png'>
+Screenshot of analytics during Home Assistant onboarding
+</p>
+
+## How people run Home Assistant
+
+The collected data is also used to give us, the Home Assistant developers, insight into how Home Assistant is installed and what we should improve. As you can see in our installation breakdown, the operating system installation type is by far the most popular. This makes sense because it is our recommended installation type and the easiest to use. It gives the full Home Assistant experience and can be fully managed via the user interface. No text editors, Linux experience, or computer science degree necessary.
+
+![Pie chart of installation types. Operating System has 66.9%. Container has 17.9%. Supervised has 10.2%. Core has 5%.](/images/blog/2021-11-analytics/installation-types.png)
+
+The board breakdown below only applies to the operating system installation type. The Raspberry Pi family of devices is by far the most popular way of running Home Assistant, followed by running it in a virtual machine. Running Home Assistant in a virtual machine is popular because it is our recommended approach for people that already have a server at home.
+
+![Pie chart showing what boards are used. Raspberry Pi 4 has 38.8% (32 and 64 bit combined). Virtual Machine has 32.9%.](/images/blog/2021-11-analytics/board-breakdown.png)
+
+## Tracking updates
+
+We have spent a lot of time making sure that it is easy to update both Home Assistant Core and Home Assistant Operating System. Ease of updates is important because when critical bugs or security issues arise, users should feel confident to hit the update button.
+
+Home Assistant can be updated using a single click in the interface and will automatically roll back if the update fails or the system fails to come online afterward. This gives our users the confidence to update and we see this reflected in the speed at which our users update when a new monthly release drops:
+
+![version-history](/images/blog/2021-11-analytics/version-history.png)
+
+![os-breakdown](/images/blog/2021-11-analytics/os-breakdown.png)
+
+## Home Assistant around the world
+
+It's our goal to make the privacy focused smart home a viable option for everyone, everywhere. That's why Home Assistant is free and open source, translated into 60 different languages and why we integrate with products from around the world, not just the ones that are big enough to come to America or Europe.
+
+As you can see on our map we have a global reach. Some countries only see a few users, like the country of Nepal having 13 installations. However, with open source all we need is 1 contributor to help translate our user interface into their native language and make it more accessible for speakers of that language. To learn more about helping translating Home Assistant, [check the documentation](https://developers.home-assistant.io/docs/translations).
+
+![World map colored by number of Home Assistant users in each country](/images/blog/2021-11-analytics/map.png)
+
+## Integrations
+
+There are multiple levels of analytics that users can opt-in to. The basic level is how you run Home Assistant but you can also share what integrations you use.
+
+This data is integrated into the Home Assistant website when users navigate the various integrations. It sometimes highlights certain integrations that serve their purpose but don't have a big audience, like the integration for the [Dublin bus schedule](/integrations/dublin_bus_transport/):
+
+![dublin-bus-stats](/images/blog/2021-11-analytics/dublin-bus-stats.png)
+
+However, more interesting is of course the most popular integrations. I'm always surprised how high MQTT is on this list and very happy to see ESPHome doing so well.
+
+| Rank | Integration | Installations
+| - | - | -
+| 1 | <img src='https://brands.home-assistant.io/_/ffmpeg/icon.png' height='32' style='border: 0; box-shadow: 0'> [FFmpeg](/integrations/ffmpeg/) | 35151 (43.5 %)
+| 2 | <img src='https://brands.home-assistant.io/_/cast/icon.png' height='32' style='border: 0; box-shadow: 0'> [Google Cast](/integrations/cast/) | 33252 (41.2 %)
+| 3 | <img src='https://brands.home-assistant.io/_/mqtt/icon.png' height='32' style='border: 0; box-shadow: 0'> [MQTT](/integrations/mqtt/) | 30338 (37.5 %)
+| 4 | <img src='https://brands.home-assistant.io/_/upnp/icon.png' height='32' style='border: 0; box-shadow: 0'> [UPnP/IGD](/integrations/upnp/) | 22771 (28.2 %)
+| 5 | <img src='https://brands.home-assistant.io/_/google_assistant/icon.png' height='32' style='border: 0; box-shadow: 0'> [Google Assistant](/integrations/google_assistant/) | 16422 (20.3 %)
+| 6 | <img src='https://brands.home-assistant.io/_/esphome/icon.png' height='32' style='border: 0; box-shadow: 0'> [ESPHome](/integrations/esphome/) | 14315 (17.7 %)
+| 7 | <img src='https://brands.home-assistant.io/_/homekit/icon.png' height='32' style='border: 0; box-shadow: 0'> [HomeKit](/integrations/homekit/) | 13705 (17.0 %)
+| 8 | <img src='https://brands.home-assistant.io/_/hue/icon.png' height='32' style='border: 0; box-shadow: 0'> [Philips Hue](/integrations/hue/) | 12592 (15.6 %)
+| 9 | <img src='https://brands.home-assistant.io/_/system_monitor/icon.png' height='32' style='border: 0; box-shadow: 0'> [System Monitor](/integrations/system_monitor/) |	12110 (15.0 %)
+| 10 | <img src='https://brands.home-assistant.io/_/spotify/icon.png' height='32' style='border: 0; box-shadow: 0'> [Spotify](/integrations/spotify/) | 11533 (14.3 %)
+
+_For the full list, see [Home Assistant Analytics][analytics-integrations]._
+
+We see that integrations that offer automated discovery do very well. This makes sense because once discovered we'll prompt the user to set them up:
+
+<p class='img'>
+<img src='/images/blog/2021-11-analytics/onboarding-discovery.png'>
+Screenshot of setting up integrations during Home Assistant onboarding
+</p>
+
+## Statistics
+
+It is also possible to share some basic statistics about your installation like how many states and users you have.
+
+- Average number of automations: 24
+- Average number of integrations: 74
+- Average number of installed add-ons: 7.01
+- Average number of entities: 204
+- Average number of users: 1.87
+
+It's impressive to see the high number of integrations and entities that are being used in Home Assistant. Our users sure love automating their homes!
+
+## Opt-in to analytics!
+
+If you haven't yet, please opt-in to Home Assistant Analytics by clicking the button below to help us and manufacturers better understand our impact.
+
+{% my general badge %}
+
+[analytics]: https://analytics.home-assistant.io
+[analytics-integrations]: https://analytics.home-assistant.io/#integrations
+[analytics-source]: https://github.com/home-assistant/analytics.home-assistant.io/

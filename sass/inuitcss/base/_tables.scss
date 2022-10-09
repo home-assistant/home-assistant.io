@@ -1,0 +1,164 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    $TABLES
+\*------------------------------------*/
+/**
+ * We have a lot at our disposal for making very complex table constructs, e.g.:
+ *
+   <table class="table--bordered  table--striped  table--data">
+       <colgroup>
+           <col class=t10>
+           <col class=t10>
+           <col class=t10>
+           <col>
+       </colgroup>
+       <thead>
+           <tr>
+               <th colspan=3>Foo</th>
+               <th>Bar</th>
+           </tr>
+           <tr>
+               <th>Lorem</th>
+               <th>Ipsum</th>
+               <th class=numerical>Dolor</th>
+               <th>Sit</th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr>
+               <th rowspan=3>Sit</th>
+               <td>Dolor</td>
+               <td class=numerical>03.788</td>
+               <td>Lorem</td>
+           </tr>
+           <tr>
+               <td>Dolor</td>
+               <td class=numerical>32.210</td>
+               <td>Lorem</td>
+           </tr>
+           <tr>
+               <td>Dolor</td>
+               <td class=numerical>47.797</td>
+               <td>Lorem</td>
+           </tr>
+           <tr>
+               <th rowspan=2>Sit</th>
+               <td>Dolor</td>
+               <td class=numerical>09.640</td>
+               <td>Lorem</td>
+           </tr>
+           <tr>
+               <td>Dolor</td>
+               <td class=numerical>12.117</td>
+               <td>Lorem</td>
+           </tr>
+       </tbody>
+   </table>
+ *
+ */
+table{
+    width:100%;
+}
+th,
+td{
+    padding:$base-spacing-unit / 4;
+    @media screen and (min-width:480px){
+        padding:$half-spacing-unit;
+    }
+    text-align:left;
+}
+
+
+/**
+ * Cell alignments
+ */
+[colspan]{
+    text-align:center;
+}
+[colspan="1"]{
+    text-align:left;
+}
+[rowspan]{
+    vertical-align:middle;
+}
+[rowspan="1"]{
+    vertical-align:top;
+}
+.numerical{
+    text-align:right;
+}
+
+/**
+ * In the HTML above we see several `col` elements with classes whose numbers
+ * represent a percentage width for that column. We leave one column free of a
+ * class so that column can soak up the effects of any accidental breakage in
+ * the table.
+ */
+.t5     { width: 5% }
+.t10    { width:10% }
+.t12    { width:12.5% }     /* 1/8 */
+.t15    { width:15% }
+.t20    { width:20% }
+.t25    { width:25% }       /* 1/4 */
+.t30    { width:30% }
+.t33    { width:33.333% }   /* 1/3 */
+.t35    { width:35% }
+.t37    { width:37.5% }     /* 3/8 */
+.t40    { width:40% }
+.t45    { width:45% }
+.t50    { width:50% }       /* 1/2 */
+.t55    { width:55% }
+.t60    { width:60% }
+.t62    { width:62.5% }     /* 5/8 */
+.t65    { width:65% }
+.t66    { width:66.666% }   /* 2/3 */
+.t70    { width:70% }
+.t75    { width:75% }       /* 3/4*/
+.t80    { width:80% }
+.t85    { width:85% }
+.t87    { width:87.5% }     /* 7/8 */
+.t90    { width:90% }
+.t95    { width:95% }
+
+
+/**
+ * Bordered tables
+ */
+.table--bordered{
+
+    th,
+    td{
+        border:1px solid $base-ui-color;
+
+        &:empty{
+            border:none;
+        }
+    }
+
+    thead tr:last-child th{
+        border-bottom-width:2px;
+    }
+
+    tbody tr th:last-of-type{
+        border-right-width:2px;
+    }
+}
+
+
+/**
+ * Striped tables
+ */
+.table--striped{
+
+    tbody tr:nth-of-type(odd){
+        background-color:#ffc; /* Override this color in your theme stylesheet */
+    }
+}
+
+
+/**
+ * Data table
+ */
+.table--data{
+    font:12px/1.5 sans-serif;
+}

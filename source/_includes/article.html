@@ -1,0 +1,34 @@
+{% unless page.no_header %}
+  <header>
+    {% if index %}
+      <h1 class="entry-title"><a href="{{ post.url }}">{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}</a></h1>
+    {% else %}
+      <h1 class="entry-title">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h1>
+    {% endif %}
+    {% unless page.meta == false %}
+      <p class="meta">
+        {% include post/date.html %}{{ time }}
+        {% if page.comments != false and post.comments != false %}
+           | <a href="{% if index %}{{ post.url }}{% endif %}#post-comments">Comments</a>
+        {% endif %}
+      </p>
+    {% endunless %}
+  </header>
+{% endunless %}
+{% if index %}
+  <div class="entry-content">
+    {% if post.excerpted %}
+      {{ post.excerpt }}
+      <a href="{{ post.url }}"Continue reading →</a>
+    {% else %}
+      {{ post.content }}
+    {% endif %}
+  </div>
+  {% if post.excerpted %}
+    <footer>
+      <a rel="full-article" href="{{ post.url }}">{{ site.excerpt_link }}</a>
+    </footer>
+  {% endif %}
+{% else %}
+<div class="entry-content">{{ content }}</div>
+{% endif %}

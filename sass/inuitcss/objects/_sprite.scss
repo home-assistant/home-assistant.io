@@ -1,0 +1,99 @@
+@charset "UTF-8";
+@if $use-sprite == true{
+
+/*------------------------------------*\
+    $SPRITE
+\*------------------------------------*/
+/**
+ * Giving an element a class of `.sprite` will throw it into ‘sprite’ mode and apply
+ * a background image e.g.:
+ *
+   <a class="sprite  sprite--question-mark">More info&hellip;</a>
+ *
+ * or
+ *
+   <a href=#><i class="sprite  sprite--question-mark"></i> Help and FAQ</a>
+ *
+ * Giving an element a class of `.icon` will throw it into ‘icon’ mode and will
+ * not add a background, but should be used for icon fonts and is populated
+ * through a `data-icon` attribute and the `:after` pseudo-element, e.g.:
+ *
+   <a href=#><i class=icon data-icon="&#xF000;"></i> View your favourites</a>
+ *
+ * Where ‘&#xF000;’ might map to a star in your particular icon font.
+ *
+ * These all require extension in your theme stylesheet, e.g., in your own CSS:
+ *
+   .sprite{
+       background-image:url(path/to/your/sprite.png);
+   }
+   .sprite--link{ background-position:0   0  ; }
+   .sprite--star{ background-position:0 -16px; }
+ *
+ * Demo: jsfiddle.net/inuitcss/6TKuS
+ *
+ */
+.sprite,
+.icon{
+    display:inline-block;
+    line-height:1;
+    position:relative;
+    vertical-align:middle;
+    zoom:1;
+    /**
+     * So using `.icon` on certain elements doesn’t make a visual difference.
+     */
+    font-style:normal;
+    font-weight:normal;
+    /**
+     * So icons added using `.icon` sit in the centre of the element.
+     */
+    text-align:center;
+}
+.sprite{
+    /**
+     * The typical size of most icons. Override in your theme stylesheet.
+     */
+    width: 16px;
+    height:16px;
+    top:-1px;
+
+    /*
+     * H5BP method image replacement:
+     * github.com/h5bp/html5-boilerplate/commit/adecc5da035d6d76b77e3fa95c6abde841073da2
+     */
+    overflow:hidden;
+   *text-indent:-9999px;
+
+    &:before{
+        content:"";
+        display:block;
+        width:0;
+        height:100%;
+    }
+}
+
+/**
+ * Set up icon font
+ */
+.icon{
+    font-size:16px;
+    /**
+     * Place the icon in a box the exact same dimensions as the icon itself.
+     */
+    width:1em;
+    height:1em;
+
+    &:before{
+        content:attr(data-icon);
+    }
+}
+
+/**
+ * Icon size modifiers.
+ */
+.icon--large   { font-size:32px; }
+.icon--huge    { font-size:64px; }
+.icon--natural { font-size:inherit; }
+
+}//endif

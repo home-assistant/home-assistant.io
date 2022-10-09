@@ -1,0 +1,56 @@
+@charset "UTF-8";
+@if $use-flexbox == true{
+
+/*------------------------------------*\
+    $FLEXBOX
+\*------------------------------------*/
+/**
+ * Until we can utilise flexbox natively we can kinda, sorta, attempt to emulate
+ * it, in a way... e.g.:
+ *
+   <header class=flexbox>
+
+       <div class=flexbox__item>
+           <b>Welcome to</b>
+       </div>
+
+       <div class=flexbox__item>
+           <img src="//csswizardry.com/inuitcss/img/logo.jpg" alt="inuit.css">
+       </div>
+
+   </header>
+ *
+ * We can also combine our grid system classes with `.flexbox__item` classes,
+ * e.g.:
+ *
+   <div class=flexbox>
+       <div class="flexbox__item  one-quarter">
+       </div>
+       <div class="flexbox__item  three-quarters">
+       </div>
+   </div>
+ *
+ * It’s pretty poorly named I’m afraid, but it works...
+ *
+ * Demo: jsfiddle.net/inuitcss/ufUh2
+ *
+ */
+.flexbox{
+    display:table;
+    width:100%;
+}
+
+/**
+ * Nasty hack to circumvent Modernizr conflicts.
+ */
+html.flexbox{
+    display:block;
+    width:auto;
+}
+
+    .flexbox__item{
+        display:table-cell;
+        vertical-align:middle;
+    }
+
+}//endif

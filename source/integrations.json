@@ -1,0 +1,16 @@
+---
+layout: none
+---
+{
+{%- for integration in site.integrations %}
+{%- assign target = integration.ha_domain | append: ".markdown" | prepend: "_integrations/" -%}
+{%- if integration.path == target %}
+  "{{integration.ha_domain}}": {
+    "title": "{{integration.title}}",
+    "quality_scale": "{{integration.ha_quality_scale}}",
+    "iot_class": "{{integration.ha_iot_class}}"
+  }{%- if forloop.last -%}{%- else -%},{%- endif -%}
+{%- endif -%}
+{%- endfor %}
+}
+

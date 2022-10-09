@@ -1,0 +1,89 @@
+@if $use-matrix == true{
+
+/*------------------------------------*\
+    $MATRIX
+\*------------------------------------*/
+/**
+ * Create a grid of items out of a single list, e.g.:
+ *
+   <ul class="matrix  three-cols">
+       <li class=all-cols>Lorem</li>
+       <li>Ipsum <a href=#>dolor</a></li>
+       <li><a href=# class=matrix__link>Sit</a></li>
+       <li>Amet</li>
+       <li class=all-cols>Consectetuer</li>
+   </ul>
+ *
+ * Extend this object in your theme stylesheet.
+ *
+ * Demo: jsfiddle.net/inuitcss/Y2zrU
+ *
+ */
+.matrix{
+    @extend .block-list;
+    border-left-width:1px;
+    @extend .cf;
+
+     > li{
+        float:left;
+        border-right-width:1px;
+        @if $global-border-box == false{
+            @include vendor(box-sizing, border-box);
+        }
+    }
+}
+        .matrix__link{
+            @extend .block-list__link;
+        }
+
+
+/**
+ * The `.multi-list` object is a lot like the `.matrix` object only without the
+ * blocky borders and padding.
+ *
+   <ul class="multi-list  four-cols">
+       <li>Lorem</li>
+       <li>Ipsum</li>
+       <li>Dolor</li>
+       <li>Sit</li>
+   </ul>
+ *
+ * Demo: jsfiddle.net/inuitcss/Y2zrU
+ *
+ */
+.multi-list{
+    list-style:none;
+    margin-left:0;
+    @extend .cf;
+}
+    .multi-list > li{
+        float:left;
+    }
+
+
+    /**
+     * Apply these classes alongside the `.matrix` or `.multi-list` classes on
+     * lists to determine how wide their columns are.
+     */
+    .two-cols > li{
+        width:50%;
+    }
+    .three-cols > li{
+        width:33.333%;
+    }
+    .four-cols > li{
+        width:25%;
+    }
+    .five-cols > li{
+        width:20%;
+    }
+    /**
+     * Unfortunately we have to qualify this selector in order to bring its
+     * specificity above the `.[number]-cols > li` selectors above.
+     */
+    .matrix > .all-cols,
+    .multi-list > .all-cols{
+        width:100%;
+    }
+
+}//endif

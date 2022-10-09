@@ -1,0 +1,93 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    $QUOTES
+\*------------------------------------*/
+/**
+ * If English quotes are set in `_vars.scss`, define them here.
+ */
+@if $english-quotes == true {
+  $open-quote: '"';
+  $close-quote: '"';
+}
+
+/**
+ * Big up @boblet: html5doctor.com/blockquote-q-cite
+ */
+
+/**
+ * Inline quotes.
+ */
+q {
+  quotes: "\2018""\2019""#{$open-quote}""#{$close-quote}";
+
+  &:before {
+    content: "\2018";
+    content: open-quote;
+  }
+  &:after {
+    content: "\2019";
+    content: close-quote;
+  }
+
+  q:before {
+    content: '"';
+  }
+  q:after {
+    content: '"';
+  }
+}
+
+blockquote {
+  quotes: "#{$open-quote}""#{$close-quote}";
+
+  p:before {
+    content: "#{$open-quote}";
+    content: open-quote;
+  }
+  p:after {
+    content: "";
+    content: no-close-quote;
+  }
+  p:last-of-type:after {
+    content: "#{$close-quote}";
+    content: close-quote;
+  }
+
+  q:before {
+    content: "\2018";
+    content: open-quote;
+  }
+  q:after {
+    content: "\2019";
+    content: close-quote;
+  }
+}
+
+/**
+ *
+   <blockquote>
+       <p>Insanity: doing the same thing over and over again and expecting
+       different results.</p>
+       <b class=source>Albert Einstein</b>
+   </blockquote>
+ *
+ */
+blockquote {
+  /**
+     * .4em is roughly equal to the width of the opening “ that we wish to hang.
+     */
+  text-indent: -0.41em;
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.source {
+  display: block;
+  text-indent: 0;
+
+  &:before {
+    content: "\2014";
+  }
+}

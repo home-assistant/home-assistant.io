@@ -1,0 +1,39 @@
+name: home-assistant.io Test
+
+on: [push, pull_request]
+
+jobs:
+  markdown-lint:
+    name: Lint Markdown
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out files from GitHub
+        uses: actions/checkout@v3.1.0
+      - name: Setting up Node.js
+        uses: actions/setup-node@v3.5.0
+        with:
+          node-version: 16.x
+          cache: "npm"
+      - name: Install dependencies
+        run: npm install
+        env:
+          CI: true
+      - name: Run remark lint
+        run: npm run markdown:lint
+  textlint:
+    name: Lint Text
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out files from GitHub
+        uses: actions/checkout@v3.1.0
+      - name: Setting up Node.js
+        uses: actions/setup-node@v3.5.0
+        with:
+          node-version: 16.x
+          cache: "npm"
+      - name: Install dependencies
+        run: npm install
+        env:
+          CI: true
+      - name: Run textlint
+        run: npm run textlint

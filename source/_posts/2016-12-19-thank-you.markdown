@@ -1,0 +1,35 @@
+---
+title: "Thank You"
+description: "Thanks to all our contributors, dependencies and companies that help make Home Assistant awesome."
+date: 2016-12-19 21:04:05 UTC
+date_formatted: "December 19, 2016"
+author: Paulus Schoutsen
+author_twitter: balloob
+categories: Community
+og_image:
+---
+
+A year ago [Home Assistant 0.10][0.10] landed. Last weekend we released 0.35. Doing 25 releases in a year is a big accomplishment by the community and each release has moved us forwards leaps and bounds. In this year alone we have seen 2800 pull requests on the main repo alone, that's more than 7 a day!
+
+One of the things that Jon Walker, the founder of the company I work for ([AppFolio]), has taught me is that the biggest advantage that you can create for yourself compared to your competitors is to release more often. Every time you release you are able to get the new features into the hands of the users and developers. The faster people start using it, the faster you get feedback on the good and bad parts and thus the faster can you evolve.
+
+That's why I structured Home Assistant around a two week release cycle. It makes sure that features get out fast and it also forces us to not accumulate a backlog of things to document or test properly. Every two weeks we can start fresh. This makes it easy for new people to start contributing because it's clear when things go out and people are not afraid to miss a release.
+
+However, being on a two week release cycle also means that the community has to rally each two weeks to make sure everything is ready to go. A lot of people are involved in making sure that all pieces are in place, to all of those: thank you! Thank you for all the time and effort you put in to make Home Assistant the best home automation software out there.
+
+Another big thanks goes out to the developers of the Python language and all the open source libraries and tools that Home Assistant depends on. Making quality software is not a small feat and all of you can be proud of yourself.
+
+Also a big thanks for the companies that offer their services for free to open source projects. Without these we would not be able to operate at our speed or scale. Thanks [GitHub], [TravisCI], [CloudFlare] and [Discourse]!
+
+And finally thank you community for being so helpful and awesome 🙇.
+
+We're taking a well deserved break and we will be back again in 2017 with more awesomeness. Happy holidays!
+
+– Paulus
+
+[0.10]: /blog/2015/12/22/amazon-echo-icloud-and-templates/
+[AppFolio]: http://www.appfolioinc.com/
+[GitHub]: https://GitHub.com
+[TravisCI]: https://Travis-ci.org
+[CloudFlare]: https://CloudFlare.com
+[Discourse]: https://Discourse.com

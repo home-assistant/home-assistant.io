@@ -1,0 +1,50 @@
+@if $use-pagination == true{
+
+/*------------------------------------*\
+    $PAGINATION
+\*------------------------------------*/
+/**
+ * Basic pagination object, extends `.nav`.
+ * Requires some funky commenting to collapse any white-space caused by the
+ * `display:inline-block;` rules.
+ *
+   <ol class="nav  pagination">
+       <li class=pagination__first>First</li>
+       <li class=pagination__prev>Previous</li>
+       <li><a href=/page/1>1</a></li>
+       <li><a href=/page/2>2</a></li>
+       <li class=current><a href=/page/3>3</a></li>
+       <li><a href=/page/4>4</a></li>
+       <li><a href=/page/5>5</a></li>
+       <li class=pagination__next><a href=/page/next>Next</a></li>
+       <li class=pagination__last><a href=/page/last>Last</a></li>
+   </ol>
+ *
+ * Demo: jsfiddle.net/inuitcss/9Y6PU
+ *
+ */
+.pagination{
+    text-align:center;
+    /**
+     * Remove whitespace caused by `inline-block`.
+     */
+    letter-spacing:-0.31em;
+    word-spacing:-0.43em;
+}
+    .pagination > li{
+        padding:$base-spacing-unit / 2;
+        letter-spacing:normal;
+        word-spacing:normal;
+    }
+        .pagination > li > a{
+            padding:$base-spacing-unit / 2;
+            margin:-$base-spacing-unit / 2;
+        }
+            .pagination__first a:before{
+                content:"\00AB" "\00A0";
+            }
+            .pagination__last a:after{
+                content:"\00A0" "\00BB";
+            }
+
+}//endif

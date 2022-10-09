@@ -1,0 +1,46 @@
+@charset "UTF-8";
+@if $use-options == true{
+
+/*------------------------------------*\
+    $OPTIONS
+\*------------------------------------*/
+/**
+ * Link-group nav, used for displaying related options. Extends `.nav--block`
+ * but could also extend `.nav--fit`. Extend with colours and ‘current states’
+ * in your theme stylesheet.
+ *
+  <ul class="nav  options">
+      <li><a></a></li>
+      <li><a></a></li>
+      <li><a></a></li>
+      <li><a></a></li>
+   </ul>
+ *
+ * Demo: jsfiddle.net/inuitcss/vwfaf
+ *
+ */
+.options{
+    @extend .nav--block;
+
+    > li{
+
+        > a{
+            border:0 solid $base-ui-color;
+            border-width:1px;
+            border-left-width:0;
+        }
+
+        &:first-child > a{
+            border-left-width:1px;
+            border-top-left-radius:$brand-round;
+            border-bottom-left-radius:$brand-round;
+        }
+
+        &:last-child > a{
+            border-top-right-radius:$brand-round;
+            border-bottom-right-radius:$brand-round;
+        }
+    }
+}
+
+}//endif

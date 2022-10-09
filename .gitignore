@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /config
 config2/*
 
@@ -102,10 +103,31 @@ virtualization/vagrant/.vagrant
 virtualization/vagrant/config
 
 # Visual Studio Code
+=======
+.bundle
+.DS_Store
+.sass-cache
+.gist-cache
+.pygments-cache
+public
+source/_data/analytics_data.json
+source/_data/blueprint_exchange_data.json
+source/_data/version_data.json
+source/_data/alerts_data.json
+source/_stash
+source/stylesheets/screen.css
+source/.jekyll-cache/
+vendor
+node_modules
+source/.jekyll-metadata
+*.iml
+.idea/
+>>>>>>> 568730a365 (Add video to energy blog post)
 .vscode/*
 !.vscode/cSpell.json
 !.vscode/extensions.json
 !.vscode/tasks.json
+<<<<<<< HEAD
 .env
 
 # Built docs
@@ -132,3 +154,7 @@ tmp_cache
 
 # python-language-server / Rope
 .ropeproject
+=======
+*.suo
+tags*
+>>>>>>> 568730a365 (Add video to energy blog post)

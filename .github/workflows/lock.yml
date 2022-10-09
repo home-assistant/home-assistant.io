@@ -1,16 +1,29 @@
 name: Lock
 
+<<<<<<< HEAD
 # yamllint disable-line rule:truthy
+=======
+>>>>>>> 568730a365 (Add video to energy blog post)
 on:
   schedule:
     - cron: "0 * * * *"
 
 jobs:
   lock:
+<<<<<<< HEAD
     if: github.repository_owner == 'home-assistant'
     runs-on: ubuntu-latest
     steps:
       - uses: dessant/lock-threads@v3
+=======
+    permissions:
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dessant/lock-threads@v3
+        if: ${{ github.repository_owner == 'home-assistant' }}
+>>>>>>> 568730a365 (Add video to energy blog post)
         with:
           github-token: ${{ github.token }}
           issue-inactive-days: "30"

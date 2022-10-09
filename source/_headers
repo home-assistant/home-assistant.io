@@ -1,0 +1,20 @@
+/*
+  Cache-Control: public, max-age=0, s-maxage=3600, must-revalidate
+  Content-Security-Policy: form-action https:
+  Feature-Policy: geolocation 'none'; midi 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; payment 'none'
+  Permissions-Policy: geolocation=(), midi=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), payment=()
+  Referrer-Policy: no-referrer-when-downgrade
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+/*.css
+  Cache-Control: public, max-age=604800, s-maxage=604800
+/*.js
+  Cache-Control: public, max-age=604800, s-maxage=604800
+/assets/*
+  Cache-Control: public, max-age=0, s-maxage=604800, must-revalidate
+/fonts/*
+  Cache-Control: public, max-age=1800, s-maxage=604800, must-revalidate
+/images/*
+  Cache-Control: public, max-age=1800, s-maxage=604800, must-revalidate
+/static/*
+  Cache-Control: public, max-age=1800, s-maxage=604800, must-revalidate

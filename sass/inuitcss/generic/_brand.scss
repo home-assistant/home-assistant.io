@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    $BRAND
+\*------------------------------------*/
+/**
+ * `.brand` is a quick and simple way to apply your brand face and/or color to
+ * any element using a handy helper class.
+ */
+.brand{
+    font-family:$brand-face +!important;
+    color:$brand-color +!important;
+}
+.brand-face{
+    font-family:$brand-face +!important;
+}
+.brand-color,
+.brand-colour{
+    color:$brand-color +!important;
+}

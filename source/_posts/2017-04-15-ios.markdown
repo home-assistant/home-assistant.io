@@ -1,0 +1,42 @@
+---
+title: "1 year and 22 days ago I had an idea..."
+description: "An Easter gift from Home Assistant for all iOS fans"
+date: 2017-04-15 08:04:05 +0000
+date_formatted: "April 16, 2017"
+author: Robbie Trencheny
+author_twitter: robbie
+categories: Announcements
+---
+
+1 year and 22 days ago, or 387 days ago, on March 25th, 2016, I started a project to bring Home Assistant to the iPhone.
+
+I thought the existing notification and location solutions were lacking in one way or another and had wanted for _years_ to have a project I could call my own which would allow me to learn iOS development. What better way then implementing an extremely complex application like Home Assistant?
+
+I started with a lot of steam. I remember cranking out the initial work that night and showing Paulus who was astounded at how fast the UI was coming together.
+
+Little would I know how many problems I would create and uncover throughout the process. Writing a mobile app for a project that moves as fast as Home Assistant is... tricky, to say the least. In the time since I started writing the app, Home Assistant had 90 releases. I started writing the day before 0.16 was released. Now we are at 0.42.3. Time flies...
+
+I couldn't have completed the app without help and input from the community. By the end I had 700 beta testers, of which about 500 were very active in testing the app.
+
+I received emails and forum posts almost every day, even when the app would go without an update for weeks and sometimes months at a time as my life got busier and busier.
+
+I wanted this app to be done 9 months ago, at least, but my drive to add more and more features killed that idea. This really taught me the value of the MVP over the kitchen sink.
+
+It may not look the way that I wanted it to initially, with beautiful native UI components, but that's okay. What I really cared about is there. The notification and location engines are some of the most customizable and powerful available in an iOS app if I do say so myself. I made them this way to keep with the spirit of infinite flexibility that is enshrined in Home Assistant.
+
+Just because the app is released doesn't mean we are at the end of the road. It's only the beginning. There's plenty of bugs to fix still, improvements to make, features to add. Beta testing will continue, and if anything, be expanded. I do want to have a native UI someday, but that's pretty hard with how fast the project moves.
+
+The biggest request I have is for more developers on the project. As many of you know, I have my hands in many different parts of Home Assistant, from governance and organization to managing the forums to writing this app, managing the Homebridge plugin and even sometimes writing code for the actual core codebase! I can't do it all, and I'm still a new iOS developer who doesn't know all the best practices.
+
+The app is [open source](https://github.com/home-assistant/home-assistant-iOS), has been for the last few months when I first prepared to submit it to Apple for review. I invite Swift developers to come and join me in building it. Trust me, there's tons to do.
+
+**1 year and 22 days ago, on March 25th, 2016 I began work on Home Assistant for iOS.**
+
+**Today, April 16th, 2017, I am _extremely_ excited to announce that Home Assistant for iOS has been approved by Apple and is now available to download for ~~a monthly subscription starting at $9.99~~ free! (had to get a joke in here somewhere!) on the iOS App Store in every country.**
+
+<p style="text-align: center;"><a target="_blank" href="https://itunes.apple.com/us/app/home-assistant-open-source-home-automation/id1099568401?mt=8" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;width:135px;height:40px;background-size:contain;"></a></p>
+
+_Please note, you must have Home Assistant 0.42.4 or later installed for the app to function properly._
+
+Thanks for everything so far, I'm looking forward to the road that lies ahead for Home Assistant on iOS!
+

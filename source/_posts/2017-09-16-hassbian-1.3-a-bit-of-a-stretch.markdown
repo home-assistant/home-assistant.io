@@ -1,0 +1,33 @@
+---
+title: "Hassbian 1.3 - A bit of a stretch"
+description: "Raspbian Stretch release of the HASSbian Raspberry Pi Image for Home Assistant"
+date: 2017-09-16 16:00:00 +0100
+date_formatted: "September 16, 2017"
+author: Fredrik Lindqvist
+categories: Technology
+---
+
+This new release finally brings us the release of Hassbian based on the release of Raspbian Stretch. The most significant change with this is that we now run Home Assistant on Python 3.5.
+Other than that the changes are mostly to our tool `hassbian-config`.
+
+### Hassbian-config
+
+To allow you to customize your installation further, we have made a few additions to our tool called `hassbian-config`. Majority of these changes where contributed by [@Ludeeus][ludeeus].
+
+#### Upgrade scripts
+
+[@Ludeeus][ludeeus] contributed the possibility to run upgrade scripts to the `hassbian-config` tool.
+
+ - Upgrade Hassbian: Upgrades packages of the base operating system. Contributed by [@Landrash][landrash].
+ - Upgrade Hassbian-script: Downloads and upgrades the latest release of Hassbian-scripts. Contributed by [@Ludeeus][ludeeus].
+ - Upgrade Home-assistant: Upgrades the Home Assistant installation to the latest release. Contributed by [@Ludeeus][ludeeus].
+
+To follow discussions about the development of the HASSbian image or to contribute join our [Discord chat server][discord-hassbian].
+
+To get started with the new image, check out the installation instructions on the installing Hassbian page.
+
+[landrash]: http://github.com/landrash
+[ludeeus]: http://github.com/ludeeus
+[hassbian-repo]: https://github.com/home-assistant/hassbian-scripts/
+[hassbian-config-release]: https://github.com/home-assistant/hassbian-scripts/releases/latest
+[discord-hassbian]: https://discord.gg/RkajcgS

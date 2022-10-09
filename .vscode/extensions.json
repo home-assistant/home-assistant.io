@@ -1,3 +1,17 @@
 {
+<<<<<<< HEAD
   "recommendations": ["esbenp.prettier-vscode", "ms-python.python"]
 }
+=======
+    "recommendations": [
+        "davidanson.vscode-markdownlint",
+        "editorconfig.editorconfig",
+        "GitHub.vscode-pull-request-github",
+        "mrmlnc.vscode-scss",
+        "rebornix.Ruby",
+        "streetsidesoftware.code-spell-checker",
+        "taichi.vscode-textlint",
+        "yzhang.markdown-all-in-one"
+    ]
+}
+>>>>>>> 568730a365 (Add video to energy blog post)

@@ -1,0 +1,74 @@
+---
+title: "Supervisor 249: Resolution center, Stability & Private container registries"
+description: "Resolution center, Stability & Private container registries"
+date: 2020-10-21 00:00:00
+date_formatted: "October 21, 2020"
+comments: true
+author: Joakim Sørensen
+author_twitter: ludeeus
+categories: Release-Notes
+og_image: /images/blog/2020-10-21-supervisor-249/social.png
+---
+
+_The Supervisor is shipped with our Home Assistant Operating System and controls all hardware and software on your device. Bringing an effortless experience in managing, upgrading, and maintaining your Home Assistant instance via the user interface. It is what allows you to focus on what really matters; automating your home._
+
+The Supervisor generally does not have enough changes that we can fill a blogpost with each release, it also does not have a fixed release schedule. A new Supervisor update is released when it's needed, but that does not mean that there is nothing going on in this part of the ecosystem! One month ago, we put out the [The Supervisor joins the party][supervisor-joins-the-party] post that went over the highlights from the past year. Now it’s time for version 249, rolling out to everyone as we speak and it’s full of new goodies, enjoy!
+
+## Resolution center
+
+We are introducing a new resolution center. This new feature will be used to identify issues and provide context and suggestions on solving your installation issues. We have big plans for this one!
+
+New in this release is that if the available free space on your device drops below 1 GB, auto-updates will be paused and you will be notified. This should give you time to clean it up.
+
+To help you free up some space, we have added a [new page to our documentation][more-info_free-space] to help guide you through that.
+
+If you run Home Assistant Supervised, the system can get marked as unsupported if the host system does not have all the [required services running][required_services]. It was hard to find the reason why a system is marked as unsupported. It is written to the logs during startup, but the logs that you find in the UI do not go back that far. To make it more accessible, the message that your system is unsupported will now allow you to open a new dialog.
+
+![unsupported dialog](/images/blog/2020-10-21-supervisor-249/unsupported_dialog.png)
+
+This dialog will list all the reasons why the system is marked as unsupported. Clicking on the links in that dialog will take you to a documentation page that describes the issue, and there will be a solution you can use to make your installation compliant with [ADR-0014] and [ADR-0015].
+
+## Stability
+
+Stability is something that is always in focus for new Supervisor releases. The Supervisor is the central part of your Home Assistant OS/Supervised installation. Almost every release has some form of stability improvement, and this is not an exception to that.
+
+If Home Assistant fails to start, we will now rebuild the container. This will ensure that a new fresh container is started up if something inside the container has been corrupted. We have also added this feature to our newly added [observer plugin][supervisor-joins-the-party-observer].
+
+All auto-updates will be automatically paused if your system is running low on free space. Manual updates are still allowed, but now we will not fill up that space automatically, which in some rare cases could lead to startup issues.
+
+We’ve also added a new check when adding add-on repositories to make sure that it’s actually an add-on repository. This should help avoid confusion.
+
+## Landing page
+
+We’ve updated the landing page that you see when you’re installing Home Assistant. We added logs to it, so you can follow along with what's happening while you are waiting.
+
+And there is more! Our mobile apps are now able to discover the landing page. This means that you can discover a new installation while it’s initializing and already start onboarding in the mobile app.
+
+![landingpage](/images/blog/2020-10-21-supervisor-249/landingpage.png)
+
+## Private container registries
+
+Thanks to [@skateman][skateman], you can now use private (password protected) container registries in the Supervisor. This allows you to use add-ons and other containers that require you to log in to a container registry to install it.
+
+![private registry](/images/blog/2020-10-21-supervisor-249/private_registry.png)
+
+You can find this in the store tab of the Supervisor panel, by clicking the three dots in the top right corner. This option is only available if advanced-mode is enabled.
+
+## Stricter Network Manager check
+
+With this version more checks have been added to ensure that Network Manager is not only enabled on the system but that it also manages at least one network interface. If you are running our Home Assistant OS, this does not apply to you.
+
+This stricter check allows us to provide a stable way for the Supervisor and for add-on developers to get the IP Address of the host.
+
+The system will be marked as unsupported if Network Manager does not manage at least one network interface on your system. We’ve added a [new page in our documentation][unsupported_network_manager] that will help you get it fixed.
+
+[ADR-0014]: https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md
+[ADR-0015]: https://github.com/home-assistant/architecture/blob/master/adr/0015-home-assistant-os.md
+[go]: https://golang.org/
+[more-info_free-space]: /more-info/free-space
+[persistent_notification]: /integrations/persistent_notification/
+[skateman]: https://github.com/skateman
+[supervisor-joins-the-party-observer]: /blog/2020/09/16/supervisor-joins-the-party#observer-plugin
+[supervisor-joins-the-party]: /blog/2020/09/16/supervisor-joins-the-party
+[unsupported_network_manager]: /more-info/unsupported/network_manager
+[required_services]: https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md#supported-operating-system-system-dependencies-and-versions
