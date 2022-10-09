@@ -185,3 +185,46 @@ binary_sensor:
 ```
 
 {% endraw %}
+
+## Changes in 2022.10
+
+As of 2022.10 `prob_given_false` is now a required configuration variable. Previously it had a default value of `1 - prob_given_true`, this didn't really have any mathematical basis and so has been removed. You can use this documentation to calculate what it should be, or to restore your previous functionality set it to `1 - prob_given_true`.
+
+In 2022.10 the logic of Bayesian sensors was significantly corrected. Previously the configs given in the examples above would not have worked as expected. For example if the device `device_tracker.paulus` was `home` this would not have updated the probability that `Paulus Home` was on! This is because Bayesian ignored observations that were false, even though that *should* update our probabilities. 
+
+Because of this, many users will have had to use either of two workarounds:
+1. Tweaking `prior`, `threshold` and even sometimes `prob_given_true` and `prob_given_false` to get the desired functionality, often with the help of a community provided spreadsheet for iterative testing.
+2. Providing additional observations that evaluate to `True` when the other evaluates to `False`, effectively mirroring it. This forced Bayesian to take into account a negative observation.  
+
+To solve (1) you need to re-estimate your probabilities using this documentation. To solve (2) all you need do is delete the mirrored entry as shown below.
+
+```yaml
+# Example of a mirrored entry used a workaround
+binary_sensor:
+  name: "Heat On"
+  platform: "bayesian"
+  prior: 0.2
+  probability_threshold: 0.9
+  observations:
+    - platform: "numeric_state"
+      entity_id: "sensor.outside_air_temperature_fahrenheit"
+      prob_given_true: 0.95
+      prob_given_false: 0.05
+      below: 50
+    - platform: "numeric_state" # line no longer needed - delete
+      entity_id: "sensor.outside_air_temperature_fahrenheit" # line no longer needed - delete
+      prob_given_true: 0.05 # line no longer needed - delete
+      prob_given_false: 0.95 # line no longer needed - delete
+      above: 50 # no longer needed - delete
+    - platform: "state"
+      entity_id: "binary_sensor.house_occupied"
+      prob_given_true: 0.3
+      prob_given_false: 0.05
+      to_state: "on"
+    - platform: "state" # line no longer needed - delete
+      entity_id: "binary_sensor.house_occupied" # line no longer needed - delete
+      prob_given_true: 0.7 # line no longer needed - delete
+      prob_given_false: 0.95 # line no longer needed - delete
+      to_state: "off" # line no longer needed - delete
+```
+
