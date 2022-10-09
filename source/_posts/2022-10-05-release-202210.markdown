@@ -392,7 +392,8 @@ Because of this, many users will have had to use either of two workarounds:
 1. Providing additional observations that evaluate to `True` when the other evaluates to `False`, effectively mirroring it. This forced Bayesian to take into account a negative observation.
 2. Tweaking `prior`, `threshold`, and even sometimes `prob_given_true` and `prob_given_false` to get the desired functionality, often with the help of a community-provided spreadsheet for iterative testing.
 
-To solve (1) all you need do is delete the mirrored entry as shown below:
+To solve (1), all you need do is delete the mirrored entry as shown below:
+
 ```yaml
 # Example of a mirrored entry used a workaround
 binary_sensor:
