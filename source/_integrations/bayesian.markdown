@@ -193,11 +193,10 @@ As of 2022.10 `prob_given_false` is now a required configuration variable. Previ
 In 2022.10 the logic of Bayesian sensors was significantly corrected. Previously the configs given in the examples above would not have worked as expected. For example if the device `device_tracker.paulus` was `home` this would not have updated the probability that `Paulus Home` was on! This is because Bayesian ignored observations that were false, even though that *should* update our probabilities. 
 
 Because of this, many users will have had to use either of two workarounds:
-1. Tweaking `prior`, `threshold` and even sometimes `prob_given_true` and `prob_given_false` to get the desired functionality, often with the help of a community provided spreadsheet for iterative testing.
-2. Providing additional observations that evaluate to `True` when the other evaluates to `False`, effectively mirroring it. This forced Bayesian to take into account a negative observation.  
+1. Providing additional observations that evaluate to `True` when the other evaluates to `False`, effectively mirroring it. This forced Bayesian to take into account a negative observation.
+2. Tweaking `prior`, `threshold` and even sometimes `prob_given_true` and `prob_given_false` to get the desired functionality, often with the help of a community provided spreadsheet for iterative testing.
 
-To solve (1) you need to re-estimate your probabilities using this documentation. To solve (2) all you need do is delete the mirrored entry as shown below.
-
+To solve (1) all you need do is delete the mirrored entry as shown below:
 ```yaml
 # Example of a mirrored entry used a workaround
 binary_sensor:
@@ -228,3 +227,25 @@ binary_sensor:
       to_state: "off" # line no longer needed - delete
 ```
 
+To solve (2) you need to re-estimate your probabilities using this documentation - this will likely result in better performance in the long term. 
+
+A hacky and *not recommended* workaround to restore your previous functionality would be to put in a mirrored entry for each observation where `prob_given_false` is equal to `prob_given_true`. This will induce the same behaviour as before - the negative, counterfactual observation is essentially ignored. Be warned - this may break or cause errors in future versions and will not work for `template` or `numeric_state` observations. For templates, instead make them return `None` where they would have returned `False` to induce Bayesian to ignore them.
+
+```yaml
+binary_sensor:
+  name: "Heat On"
+  platform: "bayesian"
+  prior: 0.2
+  probability_threshold: 0.9
+  observations:
+    - platform: "state"
+      entity_id: "binary_sensor.house_occupied"
+      prob_given_true: 0.3
+      prob_given_false: 0.05
+      to_state: "on"
+    - platform: "state" # not 
+      entity_id: "binary_sensor.house_occupied" # not recommended
+      prob_given_true: 0.5 # not recommended
+      prob_given_false: 0.5 # not recommended
+      to_state: "off" # not recommended
+```
