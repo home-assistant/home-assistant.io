@@ -102,6 +102,11 @@ ttl:
   required: false
   type: integer
   default: 300
+url:
+  description: The URL used to get your current IP. The response should be `text/plain` consisting of only an IP address.
+  required: false
+  type: string
+  default: https://api.ipify.org/
 {% endconfiguration %}
 
 ## Services
