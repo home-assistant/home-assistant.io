@@ -350,6 +350,52 @@ mqtt:
 
 {% endraw %}
 
+### Using the Device Registry
+
+If your device has several entities, e.g. a weather station with temperature, humidity, and pressure sensors, it can be practical to add it to the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). The device registry groups the different entities under one device, and allows for modifying the device entities including their name and entity-IDs, through the user interface. To add a device to the device registry, ensure that each of the entities you want to add to the device has a `unique_id` specified. The ID can be a value you create, for instance, a GUID. Note that using the same ID several places will throw an error message. Next, assign all the entities to the same `device`, which needs to have a unique `identifier` of its own. The example below shows how this works in practice with a simple weather device.
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  sensor:
+    - name: "Rooftop Temperature"
+      unique_id: "98e6f27e"
+      device:
+        name: "Rooftop Weather Station"
+        identifiers: "BME68893d0122"
+        manufacturer: "Pimoroni"
+        model: "BME688"
+        hw_version: "1.0.0"
+        sw_version: "2.0.3"
+        suggested_area: "Rooftop"
+      state_topic: "rooftop/sensor1"
+      value_template: "{{ value_json.temperature }}"
+      device_class: "temperature"
+      state_class: "measurement"
+      unit_of_measurement: "°C"
+    - name: "Rooftop Humidity"
+      unique_id: "89be296c"
+      device:
+        identifiers: "BME68893d0122"
+      state_topic: "rooftop/sensor1"
+      value_template: "{{ value_json.humidity }}"
+      device_class: "humidity"
+      state_class: "measurement"
+      unit_of_measurement: "%"
+    - name: "Rooftop Pressure"
+      unique_id: "6abd4812"
+      device:
+        identifiers: "BME68893d0122"
+      state_topic: "rooftop/sensor1"
+      value_template: "{{ value_json.pressure }}" 
+      device_class: "pressure"
+      state_class: "measurement"
+      unit_of_measurement: "hPa"  
+```
+{% endraw %}
+
 ### Get sensor value from a device with ESPEasy
 
 Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" set a name ("Unit Name:") for your device (here it's "bathroom"). A "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". Please keep in mind that the ESPEasy default topics start with a `/` and only contain the name when writing your entry for the `configuration.yaml` file.
