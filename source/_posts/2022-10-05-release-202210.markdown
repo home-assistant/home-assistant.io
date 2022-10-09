@@ -431,7 +431,7 @@ A hacky and *not recommended* workaround to restore your previous functionality 
 ```yaml
 binary_sensor:
   - name: "Heat On"
-  platform: "bayesian"
+  platform: bayesian
   prior: 0.2
   probability_threshold: 0.9
   observations:
