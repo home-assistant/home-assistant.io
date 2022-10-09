@@ -5,6 +5,7 @@ ha_category:
   - Button
   - Notifications
   - Number
+  - Sensor
   - Switch
 ha_iot_class: Local Polling
 ha_release: 0.49
@@ -16,6 +17,7 @@ ha_platforms:
   - button
   - notify
   - number
+  - sensor
   - switch
 ha_integration_type: integration
 ha_config_flow: true
