@@ -103,10 +103,10 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 - Hourly energy consumption in heat mode
 - Today's total energy consumption (updated hourly, resets at 00:00)
 
-The integration displays the following parameters for all devices:
+The integration displays the following parameters for the outdoor compressor:
 
-- All devices estimated power consumption
-- All devices today's total energy consumption (resets at 00:00)
+- Outdoor compressor Estimated power consumption (sum of all devices)
+- Outdoor compressor Energy consumption (resets at 00:00)
 - Outside temperature
 - Outside unit's compressor frequency
 
@@ -121,11 +121,12 @@ The integration displays the following parameters for all devices:
 
 <div class='note'>
 
-- The 'All devices today's total energy consumption' and 'All devices estimated power consumption' sensors are updated every time 100 Wh are consumed by all different operating modes summed together.
-- The 'All devices estimated power consumption' sensor is derived from the energy consumption and not provided by the AC directly.
+- The 'Outdoor compressor Energy consumption' and 'Outdoor compressor Estimated power consumption' sensors are updated every time 100 Wh are consumed by all different operating modes summed together.
+- The 'Outdoor compressor Estimated power consumption' sensor is derived from the energy consumption and not provided by the AC directly.
 - The 'cool/heat' energy sensors are updated hourly with the previous hour energy consumption
   of a given mode and a given AC.
 - The 'cool' mode also includes the 'fan' and 'dehumidifier' modes' power consumption.
+- Would you have multiple indoor devices, the 'Outdoor compressor' sensors will be created multiple times but will all report the same values. You should disable all but one.
 
 </div>
 
