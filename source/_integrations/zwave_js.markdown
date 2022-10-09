@@ -705,9 +705,29 @@ You can also keep track of the roadmap for the Z-Wave integration [here](https:/
 
 #### Which Z-Wave controller should I buy?
 
-Z-Wave supports all known 500 and 700 series Z-Wave controllers. If you are just starting out, we recommend that you purchase a 700 series controller (with firmware updated to >=7.17.2).
+Z-Wave supports all known 500 and 700 series Z-Wave controllers. If you are just starting out, we recommend that you purchase a 700 series controller (with firmware updated to >=7.17.2). When buying a USB controller, verify that its firmware supports backup and restore of its "Non Volatile Memory" (NVM). This allows to migrate a running Z-Wave installation to another controller also supporting backup/restore of NVM. Z-Wave controller firmware may be updateable by Silicon Labs Developer software.
 
 For more information, see [Supported Z-Wave dongles](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules)
+
+#### Z-Wave controller NVM
+
+Z-Wave supports backup and restore of Z-Wave controller "Non Volatile Memory" (NVM) via "Control Panel" -> "Advanced Actions". Backup will save an NVM file into "Store" -> "backups" -> "nvm", where it will automatically be saved into system backups and can also be downloaded. Restore will ask the user to restore a file from the local machine.
+
+#### Migrating Z-Wave network to a new controller
+
+To migrate a Z-Wave network between Z-wave controllers, perform the following steps
+
+1. Perform NVM backup of running Z-Wave controller
+2. Disable WebSocket via Z-Wave -> Settings -> Home Assistant -> WS Server. This will disconnect Z-Wave from Home Assistant and ensure that Home Assistant will not get confused until the new Z-Wave controller is restored.
+3. Remove the running Z-Wave controller, plug in the new Z-Wave controller
+4. Configure Z-wave to use the new Z-Wave controller via Z-Wave -> Settings -> Z-Wave -> Serial Port. You may need to reboot Home Assistant for the new controller to be recognized. 
+5. Verify the new controller is recognized and operating via Z-Wave -> Control Panel
+6. (Optional) Backup NVM of new controller
+7. Download NVM backup from old controller via Z-Wave -> Store -> bcku -> nvm. Restore NVM backup of old controller onto new controller.
+8. Verify that Z-Wave has all the Z-Wave devices of your old controller. You may need to restart Z-Wave plugin.
+9. Re-enable WebSocket
+
+Z-Wave NVM backup and restore will under the hood automatically convert(https://github.com/zwave-js/node-zwave-js/tree/master/packages/nvmedit#convert-one-nvm-to-be-compatible-with-another-one) the NVM files from different controllers, e.g.: 500 <-> 700.
 
 #### Why was I (or why was I not) automatically prompted to install Z-Wave?
 
