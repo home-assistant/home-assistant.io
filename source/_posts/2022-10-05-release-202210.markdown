@@ -388,8 +388,9 @@ for that specific item.
 In 2022.10 the logic of Bayesian sensors was significantly corrected. Previously the configs given in the examples above would not have worked as expected. For example if the device `device_tracker.paulus` was `home` this would not have updated the probability that `Paulus Home` was on! This is because Bayesian ignored observations that were false, even though that *should* update our probabilities. 
 
 Because of this, many users will have had to use either of two workarounds:
+
 1. Providing additional observations that evaluate to `True` when the other evaluates to `False`, effectively mirroring it. This forced Bayesian to take into account a negative observation.
-2. Tweaking `prior`, `threshold` and even sometimes `prob_given_true` and `prob_given_false` to get the desired functionality, often with the help of a community provided spreadsheet for iterative testing.
+2. Tweaking `prior`, `threshold`, and even sometimes `prob_given_true` and `prob_given_false` to get the desired functionality, often with the help of a community-provided spreadsheet for iterative testing.
 
 To solve (1) all you need do is delete the mirrored entry as shown below:
 ```yaml
