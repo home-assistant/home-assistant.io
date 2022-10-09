@@ -402,7 +402,7 @@ binary_sensor:
   prior: 0.2
   probability_threshold: 0.9
   observations:
-    - platform: "numeric_state"
+    - platform: numeric_state
       entity_id: "sensor.outside_air_temperature_fahrenheit"
       prob_given_true: 0.95
       prob_given_false: 0.05
