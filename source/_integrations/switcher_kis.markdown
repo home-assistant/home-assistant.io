@@ -2,7 +2,9 @@
 title: Switcher
 description: Integrate Switcher devices.
 ha_category:
+  - Climate
   - Cover
+  - Sensor
   - Switch
 ha_release: 0.93
 ha_iot_class: Local Push
