@@ -435,8 +435,8 @@ binary_sensor:
   prior: 0.2
   probability_threshold: 0.9
   observations:
-    - platform: "state"
-      entity_id: "binary_sensor.house_occupied"
+    - platform: state
+      entity_id: binary_sensor.house_occupied
       prob_given_true: 0.3
       prob_given_false: 0.05
       to_state: "on"
