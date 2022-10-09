@@ -398,7 +398,7 @@ To solve (1), all you need do is delete the mirrored entry as shown below:
 # Example of a mirrored entry used a workaround
 binary_sensor:
   - name: "Heat On"
-    platform: "bayesian"
+    platform: bayesian
     prior: 0.2
     probability_threshold: 0.9
     observations:
@@ -407,18 +407,18 @@ binary_sensor:
         prob_given_true: 0.95
         prob_given_false: 0.05
         below: 50
-      - platform: "numeric_state" # line no longer needed - delete
-        entity_id: "sensor.outside_air_temperature_fahrenheit" # line no longer needed - delete
+      - platform: numeric_state # line no longer needed - delete
+        entity_id: sensor.outside_air_temperature_fahrenheit # line no longer needed - delete
         prob_given_true: 0.05 # line no longer needed - delete
         prob_given_false: 0.95 # line no longer needed - delete
         above: 50 # no longer needed - delete
-      - platform: "state"
-        entity_id: "binary_sensor.house_occupied"
+      - platform: state
+        entity_id: binary_sensor.house_occupied
         prob_given_true: 0.3
         prob_given_false: 0.05
         to_state: "on"
-      - platform: "state" # line no longer needed - delete
-        entity_id: "binary_sensor.house_occupied" # line no longer needed - delete
+      - platform: state # line no longer needed - delete
+        entity_id: binary_sensor.house_occupied # line no longer needed - delete
         prob_given_true: 0.7 # line no longer needed - delete
         prob_given_false: 0.95 # line no longer needed - delete
         to_state: "off" # line no longer needed - delete
