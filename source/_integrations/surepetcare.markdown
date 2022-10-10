@@ -35,7 +35,11 @@ This service lets you change the locking state of a flap.
 | `flap_id` | `True` | integer | Flap ID to change - see below for instructions on finding device ID
 | `lock_state` | `True` | string | New state to change the flap to
 
-`flap_id` can be found following this instructions: Log into [surepetcare.io](https://surepetcare.io/), open the side bar, click your flap and the flap_id will be at the end of the URL (i.e. https://surepetcare.io/control/device/DEVICE-ID)
+The `flap_id` can be found following these instructions:
+
+- Log into [surepetcare.io](https://surepetcare.io/).
+- Open the sidebar and click your flap.
+- The `flap_id` will be at the end of the URL (i.e., `https://surepetcare.io/control/device/FLAP-ID`)
 
 `lock_state` should be one of:
 
