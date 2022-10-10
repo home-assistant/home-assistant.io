@@ -3,12 +3,16 @@ title: Jellyfin
 description: Instructions on how to integrate the Jellyfin integration into Home Assistant.
 ha_category:
   - Media Source
+  - Sensor
 ha_release: '2021.12'
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@j-stienstra'
+  - '@ctalkington'
 ha_config_flow: true
 ha_domain: jellyfin
+ha_platforms:
+  - sensor
 ha_integration_type: integration
 ---
 
