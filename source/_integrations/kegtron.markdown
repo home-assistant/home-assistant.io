@@ -15,12 +15,12 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
+Integrates [Kegtron](https://kegtron.com/) Smart Keg Monitor (Gen 1) devices into Home Assistant.
+
 Supported devices:
 
 - KT-100
 - KT-200
-
-Integrates [Kegtron](https://kegtron.com/) Smart Keg Monitor (Gen 1) devices into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
