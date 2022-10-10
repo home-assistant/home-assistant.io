@@ -13,7 +13,7 @@ ha_integration_type: integration
 
 The `free_mobile` platform uses the French mobile operator [Free Mobile](http://mobile.free.fr/) to send SMS to your own cell phone.
 
-## Setup
+## Prerequisites
 
 Before doing anything, you have to activate the SMS API option in your Free Mobile account (In "Gérer mon compte -> Mes Options"). Activating this option will automatically generate a token which is required in your configuration.
 
