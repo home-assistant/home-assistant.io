@@ -130,7 +130,7 @@ Advantages:
 Disadvantages:
 
  - If it does not also support polling, home automation will not be made aware of the state after booting up until it changes.
- - If using deep sleep and WiFi, it will suffer a delay when waking up because connecting to WiFi and receiving an IP takes time.
+ - If using deep sleep and Wi-Fi, it will suffer a delay when waking up because connecting to WiFi and receiving an IP takes time.
 
 
 ## Control
