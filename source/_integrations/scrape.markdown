@@ -137,7 +137,7 @@ sensor:
 
 ### Get a value out of a tag
 
-The German [Federal Office for Radiation protection (Bundesamt für Strahlenschutz)](http://www.bfs.de/) is publishing various details about optical radiation including an UV index. This example is getting the index for a region in Germany.
+The German [Federal Office for Radiation protection (Bundesamt für Strahlenschutz)](https://www.bfs.de/) is publishing various details about optical radiation including an UV index. This example is getting the index for a region in Germany.
 
 ```yaml
 # Example configuration.yaml entry
