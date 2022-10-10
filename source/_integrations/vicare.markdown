@@ -15,6 +15,7 @@ ha_platforms:
   - climate
   - diagnostics
   - sensor
+  - switch
   - water_heater
 ha_dhcp: true
 ha_integration_type: integration
@@ -29,6 +30,7 @@ There is currently support for the following device types within Home Assistant:
 - [Water Heater](#water-heater) (Domestic Hot Water)
 - [Sensor](#sensor) (Sensor)
 - [Button](#button) (Button)
+- [Switch](#switch) (Switch)
 
 {% include integrations/config_flow.md %}
 
@@ -132,6 +134,10 @@ Sets the target temperature of domestic hot water to the given temperature.
 
 Additional data from ViCare is available as separate sensors. The sensors are automatically discovered based on the available API data points.
 
+## Switch
+
+A switch entity is created to enable or cancel one-time charging the domestic hot water (DHW), if your device supports this.
+
 ## Button
 
-Button entities are available for triggering like a one-time charge of the water heater.
+Previously, the DHW one-time-charging was only available as a button which should no longer be used in your setup. Prefer the switch entity (see above).
