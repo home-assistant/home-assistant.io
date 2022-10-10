@@ -31,9 +31,9 @@ To use the manual method, first you would need to obtain an authorization code (
 
 1. Open [this URL](https://accounts.google.com/o/oauth2/programmatic_auth?scope=https%3A%2F%2Fwww.google.com%2Faccounts%2FOAuthLogin+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&client_id=936475272427.apps.googleusercontent.com&device_name=hangups) in your browser.
 2. Log into your Google account normally.
-3. You will be redirected to a loading screen that continues loading indefinitely.
+3. You should be redirected to a loading screen that continues loading indefinitely.
 
-The authorization code is stored as `oauth_code` cookie value on this page.
+The authorization code is stored as `oauth_code` cookie value on this page. To obtain this value, continue with the steps below:
 
 *Note:* If the `oauth_code` cookie is not showing in Chrome, try Firefox.
 
@@ -41,7 +41,6 @@ The authorization code is stored as `oauth_code` cookie value on this page.
 5. Select the "Application" (Chrome) or "Storage" (Firefox) tab.
 6. In the sidebar, expand "Cookies" and select `https://accounts.google.com`
 7. In the cookie list, double click on the value for the `oauth_code` cookie to select it, and copy the value (this is the authorization code).
-
 
 <div class='note'>
 You can't write messages to yourself or get notifications in a group, if "you" write the message. The best way is to create a new Google Chat account for this integration.<br>
