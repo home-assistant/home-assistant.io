@@ -110,7 +110,7 @@ These devices have been sold under at least the following brands:
 - Mowelai
 - Nexlux
 - OBSESS
-- [Offdarks](http://offdarks.net)
+- Offdarks
 - PH LED
 - PHOPOLLO
 - [Pin Stadium Pinball Lights](https://pinstadium.com/)
