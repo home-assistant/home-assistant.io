@@ -72,7 +72,7 @@ The following controls are available:
 
 **Service `load_url`**
 
-You can use the service `fully_kiosk/load_url` to have the tablet open the specified URL.
+You can use the service `fully_kiosk.load_url` to have the tablet open the specified URL.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
