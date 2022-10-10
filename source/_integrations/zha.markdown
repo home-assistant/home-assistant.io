@@ -67,6 +67,16 @@ There is currently support for the following device types within Home Assistant:
 
 There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a group before the group entity is created. As well as support for binding/unbinding (i.e. bind a remote to a lightbulb or group).
 
+## Introduction
+
+ZHA integration follows the official Zigbee specification standards and uses one Zigbee Coordinator to set up and control a Zigbee network. Once ZHA has been installed and the Zigbee Coordinator is configured you will be able to directly join/pair Zigbee Router Device and Zigbee End Device products to that Zigbee network, regardless of the manufacturer and brand of that Zigbee-based product. Please see the respective sections below for compatible Zigbee radio modules hardware (physical radio adapter) and information on supported Zigbee devices.
+
+Before installing the integration you will need to buy and connect a Zigbee Coordinator adapter to the computer running the Home Assistant installation. The general recommendation is to buy a newer model of Zigbee Coordinator adapter hardware and to flash the latest firmware to it, the reason that is it will usually offer better interoperability with all functions of most Zigbee 3.0 compliant devices on the market. 
+
+Supported devices are Zigbee Router Devices, which are normally mains-powered that act as Zigbee signal repeaters within the Zigbee network mesh to extend its range and improve coverage, and Zigbee End Devices, which will not act as Zigbee signal repeaters and are usually but not always battery-operated sensors. ZHA does not yet support "Zigbee Green Power" devices, (such as for example "Friends of Hue" battery-less switches), nor "Zigbee Smart Energy" devices (as "Zigbee SE" is not part of the Zigbee 3.0 specification standard).
+
+Note that ZHA only supports connecting one dedicated Zigbee Coordinator adapter with a single Zigbee network and that the Zigbee Coordinator adapter cannot already be connected or used by any other application. Any devices that are or have previously been connected to another Zigbee implementation will also need to first be reset to their factory default settings before they can be paired/joined to ZHA, please see each device manufacturer's documentation.
+
 ## Compatible hardware
 
 ZHA integration uses a hardware independent Zigbee stack implementation with modular design, which means that it can support any one of the many Zigbee coordinator radio modules/adapters available from different manufacturers, as long as that module/adapter is compatible with [zigpy](https://github.com/zigpy/zigpy).
