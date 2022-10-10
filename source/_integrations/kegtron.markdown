@@ -17,8 +17,13 @@ ha_integration_type: integration
 
 Integrates [Kegtron](https://kegtron.com/) Smart Keg Monitor (Gen 1) devices into Home Assistant.
 
+Supported devices:
+
+- KT-100
+- KT-200
+
 {% include integrations/config_flow.md %}
 
 The Kegtron integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
-The integration only supports Smart Keg Monitor devices of the 1st generation (KT-100 and KT-200), which communicate data with Bluetooth LE.
+The integration only supports Smart Keg Monitor devices of the 1st generation, which communicate via Bluetooth LE.
