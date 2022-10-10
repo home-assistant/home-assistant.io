@@ -1,5 +1,5 @@
 ---
-title: 棉花糖智能
+title: mhtzn
 description: Instructions on how to setup mhtzn with Home Assistant.
 ha_category:
   - Energy
@@ -16,16 +16,17 @@ ha_platforms:
   - scene
 ha_integration_type: integration
 ---
+## Add an integration method
 
 ### step1
-> Select or enter and select [棉花糖智能]
+Select or enter and select [mhtzn]
 ### step2
-> Select the type of intelligent lighting control: single lamp/lamp group, click [Submit]
->
-> Single Light: Control smart lights by a single device
->
-> Light Groups: Control smart lights by room and light group
+Select the type of intelligent lighting control: single lamp/lamp group, click [Submit]
+
+Single Light: Control smart lights by a single device
+
+Light Groups: Control smart lights by room and light group
 ### step3
-> Select a scanned gateway and click [Submit]
->
-> Once complete you can sync the devices in the 棉花糖智能 APP to HomeAssistantvoy` with the last 6 digits of the unit's serial number as password. See [the enphase documentation](https://www4.enphase.com/en-us/support/faq/what-username-and-password-administration-page-envoy-local-interface) for more details on other units.
+Select a scanned gateway and click [Submit]
+
+Once complete you can sync the devices in the mhtzn APP to HomeAssistantvoy` with the last 6 digits of the unit's serial number as password. See [the enphase documentation](https://www4.enphase.com/en-us/support/faq/what-username-and-password-administration-page-envoy-local-interface) for more details on other units.
