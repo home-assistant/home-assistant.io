@@ -30,12 +30,12 @@
 
     {%- if page.ha_quality_scale %}
       {% if page.ha_iot_class %}
-        and
+        and it
       {% else %}
         It
       {% endif %}
       scores {{page.ha_quality_scale}} on our <a href='/docs/quality_scale/'>quality scale</a>
-    {%- endif -%}.
+    {%- endif -%}{%- if page.ha_quality_scale or page.ha_iot_class %}.{%- endif -%}
   </div>
 
   {% if page.works_with %}

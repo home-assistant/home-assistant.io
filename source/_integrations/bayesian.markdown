@@ -73,6 +73,10 @@ name:
   required: false
   type: string
   default: Bayesian Binary Sensor
+device_class:
+  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 observations:
   description: The observations which should influence the probability that the given event is occurring.
   required: true
@@ -174,6 +178,7 @@ Finally, here's an example for `template` observation platform, as seen in the c
 binary_sensor:
   name: "Paulus Home"
   platform: "bayesian"
+  device_class: "presence"
   prior: 0.5
   probability_threshold: 0.9
   observations:

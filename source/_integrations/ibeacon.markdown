@@ -20,7 +20,7 @@ ha_codeowners:
 
 {% include integrations/config_flow.md %}
 
-iBeacons are Bluetooth-enabled devices that advertise identifiers to announce their location. For example, an iBeacon attached to a trash can be used to determine if the trash can is in the garage or on the street. Home Assistant can estimate the distance of an iBeacon device in proximity to the nearest Bluetooth adapter.
+iBeacons are Bluetooth-enabled devices that advertise identifiers to announce their location. For example, an iBeacon attached to a trash can can be used to determine if the trash can is in the garage or on the street. Home Assistant can estimate the distance of an iBeacon device in proximity to the nearest Bluetooth adapter.
 
 iBeacon devices will be automatically detected and added as they are discovered once the integration has been added via the UI and the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
@@ -40,6 +40,10 @@ Consider setting up your iBeacons with a schema similar to the following:
 - uuid=UUID major=3000 minor=1000 Attic
 
 iBeacon devices that do not have stable Major and Minor values are not supported. The system automatically removes iBeacon devices with unstable Major and Minor values once ten (10) or more Major and Minor values have been seen with the same UUID from an iBeacon device with a fixed MAC address.
+
+## Considering an iBeacon Away
+
+Due to various factors such as individual system settings and iBeacon firmware, iBeacons will not be marked as "Away" immediately. This could take several minutes.
 
 ## Fixed MAC addresses
 
