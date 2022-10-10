@@ -84,7 +84,7 @@ Example:
 ```yaml
 service: fully_kiosk.load_url
 data:
-  url: https://home-assistant.io
+  url: "https://home-assistant.io"
 target:
   device_id: a674c90eca95eca91f6020415de07713
 ```
