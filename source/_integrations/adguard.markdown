@@ -101,7 +101,6 @@ Removes a block filter subscription from AdGuard Home.
 | ---------------------- | -------- | -------------------------------------- |
 | `url`                  | No       | The filter subscription URL to remove. |
 
-
 ### Service `enable_url`
 
 Enables a filter subscription in AdGuard Home.
