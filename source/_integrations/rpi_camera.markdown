@@ -76,7 +76,7 @@ overlay_metadata:
   type: integer
   default: none
 overlay_timestamp:
-  description: Helper to add date/time onto the picture. Format as used by [`strftime`](http://man7.org/linux/man-pages/man3/strftime.3.html).
+  description: Helper to add date/time onto the picture. Format as used by [`strftime`](https://man7.org/linux/man-pages/man3/strftime.3.html).
   required: false
   type: string
   default: none

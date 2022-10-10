@@ -83,7 +83,7 @@ $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /h
 
 #### Serial to network proxies:
 
-- [ser2net](http://ser2net.sourceforge.net)
+- [ser2net](https://ser2net.sourceforge.net)
 - [WIZnet WIZ110SR](https://www.wiznet.io/product-item/wiz110sr/)
 
 DIY solutions (ESP8266 based):
