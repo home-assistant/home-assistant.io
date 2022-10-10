@@ -29,7 +29,7 @@ If you disable and re-enable the SMS API option, please be sure to update your t
 
 ## Configuration
 
-To enable SMS notifications, add the following lines to your `configuration.yaml`:
+To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
