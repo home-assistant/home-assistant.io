@@ -1,5 +1,6 @@
 ---
 title: Device Automation
+description: Information about the Device Automation plugin.
 ha_category:
   - Automation
 ha_release: 0.7

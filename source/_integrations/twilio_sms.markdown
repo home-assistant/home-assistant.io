@@ -1,6 +1,6 @@
 ---
 title: Twilio SMS
-description: Instructions on how to add user notifications to Home Assistant.
+description: Instructions on how to add Twilio SMS notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_release: '0.20'
@@ -11,9 +11,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `twilio` notification platform enables sending notifications via SMS, powered by [Twilio](https://twilio.com).
+The `twilio_sms` notification platform enables sending notifications via SMS, powered by [Twilio](https://twilio.com).
 
 The requirement is that you have setup [Twilio](/integrations/twilio/).
+
+## Configuration
 
 To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
@@ -39,7 +41,7 @@ name:
 
 ### Usage
 
-Twilio is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to all E.164 phone numbers in the notification **target**. See the notes above regarding the `from_number` configuration variable for information about formatting phone numbers. It's also possible to use `whatsapp:+123456789` for sending notifications to a Whatsapp user.
+Twilio is a notification platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to all E.164 phone numbers in the notification **target**. See the notes above regarding the `from_number` configuration variable for information about formatting phone numbers. It's also possible to use `whatsapp:+123456789` for sending notifications to a Whatsapp user.
 
 Media can be included with messages by setting the optional `media_url` variable. Only `.gif`, `.png`, or `.jpeg` content are supported, according to the Twilio documentation and this feature is [only supported in the US and Canada.][mms]
 
