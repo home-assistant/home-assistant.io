@@ -15,7 +15,7 @@ The `MessageBird` notification platform sends notifications as SMS messages usin
 
 ## Setup
 
-Go to https://www.messagebird.com/ to retrieve your API key.
+Go to [MessageBird](https://www.messagebird.com/) to retrieve your API key.
 
 ## Configuration
 
