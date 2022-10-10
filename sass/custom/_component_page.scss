@@ -12,6 +12,13 @@
       border-color: #7c7c7c #c3c3c3 #ddd;
     }
   }
+
+  .filter-title {
+    background-color: #6ab0de;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
 }
 
 @media only screen and (max-width: $palm-end) {
@@ -28,6 +35,11 @@
   #components-page {
     .filter-button-group {
       margin-bottom: 16px;
+
+      .filter-title {
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
 
       .btn {
         display: inline-block;
@@ -48,6 +60,11 @@
     .filter-button-group {
       .active {
         font-weight: bold;
+      }
+
+      .filter-title {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
       }
 
       .featured {
