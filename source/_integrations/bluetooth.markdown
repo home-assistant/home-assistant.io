@@ -119,7 +119,7 @@ Many integrations require active scanning and may not function when scanning is 
 
 ## Remote adapters
 
-The Bluetooth integration supports receiving advertisement data from external adapters for devices and sensors that do not need an active connection. The number of remote scanners is limited only by the performance of the host system.
+The Bluetooth integration supports receiving advertisement data from external adapters for devices and sensors that do not need an active connection, as well as establishing active connections. The number of remote scanners is limited only by the performance of the host system.
 
 The following remote adapters are supported:
 
