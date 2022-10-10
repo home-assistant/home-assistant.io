@@ -14,7 +14,7 @@ Until recently, 700 series Z-Wave Controllers had a bug that could cause the mes
 Users should upgrade the firmware on all 700 series controllers to version 7.17.2 or greater. Firmware can be upgraded using the below directions:
 
 - [Upgrade instructions using Linux](https://github.com/kpine/zwave-js-server-docker/wiki/700-series-Controller-Firmware-Updates-(Linux))
-- [Upgrade instructions using Windows (Aeotec)](https://help.aeotec.com/support/solutions/articles/6000252296-update-z-stick-7-with-windows)
+- [Upgrade instructions using Windows (Aeotec)](https://aeotec.freshdesk.com/support/solutions/articles/6000252296-update-z-stick-7-with-windows)
 - [Upgrade instructions using Windows (Zooz)](https://www.support.getzooz.com/kb/article/931-how-to-perform-an-ota-firmware-update-on-your-zst10-700-z-wave-stick/)
 - [Upgrade instructions using Windows/Linux (Z-Wave.Me)](https://z-wave.me/support/uzbrazberry-firmwares/)
 
@@ -42,7 +42,7 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
   - Z-Wave.Me RaZberry 7 Pro (700 series)
   - Z-Wave.Me Razberry 2 (500 series)
 
-If you are just starting out, we recommend that you purchase a 500 series controller.
+If you are just starting out, we recommend that you purchase a 700 series controller.
 
 <div class='note'>
   If you're using Home Assistant OS, Supervised, or Container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.

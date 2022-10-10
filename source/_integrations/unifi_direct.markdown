@@ -1,5 +1,5 @@
 ---
-title: Ubiquiti UniFi AP
+title: UniFi AP
 description: Instructions on how to use a Unifi WAP as a device tracker.
 ha_category:
   - Presence Detection

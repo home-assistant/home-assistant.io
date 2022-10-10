@@ -7,7 +7,7 @@ ha_quality_scale: internal
 ha_category: []
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 The calendar integration allows you to integrate your calendars into Home Assistant. Calendars are shown on the calendar dashboard, and can be used with automations.

@@ -42,6 +42,7 @@ These devices have been sold under many brands, including:
 - ILC
 - LEDBlue
 - LED BLE
+- Magic Blue
 - MCWOFI
 - PHOPOLLO
 - RESHAKE

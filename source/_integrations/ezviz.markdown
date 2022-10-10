@@ -1,6 +1,6 @@
 ---
-title: Ezviz
-description: Integrate Ezviz camera within Home Assistant.
+title: EZVIZ
+description: Integrate EZVIZ camera within Home Assistant.
 ha_release: 0.107
 ha_category:
   - Camera
@@ -18,10 +18,10 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `ezviz` sensor platform uses the EzvizLife API to interact with the devices.
+The `ezviz` sensor platform uses the ezvizlife.com API to interact with the devices.
 It also exposes an RTSP stream, by using the local camera IPs (so the device hosting Home Assistant has to be able to access the local IP of the cameras).
 
-As there is no official documentation for the API, the component retrieves data from the API used in the Ezviz mobile app, [hosted here](https://apiieu.ezvizlife.com).
+As there is no official documentation for the API, the component retrieves data from the API used in the EZVIZ mobile app, [hosted here](https://apiieu.ezvizlife.com).
 
 The password for each camera is usually written near the QR code. This could be underneath the device or in the user manual. It is usually referred to as the camera "verification code".
 
@@ -33,7 +33,7 @@ You can also change the camera options should you need to access a high or low r
 
 ### Service `ezviz.alarm_sound`
 
-If your Ezviz camera supports warning sounds, you can use this service to set the intensity.
+If your EZVIZ camera supports warning sounds, you can use this service to set the intensity.
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
@@ -42,7 +42,7 @@ If your Ezviz camera supports warning sounds, you can use this service to set th
 
 ### Service `ezviz.ptz`
 
-If your Ezviz camera supports PTZ, you will be able to pan or tilt your camera.
+If your EZVIZ camera supports PTZ, you will be able to pan or tilt your camera.
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
@@ -52,7 +52,7 @@ If your Ezviz camera supports PTZ, you will be able to pan or tilt your camera.
 
 ### Service `ezviz.set_alarm_detection_sensibility`
 
-If your Ezviz camera supports motion detection, you will be able to set the sensitivity level using this service.
+If your EZVIZ camera supports motion detection, you will be able to set the sensitivity level using this service.
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
@@ -62,7 +62,7 @@ If your Ezviz camera supports motion detection, you will be able to set the sens
 
 ### Service `ezviz.sound_alarm`
 
-If your Ezviz camera has a built-in siren, you can use this service to make a noise.
+If your EZVIZ camera has a built-in siren, you can use this service to make a noise.
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
