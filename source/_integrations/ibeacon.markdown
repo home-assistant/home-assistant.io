@@ -43,7 +43,7 @@ iBeacon devices that do not have stable Major and Minor values are not supported
 
 ## Considering an iBeacon Away
 
-Due to various factors such as individual system settings and iBeacon firmware, iBeacons may not be marked as "Away" immediately. This could take several minutes.
+Due to various factors such as individual system settings and iBeacon firmware, iBeacons will not be marked as "Away" immediately. This could take several minutes.
 
 ## Fixed MAC addresses
 
