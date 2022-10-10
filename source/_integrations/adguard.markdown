@@ -61,28 +61,46 @@ AdGuard relies on Query Log to provide stats.
 ## Services
 
 These services allow one to manage filter subscriptions in AdGuard Home.
-Using these services in automations could be helpful to block certain
+Using these services in automations could be helpful to block/unblock certain
 sites/domains at certain times.
 
 For example, you could create a custom filter list that blocks social media sites
 during the day and releases them during the evening.
 
-### Service `add_url`
+### Service `add_allow_url`
 
-Add a new filter subscription to AdGuard Home.
+Add a new allow filter subscription to AdGuard Home.
 
 | Service data attribute | Optional | Description                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------ |
 | `name`                 | No       | The name of the filter subscription.                         |
 | `url`                  | No       | The filter URL to subscribe to, containing the filter rules. |
 
-### Service `remove_url`
+### Service `remove_allow_url`
 
-Removes a filter subscription from AdGuard Home.
+Removes an allow filter subscription from AdGuard Home.
 
 | Service data attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
 | `url`                  | No       | The filter subscription URL to remove. |
+
+### Service `add_block_url`
+
+Add a new block filter subscription to AdGuard Home.
+
+| Service data attribute | Optional | Description                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------ |
+| `name`                 | No       | The name of the filter subscription.                         |
+| `url`                  | No       | The filter URL to subscribe to, containing the filter rules. |
+
+### Service `remove_block_url`
+
+Removes a block filter subscription from AdGuard Home.
+
+| Service data attribute | Optional | Description                            |
+| ---------------------- | -------- | -------------------------------------- |
+| `url`                  | No       | The filter subscription URL to remove. |
+
 
 ### Service `enable_url`
 
