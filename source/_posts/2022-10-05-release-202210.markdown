@@ -459,6 +459,59 @@ The following integrations are now available via the Home Assistant UI:
 [webostv docs]: /integrations/webostv/
 [zha docs]: /integrations/zha/
 
+## Release 2022.10.3 - October 10
+
+- Bump pyhiveapi to 0.5.14 ([@KJonline] - [#79530]) ([hive docs]) (dependency)
+- Bump bluetooth-auto-recovery to 0.3.4 ([@bdraco] - [#79971]) ([bluetooth docs]) (dependency)
+- Bump pySwitchbot to 0.19.15 ([@bdraco] - [#79972]) ([switchbot docs]) (dependency)
+- Update to pygtfs 0.1.7 ([@molisani] - [#79975]) ([gtfs docs]) (dependency)
+- Update frontend to 20221010.0 ([@bramkragten] - [#79994]) ([frontend docs])
+- Remove system marker from Supervisor integration ([@frenck] - [#79997]) ([hassio docs])
+- Fix Eve Thermo always showing as heating in homekit_controller even when off ([@Jc2k] - [#80019]) ([homekit_controller docs])
+- Fix armed extra state attribute in fibaro entity ([@rappenze] - [#80034]) ([fibaro docs])
+- Bump aiounifi to v39 ([@Kane610] - [#80043]) ([unifi docs]) (dependency)
+- Fix Netatmo device trigger ([@cgtobi] - [#80047]) ([netatmo docs])
+- Bump ZHA dependencies ([@puddly] - [#80049]) ([zha docs]) (dependency)
+
+[#79530]: https://github.com/home-assistant/core/pull/79530
+[#79659]: https://github.com/home-assistant/core/pull/79659
+[#79751]: https://github.com/home-assistant/core/pull/79751
+[#79949]: https://github.com/home-assistant/core/pull/79949
+[#79971]: https://github.com/home-assistant/core/pull/79971
+[#79972]: https://github.com/home-assistant/core/pull/79972
+[#79975]: https://github.com/home-assistant/core/pull/79975
+[#79994]: https://github.com/home-assistant/core/pull/79994
+[#79997]: https://github.com/home-assistant/core/pull/79997
+[#80019]: https://github.com/home-assistant/core/pull/80019
+[#80034]: https://github.com/home-assistant/core/pull/80034
+[#80043]: https://github.com/home-assistant/core/pull/80043
+[#80047]: https://github.com/home-assistant/core/pull/80047
+[#80049]: https://github.com/home-assistant/core/pull/80049
+[@Jc2k]: https://github.com/Jc2k
+[@KJonline]: https://github.com/KJonline
+[@Kane610]: https://github.com/Kane610
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cgtobi]: https://github.com/cgtobi
+[@frenck]: https://github.com/frenck
+[@molisani]: https://github.com/molisani
+[@puddly]: https://github.com/puddly
+[@rappenze]: https://github.com/rappenze
+[bluetooth docs]: /integrations/bluetooth/
+[bt_smarthub docs]: /integrations/bt_smarthub/
+[fibaro docs]: /integrations/fibaro/
+[frontend docs]: /integrations/frontend/
+[gtfs docs]: /integrations/gtfs/
+[hassio docs]: /integrations/hassio/
+[hive docs]: /integrations/hive/
+[homekit_controller docs]: /integrations/homekit_controller/
+[netatmo docs]: /integrations/netatmo/
+[sensor docs]: /integrations/sensor/
+[switchbot docs]: /integrations/switchbot/
+[unifi docs]: /integrations/unifi/
+[zha docs]: /integrations/zha/
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
