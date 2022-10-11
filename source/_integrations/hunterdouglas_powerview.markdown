@@ -160,6 +160,10 @@ Initiate a calibration of the shade position. Calibration is a common requiremen
 
 Identify will 'jog' the shade position as a diagnostic tool to ensure the shade you are trying to move is both the intended shade and communicating correctly.
 
+### Favorite
+
+Move the shade to the favorite position as programmed physically on the device. This is the will perform the same move as the heart on the pebble remote.
+
 ## Example Automations
 
 ### Calling a Powerview Scene
