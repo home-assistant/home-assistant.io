@@ -58,7 +58,7 @@ If your shade is not listed please raise a feature request on the community foru
 | Curtain, Left Stack (69)                  | Vertical                        |
 | Curtain, Right Stack (70)                 | Vertical                        |
 | Curtain, Split Stack (71)                 | Vertical                        |
-| Facette (43)                              | Bottom Up Tilt 90°              |
+| Facette (43)                              | Bottom Up TiltOnClosed 90°      |
 | Duette (6)                                | Bottom Up                       |
 | Duette, Top Down Bottom Up (8)            | Top Down Bottom Up              |
 | Duette Architella, Top Down Bottom Up (9) | Top Down Bottom Up              |
@@ -66,21 +66,21 @@ If your shade is not listed please raise a feature request on the community foru
 | Duolite Lift (79)                         | Dual Shade Overlapped           |
 | M25T Roller Blind (42)                    | Bottom Up                       |
 | Palm Beach Shutters (66)                  | Tilt Only 180°                  |
-| Pirouette (18)                            | Bottom Up Tilt 90°              |
+| Pirouette (18)                            | Bottom Up TiltOnClosed 90°      |
 | Pleated, Top Down Bottom Up (47)          | Top Down Bottom Up              |
 | Roman (4)                                 | Bottom Up                       |
-| Silhouette (23)                           | Bottom Up Tilt 90°              |
+| Silhouette (23)                           | Bottom Up TiltOnClosed 90°      |
 | Silhouette Duolite (38)                   | Dual Shade Overlapped Tilt 90°  |
 | Skyline Panel, Left Stack (26)            | Vertical                        |
 | Skyline Panel, Right Stack (27)           | Vertical                        |
 | Skyline Panel, Split Stack (28)           | Vertical                        |
 | Top Down (7)                              | Top Down                        |
-| Twist (44)                                | Bottom Up Tilt 180°             |
-| Venetian, Tilt Anywhere (51)              | Bottom Up Tilt 180°             |
-| Venetian, Tilt Anywhere (62)              | Bottom Up Tilt 180°             |
-| Vertical Slats, Left Stack (54)           | Vertical Tilt Anywhere 180°     |
-| Vertical Slats, Right Stack (55)          | Vertical Tilt Anywhere 180°     |
-| Vertical Slats, Split Stack (56)          | Vertical Tilt Anywhere 180°     |
+| Twist (44)                                | Bottom Up TiltOnClosed 180°     |
+| Venetian, Tilt Anywhere (51)              | Bottom Up TiltAnywhere 180°     |
+| Venetian, Tilt Anywhere (62)              | Bottom Up TiltAnywhere 180°     |
+| Vertical Slats, Left Stack (54)           | Vertical TiltAnywhere 180°      |
+| Vertical Slats, Right Stack (55)          | Vertical TiltAnywhere 180°      |
+| Vertical Slats, Split Stack (56)          | Vertical TiltAnywhere 180°      |
 | Vignette Duolite (65)                     | Dual Shade Overlapped           |
 
 ## Capabilities Information
