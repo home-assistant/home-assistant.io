@@ -162,7 +162,7 @@ Identify will 'jog' the shade position as a diagnostic tool to ensure the shade 
 
 ### Favorite
 
-Move the shade to the favorite position as programmed physically on the device. This is the will perform the same move as the heart on the pebble remote.
+Move the shade to the favorite position as programmed physically on the device. This will perform the same move as the heart on the pebble remote.
 
 ## Example Automations
 
