@@ -53,40 +53,35 @@ If your shade is not listed please raise a feature request on the community foru
 
 | Name (Type)                               | Capabilities                    |
 | :---------------------------------------- | :------------------------------ |
-| Roman (4)                                 | Bottom Up                       |
-| Bottom Up (5)                             | Bottom Up                       |
-| Duette (6)                                | Bottom Up                       |
-| Duette, Top Down Bottom Up (8)            | Top Down, Bottom Up             |
-| Duette DuoLite, Top Down Bottom Up (9)    | Top Down, Bottom Up             |
-| Silhouette (18)                           | 90° Tilt when closed            |
-| Silhouette (23)                           | 90° Tilt when closed            |
-| Duette Architella, Top Down Bottom Up (9) | Top Down, Bottom Up             |
-| M25T Roller Blind (42)                    | Bottom Up                       |
-| Facette (43)                              | 90° Tilt when closed            |
-| Twist (44)                                | 180° Tilt when closed           |
-| Pleated, Top Down Bottom Up (47)          | Top Down, Bottom Up             |
 | AC Roller  (49)                           | Bottom Up                       |
-
-### Devices with limited functionality
-
-<div class="note">
-These devices are currently still being tested. We ask you wait patiently while this completes. Until this is completed these may perform basic or slightly odd functionality.
-</div>
-
-| Name (Type)                               | Capabilities                    |
-| :---------------------------------------- | :------------------------------ |
+| Bottom Up (5)                             | Bottom Up                       |
+| Curtain, Left Stack (69)                  | Vertical                        |
+| Curtain, Right Stack (70)                 | Vertical                        |
+| Curtain, Split Stack (71)                 | Vertical                        |
+| Facette (43)                              | Bottom Up Tilt 90°              |
+| Duette (6)                                | Bottom Up                       |
+| Duette, Top Down Bottom Up (8)            | Top Down Bottom Up              |
+| Duette Architella, Top Down Bottom Up (9) | Top Down Bottom Up              |
+| Duette DuoLite, Top Down Bottom Up (9)    | Top Down Bottom Up              |
+| Duolite Lift (79)                         | Dual Shade Overlapped           |
+| M25T Roller Blind (42)                    | Bottom Up                       |
+| Palm Beach Shutters (66)                  | Tilt Only 180°                  |
+| Pirouette (18)                            | Bottom Up Tilt 90°              |
+| Pleated, Top Down Bottom Up (47)          | Top Down Bottom Up              |
+| Roman (4)                                 | Bottom Up                       |
+| Silhouette (23)                           | Bottom Up Tilt 90°              |
+| Silhouette Duolite (38)                   | Dual Shade Overlapped Tilt 90°  |
+| Skyline Panel, Left Stack (26)            | Vertical                        |
+| Skyline Panel, Right Stack (27)           | Vertical                        |
+| Skyline Panel, Split Stack (28)           | Vertical                        |
 | Top Down (7)                              | Top Down                        |
-| Silhouette Duolite (38)                   | Dual Shade Blackout + 90° Tilt  |
-| Venetian, Tilt Anywhere (51)              | 180° Tilt Anywhere              |
-| Vertical Slats, Left Stack (54)           | 180° Tilt when closed, Vertical |
-| Vertical Slats, Right Stack (55)          | 180° Tilt when closed, Vertical |
-| Vertical Slats, Split Stack (56)          | 180° Tilt when closed, Vertical |
-| Venetian, Tilt Anywhere (62)              | 180° Tilt Anywhere, Vertical    |
-| Vignette Duolite (65)                     | Dual Shade Blackout             |
-| Curtain, Left Stack (69)                  | 180° Tilt when closed, Vertical |
-| Curtain, Right Stack (70)                 | 180° Tilt when closed, Vertical |
-| Curtain, Split Stack (71)                 | 180° Tilt when closed, Vertical |
-| Duolite Lift (79)                         | Dual Shade Blackout 90° Tilt    |
+| Twist (44)                                | Bottom Up Tilt 180°             |
+| Venetian, Tilt Anywhere (51)              | Bottom Up Tilt 180°             |
+| Venetian, Tilt Anywhere (62)              | Bottom Up Tilt 180°             |
+| Vertical Slats, Left Stack (54)           | Vertical Tilt Anywhere 180°     |
+| Vertical Slats, Right Stack (55)          | Vertical Tilt Anywhere 180°     |
+| Vertical Slats, Split Stack (56)          | Vertical Tilt Anywhere 180°     |
+| Vignette Duolite (65)                     | Dual Shade Overlapped           |
 
 ## Capabilities Information
 
@@ -100,7 +95,7 @@ These shades offer only the simple up/down movement of your conventional shades.
 
 These shades offer a unique movement that is inverse to your conventional shade, where the shade is fixed to the floor and lowered from the roof.
 
-### Top Down, Bottom Up (TDBU)
+### Top Down Bottom Up(TDBU)
 
 TDBU shades consist of two rails controlled by two motors designated by Top and Bottom with fabric in between.
 The Top and Bottom can move independently to cover different parts of the window but cannot pass the other.
