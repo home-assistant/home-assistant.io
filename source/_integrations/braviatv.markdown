@@ -2,6 +2,7 @@
 title: Sony Bravia TV
 description: Instructions on how to integrate a Sony Bravia TV into Home Assistant.
 ha_category:
+  - Button
   - Media Player
   - Remote
 ha_release: 0.23
@@ -12,204 +13,78 @@ ha_codeowners:
 ha_domain: braviatv
 ha_config_flow: true
 ha_platforms:
+  - button
   - media_player
   - remote
+ha_ssdp: true
 ha_integration_type: integration
 ---
 
-The `braviatv` platform allows you to control a [Sony Bravia TV](https://www.sony.com/).
+The Bravia TV integration allows you to control a [Sony Bravia TV](https://www.sony.com/).
 
-Almost all [Sony Bravia TV 2013 and newer](https://info.tvsideview.sony.net/en_ww/home_device.html#bravia) are supported. A more generic method for older TVs connected to a Raspberry Pi with HDMI-CEC is explained further [below](#for-tvs-older-than-2013).
+Almost all [Sony Bravia TV 2013 and newer](https://info.tvsideview.sony.net/en_ww/home_device.html#bravia) are supported. For older TVs see more generic methods to control your device [below](#for-tvs-older-than-2013).
 
 {% include integrations/config_flow.md %}
 
+## Authentication
+
+The Bravia TV integration supports two types of authentication:
+
+- **PSK (Pre-Shared-Key)** is a user-defined secret key used for access control. This authentication method is recommended as more reliable and stable. To set up and enable PSK on your TV, go to: **Settings -> Network -> Home Network Setup -> IP Control**.
+- **PIN Code** authentication is easier and does not require additional settings.
+
+For more information, see [IP Control Authentication](https://pro-bravia.sony.net/develop/integrate/ip-control/index.html#ip-control-authentication).
+
 ## Common Issues
-
-### Previous Configurations
-
-To ensure a clean re-configuration, please perform the following steps:
-
-- Remove the entities you are reconfiguring from Home Assistant.
-- Restart Home Assistant.
-- Perform the [TV does not generate new pin](#tv-does-not-generate-new-pin) steps.
-- Retry [configuration](#configuration).
 
 ### TV does not generate new pin
 
-If you have previously set up your TV with any Home Assistant instances, you must remove Home Assistant from your TV in order for your TV to generate a new pin. To do this, you must do **one** of the following:
+If you have previously set up your TV with any Home Assistant instances via PIN code, you must remove Home Assistant from your TV in order for your TV to generate a new pin. To do this, you must do **one** of the following:
 
 - On your TV, go to: **Settings** -> **Network** -> **Remote device settings** -> **Deregister remote device**. Disable and re-enable the **Control remotely** after. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidance.
 - Reset your TV to factory condition.
 
 ## Remote
 
-When the integration is configured, two entities will be created: a `media_player` and a `remote`. The remote allows you to send key commands to your TV with the `remote.send_command` service.
+The integration supports `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` service.
 
-Some of the known valid key values are (may depend on your TV model):
+The commands that can be sent to the TV depends on the model of your TV. To display a list of supported commands for your TV, call the service `remote.send_command` with non-valid command (e.g. `Test`). A list of available commands will be displayed in [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs).
 
-- `Num1`
-- `Num2`
-- `Num3`
-- `Num4`
-- `Num5`
-- `Num6`
-- `Num7`
-- `Num8`
-- `Num9`
-- `Num0`
-- `Num11`
-- `Num12`
-- `Enter`
-- `GGuide`
-- `ChannelUp`
-- `ChannelDown`
-- `VolumeUp`
-- `VolumeDown`
-- `Mute`
-- `TvPower`
-- `Audio`
-- `MediaAudioTrack`
-- `Tv`
-- `Input`
-- `TvInput`
-- `TvAntennaCable`
-- `WakeUp`
-- `PowerOff`
-- `Sleep`
-- `Right`
-- `Left`
-- `SleepTimer`
-- `Analog2`
-- `TvAnalog`
-- `Display`
-- `Jump`
-- `PicOff`
-- `PictureOff`
-- `Teletext`
-- `Video1`
-- `Video2`
-- `AnalogRgb1`
-- `Home`
-- `Exit`
-- `PictureMode`
-- `Confirm`
-- `Up`
-- `Down`
-- `ClosedCaption`
-- `Component1`
-- `Component2`
-- `Wide`
-- `EPG`
-- `PAP`
-- `TenKey`
-- `BSCS`
-- `Ddata`
-- `Stop`
-- `Pause`
-- `Play`
-- `Rewind`
-- `Forward`
-- `DOT`
-- `Rec`
-- `Return`
-- `Blue`
-- `Red`
-- `Green`
-- `Yellow`
-- `SubTitle`
-- `CS`
-- `BS`
-- `Digital`
-- `Options`
-- `Media`
-- `Prev`
-- `Next`
-- `DpadCenter`
-- `CursorUp`
-- `CursorDown`
-- `CursorLeft`
-- `CursorRight`
-- `ShopRemoteControlForcedDynamic`
-- `FlashPlus`
-- `FlashMinus`
-- `DemoMode`
-- `Analog`
-- `Mode3D`
-- `DigitalToggle`
-- `DemoSurround`
-- `AD`
-- `AudioMixUp`
-- `AudioMixDown`
-- `PhotoFrame`
-- `Tv_Radio`
-- `SyncMenu`
-- `Hdmi1`
-- `Hdmi2`
-- `Hdmi3`
-- `Hdmi4`
-- `TopMenu`
-- `PopUpMenu`
-- `OneTouchTimeRec`
-- `OneTouchView`
-- `DUX`
-- `FootballMode`
-- `iManual`
-- `Netflix`
-- `Assists`
-- `FeaturedApp`
-- `FeaturedAppVOD`
-- `GooglePlay`
-- `ActionMenu`
-- `Help`
-- `TvSatellite`
-- `WirelessSubwoofer`
-- `AndroidMenu`
+{% details "Some commonly used commands" %}
 
-## Extra configuration for the integration
+- Up
+- Down
+- Left
+- Right
+- Confirm
+- Return
+- Home
+- Exit
+- Rewind
+- Forward
+- ActionMenu
+- SyncMenu
+- Num0
+- Num1
+- Num2
+- Num3
+- Num4
+- Num5
+- Num6
+- Num7
+- Num8
+- Num9
 
-The integration allows you to change ignored TV sources from the front end. Enter which Sony Bravia TV integration you want to change options on and press the cog wheel.
+{% enddetails %}
 
-### For TVs older than 2013
+## Buttons
 
-<div class='note warning'>
+The integration supports `button` platform and allows you to reboot the device or terminate all running applications.
 
-This is not part of the Bravia TV integration. Extra Configuration does not apply to the steps below.
+{% include integrations/option_flow.md %}
 
-</div>
+The integration allows you to customize the list of ignored sources.
 
-Users of TVs older than 2013 have another option for controlling their TV via Home Assistant.
+## For TVs older than 2013
 
-### Using HDMI-CEC
-
-If you have a Raspberry Pi connected to your TV:
-
-{% raw %}
-
-```yaml
-switch:
-  - platform: command_line
-    switches:
-      tv_rpi:
-        command_on: ssh root@[IP] "echo 'on 0' | cec-client -s"
-        command_off: ssh root@[IP] "echo 'standby 0' | cec-client -s"
-        command_state: ssh root@[IP] "echo 'pow 0' | cec-client -s |grep 'power status:'"
-        value_template: '{{ value == "power status: on" }}'
-```
-
-{% endraw %}
-
-Using `cec-client` is a great method to turn your TV off/on, however the trade off is if you're using Kodi, it will no longer be able to control your TV using the TV Remote.
-
-This is because only one process can control the CEC functionality within the Raspberry Pi at a time and running the above commands terminates the functionality inside libCEC within Kodi. Kodi must be restarted for TV remove functionality to work again.
-
-#### Workaround
-
-If your desire is only to turn on your TV, the following "workaround" may be desirable:
-
-Change the 'on' command to a restart for Kodi. This doesn't reboot the Kodi device.
-
-Restarting Kodi will trigger a HDMI-CEC event to bring the TV out of standby. The following can replace your TV 'on' command.
-
-```yaml
-command_on: ssh root@[IP] "systemctl restart kodi"
-```
+Users of TVs older than 2013 can control their devices using [HDMI-CEC](/integrations/hdmi_cec/), [Broadlink](/integrations/broadlink/) or [Kodi](/integrations/kodi/) integrations.

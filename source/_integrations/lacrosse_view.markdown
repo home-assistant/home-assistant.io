@@ -1,10 +1,10 @@
 ---
-title: "LaCrosse View"
-description: "Get data for LaCrosse View-connected sensors"
-ha_release: "2022.6"
-ha_category: Sensor
-ha_iot_class: "Cloud Polling"
-ha_quality_scale: platinum
+title: LaCrosse View
+description: Get data for LaCrosse View-connected sensors
+ha_release: '2022.9'
+ha_category:
+  - Sensor
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@IceBotYT'
@@ -15,6 +15,8 @@ ha_integration_type: integration
 ---
 
 [**LaCrosse View**](https://www.lacrossetechnology.com/pages/la-crosse-view) is the service provided by LaCrosse Technology that allows access to LaCrosse sensors.
+
+It is also available in Europe as [**TFA View**](https://www.tfa-dostmann.de/en/produkte/weather-stations/wifi-weather-stations/).
 
 <div class='note'>
 
