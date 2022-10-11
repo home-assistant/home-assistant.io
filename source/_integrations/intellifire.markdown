@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Climate
   - Fan
+  - Number
   - Sensor
   - Switch
 ha_iot_class: Local Polling
@@ -17,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - fan
+  - number
   - sensor
   - switch
 ha_dhcp: true
