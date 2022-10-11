@@ -91,14 +91,13 @@ These shades offer only the simple up/down movement of your conventional shades.
 
 ### Top Down
 
-<div class="note">Full functionality not currently implemented</div>
-
 These shades offer a unique movement that is inverse to your conventional shade, where the shade is fixed to the floor and lowered from the roof.
 
 ### Top Down Bottom Up(TDBU)
 
 TDBU shades consist of two rails controlled by two motors designated by Top and Bottom with fabric in between.
 The Top and Bottom can move independently to cover different parts of the window but cannot pass the other.
+
 Two different entities that will be created for each blind: Top and Bottom.
 
 #### Top entity
@@ -121,15 +120,35 @@ Shades with Tilt when closed functionality only allow a shade to tilt when it is
 
 ### Tilt Anywhere
 
-<div class="note">Full functionality not currently implemented</div>
-
 These shades can tilt in any position and do not require the shade to be open or closed to adjust the tilt position.
 
-### Dual Shade Blackout
+### Dual Shade Blockout
 
-<div class="note">Full functionality not currently implemented</div>
+These shades consist of two pieces of fabric attached to a single rail. The front shade is sheer, with the rear being blockout, and neither panel can move independently from the other.
 
-These shades consist of two pieces of fabric attached to a single rail. The front shade is sheer, with the rear being blackout, and neither panel can move independently from the other.
+Three different entities that will be created for each blind: Front, Rear and Combined.
+
+#### Front entity
+
+- 'Up/Open' will move the front shade to the ceiling
+- 'Down/Close' will move the front shade to the floor
+- As the positioning of the front requires the rear blockout to be fully opened any move will force the rear shade to be opened
+
+#### Rear entity
+
+- 'Up/Open' will move the rear shade to the ceiling
+- 'Down/Close' will move the rear shade to the floor
+- As the positioning of the rear requires the front sheer to be fully closed any move will force the front shade to be closed
+
+#### Combined entity
+
+- 'Up/Open' will move the front and rear shades to the ceiling
+- 'Down/Close' will move the front and rear shades to the floor
+- This entity combines movement for two entities in one
+  - 0-50 represents the rear shade
+  - 51-100 represents the front shade
+- Tilt functionality will also be present on this entity for shades that support tilt
+  - When Tilted the front sheer needs to be fully closed, this will happen automatically
 
 ## Buttons
 
