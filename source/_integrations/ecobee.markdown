@@ -84,7 +84,7 @@ You must [restart Home Assistant](/docs/configuration/#reloading-changes) for th
 
 ## Notifications
 
-The `ecobee` notify platform allows you to send notifications to an Ecobee thermostat. The `target` parameter of the service call is required to specify the index of the recepient thermostat. The index values assigned to the thermostats are consecutive integers, starting at 0.
+The `ecobee` notify platform allows you to send notifications to an ecobee thermostat. The `target` parameter of the service call is required to specify the index of the recipient thermostat. The index values assigned to the thermostats are consecutive integers, starting at 0.
 
 Example service call:
 
