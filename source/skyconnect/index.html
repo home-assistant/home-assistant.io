@@ -160,9 +160,11 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
   for us to do this is using Home Assistant add-ons in a known host environment,
   which is Home Assistant OS. {% enddetails %} {% details "Why include a USB
   extension cable?" %} USB 3.0 ports (the ones with blue on the inside)
-  interfere with any radio at 2.4Ghz frequency. This includes Zigbee and Thread.
-  If you don't use the extension cable it might not work at all, or flaky at
-  best. {% enddetails %}
+  are known to cause significant noise and radio interference to any 2.4Ghz
+  wireless devices. This includes Zigbee and Thread. If you do not use the
+  extension cable, it may not work at all, and if it does, it could be flaky at
+  best with intermittent problems (issues with pairing, device dropouts, unreachable
+  devices, timeout errors, etc). {% enddetails %}
 </div>
 
 <div id="buy-dialog" class="dialog">

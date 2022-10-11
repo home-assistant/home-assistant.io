@@ -52,6 +52,8 @@ PS: I noticed the [Home Assistant SkyConnect is now available for pre-order](/sk
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.10.1 - October 6](#release-2022101---october-6)
+- [Release 2022.10.2 - October 9](#release-2022102---october-9)
+- [Release 2022.10.3 - October 10](#release-2022103---october-10)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -388,6 +390,129 @@ The following integrations are now available via the Home Assistant UI:
 [sensor docs]: /integrations/sensor/
 [zha docs]: /integrations/zha/
 
+## Release 2022.10.2 - October 9
+
+- 2022.10.0 ([@frenck] - [#79659])
+- 2022.10.1 ([@balloob] - [#79751]) ([zha docs]) ([frontend docs]) ([sensor docs]) ([bt_smarthub docs]) ([bluetooth docs])
+- Fix london_underground TUBE_LINES to match current API output ([@zhibek] - [#79410]) ([london_underground docs])
+- Process abbreviated availability options in mqtt discovery payload ([@bertmelis] - [#79712]) ([mqtt docs])
+- Show all valid heatpump selections ([@elupus] - [#79756]) ([nibe_heatpump docs])
+- Bump pydaikin version ([@fredrike] - [#79761]) ([daikin docs])
+- Fix Bluetooth failover when esphome device unexpectedly disconnects ([@bdraco] - [#79769]) ([esphome docs])
+- Fix state updating for crossfade switch on Sonos ([@jjlawren] - [#79776]) ([sonos docs])
+- Revert "Improve device_automation trigger validation" ([@emontnemery] - [#79778]) ([rfxtrx docs]) ([webostv docs]) ([device_automation docs])
+- Update pyoverkiz to 1.5.5 ([@cdce8p] - [#79798]) ([overkiz docs])
+- Fix realtime option for hvv_departures ([@lennart-k] - [#79799]) ([hvv_departures docs])
+- Fix keymitt_ble discovery ([@spycle] - [#79809]) ([keymitt_ble docs])
+- Fix POE control port_idx error in UniFi ([@Kane610] - [#79838]) ([unifi docs])
+- Update typing-extensions constraint to >=4.4.0 ([@cdce8p] - [#79860])
+- Bump ZHA dependencies ([@puddly] - [#79898]) ([zha docs])
+- Bump pyatmo to 7.1.1 ([@cgtobi] - [#79918]) ([netatmo docs])
+
+[#79410]: https://github.com/home-assistant/core/pull/79410
+[#79659]: https://github.com/home-assistant/core/pull/79659
+[#79712]: https://github.com/home-assistant/core/pull/79712
+[#79751]: https://github.com/home-assistant/core/pull/79751
+[#79756]: https://github.com/home-assistant/core/pull/79756
+[#79761]: https://github.com/home-assistant/core/pull/79761
+[#79769]: https://github.com/home-assistant/core/pull/79769
+[#79776]: https://github.com/home-assistant/core/pull/79776
+[#79778]: https://github.com/home-assistant/core/pull/79778
+[#79798]: https://github.com/home-assistant/core/pull/79798
+[#79799]: https://github.com/home-assistant/core/pull/79799
+[#79809]: https://github.com/home-assistant/core/pull/79809
+[#79838]: https://github.com/home-assistant/core/pull/79838
+[#79860]: https://github.com/home-assistant/core/pull/79860
+[#79898]: https://github.com/home-assistant/core/pull/79898
+[#79918]: https://github.com/home-assistant/core/pull/79918
+[@Kane610]: https://github.com/Kane610
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bertmelis]: https://github.com/bertmelis
+[@cdce8p]: https://github.com/cdce8p
+[@cgtobi]: https://github.com/cgtobi
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@fredrike]: https://github.com/fredrike
+[@frenck]: https://github.com/frenck
+[@jjlawren]: https://github.com/jjlawren
+[@lennart-k]: https://github.com/lennart-k
+[@puddly]: https://github.com/puddly
+[@spycle]: https://github.com/spycle
+[@zhibek]: https://github.com/zhibek
+[bluetooth docs]: /integrations/bluetooth/
+[bt_smarthub docs]: /integrations/bt_smarthub/
+[daikin docs]: /integrations/daikin/
+[device_automation docs]: /integrations/device_automation/
+[esphome docs]: /integrations/esphome/
+[frontend docs]: /integrations/frontend/
+[hvv_departures docs]: /integrations/hvv_departures/
+[keymitt_ble docs]: /integrations/keymitt_ble/
+[london_underground docs]: /integrations/london_underground/
+[mqtt docs]: /integrations/mqtt/
+[netatmo docs]: /integrations/netatmo/
+[nibe_heatpump docs]: /integrations/nibe_heatpump/
+[overkiz docs]: /integrations/overkiz/
+[rfxtrx docs]: /integrations/rfxtrx/
+[sensor docs]: /integrations/sensor/
+[sonos docs]: /integrations/sonos/
+[unifi docs]: /integrations/unifi/
+[webostv docs]: /integrations/webostv/
+[zha docs]: /integrations/zha/
+
+## Release 2022.10.3 - October 10
+
+- Bump pyhiveapi to 0.5.14 ([@KJonline] - [#79530]) ([hive docs]) (dependency)
+- Bump bluetooth-auto-recovery to 0.3.4 ([@bdraco] - [#79971]) ([bluetooth docs]) (dependency)
+- Bump pySwitchbot to 0.19.15 ([@bdraco] - [#79972]) ([switchbot docs]) (dependency)
+- Update to pygtfs 0.1.7 ([@molisani] - [#79975]) ([gtfs docs]) (dependency)
+- Update frontend to 20221010.0 ([@bramkragten] - [#79994]) ([frontend docs])
+- Remove system marker from Supervisor integration ([@frenck] - [#79997]) ([hassio docs])
+- Fix Eve Thermo always showing as heating in homekit_controller even when off ([@Jc2k] - [#80019]) ([homekit_controller docs])
+- Fix armed extra state attribute in fibaro entity ([@rappenze] - [#80034]) ([fibaro docs])
+- Bump aiounifi to v39 ([@Kane610] - [#80043]) ([unifi docs]) (dependency)
+- Fix Netatmo device trigger ([@cgtobi] - [#80047]) ([netatmo docs])
+- Bump ZHA dependencies ([@puddly] - [#80049]) ([zha docs]) (dependency)
+
+[#79530]: https://github.com/home-assistant/core/pull/79530
+[#79659]: https://github.com/home-assistant/core/pull/79659
+[#79751]: https://github.com/home-assistant/core/pull/79751
+[#79949]: https://github.com/home-assistant/core/pull/79949
+[#79971]: https://github.com/home-assistant/core/pull/79971
+[#79972]: https://github.com/home-assistant/core/pull/79972
+[#79975]: https://github.com/home-assistant/core/pull/79975
+[#79994]: https://github.com/home-assistant/core/pull/79994
+[#79997]: https://github.com/home-assistant/core/pull/79997
+[#80019]: https://github.com/home-assistant/core/pull/80019
+[#80034]: https://github.com/home-assistant/core/pull/80034
+[#80043]: https://github.com/home-assistant/core/pull/80043
+[#80047]: https://github.com/home-assistant/core/pull/80047
+[#80049]: https://github.com/home-assistant/core/pull/80049
+[@Jc2k]: https://github.com/Jc2k
+[@KJonline]: https://github.com/KJonline
+[@Kane610]: https://github.com/Kane610
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cgtobi]: https://github.com/cgtobi
+[@frenck]: https://github.com/frenck
+[@molisani]: https://github.com/molisani
+[@puddly]: https://github.com/puddly
+[@rappenze]: https://github.com/rappenze
+[bluetooth docs]: /integrations/bluetooth/
+[bt_smarthub docs]: /integrations/bt_smarthub/
+[fibaro docs]: /integrations/fibaro/
+[frontend docs]: /integrations/frontend/
+[gtfs docs]: /integrations/gtfs/
+[hassio docs]: /integrations/hassio/
+[hive docs]: /integrations/hive/
+[homekit_controller docs]: /integrations/homekit_controller/
+[netatmo docs]: /integrations/netatmo/
+[sensor docs]: /integrations/sensor/
+[switchbot docs]: /integrations/switchbot/
+[unifi docs]: /integrations/unifi/
+[zha docs]: /integrations/zha/
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
@@ -412,15 +537,69 @@ for that specific item.
 
 {% details "Bayesian" %}
 
-The `prob_given_false` configuration variable is now a required parameter as there
-was no mathematical rationale for the previous default value.
+`prob_given_false` is now a required configuration variable. Previously it had a default value of `1 - prob_given_true`; this didn't really have any mathematical basis and so has been removed. You can use this documentation to calculate what it should be, or to restore your previous functionality, set it to `1 - prob_given_true`.
 
-`numeric_state`, `template`, and `state` entries with only one `to_state`
-configured will update the prior probability accordingly if the
-observation is false. Those who have used duplicate, mirrored `state`
-configurations as a workaround will have their functionality preserved.
-However, for `numeric_state` and `template` entries, this will cause
-duplication of the Bayesian updating.
+The logic of Bayesian sensors has been significantly corrected. Previously the configs given in the examples above would not have worked as expected. For example, if the device `device_tracker.paulus` was `home`, this would not have updated the probability that `Paulus Home` was on. This is because Bayesian ignored observations that were false, even though that *should* update our probabilities. 
+
+Because of this, many users will have had to use either of two workarounds:
+
+1. Providing additional observations that evaluate to `True` when the other evaluates to `False`, effectively mirroring it. This forced Bayesian to take into account a negative observation.
+2. Tweaking `prior`, `threshold`, and even sometimes `prob_given_true` and `prob_given_false` to get the desired functionality, often with the help of a community-provided spreadsheet for iterative testing.
+
+To solve (1), all you need do is delete the mirrored entry as shown below:
+
+```yaml
+# Example of a mirrored entry used a workaround
+binary_sensor:
+  - name: "Heat On"
+    platform: bayesian
+    prior: 0.2
+    probability_threshold: 0.9
+    observations:
+      - platform: numeric_state
+        entity_id: sensor.outside_air_temperature_fahrenheit
+        prob_given_true: 0.95
+        prob_given_false: 0.05
+        below: 50
+      - platform: numeric_state # line no longer needed - delete
+        entity_id: sensor.outside_air_temperature_fahrenheit # line no longer needed - delete
+        prob_given_true: 0.05 # line no longer needed - delete
+        prob_given_false: 0.95 # line no longer needed - delete
+        above: 50 # no longer needed - delete
+      - platform: state
+        entity_id: binary_sensor.house_occupied
+        prob_given_true: 0.3
+        prob_given_false: 0.05
+        to_state: "on"
+      - platform: state # line no longer needed - delete
+        entity_id: binary_sensor.house_occupied # line no longer needed - delete
+        prob_given_true: 0.7 # line no longer needed - delete
+        prob_given_false: 0.95 # line no longer needed - delete
+        to_state: "off" # line no longer needed - delete
+```
+
+To solve (2), you need to re-estimate your probabilities using this documentation - this will likely result in better performance in the long term.
+
+A hacky and *not recommended* workaround to restore your previous functionality would be to put in a mirrored entry for each observation where `prob_given_false` is equal to `prob_given_true`. This will induce the same behavior as before - the negative, counterfactual observation is essentially ignored. Be warned - this may break or cause errors in future versions and will not work for `template` or `numeric_state` observations. For templates, instead, make them return `None` where they would have returned `False` to induce Bayesian to ignore them.
+
+```yaml
+binary_sensor:
+  - name: "Heat On"
+    platform: bayesian
+    prior: 0.2
+    probability_threshold: 0.9
+    observations:
+      - platform: state
+        entity_id: binary_sensor.house_occupied
+        prob_given_true: 0.3
+        prob_given_false: 0.05
+        to_state: "on"
+      - platform: state # not 
+        entity_id: binary_sensor.house_occupied # not recommended
+        prob_given_true: 0.5 # not recommended
+        prob_given_false: 0.5 # not recommended
+        to_state: "off" # not recommended
+```
 
 ([@HarvsG] - [#67631]) ([documentation](/integrations/bayesian))
 
