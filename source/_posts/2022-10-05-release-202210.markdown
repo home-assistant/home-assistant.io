@@ -53,6 +53,7 @@ PS: I noticed the [Home Assistant SkyConnect is now available for pre-order](/sk
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.10.1 - October 6](#release-2022101---october-6)
 - [Release 2022.10.2 - October 9](#release-2022102---october-9)
+- [Release 2022.10.3 - October 10](#release-2022103---october-10)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
