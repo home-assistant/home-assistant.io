@@ -49,8 +49,11 @@ The following controllable entities are available:
 
 - **Thermostat** - This entity will be present if your unit has thermostatic control.
 
-### Sensor Types
+### Number
 
+The integration uses a Number entity to control flame height. Valid flame height vales are `1-5`.
+
+### Sensor Types
 
 The following sensors are available as either a **Binary Sensor** when dealing with on/off.
 
@@ -63,7 +66,7 @@ The following sensors are available as either a **Binary Sensor** when dealing w
 
 ### Sensor
 
-- **Flame Height**: Numerical indicator of flame height, where `0` is the lowest setting.
+- **Flame Height**: Numerical indicator of flame height, where `1` is the lowest setting and `5` is the highest setting.
 - **Temperature**: Current ambient temperature as read by the fireplace remote.
 - **Target Temperature**: If the thermostat is engaged this is the target temperature the fireplace will try to reach, as measured by the remote.
 - **Fan Speed**: Numerical indicator of fan speed.
