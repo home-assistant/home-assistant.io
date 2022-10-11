@@ -12,7 +12,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[OwnTracks](https://owntracks.org/) (and its Android fork [NextTracks](https://codeberg.org/nexttracks/android)) is a free and open source application for iOS and Android that allow you to track your location and send it directly to Home Assistant. It can be set up via the integrations panel in the configuration screen.
+[OwnTracks](https://owntracks.org/) is a free and open source application for iOS and Android that allow you to track your location and send it directly to Home Assistant. It can be set up via the integrations panel in the configuration screen.
 
 By default the integration will listen for incoming messages from OwnTracks via HTTP. It will also listen for MQTT messages if Home Assistant is configured to use MQTT. When a location is submitted via HTTP, Home Assistant will return all [Persons](/integrations/person/)' last known locations and they will be displayed within the OwnTracks app.
 
@@ -24,17 +24,17 @@ To configure OwnTracks, you must set it up via the integrations panel in the con
 
 ### Configuring the app - Android
 
-Install [OwnTracks](https://play.google.com/store/apps/details?id=org.owntracks.android) or [NextTracks](https://codeberg.org/nexttracks/android/releases) (Available from [F-Droid](https://f-droid.org/packages/org.nexttracks.android)) application for Android.
+Install [OwnTracks](https://play.google.com/store/apps/details?id=org.owntracks.android) application for Android. If you need a version of OwnTracks without Google Play Services, the "OSS" flavour is available [here](https://github.com/owntracks/android/releases).
 
 In the app, open the sidebar and click on preferences, then on the connection. Change the following settings:
 
- - Mode: Private HTTP
- - Host: `<URL given to you when setting up the integration>`
- - Identification:
-   - Username: `<Username>`
-   - Password: Can be left blank.
-   - Device ID: `<Device name>`
-   - Tracker ID: `<xx>` Two character tracker ID. (can be left blank)
+- Mode: Private HTTP
+- Host: `<URL given to you when setting up the integration>`
+- Identification:
+  - Username: `<Username>`
+  - Password: Can be left blank.
+  - Device ID: `<Device name>`
+  - Tracker ID: `<xx>` Two character tracker ID. (can be left blank)
 
 Your tracker device will be known in Home Assistant as `<Username>_<Device name>`. If you entered a Tracker ID the tid attribute will  be set to that ID.
 
@@ -44,10 +44,10 @@ Your tracker device will be known in Home Assistant as `<Username>_<Device name>
 
 In the OwnTracks app, tap the (i) in the top left and click on settings. Change the following settings:
 
- - Mode: HTTP
- - URL: `<URL given to you when setting up the integration>`
- - Turn on authentication
- - User ID: `<Your name>`
+- Mode: HTTP
+- URL: `<URL given to you when setting up the integration>`
+- Turn on authentication
+- User ID: `<Your name>`
 
 ## Advanced configuration
 
