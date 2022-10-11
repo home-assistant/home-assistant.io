@@ -84,29 +84,16 @@ You must [restart Home Assistant](/docs/configuration/#reloading-changes) for th
 
 ## Notifications
 
-To get your ecobee notifications working with Home Assistant, you must first have the main ecobee integration loaded and running. Once you have that configured, you can set up this integration to send messages to your ecobee device.
+The `ecobee` notify platform allows you to send notifications to an Ecobee thermostat. The `target` parameter of the service call is required to specify the index of the recepient thermostat. The index values assigned to the thermostats are consecutive integers, starting at 0.
 
-To use this notification platform in your installation, add the following to your `configuration.yaml` file:
+Example service call:
 
 ```yaml
-# Example configuration.yaml entry
-notify:
-  - name: NOTIFIER_NAME
-    platform: ecobee
+service: notify.ecobee
+data:
+  message: Hello, this is your thermostat.
+  target: 0
 ```
-
-{% configuration %}
-name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-  required: false
-  default: "`notify`"
-  type: string
-index:
-  description: If you have multiple thermostats, you can specify which one to send the notification to by setting an `index`. The index values assigned to the thermostats are consecutive integers, starting at 0.
-  required: false
-  default: 0
-  type: integer
-{% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
