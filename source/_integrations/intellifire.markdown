@@ -100,6 +100,17 @@ The following is a description of the various diagnostic error sensors and what 
 ### Troubleshooting
 
 The IFT module can suffer a variety of issues that will render it inoperable. Some of these have been confirmed by the manufacturer and some appear to be random. There are two paths to try when attempting to reset the module:
+#### Enabling Debugging
+
+To turn on debug logging modify your `configuraiton.yaml` file in the `/config` directory and add the following:
+
+
+```yaml
+logger:
+  logs:
+   homeassistant.components.intellifire: debug
+   intellifire4py: debug
+```
 
 #### Issue a Soft Reset
 
