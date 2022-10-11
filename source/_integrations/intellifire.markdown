@@ -43,7 +43,8 @@ The following controllable entities are available:
 
 ### Fan
 
-- **Fan** - If your unit is equipped with a fan - this entry will be present. There are 5 possible fan control values:  
+If your unit is equipped with a fan - this entry will be present. There are 5 possible fan control values:
+
 - `0%` - Off,
 - `25%` - Quiet
 - `50%` - Low
