@@ -182,7 +182,7 @@ After setup, buttons will appear in Home Assistant using an `entity_id` based on
 
 For more information on working with buttons in Home Assistant, see the [Buttons component](/integrations/button/).
 
-Available services: `button.press`
+Available services: `button.press`.
 
 ## Pico and Shade Remotes
 
