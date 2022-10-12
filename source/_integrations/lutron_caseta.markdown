@@ -130,8 +130,6 @@ For non-dimmable lights or switched loads, see the switch section on this page.
 
 For more information on working with lights in Home Assistant, see the [Lights component](/integrations/light/).
 
-Available services: `light.turn_on`, `light.turn_off` and `light.toggle`. The `light.turn_on` service supports attributes `brightness`, `brightness_pct` and `transition`.
-
 ## Scene
 
 The Lutron Caseta scene platform allows you to control your Smart Bridge Scenes that are created in the Lutron mobile app.
@@ -142,8 +140,6 @@ For more information on working with scenes in Home Assistant, see the [Scenes c
 
 Scenes are not directly supported on RA3 and QSX models, however the button platform (see below) can be used to activate scenes for these systems.
 
-Available services: `scene.turn_on`.
-
 ## Switch
 
 After setup, switches will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a light switch called 'Master Bathroom Vanity' will appear in Home Assistant as `switch.master_bathroom_vanity`.
@@ -152,15 +148,11 @@ For dimmable lights including wall and plug-in dimmers, see the light section on
 
 For more information on working with switches in Home Assistant, see the [Switches component](/integrations/switch/).
 
-Available services: `switch.turn_on` and `switch.turn_off`.
-
 ## Fan
 
 After setup, fans will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a light switch called 'Master Bedroom Ceiling Fan' will appear in Home Assistant as `fan.master_bedroom_ceiling_fan`.
 
 For more information on working with fans in Home Assistant, see the [Fans component](/components/fan/).
-
-Available services: `fan.turn_on`, `fan.turn_off`, and `fan.set_speed`.
 
 ## Sensor
 
@@ -181,8 +173,6 @@ For more information on working with binary sensors in Home Assistant, see the [
 After setup, buttons will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a button 'Button 1' on a keypad called 'Front Entrance Keypad' will appear in Home Assistant as `button.front_entrance_keypad_button_1`.
 
 For more information on working with buttons in Home Assistant, see the [Buttons component](/integrations/button/).
-
-Available services: `button.press`.
 
 ## Pico and Shade Remotes
 
