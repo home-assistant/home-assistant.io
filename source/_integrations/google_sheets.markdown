@@ -83,4 +83,20 @@ You can use the service `google_sheets.append_sheet` to add a row of data to the
 | `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1
 | `data` | no | Data to be appended to the worksheet. This puts the data on a new row, one value per column. | ["foo"]
 
+Example service call:
+```
+service: google_sheets.append_sheet
+data:
+  config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
+  worksheet: Clarity Charging
+  data:
+    Date: "{{now().strftime('%-d-%b-%y')}}"
+    Start: "{{states('input_number.car_charging_start')|float(0)}}"
+    End: "{{states('input_number.car_charging_end')|float(0)}}"
+    Rate: "{{states('input_number.bchydro_current_rate')|float(0)}}"
+    Cost: >-
+      {{ (states('input_number.car_charging_end')|float(0) -
+      states('input_number.car_charging_start')|float(0) ) *
+      states('input_number.bchydro_current_rate')|float(0) }}
+```
 {% enddetails %}
