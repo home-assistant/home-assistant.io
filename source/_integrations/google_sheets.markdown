@@ -84,7 +84,7 @@ You can use the service `google_sheets.append_sheet` to add a row of data to the
 | `data` | no | Data to be appended to the worksheet. This puts the data on a new row, one value per column. | ["foo"]
 
 Example service call:
-```
+```yaml
 service: google_sheets.append_sheet
 data:
   config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
