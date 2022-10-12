@@ -3,15 +3,15 @@
 
 [![Deploys by netlify](https://www.netlify.com/img/global/badges/netlify-color-bg.svg)](https://www.netlify.com)
 
-# Home Assistant website
+# Home Assistant website :house:
 
 This is the source for the [Home-Assistant.io website](https://home-assistant.io).
 
-## Setup
+## Setup :arrow_down:
 
 Setting up to contribute to documentation and the process for submitting pull requests is explained in the [developer documentation](https://developers.home-assistant.io/docs/documenting/).
 
-## Site preview
+## Site preview :eyes:
 
 In order to make the preview available on `http://127.0.0.1:4000`, use the following [bundler](
 https://bundler.io/
@@ -27,7 +27,7 @@ If the preview is not running on your local machine, pass the IP of the target m
 bundle exec rake preview[192.168.0.123]
 ```
 
-## Speeding up site generation
+## Speeding up site generation :rocket:
 
 Every release we post long changelogs to the website. This slows down generation of the website significantly! We include some tools to temporarily exclude the blog posts that you're not working on out of the way.
 
