@@ -122,9 +122,9 @@ Shades with Tilt when closed functionality only allow a shade to tilt when it is
 
 These shades can tilt in any position and do not require the shade to be open or closed to adjust the tilt position.
 
-### Dual Shade Blockout
+### Dual Shade Overlapped
 
-These shades consist of two pieces of fabric attached to a single rail. The front shade is sheer, with the rear being blockout, and neither panel can move independently from the other.
+These shades consist of two pieces of fabric attached to a single rail. The front shade is sheer, with the rear being opaque, and neither panel can move independently from the other.
 
 Three different entities that will be created for each blind: Front, Rear and Combined.
 
@@ -132,7 +132,7 @@ Three different entities that will be created for each blind: Front, Rear and Co
 
 - 'Up/Open' will move the front shade to the ceiling
 - 'Down/Close' will move the front shade to the floor
-- As the positioning of the front requires the rear blockout to be fully opened any move will force the rear shade to be opened
+- As the positioning of the front requires the rear opaque to be fully opened any move will force the rear shade to be opened
 
 #### Rear entity
 
