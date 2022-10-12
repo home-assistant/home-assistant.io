@@ -10,6 +10,7 @@ ha_category:
   - Light
   - Scene
   - Switch
+  - Button
 ha_release: 0.41
 ha_iot_class: Local Push
 ha_domain: lutron_caseta
@@ -28,6 +29,7 @@ ha_platforms:
   - light
   - scene
   - switch
+  - button
 ha_integration_type: integration
 ---
 
@@ -138,7 +140,7 @@ After setup, scenes will appear in Home Assistant using an `entity_id` based on 
 
 For more information on working with scenes in Home Assistant, see the [Scenes component](/integrations/scene/).
 
-Scenes are not currently supported on RA3 and QSX models.
+Scenes are not directly supported on RA3 and QSX models, however the button platform (see below) can be used to activate scenes for these systems.
 
 Available services: `scene.turn_on`.
 
@@ -173,6 +175,14 @@ Lutron Caseta occupancy sensors support 4 different timeouts and 3 different sen
 Because Lutron Caseta devices automatically report state to Home Assistant (rather than relying on polling), occupancy status updates occur almost instantaneously.
 
 For more information on working with binary sensors in Home Assistant, see the [Binary Sensors Component](/components/binary_sensor/)
+
+## Button
+
+After setup, buttons will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a button 'Button 1' on a keypad called 'Front Entrance Keypad' will appear in Home Assistant as `button.front_entrance_keypad_button_1`.
+
+For more information on working with buttons in Home Assistant, see the [Buttons component](/integrations/button/).
+
+Available services: `button.press`
 
 ## Pico and Shade Remotes
 
