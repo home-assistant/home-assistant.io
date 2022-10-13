@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Third Reality joins as a Works with Home Assistant partner"
-description: "Third Reality has become the first Works with Home Assistant partner using the Z-Wave badge"
+description: "Third Reality has become the first Works with Home Assistant partner using the Zigbee badge"
 date: 2022-10-13 00:00:00
 date_formatted: "October 13, 2022"
 author: Paulus Schoutsen
@@ -16,9 +16,9 @@ og_image: /images/blog/2022-10-13-third-reality-partner/social.png
 
 Today we are excited to announce our next Works with Home Assistant partner: Third Reality!
 
-Third Reality, Inc. is a smart home products company that has been working with Home Assistant for quite a long time but are now making it official. As a partner, Third Reality and Nabu Casa will be working together to ensure the best experience for connecting Third Reality Zigbee devices to Home Assistant.
+Third Reality, Inc. is a smart home products company that has been working with Home Assistant for quite a long time but is now making it official. As a partner, Third Reality and Nabu Casa will be working together to ensure the best experience for connecting Third Reality Zigbee devices to Home Assistant.
 
-Third Reality devices will connect and integrate into Home Assistant easily using the Zigbee Home Automation integration (Zigbee stick required). This means that the devices operate completely local and state changes coming from the device are instantaneous picked up by Home Assistant. This allows for the best user experience when building a smart home.
+Third Reality devices will connect and integrate into Home Assistant easily using the Zigbee Home Automation integration (Zigbee stick required). This means that the devices operate completely locally and state changes coming from the device are instantaneously picked up by Home Assistant. This allows for the best user experience when building a smart home.
 
 <img src='/images/blog/2022-10-13-third-reality-partner/devices.jpg' alt="Third Reality devices" class='no-shadow'>
 <br><br>
