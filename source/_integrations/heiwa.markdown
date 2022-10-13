@@ -3,7 +3,7 @@ title: Heiwa
 description: Connect and control your Heiwa devices using the Gree Climate integration
 ha_category:
   - Climate
-ha_release: 0.7.2
+ha_release: 2022.11.0
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
