@@ -17,6 +17,11 @@ ha_integration_type: integration
 
 The `ipma` weather platform uses the [Instituto Português do Mar e Atmosfera](https://www.ipma.pt/) as a source for current and forecast meteorological data.
 
+There is currently support for the following device types within Home Assistant:
+
+- Sensor (Risk of Fire for your location)
+- Weather (current state and forecast)
+
 {% include integrations/config_flow.md %}
 
 IPMA provides both *hourly* (72h) and *daily* (10 days) forecasts, but you must choose which one will be exposed by the weather entity during initial setup of the integration.
