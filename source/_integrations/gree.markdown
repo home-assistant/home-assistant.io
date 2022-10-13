@@ -19,6 +19,7 @@ The Gree integration allows you to control a [Gree Smart HVAC](https://global.gr
 
 There is currently support for the following device types within Home Assistant:
 
+- [Supported models](#supported-models)
 - [Climate](#climate)
 - [Switch](#switch)
 
@@ -37,6 +38,7 @@ Any Gree Smart device working with the Gree+ app should be supported, including 
 - Cooper & Hunter
 - Proklima
 - Tadiran
+- Heiwa
 
 ## Climate
 
