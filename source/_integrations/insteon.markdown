@@ -27,7 +27,7 @@ ha_integration_type: integration
 ha_dhcp: true
 ---
 
-<p class='note warning'>The Insteon company has shut down and turned off their cloud as of April 2022.</p>
+<p class='note warning'>The Insteon company has shut down and turned off its cloud as of April 2022. Recently the service has been restarted but as a paid offering. Time will tell how successful this new model will be.</p>
 
 This integration adds support for integrating your INSTEON network with Home Assistant. It is known to work with the [2413U] USB and [2412S] RS242 flavors of PLM and the [2448A7] USB stick. It has also been tested to work with the [2242] and [2245] Hubs. Device support is provided by the underlying [pyinsteon] package.
 
@@ -43,7 +43,7 @@ Overview of supported Insteon modems & hubs
 [pyinsteon]: https://github.com/pyinsteon/pyinsteon
 [2413U]: https://www.insteon.com/powerlinc-modem-usb
 [2412S]: https://www.insteon.com/powerlinc-modem-serial
-[2448A7]: https://www.smarthome.com/insteon-2448a7-portable-usb-adapter.html
+[2448A7]: https://www.insteon.com/support-knowledgebase/2014/12/10/usb-wireless-adapter-quick-start-guide
 [2245]: https://www.insteon.com/insteon-hub/
 [2242]: https://www.insteon.com/support-knowledgebase/2014/9/26/insteon-hub-owners-manual
 

@@ -49,6 +49,14 @@ See per phase what your voltage, current and power consumption/production is.
 - Power consumed phases L1/2/3 (W)
 - Power Produced phases L1/2/3 (W)
 
+### WaterMeter
+
+See how much water you consume per day, in total and the number of counted pulses.
+
+- Water Consumption - day (liters)
+- Water Consumption - total (m3)
+- Pulse Count
+
 ### Settings
 
 You can use the rates set in P1 Monitor for your calculations in Home Assistant.

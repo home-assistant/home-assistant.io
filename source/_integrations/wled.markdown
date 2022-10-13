@@ -5,7 +5,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
-  - Updates
+  - Update
 ha_release: 0.102
 ha_iot_class: Local Push
 ha_config_flow: true

@@ -4,7 +4,7 @@ description: Instructions on how to integrate the Synology DSM sensor within Hom
 ha_category:
   - Camera
   - System Monitor
-  - Updates
+  - Update
 ha_release: 0.32
 ha_iot_class: Local Polling
 ha_domain: synology_dsm
@@ -25,7 +25,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Synology DSM sensor platform provides access to various statistics from your [Synology NAS](https://www.synology.com) as well as cameras from the [Surveillance Station](https://www.synology.com/en-us/surveillance).
+The Synology DSM integration provides access to various statistics from your [Synology NAS](https://www.synology.com) (_DSM 5.x and higher_) as well as cameras from the [Surveillance Station](https://www.synology.com/en-us/surveillance).
 
 {% include integrations/config_flow.md %}
 
@@ -51,6 +51,8 @@ In this case, it is recommended to use NIC bonding instead or to deactivate SSDP
 Due to the nature of the Synology DSM API, it is required to grant the user admin rights. This is related to the fact that utilization information is stored in the core module.
 
 When creating the user, it is possible to deny access to all locations and applications. By doing this, the user will not be able to login to the web interface or view any of the files on the Synology NAS. It is still able to read the utilization and storage information using the API.
+
+If you want to add cameras from [Surveillance Station](https://www.synology.com/en-us/surveillance), the user needs application permission for [Surveillance Station](https://www.synology.com/en-us/surveillance).
 
 ### If you utilize 2-Step Verification or Two Factor Authentication (2FA) with your Synology NAS
 

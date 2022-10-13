@@ -3,7 +3,7 @@ title: Demo
 description: Instructions on how to use the Platform demos with Home Assistant.
 ha_category:
   - Other
-  - Updates
+  - Update
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:
