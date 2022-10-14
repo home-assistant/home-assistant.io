@@ -12,7 +12,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `snapcast` platform allows you to control [Snapcast](https://github.com/badaix/snapcast) from Home Assistant.
+The Snapcast integration allows you to control [Snapcast](https://github.com/badaix/snapcast) from Home Assistant.
 
 {% include integrations/config_flow.md %}
 
