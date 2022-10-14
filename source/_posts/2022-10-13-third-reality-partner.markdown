@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Third Reality joins as a Works with Home Assistant partner"
+title: "Third Reality joins Works with Home Assistant"
 description: "Third Reality has become the first Works with Home Assistant partner using the Zigbee badge"
 date: 2022-10-13 00:00:00
 date_formatted: "October 13, 2022"
