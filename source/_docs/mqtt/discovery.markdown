@@ -32,6 +32,13 @@ Supported by MQTT discovery:
 ## Configuration
 MQTT discovery is enabled by default, but can be disabled. To do this, click on "Configure" in the integration page in the UI, then "Re-configure MQTT" and then "Next".
 
+```
+# Example configuration.yaml entry with default values
+mqtt:
+  discovery: true
+  discovery_prefix: homeassistant
+```
+
 ### Advanced discovery configuration
 
 It's possible to configure the prefix of the discovery topic through `configuration.yaml`.
