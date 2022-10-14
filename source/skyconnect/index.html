@@ -160,9 +160,11 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
   for us to do this is using Home Assistant add-ons in a known host environment,
   which is Home Assistant OS. {% enddetails %} {% details "Why include a USB
   extension cable?" %} USB 3.0 ports (the ones with blue on the inside)
-  interfere with any radio at 2.4Ghz frequency. This includes Zigbee and Thread.
-  If you don't use the extension cable it might not work at all, or flaky at
-  best. {% enddetails %}
+  are known to cause significant noise and radio interference to any 2.4Ghz
+  wireless devices. This includes Zigbee and Thread. If you do not use the
+  extension cable, it may not work at all, and if it does, it could be flaky at
+  best with intermittent problems (issues with pairing, device dropouts, unreachable
+  devices, timeout errors, etc). {% enddetails %}
 </div>
 
 <div id="buy-dialog" class="dialog">
@@ -282,6 +284,24 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
             <div>🇨🇳</div>
             <div>Seeed Studio</div>
             <div>Located in China</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
+
+      <a
+        href="https://thepihut.com/collections/latest-raspberry-pi-products/products/home-assistant-skyconnect"
+        target="_blank"
+      >
+        <div class="distributor">
+          <div>
+            <div>🇬🇧</div>
+            <div>The Pi Hut</div>
+            <div>Located in the United Kingdom</div>
           </div>
           <svg width="24" height="24" viewBox="0 0 24 24">
             <path
