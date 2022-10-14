@@ -13,7 +13,7 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The Formula 1 integration offers integration with the [Ergast](http://ergast.com/mrd/) Formula 1 API to provide details about the current season's Drivers Championship, Constructors Championship, and Race schedule.
+The Formula 1 integration offers integration with the [Ergast](https://ergast.com/mrd/) Formula 1 API to provide details about the current season's Drivers Championship, Constructors Championship, and Race schedule.
 
 {% include integrations/config_flow.md %}
 
