@@ -21,9 +21,9 @@ The Formula 1 integration offers integration with the [Ergast](https://ergast.co
 
 The list of currently available resources:
 
-- `f1_driver_##`: sensors representing each position in the Drivers Championship
-- `f1_driver_DRIVER_NAME`: sensors representing each Driver in the Drivers Championship
-- `f1_constructor_##`: sensors representing each position in the Constructors Championship
-- `f1_constructor_CONSTRUCTOR_NAME`: sensors representing each Constructor in the Constructors Championship
-- `f1_race_##`: sensors representing each Race of the season
-- `f1_next_race`: a sensor representing the next Race of the season
+- Sensors representing each position in the Drivers Championship
+- Sensors representing each Driver in the Drivers Championship
+- Sensors representing each position in the Constructors Championship
+- Sensors representing each Constructor in the Constructors Championship
+- Sensors representing each Race of the season
+- A sensor representing the next Race of the season
