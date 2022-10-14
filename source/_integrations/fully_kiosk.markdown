@@ -88,3 +88,22 @@ data:
 target:
   device_id: a674c90eca95eca91f6020415de07713
 ```
+
+**Service `start_application`**
+
+You can use the service `fully_kiosk.start_application` to have the tablet launch the specified app.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | yes | Device ID (or list of device IDs) to load the URL on.
+| `application` | yes | The package name of the app to load.
+
+Example:
+
+```yaml
+service: fully_kiosk.start_application
+data:
+  application: "de.ozerov.fully"
+target:
+  device_id: a674c90eca95eca91f6020415de07713
+```
