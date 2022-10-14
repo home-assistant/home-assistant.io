@@ -17,4 +17,6 @@ ha_supporting_domain: oralb
 ha_supporting_integration: OralB
 ---
 
-{% include integrations/supported_brand.md %}
+Integrates [OralB](https://oralb.com/en-us/products/shop-all/) Bluetooth Toothbrushes into Home Assistant.
+
+{% include integrations/config_flow.md %}
