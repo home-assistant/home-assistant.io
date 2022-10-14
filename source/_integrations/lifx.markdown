@@ -74,7 +74,7 @@ The following table lists the sensors that are available for LIFX bulbs:
 | ------ | ---------- | ------------------- |
 | Clean (HEV) cycle state | LIFX Clean | Yes
 | Infrared brightness | LIFX Nightvision | Yes
-| WiFi signal strength (RSSI)   | All        | No
+| Wi-Fi signal strength (RSSI)   | All        | No
 
 ## Themes
 
