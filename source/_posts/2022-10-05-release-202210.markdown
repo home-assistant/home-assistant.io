@@ -52,6 +52,9 @@ PS: I noticed the [Home Assistant SkyConnect is now available for pre-order](/sk
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.10.1 - October 6](#release-2022101---october-6)
+- [Release 2022.10.2 - October 9](#release-2022102---october-9)
+- [Release 2022.10.3 - October 10](#release-2022103---october-10)
+- [Release 2022.10.4 - October 14](#release-2022104---october-14)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -386,6 +389,192 @@ The following integrations are now available via the Home Assistant UI:
 [bt_smarthub docs]: /integrations/bt_smarthub/
 [frontend docs]: /integrations/frontend/
 [sensor docs]: /integrations/sensor/
+[zha docs]: /integrations/zha/
+
+## Release 2022.10.2 - October 9
+
+- 2022.10.0 ([@frenck] - [#79659])
+- 2022.10.1 ([@balloob] - [#79751]) ([zha docs]) ([frontend docs]) ([sensor docs]) ([bt_smarthub docs]) ([bluetooth docs])
+- Fix london_underground TUBE_LINES to match current API output ([@zhibek] - [#79410]) ([london_underground docs])
+- Process abbreviated availability options in mqtt discovery payload ([@bertmelis] - [#79712]) ([mqtt docs])
+- Show all valid heatpump selections ([@elupus] - [#79756]) ([nibe_heatpump docs])
+- Bump pydaikin version ([@fredrike] - [#79761]) ([daikin docs])
+- Fix Bluetooth failover when esphome device unexpectedly disconnects ([@bdraco] - [#79769]) ([esphome docs])
+- Fix state updating for crossfade switch on Sonos ([@jjlawren] - [#79776]) ([sonos docs])
+- Revert "Improve device_automation trigger validation" ([@emontnemery] - [#79778]) ([rfxtrx docs]) ([webostv docs]) ([device_automation docs])
+- Update pyoverkiz to 1.5.5 ([@cdce8p] - [#79798]) ([overkiz docs])
+- Fix realtime option for hvv_departures ([@lennart-k] - [#79799]) ([hvv_departures docs])
+- Fix keymitt_ble discovery ([@spycle] - [#79809]) ([keymitt_ble docs])
+- Fix POE control port_idx error in UniFi ([@Kane610] - [#79838]) ([unifi docs])
+- Update typing-extensions constraint to >=4.4.0 ([@cdce8p] - [#79860])
+- Bump ZHA dependencies ([@puddly] - [#79898]) ([zha docs])
+- Bump pyatmo to 7.1.1 ([@cgtobi] - [#79918]) ([netatmo docs])
+
+[#79410]: https://github.com/home-assistant/core/pull/79410
+[#79659]: https://github.com/home-assistant/core/pull/79659
+[#79712]: https://github.com/home-assistant/core/pull/79712
+[#79751]: https://github.com/home-assistant/core/pull/79751
+[#79756]: https://github.com/home-assistant/core/pull/79756
+[#79761]: https://github.com/home-assistant/core/pull/79761
+[#79769]: https://github.com/home-assistant/core/pull/79769
+[#79776]: https://github.com/home-assistant/core/pull/79776
+[#79778]: https://github.com/home-assistant/core/pull/79778
+[#79798]: https://github.com/home-assistant/core/pull/79798
+[#79799]: https://github.com/home-assistant/core/pull/79799
+[#79809]: https://github.com/home-assistant/core/pull/79809
+[#79838]: https://github.com/home-assistant/core/pull/79838
+[#79860]: https://github.com/home-assistant/core/pull/79860
+[#79898]: https://github.com/home-assistant/core/pull/79898
+[#79918]: https://github.com/home-assistant/core/pull/79918
+[@Kane610]: https://github.com/Kane610
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bertmelis]: https://github.com/bertmelis
+[@cdce8p]: https://github.com/cdce8p
+[@cgtobi]: https://github.com/cgtobi
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@fredrike]: https://github.com/fredrike
+[@frenck]: https://github.com/frenck
+[@jjlawren]: https://github.com/jjlawren
+[@lennart-k]: https://github.com/lennart-k
+[@puddly]: https://github.com/puddly
+[@spycle]: https://github.com/spycle
+[@zhibek]: https://github.com/zhibek
+[bluetooth docs]: /integrations/bluetooth/
+[bt_smarthub docs]: /integrations/bt_smarthub/
+[daikin docs]: /integrations/daikin/
+[device_automation docs]: /integrations/device_automation/
+[esphome docs]: /integrations/esphome/
+[frontend docs]: /integrations/frontend/
+[hvv_departures docs]: /integrations/hvv_departures/
+[keymitt_ble docs]: /integrations/keymitt_ble/
+[london_underground docs]: /integrations/london_underground/
+[mqtt docs]: /integrations/mqtt/
+[netatmo docs]: /integrations/netatmo/
+[nibe_heatpump docs]: /integrations/nibe_heatpump/
+[overkiz docs]: /integrations/overkiz/
+[rfxtrx docs]: /integrations/rfxtrx/
+[sensor docs]: /integrations/sensor/
+[sonos docs]: /integrations/sonos/
+[unifi docs]: /integrations/unifi/
+[webostv docs]: /integrations/webostv/
+[zha docs]: /integrations/zha/
+
+## Release 2022.10.3 - October 10
+
+- Bump pyhiveapi to 0.5.14 ([@KJonline] - [#79530]) ([hive docs]) (dependency)
+- Bump bluetooth-auto-recovery to 0.3.4 ([@bdraco] - [#79971]) ([bluetooth docs]) (dependency)
+- Bump pySwitchbot to 0.19.15 ([@bdraco] - [#79972]) ([switchbot docs]) (dependency)
+- Update to pygtfs 0.1.7 ([@molisani] - [#79975]) ([gtfs docs]) (dependency)
+- Update frontend to 20221010.0 ([@bramkragten] - [#79994]) ([frontend docs])
+- Remove system marker from Supervisor integration ([@frenck] - [#79997]) ([hassio docs])
+- Fix Eve Thermo always showing as heating in homekit_controller even when off ([@Jc2k] - [#80019]) ([homekit_controller docs])
+- Fix armed extra state attribute in fibaro entity ([@rappenze] - [#80034]) ([fibaro docs])
+- Bump aiounifi to v39 ([@Kane610] - [#80043]) ([unifi docs]) (dependency)
+- Fix Netatmo device trigger ([@cgtobi] - [#80047]) ([netatmo docs])
+- Bump ZHA dependencies ([@puddly] - [#80049]) ([zha docs]) (dependency)
+
+[#79530]: https://github.com/home-assistant/core/pull/79530
+[#79659]: https://github.com/home-assistant/core/pull/79659
+[#79751]: https://github.com/home-assistant/core/pull/79751
+[#79949]: https://github.com/home-assistant/core/pull/79949
+[#79971]: https://github.com/home-assistant/core/pull/79971
+[#79972]: https://github.com/home-assistant/core/pull/79972
+[#79975]: https://github.com/home-assistant/core/pull/79975
+[#79994]: https://github.com/home-assistant/core/pull/79994
+[#79997]: https://github.com/home-assistant/core/pull/79997
+[#80019]: https://github.com/home-assistant/core/pull/80019
+[#80034]: https://github.com/home-assistant/core/pull/80034
+[#80043]: https://github.com/home-assistant/core/pull/80043
+[#80047]: https://github.com/home-assistant/core/pull/80047
+[#80049]: https://github.com/home-assistant/core/pull/80049
+[@Jc2k]: https://github.com/Jc2k
+[@KJonline]: https://github.com/KJonline
+[@Kane610]: https://github.com/Kane610
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cgtobi]: https://github.com/cgtobi
+[@frenck]: https://github.com/frenck
+[@molisani]: https://github.com/molisani
+[@puddly]: https://github.com/puddly
+[@rappenze]: https://github.com/rappenze
+[bluetooth docs]: /integrations/bluetooth/
+[bt_smarthub docs]: /integrations/bt_smarthub/
+[fibaro docs]: /integrations/fibaro/
+[frontend docs]: /integrations/frontend/
+[gtfs docs]: /integrations/gtfs/
+[hassio docs]: /integrations/hassio/
+[hive docs]: /integrations/hive/
+[homekit_controller docs]: /integrations/homekit_controller/
+[netatmo docs]: /integrations/netatmo/
+[sensor docs]: /integrations/sensor/
+[switchbot docs]: /integrations/switchbot/
+[unifi docs]: /integrations/unifi/
+[zha docs]: /integrations/zha/
+
+## Release 2022.10.4 - October 14
+
+- 2022.10.0 ([@frenck] - [#79659])
+- 2022.10.1 ([@balloob] - [#79751]) ([zha docs]) ([frontend docs]) ([sensor docs]) ([bt_smarthub docs]) ([bluetooth docs])
+- 2022.10.2 ([@balloob] - [#79949])
+- 2022.10.3 ([@frenck] - [#80054])
+- Fix state saving when sharing topics for MQTT entities ([@jbouwh] - [#79421]) ([mqtt docs])
+- Fix nobo_hub presenting temperature in zone with one decimal ([@oyvindwe] - [#79743]) ([nobo_hub docs])
+- Bump aioesphomeapi to 11.1.1 ([@jesserockz] - [#79762]) ([esphome docs])
+- Fix wallbox jwt issue ([@hesselonline] - [#79948]) ([wallbox docs])
+- Fix audio detection for IP4m-1041 Amcrest camera ([@flacjacket] - [#80066]) ([amcrest docs])
+- Fix set humidity in Tuya ([@frenck] - [#80132]) ([tuya docs])
+- Correct units for sensors in nibe heatpump ([@elupus] - [#80140]) ([nibe_heatpump docs])
+- Bump yalexs to 1.2.6 ([@bdraco] - [#80142]) ([august docs])
+- Fix incorrect deprecation year for conversion utils ([@gjohansson-ST] - [#80195])
+- Fix nexia permanent hold when cool and heat temps are within 2 degrees ([@bdraco] - [#80297]) ([nexia docs])
+- Bump HAP-python to fix pairing with iOS 16 ([@bdraco] - [#80301]) ([homekit docs])
+- Bump total_connect_client to 2022.10 ([@austinmroczek] - [#80331]) ([totalconnect docs])
+
+[#79421]: https://github.com/home-assistant/core/pull/79421
+[#79659]: https://github.com/home-assistant/core/pull/79659
+[#79743]: https://github.com/home-assistant/core/pull/79743
+[#79751]: https://github.com/home-assistant/core/pull/79751
+[#79762]: https://github.com/home-assistant/core/pull/79762
+[#79948]: https://github.com/home-assistant/core/pull/79948
+[#79949]: https://github.com/home-assistant/core/pull/79949
+[#80054]: https://github.com/home-assistant/core/pull/80054
+[#80066]: https://github.com/home-assistant/core/pull/80066
+[#80132]: https://github.com/home-assistant/core/pull/80132
+[#80140]: https://github.com/home-assistant/core/pull/80140
+[#80142]: https://github.com/home-assistant/core/pull/80142
+[#80195]: https://github.com/home-assistant/core/pull/80195
+[#80297]: https://github.com/home-assistant/core/pull/80297
+[#80301]: https://github.com/home-assistant/core/pull/80301
+[#80331]: https://github.com/home-assistant/core/pull/80331
+[@austinmroczek]: https://github.com/austinmroczek
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@flacjacket]: https://github.com/flacjacket
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@hesselonline]: https://github.com/hesselonline
+[@jbouwh]: https://github.com/jbouwh
+[@jesserockz]: https://github.com/jesserockz
+[@oyvindwe]: https://github.com/oyvindwe
+[amcrest docs]: /integrations/amcrest/
+[august docs]: /integrations/august/
+[bluetooth docs]: /integrations/bluetooth/
+[bt_smarthub docs]: /integrations/bt_smarthub/
+[esphome docs]: /integrations/esphome/
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[mqtt docs]: /integrations/mqtt/
+[nexia docs]: /integrations/nexia/
+[nibe_heatpump docs]: /integrations/nibe_heatpump/
+[nobo_hub docs]: /integrations/nobo_hub/
+[sensor docs]: /integrations/sensor/
+[totalconnect docs]: /integrations/totalconnect/
+[tuya docs]: /integrations/tuya/
+[wallbox docs]: /integrations/wallbox/
 [zha docs]: /integrations/zha/
 
 ## Need help? Join the community!

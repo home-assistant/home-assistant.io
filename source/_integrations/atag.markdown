@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `Atag` integration allows Home Assistant to connect to [Atag One](https://atag-one.com) thermostats, reporting and setting its status.
+The `Atag` integration allows Home Assistant to connect to [Atag One](https://www.atagverwarming.nl) thermostats, reporting and setting its status.
 The integration implements the following platforms:
 
 - Climate
