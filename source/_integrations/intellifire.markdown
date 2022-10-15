@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Climate
   - Fan
+  - Light
   - Sensor
   - Switch
 ha_iot_class: Local Polling
@@ -16,6 +17,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - climate
+  - light
   - fan
   - sensor
   - switch
@@ -48,6 +50,10 @@ The following controllable entities are available:
 ### Climate
 
 - **Thermostat** - This entity will be present if your unit has thermostatic control.
+
+### Lights
+
+If the unit is equipped with lights you will have a light entity.
 
 ### Sensor Types
 
