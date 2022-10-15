@@ -62,6 +62,8 @@ The integration will create an Estimated Distance sensor by default. This estima
 - [Blue Charm Beacons BC011-MultiBeacon](https://bluecharmbeacons.com/product/bluetooth-ble-multi-beacon-bc011/)
 - [Blue Charm Beacons BC021-MultiBeacon](https://bluecharmbeacons.com/product/bluetooth-ble-ibeacon-bc021-multibeacon-with-button-trigger-and-motion-sensor/)
 - [Blue Charm Beacons BC-U1-USB-Powered-MultiBeacon](https://bluecharmbeacons.com/product/bluetooth-ble-ibeacon-bc-u1-multibeacon-usb-powered/)
+- Blue Charm Beacons BC037G-GeoPattern-iBeacon (discontinued)
+- Blue Charm Beacons BC037S-SmoothPattern-iBeacon (discontinued)
 - [Blue Charm Beacons BC08-MultiBeacon](https://bluecharmbeacons.com/product/blue-charm-beacons-bluetooth-ble-ibeacon-bc08-multibeacon-w-motion-sensor-and-button-trigger-ble-5-0/)
 - [Feasycom FSC-BP103B](https://www.feasycom.com/bluetooth-ibeacon-da14531)
 - [Feasycom FSC-BP104D](https://www.feasycom.com/dialog-da14531-bluetooth-low-energy-beacon)
