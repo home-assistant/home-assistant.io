@@ -216,6 +216,7 @@ Supported devices:
 | Air Purifier 3 (2019)  | zhimi.airpurifier.ma4  | |
 | Air Purifier 3H (2019) | zhimi.airpurifier.mb3  | |
 | Air Purifier 3C        | zhimi.airpurifier.mb4  | |
+| Air Purifier ZA1       | zhimi.airpurifier.za1  | |
 | Air Purifier 4         | zhimi.airp.mb5         | |
 | Air Purifier 4 PRO     | zhimi.airp.vb4         | |
 | Air Fresh A1           | dmaker.airfresh.a1     | MJXFJ-150-A1 |
@@ -450,7 +451,7 @@ Child Lock              | Turn on/off the child lock
 Number                  | Description
 ----------------------- | -----------------------
 Favorite Motor Speed    | Set the favorite motor speed
-LED Brihtness           | Set the LED brightness
+LED Brightness           | Set the LED brightness
 
 - Sensor entities
 
@@ -467,6 +468,41 @@ Switch                  | Description
 ----------------------- | -----------------------
 Buzzer                  | Turn on/off the buzzer
 Child Lock              | Turn on/off the child lock
+
+### Air Purifier ZA1 (zhimi.airpurifier.za1)
+
+- Power (on, off)
+- Operation modes (Auto, Silent, Favorite)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Favorite Level          | Set the favorite level
+
+- Sensor entities
+
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Humidity                | The current humidity measured                                  | True
+Temperature             | The current temperature measured                               | True
+TVOC                    | The current concentration of Total Organic Volatile Components | True
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the Display (bright, dim, off)
 
 ### Air Purifier V3 (zhimi.airpurifier.v3)
 
