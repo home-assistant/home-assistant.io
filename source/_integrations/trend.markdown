@@ -2,6 +2,7 @@
 title: Trend
 description: Instructions on how to integrate Trend binary sensors into Home Assistant.
 ha_category:
+  - Helper
   - Binary Sensor
   - Utility
 ha_release: 0.28
@@ -10,7 +11,8 @@ ha_quality_scale: internal
 ha_domain: trend
 ha_platforms:
   - binary_sensor
-ha_integration_type: integration
+ha_integration_type: helper
+ha_config_flow: true
 ---
 
 The `trend` platform allows you to create sensors which show the trend of
@@ -18,6 +20,8 @@ numeric `state` or`state_attributes` from other entities. This sensor requires
 at least two updates of the underlying sensor to establish a trend.
 Thus it can take some time to show an accurate state. It can be useful
 as part of automations, where you want to base an action on a trend.
+
+{% include integrations/config_flow.md %}
 
 ## Configuration
 
