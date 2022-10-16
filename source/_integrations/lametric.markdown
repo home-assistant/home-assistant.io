@@ -28,6 +28,53 @@ ha_ssdp: true
 
 {% include integrations/config_flow.md %}
 
+## Services
+
+The LaMetric integration provides services to interact with your LaMetric
+device(s). Those service can be called in, for example, automations.
+
+### Service `lametric.text`
+
+The {% my developer_call_service service="lametric.text" title="`lametric.text`" %}
+service allows you to send a text message to your LaMetric. These
+messages can be enrichted with icons and sounds.
+
+{% my developer_call_service badge service="lametric.text" %}
+
+{% configuration "lametric.text" %}
+device_id:
+  description: The ID of the device to send the text message to.
+  required: true
+  type: string
+text:
+  description: The text to send to the LaMetric device.
+  required: true
+  type: string
+icon:
+  description: "An icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
+  required: false
+  type: string
+cycles:
+  description: "Defines how long the notification will be displayed. Set to `0` to require manual dismissal."
+  required: false
+  type: integer
+  default: 1
+priority:
+  description: "Defines the priority of the notification. Allowed values are `info`, `warning`, and `critical`."
+  required: false
+  type: string
+  default: info
+icon_type:
+  description: "Defines the nature of notification. Allowed values are `none`, `info`, and `alert`."
+  required: false
+  type: string
+  default: none
+sound:
+  description: "Defines the sound of the notification. Allowed are listed [below](#list-of-notification-sounds)."
+  required: false
+  type: string
+{% endconfiguration %}
+
 ## Notifications
 
 You can send notifications to your LaMetric device using
@@ -41,7 +88,7 @@ called "My LaMetric", the service would become `notify.my_lametric`.
 The notification service call against an LaMetric device can take the
 following, additional, optional parameters:
 
-{% configuration %}
+{% configuration "notification" %}
 icon:
   description: "An icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
   required: false
