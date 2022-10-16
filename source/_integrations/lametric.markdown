@@ -33,21 +33,21 @@ ha_ssdp: true
 The LaMetric integration provides services to interact with your LaMetric
 device(s). Those service can be called in, for example, automations.
 
-### Service `lametric.text`
+### Service `lametric.message`
 
-The {% my developer_call_service service="lametric.text" title="`lametric.text`" %}
-service allows you to send a text message to your LaMetric. These
+The {% my developer_call_service service="lametric.message" title="`lametric.message`" %}
+service allows you to send a message to your LaMetric. These
 messages can be enrichted with icons and sounds.
 
-{% my developer_call_service badge service="lametric.text" %}
+{% my developer_call_service badge service="lametric.message" %}
 
-{% configuration "lametric.text" %}
+{% configuration "lametric.message" %}
 device_id:
-  description: The ID of the device to send the text message to.
+  description: The ID of the device to send the message to.
   required: true
   type: string
-text:
-  description: The text to send to the LaMetric device.
+message:
+  description: The message to send to the LaMetric device.
   required: true
   type: string
 icon:
