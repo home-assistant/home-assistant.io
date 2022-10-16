@@ -43,6 +43,7 @@ The following devices have been confirmed to work out of the box:
 - Permundo PSC234 (switch and power monitor)
 - EnOcean STM-330 temperature sensor
 - Hoppe SecuSignal window handle from Somfy
+- Roto Com-Tec Comfort sensor (as window handle)
 
 If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) (EEP). If it does, it will most likely work. The available profiles are usually listed somewhere in the device manual.
 
@@ -301,6 +302,8 @@ sensor:
 ### Window handle
 
 As of now, the Hoppe SecuSignal window handle from Somfy has been successfully tested. However, any mechanical window handle that follows the EnOcean RPS telegram spec F6 10 00 (Hoppe AG) is supported.
+
+Sensors that support the states open/closed/tilt like the [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) **A5-14-09** (e.g. Roto Com-Tec Comfort) and **A5-14-0A** (e.g. Roto Com-Tec Comfort S) can be configured as window handle.
 
 To configure a window handle, add the following code to your `configuration.yaml`:
 
