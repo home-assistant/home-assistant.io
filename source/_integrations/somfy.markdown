@@ -16,6 +16,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+  - Water Heater
 ha_domain: somfy
 ha_codeowners:
   - '@imicknl'
@@ -38,6 +39,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - water_heater
 ha_iot_class: Cloud Polling
 ha_zeroconf: true
 ha_dhcp: true
