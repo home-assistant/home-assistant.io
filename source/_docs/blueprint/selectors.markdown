@@ -453,7 +453,7 @@ duration:
 ```
 
 {% configuration attribute %}
-enable_days:
+enable_day:
   description: When `true`, the duration selector will allow selecting days.
   type: boolean
   default: false
@@ -464,7 +464,7 @@ The output of this selector is a mapping of the time values the user selected.
 For example:
 
 ```yaml
-days: 1 # Only when enable_days was set to true
+days: 1 # Only when enable_day was set to true
 hours: 12
 minutes: 30
 seconds: 15
