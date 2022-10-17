@@ -72,10 +72,6 @@ there are multiple Hyperion server clients (of which Home Assistant is one).
 
 Provided advanced entities:
 
-- `light.[instance]_priority`: A "priority" light that acts exclusively on a given
-  Hyperion priority. Only color/effects (and not components) are available in this light.
-  Turning this light off will set a black color at this given priority rather than
-  turning the light off in absolute terms.
 - `switch.[instance]_component_[component]`: A switch to turn on/off the relevant
   underlying Hyperion component as shown on the Hyperion server `Remote Control` page
   under `Component Control`. This allows fine grained control over sources (e.g. `USB Capture`) and
