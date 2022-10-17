@@ -37,7 +37,7 @@ folder:
 patterns:
   description: Pattern matching to apply
   required: false
-  default: '*'
+  default: "\u002a"
   type: string
 {% endconfiguration %}
 
