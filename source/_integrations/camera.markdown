@@ -108,6 +108,7 @@ Take a snapshot from a camera.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`. |
 | `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id.name }}`{% endraw %}. |
+| `annotation`           |      yes | Optional text to include in bottom right hand of image. e.g. {% raw %}`{{ now().strftime("%Y-%m-%d_%H:%M:%S") }}`{% endraw %}. |
 
 The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
