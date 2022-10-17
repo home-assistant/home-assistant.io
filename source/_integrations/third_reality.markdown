@@ -1,7 +1,7 @@
 ---
 title: Third Reality
 description: Connect and control your Third Reality Zigbee devices using the Zigbee integration
-ha_release: '2021.10'
+ha_release: '2022.10'
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_category:
