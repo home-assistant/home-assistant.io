@@ -143,7 +143,7 @@ The German [Federal Office for Radiation protection (Bundesamt für Strahlenschu
 # Example configuration.yaml entry
 sensor:
   - platform: scrape
-    resource: http://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html
+    resource: https://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html
     name: Coast Ostsee
     select: "p"
     index: 19
