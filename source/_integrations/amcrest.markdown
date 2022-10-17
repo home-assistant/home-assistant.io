@@ -17,6 +17,7 @@ ha_platforms:
 ha_codeowners:
   - '@flacjacket'
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera or doorbell in Home Assistant.
@@ -26,134 +27,6 @@ There is currently support for the following device types within Home Assistant:
 - Binary Sensor
 - Camera
 - Sensor
-
-## Configuration
-
-To enable your camera in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-amcrest:
-  - host: IP_ADDRESS_CAMERA
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-
-```
-
-{% configuration %}
-host:
-  description: >
-    The IP address or hostname of your camera.
-    If using a hostname, make sure the DNS works as expected.
-  required: true
-  type: string
-username:
-  description: The username for accessing your camera. Most Amcrest devices use "admin" for the username, even if you've configured another username in their app.
-  required: true
-  type: string
-password:
-  description: The password for accessing your camera.
-  required: true
-  type: string
-name:
-  description: >
-    This parameter allows you to override the name of your camera. In the case of multi-camera setups,
-    this is highly recommended as camera id number will be randomly changed at each reboot if a name is not allocated.
-  required: false
-  type: string
-  default: Amcrest Camera
-port:
-  description: The port that the camera is running on.
-  required: false
-  type: integer
-  default: 80
-resolution:
-  description: >
-    This parameter allows you to specify the camera resolution.
-    For a high resolution (1080/720p), specify the option `high`.
-    For VGA resolution (640x480p), specify the option `low`.
-  required: false
-  type: string
-  default: high
-stream_source:
-  description: >
-    The data source for the live stream. `mjpeg` will use the camera's native
-    MJPEG stream, whereas `snapshot` will use the camera's snapshot API to
-    create a stream from still images. You can also set the `rtsp` option to
-    generate the streaming via RTSP protocol.
-  required: false
-  type: string
-  default: snapshot
-ffmpeg_arguments:
-  description: >
-    Extra options to pass to FFmpeg, e.g.,
-    image quality or video filter options.
-  required: false
-  type: string
-  default: -pred 1
-authentication:
-  description: >
-    Defines which authentication method to use only when `stream_source`
-    is `mjpeg`. Currently, `aiohttp` only support `basic`.
-  required: false
-  type: string
-  default: basic
-scan_interval:
-  description: Defines the update interval of the sensor in seconds.
-  required: false
-  type: integer
-  default: 10
-binary_sensors:
-  description: >
-    Conditions to display in the frontend.
-    The following conditions can be monitored:
-  required: false
-  type: list
-  default: None
-  keys:
-    audio_detected:
-      description: "Return `on` when audio is detected, `off` when not. In order to use this feature you must enable it in your cameras interface under Settings > Events > Audio Detection. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
-    audio_detected_polled:
-      description: "Return `on` when audio is detected, `off` when not. In order to use this feature you must enable it in your cameras interface under Settings > Events > Audio Detection. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
-    motion_detected:
-      description: "Return `on` when a motion is detected, `off` when not. Motion detection is enabled by default for most cameras, if this functionality is not working check that it is enabled in Settings > Events > Video Detection. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
-    motion_detected_polled:
-      description: "Return `on` when a motion is detected, `off` when not. Motion detection is enabled by default for most cameras, if this functionality is not working check that it is enabled in Settings > Events > Video Detection. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
-    crossline_detected:
-      description: "Return `on` when a tripwire tripping is detected, `off` when not. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
-    crossline_detected_polled:
-      description: "Return `on` when a tripwire is tripping is detected, `off` when not. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
-    online:
-      description: "Return `on` when camera is available (i.e., responding to commands), `off` when not."
-sensors:
-  description: >
-    Conditions to display in the frontend.
-    The following conditions can be monitored:
-  required: false
-  type: list
-  default: None
-  keys:
-    sdcard:
-      description: Return the SD card usage by reporting the total and used space.
-    ptz_preset:
-      description: >
-        Return the number of PTZ preset positions
-        configured for the given camera.
-switches:
-  description: Switches to control certain aspects of the cameras.
-  required: false
-  type: list
-  default: None
-  keys:
-    privacy_mode:
-      description: Controls the camera's Privacy Mode feature, if supported.
-control_light:
-  description: >
-    Automatically control the camera's indicator light, turning it on if the audio or video streams are enabled, and turning it off if both streams are disabled.
-  required: false
-  type: boolean
-  default: true
-{% endconfiguration %}
 
 **Note:** Amcrest cameras with newer firmware no longer have the ability to
 stream `high` definition video with MJPEG encoding. You may need to use `low`
@@ -167,7 +40,9 @@ Newer Amcrest firmware may not work, then `rtsp` is recommended instead.
 make sure to follow the steps mentioned at [FFmpeg](/integrations/ffmpeg/)
 documentation to install the `ffmpeg`.
 
-### Streaming vs Polled Binary Sensors
+{% include integrations/config_flow.md %}
+
+## Streaming vs Polled Binary Sensors
 
 Some binary sensors provide two choices for method of operation: streaming or polled. Streaming is more responsive and causes less network traffic because the camera will tell Home Assistant when the sensor's state has changed. Polled mode queries the camera periodically (every five seconds) to check the state of the sensor. Therefore streaming is the better option. However, some camera models and versions of camera firmware do not seem to implement the streaming method properly. Therefore the polled mode is also available. It is recommended to use the streaming mode (e.g., `motion_detected`) first, and if that doesn't work (e.g., results in constant errors), then try the polled mode instead (e.g., `motion_detected_polled`.)
 
