@@ -14,7 +14,6 @@ ha_integration_type: integration
 
 The QNAP integration allows getting various statistics from your [QNAP NAS](https://www.qnap.com/en-us/).
 
-## Configuration
 {% include integrations/config_flow.md %}
 
 ## Integration entities
