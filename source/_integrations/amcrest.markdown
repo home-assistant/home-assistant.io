@@ -36,10 +36,6 @@ your camera's configuration manager. If you defined the `stream_source` to
 `mjpeg`, make sure your camera supports `Basic` HTTP authentication.
 Newer Amcrest firmware may not work, then `rtsp` is recommended instead.
 
-**Note:** If you set the `stream_source` option to `rtsp`,
-make sure to follow the steps mentioned at [FFmpeg](/integrations/ffmpeg/)
-documentation to install the `ffmpeg`.
-
 {% include integrations/config_flow.md %}
 
 ## Streaming vs Polled Binary Sensors
