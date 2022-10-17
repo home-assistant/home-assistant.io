@@ -232,7 +232,7 @@ value_template:
 
 ### Using the discovery protocol
 
-The device_tracker can be created via a discovery topic that follows the following topic name convention: `<discovery_prefix>/device_tracker/[<node_id>/]<object_id>/config`.
+The device_tracker can be created via a discovery topic that follows the following topic name convention: `<discovery_prefix>/device_tracker/<object_id>/config`.
 
 You can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
 
