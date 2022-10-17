@@ -20,7 +20,7 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera or doorbell in Home Assistant.
+The Amcrest integration allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera or doorbell in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
