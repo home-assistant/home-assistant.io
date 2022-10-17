@@ -744,7 +744,7 @@ Some examples:
 ### Regular expressions
 
 For more information on regular expressions
-See: https://docs.python.org/3/library/re.html
+See: [Python regular expression operations](https://docs.python.org/3/library/re.html)
 
 - Test `string is match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
 - Test `string is search(find, ignorecase=False)` will match the find expression anywhere in the string using regex.
