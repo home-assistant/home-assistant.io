@@ -715,7 +715,7 @@ Like `float` and `int`, `bool` has a filter form. Using `none` as the default va
 
 These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice-versa.
 The `pack` and `unpack` functions can also be used as a filter. They make use of the Python 3 `struct` library.
-See: https://docs.python.org/3/library/struct.html
+See: [Python struct library documentation](https://docs.python.org/3/library/struct.html)
 
 - Filter `value | pack(format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or when `format_string` is invalid.
 - Function `pack(value, format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or when `format_string` is invalid.
