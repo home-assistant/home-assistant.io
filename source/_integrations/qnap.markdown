@@ -17,7 +17,8 @@ The QNAP integration allows getting various statistics from your [QNAP NAS](http
 ## Configuration
 {% include integrations/config_flow.md %}
 
-## Integration Entities
+## Integration entities
+
 The QNAP integration will add the following sensors:
 - System: status, system temperature
 - CPU: usage, temperature
