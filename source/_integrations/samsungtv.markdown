@@ -103,7 +103,7 @@ automation:
         entity_id: media_player.samsungtv
         type: turn_off
     action:
-      - service: script.samsungtv_turn_off
+      - service: script.tv_turn_off
 ```
 
 Events could be used too:
