@@ -17,7 +17,7 @@ The Formula 1 integration offers integration with the [Ergast](https://ergast.co
 
 {% include integrations/config_flow.md %}
 
-### Available Resources
+## Available resources
 
 The list of currently available resources:
 
