@@ -94,7 +94,7 @@ The newer S-series pump expose a built in TCP Modbus server that can be used to 
 
 #### RCU
 
-If your system is equipped with a MODBUS40 accessory, this can be used to control your pump. To connect Home Assistant to the MODBUS40 accessory, a RS485 USB dongle is needed, which can be locally connected to you home assistant system, or on a separate computer exposed via [ser2net](https://linux.die.net/man/8/ser2net)
+If your system is equipped with a MODBUS40 accessory, this can be used to control your pump. To connect Home Assistant to the MODBUS40 accessory, a RS485 USB dongle is needed, which can be locally connected to you Home Assistant system, or on a separate computer exposed via [ser2net](https://linux.die.net/man/8/ser2net)
 
 - `serial://[DEVICE PATH]` for direct local connection
 - `rfc2217://[IP OR HOSTNAME]:[PORT]` for a [ser2net](https://linux.die.net/man/8/ser2net) type proxy
