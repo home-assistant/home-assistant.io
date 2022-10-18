@@ -90,7 +90,13 @@ Note: The vendor claims the device will support Matter in the future. It is uncl
 
 [Buy Aqara Smart Radiator Thermostat E1](https://www.aqara.com/eu/product/radiator-thermostat-e1)
 
-<lite-youtube videoid="ibFYGcAzyDM" videotitle=" Simple Smart Home Heating In Minutes!"></lite-youtube>
+<lite-youtube videoid="ibFYGcAzyDM" videotitle="Simple Smart Home Heating In Minutes!"></lite-youtube>
+
+## Automations that can save energy
+
+Once you're able to control your thermostat and TRVs, you can start to save energy by automating your heating. Below are 5 useful automations to help with this.
+
+<lite-youtube videoid="W9BdVneXTO8" videotitle="Save Energy and Costs with Home Assistant! 5 Tips!"></lite-youtube>
 
 ## Wrap up
 
