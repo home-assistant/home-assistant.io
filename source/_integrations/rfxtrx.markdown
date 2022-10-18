@@ -346,7 +346,7 @@ action:
 
 Alternatively:
 
-- Go to: {% my developer_services title="Developer tools -> Services" %}
+- Go to: {% my developer_call_service title="Developer tools -> Services" service="rfxtrx.send" %}
 - Select: `RFXCOM RFXtrx: Send` from the Service drop-down menu.
 
 ```yaml
