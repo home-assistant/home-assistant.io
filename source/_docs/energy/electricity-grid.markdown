@@ -37,6 +37,26 @@ The Zigbee Energy Profile is a wireless energy standard to provide real-time inf
 
 One such option with a local API is the [Rainforest EAGLE-200](/integrations/rainforest_eagle/).
 
+#### Connect using a TIC port
+
+TIC (*Téléinformation Client*) is a standardized port on Enedis (France energy distributor) electricity meters, such as [Linky](https://fr.wikipedia.org/wiki/Linky).
+
+Multiple devices can plug into the TIC port. Some are able to draw enough energy from the energy meter, others have to be wired to a power source.
+
+Wireless:
+* Zigbee: Zlinky_TIC from [LiXee](https://lixee.fr/), with an open-source firmware.
+* Direct Atome from [Total](https://www.totalenergies.fr/particuliers/nos-services/mieux-consommer/consolive) (requires a 2€/month subscription, has [an integration](https://www.home-assistant.io/integrations/atome/)
+* WiFi: DIY via esphome and the [teleinfo component](https://esphome.io/components/sensor/teleinfo.html)
+
+Wired: either build your own optocoupler-based circuit to connect the TIC output to a serial port, or buy an adapter:
+* DIN Rail to USB from [LiXee](https://lixee.fr/produits/30-tic-din-3770014375070.html)
+
+To decode the serial output, you can use:
+* [teleinfo2mqtt](https://github.com/fmartinou/teleinfo2mqtt)
+* This [former HomeAssistant Pull Request](https://github.com/home-assistant/core/pull/14200) to integrate directly into HomeAssistant.
+
+Note that the TIC output has two modes: a "historical" one, which is usually the default for backwards-compatibility, and a "standard" one with more and more frequent information. Changing mode can be done free of charge if you have a Linky meter by calling your electricity provider and asking them to order a F185 prestation from Enedis.
+
 #### Reading the meter via a pulse counter
 
 Many meters, including older ones, have an LED that will flash whenever energy passes through it. For example, each flash is a 1/1000th kWh. By monitoring the time between flashes it’s possible to determine the energy consumption.
