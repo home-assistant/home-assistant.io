@@ -29,7 +29,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Setup
 
-It is recommended to set up a new & dedicated account on your DoorBird App/web portal for use with Home Assistant. The instructions in this documentation refer specifically to the DoorBird IOS/Android app but most of the instructions can also be performed using the web-based [DoorBird - WebAdmin](https://webadmin.doorbird.com) portal and logging in on your DoorBird admin account.
+It is recommended to set up a new & dedicated account on your DoorBird App/web portal for use with Home Assistant. The instructions in this document refer specifically to the DoorBird IOS/Android app. Still, most actions can also be performed using the web-based [DoorBird - WebAdmin](https://webadmin.doorbird.com) portal and logging in on your DoorBird admin account.
 
 To setup a new account for Home Assistant, open the DoorBird App by clicking settings (cog icon) -> Administration-> LOGIN (using your DoorBird App Administration details). Under the "USER" section, choose "Add". This new user account requires specific permissions enabled (depending on what functionality you want). Permissions can be found under "Permissions". The following permissions are recommended (or amend depending on your requirements:
 
@@ -66,7 +66,7 @@ If DoorBird was setup using UI prompts, a token can be discovered through DoorBi
 
 #### Event Data
 
-Each event will include live image and video URLs for the DoorBird device that triggered the event. These URLs can be found on the event data and can be useful in automation actions. For example, you could use `html5_viewer_url` on a notification to be linked directly to the live view of the device that triggered the automation.
+Each event will include live image and video URLs for the DoorBird device that triggered the event. These URLs can be found on the event data and are helpful in automation actions. For example, you could use `html5_viewer_url` on a notification to be linked directly to the live view of the device that triggered the automation.
 
 The following keys are available on `event_data`:
 
@@ -77,12 +77,12 @@ The following keys are available on `event_data`:
 - `html5_viewer_url`
 
 <div class="note">
-The URLs on the event will be based on the configuration used to connect to your DoorBird device. Ability to connect from outside your network will depend on your configuration.
+The URLs on the event will be based on the configuration used to connect to your DoorBird device. The ability to connect from outside your network will depend on your configuration.
 </div>
 
 #### Schedules
 
-Once events have been registered on the DoorBird device, they must be attached to a schedule using the official DoorBird app on Android or iOS or the [DoorBird - WebAdmin](https://webadmin.doorbird.com) portal. Currently, there are schedules available for doorbell, motion, relay, and RFID events (on supported DoorBird devices). Essentially, you can enable a HTTP(S) call from your DoorBird device to the Home Assistant DoorBird API by configuring an action/event (by enabling a schedule).
+Once events have been registered on the DoorBird device, they must be attached to a schedule using the official DoorBird app on Android or iOS or the [DoorBird - WebAdmin](https://webadmin.doorbird.com) portal. Currently, there are schedules available for doorbell, motion, relay, and RFID events (on supported DoorBird devices). Essentially, you can enable an HTTP(S) call from your DoorBird device to the Home Assistant DoorBird API by configuring an action/event (by enabling a schedule).
 
 The schedules can be found by navigating to the following area of the DoorBird app (Android or IOS):
 
@@ -96,7 +96,7 @@ Click on the dropdown button in the top left and choose your specific "Schedule 
 
 On the desired event, you should be able to specify blocks of time for when you would like the event to be sent to Home Assistant. If you want the event to always send, the square in the upper right can be used to populate the entire schedule. Events will be fired to Home Assistant for blocks of time that are blue.
 
-Note: Remember to complete the schedule assignment steps above for each event type that you registered. If you are configuring HTTP Call(s) schedules for registered RFID tags, please note you will have to enable/configure schedule for each individual RFID tag.
+Note: Remember to complete the schedule assignment steps above for each event type you registered. If you are configuring HTTP Call(s) schedules for registered RFID tags, please note that you will have to enable/configure the schedule for each RFID tag.
 
 ### Automation Example
 
