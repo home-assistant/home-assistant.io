@@ -232,7 +232,7 @@ value_template:
 
 ### Using the discovery protocol
 
-The device_tracker can be created via publishing to a discovery topic that follows the following [MQTT Discovery](https://www.home-assistant.io/docs/mqtt/discovery/#discovery-topic) topic name format: `<discovery_prefix>/device_tracker/[<node_id>/]<object_id>/config`.
+The device_tracker can be created via publishing to a discovery topic that follows the following [MQTT Discovery](/docs/mqtt/discovery/#discovery-topic) topic name format: `<discovery_prefix>/device_tracker/[<node_id>/]<object_id>/config`.
 
 You can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
 
