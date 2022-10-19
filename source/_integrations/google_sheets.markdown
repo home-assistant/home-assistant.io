@@ -88,9 +88,6 @@ You can use the service `google_sheets.append_sheet` to add a row of data to the
 service: google_sheets.append_sheet
 data:
   config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
-  worksheet: Clarity Charging
-data:
-  config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
   worksheet: Car Charging
   data:
     Date: "{{ now().strftime('%-d-%b-%y') }}"
