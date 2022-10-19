@@ -44,10 +44,14 @@ ifttt:
   key: ["nope"]
 
 mqtt:
-  broker: 127.0.0.1
+  sensor:
+    - name: "test sensor 1"
+      state_topic: "test/some_topic1"
+    - name: "test sensor 2"
+      state_topic: "test/some_topic2"
 ```
 
-As with the core snippet, indentation makes a difference. The integration headers (`mqtt:`) should be fully left aligned (aka no indent), and the parameters (`broker:`) should be indented two (2) spaces.
+As with the core snippet, indentation makes a difference. The integration headers (`mqtt:`) should be fully left aligned (aka no indent), and the key (`sensor:`) should be indented two (2) spaces. The list `-` under the key `sensor` should be indented another two (2) spaces followed by a single space. The `mqtt` sensor list contains two (2) configurations containing two (2) keys.
 
 While some of these integrations can technically be moved to a separate file they are so small or "one off's" where splitting them off is superfluous. Also, you'll notice the # symbol (hash/pound). This represents a "comment" as far as the commands are interpreted. Put another way, any line prefixed with a `#` will be ignored. This makes breaking up files for human readability really convenient, not to mention turning off features while leaving the entry intact.
 
