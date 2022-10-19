@@ -73,13 +73,13 @@ samsungtv:
           mac: MAC_ADDRESS
 ```
 
-### Turning On/Off
+### Turning On
 
-You can customize your turn on and off actions through automations. Simply use the relevant Samsung TV device triggers or events and your automation will be called to perform the `turn_on` or `turn_off` sequence.
+You can customize your turn on action through automations. Simply use the relevant Samsung TV device trigger or event and your automation will be called to perform the `turn_on` sequence.
 
 These automations can be configured through the UI (see [Device Triggers](/docs/automation/trigger/#device-triggers) for automations).  If you prefer YAML, you'll need to get the device ID from the UI automation editor.
 
-Automations would be of the form:
+Automation would be of the form:
 
 ```yaml
 automation:
@@ -93,20 +93,9 @@ automation:
         type: turn_on
     action:
       - service: script.tv_turn_on
-
-  - id: samsungtv_turn_off
-    alias: "Samsung TV: turn off"
-    trigger:
-      - platform: device
-        device_id: !secret samsungtv_device_id
-        domain: samsungtv
-        entity_id: media_player.samsungtv
-        type: turn_off
-    action:
-      - service: script.tv_turn_off
 ```
 
-Events could be used too:
+Event could be used too:
 
 ```yaml
 automation:
@@ -120,17 +109,6 @@ automation:
       - "{{ trigger.event.data.entity_id == 'media_player.samsungtv' }}"
     action:
       - service: script.tv_turn_on
-
-  - id: samsungtv_turn_off
-    alias: "Samsung TV: turn off"
-    trigger:
-      - platform: event
-        event_type:
-          - samsungtv.turn_off
-    condition:
-      - "{{ trigger.event.data.entity_id == 'media_player.samsungtv' }}"
-    action:
-      - service: script.tv_turn_off
 ```
 
 ### Usage
