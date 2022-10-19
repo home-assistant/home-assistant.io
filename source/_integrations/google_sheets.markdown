@@ -89,15 +89,12 @@ service: google_sheets.append_sheet
 data:
   config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
   worksheet: Clarity Charging
+data:
+  config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
+  worksheet: Car Charging
   data:
     Date: "{{ now().strftime('%-d-%b-%y') }}"
-    Start: "{{ states('input_number.car_charging_start')|float(0) }}"
-    End: "{{ states('input_number.car_charging_end')|float(0) }}"
-    Rate: "{{ states('input_number.bchydro_current_rate')|float(0) }}"
-    Cost: >-
-      {{ (states('input_number.car_charging_end')|float(0) -
-      states('input_number.car_charging_start')|float(0) ) *
-      states('input_number.bchydro_current_rate')|float(0) }}
-```
-
+    KWh: "{{ states('input_number.car_charging_kwh')|float(0) }}"
+    Cost: "{{ states('input_number.car_charging_cost')|float(0) }}"
+ ```
 {% enddetails %}
