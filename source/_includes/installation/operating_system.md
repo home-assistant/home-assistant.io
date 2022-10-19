@@ -92,7 +92,9 @@ To use this method, follow the steps described in the procedure below: [Write th
 - To use this method, follow the instructions of your Live distribution (e.g., [this Ubuntu guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). Once you booted the live operating system, follow the steps described in the procedure below: [Write the image to your boot media](#write-the-image-to-your-boot-media).
 
 <details>
+
 <summary> Ubuntu dependency's for Etcher </summary>
+
 When installing Etcher on an Ubuntu system you may need to install the fuse
 dependency, you can do so with the following commands:
 
