@@ -72,10 +72,11 @@ Not supported in [limited templates](#limited-templates).
 - Iterating `states` will yield each state sorted alphabetically by entity ID.
 - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
-- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity, `unknown` if it doesn't exist, `unavailable` if the object exists but is not yet available. 
+- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity, `unknown` if it doesn't exist, `unavailable` if the object exists but is not yet available.
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
-- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') is none` or `state_attr('sensor.my_sensor', 'attr') == None` (note the difference in the capitalization of none in both versions). 
+- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') is none` or `state_attr('sensor.my_sensor', 'attr') == None` (note the difference in the capitalization of none in both versions).
+
 <div class='note warning'>
 
   Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
@@ -386,7 +387,6 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
 {% endraw %}
 
-
 ### Time
 
 `now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
@@ -485,7 +485,7 @@ The `from_json` filter operates similarly, but in the other direction, de-serial
 
 In this example, the special character '°' will be automatically escaped in order to produce valid JSON. The difference between the stringified object and the actual JSON is evident.
 
-*Template*
+#### Template
 
 {% raw %}
 
@@ -497,7 +497,7 @@ object|to_json: {{ temp|to_json(ensure_ascii=False) }}
 
 {% endraw %}
 
-*Output*
+#### Output
 
 {% raw %}
 
@@ -510,7 +510,7 @@ object|to_json: {"temperature": 25, "unit": "\u00b0C"}
 
 Conversely, `from_json` can be used to de-serialize a JSON string back into an object to make it possible to easily extract usable data.
 
-*Template*
+#### Template
 
 {% raw %}
 
@@ -521,7 +521,7 @@ The temperature is {{ temp.temperature }}{{ temp.unit }}
 
 {% endraw %}
 
-*Output*
+#### Output
 
 {% raw %}
 
@@ -573,12 +573,12 @@ Not supported in [limited templates](#limited-templates).
 - `distance()` will measure the distance in kilometers between home, entity, coordinates.
 - `closest()` will find the closest entity.
 
-
 #### Distance examples
 
 If only one location is passed in, Home Assistant will measure the distance from home.
 
 {% raw %}
+
 ```text
 
 Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
@@ -703,7 +703,7 @@ Like `float` and `int`, `bool` has a filter form. Using `none` as the default va
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
-- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted raises an error. 
+- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted raises an error.
   - `round(precision, "floor", default)` will always round down to `precision` decimals
   - `round(precision, "ceil", default)` will always round up to `precision` decimals
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
