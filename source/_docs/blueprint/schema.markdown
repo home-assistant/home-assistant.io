@@ -63,7 +63,7 @@ homeassistant:
   keys:
     min_version:
       description: >
-        Minimum required version of Home Assistant to use the blueprint (e.g. 
+        Minimum required version of Home Assistant to use the blueprint (e.g.
         `2022.4.0`. It is important to set this if the blueprint uses any features
         introduced in recent releases to head off issues.
       type: string
@@ -135,7 +135,7 @@ A blueprint can have as many inputs as you like.
 
 The inputs are available as custom YAML tags, but not as template variables.
 To use a blueprint input in a template, it first needs to be exposed as either
-a [script level variable](/integrations/script/#configuration-variables) or in 
+a [script level variable](/integrations/script/#configuration-variables) or in
 a [variable script step](/docs/scripts/#variables).
 
 ```yaml
