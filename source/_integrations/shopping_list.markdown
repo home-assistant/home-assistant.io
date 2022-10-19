@@ -59,7 +59,7 @@ Clear completed items from the shopping list.
 
 ## Using in Automations
 
-A `shopping_list_updated` event is triggered when items in the list are modified, with the following data payload attached to it. This can be used to trigger automations such as sending a push notification when someone adds an item to the shopping list, which when clicked will open the list.
+A `shopping_list_updated` event is triggered when items in the list are modified, with the following data payload attached to it. This can be used to trigger automations such as sending a push notification when someone adds an item to the shopping list, which when clicked, will open the list.
 
 | Data payload attribute | Description                                                                                                        |
 |------------------------|--------------------------------------------------------------------------------------------------------------------|
@@ -72,23 +72,21 @@ A `shopping_list_updated` event is triggered when items in the list are modified
 {% raw %}
 
 ```yaml
-alias: Notify on new shopping list item
+alias: "Notify on new shopping list item"
 trigger:
   - platform: event
     event_type: shopping_list_updated
     event_data:
-      action: add
+      action: "add"
 condition: []
 action:
   - service: notify.notify
     data:
-      message: '{{ trigger.event.data.item.name }} has been added to the shopping list'
+      message: "{{ trigger.event.data.item.name }} has been added to the shopping list"
       data:
         clickAction: "/shopping-list"
         url: "/shopping-list"
-mode: single
 ```
 
 {% endraw %}
-
 
