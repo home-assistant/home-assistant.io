@@ -93,7 +93,7 @@ To use this method, follow the steps described in the procedure below: [Write th
 
 <details>
 
-<summary> Ubuntu dependency's for Etcher </summary>
+<summary>Click to see Ubuntu dependency's for Etcher</summary>
 
 When installing Etcher on an Ubuntu system you may need to install the fuse
 dependency, you can do so with the following commands:
