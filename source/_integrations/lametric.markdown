@@ -33,6 +33,43 @@ ha_ssdp: true
 The LaMetric integration provides services to interact with your LaMetric
 device(s). Those service can be called in, for example, automations.
 
+### Service `lametric.chart`
+
+The {% my developer_call_service service="lametric.chart" title="`lametric.chart`" %}
+service allows you to display a little chart to your LaMetric.
+
+{% my developer_call_service badge service="lametric.chart" %}
+
+{% configuration "lametric.chart" %}
+device_id:
+  description: The ID of the device to send the message to.
+  required: true
+  type: string
+data:
+  description: The data points in the chart, as a list of numbers. For example `[1, 2, 3, 2, 1]`.
+  required: true
+  type: list
+cycles:
+  description: "Defines how long the notification will be displayed. Set to `0` to require manual dismissal."
+  required: false
+  type: integer
+  default: 1
+priority:
+  description: "Defines the priority of the notification. Allowed values are `info`, `warning`, and `critical`."
+  required: false
+  type: string
+  default: info
+icon_type:
+  description: "Defines the nature of notification. Allowed values are `none`, `info`, and `alert`."
+  required: false
+  type: string
+  default: none
+sound:
+  description: "Defines the sound of the notification. Allowed are listed [below](#list-of-notification-sounds)."
+  required: false
+  type: string
+{% endconfiguration %}
+
 ### Service `lametric.message`
 
 The {% my developer_call_service service="lametric.message" title="`lametric.message`" %}
