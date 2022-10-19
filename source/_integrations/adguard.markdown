@@ -75,9 +75,9 @@ Add a new allow/block filter subscription to AdGuard Home.
 | ---------------------- | -------- | ------------------------------------------------------------ |
 | `name`                 | No       | The name of the filter subscription.                         |
 | `url`                  | No       | The filter URL to subscribe to, containing the filter rules. |
-| `allow`                | Yes      | The filter you are adding is an allowlist filter.            |
+| `list_type`            | Yes      | The list type of the filter you are adding.                  |
 
-By default, `allow` is set to `false`.
+By default, `list_type` is set to `blocklist`.
 
 ### Service `remove_url`
 
@@ -86,9 +86,9 @@ Removes an allow/block filter subscription from AdGuard Home.
 | Service data attribute | Optional | Description                                         |
 | ---------------------- | -------- | --------------------------------------------------- |
 | `url`                  | No       | The filter subscription URL to remove.              |
-| `allow`                | Yes      | The filter you are removing is an allowlist filter. |
+| `list_type`            | Yes      | The list type of the filter you are removing.       |
 
-By default, `allow` is set to `false`.
+By default, `list_type` is set to `blocklist`.
 
 ### Service `enable_url`
 
