@@ -67,39 +67,28 @@ sites/domains at certain times.
 For example, you could create a custom filter list that blocks social media sites
 during the day and releases them during the evening.
 
-### Service `add_allow_url`
+### Service `add_url`
 
-Add a new allow filter subscription to AdGuard Home.
-
-| Service data attribute | Optional | Description                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------ |
-| `name`                 | No       | The name of the filter subscription.                         |
-| `url`                  | No       | The filter URL to subscribe to, containing the filter rules. |
-
-### Service `remove_allow_url`
-
-Removes an allow filter subscription from AdGuard Home.
-
-| Service data attribute | Optional | Description                            |
-| ---------------------- | -------- | -------------------------------------- |
-| `url`                  | No       | The filter subscription URL to remove. |
-
-### Service `add_block_url`
-
-Add a new block filter subscription to AdGuard Home.
+Add a new allow/block filter subscription to AdGuard Home.
 
 | Service data attribute | Optional | Description                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------ |
 | `name`                 | No       | The name of the filter subscription.                         |
 | `url`                  | No       | The filter URL to subscribe to, containing the filter rules. |
+| `allow`                | Yes      | The filter you are adding is an allowlist filter.            |
 
-### Service `remove_block_url`
+By default, `allow` is set to `false`.
 
-Removes a block filter subscription from AdGuard Home.
+### Service `remove_url`
 
-| Service data attribute | Optional | Description                            |
-| ---------------------- | -------- | -------------------------------------- |
-| `url`                  | No       | The filter subscription URL to remove. |
+Removes an allow/block filter subscription from AdGuard Home.
+
+| Service data attribute | Optional | Description                                         |
+| ---------------------- | -------- | --------------------------------------------------- |
+| `url`                  | No       | The filter subscription URL to remove.              |
+| `allow`                | Yes      | The filter you are removing is an allowlist filter. |
+
+By default, `allow` is set to `false`.
 
 ### Service `enable_url`
 
