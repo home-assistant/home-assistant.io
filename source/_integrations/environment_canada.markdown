@@ -95,7 +95,9 @@ The Environment Canada service is very stable and provides high-quality data. He
 
 Although infrequent, there have been some outages and instabilities of the Environment Canada service. If you see error messages in your logs similar to the one below, it is very unlikely to be a problem with this integration and is likely a problem with the Environment Canada service.
 
-```2022-10-05 12:25:08.619 ERROR (MainThread) [homeassistant.components.environment_canada] Timeout fetching environment_canada weather data```
+```txt
+2022-10-05 12:25:08.619 ERROR (MainThread) [homeassistant.components.environment_canada] Timeout fetching environment_canada weather data
+```
 
 The first course of action should be to check if there are known problems with the service. Look for recent messages on the [Environment Canada mailing list](https://lists.ec.gc.ca/pipermail/dd_info/) ([example message](https://lists.ec.gc.ca/pipermail/dd_info/2022-October/000542.html)). The next course of action is to post on the forum. The answers are usually already known by someone.
 
