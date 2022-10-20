@@ -22,55 +22,88 @@ regenerate: false
 
 {%- assign components = site.integrations | sort: 'title' -%}
 {%- assign components_by_version = site.integrations | group_components_by_release -%}
-{%- assign iotClass = components | map: 'ha_iot_class' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
 {%- assign categories = components | map: 'ha_category' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
+{%- assign iot_classes = components | map: 'ha_iot_class' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
+{%- assign quality_scales = components | map: 'ha_quality_scale' | join: ',' | join: ',' | split: ',' | uniq | sort  -%}
 
 <p class='note'>
   Support for these integrations is provided by the Home Assistant community.
 </p>
 <div class="grid">
-  <div class="grid__item one-sixth lap-one-whole palm-one-whole">
-
-    <div class="filter-button-group">
-      <a href='#all' class="btn">All ({{tot}})</a>
-      <a href='#featured' class="btn featured">Featured</a>
-      <div class="version_select">Added in: <select name="versions">
-          <option value="#"></option>
-          {%- for group in components_by_version -%}
-          <optgroup label="{{ group.label }} ({{group.new_components_count}})">
-            {%- for version in group.versions -%}
-            <option value="#version/{{ version.label }}">{{ version.label }} ({{ version.new_components_count }})
-            </option>
-            {%- endfor -%}
-          </optgroup>
-          {%- endfor -%}
-        </select></div>
-
-        <p class="filter-title">IoT Class:</p>
-        {%- for class in iotClass -%}
-        {%- assign components_count = components | where: 'ha_iot_class', class | size -%}
-        {%- if class and components_count != 0 -%}
-        <a href='#{{ class | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ class }} ({{ components_count }})</a>
-        {%- endif -%}
-        {%- endfor -%}
-
-        <p class="filter-title">Categories:</p>
-      {%- for category in categories -%}
-      {%- assign components_count = components | where: 'ha_category', category | size -%}
-      {%- if category and category != 'Other' and components_count != 0 -%}
-      <a href='#{{ category | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ category }} ({{ components_count }})</a>
-      {%- endif -%}
-      {%- endfor -%}
-
-      <a href='#other' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">Other ({{ components | where: 'ha_category', 'Other' | size }})</a>
-    </div>
-  </div>
-  <div class="grid__item five-sixths lap-one-whole palm-one-whole">
+  <div class="grid__item six-sixths lap-one-whole palm-one-whole">
     <div class="component-search">
       <form onsubmit="event.preventDefault(); return false">
-        <input type="text" name="search" id="search" class="search" placeholder="Search integrations..." autofocus />
+        <input type="text" name="search" id="search" data-id="search" class="search" placeholder="Search integrations..." autofocus />
       </form>
     </div>
+  </div>
+  <div class="grid__item three-sixths lap-one-whole palm-one-whole">
+      <div class="integration_filter">
+        <select name="category" data-id="cat">
+          <option value="#">Category</option>
+          <option value="featured">Featured</option>
+          <option value="all">All ({{tot}})</option>
+    
+          {%- for category in categories -%}
+          {%- assign components_count = components | where: 'ha_category', category | size -%}
+          {%- if category and category != 'Other' and components_count != 0 -%}
+          <option value='{{ category | slugify }}'>{{ category }} ({{ components_count }})</option>
+          {%- endif -%}
+          {%- endfor -%}
+    
+          <option value='#other'>Other ({{ components | where: 'ha_category', 'Other' | size }})</option>
+    
+        </select>
+      </div>
+  </div>
+  <div class="grid__item three-sixths lap-one-whole palm-one-whole">
+    <div class="integration_filter">
+      <select name="versions" data-id="version">
+        <option value="#">Version</option>
+        {%- for group in components_by_version -%}
+        <optgroup label="{{ group.label }} ({{group.new_components_count}})">
+          {%- for version in group.versions -%}
+          <option value="{{ version.label }}">{{ version.label }} ({{ version.new_components_count }})
+          </option>
+          {%- endfor -%}
+        </optgroup>
+        {%- endfor -%}
+      </select>
+    </div>
+  </div>
+
+  <div class="grid__item three-sixths lap-one-whole palm-one-whole">
+    <div class="integration_filter">
+      <select name="iot_classes" data-id="iot_class">
+        <option value="#">IoT Class</option>
+        {%- for iot_class in iot_classes -%}
+          {%- assign iot_class_count = components | where: 'ha_iot_class', iot_class | size -%}
+          {%- if iot_class_count != 0 -%}
+          <option value="{{ iot_class | slugify }}">{{ iot_class }} ({{ iot_class_count }})
+          </option>
+          {%- endif -%}
+        {%- endfor -%}
+      </select>
+    </div>
+  </div>
+
+  <div class="grid__item three-sixths lap-one-whole palm-one-whole">
+    <div class="integration_filter">
+      <select name="quality_scales" class="capitalize" data-id="quality_scale">
+        <option value="#">Quality Scale</option>
+        {%- for quality_scale in quality_scales -%}
+          {%- assign quality_scale_count = components | where: 'ha_quality_scale', quality_scale | size -%}
+          {%- if quality_scale_count != 0 -%}
+          <option class="capitalize" value="{{ quality_scale | slugify }}">{{ quality_scale }} ({{ quality_scale_count }})
+          </option>
+          {%- endif -%}
+        {%- endfor -%}
+      </select>
+    </div>
+  </div>
+
+
+  <div class="grid__item six-sixths lap-one-whole palm-one-whole">
     <div class="hass-option-cards" id="componentContainer"> </div>
   </div>
 </div>
@@ -103,7 +136,7 @@ regenerate: false
 
 <script type="text/javascript">
 // This object contains all components we have
-var allComponents = [
+const integrations = [
   {%- for component in components -%}
     {%- if component.ha_category -%}
       {%- assign sliced_version = component.ha_release | split: '.' -%}
@@ -114,61 +147,163 @@ var allComponents = [
         {% capture category %}"{{ ha_category | slugify | downcase }}"{% endcapture %}
         {% assign categories = categories | push: category %}
       {%- endfor -%}
-      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}", iot: "{{component.ha_iot_class | slugify }}"},
+      {
+        url:"{{ component.url }}",
+        title:"{{component.title}}",
+        cat: [{{categories|join: ","}}],
+        featured: {{ component.featured }},
+        version: "{{major_version}}.{{minor_version}}",
+        logo: "{{component.logo}}",
+        domain: "{{component.ha_domain}}",
+        iot_class: "{{component.ha_iot_class | slugify }}",
+        quality_scale: "{{component.ha_quality_scale}}"
+      },
     {% endif -%}
   {%- endfor -%}
   false
 ];
-allComponents.pop(); // remove placeholder element at the end
+integrations.pop(); // remove placeholder element at the end
 </script>
 
 <script type="text/javascript">
   (function () {
     var template = $('#component-template').html();
     Mustache.parse(template); // make future calls to render faster
+    let filteredComponents = {};
+    const baseHashRegex = /(^.*)(?=\?)/;
+    const $integrationFilters = $('.integration_filter select');
 
     function init() {
+      let queryParams = new URLSearchParams(document.location.search);
       // do the lowerCase transformation once
-      for (i = 0; i < allComponents.length; i++) {
-        title = allComponents[i].title.toLowerCase();
-        domain = allComponents[i].domain;
-        iot = allComponents[i].iot_class;
+      for (i = 0; i < integrations.length; i++) {
+        title = integrations[i].title.toLowerCase();
+        domain = integrations[i].domain;
+        iot_class = integrations[i].iot_class;
+        quality_scale = integrations[i].quality_scale;
         title_normalized = title
           .normalize("NFD")
           .replace(/[\u0300-\u036f]/g, "");
         title_dedashed = title.replace(/[-_]/g, " ");
         title_normalized_dedashed = title_normalized.replace(/[-_]/g, " ");
 
-        allComponents[i].titleLC = title;
-        allComponents[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain}`;
+        integrations[i].titleLC = title;
+        integrations[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain} ${iot_class} ${quality_scale}`;
       }
 
       // sort the components alphabetically
-      allComponents.sort(function (a, b) {
+      integrations.sort(function (a, b) {
         return a.titleLC.localeCompare(b.titleLC);
       });
 
-      if (location.hash !== '' && location.hash.indexOf('#search/') === 0) {
-        // set default value in search from URL
-        jQuery('.component-search input').val(decodeURIComponent(location.hash).substring(8));
+      //add these to the window for dynamic grabbing in matchSelectToURL()
+      window.$catFilter = $('.integration_filter select[data-id="cat"]');
+      window.$versionFilter = $('.integration_filter select[data-id="version"]');
+      window.$iot_classFilter = $('.integration_filter select[data-id="iot_class"]');
+      window.$quality_scaleFilter = $('.integration_filter select[data-id="quality_scale"]');
+      window.$searchFilter = $('.component-search input');
+
+      //listen for changes in the hash / user clicking back or forward button in browser
+      window.addEventListener('hashchange', applyFilter);
+      window.addEventListener('popstate', applyFilter);
+
+      //on initial page load, if there's no active filters set the default to featured
+      let query = buildQueryFromURL();
+      if (Object.keys(query).length === 0) {
+        updateQueryURL('cat', 'featured');
       }
+      applyFilter();
 
       // add focus to the search field - even on IE
       setTimeout(function () {
-        jQuery('.component-search input').focus();
+        $('.component-search input').focus();
       }, 1);
     }
     init();
 
-    /**
-     * filter all components, based on the location's hash and render them into the component box
-     */
-    function applyFilter() {
+    // get query value pair that matches provided id from url. // for buildQueryFromURL()
+    function getQueryValue(id) {
+      let index = id.length + 2; // id + '#' and '/' => '#search/'
+      if (id === 'cat') index = 1;
+
+      // get value from #hash url
+      let query = decodeURIComponent(location.hash).substring(index).toLowerCase();
+
+      // get value from ?query url if it's present
+      let queryParams = new URLSearchParams(location.search);
+      if (queryParams.has(id)) {
+        query = queryParams.get(id);
+      }
+
+      return query;
+    }
+
+    // build out query object of active filters for applyFilter()
+    function buildQueryFromURL() {
+      let queryFilter = {};
+      let hash = location.hash || '';
+      let queryParams = new URLSearchParams(location.search);
+
+      if (hash.indexOf('#all') === 0 || queryParams.get('cat') === 'all') {
+        queryFilter.cat = 'all';
+      }
+
+      if (hash.indexOf('#featured') === 0 || queryParams.get('cat') === 'featured') {
+        // only show those with featured = true
+        queryFilter.cat = 'featured';
+      }
+
+      if (hash.indexOf('#search/') === 0 || queryParams.has('search')) {
+        let query = getQueryValue('search');
+        queryFilter.search = query;
+      } else {
+        // reset search box when not searching
+        $searchFilter.val(null);
+      }
+      
+      if (hash.indexOf('#version/') === 0 || queryParams.has('version')) {
+        // filter by a version
+        let query = getQueryValue('version');
+        queryFilter.version = query;
+      } 
+
+      if (
+          // check for categories that are not featured or all
+          (hash.indexOf('#') === 0 || queryParams.has("cat")) 
+          && !(hash.indexOf('#all') === 0 || queryParams.get("cat") === 'all') 
+          && !(hash.indexOf('#featured') === 0 || queryParams.get("cat") === 'featured')
+          && !(hash.indexOf('#search') === 0)
+          && !(hash.indexOf('#version') === 0)
+          && !(hash.indexOf('#iot_class') === 0)
+          && !(hash.indexOf('#quality_scale') === 0)
+        ) {
+        // regular filter categories
+        let query = getQueryValue('cat');
+        queryFilter.cat = query;
+      }
+
+      if (hash.indexOf('#iot_class/') === 0 || queryParams.has('iot_class')) {
+        let query = getQueryValue('iot_class');
+        queryFilter.iot_class = query;
+      }
+
+      if (hash.indexOf('#quality_scale/') === 0 || queryParams.has('quality_scale')) {
+        let query = getQueryValue('quality_scale');
+        queryFilter.quality_scale = query;
+      }
+
+      // filter all components by comparing against query object
+      console.log('buildQueryFromURL():', queryFilter);
+      return queryFilter;
+    }
+
+    // filter all components, based on the locations hash/search and render them into the component box
+    function applyFilter(queryFilter) {
+      console.log('applyFilter()');
       var logoLazyLoad = new LazyLoad({
         elements_selector: ".option-card img"
       });
-      var rendered, i, filter, search;
-      var hash = location.hash || '';
+
       var data = {
         components: [],
         image: function () {
@@ -183,99 +318,241 @@ allComponents.pop(); // remove placeholder element at the end
       // fade-out css effect on the old elements. This is actually not visible on fast browsers
       $('#componentContainer').addClass('remove-items');
 
-      if (hash.indexOf('#search/') === -1) {
-        // reset search box when not searching
-        jQuery('.component-search input').val(null);
-      }
+      let query = buildQueryFromURL();
 
-      if (hash === '#all') {
-        // shortcut: no need to filter
-        data.components = allComponents;
-      } else {
-        if (hash.indexOf('#search/') === 0) {
-          // search through title and category
-          search = decodeURIComponent(hash).substring(8).toLowerCase();
-          filter = function (comp) {
-            return (
-              comp.search.indexOf(search) !== -1 ||
-              comp.cat.find((c) => c.includes("#")) != undefined
-            );
-          };
+      // update dom elements to match new filters
+      updateFilterButtons(query);
+      updateFilterElements(query);
 
-        } else if (hash === '#featured' || hash === '') {
-          // only show those with featured = true
-          filter = function (comp) {
-            return comp.featured;
-          };
+      data.components = integrations.filter(function(integration) {
+        for (let key in query) {
+          // add 'featured' into integration category array // enables filtration by featured
+          // also allows search of 'featured' since this is added before search is checked
+          if (query[key] === 'featured') {
+            if (integration.featured) {
+              integration['cat'].push('featured')
+            }
+          }
 
-        } else if (hash.indexOf('#version/') === 0) {
-          // compare against a version
-          search = decodeURIComponent(hash).substring(9).toLowerCase();
-          filter = function (comp) {
-            // compare version string against version js
-            return comp.v === search;
-          };
+          // compare against search string and categories in integration
+          if (key === 'search') {
+            if (
+              integration[key].indexOf(query[key]) === -1 
+              && integration.cat.find((c) => c.includes(query[key])) == undefined
+            ) {
+              return false;
+            } 
+          }
 
-        } else {
-          // regular filter categories and filter internet of things class
-          search = hash.substring(1);
-          filter = function (comp) {
-            return comp.cat.includes(search) || comp.iot.includes(search);
-          };
-        }
+          // add 'all' into integration category array // enables filtration by all
+          integration['cat'].push('all');
 
-        // filter all components using the filter function
-        for (i = 0; i < (allComponents.length); i++) {
-          if (filter(allComponents[i])) {
-            data.components.push(allComponents[i]);
+          // check for matching categories in integation's category array 
+          if (key === 'cat') {
+            if (!integration[key].includes(query[key])) return false;
+          }
+
+          // check for version / iot / quality matches
+          if (!(key === 'cat' || key === 'search')) {
+            if (
+              integration[key] == undefined // match doesn't exist
+              || integration[key] != query[key] // strings dont match 
+            ) {
+              return false;
+            }
           }
         }
-      }
 
-      rendered = Mustache.render(template, data);
+        return true;
+      });
 
-      // set active class on active menu item
-      jQuery('.filter-button-group a.active').removeClass('active');
-      jQuery(`.filter-button-group a[href*="${hash}"]`).addClass('active');
-      if (hash === "") {
-        jQuery('.filter-button-group a[href*="#featured"]').addClass('active');
-      }
+      console.log('Filtered Integrations:', data.components);
+      let rendered = Mustache.render(template, data);
 
       // remove previous elements and css classes, add the new stuff and then trigger the fade-in css animation
       $('#componentContainer').html('').removeClass('show-items remove-items').html(rendered).addClass('show-items');
       logoLazyLoad.update();
     }
 
-    /**
-     * update the browser location hash. This enables users to use the browser-history
-     */
-    function updateHash(newHash) {
+    // update the browser location search. This enables users to use the browser-history
+    // used for adding / updating a filter in the url
+    function updateQueryURL(id, value) {
+      console.log('updateQueryURL()');
+      const hashExists = location.hash !== '';
+      let queryParams = new URLSearchParams(location.search);
+      let query = buildQueryFromURL();
+
+        // append url to query
+        if (hashExists) {
+          location.hash = '';
+          let currentId = Object.keys(query)[0];
+          let currentVal = Object.values(query)[0];
+          queryParams.set(currentId, currentVal);
+        }
+
+        queryParams.set(id, value);
+        newURL = `?${queryParams.toString()}`;
+        console.log('newURL:', newURL);
+
       if ('pushState' in history) {
-        history.pushState('', '', newHash);
+            history.pushState('', '', newURL);
+        } else {
+            location.search = newURL;
+        }
+    }
+
+    //remove a filter in the url
+    function removeQueryFromURL(queryId) {
+      const hashExists = location.hash !== '';
+      let newURL;
+      const baseHashRegex = /(^.*)(?=\?)/;
+      const queryParams = new URLSearchParams(location.search);
+
+      if (hashExists) {
+        location.hash = '';
       } else {
-        location.hash = newHash;
+        queryParams.delete(queryId);
+        if (queryParams.toString() !== '') {
+          let baseURL = location.href.match(baseHashRegex)[0];
+          newURL = `${baseURL}?${queryParams.toString()}`
+        } else {
+          newURL = location.href.match(baseHashRegex)[0];
+        }
+      }
+      
+      console.log('removeQueryFromURL()');
+      console.log('newURL:', newURL);
+      if ('pushState' in history) {
+        history.pushState('', '', newURL);
+      } else {
+        location.href = newURL;
       }
     }
 
-    // update view by filter selection
-    jQuery('.filter-button-group a').click(function () {
-      updateHash(this.getAttribute('href'));
-      applyFilter();
+    //update a specific filter dropdown / search. used in updateFilterElements()
+    function matchFilterToURL(id, query) {
+      //dynamically grab select variables
+      let $filterElement = window[`$${id}Filter`];
+      console.log(`matchFilterToURL():`);
 
-      return false;
-    });
+      //set the value of select dropdown if it doesn't currently match the query in the url
+      if ($filterElement.val() !== query) {
+        console.log('updating Filter Element:', $filterElement.val(), query);
+        $filterElement.val(query);
+      }
+    }
+
+    // update all filter elements to match current filter obj
+    function updateFilterElements(queryFilter) {
+      console.log(`updateFilterElements():`);
+      let filterElements = [...document.querySelectorAll('.integration_filter select, input.search')];
+      let activeFilterElements = filterElements.filter(el => !(el.value === '#' || el.value === ''));
+
+      // clear filters if there's more than the current queryFilter
+      if (activeFilterElements.length > Object.keys(queryFilter).length) {
+        // filter out filter elements that don't match query object
+        let filtersToClear = activeFilterElements.filter(el => {
+          for (key in queryFilter) {
+             if (el.getAttribute('data-id') === key) return false;
+          }
+          return true;
+        });
+
+        // reset filter elements to default empty value
+        filtersToClear.forEach(filter => {
+          let queryId = filter.getAttribute('data-id');
+          if (queryId !== 'search') {
+            matchFilterToURL(queryId, '#');
+          } else {
+            matchFilterToURL(queryId, '');
+          }
+        });
+      } else {
+         // update new filters
+         if (Object.keys(queryFilter).length) {
+          for (key in queryFilter) {
+            matchFilterToURL(key, queryFilter[key]);
+          }
+        }
+      }
+    }
+
+    // filter button name cleanup. used inupdateFilterButtons()
+    function getButtonText(id) {
+      let text;
+      switch(id) {
+        case 'cat':
+          text = 'Category';
+          break;
+        case 'iot_class':
+          text = 'IoT';
+          break;
+        case 'quality_scale':
+          text = 'Quality';
+          break;
+        default:
+          text = id;
+      }
+      return text;
+    }
+
+    // update all filter buttons to match current obj filter
+    function updateFilterButtons(queryFilter) {
+      let filterButtonParent = document.querySelector('.component-search');
+      let currentFilterButtons = [...document.querySelectorAll('.component-search .active-filter')];
+      
+      // remove buttons if there's more than the current queryFilter
+      if (currentFilterButtons.length > Object.keys(queryFilter).length) {
+        // filter out buttons that dont match query obj
+        let buttonsToRemove = currentFilterButtons.filter(button => {
+          for (key in queryFilter) {
+             if (button.id === key) return false;
+          }
+          return true;
+        });
+        buttonsToRemove.forEach(button => button.remove());
+      } else {
+        //create a filter button if one doesn't already exists
+        for (key in queryFilter) {
+          if (document.querySelector(`.component-search .active-filter#${key}`) === null) {
+            let button = document.createElement('button');
+            button.innerHTML = `<span>${getButtonText(key)}<i class="icon-plus-sign"></i></span>`;
+            button.classList.add('active-filter');
+            button.setAttribute('id', `${key}`);
+
+            //add click listener to button to remove filter
+            button.addEventListener('click', function() {
+              removeQueryFromURL(this.id);
+              applyFilter();
+              // remove event listener after click
+            }, {once:true});
+
+            //add button to the dom
+            filterButtonParent.appendChild(button);
+          }
+        }
+      }
+    }
 
     // update view on select change
-    jQuery('select').change(function () {
-      updateHash(this.value);
-      applyFilter();
+    $integrationFilters.change(function () {
+      let id = this.dataset.id;
+      let value = this.value;
+
+      if (value !== '#') {
+
+        updateQueryURL(id, value);
+        applyFilter();
+      } else {
+        // clear current filter
+        removeQueryFromURL(id);
+        applyFilter();
+      }
 
       return false;
     });
 
-    /**
-     * Simple debounce implementation, based on http://davidwalsh.name/javascript-debounce-function
-     */
+    // Simple debounce implementation, based on http://davidwalsh.name/javascript-debounce-function
     function debounce(func, wait, immediate) {
       var timeout;
       return function () {
@@ -297,21 +574,19 @@ allComponents.pop(); // remove placeholder element at the end
     };
 
     // update view by search text
-    $('.component-search input').keyup(debounce(function () {
-      var text = $(this).val();
+    $searchFilter.keyup(debounce(function () {
+      let value = $(this).val();
       // sanitize input
-      text = text.replace(/[(\?|\&\{\}\(\))]/gi, '').trim();
-      if (typeof text === "string" && text.length >= 1) {
-        updateHash('#search/' + text);
+      value = value.replace(/[(\?|\&\{\}\(\))]/gi, '').trim();
+      if (typeof value === "string" && value.length >= 1) {
+        updateQueryURL('search', value);
+        applyFilter();
       }
       else {
-        updateHash('#all');
+        removeQueryFromURL('search');
+        applyFilter();
       }
-      applyFilter();
     }, 500));
-
-    window.addEventListener('hashchange', applyFilter);
-    applyFilter();
   })();
 </script>
 

@@ -13,11 +13,33 @@
     }
   }
 
-  .filter-title {
-    background-color: #6ab0de;
-    color: white;
-    font-weight: bold;
+  .integration_filter select {
+    width: 100%;
+    margin-bottom: 10px;
     text-align: center;
+
+    &[data-id="iot_class"], &[data-id="quality_scale"] {
+      margin-bottom: 15px;
+    }
+  }
+
+  .active-filter {
+    margin: 10px 5px 0px 0;
+    padding: 5px;
+    min-width: 100px;
+    background-color: #6ab0de;
+    border-radius: 28px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+
+    i {
+      display: inline-block;
+      margin-left: 5px;
+      transform: rotate(45deg);
+    }
   }
 }
 
@@ -35,11 +57,6 @@
   #components-page {
     .filter-button-group {
       margin-bottom: 16px;
-
-      .filter-title {
-        margin-top: 1.5rem;
-        margin-bottom: 0.75rem;
-      }
 
       .btn {
         display: inline-block;
@@ -60,11 +77,6 @@
     .filter-button-group {
       .active {
         font-weight: bold;
-      }
-
-      .filter-title {
-        margin-top: 1rem;
-        margin-bottom: 0.5rem;
       }
 
       .featured {
@@ -115,7 +127,7 @@
 
   .option-card {
     flex: 0 0 auto;
-    width: 210px;
+    width: 256px;
     height: 142px;
     display: inline-block;
     background-color: #fefefe;
