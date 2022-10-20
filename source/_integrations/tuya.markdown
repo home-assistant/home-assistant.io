@@ -133,6 +133,8 @@ Click the created project to enter the `Project Overview` page and get the `Auth
     
     - Your cloud project on the [Tuya IoT Development Platform](https://iot.tuya.com) should be created after May 25, 2021. Otherwise, you need to create a new project. 
 
+    - This error can often be resolved by unlinking the app from the project (`Devices` tab > `Link Tuya App Account` > `Unlink`) and [relinking it again](#link-devices-by-app-account).
+
 "28841105: No permissions. This project is not authorized to call this API":
   description: >
     Some APIs are not authorized, please [Subscribe](https://developer.tuya.com/en/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-2-Subscribe%20to%20cloud%20products) then [Authorize](https://developer.tuya.com/en/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-3-Authorize%20projects%20to%20call%20the%20cloud%20product). The following APIs must be subscribed for this tutorial:
