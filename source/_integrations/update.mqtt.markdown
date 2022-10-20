@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` Update platform allows you to integrate devices that might expose firmware/software installed and latest versions through MQTT into Home Assistant as an Update entity. Every time a message under the `topic` in the configuration is received, the update entity will be updated in Home Assistant.
+The `mqtt` Update platform allows you to integrate devices that might expose firmware/software installed and latest versions through MQTT into Home Assistant as an Update entity. Every time a message under the `topic` in the configuration is received, the entity will be updated in Home Assistant.
 
 ## Configuration
 
@@ -20,7 +20,6 @@ mqtt:
   select:
       - state_topic: topic-installed
         latest_version_topic: topic-latest
-        name: "Test Update"
 ```
 
 {% configuration %}
@@ -190,3 +189,25 @@ value_template:
 Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
 
 </div>
+
+## Examples
+
+This is an example of Update entity configuration for Shelly Gen1 device.
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  update:
+    - name: "Shelly Plug S Firmware Update"
+      state_topic: "shellies/shellyplug-s-112233/info"
+      value_template: "{{ value_json['update'].old_version }}"
+      latest_firmware_topic: "shellies/shellyplug-s-112233/info"
+      latest_firmware_template: "{% if value_json['update'].new_version %}{{ value_json['update'].new_version }}{% else %}{{ value_json['update'].old_version }}{% endif %}"
+      device_class: "firmware"
+      command_topic: "shellies/shellyplug-s-112233/command"
+      payload_install: "update_fw"
+```
+
+{% endraw %}
