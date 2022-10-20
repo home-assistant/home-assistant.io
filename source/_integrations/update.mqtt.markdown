@@ -18,8 +18,8 @@ To enable MQTT Update in your installation, add the following to your `configura
 # Example configuration.yaml entry
 mqtt:
   select:
-      - state_topic: topic-installed
-        latest_version_topic: topic-latest
+    - state_topic: topic-installed
+      latest_version_topic: topic-latest
 ```
 
 {% configuration %}
