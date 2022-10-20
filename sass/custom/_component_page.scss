@@ -12,6 +12,35 @@
       border-color: #7c7c7c #c3c3c3 #ddd;
     }
   }
+
+  .integration_filter select {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+  
+    &[data-id="iot_class"], &[data-id="quality_scale"] {
+    margin-bottom: 15px;
+    }
+  }
+  
+  .active-filter {
+    margin: 10px 5px 0px 0;
+    padding: 5px;
+    min-width: 100px;
+    background-color: #6ab0de;
+    border-radius: 28px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+  
+    i {
+    display: inline-block;
+    margin-left: 5px;
+    transform: rotate(45deg);
+    }
+  }
 }
 
 @media only screen and (max-width: $palm-end) {
@@ -98,7 +127,7 @@
 
   .option-card {
     flex: 0 0 auto;
-    width: 210px;
+    width: 256px;
     height: 142px;
     display: inline-block;
     background-color: #fefefe;
