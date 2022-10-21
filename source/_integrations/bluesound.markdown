@@ -59,23 +59,6 @@ media_player:
       - host: 192.168.1.131
 ```
 
-### Service `bluesound.join`
-
-Group players together under a single master speaker. That will make a new group or join an existing group.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `master` | no | A single `entity_id` that will become/hold the master speaker.
-| `entity_id` | no | String or list of a single `entity_id` that will group to master speaker.
-
-### Service `bluesound.unjoin`
-
-Remove one or more speakers from a group of speakers. If no `entity_id` is provided, all speakers are unjoined.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of `entity_id`s that will be separated from their master speaker.
-
 ### Service `bluesound.set_sleep_timer`
 
 Sets a timer that will turn off the speaker. For each time you call this it will increase the time by one step. The steps are (in minutes): 15, 30, 45, 60, 90, 0.
