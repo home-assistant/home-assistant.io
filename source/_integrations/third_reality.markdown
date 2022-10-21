@@ -8,6 +8,7 @@ ha_category:
   - Cover
   - Switch
   - Binary Sensor
+  - Sensor
   - Button
 ha_domain: third_reality
 ha_integration_type: integration
@@ -18,6 +19,7 @@ ha_platforms:
   - button
   - sensor
   - switch
+  - cover
 ha_supporting_domain: zha
 ha_supporting_integration: Zigbee
 ---
@@ -26,6 +28,8 @@ ha_supporting_integration: Zigbee
 
 Third Reality Zigbee devices work locally and integrate seamlessly with the Zigbee integration in Home Assistant (Zigbee stick required). As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant. Each device that is connected to power will also act as a Zigbee router to extend your Zigbee mesh network.
 
-{% include integrations/config_flow.md domain=page.ha_supporting_domain %}
-<br><br>
-To find more information, please use the [Zigbee integration](/integrations/zha) page.
+To add Third Reality products, pair them as Zigbee devices:
+
+{% my config_zha badge %}
+
+To find more information about Zigbee, please see [the Zigbee documentation](/integrations/zha).
