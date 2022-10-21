@@ -20,16 +20,16 @@ ha_platforms:
   - sensor
   - switch
   - cover
-ha_supporting_domain: zha
-ha_supporting_integration: Zigbee
+ha_iot_standard: zigbee
+ha_brand: true
 ---
 
 [Third Reality](https://3reality.com) is a member of the Works with Home Assistant partner program for their Zigbee products. Third Reality is committed to making sure their products are up-to-date and ready to use in Home Assistant.
 
-Third Reality Zigbee devices work locally and integrate seamlessly with the Zigbee integration in Home Assistant (Zigbee stick required). As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant. Each device that is connected to power will also act as a Zigbee router to extend your Zigbee mesh network.
+Third Reality Zigbee devices work locally and integrate seamlessly with the Zigbee integration in Home Assistant (Zigbee stick required).
 
 To add Third Reality products, pair them as Zigbee devices:
 
 {% my config_zha badge %}
 
-To find more information about Zigbee, please see [the Zigbee documentation](/integrations/zha).
+[Learn more about Zigbee in Home Assistant.](/integrations/zha)
