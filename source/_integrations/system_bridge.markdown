@@ -49,6 +49,7 @@ This integration provides the following sensors:
 | ---------------------- | --------------------------------------------------- |
 | Battery                | Battery level of the device                         |
 | Boot Time              | Time the device was turned on                       |
+| CPU Package Power      | The current CPU package power usage                 |
 | CPU Speed              | The current CPU speed                               |
 | Displays Connected     | Number of displays connected                        |
 | Display Resolution X   | Display resolution (across)                         |
@@ -70,6 +71,7 @@ These sensors are also available, but are not enabled by default:
 
 | Name                   | Description                              |
 | ---------------------- | ---------------------------------------- |
+| CPU Per Core Power     | The current CPU usage per Core           |
 | CPU Temperature        | The current temperature of the CPU       |
 | CPU Voltage            | The current voltage of the CPU           |
 | GPU Core Clock Speed   | GPU core clock speed in MHz              |
