@@ -168,6 +168,8 @@ google_assistant:
       aliases:
         - BRIGHT_LIGHTS
         - ENTRY_LIGHTS
+    lock.door:
+      ignore_secure_device_pin: true
     light.living_room:
       expose: false
       room: LIVING_ROOM
@@ -237,6 +239,11 @@ entity_config:
           description: Allows for associating this device to a Room in Google Assistant.
           required: false
           type: string
+        ignore_secure_device_pin:
+          description: Allows to disable the need to use a PIN code for secure devices
+          required: false
+          type: boolean
+          default: false
 {% endconfiguration %}
 
 ### Available domains
@@ -272,6 +279,14 @@ Some of these devices may not display correctly in the Google Home app, such as 
 Certain devices are considered secure, including anything in the `lock` domain, `alarm_control_panel` domain and `covers` with device types `door`, `garage` or `gate`.
 
 By default these cannot be opened by Google Assistant unless a `secure_devices_pin` is set up. To allow opening, set the `secure_devices_pin` to something and you will be prompted to speak the pin when opening the device. Closing or locking these devices does not require a pin.
+
+It is possible to override this behavior by setting `ignore_secure_device_pin` to `true` for a specific entity
+
+<div class='note warning'>
+
+Using `ignore_secure_device_pin` poses a security risk. When it is set to true, a secure device can be interacted with without the use for a code, use this config option at your own risk
+
+</div>
 
 For the Alarm Control Panel if a code is set it must be the same as the `secure_devices_pin`. If `code_arm_required` is set to `false` the system will arm without prompting for the pin.
 
