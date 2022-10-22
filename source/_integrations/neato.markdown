@@ -38,7 +38,7 @@ Visit [the Neato Developer Network](https://developers.neatorobotics.com/applica
 
 You will have to enter a name, a description and your redirect URL.
 
-Use `https://my.home-assistant.io/redirect/oauth` as the redirect URL.
+Use `https://my.home-assistant.io/redirect/oauth` (as-is, without customization for your own Home Assistant URLs) as the redirect URL.
 
 You have to select all three scopes (`public_profile`, `control_robots` and `maps`).
 
