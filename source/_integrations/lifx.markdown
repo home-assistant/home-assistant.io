@@ -61,7 +61,7 @@ To determine whether or not a HEV cycle is currently running, Home Assistant exp
 
 You can apply a pre-defined theme to a LIFX multizone device using the Theme configuration entity either manually via the drop-down box on the device configuration screen in the UI or by calling the `select.select_option` service in an automation or script.
 
-You can also specify a theme to apply when starting the hardware-based Move effect using the `lifx.effect_move` service. See below for more information about this service.
+When starting a hardware-based move effect, you can specify a theme using the `lifx.effect_move` service. See below for more information about this service.
 
 The following themes are available: `autumn`, `blissful`, `cheerful`, `dream`, `energizing`, `epic`, `exciting`, `focusing`, `halloween`, `hanukkah`, `holly`, `independence_day`, `intense`, `mellow`, `peaceful`, `powerful`, `relaxing`, `santa`, `serene`, `soothing`, `sports`, `spring`, `tranquil`, `warming`.
 
