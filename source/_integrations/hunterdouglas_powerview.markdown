@@ -5,6 +5,7 @@ ha_category:
   - Button
   - Cover
   - Scene
+  - Select
   - Sensor
 ha_release: 0.15
 ha_domain: hunterdouglas_powerview
@@ -20,6 +21,7 @@ ha_platforms:
   - cover
   - diagnostics
   - scene
+  - select
   - sensor
 ha_zeroconf: true
 ha_dhcp: true
@@ -33,6 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - Button
 - Cover
 - Scene
+- Select
 - Sensor
 
 <div class="note">
@@ -163,6 +166,12 @@ Identify will 'jog' the shade position as a diagnostic tool to ensure the shade 
 ### Favorite
 
 Move the shade to the favorite position as programmed physically on the device. This will perform the same move as the heart on the pebble remote.
+
+## Selection Entities
+
+### Power Source
+
+Set the type for connected power source. Available options are Hardwired Power Supply, Battery Wand and Rechargeable Battery
 
 ## Example Automations
 
