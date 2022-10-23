@@ -5,7 +5,7 @@ ha_category:
   - Helper
   - Sensor
   - Utility
-ha_iot_class: Local Push
+ha_iot_class: Calculated
 ha_release: 2022.11.0
 ha_quality_scale: internal
 ha_codeowners:
@@ -19,7 +19,7 @@ ha_integration_type: helper
 
 The Sum integration consumes the state from other sensors to calculate the sum of it's states.
 
-If any source sensor provides an unknown state, this sensor will also be in unknown state.
+If any source sensor provides an unknown state, that state will be skipped and it will sum all other valid states. The attribute `valid_entities` can be used to identify a missing entity from the configured entities list.
 
 If the unit of measurement of the sensors differs, the Sum sensor will continue to calculate the sum but provide a warning in the log.
 
