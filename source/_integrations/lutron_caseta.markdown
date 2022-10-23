@@ -170,7 +170,8 @@ For more information on working with binary sensors in Home Assistant, see the [
 
 ## Button
 
-After setup, buttons will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a button 'Button 1' on a keypad called 'Front Entrance Keypad' will appear in Home Assistant as `button.front_entrance_keypad_button_1`.
+Button Entities are created for each Keypad button and Pico Remote button present within the system.
+RA3/HWQSX systems can use these button entities to activate scenes that are defined within the Lutron system.
 
 For more information on working with buttons in Home Assistant, see the [Buttons component](/integrations/button/).
 
