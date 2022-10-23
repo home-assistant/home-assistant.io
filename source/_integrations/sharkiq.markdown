@@ -1,6 +1,6 @@
 ---
 title: Shark IQ
-description: Instructions on how to integrate your Shark IQ vacuum robot with Home Assistant.
+description: Integrate your Shark IQ robot vacuum with Home Assistant.
 ha_category:
 - Vacuum
 ha_iot_class: Cloud Polling
@@ -9,7 +9,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@JeffResc'
   - '@funkybunch'
-  - '@AritroSaha10'
 ha_domain: sharkiq
 ha_platforms:
   - vacuum
@@ -59,8 +58,39 @@ The following native `vacuum` services are supported:
 
 For usage and required fields, refer to the [vacuum component services](https://www.home-assistant.io/integrations/vacuum/#component-services).
 
-### SharkIQ Services
-`clean_room`
+<div class='note'>
+Support for <code>pause</code> may vary depending on the model of your vacuum.  If you notice the `pause` service does not seem
+to be working, use the <code>stop</code> service instead.  In this case the robot should pause, and can be resumed by
+calling the <code>start</code> service again.  To completely cancel the clean job, use `return_to_base`.
+</div>
+
+### SharkIQ-Specific Services
+#### `clean_room`
+If your robot vacuum supports cleaning specific rooms, you can call this service to target a room or multiple rooms,
+without starting a full cleaning job.
+
+
+<div class='note'>
+To provide a more native experience within Home Assistant, the service UI editor will prompt you to select one or more
+rooms which have been configured in Home Assistant.  Unless you have configured the SharkClean app to have the exact
+same room names, you may get unexpected errors or behavior.
+
+If you are having trouble getting the desired behavior with the UI editor or have rooms that are configured in
+SharkClean but not Home Assistant, configure `clean_room` service calls using YAML and ensure that the list of rooms
+you want to clean, matches an item in the <code>rooms</code> entity attribute <i>exactly</i>.  It is case-sensitive, and you must use a YAML list even if you only
+want to clean a single room.
+</div>
+
+Example Service call:
+```yaml
+service: sharkiq.clean_room
+data:
+  rooms:
+    - Kitchen
+    - Entry
+target:
+  entity_id: vacuum.<my_shark>
+```
 
 ## Troubleshooting
 
