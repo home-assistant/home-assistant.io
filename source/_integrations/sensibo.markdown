@@ -128,7 +128,7 @@ You can send a full state command to Sensibo instead of single commands using th
 
 All fields are required to be according to Sensibo api specification and is case sensitive.
 
-To see the options for each field to use by this service:
+To see the options for each field to use this service:
 
 1. Switch to the relevant HVAC mode (not all HVAC modes have the same options)
 2. Retrieve the options for `fan_modes` and `swing_modes` from the climate entity's attributes
