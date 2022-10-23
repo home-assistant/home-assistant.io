@@ -35,4 +35,4 @@ To use this DSMR Reader sensor integration, you need to have a DSMR Reader insta
 
 ## Difference with the DSMR integration
 
-This integration relies on the presence of an existing DSMR Reader application setup. It processes the events triggered by the MQTT publishing feature to create sensor entities within Home Assistant. This integration uses the data published on the MQTT broker, no matter how or where the application is installed. By comparison, the [DSMR](/integrations/dsmr/) integration adds a full instance of the DSMR Reader application within Home Assistant. It is possible to have both integrations installed at the same time and working together, but this is not required.
+This integration relies on the presence of an existing DSMR Reader application setup. It processes the events triggered by the MQTT publishing feature to create sensor entities within Home Assistant. This integration uses the data published on the MQTT broker, no matter how or where the application is installed. By comparison, the [DSMR](/integrations/dsmr/) integration connects directly to the smart meter within Home Assistant and doesn't use the DSMR Reader application.
