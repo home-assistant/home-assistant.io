@@ -130,7 +130,7 @@ All fields are required to be according to Sensibo api specification and is case
 
 To see the options for each field to use by this service:
 
-1. Switch to the relevant hvac mode (not all hvac modes have the same options)
+1. Switch to the relevant HVAC mode (not all HVAC modes have the same options)
 2. Retrieve the options for `fan_modes` and `swing_modes` from the climate entity's attributes
 3. Retrieve the option set from the respective select entity for `horizontal_swing` and `light` if those are present.
 
