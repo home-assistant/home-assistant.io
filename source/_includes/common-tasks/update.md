@@ -29,8 +29,10 @@ To update Home Assistant Core when you run Home Assistant {{ page.installation_n
   content: |
 
     ```bash
-    ha core update
+    ha core update --backup
     ```
+
+    _The_ `--backup` _flag here ensures that you have a partial backup of your current setup incase you need to downgrade._
 
 {% endtabbed_block %}
 

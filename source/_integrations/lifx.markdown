@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_domain: lifx
 ha_homekit: true
 ha_platforms:
+  - binary_sensor
   - button
   - light
 ha_integration_type: integration
@@ -39,7 +40,6 @@ Change the light to a new state.
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 | `transition` | Duration (in seconds) for the light to fade to the new state.
 | `zones` | List of integers for the zone numbers to affect (each LIFX Z strip has 8 zones, starting at 0).
-| `infrared` | Automatic infrared level (0..255) when light brightness is low (for compatible bulbs).
 | `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
 | `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`](/integrations/light/#service-lightturn_on) to specify the new state.
 
@@ -57,9 +57,19 @@ To determine whether or not a HEV cycle is currently running, Home Assistant exp
 | `power` | Start a HEV cycle (`True`) or stop a cycle (`False`).
 | `duration` | Duration (in seconds) for the HEV cycle. The default duration of two hours (7200 seconds) is used if this attribute is omitted.
 
+## Applying themes
+
+You can apply a pre-defined theme to a LIFX multizone device using the Theme configuration entity either manually via the drop-down box on the device configuration screen in the UI or by calling the `select.select_option` service in an automation or script.
+
+When starting a hardware-based move effect, you can specify a theme using the `lifx.effect_move` service. See below for more information about this service.
+
+The following themes are available: `autumn`, `blissful`, `cheerful`, `dream`, `energizing`, `epic`, `exciting`, `focusing`, `halloween`, `hanukkah`, `holly`, `independence_day`, `intense`, `mellow`, `peaceful`, `powerful`, `relaxing`, `santa`, `serene`, `soothing`, `sports`, `spring`, `tranquil`, `warming`.
+
+Each theme should closely match the theme of the same name in the LIFX smartphone app but may not be identical.
+
 ## Light effects
 
-The LIFX platform supports several light effects. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/integrations/light/#service-lightturn_on) service, for example like this:
+The LIFX platform supports several software-controlled light effects and one hardware based effect. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/integrations/light/#service-lightturn_on) service, for example like this:
 
 ```yaml
 automation:
@@ -91,7 +101,9 @@ script:
           change: 35
 ```
 
-The available light effects and their options are listed below.
+The `lifx.effect_move` effect is hardware effect that is only available on LIFX multizone devices like the LIFX Z, Lightstrip or Beam. Note that if all the LEDs of the multizone device are set to the same color, the effect will not be visible. The effect can be stopped and started regardless of the power state of the device, but the default is to turn the device on when starting the effect. Set the `power_on` attribute of the `lifx.effect_move` service to `false` to override the default.
+
+All the available light effects and their options are listed below.
 
 ### Service `lifx.effect_pulse`
 
@@ -122,23 +134,41 @@ Run an effect with colors looping around the color wheel. All participating ligh
 | `spread` | Maximum color difference between participating lights, in degrees on a color wheel (ranges from 0 to 359).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
+### Service `lifx.effect_move`
+
+A harware-based effect available on LIFX multizone devices that creates a movement animation of the colors currently set on the device. The direction and speed of the animation are controlled by the `speed` and `direction` attributes. You can change the colors of the effect while it is running using the `lifx.set_state` service.
+
+The effect will not be visible if all LEDs on the device are set to the same color and is ignored by unsupported devices.
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of multizone lights.
+| `speed` | Duration in seconds for the effect to travel the length of the device (min: 0.1s, max: 60s)
+| `direction` | The direction in which the effect will travel, either "right" or "left" (default: right)
+| `theme` | The name of a pre-defined theme to apply to the multizone device before starting the effect.
+| `power_on` | Whether to turn the light on before starting the effect (optional, default: true)
+
 ### Service `lifx.effect_stop`
 
-Run an effect that does nothing, thereby stopping any other effect that might be running.
+Run an effect that does nothing, thereby stopping any software or hardware effect that might be running.
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 
+## Infrared brightness
+
+Home Assistant will automatically create an Infrared Brightness configuration entity for LIFX Night Vision bulbs. Changing the state of this entity will change the brightness of the LEDs on the bulb.
+
 ## Buttons
 
 The LIFX button platform creates two buttons for each LIFX device.
 
-### Identify Button
+### Identify button
 
 The Identify button will flash the bulb three times at maximum brightness then return the bulb to the state it was in prior. Successful identification requires the bulb to be powered on and already configured in Home Assistant.
 
-### Restart Button
+### Restart button
 
 The Restart button triggers the bulb to restart in exactly the same way as a physical power cycle, which makes it ideal for triggering a new DHCP request from the bulb.
 
