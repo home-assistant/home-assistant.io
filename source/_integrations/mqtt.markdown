@@ -38,8 +38,7 @@ Your first step to get MQTT and Home Assistant working is to choose a [broker](/
 
 ### Advanced broker configuration
 
-Some broker configuration options can't be set via the user interface, but require changes of your `configuration.yaml` file.
-This includes configuring SSL [certificate](/docs/mqtt/certificate/) options.
+Some broker configuration options can't be set via the user interface, but require changes to your `configuration.yaml` file. See [advanced broker configuration](/docs/mqtt/broker/#advanced-broker-configuration) for all configuration variables.
 
 ## Additional features
 

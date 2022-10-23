@@ -6,7 +6,7 @@ ha_category:
   - Presence Detection
   - Sensor
   - Switch
-  - Updates
+  - Update
 ha_release: 0.81
 ha_iot_class: Local Push
 ha_config_flow: true

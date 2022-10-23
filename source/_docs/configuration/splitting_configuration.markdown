@@ -20,8 +20,8 @@ homeassistant:
   # Location required to calculate the time the sun rises and sets
   latitude: 37
   longitude: -121
-  # 'metric' for Metric, 'imperial' for Imperial
-  unit_system: imperial
+  # 'metric' for Metric, 'us_customary' for US Customary
+  unit_system: us_customary
   # Pick yours from here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: "America/Los_Angeles"
   customize: !include customize.yaml
@@ -161,7 +161,7 @@ This (large) sensor configuration gives us another example:
 - platform: steam_online
   api_key: ["not telling"]
   accounts:
-      - 76561198012067051
+    - 76561198012067051
 
 #### TIME/DATE ##################################
 - platform: time_date

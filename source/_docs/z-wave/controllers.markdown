@@ -42,7 +42,7 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
   - Z-Wave.Me RaZberry 7 Pro (700 series)
   - Z-Wave.Me Razberry 2 (500 series)
 
-If you are just starting out, we recommend that you purchase a 500 series controller.
+If you are just starting out, we recommend that you purchase a 700 series controller.
 
 <div class='note'>
   If you're using Home Assistant OS, Supervised, or Container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.

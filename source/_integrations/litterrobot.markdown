@@ -7,7 +7,7 @@ ha_category:
   - Sensor
   - Switch
   - Vacuum
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_release: 2021.3
 ha_config_flow: true
 ha_codeowners:
@@ -40,6 +40,7 @@ You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot or 
 | Night Light Mode              | `switch` | When turned on, automatically turns on the night light in darker settings.       |
 | Panel Lockout                 | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
 | Last Seen                     | `sensor` | Displays the time the unit was last seen / reported an update.                   |
+| Litter level                  | `sensor` | Displays the litter level, only for Litter-Robot 4.                              |
 | Pet weight                    | `sensor` | Displays the last measured pet weight, only for Litter-Robot 4.                  |
 | Sleep Mode Start Time         | `sensor` | When sleep mode is enabled, displays the current or next sleep mode start time.  |
 | Sleep Mode End Time           | `sensor` | When sleep mode is enabled, displays the current or last sleep mode end time.    |

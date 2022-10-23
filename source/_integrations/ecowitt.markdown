@@ -11,7 +11,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@pvizeli'
 ha_platforms:
+  - binary_sensor
   - diagnostics
+  - sensor
 ha_integration_type: integration
 ---
 
@@ -25,5 +27,7 @@ The following steps must be performed to set up this integration. For security r
 2. Pick your station -> Menu Others -> DIY Upload Servers.
 3. Hit next and select 'Customized'
 4. Pick the protocol Ecowitt, and put in the ip/hostname of your Home Assistant server.
-5. Path have to match, you can copy with secure token /.
+5. Path have to match!
 6. Save configuration.
+
+Ecowitt doesn't support TLS/SSL, you can use the NGINX TLS Proxy Add-on to support HTTPS and HTTP at the same time.

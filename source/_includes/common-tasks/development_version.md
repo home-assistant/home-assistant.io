@@ -25,8 +25,10 @@ If you want to stay on the bleeding-edge Home Assistant Core development branch,
 3. Update Home Assistant core to the latest dev version
 
     ```bash
-    ha core update
+    ha core update --backup
     ```
+
+    _The_ `--backup` _flag here ensures that you have a partial backup of your current setup incase you need to downgrade._
 
 {% elsif page.installation == "container" %}
 
