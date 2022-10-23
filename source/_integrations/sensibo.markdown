@@ -122,9 +122,9 @@ To customize the settings of Pure Boost, you can use the custom `sensibo.enable_
 
 ## Custom Services
 
-### Full AC state
+### Full state
 
-You can send a full AC state command to Sensibo instead of single commands by using the service `sensibo.full_ac_state`.
+You can send a full state command to Sensibo instead of single commands by using the service `sensibo.full_state`.
 
 All fields are required to be according to Sensibo api specification and is case sensitive.
 
