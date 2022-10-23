@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: nobo_hub
 ha_platforms:
   - climate
+  - select
   - sensor
 ha_integration_type: integration
 ---
@@ -27,12 +28,13 @@ on the back of the hub. If the hub is on a different network than Home Assistant
 
 # Heaters
 
-Each zone containing floor or wall mounted heaters is represented as an HVAC entity.
+Each zone containing floor or wall mounted heaters is represented as an HVAC entity. Adding and removing zones
+and heaters must be done using the Nobø Energy mobile app. 
 
 ## Operation modes
 
 Currently, you can see and change operation and preset for zones and set eco/comfort temperatures if you have
-a supported thermostat.
+a thermostat that supports remote control of the temperature settings.
 
 The possible operation modes are as follows:
 
@@ -48,13 +50,33 @@ This can be utilized the following ways:
 - Changing operation to "Auto" will automatically update preset.
 - Changing operation to "Heat" will set preset to "Comfort".
 
+### Preset override duration
+
+By default, all overrides (when operation is not "Auto" mode) are constant. It is possible to change this to let
+overrides end when the week profile changes next (same as duration "Now" in the Nobø Energy mobile app) in
+the integration configuration.
+
+### Week profiles
+
+The week profiles are retrieved from the hub, and it is possible to change current week profile for a zone
+using a selector. Week profiles must be created and adjusted using the Nobø Energy mobile app.
+
 ### No preset "Off"
 
 Nobø heaters does not support preset "Off". This is not a limitation of the integration, but a safety mechanism in the
 Nobø system (perhaps related to frozen pipes due to frost in Nordic regions). 
 "Away" temperature is fixed to 7°C and cannot be altered. On/off receivers will be off when the zone is in "Away" status.
 
+A possible workaround to turn heaters completely off, is to create a week profile (in the Nobø Energy mobile app) where
+all days are set to state off. To turn a zone off, select this week profile for the zone. To turn a zone on again,
+switch to the normal week profile for the zone.
+
 For more information, see the [Nobø Ecohub manual](https://help.nobo.no/en/user-manual/before-you-start/what-is-a-weekly-program/).
+
+## Global override
+
+To override all zones to a given preset (except the zones configured to not respect global override), use the global
+override selector. Global override duration respects the same configuration as preset override duration.  
 
 # Nobø Switch
 
