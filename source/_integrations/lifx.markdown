@@ -46,7 +46,7 @@ Change the light to a new state.
 
 #### Calculating zones to affect
 
-The LIFX Z and LIFX Lightstrip have 8 zones per segment and a maximum allowed length of 10 segments, which results in a maximum zone count of 80.
+The LIFX Z and LIFX Lightstrip have eight (8) zones per segment and a maximum allowed length of 10, resulting in a maximum zone count of 80.
 
 The LIFX Beam has 10 zones in each beam and 1 zone in each corner. You can add a maximum of 8 beams and 2 corners to a controller, which results in a maximum zone count of 82.
 
