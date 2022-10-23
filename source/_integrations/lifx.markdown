@@ -28,7 +28,7 @@ The LIFX integration automatically discovers [LIFX](https://www.lifx.com) lights
 
 ## Set state
 
-LIFX lights allow a change of color and brightness even when they are turned off. This way you can control the light during the day so its settings are correct when events for turning on are received, for example from motion detectors or external buttons.
+LIFX lights allow a change of color and brightness even when they are turned off. This way, you can control the light during the day, so its settings are correct when events for turning on are received, for example, from motion detectors or external buttons.
 
 The normal `light.turn_on` call cannot be used for this because it always turns the power on. Thus, LIFX has its own `set_state` service that allows color changes without affecting the current power state.
 
