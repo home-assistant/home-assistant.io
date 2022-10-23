@@ -57,6 +57,16 @@ To determine whether or not a HEV cycle is currently running, Home Assistant exp
 | `power` | Start a HEV cycle (`True`) or stop a cycle (`False`).
 | `duration` | Duration (in seconds) for the HEV cycle. The default duration of two hours (7200 seconds) is used if this attribute is omitted.
 
+## Applying themes
+
+You can apply a pre-defined theme to a LIFX multizone device using the Theme configuration entity either manually via the drop-down box on the device configuration screen in the UI or by calling the `select.select_option` service in an automation or script.
+
+When starting a hardware-based move effect, you can specify a theme using the `lifx.effect_move` service. See below for more information about this service.
+
+The following themes are available: `autumn`, `blissful`, `cheerful`, `dream`, `energizing`, `epic`, `exciting`, `focusing`, `halloween`, `hanukkah`, `holly`, `independence_day`, `intense`, `mellow`, `peaceful`, `powerful`, `relaxing`, `santa`, `serene`, `soothing`, `sports`, `spring`, `tranquil`, `warming`.
+
+Each theme should closely match the theme of the same name in the LIFX smartphone app but may not be identical.
+
 ## Light effects
 
 The LIFX platform supports several software-controlled light effects and one hardware based effect. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/integrations/light/#service-lightturn_on) service, for example like this:
@@ -135,6 +145,7 @@ The effect will not be visible if all LEDs on the device are set to the same col
 | `entity_id` | String or list of strings that point at `entity_id`s of multizone lights.
 | `speed` | Duration in seconds for the effect to travel the length of the device (min: 0.1s, max: 60s)
 | `direction` | The direction in which the effect will travel, either "right" or "left" (default: right)
+| `theme` | The name of a pre-defined theme to apply to the multizone device before starting the effect.
 | `power_on` | Whether to turn the light on before starting the effect (optional, default: true)
 
 ### Service `lifx.effect_stop`
