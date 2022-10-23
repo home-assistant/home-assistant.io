@@ -50,7 +50,7 @@ The LIFX Z and LIFX Lightstrip have eight (8) zones per segment and a maximum al
 
 The LIFX Beam has ten (10) zones in each beam and 1 zone in each corner. You can add a maximum of 8 beams and two (2) corners to a controller, which results in a maximum zone count of 82.
 
-All devices start counting zones at 0 which means the zone numbers for the `zones` attribute above range from 0 to 79 for the LIFX Z and Lightstrip and 0 to 81 for the LIFX Beam.
+All devices start counting zones at zero (0), which means the zone numbers for the `zones` attribute above range from 0 to 79 for the LIFX Z and Lightstrip and 0 to 81 for the LIFX Beam.
 
 ## Set HEV cycle state
 
