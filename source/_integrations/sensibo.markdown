@@ -142,10 +142,6 @@ Using Geo integration for Pure Boost is only possible by pre-configuration of Pr
 
 You can enable a timer with a custom delay using the service `sensibo.enable_timer` that is provided.
 
-## Adding a quick switch example
-
-If you want a "Quick Switch" to turn your AC On / Off, you can do that using the following `Switch Template`:
-
 ### Climate React
 
 You can configure your Climate React settings using the services `sensibo.enable_climate_react`.
@@ -170,6 +166,10 @@ light: "on"
 ```
 
 {% endraw %}
+
+## Adding a quick switch example
+
+If you want a "Quick Switch" to turn your AC On / Off, you can do that using the following `Switch Template`:
 
 {% raw %}
 
