@@ -33,6 +33,16 @@ To use this DSMR Reader sensor integration, you need to have a DSMR Reader insta
 
 {% include integrations/config_flow.md %}
 
+## Configuring the Energy Dashboard
+
+It is most advisable to use the `sensor.dsmr_reading_*` sensors in the energy dashboard over the "merged" and "day" sources. The "reading" sensors provide the most stable source of data for Home Assistant to use. These MQTT values are part of the "Telegram: Split topic" MQTT values within DSMR Reader, so make sure to enable it.
+
+| Section          | Sensor entities to configure                                                   |
+| ---------------- | ------------------------------------------------------------------------------ |
+| Grid consumption | `dsmr_reading_electricity_delivered_1`, `dsmr_reading_electricity_delivered_2` |
+| Return to grid   | `dsmr_reading_electricity_returned_1`, `dsmr_reading_electricity_returned_2`   |
+| Gas consumption  | `dsmr_consumption_gas_delivered`                                               |
+
 ## Difference with the DSMR integration
 
 This integration relies on the presence of an existing DSMR Reader application setup. It processes the events triggered by the MQTT publishing feature to create sensor entities within Home Assistant. This integration uses the data published on the MQTT broker, no matter how or where the application is installed. By comparison, the [DSMR](/integrations/dsmr/) integration connects directly to the smart meter within Home Assistant and doesn't use the DSMR Reader application.
