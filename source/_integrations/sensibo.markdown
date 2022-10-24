@@ -140,6 +140,18 @@ To customize the settings of Pure Boost, you can use the custom `sensibo.enable_
 
 ## Custom Services
 
+### Full state
+
+You can send a full state command to Sensibo instead of single commands using the service `sensibo.full_state`.
+
+All fields are required to be according to Sensibo API specifications and are case-sensitive.
+
+To see the options for each field to use this service:
+
+1. Switch to the relevant HVAC mode (not all HVAC modes have the same options).
+2. Retrieve the options for `fan_modes` and `swing_modes` from the climate entity's attributes.
+3. Retrieve the option set from the respective select entity for `horizontal_swing` and `light` if those are present.
+
 ### Assume state
 
 For devices which are also controlled in other ways or often goes out of sync with Sensibo there is a `sensibo.assume_state` service.
