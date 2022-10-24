@@ -3,7 +3,7 @@ title: "MQTT Update"
 description: "Instructions on how to interact with a device exposing an Update entity through MQTT from within Home Assistant."
 ha_category:
   - Update
-ha_release: 2021.7
+ha_release: "2021.11"
 ha_iot_class: Configurable
 ha_domain: mqtt
 ---
