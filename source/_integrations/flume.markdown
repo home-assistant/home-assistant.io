@@ -2,6 +2,7 @@
 title: Flume
 description: Documentation about the flume sensor.
 ha_category:
+  - Binary Sensor
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.103
