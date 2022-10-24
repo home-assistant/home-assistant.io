@@ -4,7 +4,7 @@ description: Control Supervisor Add-ons and OS from Home Assistant
 ha_category:
   - Binary Sensor
   - Sensor
-  - Updates
+  - Update
 ha_iot_class: Local Polling
 ha_release: 0.42
 ha_domain: hassio
@@ -16,7 +16,7 @@ ha_platforms:
   - update
 ha_codeowners:
   - '@home-assistant/supervisor'
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 Supervisor integration allows you to monitor and control Supervisor add-ons and operating system from Home Assistant.

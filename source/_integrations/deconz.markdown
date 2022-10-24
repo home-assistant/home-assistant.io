@@ -33,6 +33,7 @@ ha_platforms:
   - lock
   - number
   - scene
+  - select
   - sensor
   - siren
   - switch

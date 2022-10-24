@@ -12,7 +12,7 @@ Follow this guide if you want to get started with Home Assistant easily or if yo
 
 We will need a few things to get started with installing Home Assistant. Links below lead to Amazon US. If you’re not in the US, you should be able to find these items in web stores in your country.
 
-- [Raspberry Pi 4](https://amzn.to/2S0Gcl1) (Raspberry Pi 3 is ok too, if you have one laying around). Raspberry Pi are currently hard to come by, use [RPilocator](https://rpilocator.com/?cat=PI4) or [Fast Alerts (US)](https://fastalerts.io/product/raspberry-pi-4/) to find webshops with stock.
+- [Raspberry Pi 4](https://amzn.to/2S0Gcl1) (Raspberry Pi 3 is ok too, if you have one laying around). Raspberry Pi are currently hard to come by, use [RPilocator](https://rpilocator.com/?cat=PI4) to find official distributors with stock.
 - [Power Supply for Raspberry Pi 4](https://amzn.to/2ReZ2Vq) or [Power Supply for Raspberry Pi 3](https://amzn.to/2R8yG7h)
 - [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. A 32 GB or bigger card is recommended.
 - SD Card reader. This is already part of most laptops, but you can purchase a [standalone USB adapter](https://amzn.to/2WWxntY) if you don't have one. The brand doesn't matter, just pick the cheapest.
@@ -91,6 +91,19 @@ To use this method, follow the steps described in the procedure below: [Write th
 
 - To use this method, follow the instructions of your Live distribution (e.g., [this Ubuntu guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). Once you booted the live operating system, follow the steps described in the procedure below: [Write the image to your boot media](#write-the-image-to-your-boot-media).
 
+{% details "Ubuntu dependency's for Etcher" %}
+
+When installing Etcher on an Ubuntu system you may need to install the fuse
+dependency, you can do so with the following commands:
+
+```bash
+sudo add-apt-repository universe
+sudo apt update
+sudo apt install libfuse2
+```
+
+{% enddetails %}
+
 {% endif %}
 
 ### Write the image to your boot media
@@ -165,7 +178,7 @@ This can be accomplished either by using a live operating system (e.g. Ubuntu) a
 
   ```text
   efibootmgr --create --disk /dev/<drivename> --part 1 --label "HAOS" \
-     --loader "\EFI\BOOT\bootx64.efi"
+     --loader '\EFI\BOOT\bootx64.efi'
   ```
 
 Or else, the BIOS might provide you with a tool to add boot options, there you can specify the path to the EFI file:
@@ -230,6 +243,10 @@ _All these can be extended if your usage calls for more resources._
     3. Select “Use an existing virtual hard disk file”, select the unzipped VDI file from above
     4. Edit the “Settings” of the VM and go “System” then “Motherboard” and select “Enable EFI”
     5. Then go to “Network” “Adapter 1” choose “Bridged Adapter” and choose your Network adapter
+    <div class="note warning">
+    Please keep in mind that the bridged adapter only functions over a hardwired ethernet connection. 
+    Using Wi-Fi on your VirtualBox host is unsupported.
+    </div>
     6. Then go to “Audio” and choose “Intel HD Audio” as Audio Controller.
     <div class="note info">
 

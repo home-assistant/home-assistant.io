@@ -34,6 +34,7 @@ This component will create these sensors:
 - `nzbget_post_processing_paused`: Whether post processing is paused.
 - `nzbget_uptime`: NZBGet server uptime.
 - `nzbget_size`: Amount of data downloaded since server start in MB.
+- `nzbget_speed_limit`: Download queue speed limit in MB/s.
 
 ## Event Automation
 

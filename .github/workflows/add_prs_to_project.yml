@@ -1,0 +1,24 @@
+name: Add new PRs to project
+
+on:
+  pull_request_target:
+    types:
+      - opened
+
+jobs:
+  add-to-project:
+    name: Add new PR to project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate app token
+        id: token
+        # Pinned to a specific version of the action for security reasons
+        uses: tibdex/github-app-token@f717b5ecd4534d3c4df4ce9b5c1c2214f0f7cd06 # v1.6.0
+        with:
+          app_id: ${{ secrets.PROJECTS_APP_ID }}
+          private_key: ${{ secrets.PROJECTS_APP_PEM }}
+      - name: Add to Project
+        uses: actions/add-to-project@v0.3.0
+        with:
+          project-url: https://github.com/orgs/home-assistant/projects/10
+          github-token: ${{ steps.token.outputs.token }}

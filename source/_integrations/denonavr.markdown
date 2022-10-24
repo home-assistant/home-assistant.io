@@ -62,6 +62,7 @@ Known supported devices:
 - Denon AVR-S720W
 - Denon AVR-S750H
 - Denon AVR-S760H
+- Denon AVR-S940H
 - Denon AVR-S950H
 - Denon AVR-S960H
 - Denon DN-500AV
@@ -78,6 +79,7 @@ Known supported devices:
 - Marantz SR5011
 - Marantz SR6007 - SR6012
 - Marantz SR7007
+- Marantz SR7012
 - Marantz SR8015
 - Marantz NR1504
 - Marantz NR1506

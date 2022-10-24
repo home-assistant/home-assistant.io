@@ -7,7 +7,7 @@ ha_quality_scale: internal
 ha_category: []
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 The `vacuum` integration enables the ability to control home cleaning robots within Home Assistant.

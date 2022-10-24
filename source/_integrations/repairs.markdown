@@ -4,11 +4,11 @@ description: Home Assistant Repairs informs you about issues it has found in you
 ha_release: 2022.8
 ha_category:
   - Other
-ha_iot_class: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: repairs
-ha_integration_type: integration
+ha_integration_type: system
+ha_quality_scale: internal
 ---
 
 The Home Assistant Repairs integration will inform you about issues it has found

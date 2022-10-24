@@ -8,14 +8,14 @@ interface, by using this My button:
 
 {% my config_flow_start badge domain=domain %}
 
-{% if include.discovery or page.ha_dhcp or page.ha_homekit or page.ha_ssdp or page.ha_zeroconf %}
+{% if include.discovery or page.ha_dhcp or page.ha_homekit or page.ha_ssdp or page.ha_zeroconf or page.ha_mqtt %}
 {{ name }} can be auto-discovered by Home Assistant. If an instance was found,
 it will be shown as _"Discovered"_, which you can select to set it up right
 away.
 {% endif %}
 
 {% details "Manual configuration steps" %}
-{% if include.discovery or page.ha_dhcp or page.ha_homekit or page.ha_ssdp or page.ha_zeroconf %}
+{% if include.discovery or page.ha_dhcp or page.ha_homekit or page.ha_ssdp or page.ha_zeroconf or page.ha_mqtt %}
 If there wasn't any discovered automatically, don't worry! You can set up a
 manual integration entry:
 {% else %}
