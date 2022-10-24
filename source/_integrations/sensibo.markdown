@@ -122,7 +122,7 @@ The switch uses a timer of 60 minutes delay. You can choose a custom delay using
 
 Support to enable/disable Climate React
 
-Usage of Climate React switch requires that the service has been configured previously in the app or by using the custom `sensibo.enable_climate_react` service. See [Climate React](#climate-react)
+Usage of the Climate React switch requires that the service has been configured previously in the app or by using the custom `sensibo.enable_climate_react` service. See [Climate React](#climate-react)
 
 For Pure devices, this integration provides support to enable/disable Pure Boost.
 
