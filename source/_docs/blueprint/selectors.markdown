@@ -304,7 +304,7 @@ The output of this selector is the entry ID of the config entry, for example, `6
 
 ## Date selector
 
-The date selector shows a date input that allows the user to specify a date. 
+The date selector shows a date input that allows the user to specify a date.
 
 ![Screenshot of the Date selector](/images/blueprints/selector-date.png)
 
@@ -320,7 +320,7 @@ The output of this selector is will contain the date in Year-Month-Day
 ## Date & time selector
 
 The date selector shows a date and time input that allows the user to specify a
-date with a specific time. 
+date with a specific time.
 
 ![Screenshot of the Date & time selector](/images/blueprints/selector-datetime.png)
 
@@ -453,7 +453,7 @@ duration:
 ```
 
 {% configuration attribute %}
-enable_days:
+enable_day:
   description: When `true`, the duration selector will allow selecting days.
   type: boolean
   default: false
@@ -464,7 +464,7 @@ The output of this selector is a mapping of the time values the user selected.
 For example:
 
 ```yaml
-days: 1 # Only when enable_days was set to true
+days: 1 # Only when enable_day was set to true
 hours: 12
 minutes: 30
 seconds: 15
@@ -775,7 +775,7 @@ select:
 
 {% configuration select %}
 options:
-  description: > 
+  description: >
     List of options that the user can choose from. Small lists (5 items or less), are displayed as radio buttons. When more items are added, a dropdown list is used.
   type: list
   required: true
@@ -820,7 +820,7 @@ select:
 
 {% configuration select_map %}
 options:
-  description: > 
+  description: >
     List of options that the user can choose from. Small lists (5 items or less), are displayed as radio buttons. When more items are added, a dropdown list is used.
   type: map
   required: true
@@ -1012,7 +1012,7 @@ suffix:
   type: string
   required: false
 type:
-  description: > 
+  description: >
     The type of input. This is a browser hint, which can improve
     the client-side validation of the input. The value isn't validated
     by the backend. Possible types are:
@@ -1042,7 +1042,7 @@ The output of this selector is will contain the selected theme, for example:
 ## Time selector
 
 The time selector shows a time input that allows the user to specify a time
-of the day. 
+of the day.
 
 ![Screenshot of a time selector](/images/blueprints/selector-time.png)
 

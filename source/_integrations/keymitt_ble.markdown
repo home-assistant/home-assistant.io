@@ -3,7 +3,7 @@ title: Keymitt MicroBot Push
 description: Instructions on how to set up the MicroBot Push.
 ha_category:
   - Switch
-ha_release: "2022.10"
+ha_release: '2022.10'
 ha_iot_class: Assumed State
 ha_codeowners:
   - '@spycle'
@@ -19,13 +19,13 @@ This integration allows you to locally control a MicroBot Push (previously manuf
 
 ### Prerequisites
 
-In order to use this integration, it is required to have working [Bluetooth](/integrations/blueooth) set up on the device running Home Assistant. A Naran/Keymitt hub is not required.
+In order to use this integration, it is required to have working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant. A Naran/Keymitt hub is not required.
 
 The device will need to be in pairing mode before adding to Home Assistant. To reset the MicroBot Push, turn it off, then back on, and immediately hold the push button while the LED is red. After approximately 5 seconds, the LED will flash rapidly, at which point release the button. The LED will blink blue if the pairing mode has been successfully activated.
 
 If you have multiple devices, you will need to know the BTLE MAC address of your device to tell them apart.
 
-Please note, that devices cannot remain paired to the MicroBot app for this integration to function. They will be paired to Home Assistant exclusively.
+Please note, that the devices cannot remain paired to the MicroBot application for this integration to function. They will be paired to Home Assistant exclusively.
 
 {% include integrations/config_flow.md %}
 
@@ -37,7 +37,7 @@ This Integration is for the MicroBot Push only. The Keymitt lock is not supporte
 
 The Calibration service will locally set the MicroBot Push depth, duration, and mode.
 
-Please note: The push arm will extend or retract (dependent on the mode set) after the service call is invoked. The mode and depth will be demonstrated, but not the duration. The setting is, however, stored and can be confirmed by manually operating the device.
+Please note: The push arm will extend or retract (depending on the mode defined) after the service call is invoked. The mode and depth will be demonstrated, but not the duration. The setting is, however, stored and can be confirmed by manually operating the device.
 
 | Service Data Attribute | Required | Description                                                                                   |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------- |
@@ -51,7 +51,7 @@ Please note: The push arm will extend or retract (dependent on the mode set) aft
 
 The integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
-Due to the device going into deep sleep after prelonged disuse, the response time can be up to a minute in extreme cases. On average it will be much quicker.
+Due to the device going into deep sleep after extended periods of no activity, the response time can be up to a minute in extreme cases. On average it will be much quicker.
 
 {% configuration_basic %}
 "Failed to pair":
