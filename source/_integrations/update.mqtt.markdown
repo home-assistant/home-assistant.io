@@ -171,7 +171,7 @@ retain:
   type: boolean
   default: false
 state_topic:
-  description: The MQTT topic subscribed to receive update of the installed version.
+  description: The MQTT topic subscribed to receive an update of the installed version.
   required: true
   type: string
 unique_id:
