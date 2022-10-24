@@ -145,7 +145,7 @@ latest_version_template:
   required: false
   type: template
 latest_version_topic:
-  description: The MQTT topic subscribed to receive update of the latest version.
+  description: The MQTT topic subscribed to receive an update of the latest version.
   required: true
   type: string
 name:
