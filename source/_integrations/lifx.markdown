@@ -156,7 +156,7 @@ The device will be powered on by default, but this can be overridden by setting 
 
 ### Service `lifx.effect_move`
 
-Run a harware-based effect on LIFX multizone devices that a moves the colors currently set on the device in a particular direction. The direction and speed of the animation are controlled by the `speed` and `direction` attributes. You can change the colors of the effect while it is running using the `lifx.set_state` service.
+Run a hardware-based effect on LIFX multizone devices that move the current colors on the device in a particular direction. The direction and speed of the animation are controlled by the `speed` and `direction` attributes. You can change the effect's colors while running using the `lifx.set_state` service.
 
 The effect will not be visible if all LEDs on the device are set to the same color and is ignored by unsupported devices.
 
