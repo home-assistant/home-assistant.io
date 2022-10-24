@@ -27,6 +27,9 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - tag
+  - update
+  - vacuum
 ha_integration_type: integration
 ---
 
@@ -174,6 +177,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Sensor](/integrations/sensor.mqtt/)
 - [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
+- [Update](/integrations/update.mqtt/)
 - [Tag Scanner](/integrations/tag.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
 
