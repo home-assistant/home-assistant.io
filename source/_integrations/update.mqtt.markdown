@@ -60,7 +60,7 @@ availability_template:
   required: false
   type: template
 command_topic:
-  description: The MQTT topic to publish command to start installing process.
+  description: The MQTT topic to publish `payload_install` to start installing process.
   required: false
   type: string
 device:
