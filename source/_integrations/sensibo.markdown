@@ -148,7 +148,7 @@ You can configure your Climate React settings using the services `sensibo.enable
 
 - Configuring this service also turns Climate React on
 
-When using the service the state needs to be set to exactly what Sensibo API expects. First time it's recommended to use the app to set it, from that point you can see from the Climate React switch attribute what the api requires and how to write it.
+When using the service, the state needs to be set to precisely what Sensibo API expects. The first time it's recommended to use the app to configure it. From that point, you can see what the API requires and how to write from the Climate React switch attribute.
 
 Example for low threshold state:
 
