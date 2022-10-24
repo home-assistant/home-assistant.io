@@ -46,7 +46,7 @@ You need to install the Lannouncer app and enable the *Network (TCP) Listener* a
 
 Lannouncer uses the default Android TTS voice. You can tweak that in the Android configuration, or you can install a different TTS engine from the Play Store. You might want to raise the volume in the app settings since that depends on the actual hardware device.
 
-More information can be found [here](https://www.keybounce.com/lannouncer/configuring-lannouncer/).
+More information can be found [here](https://web.archive.org/web/20200928053944/https://www.keybounce.com/lannouncer/configuring-lannouncer/) (archived website).
 
 ### Sending messages
 

@@ -60,7 +60,7 @@ The port used with this component must be a port no other processes use on the m
 
 ### Entities
 
-In the initial version, after setup you will see one alarm_control_panel per account and zone combination. This entity will have 5 attributes that reflect all messages that came in for that account and zone, it includes fields for `last_code`, `zone`, `last_message`, `last_id`, `last_timestamp`. The alarm_control_panel state itself is changed based on a subset of values, including but not limited to codes: `CA`, `CB`, `CG`, `BA`, `TA`, `OA`, `NC`, `NL`, for the full list check the code on GitHub. If you expected the state to change then please log which code it was and create an issue on GitHub as well.
+In the initial version, after setup you will see one alarm_control_panel per account and zone combination. This entity will have 5 attributes that reflect all messages that came in for that account and zone, it includes fields for `last_code`, `last_zone`, `last_message`, `last_id`, `last_timestamp`. The alarm_control_panel state itself is changed based on a subset of values, including but not limited to codes: `CA`, `CB`, `CG`, `BA`, `TA`, `OA`, `NC`, `NL`, for the full list check the code on GitHub. If you expected the state to change then please log which code it was and create an issue on GitHub as well.
 
 ### Events
 

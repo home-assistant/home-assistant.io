@@ -3,6 +3,7 @@ title: Advantage Air
 description: Instructions on how to integrate Advantage Air A/C controller into Home Assistant.
 ha_category:
   - Climate
+  - Update
 ha_release: 0.117
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -15,9 +16,11 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - light
   - select
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 ---
 
@@ -59,6 +62,14 @@ The `advantage_air` switch platform will create a switch entity to toggle fresh 
 ### Select
 
 The `advantage_air` select platform allows you to change the zone used for the "MyZone" feature.
+
+### Update
+
+The `advantage_air` update platform shows if the controller app requires an update.
+
+### Light
+
+The `advantage_air` light platform will create a light entity for each light in MyLights tab of the MyPlace app.
 
 ## Services
 

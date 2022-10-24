@@ -163,6 +163,11 @@ max:
   required: false
   type: float
   default: 100
+mode:
+  description: Control how the number should be displayed in the UI. Can be set to `box` or `slider` to force a display mode.
+  required: false
+  type: string
+  default: '"auto"'
 name:
   description: The name of the Number.
   required: false
