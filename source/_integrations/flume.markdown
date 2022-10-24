@@ -2,6 +2,7 @@
 title: Flume
 description: Documentation about the flume sensor.
 ha_category:
+  - Binary Sensor
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.103
@@ -13,6 +14,7 @@ ha_codeowners:
 ha_domain: flume
 ha_dhcp: true
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: integration
 ---
@@ -28,6 +30,17 @@ You can find your Client ID and Client Secret under "API Access" on the [setting
 The Flume API access is available to Flume Insight users only, which may require a paid subscription.
 
 To add `Flume` to your installation, go to **Settings** -> **Devices & Services** in the UI, click the button with `+` sign and from the list of integrations select **Flume**.
+
+## Notifications
+
+Flume notifications are available via binary sensors. To clear the notifications, you will need to use your Flume app or go to: [https://portal.flumewater.com/notifications]([https://portal.flumewater.com/notifications]) and clear the notification in question.
+
+The following notifications are supported:
+
+* Bridge disconnected
+* High flow
+* Leak detected
+
 
 ## Configuration for Binary Sensor
 
