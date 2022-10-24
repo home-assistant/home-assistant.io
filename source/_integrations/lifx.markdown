@@ -140,7 +140,7 @@ Run a hardware-based effect on LIFX matrix devices that creates a flame effect o
 
 ### Service `lifx.effect_morph`
 
-Run a hardware-based effect on LIFX matrix devices that animates blobs of colors across the device. The speed of the movement is controlled by the `speed` attribute.
+Run a hardware-based effect on LIFX matrix devices that animates blobs of colors across the device. The `speed` attribute controls the speed of the movement.
 
 You must provide either a `palette` or `theme` to use for the effect, but not both. The `palette` attribute allows you to select the colors used by the effect, while the `theme` attribute allows you to select one of the pre-configured themes, which match those found in the LIFX smart phone app.
 
