@@ -364,7 +364,7 @@ binary_sensors:
       required: false
       type: string
     input_type:
-      description: type of address (discrete_input/coil)
+      description: type of address (discrete_input/coil/holding)
       required: false
       default: coil
       type: string
