@@ -528,7 +528,7 @@ climates:
 | ------- | ----------- |
 | set_temperature | Set Temperature. Requires `value` to be passed in, which is the desired target temperature. `value` should be in the same type as `data_type` |
 
-### Service `modbus.set-hvac-mode`
+### Service `modbus.set_hvac_mode`
 
 | Service | Description |
 | ------- | ----------- |
