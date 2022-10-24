@@ -37,4 +37,4 @@ The Owntone integration will treat playlists in the database as sources. The num
 
 ## Spotify
 
-The Owntone integration supports media browsing via the [Spotify integration](/integrations/spotify). However, to play Spotify content, your Owntone instance must be logged in with Spotify. This can be done through Owntone's own web interface. For more details, see [Owntone's notes on Spotify](https://owntone.github.io/owntone-server/integrations/spotify/#spotify). You should log in with the same Spotify account for both the Owntone server and the Home Assistant [Spotify integration](/integrations/spotify.
+The Owntone integration supports media browsing via the [Spotify integration](/integrations/spotify). However, to play Spotify content, your Owntone instance must be logged in with Spotify. This can be done through Owntone's own web interface. For more details, see [Owntone's notes on Spotify](https://owntone.github.io/owntone-server/integrations/spotify/#spotify). You should log in with the same Spotify account for both the Owntone server and the Home Assistant [Spotify integration](/integrations/spotify).
