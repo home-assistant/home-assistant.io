@@ -4,7 +4,7 @@ description: Instructions on how to set up Airthings Devices over Bluetooth LE.
 ha_category:
   - Environment
   - Sensor
-ha_release: '2022.9'
+ha_release: '2022.11'
 ha_iot_class: Local Push
 ha_codeowners:
   - '@vincegio'
