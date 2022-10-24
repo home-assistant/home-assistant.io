@@ -72,12 +72,7 @@ MQTT broker settings are configured when the MQTT integration is first setup, an
 
 ### Advanced broker configuration
 
-Advanced broker configuration options include setting a custom client ID, setting a client certificate and key for authentication and enabling TLS validation of the brokers certificate for. To access the advanced broker settings. To change the advanced settings, open the MQTT broker settings, switch on `Advanced options` and click `NEXT`. The advanced options will be shown by default if there are advanced settings active already.
-
-TODO: Migration of advanced broker settings in `configuration.yaml`
-
-Some broker configuration options can't be set via the user interface, but require changes of your `configuration.yaml` file.
-Additional SSL certificate options are documented [here](/docs/mqtt/certificate/).
+Advanced broker configuration options include setting a custom client ID, setting a client certificate and key for authentication and enabling TLS validation of the brokers certificate for. To access the advanced settings, open the MQTT broker settings, switch on `Advanced options` and click `Next`. The advanced options will be shown by default if there are advanced settings active already.
 
 #### Alternative client ID
 
@@ -94,8 +89,13 @@ If the server certificate does not match the hostname then validation will fail.
 
 #### Securing the the connection
 
-With a secure broker connection it is possible to use a client certificate for authentication. To set the client certificate and private key turn on the option `Use a client certificate` and click "Next" to show the controls to upload the files. Only a PEM encoded client certificate and private key (no password set) can be uploaded.
-The client certificate setting will only be active if broker certificate validation is enabled.
+With a secure broker connection it is possible to use a client certificate for authentication. To set the client certificate and private key turn on the option `Use a client certificate` and click "Next" to show the controls to upload the files. Only a PEM encoded client certificates together with a PEM encoded private key can be uploaded. Make sure the private key has no password set.
+
+<div class='note'>
+
+A configured client certificate will only be active if broker certificate validation is enabled.
+
+</div>
 
 ## Configure MQTT options
 
