@@ -22,15 +22,15 @@ ha_quality_scale: platinum
 ha_dhcp: true
 ---
 
-The LIFX integration automatically discovers [LIFX](https://www.lifx.com) bulbs on your network and adds them to Home Assistant.
+The LIFX integration automatically discovers [LIFX](https://www.lifx.com) lights on each network that is enabled in Home Assistant's [network configuration](/integrations/network). Suppose any of your LIFX lights are not automatically discovered. In that case, you can add them manually using the user interface by following the configuration steps below for each light you want to add:
 
 {% include integrations/config_flow.md %}
 
 ## Set state
 
-The LIFX bulbs allow a change of color and brightness even when they are turned off. This way you can control the light during the day so its settings are correct when events for turning on are received, for example from motion detectors or external buttons.
+LIFX lights allow a change of color and brightness even when they are turned off. This way, you can control the light during the day, so its settings are correct when events for turning on are received, for example, from motion detectors or external buttons.
 
-The normal `light.turn_on` call cannot be used for this because it always turns the power on. Thus, LIFX has its own service call that allows color changes without affecting the current power state.
+The normal `light.turn_on` call cannot be used for this because it always turns the power on. Thus, LIFX has its own `set_state` service that allows color changes without affecting the current power state.
 
 ### Service `lifx.set_state`
 
@@ -40,9 +40,17 @@ Change the light to a new state.
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 | `transition` | Duration (in seconds) for the light to fade to the new state.
-| `zones` | List of integers for the zone numbers to affect (each LIFX Z strip has 8 zones, starting at 0).
+| `zones` | List of integers for the zone numbers to affect. See **Calculating zones to affect** below for more detail.
 | `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
 | `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`](/integrations/light/#service-lightturn_on) to specify the new state.
+
+#### Calculating zones to affect
+
+The LIFX Z and LIFX Lightstrip each have eight (8) zones per segment. You can connect up to ten (10) segments to a single controller, which results in a maximum zone count of 80.
+
+The LIFX Beam has ten (10) zones per segment and one (1) zone per corner piece. You can connect up to eight (8) segments and two (2) corner pieces to a single controller, which results in a maximum zone count of 82.
+
+All devices start counting zones at zero (0), which means the zone numbers for the `zones` attribute of the `lifx.set_state` service range from 0 to 79 for the LIFX Z and Lightstrip and 0 to 81 for the LIFX Beam.
 
 ## Set HEV cycle state
 
