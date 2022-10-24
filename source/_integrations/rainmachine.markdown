@@ -69,10 +69,10 @@ Pause all watering activities for a number of seconds. After the pause is comple
 
 Push Flow Meter data from Home Assistant to the RainMachine device.
 
-| Service Data Attribute | Optional | Description                                                                                                       |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `value`                | no       | The flow meter value to send. May be any positive number.                                                         |
-| `unit_of_measurement`  | yes      | The flow meter units to send. String must be one of "clicks", "gal", "m3", or "litre" (default, if not provided). |
+| Service Data Attribute | Optional | Description                                                                                                |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| `value`                | no       | The flow meter value to send. May be any positive number.                                                  |
+| `unit_of_measurement`  | yes      | The flow meter units to send. String must be one of "clicks", "gal", "litre", or "m3"  (default: "litre"). |
 
 ### `rainmachine.push_weather_data`
 
