@@ -142,7 +142,7 @@ Run a hardware-based effect on LIFX matrix devices that creates a flame effect o
 
 Run a hardware-based effect on LIFX matrix devices that animates blobs of colors across the device. The `speed` attribute controls the speed of the movement.
 
-You must provide either a `palette` or `theme` to use for the effect, but not both. The `palette` attribute allows you to select the colors used by the effect, while the `theme` attribute allows you to select one of the pre-configured themes, which match those found in the LIFX smart phone app.
+You must provide a `palette` or `theme` to use for the effect, but not both. The `palette` attribute allows you to select the colors used by the effect, while the `theme` attribute allows you to select one of the pre-configured themes which match those found in the LIFX smartphone app.
 
 The device will be powered on by default, but this can be overridden by setting `power_on` to `false`.
 
