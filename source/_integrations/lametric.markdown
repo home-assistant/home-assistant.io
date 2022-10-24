@@ -5,6 +5,7 @@ ha_category:
   - Button
   - Notifications
   - Number
+  - Select
   - Sensor
   - Switch
 ha_iot_class: Local Polling
@@ -17,6 +18,7 @@ ha_platforms:
   - button
   - notify
   - number
+  - select
   - sensor
   - switch
 ha_integration_type: integration
