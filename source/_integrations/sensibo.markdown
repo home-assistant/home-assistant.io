@@ -160,8 +160,8 @@ fanLevel: "high"
 temperatureUnit: "C"
 targetTemperature: 23
 mode: "cool"
-swing: "stopped"
-horizontalSwing: "stopped"
+swing: "fixedBottom"
+horizontalSwing: "fixedLeft"
 light: "on"
 ```
 
