@@ -30,9 +30,9 @@ To add `Flume` to your installation, go to **Configuration** >> **Devices & Serv
 
 ## Notifications
 
-Flume notifications are available via 3 binary sensors. These senors will read the notification state from flume, and if there is an active notification they will report its state. In order to clear the notifications you will need to use your flume app or go to: [https://portal.flumewater.com/notifications]([https://portal.flumewater.com/notifications]) and clear the notification in question.
+Flume notifications are available via binary sensors. To clear the notifications, you will need to use your Flume app or go to: [https://portal.flumewater.com/notifications]([https://portal.flumewater.com/notifications]) and clear the notification in question.
 
-The sensors are:
+The following notifications are supported:
 
 * Bridge disconnected
 * High flow
