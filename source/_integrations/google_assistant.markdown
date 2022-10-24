@@ -119,7 +119,7 @@ Your Home Assistant instance needs to be connected to the same network as the Go
 
 Your Google Assistant devices will still communicate via the internet to:
 - Get credentials to establish a local connection.
-- Send commands that involve a [secure device](#secure-device).
+- Send commands that involve a [secure device](#secure-devices).
 - Send commands if local fulfillment fails.
 
 <div class='note'>
