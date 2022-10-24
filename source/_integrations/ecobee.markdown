@@ -91,7 +91,7 @@ Example service call:
 ```yaml
 service: notify.ecobee
 data:
-  message: Hello, this is your thermostat.
+  message: "Hello, this is your thermostat."
   target: 0
 ```
 
