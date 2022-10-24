@@ -34,7 +34,7 @@ ha_integration_type: integration
 ha_quality_scale: platinum
 ---
 
-Integrates [Sensibo](https://sensibo.com) Air Conditioning controller into Home Assistant.
+Integrates [Sensibo](https://sensibo.com) devices into Home Assistant.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ For motion sensors (supported by Sensibo Air devices), this integration provides
 
 For climate devices, these sensors are available:
 
-- Room presence
+- Room presence (for Air devices with an attached motion sensor)
 
 For Pure devices, these sensors are available:
 
@@ -66,7 +66,7 @@ For Pure devices, these sensors are available:
 - Pure Boost linked with Presence
 - Pure Boost linked with Outdoor Air Quality
 
-For climate devices, these sensors are available:
+For all devices, these sensors are available:
 
 - Filter Clean Required
 
@@ -75,6 +75,12 @@ For climate devices, these sensors are available:
 You can reset your filter check by using the button available on climate devices.
 
 By pressing the button, you tell your device that you have cleaned or replaced the filter.
+
+## Number Entities
+
+By using the number entities you can calibrate the temperature and hunmidity of your device.
+
+These entities are disabled by default.
 
 ## Select Entities
 
@@ -85,13 +91,18 @@ For supported devices, this integration provides support to set the following mo
 
 ## Sensor Entities
 
+For all devices, these sensors are available:
+
+- Filter last reset
+- Feels Like
+- Timer end time
+
 For motion sensors (supported by Sensibo Air devices), this integration provides the following sensors:
 
 - Temperature
-- Feels Like
 - Humidity
 
-For diagnostics, not automatically displayed on dashboards, these sensors are available:
+For diagnostics, not automatically displayed on dashboards, these sensors are available for motion sensors:
 
 - Voltage
 - Rssi
@@ -108,7 +119,6 @@ For AirQ device, these sensors are available:
 
 For climate devices, these sensors are available:
 
-- Filter last reset
 - Climate React low temperature threshold
 - Climate React high temperature threshold
 
@@ -129,6 +139,12 @@ For Pure devices, this integration provides support to enable/disable Pure Boost
 To customize the settings of Pure Boost, you can use the custom `sensibo.enable_pure_boost` service. See [Pure Boost](#pure-boost)
 
 ## Custom Services
+
+### Assume state
+
+For devices which are also controlled in other ways or often goes out of sync with Sensibo there is a `sensibo.assume_state` service.
+
+With this service you can tell Sensibo if your device is currently running or not without sending a new command to you device.
 
 ### Pure Boost
 

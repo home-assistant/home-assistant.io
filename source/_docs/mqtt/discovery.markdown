@@ -30,6 +30,7 @@ Supported by MQTT discovery:
 - [Vacuums](/integrations/vacuum.mqtt/)
 
 ## Configuration
+
 MQTT discovery is enabled by default, but can be disabled. To do this, click on "Configure" in the integration page in the UI, then "Re-configure MQTT" and then "Next".
 
 ### Advanced discovery configuration
@@ -432,7 +433,6 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
 
 ### Use object_id to influence the entity id
 
-
 The entity id is automatically generated from the entity's name. All MQTT entity components optionally support providing an `object_id` which will be used instead if provided.
 
 - Configuration topic: `homeassistant/sensor/device1/config`
@@ -443,8 +443,7 @@ The entity id is automatically generated from the entity's name. All MQTT entity
   "name":"My Super Device",
   "object_id":"my_super_device",
   "state_topic": "homeassistant/sensor/device1/state"
- }
+}
 ```
 
 In the example above, the entity_id will be `sensor.my_super_device` instead of `sensor.device1`.
-
