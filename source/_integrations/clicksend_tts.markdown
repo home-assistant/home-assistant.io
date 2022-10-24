@@ -20,9 +20,9 @@ To add ClickSend to your installation, add the following to your Home Assistant 
 ```yaml
 notify:
   - platform: clicksend_tts
-    username: test@example.com
-    api_key: D83DED51-9E35-4D42-9BB9-0E34B7CA85AE
-    recipient: +61411111111
+    username: CLICKSEND_USERNAME
+    api_key: CLICKSEND_API_KEY
+    recipient: PHONE_NO
 ```
 
 {% configuration %}
@@ -61,12 +61,11 @@ ClickSend is a notify platform and thus can be controlled by calling the notify 
 
 ```yaml
 alias: "The sun has set"
-description: ""
 trigger:
   - platform: sun
     event: sunset
 action:
   - service: notify.clicksend_tts
     data:
-      message: The sun has set
+      message: "The sun has set"
 ```
