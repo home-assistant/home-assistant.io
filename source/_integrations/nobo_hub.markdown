@@ -52,14 +52,14 @@ This can be utilized the following ways:
 
 ### Preset override duration
 
-By default, all overrides (when operation is not "Auto" mode) are constant. It is possible to change this to let
-overrides end when the week profile changes next (same as duration "Now" in the Nobø Energy mobile app) in
-the integration configuration.
+By default, all overrides (when operation is not in "Auto" mode) are constant. It is possible to change this
+to  let overrides end when the week profile changes next (same as duration "Now" in the Nobø Energy mobile app)
+in the integration configuration.
 
 ### Week profiles
 
 The week profiles are retrieved from the hub, and it is possible to change current week profile for a zone
-using a selector. Week profiles must be created and adjusted using the Nobø Energy mobile app.
+using a selector. Week profiles must be created and edited using the Nobø Energy mobile app.
 
 ### No preset "Off"
 
