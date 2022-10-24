@@ -16,7 +16,7 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-This integration adds support for [Balboa](http://www.balboawatergroup.com/) Spa WiFi Modules to be used within Home Assistant.
+This integration adds support for [Balboa](https://www.balboawatergroup.com/) Spa WiFi Modules to be used within Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

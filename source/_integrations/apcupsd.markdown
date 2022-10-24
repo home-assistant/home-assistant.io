@@ -1,5 +1,5 @@
 ---
-title: apcupsd
+title: APC UPS Daemon
 description: Instructions on how to integrate apcupsd status with Home Assistant.
 ha_category:
   - Binary Sensor
@@ -121,4 +121,3 @@ Some sensors are disabled by default, since they provide information that is onl
 - UPS Transfer from Battery (XOFFBAT)
 - UPS Transfer from Battery (XOFFBATT)
 - UPS Transfer to Battery (XONBATT)
-

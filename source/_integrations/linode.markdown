@@ -25,7 +25,7 @@ There is currently support for the following device types within Home Assistant:
 
 Obtain your oAuth2 Access Token from Linode account.
 
-- <http://cloud.linode.com>
+- <https://cloud.linode.com>
 - Log in
 - Select API Tokens
 - Create a Personal Access Token,

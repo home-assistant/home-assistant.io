@@ -32,7 +32,7 @@ bluetooth:
 
 For Bluetooth to function on Linux systems:
 
-- The [D-Bus](https://en.wikipedia.org/wiki/D-Bus) socket must be accessible to Home Assistant. 
+- The [D-Bus](https://en.wikipedia.org/wiki/D-Bus) socket must be accessible to Home Assistant.
 - The Bluetooth adapter must be accessible to D-Bus and running [BlueZ](http://www.bluez.org/) >= 5.43. It is highly recommended to use BlueZ >= 5.63 as older versions have been reported to be unreliable.
 - The D-Bus implementation should be [dbus-broker](https://github.com/bus1/dbus-broker).
 - The host system should be running Linux kernel 5.15.62 or later.
@@ -105,7 +105,7 @@ The following methods are known to work to add multiple adapters:
 
 - Long USB Extension cables
 - USB-Ethernet extenders
-- [USB/IP](http://usbip.sourceforge.net/)
+- [USB/IP](https://usbip.sourceforge.net/)
 
 Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/bluetooth/?_highlight=Best+practices#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
 
@@ -119,7 +119,7 @@ Many integrations require active scanning and may not function when scanning is 
 
 ## Remote adapters
 
-The Bluetooth integration supports receiving advertisement data from external adapters for devices and sensors that do not need an active connection. The number of remote scanners is limited only by the performance of the host system.
+The Bluetooth integration supports receiving advertisement data from external adapters for devices and sensors that do not need an active connection, as well as establishing active connections. The number of remote scanners is limited only by the performance of the host system.
 
 The following remote adapters are supported:
 
@@ -173,7 +173,7 @@ For example, unshielded USB 3 port and their cables are especially infamously kn
       - Try to place the Bluetooth adapter at some distance away from walls, ceilings, and floors.
       - Try different orientations of the adapter's external antenna (or whole Bluetooth adapter).
   - USB 3.0 ports/computers/peripherals are known culprits of RFI/EMI/EMF disruption. (See Ref. [1](https://www.usb.org/sites/default/files/327216.pdf) and [2](https://www.unit3compliance.co.uk/2-4ghz-intra-system-or-self-platform-interference-demonstration/)).
-    - Make sure to only connect the Bluetooth USB adapter to a USB 2.0 port (and not to a USB 3.x port). 
+    - Make sure to only connect the Bluetooth USB adapter to a USB 2.0 port (and not to a USB 3.x port).
       - If your computer only has a USB 3.x port then connect the adapter via a powered USB 2.0 hub:
         - A USB 2.0 hub will convert USB 3.0 to a USB 2.0 port and avoid USB 3.0 EMF.
           - A USB 2.0 hub that uses an external power supply will ensure power requirements are fulfilled.
