@@ -130,7 +130,7 @@ Run a software-based effect that continuously loops colors around the color whee
 
 ### Service `lifx.effect_flame`
 
-Run a hardware-based effect on LIFX matrix devices that creates a flame effects on the device. The speed of the flames is controlled by the `speed` attribute. The device will be powered on by default, but this can be overridden by setting `power_on` to `false`.
+Run a hardware-based effect on LIFX matrix devices that creates a flame effect on the device. The device will be powered on by default, but this can be overridden by setting `power_on` to `false`. The `speed` attribute controls the speed of the flames.
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
