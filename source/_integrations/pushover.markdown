@@ -77,7 +77,7 @@ To use a specific Pushover device, set it using `target`. If one of the entered 
       priority: 0
 ```
 
-To use the highest priority which repeats the notification every x seconds (retry) for the duration of y seconds (expire) you MUST specify these parameters. The minimal time for the retry parameter is 30 seconds. The expire parameter has a maximum of 10800 seconds (3 hours). If you target more than one device make sure to enable the advanced option "Notification dismissal sync" in the app to be able to dimiss the alert on all devices simultaneously.
+To use the highest priority, which repeats the notification every x seconds (`retry`) for the duration of y seconds (`expire`), you MUST specify these parameters. The minimal time for the `retry` parameter is 30 seconds. The `expire` parameter has a maximum of 10800 seconds (3 hours). If you target more than one device, make sure to enable the advanced option "Notification dismissal sync" in the app to be able to dismiss the alert on all devices simultaneously.
 
 ```yaml
 - service: notify.entity_id
@@ -88,7 +88,7 @@ To use the highest priority which repeats the notification every x seconds (retr
       - iphone11pro
     data:
       priority: 2
-      sound: siren
+      sound: "siren"
       expire: 300
       retry: 30
 ```
