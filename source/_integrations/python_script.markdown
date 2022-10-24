@@ -20,7 +20,7 @@ This integration allows you to write Python scripts that are exposed as services
 | `datetime` | The stdlib `datetime` available as limited access.
 | `dt_util` | The ` homeassistant.util.dt` module.
 
-Other imports like `min`, `max` are available as builtins. See the [python_script](https://github.com/home-assistant/core/blob/dev/homeassistant/components/python_script/__init__.py) source code for up to date information on the available objects inside the scritp.
+Other imports like `min`, `max` are available as builtins. See the [python_script](https://github.com/home-assistant/core/blob/dev/homeassistant/components/python_script/__init__.py) source code for up-to-date information on the available objects inside the script.
   
 
 [hass-api]: /developers/development_hass_object/
@@ -34,13 +34,13 @@ It is not possible to use Python imports with this integration. If you want to d
 
 ## Writing your first script, reading input and logging the activity
 
-This is a very simple example that does no real work.
+This is a simplified example that does no real work.
 It is created as a first step, to help with:
 
-- demonstrate how to setup the script
-- how to process the input data
-- how to log the script activity
-- how to troubleshoot / manually call the script.
+- Demonstrate how to setup the script
+- How to process the input data
+- How to log the script activity
+- How to troubleshoot / manually call the script.
 
 Start by enabling the Python script and create the first script.
 
@@ -61,7 +61,7 @@ logger.info("Hello {} at {}".format(name, time.time()))
 ```yaml
 service: python_script.hello_world
 data:
-  name: Input-Text
+  name: "Input-Text"
 ```
 
 <div class='note'>
@@ -81,18 +81,17 @@ logger:
 
 The following example shows how to trigger a custom event over the `hass.bus`.
 
-We will use the same `hello_world.py` file.
-Edit the file and add this at the end.
-No need to restart Home Assistant or reload any configuration.
-The script is (re)loaded at each call.
+This example uses the `hello_world.py` from the previous example.
+Edit the file and the code listed below to the end of the file.
+There is no need to reload the configuration or restart Home Assistant.
 
 ```python
 hass.bus.fire("hello_world_event", {"wow": "from a Python script!"})
 ```
 
-Running this script show absolutely no output on the screen.
-From a separate tab (session) you will need to go to `Developer Tools -> Events` and at `Listen to events` type `hello_world_event` and then press `Start listening`.
-You should see something like this:
+This script doesn't output anything. However, you can view the events being fired in the Developer tools.
+
+From a separate browser window or tab, go to `Developer Tools -> Events` and at `Listen to events` type `hello_world_event` and then press `Start listening`. You should see something like this:
 
 ```yaml
 event_type: hello_world_event
@@ -155,12 +154,10 @@ Available services: `reload`.
 
 ### Service `python_script.reload`
 
-Reload all available python_scripts from the `<config>/python_scripts` folder.
+Reload all available python_scripts from the `<config>/python_scripts` folder, as a quicker alternative to restarting Home Assistant.
 
-Use this when creating a new Python script and you're not restarting Home Assistant.
+Use this when creating a new Python script, or after updating the `<config>/python_scripts/services.yaml` file. 
 
-Use this after updating the `<config>/python_scripts/services.yaml` file. 
-
-You don't have to call this service when you edit an existing Python script.
+You don't have to call this service when you change an existing Python script.
 
 This service takes no service data attributes.
