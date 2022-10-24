@@ -93,6 +93,10 @@ headers:
   description: Headers to use for the web request.
   required: false
   type: string
+unique_id:
+  description: An ID that uniquely identifies this scrape entity.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Examples
