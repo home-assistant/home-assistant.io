@@ -163,35 +163,35 @@ fan:
   - platform: template
     fans:
       helper_fan:
-        friendly_name: Helper Fan
+        friendly_name: "Helper Fan"
         value_template: "{{ states('input_boolean.state') }}"
         turn_on:
-        - service: input_boolean.turn_on
-          target:
-            entity_id: input_boolean.state
+          - service: input_boolean.turn_on
+            target:
+              entity_id: input_boolean.state
         turn_off:
-        - service: input_boolean.turn_off
-          target:
-            entity_id: input_boolean.state
+          - service: input_boolean.turn_off
+            target:
+              entity_id: input_boolean.state
         percentage_template: >
           {{ states('input_number.percentage') if is_state('input_boolean.state', 'on') else 0 }}
         speed_count: 6
         set_percentage:
-        - service: input_boolean.turn_{{ 'on' if percentage > 0 else 'off' }}
-          target:
-            entity_id: input_boolean.state
-        - service: input_number.set_value
-          target:
-            entity_id: input_number.percentage
-          data:
-            value: "{{ percentage }}"
+          - service: input_boolean.turn_{{ 'on' if percentage > 0 else 'off' }}
+            target:
+              entity_id: input_boolean.state
+          - service: input_number.set_value
+            target:
+              entity_id: input_number.percentage
+            data:
+              value: "{{ percentage }}"
 ```
 
 {% endraw %}
 
 ### Preset Modes Fan
 
-This example uses an existing fan with only a percentage.  It extends the 
+This example uses an existing fan with only a percentage. It extends the 
 percentage value into useable preset modes without a helper entity.
 
 {% raw %}
@@ -201,30 +201,30 @@ fan:
   - platform: template
     fans:
       preset_mode_fan:
-        friendly_name: Preset Mode Fan Example
+        friendly_name: "Preset Mode Fan Example"
         value_template: "{{ states('fan.percentage_fan') }}"
         turn_on:
-          service: fan.turn_on
-          target:
-            entity_id: fan.percentage_fan
+          - service: fan.turn_on
+            target:
+              entity_id: fan.percentage_fan
         turn_off:
-          service: fan.turn_off
-          target:
-            entity_id: fan.percentage_fan
+          - service: fan.turn_off
+            target:
+              entity_id: fan.percentage_fan
         percentage_template: >
           {{ state_attr('fan.percentage_fan', 'percentage') }}
         speed_count: 3
         set_percentage:
-          service: fan.set_percentage
-          target:
-            entity_id: fan.percentage_fan
-          data:
-            percentage: "{{ percentage }}"
+          - service: fan.set_percentage
+            target:
+              entity_id: fan.percentage_fan
+            data:
+              percentage: "{{ percentage }}"
         preset_modes:
-        - 'off'
-        - low
-        - medium
-        - high
+          - "off"
+          - "low"
+          - "medium"
+          - "high"
         preset_mode_template: >
           {% if is_state('fan.percentage_fan', 'on') %}
             {% if state_attr('fan.percentage_fan', 'percentage') == 100  %}
@@ -238,20 +238,20 @@ fan:
             off
           {% endif %}
         set_preset_mode:
-          service: fan.set_percentage
-          target:
-            entity_id: fan.percentage_fan
-          data:
-            percentage: >-
-              {% if preset_mode == 'high' %}
-                100
-              {% elif preset_mode == 'medium' %}
-                66
-              {% elif preset_mode == 'low' %}
-                33
-              {% else %}
-                0
-              {% endif %}
+          - service: fan.set_percentage
+            target:
+              entity_id: fan.percentage_fan
+            data:
+              percentage: >-
+                {% if preset_mode == 'high' %}
+                  100
+                {% elif preset_mode == 'medium' %}
+                  66
+                {% elif preset_mode == 'low' %}
+                  33
+                {% else %}
+                  0
+                {% endif %}
 ```
 
 {% endraw %}
