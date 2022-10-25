@@ -158,7 +158,7 @@ Copy the event code from the state attribute of the switch, which shows up on th
 710030e4102 **01** 50<br>
 710030e4102 **02** 50
 
-### Protocols {#protocols}
+### Protocols
 
 When no protocols are selected in the device configuration, the RFXtrx device will use the protocols enabled in its non-volatile memory. You can set these using [RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads).
 
