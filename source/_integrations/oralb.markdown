@@ -19,7 +19,7 @@ Integrates [Oral-B](https://oralb.com/) devices into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-The OralB integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
+The Oral-B integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
 ## Supported devices
 
