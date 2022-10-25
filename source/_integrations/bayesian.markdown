@@ -11,6 +11,8 @@ ha_domain: bayesian
 ha_platforms:
   - binary_sensor
 ha_integration_type: integration
+ha_codeowners:
+  - '@HarvsG'
 ---
 
 The `bayesian` binary sensor platform observes the state from multiple sensors and uses [Bayes' rule](https://en.wikipedia.org/wiki/Bayes%27_theorem) to estimate the probability that an event has occurred given the state of the observed sensors. If the estimated posterior probability is above the `probability_threshold`, the sensor is `on` otherwise it is `off`.
@@ -71,6 +73,10 @@ name:
   required: false
   type: string
   default: Bayesian Binary Sensor
+device_class:
+  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 observations:
   description: The observations which should influence the probability that the given event is occurring.
   required: true
@@ -172,6 +178,7 @@ Finally, here's an example for `template` observation platform, as seen in the c
 binary_sensor:
   name: "Paulus Home"
   platform: "bayesian"
+  device_class: "presence"
   prior: 0.5
   probability_threshold: 0.9
   observations:

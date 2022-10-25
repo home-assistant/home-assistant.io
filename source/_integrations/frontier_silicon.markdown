@@ -18,8 +18,8 @@ This integration provides support for Internet Radios based on the [Frontier Sil
 ## Supported Models
 * Hama: [IR110], [DIR3110]
 * Medion: [Medion Radios]
-* Silvercrest: [SIRD 14 C2]
-* Teufel: [Radio 3sixty(2019)]
+* Silvercrest: [SIRD 14 C2 (archived website)]
+* Teufel: [Radio 3sixty (2019)]
 * Some models from: Auna, Technisat, Revo, Pinell, Como Audio
 
 This integration was developed and tested with a Hama [DIR3110] and a Medion [MD 87466].
@@ -105,14 +105,14 @@ The Frontier Silicon API does not provide a multi-user environment. There is alw
 
 </div>
 
-[Frontier Silicon chipset]: https://www.frontier-silicon.com/digital-radio-solutions
-[Medion Radios]: http://internetradio.medion.com/
-[IR110]: https://www.hama.com/00054823/hama-ir110-internet-radio-internet-radio-multi-room-app-control
-[DIR3110]: https://www.hama.com/00054824/hama-digitalradio-dir3110-internetradio-dab+-fm-multiroom-app-steuerung
-[MD 87466]: https://www.medion.com/gb/service/start/_product.php?msn=50051273&gid=14
-[Radio 3sixty(2019)]: https://teufel.de/radio-3sixty-2019-105437000
-[SIRD 14 C2]: https://www.silvercrest-multiroom.de/fileadmin/user_upload/pdf/handbucher/Bedienungsanleitungen/IR/279398_SIRD_14_C2_ML4_V1.1_GB_CZ_SK_DE.pdf
+[Frontier Silicon chipset]: https://www.frontiersmart.com/solution/solutions-for-digital-radio/
+[Medion Radios]: https://www.medion.com/de/shop/internetradios
+[IR110]: https://www.hama.com/00054823/hama-ir110ms-internet-radio-multiroom-app-control-black
+[DIR3110]: https://www.hama.com/00054824/hama-dir3110ms-digital-radio-fm-dab-dab+-internet-radio-app-multiroom-white
+[MD 87466]: https://www.conrad.com/p/medion-p83302-md-87466-internet-kitchen-radio-dab-fm-aux-internet-radio-dlna-compatible-white-1434428
+[Radio 3sixty (2019)]: https://teufel.de/radio-3sixty-2019-105437000
+[SIRD 14 C2 (archived website)]: https://web.archive.org/web/20191011141311/https://www.silvercrest-multiroom.de/produkte/stereo-internet-radio/
 [fsapi]: https://github.com/zhelev/python-fsapi
-[UNDOK]: https://www.frontier-silicon.com/undok
+[UNDOK]: https://www.frontiersmart.com/product/undok/
 [flammy]: https://github.com/flammy/fsapi/
 [tiwillam]: https://github.com/tiwilliam/fsapi

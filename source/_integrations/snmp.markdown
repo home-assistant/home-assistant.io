@@ -20,7 +20,7 @@ A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Manage
 
 There is currently support for the following device types within Home Assistant:
 
-- [Presence Detection](#precense-detection)
+- [Presence Detection](#presence-detection)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
@@ -424,7 +424,7 @@ switch:
     baseoid: 1.3.6.1.4.1.19865.1.2.1.4.0
     payload_on: 1
     payload_off: 0
-    
+
   - platform: snmp
     name: Enable PoE on Netgear switch port 2 using SNMP v3
     host: 192.168.0.4

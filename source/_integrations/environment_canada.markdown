@@ -29,8 +29,6 @@ The integration automatically determines the closest weather station based on th
 
 You can also specify a weather station to use by providing a identification code of the form `AB/s0000123`, based on those listed in [this CSV file](https://dd.weather.gc.ca/citypage_weather/docs/site_list_towns_en.csv).
 
-Note that not all weather stations provide a complete set of data weather/sensor data. The data that is retrieved by this integration can be found [here](https://dd.weather.gc.ca/citypage_weather/xml/). Browsing the XML data for your station will help understand what data is available.
-
 ## Entities
 
 The integration will create the entities listed below. Some of the entities are disabled by default and can be enabled via the integration's Entities page.
@@ -88,6 +86,24 @@ The integration will create the entities listed below. Some of the entities are 
 - Endings
 
 The alert sensors use the number of current alerts as their state, with an attribute containing the title of each alert.
+
+## Solving Problems
+
+The Environment Canada service is very stable and provides high-quality data. Here are some steps that you can take before opening a problem report or posting on the forum.
+
+### Service Interruptions
+
+Although infrequent, there have been some outages and instabilities of the Environment Canada service. If you see error messages in your logs similar to the one below, it is very unlikely to be a problem with this integration and is likely a problem with the Environment Canada service.
+
+```txt
+2022-10-05 12:25:08.619 ERROR (MainThread) [homeassistant.components.environment_canada] Timeout fetching environment_canada weather data
+```
+
+The first course of action should be to check if there are known problems with the service. Look for recent messages on the [Environment Canada mailing list](https://lists.ec.gc.ca/pipermail/dd_info/) ([example message](https://lists.ec.gc.ca/pipermail/dd_info/2022-October/000542.html)). The next course of action is to post on the forum. The answers are usually already known by someone.
+
+### Sensor `unavailable` or `unknown`
+
+Not all weather stations provide a complete set of weather/sensor data. The data that is retrieved by this integration can be found [here](https://dd.weather.gc.ca/citypage_weather/xml/). Browsing the XML data for your station will help you to understand what data is (un)available.
 
 ## Template Sensors
 

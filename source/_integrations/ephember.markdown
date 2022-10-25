@@ -44,3 +44,4 @@ The supported operation modes map to the ON/OFF period selection of your timeswi
 - **Off** The timeswitch is permanently off.
 
 If **All Day** is selected in the EMBER app it will show as **Auto** in Home Assistant.
+To **Boost** your heating, you should call the `climate.set_aux_heater` service on your zone entity. This will then **Boost** that zone for 1 hour.

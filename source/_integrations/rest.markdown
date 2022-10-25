@@ -1,6 +1,6 @@
 ---
-title: "RESTful"
-description: "Instructions on how to integrate REST sensors and binary sensors into Home Assistant."
+title: RESTful
+description: Instructions on how to integrate REST sensors and binary sensors into Home Assistant.
 ha_category:
   - Binary Sensor
   - Sensor

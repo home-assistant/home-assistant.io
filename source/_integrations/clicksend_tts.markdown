@@ -48,7 +48,7 @@ caller:
   required: false
   type: string
 language:
-  description: The language you want to use to convert the message to audio. Accepted values are found in the [ClickSend Documentation](http://docs.clicksend.apiary.io/#reference/voice/voice-languages).
+  description: The language you want to use to convert the message to audio. Accepted values are found in the [ClickSend Documentation](https://clicksend.docs.apiary.io/#reference/voice/voice-languages).
   required: false
   default: en-us
   type: string
