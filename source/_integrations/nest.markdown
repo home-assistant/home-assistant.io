@@ -1,5 +1,5 @@
 ---
-title: Nest
+title: Google Nest
 description: Instructions on how to integrate Nest into Home Assistant.
 ha_category:
   - Binary Sensor
@@ -397,7 +397,7 @@ data:
 
 {% details "Example Action: Snapshot (jpg) attachment for Android or iOS %}
 
-Example for cameras that support Snaphot (jpg) on either Android or iOS.
+Example for cameras that support Snapshot (jpg) on either Android or iOS.
 
 {% raw %}
 
@@ -467,7 +467,7 @@ If the *Nest* integration does not have an Alert then you probably used *Web Aut
 
 1.  Visit the [Device Access Console](https://console.nest.google.com/device-access/)
 1.  Select the *Device Access Project* used by *Home Assistant*
-1.  You need to then delete the old *OAuth Client ID* by clicking the Trash icon to unlick your Nest project from the deprecated Auth method.
+1.  You need to then delete the old *OAuth Client ID* by clicking the Trash icon to unlink your Nest project from the deprecated Auth method.
 1.  Click the overflow menu `...` then *Add Client ID*
 1.  Enter the new *OAuth Client ID* for *Web App Auth* credentials
 1.  Back in Home Assistant confirm your *Device Access Project ID*
@@ -528,7 +528,7 @@ The *OAuth Client ID* used must be consistent, so check these:
 
 {% enddetails %}
 
-- *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiugration or your authentication token was revoked by Google for some other reason.
+- *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiguration or your authentication token was revoked by Google for some other reason.
 
 {% details "Details about reauthentication issues" %}
 
@@ -557,7 +557,7 @@ The *OAuth Client ID* used must be consistent, so check these:
 
 - *Error: invalid_client no application name* means the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) has not been fully configured for the project. Enter the required fields (App Name, Support Email, Developer Email) and leave everything else as default.
 
-- *Subscriber error* means that `configuration.yaml` has an incorrect `subscriber_id` or the subscription is misconfiugred. It is recommended to delete this from the configuration, then delete and re-add the integration to let it create a subscription for you.
+- *Subscriber error* means that `configuration.yaml` has an incorrect `subscriber_id` or the subscription is misconfigured. It is recommended to delete this from the configuration, then delete and re-add the integration to let it create a subscription for you.
 
 - *Not receiving updates* typically means a problem with the subscriber configuration. Make sure to check the logs for any error messages. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant subscriber when everything is configured correctly.
 
@@ -583,7 +583,7 @@ logger:
     google_nest_sdm.event: debug
 ```
 
-- It is recommended to let Home Assistant create the Pub/Sub subscription for you. However, if you would like more control you can enter a `susbcriber_id` in the configuration. See [Subscribe to Events](https://developers.google.com/nest/device-access/subscribe-to-events) for more instructions on how to manually create a subscription and use the full subscription name in the Home Assistant configuration e.g. `projects/gcp-project-name/subscriptions/subscription-id`
+- It is recommended to let Home Assistant create the Pub/Sub subscription for you. However, if you would like more control you can enter a `subscriber_id` in the configuration. See [Subscribe to Events](https://developers.google.com/nest/device-access/subscribe-to-events) for more instructions on how to manually create a subscription and use the full subscription name in the Home Assistant configuration e.g. `projects/gcp-project-name/subscriptions/subscription-id`
 
 # Works With Nest API
 

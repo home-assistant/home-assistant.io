@@ -93,6 +93,10 @@ headers:
   description: Headers to use for the web request.
   required: false
   type: string
+unique_id:
+  description: An ID that uniquely identifies this scrape entity.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Examples
@@ -137,13 +141,13 @@ sensor:
 
 ### Get a value out of a tag
 
-The German [Federal Office for Radiation protection (Bundesamt für Strahlenschutz)](http://www.bfs.de/) is publishing various details about optical radiation including an UV index. This example is getting the index for a region in Germany.
+The German [Federal Office for Radiation protection (Bundesamt für Strahlenschutz)](https://www.bfs.de/) is publishing various details about optical radiation including an UV index. This example is getting the index for a region in Germany.
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: scrape
-    resource: http://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html
+    resource: https://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html
     name: Coast Ostsee
     select: "p"
     index: 19

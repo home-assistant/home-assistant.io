@@ -2,6 +2,9 @@
 title: Switcher
 description: Integrate Switcher devices.
 ha_category:
+  - Climate
+  - Cover
+  - Sensor
   - Switch
 ha_release: 0.93
 ha_iot_class: Local Push
@@ -10,6 +13,7 @@ ha_codeowners:
   - '@thecode'
 ha_domain: switcher_kis
 ha_platforms:
+  - cover
   - sensor
   - switch
 ha_config_flow: true
@@ -27,6 +31,7 @@ Supported devices:
 - Switcher V2 (Qualcomm chipset - from firmware 72.32)
 - Switcher V4
 - Switcher Breeze
+- Switcher Runner
 
 If you completed the integration setup but are still unable to control the device, please make sure your device's firmware is up-to-date.
 
