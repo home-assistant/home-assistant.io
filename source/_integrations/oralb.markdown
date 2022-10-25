@@ -24,4 +24,4 @@ The OralB integration will automatically discover devices once the [Bluetooth](/
 ## Supported devices
 
 [IO 7 Series](https://oralb.com/en-us/products/electric-toothbrushes/oralbio)
-[7000 Series](https://oralb.com/en-us/products/electric-toothbrushes/smart-7000-rechargeable-electric-toothbrush/)
+[Smart Series 7000](https://oralb.com/en-us/products/electric-toothbrushes/smart-7000-rechargeable-electric-toothbrush/)
