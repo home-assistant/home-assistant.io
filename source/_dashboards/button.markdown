@@ -101,6 +101,11 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+action_name:
+  required: false
+  description: Override the default action name for a button row.
+  type: string
+  default: Run
 {% endconfiguration %}
 
 Example:

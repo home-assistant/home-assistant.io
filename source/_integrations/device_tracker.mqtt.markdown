@@ -232,7 +232,7 @@ value_template:
 
 ### Using the discovery protocol
 
-The device_tracker can be created via a discovery topic that follows the following topic name convention: `<discovery_prefix>/device_tracker/[<node_id>/]<object_id>/config`.
+The device_tracker can be created via publishing to a discovery topic that follows the following [MQTT Discovery](/docs/mqtt/discovery/#discovery-topic) topic name format: `<discovery_prefix>/device_tracker/[<node_id>/]<object_id>/config`.
 
 You can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
 
@@ -276,7 +276,7 @@ mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -
 To set the state of the device tracker to specific coordinates:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/state -m '{"latitude": 32.87336, "longitude": -117.22743, "gps_accuracy": 1.2}'
+mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/attributes -m '{"latitude": 32.87336, "longitude": -117.22743, "gps_accuracy": 1.2}'
 ```
 
 

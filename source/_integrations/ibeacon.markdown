@@ -57,13 +57,16 @@ iBeacons with a randomized MAC address will be combined into a single set of ent
 
 The integration will create an Estimated Distance sensor by default. This estimated distance assumes perfect RF conditions and line of sight between the iBeacon and the Bluetooth adapter. Estimated distance is generally only helpful to tell if the iBeacon is in the immediate vicinity, near, or far away from the adapter. If the system has multiple adapters, the adapter with the best RSSI value for the iBeacon will be the one reporting the distance. As this can change, checking the source attribute when considering the distance is essential.
 
+To get the Estimated distance sensor to work, in most cases, it has to be calibrated in the supplier's app. Place the device at 1m in light of sight of the Bluetooth adapter, read the signal strength in dBm, and set it in the corresponding field of the device app.
+
 ## Known working devices
 
 - [Blue Charm Beacons BC011-MultiBeacon](https://bluecharmbeacons.com/product/bluetooth-ble-multi-beacon-bc011/)
 - [Blue Charm Beacons BC021-MultiBeacon](https://bluecharmbeacons.com/product/bluetooth-ble-ibeacon-bc021-multibeacon-with-button-trigger-and-motion-sensor/)
-- [Blue Charm Beacons BC037G-GeoPattern-iBeacon](https://bluecharmbeacons.com/product/blue-charm-bc037-ibeacon/)
-- [Blue Charm Beacons BC037S-SmoothPattern-iBeacon](https://bluecharmbeacons.com/product/bluetooth-ble-ibeacon-bc037s-ibeacon/)
+- [Blue Charm Beacons BC-U1-USB-Powered-MultiBeacon](https://bluecharmbeacons.com/product/bluetooth-ble-ibeacon-bc-u1-multibeacon-usb-powered/)
 - [Blue Charm Beacons BC08-MultiBeacon](https://bluecharmbeacons.com/product/blue-charm-beacons-bluetooth-ble-ibeacon-bc08-multibeacon-w-motion-sensor-and-button-trigger-ble-5-0/)
+- Blue Charm Beacons BC037G-GeoPattern-iBeacon (discontinued)
+- Blue Charm Beacons BC037S-SmoothPattern-iBeacon (discontinued)
 - [Feasycom FSC-BP103B](https://www.feasycom.com/bluetooth-ibeacon-da14531)
 - [Feasycom FSC-BP104D](https://www.feasycom.com/dialog-da14531-bluetooth-low-energy-beacon)
 - [Feasycom FSC-BP108](https://www.feasycom.com/bluetooth-5-1-waterproof-bluetooth-beacon)
