@@ -109,7 +109,7 @@ Print out a list of all the sensor states:
 
 {% endraw %}
 
-Entities that are on
+Entities that are on:
 
 {% raw %}
 
@@ -152,7 +152,7 @@ Other state examples:
 
 {{ states('sensor.expires') | as_datetime }}
 
-#make a list of states
+# Make a list of states
 {{ ['light.kitchen', 'light.dinig_room'] | map('states') | list }}
 ```
 
@@ -194,7 +194,7 @@ With strings:
 
 {% endraw %}
 
-List of friendly names
+List of friendly names:
 
 {% raw %}
 
@@ -204,7 +204,7 @@ List of friendly names
 
 {% endraw% }
 
-List of lights that are on with a brightness of 255
+List of lights that are on with a brightness of 255:
 
 {% raw %}
 
