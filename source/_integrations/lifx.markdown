@@ -68,17 +68,23 @@ To determine whether or not a HEV cycle is currently running, Home Assistant exp
 
 ## Sensors
 
-The following table lists the sensors that are available for LIFX bulbs:
+The following sensors are available depending on the LIFX model:
 
-| Sensor | LIFX model(s) | Enabled by default? |
-| ------ | ---------- | ------------------- |
-| Clean (HEV) cycle state | LIFX Clean | Yes
-| Infrared brightness | LIFX Nightvision | Yes
-| Wi-Fi signal strength (RSSI)   | All        | No
+| Sensor | Description |
+| ------ | ----------- |
+| Clean cycle | Indicates whether a HEV cycle is currently active on a LIFX Clean bulb |
+| Infrared brightness | Controls the infrared brightness amount on a LIFX Nightvision bulb |
+| RSSI | Indicates the current WiFi signal strength on any LIFX bulb (disabled by default) |
+
+Note that these sensors are only updated every 30 seconds and may not reflect the current state if changes are made externally to Home Assistant.
 
 ## Themes
 
-Home Assistant provides a collection of predefined themes for LIFX multizone lights, each of which is designed to mimic the theme of the same name from the LIFX smartphone app. To apply a theme interactively, use the theme selection drop-down box found on the device configuration screen. To apply a theme as part of an automation, use the `select.select_option` service call. You can also apply a theme when calling the `lifx.effect_move` service. See the **Light effects** section below for more details, including how to set a custom theme for that effect.
+Home Assistant provides a collection of predefined themes for LIFX multizone lights, each of which is designed to mimic the theme of the same name from the LIFX smartphone app.
+
+To apply a theme interactively, use the theme selection drop-down box found on the device configuration screen.
+
+To apply a theme as part of an automation, use the `select.select_option` service call. You can also apply a theme when calling the `lifx.effect_move` service. See the **Light effects** section below for more details, including how to set a custom theme for that effect.
 
 The following themes are available: `autumn`, `blissful`, `cheerful`, `dream`, `energizing`, `epic`, `exciting`, `focusing`, `halloween`, `hanukkah`, `holly`, `independence_day`, `intense`, `mellow`, `peaceful`, `powerful`, `relaxing`, `santa`, `serene`, `soothing`, `sports`, `spring`, `tranquil`, `warming`.
 
