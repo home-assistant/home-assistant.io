@@ -262,14 +262,14 @@ The same thing can also be expressed as a test:
 
 ### Config Entries
 
-- `entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
+- `config_entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
 
 #### Config entries examples
 
 {% raw %}
 
 ```text
-{{ entry_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+{{ config_entry_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
 ```
 
 {% endraw %}
