@@ -1,5 +1,6 @@
 ---
 title: Device Automation
+description: Information about the Device Automation plugin.
 ha_category:
   - Automation
 ha_release: 0.7
@@ -7,7 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: device_automation
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 Device Automations is a plugin for the automation integration to allow other integrations to provide device specific triggers, conditions and actions.

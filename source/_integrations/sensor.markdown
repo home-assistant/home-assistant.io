@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: sensor
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 Sensors are a basic platform component in Home Assistant. They monitor the states and conditions of a variety of entities. An entity can be many things. This can include a physical device like a motion sensor that reports the battery level, a web service that retrieves the weather temperature, a built-in function that calculates the sun's elevation relative to your GPS position, or even a custom sensor you may have created to report the free space on your laptop. These are all *things* reporting different types of information.
@@ -45,6 +45,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
 - **power_factor**: Power factor in %
 - **power**: Power in W or kW
+- **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d, or mm/h
 - **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg, or psi
 - **reactive_power**: Reactive power in var
 - **signal_strength**: Signal strength in dB or dBm
@@ -55,7 +56,9 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
 - **voltage**: Voltage in V
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, or ft³
+- **water**: Water consumption in L, gal, m³, or ft³
 - **weight**: Generic mass in kg, g, mg, µg, oz, or lb
+- **wind_speed**: Wind speed in ft/s, km/h, kn, m/s, or mph
 
 <p class='img'>
 <img src='/images/screenshots/sensor_device_classes_icons.png' />

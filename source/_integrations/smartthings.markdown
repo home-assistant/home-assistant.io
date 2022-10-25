@@ -64,7 +64,7 @@ The PAT is used to create a Home Assistant SmartApp in your SmartThings account 
 This integration requires an internet accessible incoming webhook to receive push updates from SmartThings. The preferred approach is to subscribe to [Home Assistant Cloud (Nabu Casa)](https://www.nabucasa.com/) and the integration will configure and use a cloudhook automatically. Alternatively, you will have to configure and setup an internet accessible webhook in Home Assistant as described below:
 
 1. Setup [remote access](/docs/configuration/remote/) via a domain name secured with SSL. *Self-signed SSL certificates are not supported by the SmartThings Cloud API.*
-1. Set the external URL in the Home Assistant [configuration](/docs/configuration/basic) to the URL that Home Assistant is available on the internet (this must start with `https://`). This must be port 443. If you do not use Nabu Casa you must configure your network to allow TCP traffic from the internet on port 443 to reach the IP address of the device running Home Assistant.
+2. Set the external URL in the Home Assistant [configuration](/docs/configuration/basic) to the URL that Home Assistant is available on the internet (this must start with `https://`). If you do not use Nabu Casa you must configure your network to allow TCP traffic from the internet to reach the IP address and port of the device running Home Assistant.
 
 ## Setup instructions
 
@@ -111,7 +111,7 @@ The integration will trigger an event when a device with the [button](https://de
 
 | Attribute      | Description                                                                                                                                                                                                                                |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `component_id` | Describes which integration of the device triggered the event. `main` represents the parent device. For devices with child-devices, this attribute identifies the child that raised the event.                                             |
+| `component_id` | Describes which integration of the device triggered the event. `main` represents the parent device. For devices with child-devices, this attribute identifies the child that raised the event. For multi-button devices, the current SmartThings API will no longer pass the ButtonNumber but use a child component_id for each button. The device handler installed on SmartThings must be able to create those child components.    |
 | `device_id`    | The unique id of the device in SmartThings. This can be located in the Home Assistant device registry or in the [SmartThings Developer Workspace](https://smartthings.developer.samsung.com/workspace/).                                   |
 | `location_id`  | The unique id of the location the device is part of. This can be found in the configuration entry registry or in the [SmartThings Developer Workspace](https://smartthings.developer.samsung.com/workspace/).                                     |
 | `value`        | Describes the action taken on the button. See the [button](https://developer-preview.smartthings.com/docs/devices/capabilities/capabilities-reference#button) capability reference for a list of possible values (not all are supported by every device). |

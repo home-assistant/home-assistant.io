@@ -90,7 +90,7 @@ module Jekyll
         end
 
         { "label" => version, "new_components_count" => v[1].count, "sort_key" => gem_ver }
-      }.sort_by { |v| v["sort_key"] }.reverse.group_by { |v|
+      }.sort_by { |v| Gem::Version.new(v["sort_key"]) }.reverse.group_by { |v|
         version = v["label"]
 
         split_ver = version.split('.')

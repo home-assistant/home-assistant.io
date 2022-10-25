@@ -1,6 +1,6 @@
 ---
 title: ThermoPlus
-description: Instructions on how to integrate ThermoPlus devices into Home Assistant.
+description: Connect and control your ThermoPlus devices using the ThermoBeacon integration
 ha_category:
   - Sensor
 ha_bluetooth: true
