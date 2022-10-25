@@ -7,7 +7,8 @@ ha_category:
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: repairs
-ha_integration_type: integration
+ha_integration_type: system
+ha_quality_scale: internal
 ---
 
 The Home Assistant Repairs integration will inform you about issues it has found

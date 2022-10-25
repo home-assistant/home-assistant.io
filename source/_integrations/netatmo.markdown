@@ -55,7 +55,7 @@ To edit an existing area, enter its name and follow the dialog.
 
 ## Camera
 
-The `netatmo` camera platform is consuming the information provided by a [Netatmo Smart Indoor](https://www.netatmo.com/en-gb/security/cam-indoor), [Outdoor](https://www.netatmo.com/en-gb/security/cam-outdoor) and [Netatmo Smart Video Doorbell](https://www.netatmo.com/en-gb/security/doorbell) camera. This integration allows you to view the current live stream created by the camera (exception: video doorbell).
+The `netatmo` camera platform is consuming the information provided by a [Netatmo Smart Indoor](https://www.netatmo.com/en-gb/security/cam-indoor), [Outdoor](https://www.netatmo.com/en-gb/security/cam-outdoor) and [Netatmo Smart Video Doorbell](https://www.netatmo.com/en-gb/security/doorbell) camera. This integration allows you to view the current live stream created by the camera (exception: video doorbell). The doorbell is currently not supported with Home Assistant Cloud link, please use a [Netatmo dev account](#development--testing-with-your-own-client-id).
 
 ## Climate
 

@@ -10,6 +10,7 @@ ha_category:
   - Light
   - Scene
   - Switch
+  - Button
 ha_release: 0.41
 ha_iot_class: Local Push
 ha_domain: lutron_caseta
@@ -28,6 +29,7 @@ ha_platforms:
   - light
   - scene
   - switch
+  - button
 ha_integration_type: integration
 ---
 
@@ -128,8 +130,6 @@ For non-dimmable lights or switched loads, see the switch section on this page.
 
 For more information on working with lights in Home Assistant, see the [Lights component](/integrations/light/).
 
-Available services: `light.turn_on`, `light.turn_off` and `light.toggle`. The `light.turn_on` service supports attributes `brightness`, `brightness_pct` and `transition`.
-
 ## Scene
 
 The Lutron Caseta scene platform allows you to control your Smart Bridge Scenes that are created in the Lutron mobile app.
@@ -138,9 +138,7 @@ After setup, scenes will appear in Home Assistant using an `entity_id` based on 
 
 For more information on working with scenes in Home Assistant, see the [Scenes component](/integrations/scene/).
 
-Scenes are not currently supported on RA3 and QSX models.
-
-Available services: `scene.turn_on`.
+Scenes are not directly supported on RA3 and QSX models, however the button platform (see below) can be used to activate scenes for these systems.
 
 ## Switch
 
@@ -150,15 +148,11 @@ For dimmable lights including wall and plug-in dimmers, see the light section on
 
 For more information on working with switches in Home Assistant, see the [Switches component](/integrations/switch/).
 
-Available services: `switch.turn_on` and `switch.turn_off`.
-
 ## Fan
 
 After setup, fans will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a light switch called 'Master Bedroom Ceiling Fan' will appear in Home Assistant as `fan.master_bedroom_ceiling_fan`.
 
 For more information on working with fans in Home Assistant, see the [Fans component](/components/fan/).
-
-Available services: `fan.turn_on`, `fan.turn_off`, and `fan.set_speed`.
 
 ## Sensor
 
@@ -173,6 +167,13 @@ Lutron Caseta occupancy sensors support 4 different timeouts and 3 different sen
 Because Lutron Caseta devices automatically report state to Home Assistant (rather than relying on polling), occupancy status updates occur almost instantaneously.
 
 For more information on working with binary sensors in Home Assistant, see the [Binary Sensors Component](/components/binary_sensor/)
+
+## Button
+
+Button Entities are created for each Keypad button and Pico Remote button present within the system.
+Radio RA3 and HomeWorks QSX systems can use these button entities to activate scenes that are defined within the Lutron system.
+
+For more information on working with buttons in Home Assistant, see the [Buttons integration](/integrations/button/).
 
 ## Pico and Shade Remotes
 

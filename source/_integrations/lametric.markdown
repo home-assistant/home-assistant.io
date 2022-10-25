@@ -5,6 +5,7 @@ ha_category:
   - Button
   - Notifications
   - Number
+  - Select
   - Sensor
   - Switch
 ha_iot_class: Local Polling
@@ -17,11 +18,13 @@ ha_platforms:
   - button
   - notify
   - number
+  - select
   - sensor
   - switch
 ha_integration_type: integration
 ha_config_flow: true
 ha_ssdp: true
+ha_dhcp: true
 ---
 
 [LaMetric TIME](https://lametric.com/) is a smart clock that can be used to access applications, listen to web radio and display notifications.
