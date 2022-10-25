@@ -58,6 +58,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, or ft³
 - **water**: Water consumption in L, gal, m³, or ft³
 - **weight**: Generic mass in kg, g, mg, µg, oz, or lb
+- **wind_speed**: Wind speed in ft/s, km/h, kn, m/s, or mph
 
 <p class='img'>
 <img src='/images/screenshots/sensor_device_classes_icons.png' />
