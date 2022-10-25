@@ -25,7 +25,7 @@ There is currently support for the following device types within Home Assistant:
 
 If you are sure your email and password are correct, but the integration says the login is invalid then you would need to use the manual authentication method.
 
-To use the manual method, first you would need to obtain an authorization code (see [instructions below](#steps-to-obtain-authorization-code) for details). Once the code is obtained fill in the form with your email, password and the authorization code to complete authentication.
+To use the manual method, first, you would need to obtain an authorization code (see [instructions below](#steps-to-obtain-authorization-code) for details). Once the code is obtained, fill in the form with your email, password, and authorization code to complete authentication.
 
 ### Steps to obtain Authorization Code:
 
