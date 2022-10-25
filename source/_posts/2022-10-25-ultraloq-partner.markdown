@@ -21,6 +21,6 @@ As a partner, U-tec and Nabu Casa will be working together to ensure the best ex
 <img src='/images/blog/2022-10-25-ultraloq-partner/devices.jpg' alt="Ultraloq devices" class='no-shadow'>
 <br><br>
 
-Ultraloq smart locks connect and integrate into Home Assistant using the Z-Wave integration (Z-Wave stick required). This means that connected locks work completely local and updates coming from the device are instantaneously reflected in Home Assistant. This allows for the best user experience when building your smart home.
+Ultraloq smart locks connect and integrate into Home Assistant using the Z-Wave integration (Z-Wave stick required). This means that connected locks work completely local, and updates coming from the device are instantaneously reflected in Home Assistant. This allows for the best user experience when building your smart home.
 
 _[Learn more about the Works with Home Assistant partner program.](/blog/2022/07/12/partner-program/)_
