@@ -110,6 +110,16 @@ Print out a list of all the sensor states:
 
 {% endraw %}
 
+Entities that are on:
+
+{% raw %}
+
+```text
+{{ ['light.kitchen', 'light.dinig_room'] | select('is_state', 'on') | list }}
+```
+
+{% endraw% }
+
 Other state examples:
 {% raw %}
 
@@ -142,6 +152,9 @@ Other state examples:
 {{ as_local(states.sensor.time.last_changed) }}
 
 {{ states('sensor.expires') | as_datetime }}
+
+# Make a list of states
+{{ ['light.kitchen', 'light.dinig_room'] | map('states') | list }}
 ```
 
 {% endraw %}
@@ -181,6 +194,26 @@ With strings:
 ```
 
 {% endraw %}
+
+List of friendly names:
+
+{% raw %}
+
+```text
+{{ ['binary_sensor.garage_door', 'binary_sensor.front_door'] | map('state_attr', 'friendly_name') | list }}
+```
+
+{% endraw% }
+
+List of lights that are on with a brightness of 255:
+
+{% raw %}
+
+```text
+{{ ['light.kitchen', 'light.dinig_room'] | select('is_state', 'on') | select('is_state_attr', 'brightness', 255) | list }}
+```
+
+{% endraw% }
 
 ### Working with Groups
 
