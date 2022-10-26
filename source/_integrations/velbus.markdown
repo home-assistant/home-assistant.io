@@ -99,13 +99,13 @@ script:
 
 ### Service `velbus.clear_cache`
 
-You can use the service `velbus.clear_cache` to clear the cache of one module or the full cache. Once the clear happend the integration will start a new scan.
+You can use the service `velbus.clear_cache` to clear the cache of one module or the full cache. Once the clear happens, the integration will start a new scan.
 Use this service when you make changes to your configuration via velbuslink.
 
 | Service data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
-| `address`              | no       | The module address in decimal format, which is displayed at the device list at the integration page, if provided the service will only clear the cache for this moduel, without an address the full velbuscache will be cleared.. |
+| `interface`            | no       | The port used to connect to the bus (the same one used during configuration). |
+| `address`              | no       | The module address in decimal format, which is displayed on the device list on the integration page, if provided the service will only clear the cache for this model, without an address, the full velbuscache will be cleared. |
 
 ## Example automation
 
