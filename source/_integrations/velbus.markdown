@@ -7,6 +7,7 @@ ha_category:
   - Hub
   - Light
   - Sensor
+  - Button
   - Switch
 ha_iot_class: Local Push
 ha_release: '0.50'
@@ -53,6 +54,7 @@ The port string used in the user interface or the configuration file can have 2 
 - `velbus.sync clock`: Synchronize Velbus time to local clock.
 - `velbus.scan`: Scan the bus for new devices.
 - `velbus.set_memo_text`: Show memo text on Velbus display modules.
+- `velbus.clear_cache`: Clear the full velbuscache or the cache for one module only.
 
 ### Service `velbus.sync_clock`
 
@@ -94,6 +96,16 @@ script:
         interface: "tls://192.168.1.9:27015"
       service: velbus.set_memo_text
 ```
+
+### Service `velbus.clear_cache`
+
+You can use the service `velbus.clear_cache` to clear the cache of one module or the full cache. Once the clear happens, the integration will start a new scan.
+Use this service when you make changes to your configuration via velbuslink.
+
+| Service data attribute | Optional | Description                              |
+| ---------------------- | -------- | ---------------------------------------- |
+| `interface`            | no       | The port used to connect to the bus (the same one used during configuration). |
+| `address`              | no       | The module address in decimal format, which is displayed on the device list on the integration page, if provided the service will only clear the cache for this model, without an address, the full velbuscache will be cleared. |
 
 ## Example automation
 
