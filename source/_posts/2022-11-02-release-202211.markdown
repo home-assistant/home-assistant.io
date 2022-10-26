@@ -1,0 +1,713 @@
+---
+layout: post
+title: "2022.11: Beta release notes"
+description: "Beta release notes for Home Assistant Core 2022.11."
+date: 2022-10-26 00:00:00
+date_formatted: "November 2, 2022"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+- Release-Notes
+- Core
+og_image: /images/blog/2022-11/social.png
+---
+
+<a href='/integrations/#version/2022.11'><img src='/images/blog/2022-11/social.png' style='border: 0;box-shadow: none;'></a>
+
+<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+These are the beta release notes for Home Assistant Core 2022.11 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/Lovelace:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the Supervisor:<br>
+  <https://github.com/home-assistant/supervisor/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+version field (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+---
+<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+Home Assistant Core 2022.11!
+
+I have nothing to tell yet... this is still all beta!
+
+Thanks for helping out testing the beta! ❤️
+
+Enjoy the (beta) release!
+
+../Frenck
+
+PS: There will be no release party this month, instead [join us](https://www.youtube.com/watch?v=D936T1Ze8-4)
+at the [State of the Open Home](https://www.youtube.com/watch?v=D936T1Ze8-4) on
+Sunday, November 13, 2022 (11:00 AM PST / 20:00 CET).
+
+<!--more-->
+
+- [Tile card](#tile-card)
+- [Statistic card](#statistic-card)
+- [Smarter reloading of automation & scripts](#smarter-reloading-of-automation--scripts)
+- [Getting insights into water usage](#getting-insights-into-water-usage)
+- [Kelvin!](#kelvin)
+- [Long-term statistics in the entity dialogs](#long-term-statistics-in-the-entity-dialogs)
+- [Change the first day of the week](#change-the-first-day-of-the-week)
+- [New template features](#new-template-features)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New Integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Breaking Changes](#breaking-changes)
+- [All changes](#all-changes)
+
+## Tile card
+
+{% details "TODO" %}
+
+- Add an actual story
+- Spelling/grammar
+- Replace screenshot
+
+{% enddetails %}
+
+This release introduces a new Dashboard card the "Tile"!
+
+<p class='img'>
+<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/195644072-30db951c-1e35-4c7f-bf67-f1a2dd6373f6.png' alt='This is how these new beautiful tile cards look'>
+Note: Placeholder screenshot that needs to be replaced.
+</p>
+
+## Statistic card
+
+{% details "TODO" %}
+
+- Add an actual story
+- Spelling/grammar
+- Replace screenshots
+
+{% enddetails %}
+
+WARNING: Isn't final at this moment yet, but is likely to be in the second or third beta.
+
+More cards! Presenting your the statistic card! This card
+can be used to show a value based on the long-term statistics.
+
+<p class='img'>
+<img class="no-shadow" src='https://cdn.discordapp.com/attachments/505841299220594748/1034848908993646652/unknown.png' alt='This is how these new beautiful tile cards look'>
+Note: Placeholder screenshot that needs to be replaced.
+</p>
+
+<p class='img'>
+<img class="no-shadow" src='https://cdn.discordapp.com/attachments/505841299220594748/1034848996906258482/unknown.png' alt='This is how these new beautiful tile cards look'>
+Note: Placeholder screenshot that needs to be replaced.
+</p>
+
+## Smarter reloading of automation & scripts
+
+{% details "TODO" %}
+
+- Improve extend story
+- Update vote count
+- Spelling/grammar
+- Only reload modified automations ([@emontnemery] - [#80282]) ([automation docs]) (noteworthy)
+- Only reload modified scripts ([@emontnemery] - [#80470]) ([automation docs]) ([script docs]) (noteworthy)
+
+{% enddetails %}
+
+Results of a WTH topic: [WTH do all automations get reloaded when you change any of them?](https://community.home-assistant.io/t/wth-do-all-automatons-get-reloaded-when-you-change-any-of-them/467270)
+
+It got well over 170+ votes.
+
+When you change a single automation or script via the editors in the user
+interface (or reload your YAML based ones), they always all get reloaded.
+
+This means if they are running, waiting for something (a delay, an even or
+for a entity to be in a certain state for X time), they would all be reset.
+
+This release changes this behavior. Only automations and scripts that are
+actually changed are reloaded. All others will remain running untouched.
+
+## Getting insights into water usage
+
+{% details "TODO" %}
+
+- Improve extend story
+- Update vote count
+- Spelling/grammar
+- Replace screenshots
+- Link to docs
+- https://github.com/home-assistant/core/pull/80888
+
+{% enddetails %}
+
+This has been long time requested, and was also really popular in this month's
+WTH (over 350 votes!): [WTH do we have Energy dashboard and no Water dashboard?](https://community.home-assistant.io/t/wth-do-we-have-energy-dashboard-and-no-water-dashboard/467168)
+
+The request for being able to track water usage in Home Assistant comes up
+quite a lot. This release add support for doing so!
+
+<p class='img'>
+<img class="no-shadow" src='https://cdn.discordapp.com/attachments/717500797684023327/1034490272140247100/unknown.png' alt=''>
+Note: Placeholder screenshot that needs to be replaced.
+</p>
+
+<p class='img'>
+<img class="no-shadow" src='https://cdn.discordapp.com/attachments/717500797684023327/1034493590069596180/unknown.png' alt=''>
+Note: Placeholder screenshot that needs to be replaced.
+</p>
+
+The following integrations now support reporting water usage out of the box:
+
+- [Flo](/integrations/flo)
+- [Flume](/integrations/flume)
+- [HomeWizard Energy](/integrations/homewizard)
+- [P1 Monitor](/integrations/p1_monitor)
+- [Toon](/integrations/toon)
+
+Furthermore, you can of course create your own using templates, MQTT, or
+ESPHome (requires [ESPHome version 2022.10.1](https://www.esphome.io/changelog/2022.10.0.html#release-2022-10-1-october-26) or newer).
+
+## Kelvin!
+
+{% details "TODO" %}
+
+- Improve extend story
+- Add reference to WTH
+- Spelling/grammar
+- Add screenshots
+* Use color temperatures in Kelvin in more_info_light (#14016) @emontnemery
+- Adapt homekit to color temperatures in K ([@emontnemery] - [#79713]) ([homekit docs]) (noteworthy)
+- Use Kelvin as the preferred color temperature unit ([@emontnemery] - [#79591]) ([light docs]) (noteworthy)
+- Migrate Shelly to use kelvin for color temperature ([@thecode] - [#79880]) ([shelly docs]) (noteworthy)
+- Update Fritz! lights to use kelvin ([@flabbamann] - [#79733]) ([light docs]) ([fritzbox docs]) (noteworthy)
+- Migrate the LIFX integration to use kelvin for color temp ([@Djelibeybi] - [#79775]) ([lifx docs]) (noteworthy)
+
+{% enddetails %}
+
+Also a [WTH topic](https://community.home-assistant.io/t/wth-is-light-temperature-not-in-kelvin/467449)
+that was voted for almost 150 times! Why doesn't Home Assistant
+use Kelvin for color temperatures? Well... now we do!
+
+Integrations that now use native kelvin instead of mireds: [HomeKit], [Shelly],
+[AVM FRITZ!SmartHome], [LIFX]
+
+[AVM FRITZ!SmartHome]: /integrations/fritzbox
+[HomeKit]: /integrations/homekit
+[LIFX]: /integrations/lifx
+[Shelly]: /integrations/shelly
+
+The good old mired are still working as well (conversion is done when needed),
+so this is not a breaking change 🎉
+
+## Long-term statistics in the entity dialogs
+
+{% details "TODO" %}
+
+- Improve extend story
+- Spelling/grammar
+- Add screenshots
+- https://github.com/home-assistant/frontend/pull/14199
+
+{% enddetails %}
+
+Nice long-term statistic graphs are now shown in the entity dialogs.
+
+<p class='img'>
+<img class="no-shadow" src='https://cdn.discordapp.com/attachments/717500797684023327/1034855919076520016/unknown.png' alt=''>
+Note: Placeholder screenshot that needs to be replaced.
+</p>
+
+## Change the first day of the week
+
+{% details "TODO" %}
+
+- Add a story
+- Spelling/grammar
+- Replace screenshot
+- https://github.com/home-assistant/frontend/pull/14199
+
+{% enddetails %}
+
+WTH: https://community.home-assistant.io/t/wth-week-starts-on-sunday/468998
+
+<p class='img'>
+<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/194030271-a61f8435-d1f7-4a93-9302-8c6a7e6dc32f.png' alt=''>
+Note: Placeholder screenshot that needs to be replaced.
+</p>
+
+## New template features
+
+{% details "TODO" %}
+
+- Improve extend story
+- Spelling/grammar
+- Links to documentation
+- Adds states and state_attr as a filter, adds is_state and is_state_attr as a test. ([@Petro31] - [#79473]) (noteworthy)
+- Add ConfigEntry template function ([@engrbm87] - [#78030]) (noteworthy)
+- Add optional default value to average template function/filter ([@ehendrix23] - [#77499]) (noteworthy)
+
+{% enddetails %}
+
+A bunch of nice new advanced features have been added to templating this
+release as well!
+
+The `state_attr()` & `states()` functions can now also be used as we filter,
+and the `is_state()` and `is_state_attr()` functions can now be used as tests.
+
+The `average()` function now accepts a default value, which can be helpful
+if no average could be calculated.
+
+Lastly, the `config_entry_id()` template method has been added, which allows
+you to look up native IDs of integration configuration entries using one
+of entities it provides.
+
+## Other noteworthy changes
+
+Entity more info dialog merged with entity settings.
+
+{% details "TODO" %}
+
+- Proof read/spelling/grammar
+
+**Note**: Changes processed up to PR 81007
+
+{% enddetails %}
+
+There is much more juice in this release; here are some of the other
+noteworthy changes this release:
+
+- The automations and the devices dashboards now has icons on each row, making
+  them look al nice and shiny. Thanks, [@bramkragten] & [@frenck].
+- The unit of measurement for entities providing Gas can now be changed and
+  converted from the UI. Thanks, [@emontnemery]!
+- Home Assistant is now discoverable via UPnP/SSDP, meaning your instance will
+  now show up in your Windows Network. Thanks, [@StevenLooman]!
+- [Shelly] Gen2 devices that sleep (battery-powered), are now supported!
+  Thanks, [@thecode]!
+- You can now use sensor providing Gigajoule (GJ) with the energy dashboard.
+  Thanks, [@emontnemery]!
+- The [MQTT] integration now has support for update entities! Thanks, [@bieniu]!
+- Media player support was added to the [Jellyfin] integration. Thanks, [@Ongy]!
+- The statistics card now support "week" as a possible period. Thanks, [@mib1185]!
+- The "forked-daapd" project was renamed to "Owntone". The integration was now
+  renamed to [Owntone] too! Thanks, [@uvjustin]!
+- [Fully Kiosk Browser] now provides a service to change URLs on your
+  wall mounted tablet remotely. Thanks, [@cgarwood]!
+- The [Xiaomi Miio] integration now supported the Xiaomi Purifier 4 Lite and
+  the Roborock S7 MaxV. Thanks, [@alexdrl] & [@starkillerOG]!
+- When setting up an new [Generic Camera], you will be present a preview
+  of the camera showing you if it works. Nice! Thanks, [@davet2001]!
+- Support for `unique_id`s was added to the following (YAML capable) integrations:
+  - [Bayesian], added by [@HarvsG]
+  - [Min/Max], added by [@gjohansson-ST]
+  - [Scrape], added by [@epenet]
+
+[@alexdrl]: https://github.com/alexdrl
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@cgarwood]: https://github.com/cgarwood
+[@davet2001]: https://github.com/davet2001
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@HarvsG]: https://github.com/HarvsG
+[@mib1185]: https://github.com/mib1185
+[@Ongy]: https://github.com/Ongy
+[@starkillerOG]: https://github.com/starkillerOG
+[@StevenLooman]: https://github.com/StevenLooman
+[@thecode]: https://github.com/thecode
+[@uvjustin]: https://github.com/uvjustin
+[Bayesian]: /integrations/bayesian
+[Fully Kiosk Browser]: /integrations/fully_kiosk
+[Generic Camera]: /integrations/generic
+[Jellyfin]: /integrations/jellyfin
+[Min/Max]: /integrations/min_max
+[MQTT]: /integrations/update.mqtt
+[Owntone]: /integrations/forked_daapd
+[Scrape]: /integrations/scrape
+[Shelly]: /integrations/shelly
+[Xiaomi Miio]: /integrations/xiaomi_miio
+
+## New Integrations
+
+We welcome the following new integrations in this release:
+
+- [Airthings BLE], added by [@vincegio]
+- [Oral-B], added by [@bdraco]
+- [SNOOZ], added by [@AustinBrunkhorst]
+
+[@AustinBrunkhorst]: https://github.com/AustinBrunkhorst
+[@bdraco]: https://github.com/bdraco
+[@vincegio]: https://github.com/vincegio
+[Airthings BLE]:  /integrations/airthings_ble
+[Oral-B]: /integrations/oralb
+[SNOOZ]: /integrations/snooz
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- [Zentralanstalt für Meteorologie und Geodynamik (ZAMG)], done by [@killer0071234]
+
+[@killer0071234]: https://github.com/killer0071234
+[Zentralanstalt für Meteorologie und Geodynamik (ZAMG)]: /integrations/zamg
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Breaking Changes
+
+{% details "TODO" %}
+
+- Proof read/spelling/grammar
+
+**Note**: Breaking changes processed up to PR 81013
+
+{% enddetails %}
+
+Below is a listing of the breaking change for this release, per subject or
+integration. Click on one of those to read more about the breaking change
+for that specific item.
+
+{% details "Unit: Revolutions per minute (rpm)" %}
+
+There are multiple integrations that provide sensors with a resolutions per
+minute unit. Two different units have been used throughout Home Assistant
+to indicate this: `RPM` and `rpm`.
+
+This release standarizes all integrations to use the lower case `rpm` variant.
+The following integration have been adjusted:
+
+- [Big Ass Fans](/integrations/baf)
+- [Danfoss Air](/integrations/danfoss_air)
+- [Glances](/integrations/glances)
+- [System Bridge](/integrations/system_bridge)
+- [Universal Devices ISY994](/integrations/isy994)
+- [Vallox](/integrations/vallox)
+
+This change of units is automatically handled by Home Assistant. However,
+if you record history externally (for example, using InfluxDB) you might
+need to adjust to this change.
+
+([@epenet] - [#79986] [#79987] [#79988] [#79989] [#79990] [#79992])
+
+[@epenet]: https://github.com/epenet
+[#79986]: https://github.com/home-assistant/core/pull/79986
+[#79987]: https://github.com/home-assistant/core/pull/79987
+[#79988]: https://github.com/home-assistant/core/pull/79988
+[#79989]: https://github.com/home-assistant/core/pull/79989
+[#79990]: https://github.com/home-assistant/core/pull/79990
+[#79992]: https://github.com/home-assistant/core/pull/79992
+
+{% enddetails %}
+
+{% details "Android IP Webcam" %}
+
+The previously deprecated YAML configuration of the Android IP Webcam
+integration has been removed.
+
+Android IP Webcam is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@engrbm87] - [#80875]) ([documentation](/integrations/android_ip_webcam))
+
+[@engrbm87]: https://github.com/engrbm87
+[#80875]: https://github.com/home-assistant/core/pull/80875
+
+{% enddetails %}
+
+{% details "Anthem A/V Receivers" %}
+
+The previously deprecated YAML configuration of the Anthem A/V Receivers
+integration has been removed.
+
+Anthem A/V Receivers are now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@gjohansson-ST] - [#79931]) ([documentation](/integrations/anthemav))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#79931]: https://github.com/home-assistant/core/pull/79931
+
+{% enddetails %}
+
+{% details "APC UPS Daemon" %}
+
+The `UPS Last Self Test` sensor is renamed to `UPS Self Test Result` and
+a new `UPS Last Self Test` sensor reports time instead of the result.
+
+You may need to replace `sensor.ups_last_self_test` with
+`sensor.ups_self_test_result` in automations and scripts that
+are referencing the `sensor.ups_last_self_test` entity.
+
+([@definitio] - [#80773]) ([documentation](/integrations/apcupsd))
+
+[@definitio]: https://github.com/definitio
+[#80773]: https://github.com/home-assistant/core/pull/80773
+
+{% enddetails %}
+
+{% details "Brother Printer" %}
+
+The `counter` and `remaining pages` attributes of the sensors
+`drum remaining life`, `black drum remaining life`, `cyan drum remaining life`,
+`magenta drum remaining life`, and `yellow drum remaining life` have been
+migrated to their own dedicated sensor entities.
+
+If you are using these attributes in your automation or script, you will need
+to adopt those for this change.
+
+([@bieniu] - [#79932]) ([documentation](/integrations/brother))
+
+[@bieniu]: https://github.com/bieniu
+[#79932]: https://github.com/home-assistant/core/pull/79932
+
+{% enddetails %}
+
+{% details "ClickSend TTS" %}
+
+- The `caller` option from `ClickSend TTS` notify service has been removed, as
+  it prevented calls from being actually made.
+- The default name to `clicksend_tts` instead of an empty name, otherwise
+  service appears as `notify.notify`. Now it will by default appear
+  as `notify.clicksend_tts`. This might impact your automation or scripts.
+- Recipient phone number now must match E.164 format.
+
+([@CharlieBailly] - [#76669]) ([documentation](/integrations/clicksend_tts))
+
+[@CharlieBailly]: https://github.com/CharlieBailly
+[#76669]: https://github.com/home-assistant/core/pull/76669
+
+{% enddetails %}
+
+{% details "Coinbase" %}
+
+The previously deprecated YAML configuration of the Open Exchange Rates
+integration has been removed.
+
+Open Exchange Rates is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@epenet] - [#80084]) ([documentation](/integrations/coinbase))
+
+[@epenet]: https://github.com/epenet
+[#80084]: https://github.com/home-assistant/core/pull/80084
+
+{% enddetails %}
+
+{% details "Dark Sky" %}
+
+When Darksky is configured to report in US units, the unit of measurement
+for precipitation intensity has been corrected from inches to inches per hour.
+
+([@epenet] - [#80611]) ([documentation](/integrations/darksky))
+
+[@epenet]: https://github.com/epenet
+[#80611]: https://github.com/home-assistant/core/pull/80611
+
+{% enddetails %}
+
+{% details "ecobee" %}
+
+Setting up the `notify` platform of the ecobee integration by a platform section
+using YAML configuration, is no longer supported. The `ecobee` platform section
+under `notify:` can be safely removed from you YAML configuration files.
+
+The thermostat index can be specified by using the `target` parameter in the
+notify service call instead.
+
+([@kevdliu] - [#78558]) ([documentation](/integrations/ecobee))
+
+[@kevdliu]: https://github.com/kevdliu
+[#78558]: https://github.com/home-assistant/core/pull/78558
+
+{% enddetails %}
+
+{% details "HERE Travel Time" %}
+
+The route sensor has been removed, as it could contain more data than
+the Home Assistant state engine is able to hold. Make sure you update any
+automations or scripts that uses this sensor.
+
+([@eifinger] - [#79211]) ([documentation](/integrations/here_travel_time))
+
+[@eifinger]: https://github.com/eifinger
+[#79211]: https://github.com/home-assistant/core/pull/79211
+
+{% enddetails %}
+
+{% details "HomeKit" %}
+
+HomeKit instance ID assignments are now stable between restarts to comply
+with the HomeKit specifications. This prevents accessories from loosing
+track of services between restarts, and improves stability with using
+Siri especially with apple watches.
+
+This change may dramatically improve the stability and re-sync times of
+`media_player` entities (all), `camera` entities (all), `fan` entities (presets),
+`remote` entities (activity ones), `switch` entities (power strips)
+ triggers (all) between restarts which was especially
+ apparent when the home has many accessories.
+
+Because the assignments were previously unstable, it may be necessary to do
+a one time adjustment of accessory room assignments, favorites,
+or re-pair camera accessories after upgrading.
+
+([@bdraco] - [#79913]) ([documentation](/integrations/homekit))
+
+[@bdraco]: https://github.com/bdraco
+[#79913]: https://github.com/home-assistant/core/pull/79913
+
+{% enddetails %}
+
+{% details "HomeKit Controller" %}
+
+As older versions did not correctly set service identifier values, it may be
+necessary to un-pair and re-pair some BLE devices or to manually delete
+duplicate entities.
+
+If the service identifiers were loaded incorrectly when the device was paired
+with an older version, operations may raise `StopIteration` or `RuntimeError`
+error. You can correct those by deleting the integation for that device,
+and doing a one time re-pairing.
+
+([@bdraco] - [#80798]) ([documentation](/integrations/homekit_controller))
+
+[@bdraco]: https://github.com/bdraco
+[#80798]: https://github.com/home-assistant/core/pull/80798
+
+{% enddetails %}
+
+{% details "Hunter Douglas PowerView" %}
+
+This change ceases creating battery sensors for hardwired shades, 
+existing sensor entities need to be manually deleted.
+
+([@kingy444] - [#81013]) ([documentation](/integrations/hunterdouglas_powerview))
+
+[@kingy444]: https://github.com/kingy444
+[#81013]: https://github.com/home-assistant/core/pull/81013
+
+{% enddetails %}
+
+{% details "IntelliFire" %}
+
+ Minor "breaking" change with very low impact. The backing unit and the API
+ of the device itself uses `0-4` as a flame height setting. Through discussion
+ on the forums the community has decided `1-5` is a much more logical setting
+ for flame height and accordingly this has been implemented.
+
+ If you are setting the flame height using automations or scripts, you will
+ need to adopt those to this change.
+
+([@jeeftor] - [#79901]) ([documentation](/integrations/intellifire))
+
+[@jeeftor]: https://github.com/jeeftor
+[#79901]: https://github.com/home-assistant/core/pull/79901
+
+{% enddetails %}
+
+{% details "Logger" %}
+
+`logger` no longer changes the default log level of Home Assistant to `debug`
+if used without a value for [`default`](/integrations/logger/#default). It
+will now only change the default log level of Home Assistant from
+`warning` to something else if `default` is explicitly specified.
+
+If you do not specify `default` and want to Home Assistant to have a
+default log level of `debug` will need to add this to your YAML configuration:
+
+```yaml
+logger:
+  default: debug
+```
+
+([@mdegat01] - [#80033]) ([documentation](/integrations/logger))
+
+[@mdegat01]: https://github.com/mdegat01
+[#80033]: https://github.com/home-assistant/core/pull/80033
+
+{% enddetails %}
+
+{% details "Open Exchange Rates" %}
+
+The previously deprecated YAML configuration of the Open Exchange Rates
+integration has been removed.
+
+Open Exchange Rates is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@gjohansson-ST] - [#79856]) ([documentation](/integrations/openexchangerates))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#79856]: https://github.com/home-assistant/core/pull/79856
+
+{% enddetails %}
+
+{% details "Scrape" %}
+
+Previously, scrape would return the last correct value if an HTTP request
+for updating failed. This has been adjusted to now mark the sensor
+as `unavailable` instead.
+
+([@epenet] - [#80593]) ([documentation](/integrations/scrape))
+
+[@epenet]: https://github.com/epenet
+[#80593]: https://github.com/home-assistant/core/pull/80593
+
+{% enddetails %}
+
+{% details "Templates (fan)" %}
+
+Template fans no longer change their state to `on` when `set_percentage` or
+`set_preset_mode` is called when a `value_template` has been configured.
+
+([@Petro31] - [#75656]) ([documentation](/integrations/template))
+
+[@Petro31]: https://github.com/Petro31
+[#75656]: https://github.com/home-assistant/core/pull/75656
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+- [Deprecate IMPERIAL_SYSTEM unit system and linked constants and properties](https://developers.home-assistant.io/blog/2022/10/14/deprecate-unit-system)
+- [GitHub Commands for Code Owners](https://developers.home-assistant.io/blog/2022/10/21/code-owner-commands)
+- [Introducing virtual integrations and differentiating hubs, devices, and services](https://developers.home-assistant.io/blog/2022/10/24/hubs-devices-services-virtual-integrations)
+- [Add new precipitation intensity units](https://developers.home-assistant.io/blog/2022/10/25/new-precipitation-intensity-units)
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2022.11](/changelogs/core-2022.11)
