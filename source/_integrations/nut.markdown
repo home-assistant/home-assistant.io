@@ -72,3 +72,7 @@ values with `ups`, `battery`, `input` and `output` prefixes.
 An additional virtual sensor type `ups.status.display` is available
 translating the UPS status value retrieved from `ups.status` into a
 human-readable version.
+
+## Device Actions
+
+A device action is available for each of the parameterless NUT [commands](https://networkupstools.org/docs/user-manual.chunked/apcs03.html) supported by the device.
