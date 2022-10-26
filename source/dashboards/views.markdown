@@ -130,6 +130,8 @@ frontend:
 View can be marked as "Subview". Subviews won’t show up in the navigation bar. When on the subview, the navigation bar only show the name of the subview and a back button.
 By default, clicking on back button will navigate to the previous view but a custom back path (`back_path`) can be set.
 
+You can access subviews from other parts of your dashboard by using [cards that support the `navigate` action](/dashboards/actions).
+
 #### Example
 
 Simple subview:

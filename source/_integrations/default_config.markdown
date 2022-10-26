@@ -8,7 +8,7 @@ ha_domain: default_config
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 This integration is a meta-component and configures a default set of integrations for Home Assistant to load. The integrations that will be loaded are:
