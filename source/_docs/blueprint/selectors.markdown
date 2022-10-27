@@ -1019,7 +1019,7 @@ suffix:
 type:
   description: >
     The type of input. This supplies the [HTML `type` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types),
-    which controls how the browser displays, accepts input, and validates the field. A subset of types available to the attribute are supported,
+    which controls how the browser displays and validates the field. A subset of types available to the attribute are supported,
     since some are handled by other selectors. Possible types are:
     `color`, `date`, `datetime-local`, `email`, `month`, `number`, `password`, `search`, `tel`, `text`, `time`, `url`, `week`.
   type: string
