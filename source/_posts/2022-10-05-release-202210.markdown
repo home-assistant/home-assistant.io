@@ -55,6 +55,7 @@ PS: I noticed the [Home Assistant SkyConnect is now available for pre-order](/sk
 - [Release 2022.10.2 - October 9](#release-2022102---october-9)
 - [Release 2022.10.3 - October 10](#release-2022103---october-10)
 - [Release 2022.10.4 - October 14](#release-2022104---october-14)
+- [Release 2022.10.5 - October 20](#release-2022105---october-20)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -516,10 +517,6 @@ The following integrations are now available via the Home Assistant UI:
 
 ## Release 2022.10.4 - October 14
 
-- 2022.10.0 ([@frenck] - [#79659])
-- 2022.10.1 ([@balloob] - [#79751]) ([zha docs]) ([frontend docs]) ([sensor docs]) ([bt_smarthub docs]) ([bluetooth docs])
-- 2022.10.2 ([@balloob] - [#79949])
-- 2022.10.3 ([@frenck] - [#80054])
 - Fix state saving when sharing topics for MQTT entities ([@jbouwh] - [#79421]) ([mqtt docs])
 - Fix nobo_hub presenting temperature in zone with one decimal ([@oyvindwe] - [#79743]) ([nobo_hub docs])
 - Bump aioesphomeapi to 11.1.1 ([@jesserockz] - [#79762]) ([esphome docs])
@@ -575,6 +572,88 @@ The following integrations are now available via the Home Assistant UI:
 [totalconnect docs]: /integrations/totalconnect/
 [tuya docs]: /integrations/tuya/
 [wallbox docs]: /integrations/wallbox/
+[zha docs]: /integrations/zha/
+
+## Release 2022.10.5 - October 20
+
+- Handle ReadTimeout during wolflink setup ([@jjedelsky] - [#78135]) ([wolflink docs])
+- Bump plugwise to v0.21.4 ([@bouwew] - [#79831]) ([plugwise docs])
+- Fix Intellifire UDP timeout ([@jeeftor] - [#80204]) ([intellifire docs])
+- Fix solaredge missing data value ([@rozie] - [#80321]) ([solaredge docs])
+- Fix Shelly EM negative power factor ([@thecode] - [#80348]) ([shelly docs])
+- Fix updating Amcrest binary sensors ([@flacjacket] - [#80365]) ([amcrest docs])
+- Fix stream recorder with orientation transforms ([@uvjustin] - [#80370]) ([stream docs])
+- Skip webostv trigger validation before the domain is setup ([@dn0sar] - [#80372]) ([webostv docs])
+- Fix "Unknown power_off command" for Samsung H6410 ([@definitio] - [#80386]) ([samsungtv docs])
+- Handle TimeoutError during HKC setup attempts ([@bdraco] - [#80399]) ([homekit_controller docs])
+- Bump aiohomekit to 2.0.2 ([@bdraco] - [#80402]) ([homekit_controller docs])
+- Bump ZHA quirks to 0.0.83 ([@dmulcahey] - [#80489]) ([zha docs])
+- Don't add RainMachine restriction switches if underlying data is missing ([@bachya] - [#80502]) ([rainmachine docs])
+- Add missed write state request for MQTT cover ([@jbouwh] - [#80540]) ([mqtt docs])
+- Save last target temperature in Shelly climate platform ([@bieniu] - [#80561]) ([shelly docs])
+- Bump bluetooth-auto-recovery to 0.3.6 ([@bdraco] - [#80643]) ([bluetooth docs])
+- Pin uamqp==1.6.0 ([@frenck] - [#80678])
+- Fix bluetooth calls from automations in esphome ([@bdraco] - [#80683]) ([esphome docs]) ([bluetooth docs])
+
+[#78135]: https://github.com/home-assistant/core/pull/78135
+[#79659]: https://github.com/home-assistant/core/pull/79659
+[#79751]: https://github.com/home-assistant/core/pull/79751
+[#79831]: https://github.com/home-assistant/core/pull/79831
+[#79949]: https://github.com/home-assistant/core/pull/79949
+[#80054]: https://github.com/home-assistant/core/pull/80054
+[#80204]: https://github.com/home-assistant/core/pull/80204
+[#80321]: https://github.com/home-assistant/core/pull/80321
+[#80343]: https://github.com/home-assistant/core/pull/80343
+[#80348]: https://github.com/home-assistant/core/pull/80348
+[#80365]: https://github.com/home-assistant/core/pull/80365
+[#80370]: https://github.com/home-assistant/core/pull/80370
+[#80372]: https://github.com/home-assistant/core/pull/80372
+[#80386]: https://github.com/home-assistant/core/pull/80386
+[#80399]: https://github.com/home-assistant/core/pull/80399
+[#80402]: https://github.com/home-assistant/core/pull/80402
+[#80489]: https://github.com/home-assistant/core/pull/80489
+[#80502]: https://github.com/home-assistant/core/pull/80502
+[#80540]: https://github.com/home-assistant/core/pull/80540
+[#80561]: https://github.com/home-assistant/core/pull/80561
+[#80643]: https://github.com/home-assistant/core/pull/80643
+[#80678]: https://github.com/home-assistant/core/pull/80678
+[#80683]: https://github.com/home-assistant/core/pull/80683
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bouwew]: https://github.com/bouwew
+[@definitio]: https://github.com/definitio
+[@dmulcahey]: https://github.com/dmulcahey
+[@dn0sar]: https://github.com/dn0sar
+[@flacjacket]: https://github.com/flacjacket
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@jeeftor]: https://github.com/jeeftor
+[@jjedelsky]: https://github.com/jjedelsky
+[@rozie]: https://github.com/rozie
+[@thecode]: https://github.com/thecode
+[@uvjustin]: https://github.com/uvjustin
+[amcrest docs]: /integrations/amcrest/
+[august docs]: /integrations/august/
+[bluetooth docs]: /integrations/bluetooth/
+[bt_smarthub docs]: /integrations/bt_smarthub/
+[esphome docs]: /integrations/esphome/
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[intellifire docs]: /integrations/intellifire/
+[mqtt docs]: /integrations/mqtt/
+[nexia docs]: /integrations/nexia/
+[plugwise docs]: /integrations/plugwise/
+[rainmachine docs]: /integrations/rainmachine/
+[samsungtv docs]: /integrations/samsungtv/
+[sensor docs]: /integrations/sensor/
+[shelly docs]: /integrations/shelly/
+[solaredge docs]: /integrations/solaredge/
+[stream docs]: /integrations/stream/
+[webostv docs]: /integrations/webostv/
+[wolflink docs]: /integrations/wolflink/
 [zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
