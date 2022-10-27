@@ -203,7 +203,7 @@ action:
 
 ### Images in notification
 
-It is possible to send images with notifications. To do so, add a list of paths in the notification `data`.
+It is possible to send images with notifications. To do so, add a list of paths and/or URLs in the notification `data`.
 
 ```yaml
 # Example of notification with images
@@ -214,11 +214,12 @@ action:
     data:
       images:
         - /path/to/picture.jpg
+        - http://www.example.com/picture.jpg
 ```
 
 <div class='note'>
 
-If you need to include a file from an external folder in your notifications, you will have to [list the source folder as allowed](/docs/configuration/basic/).
+If you need to include a file from an external folder or URL in your notifications, you will have to [list the source folder/URL as allowed](/docs/configuration/basic/).
 
 ```yaml
 configuration.yaml
@@ -226,6 +227,8 @@ configuration.yaml
 homeassistant:
   allowlist_external_dirs:
     - /tmp
+  allowlist_external_urls:
+    - "https://www.example.com"
 ```
 
 </div>
