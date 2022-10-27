@@ -18,6 +18,7 @@ The following selectors are currently available:
 - [Action selector](#action-selector)
 - [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
+  - [Example area selectors](#example-area-selectors)
 - [Attribute selector](#attribute-selector)
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
@@ -25,17 +26,21 @@ The following selectors are currently available:
 - [Date selector](#date-selector)
 - [Date & time selector](#date--time-selector)
 - [Device selector](#device-selector)
+  - [Example device selector](#example-device-selector)
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
+  - [Example entity selector](#example-entity-selector)
 - [Icon selector](#icon-selector)
 - [Location selector](#location-selector)
 - [Media selector](#media-selector)
 - [Number selector](#number-selector)
+  - [Example number selectors](#example-number-selectors)
 - [Object selector](#object-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
 - [Target selector](#target-selector)
+  - [Example target selectors](#example-target-selectors)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
@@ -216,7 +221,7 @@ area:
 
 ## Attribute selector
 
-The attributes selector shows a list of state attribites from a provided entity
+The attributes selector shows a list of state attributes from a provided entity
 of which one can be selected.
 
 This allows for selecting, e.g., the "Effect" attribute from a light entity, or the
@@ -314,7 +319,7 @@ This selector does not have any other options; therefore, it only has its key.
 date:
 ```
 
-The output of this selector is will contain the date in Year-Month-Day
+The output of this selector will contain the date in Year-Month-Day
 (`YYYY-MM-DD`) format, for example, `2022-02-22`.
 
 ## Date & time selector
@@ -330,7 +335,7 @@ This selector does not have any other options; therefore, it only has its key.
 datetime:
 ```
 
-The output of this selector is will contain the date in Year-Month-Day
+The output of this selector will contain the date in Year-Month-Day
 (`YYYY-MM-DD`) format and the time in 24-hour format, for example:
 `2022-02-22 13:30:00`.
 
@@ -619,7 +624,7 @@ radius: 500 # Only provided when radius was set to true.
 
 The media selector is a powerful selector that allows a user to easily select
 media to play on a media device. Media can be a lot of things, for example,
-cameras, local media, text-to-speech, Home Assistant Dashboads, and many more.
+cameras, local media, text-to-speech, Home Assistant Dashboards, and many more.
 
 The user selects the device to play media on, and automatically limits the
 selectable media suitable for the selected device.
@@ -1013,10 +1018,18 @@ suffix:
   required: false
 type:
   description: >
-    The type of input. This is a browser hint, which can improve
-    the client-side validation of the input. The value isn't validated
-    by the backend. Possible types are:
+    The type of input. This supplies the [HTML `type` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types),
+    which controls how the browser displays, accepts input, and validates the field. A subset of types available to the attribute are supported,
+    since some are handled by other selectors. Possible types are:
     `color`, `date`, `datetime-local`, `email`, `month`, `number`, `password`, `search`, `tel`, `text`, `time`, `url`, `week`.
+  type: string
+  default: text
+  required: false
+autocomplete:
+  description: >
+Guides the browser on the type of information which should automatically fill the field.
+This supplies the [HTML `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete).
+Any value supported by the HTML attribute is valid.
   type: string
   required: false
 {% endconfiguration %}
@@ -1036,7 +1049,7 @@ theme:
 
 This selector does not have any other options; therefore, it only has its key.
 
-The output of this selector is will contain the selected theme, for example:
+The output of this selector will contain the selected theme, for example:
 `waves_dark`.
 
 ## Time selector
@@ -1052,5 +1065,5 @@ This selector does not have any other options; therefore, it only has its key.
 time:
 ```
 
-The output of this selector is will contain the time in 24-hour format,
+The output of this selector will contain the time in 24-hour format,
 for example, `23:59:59`.
