@@ -44,7 +44,7 @@ Note that some entities are disabled by default. If you are missing a sensor or 
 The integration has two configuration options: 
 
 1. "Default Zone Run Time": sets a default duration when turning on a zone switch (default: 600 seconds). This can be overriden with a service call (see below). 
-2. "Use Run Times from App": if enabled, will use the zone-specific run times from the last time the zone was turned on manually in the RainMachine App--this allows you to set per-zone default times using the RainMachine app instead of the same default time for all zones.
+2. "Use Run Times from App": if enabled, will use the zone-specific run times from the last time the zone was turned on manually in the RainMachine App – this allows you to set per-zone default times using the RainMachine app instead of the same default time for all zones.
 
 ## Services
 
