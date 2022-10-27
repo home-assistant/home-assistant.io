@@ -1027,9 +1027,9 @@ type:
   required: false
 autocomplete:
   description: >
-Guides the browser on the type of information which should automatically fill the field.
-This supplies the [HTML `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete).
-Any value supported by the HTML attribute is valid.
+    Guides the browser on the type of information which should automatically fill the field.
+    This supplies the [HTML `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete).
+    Any value supported by the HTML attribute is valid.
   type: string
   required: false
 {% endconfiguration %}
