@@ -128,6 +128,10 @@ entity_category:
   required: false
   type: string
   default: None
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -165,21 +169,33 @@ qos:
   required: false
   type: integer
   default: 0
+release_summary:
+  description: Summary of the release notes or changelog. This is not suitable for long changelogs but merely suitable for a short excerpt update description of max 255 characters.
+  required: false
+  type: string
+release_url:
+  description: URL to the full release notes of the latest version available.
+  required: false
+  type: string
 retain:
   description: If the published message should have the retain flag on or not.
   required: false
   type: boolean
   default: false
 state_topic:
-  description: The MQTT topic subscribed to receive an update of the installed version.
-  required: true
+  description: The MQTT topic subscribed to receive state updates. The state update may be either JSON or a simple string with `installed_version` value. When a JSON payload is detected, the state value of the JSON payload could supply the `installed_version`, `latest_version`, `title`, `release_summary`, `release_url` or `entity_picture` values.
+  required: false
+  type: string
+title:
+  description: Title of the software. This helps to differentiate between the device or entity name versus the title of the software installed.
+  required: false
   type: string
 unique_id:
   description: An ID that uniquely identifies this Select. If two Selects have the same unique ID Home Assistant will raise an exception.
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the installed version value."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the installed version value. Alternatively value_template can be used to render to a valid JSON payload."
   required: false
   type: template
 {% endconfiguration %}
