@@ -71,6 +71,7 @@ To get the Estimated distance sensor to work, in most cases, it has to be calibr
 - [Feasycom FSC-BP104D](https://www.feasycom.com/dialog-da14531-bluetooth-low-energy-beacon)
 - [Feasycom FSC-BP108](https://www.feasycom.com/bluetooth-5-1-waterproof-bluetooth-beacon)
 - [NRF51822 iBeacon](https://www.aliexpress.com/item/32826502025.html)
+- [NRF52810 iBeacon](https://www.aliexpress.com/item/1005003211033416.html)
 - [Pawscout Tag](https://pawscout.com/shop/pawscout-tag/)
 
 ## Example automation
