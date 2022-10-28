@@ -75,6 +75,8 @@ which event (sunset or sunrise) and the offset.
 
 ## Sensors
 
+The sensors are also available as attributes on the `sun.sun` entity for backwards compatability reasons.
+
 | Sensors | Description |
 | --------- | ----------- |
 | Next rising | Date and time of the next sun rising (in UTC).
