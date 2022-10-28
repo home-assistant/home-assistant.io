@@ -165,13 +165,13 @@ The current release Home Assistant is published on [https://www.home-assistant.i
 {% raw %}
 
 ```yaml
-sensor:
+scrape:
 # Example configuration.yaml entry
-  - platform: scrape
-    resource: https://www.home-assistant.io
-    name: Release
-    select: ".current-version h1"
-    value_template: '{{ value.split(":")[1] }}'
+  - resource: https://www.home-assistant.io
+    sensor:
+      - name: Release
+        select: ".current-version h1"
+        value_template: '{{ value.split(":")[1] }}'
 ```
 
 {% endraw %}
@@ -184,12 +184,12 @@ Get the counter for all our implementations from the [Component overview](/integ
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: scrape
-    resource: https://www.home-assistant.io/integrations/
-    name: Home Assistant impl.
-    select: 'a[href="#all"]'
-    value_template: '{{ value.split("(")[1].split(")")[0] }}'
+scrape:
+  - resource: https://www.home-assistant.io/integrations/
+    sensor:
+      - name: Home Assistant impl.
+        select: 'a[href="#all"]'
+        value_template: '{{ value.split("(")[1].split(")")[0] }}'
 ```
 
 {% endraw %}
@@ -200,13 +200,13 @@ The German [Federal Office for Radiation protection (Bundesamt für Strahlenschu
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: scrape
-    resource: https://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html
-    name: Coast Ostsee
-    select: "p"
-    index: 19
-    unit_of_measurement: "UV Index"
+scrape:
+  - resource: https://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html
+    sensor:
+      - name: Coast Ostsee
+        select: "p"
+        index: 19
+        unit_of_measurement: "UV Index"
 ```
 
 ### IFTTT status
@@ -215,11 +215,11 @@ If you make heavy use of the [IFTTT](/integrations/ifttt/) web service for your 
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: scrape
-    resource: https://status.ifttt.com/
-    name: IFTTT status
-    select: ".component-status"
+scrape:
+  - resource: https://status.ifttt.com/
+    sensor:
+      - name: IFTTT status
+        select: ".component-status"
 ```
 
 ### Get the latest podcast episode file URL
@@ -228,13 +228,13 @@ If you want to get the file URL for the latest episode of your [favorite podcast
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: scrape
-    resource: https://hasspodcast.io/feed/podcast
-    name: Home Assistant Podcast
-    select: "enclosure"
-    index: 1
-    attribute: url
+scrape:
+  - resource: https://hasspodcast.io/feed/podcast
+    sensor:
+      - name: Home Assistant Podcast
+        select: "enclosure"
+        index: 1
+        attribute: url
 ```
 
 ### Energy price
@@ -245,14 +245,14 @@ This example tries to retrieve the price for electricity.
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: scrape
-    resource: https://elen.nu/timpriser-pa-el-for-elomrade-se3-stockholm/
-    name: Electricity price
-    select: ".text-lg:is(span)"
-    index: 1
-    value_template: '{{ value | replace (",", ".") | float }}'
-    unit_of_measurement: "öre/kWh"
+scrape:
+  - resource: https://elen.nu/timpriser-pa-el-for-elomrade-se3-stockholm/
+    sensor:
+      - name: Electricity price
+        select: ".text-lg:is(span)"
+        index: 1
+        value_template: '{{ value | replace (",", ".") | float }}'
+        unit_of_measurement: "öre/kWh"
 ```
 
 {% endraw %}
