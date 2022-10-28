@@ -195,7 +195,7 @@ unique_id:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the installed version value. Alternatively value_template can be used to render to a valid JSON payload."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the installed version value. Alternatively `value_template` can be used to render to a valid JSON payload."
   required: false
   type: template
 {% endconfiguration %}
@@ -266,7 +266,7 @@ mqtt:
 
 {% endraw %}
 
-If the device/service sends data as JSON but the schema differs, you can use `value_template` in this case.
+If the device/service sends data as JSON but the schema differs, `value_template` can be use to reformat the JSON.
 
 {% raw %}
 
