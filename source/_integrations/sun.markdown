@@ -75,7 +75,7 @@ which event (sunset or sunrise) and the offset.
 
 ## Sensors
 
-The sensors are also available as attributes on the `sun.sun` entity for backwards compatability reasons.
+The sensors are also available as attributes on the `sun.sun` entity for backwards compatibility reasons.
 
 | Sensors | Description |
 | --------- | ----------- |
