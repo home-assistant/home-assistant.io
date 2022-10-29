@@ -187,7 +187,7 @@ state_topic:
   required: false
   type: string
 title:
-  description: Title of the software. This helps to differentiate between the device or entity name versus the title of the software installed.
+  description: Title of the software, or firmware update. This helps to differentiate between the device or entity name versus the title of the software installed.
   required: false
   type: string
 unique_id:
