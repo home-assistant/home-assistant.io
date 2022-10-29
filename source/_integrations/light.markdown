@@ -27,6 +27,8 @@ The field transition is optional and can be omitted.
 
 The `.default` suffix should be added to the entity identifier of each light to define a default value, e.g., for `light.ceiling_2` the `profile` field is `light.ceiling_2.default`. To define a default for all lights, the identifier `group.all_lights.default` can be used. Individual settings always supersede the `all_lights` default setting.
 
+the `color_x` and `color_y` can be found in the`xy_color` entity attribute. 
+
 <div class='note'>
 
 If a light entity is in the `on` state, the default profile brightness will only be applied if it is called in the service call data attribute `profile`, like any other named profile. The transition attribute will be applied for all `light.turn_on`, `light.toggle` and `light.turn_off` service calls, unless specified otherwise in the service call data.
