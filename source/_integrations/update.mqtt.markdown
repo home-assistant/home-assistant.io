@@ -183,7 +183,7 @@ retain:
   type: boolean
   default: false
 state_topic:
-  description: "The MQTT topic subscribed to receive state updates. The state update may be either JSON or a simple string with `installed_version` value. When a JSON payload is detected, the state value of the JSON payload should supply the `installed_version` and can optional supply:  `latest_version`, `title`, `release_summary`, `release_url` or an `entity_picture` URL."
+  description: "The MQTT topic subscribed to receive state updates. The state update may be either JSON or a simple string with `installed_version` value. When a JSON payload is detected, the state value of the JSON payload should supply the `installed_version` and can optional supply: `latest_version`, `title`, `release_summary`, `release_url` or an `entity_picture` URL."
   required: false
   type: string
 title:
