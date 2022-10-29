@@ -170,7 +170,7 @@ qos:
   type: integer
   default: 0
 release_summary:
-  description: Summary of the release notes or changelog. This is not suitable for long changelogs but merely suitable for a short excerpt update description of max 255 characters.
+  description: Summary of the release notes or changelog. This is suitable a brief update description of max 255 characters.
   required: false
   type: string
 release_url:
