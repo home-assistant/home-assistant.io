@@ -123,6 +123,14 @@ connection: &con0096
               115200n81,local
 ```
 
+Optional configuration example for Smart Meter Bridge:
+```yml
+serial_port: "/dev/ttyUSB0"
+dsmr_version: "4"
+server:
+  port: 9988
+```
+
 ### Technical overview
 
 DSMR is a standard to which Dutch smartmeters must comply. It specifies that the smartmeter must send out a 'telegram' every 10 seconds (every second for DSMR 5.0 devices) over a serial port.
