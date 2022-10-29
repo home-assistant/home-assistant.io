@@ -150,7 +150,7 @@ latest_version_template:
   type: template
 latest_version_topic:
   description: The MQTT topic subscribed to receive an update of the latest version.
-  required: true
+  required: false
   type: string
 name:
   description: The name of the Select.
