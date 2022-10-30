@@ -87,7 +87,7 @@ default. Enable those entities in the user interface if you like to use these:
 - Estimated Power Production - Next 12 Hours (in Watt)
 - Estimated Power Production - Next 24 Hours (in Watt)
 
-## Using your Solar.Forecast account
+## Using your Forecast.Solar account
 
 The [Forecast.Solar](https://forecast.solar/) can be used for free, but
 the resolution of the data used is more limited and thus, there are less
@@ -125,7 +125,7 @@ a more realistic forecast graph.
 
 [Read more about the damping factor in the Forecast.Solar documentation](https://doc.forecast.solar/doku.php?id=damping&s[]=damping).
 
-To adjust the configuration settings for your Solar.Forecast integration
+To adjust the configuration settings for your Forecast.Solar integration
 instance:
 
 - Browse to your Home Assistant instance.
