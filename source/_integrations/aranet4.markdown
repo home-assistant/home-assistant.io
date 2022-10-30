@@ -4,7 +4,7 @@ description: Instructions on how to integrate Aranet4 devices into Home Assistan
 ha_category:
   - Sensor
 ha_bluetooth: true
-ha_release: 2022.11
+ha_release: 2022.12
 ha_iot_class: Local Push
 ha_codeowners:
   - '@aschmitz'
