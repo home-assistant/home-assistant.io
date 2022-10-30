@@ -8,7 +8,7 @@ ha_release: 2022.12
 ha_iot_class: Local Push
 ha_codeowners:
   - '@aschmitz'
-ha_domain: aranet4
+ha_domain: aranet
 ha_config_flow: true
 ha_platforms:
   - sensor
