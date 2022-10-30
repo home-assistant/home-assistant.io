@@ -20,3 +20,5 @@ Integrates [Aranet4](https://aranet.com/products/aranet4/) devices into Home Ass
 The Aranet4 integration requires that your Aranet4 device is updated to at least firmware version 1.2.0 and has the "Smart Home integration" feature enabled. Both of these can be done within the settings portion of the Aranet4 mobile application on both Android and iOS.
 
 {% include integrations/config_flow.md %}
+
+The Aranet4 integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
