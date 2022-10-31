@@ -223,7 +223,7 @@ mqtt:
       state_topic: "shellies/shellyplug-s-112233/info"
       value_template: "{{ value_json['update'].old_version }}"
       latest_version_topic: "shellies/shellyplug-s-112233/info"
-      latest_version_template: "{{ value_json['update'].new_version }}"
+      latest_version_template: "{% if value_json['update'].new_version %}{{ value_json['update'].new_version }}{% else %}{{ value_json['update'].old_version }}{% endif %}"
       device_class: "firmware"
       command_topic: "shellies/shellyplug-s-112233/command"
       payload_install: "update_fw"
