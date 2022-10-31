@@ -63,7 +63,7 @@ value.
 
 {% include integrations/config_flow.md %}
 
-If you have more than one plane of solar modules with different properties (e.g. several sides of the roof on different strings or on different buildings, with different directions or declinations) you can add the integration multiple times setting parameters accordingly. You can then use templates to combine the data, e.g. adding up production on different planes. At this point in time, it is not possible to set a combined maximum inverter performance over more then one instance of this integration.
+If you have more than one plane of solar modules with different properties (e.g. several sides of the roof on different strings or on different buildings, with different directions or declinations) you can add the integration multiple times setting parameters accordingly. You can then use templates to combine the data, e.g. adding up production on different planes.
 
 ## Sensors
 
