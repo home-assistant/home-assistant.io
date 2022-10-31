@@ -91,7 +91,7 @@ If you set a valid value for `initial`, this integration will start with the sta
 
 ### Services
 
-Available service: `input_datetime.set_datetime` and `input_datetime.reload`.
+Available service: `input_datetime.set_datetime`, `input_datetime.now` and `input_datetime.reload`.
 
 #### input_datetime.set_datetime
 
@@ -101,9 +101,12 @@ Service data attribute | Format String | Description
 `time` | `%H:%M:%S` | This can be used to dynamically set the time.
 `datetime` | `%Y-%m-%d %H:%M:%S` | This can be used to dynamically set both the date & time.
 `timestamp` | N/A | This can be used to dynamically set both the date & time using a UNIX timestamp.
-`now` | N/A | This can be used to set both the date & time to the current date & time.
 
-To set both the date and time in the same call, use `date` and `time` together, or use `datetime` or `timestamp` or `now` by itself. Using `datetime` or `timestamp` has the advantage that both can be set using one template.
+To set both the date and time in the same call, use `date` and `time` together, or use `datetime` or `timestamp` by itself. Using `datetime` or `timestamp` has the advantage that both can be set using one template.
+
+#### input_datetime.now
+
+`input_datetime.now` service allows one to set date and/or time to the current date and/or time.
 
 #### input_datetime.reload
 
