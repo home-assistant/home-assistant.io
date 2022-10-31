@@ -63,7 +63,7 @@ value.
 
 {% include integrations/config_flow.md %}
 
-If you have more than one plane of solar modules with different properties (e.g. several sides of the roof on different strings or on different buildings, with different directions or declinations) you can add the integration multiple times setting parameters accordingly. You can then use templates to combine the data, e.g. adding up production on different planes.
+If you have more than one plane of solar modules with different properties (e.g. several sides of the roof on different strings or on different buildings, with different directions or declinations) you can add the integration multiple times setting parameters accordingly. You can then use [template sensors](https://www.home-assistant.io/integrations/template/) to combine the data, e.g. adding up production on different planes into one value to base your planning on.
 
 ## Sensors
 
