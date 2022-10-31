@@ -41,9 +41,9 @@ If you completed the integration setup but are still unable to control the devic
 
 For Switcher Breeze the integration provides the following buttons:
 
-- For devices which are also controlled in other ways or often goes out of sync with Switcher Breeze there are `Assume on` & `Assume off` buttons which you can use to can tell Switcher Breeze if your device is currently running or not without sending a new command to the device.
+- For devices that are also controlled in other ways or often go out of sync with Switcher Breeze, there are `Assume on` & `Assume off` buttons which you can use to can tell Switcher Breeze if your device is currently running or not without sending a new command to the device.
 
-- For devices which does not support swing status for the vertical swing, the integration provides separate `Vertical swing on` & `Vertical swing off` buttons.
+- For devices which do not support swing status for the vertical swing, the integration provides separate `Vertical swing on` & `Vertical swing off` buttons.
 
 ## Sensors
 
