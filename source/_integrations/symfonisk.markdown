@@ -6,13 +6,13 @@ ha_category:
   - Sensor
 ha_domain: symfonisk
 ha_release: 0.7.3
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_domain: sonos
+ha_integration_type: virtual
+ha_supporting_domain: sonos
+ha_supporting_integration: Sonos
 ha_codeowners:
   - '@cgtobi'
   - '@jjlawren'
-ha_ssdp: true
+ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - diagnostics
@@ -20,10 +20,9 @@ ha_platforms:
   - number
   - sensor
   - switch
+ha_iot_class: Local Push
+ha_ssdp: true
 ha_zeroconf: true
-ha_integration_type: integration
-ha_supporting_domain: sonos
-ha_supporting_integration: Sonos
 ---
 
 {% include integrations/supported_brand.md %}

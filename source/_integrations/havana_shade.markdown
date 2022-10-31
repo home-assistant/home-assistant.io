@@ -1,9 +1,9 @@
 ---
-title: Hurrican Shutters Wholesale
-description: Connect and control your Hurrican Shutters Wholesale devices using the Motion Blinds integration
+title: Havana Shade
+description: Connect and control your Havana Shade devices using the Motion Blinds integration
 ha_category:
   - Cover
-ha_domain: hurrican_shutters_wholesale
+ha_domain: havana_shade
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds
 ha_supporting_integration: Motion Blinds

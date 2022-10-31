@@ -17,8 +17,8 @@ ha_ssdp: true
 ha_platforms:
   - binary_sensor
   - button
-  - sensor
   - camera
+  - sensor
 ha_integration_type: integration
 ---
 

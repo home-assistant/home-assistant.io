@@ -6,8 +6,6 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.107
 ha_domain: edl21
-ha_codeowners:
-  - '@mtdcr'
 ha_platforms:
   - sensor
 ha_integration_type: integration

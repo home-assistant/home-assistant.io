@@ -13,7 +13,9 @@ ha_codeowners:
   - '@thecode'
 ha_domain: switcher_kis
 ha_platforms:
+  - climate
   - cover
+  - diagnostics
   - sensor
   - switch
 ha_config_flow: true

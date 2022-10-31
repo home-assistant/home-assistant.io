@@ -1,10 +1,10 @@
 ---
-title: SNOOZ
+title: Snooz
 description: Instructions on how to integrate SNOOZ devices into Home Assistant.
 ha_category:
   - Fan
 ha_bluetooth: true
-ha_release: "2022.11"
+ha_release: '2022.11'
 ha_iot_class: Local Push
 ha_codeowners:
   - '@AustinBrunkhorst'

@@ -32,7 +32,7 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
