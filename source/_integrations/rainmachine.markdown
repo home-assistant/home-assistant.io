@@ -23,7 +23,7 @@ ha_platforms:
   - update
 ha_zeroconf: true
 ha_homekit: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The RainMachine integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).

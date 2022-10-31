@@ -14,7 +14,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_quality_scale: platinum
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The [Forecast.Solar](https://forecast.solar/) service provides solar production

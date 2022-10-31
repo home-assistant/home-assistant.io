@@ -13,9 +13,10 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: jellyfin
 ha_platforms:
+  - diagnostics
   - media_player
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The Jellyfin integration exposes a [Jellyfin](https://jellyfin.org/) server as a Media Source in Home Assistant.

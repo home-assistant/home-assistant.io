@@ -9,8 +9,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@elupus'
 ha_domain: nibe_heatpump
-ha_ssdp: false
-ha_platforms:
 ha_platforms:
   - binary_sensor
   - number

@@ -1,9 +1,9 @@
 ---
-title: Hurrican Shutters Wholesale
-description: Connect and control your Hurrican Shutters Wholesale devices using the Motion Blinds integration
+title: Inspired Shades
+description: Connect and control your Inspired Shades devices using the Motion Blinds integration
 ha_category:
   - Cover
-ha_domain: hurrican_shutters_wholesale
+ha_domain: inspired_shades
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds
 ha_supporting_integration: Motion Blinds
