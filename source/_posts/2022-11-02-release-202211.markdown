@@ -310,6 +310,9 @@ noteworthy changes this release:
   - [Bayesian], added by [@HarvsG]
   - [Min/Max], added by [@gjohansson-ST]
   - [Scrape], added by [@epenet]
+- The [UniFi] integration now provides individual PoE control. Exposed per port
+  (disabled by default), it is now possible to control both client and device PoE.
+  The Old implementation will be removed with next release. Thanks, [@Kane610]!
 
 [@alexdrl]: https://github.com/alexdrl
 [@bieniu]: https://github.com/bieniu
