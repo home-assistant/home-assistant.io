@@ -111,7 +111,7 @@ There are many factors that can cause the estimations to be slightly off
 and historical data - not actual power produced).
 
 Luckily, there are controls to make them more accurate for your situation,
-for example by slightly adjusting the azimuth or declination. If your panels
+for example, by slightly adjusting the azimuth or declination. If your panels
 catch a bit of shadow in the morning/evening, you could consider damping
 the results a bit.
 
