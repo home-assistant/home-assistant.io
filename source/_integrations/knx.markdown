@@ -1447,6 +1447,10 @@ entity_category:
   required: false
   type: string
   default: None
+device_class:
+  description: Overrides the [class of the device](/integrations/sensor/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ### Value Types
