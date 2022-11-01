@@ -65,6 +65,9 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Fan Preset Mode](#fan-preset-mode)
     - [Fan Direction](#fan-direction)
     - [Fan Oscillation](#fan-oscillation)
+  - [Humidifier](#humidifier)
+    - [Humidifier target humidity](#humidifier-target-humidity)
+    - [Humidifier Mode](#humidifier-mode)
   - [Image Processing](#image-processing)
     - [Presence Detection Notification](#presence-detection-notification)
   - [Input Number](#input-number)
@@ -490,6 +493,9 @@ The following integrations are currently supported:
     - [Fan Preset Mode](#fan-preset-mode)
     - [Fan Direction](#fan-direction)
     - [Fan Oscillation](#fan-oscillation)
+  - [Humidifier](#humidifier)
+    - [Humidifier target humidity](#humidifier-target-humidity)
+    - [Humidifier Mode](#humidifier-mode)
   - [Image Processing](#image-processing)
     - [Presence Detection Notification](#presence-detection-notification)
   - [Input Number](#input-number)
@@ -820,6 +826,20 @@ The fan device must support the `oscillating` attribute.
 | `en-US` | _"oscillate"_, _"swivel"_, _"oscillation"_, _"spin"_, _"back and forth"_ |
 
 Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
+
+### Humidifier
+
+Control power, target humidity and mode.
+
+#### Humidifier target humidity
+
+- _"Alexa, set the [entity name] humidity to fifty percent."_
+
+#### Humidifier Mode
+
+The humidifier device must support the `mode` attribute.
+
+- _"Alexa, set the [entity name] mode to eco."_
 
 ### Image Processing
 
