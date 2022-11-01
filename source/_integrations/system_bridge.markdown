@@ -137,3 +137,75 @@ data:
   bridge: "deviceid"
   text: "Hello"
 ```
+
+### Service `system_bridge.sleep`
+
+Sends the system to sleep.
+
+{% my developer_call_service service="system_bridge.sleep" title="Show service in your Home Assistant instance." %}
+
+```yaml
+service: system_bridge.sleep
+data:
+  bridge: "deviceid"
+```
+
+### Service `system_bridge.hibernate`
+
+Hibernate the system.
+
+{% my developer_call_service service="system_bridge.hibernate" title="Show service in your Home Assistant instance." %}
+
+```yaml
+service: system_bridge.hibernate
+data:
+  bridge: "deviceid"
+```
+
+### Service `system_bridge.restart`
+
+Restart the system.
+
+{% my developer_call_service service="system_bridge.restart" title="Show service in your Home Assistant instance." %}
+
+```yaml
+service: system_bridge.restart
+data:
+  bridge: "deviceid"
+```
+
+### Service `system_bridge.shutdown`
+
+Shutdown the system.
+
+{% my developer_call_service service="system_bridge.shutdown" title="Show service in your Home Assistant instance." %}
+
+```yaml
+service: system_bridge.shutdown
+data:
+  bridge: "deviceid"
+```
+
+### Service `system_bridge.lock`
+
+Lock the system.
+
+{% my developer_call_service service="system_bridge.lock" title="Show service in your Home Assistant instance." %}
+
+```yaml
+service: system_bridge.lock
+data:
+  bridge: "deviceid"
+```
+
+### Service `system_bridge.logout`
+
+Log out the current user.
+
+{% my developer_call_service service="system_bridge.logout" title="Show service in your Home Assistant instance." %}
+
+```yaml
+service: system_bridge.logout
+data:
+  bridge: "deviceid"
+```
