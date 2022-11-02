@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "2022.11: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2022.11."
+title: "2022.11: It feels a lot like Christmas!"
+description: "Two brand new cards for your Dashboards, get insight into your water usage from the energy dashboard, reloading automations and scripts became much smarter, color temperatures now use Kelvin, change the day your week starts, and some cool new templating features."
 date: 2022-11-02 00:00:00
 date_formatted: "November 2, 2022"
 author: Franck Nijhof
@@ -15,41 +15,28 @@ og_image: /images/blog/2022-11/social.png
 
 <a href='/integrations/#version/2022.11'><img src='/images/blog/2022-11/social.png' style='border: 0;box-shadow: none;'></a>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-These are the beta release notes for Home Assistant Core 2022.11 (and is thus a
-work in progress).
+Home Assistant Core 2022.11! 🎉
 
-If you encounter any issues with the beta release, please report them on GitHub:
+The November release already feels a lot like Christmas! 🎄 Quite a few
+suggestions from the [Month of "What the Heck?!"](/blog/2022/09/30/the-month-of-what-the-heck)
+already landed in this release! Ready to unpack the presents in this release? 🎁
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+Talking about the WTH month, it ended. Well, sort of, at least. It is now closed
+for new topics/suggestions, but [existing ones](https://community.home-assistant.io/c/what-the-heck/56)
+remain open for discussion and can be voted on. I'm curious to see more of
+these WTHs being resolved in the upcoming releases.
 
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
+This release has so much goodness that I have a hard time picking a favorite.
+Water usage, maybe? I'm really not sure, so I'm going to cut this intro short.
+Let me know your favorite this release in the comments below!
 
-Issues introduced in the beta are processed with priority.
-
----
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
-Home Assistant Core 2022.11!
-
-I have nothing to tell yet... this is still all beta!
-
-Thanks for helping out testing the beta! ❤️
-
-Enjoy the (beta) release!
+Enjoy the release!
 
 ../Frenck
 
-PS: There will be no release party this month, instead [join us](https://www.youtube.com/watch?v=D936T1Ze8-4)
-at the [State of the Open Home](https://www.youtube.com/watch?v=D936T1Ze8-4) on
+PS: There will be no release party live stream this month,
+instead [join us](https://www.youtube.com/watch?v=D936T1Ze8-4) at the
+[State of the Open Home](https://www.youtube.com/watch?v=D936T1Ze8-4) on
 Sunday, November 13, 2022 (11:00 AM PST / 20:00 CET).
 
 <!--more-->
