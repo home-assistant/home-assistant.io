@@ -138,43 +138,27 @@ actually changed are reloaded. All others will remain running untouched.
 
 ## Getting insights into water usage
 
-{% details "TODO" %}
+Since Home Assistant added energy management, tracking the usage of water🚰
+has been requested quite a bit. It was [raised again during this month of WTH](https://community.home-assistant.io/t/wth-do-we-have-energy-dashboard-and-no-water-dashboard/467168),
+and with over 370 votes, it is clearly wanted a lot.
 
-- Improve extend story
-- Update vote count
-- Spelling/grammar
-- Replace screenshots
-- Link to docs
-- https://github.com/home-assistant/core/pull/80888
+This release adds the ability to monitor your water usage in the energy dashboard!
 
-{% enddetails %}
+Although water is not strictly “energy”, it is still a [valuable resource](https://en.wikipedia.org/wiki/Water_resources)
+to track. It is often tightly coupled with energy usage (like gas) when using
+hot water, and the gained insight can help you reduce your ecological footprint
+by using less water 🌎.
 
-This has been long time requested, and was also really popular in this month's
-WTH (over 350 votes!): [WTH do we have Energy dashboard and no Water dashboard?](https://community.home-assistant.io/t/wth-do-we-have-energy-dashboard-and-no-water-dashboard/467168)
+<img class="no-shadow" src='/images/blog/2022-11/water_usage.png' alt='The energy dashboard now includes your water usage'>
 
-The request for being able to track water usage in Home Assistant comes up
-quite a lot. This release add support for doing so!
+Some integrations, like [Flo](/integrations/flo), [Flume](/integrations/flume), and
+[HomeWizard Energy](/integrations/homewizard), have been adjusted to support
+tracking water. Furthermore, you can create your own using templates, MQTT,
+or ESPHome (requires [ESPHome version 2022.10.1](https://www.esphome.io/changelog/2022.10.0.html#release-2022-10-1-october-26) or newer).
 
-<p class='img'>
-<img class="no-shadow" src='https://cdn.discordapp.com/attachments/717500797684023327/1034490272140247100/unknown.png' alt=''>
-Note: Placeholder screenshot that needs to be replaced.
-</p>
-
-<p class='img'>
-<img class="no-shadow" src='https://cdn.discordapp.com/attachments/717500797684023327/1034493590069596180/unknown.png' alt=''>
-Note: Placeholder screenshot that needs to be replaced.
-</p>
-
-The following integrations now support reporting water usage out of the box:
-
-- [Flo](/integrations/flo)
-- [Flume](/integrations/flume)
-- [HomeWizard Energy](/integrations/homewizard)
-- [P1 Monitor](/integrations/p1_monitor)
-- [Toon](/integrations/toon)
-
-Furthermore, you can of course create your own using templates, MQTT, or
-ESPHome (requires [ESPHome version 2022.10.1](https://www.esphome.io/changelog/2022.10.0.html#release-2022-10-1-october-26) or newer).
+[Check out the documentation](/docs/energy/water) for the hardware options
+available to track your water usage or how to build your own water usage
+sensors.
 
 ## Kelvin!
 
