@@ -135,7 +135,7 @@ to track. It is often tightly coupled with energy usage (like gas) when using
 hot water, and the gained insight can help you reduce your ecological footprint
 by using less water 🌎.
 
-<img class="no-shadow" src='/images/blog/2022-11/water_usage.png' alt='The energy dashboard now includes your water usage'>
+<img class="no-shadow" src='/images/blog/2022-11/water-usage.png' alt='The energy dashboard now includes your water usage'>
 
 Some integrations, like [Flo](/integrations/flo), [Flume](/integrations/flume), and
 [HomeWizard Energy](/integrations/homewizard), have been adjusted to support
