@@ -256,39 +256,37 @@ of entities it provides.
 
 ## Other noteworthy changes
 
-Entity more info dialog merged with entity settings.
-
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-
-**Note**: Changes processed up to PR 81007
-
-{% enddetails %}
-
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- The automations and the devices dashboards now has icons on each row, making
-  them look al nice and shiny. Thanks, [@bramkragten] & [@frenck].
+- The default dashboard theme has been adjusted to move a little closer to the
+  new Material Design 3 guidelines. Borders around cards are now outlined
+  (instead of having a shadow), and corners are a little more rounded.
+- The automations and the devices dashboards now have icons on each row, making
+  them look all nice and shiny. Thanks, [@bramkragten] & [@frenck].
 - The unit of measurement for entities providing Gas can now be changed and
   converted from the UI. Thanks, [@emontnemery]!
 - Home Assistant is now discoverable via UPnP/SSDP, meaning your instance will
-  now show up in your Windows Network. Thanks, [@StevenLooman]!
-- [Shelly] Gen2 devices that sleep (battery-powered), are now supported!
+  show up in your Windows Network. Thanks, [@StevenLooman]!
+- [Shelly] Gen2 devices that sleep (battery-powered) are now supported!
   Thanks, [@thecode]!
-- You can now use sensor providing Gigajoule (GJ) with the energy dashboard.
+- You can now use sensors providing Gigajoule (GJ) with the energy dashboard.
   Thanks, [@emontnemery]!
-- The [MQTT] integration now has support for update entities! Thanks, [@bieniu]!
+- The [MQTT] integration now has support for [update entities]! Thanks, [@bieniu]!
 - Media player support was added to the [Jellyfin] integration. Thanks, [@Ongy]!
-- The statistics card now support "week" as a possible period. Thanks, [@mib1185]!
+- The statistics card now supports "week" as a possible period. Thanks, [@mib1185]!
+- The [Sun condition] can now handle setting both before & after at the same
+  time. Thanks, [@janick]!
 - The "forked-daapd" project was renamed to "Owntone". The integration was now
-  renamed to [Owntone] too! Thanks, [@uvjustin]!
-- [Fully Kiosk Browser] now provides a service to change URLs on your
-  wall mounted tablet remotely. Thanks, [@cgarwood]!
-- The [Xiaomi Miio] integration now supported the Xiaomi Purifier 4 Lite and
+  renamed [Owntone] too! Thanks, [@uvjustin]!
+- [Fully Kiosk Browser] now provides a service to remotely change URLs on your
+  wall-mounted tablet. Thanks, [@cgarwood]!
+- The [Xiaomi Miio] integration now supports the Xiaomi Purifier 4 Lite and
   the Roborock S7 MaxV. Thanks, [@alexdrl] & [@starkillerOG]!
-- When setting up an new [Generic Camera], you will be present a preview
+- The [UniFi] integration now provides individual PoE control per port for
+  the client and device PoE (switches are disabled by default).
+  Thanks, [@Kane610]!
+- When setting up a new [Generic Camera], you will be presented with a preview
   of the camera showing you if it works. Nice! Thanks, [@davet2001]!
 - Support for `unique_id`s was added to the following (YAML capable) integrations:
   - [Bayesian], added by [@HarvsG]
@@ -305,6 +303,8 @@ noteworthy changes this release:
 [@frenck]: https://github.com/frenck
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@HarvsG]: https://github.com/HarvsG
+[@janick]: https://github.com/janick
+[@Kane610]: https://github.com/Kane610
 [@mib1185]: https://github.com/mib1185
 [@Ongy]: https://github.com/Ongy
 [@starkillerOG]: https://github.com/starkillerOG
@@ -320,6 +320,9 @@ noteworthy changes this release:
 [Owntone]: /integrations/forked_daapd
 [Scrape]: /integrations/scrape
 [Shelly]: /integrations/shelly
+[Sun condition]: /docs/scripts/conditions/#sun-condition
+[UniFi]: /integrations/unifi
+[update entities]: /integrations/update
 [Xiaomi Miio]: /integrations/xiaomi_miio
 
 ## New Integrations
