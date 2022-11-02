@@ -78,7 +78,7 @@ so you get notified when we go live!
 ## Statistic card
 
 More cards! We already have the [Statistics Graph card](/dashboards/statistics-graph),
-which can be used to display graph long-term statistics of an entity.
+which can be used to display graphs of long-term statistics of an entity.
 This release brings the "Statistic" card!
 
 The “Statistic” card, as the name implies, can show a single value of an entity,
@@ -159,7 +159,7 @@ are now in Kelvin.
 We still do support the good old mired. Mireds are still working and
 automatically converted when needed, so this is not a breaking change 🎉
 
-Additionally, integration can now optionally use Kelvin directly if the
+Additionally, integrations can now optionally use Kelvin directly if the
 device or service accepts that. [HomeKit], [Shelly],
 [AVM FRITZ!SmartHome], and [LIFX] are all now using Kelvin natively. 
 
@@ -191,7 +191,7 @@ or in case you have a personal preference, you can now set it on your user profi
 
 You can now set the day to start the week at {% my profile title="in your user profile" %}.
 
-Settings it means that all date inputs, date range pickers, schedules, calendars,
+Setting it means that all date inputs, date range pickers, schedules, calendars,
 and even time conditions in automations, will take this into account when
 displaying weeks.
 
@@ -434,9 +434,9 @@ to adopt those for this change.
 
 - The `caller` option from `ClickSend TTS` notify service has been removed, as
   it prevented calls from being actually made.
-- The default name to `clicksend_tts` instead of an empty name; otherwise
-  service appears as `notify.notify`. Now it will, by default, appear
-  as `notify.clicksend_tts`. This might impact your automation or scripts.
+- The default name has been changed to `clicksend_tts` instead of an empty name; otherwise
+  the service would appear as `notify.notify`. Now it will, by default, appear
+  as `notify.clicksend_tts`. This might impact your automation or script.
 - The recipient's phone number now must match E.164 format.
 
 ([@CharlieBailly] - [#76669]) ([documentation](/integrations/clicksend_tts))
@@ -448,10 +448,10 @@ to adopt those for this change.
 
 {% details "Coinbase" %}
 
-The previously deprecated YAML configuration of the Open Exchange Rates
+The previously deprecated YAML configuration of the Coinbase
 integration has been removed.
 
-Open Exchange Rates is now configured via the UI, any existing YAML
+Coinbase is now configured via the UI, any existing YAML
 configuration has been imported in previous releases and can now be safely
 removed from your YAML configuration files.
 
@@ -559,7 +559,7 @@ Existing sensor entities need to be manually deleted.
 
 {% details "IntelliFire" %}
 
- Minor "breaking" change with very low impact. The backing unit and the API
+ The backing unit and the API
  of the device itself uses `0-4` as a flame height setting. Through discussion
  on the forums the community has decided `1-5` is a much more logical setting
  for flame height, and accordingly, this has been implemented.
@@ -582,7 +582,7 @@ will now only change the default log level of Home Assistant from a
 `warning` to something else if the `default` is explicitly specified.
 
 If you do not specify `default` and want Home Assistant to have a
-default log level of `debug` will need to add this to your YAML configuration:
+default log level of `debug`, you will need to add this to your YAML configuration:
 
 ```yaml
 logger:
