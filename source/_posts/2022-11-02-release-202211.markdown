@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2022.11: It feels a lot like Christmas!"
+title: "2022.11: A heck of a release!"
 description: "Two brand new cards for your Dashboards, get insight into your water usage from the energy dashboard, reloading automations and scripts became much smarter, color temperatures now use Kelvin, change the day your week starts, and some cool new templating features."
 date: 2022-11-02 00:00:00
 date_formatted: "November 2, 2022"
@@ -17,8 +17,8 @@ og_image: /images/blog/2022-11/social.png
 
 Home Assistant Core 2022.11! 🎉
 
-The November release already feels a lot like Christmas! 🎄 Quite a few
-suggestions from the [Month of "What the Heck?!"](/blog/2022/09/30/the-month-of-what-the-heck)
+The November release already feels a lot like Christmas 🎄, what a heck of a
+release! Quite a few suggestions from the [Month of "What the Heck?!"](/blog/2022/09/30/the-month-of-what-the-heck)
 already landed in this release! Ready to unpack the presents in this release? 🎁
 
 Talking about the WTH month, it ended. Well, sort of, at least. It is now closed
