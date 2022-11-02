@@ -105,28 +105,22 @@ Yes, all of the above, this card can do!
 
 ## Smarter reloading of automation & scripts
 
-{% details "TODO" %}
+> [WTH do all automations get reloaded when you change any of them?](https://community.home-assistant.io/t/wth-do-all-automatons-get-reloaded-when-you-change-any-of-them/467270)
 
-- Improve extend story
-- Update vote count
-- Spelling/grammar
-- Only reload modified automations ([@emontnemery] - [#80282]) ([automation docs]) (noteworthy)
-- Only reload modified scripts ([@emontnemery] - [#80470]) ([automation docs]) ([script docs]) (noteworthy)
-
-{% enddetails %}
-
-Results of a WTH topic: [WTH do all automations get reloaded when you change any of them?](https://community.home-assistant.io/t/wth-do-all-automatons-get-reloaded-when-you-change-any-of-them/467270)
-
-It got well over 170+ votes.
+Good question! And that WTH topic got over 180+ votes as well!
 
 When you change a single automation or script via the editors in the user
-interface (or reload your YAML based ones), they always all get reloaded.
+interface (or reload your YAML-based ones), they all get reloaded. This
+means if they are running, waiting for something (a delay, an event, or for an
+entity to be in a certain state for X time), they would all be reset.
 
-This means if they are running, waiting for something (a delay, an even or
-for a entity to be in a certain state for X time), they would all be reset.
+This release changes this behavior, resolving that WTH! Only automations that
+are actually changed are reloaded. All others will remain running and untouched.
 
-This release changes this behavior. Only automations and scripts that are
-actually changed are reloaded. All others will remain running untouched.
+This works when editing an automation in the UI, and even when reloading your
+YAML-based automations in any split YAML setup you might have.
+
+Oh, as an added bonus: We applied the exact same for scripts too!
 
 ## Getting insights into water usage
 
