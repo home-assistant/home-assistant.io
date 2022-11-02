@@ -526,3 +526,6 @@
 
 # Lovelace images
 /images/dashboards/lovelace_* /images/dashboards/:splat
+
+# Unsupported reasons that are also unhealthy
+/more-info/unsupported/privileged /more-info/unhealthy/privileged
