@@ -26,7 +26,7 @@ type:
 entity:
   required: true
   description: "A entity ID of a sensor with statistics, or an external statistic id"
-  type: sensor
+  type: string
 stat_types:
   required: false
   description: The statistics types to render. `min`, `max`, `mean`, `sum`, `state`
