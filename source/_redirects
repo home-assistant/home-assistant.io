@@ -229,6 +229,14 @@
 /docs/ecosystem/notebooks/installation https://data.home-assistant.io
 /docs/ecosystem/notebooks/stats https://data.home-assistant.io
 /docs/frontend/mobile https://companion.home-assistant.io
+/docs/mqtt /integrations/mqtt
+/docs/mqtt/birth_will /integrations/mqtt/#birth-and-last-will-messages
+/docs/mqtt/broker /integrations/mqtt/#broker-configuration
+/docs/mqtt/certificate /integrations/mqtt/#advanced-broker-configuration
+/docs/mqtt/discovery /integrations/mqtt/#mqtt-discovery
+/docs/mqtt/logging /integrations/mqtt/#logging
+/docs/mqtt/service /integrations/mqtt/#publish--dump-services
+/docs/mqtt/testing /integrations/mqtt/#testing-your-setup
 /docs/script/editor /docs/scripts/editor
 /docs/z-wave /integrations/zwave_js
 /docs/z-wave/adding /integrations/zwave_js#how-can-i-add-include-a-new-device-to-my-z-wave-network
@@ -248,6 +256,7 @@
 /ecosystem/notebooks/graph https://data.home-assistant.io
 /ecosystem/notebooks/installation https://data.home-assistant.io
 /ecosystem/notebooks/stats https://data.home-assistant.io
+/examples/notify.mqtt /integrations/mqtt/#mqtt-notifications
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 /installation/nuc /installation/generic-x86-64
 /integrations/auth /docs/authentication

@@ -17,7 +17,7 @@ ha_platforms:
   - media_player
   - remote
 ha_ssdp: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The Bravia TV integration allows you to control a [Sony Bravia TV](https://www.sony.com/).

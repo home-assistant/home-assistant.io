@@ -13,7 +13,7 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The `Ambient Weather Station` integration retrieves local weather information
