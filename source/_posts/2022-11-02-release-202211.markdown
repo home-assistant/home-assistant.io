@@ -58,7 +58,7 @@ Sunday, November 13, 2022 (11:00 AM PST / 20:00 CET).
 - [Statistic card](#statistic-card)
 - [Smarter reloading of automation & scripts](#smarter-reloading-of-automation--scripts)
 - [Getting insights into water usage](#getting-insights-into-water-usage)
-- [Kelvin!](#kelvin)
+- [Color temperatures in Kelvin](#color-temperatures-in-kelvin)
 - [Long-term statistics in the entity dialogs](#long-term-statistics-in-the-entity-dialogs)
 - [The first day of the week](#the-first-day-of-the-week)
 - [New template features](#new-template-features)
@@ -146,37 +146,36 @@ or ESPHome (requires [ESPHome version 2022.10.1](https://www.esphome.io/changelo
 available to track your water usage or how to build your own water usage
 sensors.
 
-## Kelvin!
+## Color temperatures in Kelvin
 
-{% details "TODO" %}
+Another [WTH topic](https://community.home-assistant.io/t/wth-is-light-temperature-not-in-kelvin/467449)
+that was voted for almost 150 times! Why doesn't Home Assistant use Kelvin
+for color temperatures?
 
-- Improve extend story
-- Add reference to WTH
-- Spelling/grammar
-- Add screenshots
-* Use color temperatures in Kelvin in more_info_light (#14016) @emontnemery
-- Adapt homekit to color temperatures in K ([@emontnemery] - [#79713]) ([homekit docs]) (noteworthy)
-- Use Kelvin as the preferred color temperature unit ([@emontnemery] - [#79591]) ([light docs]) (noteworthy)
-- Migrate Shelly to use kelvin for color temperature ([@thecode] - [#79880]) ([shelly docs]) (noteworthy)
-- Update Fritz! lights to use kelvin ([@flabbamann] - [#79733]) ([light docs]) ([fritzbox docs]) (noteworthy)
-- Migrate the LIFX integration to use kelvin for color temp ([@Djelibeybi] - [#79775]) ([lifx docs]) (noteworthy)
+Well, a small piece of history: The Home Assistant story started using Philips
+Hue a long, long time ago. And Hue uses mired for its color temperature,
+not Kelvin.
 
-{% enddetails %}
+But today, Kelvin is much more commonly used. It is even on packages of the
+bulbs you buy. So, as of today, Home Assistant uses Kelvin too!
 
-Also a [WTH topic](https://community.home-assistant.io/t/wth-is-light-temperature-not-in-kelvin/467449)
-that was voted for almost 150 times! Why doesn't Home Assistant
-use Kelvin for color temperatures? Well... now we do!
+<img class="no-shadow" src='/images/blog/2022-11/kelvin.png' alt='Screenshot showing the UI now uses the Kelvin unit to set the color temperature'>
 
-Integrations that now use native kelvin instead of mireds: [HomeKit], [Shelly],
-[AVM FRITZ!SmartHome], [LIFX]
+Kelvin is now the primary color temperature unit. This means all lights
+and everything color temperature related shown in the user interface,
+are now in Kelvin.
+
+We still do support the good old mired. Mireds are still working and
+automatically converted when needed, so this is not a breaking change 🎉
+
+Additionally, integration can now optionally use Kelvin directly if the
+device or service accepts that. [HomeKit], [Shelly],
+[AVM FRITZ!SmartHome], and [LIFX] are all now using Kelvin natively. 
 
 [AVM FRITZ!SmartHome]: /integrations/fritzbox
 [HomeKit]: /integrations/homekit
 [LIFX]: /integrations/lifx
 [Shelly]: /integrations/shelly
-
-The good old mired are still working as well (conversion is done when needed),
-so this is not a breaking change 🎉
 
 ## Long-term statistics in the entity dialogs
 
