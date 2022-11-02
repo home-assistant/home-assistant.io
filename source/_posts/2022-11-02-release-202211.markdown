@@ -194,21 +194,11 @@ so this is not a breaking change 🎉
 
 ## Long-term statistics in the entity dialogs
 
-{% details "TODO" %}
+The "more info" dialogs of entities now use long-term statistics for
+the graphs shown. It makes those dialogs a lot faster, especially on
+mobile devices.
 
-- Improve extend story
-- Spelling/grammar
-- Add screenshots
-- https://github.com/home-assistant/frontend/pull/14199
-
-{% enddetails %}
-
-Nice long-term statistic graphs are now shown in the entity dialogs.
-
-<p class='img'>
-<img class="no-shadow" src='https://cdn.discordapp.com/attachments/717500797684023327/1034855919076520016/unknown.png' alt=''>
-Note: Placeholder screenshot that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2022-11/long-term-stats-more-info-dialog.png' alt='Screenshot showing you can now set the day of the week from your user profile page'>
 
 ## The first day of the week
 
