@@ -88,9 +88,10 @@ On the computer you intend to control via Home Assistant, you must install the [
 There are a number of ways to install the `hassmpris_agent` package, but perhaps the most straightforward one is using `pip` on the command line:
 
 ```bash
-pip3 install --user hassmpris_agent
+pip3 install --user -U hassmpris_agent
 # The command above deploys the agent and all its dependencies to
-# ~/.local in your home directory.
+# ~/.local in your home directory.  If you had a previous version
+# of the agent, it will also upgrade the agent to the latest version.
 ```
 
 At some point in the future, these packages may ship directly in your Linux distribution.
