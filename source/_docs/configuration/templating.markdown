@@ -136,7 +136,7 @@ Other state examples:
 {% if is_nominal(['sensor.train_departure_time', 'sensor.train_arrival_time']) %}
   {{ ... }}
 
-{% if ['sensor.train_departure_time', 'sensor.train_arrival_time']|is_nominal() %}
+{% if ['sensor.train_departure_time', 'sensor.train_arrival_time'] | is_nominal() %}
   {{ ... }}
 
 #Get state for sensor.train_departure_time if exist, not unknown and available otherwise for sensor.train_arrival_time
