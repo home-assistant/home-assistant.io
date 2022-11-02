@@ -361,26 +361,18 @@ other news about building an Open Home; straight into your inbox.
 
 ## Breaking Changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-
-**Note**: Breaking changes processed up to PR 81013
-
-{% enddetails %}
-
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
 
 {% details "Unit: Revolutions per minute (rpm)" %}
 
-There are multiple integrations that provide sensors with a resolutions per
-minute unit. Two different units have been used throughout Home Assistant
-to indicate this: `RPM` and `rpm`.
+Multiple integrations provide sensors with the revolutions per minute unit.
+Two units have been used throughout Home Assistant to indicate this:
+`RPM` and `rpm`.
 
-This release standarizes all integrations to use the lower case `rpm` variant.
-The following integration have been adjusted:
+This release standardizes all integrations to use the lowercase `rpm` variant.
+The following integrations have been adjusted:
 
 - [Big Ass Fans](/integrations/baf)
 - [Danfoss Air](/integrations/danfoss_air)
@@ -389,9 +381,9 @@ The following integration have been adjusted:
 - [Universal Devices ISY994](/integrations/isy994)
 - [Vallox](/integrations/vallox)
 
-This change of units is automatically handled by Home Assistant. However,
-if you record history externally (for example, using InfluxDB) you might
-need to adjust to this change.
+Home Assistant automatically handles this change of units. However, if you
+record history externally (for example, using InfluxDB), you might need to
+adjust to this change.
 
 ([@epenet] - [#79986] [#79987] [#79988] [#79989] [#79990] [#79992])
 
@@ -443,8 +435,8 @@ The `UPS Last Self Test` sensor is renamed to `UPS Self Test Result` and
 a new `UPS Last Self Test` sensor reports time instead of the result.
 
 You may need to replace `sensor.ups_last_self_test` with
-`sensor.ups_self_test_result` in automations and scripts that
-are referencing the `sensor.ups_last_self_test` entity.
+`sensor.ups_self_test_result` in automations and scripts
+referencing the `sensor.ups_last_self_test` entity.
 
 ([@definitio] - [#80773]) ([documentation](/integrations/apcupsd))
 
@@ -474,10 +466,10 @@ to adopt those for this change.
 
 - The `caller` option from `ClickSend TTS` notify service has been removed, as
   it prevented calls from being actually made.
-- The default name to `clicksend_tts` instead of an empty name, otherwise
-  service appears as `notify.notify`. Now it will by default appear
+- The default name to `clicksend_tts` instead of an empty name; otherwise
+  service appears as `notify.notify`. Now it will, by default, appear
   as `notify.clicksend_tts`. This might impact your automation or scripts.
-- Recipient phone number now must match E.164 format.
+- The recipient's phone number now must match E.164 format.
 
 ([@CharlieBailly] - [#76669]) ([documentation](/integrations/clicksend_tts))
 
@@ -517,8 +509,8 @@ for precipitation intensity has been corrected from inches to inches per hour.
 {% details "ecobee" %}
 
 Setting up the `notify` platform of the ecobee integration by a platform section
-using YAML configuration, is no longer supported. The `ecobee` platform section
-under `notify:` can be safely removed from you YAML configuration files.
+using YAML configuration is no longer supported. The `ecobee` platform section
+under `notify:` can be safely removed from your YAML configuration files.
 
 The thermostat index can be specified by using the `target` parameter in the
 notify service call instead.
@@ -534,7 +526,7 @@ notify service call instead.
 
 The route sensor has been removed, as it could contain more data than
 the Home Assistant state engine is able to hold. Make sure you update any
-automations or scripts that uses this sensor.
+automations or scripts that use this sensor.
 
 ([@eifinger] - [#79211]) ([documentation](/integrations/here_travel_time))
 
@@ -546,7 +538,7 @@ automations or scripts that uses this sensor.
 {% details "HomeKit" %}
 
 HomeKit instance ID assignments are now stable between restarts to comply
-with the HomeKit specifications. This prevents accessories from loosing
+with the HomeKit specifications. This prevents accessories from losing
 track of services between restarts, and improves stability with using
 Siri especially with apple watches.
 
@@ -556,8 +548,8 @@ This change may dramatically improve the stability and re-sync times of
  triggers (all) between restarts which was especially
  apparent when the home has many accessories.
 
-Because the assignments were previously unstable, it may be necessary to do
-a one time adjustment of accessory room assignments, favorites,
+Because the assignments were previously unstable, it may be necessary to make
+a one-time adjustment of accessory room assignments, favorites,
 or re-pair camera accessories after upgrading.
 
 ([@bdraco] - [#79913]) ([documentation](/integrations/homekit))
@@ -570,13 +562,13 @@ or re-pair camera accessories after upgrading.
 {% details "HomeKit Controller" %}
 
 As older versions did not correctly set service identifier values, it may be
-necessary to un-pair and re-pair some BLE devices or to manually delete
-duplicate entities.
+necessary to unpair and re-pair some BLE devices or to delete duplicate
+entities manually.
 
 If the service identifiers were loaded incorrectly when the device was paired
-with an older version, operations may raise `StopIteration` or `RuntimeError`
-error. You can correct those by deleting the integation for that device,
-and doing a one time re-pairing.
+with an older version, operations might raise `StopIteration` or `RuntimeError`
+errors. You can correct those by deleting the integration for that device,
+and doing a one-time re-pairing.
 
 ([@bdraco] - [#80798]) ([documentation](/integrations/homekit_controller))
 
@@ -587,8 +579,8 @@ and doing a one time re-pairing.
 
 {% details "Hunter Douglas PowerView" %}
 
-This change ceases creating battery sensors for hardwired shades, 
-existing sensor entities need to be manually deleted.
+This change ceases creating battery sensors for hardwired shades. 
+Existing sensor entities need to be manually deleted. 
 
 ([@kingy444] - [#81013]) ([documentation](/integrations/hunterdouglas_powerview))
 
@@ -602,10 +594,10 @@ existing sensor entities need to be manually deleted.
  Minor "breaking" change with very low impact. The backing unit and the API
  of the device itself uses `0-4` as a flame height setting. Through discussion
  on the forums the community has decided `1-5` is a much more logical setting
- for flame height and accordingly this has been implemented.
+ for flame height, and accordingly, this has been implemented.
 
- If you are setting the flame height using automations or scripts, you will
- need to adopt those to this change.
+ If you set the flame height using automations or scripts, you will  need to
+ adapt those to this change.
 
 ([@jeeftor] - [#79901]) ([documentation](/integrations/intellifire))
 
@@ -618,10 +610,10 @@ existing sensor entities need to be manually deleted.
 
 `logger` no longer changes the default log level of Home Assistant to `debug`
 if used without a value for [`default`](/integrations/logger/#default). It
-will now only change the default log level of Home Assistant from
-`warning` to something else if `default` is explicitly specified.
+will now only change the default log level of Home Assistant from a
+`warning` to something else if the `default` is explicitly specified.
 
-If you do not specify `default` and want to Home Assistant to have a
+If you do not specify `default` and want Home Assistant to have a
 default log level of `debug` will need to add this to your YAML configuration:
 
 ```yaml
@@ -683,10 +675,11 @@ changes and new features available for your integration: Be sure to follow our
 
 [devblog]: https://developers.home-assistant.io/blog/
 
+- [Add new precipitation intensity units](https://developers.home-assistant.io/blog/2022/10/25/new-precipitation-intensity-units)
 - [Deprecate IMPERIAL_SYSTEM unit system and linked constants and properties](https://developers.home-assistant.io/blog/2022/10/14/deprecate-unit-system)
 - [GitHub Commands for Code Owners](https://developers.home-assistant.io/blog/2022/10/21/code-owner-commands)
+- [Introducing new unit enumerators](https://developers.home-assistant.io/blog/2022/10/26/new-unit-enumerators/)
 - [Introducing virtual integrations and differentiating hubs, devices, and services](https://developers.home-assistant.io/blog/2022/10/24/hubs-devices-services-virtual-integrations)
-- [Add new precipitation intensity units](https://developers.home-assistant.io/blog/2022/10/25/new-precipitation-intensity-units)
 
 ## All changes
 
