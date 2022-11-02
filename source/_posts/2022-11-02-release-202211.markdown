@@ -245,6 +245,9 @@ noteworthy changes this release:
 - The [UniFi] integration now provides individual PoE control per port for
   the client and device PoE (switches are disabled by default).
   Thanks, [@Kane610]!
+- The [HomeKit Controller] integration now supports encrypted Bluetooth
+  notifications, reducing state change latency and the number of active BLE
+  connections made to devices.
 - When setting up a new [Generic Camera], you will be presented with a preview
   of the camera showing you if it works. Nice! Thanks, [@davet2001]!
 - Support for `unique_id`s was added to the following (YAML capable) integrations:
@@ -273,6 +276,7 @@ noteworthy changes this release:
 [Bayesian]: /integrations/bayesian
 [Fully Kiosk Browser]: /integrations/fully_kiosk
 [Generic Camera]: /integrations/generic
+[HomeKit Controller]: /integrations/homekit_controller
 [Jellyfin]: /integrations/jellyfin
 [Min/Max]: /integrations/min_max
 [MQTT]: /integrations/update.mqtt
