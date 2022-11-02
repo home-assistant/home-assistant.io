@@ -71,24 +71,20 @@ Sunday, November 13, 2022 (11:00 AM PST / 20:00 CET).
 
 ## Tile card
 
-{% details "TODO" %}
+This release introduces a new Dashboard card: the "Tile"!
 
-- Add an actual story
-- Spelling/grammar
-- Replace screenshot
+<img class="no-shadow" src='/images/blog/2022-11/tile-card.png' alt='Screenshot showing a couple of tile cards'>
 
-{% enddetails %}
+The tile card is a lovely little card that provides a quick overview of an
+entity. The icon can be tapped to toggle the entity, and the rest of the card
+brings up the "more info" dialog.
 
-This release introduces a new Dashboard card the "Tile"!
+This first iteration of the Tile card is one of the first cards added this
+release, that brings in a new style of card into Home Assistant.
 
-<p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/195644072-30db951c-1e35-4c7f-bf67-f1a2dd6373f6.png' alt='This is how these new beautiful tile cards look'>
-Note: Placeholder screenshot that needs to be replaced.
-</p>
-
-## Statistic card
-
-{% details "TODO" %}
+Curious to find out what else will be coming? Join us for the State
+of the Open Home live stream. [Go to YouTube and click the bell 🔔](https://www.youtube.com/watch?v=D936T1Ze8-4)
+so you get notified when we go live!
 
 ## Statistic card
 
