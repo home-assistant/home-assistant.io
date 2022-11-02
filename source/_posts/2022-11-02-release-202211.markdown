@@ -90,26 +90,22 @@ Note: Placeholder screenshot that needs to be replaced.
 
 {% details "TODO" %}
 
-- Add an actual story
-- Spelling/grammar
-- Replace screenshots
+## Statistic card
 
-{% enddetails %}
+More cards! We already have the [Statistics Graph card](/dashboards/statistics-graph),
+which can be used to display graph long-term statistics of an entity.
+This release brings the "Statistic" card!
 
-WARNING: Isn't final at this moment yet, but is likely to be in the second or third beta.
+The “Statistic” card, as the name implies, can show a single value of an entity,
+based on the long-term statistics stored of that entity.
 
-More cards! Presenting your the statistic card! This card
-can be used to show a value based on the long-term statistics.
+For example, want to display the average temperature of your living room this
+week on your dashboard? The average power usage of your home today? The peak
+power production of your solar panels today?
 
-<p class='img'>
-<img class="no-shadow" src='https://cdn.discordapp.com/attachments/505841299220594748/1034848908993646652/unknown.png' alt='This is how these new beautiful tile cards look'>
-Note: Placeholder screenshot that needs to be replaced.
-</p>
+Yes, all of the above, this card can do!
 
-<p class='img'>
-<img class="no-shadow" src='https://cdn.discordapp.com/attachments/505841299220594748/1034848996906258482/unknown.png' alt='This is how these new beautiful tile cards look'>
-Note: Placeholder screenshot that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2022-11/statistic-card.png' alt='Screenshot showing the UI editor of the statistic card and all of its options'>
 
 ## Smarter reloading of automation & scripts
 
