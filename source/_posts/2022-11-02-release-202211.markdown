@@ -60,7 +60,7 @@ Sunday, November 13, 2022 (11:00 AM PST / 20:00 CET).
 - [Getting insights into water usage](#getting-insights-into-water-usage)
 - [Kelvin!](#kelvin)
 - [Long-term statistics in the entity dialogs](#long-term-statistics-in-the-entity-dialogs)
-- [Change the first day of the week](#change-the-first-day-of-the-week)
+- [The first day of the week](#the-first-day-of-the-week)
 - [New template features](#new-template-features)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
@@ -210,23 +210,24 @@ Nice long-term statistic graphs are now shown in the entity dialogs.
 Note: Placeholder screenshot that needs to be replaced.
 </p>
 
-## Change the first day of the week
+## The first day of the week
 
-{% details "TODO" %}
+The start of the week can differ for many of us. Your week will start on
+Saturday, Sunday, or Monday based on where you are, your locale, or maybe
+personal preference. As pointed out in
+[this WTH topic](https://community.home-assistant.io/t/wth-week-starts-on-sunday/468998).
 
-- Add a story
-- Spelling/grammar
-- Replace screenshot
-- https://github.com/home-assistant/frontend/pull/14199
+Home Assistant will try to auto-detect the correct day to start the week
+based on information provided by your browser. However, if it cannot detect it,
+or in case you have a personal preference, you can now set it on your user profile.
 
-{% enddetails %}
+<img class="no-shadow" src='/images/blog/2022-11/first-day-of-the-week.png' alt='Screenshot showing you can now set the day of the week from your user profile page'>
 
-WTH: https://community.home-assistant.io/t/wth-week-starts-on-sunday/468998
+You can now set the day to start the week at {% my profile title="in your user profile" %}.
 
-<p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/194030271-a61f8435-d1f7-4a93-9302-8c6a7e6dc32f.png' alt=''>
-Note: Placeholder screenshot that needs to be replaced.
-</p>
+Settings it means that all date inputs, date range pickers, schedules, calendars,
+and even time conditions in automations, will take this into account when
+displaying weeks.
 
 ## New template features
 
