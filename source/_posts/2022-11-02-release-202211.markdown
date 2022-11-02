@@ -79,6 +79,8 @@ The tile card is a lovely little card that provides a quick overview of an
 entity. The icon can be tapped to toggle the entity, and the rest of the card
 brings up the "more info" dialog.
 
+[Read more about the Tile card in the documentation](/dashboards/tile).
+
 This first iteration of the Tile card is one of the first cards added this
 release, that brings in a new style of card into Home Assistant.
 
@@ -102,6 +104,8 @@ power production of your solar panels today?
 Yes, all of the above, this card can do!
 
 <img class="no-shadow" src='/images/blog/2022-11/statistic-card.png' alt='Screenshot showing the UI editor of the statistic card and all of its options'>
+
+[Read more about the Statistic card in the documentation](/dashboards/statistic).
 
 ## Smarter reloading of automation & scripts
 
@@ -220,7 +224,7 @@ you to look up native IDs of integration configuration entries using one
 of the entities it provides.
 
 For more information on these new features and the Home Assistant templating
-capabilities in general, [check our our documentation](/docs/configuration/templating)
+capabilities in general, [check out the documentation](/docs/configuration/templating).
 
 ## Other noteworthy changes
 
