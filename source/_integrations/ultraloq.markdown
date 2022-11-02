@@ -20,6 +20,6 @@ Ultraloq Z-Wave Series smart locks work locally and integrate seamlessly with th
 
 To add Ultraloq Z-Wave products, pair them as Z-Wave devices:
 
-{% my config_zwave_js badge %}
+{% my add_zwave_device badge domain=page.ha_domain %}
 
 [Learn more about Z-Wave in Home Assistant.](/integrations/zwave_js/)
