@@ -344,9 +344,12 @@ We welcome the following new integrations in this release:
 
 The following integrations are now available via the Home Assistant UI:
 
+- [APC UPS Daemon], done by [@yuxincs]
 - [Zentralanstalt für Meteorologie und Geodynamik (ZAMG)], done by [@killer0071234]
 
 [@killer0071234]: https://github.com/killer0071234
+[@yuxincs]: https://github.com/yuxincs
+[APC UPS Daemon]: /integrations/apcupsd
 [Zentralanstalt für Meteorologie und Geodynamik (ZAMG)]: /integrations/zamg
 
 ## Need help? Join the community!
