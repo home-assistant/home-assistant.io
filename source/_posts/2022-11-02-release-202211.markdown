@@ -17,9 +17,9 @@ og_image: /images/blog/2022-11/social.png
 
 Home Assistant Core 2022.11! 🎉
 
-The November release already feels a lot like Christmas 🎄, what a heck of a
+This November already feels a lot like Christmas 🎄, what a heck of a
 release! Quite a few suggestions from the [Month of "What the Heck?!"](/blog/2022/09/30/the-month-of-what-the-heck)
-already landed in this release! Ready to unpack the presents in this release? 🎁
+already landed! Ready to unpack the presents? 🎁
 
 Talking about the WTH month, it ended. Well, sort of, at least. It is now closed
 for new topics/suggestions, but [existing ones](https://community.home-assistant.io/c/what-the-heck/56)
@@ -28,7 +28,7 @@ these WTHs being resolved in the upcoming releases.
 
 This release has so much goodness that I have a hard time picking a favorite.
 Water usage, maybe? I'm really not sure, so I'm going to cut this intro short.
-Let me know your favorite this release in the comments below!
+Let me know your favorite in the comments below!
 
 Enjoy the release!
 
