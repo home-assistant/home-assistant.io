@@ -61,7 +61,7 @@ Sunday, November 13, 2022 (11:00 AM PST / 20:00 CET).
 - [Color temperatures in Kelvin](#color-temperatures-in-kelvin)
 - [Long-term statistics in the entity dialogs](#long-term-statistics-in-the-entity-dialogs)
 - [The first day of the week](#the-first-day-of-the-week)
-- [New template features](#new-template-features)
+- [New templating features](#new-templating-features)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -204,31 +204,23 @@ Settings it means that all date inputs, date range pickers, schedules, calendars
 and even time conditions in automations, will take this into account when
 displaying weeks.
 
-## New template features
+## New templating features
 
-{% details "TODO" %}
+We also have some great new advanced features added to templating this release!
 
-- Improve extend story
-- Spelling/grammar
-- Links to documentation
-- Adds states and state_attr as a filter, adds is_state and is_state_attr as a test. ([@Petro31] - [#79473]) (noteworthy)
-- Add ConfigEntry template function ([@engrbm87] - [#78030]) (noteworthy)
-- Add optional default value to average template function/filter ([@ehendrix23] - [#77499]) (noteworthy)
-
-{% enddetails %}
-
-A bunch of nice new advanced features have been added to templating this
-release as well!
-
-The `state_attr()` & `states()` functions can now also be used as we filter,
+Originating from [this WTH topic](https://community.home-assistant.io/t/wth-state-based-jinja-functions-are-not-filters-or-tests/468187):
+You can now use the `state_attr()` and `states()` functions as a filter,
 and the `is_state()` and `is_state_attr()` functions can now be used as tests.
 
 The `average()` function now accepts a default value, which can be helpful
-if no average could be calculated.
+if no average can be calculated.
 
 Lastly, the `config_entry_id()` template method has been added, which allows
 you to look up native IDs of integration configuration entries using one
-of entities it provides.
+of the entities it provides.
+
+For more information on these new features and the Home Assistant templating
+capabilities in general, [check our our documentation](/docs/configuration/templating)
 
 ## Other noteworthy changes
 
