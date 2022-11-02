@@ -42,6 +42,8 @@ Currently supported attributes:
 * playback position (`media_position` entity attribute)
 * playback rate (`playback_rate` entity attribute)
 
+The matrix of tested media players is [documented in the agent's project page](https://pypi.org/project/hassmpris-agent/).
+
 ### Playback position and playback rate
 
 Determining the playback position in your automations, in most other Home Assistant integrations that feature media players, goes usually like this:
@@ -83,7 +85,7 @@ While both these packages are shipped in the overwhelming majority of Linux syst
 
 The MPRIS agent is the key piece that allows Home Assistant to access and control your media players.
 
-On the computer you intend to control via Home Assistant, you must install the [`hassmpris_agent` package](https://pypi.org/project/hassmpris-agent/),
+On the computer you intend to control via Home Assistant, you must install the [`hassmpris_agent` package](https://pypi.org/project/hassmpris-agent/).  Full documentation for the agent is available there.
 
 There are a number of ways to install the `hassmpris_agent` package, but perhaps the most straightforward one is using `pip` on the command line:
 
