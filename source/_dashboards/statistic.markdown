@@ -88,7 +88,7 @@ period:
 offset:
   required: false
   description: The offset of the current period, so 0 means the current period, -1 is the previous period.
-  type: number
+  type: integer
 {% endconfiguration %}
 
 Example, the change of the energy consumption during last month:
