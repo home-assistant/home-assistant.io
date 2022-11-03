@@ -73,6 +73,14 @@ you used in the Xiaomi Home App (where you initially setup the device). There ar
 [this page](https://www.openhab.org/addons/bindings/miio/#country-servers) for
 the server to use for each country.
 
+## Troubleshooting
+
+[Detailed troubleshooting steps are here](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#troubleshooting)
+The most common are these:
+- Xioami Miio devices do not communicate accros subnets/VLANs due to the source address of the UDP packet not belonging to the subnet of the device itself, [more information and solutions](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets).
+- Roborock vacuums need to be connected to the Xiaomi Home app, not the roborock app, [more information](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#roborock-vacuum-not-detected).
+- Blocking the network access to the device is known to cause intermittend connection issues due to the device, [more information](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#intermittent-connection-issues-timeouts-xiaomi-vacuum).
+
 ## Xiaomi Gateway
 
 The `xiaomi_miio` gateway integration allows you to control the gateway and its connected subdevices.
@@ -1125,12 +1133,6 @@ Set the extra features.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `features`                |       no | Integer, known values are 0 and 1.                      |
-
-### Troubleshooting `Unable to find device` error messages
-
-Check if the device is in the same subnet as the Home Assistant instance. Otherwise, you should configure your router/firewall to put this device in the same VLAN as the Home Assistant instance.
-
-If it's not possible to use VLANs for some reason, your last resort may be using NAT translation, between the IPs.
 
 ## Xiaomi Air Quality Monitor
 
