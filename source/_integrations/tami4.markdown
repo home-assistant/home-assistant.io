@@ -2,7 +2,7 @@
 title: "Tami4 Edge / Edge+"
 description: "Tami4 Edge Integration"
 ha_release: 2022.12
-ha_category: Other
+ha_category: Sensor
 ha_iot_class: "Cloud Polling"
 ha_quality_scale: silver
 ha_config_flow: true
