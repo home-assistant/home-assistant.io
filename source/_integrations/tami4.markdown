@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: tami4
 ---
 
-Support for Tami4 Edge / Edge+ by Strauss in Home Assistant.
+Support for [Tami4 Edge / Edge+ by Strauss](https://www.tami4.co.il/tami4edge-collection) in Home Assistant.
 
 You can boil water and get filter / uv information, such as when you need to replace them.
 
