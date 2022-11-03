@@ -26,6 +26,11 @@ Alternatively, the following shops sell ESPHome-based devices, that use a proxim
 
 Maybe you like to build one yourself? Pieter Brinkman has quite a [nice blog article on how to create your own water sensor](https://www.pieterbrinkman.com/2022/02/02/build-a-cheap-water-usage-sensor-using-esphome-home-assistant-and-a-proximity-sensor/) using ESPHome, or [build a water meter](https://www.ztatz.nl/p1-monitor-watermeter/) that works with the [P1 Monitor](/integrations/p1_monitor) integration.
 
+Another common alternative is using image recognition using one of the following.
+
+- [AI-on-the-edge-device](https://github.com/jomjol/AI-on-the-edge-device) running machine learning algorithms on an ESP32
+- [watermeter](https://github.com/nohn/watermeter) running classic OCR and statistical pattern recognition on any system supporting Docker
+
 If you manually integrate your sensors, for example, using the [MQTT](/integrations/mqtt) or [RESTful](/integrations/rest) integrations: Make sure you set and provide the `device_class`, `state_class`, and `unit_of_measurement` for those sensors.
 
 For any of the above-listed options, make sure it actually works with the type of water meter you have before getting one.
