@@ -20,5 +20,5 @@ You can easily pair your device by confirming your phone number which is registe
 ## Configuration
 
 Add a new Integration in Home Assistant and select Tami4.
-Then, enter your phone number which use used to register
+Then, enter your phone number which you used to register
 to the Edge app and confirm the code with the SMS you've received.
