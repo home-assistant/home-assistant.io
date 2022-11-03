@@ -31,12 +31,12 @@ Now let's make a change using the file editor: we are going to change the name, 
        name: Home
        latitude: xx.xxxx
        longitude: xx.xxxx
-       unit_system: imperial
+       unit_system: us_customary
        time_zone: America/Chicago
   ```
 <div class='note'>
  
-  Valid options for `unit_system` are `imperial` or `metric`. See [here](https://timezonedb.com/time-zones) for a list of valid time zones. Enter the appropriate option found under the Time Zone column at that page.
+  Valid options for `unit_system` are `us_customary` or `metric`. See [here](https://timezonedb.com/time-zones) for a list of valid time zones. Enter the appropriate option found under the Time Zone column at that page.
 
 </div>
 

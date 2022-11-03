@@ -33,6 +33,7 @@ This integration is a meta-component and configures a default set of integration
 - [Input select](/integrations/input_select/) (`input_select`)
 - [Input text](/integrations/input_text/) (`input_text`)
 - [Logbook](/integrations/logbook/) (`logbook`)
+- [Logger](/integrations/logger/) (`logger`)
 - [Map](/integrations/map/) (`map`)
 - [Media Source](/integrations/media_source/) (`media_source`)
 - [Mobile App Support](/integrations/mobile_app/) (`mobile_app`)
