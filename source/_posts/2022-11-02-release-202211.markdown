@@ -52,6 +52,7 @@ Sunday, November 13, 2022 (11:00 AM PST / 20:00 CET).
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2022.11.1 - November 3](#release-2022111---november-3)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -161,7 +162,7 @@ automatically converted when needed, so this is not a breaking change 🎉
 
 Additionally, integrations can now optionally use Kelvin directly if the
 device or service accepts that. [HomeKit], [Shelly],
-[AVM FRITZ!SmartHome], and [LIFX] are all now using Kelvin natively. 
+[AVM FRITZ!SmartHome], and [LIFX] are all now using Kelvin natively.
 
 [AVM FRITZ!SmartHome]: /integrations/fritzbox
 [HomeKit]: /integrations/homekit
@@ -314,6 +315,46 @@ The following integrations are now available via the Home Assistant UI:
 [@yuxincs]: https://github.com/yuxincs
 [APC UPS Daemon]: /integrations/apcupsd
 [Zentralanstalt für Meteorologie und Geodynamik (ZAMG)]: /integrations/zamg
+
+## Release 2022.11.1 - November 3
+
+- Update energyflip-client dependency to 0.2.2 ([@dennisschroer] - [#81426]) ([huisbaasje docs])
+- Update pysnooz to 0.8.3 ([@AustinBrunkhorst] - [#81428]) ([snooz docs])
+- Fix eight sleep client creation ([@raman325] - [#81440]) ([eight_sleep docs])
+- Skip flume devices with location missing ([@bdraco] - [#81441]) ([flume docs])
+- Fix SSDP failure to start on missing URLs ([@frenck] - [#81453]) ([ssdp docs])
+- Bump aiohomekit to 2.2.14 ([@bdraco] - [#81454]) ([homekit_controller docs])
+- Update cryptography to 38.0.3 ([@frenck] - [#81455])
+- Fix HomeKit thermostat to take priority over fans ([@bdraco] - [#81473]) ([homekit docs])
+- Bump AIOAladdinConnect to 0.1.47 ([@mkmer] - [#81479]) ([aladdin_connect docs])
+
+[#81423]: https://github.com/home-assistant/core/pull/81423
+[#81426]: https://github.com/home-assistant/core/pull/81426
+[#81428]: https://github.com/home-assistant/core/pull/81428
+[#81440]: https://github.com/home-assistant/core/pull/81440
+[#81441]: https://github.com/home-assistant/core/pull/81441
+[#81453]: https://github.com/home-assistant/core/pull/81453
+[#81454]: https://github.com/home-assistant/core/pull/81454
+[#81455]: https://github.com/home-assistant/core/pull/81455
+[#81473]: https://github.com/home-assistant/core/pull/81473
+[#81479]: https://github.com/home-assistant/core/pull/81479
+[3_day_blinds docs]: /integrations/3_day_blinds/
+[@AustinBrunkhorst]: https://github.com/AustinBrunkhorst
+[@bdraco]: https://github.com/bdraco
+[@dennisschroer]: https://github.com/dennisschroer
+[@frenck]: https://github.com/frenck
+[@mkmer]: https://github.com/mkmer
+[@raman325]: https://github.com/raman325
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[aladdin_connect docs]: /integrations/aladdin_connect/
+[eight_sleep docs]: /integrations/eight_sleep/
+[flume docs]: /integrations/flume/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[huisbaasje docs]: /integrations/huisbaasje/
+[snooz docs]: /integrations/snooz/
+[ssdp docs]: /integrations/ssdp/
 
 ## Need help? Join the community!
 
@@ -551,8 +592,8 @@ and doing a one-time re-pairing.
 
 {% details "Hunter Douglas PowerView" %}
 
-This change ceases creating battery sensors for hardwired shades. 
-Existing sensor entities need to be manually deleted. 
+This change ceases creating battery sensors for hardwired shades.
+Existing sensor entities need to be manually deleted.
 
 ([@kingy444] - [#81013]) ([documentation](/integrations/hunterdouglas_powerview))
 
