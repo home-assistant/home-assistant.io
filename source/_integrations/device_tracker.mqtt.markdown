@@ -276,7 +276,7 @@ mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -
 To set the state of the device tracker to specific coordinates:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/state -m '{"latitude": 32.87336, "longitude": -117.22743, "gps_accuracy": 1.2}'
+mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/attributes -m '{"latitude": 32.87336, "longitude": -117.22743, "gps_accuracy": 1.2}'
 ```
 
 

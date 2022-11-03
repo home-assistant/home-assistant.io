@@ -25,78 +25,133 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: scrape
-    resource: https://www.home-assistant.io
-    select: ".current-version h1"
+scrape:
+  - resource: https://www.home-assistant.io
+    sensor:
+      - name: "Current version"
+        select: ".current-version h1"
 ```
 
 {% configuration %}
 resource:
-  description: The URL to the website that contains the value.
+  description: The resource or endpoint that contains the value.
   required: true
   type: string
-select:
-  description: "Defines the HTML tag to search for. Check Beautifulsoup's [CSS selectors](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#css-selectors) for details."
+resource_template:
+  description: The resource or endpoint that contains the value with template support.
   required: true
-  type: string
-attribute:
-  description: Get value of an attribute on the selected tag.
-  required: false
-  type: string
-index:
-  description: Defines which of the elements returned by the CSS selector to use.
-  required: false
-  default: 0
-  type: integer
-name:
-  description: Name of the sensor.
-  required: false
-  default: Web scrape
-  type: string
-value_template:
-  description: Defines a template to get the state of the sensor.
-  required: false
   type: template
-unit_of_measurement:
-  description: Defines the units of measurement of the sensor, if any.
+method:
+  description: The method of the request. Either `POST` or `GET`.
   required: false
   type: string
-device_class:
-  description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend.
-  required: false
-  type: device_class
-  default: None
-state_class:
-  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
-  required: false
-  type: string
-  default: None
-authentication:
-  description: Type of the HTTP authentication. Either `basic` or `digest`.
+  default: GET
+payload:
+  description: The payload to send with a POST request. Depends on the service, but usually formed as JSON.
   required: false
   type: string
 verify_ssl:
-  description: Enables/disables verification of SSL-certificate, for example if it is self-signed.
+  description: Verify the SSL certificate of the endpoint.
   required: false
   type: boolean
-  default: true
+  default: True
+timeout:
+  description: Defines max time to wait data from the endpoint.
+  required: false
+  type: integer
+  default: 10
+authentication:
+  description:  Type of the HTTP authentication. `basic` or `digest`.
+  required: false
+  type: string
 username:
-  description: The username for accessing the website.
+  description: The username for accessing the REST endpoint.
   required: false
   type: string
 password:
-  description: The password for accessing the website.
+  description: The password for accessing the REST endpoint.
   required: false
   type: string
 headers:
-  description: Headers to use for the web request.
+  description: The headers for the requests.
   required: false
-  type: string
-unique_id:
-  description: An ID that uniquely identifies this scrape entity.
+  type: [list, template]
+params:
+  description: The query params for the requests.
   required: false
-  type: string
+  type: [list, template]
+scan_interval:
+  description: Define the refrequency to call the REST endpoint in seconds.
+  required: false
+  type: integer
+  default: 30
+sensor:
+  description: A list of sensors to create from the shared data. All configuration settings that are supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
+  required: true
+  type: map
+  keys:
+    name:
+      description: Defines a template to get the name of the entity.
+      required: false
+      type: template
+    select:
+      description: "Defines the HTML tag to search for. Check Beautifulsoup's [CSS selectors](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#css-selectors) for details."
+      required: true
+      type: string
+    attribute:
+      description: Get value of an attribute on the selected tag.
+      required: false
+      type: string
+    index:
+      description: Defines which of the elements returned by the CSS selector to use.
+      required: false
+      default: 0
+      type: integer
+    value_template:
+      description: Defines a template to get the state of the sensor.
+      required: false
+      type: template
+    unique_id:
+      description: An ID that uniquely identifies this entity. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
+      required: false
+      type: string
+    icon:
+      description: Defines a template for the icon of the entity.
+      required: false
+      type: template
+    availability:
+      description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+      required: false
+      type: template
+      default: true
+    unit_of_measurement:
+      description: "Defines the units of measurement of the sensor, if any. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
+      required: false
+      type: string
+      default: None
+    state_class:
+      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
+      required: false
+      type: string
+      default: None
+    picture:
+      description: Defines a template for the entity picture of the sensor.
+      required: false
+      type: template
+    attributes:
+      description: Defines templates for attributes of the sensor.
+      required: false
+      type: map
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
+    device_class:
+      description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
+      required: false
+      type: device_class
+      default: None
 {% endconfiguration %}
 
 ## Examples
@@ -110,13 +165,13 @@ The current release Home Assistant is published on [https://www.home-assistant.i
 {% raw %}
 
 ```yaml
-sensor:
+scrape:
 # Example configuration.yaml entry
-  - platform: scrape
-    resource: https://www.home-assistant.io
-    name: Release
-    select: ".current-version h1"
-    value_template: '{{ value.split(":")[1] }}'
+  - resource: https://www.home-assistant.io
+    sensor:
+      - name: Release
+        select: ".current-version h1"
+        value_template: '{{ value.split(":")[1] }}'
 ```
 
 {% endraw %}
@@ -129,12 +184,12 @@ Get the counter for all our implementations from the [Component overview](/integ
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: scrape
-    resource: https://www.home-assistant.io/integrations/
-    name: Home Assistant impl.
-    select: 'a[href="#all"]'
-    value_template: '{{ value.split("(")[1].split(")")[0] }}'
+scrape:
+  - resource: https://www.home-assistant.io/integrations/
+    sensor:
+      - name: Home Assistant impl.
+        select: 'a[href="#all"]'
+        value_template: '{{ value.split("(")[1].split(")")[0] }}'
 ```
 
 {% endraw %}
@@ -145,13 +200,13 @@ The German [Federal Office for Radiation protection (Bundesamt für Strahlenschu
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: scrape
-    resource: https://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html
-    name: Coast Ostsee
-    select: "p"
-    index: 19
-    unit_of_measurement: "UV Index"
+scrape:
+  - resource: https://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html
+    sensor:
+      - name: Coast Ostsee
+        select: "p"
+        index: 19
+        unit_of_measurement: "UV Index"
 ```
 
 ### IFTTT status
@@ -160,11 +215,11 @@ If you make heavy use of the [IFTTT](/integrations/ifttt/) web service for your 
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: scrape
-    resource: https://status.ifttt.com/
-    name: IFTTT status
-    select: ".component-status"
+scrape:
+  - resource: https://status.ifttt.com/
+    sensor:
+      - name: IFTTT status
+        select: ".component-status"
 ```
 
 ### Get the latest podcast episode file URL
@@ -173,13 +228,13 @@ If you want to get the file URL for the latest episode of your [favorite podcast
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: scrape
-    resource: https://hasspodcast.io/feed/podcast
-    name: Home Assistant Podcast
-    select: "enclosure"
-    index: 1
-    attribute: url
+scrape:
+  - resource: https://hasspodcast.io/feed/podcast
+    sensor:
+      - name: Home Assistant Podcast
+        select: "enclosure"
+        index: 1
+        attribute: url
 ```
 
 ### Energy price
@@ -190,14 +245,14 @@ This example tries to retrieve the price for electricity.
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: scrape
-    resource: https://elen.nu/timpriser-pa-el-for-elomrade-se3-stockholm/
-    name: Electricity price
-    select: ".text-lg:is(span)"
-    index: 1
-    value_template: '{{ value | replace (",", ".") | float }}'
-    unit_of_measurement: "öre/kWh"
+scrape:
+  - resource: https://elen.nu/timpriser-pa-el-for-elomrade-se3-stockholm/
+    sensor:
+      - name: Electricity price
+        select: ".text-lg:is(span)"
+        index: 1
+        value_template: '{{ value | replace (",", ".") | float }}'
+        unit_of_measurement: "öre/kWh"
 ```
 
 {% endraw %}

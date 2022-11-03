@@ -4,6 +4,7 @@ description: Instructions on how to integrate Risco alarms into HA using Risco C
 ha_category:
   - Alarm
   - Binary Sensor
+  - Switch
 ha_release: '0.115'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -15,6 +16,7 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -87,30 +89,9 @@ And in the reverse direction:
 | Arm Away | Arm |
 | Arm Home | Partial Arm |
 
-## Services
-
-### Service `risco.bypass_zone`
-
-This service marks a zone as bypassed so that the alarm isn't triggered when the zone is triggered.
-
-Note you can only bypass a zone when the partitions it belongs to are disarmed, and it will take effect next time you arm.
-
-Risco automatically un-bypasses the zone after the alarm is disarmed again.
-
-| Service Data Attribute | Required | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            | no     | String or list of strings of entity_ids of zones. Use entity_id: all to target all zones. |
-
-### Service `risco.unbypass_zone`
-
-This undoes a zone bypass. You can only unbypass a zone when the partitions it belongs to are disarmed.
-
-| Service Data Attribute | Required | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            | no     | String or list of strings of entity_ids of zones. Use entity_id: all to target all zones. |
-
 ## Supported Platforms:
 
 - [Alarm Control Panel](/integrations/alarm_control_panel/)
 - [Binary Sensor](/integrations/binary_sensor/)
 - [Sensor](/integrations/sensor/)
+- [Switch](/integrations/switch/)
