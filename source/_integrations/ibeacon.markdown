@@ -68,6 +68,7 @@ To get the Estimated distance sensor to work, in most cases, it has to be calibr
 - Blue Charm Beacons BC037G-GeoPattern-iBeacon (discontinued)
 - Blue Charm Beacons BC037S-SmoothPattern-iBeacon (discontinued)
 - [Chipolo ONE](https://chipolo.net/products/chipolo-one)
+- [Blue SLIM ID](https://elainnovation.com/en/product/blue-slim-id-en/)
 - [Feasycom FSC-BP103B](https://www.feasycom.com/bluetooth-ibeacon-da14531)
 - [Feasycom FSC-BP104D](https://www.feasycom.com/dialog-da14531-bluetooth-low-energy-beacon)
 - [Feasycom FSC-BP108](https://www.feasycom.com/bluetooth-5-1-waterproof-bluetooth-beacon)
