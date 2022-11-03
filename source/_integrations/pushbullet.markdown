@@ -39,22 +39,22 @@ Go to [https://www.pushbullet.com/#settings/account](https://www.pushbullet.com/
 
 The following sensors are created after setting up the integration:
 
-- `Application name`: The application sending the push.
-- `Body`: The notification message body.
-- `Notification ID`: The ID of the notification.
-- `Tag`: The notification tag (if the application sending supports it).
-- `Package name`: The name of the sender’s package.
-- `Receiver Email`: The email of the push’s target.
-- `Sender Email`: The email of the sender.
-- `Sender device ID`: The ID of the sender’s device.
-- `Title`: The title of the push.
-- `Type`: The type of the push.
+- Application name: The application sending the push.
+- Body: The notification message body.
+- Notification ID: The ID of the notification.
+- Tag: The notification tag (if the application sending supports it).
+- Package name: The name of the sender’s package.
+- Receiver Email: The email of the push’s target.
+- Sender Email: The email of the sender.
+- Sender device ID: The ID of the sender’s device.
+- Title: The title of the push.
+- Type: The type of the push.
 
-`Body` and `Title` are enabled by default. The rest can be enabled from the UI.
+"Body" and "Title" are enabled by default. The rest can be enabled from the UI.
 
 ## Notifications
 
-The `pushbullet` notification platform sends messages to [Pushbullet](https://www.pushbullet.com/), a free service to send information between your phones, browsers, and friends. The free tier is [limited](https://docs.pushbullet.com/#push-limit) to 500 pushes per month.
+The Pushbullet notification platform sends messages to [Pushbullet](https://www.pushbullet.com/), a free service to send information between your phones, browsers, and friends. The free tier is [limited](https://docs.pushbullet.com/#push-limit) to 500 pushes per month.
 
 ### Usage
 
