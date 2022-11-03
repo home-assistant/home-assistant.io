@@ -37,6 +37,7 @@ Any Gree Smart device working with the Gree+ app should be supported, including 
 - Cooper & Hunter
 - Proklima
 - Tadiran
+- Heiwa
 
 ## Climate
 
