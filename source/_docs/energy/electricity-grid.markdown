@@ -65,35 +65,7 @@ Some energy providers will provide you real-time information about your usage an
 
 ### Manual Integration
 
-If you manually integrate your sensor, `device_class`, `state_class` and `unit_of_measurement` have to be provided. For example:
-
-{% raw %}
-
-```yaml
-mqtt:
-  sensor:
-  - state_topic: sml21/0123456789abcdef0123/current_power
-    device_class: power
-    name: 'Mains Current Watt'
-    state_class: measurement
-    unique_id: 'mains_current_watt'
-    unit_of_measurement: 'W'
-  - state_topic: sml21/0123456789abcdef0123/total_inbound_energy
-    device_class: energy
-    name: 'Mains Total Energy'
-    state_class: total_increasing
-    unique_id: 'mains_total_energy'
-    unit_of_measurement: 'kWh'
-  - state_topic: sml21/0123456789abcdef0123/total_outbound_energy
-    device_class: energy
-    name: 'Mains Total Energy Outbound'
-    state_class: total_increasing
-    unique_id: 'mains_total_outbound_energy'
-    unit_of_measurement: 'kWh'
-```
-
-{% endraw %}
-
+If you manually integrate your sensor, `device_class`, `state_class` and `unit_of_measurement` have to be provided.
 
 ### Troubleshooting
 
