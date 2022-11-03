@@ -76,7 +76,7 @@ Not supported in [limited templates](#limited-templates).
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None`. 
-- `is_nominal('sensor.my_sensor')` will test if the given entity exist and is not unknown or unavailable. A list of entities can be provided instead of a string. Can be used as a filter. `nominal` is the test equivalent.
+- `is_nominal('sensor.my_sensor')` will test if the given entity exist and is not unknown or unavailable. A list of entities can be provided instead of a string. If a list is provided then the test will return false if any entity in the list does not exist, is unknown or is unavailable. Can be used as a filter. `nominal` is the test equivalent.
 
 <div class='note warning'>
 
@@ -132,7 +132,7 @@ Other state examples:
   {{ ... }}
 
 
-#check sensor.train_departure_time and sensor.train_arrival_time state
+#check that both sensor.train_departure_time and sensor.train_arrival_time are known and not unavailable or unknown.
 {% if is_nominal(['sensor.train_departure_time', 'sensor.train_arrival_time']) %}
   {{ ... }}
 
