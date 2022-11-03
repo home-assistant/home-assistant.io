@@ -27,7 +27,7 @@ The free tier is [limited](https://docs.pushbullet.com/#push-limit) to 500 pushe
 
 </div>
 
-### Setup
+## Prerequisites
 
 Notification Mirroring allows users to see their Android device's notifications on their computer. It must be first enabled in the app and is currently only available on the Android platform. For more information, please see [this announcement](https://blog.pushbullet.com/2013/11/12/real-time-notification-mirroring-from-android-to-your-computer/) on the Pushbullet Blog.
 
@@ -35,7 +35,7 @@ Go to [https://www.pushbullet.com/#settings/account](https://www.pushbullet.com/
 
 {% include integrations/config_flow.md %}
 
-### Sensors
+## Sensors
 
 The following sensors are created after setting up the integration:
 
