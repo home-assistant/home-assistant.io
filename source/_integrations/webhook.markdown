@@ -5,7 +5,6 @@ ha_category:
   - Automation
 ha_release: 0.8
 ha_quality_scale: internal
-ha_category: []
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: webhook

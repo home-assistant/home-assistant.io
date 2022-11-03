@@ -19,7 +19,7 @@ ha_platforms:
   - lock
   - sensor
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The `simplisafe` integration integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.

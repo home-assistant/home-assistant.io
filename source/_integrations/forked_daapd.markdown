@@ -3,11 +3,11 @@ title: Owntone
 description: Instructions on how to integrate an Owntone server into Home Assistant.
 ha_category:
   - Media Player
-ha_release: "0.110"
+ha_release: '0.110'
 ha_iot_class: Local Push
 ha_domain: forked_daapd
 ha_codeowners:
-  - "@uvjustin"
+  - '@uvjustin'
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:

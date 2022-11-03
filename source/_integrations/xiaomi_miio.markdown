@@ -16,7 +16,6 @@ ha_codeowners:
   - '@rytilahti'
   - '@syssi'
   - '@starkillerOG'
-  - '@bieniu'
 ha_domain: xiaomi_miio
 ha_config_flow: true
 ha_zeroconf: true

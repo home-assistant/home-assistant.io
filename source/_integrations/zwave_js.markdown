@@ -40,7 +40,7 @@ ha_platforms:
   - siren
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: hub
 ha_zeroconf: true
 ---
 
