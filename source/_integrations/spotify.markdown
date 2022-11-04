@@ -13,7 +13,7 @@ ha_domain: spotify
 ha_zeroconf: true
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The Spotify media player integration lets you control your Spotify

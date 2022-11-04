@@ -12,7 +12,7 @@ ha_codeowners:
   - '@tkdrob'
 ha_platforms:
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).

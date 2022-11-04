@@ -67,3 +67,43 @@ The following controls are available:
 <div class='note warning'>
   The Fully Kiosk Browser app does not provide feedback on the device volume or media playback status, so we are unable to display the current volume level or playback status.
 </div>
+
+## Services
+
+**Service `load_url`**
+
+You can use the service `fully_kiosk.load_url` to have the tablet open the specified URL.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | yes | Device ID (or list of device IDs) to load the URL on.
+| `url` | yes | The URL to load.
+
+Example:
+
+```yaml
+service: fully_kiosk.load_url
+data:
+  url: "https://home-assistant.io"
+target:
+  device_id: a674c90eca95eca91f6020415de07713
+```
+
+**Service `start_application`**
+
+You can use the service `fully_kiosk.start_application` to have the tablet launch the specified app.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | yes | Device ID (or list of device IDs) to load the URL on.
+| `application` | yes | The package name of the app to load.
+
+Example:
+
+```yaml
+service: fully_kiosk.start_application
+data:
+  application: "de.ozerov.fully"
+target:
+  device_id: a674c90eca95eca91f6020415de07713
+```

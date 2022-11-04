@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: nobo_hub
 ha_platforms:
   - climate
+  - sensor
 ha_integration_type: integration
 ---
 
@@ -23,6 +24,10 @@ To configure the integration, you need the 3 last digits of the serial number of
 on the back of the hub. If the hub is on a different network than Home Assistant (i.e., IoT VLAN or another routable network from Home Assistant), you also need to provide the IP address of the hub.
 
 {% include integrations/config_flow.md %}
+
+# Heaters
+
+Each zone containing floor or wall mounted heaters is represented as an HVAC entity.
 
 ## Operation modes
 
@@ -50,3 +55,8 @@ Nobø system (perhaps related to frozen pipes due to frost in Nordic regions).
 "Away" temperature is fixed to 7°C and cannot be altered. On/off receivers will be off when the zone is in "Away" status.
 
 For more information, see the [Nobø Ecohub manual](https://help.nobo.no/en/user-manual/before-you-start/what-is-a-weekly-program/).
+
+# Nobø Switch
+
+Each Nobø Switch (SW4) is represented as a temperature sensor. If a switch is linked to a zone, the temperature is
+also available as the current temperature of the HVAC entity.

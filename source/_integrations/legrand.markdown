@@ -13,9 +13,12 @@ ha_category:
   - Switch
   - Weather
 ha_domain: legrand
+ha_integration_type: virtual
+ha_supporting_domain: netatmo
+ha_supporting_integration: Netatmo
+ha_release: '0.20'
 ha_codeowners:
   - '@cgtobi'
-ha_integration_type: integration
 ha_config_flow: true
 ha_platforms:
   - camera
@@ -28,9 +31,6 @@ ha_platforms:
   - switch
 ha_iot_class: Cloud Polling
 ha_homekit: true
-ha_supporting_domain: netatmo
-ha_supporting_integration: Netatmo
-ha_release: '0.20'
 ---
 
 {% include integrations/supported_brand.md %}
