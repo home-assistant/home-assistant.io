@@ -33,7 +33,7 @@ For any of the above-listed options, make sure it actually works with the type o
 Go to Settings > Dashboards > Energy and then click Add Water Source.
 
 If your water meter sensor isn't listed, be sure your sensor has the following parameters:
-- unit_of_measurement: "gal"
+- unit_of_measurement: "gal" or "m³" [the 3 must be superscript]
 - device_class: water
 - state_class: total_increasing
 
