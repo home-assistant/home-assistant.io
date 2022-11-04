@@ -53,7 +53,7 @@ See per phase what your voltage, current and power consumption/production is.
 
 <div class='note'>
 
-You need to run at least version **1.1.0** of P1 Monitor.
+You need to run at least version **1.1.0** of P1 Monitor, to use a water meter.
 
 </div>
 
