@@ -27,3 +27,14 @@ Alternatively, the following shops sell ESPHome-based devices, that use a proxim
 Maybe you like to build one yourself? Pieter Brinkman has quite a [nice blog article on how to create your own water sensor](https://www.pieterbrinkman.com/2022/02/02/build-a-cheap-water-usage-sensor-using-esphome-home-assistant-and-a-proximity-sensor/) using ESPHome, or [build a water meter](https://www.ztatz.nl/p1-monitor-watermeter/) that works with the [P1 Monitor](/integrations/p1_monitor) integration.
 
 For any of the above-listed options, make sure it actually works with the type of water meter you have before getting one.
+
+## Manual Configuration
+
+Go to Settings > Dashboards > Energy and then click Add Water Source.
+
+If your water meter sensor isn't listed, be sure your sensor has the following parameters:
+- unit_of_measurement: "gal"
+- device_class: water
+- state_class: total_increasing
+
+If your water meter sensor still isn't listed, check that there isn't an issue with there being multiple units of measurement in the statistics history. Go to Developer Tools > Statistics, search for your sensor, and see if there's a reported issue like "The unit of this entity changed from 'Gallons' to 'gal'." If you see that, click Fix Issue and follow the instructions. Then try adding your sensor in Settings > Dashboards > Energy again.
