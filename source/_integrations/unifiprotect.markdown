@@ -85,7 +85,7 @@ You can replace `2.0.0-beta.5` with whatever version of UniFi Protect you want t
 
 #### Using Early Access Releases
 
-If you have chosen to early all of the warnings about Early Access, here are some rules/tips to follow when using Early Access releases.
+If you have chosen to ignore all of the warnings about Early Access, here are some rules/tips to follow when using Early Access releases.
 
 * Report issues [upstream](https://github.com/AngellusMortis/pyunifiprotect/issues/) rather to Home Assistant core
 * Disable automatic updates for UniFi Protect
