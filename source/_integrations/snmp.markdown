@@ -358,6 +358,10 @@ command_payload_off:
   description: The value to write to turn off the switch, if different from `payload_off`.
   required: false
   type: string
+unique_id:
+  description: An ID that uniquely identifies this entity. This allows changing the `name`, `icon` and `entity_id` from the web interface.
+  required: false
+  type: string
 vartype:
   description: The SNMP vartype for the `payload_on` and `payload_off` commands as defined in [RFC1902](https://tools.ietf.org/html/rfc1902.html).
   required: false
@@ -438,4 +442,17 @@ switch:
     payload_on: 15400
     payload_off: 3000
     vartype: Gauge32
+ 
+  - platform: snmp
+    host: 192.168.10.5
+    baseoid: 1.3.6.1.4.1.10418.17.2.5.5.1.5.1.1.1
+    command_oid: 1.3.6.1.4.1.10418.17.2.5.5.1.6.1.1.1
+    community: private
+    payload_on: 2
+    payload_off: 1
+    command_payload_on: 2
+    command_payload_off: 3
+    vartype: Integer
+    name: PM3000-nr1 Outlet PM1
+    unique_id: pm3000-nr1_outlet_pm1
 ```
