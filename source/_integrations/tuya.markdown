@@ -43,7 +43,7 @@ ha_platforms:
   - switch
   - vacuum
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The Tuya integration integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps.

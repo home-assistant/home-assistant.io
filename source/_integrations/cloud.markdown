@@ -13,7 +13,7 @@ ha_platforms:
   - binary_sensor
   - stt
   - tts
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services like Amazon Alexa and Google Assistant. [Learn more.](/cloud)

@@ -79,7 +79,6 @@ where **namespace** is the *<component_namespace>* currently logging.
     description: Default log level. See [log_level](#log-levels).
     required: false
     type: string
-    default: debug
   logs:
     description: List of integrations and their log level.
     required: false
