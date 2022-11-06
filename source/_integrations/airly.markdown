@@ -13,7 +13,7 @@ ha_quality_scale: platinum
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The Airly integration uses the [Airly](https://airly.eu/) web service as a source for air quality data for your location.

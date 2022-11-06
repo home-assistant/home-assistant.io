@@ -23,7 +23,7 @@ ha_platforms:
   - sensor
   - switch
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The Philips Hue integration allows you to control and monitor the lights and sensors connected to your Hue bridge.

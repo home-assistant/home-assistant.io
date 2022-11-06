@@ -13,6 +13,7 @@ ha_domain: webostv
 ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
+  - diagnostics
   - media_player
   - notify
 ha_quality_scale: platinum

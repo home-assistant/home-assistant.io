@@ -45,6 +45,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
 - **power_factor**: Power factor in %
 - **power**: Power in W or kW
+- **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d, or mm/h
 - **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg, or psi
 - **reactive_power**: Reactive power in var
 - **signal_strength**: Signal strength in dB or dBm
@@ -55,7 +56,9 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
 - **voltage**: Voltage in V
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, or ft³
+- **water**: Water consumption in L, gal, m³, or ft³
 - **weight**: Generic mass in kg, g, mg, µg, oz, or lb
+- **wind_speed**: Wind speed in ft/s, km/h, kn, m/s, or mph
 
 <p class='img'>
 <img src='/images/screenshots/sensor_device_classes_icons.png' />
