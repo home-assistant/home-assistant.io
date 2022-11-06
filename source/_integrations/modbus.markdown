@@ -414,13 +414,19 @@ modbus:
         hvac_mode_register:
           address: 11
           values:
-            auto: 0
-            cool: 1
-            heat: 2
-            fan_only: 3
-            dry: 4
+            state_auto: 0
+            state_cool: 1
+            state_heat: 2
+            state_fan_only: 3
+            state_dry: 4
         hvac_onoff_register: 11
 ```
+
+{% details "Previous configuration format" %}
+
+The configuration format of `hvac_mode_register` has changed. The old format uses keys such as `off`, `auto`, `cool` instead of `state_off`, `state_auto` and `state_cool` that is currently used. The old keys should no longer be used and is deprecated.
+
+{% enddetails %}
 
 {% configuration %}
 climates:
@@ -480,31 +486,31 @@ climates:
           required: true
           type: [map]
           keys:
-            "off":
+            state_off:
               description: The register value corresponding to HVAC Off mode.
               required: false
               type: integer
-            heat:
+            state_heat:
               description: The register value corresponding to HVAC Heat mode.
               required: false
               type: integer
-            cool:
+            state_cool:
               description: The register value corresponding to HVAC Cool mode.
               required: false
               type: integer
-            auto:
+            state_auto:
               description: The register value corresponding to HVAC Auto mode.
               required: false
               type: integer
-            dry:
+            state_dry:
               description: The register value corresponding to HVAC Dry mode.
               required: false
               type: integer
-            fan_only:
+            state_fan_only:
               description: The register value corresponding to HVAC Fan only mode.
               required: false
               type: integer
-            heat_cool:
+            state_heat_cool:
               description: The register value corresponding to HVAC Heat/Cool mode.
               required: false
               type: integer
