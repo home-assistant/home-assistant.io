@@ -122,8 +122,8 @@ Performance testing used the following hardware:
 ### Unsupported adapters
 
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
-- tp-link UB400 [BCM20702A1] - Frequent connection failures with active connections
-- tp-link UB500 [RTL8761BU] - Frequent connection failures with active connections
+- tp-link UB400 (BCM20702A1) - Frequent connection failures with active connections
+- tp-link UB500 (RTL8761BU) - Frequent connection failures with active connections
 
 ## Multiple adapters
 
