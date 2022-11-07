@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: weenect
 ha_platforms:
   - device_tracker
+ha_integration_type: device
 ---
 
 [Weenect](https://www.weenect.com/) develops real-time location trackers for dogs and cats using GPS and GSM technology.
