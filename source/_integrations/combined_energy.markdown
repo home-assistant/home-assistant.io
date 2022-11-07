@@ -54,13 +54,13 @@ Sensors for a solar PV inverter.
 Sensors for a water heater.
 
 - Energy Consumption - Total amount of energy being consumed in kWh
-- Solar Energy Consumption - Amount of energy being consumed from solar sources in kWh  
-- Battery Energy Consumption - Amount of energy being consumed from battery sources in kWh  
-- Grid Energy Consumption - Amount of energy being consumed from the grid (imported) in kWh
+- Energy Consumption Solar - Amount of energy being consumed from solar sources in kWh  
+- Energy Consumption Battery - Amount of energy being consumed from battery sources in kWh  
+- Energy Consumption Grid - Amount of energy being consumed from the grid (imported) in kWh
 - Power Consumption - Total power being consumed at time of reading in kW
-- Solar Power Consumption - Amount of power being consumed from solar sources at time of reading in kW
-- Battery Power Consumption - Amount of power being consumed from battery sources at time of reading in kW
-- Grid Power Consumption - Amount of power being consumed from the grid (imported) at time of reading in kW
+- Power Consumption Solar - Amount of power being consumed from solar sources at time of reading in kW
+- Power Consumption Battery - Amount of power being consumed from battery sources at time of reading in kW
+- Power Consumption Grid - Amount of power being consumed from the grid (imported) at time of reading in kW
 
 If connected to a smart water heater like a Solahart PowerStore
 
@@ -85,7 +85,7 @@ Sensors for the Grid connection.
 Power factor and voltage sensors provide values for up to 3 phases if available.
 
 - Power Factor A...C - Power factor of each phase in %
-- Voltage - Current grid voltage of each phase in V
+- Voltage A...C - Current grid voltage of each phase in V
 
 #### Energy Balance and Generic Consumer
 
@@ -93,13 +93,13 @@ Both of these device types provide the same sensors. Energy Balance is typically
 dashboard where generic consumer is used for other devices e.g. Air Conditioners, Cooking Appliances etc.
 
 - Energy Consumption - Total amount of energy being consumed in kWh
-- Solar Energy Consumption - Amount of energy being consumed from solar sources in kWh  
-- Battery Energy Consumption - Amount of energy being consumed from battery sources in kWh  
-- Grid Energy Consumption - Amount of energy being consumed from the grid (imported) in kWh
+- Energy Consumption Solar - Amount of energy being consumed from solar sources in kWh  
+- Energy Consumption Battery - Amount of energy being consumed from battery sources in kWh  
+- Energy Consumption Grid - Amount of energy being consumed from the grid (imported) in kWh
 - Power Consumption - Total power being consumed at time of reading in kW
-- Solar Power Consumption - Amount of power being consumed from solar sources at time of reading in kW
-- Battery Power Consumption - Amount of power being consumed from battery sources at time of reading in kW
-- Grid Power Consumption - Amount of power being consumed from the grid (imported) at time of reading in kW
+- Power Consumption Solar - Amount of power being consumed from solar sources at time of reading in kW
+- Power Consumption Battery - Amount of power being consumed from battery sources at time of reading in kW
+- Power Consumption Grid - Amount of power being consumed from the grid (imported) at time of reading in kW
 
 #### Battery
 
