@@ -101,7 +101,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 
 #### Performance
 
-Performance is primarily determined by the chip and the combination of drivers that the adapter uses. Some vendors using the same chip had an unacceptable performance and are listed as unsupported.
+Performance is primarily determined combination of the chip and the Linux drivers that the adapter uses. Some vendors using the same chip had an unacceptable performance and are listed as unsupported.
 
 The following requirements must be met for an adapter to be labeled as High Performance:
 
