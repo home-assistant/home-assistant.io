@@ -114,6 +114,7 @@ Performance testing used the following hardware:
 
 - Active connection to Nanoleaf A19 Bulb NL45-0800 after GATT services were cached by BlueZ
 - Advertisements from an Oral-B iO Series 8
+- Home Assistant Blue running Home Assistant Operating System 9.3 (excludes Raspberry Pi on-board)
 
 ### Unsupported adapters
 
