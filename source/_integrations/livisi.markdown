@@ -37,4 +37,4 @@ The current integration will not find your SHC automatically and needs to be con
  
 ## Device Discovery
 
-All devices are automatically discovered and included by the integration. If you include a new device in LIVISI SmartHome, it will automatically appear in Home Assistant after a few minutes.
+All devices are automatically discovered and included by the integration. If you include a new device in LIVISI SmartHome, the device will automatically appear in Home Assistant after a few minutes.
