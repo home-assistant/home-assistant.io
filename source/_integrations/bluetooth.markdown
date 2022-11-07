@@ -79,7 +79,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 
 ### Known working adapters
 
-| Device                            | Chip       | High Performance | External Antennae |
+| Device                            | Chip       | High Performance | External Antenna |
 | --------------------------------- | ---------- | ---------------- | ----------------- |
 | ASUS USB-BT400                    | BCM20702A1 | ✅               |                   |
 | ASUS USB-BT500                    | RTL8761BU  |                  |                   |
