@@ -77,25 +77,53 @@ Some systems may not come with Bluetooth and require a USB adapter. Installing a
 
 If you experience an unreliable Bluetooth connection, installing a short USB extension cable between your Bluetooth adapter and your Home Assistant server may improve reliability.
 
+### Known working high performance adapters
+
+- ASUS USB-BT400 (BCM20702A1)
+- Feasycom FSC-BP119 (CSR8510A10) 📶
+- Kinivo BTD-400 (BCM20702A1)
+- Raspberry Pi 3B+ (CYW43455)
+- Raspberry Pi 4B (CYW43455)
+
+📶 Denotes external antenna
+
+Performance is primarily determined by a combination of the chip and the Linux drivers for the adapter. Some vendors using the same chip had an unacceptable performance and are listed as unsupported.
+
+The following requirements must be met for an adapter to be labeled as High Performance:
+
+- Establish a connection in about 1s or less
+- Process at least one advertisement per second from a device without dropping data
+- 95% of connection attempts are successful within two tries
+- Meets the above requirements with Home Assistant Core 2022.11.1 or later and Home Assistant Operating System 9.3 or later
+
+Performance testing used the following hardware:
+
+- Active connection to Nanoleaf A19 Bulb NL45-0800 after GATT services were cached by BlueZ
+- Advertisements from an Oral-B iO Series 8
+- External Adapters only: Home Assistant Blue running Home Assistant Operating System 9.3 with a USB extension cable.
+
 ### Known working adapters
 
-- ASUS USB-BT400 [BCM20702A1]
-- ASUS USB-BT500 [RTL8761BU]
-- Avantree DG45 [RTL8761BU]
-- EDUP LOVE EP-B3536 [RTL8761BU] (Long Range)
-- Feasycom FSC-BP119 [CSR8510A10] (Long Range)
-- Kinivo BTD-400 [BCM20702A1]
-- Maxuni BT-501 [RTL8761B]
-- SUMEE BT501 [RTL8761B]
-- UGREEN CM390 [RTL8761BU]
-- XDO BT802 [RTL8761BU] (Long Range)
-- ZEXMTE BT-505 [RTL8761BU] (Long Range)
-- ZEXMTE BT-DG54 [RTL8761BU]
+- ASUS USB-BT500 (RTL8761BU)
+- Avantree DG45 (RTL8761BU)
+- EDUP LOVE EP-B3536 (RTL8761BU) 📶
+- Maxuni BT-501 (RTL8761BU)
+- MPOW BH45A (RTL8761BU)
+- StarTech USBA-BLUETOOTH-V5-C2 (RTL8761BU)
+- SUMEE BT501 (RTL8761BU)
+- UGREEN CM390 (RTL8761BU)
+- XDO BT802 (RTL8761BU) 📶
+- ZEXMTE BT-505 (RTL8761BU) 📶
+- ZEXMTE BT-DG54 (RTL8761BU) 📶
+- ZETSAGE BH451A (RTL8761BU) 📶
+
+📶 Denotes external antenna
 
 ### Unsupported adapters
 
-- tp-link UB400 [BCM20702A1] - Frequent connection failures with active connections
-- tp-link UB500 [RTL8761BU] - Frequent connection failures with active connections
+- Belkin F8T003 ver 2. - Fails to setup and add successfully
+- tp-link UB400 (BCM20702A1) - Frequent connection failures with active connections
+- tp-link UB500 (RTL8761BU) - Frequent connection failures with active connections
 
 ## Multiple adapters
 
