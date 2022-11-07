@@ -81,12 +81,12 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 
 | Device                            | Chip       | High Performance | External Antennae |
 | --------------------------------- | ---------- | ---------------- | ----------------- |
-| ASUS USB-BT400                    | BCM20702A1 |                  |                   |
+| ASUS USB-BT400                    | BCM20702A1 | ✅               |                   |
 | ASUS USB-BT500                    | RTL8761BU  |                  |                   |
 | Avantree DG45                     | RTL8761BU  |                  |                   |
 | EDUP LOVE EP-B3536                | RTL8761BU  |                  | ✅                |
 | Feasycom FSC-BP119                | CSR8510A10 | ✅               | ✅                |
-| Kinivo BTD-400                    | BCM20702A1 |                  |                   |
+| Kinivo BTD-400                    | BCM20702A1 | ✅               |                   |
 | Maxuni BT-501                     | RTL8761BU  |                  |                   |
 | MPOW BH45A                        | RTL8761BU  |                  |                   |
 | Raspberry Pi 3B+                  | CYW43455   | ✅               |                   |
@@ -99,13 +99,21 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 | ZEXMTE BT-DG54                    | RTL8761BU  |                  |                   |
 | ZETSAGE BH451A                    | RTL8761BU  |                  |                   |
 
+#### Performance
 
-#### High performance requirements
+Performance is determined by the chip and the combination of drivers that the adapter uses.
+
+The following requirements must be met for an adapter to be labeled as High Performance:
 
 - Establish a connection in about 1s or less
 - Process at least one advertisement per second from a device without dropping data
-- Reliable connections
+- 95% of connection attempts are successful within 2 tries
 - Meets the above requirements with Home Assistant Operating System 9.3 or later
+
+Performance testing used the following hardware:
+
+- Active connection to Nanoleaf A19 Bulb NL45-0800 after GATT services were cached by BlueZ
+- Advertisements from a Oral-B iO Series 8
 
 ### Unsupported adapters
 
