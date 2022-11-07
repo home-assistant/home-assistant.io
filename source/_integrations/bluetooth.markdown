@@ -107,13 +107,13 @@ The following requirements must be met for an adapter to be labeled as High Perf
 
 - Establish a connection in about 1s or less
 - Process at least one advertisement per second from a device without dropping data
-- 95% of connection attempts are successful within 2 tries
+- 95% of connection attempts are successful within two tries
 - Meets the above requirements with Home Assistant Operating System 9.3 or later
 
 Performance testing used the following hardware:
 
 - Active connection to Nanoleaf A19 Bulb NL45-0800 after GATT services were cached by BlueZ
-- Advertisements from a Oral-B iO Series 8
+- Advertisements from an Oral-B iO Series 8
 
 ### Unsupported adapters
 
