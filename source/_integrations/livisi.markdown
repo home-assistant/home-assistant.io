@@ -33,7 +33,7 @@ Please visit [LIVISI Community](https://community.livisi.de) for more informatio
  
 ### Extra Configuration
  
-The current integration will not find you SHC automatically and needs to be configured manually. You will need to provide the IP address and the local password for the controller.
+The current integration will not find your SHC automatically and needs to be configured manually. You will need to provide the IP address and the local password for the controller.
  
 ## Device Discovery
 
