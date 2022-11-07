@@ -90,6 +90,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 | Maxuni BT-501                     | RTL8761B   |                  |                   |
 | Raspberry Pi 3B+                  | CYW43455   | ✅               |                   |
 | Raspberry Pi 4B                   | CYW43455   | ✅               |                   |
+| StarTech USBA-BLUETOOTH-V5-C2     | RTL8761BU  |                  |                   |
 | SUMEE BT501                       | RTL8761B   |                  |                   |
 | UGREEN CM390                      | RTL8761BU  |                  |                   |
 | XDO BT802                         | RTL8761BU  |                  | ✅                |
