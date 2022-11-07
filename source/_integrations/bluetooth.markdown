@@ -82,20 +82,22 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 | Device                            | Chip       | High Performance | External Antennae |
 | --------------------------------- | ---------- | ---------------- | ----------------- |
 | ASUS USB-BT400                    | BCM20702A1 |                  |                   |
-| ASUS USB-BT500                    | RTL8761BU  | ⚠️                |                   |
-| Avantree DG45                     | RTL8761BU  | ⚠️                |                   |
-| EDUP LOVE EP-B3536                | RTL8761BU  | ⚠️                | ✅                |
+| ASUS USB-BT500                    | RTL8761BU  |                  |                   |
+| Avantree DG45                     | RTL8761BU  |                  |                   |
+| EDUP LOVE EP-B3536                | RTL8761BU  |                  | ✅                |
 | Feasycom FSC-BP119                | CSR8510A10 | ✅               | ✅                |
 | Kinivo BTD-400                    | BCM20702A1 |                  |                   |
-| Maxuni BT-501                     | RTL8761B   | ⚠️                |                   |
+| Maxuni BT-501                     | RTL8761BU  |                  |                   |
+| MPOW BH45A                        | RTL8761BU  |                  |                   |
 | Raspberry Pi 3B+                  | CYW43455   | ✅               |                   |
 | Raspberry Pi 4B                   | CYW43455   | ✅               |                   |
-| StarTech USBA-BLUETOOTH-V5-C2     | RTL8761BU  | ⚠️                |                   |
-| SUMEE BT501                       | RTL8761B   | ⚠️                |                   |
-| UGREEN CM390                      | RTL8761BU  | ⚠️                |                   |
-| XDO BT802                         | RTL8761BU  | ⚠️                | ✅                |
-| ZEXMTE BT-505                     | RTL8761BU  | ⚠️                | ✅                |
-| ZEXMTE BT-DG54                    | RTL8761BU  | ⚠️                |                   |
+| StarTech USBA-BLUETOOTH-V5-C2     | RTL8761BU  |                  |                   |
+| SUMEE BT501                       | RTL8761BU  |                  |                   |
+| UGREEN CM390                      | RTL8761BU  |                  |                   |
+| XDO BT802                         | RTL8761BU  |                  | ✅                |
+| ZEXMTE BT-505                     | RTL8761BU  |                  | ✅                |
+| ZEXMTE BT-DG54                    | RTL8761BU  |                  |                   |
+| ZETSAGE BH451A                    | RTL8761BU  |                  |                   |
 
 
 #### High performance requirements
@@ -103,6 +105,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - Establish a connection in about 1s or less
 - Process at least one advertisement per second from a device without dropping data
 - Reliable connections
+- Meets the above requirements with Home Assistant Operating System 9.3 or later
 
 ### Unsupported adapters
 
