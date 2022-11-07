@@ -117,6 +117,8 @@ Performance testing used the following hardware:
 - ZEXMTE BT-DG54 (RTL8761BU) 📶
 - ZETSAGE BH451A (RTL8761BU) 📶
 
+📶 Denotes external antenna
+
 ### Unsupported adapters
 
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
