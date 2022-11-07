@@ -87,7 +87,7 @@ apt-get update
 apt-get install --reinstall --allow-downgrades unifi-protect=2.0.0~beta.5 -y
 ```
 
-You can replace `v2.0.0-beta.5` with whatever version of UniFi Protect you want to downgrade to.
+You can replace `2.0.0~beta.5` with whatever version of UniFi Protect you want to downgrade to. Any dashes in the version (`-`), replace with tilde (`~`).
 
 <div class='note'>
 
