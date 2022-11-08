@@ -61,12 +61,9 @@ The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you 
 
 #### About UniFi Early Access
 
-Since UniFi Protect has its own release cycle, you should only upgrade UniFi Protect _after_ the next Home Assistant release to ensure the new version is fully supported. Most importantly, that means **do not use Early Access versions of UniFi Protect if you want your UniFi Protect integration to be stable**. Early Access versions can and will break the UniFi Protect Home Assistant integration unexpectedly. If you desire to use Early Access versions of UniFi Protect, you can disable automatic updates and wait for the next bugfix version of UniFi Protect to come out.
+Since UniFi Protect has its own release cycle, Early Access versions of UniFi Protect are used to ensure compatibility with Home Assistant. As a result, Early Access releases **not supported by Home Assistant**. Using an Early Access release may cause your UniFi Protect integration to break unexpectedly.
 
-For example, the latest UniFi Protect Early Access version as of `2022.5.4` is UniFi Protect `2.0.0-beta.5` and the latest Early Access version of UniFi Protect is `2.0.0-beta.7`. So that means:
-
-* **do not** upgrade to `2.0.0-beta.7` until `2022.5.5` or `2022.6.0` comes out
-* the recommended version of UniFi Protect are any `1.21.x` version or `2.0.0-beta` version before `2.0.0-beta.7`
+**If you want your UniFi Protect integration to be stable, do not use Early Access versions of UniFi Protect**.
 
 #### Downgrading UniFi Protect
 
@@ -85,6 +82,16 @@ apt-get install --reinstall --allow-downgrades unifi-protect=2.0.0~beta.5 -y
 You can replace `2.0.0-beta.5` with whatever version of UniFi Protect you want to downgrade to.
 
 **Note**: if you want to downgrade to another Early Access version, you must have <a href="https://help.ui.com/hc/en-us/articles/115012240067-UniFi-How-to-enable-remote-access" target="_blank" rel="noopener">Remote Access enabled</a> and have the Early Access release channel enabled.
+
+#### Using Early Access Releases
+
+If you have chosen to ignore all of the warnings about Early Access, here are some rules/tips to follow when using Early Access releases.
+
+* Report issues [upstream](https://github.com/AngellusMortis/pyunifiprotect/issues/) rather to Home Assistant Core
+* Disable automatic updates for UniFi Protect
+* Only update UniFi Protect _after_ the next Home Assistant update comes out
+
+This should provide a semi-stable experience for using Early Access versions for UniFi Protect.
 
 ### Local User
 
