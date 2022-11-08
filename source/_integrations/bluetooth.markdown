@@ -77,8 +77,6 @@ Some systems may not come with Bluetooth and require a USB adapter. Installing a
 
 If you experience an unreliable Bluetooth connection, installing a short USB extension cable between your Bluetooth adapter and your Home Assistant server may improve reliability.
 
-Some adapters, mainly the Cambridge Silicon Radio (CSR) and Broadcom (BCM) adapters, require a reboot to be discovered.
-
 ### Known working high performance adapters
 
 - Feasycom FSC-BP119 (CSR8510A10) 📶
@@ -108,7 +106,9 @@ Performance testing used the following hardware:
 
 ### Adapters with missing firmware patch files
 
-These adapters do not currently have patch files with Home Assistant Operating System 9.3. The adapter may take multiple minutes to initialize after boot; eventually, they come online. While the Broadcom chips and drivers are generally performant, the experience may be sub-optimal until patch files are added.
+These adapters do not currently have patch files with Home Assistant Operating System 9.3. The adapter may take multiple minutes to initialize after boot; eventually, they come online.
+
+While the Broadcom chips and drivers are generally performant, the experience may be sub-optimal until patch files are added.
 
 - ASUS USB-BT400 (BCM20702A1) - USB id 0b05:17cb
 - Cable Matters 604002-BLK (BCM20702A1) - USB id 0a5c:21e8
