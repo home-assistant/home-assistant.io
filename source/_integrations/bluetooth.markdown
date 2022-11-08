@@ -112,7 +112,7 @@ Performance testing used the following hardware:
 
 - ASUS USB-BT500 (RTL8761BU)
 - Avantree DG45 (RTL8761BU)
-- Cable Matters 604002-BLK (BCM20702A1) - Good performance, but takes 2-3 minutes to initialize after boot
+- Cable Matters 604002-BLK (BCM20702A1) - Performant, but takes 2-3 minutes to initialize after boot
 - EDUP LOVE EP-B3536 (RTL8761BU) 📶
 - Maxuni BT-501 (RTL8761BU)
 - MPOW BH45A (RTL8761BU)
