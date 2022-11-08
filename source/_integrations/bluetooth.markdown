@@ -139,7 +139,7 @@ While the Broadcom chips and drivers are generally performant, the experience ma
 
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
 - QUMOX Bluetooth 5.0 (Barrot 8041A02) - No working driver
-- tp-link UB400 (BCM20702A1) - Frequent connection failures with active connections
+- tp-link UB400 (CSR4) - Frequent connection failures with active connections
 - tp-link UB500 (RTL8761BU) - Frequent connection failures with active connections
 
 ## Multiple adapters
