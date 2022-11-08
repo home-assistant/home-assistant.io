@@ -3,11 +3,11 @@ title: Velbus
 description: Access and control your Velbus devices.
 ha_category:
   - Binary Sensor
+  - Button
   - Climate
   - Hub
   - Light
   - Sensor
-  - Button
   - Switch
 ha_iot_class: Local Push
 ha_release: '0.50'
@@ -25,7 +25,7 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The `velbus` integration is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It supports the Velbus USB, Velbus serial and a TCP/IP gateway.

@@ -12,7 +12,7 @@ ha_domain: iqvia
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The `iqvia` sensor platform collects and displays allergy, asthma and disease
