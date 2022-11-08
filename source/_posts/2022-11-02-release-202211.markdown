@@ -53,6 +53,7 @@ Sunday, November 13, 2022 (11:00 AM PST / 20:00 CET).
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.11.1 - November 3](#release-2022111---november-3)
+- [Release 2022.11.2 - November 8](#release-2022112---november-8)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -355,6 +356,171 @@ The following integrations are now available via the Home Assistant UI:
 [huisbaasje docs]: /integrations/huisbaasje/
 [snooz docs]: /integrations/snooz/
 [ssdp docs]: /integrations/ssdp/
+
+## Release 2022.11.2 - November 8
+
+- Fix scrape scan interval ([@epenet] - [#81763]) ([scrape docs])
+- Fix ignored upnp discoveries not being matched when device changes its unique identifier ([@StevenLooman] - [#81240]) ([upnp docs])
+- Align esphome ble client notify behavior to match BlueZ ([@bdraco] - [#81463]) ([esphome docs])
+- Bump nexia to 2.0.6 ([@bdraco] - [#81474]) ([nexia docs])
+- Bump oralb-ble to 0.10.1 ([@bdraco] - [#81491]) ([oralb docs]) (dependency)
+- Fix lifx.set_state so it works with kelvin and color_temp_kelvin and color names ([@Djelibeybi] - [#81515]) ([lifx docs])
+- Add additional coverage for adding multiple elkm1 instances ([@bdraco] - [#81528]) ([elkm1 docs])
+- Bump oralb-ble to 0.10.2 ([@bdraco] - [#81537]) ([oralb docs]) (dependency)
+- Bump pyairvisual to 2022.11.1 ([@bachya] - [#81556]) ([airvisual docs])
+- Bump gcal_sync to 4.0.0 ([@allenporter] - [#81562]) ([google docs]) (dependency)
+- Fix Shelly Plus HT missing battery entity ([@thecode] - [#81564]) ([shelly docs])
+- Fix watermeter issue for old P1 Monitor versions ([@klaasnicolaas] - [#81570]) ([p1_monitor docs]) (dependency)
+- Bump pylitterbot to 2022.11.0 ([@natekspencer] - [#81572]) ([litterrobot docs]) (dependency)
+- Fix HomeKit reset accessory procedure ([@bdraco] - [#81573]) ([homekit docs])
+- Ensure HomeKit temperature controls appear before fan controls on thermostat accessories ([@bdraco] - [#81586]) ([homekit docs])
+- Bump ZHA quirks and associated changes ([@dmulcahey] - [#81587]) ([zha docs]) (dependency)
+- Always use Celsius in Shelly integration, part 2 ([@bieniu] - [#81602]) ([shelly docs])
+- Bump PyXiaomiGateway to 0.14.3 ([@syssi] - [#81603]) (dependency)
+- Fix invalid min and max color temp in bad ZHA light devices ([@dmulcahey] - [#81604]) ([zha docs])
+- Fix repeating SSDP errors by checking address scope_ids and proper hostname ([@StevenLooman] - [#81611]) ([upnp docs]) ([yeelight docs]) ([dlna_dmr docs]) ([samsungtv docs]) ([ssdp docs]) ([dlna_dms docs]) (dependency)
+- Bump plugwise to v0.25.7 ([@bouwew] - [#81612]) ([plugwise docs]) (dependency)
+- Fix homekit bridge iid allocations ([@bdraco] - [#81613]) ([homekit docs])
+- Bump venstarcolortouch to 0.19 to fix API rev 3 devices ([@garbled1] - [#81614])
+- Ignore unspecified addresses from zeroconf ([@bdraco] - [#81620]) ([zeroconf docs])
+- Bump aiohomekit to 2.2.16 ([@bdraco] - [#81621]) ([homekit_controller docs]) (dependency)
+- Bump oralb-ble to 0.13.0 ([@bdraco] - [#81622]) ([oralb docs]) (dependency)
+- Fix creating multiple ElkM1 systems with TLS 1.2 ([@bdraco] - [#81627]) ([elkm1 docs])
+- Fix situation where deCONZ sensor platform setup would fail ([@Kane610] - [#81629]) ([deconz docs])
+- Add missing h2 dep to iaqualink ([@bdraco] - [#81630]) ([iaqualink docs])
+- Bump pyatmo to 7.4.0 ([@cgtobi] - [#81636]) ([netatmo docs])
+- Fix Bravia TV options flow when device is off ([@Drafteed] - [#81644]) ([braviatv docs])
+- Bump aiohomekit to 2.2.17 ([@bdraco] - [#81657]) ([homekit_controller docs]) (dependency)
+- Fix missing RainMachine restrictions switches ([@bachya] - [#81673]) ([rainmachine docs])
+- Bump bluetooth-adapters to 0.7.0 ([@bdraco] - [#81576]) ([bluetooth docs]) (dependency)
+- Bump bleak-retry-connector to 2.8.3 ([@bdraco] - [#81675]) ([bluetooth docs]) (dependency)
+- Bump aioesphomeapi to 11.4.3 ([@bdraco] - [#81676]) ([esphome docs]) (dependency)
+- Bump bleak to 0.19.2 ([@bdraco] - [#81688]) ([bluetooth docs]) (dependency)
+- Restore negative values for shelly power factors ([@chemelli74] - [#81689]) ([shelly docs])
+- Bump aiohomekit to 2.2.18 ([@bdraco] - [#81693]) ([homekit_controller docs]) (dependency)
+- Bump aiopyarr to 22.11.0 ([@tkdrob] - [#81694]) ([sonarr docs]) ([radarr docs]) ([lidarr docs]) (dependency)
+- Fix flapping logbook tests ([@bdraco] - [#81695]) ([logbook docs])
+- Adjust REST schema validation ([@epenet] - [#81723]) ([rest docs])
+- Fix check for duplicate config entry reauth when context is passed or augmented ([@bdraco] - [#81753])
+- Use more efficient async_progress_by_handler call in async_start_reauth ([@bdraco] - [#81757])
+- Partially revert google local sync for search cases ([@allenporter] - [#81761]) ([google docs])
+- Fix rest import ([@epenet] - [#81784]) ([rest docs])
+- Update frontend to 20221108.0 ([@bramkragten] - [#81787]) ([frontend docs])
+- Retry tibber setup ([@ztamas83] - [#81785]) ([tibber docs])
+- Fix off by one in HomeKit iid allocator ([@bdraco] - [#81793]) ([homekit docs])
+
+[#81240]: https://github.com/home-assistant/core/pull/81240
+[#81423]: https://github.com/home-assistant/core/pull/81423
+[#81463]: https://github.com/home-assistant/core/pull/81463
+[#81474]: https://github.com/home-assistant/core/pull/81474
+[#81488]: https://github.com/home-assistant/core/pull/81488
+[#81491]: https://github.com/home-assistant/core/pull/81491
+[#81515]: https://github.com/home-assistant/core/pull/81515
+[#81528]: https://github.com/home-assistant/core/pull/81528
+[#81537]: https://github.com/home-assistant/core/pull/81537
+[#81556]: https://github.com/home-assistant/core/pull/81556
+[#81562]: https://github.com/home-assistant/core/pull/81562
+[#81564]: https://github.com/home-assistant/core/pull/81564
+[#81570]: https://github.com/home-assistant/core/pull/81570
+[#81572]: https://github.com/home-assistant/core/pull/81572
+[#81573]: https://github.com/home-assistant/core/pull/81573
+[#81576]: https://github.com/home-assistant/core/pull/81576
+[#81586]: https://github.com/home-assistant/core/pull/81586
+[#81587]: https://github.com/home-assistant/core/pull/81587
+[#81602]: https://github.com/home-assistant/core/pull/81602
+[#81603]: https://github.com/home-assistant/core/pull/81603
+[#81604]: https://github.com/home-assistant/core/pull/81604
+[#81611]: https://github.com/home-assistant/core/pull/81611
+[#81612]: https://github.com/home-assistant/core/pull/81612
+[#81613]: https://github.com/home-assistant/core/pull/81613
+[#81614]: https://github.com/home-assistant/core/pull/81614
+[#81620]: https://github.com/home-assistant/core/pull/81620
+[#81621]: https://github.com/home-assistant/core/pull/81621
+[#81622]: https://github.com/home-assistant/core/pull/81622
+[#81627]: https://github.com/home-assistant/core/pull/81627
+[#81629]: https://github.com/home-assistant/core/pull/81629
+[#81630]: https://github.com/home-assistant/core/pull/81630
+[#81636]: https://github.com/home-assistant/core/pull/81636
+[#81644]: https://github.com/home-assistant/core/pull/81644
+[#81657]: https://github.com/home-assistant/core/pull/81657
+[#81673]: https://github.com/home-assistant/core/pull/81673
+[#81675]: https://github.com/home-assistant/core/pull/81675
+[#81676]: https://github.com/home-assistant/core/pull/81676
+[#81688]: https://github.com/home-assistant/core/pull/81688
+[#81689]: https://github.com/home-assistant/core/pull/81689
+[#81693]: https://github.com/home-assistant/core/pull/81693
+[#81694]: https://github.com/home-assistant/core/pull/81694
+[#81695]: https://github.com/home-assistant/core/pull/81695
+[#81723]: https://github.com/home-assistant/core/pull/81723
+[#81753]: https://github.com/home-assistant/core/pull/81753
+[#81757]: https://github.com/home-assistant/core/pull/81757
+[#81761]: https://github.com/home-assistant/core/pull/81761
+[#81763]: https://github.com/home-assistant/core/pull/81763
+[#81784]: https://github.com/home-assistant/core/pull/81784
+[#81785]: https://github.com/home-assistant/core/pull/81785
+[#81787]: https://github.com/home-assistant/core/pull/81787
+[#81793]: https://github.com/home-assistant/core/pull/81793
+[3_day_blinds docs]: /integrations/3_day_blinds/
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@Drafteed]: https://github.com/Drafteed
+[@Kane610]: https://github.com/Kane610
+[@StevenLooman]: https://github.com/StevenLooman
+[@allenporter]: https://github.com/allenporter
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bouwew]: https://github.com/bouwew
+[@bramkragten]: https://github.com/bramkragten
+[@cgtobi]: https://github.com/cgtobi
+[@chemelli74]: https://github.com/chemelli74
+[@dmulcahey]: https://github.com/dmulcahey
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@garbled1]: https://github.com/garbled1
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@natekspencer]: https://github.com/natekspencer
+[@syssi]: https://github.com/syssi
+[@thecode]: https://github.com/thecode
+[@tkdrob]: https://github.com/tkdrob
+[@ztamas83]: https://github.com/ztamas83
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[airvisual docs]: /integrations/airvisual/
+[bluetooth docs]: /integrations/bluetooth/
+[braviatv docs]: /integrations/braviatv/
+[deconz docs]: /integrations/deconz/
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[dlna_dms docs]: /integrations/dlna_dms/
+[elkm1 docs]: /integrations/elkm1/
+[esphome docs]: /integrations/esphome/
+[frontend docs]: /integrations/frontend/
+[google docs]: /integrations/google/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[iaqualink docs]: /integrations/iaqualink/
+[lidarr docs]: /integrations/lidarr/
+[lifx docs]: /integrations/lifx/
+[litterrobot docs]: /integrations/litterrobot/
+[logbook docs]: /integrations/logbook/
+[netatmo docs]: /integrations/netatmo/
+[nexia docs]: /integrations/nexia/
+[oralb docs]: /integrations/oralb/
+[p1_monitor docs]: /integrations/p1_monitor/
+[plugwise docs]: /integrations/plugwise/
+[radarr docs]: /integrations/radarr/
+[rainmachine docs]: /integrations/rainmachine/
+[rest docs]: /integrations/rest/
+[samsungtv docs]: /integrations/samsungtv/
+[scrape docs]: /integrations/scrape/
+[shelly docs]: /integrations/shelly/
+[sonarr docs]: /integrations/sonarr/
+[ssdp docs]: /integrations/ssdp/
+[tibber docs]: /integrations/tibber/
+[upnp docs]: /integrations/upnp/
+[yeelight docs]: /integrations/yeelight/
+[zeroconf docs]: /integrations/zeroconf/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
