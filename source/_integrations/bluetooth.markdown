@@ -82,7 +82,6 @@ Some adapters, mainly the Cambridge Silicon Radio (CSR) and Broadcom (BCM) adapt
 ### Known working high performance adapters
 
 - ASUS USB-BT400 (BCM20702A1)
-- Cable Matters 604002-BLK (BCM20702A1)
 - Feasycom FSC-BP119 (CSR8510A10) 📶
 - Kinivo BTD-400 (BCM20702A1)
 - Panda Wireless PBU40 (CSR8510A10)
@@ -97,6 +96,7 @@ Performance is primarily determined by a combination of the chip and the Linux d
 
 The following requirements must be met for an adapter to be labeled as High Performance:
 
+- Up by the time the Home Assistant Core container is started when using Home Assistant Operating System
 - Establish a connection in about 1s or less
 - Process at least one advertisement per second from a device without dropping data
 - 95% of connection attempts are successful within two tries
@@ -112,6 +112,7 @@ Performance testing used the following hardware:
 
 - ASUS USB-BT500 (RTL8761BU)
 - Avantree DG45 (RTL8761BU)
+- Cable Matters 604002-BLK (BCM20702A1) - Takes 2-3 minutes to initialize after boot
 - EDUP LOVE EP-B3536 (RTL8761BU) 📶
 - Maxuni BT-501 (RTL8761BU)
 - MPOW BH45A (RTL8761BU)
