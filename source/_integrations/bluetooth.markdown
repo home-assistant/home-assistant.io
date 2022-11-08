@@ -88,7 +88,6 @@ Some adapters, mainly the Cambridge Silicon Radio (CSR) and Broadcom (BCM) adapt
 - Raspberry Pi 3B+ (CYW43455)
 - Raspberry Pi 4B (CYW43455)
 - SABRENT BT-UB40 (CSR8510A10)
-- StarTech USBBT1EDR4 (BCM20702A1)
 - Techkey PBT06H (CSR8510A10)
 
 📶 Denotes external antenna
@@ -117,6 +116,7 @@ Performance testing used the following hardware:
 - Maxuni BT-501 (RTL8761BU)
 - MPOW BH45A (RTL8761BU)
 - StarTech USBA-BLUETOOTH-V5-C2 (RTL8761BU)
+- StarTech USBBT1EDR4 (BCM20702A1)
 - SUMEE BT501 (RTL8761BU)
 - UGREEN CM390 (RTL8761BU)
 - XDO BT802 (RTL8761BU) 📶
