@@ -83,22 +83,22 @@ A standard Linux application for running the Nibe Gateway software is also avail
 
 ### Modbus Connection
 
-Home Assistant support connecting to Nibe heat pumps over modbus over either TCP or RCU like connections. When connecting to the pump inside a Home Assistant, Modbus connection string must be specified.
+Home Assistant support connecting to Nibe heat pumps over Modbus over either TCP or RCU like connections. When connecting to the pump inside a Home Assistant, the Modbus connection string must be specified.
 
 #### TCP/IP
 
-The newer S-series pump expose a built in TCP Modbus server that can be used to communicate with the pump. To enable support for this integration, the pump must be connected to your local network and network (5.2 - Network settings) and modbus (7.5.9 - Modbus TCP/IP) must be enabled. More details on the modbus support in the pump can be found in Nibe document [M12676EN](https://partner.nibe.eu/nibedocuments/29795/M12676EN.pdf).
+The newer S-series pump exposes a built-in TCP Modbus server that can be used to communicate with the pump. To enable support for this integration, the pump must be connected to your local network and network (5.2 - Network settings) and Modbus (7.5.9 - Modbus TCP/IP) must be enabled. More details on the Modbus support in the pump can be found in Nibe document [M12676EN](https://partner.nibe.eu/nibedocuments/29795/M12676EN.pdf).
 
 - `tcp://[IP OR HOSTNAME]`
 - `tcp://[IP OR HOSTNAME]:502`
 
 #### RCU
 
-If your system is equipped with a MODBUS40 accessory, this can be used to control your pump. To connect Home Assistant to the MODBUS40 accessory, a RS485 USB dongle is needed, which can be locally connected to you Home Assistant system, or on a separate computer exposed via [ser2net](https://linux.die.net/man/8/ser2net)
+If your system is equipped with a MODBUS40 accessory, this can be used to control your pump. To connect Home Assistant to the MODBUS40 accessory, a RS485 USB dongle is needed, which can be locally connected to your Home Assistant system, or on a separate computer exposed via [ser2net](https://linux.die.net/man/8/ser2net)
 
 - `serial://[DEVICE PATH]` for direct local connection
 - `rfc2217://[IP OR HOSTNAME]:[PORT]` for a [ser2net](https://linux.die.net/man/8/ser2net) type proxy
 
 <div class='note info'>
-Support for RCU based communication is currently untested.
+Support for RCU-based communication is currently untested.
 </div>
