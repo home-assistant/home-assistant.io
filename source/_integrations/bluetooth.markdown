@@ -77,6 +77,8 @@ Some systems may not come with Bluetooth and require a USB adapter. Installing a
 
 If you experience an unreliable Bluetooth connection, installing a short USB extension cable between your Bluetooth adapter and your Home Assistant server may improve reliability.
 
+Some adapters, mainly the Cambridge Silicon Radio (CSR) and Broadcom (BCM) adapters, require a reboot to be discovered.
+
 ### Known working high performance adapters
 
 - ASUS USB-BT400 (BCM20702A1)
