@@ -88,6 +88,7 @@ Some adapters, mainly the Cambridge Silicon Radio (CSR) and Broadcom (BCM) adapt
 - Raspberry Pi 3B+ (CYW43455)
 - Raspberry Pi 4B (CYW43455)
 - SABRENT BT-UB40 (CSR8510A10)
+- Techkey PBT06H (CSR8510A10)
 
 📶 Denotes external antenna
 
