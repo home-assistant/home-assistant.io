@@ -112,10 +112,11 @@ Performance testing used the following hardware:
 
 - ASUS USB-BT500 (RTL8761BU)
 - Avantree DG45 (RTL8761BU)
-- Cable Matters 604002-BLK (BCM20702A1) - Performant, but takes 2-3 minutes to initialize after boot
+- Cable Matters 604002-BLK (BCM20702A1) - Performant, but takes multiple minutes to initialize after boot because firmware patch files are missing for 0a5c-21e8
 - EDUP LOVE EP-B3536 (RTL8761BU) 📶
 - Maxuni BT-501 (RTL8761BU)
 - MPOW BH45A (RTL8761BU)
+- Pluggable USB-BT4LE (BCM20702A1) - Performant, but takes multiple minutes to initialize after boot because firmware patch files are missing for 0a5c-21e8
 - StarTech USBA-BLUETOOTH-V5-C2 (RTL8761BU)
 - SUMEE BT501 (RTL8761BU)
 - UGREEN CM390 (RTL8761BU)
@@ -129,7 +130,6 @@ Performance testing used the following hardware:
 ### Unsupported adapters
 
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
-- Pluggable USB-BT4LE (BCM20702A1) - No working driver
 - QUMOX Bluetooth 5.0 (Barrot 8041A02) - No working driver
 - tp-link UB400 (BCM20702A1) - Frequent connection failures with active connections
 - tp-link UB500 (RTL8761BU) - Frequent connection failures with active connections
