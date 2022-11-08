@@ -82,6 +82,7 @@ Some adapters, mainly the Cambridge Silicon Radio (CSR) and Broadcom (BCM) adapt
 ### Known working high performance adapters
 
 - ASUS USB-BT400 (BCM20702A1)
+- Cable Matters 604002-BLK (BCM20702A1)
 - Feasycom FSC-BP119 (CSR8510A10) 📶
 - Kinivo BTD-400 (BCM20702A1)
 - Panda Wireless PBU40 (CSR8510A10)
