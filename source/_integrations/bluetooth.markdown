@@ -88,6 +88,7 @@ Some adapters, mainly the Cambridge Silicon Radio (CSR) and Broadcom (BCM) adapt
 - Raspberry Pi 3B+ (CYW43455)
 - Raspberry Pi 4B (CYW43455)
 - SABRENT BT-UB40 (CSR8510A10)
+- StarTech USBBT1EDR4 (BCM20702A1)
 - Techkey PBT06H (CSR8510A10)
 
 📶 Denotes external antenna
@@ -112,11 +113,9 @@ Performance testing used the following hardware:
 
 - ASUS USB-BT500 (RTL8761BU)
 - Avantree DG45 (RTL8761BU)
-- Cable Matters 604002-BLK (BCM20702A1) - Performant, but takes multiple minutes to initialize after boot; firmware patch files are missing for 0a5c-21e8
 - EDUP LOVE EP-B3536 (RTL8761BU) 📶
 - Maxuni BT-501 (RTL8761BU)
 - MPOW BH45A (RTL8761BU)
-- Pluggable USB-BT4LE (BCM20702A1) - Performant, but takes multiple minutes to initialize after boot; firmware patch files are missing for 0a5c-21e8
 - StarTech USBA-BLUETOOTH-V5-C2 (RTL8761BU)
 - SUMEE BT501 (RTL8761BU)
 - UGREEN CM390 (RTL8761BU)
@@ -126,6 +125,15 @@ Performance testing used the following hardware:
 - ZETSAGE BH451A (RTL8761BU) 📶
 
 📶 Denotes external antenna
+
+### Adapters with missing firmware patch files
+
+These adapters do not currently have patch files with Home Assistant Operating System 9.3. They take multiple minutes to initialize after boot but do eventually come online and may not be reliable.
+
+- Cable Matters 604002-BLK (BCM20702A1) - usb id 0a5c-21e8
+- Pluggable USB-BT4LE (BCM20702A1) - usb id 0a5c-21e8
+- SoundBot SB342 (BCM20702A1) - usb id 0a5c-21ec
+- StarTech USBBT2EDR4 (BCM20702A1) - usb id 0a5c-21e8
 
 ### Unsupported adapters
 
