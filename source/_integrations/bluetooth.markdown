@@ -82,8 +82,10 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - ASUS USB-BT400 (BCM20702A1)
 - Feasycom FSC-BP119 (CSR8510A10) 📶
 - Kinivo BTD-400 (BCM20702A1)
+- Panda Wireless PBU40 (CSR8510A10)
 - Raspberry Pi 3B+ (CYW43455)
 - Raspberry Pi 4B (CYW43455)
+- SABRENT BT-UB40 (CSR8510A10)
 
 📶 Denotes external antenna
 
@@ -122,6 +124,8 @@ Performance testing used the following hardware:
 ### Unsupported adapters
 
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
+- Pluggable USB-BT4LE (BCM20702A1) - No working driver
+- QUMOX Bluetooth 5.0 (Barrot 8041A02) - No working driver
 - tp-link UB400 (BCM20702A1) - Frequent connection failures with active connections
 - tp-link UB500 (RTL8761BU) - Frequent connection failures with active connections
 
