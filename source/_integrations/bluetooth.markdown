@@ -130,10 +130,10 @@ Performance testing used the following hardware:
 
 These adapters do not currently have patch files with Home Assistant Operating System 9.3. They take multiple minutes to initialize after boot but do eventually come online and may not be reliable.
 
-- Cable Matters 604002-BLK (BCM20702A1) - usb id 0a5c-21e8
-- Pluggable USB-BT4LE (BCM20702A1) - usb id 0a5c-21e8
-- SoundBot SB342 (BCM20702A1) - usb id 0a5c-21ec
-- StarTech USBBT2EDR4 (BCM20702A1) - usb id 0a5c-21e8
+- Cable Matters 604002-BLK (BCM20702A1) - USB id 0a5c:21e8
+- Pluggable USB-BT4LE (BCM20702A1) - USB id 0a5c:21e8
+- SoundBot SB342 (BCM20702A1) - USB id 0a5c:21ec
+- StarTech USBBT2EDR4 (BCM20702A1) - USB id 0a5c:21e8
 
 ### Unsupported adapters
 
