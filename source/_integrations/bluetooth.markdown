@@ -104,7 +104,7 @@ Performance testing used the following hardware:
 - Advertisements from an Oral-B iO Series 8
 - External Adapters only: Home Assistant Blue running Home Assistant Operating System 9.3 with a USB extension cable.
 
-### Adapters with missing firmware patch files
+### Known working adapters with missing firmware patch files
 
 These adapters do not currently have patch files with Home Assistant Operating System 9.3. The adapter may take multiple minutes to initialize after boot; eventually, they come online.
 
