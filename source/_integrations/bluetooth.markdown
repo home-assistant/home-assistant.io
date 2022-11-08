@@ -81,7 +81,6 @@ Some adapters, mainly the Cambridge Silicon Radio (CSR) and Broadcom (BCM) adapt
 
 ### Known working high performance adapters
 
-- ASUS USB-BT400 (BCM20702A1)
 - Feasycom FSC-BP119 (CSR8510A10) 📶
 - Kinivo BTD-400 (BCM20702A1)
 - Panda Wireless PBU40 (CSR8510A10)
@@ -108,6 +107,16 @@ Performance testing used the following hardware:
 - Advertisements from an Oral-B iO Series 8
 - External Adapters only: Home Assistant Blue running Home Assistant Operating System 9.3 with a USB extension cable.
 
+### Adapters with missing firmware patch files
+
+These adapters do not currently have patch files with Home Assistant Operating System 9.3. The adapter may take multiple minutes to initialize after boot; eventually, they come online. While the Broadcom chips and drivers are generally performant, the experience may be sub-optimal until patch files are added.
+
+- ASUS USB-BT400 (BCM20702A1) - USB id 0b05:17cb
+- Cable Matters 604002-BLK (BCM20702A1) - USB id 0a5c:21e8
+- Pluggable USB-BT4LE (BCM20702A1) - USB id 0a5c:21e8
+- SoundBot SB342 (BCM20702A1) - USB id 0a5c:21ec
+- StarTech USBBT2EDR4 (BCM20702A1) - USB id 0a5c:21e8
+  
 ### Known working adapters
 
 - ASUS USB-BT500 (RTL8761BU)
@@ -125,15 +134,6 @@ Performance testing used the following hardware:
 - ZETSAGE BH451A (RTL8761BU) 📶
 
 📶 Denotes external antenna
-
-### Adapters with missing firmware patch files
-
-These adapters do not currently have patch files with Home Assistant Operating System 9.3. They take multiple minutes to initialize after boot but do eventually come online and may not be reliable.
-
-- Cable Matters 604002-BLK (BCM20702A1) - USB id 0a5c:21e8
-- Pluggable USB-BT4LE (BCM20702A1) - USB id 0a5c:21e8
-- SoundBot SB342 (BCM20702A1) - USB id 0a5c:21ec
-- StarTech USBBT2EDR4 (BCM20702A1) - USB id 0a5c:21e8
 
 ### Unsupported adapters
 
