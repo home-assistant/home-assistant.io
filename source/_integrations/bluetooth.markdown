@@ -82,7 +82,6 @@ Some adapters, mainly the Cambridge Silicon Radio (CSR) and Broadcom (BCM) adapt
 ### Known working high performance adapters
 
 - Feasycom FSC-BP119 (CSR8510A10) 📶
-- Kinivo BTD-400 (BCM20702A1)
 - Panda Wireless PBU40 (CSR8510A10)
 - Raspberry Pi 3B+ (CYW43455)
 - Raspberry Pi 4B (CYW43455)
@@ -113,6 +112,7 @@ These adapters do not currently have patch files with Home Assistant Operating S
 
 - ASUS USB-BT400 (BCM20702A1) - USB id 0b05:17cb
 - Cable Matters 604002-BLK (BCM20702A1) - USB id 0a5c:21e8
+- Kinivo BTD-400 (BCM20702A1)
 - Pluggable USB-BT4LE (BCM20702A1) - USB id 0a5c:21e8
 - SoundBot SB342 (BCM20702A1) - USB id 0a5c:21ec
 - StarTech USBBT2EDR4 (BCM20702A1) - USB id 0a5c:21e8
