@@ -112,11 +112,11 @@ These adapters do not currently have patch files with Home Assistant Operating S
 While the Broadcom chips and drivers are generally performant, the experience may be sub-optimal until patch files are added.
 
 - ASUS USB-BT400 (BCM20702A1) - USB id 0b05:17cb
-- Cable Matters 604002-BLK (BCM20702A1) - USB id 0a5c:21e8
+- Cable Matters 604002-BLK (BCM20702A0) - USB id 0a5c:21e8
 - Kinivo BTD-400 (BCM20702A0) - USB id 0a5c:21e8
-- Pluggable USB-BT4LE (BCM20702A1) - USB id 0a5c:21e8
+- Pluggable USB-BT4LE (BCM20702A0) - USB id 0a5c:21e8
 - SoundBot SB342 (BCM20702A1) - USB id 0a5c:21ec
-- StarTech USBBT2EDR4 (BCM20702A1) - USB id 0a5c:21e8
+- StarTech USBBT2EDR4 (BCM20702A0) - USB id 0a5c:21e8
   
 ### Known working adapters
 
