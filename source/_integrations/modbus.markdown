@@ -348,6 +348,12 @@ modbus:
         address: 110
         device_class: door
         input_type: discrete_input
+      - name: "binary_sensor3"
+        address: 120
+        slave: 2
+        device_class: running
+        scan_interval: 10
+        input_type: input
 ```
 {% configuration %}
 binary_sensors:
@@ -364,7 +370,7 @@ binary_sensors:
       required: false
       type: string
     input_type:
-      description: type of address (discrete_input/coil/holding)
+      description: type of address (discrete_input/coil/holding/input)
       required: false
       default: coil
       type: string
