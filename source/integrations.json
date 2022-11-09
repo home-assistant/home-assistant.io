@@ -5,7 +5,7 @@ layout: none
 {%- for integration in site.integrations %}
 {%- assign target = integration.ha_domain | append: ".markdown" | prepend: "_integrations/" -%}
 {%- if integration.ha_supporting_integration -%}
-  {%- assign description = "Support for devices by " ~ {{ integration.title }} ~ "in Home Assistant is provided by the " ~ {{ integration.ha_supporting_integration }} ~ " integration." -%}
+  {%- assign description = "Support for devices by " | append: {{ integration.title }} | append: " in Home Assistant is provided by the " | append: {{ integration.ha_supporting_integration }} | append: " integration." -%}
 {%- else -%}
   {%- assign content = integration.content | markdownify -%}
   {%- assign content = content | split: "</p>" | first -%}
@@ -24,4 +24,3 @@ layout: none
 {%- endif -%}
 {%- endfor %}
 }
-
