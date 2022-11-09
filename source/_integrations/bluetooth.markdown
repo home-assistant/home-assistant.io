@@ -84,6 +84,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - Raspberry Pi 3B+ (CYW43455)
 - Raspberry Pi 4B (CYW43455)
 - SABRENT BT-UB40 (CSR8510A10)
+- StarTech USBBT1EDR4 (CSR8510A10)
 - Techkey PBT06H (CSR8510A10)
 
 📶 Denotes external antenna
@@ -125,7 +126,6 @@ While the Broadcom chips and drivers are generally performant, the experience ma
 - Maxuni BT-501 (RTL8761BU)
 - MPOW BH45A (RTL8761BU)
 - StarTech USBA-BLUETOOTH-V5-C2 (RTL8761BU)
-- StarTech USBBT1EDR4 (BCM20702A1)
 - SUMEE BT501 (RTL8761BU)
 - UGREEN CM390 (RTL8761BU)
 - XDO BT802 (RTL8761BU) 📶
