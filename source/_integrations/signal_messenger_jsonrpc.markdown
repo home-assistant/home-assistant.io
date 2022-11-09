@@ -18,7 +18,7 @@ The `signal_messenger_jsonrpc` integration uses the native JSON-RPC HTTP endpoin
  
 The requirements are:
 
-- You need to set up the signal-cli w/ http endpoint. 
+- You need to set up the signal-cli w/ HTTP endpoint. 
 - You need a spare phone number to register with the signal-cli service. 
 
 Please follow the signal-cli [instructions](https://github.com/AsamK/signal-cli/#installation) to set up the requirements.
@@ -45,7 +45,7 @@ Both phone numbers and Signal Messenger groups can be added to the `recipients` 
 
 You can obtain Signal Messenger group ids using this api call:
 
-```
+```bash
 curl -s -H "Content-Type: application/json" -d '{"jsonrpc":"2.0", "method": "listGroups", "id": "42", "params": {"account": "YOUR_SIGNAL_CLI_ACCOUNT"}}' http://127.0.0.1:3000/api/v1/rpc # the URL where the signal-cli JSON-RPC API is listening
 ```
 
