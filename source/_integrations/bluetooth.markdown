@@ -122,6 +122,7 @@ While the Broadcom chips and drivers are generally performant, the experience ma
 
 - ASUS USB-BT500 (RTL8761BU)
 - Avantree DG45 (RTL8761BU)
+- COMCAST CF-B05 (RTL8761BU) 📶
 - EDUP LOVE EP-B3536 (RTL8761BU) 📶
 - Maxuni BT-501 (RTL8761BU)
 - MPOW BH45A (RTL8761BU)
