@@ -118,7 +118,7 @@ Entities that are on:
 {{ ['light.kitchen', 'light.dinig_room'] | select('is_state', 'on') | list }}
 ```
 
-{% endraw% }
+{% endraw %}
 
 Other state examples:
 {% raw %}
@@ -203,7 +203,7 @@ List of friendly names:
 {{ ['binary_sensor.garage_door', 'binary_sensor.front_door'] | map('state_attr', 'friendly_name') | list }}
 ```
 
-{% endraw% }
+{% endraw %}
 
 List of lights that are on with a brightness of 255:
 
@@ -213,7 +213,7 @@ List of lights that are on with a brightness of 255:
 {{ ['light.kitchen', 'light.dinig_room'] | select('is_state', 'on') | select('is_state_attr', 'brightness', 255) | list }}
 ```
 
-{% endraw% }
+{% endraw %}
 
 ### Working with Groups
 
