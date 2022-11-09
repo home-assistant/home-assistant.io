@@ -86,6 +86,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - SABRENT BT-UB40 (CSR8510A10)
 - StarTech USBBT1EDR4 (CSR8510A10)
 - Techkey PBT06H (CSR8510A10)
+- TRENDnet TBW-107UB (CSR8510A10)
 
 📶 Denotes external antenna
 
