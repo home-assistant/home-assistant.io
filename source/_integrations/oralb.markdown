@@ -29,3 +29,12 @@ The Oral-B integration will automatically discover devices once the [Bluetooth](
 - [IO 9 Series](https://oralb.com/en-us/products/electric-toothbrushes/oralbio)
 - [Smart Series 7000](https://oralb.com/en-us/products/electric-toothbrushes/smart-7000-rechargeable-electric-toothbrush/)
 - [Genius Series 9000](https://oralb.com/en-us/products/electric-toothbrushes/genius-9600-rechargeable-electric-toothbrush-white/)
+
+## Sensor
+
+* Mode - selected cleaning mode e.g. daily clean.
+* Number of sectors - brushing areas set in the **Set Pacer Visualisation** in the brushing preferences in the mobile app.
+* Sector - the current area of the mouth you are brushing.
+* Sector time - amount time brushing the current sector in seconds.
+* Time - total brushing time in seconds.
+* Toothbrush state - whether the toothbrush is running, idle.
