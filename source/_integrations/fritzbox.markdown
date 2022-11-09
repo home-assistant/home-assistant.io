@@ -7,6 +7,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Button
 ha_release: 0.68
 ha_iot_class: Local Polling
 ha_domain: fritzbox
@@ -20,6 +21,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - button
 ha_codeowners:
   - '@mib1185'
   - '@flabbamann'
@@ -36,6 +38,8 @@ There is currently support for the following device types within Home Assistant:
 - Light
 - Sensor
 - Switch
+
+Additionally we also support templates.
 
 #### Tested Devices
 
@@ -115,3 +119,7 @@ The FRITZ!DECT 500 lightbulb supports only 36 colors. When a color is picked in 
 ## Cover
 
 To get AVM FRITZ!DECT compatible covers (e.g., Rademacher RolloTron DECT 1213) follow the [configuration instructions](#configuration) above.
+
+## Template
+
+To get AVM FRITZ! Templates (e.g., for your heating schedule) follow the [configuration instructions](#configuration) above.
