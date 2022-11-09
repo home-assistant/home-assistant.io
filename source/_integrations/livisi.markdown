@@ -22,7 +22,7 @@ The following devices are currently supported by this integration:
  
 ##Prequisites
  
-This integration is communicating with the local version of LIVISI SmartHome only. 
+This integration communicates with the local version of LIVISI SmartHome only. 
  
 To activate the local SmartHome functionality, please use the LIVISI App and go to **Settings** >> **General Settings** >> **Local SmartHome** and click **Activate**.
  
