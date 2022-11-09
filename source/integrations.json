@@ -4,14 +4,23 @@ layout: none
 {
 {%- for integration in site.integrations %}
 {%- assign target = integration.ha_domain | append: ".markdown" | prepend: "_integrations/" -%}
+{%- if integration.ha_supporting_integration -%}
+  {%- assign description = "Support for devices by " ~ {{ integration.title }} ~ "in Home Assistant is provided by the " ~ {{ integration.ha_supporting_integration }} ~ " integration." -%}
+{%- else -%}
+  {%- assign content = integration.content | markdownify -%}
+  {%- assign content = content | split: "</p>" | first -%}
+  {%- assign content = content | append: "</p>" | strip_html -%}
+  {%- assign description = content | replace: "\n", " " | remove: '"' -%}
+{%- endif -%}
 {%- if integration.path == target %}
+  "integrations"
   "{{integration.ha_domain}}": {
     "title": "{{integration.title}}",
-    "description": "{{ integration.description }}",
+    "description": "{{ description }}",
     "quality_scale": "{{integration.ha_quality_scale}}",
     "iot_class": "{{integration.ha_iot_class}}",
     "integration_type": "{{integration.ha_integration_type}}"
-  }{%- if forloop.last -%}{%- else -%},{%- endif -%}
+  }{%- unless forloop.last -%},{%- endunless -%}
 {%- endif -%}
 {%- endfor %}
 }
