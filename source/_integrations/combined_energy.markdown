@@ -103,4 +103,18 @@ dashboard where generic consumer is used for other devices e.g. Air Conditioners
 
 #### Battery
 
-Battery sensors are not currently available. 
+Battery sensors are not currently available.
+
+### Your Installation ID
+
+Unfortunately the installation ID is not made visible via the Combined Energy dashboard. To obtain the
+installation ID use the following steps:
+
+- Login to the Dashboard
+- Open the _Developer Tools_ (Ctrl+Shift+I for Google Chrome on Linux/Windows)
+- Select the _Network_ tab in Developer Tools
+- Select _Live View_ tab in the Dashboard
+- Click on the `comm-stat?i=...` item
+- Select the _Preview_ tab
+
+The installationID will be listed with the data in the preview tab.
