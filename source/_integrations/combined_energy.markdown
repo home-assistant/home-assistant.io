@@ -5,7 +5,7 @@ ha_category:
   - Binary Sensor
   - Energy
   - Sensor
-ha_release: next
+ha_release: 2022.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: combined_energy
