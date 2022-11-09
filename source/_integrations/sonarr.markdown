@@ -21,8 +21,8 @@ The Sonarr integration pulls data from a given [Sonarr](https://sonarr.tv/) inst
 
   The Integration assumes the default port of 8989 for the given URL.
   You will have to specify the correct port in the URL if a different port is used.
-  For example for: [Https:](https://sonarr.example.com/)
-    you should specify the port at the end :  [Https:](https://sonarr.example.com:443/)
+  For example for: `` https://sonarr.example.com/ ``
+    you should specify the port at the end :  `` https://sonarr.example.com:443/ ``
 
 </div>
 
