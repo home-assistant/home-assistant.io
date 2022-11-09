@@ -17,6 +17,15 @@ ha_integration_type: integration
 
 The Sonarr integration pulls data from a given [Sonarr](https://sonarr.tv/) instance. This integration only supports Sonarr v3 instances.
 
+<div class="note">
+
+  The Integration assumes the default port of 8989 for the given URL.
+  You will have to specify the correct port in the URL if a different port is used.
+  For example for: [Https:](https://sonarr.example.com/)
+    you should specify the port at the end :  [Https:](https://sonarr.example.com:443/)
+
+</div>
+
 {% include integrations/config_flow.md %}
 
 To retrieve your API key, open your Sonarr web interface and navigate to Settings then General tab. Your Sonarr API Key will be listed on this page under the Security section.
