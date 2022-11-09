@@ -1,5 +1,5 @@
 ---
-title: apcupsd
+title: APC UPS Daemon
 description: Instructions on how to integrate apcupsd status with Home Assistant.
 ha_category:
   - Binary Sensor
@@ -106,7 +106,8 @@ Some sensors are disabled by default, since they provide information that is onl
 - UPS Register 2 Fault (REG2)
 - UPS Register 3 Fault (REG3)
 - UPS Restore Requirement (RETPCT)
-- UPS Last Self Test (SELFTEST)
+- UPS Last Self Test (LASTSTEST)
+- UPS Self Test Result (SELFTEST)
 - UPS Sensitivity (SENSE)
 - UPS Serial Number (SERIALNO)
 - UPS Startup Time (STARTTIME)
@@ -121,4 +122,3 @@ Some sensors are disabled by default, since they provide information that is onl
 - UPS Transfer from Battery (XOFFBAT)
 - UPS Transfer from Battery (XOFFBATT)
 - UPS Transfer to Battery (XONBATT)
-

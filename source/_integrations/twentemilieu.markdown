@@ -16,7 +16,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_quality_scale: platinum
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The Twente Milieu integration allows you to track the next scheduled waste

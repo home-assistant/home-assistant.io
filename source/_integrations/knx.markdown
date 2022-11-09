@@ -40,7 +40,7 @@ ha_platforms:
   - switch
   - weather
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to KNX/IP devices.
@@ -1447,6 +1447,10 @@ entity_category:
   required: false
   type: string
   default: None
+device_class:
+  description: Overrides the [class of the device](/integrations/sensor/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ### Value Types
@@ -1661,6 +1665,10 @@ entity_category:
   required: false
   type: string
   default: None
+device_class:
+  description: Sets the [class of the device](/integrations/switch/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 {% endconfiguration %}
 
 The optional `state_address` can be used to inform Home Assistant about state changes not triggered by a telegram to the `address` e.g., if you configure a timer on a channel. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.

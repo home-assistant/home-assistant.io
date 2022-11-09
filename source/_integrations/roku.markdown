@@ -24,7 +24,7 @@ ha_platforms:
   - remote
   - select
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The Roku integration allows you to control a [Roku](https://www.roku.com/) device.

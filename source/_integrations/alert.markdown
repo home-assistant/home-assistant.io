@@ -9,6 +9,7 @@ ha_quality_scale: internal
 ha_domain: alert
 ha_codeowners:
   - '@home-assistant/core'
+  - '@frenck'
 ha_integration_type: integration
 ---
 

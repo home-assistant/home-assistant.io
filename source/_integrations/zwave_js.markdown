@@ -40,7 +40,7 @@ ha_platforms:
   - siren
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: hub
 ha_zeroconf: true
 ---
 
@@ -471,14 +471,16 @@ This event can be used to trigger a refresh of values when the new state needs t
 
 ```yaml
 trigger:
-  platform: event
-  event_type: zwave_js_value_updated
-  event_data:
-    entity_id: switch.in_wall_dual_relay_switch
+  - platform: event
+    event_type: zwave_js_value_updated
+    event_data:
+      entity_id: switch.in_wall_dual_relay_switch
 action:
   - service: zwave_js.refresh_value
-    target:
-      entity_id: switch.in_wall_dual_relay_switch_2, switch.in_wall_dual_relay_switch_3
+    data:
+      entity_id:
+        - switch.in_wall_dual_relay_switch_2
+        - switch.in_wall_dual_relay_switch_3
 ```
 
 ## Automations

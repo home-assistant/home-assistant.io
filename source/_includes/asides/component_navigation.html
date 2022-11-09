@@ -6,36 +6,56 @@
     {%- if page.logo -%}
       <img src='/images/supported_brands/{{ page.logo }}' />
     {%- else -%}
-      <img src='https://brands.home-assistant.io/_/{{ domain }}/logo.png' srcset='https://brands.home-assistant.io/_/{{ page.ha_domain }}/logo@2x.png 2x' />
+      <img src='https://brands.home-assistant.io/{% if page.ha_brand %}brands{% else %}_{% endif %}/{{ domain }}/logo.png' srcset='https://brands.home-assistant.io/{% if page.ha_brand %}brands{% else %}_{% endif %}/{{ page.ha_domain }}/logo@2x.png 2x' />
     {%- endif -%}
 
     {%- if page.ha_config_flow and domain -%}
       {% my config_flow_start badge domain=domain %}
+    {%- elsif page.ha_iot_standard == "zigbee" -%}
+      {%- if page.ha_brand -%}
+        {% my add_zigbee_device badge brand=domain %}
+      {%- elsif domain -%}
+        {% my add_zigbee_device badge domain=domain %}
+      {%- else -%}
+        {% my add_zigbee_device badge %}
+      {%- endif -%}
+    {%- elsif page.ha_iot_standard == "zwave" -%}
+      {%- if page.ha_brand -%}
+        {% my add_zwave_device badge brand=domain %}
+      {%- elsif domain -%}
+        {% my add_zwave_device badge domain=domain %}
+      {%- else -%}
+        {% my add_zwave_device badge %}
+      {%- endif -%}
     {%- endif -%}
   </div>
 
   <div class='section'>
-    The {{ page.name | default: page.title }} {{ page.ha_integration_type | default: "integration" }} was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
-    and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io/#integrations" target="_blank" rel="noopener">
-    
-    {% if percentage < 1 %}
-      {{ active_installations }}</a> active installations.
-    {% else %}
-      {{ percentage | remove: ".0" }}%</a> of the active installations.
-    {% endif %}
+    {%- if page.ha_brand -%}
+      The {{ page.title | default: page.name }} brand was introduced in Home Assistant {{ page.ha_release | default: "unknown" }}.
+    {%- else -%}
+      The {{ page.title | default: page.name }} {{ page.ha_integration_type | default: "integration" }} was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
+      and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io/#integrations" target="_blank" rel="noopener">
 
-    {%- if page.ha_iot_class %}
-      Its IoT class is <a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'>{{ page.ha_iot_class }}</a>
-    {%- endif -%}
-
-    {%- if page.ha_quality_scale %}
-      {% if page.ha_iot_class %}
-        and
+      {% if percentage < 1 %}
+        {{ active_installations }}</a> active installations.
       {% else %}
-        It
+        {{ percentage | remove: ".0" }}%</a> of the active installations.
       {% endif %}
-      scores {{page.ha_quality_scale}} on our <a href='/docs/quality_scale/'>quality scale</a>
-    {%- endif -%}.
+
+      {%- if page.ha_iot_class %}
+        Its IoT class is <a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'>{{ page.ha_iot_class }}</a>
+      {%- endif -%}
+
+      {%- if page.ha_quality_scale %}
+        {% if page.ha_iot_class %}
+          and it
+        {% else %}
+          It
+        {% endif %}
+        scores {{page.ha_quality_scale}} on our <a href='/docs/quality_scale/'>quality scale</a>
+      {%- endif -%}{%- if page.ha_quality_scale or page.ha_iot_class %}.{%- endif -%}
+    {% endif %}
   </div>
 
   {% if page.works_with %}
