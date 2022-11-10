@@ -58,7 +58,7 @@ This can be built using a Raspberry Pi with an RS485 hat, an Arduino with RS485 
 
 #### ESPHome
 
-A ESPHome base hardware solution also works well and integrate nicely into Home Assistant.
+An ESPHome base hardware solution also works well, and integrate nicely into Home Assistant.
 
 - [Homepage](https://github.com/elupus/esphome-nibe)
 
