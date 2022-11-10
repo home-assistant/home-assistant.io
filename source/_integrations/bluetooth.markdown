@@ -113,7 +113,7 @@ Performance testing used the following hardware:
 
 ### Slow startup of Broadcom adapters on the ODROID N2+ platform
 
-The BCM20702 based adapters take an additional 120 seconds to initialize after boot with Home Assistant Operating System 9.3 when using an ODROID N2+; eventually, they come online.
+The BCM20702 based adapters may take an additional 120 seconds to initialize after boot with Home Assistant Operating System 9.3 when using an ODROID N2+; eventually, they come online.
 
 ### Known working adapters
 
