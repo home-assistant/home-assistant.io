@@ -13,7 +13,7 @@ ha_codeowners:
   - '@frenck'
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'. Swedish meters with a 'HAN port' are not supported by this integration.
@@ -83,13 +83,14 @@ $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /h
 
 #### Serial to network proxies:
 
-- [ser2net](http://ser2net.sourceforge.net)
+- [ser2net](https://ser2net.sourceforge.net)
 - [WIZnet WIZ110SR](https://www.wiznet.io/product-item/wiz110sr/)
 
 DIY solutions (ESP8266 based):
 
-- [esp8266_p1meter (daniel-jong)](https://github.com/daniel-jong/esp8266_p1meter)
+- [esp8266_p1meter (daniel-jong)](https://github.com/daniel-jong/esp8266_p1meter) (parse on ESP8266 publish to MQTT)
 - [DSMR reader for ESPHome (mmakaay)](https://github.com/mmakaay/dsmr-reader-for-esphome)
+- [p1-esp8266 (DavyLandman)](https://github.com/DavyLandman/p1-esp8266) (turn ESP8266 into a serial forwarder)
 
 {% include integrations/config_flow.md %}
 

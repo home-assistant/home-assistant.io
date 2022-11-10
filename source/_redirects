@@ -8,6 +8,11 @@
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
 /latest-security-alert /blog/2021/01/23/security-disclosure2/
+/merch https://home-assistant-store.creator-spring.com
+/feature-requests https://community.home-assistant.io/c/feature-requests
+/issues https://github.com/home-assistant/core/issues
+/community https://community.home-assistant.io/
+
 
 # Matter workshop June 2022
 /skyconnect-interest https://docs.google.com/forms/d/e/1FAIpQLScEjHSBJszUZfgO3MIDO51IHr3Oeohcs8BLpRIjY1liJ58IpA/viewform?usp=sf_link
@@ -188,6 +193,7 @@
 /integrations/generic_ip_camera /integrations/generic
 /integrations/google /integrations/google_translate
 /integrations/input_slider /integrations/input_number
+/integrations/leviton /integrations/leviton_z_wave
 /integrations/light.switch /integrations/switch_as_x
 /integrations/openalpr /integrations/openalpr_local
 /integrations/pca /integrations/elv
@@ -198,7 +204,6 @@
 /integrations/telegram_chatbot /integrations/telegram_bot
 /integrations/vlc-telnet /integrations/vlc_telnet
 /integrations/xiaomi /integrations/xiaomi_aqara
-/integrations/zigbee /integrations/xbee
 
 # Moved documentation
 /details/database /docs/backend/database
@@ -224,6 +229,14 @@
 /docs/ecosystem/notebooks/installation https://data.home-assistant.io
 /docs/ecosystem/notebooks/stats https://data.home-assistant.io
 /docs/frontend/mobile https://companion.home-assistant.io
+/docs/mqtt /integrations/mqtt
+/docs/mqtt/birth_will /integrations/mqtt/#birth-and-last-will-messages
+/docs/mqtt/broker /integrations/mqtt/#broker-configuration
+/docs/mqtt/certificate /integrations/mqtt/#advanced-broker-configuration
+/docs/mqtt/discovery /integrations/mqtt/#mqtt-discovery
+/docs/mqtt/logging /integrations/mqtt/#logging
+/docs/mqtt/service /integrations/mqtt/#publish--dump-services
+/docs/mqtt/testing /integrations/mqtt/#testing-your-setup
 /docs/script/editor /docs/scripts/editor
 /docs/z-wave /integrations/zwave_js
 /docs/z-wave/adding /integrations/zwave_js#how-can-i-add-include-a-new-device-to-my-z-wave-network
@@ -243,6 +256,7 @@
 /ecosystem/notebooks/graph https://data.home-assistant.io
 /ecosystem/notebooks/installation https://data.home-assistant.io
 /ecosystem/notebooks/stats https://data.home-assistant.io
+/examples/notify.mqtt /integrations/mqtt/#mqtt-notifications
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 /installation/nuc /installation/generic-x86-64
 /integrations/auth /docs/authentication
@@ -313,6 +327,7 @@
 /common-tasks/os/#snapshots /common-tasks/os/#backups
 /common-tasks/supervised/#snapshots /common-tasks/supervised/#backups
 /more-info/unsupported/container /more-info/unsupported/software
+/integrations/zigbee /integrations/zha
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -396,6 +411,7 @@
 /getting-started/installation-raspberry-pi-all-in-one /getting-started
 /docs/tools/keyring/ /docs/configuration/secrets
 /docs/tools/credstash/ /docs/configuration/secrets
+/docs/scripts/editor/ /docs/scripts
 
 # Blog
 /blog/2019/05/29/release-94 /blog/2019/06/05/release-94
@@ -404,6 +420,7 @@
 
 # Removed integrations
 /integrations/alarmdotcom /more-info/removed-integration 301
+/integrations/ambee /more-info/removed-integration 301
 /integrations/apns /more-info/removed-integration 301
 /integrations/arlo /more-info/removed-integration 301
 /integrations/arduino /more-info/removed-integration 301
@@ -427,12 +444,14 @@
 /integrations/envirophat /more-info/removed-integration 301
 /integrations/essent /more-info/removed-integration 301
 /integrations/fedex /more-info/removed-integration 301
+/integrations/flunearyou /more-info/removed-integration 301
 /integrations/fortigate /more-info/removed-integration 301
 /integrations/fritzbox_netmonitor  /more-info/removed-integration 301
 /integrations/garmin_connect /more-info/removed-integration 301
 /integrations/gearbest /more-info/removed-integration 301
 /integrations/geizhals /more-info/removed-integration 301
 /integrations/gntp /more-info/removed-integration 301
+/integrations/gpmdp /more-info/removed-integration 301
 /integrations/griddy /more-info/removed-integration 301
 /integrations/history_graph /more-info/removed-integration 301
 /integrations/htu21d /more-info/removed-integration 301
@@ -449,6 +468,8 @@
 /integrations/lyft /more-info/removed-integration 301
 /integrations/mcp23017 /more-info/removed-integration 301
 /integrations/mhz19 /more-info/removed-integration 301
+/integrations/miflora /integrations/xiaomi_ble
+/integrations/mitemp_bt /integrations/xiaomi_ble
 /integrations/mopar /more-info/removed-integration 301
 /integrations/mpchc /more-info/removed-integration 301
 /integrations/mychevy /more-info/removed-integration 301
@@ -476,7 +497,9 @@
 /integrations/sht31 /more-info/removed-integration 301
 /integrations/simple_alarm /more-info/removed-integration 301
 /integrations/smarthab /more-info/removed-integration 301
+/integrations/sochain /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
+/integrations/somfy /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
 /integrations/srp_energy /more-info/removed-integration 301
 /integrations/synology /more-info/removed-integration 301
@@ -490,11 +513,19 @@
 /integrations/uber /more-info/removed-integration 301
 /integrations/updater /more-info/removed-integration 301
 /integrations/ups /more-info/removed-integration 301
+/integrations/uscis /more-info/removed-integration 301
 /integrations/usps /more-info/removed-integration 301
 /integrations/weblink /more-info/removed-integration 301
 /integrations/wink /more-info/removed-integration 301
 /integrations/wunderground /more-info/removed-integration 301
+/integrations/xbee /more-info/removed-integration 301
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
 /components/zwave /integrations/zwave_js
+
+# Lovelace images
+/images/dashboards/lovelace_* /images/dashboards/:splat
+
+# Unsupported reasons that are also unhealthy
+/more-info/unsupported/privileged /more-info/unhealthy/privileged

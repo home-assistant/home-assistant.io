@@ -41,15 +41,37 @@ $primary-color: #049cdb;
   }
 }
 
-.integration-alert {
+.integration-alert-container {
   margin: -1em 0;
-  background-color: wheat;
-  padding: 4px;
+}
 
-  a {
-    text-decoration: none !important;
+a.integration-alert {
+  margin: 1em 0;
+  background-color: wheat;
+  padding: 8px;
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  color: black;
+
+  svg {
+    width: 24px;
+    margin-right: 8px;
   }
 
+  .content {
+    flex: 1;
+  }
+
+  .learn-more {
+    padding: 4px 6px;
+    border-radius: 2px;
+    font-size: .8em;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .12);
+    }
+  }
 }
 
 @media only screen and (max-width: $menu-collapse) {
@@ -136,6 +158,7 @@ $primary-color: #049cdb;
   box-shadow: none;
   border: 1px solid rgba(0, 0, 0, .12);
   border-radius: 4px;
+
   h4 {
     margin: 0 0 8px !important;
 
@@ -144,6 +167,7 @@ $primary-color: #049cdb;
       color: #000;
     }
   }
+
   .links a {
     font-weight: 400;
     text-transform: none;
@@ -186,12 +210,13 @@ $primary-color: #049cdb;
       background-color: lighten(#038fc7, 10%);
     }
   }
+
   .events {
     padding: 16px;
-    
+
     h3 {
       margin-top: 8px;
-    } 
+    }
 
     .event {
       display: flex;
@@ -199,28 +224,28 @@ $primary-color: #049cdb;
       align-items: center;
       text-decoration: none;
       color: inherit;
-  
+
       .caption {
         padding: 0 12px;
         max-width: 450px;
       }
-  
+
       .title {
         font-size: 20px;
         font-weight: 400;
       }
-  
+
       .secondary {
         color: rgba(0, 0, 0, 0.54);
         font-size: 14px;
         font-weight: 500;
       }
-  
+
       .subtitle {
         font-size: 12px;
         font-weight: initial;
       }
-  
+
       img {
         width: 200px;
         height: 100%;
@@ -282,9 +307,9 @@ $primary-color: #049cdb;
   }
 
   .sponsors-and-press {
-    margin-top:24px;
+    margin-top: 24px;
   }
-  
+
   .sponsored-by {
     img {
       border: 0;
@@ -293,10 +318,10 @@ $primary-color: #049cdb;
       margin: 15px;
       max-width: 40%;
       max-height: 80px;
-    }    
+    }
 
   }
-  
+
   .seen-press {
 
     img {
@@ -324,10 +349,10 @@ $primary-color: #049cdb;
     }
 
     img {
-       width: 100%;
-   }
+      width: 100%;
+    }
   }
- }
+}
 
 
 // https://fortawesome.github.io/Font-Awesome/3.2.1/icons/
@@ -365,7 +390,7 @@ dt:hover a.title-link {
     margin-right: 10px;
   }
 
-  a > * {
+  a>* {
     vertical-align: middle;
   }
 }
@@ -408,8 +433,8 @@ article.listing {
     box-shadow: none;
   }
 
-  & > table,
-  & > .entry-content > table {
+  &>table,
+  &>.entry-content>table {
     background-color: #f3fcf5;
   }
 
@@ -431,7 +456,7 @@ article.listing {
   li {
     margin-bottom: 10px;
 
-    & > p:last-child {
+    &>p:last-child {
       margin-bottom: 0;
     }
 
@@ -448,8 +473,7 @@ article.listing {
     }
   }
 
-  h1 {
-  }
+  h1 {}
 
   h2 {
     font-size: 1.5em;
@@ -562,17 +586,19 @@ div.note {
 
       li.toc-entry {
         list-style-type: none;
+
         li {
           list-style-type: circle;
           margin-left: 1em;
         }
+
         ul {
           margin-left: 1em;
         }
       }
     }
 
- }
+  }
 
   .brand-logo-container {
     text-align: center;
@@ -594,7 +620,7 @@ lite-youtube {
   position: relative;
   display: block;
   padding-bottom: calc(100% / (16 / 9));
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0, 0, 0, .1);
 }
 
 lite-youtube::before {
@@ -610,7 +636,8 @@ lite-youtube::before {
 // https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
 .videoWrapper {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
+  /* 16:9 */
   height: 0;
   margin-bottom: 25px;
   background: #000;
@@ -773,10 +800,8 @@ code {
   hyphens: none;
 
   background-color: #fdfdfd;
-  background-image: linear-gradient(
-    transparent 50%,
-    rgba(69, 142, 209, 0.04) 50%
-  );
+  background-image: linear-gradient(transparent 50%,
+      rgba(69, 142, 209, 0.04) 50%);
   background-size: 3em 3em;
   background-origin: content-box;
   background-attachment: local;
@@ -812,6 +837,7 @@ code {
         }
       }
     }
+
     footer {
       position: absolute;
       bottom: 0;
@@ -829,6 +855,6 @@ a.my {
 :target {
   display: block;
   position: relative;
-  top: -100px; 
+  top: -100px;
   visibility: hidden;
 }

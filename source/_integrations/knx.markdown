@@ -40,7 +40,7 @@ ha_platforms:
   - switch
   - weather
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to KNX/IP devices.
@@ -624,11 +624,11 @@ The following values are valid for the Home Assistant [Climate](/integrations/cl
 
 The following presets are valid for the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute. Supported values for your KNX thermostats can be specified via `operation_modes` configuration variable:
 
-- `Auto` (maps internally to `PRESET_NONE` within Home Assistant)
-- `Comfort` (maps internally to `PRESET_COMFORT` within Home Assistant)
-- `Standby` (maps internally to `PRESET_AWAY` within Home Assistant)
-- `Night` (maps internally to `PRESET_SLEEP` within Home Assistant)
-- `Frost` Protection (maps internally to `PRESET_ECO` within Home Assistant)
+- `Auto` (maps to `none` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
+- `Comfort` (maps to `comfort` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
+- `Standby` (maps to `away` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
+- `Night` (maps to `sleep` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
+- `Frost Protection` (maps to `eco` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
 
 {% configuration %}
 name:
@@ -1661,6 +1661,10 @@ entity_category:
   required: false
   type: string
   default: None
+device_class:
+  description: Sets the [class of the device](/integrations/switch/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 {% endconfiguration %}
 
 The optional `state_address` can be used to inform Home Assistant about state changes not triggered by a telegram to the `address` e.g., if you configure a timer on a channel. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.

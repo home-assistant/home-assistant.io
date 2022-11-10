@@ -10,7 +10,7 @@ You can add a view to your user interface, by clicking the menu (three dots at t
 Click the `+` button in the top menu bar.
 
 <p class="img">
-  <img src="/images/dashboards/lovelace_views.png" alt="Views toolbar">
+  <img src="/images/dashboards/views.png" alt="Views toolbar">
   Use titles and icons to describe the content of views.
 </p>
 
@@ -125,6 +125,30 @@ frontend:
       lovelace-background: center / cover no-repeat url("/local/background.png") fixed
 ```
 
+## Subview
+
+View can be marked as "Subview". Subviews won’t show up in the navigation bar. When on the subview, the navigation bar only show the name of the subview and a back button.
+By default, clicking on back button will navigate to the previous view but a custom back path (`back_path`) can be set.
+
+You can access subviews from other parts of your dashboard by using [cards that support the `navigate` action](/dashboards/actions).
+
+#### Example
+
+Simple subview:
+
+```yaml
+- title: Map
+  subview: true
+```
+
+Subview with custom back path:
+
+```yaml
+- title: Map
+  subview: true
+  back_path: /lovelace/home
+```
+
 {% configuration views %}
 views:
   required: true
@@ -170,6 +194,15 @@ views:
       description: "Hide/show the view tab from all users or a list of individual `visible` objects."
       type: [boolean, list]
       default: true
+    subview:
+      required: false
+      description: Mark the view as "Subview", more info below.
+      type: boolean
+      default: false
+    back_path:
+      required: false
+      description: Only for subview. Path to navigate when clicking on back button, more info below.
+      type: string
 {% endconfiguration %}
 
 #### Example

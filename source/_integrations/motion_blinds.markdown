@@ -35,6 +35,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Martec](https://www.martec.co.nz/)
 - [Motion Blinds](https://motionblinds.com/)
 - [Raven Rock MFG](https://www.ravenrockmfg.com/)
+- [ScreenAway](https://www.screenaway.com.au/)
 - [Smart Blinds](https://www.smartblinds.nl/)
 - [Smart Home](https://www.smart-home.hu)
 - [Uprise Smart Shades](http://uprisesmartshades.com)

@@ -3,6 +3,11 @@ title: IntelliFire
 description: Instructions on the IntelliFire Fireplace integration for Home Assistant.
 ha_category:
   - Binary Sensor
+  - Climate
+  - Fan
+  - Number
+  - Sensor
+  - Switch
 ha_iot_class: Local Polling
 ha_release: 2022.2
 ha_codeowners:
@@ -11,6 +16,9 @@ ha_domain: intellifire
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - climate
+  - fan
+  - number
   - sensor
   - switch
 ha_dhcp: true
@@ -26,8 +34,28 @@ IntelliFire Wi-Fi fireplace modules provide app-based and Alexa control to vario
 
 To fully configure the IntelliFire integration you will need to enter your IntelliFire credentials which are the same ones you would use with the mobile app.
 
-### Sensor Types
+### Entities
 
+The following controllable entities are available:
+
+### Switch
+
+- **Flame** - Turn fireplace on/off.
+- **Pilot Light** - Turn pilot light on/off.
+
+### Fan
+
+- **Fan** - If your unit is equipped with a fan - this entry will be present. There are 4 fan speeds (1-4), with 0 being off.
+
+### Climate
+
+- **Thermostat** - This entity will be present if your unit has thermostatic control.
+
+### Number
+
+The integration uses a Number entity to control flame height. Valid flame height vales are `1-5`.
+
+### Sensor Types
 
 The following sensors are available as either a **Binary Sensor** when dealing with on/off.
 
@@ -40,7 +68,7 @@ The following sensors are available as either a **Binary Sensor** when dealing w
 
 ### Sensor
 
-- **Flame Height**: Numerical indicator of flame height, where `0` is the lowest setting.
+- **Flame Height**: Numerical indicator of flame height, where `1` is the lowest setting and `5` is the highest setting.
 - **Temperature**: Current ambient temperature as read by the fireplace remote.
 - **Target Temperature**: If the thermostat is engaged this is the target temperature the fireplace will try to reach, as measured by the remote.
 - **Fan Speed**: Numerical indicator of fan speed.
@@ -77,6 +105,18 @@ The following is a description of the various diagnostic error sensors and what 
 ### Troubleshooting
 
 The IFT module can suffer a variety of issues that will render it inoperable. Some of these have been confirmed by the manufacturer and some appear to be random. There are two paths to try when attempting to reset the module:
+
+#### Enabling Debugging
+
+To turn on debug logging modify your `configuration.yaml` file in the `/config` directory and add the following:
+
+
+```yaml
+logger:
+  logs:
+   homeassistant.components.intellifire: debug
+   intellifire4py: debug
+```
 
 #### Issue a Soft Reset
 

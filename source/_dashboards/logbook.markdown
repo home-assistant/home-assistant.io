@@ -8,7 +8,7 @@ description: "The Logbook card displays entries from the logbook for specific en
 The Logbook card displays entries from the logbook for specific entities.
 
 <p class='img'>
-  <img src='/images/dashboards/lovelace_logbook.png' alt='Screenshot of the logbook card'>
+  <img src='/images/dashboards/logbook.png' alt='Screenshot of the logbook card'>
   Screenshot of the Logbook card.
 </p>
 

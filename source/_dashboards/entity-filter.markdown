@@ -10,7 +10,7 @@ The Entity Filter card allows you to define a list of entities that you want to 
 This type of card can also be used together with rest of cards that allow multiple entities, allowing you to use [glance](/dashboards/glance/) or [picture-glance](/dashboards/picture-glance/). By default it uses [entities](/dashboards/entities/) card model.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_entity_filter.png' alt='Screenshot of the Entity Filter card'>
+<img src='/images/dashboards/entity_filter.png' alt='Screenshot of the Entity Filter card'>
 Screenshot of the Entity Filter card.
 </p>
 
@@ -124,7 +124,7 @@ card:
 ```
 
 <p class='img'>
-  <img src='/images/dashboards/lovelace_entity_filter_glance.png' alt='Entity filter combined with glance card'>
+  <img src='/images/dashboards/entity_filter_glance.png' alt='Entity filter combined with glance card'>
   Entity filter combined with glance card.
 </p>
 

@@ -376,16 +376,14 @@ condition:
 
 ### Sunset/sunrise condition
 
-The sun condition can also test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger][sun_trigger]. When both keys are used, the result is a logical `and` of separate conditions.
+The sun condition can also test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger][sun_trigger].
 
-Note that if only `before` key is used, the condition will be `true` _from midnight_ until sunrise/sunset. If only `after` key is used, the condition will be `true` from sunset/sunrise _until midnight_. Therefore, to cover time between sunset and sunrise one need to use `after: sunset` and `before: sunrise` as 2 separate conditions and combine them using `or`.
+Note that if only `before` key is used, the condition will be `true` _from midnight_ until sunrise/sunset. If only `after` key is used, the condition will be `true` from sunset/sunrise _until midnight_. If both `before: sunrise` and `after: sunset` keys are used, the condition will be `true` _from midnight_ until sunrise **and** from sunset _until midnight_. If both `after: sunrise` and `before: sunset` keys are used, the condition will be `true`  from sunrise until sunset.
 
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
 
 <div class='note warning'>
-The sunset/sunrise conditions do not work in locations inside the polar circles, and also not in locations with a highly skewed local time zone.
-
-In those cases it is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
+The sunset/sunrise conditions do not work in locations inside the polar circles, and also not in locations with a highly skewed local time zone. In those cases it is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
 </div>
 
 This is an example of 1 hour offset before sunset:
@@ -412,18 +410,6 @@ condition:
   - condition: sun
     after: sunrise
     before: sunset
-```
-
-We cannot use both keys in this case as it will always be `false`.
-
-```yaml
-condition:
-  condition: or
-  conditions:
-    - condition: sun
-      after: sunset
-    - condition: sun
-      before: sunrise
 ```
 
 A visual timeline is provided below showing an example of when these conditions are true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions are true.

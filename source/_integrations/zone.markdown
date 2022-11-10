@@ -9,7 +9,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: zone
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/docs/automation/trigger#zone-trigger) or [condition](/docs/scripts/conditions/#zone-condition) inside automation setups.
@@ -86,7 +86,7 @@ It is preferred to pick an icon to use for your zone. Pick any icon that you can
 
 ## State
 
-The state of a zone is a number, which represends the number of
+The state of a zone is a number, which represents the number of
 {% my people title="persons" %} that are currently in a zone.
 
 The number of persons in a zone can be helpful for automations, for example,

@@ -72,10 +72,11 @@ Not supported in [limited templates](#limited-templates).
 - Iterating `states` will yield each state sorted alphabetically by entity ID.
 - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
-- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity, `unknown` if it doesn't exist, `unavailable` if the object exists but is not yet available. 
+- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity, `unknown` if it doesn't exist, `unavailable` if the object exists but is not yet available.
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
-- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None`. 
+- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') is none` or `state_attr('sensor.my_sensor', 'attr') == None` (note the difference in the capitalization of none in both versions).
+
 <div class='note warning'>
 
   Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
@@ -109,6 +110,16 @@ Print out a list of all the sensor states:
 
 {% endraw %}
 
+Entities that are on:
+
+{% raw %}
+
+```text
+{{ ['light.kitchen', 'light.dinig_room'] | select('is_state', 'on') | list }}
+```
+
+{% endraw% }
+
 Other state examples:
 {% raw %}
 
@@ -141,6 +152,9 @@ Other state examples:
 {{ as_local(states.sensor.time.last_changed) }}
 
 {{ states('sensor.expires') | as_datetime }}
+
+# Make a list of states
+{{ ['light.kitchen', 'light.dinig_room'] | map('states') | list }}
 ```
 
 {% endraw %}
@@ -180,6 +194,26 @@ With strings:
 ```
 
 {% endraw %}
+
+List of friendly names:
+
+{% raw %}
+
+```text
+{{ ['binary_sensor.garage_door', 'binary_sensor.front_door'] | map('state_attr', 'friendly_name') | list }}
+```
+
+{% endraw% }
+
+List of lights that are on with a brightness of 255:
+
+{% raw %}
+
+```text
+{{ ['light.kitchen', 'light.dinig_room'] | select('is_state', 'on') | select('is_state_attr', 'brightness', 255) | list }}
+```
+
+{% endraw% }
 
 ### Working with Groups
 
@@ -255,6 +289,20 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ device_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+{% endraw %}
+
+### Config Entries
+
+- `config_entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
+
+#### Config entries examples
+
+{% raw %}
+
+```text
+{{ config_entry_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
 ```
 
 {% endraw %}
@@ -386,7 +434,6 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
 {% endraw %}
 
-
 ### Time
 
 `now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
@@ -485,7 +532,7 @@ The `from_json` filter operates similarly, but in the other direction, de-serial
 
 In this example, the special character '°' will be automatically escaped in order to produce valid JSON. The difference between the stringified object and the actual JSON is evident.
 
-*Template*
+#### Template
 
 {% raw %}
 
@@ -497,7 +544,7 @@ object|to_json: {{ temp|to_json(ensure_ascii=False) }}
 
 {% endraw %}
 
-*Output*
+#### Output
 
 {% raw %}
 
@@ -510,7 +557,7 @@ object|to_json: {"temperature": 25, "unit": "\u00b0C"}
 
 Conversely, `from_json` can be used to de-serialize a JSON string back into an object to make it possible to easily extract usable data.
 
-*Template*
+#### Template
 
 {% raw %}
 
@@ -521,7 +568,7 @@ The temperature is {{ temp.temperature }}{{ temp.unit }}
 
 {% endraw %}
 
-*Output*
+#### Output
 
 {% raw %}
 
@@ -548,6 +595,23 @@ Example using `is_defined` to parse a JSON payload:
 
 This will throw an error `UndefinedError: 'value_json' is undefined` if the JSON payload has no `val` attribute.
 
+### Version
+
+- `version()` Returns a [AwesomeVersion object](https://github.com/ludeeus/awesomeversion) for the value given inside the brackets.
+  - This is also available as a filter (`| version`).
+
+Examples:
+
+{% raw %}
+
+- `{{ version("2099.9.9") > "2000.0.0" }}` Will return `True`
+- `{{ version("2099.9.9") < "2099.10" }}` Will return `True`
+- `{{ "2099.9.9" | version < "2099.10" }}` Will return `True`
+- `{{ (version("2099.9.9") - "2100.9.10").major }}` Will return `True`
+- `{{ (version("2099.9.9") - "2099.10.9").minor }}` Will return `True`
+- `{{ (version("2099.9.9") - "2099.9.10").patch }}` Will return `True`
+
+{% endraw %}
 
 ### Distance
 
@@ -561,6 +625,7 @@ Not supported in [limited templates](#limited-templates).
 If only one location is passed in, Home Assistant will measure the distance from home.
 
 {% raw %}
+
 ```text
 
 Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
@@ -663,6 +728,12 @@ The numeric functions and filters raise an error if the input is not a valid num
 - `float(value, default)` function will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted raises an error.
 - `float(default)` filter will attempt to convert the input to a `float`.  If that fails, returns the `default` value, or if omitted raises an error.
 - `is_number` will return `True` if the input can be parsed by Python's `float` function and the parsed input is not `inf` or `nan`, in all other cases returns `False`. Note that a Python `bool` will return `True` but the strings `"True"` and `"False"` will both return `False`. Can be used as a filter.
+- `int(value, default)` function is similar to `float`, but converts to an `int` instead. Like `float`, it has a filter form, and an error is raised if the `default` value is omitted. Fractional part is discarded: `int("1.5")` is `1`.
+- `bool(value, default)` function converts the value to either `true` or `false`.
+The following values are considered to be `true`: boolean `true`, non-zero `int`s and `float`s, and the strings `"true"`, `"yes"`, `"on"`, `"enable"`, and `"1"` (case-insensitive). `false` is returned for the opposite values: boolean `false`, integer or floating-point `0`, and the strings `"false"`, `"no"`, `"off"`, `"disable"`, and `"0"` (also case-insensitive).
+If the value is not listed here, the function returns the `default` value, or if omitted raises an error.
+This function is intended to be used on states of [binary sensors](/integrations/binary_sensor/), [switches](/integrations/switch/), or similar entities, so its behavior is different from Python's built-in `bool` conversion, which would consider e.g. `"on"`, `"off"`, and `"unknown"` all to be `true`, but `""` to be `false`; if that is desired, use `not not value` or a similar construct instead.
+Like `float` and `int`, `bool` has a filter form. Using `none` as the default value is particularly useful in combination with the [immediate if filter](#immediate-if-iif): it can handle all three possible cases in a single line.
 
 - `log(value, base, default)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. If `value` or `base` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can also be used as a filter.
 - `sin(value, default)` will return the sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
@@ -675,11 +746,11 @@ The numeric functions and filters raise an error if the input is not a valid num
 - `sqrt(value, default)` will return the square root of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `max([x, y, ...])` will obtain the largest item in a sequence. Uses the same parameters as the built-in [max](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.max) filter.
 - `min([x, y, ...])` will obtain the smallest item in a sequence. Uses the same parameters as the built-in [min](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.min) filter.
-- `average([x, y, ...])` will return the average value of the sequence. Can be used as a filter.
+- `average([x, y, ...], default)` will return the average value of the sequence. If list is empty or contains non-numeric value, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
-- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted raises an error. 
+- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted raises an error.
   - `round(precision, "floor", default)` will always round down to `precision` decimals
   - `round(precision, "ceil", default)` will always round up to `precision` decimals
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
@@ -691,12 +762,12 @@ The numeric functions and filters raise an error if the input is not a valid num
 
 These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice-versa.
 The `pack` and `unpack` functions can also be used as a filter. They make use of the Python 3 `struct` library.
-See: https://docs.python.org/3/library/struct.html
+See: [Python struct library documentation](https://docs.python.org/3/library/struct.html)
 
 - Filter `value | pack(format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or when `format_string` is invalid.
 - Function `pack(value, format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or when `format_string` is invalid.
-- Filter `value | unpack(format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid.
-- Function `unpack(value, format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid.
+- Filter `value | unpack(format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid. Note that the filter `unpack` will only return the first `bytes` object, despite the function `struct.unpack_from` supporting to return multiple objects (e.g. with `format_string` being `">hh"`.
+- Function `unpack(value, format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid. Note that the function `unpack` will only return the first `bytes` object, despite the function `struct.unpack_from` supporting to return multiple objects (e.g. with `format_string` being `">hh"`.
 
 <div class='note'>
 
@@ -705,8 +776,8 @@ Some examples:
 
 - `{{ 0xDEADBEEF | pack(">I") }}` - renders as `b"\xde\xad\xbe\xef"`
 - `{{ pack(0xDEADBEEF, ">I") }}` - renders as `b"\xde\xad\xbe\xef"`
-- `{{ 0xDEADBEEF | pack(">I") | unpack("">I") }}` - renders as `0xDEADBEEF`
-- `{{ 0xDEADBEEF | pack(">I") | unpack("">H", offset=2) }}` - renders as `0xBEEF`
+- `{{ "0x%X" % 0xDEADBEEF | pack(">I") | unpack(">I") }}` - renders as `0xDEADBEEF`
+- `{{ "0x%X" % 0xDEADBEEF | pack(">I") | unpack(">H", offset=2) }}` - renders as `0xBEEF`
 
 {% endraw %}
 
@@ -718,6 +789,9 @@ Some examples:
 - Filter `slugify(separator="_")` will convert a given string into a "slug".
 
 ### Regular expressions
+
+For more information on regular expressions
+See: [Python regular expression operations](https://docs.python.org/3/library/re.html)
 
 - Test `string is match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
 - Test `string is search(find, ignorecase=False)` will match the find expression anywhere in the string using regex.
@@ -851,7 +925,7 @@ With given payload:
 
 Template {% raw %}```{{ value_json.temperature | round(1) }}```{% endraw %} renders to `21.9`.
 
-Additional the MQTT entity attributes `entity_id` and `name` can be used as variables in the template.
+Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
  </div>
 
@@ -871,7 +945,7 @@ With given value `21.9` template {% raw %}```{"temperature": {{ value }} }```{% 
 }
 ```
 
-Additional the MQTT entity attributes `entity_id` and `name` can be used as variables in the template.
+Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
 </div>
 
