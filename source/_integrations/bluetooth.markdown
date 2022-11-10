@@ -100,7 +100,6 @@ Performance is primarily determined by a combination of the chip and the Linux d
 
 The following requirements must be met for an adapter to be labeled as High Performance:
 
-- Up by the time the Home Assistant Core container is started when using Home Assistant Operating System
 - Establish a connection in about 1s or less
 - Process at least one advertisement per second from a device without dropping data
 - 95% of connection attempts are successful within two tries
