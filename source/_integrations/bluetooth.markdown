@@ -79,12 +79,18 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 
 ### Known working high performance adapters
 
+- ASUS USB-BT400 (BCM20702A0)
+- Cable Matters 604002-BLK (BCM20702A0)
 - Feasycom FSC-BP119 (CSR8510A10) 📶
+- Kinivo BTD-400 (BCM20702A0)
 - Panda Wireless PBU40 (CSR8510A10)
+- Pluggable USB-BT4LE (BCM20702A0)
 - Raspberry Pi 3B+ (CYW43455)
 - Raspberry Pi 4B (CYW43455)
 - SABRENT BT-UB40 (CSR8510A10)
+- SoundBot SB342 (BCM20702A0)
 - StarTech USBBT1EDR4 (CSR8510A10)
+- StarTech USBBT2EDR4 (BCM20702A0)
 - Techkey PBT06H (CSR8510A10)
 - TRENDnet TBW-107UB (CSR8510A10)
 
@@ -106,19 +112,10 @@ Performance testing used the following hardware:
 - Advertisements from an Oral-B iO Series 8
 - External Adapters only: Home Assistant Blue running Home Assistant Operating System 9.3 with a USB extension cable.
 
-### Known working adapters with missing firmware patch files
+### Slow startup on the ODRIOD N2+ platform
 
-These adapters do not currently have patch files with Home Assistant Operating System 9.3. The adapter may take multiple minutes to initialize after boot; eventually, they come online.
+These adapter take an additional 120 seconds to initialize after boot with Home Assistant Operating System 9.3 when using an ODROID N2+; eventually, they come online.
 
-While the Broadcom chips and drivers are generally performant, the experience may be sub-optimal until patch files are added.
-
-- ASUS USB-BT400 (BCM20702A0) - USB id 0b05:17cb
-- Cable Matters 604002-BLK (BCM20702A0) - USB id 0a5c:21e8
-- Kinivo BTD-400 (BCM20702A0) - USB id 0a5c:21e8
-- Pluggable USB-BT4LE (BCM20702A0) - USB id 0a5c:21e8
-- SoundBot SB342 (BCM20702A0) - USB id 0a5c:21ec
-- StarTech USBBT2EDR4 (BCM20702A0) - USB id 0a5c:21e8
-  
 ### Known working adapters
 
 - ASUS USB-BT500 (RTL8761BU)
