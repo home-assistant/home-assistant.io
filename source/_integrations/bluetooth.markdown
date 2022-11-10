@@ -111,7 +111,7 @@ Performance testing used the following hardware:
 - Advertisements from an Oral-B iO Series 8
 - External Adapters only: Home Assistant Blue running Home Assistant Operating System 9.3 with a USB extension cable.
 
-### Slow startup of Broadcom adapters on the ODROID N2+ platform
+#### Slow startup of Broadcom adapters on the ODROID N2+ platform
 
 The BCM20702 based adapters may take an additional 120 seconds to initialize after boot with Home Assistant Operating System 9.3 when using an ODROID N2+; eventually, they come online.
 
