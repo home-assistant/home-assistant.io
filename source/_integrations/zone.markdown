@@ -16,6 +16,10 @@ Zones allow you to specify certain regions on earth (for now). When a device tra
 
 Zones can be added and managed through the user interface at **{% my zones title="Settings -> Areas & Zones" %}**.
 
+![Screenshot of the UI for adding or editing a zone](/images/integrations/zone/zone_edit_ui.png)
+
+In the user interface you can add a zone by specifying the GPS co-ordinates, or by dragging the icon. You can adjust the radius (except of the Home zone) by adjusting the size of the zone circle.
+
 Zones can also be configured via `configuration.yaml`:
 
 ```yaml
@@ -82,7 +86,7 @@ Devices that are in the zone **'Home'** will not appear on the map in the Home A
 
 ## Icons
 
-It is preferred to pick an icon to use for your zone. Pick any icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) and prefix the name with `mdi:`. For example `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
+It is recommended that you pick an icon to use for your zone. Pick any icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) and prefix the name with `mdi:`. For example `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
 
 ## State
 
