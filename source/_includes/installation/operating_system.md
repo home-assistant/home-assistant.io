@@ -266,6 +266,9 @@ _All these can be extended if your usage calls for more resources._
     4. Check the box for “Customize configuration before install”
     5. Select your bridge under “Network Selection”
     6. Under customization select “Overview” -> “Firmware” -> “UEFI x86_64: ...”
+       
+       Make sure to select a non-secureboot version of OVMF (does not contain the word `secure`). E.g `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
+       
     7. Click "Add Hardware" (bottom left), and select "Channel"
     8. Select device type: "unix"
     9. Select name: "org.qemu.guest_agent.0"
