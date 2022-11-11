@@ -102,7 +102,6 @@ Performance is primarily determined by a combination of the chip and the Linux d
 
 The following requirements must be met for an adapter to be labeled as High Performance:
 
-- Up by the time the Home Assistant Core container is started when using Home Assistant Operating System
 - Establish a connection in about 1s or less
 - Process at least one advertisement per second from a device without dropping data
 - 95% of connection attempts are successful within two tries
@@ -114,9 +113,9 @@ Performance testing used the following hardware:
 - Advertisements from an Oral-B iO Series 8
 - External Adapters only: Home Assistant Blue running Home Assistant Operating System 9.3 with a USB extension cable.
 
-### Slow startup of Broadcom adapters on the ODROID N2+ platform
+#### Slow startup of Broadcom adapters on the ODROID N2+ platform
 
-The BCM20702 based adapters take an additional 120 seconds to initialize after boot with Home Assistant Operating System 9.3 when using an ODROID N2+; eventually, they come online.
+The BCM20702 based adapters may take an additional 120 seconds to initialize after boot with Home Assistant Operating System 9.3 when using an ODROID N2+; eventually, they come online.
 
 ### Known working adapters
 
