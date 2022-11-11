@@ -33,12 +33,22 @@ To use a Linksys Smart Wi-Fi Router in your Home Assistant installation, add the
 device_tracker:
   - platform: linksys_smart
     host: 192.168.1.1
+    username: admin
+    password: admin
 ```
 
 {% configuration %}
 host:
   description: The hostname or IP address of your router, e.g., `192.168.1.1`.
   required: true
+  type: string
+host:
+  description: The admin username of your router. Default "admin"
+  required: false
+  type: string
+host:
+  description: The admin password of your router. Can be exluded for older firmware versions that don't require authentication.
+  required: false
   type: string
 {% endconfiguration %}
 
