@@ -106,6 +106,7 @@ The following requirements must be met for an adapter to be labeled as High Perf
 - Process at least one advertisement per second from a device without dropping data
 - 95% of connection attempts are successful within two tries
 - Meets the above requirements with Home Assistant Core 2022.11.1 or later and Home Assistant Operating System 9.3 or later
+- Must be able to hold five (5) connections at the same time
 
 Performance testing used the following hardware:
 
