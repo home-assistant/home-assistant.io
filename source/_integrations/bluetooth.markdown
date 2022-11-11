@@ -85,6 +85,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - Kinivo BTD-400 (BCM20702A0)
 - Panda Wireless PBU40 (CSR8510A10)
 - Pluggable USB-BT4LE (BCM20702A0)
+- QGOO BT-06A (CSR8510A10)
 - Raspberry Pi 3B+ (CYW43455)
 - Raspberry Pi 4B (CYW43455)
 - SABRENT BT-UB40 (CSR8510A10)
@@ -93,6 +94,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - StarTech USBBT2EDR4 (BCM20702A0)
 - Techkey PBT06H (CSR8510A10)
 - TRENDnet TBW-107UB (CSR8510A10)
+- Warmstor WBT-AD01 (CSR8510A10)
 
 📶 Denotes external antenna
 
