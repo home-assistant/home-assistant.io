@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Climate
   - Cover
+  - Light
   - Lock
   - Sensor
   - Siren
@@ -51,3 +52,4 @@ The integration is tested and verified for the following devices from YoLink:
 * YS7A01/2 (CO & Smoke Sensor)
 * YS4002/3 (Thermostat)
 * YS4906/8 YS7706 (Garage Door Sensor/ Garage Door Controller)
+* YS5707 (Dimmer)
