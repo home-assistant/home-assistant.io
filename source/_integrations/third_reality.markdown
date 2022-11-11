@@ -29,6 +29,6 @@ Third Reality Zigbee devices work locally and integrate seamlessly with the Zigb
 
 To add Third Reality products, pair them as Zigbee devices:
 
-{% my config_zha badge %}
+{% my add_zigbee_device badge brand=page.ha_domain %}
 
 [Learn more about Zigbee in Home Assistant.](/integrations/zha/)

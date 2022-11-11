@@ -12,8 +12,10 @@ ha_homekit: true
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - light
   - select
+  - sensor
 ha_integration_type: integration
 ha_codeowners:
   - '@bdraco'
@@ -66,6 +68,28 @@ To determine whether or not a HEV cycle is currently running, Home Assistant exp
 | `power` | Start a HEV cycle (`True`) or stop a cycle (`False`).
 | `duration` | Duration (in seconds) for the HEV cycle. The default duration of two hours (7200 seconds) is used if this attribute is omitted.
 
+## Sensors
+
+The following sensors are available depending on the LIFX model:
+
+| Sensor | Description |
+| ------ | ----------- |
+| Clean cycle | Indicates whether a HEV cycle is currently active on a LIFX Clean bulb |
+| Infrared brightness | Controls the infrared brightness amount on a LIFX Nightvision bulb |
+| RSSI | Indicates the current WiFi signal strength on any LIFX bulb (disabled by default) |
+
+Note that these sensors are only updated every 30 seconds and may not reflect the current state if changes are made externally to Home Assistant.
+
+## Themes
+
+Home Assistant provides a collection of predefined themes for LIFX multizone lights, each designed to mimic the theme of the same name from the LIFX smartphone app.
+
+To apply a theme interactively, use the theme selection drop-down box found on the device configuration screen.
+
+To apply a theme as part of an automation, use the `select.select_option` service call. You can also apply a theme when calling the `lifx.effect_move` service. See the **Light effects** section below for more details, including how to set a custom theme for that effect.
+
+The following themes are available: `autumn`, `blissful`, `cheerful`, `dream`, `energizing`, `epic`, `exciting`, `focusing`, `halloween`, `hanukkah`, `holly`, `independence_day`, `intense`, `mellow`, `peaceful`, `powerful`, `relaxing`, `santa`, `serene`, `soothing`, `sports`, `spring`, `tranquil`, `warming`.
+
 ## Light effects
 
 The LIFX platform supports several software-controlled light effects and one hardware based effect. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/integrations/light/#service-lightturn_on) service, for example like this:
@@ -100,13 +124,17 @@ script:
           change: 35
 ```
 
-The `lifx.effect_move` effect is hardware effect that is only available on LIFX multizone devices like the LIFX Z, Lightstrip or Beam. Note that if all the LEDs of the multizone device are set to the same color, the effect will not be visible. The effect can be stopped and started regardless of the power state of the device, but the default is to turn the device on when starting the effect. Set the `power_on` attribute of the `lifx.effect_move` service to `false` to override the default.
+### Hardware effects
+
+The Flame (`lifx_effect_flame`), Morph (`lifx.effect_morph`) and Move (`lifx.effect_move`) effects are hardware-based and only work on specific LIFX devices. Flame and Morph are available on the LIFX Tile and Candle, while the Move effect requires a LIFX Z, Lightstrip, or Beam.
+
+All hardware-based effects can be stopped and started regardless of the device's power state, but the default behavior for each service is to turn the device on when starting an effect. Set the `power_on` attribute of the service to `false` to override this default.
 
 All the available light effects and their options are listed below.
 
 ### Service `lifx.effect_pulse`
 
-Run a flash effect by changing to a color and then back.
+Run a software-based flash effect by changing to a color and then back.
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
@@ -121,7 +149,7 @@ Run a flash effect by changing to a color and then back.
 
 ### Service `lifx.effect_colorloop`
 
-Run an effect with colors looping around the color wheel. All participating lights will coordinate to keep similar (but not identical) colors.
+Run a software-based effect that continuously loops colors around the color wheel. All participating lights will coordinate to keep similar (but not identical) colors.
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
@@ -133,9 +161,35 @@ Run an effect with colors looping around the color wheel. All participating ligh
 | `spread` | Maximum color difference between participating lights, in degrees on a color wheel (ranges from 0 to 359).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
+### Service `lifx.effect_flame`
+
+Run a hardware-based effect on LIFX matrix devices that creates a flame effect on the device. The device will be powered on by default, but this can be overridden by setting `power_on` to `false`. The `speed` attribute controls the speed of the flames.
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of matrix lights.
+| `speed` | Duration in seconds for the effect to travel the length of the device (min: 1s, max: 25s)
+| `power_on` | Whether to turn the light on before starting the effect (optional, default: true)
+
+### Service `lifx.effect_morph`
+
+Run a hardware-based effect on LIFX matrix devices that animates blobs of colors across the device. The `speed` attribute controls the speed of the movement.
+
+You must provide a `palette` or `theme` to use for the effect, but not both. The `palette` attribute allows you to select the colors used by the effect, while the `theme` attribute allows you to select one of the pre-configured themes which match those found in the LIFX smartphone app.
+
+The device will be powered on by default, but this can be overridden by setting `power_on` to `false`.
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of matrix lights.
+| `speed` | Duration in seconds for the effect to travel the length of the device (min: 1s, max: 25s)
+| `palette` | A list of at least 2 and at most 16 HSBK values to use for this effect.
+| `theme` | The theme to use for the effect. Must be one of: `autumn`, `blissful`, `cheerful`, `dream`, `energizing`, `epic`, `exciting`, `focusing`, `halloween`, `hanukkah`, `holly`, `independence` `day`, `intense`, `mellow`, `peaceful`, `powerful`, `relaxing`, `santa`, `serene`, `soothing`, `sports`, `spring`, `tranquil`, `warming`.
+| `power_on` | Whether to turn the light on before starting the effect (optional, default: true)
+
 ### Service `lifx.effect_move`
 
-A harware-based effect available on LIFX multizone devices that creates a movement animation of the colors currently set on the device. The direction and speed of the animation are controlled by the `speed` and `direction` attributes. You can change the colors of the effect while it is running using the `lifx.set_state` service.
+Run a hardware-based effect on LIFX multizone devices that move the current colors on the device in a particular direction. The direction and speed of the animation are controlled by the `speed` and `direction` attributes. You can change the effect's colors while running using the `lifx.set_state` service.
 
 The effect will not be visible if all LEDs on the device are set to the same color and is ignored by unsupported devices.
 
@@ -144,6 +198,7 @@ The effect will not be visible if all LEDs on the device are set to the same col
 | `entity_id` | String or list of strings that point at `entity_id`s of multizone lights.
 | `speed` | Duration in seconds for the effect to travel the length of the device (min: 0.1s, max: 60s)
 | `direction` | The direction in which the effect will travel, either "right" or "left" (default: right)
+| `theme` | The name of a pre-defined theme to apply to the multizone device before starting the effect.
 | `power_on` | Whether to turn the light on before starting the effect (optional, default: true)
 
 ### Service `lifx.effect_stop`
