@@ -82,6 +82,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - ASUS USB-BT400 (BCM20702A0)
 - Cable Matters 604002-BLK (BCM20702A0)
 - Feasycom FSC-BP119 (CSR8510A10) 📶
+- GMYLE 3340 (BCM20702A0)
 - Kinivo BTD-400 (BCM20702A0)
 - Panda Wireless PBU40 (CSR8510A10)
 - Pluggable USB-BT4LE (BCM20702A0)
