@@ -51,7 +51,7 @@ The service call will fail when no product could be found or when no `product_id
 
 | Service data attribute | Optional | Description                                                                      |
 |------------------------|----------|----------------------------------------------------------------------------------|
-| `device_id`            | yes      | The Picnic service to search against, defaults to the first registered service.  |
+| `config_entry_id`      | No       | The Id of the Picnic service config entry.                                       |
 | `product_id`           | yes      | The Picnic product ID.                                                           |
 | `product_name`         | yes      | A product name to search for, the first search result will be added to the cart. |
 | `amount`               | yes      | The amount to add, defaults to 1.                                                |
@@ -60,5 +60,6 @@ The service call will fail when no product could be found or when no `product_id
 # Example automation action to add a product to the cart by name.
 - service: picnic.add_product
   data:
+    config_entry_id: 6b4be47a1fa7c3764f14cf756dc9899d
     product_name: "Picnic cola zero"
 ```
