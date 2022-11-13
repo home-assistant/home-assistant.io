@@ -141,7 +141,9 @@ The BCM20702 based adapters may take an additional 120 seconds to initialize aft
 ### Unsupported adapters
 
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
+- eppfun AK3040G (ATS2851) - No driver available yet for USB id 10d7:b012
 - QUMOX Bluetooth 5.0 (Barrot 8041A02) - No working driver
+- UGREEEN CM591 (ATS2851) - No driver available yet for USB id 10d7:b012
 - tp-link UB400 (CSR4) - Frequent connection failures with active connections
 - tp-link UB500 (RTL8761BU) - Frequent connection failures with active connections
 
