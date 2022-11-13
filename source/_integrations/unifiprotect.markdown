@@ -53,21 +53,28 @@ This Integration supports all UniFi OS Consoles that can run UniFi Protect. Curr
 * Any UniFi "Dream" device (**UDMPRO**, **UDR**, or **UDMSE**), _except the base UniFi Dream Machine/UDM_
 * UniFi Cloud Key Gen2 Plus (**UCKP**) firmware version v2.0.24+
 
-UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware v2.0.24 or newer.
+UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware `v2.0.24` or newer.
 
 ### Software Support
 
-The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
+The absolute **minimal** software version is `v1.20.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
 
 #### About UniFi Early Access
 
-Since UniFi Protect has its own release cycle, Early Access versions of UniFi Protect are used to ensure compatibility with Home Assistant. As a result, Early Access releases **not supported by Home Assistant**. Using an Early Access release may cause your UniFi Protect integration to break unexpectedly.
+<div class='note warning'>
 
-**If you want your UniFi Protect integration to be stable, do not use Early Access versions of UniFi Protect**.
+**Early Access releases are not supported by Home Assistant.**
+
+Using Early Access versions will likely cause your UniFi Protect integration to break unexpectedly.
+</div>
 
 #### Downgrading UniFi Protect
 
-In the event you accidentally upgrade to an Early Access version of UniFi Protect and it breaks your UniFi Protect Home Assistant integration, you can access your <a href="https://help.ui.com/hc/en-us/articles/204909374#h_01F8G1NSFWE9GWXMT977VQEP8V" target="_blank" rel="noopener">UniFi OS Console via SSH</a> and then do the following:
+In the event you accidentally upgrade to an Early Access version of UniFi Protect you can downgrade to a stable version by either [restoring a backup](https://help.ui.com/hc/en-us/articles/360008976393-UniFi-Backups-and-Migration) or by manually downgrading your UniFi Protect.
+
+##### Manually Downgrade
+
+Manually downgrading comes with its own risks and it is not recommended unless you do not have a backup available. Some Protect versions cannot be downgraded from (like `v2.0` to `v1.21`). To downgrade, you can access your [UniFi OS Console via SSH](https://help.ui.com/hc/en-us/articles/204909374#h_01F8G1NSFWE9GWXMT977VQEP8V) and then do the following:
 
 ```bash
 # run this command first _only_ if you are on a 1.x firmware of the UDM Pro
@@ -79,19 +86,13 @@ apt-get update
 apt-get install --reinstall --allow-downgrades unifi-protect=2.0.0~beta.5 -y
 ```
 
-You can replace `2.0.0-beta.5` with whatever version of UniFi Protect you want to downgrade to.
+You can replace `2.0.0~beta.5` with whatever version of UniFi Protect you want to downgrade to. Any dashes in the version (`-`), replace with tilde (`~`).
 
-**Note**: if you want to downgrade to another Early Access version, you must have <a href="https://help.ui.com/hc/en-us/articles/115012240067-UniFi-How-to-enable-remote-access" target="_blank" rel="noopener">Remote Access enabled</a> and have the Early Access release channel enabled.
+<div class='note'>
 
-#### Using Early Access Releases
+If you want to downgrade to another Early Access version, you must have [Remote Access enabled](https://help.ui.com/hc/en-us/articles/115012240067-UniFi-How-to-enable-remote-access) and have the Early Access release channel enabled.
 
-If you have chosen to ignore all of the warnings about Early Access, here are some rules/tips to follow when using Early Access releases.
-
-* Report issues [upstream](https://github.com/AngellusMortis/pyunifiprotect/issues/) rather to Home Assistant Core
-* Disable automatic updates for UniFi Protect
-* Only update UniFi Protect _after_ the next Home Assistant update comes out
-
-This should provide a semi-stable experience for using Early Access versions for UniFi Protect.
+</div>
 
 ### Local User
 
