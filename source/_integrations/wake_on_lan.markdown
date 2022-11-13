@@ -70,9 +70,8 @@ To enable this switch in your installation, add the following to your `configura
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: wake_on_lan
-    mac: MAC_ADDRESS
+wake_on_lan:
+  - mac: MAC_ADDRESS
 ```
 
 {% configuration %}
@@ -123,9 +122,8 @@ from Home Assistant running on another Linux computer (the **server**).
 8. On the **server**, add the following to your configuration, replacing TARGET with the target's name:
 
 ```yaml
-switch:
-  - platform: wake_on_lan
-    name: "TARGET"
+wake_on_lan:
+  - name: "TARGET"
     ...
     turn_off:
       service: shell_command.turn_off_TARGET
