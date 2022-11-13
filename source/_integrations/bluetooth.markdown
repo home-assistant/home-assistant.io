@@ -83,6 +83,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - Cable Matters 604002-BLK (BCM20702A0)
 - Feasycom FSC-BP119 (CSR8510A10) 📶
 - GMYLE 3340 (BCM20702A0)
+- HIDEEZ BT0015-01 (CSR8510A10)
 - Kinivo BTD-400 (BCM20702A0)
 - Panda Wireless PBU40 (CSR8510A10)
 - Pluggable USB-BT4LE (BCM20702A0)
