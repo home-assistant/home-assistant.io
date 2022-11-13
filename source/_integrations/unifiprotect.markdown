@@ -64,9 +64,9 @@ The absolute **minimal** software version is `v1.20.0` for UniFi Protect. If you
 Since UniFi Protect has its own release cycle, Early Access versions of UniFi Protect are used to ensure compatibility with Home Assistant. As a result, Early Access releases are not supported by Home Assistant.
 
 <div class='note warning'>
+**Early Access releases are not supported by Home Assistant.** 
 
-**Early Access releases are not supported by Home Assistant.** Using an them may cause your UniFi Protect integration to break unexpectedly.
-
+Using Early Access versions will likely cause your UniFi Protect integration to break unexpectedly.
 </div>
 
 #### Downgrading UniFi Protect
