@@ -137,3 +137,31 @@ data:
   bridge: "deviceid"
   text: "Hello"
 ```
+
+### Service `system_bridge.control_power`
+
+Send power commands to the system.
+
+{% my developer_call_service service="system_bridge.control_power" title="Show service in your Home Assistant instance." %}
+
+```yaml
+service: system_bridge.control_power
+data:
+  bridge: "deviceid"
+  command: "shutdown"
+```
+
+### Service `system_bridge.send_notification`
+
+Send notifications to the desktop.
+
+{% my developer_call_service service="system_bridge.send_notification" title="Show service in your Home Assistant instance." %}
+
+```yaml
+service: system_bridge.send_notification
+data:
+  bridge: "deviceid"
+  title: "Title"
+  message: "Long Message"
+  timeout: 60
+```
