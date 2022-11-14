@@ -59,49 +59,12 @@ Restore a previously taken snapshot of one or more speakers. If `entity_id` is `
 
 ## Examples
 
-### Script
-
-```yaml
-# Take Snapshot of current state, turn on zones, select source.
-alias: Notify - Media Announment
-sequence:
-  - service: monoprice.snapshot
-    data: {}
-    target:
-      entity_id:
-        - media_player.basement
-        - media_player.garage
-        - media_player.great_room
-        - media_player.kitchen
-        - media_player.upstairs_master
-  - service: media_player.turn_on
-    data: {}
-    target:
-      entity_id:
-        - media_player.kitchen
-        - media_player.great_room
-        - media_player.garage
-        - media_player.upstairs_master
-        - media_player.basement
-  - service: media_player.select_source
-    data:
-      source: Server
-    target:
-      entity_id:
-        - media_player.basement
-        - media_player.kitchen
-        - media_player.upstairs_master
-        - media_player.great_room
-        - media_player.garage
-mode: single
-icon: mdi:speaker-message
-```
 
 ### Automations
 
 ```yaml
 alias: Notify - Doorbell
-description: ""
+description: "When Doorbell is pressed play media over speakers"
 trigger:
   - platform: state
     entity_id:
@@ -111,11 +74,42 @@ condition:
     before: "22:00:00"
     after: "07:00:00"
 action:
-  - service: script.notify_media_announment
-    data: {}
+  - service: monoprice.snapshot
+    target:
+      entity_id:
+        - media_player.basement
+        - media_player.garage
+        - media_player.great_room
+        - media_player.kitchen
+        - media_player.upstairs_master
+  - service: media_player.turn_on
+    target:
+      entity_id:
+        - media_player.kitchen
+        - media_player.great_room
+        - media_player.garage
+        - media_player.upstairs_master
+        - media_player.basement
+  - service: media_player.select_source
+    data:
+      source: "Server"
+    target:
+      entity_id:
+        - media_player.basement
+        - media_player.kitchen
+        - media_player.upstairs_master
+        - media_player.great_room
+        - media_player.garage
   - service: switch.turn_on
-    data: {}
     target:
       entity_id: switch.doorbell_announce
+  - service: monoprice.restore
+    target:
+      entity_id:
+        - media_player.basement
+        - media_player.garage
+        - media_player.great_room
+        - media_player.kitchen
+        - media_player.upstairs_master
 mode: single
 ```
