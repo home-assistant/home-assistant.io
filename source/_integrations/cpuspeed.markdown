@@ -13,7 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The CPU Speed integration allows you to monitor the current CPU speed.

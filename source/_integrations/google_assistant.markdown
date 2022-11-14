@@ -119,7 +119,7 @@ Your Home Assistant instance needs to be connected to the same network as the Go
 
 Your Google Assistant devices will still communicate via the internet to:
 - Get credentials to establish a local connection.
-- Send commands that involve a [secure device](#secure-device).
+- Send commands that involve a [secure device](#secure-devices).
 - Send commands if local fulfillment fails.
 
 <div class='note'>
@@ -134,7 +134,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
 2. Click `Develop` on the top of the page, then click `Actions` located in the hamburger menu on the top left.
-3. Upload `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest) for both Node and Chrome by clicking the `Upload Javascript files` button.
+3. Upload `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest) for both Node and Chrome by clicking the `Upload JavaScript files` button.
 4. Add device scan configuration:
    1. Click `+ New scan config` if no configuration exists
    2. Select `MDNS`

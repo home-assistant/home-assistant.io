@@ -11,7 +11,7 @@ ha_domain: frontend
 ha_integration_type: system
 ---
 
-This offers the official frontend to control Home Assistant. This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This offers the official frontend to control Home Assistant. This integration is enabled by default unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
@@ -20,7 +20,7 @@ frontend:
 
 {% configuration %}
   themes:
-    description: Allow to define different themes. See below for further details.
+    description: Allows you to define different themes. See below for further details.
     required: false
     type: map
     keys:
@@ -34,15 +34,15 @@ frontend:
             required: true
             type: [list, string]
   extra_module_url:
-    description: "List of additional javascript modules to load in `latest` javascript mode."
+    description: "List of additional JavaScript modules to load in `latest` JavaScript mode."
     required: false
     type: list
   extra_js_url_es5:
-    description: "List of additional javascript code to load in `es5` javascript mode."
+    description: "List of additional JavaScript code to load in `es5` JavaScript mode."
     required: false
     type: list
   development_repo:
-    description: Allow to point to a directory containing frontend files instead of taking them from a pre-built PyPI package. Useful for Frontend development.
+    description: Allows you to point to a directory containing frontend files instead of taking them from a pre-built PyPI package. Useful for Frontend development.
     required: false
     type: string
 {% endconfiguration %}
@@ -129,7 +129,7 @@ There are two themes-related services:
 | Service data attribute | Description                                                                                         |
 | ---------------------- | --------------------------------------------------------------------------------------------------- |
 | `name`                 | Name of the theme to set, `default` for the default theme or `none` to restore to the default.      |
-| `mode`                 | If the theme should be applied in light or dark mode `light` or `dark` (Optional, default `light`)  |
+| `mode`                 | If the theme should be applied in light or dark mode `light` or `dark` (Optional, default `light`).  |
 
 If no dark mode backend theme is set, the light mode theme will also be used in dark mode.
 The backend theme settings will be saved and restored on a restart of Home Assistant.
@@ -160,7 +160,7 @@ frontend:
 ```
 
 Modules will be loaded with `import({{ extra_module }})`, on devices that support it (`latest` mode).
-For other devices (`es5` mode) you can use `extra_js_url_es5`, this will be loaded with `<script defer src='{{ extra_module }}'></script>`
+For other devices (`es5` mode) you can use `extra_js_url_es5`, this will be loaded with `<script defer src='{{ extra_module }}'></script>`.
 
 The ES5 and module version will never both be loaded, depending on if the device supports `import` the module of ES5 version will be loaded.
 

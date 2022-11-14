@@ -32,7 +32,7 @@ bluetooth:
 
 For Bluetooth to function on Linux systems:
 
-- The [D-Bus](https://en.wikipedia.org/wiki/D-Bus) socket must be accessible to Home Assistant. 
+- The [D-Bus](https://en.wikipedia.org/wiki/D-Bus) socket must be accessible to Home Assistant.
 - The Bluetooth adapter must be accessible to D-Bus and running [BlueZ](http://www.bluez.org/) >= 5.43. It is highly recommended to use BlueZ >= 5.63 as older versions have been reported to be unreliable.
 - The D-Bus implementation should be [dbus-broker](https://github.com/bus1/dbus-broker).
 - The host system should be running Linux kernel 5.15.62 or later.
@@ -77,25 +77,53 @@ Some systems may not come with Bluetooth and require a USB adapter. Installing a
 
 If you experience an unreliable Bluetooth connection, installing a short USB extension cable between your Bluetooth adapter and your Home Assistant server may improve reliability.
 
+### Known working high performance adapters
+
+- ASUS USB-BT400 (BCM20702A1)
+- Feasycom FSC-BP119 (CSR8510A10) 📶
+- Kinivo BTD-400 (BCM20702A1)
+- Raspberry Pi 3B+ (CYW43455)
+- Raspberry Pi 4B (CYW43455)
+
+📶 Denotes external antenna
+
+Performance is primarily determined by a combination of the chip and the Linux drivers for the adapter. Some vendors using the same chip had an unacceptable performance and are listed as unsupported.
+
+The following requirements must be met for an adapter to be labeled as High Performance:
+
+- Establish a connection in about 1s or less
+- Process at least one advertisement per second from a device without dropping data
+- 95% of connection attempts are successful within two tries
+- Meets the above requirements with Home Assistant Core 2022.11.1 or later and Home Assistant Operating System 9.3 or later
+
+Performance testing used the following hardware:
+
+- Active connection to Nanoleaf A19 Bulb NL45-0800 after GATT services were cached by BlueZ
+- Advertisements from an Oral-B iO Series 8
+- External Adapters only: Home Assistant Blue running Home Assistant Operating System 9.3 with a USB extension cable.
+
 ### Known working adapters
 
-- ASUS USB-BT400 [BCM20702A1]
-- ASUS USB-BT500 [RTL8761BU]
-- Avantree DG45 [RTL8761BU]
-- EDUP LOVE EP-B3536 [RTL8761BU] (Long Range)
-- Feasycom FSC-BP119 [CSR8510A10] (Long Range)
-- Kinivo BTD-400 [BCM20702A1]
-- Maxuni BT-501 [RTL8761B]
-- SUMEE BT501 [RTL8761B]
-- UGREEN CM390 [RTL8761BU]
-- XDO BT802 [RTL8761BU] (Long Range)
-- ZEXMTE BT-505 [RTL8761BU] (Long Range)
-- ZEXMTE BT-DG54 [RTL8761BU]
+- ASUS USB-BT500 (RTL8761BU)
+- Avantree DG45 (RTL8761BU)
+- EDUP LOVE EP-B3536 (RTL8761BU) 📶
+- Maxuni BT-501 (RTL8761BU)
+- MPOW BH45A (RTL8761BU)
+- StarTech USBA-BLUETOOTH-V5-C2 (RTL8761BU)
+- SUMEE BT501 (RTL8761BU)
+- UGREEN CM390 (RTL8761BU)
+- XDO BT802 (RTL8761BU) 📶
+- ZEXMTE BT-505 (RTL8761BU) 📶
+- ZEXMTE BT-DG54 (RTL8761BU) 📶
+- ZETSAGE BH451A (RTL8761BU) 📶
+
+📶 Denotes external antenna
 
 ### Unsupported adapters
 
-- tp-link UB400 [BCM20702A1] - Frequent connection failures with active connections
-- tp-link UB500 [RTL8761BU] - Frequent connection failures with active connections
+- Belkin F8T003 ver 2. - Fails to setup and add successfully
+- tp-link UB400 (BCM20702A1) - Frequent connection failures with active connections
+- tp-link UB500 (RTL8761BU) - Frequent connection failures with active connections
 
 ## Multiple adapters
 
@@ -105,7 +133,7 @@ The following methods are known to work to add multiple adapters:
 
 - Long USB Extension cables
 - USB-Ethernet extenders
-- [USB/IP](http://usbip.sourceforge.net/)
+- [USB/IP](https://usbip.sourceforge.net/)
 
 Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/bluetooth/?_highlight=Best+practices#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
 
@@ -119,7 +147,7 @@ Many integrations require active scanning and may not function when scanning is 
 
 ## Remote adapters
 
-The Bluetooth integration supports receiving advertisement data from external adapters for devices and sensors that do not need an active connection. The number of remote scanners is limited only by the performance of the host system.
+The Bluetooth integration supports receiving advertisement data from external adapters for devices and sensors that do not need an active connection, as well as establishing active connections. The number of remote scanners is limited only by the performance of the host system.
 
 The following remote adapters are supported:
 
@@ -173,7 +201,7 @@ For example, unshielded USB 3 port and their cables are especially infamously kn
       - Try to place the Bluetooth adapter at some distance away from walls, ceilings, and floors.
       - Try different orientations of the adapter's external antenna (or whole Bluetooth adapter).
   - USB 3.0 ports/computers/peripherals are known culprits of RFI/EMI/EMF disruption. (See Ref. [1](https://www.usb.org/sites/default/files/327216.pdf) and [2](https://www.unit3compliance.co.uk/2-4ghz-intra-system-or-self-platform-interference-demonstration/)).
-    - Make sure to only connect the Bluetooth USB adapter to a USB 2.0 port (and not to a USB 3.x port). 
+    - Make sure to only connect the Bluetooth USB adapter to a USB 2.0 port (and not to a USB 3.x port).
       - If your computer only has a USB 3.x port then connect the adapter via a powered USB 2.0 hub:
         - A USB 2.0 hub will convert USB 3.0 to a USB 2.0 port and avoid USB 3.0 EMF.
           - A USB 2.0 hub that uses an external power supply will ensure power requirements are fulfilled.

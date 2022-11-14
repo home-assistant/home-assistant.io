@@ -72,10 +72,11 @@ Not supported in [limited templates](#limited-templates).
 - Iterating `states` will yield each state sorted alphabetically by entity ID.
 - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
-- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity, `unknown` if it doesn't exist, `unavailable` if the object exists but is not yet available. 
+- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity, `unknown` if it doesn't exist, `unavailable` if the object exists but is not yet available.
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
-- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') is none` or `state_attr('sensor.my_sensor', 'attr') == None` (note the difference in the capitalization of none in both versions). 
+- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') is none` or `state_attr('sensor.my_sensor', 'attr') == None` (note the difference in the capitalization of none in both versions).
+
 <div class='note warning'>
 
   Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
@@ -105,6 +106,16 @@ Print out a list of all the sensor states:
 {% for state in states.sensor %}
   {{ state.entity_id }}={{ state.state }},
 {% endfor %}
+```
+
+{% endraw %}
+
+Entities that are on:
+
+{% raw %}
+
+```text
+{{ ['light.kitchen', 'light.dinig_room'] | select('is_state', 'on') | list }}
 ```
 
 {% endraw %}
@@ -141,6 +152,9 @@ Other state examples:
 {{ as_local(states.sensor.time.last_changed) }}
 
 {{ states('sensor.expires') | as_datetime }}
+
+# Make a list of states
+{{ ['light.kitchen', 'light.dinig_room'] | map('states') | list }}
 ```
 
 {% endraw %}
@@ -177,6 +191,26 @@ With strings:
 {% else %}
   ??
 {% endif %}
+```
+
+{% endraw %}
+
+List of friendly names:
+
+{% raw %}
+
+```text
+{{ ['binary_sensor.garage_door', 'binary_sensor.front_door'] | map('state_attr', 'friendly_name') | list }}
+```
+
+{% endraw %}
+
+List of lights that are on with a brightness of 255:
+
+{% raw %}
+
+```text
+{{ ['light.kitchen', 'light.dinig_room'] | select('is_state', 'on') | select('is_state_attr', 'brightness', 255) | list }}
 ```
 
 {% endraw %}
@@ -255,6 +289,20 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ device_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+{% endraw %}
+
+### Config Entries
+
+- `config_entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
+
+#### Config entries examples
+
+{% raw %}
+
+```text
+{{ config_entry_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
 ```
 
 {% endraw %}
@@ -386,7 +434,6 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
 {% endraw %}
 
-
 ### Time
 
 `now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
@@ -485,7 +532,7 @@ The `from_json` filter operates similarly, but in the other direction, de-serial
 
 In this example, the special character '°' will be automatically escaped in order to produce valid JSON. The difference between the stringified object and the actual JSON is evident.
 
-*Template*
+#### Template
 
 {% raw %}
 
@@ -497,7 +544,7 @@ object|to_json: {{ temp|to_json(ensure_ascii=False) }}
 
 {% endraw %}
 
-*Output*
+#### Output
 
 {% raw %}
 
@@ -510,7 +557,7 @@ object|to_json: {"temperature": 25, "unit": "\u00b0C"}
 
 Conversely, `from_json` can be used to de-serialize a JSON string back into an object to make it possible to easily extract usable data.
 
-*Template*
+#### Template
 
 {% raw %}
 
@@ -521,7 +568,7 @@ The temperature is {{ temp.temperature }}{{ temp.unit }}
 
 {% endraw %}
 
-*Output*
+#### Output
 
 {% raw %}
 
@@ -573,12 +620,12 @@ Not supported in [limited templates](#limited-templates).
 - `distance()` will measure the distance in kilometers between home, entity, coordinates.
 - `closest()` will find the closest entity.
 
-
 #### Distance examples
 
 If only one location is passed in, Home Assistant will measure the distance from home.
 
 {% raw %}
+
 ```text
 
 Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
@@ -699,11 +746,11 @@ Like `float` and `int`, `bool` has a filter form. Using `none` as the default va
 - `sqrt(value, default)` will return the square root of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `max([x, y, ...])` will obtain the largest item in a sequence. Uses the same parameters as the built-in [max](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.max) filter.
 - `min([x, y, ...])` will obtain the smallest item in a sequence. Uses the same parameters as the built-in [min](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.min) filter.
-- `average([x, y, ...])` will return the average value of the sequence. Can be used as a filter.
+- `average([x, y, ...], default)` will return the average value of the sequence. If list is empty or contains non-numeric value, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
-- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted raises an error. 
+- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted raises an error.
   - `round(precision, "floor", default)` will always round down to `precision` decimals
   - `round(precision, "ceil", default)` will always round up to `precision` decimals
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
@@ -715,7 +762,7 @@ Like `float` and `int`, `bool` has a filter form. Using `none` as the default va
 
 These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice-versa.
 The `pack` and `unpack` functions can also be used as a filter. They make use of the Python 3 `struct` library.
-See: https://docs.python.org/3/library/struct.html
+See: [Python struct library documentation](https://docs.python.org/3/library/struct.html)
 
 - Filter `value | pack(format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or when `format_string` is invalid.
 - Function `pack(value, format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or when `format_string` is invalid.
@@ -742,6 +789,9 @@ Some examples:
 - Filter `slugify(separator="_")` will convert a given string into a "slug".
 
 ### Regular expressions
+
+For more information on regular expressions
+See: [Python regular expression operations](https://docs.python.org/3/library/re.html)
 
 - Test `string is match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
 - Test `string is search(find, ignorecase=False)` will match the find expression anywhere in the string using regex.

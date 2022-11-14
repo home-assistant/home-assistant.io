@@ -73,6 +73,14 @@ name:
   required: false
   type: string
   default: Bayesian Binary Sensor
+unique_id:
+  description: An ID that uniquely identifies this bayesian entity. If two entities have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
+device_class:
+  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 observations:
   description: The observations which should influence the probability that the given event is occurring.
   required: true
@@ -115,8 +123,9 @@ The following is an example for the `state` observation platform.
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  name: "in_bed"
   platform: "bayesian"
+  name: "in_bed"
+  unique_id: "172b6ef1-e37e-4f04-8d64-891e84c02b43" # generated on https://www.uuidgenerator.net/
   prior: 0.25 # I spend 6 hours a day in bed 6hr/24hr is 0.25 
   probability_threshold: 0.8 # I am going to be using this sensor to turn out the lights so I only want to to activate when I am sure
   observations:
@@ -174,6 +183,7 @@ Finally, here's an example for `template` observation platform, as seen in the c
 binary_sensor:
   name: "Paulus Home"
   platform: "bayesian"
+  device_class: "presence"
   prior: 0.5
   probability_threshold: 0.9
   observations:

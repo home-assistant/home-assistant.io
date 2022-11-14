@@ -70,4 +70,8 @@ round_digits:
   required: false
   type: integer
   default: 2
+unique_id:
+  description: Unique id to be able to configure the entity in the UI.
+  required: false
+  type: string
 {% endconfiguration %}
