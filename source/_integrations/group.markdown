@@ -64,17 +64,12 @@ Binary sensor, light, and switch groups allow you set the "All entities" option.
 
 ### Climate groups
 
-In short, the state shown is using the order in the `HVACMode` enum (except that `off` is the least priority). E.g. when any group member entity is `heat`, the group will also be `heat`. A complete overview of how climate groups behave:
+In short, the most common state shown (except that devices which are `off` are excluded).
 
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
-- Otherwise, the group state is `heat` if at least one group member is `heat`.
-- Otherwise, the group state is `cool` if at least one group member is `cool`.
-- Otherwise, the group state is `heat_cool` if at least one group member is `heat_cool`.
-- Otherwise, the group state is `auto` if at least one group member is `auto`.
-- Otherwise, the group state is `dry` if at least one group member is `dry`.
-- Otherwise, the group state is `fan_only` if at least one group member is `fan_only`.
-- Otherwise, the group state is `off`.
+- Otherwise, the group state is `off` if all group members are `off`.
+- Otherwise, the group state is the most common state of the group members which are not `off`.
 
 For other modes, the most common mode is reported (e.g. for `PRESET_MODES`, `FAN_MODE` and `SWING_MODE`). The reported temperatures are the averages from the given entities.
 
