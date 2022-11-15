@@ -85,6 +85,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - Feasycom FSC-BP119 (CSR8510A10) 📶
 - GMYLE 3340 (BCM20702A0)
 - HIDEEZ BT0015-01 (CSR8510A10)
+- IOGEAR GBU521W6 (BCM20702A0)
 - Kinivo BTD-400 (BCM20702A0)
 - Nuu You BT40 (CSR8510A10)
 - Panda Wireless PBU40 (CSR8510A10)
