@@ -49,7 +49,7 @@ We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-as
 
 [AI-on-the-edge-device](https://github.com/jomjol/AI-on-the-edge-device) is a project running on an ESP32-CAM and can be fully integrated into Home Assistant using the Home Assistant discovery functionality of MQTT. It digitalizes your gas/water/electricity meter display and provides its data in various ways. 
 
-<img src='/images/docs/energy/ai-on-the-edge-device.png' alt='AI-on-the-edge-device Workflow'>
+<img src='/images/docs/energy/ai-on-the-edge-device.jpg' alt='AI-on-the-edge-device Workflow'>
 
 ### Using a CT clamp sensor
 
