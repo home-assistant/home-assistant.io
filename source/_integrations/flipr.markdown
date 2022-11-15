@@ -28,6 +28,7 @@ There is currently support for the following information within Home Assistant:
 - Last measure date
 - pH Status Indicator
 - Chlorine Status Indicator
+- Battery level
 
 ## Prerequisites
 
@@ -47,5 +48,6 @@ It is recommended that you create your own card with the following sensors where
 - `sensor.flipr_[fliprid]_red_ox`
 - `sensor.flipr_[fliprid]_water_temp`
 - `sensor.flipr_[fliprid]_last_measured`
+- `sensor.flipr_[fliprid]_battery_level`
 
 Leave `binary_sensor.flipr_[fliprid]_ph_status` and `binary_sensor.flipr_[fliprid]_chlorine_status` as badges.
