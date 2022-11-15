@@ -12,17 +12,29 @@
     {%- if page.ha_config_flow and domain -%}
       {% my config_flow_start badge domain=domain %}
     {%- elsif page.ha_iot_standard == "zigbee" -%}
-      {% my config_zha badge %}
+      {%- if page.ha_brand -%}
+        {% my add_zigbee_device badge brand=domain %}
+      {%- elsif domain -%}
+        {% my add_zigbee_device badge domain=domain %}
+      {%- else -%}
+        {% my add_zigbee_device badge %}
+      {%- endif -%}
     {%- elsif page.ha_iot_standard == "zwave" -%}
-      {% my config_zwave_js badge %}
+      {%- if page.ha_brand -%}
+        {% my add_zwave_device badge brand=domain %}
+      {%- elsif domain -%}
+        {% my add_zwave_device badge domain=domain %}
+      {%- else -%}
+        {% my add_zwave_device badge %}
+      {%- endif -%}
     {%- endif -%}
   </div>
 
   <div class='section'>
     {%- if page.ha_brand -%}
-      The {{ page.name | default: page.title }} brand was introduced in Home Assistant {{ page.ha_release | default: "unknown" }}.
+      The {{ page.title | default: page.name }} brand was introduced in Home Assistant {{ page.ha_release | default: "unknown" }}.
     {%- else -%}
-      The {{ page.name | default: page.title }} {{ page.ha_integration_type | default: "integration" }} was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
+      The {{ page.title | default: page.name }} {{ page.ha_integration_type | default: "integration" }} was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
       and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io/#integrations" target="_blank" rel="noopener">
 
       {% if percentage < 1 %}

@@ -3,6 +3,7 @@ title: MQTT
 description: Instructions on how to setup MQTT within Home Assistant.
 ha_category:
   - Hub
+  - Update
 featured: true
 ha_release: pre 0.7
 ha_iot_class: Local Push
@@ -264,7 +265,8 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'dock_t':              'docked_topic',
     'dock_tpl':            'docked_template',
     'e':                   'encoding',
-    'ent_cat':             'entity_category,
+    'ent_cat':             'entity_category',
+    'ent_pic':             'entity_picture',
     'err_t':               'error_topic',
     'err_tpl':             'error_template',
     'fanspd_t':            'fan_speed_topic',
@@ -371,6 +373,8 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'pr_mode_val_tpl':     'preset_mode_value_template',
     'pr_modes':            'preset_modes',
     'r_tpl':               'red_template',
+    'rel_s':               'release_summary',
+    'rel_u':               'release_url',
     'ret':                 'retain',
     'rgb_cmd_tpl':         'rgb_command_template',
     'rgb_cmd_t':           'rgb_command_topic',
@@ -431,6 +435,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'tilt_opt':            'tilt_optimistic',
     'tilt_status_t':       'tilt_status_topic',
     'tilt_status_tpl':     'tilt_status_template',
+    'tit':                 'title',
     't':                   'topic',
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',

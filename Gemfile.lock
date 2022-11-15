@@ -30,7 +30,7 @@ GEM
     http_parser.rb (0.8.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    jekyll (4.3.0)
+    jekyll (4.3.1)
       addressable (~> 2.4)
       colorator (~> 1.0)
       em-websocket (~> 0.5)
@@ -107,7 +107,7 @@ GEM
     tilt (2.0.11)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2022.5)
+    tzinfo-data (1.2022.6)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.3.0)
     webrick (1.7.0)
@@ -118,7 +118,7 @@ PLATFORMS
 
 DEPENDENCIES
   compass (= 1.0.3)
-  jekyll (= 4.3.0)
+  jekyll (= 4.3.1)
   jekyll-commonmark (= 1.4.0)
   jekyll-paginate (= 1.1.0)
   jekyll-sitemap (= 1.4.0)

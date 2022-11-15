@@ -12,6 +12,8 @@ ha_platforms:
   - sensor
   - weather
 ha_integration_type: integration
+ha_codeowners:
+  - '@killer0071234'
 ---
 
 The `zamg` platform uses meteorological details published by the Austrian weather service [Zentralanstalt für Meteorologie und Geodynamik (ZAMG)](https://www.zamg.ac.at).
