@@ -96,6 +96,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - StarTech USBBT2EDR4 (BCM20702A0)
 - Techkey PBT06H (CSR8510A10)
 - TRENDnet TBW-107UB (CSR8510A10)
+- UGREEN CM109 (CSR8510A10)
 - Warmstor WBT-AD01 (CSR8510A10)
 
 📶 Denotes external antenna
