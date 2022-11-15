@@ -151,6 +151,7 @@ The BCM20702 based adapters may take an additional 120 seconds to initialize aft
 - UGREEEN CM591 (ATS2851) - No driver available yet for USB id 10d7:b012
 - tp-link UB400 (CSR4) - Frequent connection failures with active connections
 - tp-link UB500 (RTL8761BU) - Frequent connection failures with active connections
+- Unbranded CSR 4.0 clones with USB id 0a12:0001 - Unrecoverable driver failure
 
 ## Multiple adapters
 
