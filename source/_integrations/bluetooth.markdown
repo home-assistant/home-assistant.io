@@ -124,6 +124,13 @@ The Bluetooth integration supports receiving advertisement data from external ad
 The following remote adapters are supported:
 
 - [ESPHome](https://esphome.io)
+  - Bluetooth advertisement listening: ESPHome ESP32 device with firmware 2022.8.2 or later
+  - Single active connection: ESPHome ESP32 device with firmware 2022.9.3 or later
+  - Multiple active connections: ESPHome ESP32 device with firmware 2022.11.0 or later
+- [Shelly](/integrations/shelly/)
+  - Bluetooth advertisement listening: Shelly v2 device with firmware 12.0 or later
+  - Single active connection: not supported
+  - Multiple active connections: not supported
 
 ### ESPHome requirements
 
