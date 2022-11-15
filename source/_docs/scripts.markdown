@@ -657,7 +657,10 @@ automation:
 
 {% endraw %}
 
-`conditions` also accepts a [shorthand notation of a template condition][shorthand-template].
+`conditions` also accepts a [shorthand notation of a template condition][shorthand-template]. <br>
+It needs to be wrapped in quotation marks ("") unless using folding (>) where it must not use quotation marks. <br>
+Note: use ```conditions``` in contrast with ```condition``` when using [template shorthand notation](https://www.home-assistant.io/docs/scripts/conditions/#template-condition-shorthand-notation).
+
 For example:
 
 {% raw %}
@@ -676,9 +679,9 @@ automation:
               - service: script.arrive_home
                 data:
                   ok: true
-          - conditions: >
-              {{ trigger.to_state.state == 'Home' and
-                 is_state('binary_sensor.all_clear', 'off') }}
+          - conditions: # defaults to 'and' logic
+              - "{{ trigger.to_state.state == 'Home'}}"
+              - "{{ is_state('binary_sensor.all_clear', 'off') }}"
             sequence:
               - service: script.turn_on
                 target:
