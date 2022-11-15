@@ -34,14 +34,27 @@ All configuration options are offered from the frontend. Choose `Options` under 
 relevant entry on the `Integrations` page.
 
 Options supported:
-- **Priority**: The priority for color and effects, make sure this is lower then the streaming sources priority in hyperion itself (typically lower than 200 is appropriate).
+- **Priority**: The priority for color and effects. Hyperion will choose the source 
+  with the lowest priority number as active input. If you have other sources (not 
+  originating from Home Assistant) configured, make sure this option is lower than 
+  those sources priority in Hyperion itself (typically lower than 200 is appropriate).
 - **Effects to hide**: An optional selection of effects to hide from the light effects
   list. New effects added to the Hyperion server will be shown by default.
+
 ## Hyperion Instances
 
 This integration supports multiple Hyperion instances running on a single Hyperion
 server. As instances are added/removed on the Hyperion UI, they will automatically be
 added/removed from Home Assistant.
+
+## Light Entity
+
+The default light entity will send data to Hyperion on the priority you have configured 
+during integration setup. When turned off, it will clear the configured priority again. 
+Other light sources independent of Home Assistant configured in Hyperion might still be 
+active and cause light to be emitted. In order to turn the light output off entirely 
+regardless of active light sources, you can enable the LED device entity that acts as 
+a global switch (see Advanced Entities).
 
 ## Effects
 
@@ -74,8 +87,8 @@ Provided advanced entities:
 
 - `switch.[instance]_component_[component]`: A switch to turn on/off the relevant
   underlying Hyperion component as shown on the Hyperion server `Remote Control` page
-  under `Component Control`. This allows fine grained control over sources (e.g. `USB Capture`) and
-  Hyperion functionality (e.g. `Blackbar Detection`).
+  under `Component Control`. This allows fine grained control over sources (e.g. `USB Capture`),
+  Hyperion functionality (e.g. `Blackbar Detection`) or overall device state (e.g. `LED Device`).
 
 These entities may be enabled by visiting the `Integrations` page, choosing the relevant
 entity and toggling `Enable entity`, followed by `Update`.
@@ -136,4 +149,24 @@ To capture the screen on a USB capture device, when playing something on a media
         entity_id: light.hyperion
       data:
         effect: "USB Capture"
+```
+
+To toggle the LED device together with the light entity in order to turn light output on or off for all sources. In this example both entities are turned on together, create another automation with the values reversed for turning both off:
+
+```yaml
+- alias: "Turn LED device on when Hyperion light is activated"
+  trigger:
+    - platform: state
+      entity_id:
+        - light.ambilight
+      from: "off"
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: switch.[instance]_component_led_device
+      state: "off"
+  action:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.[instance]_component_led_device
 ```
