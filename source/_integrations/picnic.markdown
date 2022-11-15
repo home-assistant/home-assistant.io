@@ -45,9 +45,9 @@ This integration provides the following sensors. Some sensors are disabled by de
 
 ### Service `picnic.add_product`
 
-Add a product to you cart using the `picnic.add_product` service, either using a product ID or a product name.
+Add a product to your cart using the `picnic.add_product` service, either using a product ID or a product name.
 A search will be done and the first result will be added to the cart when one adds a product using a product name.
-The service call will fail when no product could be found or when no `product_id` or `product_name` were specified. 
+The service call will fail when no product can be found, or when no `product_id` or `product_name` is specified. 
 
 | Service data attribute | Optional | Description                                                                      |
 |------------------------|----------|----------------------------------------------------------------------------------|
