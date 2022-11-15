@@ -284,6 +284,6 @@ Please check from the device Web UI that the configured server is reachable.
 
 ## Bluetooth Support
 
-Shelly generation 2 devices running firmware 0.12 or later can act as a bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
+Shelly generation 2 devices running firmware 0.12 or later can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
 
 {% include integrations/option_flow.md %}
