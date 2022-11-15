@@ -281,3 +281,9 @@ Please check from the device Web UI that the configured server is reachable.
 - Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - OTA update service does not support battery-powered devices
+
+## Bluetooth Support
+
+Shelly generation 2 devices running firmware 0.12 or later can act as a bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
+
+{% include integrations/option_flow.md %}
