@@ -29,7 +29,7 @@ For your system to be compatible with this integration, then you must be able to
 
 ## Configuration
 
-To set up this integration, add the following to your `configuration.yaml` file:
+To set up this integration, add the following to your `configuration.yaml` file and then restart Home Assistant:
 
 ```yaml
 # Example configuration.yaml entry
@@ -37,6 +37,8 @@ evohome:
   username: "YOUR_USERNAME"
   password: "YOUR_PASSWORD"
 ```
+
+This integration does not support config flow and so cannot be set up via the UI.
 
 {% configuration %}
 username:
