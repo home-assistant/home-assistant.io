@@ -141,7 +141,7 @@ Run a software-based flash effect by changing to a color and then back.
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 | `color_name` | A color name such as `red` or `green`.
 | `rgb_color` | A list containing three integers representing the RGB color you want the light to be.
-| `brightness` | Integer between 1 and 255 for how bright the color should be.  `brightness_pct`
+| `brightness` | Integer between 1 and 255 for how bright the color should be.
 | `brightness_pct` | Alternative to `brightness`. Specify in percent between 1 and 100 for how bright the color should be.
 | `period` | The duration of a single pulse (in seconds).
 | `cycles` | The total number of pulses.
@@ -155,8 +155,8 @@ Run a software-based effect that continuously loops colors around the color whee
 | Service data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
-| `brightness` | Number between 1 and 255 indicating brightness of the effect. Leave this out to maintain the current brightness of each participating light.
-| `brightness_pct` | Alternative to `brightess`. Specify in percent between 1 and 100 how bright each participating light should be.
+| `brightness` | Number between 1 and 255 indicating the brightness of the effect. Leave this out to maintain the current brightness of each participating light.
+| `brightness_pct` | Alternative to `brightness`. Specify in percent between 1 and 100 how bright each participating light should be.
 | `saturation_min` | Number between 1 and 100 indicating the minimum saturation of the colors in the loop. Leave this out to use the default of 80%.
 | `saturation_max` | Number between 1 and 100 indicating the maximum saturation of the colors in the loop. Leave this out to use the default of 100%.
 | `period` | Duration (in seconds) between starting a new color change.
