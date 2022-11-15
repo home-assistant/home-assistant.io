@@ -436,7 +436,7 @@ Within an automation, template conditions also have access to the `trigger` vari
 ### Template condition shorthand notation
 
 The template condition has a shorthand notation that can be used to make your scripts and automations shorter. <br>
-It needs to be wrapped in quotation marks (```""```) unless using folding (```>```) where it must not use quotation marks. <br>
+It needs to be wrapped in quotation marks (```""```) unless using folding (```>```) where it must not use quotation marks. When wrapping in outside double quotation marks ensure any inner quotation marks are of the single (```'```) variant. <br>
 Note: use ```condition``` in contrast with ```conditions``` when using [choose](https://www.home-assistant.io/docs/scripts/#choose-a-group-of-actions).
 
 For example:
