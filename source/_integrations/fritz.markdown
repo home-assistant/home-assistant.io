@@ -3,6 +3,7 @@ title: AVM FRITZ!Box Tools
 description: Instructions on how to integrate AVM FRITZ!Box based routers into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Camera
   - Presence Detection
   - Sensor
   - Update
@@ -18,6 +19,7 @@ ha_iot_class: Local Polling
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - device_tracker
   - diagnostics
   - sensor
@@ -33,6 +35,7 @@ There is support for the following platform types within Home Assistant:
 
 - **Device tracker** - presence detection by looking at connected devices.
 - **Binary sensor** - connectivity status.
+- **Camera** - QR code for Guest Wi-Fi.
 - **Button** - reboot, reconnect, firmware_update.
 - **Sensor** - external IP address, uptime and network monitors.
 - **Switch** - call deflection, port forward, parental control and Wi-Fi networks.
