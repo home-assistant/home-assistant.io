@@ -26,6 +26,7 @@ sensor:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
     folder: YOUR_FOLDER
+    decode_payload: False
     senders:
       - example@gmail.com
 ```
@@ -57,6 +58,11 @@ folder:
   required: false
   default: INBOX
   type: string
+decode_payload:
+  description: Try to auto decode email body if encoded in *Base64* or *quoted-printable*.
+  required: false
+  default: False
+  type: boolean
 senders:
   description: A list of sender email addresses that are allowed to report state via email. Only emails received from these addresses will be processed.
   required: true
