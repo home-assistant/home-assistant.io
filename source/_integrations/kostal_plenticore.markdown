@@ -57,9 +57,9 @@ The following sensors are available in the library:
 | DC3 Current             | A    | Current of string 3. |
 | PV to Battery Power     | W    | Power used to charge the battery. |
 | Energy Manager State    |      | State of the energy manager. |
-| Battery Cycles          |      | Number of full charge/discharge cylces. |
+| Battery Cycles          |      | Number of full charge/discharge cycles. |
 | Battery Power           | W    | Power from (+)/to (-) the battery. |
-| Battery SoC             | %    | Soc of the Battery. |
+| Battery SoC             | %    | SoC of the Battery. |
 | Autarky Day             | %    | Autarky of the current day. |
 | Autarky Month           | %    | Autarky of the current month. |
 | Autarky Year            | %    | Autarky of the current year. |
@@ -119,7 +119,7 @@ The following sensors are available in the library:
 
 | Name                    | Unit | RW | Description   |
 |-------------------------|------|----|:--------------|
-| Battery Dynamic Soc     |      | RW | Dynamic SoC. |
+| Battery Dynamic SoC     |      | RW | Dynamic SoC. |
 | Battery Smart Control   |      | RW | Enable smart battery control |
 | Battery Strategy        |      | RW | Battery strategy. |
 | Shadow Management       |      | RW | PV string shadow management. |
@@ -135,4 +135,4 @@ The following Number entities are available. The values could also be change fro
 | Name                    | Unit | RW | Description   |
 |-------------------------|------|----|:--------------|
 | Battery min Home Consumption | W    | RW | Min. home consumption power for battery. |
-| Battery min Soc         | %    | RW | Min. SoC of battery. |
+| Battery min SoC         | %    | RW | Min. SoC of battery. |
