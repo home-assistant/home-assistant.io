@@ -49,5 +49,5 @@ This integration provides the following sensors:
 |Snow|Snow in cm|
 
 <div class='note'>
-Not every station supports every Sensor.
+Not every station supports every sensor.
 </div>
