@@ -34,11 +34,11 @@ frontend:
             required: true
             type: [list, string]
   extra_module_url:
-    description: "List of additional javascript modules to load in `latest` javascript mode."
+    description: "List of additional JavaScript modules to load in `latest` JavaScript mode."
     required: false
     type: list
   extra_js_url_es5:
-    description: "List of additional javascript code to load in `es5` javascript mode."
+    description: "List of additional JavaScript code to load in `es5` JavaScript mode."
     required: false
     type: list
   development_repo:
