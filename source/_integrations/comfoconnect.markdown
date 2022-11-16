@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `comfoconnect` integration lets you control Zehnder ComfoAir [Q350](https://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q350-tr)/[Q450](https://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q450-tr)/[Q600](https://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q600-st)
+The `comfoconnect` integration lets you control Zehnder ComfoAir [Q350](https://products.zehnder-systems.com/en/product/zehnder-comfoair-q350-tr)/[Q450](https://products.zehnder-systems.com/en/product/zehnder-comfoair-q450-tr)/[Q600](https://products.zehnder-systems.com/en/product/zehnder-comfoair-q600-st)
 ventilation units from Home Assistant. You need a [ComfoConnect LAN C](https://www.zehnder.co.uk/products-and-systems/comfortable-indoor-ventilation/ms-comfoair-q/ideal-control#node-21233)
 bridge to connect the unit to your local network.
 

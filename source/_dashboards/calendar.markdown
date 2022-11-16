@@ -43,7 +43,7 @@ title:
   type: string
 initial_view:
   required: false
-  description: "The view that will show first when the card is loaded onto the page. Options are `dayGridMonth`, `dayGridDay`, and `listWeek`."
+  description: "The view that will show first when the card is loaded onto the page. Options are `dayGridMonth`, `dayGridDay`, and `list`."
   type: string
 entities:
   required: true

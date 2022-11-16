@@ -53,7 +53,7 @@ We recommend using `unicast` for communication. To enable this, enter the local 
 
 Generation 2 devices use the `RPC` protocol to communicate with the integration. Battery powered devices need manual outbound websocket configuration, Navigate to the local IP address of your Shelly device, **Networks** >> **Outbound websocket** and check the box **Enable**, under server enter the following address:
 
-`ws://` + `Home_Assistant_local_address:Port` + `/api/shelly/ws` (for example: `ws://homeassistant.local:8123/api/shelly/ws`), click **Apply** to save the settings.
+`ws://` + `Home_Assistant_local_ip_address:Port` + `/api/shelly/ws` (for example: `ws://192.168.1.100:8123/api/shelly/ws`), click **Apply** to save the settings.
 
 <div class="note">
 Integration is communicating directly with the device; cloud connection is not needed.

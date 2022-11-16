@@ -3,7 +3,7 @@ title: "Setup basic information"
 description: "Setting up the basic info of Home Assistant."
 ---
 
-As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a unit system and time zone based on this location. You may adjust this during onboarding, or afterwards at {% my general title="Settings > System > General" %}.
+As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a unit system and time zone based on this location. You may adjust this during onboarding, or afterwards at {% my general title="Settings > System > General" %}, network related configuration is found under {% my network title="Settings > System > Network" %}.
 
 If you prefer YAML, you can add the following information to your `configuration.yaml`:
 
