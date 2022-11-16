@@ -142,6 +142,10 @@ The BCM20702 based adapters may take an additional 120 seconds to initialize aft
 
 📶 Denotes external antenna
 
+#### Realtek RTL8761BU adapters
+
+These adapters do not have a reset pin. If they stop responding, there is currently no way for the kernel to reset them automatically. A generic USB reset for these adapters has been introduced in Linux kernel 6.1 and later.
+
 ### Unsupported adapters
 
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
