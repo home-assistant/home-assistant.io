@@ -419,6 +419,7 @@ modbus:
             state_heat: 2
             state_fan_only: 3
             state_dry: 4
+            state_off: 5
         hvac_onoff_register: 11
 ```
 
