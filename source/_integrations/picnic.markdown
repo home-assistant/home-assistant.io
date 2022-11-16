@@ -40,3 +40,26 @@ This integration provides the following sensors. Some sensors are disabled by de
 | Next delivery ETA end          | End of the ETA window of the next delivery. |
 | Next delivery slot start       | Start of the next delivery's delivery slot. |
 | Next delivery slot end         | End of the next delivery's delivery slot. |
+
+## Services
+
+### Service `picnic.add_product`
+
+Add a product to your cart using the `picnic.add_product` service, either using a product ID or a product name.
+A search will be done and the first result will be added to the cart when one adds a product using a product name.
+The service call will fail when no product can be found, or when no `product_id` or `product_name` is specified. 
+
+| Service data attribute | Optional | Description                                                                      |
+|------------------------|----------|----------------------------------------------------------------------------------|
+| `config_entry_id`      | No       | The Id of the Picnic service config entry.                                       |
+| `product_id`           | yes      | The Picnic product ID.                                                           |
+| `product_name`         | yes      | A product name to search for, the first search result will be added to the cart. |
+| `amount`               | yes      | The amount to add, defaults to 1.                                                |
+
+```yaml
+# Example automation action to add a product to the cart by name.
+- service: picnic.add_product
+  data:
+    config_entry_id: 6b4be47a1fa7c3764f14cf756dc9899d
+    product_name: "Picnic cola zero"
+```
