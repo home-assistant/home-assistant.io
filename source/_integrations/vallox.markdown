@@ -4,6 +4,7 @@ description: Instructions on how to integrate Vallox ventilation units into Home
 ha_category:
   - Fan
   - Sensor
+  - Switch
 ha_config_flow: true
 ha_release: 0.96
 ha_iot_class: Local Polling
@@ -12,6 +13,7 @@ ha_platforms:
   - binary_sensor
   - fan
   - sensor
+  - switch
 ha_codeowners:
   - '@andre-richter'
   - '@slovdahl'
@@ -23,7 +25,9 @@ The `vallox` integration lets you control any Vallox ventilation unit that is su
 
 The **fan** platform of this integration allows you to turn on/off the complete unit via the toggle switch and to select a ventilation profile.
 
-Also, there is a **sensor** platform that exposes a number of relevant metrics like fan speed, various air temperatures and humidity.
+The **sensor** platform that exposes a number of relevant metrics like fan speed, various air temperatures and humidity.
+
+The **switch** platform allows to lock heat recovery bypass.
 
 {% include integrations/config_flow.md %}
 
