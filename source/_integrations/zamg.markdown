@@ -18,7 +18,7 @@ ha_codeowners:
 
 The `zamg` platform uses meteorological details published by the Austrian weather service [Zentralanstalt für Meteorologie und Geodynamik (ZAMG)](https://www.zamg.ac.at).
 
-With this integration it is possible to get weather station data from up to 228 different zamg stations across Austria. The integration is using the [datahub-api](https://dataset.api.hub.zamg.ac.at/v1/docs/index.html).
+With this integration, it is possible to get weather station data from up to 228 different ZAMG stations across Austria. The integration uses the [datahub-api](https://dataset.api.hub.zamg.ac.at/v1/docs/index.html).
 
 {% include integrations/config_flow.md %}
 
