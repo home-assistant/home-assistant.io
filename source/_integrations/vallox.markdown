@@ -25,9 +25,9 @@ The `vallox` integration lets you control any Vallox ventilation unit that is su
 
 The **fan** platform of this integration allows you to turn on/off the complete unit via the toggle switch and to select a ventilation profile.
 
-The **sensor** platform that exposes a number of relevant metrics like fan speed, various air temperatures and humidity.
+The **sensor** platform exposes a number of relevant metrics like fan speed, various air temperatures, and humidity.
 
-The **switch** platform allows to lock heat recovery bypass.
+The **switch** platform allows locking heat recovery bypass.
 
 {% include integrations/config_flow.md %}
 
