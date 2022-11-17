@@ -78,7 +78,6 @@ trigger:
     event_type: shopping_list_updated
     event_data:
       action: "add"
-condition: []
 action:
   - service: notify.notify
     data:
