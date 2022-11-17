@@ -225,10 +225,10 @@ View configuration:
 Subview configuration:
 
 ```yaml
-title: Energieprijzen
-path: energieprijzen
+title: "Energieprijzen"
+path: "energieprijzen"
 subview: true
-back_path: /ui-data/climate
+back_path: "/ui-data/climate"
 
 cards:
   - type: entities
