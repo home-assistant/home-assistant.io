@@ -28,6 +28,8 @@ sensor:
     folder: YOUR_FOLDER
     senders:
       - example@gmail.com
+    verify_ssl: True
+    force_html: False
 ```
 
 {% configuration %}
@@ -79,6 +81,11 @@ verify_ssl:
   required: false
   type: boolean
   default: true
+force_html:
+  description: Force the body attribute to return html. Useful if information does not show up in text and is hidden in the html. 
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ## Example - keyword spotting
