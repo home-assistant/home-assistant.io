@@ -22,9 +22,6 @@ There is currently support for the following device types within Home Assistant:
 
 - [Presence Detection](#presence-detection)
 - [Sensor](#sensor)
-  - [Finding OIDs](#finding-oids)
-  - [Examples](#examples)
-    - [Printer uptime minutes](#printer-uptime-minutes)
 - [Switch](#switch)
 
 <div class='note warning'>
