@@ -225,13 +225,13 @@ View configuration:
 Subview configuration:
 
 ```yaml
-title: "Energieprijzen"
-path: "energieprijzen"
-subview: true
-back_path: "/ui-data/climate"
+- title: "Energieprijzen"
+  path: "energieprijzen"
+  subview: true
+  back_path: "/ui-data/climate"
 
-cards:
-  - type: entities
-    entities:
-      - sensor.today_avg_price
+  cards:
+    - type: entities
+      entities:
+        - sensor.today_avg_price
 ```
