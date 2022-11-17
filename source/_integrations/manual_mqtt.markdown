@@ -74,17 +74,17 @@ code_arm_required:
   type: boolean
   default: true
 delay_time:
-  description: The time in seconds of delay added to the triggered state's **pending_time** before triggering the alarm.
+  description: The time in seconds of the 'pending' state before triggering the alarm.
   required: false
   type: integer
-  default: 0
-pending_time:
-  description: The time in seconds of the pending time before effecting a state change.
+  default: 60
+arming_time:
+  description: The time in seconds of the 'arming' state before effecting a state change.
   required: false
   type: integer
   default: 60
 trigger_time:
-  description: The time in seconds of the trigger time in which the alarm is firing.
+  description: The time in seconds of the 'triggered' state in which the alarm is firing.
   required: false
   type: integer
   default: 120
@@ -102,8 +102,8 @@ armed_home/armed_away/armed_night/armed_vacation/disarmed/triggered:
       description: State specific setting for **delay_time** (all states except **triggered**).
       required: false
       type: integer
-    pending_time:
-      description: State specific setting for **pending_time** (all states except **disarmed**).
+    arming_time:
+      description: State specific setting for **arming_time** (all states except **disarmed**)
       required: false
       type: integer
     trigger_time:
@@ -172,13 +172,13 @@ alarm_control_panel:
   - platform: manual_mqtt
     state_topic: home/alarm
     command_topic: home/alarm/set
-    pending_time: 30
+    arming_time: 30
     delay_time: 20
     trigger_time: 4
     disarmed:
       trigger_time: 0
     armed_home:
-      pending_time: 0
+      arming_time: 0
       delay_time: 0
     triggered:
       pending_time: 0
