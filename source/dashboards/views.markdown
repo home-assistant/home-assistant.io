@@ -233,5 +233,5 @@ back_path: "/ui-data/climate"
 cards:
   - type: entities
     entities:
-      - etc
+      - sensor.today_avg_price
 ```
