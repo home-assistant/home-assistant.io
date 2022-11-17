@@ -203,7 +203,7 @@ views:
       default: false
     back_path:
       required: false
-      description: Only for subview. Path to navigate when clicking on back button.
+      description: Only for "Subview". Path to navigate when clicking on back button.
       type: string
 {% endconfiguration %}
 
