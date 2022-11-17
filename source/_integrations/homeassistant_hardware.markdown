@@ -1,7 +1,7 @@
 ---
 title: Home Assistant Hardware
-description: Home Assistant Hardware provides functionality shared between Home Assistant Yellow and Home Assistant Sky Connect.
-ha_release: 2022.8
+description: Home Assistant Hardware provides functionality shared between Home Assistant Yellow and Home Assistant SkyConnect.
+ha_release: 2022.12
 ha_category:
   - Other
 ha_codeowners:
@@ -11,8 +11,8 @@ ha_integration_type: system
 ha_quality_scale: internal
 ---
 
-The Home Assistant Home Assistant Hardware integration provides functionality
-shared between Home Assistant Yellow and Home Assistant Sky Connect.
+The Home Assistant Hardware integration provides functionality
+shared between Home Assistant Yellow and Home Assistant SkyConnect.
 
 ## Configuration
 
