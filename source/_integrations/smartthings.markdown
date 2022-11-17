@@ -306,7 +306,7 @@ The personal access token does not match the expected format. Make sure you are 
 You can fix this by using the SmartThings App to re-grant authorization to the API token you created before. 
 1. Open SmartThings app on your mobile device (not HA)
 2. Select `Automations` from bottom
-3. Select your Home Assitant automation from the list
+3. Select your Home Assistant automation from the list
 4. Click "Done", then click "Allow"
 5. Reload your SmartThings integration from Home Assistant Devices panel
 
