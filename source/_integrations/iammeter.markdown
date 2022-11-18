@@ -16,6 +16,8 @@ ha_integration_type: integration
 
 [IAMMETER](https://www.iammeter.com/) provides both a bi-directional single-phase energy meter([WEM3080](https://www.iammeter.com/products/single-phase-meter)) and a bi-directional three-phase energy monitor ([WEM3080T](https://www.iammeter.com/products/three-phase-meter)). Both of them can be integrated into Home Assistant.
 
+Besides the core integration,  you can also integrate the IAMMETER`s Wi-Fi energy meter into the home assistant by Modbus/TCP, MQTT, and HACS.
+For more details ,please refer to [summary:IAMMETER@Home assistant](https://www.iammeter.com/docs/summary-home-assistant)
 
 ## Configuration
 
@@ -86,3 +88,4 @@ Sensors available in the library:
 | wem3080t_exportgrid_c   | kWh  | C phase export energy |
 | wem3080t_frequency_c    | Hz   | C phase frequency     |
 | wem3080t_pf_c           |      | C phase power factor  |
+
