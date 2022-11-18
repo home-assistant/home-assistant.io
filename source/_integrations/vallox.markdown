@@ -12,6 +12,7 @@ ha_platforms:
   - binary_sensor
   - fan
   - sensor
+  - number
 ha_codeowners:
   - '@andre-richter'
   - '@slovdahl'
@@ -24,6 +25,8 @@ The `vallox` integration lets you control any Vallox ventilation unit that is su
 The **fan** platform of this integration allows you to turn on/off the complete unit via the toggle switch and to select a ventilation profile.
 
 Also, there is a **sensor** platform that exposes a number of relevant metrics like fan speed, various air temperatures and humidity.
+
+The **number** platform allows to control supply air temperatures and fan speeds.
 
 {% include integrations/config_flow.md %}
 
@@ -40,7 +43,11 @@ The four standard Vallox profiles are supported:
 
 ## Fan Services
 
-### Service `vallox.set_profile_fan_speed_home`
+Please use corresponding number entities instead.
+
+Fan services are deprecated and will be removed in a future release.
+
+### Service `vallox.set_profile_fan_speed_home` (deprecated)
 
 Set the fan speed of the `Home` profile.
 
@@ -48,7 +55,7 @@ Set the fan speed of the `Home` profile.
 |------------------------|----------|-------------------------------------------------|
 | `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
 
-### Service `vallox.set_profile_fan_speed_away`
+### Service `vallox.set_profile_fan_speed_away` (deprecated)
 
 Set the fan speed of the `Away` profile.
 
@@ -56,7 +63,7 @@ Set the fan speed of the `Away` profile.
 |------------------------|----------|-------------------------------------------------|
 | `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
 
-### Service `vallox.set_profile_fan_speed_boost`
+### Service `vallox.set_profile_fan_speed_boost` (deprecated)
 
 Set the fan speed of the `Boost` profile.
 
