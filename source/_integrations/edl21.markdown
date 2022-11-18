@@ -37,6 +37,7 @@ To set it up, add the following information to your `configuration.yaml` file:
 sensor:
   - platform: edl21
     serial_port: /dev/ttyUSB0
+    scan_interval_seconds: 5
 ```
 
 {% configuration %}
@@ -48,6 +49,10 @@ serial_port:
   description: The device to communicate with. When using ser2net, use socket://host:port.
   required: true
   type: string
+scan_interval_seconds:
+  description: Number of seconds which have to pass before accepting another value from the reader. Minimum is 1. Default is 60
+  required: false
+  type: integer
 {% endconfiguration %}
 
 ## InF Mode
