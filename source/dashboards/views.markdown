@@ -203,7 +203,7 @@ views:
       default: false
     back_path:
       required: false
-      description: Only for subview. Path to navigate when clicking on back button.
+      description: Only for "Subview". Path to navigate when clicking on back button.
       type: string
 {% endconfiguration %}
 
@@ -225,13 +225,13 @@ View configuration:
 Subview configuration:
 
 ```yaml
-title: "Energieprijzen"
-path: "energieprijzen"
-subview: true
-back_path: "/ui-data/climate"
+- title: "Energieprijzen"
+  path: "energieprijzen"
+  subview: true
+  back_path: "/ui-data/climate"
 
-cards:
-  - type: entities
-    entities:
-      - sensor.today_avg_price
+  cards:
+    - type: entities
+      entities:
+        - sensor.today_avg_price
 ```
