@@ -10,7 +10,6 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - climate
-  - switch
 ha_iot_class: Cloud Polling
 ---
 
