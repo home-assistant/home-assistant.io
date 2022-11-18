@@ -83,15 +83,20 @@ You can use the service `google_sheets.append_sheet` to add a row of data to the
 | `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1
 | `data` | no | Data to be appended to the worksheet. This puts the data on a new row, one value per column. | {"hello": world, "cool": True, "count": 5}
 
+{% raw %}
+
 ```yaml
 # Example service call
 service: google_sheets.append_sheet
 data:
   config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
-  worksheet: Car Charging
+  worksheet: "Car Charging"
   data:
     Date: "{{ now().strftime('%-d-%b-%y') }}"
     KWh: "{{ states('input_number.car_charging_kwh')|float(0) }}"
     Cost: "{{ states('input_number.car_charging_cost')|float(0) }}"
- ```
+```
+
+{% raw %}
+
 {% enddetails %}
