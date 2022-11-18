@@ -97,6 +97,6 @@ data:
     Cost: "{{ states('input_number.car_charging_cost')|float(0) }}"
 ```
 
-{% raw %}
+{% endraw %}
 
 {% enddetails %}
