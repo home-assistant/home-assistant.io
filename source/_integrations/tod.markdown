@@ -24,8 +24,6 @@ On time:
   description: The time when the sensor should turn on.
 Off time:
   description: The time when the sensor should turn off.
-Unique id:
-  description: Provide a unique id to support customization
 {% endconfiguration_basic %}
 
 ## YAML Configuration
@@ -78,7 +76,7 @@ after_offset:
   type: time
   required: false
 unique_id:
-  description: Unique id for sensor
+  description: An ID that uniquely identifies this sensor. This allows changing the name, icon, and entity_id from the web interface.
   type: string
   required: false
 {% endconfiguration %}
