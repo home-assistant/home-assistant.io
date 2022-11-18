@@ -149,6 +149,7 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 
 ### Unsupported adapters
 
+- Alfa AWUS036EACS - (RTL8821CU) - Frequent connection failures and drop outs
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
 - EDIMAX EW-7611ULB (RTL8723BU) - Frequent connection failures and drop outs
 - eppfun AK3040G (ATS2851) - No driver available yet for USB id 10d7:b012
