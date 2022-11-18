@@ -20,8 +20,7 @@ Some of these sensors are built-in to Home Assistant, some are created automatic
 The type of data a sensor returns impacts how it is displayed in the frontend. This is controlled by the sensor's device class designation. Built-in sensors and many created from an integration will have this designation predefined. Those can be modified in the [customize section](/docs/configuration/customizing-devices/). When manually creating a new sensor the device class may be optionally assigned. A full list of available sensor device classes is below:
 
 - **None**: Generic sensor. This is the default and doesn't need to be set.
-- **accumulated_precipitation**: Accumulated precipitation in in or mm
-- **apparent_power**: Apparent power in VA
+- **apparent_power**: Apparent power in VA.
 - **aqi**: Air Quality Index
 - **battery**: Percentage of battery that is left
 - **carbon_dioxide**: Carbon Dioxide in CO2 (Smoke)
@@ -46,6 +45,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
 - **power_factor**: Power factor in %
 - **power**: Power in W or kW
+- **precipitation**: Accumulated precipitation in in or mm
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d, or mm/h
 - **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg, or psi
 - **reactive_power**: Reactive power in var
