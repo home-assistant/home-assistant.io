@@ -95,7 +95,7 @@ Displays if the device is currently connected to the router (Home) or not (Away)
 
 Switch that lets you Allow or Block a device on the Network.
 For this entity to actually Block the device, "Access Control" needs to be turned on in the Router settings.
-Enable the `Access Control` switch entity and turn it on.
+Enable the `Access Control` switch entity and turn it on.  To use this feature you must enable the switch for each connected device under Configuration->Advanced Settings on the entity dialog.
 
 ### Signal strength
 
