@@ -435,18 +435,14 @@ description: "Trigger when Amcrest Button Press Event Fires"
 trigger:
   - platform: event
     event_type: amcrest
-    id: doorbell
     event_data:
-      event: CallNoAnswered
+      event: "CallNoAnswered"
       payload:
-        action: Start
-condition: []
+        action: "Start"
 action:
   - type: flash
     entity_id: light.living_room
     domain: light
-
-
 ```
 
 To check if your Amcrest camera is supported/tested, visit the [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix) link from the `python-amcrest` project.
