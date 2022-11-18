@@ -79,11 +79,28 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 
 ### Known working high performance adapters
 
-- ASUS USB-BT400 (BCM20702A1)
+- ASUS USB-BT400 (BCM20702A0)
+- Cable Matters 604002-BLK (BCM20702A0)
+- Enbiawit BT403 (CSR8510A10)
 - Feasycom FSC-BP119 (CSR8510A10) 📶
-- Kinivo BTD-400 (BCM20702A1)
+- GMYLE 3340 (BCM20702A0)
+- HIDEEZ BT0015-01 (CSR8510A10)
+- IOGEAR GBU521W6 (BCM20702A0)
+- Kinivo BTD-400 (BCM20702A0)
+- Nuu You BT40 (CSR8510A10)
+- Panda Wireless PBU40 (CSR8510A10)
+- Pluggable USB-BT4LE (BCM20702A0)
+- QGOO BT-06A (CSR8510A10)
 - Raspberry Pi 3B+ (CYW43455)
 - Raspberry Pi 4B (CYW43455)
+- SABRENT BT-UB40 (CSR8510A10)
+- SoundBot SB342 (BCM20702A0)
+- StarTech USBBT1EDR4 (CSR8510A10)
+- StarTech USBBT2EDR4 (BCM20702A0)
+- Techkey PBT06H (CSR8510A10)
+- TRENDnet TBW-107UB (CSR8510A10)
+- UGREEN CM109 (CSR8510A10)
+- Warmstor WBT-AD01 (CSR8510A10)
 
 📶 Denotes external antenna
 
@@ -95,6 +112,7 @@ The following requirements must be met for an adapter to be labeled as High Perf
 - Process at least one advertisement per second from a device without dropping data
 - 95% of connection attempts are successful within two tries
 - Meets the above requirements with Home Assistant Core 2022.11.1 or later and Home Assistant Operating System 9.3 or later
+- Must be able to hold five (5) connections at the same time
 
 Performance testing used the following hardware:
 
@@ -102,10 +120,15 @@ Performance testing used the following hardware:
 - Advertisements from an Oral-B iO Series 8
 - External Adapters only: Home Assistant Blue running Home Assistant Operating System 9.3 with a USB extension cable.
 
+#### Slow startup of Broadcom adapters on the ODROID N2+ platform
+
+The BCM20702 based adapters may take an additional 120 seconds to initialize after boot with Home Assistant Operating System 9.3 when using an ODROID N2+; eventually, they come online.
+
 ### Known working adapters
 
 - ASUS USB-BT500 (RTL8761BU)
 - Avantree DG45 (RTL8761BU)
+- COMCAST CF-B05 (RTL8761BU) 📶
 - EDUP LOVE EP-B3536 (RTL8761BU) 📶
 - Maxuni BT-501 (RTL8761BU)
 - MPOW BH45A (RTL8761BU)
@@ -119,11 +142,20 @@ Performance testing used the following hardware:
 
 📶 Denotes external antenna
 
+#### Realtek RTL8761BU adapters
+
+These adapters do not have a reset pin. If they stop responding, there is currently no way for the kernel to reset them automatically. A generic USB reset for these adapters has been introduced in Linux kernel 6.1 and later.
+
 ### Unsupported adapters
 
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
-- tp-link UB400 (BCM20702A1) - Frequent connection failures with active connections
+- EDIMAX EW-7611ULB (RTL8723BU) - Frequent connection failures and drop outs
+- eppfun AK3040G (ATS2851) - No driver available yet for USB id 10d7:b012
+- QUMOX Bluetooth 5.0 (Barrot 8041A02) - No working driver
+- UGREEEN CM591 (ATS2851) - No driver available yet for USB id 10d7:b012
+- tp-link UB400 (CSR4) - Frequent connection failures with active connections
 - tp-link UB500 (RTL8761BU) - Frequent connection failures with active connections
+- Unbranded CSR 4.0 clones with USB id 0a12:0001 - Unrecoverable driver failure
 
 ## Multiple adapters
 
