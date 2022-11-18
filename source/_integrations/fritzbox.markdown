@@ -39,7 +39,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
-Additionally we also support templates.
+Additionally, we also support to trigger smarthome templates.
 
 #### Tested Devices
 
