@@ -24,5 +24,5 @@ For more information on the product [Heatzy](https://heatzy.com/).
 
 Thermal integration will add a climate sensor for each convector with the following options:
 
-    - hvac modes : heat, off
-    - preset_modes: none, comfort, eco, away
+    - HVAC modes: Heat, Off
+    - Preset modes: Comfort, Eco, Away
