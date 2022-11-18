@@ -83,15 +83,27 @@ advanced usecases. These entities expose 'raw' underlying Hyperion API component
 improved extensibility and interoperability which are particularly useful in cases where
 there are multiple Hyperion server clients (of which Home Assistant is one).
 
-Provided advanced entities:
-
-- `switch.[instance]_component_[component]`: A switch to turn on/off the relevant
-  underlying Hyperion component as shown on the Hyperion server `Remote Control` page
-  under `Component Control`. This allows fine grained control over sources (e.g. `USB Capture`),
-  Hyperion functionality (e.g. `Blackbar Detection`) or overall device state (e.g. `LED Device`).
-
 These entities may be enabled by visiting the `Integrations` page, choosing the relevant
 entity and toggling `Enable entity`, followed by `Update`.
+
+### Control over external sources: Screen capture and USB capture
+
+Provided entities for controlling external sources:
+
+- `switch.[instance]_component_platform_capture`: Toggles the `Screen Capture` source
+- `switch.[instance]_component_usb_capture`: Toggles the `USB Capture` source
+
+### Control over Hyperion functionality
+
+Further advanced entities to control Hyperion functionality:
+
+- There will be additional `switch.[instance]_component_[component]` entities that can
+  be used to toggle the relevant underlying Hyperion component as shown on the Hyperion
+  server `Remote Control` page under `Components Control`. This allows fine grained 
+  control over Hyperion functionality (e.g. `Blackbar Detection`) or device
+  state (`LED Device`).
+- `switch.[instance]_component_all`: refers to the entire Hyperion instance state that
+  controls the toggle on the Hyperion server `Dashboard` page.
 
 ## Examples
 
