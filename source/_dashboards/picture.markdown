@@ -21,6 +21,10 @@ image:
   required: true
   description: "The URL of an image. When you want to store images in your Home Assistant installation use the [hosting files documentation](/integrations/http/#hosting-files). After storing your files, use the `/local` path, for example, `/local/filename.jpg`."
   type: string
+alt_text:
+  required: false
+  description: "Image alternate text. This is useful for users of assistive technology."
+  type: string
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).

@@ -40,7 +40,10 @@ double_tap_action:
   required: false
   description: Action taken on double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
-{% endconfiguration %}
+alt_text:
+  required: false
+  description: "Image alternate text. This is useful for users of assistive technology."
+  type: string  
 
 ## Buttons header & footer
 

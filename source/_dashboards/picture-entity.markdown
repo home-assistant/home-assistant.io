@@ -38,6 +38,10 @@ state_image:
   required: false
   description: "Map entity states to images (`state: image URL`, check the example below)."
   type: map
+alt_text:
+  required: false
+  description: "Image alternate text. This is useful for users of assistive technology."
+  type: string
 state_filter:
   required: false
   description: '[State-based CSS filters](#how-to-use-state_filter)'
