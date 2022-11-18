@@ -27,5 +27,5 @@ Set a new value for the time entity.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of dates to control.
+| `entity_id` | no | String or list of strings that point at `entity_id`'s of times to control.
 | `time` | no | New time value to set.
