@@ -13,7 +13,7 @@ ha_integration_type: entity
 
 The Date/Time integration is built for the controlling and monitoring of timestamps on devices.
 
-Date/Time entities are created automatically by integrations that support them.
+Date/Time entities cannot be implemented manually, but can be provided by other integrations. If you are looking for a way to create a Date/Time entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
 
 ## Services
 
