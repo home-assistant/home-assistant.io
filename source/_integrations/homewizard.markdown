@@ -65,9 +65,11 @@ The HomeWizard Energy API only exposes properties that are used within the HomeW
 | Active water usage | liter per minute | HWE-WTR | The current usage of water. |
 | Total water usage | m3 | HWE-WTR | Total of water measured since installation. |
 
-## Switches
+## Energy Socket
 
-The Wifi Energy Socket (`HWE-SKT`) outlet state can be controlled the switch platform. There are two switches:
+The Wifi Energy Socket (`HWE-SKT`) outlet state and status light can be controlled. There are two switches:
 
 - **Switch**: Controls the outlet state of the Energy Socket. This switch is locked out when `Switch Lock` is turned on. 
 - **Switch lock**: Forces the outlet state in the `on` position and disables the physical button. This option is useful when the socket is used for a device that must not be turned off, such as a refrigerator.
+
+You can also control the green status light level percentage with **Light level**. This light turns on when the `Switch` is on.
