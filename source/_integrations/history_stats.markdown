@@ -190,7 +190,6 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
     end: "{{ now() }}"
 ```
 
-
 **Previous month**: starts the first day of the previous month at 00:00, ends the first day of the current month.
 
 {% raw %}
