@@ -140,6 +140,7 @@ These adapters generally offer the fastest connect times.
 - Avantree DG45 (RTL8761BU)
 - COMCAST CF-B05 (RTL8761BU) 📶
 - EDUP LOVE EP-B3536 (RTL8761BU) 📶
+- ISEKIE KW-B3519 (RTL8761BU)
 - Maxuni BT-501 (RTL8761BU)
 - MPOW BH45A (RTL8761BU)
 - StarTech USBA-BLUETOOTH-V5-C2 (RTL8761BU)
