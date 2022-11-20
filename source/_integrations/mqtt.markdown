@@ -59,7 +59,7 @@ There are [at least two](https://issues.apache.org/jira/browse/AMQ-6360) [issues
 
 ### Connect to a public broker
 
-The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home. To use the public mosquitto broker, configure the MQTT integration to connect to broker `test.mosquitto.org` on port 1183 or 8883.
+The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home. To use the public mosquitto broker, configure the MQTT integration to connect to broker `test.mosquitto.org` on port 1883 or 8883.
 
 <div class='note'>
 
@@ -87,6 +87,10 @@ The time in seconds between sending keep alive messages for this client. The def
 
 To enable a secure the broker certificate should be validated. If your broker uses a trusted certificate then choose `auto`. This will allow validation against certifite CAs bundled certificates. If a self-signed certificate is used, select `Custom`. A custom PEM encoded CA-certificate can be uploaded. Click `NEXT` to show the control to upload the CA certificate.
 If the server certificate does not match the hostname then validation will fail. To allow a connection without the verification of the hostname, turn the `Ignore broker certificate validation` switch on.
+
+#### MQTT Protocol
+
+The MQTT protocol setting defaults to version `3.1.1`. If your MQTT broker supports MQTT version 5 you can set the protocol setting to `5`.
 
 #### Securing the the connection
 
@@ -488,7 +492,7 @@ The following software has built-in support for MQTT discovery:
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
 - [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
-
+- [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
 
 ### Discovery examples
 
