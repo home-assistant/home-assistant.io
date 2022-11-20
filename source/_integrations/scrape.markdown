@@ -7,6 +7,8 @@ ha_release: 0.31
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'
+  - '@gjohansson-ST'
+  - '@epenet'
 ha_domain: scrape
 ha_platforms:
   - sensor
@@ -91,6 +93,10 @@ password:
   type: string
 headers:
   description: Headers to use for the web request.
+  required: false
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this scrape entity.
   required: false
   type: string
 {% endconfiguration %}
