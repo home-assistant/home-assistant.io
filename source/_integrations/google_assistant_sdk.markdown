@@ -19,8 +19,8 @@ This integration allows:
 - Sending text commands to Google Assistant to control devices supported by Google Assistant but not by Home Assistant. Examples:
   - Set Nest Guard to home and guarding
   - Start vacuuming
-  - Stream front door on living room tv
-  - Turn off kitchen tv
+  - Stream front door on living room TV
+  - Turn off kitchen TV
   - Pay rain sounds on bedroom speaker
 - Broadcast messages to Google Assistant speakers and displays without interrupting music/video playback. Examples:
   - Coffee is ready
@@ -90,7 +90,7 @@ You can use the service `google_assistant_sdk.send_text_command` to send command
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `command`              | no       | Command to send to Google Assistant. | turn off kitchen tv |
+| `command`              | no       | Command to send to Google Assistant. | turn off kitchen TV |
 
 Example:
 
