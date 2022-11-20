@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: nibe_heatpump
 ha_platforms:
   - binary_sensor
+  - climate
   - number
   - select
   - sensor
