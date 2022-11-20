@@ -87,6 +87,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - HIDEEZ BT0015-01 (CSR8510A10)
 - IOGEAR GBU521W6 (BCM20702A0)
 - Kinivo BTD-400 (BCM20702A0)
+- LM Technologies LM1010 (BCM20702A0) 📶
 - Nuu You BT40 (CSR8510A10)
 - Panda Wireless PBU40 (CSR8510A10)
 - Pluggable USB-BT4LE (BCM20702A0)
@@ -121,9 +122,17 @@ Performance testing used the following hardware:
 - Advertisements from an Oral-B iO Series 8
 - External Adapters only: Home Assistant Blue running Home Assistant Operating System 9.3 with a USB extension cable.
 
-#### Slow startup of Broadcom adapters on the ODROID N2+ platform
+#### Broadcom adapters (BCM20702A0)
 
-The BCM20702 based adapters may take an additional 120 seconds to initialize after boot with Home Assistant Operating System 9.3 when using an ODROID N2+; eventually, they come online.
+Most of these adapters can hold seven (7) connections at the same time.
+
+These adapters may take an additional 120 seconds to initialize after boot with Home Assistant Operating System 9.3 when using an ODROID N2+; eventually, they come online.
+
+#### Cambridge Silicon Radio adapters (CSR8510A10)
+
+Most of these adapters can hold five (5) connections at the same time.
+
+These adapters generally offer the fastest connect times.
 
 ### Known working adapters
 
