@@ -57,7 +57,7 @@ The following characteristics are supported for `sensor` source sensors:
 | `mean` | The average value computed for all measurements. Be aware that this does not take into account uneven time intervals between measurements.
 | `median` | The [median](https://en.wikipedia.org/wiki/Mode_(statistics)#Comparison_of_mean,_median_and_mode) value computed for all measurements.
 | `noisiness` | A simplified version of a signal-to-noise ratio. A high value indicates a quickly changing source sensor value, a small value will be seen for a steady source sensor. The absolute change between subsequent source sensor measurement values is summed up and divided by the number of intervals.
-| `quantiles` | Quantiles divide the range of a normal probability distribution of all considered source sensor measurements into continuous intervals with equal probabilities. Check the configuration parameters `quantile_intervals` and `quantile_method` for further details.
+| `percentile` | [Percentiles](https://en.wikipedia.org/wiki/Percentile) divide the range of a distribution of all considered source sensor measurements into 100 continuous intervals of equal probability. The characteristic calculates the value for which a given percentage of source sensor measurements are smaller in value. The 20th percentile is the value below which 20 percent of the measurements may be found. The additional configuration parameters `percentile` is needed, see below.
 | `standard_deviation` | The [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of an assumed normal distribution from all measurements.
 | `sum` | The mathematical sum of all source sensor measurement values within the given time and sampling size limits.
 | `sum_differences` | The mathematical sum of differences between subsequent source sensor measurement values within the given time and sampling size limits.
@@ -143,21 +143,16 @@ max_age:
   description: Maximum age of source sensor measurements stored. Setting this to a time period will cause older values to be discarded. If omitted, the number of considered source sensor measurements is limited by `sampling_size` only. Set both parameters appropriately to create suited limits for your use case. The sensor value will become `unknown` if the source sensor is not updated within the time period.
   required: false
   type: time
+percentile:
+  description: Only relevant in combination with the `percentile` characteristic. Must be a value between 1 and 99. The value defines the percentile value to consider. The 25th percentile is also known as the first quartile, the 50th percentile as the median.
+  required: false
+  default: 50
+  type: integer
 precision:
   description: Defines the number of decimal places of the calculated sensor value.
   required: false
   default: 2
   type: integer
-quantile_intervals:
-  description: Number of continuous intervals with equal probability. Value must be an integer higher than `1`. In addition, `quantiles` will be `unknown` unless the number of quantile intervals is *lower* than the number of data points (`count`). Set it to `4` for quartiles (default) or to `100` for percentiles, for example.
-  required: false
-  default: 4
-  type: integer
-quantile_method:
-  description: Indicates whether quantiles are computed using the `exclusive` method (default) or `inclusive`. The `exclusive` method assumes the population data have more extreme values than the sample, and therefore, the part under the *i*-th of *m* sorted data points is computed as `i / (m + 1)`. The `inclusive` method assumes that the sample data includes the more extreme values from the population, and therefore, the part under the *i*-th of *m* sorted data points is computed as `(i - 1) / (m - 1)`.
-  required: false
-  default: exclusive
-  type: string
 unique_id:
   description: An ID that uniquely identifies the statistics sensor. Set this to a unique value to allow customization through the UI. Change the unique ID after switching the `state_characteristic` of a previously configured sensor, to start with a fresh recorder history.
   required: false
