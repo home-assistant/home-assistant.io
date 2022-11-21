@@ -55,6 +55,7 @@ Sunday, November 13, 2022 (11:00 AM PST / 20:00 CET).
 - [Release 2022.11.1 - November 3](#release-2022111---november-3)
 - [Release 2022.11.2 - November 8](#release-2022112---november-8)
 - [Release 2022.11.3 - November 16](#release-2022113---november-16)
+- [Release 2022.11.4 - November 20](#release-2022114---november-20)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
