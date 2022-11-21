@@ -49,6 +49,11 @@ password:
   description: The password of the Web UI of qBittorrent.
   required: true
   type: string
+verify_ssl:
+  description: Verify the SSL certificate of the Web UI of qBittorrent.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Sensors
