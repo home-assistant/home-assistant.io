@@ -663,6 +663,65 @@ The following integrations are now available via the Home Assistant UI:
 [zha docs]: /integrations/zha/
 [zwave_js docs]: /integrations/zwave_js/
 
+## Release 2022.11.4 - November 20
+
+- Fix moving average for 0 values ([@daanbeverdam] - [#80476]) ([filter docs])
+- Solve Modbus reload issue ([@janiversen] - [#82253]) ([modbus docs])
+- Add kilo watts unit mapping for nibe_heatpump ([@elupus] - [#82284]) ([nibe_heatpump docs])
+- Bump `regenmaschine` to 2022.11.0 ([@bachya] - [#82337]) ([rainmachine docs])
+- Bump pysma to version 0.7.3 ([@rklomp] - [#82343]) ([sma docs])
+- Bump flux_led to 0.28.34 ([@bdraco] - [#82347]) ([flux_led docs])
+- Fix invalid configuration_url in Netatmo ([@mib1185] - [#82372]) ([netatmo docs])
+- Bump PyViCare to 2.19.0 ([@TheJulianJES] - [#82381]) ([vicare docs])
+- Bump bleak-retry-connector to 2.8.5 ([@bdraco] - [#82387]) ([bluetooth docs])
+- Update xknx to 1.2.1 ([@marvin-w] - [#82404]) ([knx docs])
+- Attempt to fix occasional Flo timeouts ([@dmulcahey] - [#82408]) ([flo docs])
+- Prevent powerwall from switching addresses if its online ([@bdraco] - [#82410]) ([powerwall docs])
+
+[#80476]: https://github.com/home-assistant/core/pull/80476
+[#81423]: https://github.com/home-assistant/core/pull/81423
+[#81488]: https://github.com/home-assistant/core/pull/81488
+[#81780]: https://github.com/home-assistant/core/pull/81780
+[#82197]: https://github.com/home-assistant/core/pull/82197
+[#82253]: https://github.com/home-assistant/core/pull/82253
+[#82284]: https://github.com/home-assistant/core/pull/82284
+[#82337]: https://github.com/home-assistant/core/pull/82337
+[#82343]: https://github.com/home-assistant/core/pull/82343
+[#82347]: https://github.com/home-assistant/core/pull/82347
+[#82372]: https://github.com/home-assistant/core/pull/82372
+[#82381]: https://github.com/home-assistant/core/pull/82381
+[#82387]: https://github.com/home-assistant/core/pull/82387
+[#82404]: https://github.com/home-assistant/core/pull/82404
+[#82408]: https://github.com/home-assistant/core/pull/82408
+[#82410]: https://github.com/home-assistant/core/pull/82410
+[3_day_blinds docs]: /integrations/3_day_blinds/
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@daanbeverdam]: https://github.com/daanbeverdam
+[@dmulcahey]: https://github.com/dmulcahey
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@marvin-w]: https://github.com/marvin-w
+[@mib1185]: https://github.com/mib1185
+[@rklomp]: https://github.com/rklomp
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[bluetooth docs]: /integrations/bluetooth/
+[filter docs]: /integrations/filter/
+[flo docs]: /integrations/flo/
+[flux_led docs]: /integrations/flux_led/
+[knx docs]: /integrations/knx/
+[modbus docs]: /integrations/modbus/
+[netatmo docs]: /integrations/netatmo/
+[nibe_heatpump docs]: /integrations/nibe_heatpump/
+[powerwall docs]: /integrations/powerwall/
+[rainmachine docs]: /integrations/rainmachine/
+[sma docs]: /integrations/sma/
+[vicare docs]: /integrations/vicare/
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
