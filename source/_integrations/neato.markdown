@@ -38,7 +38,7 @@ Visit [the Neato Developer Network](https://developers.neatorobotics.com/applica
 
 You will have to enter a name, a description, and the redirect URI:
 
-- **Name**: can be anything you like, for example, "HomeAssistant".
+- **Name**: can be anything you like, for example, "Home Assistant".
 - **Description**: can be anything you like, for example, "Home Assistant integration for Neato"
 - **Redirect URI**: `https://my.home-assistant.io/redirect/oauth`
 - **Terms Of Service URL**: leave blank
