@@ -87,6 +87,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - HIDEEZ BT0015-01 (CSR8510A10)
 - IOGEAR GBU521W6 (BCM20702A0)
 - Kinivo BTD-400 (BCM20702A0)
+- LM Technologies LM1010 (BCM20702A0) 📶
 - Nuu You BT40 (CSR8510A10)
 - Panda Wireless PBU40 (CSR8510A10)
 - Pluggable USB-BT4LE (BCM20702A0)
@@ -97,6 +98,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - SoundBot SB342 (BCM20702A0)
 - StarTech USBBT1EDR4 (CSR8510A10)
 - StarTech USBBT2EDR4 (BCM20702A0)
+- Targus ACB10US1 (BCM20702A0)
 - Techkey PBT06H (CSR8510A10)
 - TRENDnet TBW-107UB (CSR8510A10)
 - UGREEN CM109 (CSR8510A10)
@@ -120,9 +122,17 @@ Performance testing used the following hardware:
 - Advertisements from an Oral-B iO Series 8
 - External Adapters only: Home Assistant Blue running Home Assistant Operating System 9.3 with a USB extension cable.
 
-#### Slow startup of Broadcom adapters on the ODROID N2+ platform
+#### Broadcom adapters (BCM20702A0)
 
-The BCM20702 based adapters may take an additional 120 seconds to initialize after boot with Home Assistant Operating System 9.3 when using an ODROID N2+; eventually, they come online.
+Most of these adapters can hold seven (7) connections at the same time.
+
+These adapters may take an additional 120 seconds to initialize after boot with Home Assistant Operating System 9.3 when using an ODROID N2+; eventually, they come online.
+
+#### Cambridge Silicon Radio adapters (CSR8510A10)
+
+Most of these adapters can hold five (5) connections at the same time.
+
+These adapters generally offer the fastest connect times.
 
 ### Known working adapters
 
@@ -130,6 +140,7 @@ The BCM20702 based adapters may take an additional 120 seconds to initialize aft
 - Avantree DG45 (RTL8761BU)
 - COMCAST CF-B05 (RTL8761BU) 📶
 - EDUP LOVE EP-B3536 (RTL8761BU) 📶
+- ISEKIE KW-B3519 (RTL8761BU)
 - Maxuni BT-501 (RTL8761BU)
 - MPOW BH45A (RTL8761BU)
 - StarTech USBA-BLUETOOTH-V5-C2 (RTL8761BU)
@@ -148,8 +159,10 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 
 ### Unsupported adapters
 
+- Alfa AWUS036EACS (RTL8821CU) - Frequent connection failures and drop outs
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
 - EDIMAX EW-7611ULB (RTL8723BU) - Frequent connection failures and drop outs
+- EDUP EP-AC1661 (RTL8821CU) - Frequent connection failures and drop outs
 - eppfun AK3040G (ATS2851) - No driver available yet for USB id 10d7:b012
 - QUMOX Bluetooth 5.0 (Barrot 8041A02) - No working driver
 - UGREEEN CM591 (ATS2851) - No driver available yet for USB id 10d7:b012
