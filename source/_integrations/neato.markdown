@@ -35,7 +35,9 @@ There is support for the following platform types within Home Assistant:
 Visit [the Neato Developer Network](https://developers.neatorobotics.com/applications) and create a new app.
 
 <div class='note'>
-You will have to enter a name, a description and the redirect URI:
+
+You will have to enter a name, a description, and the redirect URI:
+
 - **Name**: can be anything you like, for example, "HomeAssistant".
 - **Description**: can be anything you like, for example, "Home Assistant integration for Neato"
 - **Redirect URI**: `https://my.home-assistant.io/redirect/oauth`
