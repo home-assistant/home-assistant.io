@@ -30,7 +30,7 @@ The **sensor** platform exposes a number of relevant metrics like fan speed, var
 
 The **switch** platform allows locking heat recovery bypass.
 
-The **number** platform allows to control supply air temperatures and fan speeds.
+The **number** platform allows to control supply air temperatures.
 
 {% include integrations/config_flow.md %}
 
@@ -44,3 +44,29 @@ The four standard Vallox profiles are supported:
 - `Away`
 - `Boost`
 - `Fireplace`
+
+## Fan Services
+
+### Service `vallox.set_profile_fan_speed_home`
+
+Set the fan speed of the `Home` profile.
+
+| Service data attribute | Optional | Description                                     |
+|------------------------|----------|-------------------------------------------------|
+| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
+
+### Service `vallox.set_profile_fan_speed_away`
+
+Set the fan speed of the `Away` profile.
+
+| Service data attribute | Optional | Description                                     |
+|------------------------|----------|-------------------------------------------------|
+| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
+
+### Service `vallox.set_profile_fan_speed_boost`
+
+Set the fan speed of the `Boost` profile.
+
+| Service data attribute | Optional | Description                                     |
+|------------------------|----------|-------------------------------------------------|
+| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
