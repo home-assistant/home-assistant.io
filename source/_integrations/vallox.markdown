@@ -13,6 +13,7 @@ ha_platforms:
   - binary_sensor
   - fan
   - sensor
+  - number
   - switch
 ha_codeowners:
   - '@andre-richter'
@@ -28,6 +29,8 @@ The **fan** platform of this integration allows you to turn on/off the complete 
 The **sensor** platform exposes a number of relevant metrics like fan speed, various air temperatures, and humidity.
 
 The **switch** platform allows locking heat recovery bypass.
+
+The **number** platform allows to control supply air temperatures.
 
 {% include integrations/config_flow.md %}
 
