@@ -75,9 +75,4 @@ The Wifi Energy Socket (`HWE-SKT`) outlet state can be controlled the switch pla
 ## Identify
 
 The identify button can be pressed to let the status light blink for a few seconds.
-
-<div class='note'>
-
- This feature is currently only available for the Wifi Energy Socket with firmware version `3.01` or later.
-
- </div>
+This feature is currently only available for the Wifi Energy Socket with firmware version `3.01` or later.
