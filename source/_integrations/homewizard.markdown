@@ -74,7 +74,7 @@ The Wifi Energy Socket (`HWE-SKT`) outlet state can be controlled the switch pla
 
 ## Identify
 
-The `Identify` button can be pressed to let the status light blink for a few seconds.
+The identify button can be pressed to let the status light blink for a few seconds.
 
 <div class='note'>
 
