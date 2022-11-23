@@ -72,4 +72,4 @@ The Wifi Energy Socket (`HWE-SKT`) outlet state and status light can be controll
 - **Switch**: Controls the outlet state of the Energy Socket. This switch is locked out when `Switch Lock` is turned on. 
 - **Switch lock**: Forces the outlet state in the `on` position and disables the physical button. This option is useful when the socket is used for a device that must not be turned off, such as a refrigerator.
 
-You can also control the green status light level percentage with **Light level**. This light turns on when the `Switch` is on.
+You can also control the green status light brightness with **Status light brightness**. This light turns on when the `Switch` is on.
