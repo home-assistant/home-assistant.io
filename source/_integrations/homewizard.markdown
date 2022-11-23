@@ -71,3 +71,13 @@ The Wifi Energy Socket (`HWE-SKT`) outlet state can be controlled the switch pla
 
 - **Switch**: Controls the outlet state of the Energy Socket. This switch is locked out when `Switch Lock` is turned on. 
 - **Switch lock**: Forces the outlet state in the `on` position and disables the physical button. This option is useful when the socket is used for a device that must not be turned off, such as a refrigerator.
+
+## Identify
+
+The `Identify` button can be pressed to let the status light blink for a few seconds.
+
+<div class='note'>
+
+ This feature is currently only available for the Wifi Energy Socket with firmware version `3.01` or later.
+
+ </div>
