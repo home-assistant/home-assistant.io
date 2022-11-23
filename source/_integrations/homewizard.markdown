@@ -76,7 +76,7 @@ The Wifi Energy Socket (`HWE-SKT`) outlet state can be controlled the switch pla
 
 The HomeWizard Energy devices are designed to work with the HomeWizard Energy app and require communication with the HomeWizard cloud to make them function with the app. The `Enable cloud` configuration toggle can be used to turn off all communication with the HomeWizard cloud, making the device fully local. The device cannot communicate with the app, and the device won't receive any future firmware updates.
 
-Cloud communication is restored after factory reset or when the device is put in pairing mode.
+Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.
 
 <div class='note'>
 
