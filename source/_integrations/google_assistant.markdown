@@ -147,7 +147,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 8. Restart Home Assistant Core.
 9. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Assistant support.
 
-You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome).
+You can debug the setup by following [these instructions](https://developers.home.google.com/local-home/test#debugging_from_chrome).
 
 ### YAML Configuration
 
