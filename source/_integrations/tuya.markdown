@@ -57,6 +57,7 @@ All Home Assistant platforms are supported by the Tuya integration, except the l
 - Your devices need first to be added in the [Tuya Smart or Smart Life app](https://developer.tuya.com/en/docs/iot/tuya-smart-app-smart-life-app-advantages?id=K989rqa49rluq#title-1-Download).
 - You will also need to create an account in the [Tuya IoT Platform](https://iot.tuya.com/).
 This is a separate account from the one you made for the app. You cannot log in with your app's credentials.
+**Note**: this account may have a trial period, which expires by default after 6 months and must be manually renewed. Once expired, all devices will be revoked and unavailable in Home Assistant. Renewal may take several days.
 
 ### Create a project
 
