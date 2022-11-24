@@ -113,8 +113,8 @@ To change the settings, click on "Configure" in the integration page in the UI, 
 
 ### Discovery options
 
-MQTT discovery is enabled by default. Discovery can be turned off. The prefix for the discovery topic (default `homeassistant`) can be changed.
-See the [MQTT Discovery section](#mqtt-discovery)
+MQTT discovery is enabled by default. Discovery can be turned off. The prefix for the discovery topic (default `homeassistant`) can be changed here as well.
+See also [MQTT Discovery section](#mqtt-discovery)
 
 ### Birth and last will messages
 
