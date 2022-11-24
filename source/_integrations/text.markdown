@@ -22,7 +22,7 @@ Text entities cannot be implemented manually, but can be provided by other integ
 
 Available services: `text.set_value`
 
-### Service `siren.turn_on`
+### Service `text.set_value`
 
 Set the textual value of the text entity.
 
