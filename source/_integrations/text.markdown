@@ -24,7 +24,7 @@ Available services: `text.set_value`
 
 ### Service `siren.turn_on`
 
-Turn the siren on.
+Set the textual value of the text entity.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
