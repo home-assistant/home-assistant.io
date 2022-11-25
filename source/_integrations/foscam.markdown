@@ -22,6 +22,10 @@ The `foscam` platform allows you to watch the live stream of your [Foscam](https
 There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera's documentation.
 </div>
 
+### Controllable Features
+
+If your camera supports it, a switch "Awake" will be added to put the camera in sleep mode.
+
 ### Streams
 
 Most Foscam IP Cameras supports two video streams, by default the `Main` stream is the high quality stream while the `Sub` stream is a lower quality stream. These streams can be configured in your camera preferences.
