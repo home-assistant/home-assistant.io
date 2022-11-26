@@ -21,7 +21,7 @@ The Min/Max integration consumes the state from other sensors to determine the m
 
 The sensor provided by this integration will always show you the lowest/highest/latest value which was received from all monitored sensors. If you have spikes in your values, it's recommended to filter/equalize your values with a [statistics sensor](/integrations/statistics) first.
 
-If the source sensor provides an unknown state, it will be ignored in the calculation except for sum where it will set the state to unknown. If the unit of measurement of the sensors differs, the Min/Max sensor will go to an error state where the value is `UNKNOWN` and unit of measurement is `ERR`.
+If the source sensor provides an unknown state, it will be ignored in the calculation except for sum where it will set the state to unknown. If the unit of measurement of the sensors differs, the Min/Max sensor will go to an error state where the value is `UNKNOWN` and unit of measurement is `ERR` unless a unit of measurement has been configured during setup.
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
@@ -33,6 +33,12 @@ Type:
   description: The type of the sensor, this can be either "min", "max", "last", "mean", "median", "range" or "sum".
 Precision:
   description: Round the calculated mean, median or sum value to at most N decimal places.
+Unit of Measurement:
+  description: Select or provide a unit of measurement to use for the resulting sensor.
+Device class:
+  description: Provide a device class for the sensor.
+State class:
+  description: Provide a state class for the sensor, if left empty "measurement" will be used.
 {% endconfiguration_basic %}
 
 ## YAML Configuration
