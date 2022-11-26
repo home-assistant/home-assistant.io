@@ -13,6 +13,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - select
   - sensor
   - switch
 ha_integration_type: service
