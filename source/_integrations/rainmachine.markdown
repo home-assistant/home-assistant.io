@@ -17,12 +17,13 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - select
   - sensor
   - switch
   - update
 ha_zeroconf: true
 ha_homekit: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The RainMachine integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).
@@ -44,6 +45,7 @@ Services accept either device IDs or entity IDs, depending on the nature of the 
 
 - Services that require a device ID as a target:
   - `rainmachine.pause_watering`
+  - `rainmachine.push_flow_meter_data`
   - `rainmachine.push_weather_data`
   - `rainmachine.restrict_watering`
   - `rainmachine.stop_all`
@@ -63,13 +65,22 @@ Pause all watering activities for a number of seconds. After the pause is comple
 | ---------------------- | -------- | ------------------------------ |
 | `seconds`              | no       | The number of seconds to pause |
 
+### `rainmachine.push_flow_meter_data`
+
+Push Flow Meter data from Home Assistant to the RainMachine device.
+
+| Service Data Attribute | Optional | Description                                                                                                |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| `value`                | no       | The flow meter value to send. May be any positive number.                                                  |
+| `unit_of_measurement`  | yes      | The flow meter units to send. String must be one of "clicks", "gal", "litre", or "m3"  (default: "litre"). |
+
 ### `rainmachine.push_weather_data`
 
 Push Weather Data from Home Assistant to the RainMachine device.
 
 Local Weather Push service should be enabled from Settings > Weather > Developer tab for RainMachine to consider the values being sent. Units must be sent in metric; no conversions are performed by the integration. Note: RAIN and QPF values shouldn't be sent as cumulative values but the measured/forecasted values for each hour or day. The RainMachine Mixer will sum all RAIN or QPF values in the current day to have the day total RAIN or QPF.
 
-See details of RainMachine API here: 
+See details of RainMachine API here:
 <https://rainmachine.docs.apiary.io/#reference/weather-services/parserdata/post>
 
 | Service Data Attribute | Optional | Description                                                                                                           |

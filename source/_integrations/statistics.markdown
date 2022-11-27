@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `statistics` sensor platform observes the state of a source sensor and provides statistical characteristics about its recent past. This integration can be useful in automations, e.g., to trigger an action when the air humidity in the bathroom settles after a hot shower or when the number of brewed coffee over a day gets too high.
+The `statistics` sensor platform observes the state of a source sensor and provides aggregated statistical characteristics about its recent past. This integration can be useful in automations, e.g., to trigger an action when the air humidity in the bathroom settles after a hot shower or when the number of brewed coffee over a day gets too high.
 
 The statistics sensor updates with every source sensor update. The value of the sensor represents one statistical characteristic, with `mean` being the default. The time period and/or number of recent state that should be considered is an important factor here. Check the configuration section below for options.
 
@@ -43,9 +43,9 @@ The following characteristics are supported for `sensor` source sensors:
 | `average_linear` | The average value of stored measurements under consideration of the time distances between them. A linear interpolation is applied per measurement pair. Good suited to observe a source sensor with non-periodic sensor updates and when continuous behavior is represented by the measurements (e.g. outside temperature).
 | `average_step` | The average value of stored measurements under consideration of the time distances between them. LOCF (last observation carried forward weighting) is applied, meaning, that the old value is assumed between two measurements. The resulting step function represents well the behavior of non-continuous behavior, like the set temperature of a boiler.
 | `average_timeless` | The average value of stored measurements. This method assumes that all measurements are equally spaced and, therefore, time is ignored and a simple average of values is computed. Equal to `mean`.
-| `change_sample` | The average change per sample. The difference between the oldest and newest measurement is divided by the number of in-between measurements (n-1).
-| `change_second` | The average change per second. The difference between the oldest and newest measurement is divided by seconds between them.
-| `change` | The difference between the oldest and newest measurement.
+| `change_sample` | The average change per sample. The difference between the newest and the oldest measurement is divided by the number of in-between measurements (n-1).
+| `change_second` | The average change per second. The difference between the newest and the oldest measurement is divided by seconds between them.
+| `change` | The difference between the newest and the oldest measurement.
 | `count` | The number of stored source sensor readings. This number is limited by `sampling_size` and can be low within the bounds of `max_age`.
 | `datetime_newest` | The timestamp of the newest measurement.
 | `datetime_oldest` | The timestamp of the oldest measurement.
@@ -53,13 +53,16 @@ The following characteristics are supported for `sensor` source sensors:
 | `datetime_value_min` | The timestamp of the numerically smallest measurement.
 | `distance_95_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 95% of all stored values fall into a range of returned size.
 | `distance_99_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 99% of all stored values fall into a range of returned size.
-| `distance_absolute` | The difference between the extreme values of measurements. Equals `value_max` minus `value_min`.
+| `distance_absolute` | The difference or "spread" between the extreme values of measurements. Equals `value_max` minus `value_min`.
 | `mean` | The average value computed for all measurements. Be aware that this does not take into account uneven time intervals between measurements.
 | `median` | The [median](https://en.wikipedia.org/wiki/Mode_(statistics)#Comparison_of_mean,_median_and_mode) value computed for all measurements.
-| `noisiness` | A simplified version of a signal-to-noise ratio. A high value indicates a quickly changing source sensor value, a small value will be seen for a steady source sensor. The absolute change between consecutive stored values is summed up and divided by the number of intervals.
+| `noisiness` | A simplified version of a signal-to-noise ratio. A high value indicates a quickly changing source sensor value, a small value will be seen for a steady source sensor. The absolute change between subsequent source sensor measurement values is summed up and divided by the number of intervals.
 | `quantiles` | Quantiles divide the range of a normal probability distribution of all considered source sensor measurements into continuous intervals with equal probabilities. Check the configuration parameters `quantile_intervals` and `quantile_method` for further details.
 | `standard_deviation` | The [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of an assumed normal distribution from all measurements.
-| `total` | The sum of all source sensor measurements within the given time and sampling size limits.
+| `sum` | The mathematical sum of all source sensor measurement values within the given time and sampling size limits.
+| `sum_differences` | The mathematical sum of differences between subsequent source sensor measurement values within the given time and sampling size limits.
+| `sum_differences_nonnegative` | The mathematical sum of non-negative differences between subsequent source sensor measurement values within the given time and sampling size limits. The characteristic assumes that the source sensor value can only increase, but might occasionally be reset to zero. If a value is smaller than the previous value, the function assumes the previous value should have been a zero.
+| `total` | The mathematical sum of all source sensor measurement values within the given time and sampling size limits. Equal to `sum`.
 | `value_max` | The biggest value among the number of measurements.
 | `value_min` | The smallest value among the number of measurements.
 | `variance` | The [variance](https://en.wikipedia.org/wiki/Variance) of an assumed normal distribution from all measurements.

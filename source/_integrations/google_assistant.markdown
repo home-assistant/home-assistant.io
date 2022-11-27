@@ -94,7 +94,7 @@ If you want to allow other household users to control the devices:
 If you want to support active reporting of state to Google's server (configuration option `report_state`) and synchronize Home Assistant devices with the Google Home app (`google_assistant.request_sync` service), you will need to create a service account. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device in Home Assistant that you wish to control via the Google Assistant integration. This allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting)).
 
 1. Service Account
-    1. In the Google Cloud Platform Console, go to the [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) page.
+    1. In the Google Cloud Platform Console, go to the [Create Service account key](https://console.cloud.google.com/iam-admin/serviceaccounts/create) page.
     2. At the top left of the page next to "Google Cloud Platform" logo, select your project created in the Actions on Google console. Confirm this by reviewing the project ID and it ensure it matches.
     3. From the Service account list, select `CREATE SERVICE ACCOUNT`.
     4. In the Service account name field, enter a name.
@@ -119,7 +119,7 @@ Your Home Assistant instance needs to be connected to the same network as the Go
 
 Your Google Assistant devices will still communicate via the internet to:
 - Get credentials to establish a local connection.
-- Send commands that involve a [secure device](#secure-device).
+- Send commands that involve a [secure device](#secure-devices).
 - Send commands if local fulfillment fails.
 
 <div class='note'>
@@ -134,7 +134,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
 2. Click `Develop` on the top of the page, then click `Actions` located in the hamburger menu on the top left.
-3. Upload `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest) for both Node and Chrome by clicking the `Upload Javascript files` button.
+3. Upload `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest) for both Node and Chrome by clicking the `Upload JavaScript files` button.
 4. Add device scan configuration:
    1. Click `+ New scan config` if no configuration exists
    2. Select `MDNS`
@@ -147,7 +147,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 8. Restart Home Assistant Core.
 9. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Assistant support.
 
-You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome).
+You can debug the setup by following [these instructions](https://developers.home.google.com/local-home/test#debugging_from_chrome).
 
 ### YAML Configuration
 
@@ -278,6 +278,12 @@ For the Alarm Control Panel if a code is set it must be the same as the `secure_
 ### Room/Area support
 
 Entities that have not been explicitly assigned to rooms but have been placed in Home Assistant areas will return room hints to Google with the devices in those areas.
+
+<div class='note'>
+
+Some devices, such as `scene` or `script`, must be assigned to an `area` before other members of a shared Google Home Household can use them. This is because household members in a shared Google Home will not be able to view devices that are not assigned to a room _unless_ they were the user who linked the service to Google Home. This issue isn't immediately apparent because `script` and `scene` devices aren't visible in the main Google Home dashboard.
+
+</div>
 
 ### Climate Operation Modes
 

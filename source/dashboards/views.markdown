@@ -125,6 +125,32 @@ frontend:
       lovelace-background: center / cover no-repeat url("/local/background.png") fixed
 ```
 
+## Subview
+
+A "View" can be marked as "Subview". Subviews won’t show up in the navigation bar on top of the sidebar. Subviews can, for instance, be used to show detailed information; you could link to this subview from a page with a clean look with only basic information (by using [cards that support the `navigate` action](/dashboards/actions)). Think of a view with a few thermostats and a subview with status information on the heating/cooling device.
+
+When on the subview, the navigation bar only shows the name of the subview and a back button (no icon is shown).
+By default, clicking on back button will navigate to the previous view but a custom back path (`back_path`) can be set.
+
+You can access subviews from other parts of your dashboard by using [cards that support the `navigate` action](/dashboards/actions).
+
+#### Example
+
+Simple subview:
+
+```yaml
+- title: Map
+  subview: true
+```
+
+Subview with custom back path:
+
+```yaml
+- title: Map
+  subview: true
+  back_path: /lovelace/home
+```
+
 {% configuration views %}
 views:
   required: true
@@ -150,26 +176,35 @@ views:
       type: list
     path:
       required: false
-      description: Paths are used in the URL, more info below.
+      description: Paths are used in the URL.
       type: string
       default: view index
     icon:
       required: false
-      description: Icon-name from Material Design Icons. You can use any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
+      description: Icon-name from Material Design Icons. You can use any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`. Only for "View", not for "Subview".
       type: string
     background:
       required: false
-      description: Style the background using CSS, more info below.
+      description: Style the background using CSS.
       type: string
     theme:
       required: false
-      description: Themes view and cards, more info below.
+      description: Themes view and cards.
       type: string
     visible:
       required: false
       description: "Hide/show the view tab from all users or a list of individual `visible` objects."
       type: [boolean, list]
       default: true
+    subview:
+      required: false
+      description: Mark the view as "Subview".
+      type: boolean
+      default: false
+    back_path:
+      required: false
+      description: Only for "Subview". Path to navigate when clicking on back button.
+      type: string
 {% endconfiguration %}
 
 #### Example
@@ -185,4 +220,18 @@ View configuration:
       icon: mdi:bulb
     - entity: switch.decorative_lights
       image: /local/lights.png
+```
+
+Subview configuration:
+
+```yaml
+- title: "Energieprijzen"
+  path: "energieprijzen"
+  subview: true
+  back_path: "/ui-data/climate"
+
+  cards:
+    - type: entities
+      entities:
+        - sensor.today_avg_price
 ```
