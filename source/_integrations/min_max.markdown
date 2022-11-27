@@ -43,9 +43,8 @@ following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: min_max
-    entity_ids:
+min_max:
+  - entity_ids:
       - sensor.kitchen_temperature
       - sensor.living_room_temperature
       - sensor.office_temperature
