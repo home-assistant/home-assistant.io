@@ -110,17 +110,53 @@ Here are some real-life examples of how to use the **turn_off** variable.
 
 #### Suspending Linux
 
-Suggested recipe for letting the `turn_off` script suspend a Linux computer (the **target**)
-from Home Assistant running on another Linux computer (the **server**).
+Recipe for the `turn_off` action to suspend a Linux **target** from Home Assistant running on a Linux **server**. Home Assistant will run a suspend command on the **target** over SSH.
 
-1. On the **server**, log in as the user account Home Assistant is running under. In this example it's `hass`.
-2. On the **server**, create SSH keys by running `ssh-keygen`. Just press enter on all questions.
-3. On the **target**, create a new account that Home Assistant can ssh into: `sudo adduser hass`. Just press enter on all questions except password. It's recommended using the same user name as on the server. If you do, you can leave out `hass@` in the SSH commands below.
-4. On the **server**, transfer your public SSH key by `ssh-copy-id hass@TARGET` where TARGET is your target machine's name or IP address. Enter the password you created in step 3.
-5. On the **server**, verify that you can reach your target machine without password by `ssh TARGET`.
-6. On the **target**, we need to let the `hass` user execute the program needed to suspend/shut down the target computer. Here is it `pm-suspend`, use `poweroff` to turn off the computer. First, get the full path: `which pm-suspend`. On my system, this is `/usr/sbin/pm-suspend`.
-7. On the **target**, using an account with sudo access (typically your main account), `sudo visudo`. Add this line last in the file: `hass ALL=NOPASSWD:/usr/sbin/pm-suspend`, where you replace `hass` with the name of your user on the target, if different, and `/usr/sbin/pm-suspend` with the command of your choice, if different.
-8. On the **server**, add the following to your configuration, replacing TARGET with the target's name:
+##### On the Target
+
+1. If needed, install OpenSSH server with package manager. For example, on Ubuntu:
+
+```sh
+$ sudo apt install openssh-server
+```
+
+2. Create a new system user and set password.
+
+```sh
+$ sudo adduser --system hass --home /var/hass --shell /bin/sh
+$ sudo passwd hass
+```
+
+3. Allow the user to suspend without password.
+
+**Note**: Most Linux operating systems (Ubuntu, Fedora, Arch, etc.) utilize systemd and can use the builtin `systemctl` command to manage power states. For other operating systems (Gqentoo, Void, etc.), you will need alternative methods such as `elogind` or `pm-utils`.
+
+```sh
+$ echo "hass ALL= NOPASSWD: /usr/bin/systemctl suspend" | sudo tee /etc/sudoers.d/hass-suspend
+```
+
+##### On the Server
+
+1. If needed, install OpenSSH client with package manager. For example, on Ubuntu:
+
+```sh
+$ sudo apt install openssh-client
+```
+
+2. Create a new passwordless SSH key and copy it to the target. If a key already exists, choose a different place to store the key when prompted. If using `docker`, ensure the container has access to the SSH directory by mounting it in.
+
+```sh
+$ ssh-keygen -N ""
+$ ssh-copy-id hass@TARGET-IP
+```
+
+3. Optionally manually verify that the **server** can suspend the **target**.
+
+```sh
+$ ssh hass@TARGET-IP sudo /usr/bin/systemctl suspend
+```
+
+4. Add the suspend command to `configuration.yaml`.
 
 ```yaml
 switch:
@@ -131,5 +167,5 @@ switch:
       service: shell_command.turn_off_TARGET
 
 shell_command:
-  turn_off_TARGET: "ssh hass@TARGET sudo pm-suspend"
+  turn_off_TARGET: "ssh hass@TARGET-IP sudo /usr/bin/systemctl suspend"
 ```
