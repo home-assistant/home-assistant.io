@@ -49,7 +49,7 @@ You are in control of the information and capabilities exposed to Home Assistant
 
 <div class='note'>
 
-The Nest Smart Device Management (SDM) API **requires a US$5 fee**. *Before buying*, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices). Nest speakers (Mini and Audio) are *not* currently included.
+The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
 
 </div>
 
