@@ -96,9 +96,11 @@ Use the same Database URL as for the `recorder` integration. Change `DB_NAME` to
 Example Database URL: `"mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=FreeTDS"`
 
 <div class='note info'>
-Connecting with MSSQL requires "pyodbc" to be installed on your system.<br>
-"pyodbc" has special requirements which needs to be pre-installed before installation.<br>
-See "pyodbc" wiki for installation instructions: https://github.com/mkleehammer/pyodbc/wiki/Install
+Connecting with MSSQL requires "pyodbc" to be installed on your system which can only be done on non-container based systems where you are in control of the operating system to install the neccessary dependencies.
+  
+"pyodbc" has special requirements which needs to be pre-installed before installation.
+  
+See "pyodbc" [wiki](https://github.com/mkleehammer/pyodbc/wiki/Install) for installation instructions
 </div>
 
 ```sql
