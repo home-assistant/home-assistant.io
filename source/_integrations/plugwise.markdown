@@ -183,11 +183,14 @@ Adam (zone_control) with On/Off, OpenTherm, and Loria/Thermastage heating and co
 
  - Devices supported are Anna, Lisa, Jip, Floor, Tom, Plug, Aqara Smart Plug, and Koen (a Koen always comes with a Plug, the active part)
 
-Anna (thermostat) with OpenTherm heating, and Elga and Loria/Thermastage with heating and cooling support:
+Anna (thermostat) with OnOff, OpenTherm heating, and Elga and Loria/Thermastage with heating and cooling support:
 
  - v4.x
  - v3.x
  - v1.x
+
+On the Elga, the cooling-mode can only be turned on, or off, via a switch present on the device, not via a toggle in the Plugwise App.
+Please make sure to reload the Plugwise integration after the cooling-mode-switch is turned off after being on, or the other way around. This will ensure that the Plugwise integration is being adapted to the change in function of the Elga.
 
 Smile P1 (DSMR):
 
