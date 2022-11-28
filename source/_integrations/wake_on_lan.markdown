@@ -117,14 +117,14 @@ Recipe for the `turn_off` action to suspend a Linux **target** from Home Assista
 1. If needed, install OpenSSH server with package manager. For example, on Ubuntu:
 
 ```sh
-$ sudo apt install openssh-server
+sudo apt install openssh-server
 ```
 
 2. Create a new system user and set password.
 
 ```sh
-$ sudo adduser --system hass --home /var/hass --shell /bin/sh
-$ sudo passwd hass
+sudo adduser --system hass --home /var/hass --shell /bin/sh
+sudo passwd hass
 ```
 
 3. Allow the user to suspend without password.
@@ -132,7 +132,7 @@ $ sudo passwd hass
 **Note**: Most Linux operating systems (Ubuntu, Fedora, Arch, etc.) utilize systemd and can use the builtin `systemctl` command to manage power states. For other operating systems (Gqentoo, Void, etc.), you will need alternative methods such as `elogind` or `pm-utils`.
 
 ```sh
-$ echo "hass ALL= NOPASSWD: /usr/bin/systemctl suspend" | sudo tee /etc/sudoers.d/hass-suspend
+echo "hass ALL= NOPASSWD: /usr/bin/systemctl suspend" | sudo tee /etc/sudoers.d/hass-suspend
 ```
 
 ##### On the Server
@@ -140,20 +140,20 @@ $ echo "hass ALL= NOPASSWD: /usr/bin/systemctl suspend" | sudo tee /etc/sudoers.
 1. If needed, install OpenSSH client with package manager. For example, on Ubuntu:
 
 ```sh
-$ sudo apt install openssh-client
+sudo apt install openssh-client
 ```
 
 2. Create a new passwordless SSH key and copy it to the target. If a key already exists, choose a different place to store the key when prompted. If using `docker`, ensure the container has access to the SSH directory by mounting it in.
 
 ```sh
-$ ssh-keygen -N ""
-$ ssh-copy-id hass@TARGET-IP
+ssh-keygen -N ""
+ssh-copy-id hass@TARGET-IP
 ```
 
 3. Optionally manually verify that the **server** can suspend the **target**.
 
 ```sh
-$ ssh hass@TARGET-IP sudo /usr/bin/systemctl suspend
+ssh hass@TARGET-IP sudo /usr/bin/systemctl suspend
 ```
 
 4. Add the suspend command to `configuration.yaml`.
