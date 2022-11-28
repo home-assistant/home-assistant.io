@@ -306,8 +306,8 @@ The condition will pass if the attribute matches the given state.
 condition:
   condition: state
   entity_id: climate.living_room_thermostat
-  attribute: hvac_modes
-  state: "heat"
+  attribute: fan_mode
+  state: "auto"
 ```
 
 Finally, the `state` option accepts helper entities (also known as `input_*`
