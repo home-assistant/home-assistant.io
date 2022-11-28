@@ -5,6 +5,7 @@ ha_category:
   - Sensor
 ha_release: 0.31
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ha_codeowners:
   - '@fabaff'
   - '@gjohansson-ST'
@@ -22,6 +23,10 @@ If you are not using Home Assistant Container or Home Assistant Operating System
 ```bash
 sudo apt install libxml2
 ```
+
+Both UI and YAML setup is supported while YAML provides additional configuration possibilities.
+
+{% include integrations/config_flow.md %}
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
