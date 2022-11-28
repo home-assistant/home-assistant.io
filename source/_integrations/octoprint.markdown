@@ -2,6 +2,7 @@
 title: OctoPrint
 description: Integration between OctoPrint and Home Assistant.
 ha_category:
+  - 3D Printing
   - Binary Sensor
   - Button
   - Sensor
@@ -16,6 +17,7 @@ ha_ssdp: true
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - sensor
 ha_integration_type: integration
 ---
@@ -56,8 +58,8 @@ verify ssl:
 {% endconfiguration_basic %}
 
 ### API Key
-For the integration to work, please check that the plugin Discovery is enabled.
-The Octoprint integration will attempt to register itself via the [application keys plugin](https://docs.octoprint.org/en/master/bundledplugins/appkeys.html). After submitting the configuration UI in Home Assistant, open the Octoprint UI and click allow on the prompt. 
+For the integration to work, please check that in Octoprint, the plugin Discovery is enabled and in the settings -> printer notifications menu pop-ups are enabled.
+The Octoprint integration will attempt to register itself via the [application keys plugin](https://docs.octoprint.org/en/master/bundledplugins/appkeys.html). After submitting the configuration UI in Home Assistant, open the Octoprint UI and click allow on the prompt.
 
 ## Binary Sensor
 
@@ -78,14 +80,24 @@ Supported sensors:
 
 ## Camera
 
-If the OctoPrint host is equipped with a web camera it is possible to add this as well using the [`MJPEG IP Camera`](/integrations/mjpeg) integration. Use `http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=stream` for the MJPEG URL and `http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=snapshot` as the still image URL.
-
-{% my config_flow_start badge domain="mjpeg" %}
+The OctoPrint integration provides a camera feed if one is configured in OctoPrint.
 
 ## Buttons
 
-The OctoPrint integration provides the following buttons.
+The OctoPrint integration provides the following buttons:
 
 - Pause Job
 - Resume Job
 - Stop Job
+
+## Troubleshooting
+
+### Device is already configured for a second instance
+
+This is typically caused by copying/backup/restoring part of the config files between OctoPrint instances.
+
+1. SSH into the OctoPrint instance that is being added.
+2. Edit the `config.yaml` for the instance (Typically `/home/pi/.octoprint`)
+3. Under `plugins/discovery`, change the value of `upnpUuid` to have a different uuid.
+4. Restart the OctoPrint service
+5. Attempt to add the instance once again.

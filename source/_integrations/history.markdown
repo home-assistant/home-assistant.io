@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: history
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 The `history` integration will track everything that is going on within Home
@@ -147,17 +147,7 @@ history:
       - light.front_porch
 ```
 
-Filters are applied as follows:
-
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes - include specified entities and exclude specified entities from the remaining.
-
-The following characters can be used in entity globs:
-
-`*` - The asterisk represents zero, one, or multiple characters
-`.` - The period represents a single character
+{% include common-tasks/filters.md %}
 
 #### Implementation details
 

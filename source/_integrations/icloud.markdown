@@ -42,7 +42,7 @@ If two-step authentication is enabled for your iCloud account, some time after H
 
 ## In case of troubleshooting
 
-Go into your Home Assistant configuration `.storage` folder and delete the "icloud" folder, then retry.
+Go into your Home Assistant configuration `.storage` folder and delete the `icloud` folder, then retry.
 
 ## Platforms
 

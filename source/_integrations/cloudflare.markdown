@@ -31,7 +31,7 @@ An easy way to create this is to start with the "Edit zone DNS" template then ad
 
 ### Usage of external service
 
-This platform uses the API from [ipify.org](https://www.ipify.org/) to set the public IP address.
+This integration uses the whoami service from [home-assistant/services.home-assistant.io](https://github.com/home-assistant/services.home-assistant.io) to set the public IP address.
 
 ### Limitations
 
@@ -47,4 +47,13 @@ Due to a limitation in the Cloudflare API, you can not use this integration with
 
 #### Record types
 
-This integration can only update A records.
+This integration can only update A records. 
+
+#### Zones
+
+This integration can only have 1 instance and manage 1 Zone/TLD.
+
+#### Reconfiguration
+
+This integration must be deleted and re-added to change the Zone and A record selection.
+You cannot view which records were selected or view the API Token once the integration is configured.

@@ -63,6 +63,7 @@ This is the main entity of the integration containing the incident message as it
 | `longitude` | The Longitude of the incident.|
 | `address_type` | Type of address, e.g. `home`.|
 | `formatted_address` | Address in string format.|
+| `task_ids` | ID(s) of appliance(s) or task(s).|
 
 ### Duty Binary Sensor
 

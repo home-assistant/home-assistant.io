@@ -21,9 +21,9 @@ ha_integration_type: integration
 
 This integration interacts with the Local API of [Airzone HVAC zoning systems](https://www.airzone.es/en/).
 
-A typical Airzone device has a *master zone* (Master Thermostat) per HVAC system, which is the only zone where the HVAC mode can be changed. The rest are *slave zones* (Slave Thermostats) which can only enable or disable the HVAC and adjust the desired temperature on that specific zone.
+A typical Airzone device has a *parent zone* (Master Thermostat) per HVAC system, which is the only zone where the HVAC mode can be changed. The rest are *child zones* which can only enable or disable the HVAC and adjust the desired temperature on that specific zone.
 
-Note that multiple HVAC systems can be connected to the same Airzone WebServer. In this case, there will be a *master zone* per HVAC system and there may also be *slave zones* for each HVAC system.
+Note that multiple HVAC systems can be connected to the same Airzone WebServer. In this case, there will be a *parent zone* per HVAC system and there may also be *child zones* for each HVAC system.
 
 {% include integrations/config_flow.md %}
 
@@ -57,9 +57,9 @@ For each Airzone zone (Thermostat), the following *binary sensors* are created:
 
 For each Airzone zone (Thermostat) a *climate entity* is created.
 
-**HVAC mode can only be changed on a *master zone*.**
+**HVAC mode can only be changed on a *parent zone*.**
 
-*Slave zones* can only enable/disable the current HVAC mode selected on the corresponding *master zone*. Attempting to change the HVAC mode on a *slave zone* will result on a Home Assistant error.
+*Slave zones* can only enable/disable the current HVAC mode selected on the corresponding *parent zone*. Attempting to change the HVAC mode on a *child zone* will result on a Home Assistant error.
 
 ## Sensors
 

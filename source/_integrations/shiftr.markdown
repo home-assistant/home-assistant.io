@@ -5,8 +5,6 @@ ha_category:
   - History
 ha_iot_class: Cloud Push
 ha_release: 0.48
-ha_codeowners:
-  - '@fabaff'
 ha_domain: shiftr
 ha_integration_type: integration
 ---

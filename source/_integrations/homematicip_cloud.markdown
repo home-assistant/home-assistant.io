@@ -4,6 +4,7 @@ description: Instructions for integrating HomematicIP into Home Assistant.
 ha_category:
   - Alarm
   - Binary Sensor
+  - Button
   - Climate
   - Cover
   - Hub
@@ -18,6 +19,7 @@ ha_domain: homematicip_cloud
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - button
   - climate
   - cover
   - light
@@ -27,12 +29,13 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.
+The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
 
 There is currently support for the following device types within Home Assistant:
 
 * Alarm
 * Binary Sensor
+* Button
 * Climate
 * Cover
 * Light
@@ -112,6 +115,9 @@ Within this delay the device registration should be completed in the App, otherw
   * Pluggable Power Supply Monitoring (*HmIP-PMFS*)
   * Wired Inbound module – 32x channels (*HMIPW-DRI32*)
 
+* homematicip_cloud.button
+  * Wall Mounted Garage Door Controller (*HmIP-WGC*)
+
 * homematicip_cloud.climate
   * Climate group (*HmIP-HeatingGroup*)
   * This includes temperature/humidity measures for climate devices of a room delivered by:
@@ -154,6 +160,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Temperature and Humidity Sensor without display - indoor (*HmIP-STH*)
   * Temperature and Humidity Sensor with display - indoor (*HmIP-STHD*)
   * Temperature and Humidity sensor - outdoor (*HmIP-STHO, -A*)
+  * Temperature sensor with external probes - 2-way (*HmIP-STE2-PCB*)
   * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
   * Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
   * Presence Sensor – indoor (*HmIP-SPI*)
@@ -184,12 +191,12 @@ Within this delay the device registration should be completed in the App, otherw
   
 ## What to do, if a device is missing in Home Assistant
 
-In order for a device to be integrated into Home Assistant, it must first be implemented in the upstream library. A dump of your configuration is required for this, which is then attached to a new issue in the [upstream lib's](https://github.com/coreGreenberet/homematicip-rest-api) GitHub repository.
+In order for a device to be integrated into Home Assistant, it must first be implemented in the upstream library. A dump of your configuration is required for this, which is then attached to a new issue in the [upstream lib's](https://github.com/hahn-th/homematicip-rest-api) GitHub repository.
 
 1. Create a dump of your access point configuration in Home Assistant: 
   Developer Tools -> Services -> Select `homematicip_cloud.dump_hap_config` -> Execute. 
   The default dump is anonymized and is written to your configuration directory (`hmip_config_XXXX.json`).
-2. Create a [new issue](https://github.com/coreGreenberet/homematicip-rest-api/issues/new) at this GitHub repository and attach the created dump file.
+2. Create a [new issue](https://github.com/hahn-th/homematicip-rest-api/issues/new) at this GitHub repository and attach the created dump file.
 
 Please be patient, wait for the implementation and a new release of the upstream library.
 Afterward, this device can be implemented into Home Assistant.

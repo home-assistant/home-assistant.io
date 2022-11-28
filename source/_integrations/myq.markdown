@@ -63,7 +63,7 @@ To use HomeKit Controller:
 
 If you want the devices to be accessible via HomeKit, create a HomeKit Bridge using the following steps:
 
-- Go to {% my integrations title="Settings >> Devices & Servicess" %} in the Home Assistant UI.
+- Go to {% my integrations title="Settings >> Devices & Services" %} in the Home Assistant UI.
 - Click the button with + sign, and from the list of integrations, select  ***HomeKit***.
 - Create a bridge for the `cover` domain.
 - Follow the instructions to pair with the bridge.

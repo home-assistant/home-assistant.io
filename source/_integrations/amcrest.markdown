@@ -48,7 +48,7 @@ host:
   required: true
   type: string
 username:
-  description: The username for accessing your camera.
+  description: The username for accessing your camera. Most Amcrest devices use "admin" for the username, even if you've configured another username in their app.
   required: true
   type: string
 password:
@@ -86,7 +86,7 @@ stream_source:
   default: snapshot
 ffmpeg_arguments:
   description: >
-    Extra options to pass to ffmpeg, e.g.,
+    Extra options to pass to FFmpeg, e.g.,
     image quality or video filter options.
   required: false
   type: string
@@ -289,7 +289,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: up
   - type: icon
@@ -301,7 +301,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: down
   - type: icon
@@ -313,7 +313,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: left
   - type: icon
@@ -325,7 +325,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: right
   - type: icon
@@ -337,7 +337,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: left_up
   - type: icon
@@ -349,7 +349,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: right_up
   - type: icon
@@ -361,7 +361,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: left_down
   - type: icon
@@ -373,7 +373,7 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: right_down
   - type: icon
@@ -385,13 +385,13 @@ elements:
     tap_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: zoom_in
     hold_action:
       action: call-service
       service: amcrest.ptz_control
-      service_data:
+      data:
         entity_id: camera.lakehouse
         movement: zoom_out
 ```
@@ -422,6 +422,27 @@ amcrest:
     stream_source: snapshot
     sensors:
       - ptz_preset
+```
+
+## Example Automation to Detect Button Presses on AD110 and AD410 Doorbells
+
+Using this trigger in an automation will allow you to detect the press of the doorbell call button and create automations based upon it. 
+
+```yaml
+# Example automations.yaml entry
+alias: Doorbell Pressed
+description: "Trigger when Amcrest Button Press Event Fires"
+trigger:
+  - platform: event
+    event_type: amcrest
+    event_data:
+      event: "CallNoAnswered"
+      payload:
+        action: "Start"
+action:
+  - type: flash
+    entity_id: light.living_room
+    domain: light
 ```
 
 To check if your Amcrest camera is supported/tested, visit the [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix) link from the `python-amcrest` project.
