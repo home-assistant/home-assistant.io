@@ -49,6 +49,10 @@ icon_tap_action:
   required: false
   description: Action taken on icon card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will `toggle` the entity (if possible), otherwise, show the "more-info" dialog.
   type: map
+extras:
+  required: true
+  description: Additional widgets to control your entity. See [available extras](/dashboards/tile/#tile-extras).
+  type: list
 {% endconfiguration %}
 
 
@@ -71,3 +75,102 @@ Alternatively, the card can be configured using YAML:
 ## Available color tokens
 
 Some color tokens are available to colorize the tile card : `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
+
+## Tile extras
+
+Some entities have support for "extras". These widgets add quick controls to the tile card.
+
+### Cover open/close
+
+Widget that display buttons to open, close or stop a [cover](/integrations/cover).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-extras/cover_open_close.png' alt='Screenshot of the tile card with open/close extra'>
+  Screenshot of the tile card with cover open/close extra
+</p>
+
+```yaml
+extras:
+  - type: "cover-open-close"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`cover-open-close`"
+  type: string
+{% endconfiguration %}
+
+### Cover tilt
+
+Widget that display buttons to open, close or stop a [cover](/integrations/cover).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-extras/cover_tilt.png' alt='Screenshot of the tile card with tilt extra'>
+  Screenshot of the tile card with cover tilt extra
+</p>
+
+```yaml
+extras:
+  - type: "cover-tilt"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`cover-tilt`"
+  type: string
+{% endconfiguration %}
+
+### Light brightness
+
+Widget that display a slider to select the brightness for a [light](/integrations/light).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-extras/light_brightness.png' alt='Screenshot of the tile card with light brightness extra'>
+  Screenshot of the tile card with light brightness extra
+</p>
+
+```yaml
+extras:
+  - type: "light-brightness"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`light-brightness`"
+  type: string
+{% endconfiguration %}
+
+### Vacuum commands
+
+Widget that display buttons to control a [vacuum](/integrations/vacuum).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-extras/vacuum_commands.png' alt='Screenshot of the tile card with vacuum commands extra'>
+  Screenshot of the tile card with vacuum commands extra
+</p>
+
+```yaml
+extras:
+  - type: "vacuum-commands"
+    commands:
+      - start_pause
+      - stop
+      - clean_spot
+      - locate
+      - return_home
+
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`vacuum-commands`"
+  type: string
+commands:
+  required: true
+  description: List of commands to show on the card. The list can contain `start_pause`, `stop`, `clean_spot`, `locate` and `return_home`.
+  type: list
+{% endconfiguration %}
