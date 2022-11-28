@@ -34,7 +34,7 @@ The Yamaha MusicCast integration implements the grouping services. There are som
 
 ## Play Media functionality
 
-The MusicCast integration supports the Home Assistant media browser for all streaming services, your device supports. For services such as Deezer, you have to log in using the official MusicCast app. In addition, local HTTP URLs can be played back using this service. This includes the Home Assistant text to text services.
+The MusicCast integration supports the Home Assistant media browser for all streaming services, your device supports. For services such as Deezer, you have to log in using the official MusicCast app. In addition, local HTTP URLs can be played back using this service. This includes the Home Assistant text to speech services.
 
 It is also possible to recall NetUSB presets using the play media service. To do so "presets:<preset_num>" has to be used as `media_content_id` in the service call.
 
