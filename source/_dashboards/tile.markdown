@@ -2,7 +2,7 @@
 type: card
 title: "Tile Card"
 sidebar_label: Tile
-description: "The tile card gives you a quick overview of your entity. The card allows you to toggle the entity, show the more info dialog, or custom actions."
+description: "The tile card gives you a quick overview of your entity. The card allows you to toggle the entity, show the more-info dialog, or custom actions."
 ---
 
 The tile card gives you a quick overview of your entity. The card allows you to toggle the entity and show the more info dialog. A badge is shown for some entities like the [climate](/integrations/climate) or [person](/integrations/person) entities.
@@ -33,7 +33,7 @@ icon:
   type: string
 color:
   required: false
-  description: Set the color when the entity is active. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accept [color token](/dashboards/tile/#available-color-tokens) or hex color code.
+  description: Set the color when the entity is active. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/tile/#available-color-tokens) or hex color code.
   type: string
   default: state
 show_entity_picture:
@@ -47,7 +47,7 @@ tap_action:
   type: map
 icon_tap_action:
   required: false
-  description: Action taken on icon card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will `toggle` the entity (if possible), otherwise, show the more-info" dialog.
+  description: Action taken on icon card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will `toggle` the entity (if possible), otherwise, show the "more-info" dialog.
   type: map
 {% endconfiguration %}
 
