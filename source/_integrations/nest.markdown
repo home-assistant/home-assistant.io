@@ -289,7 +289,7 @@ All cameras have motion and person triggers, however only some support capturing
 | Nest Cam with floodlight | WebRTC | Motion<br>Person | N/A |
 | Nest Doorbell (battery) | WebRTC | Motion<br>Person<br>Chime | Clip Preview (mp4, gif) |
 | Nest Doorbell (wired) | RTSP<br>Recording | Motion<br>Person<br>Sound<br>Chime | Snapshot (jpg) |
-| Nest Hub Max | RTSP<br>Recording | Motion<br>Person<br>Sound<br><sub><sup>* [SDM API known issue](https://github.com/home-assistant/core/issues/58482)</sup></sub> | Snapshot (jpg) |
+| Nest Hub Max | RTSP<br>Recording | Motion<br>Person<br>Sound<br> | Snapshot (jpg) |
 
 Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
 
