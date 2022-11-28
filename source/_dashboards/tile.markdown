@@ -50,7 +50,7 @@ icon_tap_action:
   description: Action taken on icon card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will `toggle` the entity (if possible), otherwise, show the "more-info" dialog.
   type: map
 extras:
-  required: true
+  required: false
   description: Additional widgets to control your entity. See [available extras](/dashboards/tile/#tile-extras).
   type: list
 {% endconfiguration %}
