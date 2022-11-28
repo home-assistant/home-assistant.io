@@ -586,7 +586,7 @@ knx:
 
 `setpoint_shift_mode` allows the two following DPTs to be used:
 
-- DPT6002 (for 1 byte signed integer)
+- DPT6010 (for 1 byte signed integer with scale factor)
 - DPT9002 (for 2 byte float)
 
 Example:
@@ -641,7 +641,7 @@ temperature_address:
   required: true
   type: [string, list]
 temperature_step:
-  description: Defines the step size in Kelvin for each step of setpoint_shift.
+  description: Defines the step size in Kelvin for each step of setpoint_shift (scale factor). For non setpoint-shift configurations this is used to set the step of temperature sliders in UI.
   required: false
   type: float
   default: 0.1
