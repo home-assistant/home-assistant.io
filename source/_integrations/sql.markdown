@@ -96,7 +96,7 @@ Use the same Database URL as for the `recorder` integration. Change `DB_NAME` to
 Example Database URL: `"mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=FreeTDS"`
 
 <div class='note info'>
-Connecting with MSSQL requires "pyodbc" to be installed on your system which can only be done on non-container based systems where you are in control of the operating system to install the neccessary dependencies.
+Connecting with MSSQL requires "pyodbc" to be installed on your system, which can only be done on systems using the Home Assistant Core installation type to be able to install the necessary dependencies.
   
 "pyodbc" has special requirements which need to be pre-installed before installation, see the ["pyodbc" wiki](https://github.com/mkleehammer/pyodbc/wiki/Install) for installation instructions
 </div>
