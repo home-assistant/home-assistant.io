@@ -1681,7 +1681,7 @@ Switches having a `state_address` configured request their current state from th
 
 ## Text
 
-The KNX text platform allows to send text values to the KNX bus and update its state from received telegrams.
+The KNX text platform allows to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus with its current state.
 
 <div class='note'>
 
@@ -1703,6 +1703,7 @@ knx:
       type: string
     - name: "Greeting"
       address: "0/0/4"
+      respond_to_read: true
 ```
 
 {% configuration %}
@@ -1723,6 +1724,11 @@ type:
   required: false
   type: [string, integer]
   default: latin_1
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
 mode:
   description: Specifies the mode used in the UI. `text` or `password` are valid.
   required: false
