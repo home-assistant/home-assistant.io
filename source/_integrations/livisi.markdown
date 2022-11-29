@@ -2,10 +2,10 @@
 title: LIVISI SmartHome
 description: Access and control your LIVISI Smart Home Controller (SHC) and its connected RWE/innogy devices.
 ha_category:
-  - BinarySensor
+  - Binary Sensor
   - Switch
 ha_iot_class: Local Push
-ha_release: 2023.01.0
+ha_release: 2022.12.0
 ha_config_flow: true
 ha_codeowners:
   - '@StefanIacobLivisi'
