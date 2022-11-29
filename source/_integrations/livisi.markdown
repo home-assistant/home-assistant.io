@@ -2,14 +2,16 @@
 title: LIVISI SmartHome
 description: Access and control your LIVISI Smart Home Controller (SHC) and its connected RWE/innogy devices.
 ha_category:
+  - BinarySensor
   - Switch
 ha_iot_class: Local Push
-ha_release: 2022.12.0
+ha_release: 2023.01.0
 ha_config_flow: true
 ha_codeowners:
   - '@StefanIacobLivisi'
 ha_domain: livisi
 ha_platforms:
+  - binary_sensor
   - switch
 ha_integration_type: integration
 
@@ -18,7 +20,8 @@ The LIVISI Smart Home integration allows you to connect your LIVISI Smart Home C
  
 The following devices are currently supported by this integration:
  
-- RWE/innogy Smart Plug (PSS)
+- Indoor Smart Plug (PSS)
+- Window-Door Sensor (WDS)
  
 ##Prequisites
  
