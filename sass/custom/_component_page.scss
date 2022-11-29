@@ -1,11 +1,11 @@
 #components-page {
   .component-search {
     margin-bottom: 24px;
+    height: 80px;
 
     input {
       width: 100%;
       padding: 10px;
-
       background-color: #fefefe;
       border-radius: 2px;
       border: 1px solid;
@@ -13,18 +13,14 @@
     }
   }
 
-  .integration_filter select {
+  .integration_filter .ha_category {
     width: 100%;
-    margin-bottom: 10px;
-    text-align: center;
-  
-    &[data-id="iot_class"], &[data-id="quality_scale"] {
     margin-bottom: 15px;
-    }
+    text-align: center;
   }
   
   .active-filter {
-    margin: 10px 5px 0px 0;
+    margin: 10px 5px 0px 0px;
     padding: 5px;
     min-width: 100px;
     background-color: #6ab0de;
@@ -36,9 +32,9 @@
     text-transform: capitalize;
   
     i {
-    display: inline-block;
-    margin-left: 5px;
-    transform: rotate(45deg);
+      display: inline-block;
+      margin-left: 5px;
+      transform: rotate(45deg);
     }
   }
 }

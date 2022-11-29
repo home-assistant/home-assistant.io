@@ -37,9 +37,9 @@ regenerate: false
       </form>
     </div>
   </div>
-  <div class="grid__item three-sixths lap-one-whole palm-one-whole">
+  <div class="grid__item one-quarter lap-one-whole palm-one-whole">
       <div class="integration_filter">
-        <select name="category" data-id="cat">
+        <select class="ha_category" name="category" data-id="cat">
           <option value="#">Category</option>
           <option value="featured">Featured</option>
           <option value="all">All ({{tot}})</option>
@@ -56,9 +56,9 @@ regenerate: false
         </select>
       </div>
   </div>
-  <div class="grid__item three-sixths lap-one-whole palm-one-whole">
+  <div class="grid__item one-quarter lap-one-whole palm-one-whole">
     <div class="integration_filter">
-      <select name="versions" data-id="version">
+      <select class="ha_category" name="versions" data-id="version">
         <option value="#">Version</option>
         {%- for group in components_by_version -%}
         <optgroup label="{{ group.label }} ({{group.new_components_count}})">
@@ -72,9 +72,9 @@ regenerate: false
     </div>
   </div>
 
-  <div class="grid__item three-sixths lap-one-whole palm-one-whole">
+  <div class="grid__item one-quarter lap-one-whole palm-one-whole">
     <div class="integration_filter">
-      <select name="iot_classes" data-id="iot_class">
+      <select class="ha_category" name="iot_classes" data-id="iot_class">
         <option value="#">IoT Class</option>
         {%- for iot_class in iot_classes -%}
           {%- assign iot_class_count = components | where: 'ha_iot_class', iot_class | size -%}
@@ -87,9 +87,9 @@ regenerate: false
     </div>
   </div>
 
-  <div class="grid__item three-sixths lap-one-whole palm-one-whole">
+  <div class="grid__item one-quarter lap-one-whole palm-one-whole">
     <div class="integration_filter">
-      <select name="quality_scales" class="capitalize" data-id="quality_scale">
+      <select class="ha_category" name="quality_scales" class="capitalize" data-id="quality_scale">
         <option value="#">Quality Scale</option>
         {%- for quality_scale in quality_scales -%}
           {%- assign quality_scale_count = components | where: 'ha_quality_scale', quality_scale | size -%}
@@ -224,7 +224,9 @@ integrations.pop(); // remove placeholder element at the end
     // get query value pair that matches provided id from url. // for buildQueryFromURL()
     function getQueryValue(id) {
       let index = id.length + 2; // id + '#' and '/' => '#search/'
-      if (id === 'cat') index = 1;
+      if (id === 'cat') {
+        index = 1;
+      }
 
       // get value from #hash url
       let query = decodeURIComponent(location.hash).substring(index).toLowerCase();
@@ -244,16 +246,16 @@ integrations.pop(); // remove placeholder element at the end
       let hash = location.hash || '';
       let queryParams = new URLSearchParams(location.search);
 
-      if (hash.indexOf('#all') === 0 || queryParams.get('cat') === 'all') {
+      if (hash.startsWith('#all') || queryParams.get('cat') === 'all') {
         queryFilter.cat = 'all';
       }
 
-      if (hash.indexOf('#featured') === 0 || queryParams.get('cat') === 'featured') {
+      if (hash.startsWith('#featured') || queryParams.get('cat') === 'featured') {
         // only show those with featured = true
         queryFilter.cat = 'featured';
       }
 
-      if (hash.indexOf('#search/') === 0 || queryParams.has('search')) {
+      if (hash.startsWith('#search/') || queryParams.has('search')) {
         let query = getQueryValue('search');
         queryFilter.search = query;
       } else {
@@ -261,7 +263,7 @@ integrations.pop(); // remove placeholder element at the end
         $searchFilter.val(null);
       }
       
-      if (hash.indexOf('#version/') === 0 || queryParams.has('version')) {
+      if (hash.startsWith('#version/') || queryParams.has('version')) {
         // filter by a version
         let query = getQueryValue('version');
         queryFilter.version = query;
@@ -269,25 +271,25 @@ integrations.pop(); // remove placeholder element at the end
 
       if (
           // check for categories that are not featured or all
-          (hash.indexOf('#') === 0 || queryParams.has("cat")) 
-          && !(hash.indexOf('#all') === 0 || queryParams.get("cat") === 'all') 
-          && !(hash.indexOf('#featured') === 0 || queryParams.get("cat") === 'featured')
-          && !(hash.indexOf('#search') === 0)
-          && !(hash.indexOf('#version') === 0)
-          && !(hash.indexOf('#iot_class') === 0)
-          && !(hash.indexOf('#quality_scale') === 0)
+          (hash.startsWith('#') || queryParams.has("cat")) 
+          && !(hash.startsWith('#all') || queryParams.get("cat") === 'all') 
+          && !(hash.startsWith('#featured') || queryParams.get("cat") === 'featured')
+          && !(hash.startsWith('#search'))
+          && !(hash.startsWith('#version'))
+          && !(hash.startsWith('#iot_class'))
+          && !(hash.startsWith('#quality_scale'))
         ) {
         // regular filter categories
         let query = getQueryValue('cat');
         queryFilter.cat = query;
       }
 
-      if (hash.indexOf('#iot_class/') === 0 || queryParams.has('iot_class')) {
+      if (hash.startsWith('#iot_class/') || queryParams.has('iot_class')) {
         let query = getQueryValue('iot_class');
         queryFilter.iot_class = query;
       }
 
-      if (hash.indexOf('#quality_scale/') === 0 || queryParams.has('quality_scale')) {
+      if (hash.startsWith('#quality_scale/') || queryParams.has('quality_scale')) {
         let query = getQueryValue('quality_scale');
         queryFilter.quality_scale = query;
       }
@@ -485,10 +487,10 @@ integrations.pop(); // remove placeholder element at the end
           text = 'Category';
           break;
         case 'iot_class':
-          text = 'IoT';
+          text = 'IoT class';
           break;
         case 'quality_scale':
-          text = 'Quality';
+          text = 'Quality scale';
           break;
         default:
           text = id;
@@ -506,23 +508,37 @@ integrations.pop(); // remove placeholder element at the end
         // filter out buttons that dont match query obj
         let buttonsToRemove = currentFilterButtons.filter(button => {
           for (key in queryFilter) {
-             if (button.id === key) return false;
+             if (button.dataset.id === key) {
+               return false;
+             }
           }
           return true;
         });
         buttonsToRemove.forEach(button => button.remove());
+      } else if (currentFilterButtons.length === Object.keys(queryFilter).length) {
+        // update text of buttons if changed
+        currentFilterButtons.forEach(button => {
+          for (key in queryFilter) {
+             if (button.dataset.id === key) {
+              // check for mismatched filter value
+               if (button.dataset.filter !== queryFilter[key]) {
+                 button.innerHTML = `<span>${getButtonText(key)}: ${queryFilter[key]} <i class="icon-plus-sign"></i></span>`;
+               }
+             }
+          }
+        });
       } else {
         //create a filter button if one doesn't already exists
         for (key in queryFilter) {
-          if (document.querySelector(`.component-search .active-filter#${key}`) === null) {
+          if (document.querySelector(`.component-search .active-filter[data-id="${key}"]`) === null) {
             let button = document.createElement('button');
-            button.innerHTML = `<span>${getButtonText(key)}<i class="icon-plus-sign"></i></span>`;
+            button.innerHTML = `<span>${getButtonText(key)}: ${queryFilter[key]} <i class="icon-plus-sign"></i></span>`;
             button.classList.add('active-filter');
-            button.setAttribute('id', `${key}`);
-
+            button.dataset.id = key;
+            button.dataset.filter = queryFilter[key]
             //add click listener to button to remove filter
             button.addEventListener('click', function() {
-              removeQueryFromURL(this.id);
+              removeQueryFromURL(this.dataset.id);
               applyFilter();
               // remove event listener after click
             }, {once:true});
