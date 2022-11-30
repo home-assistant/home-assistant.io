@@ -256,9 +256,9 @@ The output of this selector is `true` when the toggle was on, `false` otherwise.
 
 ## Color temperature selector
 
-The color temperature selector provides a select that allows for selecting
-a color temperature. The selector returns the number of mireds selected and
-allows limiting the range of selectable mireds.
+The color temperature selector provides a slider that allows for selecting
+a color temperature. The selector returns the number of Kelvin or mireds selected and
+allows limiting the range of selectable values.
 
 ![Screenshot of the Color temperature selector](/images/blueprints/selector-color-temp.png)
 
@@ -267,19 +267,24 @@ color_temp:
 ```
 
 {% configuration color_temp %}
-min_mireds:
-  description: The minimum color temperature in mireds.
+unit:
+  description: Unit to use for the selector. Either "Kelvin" or "Mired".
+  type: string
+  defaulr: "Kelvin"
+  required: true
+min:
+  description: The minimum color temperature.
   type: integer
-  default: 153
+  default: 2700 for Kelvin, 153 for Mired
   required: false
-max_mireds:
-  description: The maximum color temperature in mireds.
+max:
+  description: The maximum color temperature.
   type: integer
-  default: 500
+  default: 6000 for Kelvin, 500 for Mired
   required: false
 {% endconfiguration %}
 
-The output of this selector is the number of mired selected, for example, `243`.
+The output of this selector is the number of Kelvin or mired selected, for example, `243`.
 
 ## Config entry selector
 
