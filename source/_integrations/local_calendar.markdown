@@ -4,7 +4,7 @@ description: Instructions on how to use Local Calendars in Home Assistant.
 ha_category:
   - Calendar
 ha_iot_class: Local Polling
-ha_release: 2022.11
+ha_release: 2022.12
 ha_config_flow: true
 ha_domain: local_calendar
 ha_platforms:
@@ -16,7 +16,7 @@ ha_integration_type: integration
 
 The local calendar integration allows you to create a calendar of events in Home Assistant for powering automations.
 
-A calendar entity has state and attributes represent the next upcoming event (only). A calendar trigger is much more flexible way to power automations with fewer limitations than using the entiy state.
+A calendar entity has a state and attributes that represent the next upcoming event (only). A calendar trigger is a much more flexible way to power automations with fewer limitations than using the entity state.
 
 {% include integrations/config_flow.md %}
 
