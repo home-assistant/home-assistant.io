@@ -4,7 +4,7 @@ description: Access and control your LIVISI Smart Home Controller (SHC) and its 
 ha_category:
   - Switch
 ha_iot_class: Local Push
-ha_release: 2022.12.0
+ha_release: 2022.12
 ha_config_flow: true
 ha_codeowners:
   - '@StefanIacobLivisi'

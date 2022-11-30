@@ -1,0 +1,796 @@
+---
+layout: post
+title: "2022.12: Beta release notes"
+description: "Beta release notes for Home Assistant Core 2022.12."
+date: 2022-11-30 00:00:00
+date_formatted: "December 7, 2022"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+- Release-Notes
+- Core
+og_image: /images/blog/2022-12/social.png
+---
+
+<a href='/integrations/#version/2022.12'><img src='/images/blog/2022-12/social.png' style='border: 0;box-shadow: none;'></a>
+
+<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+These are the beta release notes for Home Assistant Core 2022.12 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/Lovelace:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the Supervisor:<br>
+  <https://github.com/home-assistant/supervisor/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+version field (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+---
+<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+Home Assistant Core 2022.12! 🎄
+
+I have nothing to tell yet... this is still all beta!
+
+Thanks for helping out testing the beta! ❤️
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [It does Matter!](#it-does-matter)
+- [Tile card gets features](#tile-card-gets-features)
+- [Local calendar (tbd, not merged yet)](#local-calendar-tbd-not-merged-yet)
+- [Bluetooh proxy using Shelly devices](#bluetooh-proxy-using-shelly-devices)
+- [New entity: `text`](#new-entity-text)
+- [Summing entities without templates](#summing-entities-without-templates)
+- [Improved state coloring](#improved-state-coloring)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New Integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Breaking Changes](#breaking-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=Ts-_BdFsvxI) today at 12:00 PDT / 21:00 CET!
+
+<lite-youtube videoid="Ts-_BdFsvxI" videotitle="Home Assistant 2022.12 Release Party"></lite-youtube>
+
+## It does Matter!
+
+{% details "TODO" %}
+
+- Add an actual story
+- Add a tiny bit of context on what matter is, link to external resource for more information.
+- Spelling/grammar
+- Maybe add a little screenshot of a matter device in Home Assistant? Check with Marcel.
+- Link to documentation
+
+{% enddetails %}
+
+Does it Matter? Yes, Home Assistant does Matter!
+
+Matter is a new smart home interoperability standard, an open-source protocol,
+that defines how devices can communicate and work together. Read more about
+Matter in this [comprehensive write-up from The Verge](https://www.theverge.com/22832127/matter-smart-home-products-thread-wifi-explainer).
+
+Today we release the first iteration of the Matter integration for Home
+Assistant. It is a big and important foundation that is probably best described
+as "alpha" or  maybe even a "developer preview" — allowing anyone to help
+and jump in on the Matter development. For the first release,
+we think that is a great start!
+
+At this point, Matter-enabled products are not (yet) generally available.
+However, if you can get a Matter-certified product, it can be commissioned!
+
+Adding Matter devices (commissioning) can be done using our iOS and Android
+Home Assistant Companion apps. Adding support for this to our apps is being
+worked on and will become available in the upcoming weeks.
+
+_TODO: below needs a link_
+
+Interested? We have made more details available [in our documentation](#).
+
+## Tile card gets features
+
+{% details "TODO" %}
+
+- Iterate story
+- Spelling/grammar
+- Fan speed isn't merged yet, might not make it?
+  <https://github.com/home-assistant/frontend/pull/14474>
+- Docs not merged yet
+  <https://github.com/home-assistant/home-assistant.io/pull/25080>
+- Add links to documentation
+
+{% enddetails %}
+
+In the last release, we [introduced the Tile card](/blog/2022/11/02/release-202211/#tile-card),
+today we extend the Tile card by adding support for "features".
+
+For the Tile card, "features" are additional extras that can be added to a Tile
+card. For example, they can provide additional controls or information for
+the entity the Tile card displays.
+
+<p class='img'>
+<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/204335089-e91fc1f7-dc17-4671-9e23-8f7451ed3469.png' alt='Lorem ipsum'>
+Note: Placeholder screenshot that needs to be replaced.
+</p>
+
+Multiple usable Tile features have been added:
+
+- Command buttons for vacuum cleaners
+- Brightness slider for lights
+- Controls for opening/closeing and tilting covers
+- Slider to control the speed of fans
+
+_TODO: below needs a link_
+
+[Checkout the our documentation for more information about Tile features](#lorem)
+
+## Local calendar (tbd, not merged yet)
+
+Note: This feature will probably not make it this release.
+
+{% details "TODO" %}
+
+- Add an actual story
+- Spelling/grammar
+- Screenshots
+- Unsure if this is making .12, awaiting frontend?
+
+{% enddetails %}
+
+You asked for it, but many considered it impossible... But @allenporter did it!
+We now have a calendar built-in into Home Assistant, entirely local,
+just the way you like it.
+
+<p class='img'>
+<img class="no-shadow" src='https://media.discordapp.net/attachments/903338235747528724/1047504535955980370/CleanShot_2022-11-30_at_14.28.49.png' alt='Lorem ipsum'>
+Note: Placeholder screenshot that needs to be replaced.
+</p>
+
+## Bluetooh proxy using Shelly devices
+
+{% details "TODO" %}
+
+- Improve story line
+- Spelling/grammar
+
+{% enddetails %}
+
+In the September release, we brought [Bluetooth everywhere](/blog/2022/09/07/release-20229/#bluetooth-everywhere),
+by adding Bluetooth proxy support, allowing any ESPHome device in your home
+to relay Bluetooth traffic across your home.
+
+This release adds support for using Shelly devices are a remote Bluetooth
+adapter as well!
+
+It works with all second-generation Shelly devices that use firmware 12.0 or
+later. Those are able to provide Bluetooth advertisements to Home Assistant's
+[Bluetooth integration](/integration/bluetooth).
+
+This can greatly help with extending the range of your Bluetooth network to
+help with things like Bluetooth temperature or plant sensors in your home.
+
+In other Bluetooth news: The performance of Bluetooth has, again, been improved
+this release, and the memory usage should be lower. Always good!
+
+## New entity: `text`
+
+{% details "TODO" %}
+
+- Improve story
+- Spelling/grammar
+- Replace screenshots
+
+{% enddetails %}
+
+Say hello to a new entity: `text`! The text entity is very similar to the
+[Text helper](/integrations/input_text) (also known as `input_text`).
+
+The difference is that the helper is configured and managed by you, while the
+new text entities are provided by integrations. This means integration can now
+provide entities that ask for a textual input in the UI.
+
+<p class='img'>
+<img class="no-shadow" src='https://user-images.githubusercontent.com/195327/203792730-8a2416ec-6a74-4447-aba4-5b5182e497c8.png' alt='Lorem ipsum'>
+Note: Placeholder screenshot that needs to be replaced.
+</p>
+
+<p class='img'>
+<img class="no-shadow" src='https://user-images.githubusercontent.com/195327/203792745-60013f73-4929-424b-b558-e1f39b9a1682.png' alt='Lorem ipsum'>
+Note: Placeholder screenshot that needs to be replaced.
+</p>
+
+The first integrations that can now provide text entities as of this release are
+[KNX](/integrations/knx#text) and [MQTT](/integrations/text.mqtt).
+
+## Summing entities without templates
+
+{% details "TODO" %}
+
+- Iterate on story
+- Spelling/grammar
+- Try improve screenshot, it is a little hard to read
+
+{% enddetails %}
+
+Let's say you have two numeric sensor entities, and you like to have an
+entity that shows the sum of those two; how would you do that? Creating a
+template entity, right? Nope! 😁
+
+You can now create a new helper entity that sums the values of two (or more)
+sensor entities into a brand-new entity.
+
+When creating a new helper, select "Combine the state of several sensors",
+pick the sensor you'd like to sum, and select "Sum" for the statistic
+characteristic. Voila!
+
+<img class="no-shadow" src='/images/blog/2022-12/sum.png' alt='Screenshot showing you can now combine and sum up multiple sensor entities'>
+
+{% my config_flow_start badge domain="min_max" %}
+
+You might have noticed that this looks like the "Min/Max" helper. True!
+We have renamed "Min/Max" to "Combine the state of several sensors",
+to make it more descriptive as it gets more features.
+
+## Improved state coloring
+
+{% details "TODO" %}
+
+- Add on story
+- Spelling/grammar
+- Add/replace screenshots
+- Keep it? Or move to other noteworthy?
+
+{% enddetails %}
+
+The new Tile card gets its colors based on the state of the entity it displays.
+This same color logic has now also been applied to the state history
+and the logbook.
+
+This makes the colors predictable, recognizable and above all: just looks a lot
+better 🤩
+
+<p class='img'>
+<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/200536889-ea6c2e0c-a027-44cc-8ae5-9a2b9fd286bb.png' alt='Lorem ipsum'>
+Note: Placeholder screenshot that needs to be replaced.
+</p>
+
+<p class='img'>
+<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/200581968-f1c8bce0-0f36-47be-aae3-b48506b8dbd4.png' alt='Lorem ipsum'>
+Note: Placeholder screenshot that needs to be replaced.
+</p>
+
+## Other noteworthy changes
+
+Entity more info dialog merged with entity settings.
+
+{% details "TODO" %}
+
+- Proof read/spelling/grammar
+- Last minute ones added?
+- Go over list again, might have missed something
+
+**Note**: Changes processed up to PR 81536
+
+{% enddetails %}
+
+There is much more juice in this release; here are some of the other
+noteworthy changes this release:
+
+- You can now set your country and default language Home Assistant should use
+  in the {% my general title="general settings" %}. These new options allow
+  Home Assistant to consider those in future features.
+- Using [Twinkly] in your Christmas tree? 🎄 You can now control the effects!
+  Right on time! Thanks, [@Olen]!
+- [MQTT] reached the gold level on the [integration quality scale]! Nice work [@jbouwh]!
+  But that is not all; it now supports MQTT v5 and WebSocket connections too!
+- NO2 and VOC sensor entities are now working with [HomeKit]. Thanks, [@stackia]!
+- [Shelly] is now a [platinum integration]! Thanks, [@thecode], [@bieniu],
+  and [@chemelli74] for your hard work on this integration 🥇
+- [ZHA] now supports the new [Aqara c1 pet feeder]. Thanks [@dmulcahey] for
+  adding it, and thanks [@kirovilya] figuring out the communication!
+- The [humidifier card], now has on/off controls. Thanks, [@Shulyaka]
+- [Amazon Alexa] now supports humidifiers. Thanks, [@jbouwh]!
+- [BTHome] version 2 has been released and Home Assistant now supports it!
+  Thanks, [@Ernst79]!
+- [Slack] now has a Do Not Disturb sensor you could automate on. Thanks, [@tkdrob]!
+- Support for IP-Secure routing has been added to [KNX]. Thanks, [@farmio]!
+- Are you using [Picnic] for your groceries? You can now add products to your
+  order straight from Home Assistant. Thanks, [@corneyl]!
+
+[@bieniu]: https://github.com/bieniu
+[@chemelli74]: https://github.com/chemelli74
+[@corneyl]: https://github.com/corneyl
+[@dmulcahey]: https://github.com/dmulcahey
+[@Ernst79]: https://github.com/Ernst79
+[@farmio]: https://github.com/farmio
+[@jbouwh]: https://github.com/jbouwh
+[@kirovilya]: https://github.com/kirovilya
+[@Olen]: https://github.com/Olen
+[@Shulyaka]: https://github.com/Shulyaka
+[@stackia]: https://github.com/stackia
+[@thecode]: https://github.com/thecode
+[@tkdrob]: https://github.com/tkdrob
+[Amazon Alexa]: /integrations/alexa
+[Aqara c1 pet feeder]: https://www.aqara.com/en/product/smart-pet-feeder-c1
+[BTHome]: https://bthome.io
+[HomeKit]: /integrations/homekit
+[humidifier card]: /dashboards/humidifier/
+[integration quality scale]: /docs/quality_scale/
+[KNX]: /integrations/knx
+[MQTT]: /integrations/mqtt
+[Picnic]: /integrations/picnic
+[platinum integration]: /docs/quality_scale/
+[Shelly]: /integrations/shelly
+[Slack]: /integrations/slack
+[Twinkly]: /integrations/twinkly
+[ZHA]: /integrations/zha
+
+## New Integrations
+
+We welcome the following new integrations in this release:
+
+- [air-Q], added by [@Sibgatulin]
+- [Aranet], added by [@aschmitz]
+- [LIVISI SmartHome], added by [@StefanIacobLivisi]
+- [RuuviTag BLE], added by [@akx]
+- [Sensirion BLE], added by [@akx]
+- [Text], added by [@raman325]
+
+[@akx]: https://github.com/akx
+[@aschmitz]: https://github.com/aschmitz
+[@raman325]: https://github.com/raman325
+[@Sibgatulin]: https://github.com/Sibgatulin
+[@StefanIacobLivisi]: https://github.com/StefanIacobLivisi
+[air-Q]: /integrations/airq
+[Aranet]: /integrations/aranet
+[LIVISI SmartHome]: /integrations/livisi
+[RuuviTag BLE]: /integrations/ruuvitag_ble
+[Sensirion BLE]: /integrations/sensirion_ble
+[Text]: /integrations/text
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- [Pushbullet], done by [@engrbm87]
+- [Scrape], done by [@gjohansson-ST] & [@epenet]
+
+[@engrbm87]: https://github.com/engrbm87
+[@epenet]: https://github.com/epenet
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[Pushbullet]: /integrations/pushbullet
+[Scrape]: /integrations/scrape
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Breaking Changes
+
+{% details "TODO" %}
+
+- Proof read/spelling/grammar
+
+**Note**: Breaking changes processed up to PR 78465
+
+{% enddetails %}
+
+{% details "Cloudflare" %}
+
+The Cloudflare integration no longer relies on ipify.org to determine your IP,
+but instead is using the [whoami service](https://github.com/home-assistant/services.home-assistant.io).
+
+This means that if you have configured your network only to allow traffic there,
+you would need to adjust it to allow for the new situation.
+
+([@ludeeus] - [#81714]) ([documentation](/integrations/cloudflare))
+
+[@ludeeus]: https://github.com/ludeeus
+[#81714]: https://github.com/home-assistant/core/pull/81714
+
+{% enddetails %}
+
+{% details "Elexa Guardian" %}
+
+The previously deprecated `guardian.disable_ap` and `guardian.enable_ap` service
+and the corresponding binary sensor have now been removed.
+
+([@bachya] - [#81056]) ([documentation](/integrations/guardian))
+
+[@bachya]: https://github.com/bachya
+[#81056]: https://github.com/home-assistant/core/pull/81056
+
+{% enddetails %}
+
+{% details "Glances" %}
+
+The scan interval (`scan_interval`) option in the Glances configuration is
+removed, and the update interval will use the default value (60 seconds).
+
+If you have already configured Glances integrations, the previously saved interval
+option will still be used. To revert to the default update interval,
+you need to re-add the integration.
+
+You can use the `homeassistant.update_entity` service in an automation
+for custom update intervals.
+
+([@engrbm87] - [#72748]) ([documentation](/integrations/glances))
+
+[@engrbm87]: https://github.com/engrbm87
+[#72748]: https://github.com/home-assistant/core/pull/72748
+
+{% enddetails %}
+
+{% details "Groups" %}
+
+Media player groups containing players that provide an invalid media player
+entity state, will now report a "Unknown" group state.
+
+The list of valid media player states is available in our
+[developer documentation](https://developers.home-assistant.io/docs/core/entity/media-player/#states).
+
+([@epenet] - [#78465]) ([documentation](/integrations/group))
+
+[@epenet]: https://github.com/epenet
+[#78465]: https://github.com/home-assistant/core/pull/78465
+
+{% enddetails %}
+
+{% details "HERE Travel Time" %}
+
+The HERE Travel Time integration now uses the HERE API v8.
+Travelmode `publicTransportTimeTable` has been merged into `publicTransport`.
+Your configuration will be migrated automatically;
+no manual interaction is necessary.
+
+([@eifinger] - [#80892]) ([documentation](/integrations/here_travel_time))
+
+[@eifinger]: https://github.com/eifinger
+[#80892]: https://github.com/home-assistant/core/pull/80892
+
+---
+
+The unit system is no longer controlled by an options setting of the HERE
+Traveltime integration but uses the built-in custom units configurable per
+entity.
+
+The distance sensor now uses kilometers as a default and must be manually
+configured if it was previously using the imperial system.
+
+([@eifinger] - [#79159]) ([documentation](/integrations/here_travel_time))
+
+[@eifinger]: https://github.com/eifinger
+[#79159]: https://github.com/home-assistant/core/pull/79159
+
+{% enddetails %}
+
+{% details "Hikvision" %}
+
+The videoloss event has been removed from the supported list. The event has
+always been used as a keep-alive for most Hikvision devices, and the library
+uses it internally. Leaving it enabled as an option causes everything to break
+if the event is actually processed, so it was removed to eliminate confusion.
+
+Any customized options specified in the YAML configuration for a videoloss
+event will need to be removed, and videoloss entities will no longer be
+generated by the integration.
+
+If you used any of these entities in your automations or scripts, you will
+need to update those to remove the use of these entities.
+
+([@mezz64] - [#81173]) ([documentation](/integrations/hikvision))
+
+[@mezz64]: https://github.com/mezz64
+[#81173]: https://github.com/home-assistant/core/pull/81173
+
+{% enddetails %}
+
+{% details "HomeKit" %}
+
+The HomeKit Air quality PM10 mappings between Home Assistant and HomeKit,
+have been updated to the latest [US AQI standard](https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf).
+
+([@stackia] - [#81217]) ([documentation](/integrations/homekit))
+
+[@stackia]: https://github.com/stackia
+[#81217]: https://github.com/home-assistant/core/pull/81217
+
+{% enddetails %}
+
+{% details "Logitech Harmony Hub" %}
+
+The `PowerOff` state of the select entity will be changed to `power_off`.
+
+If you relied on this state value in your automations or script,
+you must adjust to this change.
+
+([@bieniu] - [#77491]) ([documentation](/integrations/harmony))
+
+[@bieniu]: https://github.com/bieniu
+[#77491]: https://github.com/home-assistant/core/pull/77491
+
+{% enddetails %}
+
+{% details "Mobile Apps" %}
+
+The events fired when the mobile app scanned a Tag had an incorrect device ID;
+This has been corrected.
+
+As a result, the evens now contain a different but correct device ID. If you
+relied on the device ID in your automations, you might need to adjust those
+with the new device ID.
+
+([@balloob] - [#82820]) ([documentation](/integrations/mobile_app))
+
+[@balloob]: https://github.com/balloob
+[#82820]: https://github.com/home-assistant/core/pull/82820
+
+{% enddetails %}
+
+{% details "Modbus" %}
+
+The name of the mapping keys used for defining HVAC modes in the Modbus
+climate integration (introduced in 2022.11) has changed. This was needed
+to fix an issue with the `off` key, which has a different meaning in YAML.
+
+Instead of:
+
+```yaml
+hvac_mode_register:
+  address: ...
+  values:
+    off: 0
+    heat: 1
+    cool: 2
+```
+
+You now have to use:
+
+```yaml
+hvac_mode_register:
+  address: ...
+  values:
+    state_off: 0
+    state_heat: 1
+    state_cool: 2
+```
+
+([@avishorp] - [#81749]) ([documentation](/integrations/modbus))
+
+[@avishorp]: https://github.com/avishorp
+[#81747]: https://github.com/home-assistant/core/pull/81747
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+YAML configuration of MQTT entities under the platform key (e.g., `light`),
+which was deprecated in Home Assistant Core 2022.6, is no longer supported.
+The configuration must instead be done under the `mqtt` key.
+
+The legacy MQTT device tracker is no longer supported. See 
+[the documentation](/integrations/device_tracker.mqtt/) for the supported MQTT
+device tracker configuration.
+
+As of this release, you should now use the modern configuration schema for all
+manually configured MQTT entities. Please note that this does not impact
+MQTT discovery, for example, Zigbee2MQTT.
+
+([@jbouwh] - [#82102]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#82102]: https://github.com/home-assistant/core/pull/82102
+
+---
+
+The `encoding` configuration option for the MQTT camera set to `b64`
+was previously deprecated and has now become an invalid configuration.
+
+The new `image_encoding` configuration option is now used to set Base64 encoding.
+Please use the new `image_encoding` config parameter (set to `b64`) instead.
+
+([@jbouwh] - [#82244]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#82244]: https://github.com/home-assistant/core/pull/82244
+
+{% enddetails %}
+
+{% details "OpenUV" %}
+
+The previously deprecated `openuv.update`, `openuv.update_uv_index`,
+and `openuv.update_protection_data` services have now be removed.
+
+([@bachya] - [#81055]) ([documentation](/integrations/openuv))
+
+[@bachya]: https://github.com/bachya
+[#81055]: https://github.com/home-assistant/core/pull/81055
+
+{% enddetails %}
+
+{% details "Radarr" %}
+
+The previously deprecated YAML configuration of the Radarr
+integration has been removed.
+
+Radarr is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@tkdrob] - [#81210]) ([documentation](/integrations/radarr))
+
+[@tkdrob]: https://github.com/tkdrob
+[#81210]: https://github.com/home-assistant/core/pull/81210
+
+{% enddetails %}
+
+{% details "RainMachine" %}
+
+The previously deprecated `extra_water_on_hot_days`  and `freeze_protection`
+binary sensors, and `freeze_protection_temperature` sensor have now been removed.
+
+([@bachya] - [#81053]) ([documentation](/integrations/rainmachine))
+
+[@bachya]: https://github.com/bachya
+[#81053]: https://github.com/home-assistant/core/pull/81053
+
+{% enddetails %}
+
+{% details "Renault" %}
+
+The unit of measurement for the charging power sensor has been corrected.
+As the unit has changed, it will create a long-term statistics warning
+that you need to resolve in the statistics developers tools manually.
+
+{% my developer_statistics badge %}
+
+([@epenet] - [#81412]) ([documentation](/integrations/renault))
+
+[@epenet]: https://github.com/epenet
+[#81412]: https://github.com/home-assistant/core/pull/81412
+
+You will need to resolve the analytics warning by adjusting the previous unit.
+
+{% enddetails %}
+
+{% details "Risco" %}
+
+The `bypassed` attribute in Risco zones has been removed and replaced with
+a switch. The matching services have also been removed, and you can bypass
+and un-bypass a zone using the regular switch services
+(`turn_on` and `turn_off` respectively).
+
+For example, if you had a call to:
+
+```yaml
+service: risco.bypass_zone
+target:
+  entity_id: binary_sensor.motion_bedroom
+```
+
+You can replace it with:
+
+```yaml
+service: switch.turn_on
+target:
+  entity_id: switch.motion_bedroom_bypassed
+```
+
+([@OnFreund] - [#81137]) ([documentation](/integrations/risco))
+
+[@OnFreund]: https://github.com/OnFreund
+[#81137]: https://github.com/home-assistant/core/pull/81137
+
+{% enddetails %}
+
+{% details "SimpliSafe" %}
+
+The previously deprecated `simplisafe.clear_notifications` service
+has now been removed.
+
+([@bachya] - [#81054]) ([documentation](/integrations/simplisafe))
+
+[@bachya]: https://github.com/bachya
+[#81054]: https://github.com/home-assistant/core/pull/81054
+
+{% enddetails %}
+
+{% details "Statistics" %}
+
+The `quantiles` `statistics` sensor characteristic has been removed and
+replaced by the more versatile `percentile` characteristic.
+
+If you use the `quantiles` characteristic, you will need to adapt your sensor
+configuration to recreate identical values with the `percentile` characteristic.
+
+([@ThomDietrich] - [#81749]) ([documentation](/integrations/statistics))
+
+[@ThomDietrich]: https://github.com/ThomDietrich
+[#81027]: https://github.com/home-assistant/core/pull/81027
+
+---
+
+The configuration of `statistics` sensors has changed:
+
+The `state_characteristic` configuration setting is now mandatory.
+
+The `sampling_size` configuration setting is now optional and no longer
+defaults to the arbitrary value 20. You can now define `sampling_size`,
+`max_age`, or both depending on your use case. Existing sensors won't behave
+differently by the change. However, you might want to check whether your
+currently defined sensors have a meaningful `sampling_size` configured or if
+you wish to remove this setting altogether.
+
+([@ThomDietrich] - [#81749]) ([documentation](/integrations/statistics))
+
+[@ThomDietrich]: https://github.com/ThomDietrich
+[#80999]: https://github.com/home-assistant/core/pull/80999
+
+{% enddetails %}
+
+{% details "UniFi Network" %}
+
+As new PoE entities were introduced with 2022.11, this release, the old
+troublesome PoE client implementation that these entities replaced,
+has been removed. Upgrading will automatically remove the old entities.
+
+Please note that the new PoE entities are disabled by default and represent
+each PoE-capable port without mapping it to a client.
+
+([@Kane610] - [#81749]) ([documentation](/integrations/unifi))
+
+[@Kane610]: https://github.com/Kane610
+[#81749]: https://github.com/home-assistant/core/pull/81054
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+- [Add more unit enumerators](https://developers.home-assistant.io/blog/2022/11/28/more-unit-enumerators)
+- [Changes to long term statistics APIs](https://developers.home-assistant.io/blog/2022/11/16/statistics_refactoring)
+- [Introducing new unit enumerators](https://developers.home-assistant.io/blog/2022/10/26/new-unit-enumerators)
+
+## Farewell to the following
+
+The following integrations are also no longer available as of this release:
+
+- **Google Chat** has been removed. It relied on the Google Hangouts APIs,
+  which have been shut down, rendering the integration unusable.
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2022.12](/changelogs/core-2022.12)
