@@ -340,6 +340,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'pct_cmd_tpl':         'percentage_command_template',
     'pct_stat_t':          'percentage_state_topic',
     'pct_val_tpl':         'percentage_value_template',
+    'ptrn':                'pattern',
     'pl':                  'payload',
     'pl_arm_away':         'payload_arm_away',
     'pl_arm_home':         'payload_arm_home',
