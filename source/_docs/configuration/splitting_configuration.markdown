@@ -184,51 +184,6 @@ This (large) sensor configuration gives us another example:
 
 You'll notice that this example includes a secondary parameter section (under the steam section) as well as a better example of the way comments can be used to break down files into sections.
 
-In the previous examples we combined configuration items for multiple platforms.
-For some integrations, like `mqtt`, the configuration of manual configured MQTT items is done under the integration key. Note that the manual configured `mqtt` items do not have a `platform` key.
-
-You can still split up the configuration using one file per platform key. If for example, wou want to split up the following configuration:
-
-```yaml
-...
-mqtt:
-  sensor:
-    - name: "Sensor_1"
-      state_topic: "state/sensor1"
-    - name: "Sensor_2"
-      state_topic: "state/sensor2"
-  switch:  
-    - name: "Switch_1"
-      command_topic: "cmd/switch1"
-    - name: "Switch_2"
-      command_topic: "cmd/switch2"
-```
-
-After splitting up, your setup in `configuration.yaml` could be as simple as:
-
-```yaml
-...
-mqtt: !include_dir_named mqtt/
-```
-
-Where the `sensor` entries are places in `mqtt/sensor.yaml` ...
-
-```yaml
-- name: "Sensor_1"
-  state_topic: "state/sensor1"
-- name: "Sensor_2"
-  state_topic: "state/sensor2"
-```
-
-and the `switch` entries in `mqtt/switch.yaml` ...
-
-```yaml
-- name: "Switch_1"
-  command_topic: "cmd/switch1"
-- name: "Switch_2"
-  command_topic: "cmd/switch2"
-```
-
 All of the above can be applied when splitting up files using packages. To
 learn more about packages, see the [Packages](/docs/configuration/packages) page.
 
