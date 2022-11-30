@@ -624,6 +624,7 @@ For most platforms it is also possible to manual set up MQTT items in `configura
 - [Sensor](/integrations/sensor.mqtt/)
 - [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
+- [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
 
 {% enddetails %}
