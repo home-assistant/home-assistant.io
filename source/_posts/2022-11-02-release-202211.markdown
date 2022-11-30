@@ -56,6 +56,7 @@ Sunday, November 13, 2022 (11:00 AM PST / 20:00 CET).
 - [Release 2022.11.2 - November 8](#release-2022112---november-8)
 - [Release 2022.11.3 - November 16](#release-2022113---november-16)
 - [Release 2022.11.4 - November 20](#release-2022114---november-20)
+- [Release 2022.11.5 - November 30](#release-2022115---november-30)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -722,6 +723,60 @@ The following integrations are now available via the Home Assistant UI:
 [rainmachine docs]: /integrations/rainmachine/
 [sma docs]: /integrations/sma/
 [vicare docs]: /integrations/vicare/
+
+## Release 2022.11.5 - November 30
+
+- Bump pyotgw to 2.1.3 ([@mvn23] - [#82430])
+- Bump ZHA dependencies ([@puddly] - [#82509])
+- Ensure esphome client tasks await cancelation ([@bdraco] - [#82547])
+- Bump gcal_sync to 4.0.3 ([@allenporter] - [#82606])
+- Fix iBeacons with infrequent random mac address changes unexpectedly going unavailable ([@bdraco] - [#82668])
+- Fix homekit controller triggers not attaching when integration is setup after startup ([@bdraco] - [#82717])
+- Bump pysensibo to 1.0.21 ([@gjohansson-ST] - [#82023])
+- Bump pysensibo to 1.0.22 ([@gjohansson-ST] - [#82738])
+- Update pyTibber to 0.26.1 ([@Danielhiversen] - [#82787])
+- Add missing SimpliSafe keypad battery sensor ([@bachya] - [#82797])
+- Add missing SimpliSafe alarm states ([@bachya] - [#82813])
+- Bump `simplisafe-python` to 2022.11.2 ([@bachya] - [#82943])
+
+[#81423]: https://github.com/home-assistant/core/pull/81423
+[#81488]: https://github.com/home-assistant/core/pull/81488
+[#81780]: https://github.com/home-assistant/core/pull/81780
+[#82023]: https://github.com/home-assistant/core/pull/82023
+[#82197]: https://github.com/home-assistant/core/pull/82197
+[#82428]: https://github.com/home-assistant/core/pull/82428
+[#82430]: https://github.com/home-assistant/core/pull/82430
+[#82509]: https://github.com/home-assistant/core/pull/82509
+[#82547]: https://github.com/home-assistant/core/pull/82547
+[#82606]: https://github.com/home-assistant/core/pull/82606
+[#82668]: https://github.com/home-assistant/core/pull/82668
+[#82717]: https://github.com/home-assistant/core/pull/82717
+[#82738]: https://github.com/home-assistant/core/pull/82738
+[#82787]: https://github.com/home-assistant/core/pull/82787
+[#82797]: https://github.com/home-assistant/core/pull/82797
+[#82813]: https://github.com/home-assistant/core/pull/82813
+[#82943]: https://github.com/home-assistant/core/pull/82943
+[3_day_blinds docs]: /integrations/3_day_blinds/
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@allenporter]: https://github.com/allenporter
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@mvn23]: https://github.com/mvn23
+[@puddly]: https://github.com/puddly
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[esphome docs]: /integrations/esphome/
+[google docs]: /integrations/google/
+[homekit_controller docs]: /integrations/homekit_controller/
+[ibeacon docs]: /integrations/ibeacon/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[sensibo docs]: /integrations/sensibo/
+[simplisafe docs]: /integrations/simplisafe/
+[tibber docs]: /integrations/tibber/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
