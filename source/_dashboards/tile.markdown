@@ -49,48 +49,63 @@ icon_tap_action:
   required: false
   description: Action taken on icon card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will `toggle` the entity (if possible), otherwise, show the "more-info" dialog.
   type: map
-extras:
+features:
   required: false
-  description: Additional widgets to control your entity. See [available extras](/dashboards/tile/#tile-extras).
+  description: Additional widgets to control your entity. See [available features](/dashboards/tile/#tile-features).
   type: list
 {% endconfiguration %}
 
-
-## Example
+## Examples
 
 Alternatively, the card can be configured using YAML:
 
 ```yaml
-- type: tile
-  entity: cover.kitchen_window
-- type: tile
-  entity: light.bedroom
-  icon: mdi:lamp
-  color: yellow
-- type: tile
-  entity: person.anne_therese
-  show_entity_picture: true
+type: tile
+entity: cover.kitchen_window
+```
+
+```yaml
+type: tile
+entity: light.bedroom
+icon: mdi:lamp
+color: yellow
+```
+
+```yaml
+type: tile
+entity: person.anne_therese
+show_entity_picture: true
+```
+
+```yaml
+type: tile
+entity: vacuum.ground_floor
+features:
+  - type: vacuum-commands
+      commands:
+        - start_pause
+        - return_home
 ```
 
 ## Available color tokens
 
 Some color tokens are available to colorize the tile card : `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
 
-## Tile extras
+## Tile features
 
-Some entities have support for "extras". These widgets add quick controls to the tile card.
+Some entities have support for "features". These widgets add quick controls to the tile card.
 
 ### Cover open/close
 
 Widget that display buttons to open, close or stop a [cover](/integrations/cover).
 
 <p class='img'>
-  <img src='/images/dashboards/tile-extras/cover_open_close.png' alt='Screenshot of the tile card with open/close extra'>
-  Screenshot of the tile card with cover open/close extra
+  <img src='/images/dashboards/tile-features/cover_open_close.png' alt='Screenshot of the tile card with open/close feature'>
+  Screenshot of the tile card with cover open/close feature
 </p>
 
 ```yaml
-extras:
+features:
   - type: "cover-open-close"
 ```
 
@@ -106,12 +121,12 @@ type:
 Widget that display buttons to open, close or stop a [cover](/integrations/cover).
 
 <p class='img'>
-  <img src='/images/dashboards/tile-extras/cover_tilt.png' alt='Screenshot of the tile card with tilt extra'>
-  Screenshot of the tile card with cover tilt extra
+  <img src='/images/dashboards/tile-features/cover_tilt.png' alt='Screenshot of the tile card with tilt feature'>
+  Screenshot of the tile card with cover tilt feature
 </p>
 
 ```yaml
-extras:
+features:
   - type: "cover-tilt"
 ```
 
@@ -127,12 +142,12 @@ type:
 Widget that display a slider to select the brightness for a [light](/integrations/light).
 
 <p class='img'>
-  <img src='/images/dashboards/tile-extras/light_brightness.png' alt='Screenshot of the tile card with light brightness extra'>
-  Screenshot of the tile card with light brightness extra
+  <img src='/images/dashboards/tile-features/light_brightness.png' alt='Screenshot of the tile card with light brightness feature'>
+  Screenshot of the tile card with light brightness feature
 </p>
 
 ```yaml
-extras:
+features:
   - type: "light-brightness"
 ```
 
@@ -148,12 +163,12 @@ type:
 Widget that display buttons to control a [vacuum](/integrations/vacuum).
 
 <p class='img'>
-  <img src='/images/dashboards/tile-extras/vacuum_commands.png' alt='Screenshot of the tile card with vacuum commands extra'>
-  Screenshot of the tile card with vacuum commands extra
+  <img src='/images/dashboards/tile-features/vacuum_commands.png' alt='Screenshot of the tile card with vacuum commands feature'>
+  Screenshot of the tile card with vacuum commands feature
 </p>
 
 ```yaml
-extras:
+features:
   - type: "vacuum-commands"
     commands:
       - start_pause
@@ -161,7 +176,6 @@ extras:
       - clean_spot
       - locate
       - return_home
-
 ```
 
 {% configuration %}
