@@ -110,11 +110,6 @@ Interested? We have made more details available [in our documentation](#).
 
 - Iterate story
 - Spelling/grammar
-- Fan speed isn't merged yet, might not make it?
-  <https://github.com/home-assistant/frontend/pull/14474>
-- Docs not merged yet
-  <https://github.com/home-assistant/home-assistant.io/pull/25080>
-- Add links to documentation
 
 {% enddetails %}
 
@@ -135,22 +130,27 @@ Multiple usable Tile features have been added:
 - Command buttons for vacuum cleaners
 - Brightness slider for lights
 - Controls for opening/closeing and tilting covers
-- Slider to control the speed of fans
 
-_TODO: below needs a link_
+[Checkout the our documentation for more information about Tile features](/dashboards/tile/#tile-features)
 
-[Checkout the our documentation for more information about Tile features](#lorem)
+But that is not all! The Tile card also got colors!
 
-## Local calendar (tbd, not merged yet)
+Based on the state of the entity shown in the Tile card, the card will
+get different colors. This color provides an additional visual indication
+of what the state of the entity is.
 
-Note: This feature will probably not make it this release.
+<p class='img'>
+<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/197503420-6b3aa7de-ce38-4a68-a4e7-8eb74eb406d9.png' alt='Lorem ipsum'>
+Note: Placeholder screenshot that needs to be replaced.
+</p>
+
+## Local calendar
 
 {% details "TODO" %}
 
 - Add an actual story
 - Spelling/grammar
 - Screenshots
-- Unsure if this is making .12, awaiting frontend?
 
 {% enddetails %}
 
@@ -162,6 +162,8 @@ just the way you like it.
 <img class="no-shadow" src='https://media.discordapp.net/attachments/903338235747528724/1047504535955980370/CleanShot_2022-11-30_at_14.28.49.png' alt='Lorem ipsum'>
 Note: Placeholder screenshot that needs to be replaced.
 </p>
+
+{% my config_flow_start badge domain="local_calendar" %}
 
 ## Bluetooh proxy using Shelly devices
 
