@@ -14,7 +14,7 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@tkdrob'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 There is currently support for the following device types within Home Assistant:

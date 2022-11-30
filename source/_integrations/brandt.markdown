@@ -1,6 +1,6 @@
 ---
-title: Hitachi Hi Kumo
-description: Connect and control your Hitachi Hi Kumo devices using the Overkiz integration
+title: Brandt Smart Control
+description: Connect and control your Brandt Smart Control devices using the Overkiz integration
 ha_category:
   - Alarm Control Panel
   - Binary Sensor
@@ -17,7 +17,7 @@ ha_category:
   - Siren
   - Switch
   - Water Heater
-ha_domain: hi_kumo
+ha_domain: brandt
 ha_integration_type: virtual
 ha_supporting_domain: overkiz
 ha_supporting_integration: Overkiz
