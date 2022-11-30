@@ -52,8 +52,8 @@ Enjoy the (beta) release!
 
 - [It does Matter!](#it-does-matter)
 - [Tile card gets features](#tile-card-gets-features)
-- [Local calendar (tbd, not merged yet)](#local-calendar-tbd-not-merged-yet)
-- [Bluetooh proxy using Shelly devices](#bluetooh-proxy-using-shelly-devices)
+- [Local calendar](#local-calendar)
+- [Bluetooth proxy using Shelly devices](#bluetooth-proxy-using-shelly-devices)
 - [New entity: `text`](#new-entity-text)
 - [Summing entities without templates](#summing-entities-without-templates)
 - [Improved state coloring](#improved-state-coloring)
@@ -165,7 +165,7 @@ Note: Placeholder screenshot that needs to be replaced.
 
 {% my config_flow_start badge domain="local_calendar" %}
 
-## Bluetooh proxy using Shelly devices
+## Bluetooth proxy using Shelly devices
 
 {% details "TODO" %}
 
