@@ -637,9 +637,12 @@ For most platforms it is also possible to manual set up MQTT items in `configura
 - [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
 - [Text](/integrations/text.mqtt/)
+- [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
 
 {% enddetails %}
+
+If you have a lot of manual configured items you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
 
 ## Using Templates
 
