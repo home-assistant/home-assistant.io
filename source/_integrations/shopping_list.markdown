@@ -29,7 +29,7 @@ Add an item to the shopping list.
 |------------------------|----------|--------------------------------------------------------|
 | `name`                 |       no | Name of the item to add. Example: "Milk"               |
 
-### Service `shopping_list.add_remove`
+### Service `shopping_list.remove_item`
 
 Remove the first item with matching name from the shopping list.
 
