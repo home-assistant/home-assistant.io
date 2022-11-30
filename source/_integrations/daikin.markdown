@@ -126,7 +126,7 @@ The integration displays the following parameters for the outdoor compressor:
 - The 'cool/heat' energy sensors are updated hourly with the previous hour energy consumption
   of a given mode and a given AC.
 - The 'cool' mode also includes the 'fan' and 'dehumidifier' modes' power consumption.
-- Would you have multiple indoor devices, the 'Outdoor compressor' sensors will be created multiple times but will all report the same values. You should disable all but one.
+- If you have multiple indoor devices, the 'Outdoor compressor' sensors will be created multiple times but will all report the same values. You can disable all but one.
 
 </div>
 
