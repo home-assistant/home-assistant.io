@@ -106,9 +106,9 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 The integration displays the following parameters for the outdoor compressor:
 
 - Outside temperature
-- Outdoor compressor Estimated power consumption (sum of all devices)
-- Outdoor compressor Energy consumption (sum of all devices, resets at 00:00)
-- Outdoor compressor frequency
+- Outside compressor Estimated power consumption (sum of all devices)
+- Outside compressor Energy consumption (sum of all devices, resets at 00:00)
+- Outside compressor frequency
 
 <div class='note'>
 
