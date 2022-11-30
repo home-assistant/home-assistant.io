@@ -641,6 +641,8 @@ For most platforms it is also possible to manual set up MQTT items in `configura
 
 {% enddetails %}
 
+If you have a lot of manual configured items you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
+
 ## Using Templates
 
 The MQTT platform support templating. Read more [about using templates with the MQTT integration](/docs/configuration/templating/#using-templates-with-the-mqtt-integration).
