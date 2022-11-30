@@ -65,6 +65,9 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Fan Preset Mode](#fan-preset-mode)
     - [Fan Direction](#fan-direction)
     - [Fan Oscillation](#fan-oscillation)
+  - [Humidifier](#humidifier)
+    - [Humidifier target humidity](#humidifier-target-humidity)
+    - [Humidifier Mode](#humidifier-mode)
   - [Image Processing](#image-processing)
     - [Presence Detection Notification](#presence-detection-notification)
   - [Input Number](#input-number)
@@ -140,7 +143,7 @@ The first thing you need to do after signing into the [AWS console](https://cons
   <img src='/images/integrations/alexa/create_iam_role_attach_permission.png' alt='Screenshot: Attach permission policy to IAM role'>
 </p>
 
-- Give your new role a name, such as `AWSLambdaBasicExecutionRole-SmartHome`, then click the `Create role` button at the bottom of the pahe. You should be able to find your new role in the roles list now.
+- Give your new role a name, such as `AWSLambdaBasicExecutionRole-SmartHome`, then click the `Create role` button at the bottom of the page. You should be able to find your new role in the roles list now.
 
 ### Add Code to the Lambda Function
 
@@ -490,6 +493,9 @@ The following integrations are currently supported:
     - [Fan Preset Mode](#fan-preset-mode)
     - [Fan Direction](#fan-direction)
     - [Fan Oscillation](#fan-oscillation)
+  - [Humidifier](#humidifier)
+    - [Humidifier target humidity](#humidifier-target-humidity)
+    - [Humidifier Mode](#humidifier-mode)
   - [Image Processing](#image-processing)
     - [Presence Detection Notification](#presence-detection-notification)
   - [Input Number](#input-number)
@@ -821,6 +827,20 @@ The fan device must support the `oscillating` attribute.
 
 Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
+### Humidifier
+
+Control power, target humidity and mode.
+
+#### Humidifier target humidity
+
+- _"Alexa, set the [entity name] humidity to fifty percent."_
+
+#### Humidifier Mode
+
+The humidifier device must support the `mode` attribute.
+
+- _"Alexa, set the [entity name] mode to eco."_
+
 ### Image Processing
 
 Requires [Proactive Events](#proactive-events) enabled.
@@ -1095,6 +1115,6 @@ logger:
 
 [alexa-dev-console]: https://developer.amazon.com/alexa/console/ask
 [emulated-hue-component]: /integrations/emulated_hue/
-[generate-long-lived-access-token]: https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token
+[generate-long-lived-access-token]: https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token
 [alexa-display-categories]: https://developer.amazon.com/docs/alexa/device-apis/alexa-discovery.html#display-categories
 [alexa-supported-locales]: https://developer.amazon.com/docs/alexa/device-apis/list-of-interfaces.html

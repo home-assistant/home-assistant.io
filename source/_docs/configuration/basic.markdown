@@ -3,7 +3,7 @@ title: "Setup basic information"
 description: "Setting up the basic info of Home Assistant."
 ---
 
-As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a temperature unit and time zone based on this location. You may adjust this during onboarding, or afterwards at {% my general title="Settings > System > General" %}.
+As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a unit system and time zone based on this location. You may adjust this during onboarding, or afterwards at {% my general title="Settings > System > General" %}, network related configuration is found under {% my network title="Settings > System > Network" %}.
 
 If you prefer YAML, you can add the following information to your `configuration.yaml`:
 
@@ -53,7 +53,7 @@ elevation:
   required: false
   type: integer
 unit_system:
-  description: "`metric` for Metric, `imperial` for Imperial. This also sets temperature_unit, Celsius for Metric and Fahrenheit for Imperial"
+  description: "`metric` for Metric, `us_customary` for US Customary. This also sets temperature_unit, Celsius for Metric and Fahrenheit for US Customary"
   required: false
   type: string
 temperature_unit:
@@ -68,6 +68,7 @@ currency:
   description: "Pick your currency code from the column **Code** of [Wikipedia's list of ISO 4217 active codes](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)"
   required: false
   type: string
+  default: "EUR"
 external_url:
   description: "The URL that Home Assistant is available on from the internet. For example: `https://example.duckdns.org:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported."
   required: false
@@ -105,6 +106,15 @@ legacy_templates:
   required: false
   type: boolean
   default: false
+language:
+  description: "Default language used by Home Assistant. This may, for example, influence the language used by voice assistants. The language should be specified as an RFC 5646 language tag, and must be a language which Home Assistant is translated to."
+  required: false
+  type: string
+  default: "en"
+country:
+  description: "Country in which Home Assistant is running. This may, for example, influence radio settings to comply with local regulations. The country should be specified as an ISO 3166.1 alpha-2 code. Pick your country from the column **Code** of [Wikipedia's list of ISO 31661 alpha-2 officially assigned code codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)"
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Reload Core Service

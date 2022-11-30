@@ -73,10 +73,10 @@ Use `db_size` as column for value.
 
 #### MariaDB/MySQL
 
-Change `table_schema="hass"` to the name that you use as the database name, to ensure that your sensor will work properly.
+Change `table_schema="homeassistant"` to the name that you use as the database name, to ensure that your sensor will work properly.
 
 ```sql
-SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hass" GROUP BY table_schema;
+SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;
 ```
 Use `value` as column for value.
 
@@ -94,6 +94,12 @@ Use `size` as column for value.
 Use the same Database URL as for the `recorder` integration. Change `DB_NAME` to the name that you use as the database name, to ensure that your sensor will work properly. Be sure `username` has enough rights to access the sys tables.
 
 Example Database URL: `"mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=FreeTDS"`
+
+<div class='note info'>
+Connecting with MSSQL requires "pyodbc" to be installed on your system, which can only be done on systems using the Home Assistant Core installation type to be able to install the necessary dependencies.
+  
+"pyodbc" has special requirements which need to be pre-installed before installation, see the ["pyodbc" wiki](https://github.com/mkleehammer/pyodbc/wiki/Install) for installation instructions
+</div>
 
 ```sql
 SELECT TOP 1 SUM(m.size) * 8 / 1024 as size FROM sys.master_files m INNER JOIN sys.databases d ON d.database_id=m.database_id WHERE d.name='DB_NAME';

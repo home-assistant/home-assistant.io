@@ -9,6 +9,7 @@ ha_release: 2022.2
 ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
+  - '@peterager'
 ha_dhcp: true
 ha_domain: oncue
 ha_platforms:
@@ -21,6 +22,7 @@ The Oncue by Kohler integration will allow you to monitor the state of your [Onc
 
 ## Tested Devices
 
+- 20RESA
 - [24RCL](https://kohlerpower.com/en/residential/generators/product/24rcl)
 - [38RCLB](https://kohlerpower.com/en/residential/generators/product/38rclb)
 - [48RCLB](https://kohlerpower.com/en/residential/generators/product/48rclb)

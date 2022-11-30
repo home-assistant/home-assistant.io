@@ -12,6 +12,7 @@ ha_codeowners:
   - '@vanstinator'
 ha_domain: melnor
 ha_platforms:
+  - number
   - sensor
   - switch
 ha_integration_type: integration

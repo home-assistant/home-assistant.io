@@ -79,7 +79,7 @@ timeout:
   default: 5
   type: integer
 type:
-  description: Type of communication. Possible values are `tcp` Modbus messages with Modbus TCP frame on TCP/IP, `udp` Modbus messages with Modbus TCP frame on UDP, `rtuovertcp` Modbus messages with a wrapper TCP/IP simulating a serial line, 'serial' Modbus serial (RS485).
+  description: Type of communication. Possible values are `tcp` Modbus messages with Modbus TCP frame on TCP/IP, `udp` Modbus messages with Modbus TCP frame on UDP, `rtuovertcp` Modbus messages with a wrapper TCP/IP simulating a serial line, `serial` Modbus serial (RS485).
   required: true
   type: string
 {% endconfiguration %}
@@ -348,6 +348,12 @@ modbus:
         address: 110
         device_class: door
         input_type: discrete_input
+      - name: "binary_sensor3"
+        address: 120
+        slave: 2
+        device_class: running
+        scan_interval: 10
+        input_type: input
 ```
 {% configuration %}
 binary_sensors:
@@ -364,7 +370,7 @@ binary_sensors:
       required: false
       type: string
     input_type:
-      description: type of address (discrete_input/coil)
+      description: type of address (discrete_input/coil/holding/input)
       required: false
       default: coil
       type: string
@@ -408,7 +414,26 @@ modbus:
         target_temp_register: 2782
         temp_step: 1
         temperature_unit: C
+      - name: "Bedroom Air Condition"
+        address: 10
+        target_temp_register: 10
+        hvac_mode_register:
+          address: 11
+          values:
+            state_auto: 0
+            state_cool: 1
+            state_heat: 2
+            state_fan_only: 3
+            state_dry: 4
+            state_off: 5
+        hvac_onoff_register: 11
 ```
+
+{% details "Previous configuration format" %}
+
+The configuration format of `hvac_mode_register` has changed. The old format uses keys such as `off`, `auto`, `cool` instead of `state_off`, `state_auto` and `state_cool` that is currently used. The old keys should no longer be used and is deprecated.
+
+{% enddetails %}
 
 {% configuration %}
 climates:
@@ -454,6 +479,56 @@ climates:
       required: false
       type: string
       default: C
+    hvac_mode_register:
+      description: Definition of a register holding and controlling an HVAC mode
+      required: false
+      type: [map]
+      keys:
+        address: 
+          description: The address of the HVAC mode register.
+          required: true
+          type: integer
+        values:
+          description: A mapping between the register values and HVAC modes
+          required: true
+          type: [map]
+          keys:
+            state_off:
+              description: The register value corresponding to HVAC Off mode.
+              required: false
+              type: integer
+            state_heat:
+              description: The register value corresponding to HVAC Heat mode.
+              required: false
+              type: integer
+            state_cool:
+              description: The register value corresponding to HVAC Cool mode.
+              required: false
+              type: integer
+            state_auto:
+              description: The register value corresponding to HVAC Auto mode.
+              required: false
+              type: integer
+            state_dry:
+              description: The register value corresponding to HVAC Dry mode.
+              required: false
+              type: integer
+            state_fan_only:
+              description: The register value corresponding to HVAC Fan only mode.
+              required: false
+              type: integer
+            state_heat_cool:
+              description: The register value corresponding to HVAC Heat/Cool mode.
+              required: false
+              type: integer
+    hvac_onoff_register:
+      description: Address of a register holding and controlling the On/Off state of the climate device.
+        When zero is read from this register, the HVAC state is set to Off, otherwise the `hvac_mode_register`
+        dictates the state of the HVAC. If no such register is defined, it defaults to Auto.
+        When the HVAC mode is set to Off, the value 0 is written to the register, otherwise the
+        value 1 is written.
+      required: false
+      type: integer
     unique_id:
       description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
       required: false
@@ -465,6 +540,12 @@ climates:
 | Service | Description |
 | ------- | ----------- |
 | set_temperature | Set Temperature. Requires `value` to be passed in, which is the desired target temperature. `value` should be in the same type as `data_type` |
+
+### Service `modbus.set_hvac_mode`
+
+| Service | Description |
+| ------- | ----------- |
+| set_hvac_mode | Set HVAC mode. Requires `value` to be passed in, which is the desired mode. `value` should be a valid HVAC mode. A mapping between the desired state and the value to be written to the HVAC mode register must exist. Calling this service will also set the On/Off register to an appropriate value, if such a register is defined. |
 
 ## Configuring platform cover
 
