@@ -16,6 +16,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - water_heater
 ha_integration_type: integration
 ---
 
