@@ -8,7 +8,6 @@ ha_domain: text
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
-  - '@raman325'
 ha_integration_type: entity
 ---
 

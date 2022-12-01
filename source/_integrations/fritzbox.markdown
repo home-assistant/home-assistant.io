@@ -3,11 +3,11 @@ title: AVM FRITZ!SmartHome
 description: Instructions on how to integrate AVM Fritz!DECT components into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Button
   - Climate
   - Light
   - Sensor
   - Switch
-  - Button
 ha_release: 0.68
 ha_iot_class: Local Polling
 ha_domain: fritzbox
@@ -15,13 +15,13 @@ ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - diagnostics
   - light
   - sensor
   - switch
-  - button
 ha_codeowners:
   - '@mib1185'
   - '@flabbamann'
