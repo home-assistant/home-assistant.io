@@ -42,16 +42,16 @@ regenerate: false
         <select class="ha_category" name="category" data-id="cat">
           <option value="#">Category</option>
           <option value="featured">Featured</option>
-          <option value="all">All ({{tot}})</option>
+          <option value="all">All</option>
     
           {%- for category in categories -%}
           {%- assign components_count = components | where: 'ha_category', category | size -%}
           {%- if category and category != 'Other' and components_count != 0 -%}
-          <option value='{{ category | slugify }}'>{{ category }} ({{ components_count }})</option>
+          <option value='{{ category | slugify }}'>{{ category }}</option>
           {%- endif -%}
           {%- endfor -%}
     
-          <option value='#other'>Other ({{ components | where: 'ha_category', 'Other' | size }})</option>
+          <option value='#other'>Other</option>
     
         </select>
       </div>
@@ -63,8 +63,7 @@ regenerate: false
         {%- for group in components_by_version -%}
         <optgroup label="{{ group.label }} ({{group.new_components_count}})">
           {%- for version in group.versions -%}
-          <option value="{{ version.label }}">{{ version.label }} ({{ version.new_components_count }})
-          </option>
+          <option value="{{ version.label }}">{{ version.label }}</option>
           {%- endfor -%}
         </optgroup>
         {%- endfor -%}
@@ -79,8 +78,7 @@ regenerate: false
         {%- for iot_class in iot_classes -%}
           {%- assign iot_class_count = components | where: 'ha_iot_class', iot_class | size -%}
           {%- if iot_class_count != 0 -%}
-          <option value="{{ iot_class | slugify }}">{{ iot_class }} ({{ iot_class_count }})
-          </option>
+          <option value="{{ iot_class | slugify }}">{{ iot_class }}</option>
           {%- endif -%}
         {%- endfor -%}
       </select>
@@ -94,8 +92,7 @@ regenerate: false
         {%- for quality_scale in quality_scales -%}
           {%- assign quality_scale_count = components | where: 'ha_quality_scale', quality_scale | size -%}
           {%- if quality_scale_count != 0 -%}
-          <option class="capitalize" value="{{ quality_scale | slugify }}">{{ quality_scale }} ({{ quality_scale_count }})
-          </option>
+          <option class="capitalize" value="{{ quality_scale | slugify }}">{{ quality_scale }}</option>
           {%- endif -%}
         {%- endfor -%}
       </select>
