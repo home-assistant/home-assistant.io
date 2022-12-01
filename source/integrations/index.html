@@ -295,13 +295,11 @@ integrations.pop(); // remove placeholder element at the end
       }
 
       // filter all components by comparing against query object
-      console.log('buildQueryFromURL():', queryFilter);
       return queryFilter;
     }
 
     // filter all components, based on the locations hash/search and render them into the component box
     function applyFilter(queryFilter) {
-      console.log('applyFilter()');
       var logoLazyLoad = new LazyLoad({
         elements_selector: ".option-card img"
       });
@@ -368,7 +366,6 @@ integrations.pop(); // remove placeholder element at the end
         return true;
       });
 
-      console.log('Filtered Integrations:', data.components);
       let rendered = Mustache.render(template, data);
 
       // remove previous elements and css classes, add the new stuff and then trigger the fade-in css animation
@@ -379,7 +376,6 @@ integrations.pop(); // remove placeholder element at the end
     // update the browser location search. This enables users to use the browser-history
     // used for adding / updating a filter in the url
     function updateQueryURL(id, value) {
-      console.log('updateQueryURL()');
       const hashExists = location.hash !== '';
       let queryParams = new URLSearchParams(location.search);
       let query = buildQueryFromURL();
@@ -394,7 +390,6 @@ integrations.pop(); // remove placeholder element at the end
 
         queryParams.set(id, value);
         newURL = `?${queryParams.toString()}`;
-        console.log('newURL:', newURL);
 
       if ('pushState' in history) {
             history.pushState('', '', newURL);
@@ -422,8 +417,6 @@ integrations.pop(); // remove placeholder element at the end
         }
       }
       
-      console.log('removeQueryFromURL()');
-      console.log('newURL:', newURL);
       if ('pushState' in history) {
         history.pushState('', '', newURL);
       } else {
@@ -435,18 +428,15 @@ integrations.pop(); // remove placeholder element at the end
     function matchFilterToURL(id, query) {
       //dynamically grab select variables
       let $filterElement = window[`$${id}Filter`];
-      console.log(`matchFilterToURL():`);
 
       //set the value of select dropdown if it doesn't currently match the query in the url
       if ($filterElement.val() !== query) {
-        console.log('updating Filter Element:', $filterElement.val(), query);
         $filterElement.val(query);
       }
     }
 
     // update all filter elements to match current filter obj
     function updateFilterElements(queryFilter) {
-      console.log(`updateFilterElements():`);
       let filterElements = [...document.querySelectorAll('.integration_filter select, input.search')];
       let activeFilterElements = filterElements.filter(el => !(el.value === '#' || el.value === ''));
 
