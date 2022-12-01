@@ -1,6 +1,6 @@
 ---
-title: Hitachi Hi Kumo
-description: Connect and control your Hitachi Hi Kumo devices using the Overkiz integration
+title: SIMU LiveIn2
+description: Connect and control your SIMU LiveIn2 devices using the Overkiz integration
 ha_category:
   - Alarm Control Panel
   - Binary Sensor
@@ -17,7 +17,7 @@ ha_category:
   - Siren
   - Switch
   - Water Heater
-ha_domain: hi_kumo
+ha_domain: simu
 ha_integration_type: virtual
 ha_supporting_domain: overkiz
 ha_supporting_integration: Overkiz

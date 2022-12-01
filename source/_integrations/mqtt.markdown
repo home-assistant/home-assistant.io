@@ -10,6 +10,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@emontnemery'
+  - '@jbouwh'
 ha_domain: mqtt
 ha_platforms:
   - alarm_control_panel
@@ -18,6 +19,7 @@ ha_platforms:
   - camera
   - climate
   - cover
+  - device_tracker
   - diagnostics
   - fan
   - humidifier
@@ -28,11 +30,10 @@ ha_platforms:
   - sensor
   - siren
   - switch
-  - tag
   - text
   - update
-  - vacuum
 ha_integration_type: integration
+ha_quality_scale: gold
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.

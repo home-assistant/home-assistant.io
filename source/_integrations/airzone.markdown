@@ -17,6 +17,7 @@ ha_platforms:
 ha_codeowners:
   - '@Noltari'
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 This integration interacts with the Local API of [Airzone HVAC zoning systems](https://www.airzone.es/en/).

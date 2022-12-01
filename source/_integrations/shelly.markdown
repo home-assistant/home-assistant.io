@@ -16,6 +16,7 @@ ha_codeowners:
   - '@bieniu'
   - '@thecode'
   - '@chemelli74'
+  - '@bdraco'
 ha_iot_class: Local Push
 ha_domain: shelly
 featured: true
@@ -33,6 +34,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
