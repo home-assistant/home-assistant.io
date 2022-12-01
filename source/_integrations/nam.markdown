@@ -28,6 +28,7 @@ The integration currently has support for the following sensors:
 - DHT22
 - HECA
 - MH-Z14A
+- PMSx003
 - SDS011
 - SHT3X
 - SPS30
