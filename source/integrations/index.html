@@ -485,6 +485,18 @@ integrations.pop(); // remove placeholder element at the end
       return text;
     }
 
+    function removeHyphens(string) {
+      //keep hyphen values in this list
+      const dontUpdateList = ['text-to-speech'];
+      let newString = string;
+      dontUpdateList.forEach(item => {
+        if (item !== string) {
+          newString = string.replace(/-/g, " ");
+        }
+      });
+      return newString;
+    }
+
     // update all filter buttons to match current obj filter
     function updateFilterButtons(queryFilter) {
       let filterButtonParent = document.querySelector('.component-search');
@@ -509,7 +521,7 @@ integrations.pop(); // remove placeholder element at the end
              if (button.dataset.id === key) {
               // check for mismatched filter value
                if (button.dataset.filter !== queryFilter[key]) {
-                 button.innerHTML = `<span>${getButtonText(key)}: ${queryFilter[key]} <i class="icon-plus-sign"></i></span>`;
+                 button.innerHTML = `<span>${getButtonText(key)}: ${removeHyphens(queryFilter[key])} <i class="icon-plus-sign"></i></span>`;
                }
              }
           }
@@ -519,7 +531,7 @@ integrations.pop(); // remove placeholder element at the end
         for (key in queryFilter) {
           if (document.querySelector(`.component-search .active-filter[data-id="${key}"]`) === null) {
             let button = document.createElement('button');
-            button.innerHTML = `<span>${getButtonText(key)}: ${queryFilter[key]} <i class="icon-plus-sign"></i></span>`;
+            button.innerHTML = `<span>${getButtonText(key)}: ${removeHyphens(queryFilter[key])} <i class="icon-plus-sign"></i></span>`;
             button.classList.add('active-filter');
             button.dataset.id = key;
             button.dataset.filter = queryFilter[key]
