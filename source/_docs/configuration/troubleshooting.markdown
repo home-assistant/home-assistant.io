@@ -100,7 +100,7 @@ If you create an entity with other characters then Home Assistant may not genera
 
 ## Debug Logs and Diagnostics
 
-The first thing you will need before reporting an issue online is debug logs and diagnostics (if available) for the integration giving you trouble. Getting those ahead a time will ensure someone can help get your issue resolved in the fastest possible manner.
+The first thing you will need before reporting an issue online is debug logs and diagnostics (if available) for the integration giving you trouble. Getting those ahead of time will ensure someone can help resolve your issue in the fastest possible manner.
 
 ### Enabling Debug Logging
 
@@ -113,7 +113,7 @@ To enable debug logging for an integration, go to **Settings -> Devices & Servic
 
 ### Disable Debug Logging and Download Logs
 
-Once you enable debug logging, you ideally need to make the error happen. Go run your automation, change up your device or whatever was giving you an error and then come back and disable Debug Logging. Disabling debug logging is the same steps as enabling, but now you will see a **Disable Debug Logging**. After you disable debug logging, it will automatically prompt you to download your log file. Save this to a safe location to upload later.
+Once you enable debug logging, you ideally need to make the error happen. Run your automation, change up your device or whatever was giving you an error and then come back and disable Debug Logging. Disabling debug logging is the same as enabling, but now you will see a **Disable Debug Logging**. After you disable debug logging, it will automatically prompt you to download your log file. Save this to a safe location to upload later.
 
 <p class='img'>
   <img src='/images/docs/configuration/disable-debug-logging.gif' alt='Example of Disable Debug Logging'>
@@ -122,7 +122,7 @@ Once you enable debug logging, you ideally need to make the error happen. Go run
 
 ### Download Diagnostics
 
-After you download logs, you will also want to download the diagnostics for the integration giving you trouble as well. If the integration provides diagnostics, it will appear in the same menu that the Debug Logging toggle appeared.
+After you download logs, you will also want to download the diagnostics for the integration giving you trouble. If the integration provides diagnostics, it will appear in the same menu that the Debug Logging toggle appeared.
 
 <p class='img'>
   <img src='/images/docs/configuration/download-diagnostics.gif' alt='Example of Download Diagnostics'>
