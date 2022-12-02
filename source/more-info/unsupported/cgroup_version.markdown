@@ -20,5 +20,7 @@ In a supervised installation if you have switched to CGroup v2 you will need to
 revert what you did. Or you can re-run the [supervised installer](https://github.com/home-assistant/supervised-installer)
 to fix it.
 
+On a RaspberryPI 4 add `systemd.unified_cgroup_hierarchy=false` to the file `/boot/cmdline.txt` and reboot afterwards.
+
 You should never see this issue on Home Assistant OS as all versions of the OS
 ship with a supported CGroup version.
