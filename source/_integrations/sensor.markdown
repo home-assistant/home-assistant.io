@@ -30,6 +30,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **distance**: Generic distance in km, m, cm, mm, mi, yd, or in
 - **duration**: Duration in days, hours, minutes or seconds
 - **energy**: Energy in Wh, kWh or MWh
+- **enum**: Has a limited set of (non-numeric) states
 - **frequency**: Frequency in Hz, kHz, MHz or GHz
 - **gas**: Gasvolume in m³ or ft³
 - **humidity**: Percentage of humidity in the air
