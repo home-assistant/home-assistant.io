@@ -113,7 +113,7 @@ To enable debug logging for an integration, go to **Settings -> Devices & Servic
 
 ### Disable Debug Logging and Download Logs
 
-Once you enable debug logging, you ideally need to make the error happen. Run your automation, change up your device or whatever was giving you an error and then come back and disable Debug Logging. Disabling debug logging is the same as enabling, but now you will see a **Disable Debug Logging**. After you disable debug logging, it will automatically prompt you to download your log file. Save this to a safe location to upload later.
+Once you enable debug logging, you ideally need to make the error happen. Run your automation, change up your device or whatever was giving you an error and then come back and disable Debug Logging. Disabling debug logging is the same as enabling, but now you will see **Disable Debug Logging**. After you disable debug logging, it will automatically prompt you to download your log file. Save this to a safe location to upload later.
 
 <p class='img'>
   <img src='/images/docs/configuration/disable-debug-logging.gif' alt='Example of Disable Debug Logging'>
