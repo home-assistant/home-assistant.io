@@ -25,7 +25,7 @@ There is currently support for the following device types within Home Assistant:
 To be able to use this integration, you need to do the following:
 
 1. Enable the following option in deluge settings: Daemon > Allow Remote Connections
-2. Refer [here](https://dev.deluge-torrent.org/wiki/UserGuide/Authentication) to set daemon credentials. Use the username and password you put there to authenticate the integration with the daemon.
+2. When set up, the daemon has an account called localclient. Refer [here](https://dev.deluge-torrent.org/wiki/UserGuide/Authentication) to get the password for the local client or add a line in the auth file with your own username and password. Use one of those credentials from there to authenticate the integration with the daemon.
 
 {% include integrations/config_flow.md %}
 
