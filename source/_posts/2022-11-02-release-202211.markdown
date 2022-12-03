@@ -52,6 +52,11 @@ Sunday, November 13, 2022 (11:00 AM PST / 20:00 CET).
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2022.11.1 - November 3](#release-2022111---november-3)
+- [Release 2022.11.2 - November 8](#release-2022112---november-8)
+- [Release 2022.11.3 - November 16](#release-2022113---november-16)
+- [Release 2022.11.4 - November 20](#release-2022114---november-20)
+- [Release 2022.11.5 - November 30](#release-2022115---november-30)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -161,7 +166,7 @@ automatically converted when needed, so this is not a breaking change 🎉
 
 Additionally, integrations can now optionally use Kelvin directly if the
 device or service accepts that. [HomeKit], [Shelly],
-[AVM FRITZ!SmartHome], and [LIFX] are all now using Kelvin natively. 
+[AVM FRITZ!SmartHome], and [LIFX] are all now using Kelvin natively.
 
 [AVM FRITZ!SmartHome]: /integrations/fritzbox
 [HomeKit]: /integrations/homekit
@@ -314,6 +319,464 @@ The following integrations are now available via the Home Assistant UI:
 [@yuxincs]: https://github.com/yuxincs
 [APC UPS Daemon]: /integrations/apcupsd
 [Zentralanstalt für Meteorologie und Geodynamik (ZAMG)]: /integrations/zamg
+
+## Release 2022.11.1 - November 3
+
+- Update energyflip-client dependency to 0.2.2 ([@dennisschroer] - [#81426]) ([huisbaasje docs])
+- Update pysnooz to 0.8.3 ([@AustinBrunkhorst] - [#81428]) ([snooz docs])
+- Fix eight sleep client creation ([@raman325] - [#81440]) ([eight_sleep docs])
+- Skip flume devices with location missing ([@bdraco] - [#81441]) ([flume docs])
+- Fix SSDP failure to start on missing URLs ([@frenck] - [#81453]) ([ssdp docs])
+- Bump aiohomekit to 2.2.14 ([@bdraco] - [#81454]) ([homekit_controller docs])
+- Update cryptography to 38.0.3 ([@frenck] - [#81455])
+- Fix HomeKit thermostat to take priority over fans ([@bdraco] - [#81473]) ([homekit docs])
+- Bump AIOAladdinConnect to 0.1.47 ([@mkmer] - [#81479]) ([aladdin_connect docs])
+
+[#81423]: https://github.com/home-assistant/core/pull/81423
+[#81426]: https://github.com/home-assistant/core/pull/81426
+[#81428]: https://github.com/home-assistant/core/pull/81428
+[#81440]: https://github.com/home-assistant/core/pull/81440
+[#81441]: https://github.com/home-assistant/core/pull/81441
+[#81453]: https://github.com/home-assistant/core/pull/81453
+[#81454]: https://github.com/home-assistant/core/pull/81454
+[#81455]: https://github.com/home-assistant/core/pull/81455
+[#81473]: https://github.com/home-assistant/core/pull/81473
+[#81479]: https://github.com/home-assistant/core/pull/81479
+[3_day_blinds docs]: /integrations/3_day_blinds/
+[@AustinBrunkhorst]: https://github.com/AustinBrunkhorst
+[@bdraco]: https://github.com/bdraco
+[@dennisschroer]: https://github.com/dennisschroer
+[@frenck]: https://github.com/frenck
+[@mkmer]: https://github.com/mkmer
+[@raman325]: https://github.com/raman325
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[aladdin_connect docs]: /integrations/aladdin_connect/
+[eight_sleep docs]: /integrations/eight_sleep/
+[flume docs]: /integrations/flume/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[huisbaasje docs]: /integrations/huisbaasje/
+[snooz docs]: /integrations/snooz/
+[ssdp docs]: /integrations/ssdp/
+
+## Release 2022.11.2 - November 8
+
+- Fix scrape scan interval ([@epenet] - [#81763]) ([scrape docs])
+- Fix ignored upnp discoveries not being matched when device changes its unique identifier ([@StevenLooman] - [#81240]) ([upnp docs])
+- Align esphome ble client notify behavior to match BlueZ ([@bdraco] - [#81463]) ([esphome docs])
+- Bump nexia to 2.0.6 ([@bdraco] - [#81474]) ([nexia docs])
+- Bump oralb-ble to 0.10.1 ([@bdraco] - [#81491]) ([oralb docs]) (dependency)
+- Fix lifx.set_state so it works with kelvin and color_temp_kelvin and color names ([@Djelibeybi] - [#81515]) ([lifx docs])
+- Add additional coverage for adding multiple elkm1 instances ([@bdraco] - [#81528]) ([elkm1 docs])
+- Bump oralb-ble to 0.10.2 ([@bdraco] - [#81537]) ([oralb docs]) (dependency)
+- Bump pyairvisual to 2022.11.1 ([@bachya] - [#81556]) ([airvisual docs])
+- Bump gcal_sync to 4.0.0 ([@allenporter] - [#81562]) ([google docs]) (dependency)
+- Fix Shelly Plus HT missing battery entity ([@thecode] - [#81564]) ([shelly docs])
+- Fix watermeter issue for old P1 Monitor versions ([@klaasnicolaas] - [#81570]) ([p1_monitor docs]) (dependency)
+- Bump pylitterbot to 2022.11.0 ([@natekspencer] - [#81572]) ([litterrobot docs]) (dependency)
+- Fix HomeKit reset accessory procedure ([@bdraco] - [#81573]) ([homekit docs])
+- Ensure HomeKit temperature controls appear before fan controls on thermostat accessories ([@bdraco] - [#81586]) ([homekit docs])
+- Bump ZHA quirks and associated changes ([@dmulcahey] - [#81587]) ([zha docs]) (dependency)
+- Always use Celsius in Shelly integration, part 2 ([@bieniu] - [#81602]) ([shelly docs])
+- Bump PyXiaomiGateway to 0.14.3 ([@syssi] - [#81603]) (dependency)
+- Fix invalid min and max color temp in bad ZHA light devices ([@dmulcahey] - [#81604]) ([zha docs])
+- Fix repeating SSDP errors by checking address scope_ids and proper hostname ([@StevenLooman] - [#81611]) ([upnp docs]) ([yeelight docs]) ([dlna_dmr docs]) ([samsungtv docs]) ([ssdp docs]) ([dlna_dms docs]) (dependency)
+- Bump plugwise to v0.25.7 ([@bouwew] - [#81612]) ([plugwise docs]) (dependency)
+- Fix homekit bridge iid allocations ([@bdraco] - [#81613]) ([homekit docs])
+- Bump venstarcolortouch to 0.19 to fix API rev 3 devices ([@garbled1] - [#81614])
+- Ignore unspecified addresses from zeroconf ([@bdraco] - [#81620]) ([zeroconf docs])
+- Bump aiohomekit to 2.2.16 ([@bdraco] - [#81621]) ([homekit_controller docs]) (dependency)
+- Bump oralb-ble to 0.13.0 ([@bdraco] - [#81622]) ([oralb docs]) (dependency)
+- Fix creating multiple ElkM1 systems with TLS 1.2 ([@bdraco] - [#81627]) ([elkm1 docs])
+- Fix situation where deCONZ sensor platform setup would fail ([@Kane610] - [#81629]) ([deconz docs])
+- Add missing h2 dep to iaqualink ([@bdraco] - [#81630]) ([iaqualink docs])
+- Bump pyatmo to 7.4.0 ([@cgtobi] - [#81636]) ([netatmo docs])
+- Fix Bravia TV options flow when device is off ([@Drafteed] - [#81644]) ([braviatv docs])
+- Bump aiohomekit to 2.2.17 ([@bdraco] - [#81657]) ([homekit_controller docs]) (dependency)
+- Fix missing RainMachine restrictions switches ([@bachya] - [#81673]) ([rainmachine docs])
+- Bump bluetooth-adapters to 0.7.0 ([@bdraco] - [#81576]) ([bluetooth docs]) (dependency)
+- Bump bleak-retry-connector to 2.8.3 ([@bdraco] - [#81675]) ([bluetooth docs]) (dependency)
+- Bump aioesphomeapi to 11.4.3 ([@bdraco] - [#81676]) ([esphome docs]) (dependency)
+- Bump bleak to 0.19.2 ([@bdraco] - [#81688]) ([bluetooth docs]) (dependency)
+- Restore negative values for shelly power factors ([@chemelli74] - [#81689]) ([shelly docs])
+- Bump aiohomekit to 2.2.18 ([@bdraco] - [#81693]) ([homekit_controller docs]) (dependency)
+- Bump aiopyarr to 22.11.0 ([@tkdrob] - [#81694]) ([sonarr docs]) ([radarr docs]) ([lidarr docs]) (dependency)
+- Fix flapping logbook tests ([@bdraco] - [#81695]) ([logbook docs])
+- Adjust REST schema validation ([@epenet] - [#81723]) ([rest docs])
+- Fix check for duplicate config entry reauth when context is passed or augmented ([@bdraco] - [#81753])
+- Use more efficient async_progress_by_handler call in async_start_reauth ([@bdraco] - [#81757])
+- Partially revert google local sync for search cases ([@allenporter] - [#81761]) ([google docs])
+- Fix rest import ([@epenet] - [#81784]) ([rest docs])
+- Update frontend to 20221108.0 ([@bramkragten] - [#81787]) ([frontend docs])
+- Retry tibber setup ([@ztamas83] - [#81785]) ([tibber docs])
+- Fix off by one in HomeKit iid allocator ([@bdraco] - [#81793]) ([homekit docs])
+
+[#81240]: https://github.com/home-assistant/core/pull/81240
+[#81423]: https://github.com/home-assistant/core/pull/81423
+[#81463]: https://github.com/home-assistant/core/pull/81463
+[#81474]: https://github.com/home-assistant/core/pull/81474
+[#81488]: https://github.com/home-assistant/core/pull/81488
+[#81491]: https://github.com/home-assistant/core/pull/81491
+[#81515]: https://github.com/home-assistant/core/pull/81515
+[#81528]: https://github.com/home-assistant/core/pull/81528
+[#81537]: https://github.com/home-assistant/core/pull/81537
+[#81556]: https://github.com/home-assistant/core/pull/81556
+[#81562]: https://github.com/home-assistant/core/pull/81562
+[#81564]: https://github.com/home-assistant/core/pull/81564
+[#81570]: https://github.com/home-assistant/core/pull/81570
+[#81572]: https://github.com/home-assistant/core/pull/81572
+[#81573]: https://github.com/home-assistant/core/pull/81573
+[#81576]: https://github.com/home-assistant/core/pull/81576
+[#81586]: https://github.com/home-assistant/core/pull/81586
+[#81587]: https://github.com/home-assistant/core/pull/81587
+[#81602]: https://github.com/home-assistant/core/pull/81602
+[#81603]: https://github.com/home-assistant/core/pull/81603
+[#81604]: https://github.com/home-assistant/core/pull/81604
+[#81611]: https://github.com/home-assistant/core/pull/81611
+[#81612]: https://github.com/home-assistant/core/pull/81612
+[#81613]: https://github.com/home-assistant/core/pull/81613
+[#81614]: https://github.com/home-assistant/core/pull/81614
+[#81620]: https://github.com/home-assistant/core/pull/81620
+[#81621]: https://github.com/home-assistant/core/pull/81621
+[#81622]: https://github.com/home-assistant/core/pull/81622
+[#81627]: https://github.com/home-assistant/core/pull/81627
+[#81629]: https://github.com/home-assistant/core/pull/81629
+[#81630]: https://github.com/home-assistant/core/pull/81630
+[#81636]: https://github.com/home-assistant/core/pull/81636
+[#81644]: https://github.com/home-assistant/core/pull/81644
+[#81657]: https://github.com/home-assistant/core/pull/81657
+[#81673]: https://github.com/home-assistant/core/pull/81673
+[#81675]: https://github.com/home-assistant/core/pull/81675
+[#81676]: https://github.com/home-assistant/core/pull/81676
+[#81688]: https://github.com/home-assistant/core/pull/81688
+[#81689]: https://github.com/home-assistant/core/pull/81689
+[#81693]: https://github.com/home-assistant/core/pull/81693
+[#81694]: https://github.com/home-assistant/core/pull/81694
+[#81695]: https://github.com/home-assistant/core/pull/81695
+[#81723]: https://github.com/home-assistant/core/pull/81723
+[#81753]: https://github.com/home-assistant/core/pull/81753
+[#81757]: https://github.com/home-assistant/core/pull/81757
+[#81761]: https://github.com/home-assistant/core/pull/81761
+[#81763]: https://github.com/home-assistant/core/pull/81763
+[#81784]: https://github.com/home-assistant/core/pull/81784
+[#81785]: https://github.com/home-assistant/core/pull/81785
+[#81787]: https://github.com/home-assistant/core/pull/81787
+[#81793]: https://github.com/home-assistant/core/pull/81793
+[3_day_blinds docs]: /integrations/3_day_blinds/
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@Drafteed]: https://github.com/Drafteed
+[@Kane610]: https://github.com/Kane610
+[@StevenLooman]: https://github.com/StevenLooman
+[@allenporter]: https://github.com/allenporter
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bouwew]: https://github.com/bouwew
+[@bramkragten]: https://github.com/bramkragten
+[@cgtobi]: https://github.com/cgtobi
+[@chemelli74]: https://github.com/chemelli74
+[@dmulcahey]: https://github.com/dmulcahey
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@garbled1]: https://github.com/garbled1
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@natekspencer]: https://github.com/natekspencer
+[@syssi]: https://github.com/syssi
+[@thecode]: https://github.com/thecode
+[@tkdrob]: https://github.com/tkdrob
+[@ztamas83]: https://github.com/ztamas83
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[airvisual docs]: /integrations/airvisual/
+[bluetooth docs]: /integrations/bluetooth/
+[braviatv docs]: /integrations/braviatv/
+[deconz docs]: /integrations/deconz/
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[dlna_dms docs]: /integrations/dlna_dms/
+[elkm1 docs]: /integrations/elkm1/
+[esphome docs]: /integrations/esphome/
+[frontend docs]: /integrations/frontend/
+[google docs]: /integrations/google/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[iaqualink docs]: /integrations/iaqualink/
+[lidarr docs]: /integrations/lidarr/
+[lifx docs]: /integrations/lifx/
+[litterrobot docs]: /integrations/litterrobot/
+[logbook docs]: /integrations/logbook/
+[netatmo docs]: /integrations/netatmo/
+[nexia docs]: /integrations/nexia/
+[oralb docs]: /integrations/oralb/
+[p1_monitor docs]: /integrations/p1_monitor/
+[plugwise docs]: /integrations/plugwise/
+[radarr docs]: /integrations/radarr/
+[rainmachine docs]: /integrations/rainmachine/
+[rest docs]: /integrations/rest/
+[samsungtv docs]: /integrations/samsungtv/
+[scrape docs]: /integrations/scrape/
+[shelly docs]: /integrations/shelly/
+[sonarr docs]: /integrations/sonarr/
+[ssdp docs]: /integrations/ssdp/
+[tibber docs]: /integrations/tibber/
+[upnp docs]: /integrations/upnp/
+[yeelight docs]: /integrations/yeelight/
+[zeroconf docs]: /integrations/zeroconf/
+[zha docs]: /integrations/zha/
+
+## Release 2022.11.3 - November 16
+
+- Fix UniFi block client switches on 2022.11.2 ([@Kane610] - [#81884]) ([unifi docs])
+- Fix Z-Wave JS cover stop support ([@Yukon] - [#78723]) ([zwave_js docs])
+- Fix instability with HomeKit trigger accessories ([@bdraco] - [#80703]) ([homekit docs])
+- Fix accelerator sensor in fibaro integration ([@rappenze] - [#81237]) ([fibaro docs])
+- Fix Fully Kiosk start application service field ([@chpego] - [#81738]) ([fully_kiosk docs])
+- Fix ibeacon source attribute not being updated ([@multigcs] - [#81740]) ([ibeacon docs])
+- Upgrade huawei-lte-api to 1.6.7, fixes empty username issues ([@scop] - [#81751]) ([huawei_lte docs]) (dependency)
+- Change life360 timeouts & retries ([@pnbruckner] - [#81799]) ([life360 docs])
+- Fix switchbot not becoming available again after unavailable ([@bdraco] - [#81822]) ([switchbot docs])
+- Fix statistic_during_period for data with holes ([@emontnemery] - [#81847]) ([recorder docs])
+- Fix rest schema ([@epenet] - [#81857]) ([rest docs])
+- Bump aiohomekit to 2.2.19 ([@bdraco] - [#81867]) ([homekit_controller docs]) (dependency)
+- Fix homekit_controller climate entity not becoming active when changing modes ([@Jc2k] - [#81868]) ([homekit_controller docs])
+- Bump oralb-ble to 0.14.1 ([@bdraco] - [#81869]) ([oralb docs]) (dependency)
+- Bump gcal_sync to 4.0.1 to fix Google Calendar config flow ([@allenporter] - [#81873]) ([google docs]) (dependency)
+- Fix ZHA configuration APIs ([@dmulcahey] - [#81874]) ([zha docs])
+- Revert google calendar back to old API for free/busy readers ([@allenporter] - [#81894]) ([google docs])
+- Fix bluetooth adapters with missing firmware patch files not being discovered ([@bdraco] - [#81926]) ([bluetooth docs])
+- Bump aioridwell to 2022.11.0 ([@bachya] - [#81929]) ([ridwell docs]) (dependency)
+- Fix esphome bleak client seeing disconnects too late ([@bdraco] - [#81932]) ([esphome docs])
+- Bump bleak-retry-connector to 2.8.4 ([@bdraco] - [#81937]) ([bluetooth docs]) (dependency)
+- Bump PySwitchbot to 0.20.3 ([@bdraco] - [#81938]) ([switchbot docs]) (dependency)
+- Fix ONVIF subscription errors ([@dgomes] - [#81965]) ([onvif docs])
+- Bump ZHA quirks lib to 0.0.86 ([@dmulcahey] - [#81966]) ([zha docs]) (dependency)
+- Increasing device usage update interval for Flume ([@jeeftor] - [#81968]) ([flume docs])
+- Bump oralb-ble to 0.14.2 ([@bdraco] - [#81969]) ([oralb docs]) (dependency)
+- Bump gcal_sync 4.0.2 ([@allenporter] - [#82017]) ([google docs])
+- Bump airthings-ble to 0.5.3 ([@vincegio] - [#82033]) ([airthings_ble docs]) (dependency)
+- Make sure the config_flow key is set for brands ([@bdraco] - [#82038])
+- Bump pySwitchbot to 0.20.4 ([@bdraco] - [#82055]) ([switchbot docs]) (dependency)
+- Restore color_temp handling for lifx.set_state ([@Djelibeybi] - [#82067]) ([lifx docs])
+- Bump growattServer to 1.2.4 ([@muppet3000] - [#82071]) ([growatt_server docs])
+- Bump PySwitchbot to 0.20.5 ([@bdraco] - [#82099]) ([switchbot docs]) (dependency)
+- Update sqlalchemy to 1.4.44 ([@frenck] - [#82129]) ([recorder docs]) ([sql docs]) (dependency)
+- Always update attributes on an update for MQTT update ([@jbouwh] - [#82139]) ([mqtt docs])
+- Add missing strings in Onvif ([@tkdrob] - [#82141]) ([onvif docs])
+- Fix Google Sheets formula input ([@tkdrob] - [#82157]) ([google_sheets docs])
+- Fix Growatt incorrect energy dashboard values for grid import ([@muppet3000] - [#82163]) ([growatt_server docs])
+- Fix static version in homekit tests ([@bdraco] - [#82201]) ([homekit docs])
+- Fix missing await in nexia emergency heat ([@bdraco] - [#82207]) ([nexia docs])
+
+[#78723]: https://github.com/home-assistant/core/pull/78723
+[#80703]: https://github.com/home-assistant/core/pull/80703
+[#81237]: https://github.com/home-assistant/core/pull/81237
+[#81423]: https://github.com/home-assistant/core/pull/81423
+[#81488]: https://github.com/home-assistant/core/pull/81488
+[#81738]: https://github.com/home-assistant/core/pull/81738
+[#81740]: https://github.com/home-assistant/core/pull/81740
+[#81751]: https://github.com/home-assistant/core/pull/81751
+[#81780]: https://github.com/home-assistant/core/pull/81780
+[#81799]: https://github.com/home-assistant/core/pull/81799
+[#81822]: https://github.com/home-assistant/core/pull/81822
+[#81847]: https://github.com/home-assistant/core/pull/81847
+[#81857]: https://github.com/home-assistant/core/pull/81857
+[#81867]: https://github.com/home-assistant/core/pull/81867
+[#81868]: https://github.com/home-assistant/core/pull/81868
+[#81869]: https://github.com/home-assistant/core/pull/81869
+[#81873]: https://github.com/home-assistant/core/pull/81873
+[#81874]: https://github.com/home-assistant/core/pull/81874
+[#81884]: https://github.com/home-assistant/core/pull/81884
+[#81894]: https://github.com/home-assistant/core/pull/81894
+[#81926]: https://github.com/home-assistant/core/pull/81926
+[#81929]: https://github.com/home-assistant/core/pull/81929
+[#81932]: https://github.com/home-assistant/core/pull/81932
+[#81937]: https://github.com/home-assistant/core/pull/81937
+[#81938]: https://github.com/home-assistant/core/pull/81938
+[#81965]: https://github.com/home-assistant/core/pull/81965
+[#81966]: https://github.com/home-assistant/core/pull/81966
+[#81968]: https://github.com/home-assistant/core/pull/81968
+[#81969]: https://github.com/home-assistant/core/pull/81969
+[#82017]: https://github.com/home-assistant/core/pull/82017
+[#82033]: https://github.com/home-assistant/core/pull/82033
+[#82038]: https://github.com/home-assistant/core/pull/82038
+[#82055]: https://github.com/home-assistant/core/pull/82055
+[#82067]: https://github.com/home-assistant/core/pull/82067
+[#82071]: https://github.com/home-assistant/core/pull/82071
+[#82099]: https://github.com/home-assistant/core/pull/82099
+[#82129]: https://github.com/home-assistant/core/pull/82129
+[#82139]: https://github.com/home-assistant/core/pull/82139
+[#82141]: https://github.com/home-assistant/core/pull/82141
+[#82157]: https://github.com/home-assistant/core/pull/82157
+[#82163]: https://github.com/home-assistant/core/pull/82163
+[#82201]: https://github.com/home-assistant/core/pull/82201
+[#82207]: https://github.com/home-assistant/core/pull/82207
+[3_day_blinds docs]: /integrations/3_day_blinds/
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@Jc2k]: https://github.com/Jc2k
+[@Kane610]: https://github.com/Kane610
+[@Yukon]: https://github.com/Yukon
+[@allenporter]: https://github.com/allenporter
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@chpego]: https://github.com/chpego
+[@dgomes]: https://github.com/dgomes
+[@dmulcahey]: https://github.com/dmulcahey
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@jeeftor]: https://github.com/jeeftor
+[@multigcs]: https://github.com/multigcs
+[@muppet3000]: https://github.com/muppet3000
+[@pnbruckner]: https://github.com/pnbruckner
+[@rappenze]: https://github.com/rappenze
+[@scop]: https://github.com/scop
+[@tkdrob]: https://github.com/tkdrob
+[@vincegio]: https://github.com/vincegio
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[airthings_ble docs]: /integrations/airthings_ble/
+[bluetooth docs]: /integrations/bluetooth/
+[esphome docs]: /integrations/esphome/
+[fibaro docs]: /integrations/fibaro/
+[flume docs]: /integrations/flume/
+[fully_kiosk docs]: /integrations/fully_kiosk/
+[google docs]: /integrations/google/
+[google_sheets docs]: /integrations/google_sheets/
+[growatt_server docs]: /integrations/growatt_server/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[huawei_lte docs]: /integrations/huawei_lte/
+[ibeacon docs]: /integrations/ibeacon/
+[life360 docs]: /integrations/life360/
+[lifx docs]: /integrations/lifx/
+[mqtt docs]: /integrations/mqtt/
+[nexia docs]: /integrations/nexia/
+[onvif docs]: /integrations/onvif/
+[oralb docs]: /integrations/oralb/
+[recorder docs]: /integrations/recorder/
+[rest docs]: /integrations/rest/
+[ridwell docs]: /integrations/ridwell/
+[sql docs]: /integrations/sql/
+[switchbot docs]: /integrations/switchbot/
+[unifi docs]: /integrations/unifi/
+[zha docs]: /integrations/zha/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2022.11.4 - November 20
+
+- Fix moving average for 0 values ([@daanbeverdam] - [#80476]) ([filter docs])
+- Solve Modbus reload issue ([@janiversen] - [#82253]) ([modbus docs])
+- Add kilo watts unit mapping for nibe_heatpump ([@elupus] - [#82284]) ([nibe_heatpump docs])
+- Bump `regenmaschine` to 2022.11.0 ([@bachya] - [#82337]) ([rainmachine docs])
+- Bump pysma to version 0.7.3 ([@rklomp] - [#82343]) ([sma docs])
+- Bump flux_led to 0.28.34 ([@bdraco] - [#82347]) ([flux_led docs])
+- Fix invalid configuration_url in Netatmo ([@mib1185] - [#82372]) ([netatmo docs])
+- Bump PyViCare to 2.19.0 ([@TheJulianJES] - [#82381]) ([vicare docs])
+- Bump bleak-retry-connector to 2.8.5 ([@bdraco] - [#82387]) ([bluetooth docs])
+- Update xknx to 1.2.1 ([@marvin-w] - [#82404]) ([knx docs])
+- Attempt to fix occasional Flo timeouts ([@dmulcahey] - [#82408]) ([flo docs])
+- Prevent powerwall from switching addresses if its online ([@bdraco] - [#82410]) ([powerwall docs])
+
+[#80476]: https://github.com/home-assistant/core/pull/80476
+[#81423]: https://github.com/home-assistant/core/pull/81423
+[#81488]: https://github.com/home-assistant/core/pull/81488
+[#81780]: https://github.com/home-assistant/core/pull/81780
+[#82197]: https://github.com/home-assistant/core/pull/82197
+[#82253]: https://github.com/home-assistant/core/pull/82253
+[#82284]: https://github.com/home-assistant/core/pull/82284
+[#82337]: https://github.com/home-assistant/core/pull/82337
+[#82343]: https://github.com/home-assistant/core/pull/82343
+[#82347]: https://github.com/home-assistant/core/pull/82347
+[#82372]: https://github.com/home-assistant/core/pull/82372
+[#82381]: https://github.com/home-assistant/core/pull/82381
+[#82387]: https://github.com/home-assistant/core/pull/82387
+[#82404]: https://github.com/home-assistant/core/pull/82404
+[#82408]: https://github.com/home-assistant/core/pull/82408
+[#82410]: https://github.com/home-assistant/core/pull/82410
+[3_day_blinds docs]: /integrations/3_day_blinds/
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@daanbeverdam]: https://github.com/daanbeverdam
+[@dmulcahey]: https://github.com/dmulcahey
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@marvin-w]: https://github.com/marvin-w
+[@mib1185]: https://github.com/mib1185
+[@rklomp]: https://github.com/rklomp
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[bluetooth docs]: /integrations/bluetooth/
+[filter docs]: /integrations/filter/
+[flo docs]: /integrations/flo/
+[flux_led docs]: /integrations/flux_led/
+[knx docs]: /integrations/knx/
+[modbus docs]: /integrations/modbus/
+[netatmo docs]: /integrations/netatmo/
+[nibe_heatpump docs]: /integrations/nibe_heatpump/
+[powerwall docs]: /integrations/powerwall/
+[rainmachine docs]: /integrations/rainmachine/
+[sma docs]: /integrations/sma/
+[vicare docs]: /integrations/vicare/
+
+## Release 2022.11.5 - November 30
+
+- Bump pyotgw to 2.1.3 ([@mvn23] - [#82430])
+- Bump ZHA dependencies ([@puddly] - [#82509])
+- Ensure esphome client tasks await cancelation ([@bdraco] - [#82547])
+- Bump gcal_sync to 4.0.3 ([@allenporter] - [#82606])
+- Fix iBeacons with infrequent random mac address changes unexpectedly going unavailable ([@bdraco] - [#82668])
+- Fix homekit controller triggers not attaching when integration is setup after startup ([@bdraco] - [#82717])
+- Bump pysensibo to 1.0.21 ([@gjohansson-ST] - [#82023])
+- Bump pysensibo to 1.0.22 ([@gjohansson-ST] - [#82738])
+- Update pyTibber to 0.26.1 ([@Danielhiversen] - [#82787])
+- Add missing SimpliSafe keypad battery sensor ([@bachya] - [#82797])
+- Add missing SimpliSafe alarm states ([@bachya] - [#82813])
+- Bump `simplisafe-python` to 2022.11.2 ([@bachya] - [#82943])
+
+[#81423]: https://github.com/home-assistant/core/pull/81423
+[#81488]: https://github.com/home-assistant/core/pull/81488
+[#81780]: https://github.com/home-assistant/core/pull/81780
+[#82023]: https://github.com/home-assistant/core/pull/82023
+[#82197]: https://github.com/home-assistant/core/pull/82197
+[#82428]: https://github.com/home-assistant/core/pull/82428
+[#82430]: https://github.com/home-assistant/core/pull/82430
+[#82509]: https://github.com/home-assistant/core/pull/82509
+[#82547]: https://github.com/home-assistant/core/pull/82547
+[#82606]: https://github.com/home-assistant/core/pull/82606
+[#82668]: https://github.com/home-assistant/core/pull/82668
+[#82717]: https://github.com/home-assistant/core/pull/82717
+[#82738]: https://github.com/home-assistant/core/pull/82738
+[#82787]: https://github.com/home-assistant/core/pull/82787
+[#82797]: https://github.com/home-assistant/core/pull/82797
+[#82813]: https://github.com/home-assistant/core/pull/82813
+[#82943]: https://github.com/home-assistant/core/pull/82943
+[3_day_blinds docs]: /integrations/3_day_blinds/
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@allenporter]: https://github.com/allenporter
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@mvn23]: https://github.com/mvn23
+[@puddly]: https://github.com/puddly
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[esphome docs]: /integrations/esphome/
+[google docs]: /integrations/google/
+[homekit_controller docs]: /integrations/homekit_controller/
+[ibeacon docs]: /integrations/ibeacon/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[sensibo docs]: /integrations/sensibo/
+[simplisafe docs]: /integrations/simplisafe/
+[tibber docs]: /integrations/tibber/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
@@ -551,8 +1014,8 @@ and doing a one-time re-pairing.
 
 {% details "Hunter Douglas PowerView" %}
 
-This change ceases creating battery sensors for hardwired shades. 
-Existing sensor entities need to be manually deleted. 
+This change ceases creating battery sensors for hardwired shades.
+Existing sensor entities need to be manually deleted.
 
 ([@kingy444] - [#81013]) ([documentation](/integrations/hunterdouglas_powerview))
 

@@ -27,8 +27,6 @@ Flume monitors the real-time status of your home water meter. Allowing the end-u
 
 You can find your Client ID and Client Secret under "API Access" on the [settings page](https://portal.flumewater.com/#settings).
 
-The Flume API access is available to Flume Insight users only, which may require a paid subscription.
-
 To add `Flume` to your installation, go to **Settings** -> **Devices & Services** in the UI, click the button with `+` sign and from the list of integrations select **Flume**.
 
 ## Notifications

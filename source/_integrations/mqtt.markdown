@@ -59,7 +59,7 @@ There are [at least two](https://issues.apache.org/jira/browse/AMQ-6360) [issues
 
 ### Connect to a public broker
 
-The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home. To use the public mosquitto broker, configure the MQTT integration to connect to broker `test.mosquitto.org` on port 1183 or 8883.
+The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home. To use the public mosquitto broker, configure the MQTT integration to connect to broker `test.mosquitto.org` on port 1883 or 8883.
 
 <div class='note'>
 
@@ -104,8 +104,8 @@ To change the settings, click on "Configure" in the integration page in the UI, 
 
 ### Discovery options
 
-MQTT discovery is enabled by default. Discovery can be turned off. The prefix for the discovery topic (default `homeassistant`) can be changed.
-See the [MQTT Discovery section](#mqtt-discovery)
+MQTT discovery is enabled by default. Discovery can be turned off. The prefix for the discovery topic (default `homeassistant`) can be changed here as well.
+See also [MQTT Discovery section](#mqtt-discovery)
 
 ### Birth and last will messages
 
@@ -226,7 +226,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'aux_stat_tpl':        'aux_state_template',
     'aux_stat_t':          'aux_state_topic',
     'av_tones':            'available_tones',
-    'avty'                 'availability',
+    'avty':                'availability',
     'avty_mode':           'availability_mode',
     'avty_t':              'availability_topic',
     'avty_tpl':            'availability_template',
@@ -249,6 +249,9 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'clr_temp_stat_t':     'color_temp_state_topic',
     'clr_temp_tpl':        'color_temp_template',
     'clr_temp_val_tpl':    'color_temp_value_template',
+    'clrm':                'color_mode',
+    'clrm_stat_t':         'color_mode_state_topic',
+    'clrm_val_tpl':        'color_mode_value_template',
     'cln_t':               'cleaning_topic',
     'cln_tpl':             'cleaning_template',
     'cmd_off_tpl':         'command_off_template',
@@ -265,6 +268,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'dock_t':              'docked_topic',
     'dock_tpl':            'docked_template',
     'e':                   'encoding',
+    'en':                  'enabled_by_default',
     'ent_cat':             'entity_category',
     'ent_pic':             'entity_picture',
     'err_t':               'error_topic',
@@ -295,22 +299,28 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'hs_stat_t':           'hs_state_topic',
     'hs_val_tpl':          'hs_value_template',
     'ic':                  'icon',
+    'img_e':               'image_encoding',
     'init':                'initial',
     'hum_cmd_t':           'target_humidity_command_topic',
     'hum_cmd_tpl':         'target_humidity_command_template',
     'hum_stat_t':          'target_humidity_state_topic',
-    'hum_stat_tpl':        'target_humidity_state_template',
+    'hum_state_tpl':       'target_humidity_state_template',
     'json_attr':           'json_attributes',
     'json_attr_t':         'json_attributes_topic',
     'json_attr_tpl':       'json_attributes_template',
     'l_ver_t':             'latest_version_topic',
     'l_ver_tpl':           'latest_version_template',
+    'lrst_t':              'last_reset_topic',
+    'lrst_val_tpl':        'last_reset_value_template',
+    'max':                 'max',
+    'min':                 'min',
     'max_mirs':            'max_mireds',
     'min_mirs':            'min_mireds',
     'max_temp':            'max_temp',
     'min_temp':            'min_temp',
     'max_hum':             'max_humidity',
     'min_hum':             'min_humidity',
+    'mode':                'mode',
     'mode_cmd_tpl':        'mode_command_template',
     'mode_cmd_t':          'mode_command_topic',
     'mode_stat_tpl':       'mode_state_template',
@@ -320,6 +330,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'obj_id':              'object_id',
     'off_dly':             'off_delay',
     'on_cmd_type':         'on_command_type',
+    'ops':                 'options',
     'opt':                 'optimistic',
     'osc_cmd_t':           'oscillation_command_topic',
     'osc_cmd_tpl':         'oscillation_command_template',
@@ -334,6 +345,9 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'pl_arm_home':         'payload_arm_home',
     'pl_arm_custom_b':     'payload_arm_custom_bypass',
     'pl_arm_nite':         'payload_arm_night',
+    'pl_arm_vacation':     'payload_arm_vacation',
+    'pl_prs':              'payload_press',
+    'pl_rst':              'payload_reset',
     'pl_avail':            'payload_available',
     'pl_cln_sp':           'payload_clean_spot',
     'pl_cls':              'payload_close',
@@ -376,10 +390,18 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'rel_s':               'release_summary',
     'rel_u':               'release_url',
     'ret':                 'retain',
-    'rgb_cmd_tpl':         'rgb_command_template',
     'rgb_cmd_t':           'rgb_command_topic',
+    'rgb_cmd_tpl':         'rgb_command_template',
     'rgb_stat_t':          'rgb_state_topic',
     'rgb_val_tpl':         'rgb_value_template',
+    'rgbw_cmd_t':          'rgbw_command_topic',
+    'rgbw_cmd_tpl':        'rgbw_command_template',
+    'rgbw_stat_t':         'rgbw_state_topic',
+    'rgbw_val_tpl':        'rgbw_value_template',
+    'rgbww_cmd_t':         'rgbww_command_topic',
+    'rgbww_cmd_tpl':       'rgbww_command_template',
+    'rgbww_stat_t':        'rgbww_state_topic',
+    'rgbww_val_tpl':       'rgbww_value_template',
     'send_cmd_t':          'send_command_topic',
     'send_if_off':         'send_if_off',
     'set_fan_spd_t':       'set_fan_speed_topic',
@@ -403,11 +425,12 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'stat_t':              'state_topic',
     'stat_tpl':            'state_template',
     'stat_val_tpl':        'state_value_template',
+    'step':                'step',
     'stype':               'subtype',
-    'sup_duration':        'support_duration',
+    'sup_clrm':            'supported_color_modes',
+    'sup_dur':             'support_duration',
     'sup_vol':             'support_volume_set',
     'sup_feat':            'supported_features',
-    'sup_off':             'supported_turn_off',
     'swing_mode_cmd_tpl':  'swing_mode_command_template',
     'swing_mode_cmd_t':    'swing_mode_command_topic',
     'swing_mode_stat_tpl': 'swing_mode_state_template',
@@ -440,6 +463,8 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',
     'val_tpl':             'value_template',
+    'whit_cmd_t':          'white_command_topic',
+    'whit_scl':            'white_scale',
     'whit_val_cmd_t':      'white_value_command_topic',
     'whit_val_scl':        'white_value_scale',
     'whit_val_stat_t':     'white_value_state_topic',
@@ -453,7 +478,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
 {% details "Supported abbreviations for device registry configuration" %}
 
 ```txt
-    'cu':                  'configuration_url'
+    'cu':                  'configuration_url',
     'cns':                 'connections',
     'ids':                 'identifiers',
     'name':                'name',
@@ -488,7 +513,7 @@ The following software has built-in support for MQTT discovery:
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
 - [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
-
+- [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
 
 ### Discovery examples
 
@@ -624,9 +649,12 @@ For most platforms it is also possible to manual set up MQTT items in `configura
 - [Sensor](/integrations/sensor.mqtt/)
 - [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
+- [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
 
 {% enddetails %}
+
+If you have a lot of manual configured items you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
 
 ## Using Templates
 

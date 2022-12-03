@@ -134,7 +134,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
 2. Click `Develop` on the top of the page, then click `Actions` located in the hamburger menu on the top left.
-3. Upload `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest) for both Node and Chrome by clicking the `Upload Javascript files` button.
+3. Upload `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest) for both Node and Chrome by clicking the `Upload JavaScript files` button.
 4. Add device scan configuration:
    1. Click `+ New scan config` if no configuration exists
    2. Select `MDNS`
@@ -147,7 +147,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 8. Restart Home Assistant Core.
 9. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Assistant support.
 
-You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome).
+You can debug the setup by following [these instructions](https://developers.home.google.com/local-home/test#debugging_from_chrome).
 
 ### YAML Configuration
 
