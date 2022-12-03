@@ -332,19 +332,18 @@ Optional:
 #### Example
 
 ```yaml
-'cast_youtube_to_my_chromecast':
-  alias: "Cast YouTube to My Chromecast"
-  sequence:
-    - target:
-        entity_id: media_player.my_chromecast
-      data:
-        media_content_type: cast
-        media_content_id: '
-          {
-            "app_name": "youtube",
-            "media_id": "dQw4w9WgXcQ"
-          }'
-      service: media_player.play_media
+alias: "Cast YouTube vid0e to My Chromecast"
+sequence:
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.my_chromecast
+    data:
+      media_content_type: cast
+      media_content_id: '
+        {
+          "app_name": "youtube",
+          "media_id": "dQw4w9WgXcQ"
+        }'
 ```
 
 ## Troubleshooting automatic discovery
