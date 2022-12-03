@@ -16,6 +16,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+  - Water Heater
 ha_release: 2022.2
 ha_config_flow: true
 ha_iot_class: Cloud Polling
@@ -41,6 +42,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - water_heater
 ha_integration_type: integration
 ---
 
