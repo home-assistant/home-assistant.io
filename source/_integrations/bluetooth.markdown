@@ -86,6 +86,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - GMYLE 3340 (BCM20702A0)
 - HIDEEZ BT0015-01 (CSR8510A10)
 - IOGEAR GBU521W6 (BCM20702A0)
+- INSIGNIA NS-PCY5BMA (BCM20702A0)
 - Kinivo BTD-400 (BCM20702A0)
 - LM Technologies LM1010 (BCM20702A0) 📶
 - Nuu You BT40 (CSR8510A10)
@@ -103,6 +104,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - TRENDnet TBW-107UB (CSR8510A10)
 - UGREEN CM109 (CSR8510A10)
 - Warmstor WBT-AD01 (CSR8510A10)
+- WAVLINK WL-BT4001 (CSR8510A10)
 
 📶 Denotes external antenna
 
