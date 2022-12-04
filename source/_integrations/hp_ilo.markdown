@@ -73,6 +73,10 @@ monitored_variables:
       description: The sensors' unit of measurement.
       required: false
       type: string
+    state_class:
+      description: The sensors' state class.
+      required: false
+      type: string
     value_template:
       description: When a Jinja2 template is specified here, the created sensor will output the template result. The ILO response can be referenced with the `ilo_data` variable.
       required: false
@@ -116,6 +120,9 @@ sensor:
       - name: Server Health
         sensor_type: server_health
         value_template: '{{ ilo_data.health_at_a_glance }}'
+      - name: Server power on time
+        sensor_type: server_power_on_time
+        state_class: total_increasing
 ```
 
 {% endraw %}
