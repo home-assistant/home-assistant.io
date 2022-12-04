@@ -332,7 +332,7 @@ Optional:
 #### Example
 
 ```yaml
-alias: "Cast YouTube vid0e to My Chromecast"
+alias: "Cast YouTube video to My Chromecast"
 sequence:
   - service: media_player.play_media
     target:
