@@ -70,11 +70,11 @@ monitored_variables:
       required: true
       type: string
     unit_of_measurement:
-      description: The sensors' unit of measurement.
+      description: The sensor unit of measurement.
       required: false
       type: string
     state_class:
-      description: The sensors' state class.
+      description: The sensor state class.
       required: false
       type: string
     value_template:
