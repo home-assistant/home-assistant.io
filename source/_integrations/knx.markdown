@@ -15,6 +15,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Text
   - Weather
 ha_release: 0.24
 ha_iot_class: Local Push
@@ -38,6 +39,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - text
   - weather
 ha_config_flow: true
 ha_integration_type: hub
@@ -61,6 +63,7 @@ There is currently support for the following device types within Home Assistant:
 - [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Text](#text)
 - [Weather](#weather)
 
 {% include integrations/config_flow.md %}
@@ -1447,6 +1450,10 @@ entity_category:
   required: false
   type: string
   default: None
+device_class:
+  description: Overrides the [class of the device](/integrations/sensor/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ### Value Types
@@ -1671,6 +1678,68 @@ The optional `state_address` can be used to inform Home Assistant about state ch
 
 Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 Switches having a `state_address` configured request their current state from the KNX bus.
+
+## Text
+
+The KNX text platform allows to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus with its current state.
+
+<div class='note'>
+
+Text entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+Texts having a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  text:
+    - name: "Info"
+      address: "0/0/1"
+    - name: "ASCII Info"
+      address: "0/0/2"
+      state_address: "0/0/3"
+      type: string
+    - name: "Greeting"
+      address: "0/0/4"
+      respond_to_read: true
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: Group address new values will be sent to.
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus.
+  required: false
+  type: [string, list]
+type:
+  description: Either `latin_1` for DPT 16.001 or `string` for DPT 16.000 (ASCII).
+  required: false
+  type: [string, integer]
+  default: latin_1
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+mode:
+  description: Specifies the mode used in the UI. `text` or `password` are valid.
+  required: false
+  type: string
+  default: text
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
+{% endconfiguration %}
 
 ## Weather
 
