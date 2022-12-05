@@ -104,6 +104,7 @@ The state of your tracked device will be `'home'` if it is in the [home zone](/i
 ## `device_tracker.see` service
 
 The `device_tracker.see` service can be used to manually update the state of a device tracker:
+(Note: If the Device don't exist, it will create a new one!)
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -114,3 +115,34 @@ The `device_tracker.see` service can be used to manually update the state of a d
 | `gps`                  |      yes | If you're providing a location, for example `[51.513845, -0.100539]` |
 | `gps_accuracy`         |      yes | The accuracy of the GPS fix |
 | `battery`              |      yes | The battery level of the device |
+
+### Device Tracker with a Toggle Button
+You want to "track" a guest e.g. for a guest room, who cannot be tracked manual.
+A solution can be to create a Helper Toggle Button. In the example the button will be called "Guest"
+Then you create the following automation:
+```yaml
+alias: Guest as Button
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - input_boolean.guest
+condition: []
+action:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{ states('input_boolean.guest') == 'on' }}"
+        sequence:
+          - service: device_tracker.see
+            data:
+              location_name: home
+              dev_id: guest
+    default:
+      - service: device_tracker.see
+        data:
+          dev_id: guest
+          location_name: not_home
+mode: single
+```
+After you Toggle the Button the first time a device_tracker.guest will apear which you can use e.g. for person (with the name Guest)
