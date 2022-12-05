@@ -86,6 +86,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - GMYLE 3340 (BCM20702A0)
 - HIDEEZ BT0015-01 (CSR8510A10)
 - IOGEAR GBU521W6 (BCM20702A0)
+- INSIGNIA NS-PCY5BMA (BCM20702A0)
 - Kinivo BTD-400 (BCM20702A0)
 - LM Technologies LM1010 (BCM20702A0) 📶
 - Nuu You BT40 (CSR8510A10)
@@ -103,6 +104,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - TRENDnet TBW-107UB (CSR8510A10)
 - UGREEN CM109 (CSR8510A10)
 - Warmstor WBT-AD01 (CSR8510A10)
+- WAVLINK WL-BT4001 (CSR8510A10)
 
 📶 Denotes external antenna
 
@@ -138,6 +140,7 @@ These adapters generally offer the fastest connect times.
 
 - ASUS USB-BT500 (RTL8761BU)
 - Avantree DG45 (RTL8761BU)
+- COMCAST CF-B03 (RTL8761BU)
 - COMCAST CF-B05 (RTL8761BU) 📶
 - EDUP LOVE EP-B3536 (RTL8761BU) 📶
 - ISEKIE KW-B3519 (RTL8761BU)
@@ -160,6 +163,7 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 ### Unsupported adapters
 
 - Alfa AWUS036EACS (RTL8821CU) - Frequent connection failures and drop outs
+- BASEUS BR8651A01 BA04 - Advertisement drops out
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
 - EDIMAX EW-7611ULB (RTL8723BU) - Frequent connection failures and drop outs
 - EDUP EP-AC1661 (RTL8821CU) - Frequent connection failures and drop outs
