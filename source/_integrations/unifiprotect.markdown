@@ -311,17 +311,6 @@ These URLs work great when trying to send notifications. Home Assistant will aut
 
 ## Troubleshooting
 
-### Enabling Debug Logging
-
-Both the UniFi Protect integration and the Python library it uses provide debug logging that can help you with troubleshooting connectivity issues. To enable debug logging for both, add the following to your `configuration.yaml` file:
-
-```yaml
-logger:
-  logs:
-    pyunifiprotect: debug
-    homeassistant.components.unifiprotect: debug
-```
-
 ### Delay in Video Feed
 
 The default settings on the stream integration will give you a 5-15+ second delay. You can reduce this delay to 1-3 seconds, by enabling [LL-HLS in the stream integration](/integrations/stream/#ll-hls). You will also want to put an HTTP/2 reserve proxy in front of Home Assistant so you can have connection pooling. If you do not add a reverse proxy, you may start to get "Waiting for Websocket..." messages while trying to view too many camera streams at once. One way to do this is using the official NGINX Proxy Add-on:
