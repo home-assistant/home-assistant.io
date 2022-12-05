@@ -19,6 +19,7 @@ ha_integration_type: integration
 The Twinkly integration allows you to control [Twinkly](https://twinkly.com/) LED string from Home Assistant.
 
 ## Effects
+
 For devices with software version > 2.7.1, you can also control the effects on your Twinklys.
 
 The Twinkly devices do not initially have any effects stored locally. Effects must be added from the Twinkly application before they become visible in Home Assistant.
