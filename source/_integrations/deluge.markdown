@@ -22,6 +22,8 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
+## Prerequisites
+
 To be able to use this integration, you need to do the following:
 
 1. Enable the following option in deluge settings: Daemon > Allow Remote Connections
