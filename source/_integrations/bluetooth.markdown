@@ -140,6 +140,7 @@ These adapters generally offer the fastest connect times.
 
 - ASUS USB-BT500 (RTL8761BU)
 - Avantree DG45 (RTL8761BU)
+- COMCAST CF-B03 (RTL8761BU)
 - COMCAST CF-B05 (RTL8761BU) 📶
 - EDUP LOVE EP-B3536 (RTL8761BU) 📶
 - ISEKIE KW-B3519 (RTL8761BU)
@@ -162,6 +163,7 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 ### Unsupported adapters
 
 - Alfa AWUS036EACS (RTL8821CU) - Frequent connection failures and drop outs
+- BASEUS BR8651A01 BA04 - Advertisement drops out
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
 - EDIMAX EW-7611ULB (RTL8723BU) - Frequent connection failures and drop outs
 - EDUP EP-AC1661 (RTL8821CU) - Frequent connection failures and drop outs
