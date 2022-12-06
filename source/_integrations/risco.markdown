@@ -42,7 +42,7 @@ If you have multiple sites, only the first site will be used.
 
 The integration will connect locally to your system.
 No dependency on the cloud, and instantaneous updates, but is harder to set up.
-You will need the master code to your system, and with older models,
+You will need the panel access code (default 5678) to your system, this access code is NOT the same as the installer/subinstaller code, and with older models,
 you might need to either disconnect your system from the cloud, or set up a proxy that will allow you to connect both locally and via the cloud.
 
 The local version of the integration does not support events, and the `arming` state.

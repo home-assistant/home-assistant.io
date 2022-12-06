@@ -59,7 +59,7 @@ To determine whether or not a HEV cycle is currently running, Home Assistant exp
 
 ## Light effects
 
-The LIFX platform supports several light effects. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/integrations/light/#service-lightturn_on) service, for example like this:
+The LIFX platform supports several software-controlled light effects and one hardware based effect. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/integrations/light/#service-lightturn_on) service, for example like this:
 
 ```yaml
 automation:
@@ -91,7 +91,9 @@ script:
           change: 35
 ```
 
-The available light effects and their options are listed below.
+The `lifx.effect_move` effect is hardware effect that is only available on LIFX multizone devices like the LIFX Z, Lightstrip or Beam. Note that if all the LEDs of the multizone device are set to the same color, the effect will not be visible. The effect can be stopped and started regardless of the power state of the device, but the default is to turn the device on when starting the effect. Set the `power_on` attribute of the `lifx.effect_move` service to `false` to override the default.
+
+All the available light effects and their options are listed below.
 
 ### Service `lifx.effect_pulse`
 
@@ -122,9 +124,22 @@ Run an effect with colors looping around the color wheel. All participating ligh
 | `spread` | Maximum color difference between participating lights, in degrees on a color wheel (ranges from 0 to 359).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
+### Service `lifx.effect_move`
+
+A harware-based effect available on LIFX multizone devices that creates a movement animation of the colors currently set on the device. The direction and speed of the animation are controlled by the `speed` and `direction` attributes. You can change the colors of the effect while it is running using the `lifx.set_state` service.
+
+The effect will not be visible if all LEDs on the device are set to the same color and is ignored by unsupported devices.
+
+| Service data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of multizone lights.
+| `speed` | Duration in seconds for the effect to travel the length of the device (min: 0.1s, max: 60s)
+| `direction` | The direction in which the effect will travel, either "right" or "left" (default: right)
+| `power_on` | Whether to turn the light on before starting the effect (optional, default: true)
+
 ### Service `lifx.effect_stop`
 
-Run an effect that does nothing, thereby stopping any other effect that might be running.
+Run an effect that does nothing, thereby stopping any software or hardware effect that might be running.
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
