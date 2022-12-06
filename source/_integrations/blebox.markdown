@@ -73,6 +73,7 @@ This integration adds the BleBox device as a climate in Home Assistant.
 Currently, this includes support for the following product classes:
 
 - BleBox saunaBox
+- BleBox thermoBox
 
 ## Air Quality
 
