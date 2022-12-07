@@ -28,7 +28,7 @@ Before clicking Summit (the broken image below the form), visit the [Twitch dev 
 
 As __OAuth Redirect URLs__ add `https://twitchapps.com/tokengen/` and click __Create__
 .
-Back at the Token Generator, click the __Summit__ button, accept the consent screen and get your __OAuth Token__.
+Back at the Token Generator, click the __Connect__ button, accept the consent screen and get your __OAuth Token__.
 
 ## Configuration
 
