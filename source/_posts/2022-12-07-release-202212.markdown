@@ -232,18 +232,6 @@ to make it more descriptive as it gets more features.
 
 ## Other noteworthy changes
 
-Entity more info dialog merged with entity settings.
-
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-- Last minute ones added?
-- Go over list again, might have missed something
-
-**Note**: Changes processed up to PR 81536
-
-{% enddetails %}
-
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
