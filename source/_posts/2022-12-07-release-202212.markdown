@@ -52,11 +52,11 @@ Happy holidays and for the last time in 2022: Enjoy the release!
 
 - [It does Matter!](#it-does-matter)
 - [Tile card gets features](#tile-card-gets-features)
+- [Shiny new state colors!](#shiny-new-state-colors)
 - [Local calendar](#local-calendar)
 - [Bluetooth proxy using Shelly devices](#bluetooth-proxy-using-shelly-devices)
 - [New entity: `text`](#new-entity-text)
 - [Summing entities without templates](#summing-entities-without-templates)
-- [Improved state coloring](#improved-state-coloring)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -124,7 +124,7 @@ provides an additional visual indication of the entity's state.
 
 <img class="no-shadow" src='/images/blog/2022-12/tile-colors.png' alt='Screenshot showing the new state colors provided by the Tile card'>
 
-## State colors!
+## Shiny new state colors!
 
 Those lovely new state colors added to the Tile card, as shown above, are not
 just added to the tile card. This same color logic has now also been applied to
