@@ -36,7 +36,7 @@ If you run Home Assistant Container, Home Assistant Core, or you don’t want to
 
 If you are using Home Assistant Container, Home Assistant Core, or you don't want to use the built-in Matter Server add-on, you will need to run the Matter Server yourself, to which the Matter integration will connect.
 
-### Running [Matter Server](https://github.com/home-assistant-libs/python-matter-server).
+### Running [Matter Server](https://github.com/home-assistant-libs/python-matter-server)
 
 This application provides the connection between your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a websocket connection. You need to run the Matter Server before you can use the integration.
 
