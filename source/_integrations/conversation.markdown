@@ -97,6 +97,7 @@ intent_script:
 
 ## Service `conversation.process`
 
-| Service data attribute | Optional | Description                                      |
-|------------------------|----------|--------------------------------------------------|
-| `text`                 |      yes | Transcribed text                                 |
+| Service data attribute | Optional | Description                                        |
+|------------------------|----------|----------------------------------------------------|
+| `text`                 | yes      | Transcribed text                                   |
+| `language`             | yes      | language of text (defaults to configured language) |
