@@ -363,6 +363,7 @@ source/_integrations/linux_battery.markdown @fabaff
 source/_integrations/litejet.markdown @joncar
 source/_integrations/litterrobot.markdown @natekspencer @tkdrob
 source/_integrations/livisi.markdown @StefanIacobLivisi
+source/_integrations/local_calendar.markdown @allenporter
 source/_integrations/local_ip.markdown @issacg
 source/_integrations/lock.markdown @home-assistant/core
 source/_integrations/logbook.markdown @home-assistant/core
