@@ -100,30 +100,29 @@ Interested? We have made more details available [in our documentation](/integrat
 
 ## Tile card gets features
 
-{% details "TODO" %}
-
-- Iterate story
-- Spelling/grammar
-
-{% enddetails %}
-
-In the last release, we [introduced the Tile card](/blog/2022/11/02/release-202211/#tile-card),
-today we extend the Tile card by adding support for "features".
+In the last release, we [introduced the Tile card](/blog/2022/11/02/release-202211/#tile-card).
+Today we extend the Tile card by adding support for "features".
 
 For the Tile card, "features" are additional extras that can be added to a Tile
 card. For example, they can provide additional controls or information for
 the entity the Tile card displays.
 
-<p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/204335089-e91fc1f7-dc17-4671-9e23-8f7451ed3469.png' alt='Lorem ipsum'>
-Note: Placeholder screenshot that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2022-12/tile-features.png' alt='Screenshot showing the new features that can be added to tile cards'>
 
 Multiple usable Tile features have been added:
 
 - Command buttons for vacuum cleaners
 - Brightness slider for lights
-- Controls for opening/closeing and tilting covers
+- Controls for opening/closing and tilting covers
+
+[Checkout the documentation for more information about Tile features](/dashboards/tile/#tile-features)
+
+But that is not all! The Tile card also got colors! 🎨
+
+Based on the entity's state, the card will get different colors. This color
+provides an additional visual indication of the entity's state.
+
+<img class="no-shadow" src='/images/blog/2022-12/tile-colors.png' alt='Screenshot showing the new state colors provided by the Tile card'>
 
 [Checkout the our documentation for more information about Tile features](/dashboards/tile/#tile-features)
 
