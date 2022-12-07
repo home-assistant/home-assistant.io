@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2022.12: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2022.12."
-date: 2022-11-30 00:00:00
+title: "2022.12: It does matter!"
+description: "Matter support is here! Beautiful new Tile card features, a full-blown local calendar, shiny new state colors, and use Shelly devices as Bluetooth proxies!"
+date: 2022-12-07 00:00:00
 date_formatted: "December 7, 2022"
 author: Franck Nijhof
 author_twitter: frenck
