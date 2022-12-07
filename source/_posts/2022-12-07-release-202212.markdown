@@ -291,18 +291,26 @@ We welcome the following new integrations in this release:
 - [air-Q], added by [@Sibgatulin]
 - [Aranet], added by [@aschmitz]
 - [LIVISI SmartHome], added by [@StefanIacobLivisi]
+- [Local Calendar], added by [@allenporter]
+- [Matter], added by [@marcelveldt], [@MartinHjelmare] and [@agners]
 - [RuuviTag BLE], added by [@akx]
 - [Sensirion BLE], added by [@akx]
 - [Text], added by [@raman325]
 
+[@agners]: https://github.com/agners
 [@akx]: https://github.com/akx
+[@allenporter]: https://github.com/allenporter
 [@aschmitz]: https://github.com/aschmitz
+[@marcelveldt]: https://github.com/marcelveldt
+[@MartinHjelmare]: https://github.com/MartinHjelmare
 [@raman325]: https://github.com/raman325
 [@Sibgatulin]: https://github.com/Sibgatulin
 [@StefanIacobLivisi]: https://github.com/StefanIacobLivisi
 [air-Q]: /integrations/airq
 [Aranet]: /integrations/aranet
 [LIVISI SmartHome]: /integrations/livisi
+[Local Calendar]: /integrations/local_calendar
+[Matter]: /integrations/matter
 [RuuviTag BLE]: /integrations/ruuvitag_ble
 [Sensirion BLE]: /integrations/sensirion_ble
 [Text]: /integrations/text
