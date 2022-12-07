@@ -211,14 +211,6 @@ The first integrations that can now provide text entities as of this release are
 
 ## Summing entities without templates
 
-{% details "TODO" %}
-
-- Iterate on story
-- Spelling/grammar
-- Try improve screenshot, it is a little hard to read
-
-{% enddetails %}
-
 Let's say you have two numeric sensor entities, and you like to have an
 entity that shows the sum of those two; how would you do that? Creating a
 template entity, right? Nope! 😁
@@ -237,34 +229,6 @@ characteristic. Voila!
 You might have noticed that this looks like the "Min/Max" helper. True!
 We have renamed "Min/Max" to "Combine the state of several sensors",
 to make it more descriptive as it gets more features.
-
-## Improved state coloring
-
-{% details "TODO" %}
-
-- Add on story
-- Spelling/grammar
-- Add/replace screenshots
-- Keep it? Or move to other noteworthy?
-
-{% enddetails %}
-
-The new Tile card gets its colors based on the state of the entity it displays.
-This same color logic has now also been applied to the state history
-and the logbook.
-
-This makes the colors predictable, recognizable and above all: just looks a lot
-better 🤩
-
-<p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/200536889-ea6c2e0c-a027-44cc-8ae5-9a2b9fd286bb.png' alt='Lorem ipsum'>
-Note: Placeholder screenshot that needs to be replaced.
-</p>
-
-<p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/200581968-f1c8bce0-0f36-47be-aae3-b48506b8dbd4.png' alt='Lorem ipsum'>
-Note: Placeholder screenshot that needs to be replaced.
-</p>
 
 ## Other noteworthy changes
 
