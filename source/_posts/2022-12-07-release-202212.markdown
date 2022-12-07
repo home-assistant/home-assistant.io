@@ -15,36 +15,36 @@ og_image: /images/blog/2022-12/social.png
 
 <a href='/integrations/#version/2022.12'><img src='/images/blog/2022-12/social.png' style='border: 0;box-shadow: none;'></a>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-These are the beta release notes for Home Assistant Core 2022.12 (and is thus a
-work in progress).
-
-If you encounter any issues with the beta release, please report them on GitHub:
-
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
-
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
-
-Issues introduced in the beta are processed with priority.
-
----
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
 Home Assistant Core 2022.12! 🎄
 
-I have nothing to tell yet... this is still all beta!
+Already the last release of the year, right on time to bring you some cool
+new features to work with during the upcoming Holidays!
 
-Thanks for helping out testing the beta! ❤️
+2022 has been a fantastic year for the Home Assistant project. We became
+one of the world's largest and [fastest-growing GitHub open source projects](https://octoverse.github.com/2022/state-of-open-source)! ❤️ Tons of new features [each month](/blog/categories/core/), and not just that,
+we matured a lot! Everything became more stable and faster, and
+the UX made leaps forwards as well!
 
-Enjoy the (beta) release!
+We looked back at 2022 during the [State of the Open Home](https://www.youtube.com/watch?v=D936T1Ze8-4),
+and sneak peaked at 2023, with some great new UI concepts
+and:_The year of the voice!_ 🗣️ Missed it?
+[The full video is available on YouTube](https://www.youtube.com/watch?v=D936T1Ze8-4).
+
+But! The year isn't over yet! This release really Matters! We are thrilled to
+be one of the first in the world to roll out Matter support to the public! 🎉
+
+No Matter devices yet? Don't worry! There are tons of things in this release
+that will keep you busy. The Tile card got "features"! You can now extend
+your Bluetooth range using Shelly devices, and a long-requested feature lands:
+Local Calendar. 🤩
+
+For 2022, this is it! Thank you for joining our community. Thank you for
+sharing, helping out, contributing, creating YouTube videos, blog articles,
+and podcasts.
+
+**Thank you for using Home Assistant!** ❤️
+
+Happy holidays and for the last time in 2022: Enjoy the release!
 
 ../Frenck
 
