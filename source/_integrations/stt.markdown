@@ -7,7 +7,7 @@ ha_codeowners:
 ha_domain: stt
 ha_quality_scale: internal
 ha_category: []
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 Speech-to-Text (STT) allows you to stream speech data to the STT API and get text back.

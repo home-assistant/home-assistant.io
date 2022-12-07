@@ -8,7 +8,7 @@ description: "The Glance card is useful to group multiple sensors in a compact o
 The Glance card is useful to group multiple sensors in a compact overview. Keep in mind that this can be used together with [entity-filter](/dashboards/entity-filter/) cards to create dynamic cards.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_glance_card.png' alt='Screenshot of the glance card'>
+<img src='/images/dashboards/glance_card.png' alt='Screenshot of the glance card'>
 Screenshot of the Glance card.
 </p>
 
@@ -129,7 +129,7 @@ entities:
 ```
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_glance_card.png' alt='Screenshot of the glance card with custom title'>
+<img src='/images/dashboards/glance_card.png' alt='Screenshot of the glance card with custom title'>
 Screenshot of the glance card with custom title.
 </p>
 

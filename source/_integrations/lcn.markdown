@@ -499,12 +499,12 @@ The `lcn` switch platform allows the control of the following [LCN](https://www.
 
 ## Additional Features
 
-### Transponder and fingerprint sensor
+### Transponder, fingerprint sensor and code lock
 
-To use LCN transponders or fingerprint sensors ensure that the corresponding module's I-port property
+To use LCN transponders, fingerprint sensors or code locks ensure that the corresponding module's I-port property
 is enabled in the LCN-PRO software and properly configured.
-LCN transponders and fingerprints are identified by a six value hexadecimal code (e.g. *123abc*).
-If a code is received a corresponding event ([transponder event](#event-lcn_transponder), [fingerprint event](#event-lcn_fingerprint))
+LCN transponders, fingerprints and code locks are identified by a six value hexadecimal code (e.g. *123abc*).
+If a code is received a corresponding event ([transponder event](#event-lcn_transponder), [fingerprint event](#event-lcn_fingerprint), [codelock event](#event-lcn_codelock))
 is fired and can be used to trigger an automation.
 Alternatively, you can use the corresponding [device triggers](#device-triggers).
 
@@ -654,6 +654,28 @@ automation:
   trigger:
     - platform: event
       event_type: lcn_fingerprint
+      event_data:
+        code: 123abc
+```
+
+### Event: `lcn_codelock`
+
+The `lcn_codelock` event is fired if a LCN code lock command is received.
+
+| Special payload | Description  | Values |
+| --------------- | -----------  | ------ |
+| `code` | Code lock code | string (6 hex values) |
+
+Example:
+
+The trigger will fire if the code lock with code *123abc* was activated at
+any hardware module.
+
+```yaml
+automation:
+  trigger:
+    - platform: event
+      event_type: lcn_codelock
       event_data:
         code: 123abc
 ```

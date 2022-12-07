@@ -8,7 +8,7 @@ description: "The Alarm Panel card allows you to arm and disarm your alarm contr
 The Alarm Panel card allows you to arm and disarm your [alarm control panel](/integrations/#alarm) integrations.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_alarm_panel_card.gif' alt='Screenshot of the alarm panel card'>
+<img src='/images/dashboards/alarm_panel_card.gif' alt='Screenshot of the alarm panel card'>
 Screenshot of the Alarm Panel card.
 </p>
 
@@ -66,7 +66,7 @@ Title example:
 ```
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_alarm_panel_title_card.gif' alt='Screenshot of the alarm panel card'>
+<img src='/images/dashboards/alarm_panel_title_card.gif' alt='Screenshot of the alarm panel card'>
 Screenshot of the Alarm Panel card.
 </p>
 

@@ -15,6 +15,7 @@ Home Assistant is an open platform and so home energy management is not restrict
 - [Integrate your solar panels](/docs/energy/solar-panels/)
 - [Integrate your home batteries](/docs/energy/battery/)
 - [Integrate your gas consumption](/docs/energy/gas/)
+- [Integrate your water consumption](/docs/energy/water/)
 - [Integrate individual devices](/docs/energy/individual-devices/)
 
 If you have a sensor that returns instantaneous power readings (W or kW), then to add a sensor that returns energy usage or generation (kWh) refer to [Riemann sum integral integration](/integrations/integration/#energy)

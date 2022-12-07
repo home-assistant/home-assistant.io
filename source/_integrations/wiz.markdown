@@ -46,10 +46,12 @@ These devices have been sold under at least the following brands:
 - [Laurie Lumiere](https://www.laurielumiere.com/)
 - [Lednify](https://lednify.com/)
 - [Leyton](https://www.leyton-lighting.co.uk/)
-- [Liteline](https://www.liteline.com/)
+- [Liteline](https://www.liteline.com/page/oncloud)
 - [Lutec](https://www.lutec.com/highlight/wiz)
 - [Philips Smart LED lights with WiZ Connected](https://www.usa.lighting.philips.com/consumer/smart-wifi-led)
+- [Spex](https://spexlighting.com/pages/smart-lights)
 - [SLV](https://www.slv.com/)
+- [Trenz](https://trenzlighting.com/pages/smart-lights)
 - [Trio](https://wiz.trio-lighting.com/en/)
 - [Wofi](https://wofi-wiz.com/)
 
@@ -81,6 +83,15 @@ The occupancy sensors will only be added once a motion event is detected. Home A
 When a device is linked to an occupancy sensor, by default, the sensor will be disabled for 30 minutes after manual control.
 
 Devices linked to the occupancy sensor that was last controlled manually will show an unknown at startup. The state will be known the next time the light is controlled by the sensor.
+
+### Power Monitoring Sensors
+
+A power monitoring sensor is available on devices with the following hardware modules:
+
+- ESP25_SOCKET_01
+- ESP20_SHDW_31R
+- ESP20_SHRGB_31R
+- ESP20_SHTW_31R
 
 ### Effect Speed
 

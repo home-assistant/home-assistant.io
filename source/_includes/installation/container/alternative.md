@@ -10,14 +10,13 @@ The steps would be:
 - Wait for some time until your NAS has pulled the image
 - Move to the "Image"-section of the Docker-app
 - Click on "Launch"
+- Within "Network" select "Use same network as Docker Host" and click Next
 - Choose a container-name you want (e.g., "homeassistant")
-- Click on "Advanced Settings"
 - Set "Enable auto-restart" if you like
-- Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount path" has to be "/config", so that Home Assistant will use it for the configs and logs. It is therefore recommended that the folder you choose should be named "config" or "homeassistant/config" to avoid confusion when referencing it within service calls.
-- Within "Network" select "Use same network as Docker Host"
-- To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
-- Confirm the "Advanced Settings"
-- Click on "Next" and then "Apply"
+- Click on "Advanced Settings". To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Click Save to exit Advanced Settings.
+- Click Next
+- Within "Volume Settings" click on "Add Folder" and choose either an existing folder or add a new folder (e.g. in "docker" shared folder, add new folder named "homeassistant" and then within that new folder add another new folder "config"), then click Select. Then edit the "mount path" to be "/config". This configures where Home Assistant will store configs and logs.
+- Ensure "Run this container after the wizard is finished" is checked and click Done
 - Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Synology NAS IP address - for example `http://192.168.1.10:8123`)
 
 If you are using the built-in firewall, you must also add the port 8123 to allowed list. This can be found in "Control Panel -> Security" and then the Firewall tab. Click "Edit Rules" besides the Firewall Profile dropdown box. Create a new rule and select "Custom" for Ports and add 8123. Edit Source IP if you like or leave it at default "All". Action should stay at "Allow".

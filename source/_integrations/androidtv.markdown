@@ -38,6 +38,8 @@ For Fire TV devices, the instructions are as follows:
   - From the main (Launcher) screen, select Settings.
   - Select My Fire TV > About > Network.
 
+If Develper Options is missing from Settings then select My Fire TV and press the button seven times on About.
+
 {% include integrations/config_flow.md %}
 
 {% include integrations/option_flow.md %}
