@@ -164,7 +164,7 @@ In the September release, we brought [Bluetooth everywhere],
 by adding Bluetooth proxy support, allowing any ESPHome device in your home
 to relay Bluetooth traffic across your home.
 
-This release adds support for using Shelly devices are a remote Bluetooth
+This release adds support for using Shelly devices as a remote Bluetooth
 adapter as well!
 
 It works with all second-generation Shelly devices that use firmware 12.0 or
