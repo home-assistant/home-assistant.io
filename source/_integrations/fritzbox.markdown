@@ -3,6 +3,7 @@ title: AVM FRITZ!SmartHome
 description: Instructions on how to integrate AVM Fritz!DECT components into Home Assistant.
 ha_category:
   - Binary Sensor
+  - Button
   - Climate
   - Light
   - Sensor
@@ -14,6 +15,7 @@ ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - diagnostics
@@ -23,7 +25,7 @@ ha_platforms:
 ha_codeowners:
   - '@mib1185'
   - '@flabbamann'
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ!DECT](https://en.avm.de/products/fritzdect/) devices like switches, sensors and thermostats.
@@ -36,6 +38,8 @@ There is currently support for the following device types within Home Assistant:
 - Light
 - Sensor
 - Switch
+
+Additionally, we also support to trigger smarthome templates.
 
 #### Tested Devices
 
@@ -115,3 +119,7 @@ The FRITZ!DECT 500 lightbulb supports only 36 colors. When a color is picked in 
 ## Cover
 
 To get AVM FRITZ!DECT compatible covers (e.g., Rademacher RolloTron DECT 1213) follow the [configuration instructions](#configuration) above.
+
+## Template
+
+To get AVM FRITZ! Templates (e.g., for your heating schedule) follow the [configuration instructions](#configuration) above.
