@@ -115,7 +115,7 @@ Entities that are on:
 {% raw %}
 
 ```text
-{{ ['light.kitchen', 'light.dinig_room'] | select('is_state', 'on') | list }}
+{{ ['light.kitchen', 'light.dining_room'] | select('is_state', 'on') | list }}
 ```
 
 {% endraw %}

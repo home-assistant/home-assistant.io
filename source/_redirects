@@ -22,8 +22,8 @@
 /energy /home-energy-management
 /integrations/energy /docs/energy 301!
 
-/amber https://www.crowdsupply.com/nabu-casa/home-assistant-yellow
-/yellow https://www.crowdsupply.com/nabu-casa/home-assistant-yellow
+/amber https://yellow.home-assistant.io
+/yellow https://yellow.home-assistant.io
 /blog/2021/09/13/home-assistant-amber/ /blog/2021/09/13/home-assistant-yellow/
 
 # Older development pages
