@@ -71,16 +71,6 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 ## It does Matter!
 
-{% details "TODO" %}
-
-- Add an actual story
-- Add a tiny bit of context on what matter is, link to external resource for more information.
-- Spelling/grammar
-- Maybe add a little screenshot of a matter device in Home Assistant? Check with Marcel.
-- Link to documentation
-
-{% enddetails %}
-
 Does it Matter? Yes, Home Assistant does Matter!
 
 Matter is a new smart home interoperability standard, an open-source protocol,
@@ -89,20 +79,24 @@ Matter in this [comprehensive write-up from The Verge](https://www.theverge.com/
 
 Today we release the first iteration of the Matter integration for Home
 Assistant. It is a big and important foundation that is probably best described
-as "alpha" or  maybe even a "developer preview" — allowing anyone to help
+as "alpha" or maybe even a "developer preview" — allowing anyone to help
 and jump in on the Matter development. For the first release,
 we think that is a great start!
 
 At this point, Matter-enabled products are not (yet) generally available.
 However, if you can get a Matter-certified product, it can be commissioned!
 
+<p class='img'>
+<img class="no-shadow" src='/images/blog/2022-12/matter.png' alt='A screenshot of a Matter device showing up in Home Assistant'>
+A Matter device integrated with Home Assistant.
+</p>
+
 Adding Matter devices (commissioning) can be done using our iOS and Android
 Home Assistant Companion apps. Adding support for this to our apps is being
-worked on and will become available in the upcoming weeks.
+worked on and will become available in the upcoming weeks. The Android Companion
+app supporting Matter, is currently available for [beta testing](https://play.google.com/apps/testing/io.homeassistant.companion.android).
 
-_TODO: below needs a link_
-
-Interested? We have made more details available [in our documentation](#).
+Interested? We have made more details available [in our documentation](/integrations/matter).
 
 ## Tile card gets features
 
