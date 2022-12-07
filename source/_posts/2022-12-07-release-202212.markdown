@@ -715,9 +715,10 @@ each PoE-capable port without mapping it to a client.
 
 {% enddetails %}
 
-If you are a custom integration developer and want to learn about breaking
-changes and new features available for your integration: Be sure to follow our
-[developer blog][devblog]. The following are the most notable for this release:
+If you are a custom integration or theme developer and want to learn about
+breaking changes and new features available for your integration: Be sure to
+follow our [developer blog][devblog].
+The following are the most notable for this release:
 
 [devblog]: https://developers.home-assistant.io/blog/
 
