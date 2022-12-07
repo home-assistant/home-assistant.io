@@ -338,14 +338,6 @@ other news about building an Open Home; straight into your inbox.
 
 ## Breaking Changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-
-**Note**: Breaking changes processed up to PR 78465
-
-{% enddetails %}
-
 {% details "Cloudflare" %}
 
 The Cloudflare integration no longer relies on ipify.org to determine your IP,
@@ -699,6 +691,22 @@ you wish to remove this setting altogether.
 
 {% enddetails %}
 
+{% details "Subaru" %}
+
+The Subaru API has changed and no longer returns values required by two sensors:
+
+- External temp
+- 12V battery voltage
+
+These sensors have been removed from the Subaru integration.
+
+([@G-Two] - [#83213]) ([documentation](/integrations/subaru))
+
+[@G-Two]: https://github.com/G-Two
+[#83213]: https://github.com/home-assistant/core/pull/83213
+
+{% enddetails %}
+
 {% details "UniFi Network" %}
 
 As new PoE entities were introduced with 2022.11, this release, the old
@@ -723,7 +731,9 @@ changes and new features available for your integration: Be sure to follow our
 
 - [Add more unit enumerators](https://developers.home-assistant.io/blog/2022/11/28/more-unit-enumerators)
 - [Changes to long term statistics APIs](https://developers.home-assistant.io/blog/2022/11/16/statistics_refactoring)
+- [Entity state color changes](https://developers.home-assistant.io/blog/2022/12/07/entity-color-changes)
 - [Introducing new unit enumerators](https://developers.home-assistant.io/blog/2022/10/26/new-unit-enumerators)
+- [Summary of unit system related changes](https://developers.home-assistant.io/blog/2022/12/07/unit_system_changes)
 
 ## Farewell to the following
 
