@@ -42,6 +42,11 @@ title:
   required: false
   description: The card title.
   type: string
+show_names:
+  required: false
+  description: If false, no entity names are shown in the card.
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Options For Entities
