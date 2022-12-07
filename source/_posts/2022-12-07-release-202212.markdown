@@ -27,7 +27,7 @@ the UX made leaps forwards as well!
 
 We looked back at 2022 during the [State of the Open Home](https://www.youtube.com/watch?v=D936T1Ze8-4),
 and sneak peaked at 2023, with some great new UI concepts
-and:_The year of the voice!_ 🗣️ Missed it?
+and: _The year of the voice!_ 🗣️ Missed it?
 [The full video is available on YouTube](https://www.youtube.com/watch?v=D936T1Ze8-4).
 
 But! The year isn't over yet! This release really Matters! We are thrilled to
