@@ -181,14 +181,6 @@ this release, and the memory usage should be lower. Always good!
 
 ## New entity: `text`
 
-{% details "TODO" %}
-
-- Improve story
-- Spelling/grammar
-- Replace screenshots
-
-{% enddetails %}
-
 Say hello to a new entity: `text`! The text entity is very similar to the
 [Text helper](/integrations/input_text) (also known as `input_text`).
 
@@ -196,15 +188,7 @@ The difference is that the helper is configured and managed by you, while the
 new text entities are provided by integrations. This means integration can now
 provide entities that ask for a textual input in the UI.
 
-<p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/195327/203792730-8a2416ec-6a74-4447-aba4-5b5182e497c8.png' alt='Lorem ipsum'>
-Note: Placeholder screenshot that needs to be replaced.
-</p>
-
-<p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/195327/203792745-60013f73-4929-424b-b558-e1f39b9a1682.png' alt='Lorem ipsum'>
-Note: Placeholder screenshot that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2022-12/text-entity.png' alt='Screenshot a text entity'>
 
 The first integrations that can now provide text entities as of this release are
 [KNX](/integrations/knx#text) and [MQTT](/integrations/text.mqtt).
