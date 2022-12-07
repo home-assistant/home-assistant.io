@@ -160,14 +160,7 @@ are supported!
 
 ## Bluetooth proxy using Shelly devices
 
-{% details "TODO" %}
-
-- Improve story line
-- Spelling/grammar
-
-{% enddetails %}
-
-In the September release, we brought [Bluetooth everywhere](/blog/2022/09/07/release-20229/#bluetooth-everywhere),
+In the September release, we brought [Bluetooth everywhere],
 by adding Bluetooth proxy support, allowing any ESPHome device in your home
 to relay Bluetooth traffic across your home.
 
@@ -183,6 +176,8 @@ help with things like Bluetooth temperature or plant sensors in your home.
 
 In other Bluetooth news: The performance of Bluetooth has, again, been improved
 this release, and the memory usage should be lower. Always good!
+
+[Bluetooth everywhere]: /blog/2022/09/07/release-20229/#bluetooth-everywhere
 
 ## New entity: `text`
 
