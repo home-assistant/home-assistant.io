@@ -169,7 +169,7 @@ adapter as well!
 
 It works with all second-generation Shelly devices that use firmware 12.0 or
 later. Those are able to provide Bluetooth advertisements to Home Assistant's
-[Bluetooth integration](/integration/bluetooth).
+[Bluetooth integration](/integrations/bluetooth).
 
 This can greatly help with extending the range of your Bluetooth network to
 help with things like Bluetooth temperature or plant sensors in your home.
