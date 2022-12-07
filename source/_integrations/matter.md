@@ -42,7 +42,7 @@ This application provides the connection between your Matter network (called Fab
 
 There are multiple ways to run the server:
 
-**Option 1: The official MatterServer add-on, as described above**
+**Option 1: The official Matter Server add-on, as described above**
 
 _This option is only available for Home Assistant OS (the recommended installation type) and Home Assistant Supervised installations._
 
