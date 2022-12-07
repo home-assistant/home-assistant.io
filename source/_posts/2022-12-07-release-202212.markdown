@@ -140,24 +140,23 @@ pages of course.
 
 ## Local calendar
 
-{% details "TODO" %}
+This is one of the longer outstanding and bigger requested features
+of Home Assistant: A local calendar!
 
-- Add an actual story
-- Spelling/grammar
-- Screenshots
+Building a calendar isn't easy, but [Allen Porter] did it! And it is not
+just a calendar with dates and descriptions... oh no! Allen went all in!
 
-{% enddetails %}
+<img class="no-shadow" src='/images/blog/2022-12/local-calendar.png' alt='Screenshot adding an event to the local calendar'>
 
-You asked for it, but many considered it impossible... But @allenporter did it!
-We now have a calendar built-in into Home Assistant, entirely local,
-just the way you like it.
+We now have a full blown, local, built-in calendar, which can do all-day event
+or recurring ones tuned to your liking. Even multiple different local calendars
+are supported!
 
-<p class='img'>
-<img class="no-shadow" src='https://media.discordapp.net/attachments/903338235747528724/1047504535955980370/CleanShot_2022-11-30_at_14.28.49.png' alt='Lorem ipsum'>
-Note: Placeholder screenshot that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2022-12/local-calendar-repeating.png' alt='Screenshot adding recurring events to the local calendar'>
 
 {% my config_flow_start badge domain="local_calendar" %}
+
+[Allen Porter]: https://github.com/allenporter
 
 ## Bluetooth proxy using Shelly devices
 
