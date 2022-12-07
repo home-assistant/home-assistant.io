@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@frenck'
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The `solaredge` platform uses the [SolarEdge Monitoring API](https://www.solaredge.com/sites/default/files/se_monitoring_api.pdf) to allow you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
@@ -36,7 +36,8 @@ In case you would like to convert the values for example to kWh instead of the d
 # Example configuration.yaml entry for template platform
 template:
   - sensor:
-    - name: solaredge_energy_this_year_template:
+    - name: solaredge_energy_this_year_template
+      unit_of_measurement: kWh
       state: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
 ```
 

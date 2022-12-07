@@ -35,6 +35,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Martec](https://www.martec.co.nz/)
 - [Motion Blinds](https://motionblinds.com/)
 - [Raven Rock MFG](https://www.ravenrockmfg.com/)
+- [ScreenAway](https://www.screenaway.com.au/)
 - [Smart Blinds](https://www.smartblinds.nl/)
 - [Smart Home](https://www.smart-home.hu)
 - [Uprise Smart Shades](http://uprisesmartshades.com)
@@ -140,6 +141,14 @@ For tilt capable blinds a new position and tilt can be specified and the blind w
 | `width`                |      yes | Optionally specify the width that is covered, only for TDBU Combined entities. For example 30     |
 
 ## Troubleshooting
+
+### Range of the gateway
+
+When the gateway is placed too far from the blinds, sometimes the blinds do react to commands from the gateway, but the gateway is not able to receive messages from the blinds. In those cases, the position of the blinds will not be reported correctly (both in Home Assistant and in the mobile app of the blinds). This can cause problems with specifically Top Down Bottom Up (TDBU) blinds since, for TDBUs, the requested position is checked to guard for collisions between the top and bottom motor; therefore, not all positions are allowed based on the current position of both motors. If the gateway does not receive the current position correctly, some commands may be wrongfully rejected to prevent collisions.
+
+Please try placing the gateway closer to the blinds if you experience issues.
+
+### Allowing UDP multicast communication
 
 Home Assistant uses the following UDP multicast addresses/ports for communication with the gateway:
 

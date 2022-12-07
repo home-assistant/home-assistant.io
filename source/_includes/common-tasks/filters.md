@@ -1,20 +1,33 @@
 Filters are applied as follows:
 
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes:
-   - Include domain and/or glob patterns specified
-      - If domain is included, and entity not excluded or match exclude glob pattern, accept
-      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), accept
-      - If domain is not included, glob pattern does not match, and entity not included, reject
-   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - If domain is excluded and entity not included, reject
-      - If entity matches exclude glob pattern and entity not included, reject
-      - If entity does not match any exclude criteria (domain, glob pattern or listed), accept
-   - Neither include or exclude specifies domains or glob patterns
-      - If entity is included, accept (as #2 above)
-      - If entity include and exclude, the entity exclude is ignored
+1. No filter
+    - All entities included
+2. Only includes
+    - Entity listed in entities include: include
+    - Otherwise, entity matches domain include: include
+    - Otherwise, entity matches glob include: include
+    - Otherwise: exclude
+3. Only excludes
+    - Entity listed in exclude: exclude
+    - Otherwise, entity matches domain exclude: exclude
+    - Otherwise, entity matches glob exclude: exclude
+    - Otherwise: include
+4. Domain and/or glob includes (may also have excludes)
+    - Entity listed in entities include: include
+    - Otherwise, entity listed in entities exclude: exclude
+    - Otherwise, entity matches glob include: include
+    - Otherwise, entity matches glob exclude: exclude
+    - Otherwise, entity matches domain include: include
+    - Otherwise: exclude
+5. Domain and/or glob excludes (no domain and/or glob includes)
+    - Entity listed in entities include: include
+    - Otherwise, entity listed in exclude: exclude
+    - Otherwise, entity matches glob exclude: exclude
+    - Otherwise, entity matches domain exclude: exclude
+    - Otherwise: include
+6. No Domain and/or glob includes or excludes
+    - Entity listed in entities include: include
+    - Otherwise: exclude
 
 The following characters can be used in entity globs:
 

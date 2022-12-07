@@ -11,7 +11,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@tkdrob'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The Steam integration will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.

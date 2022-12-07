@@ -10,7 +10,7 @@ ha_category:
 ha_release: 0.37
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@JonGilmore'
+  - '@cdheiser'
 ha_domain: lutron
 ha_platforms:
   - binary_sensor

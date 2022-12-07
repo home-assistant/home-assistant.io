@@ -25,7 +25,7 @@ and create them as sensors in Home Assistant.
 
 You can use the accumulated energy sensors directly with the Home Assistant energy dashboard.
 
-If you have an energy production system such as solar panels, following these instructions:
+If you have an energy production system such as solar panels, follow these instructions:
 
 ### Configure IoTaWatt
 

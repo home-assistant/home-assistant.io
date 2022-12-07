@@ -1,6 +1,6 @@
 ---
-title: Google Calendars
-description: Instructions on how to use Google Calendars in Home Assistant.
+title: Google Calendar
+description: Instructions on how to use Google Calendar in Home Assistant.
 ha_category:
   - Calendar
 ha_iot_class: Cloud Polling
@@ -14,7 +14,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The Google integration allows you to connect to your [Google Calendars](https://calendar.google.com) to Home Assistant. The integration adds calendar entities that are shown on the *Calendar* dashboard, and can be used for automations based on any event, or limited to specific matching criteria.
+The *Google Calendar* integration allows you to connect your [Google Calendar](https://calendar.google.com) to Home Assistant. The integration adds calendar entities that are shown on the *Calendar* dashboard, and can be used for automations based on any event, or limited to specific matching criteria.
 
 ## Prerequisites
 
@@ -26,26 +26,28 @@ This section explains how to generate a Client ID and Client Secret on
 [Google Developers Console](https://console.developers.google.com/start/api?id=calendar).
 
 1. First go to the [Google Developers Console](https://console.developers.google.com/start/api?id=calendar)
-1. The wizard will ask you to choose a project to manage your application. Select a project and click continue.
-1. Verify that your calendar API was enabled and click 'Go to credentials'
-1. When it gets to the Page titled _Add credentials to your project_ just click cancel.
-1. Navigate to APIs & Services (left sidebar) > Credentials
-1. Click on the field on the right of the screen, 'CONFIGURE CONSENT SCREEN', select "External" and create.
-1. Set the 'Application Name' (the name of the application asking for consent) to anything you want. We suggest "Home-Assistant".
-1. You then need to select a `Support email`. To do this, simply click the drop down box and select your email address.
-1. You finally need to complete the section: `Developer contact information`. To do this, simply enter your email address (same as above is fine).
-1. Scroll to the bottom and click `save`. (You don't have to fill out anything else)
-1. You will then be automatically taken to the OAuth consent screen, you do not need to add any scopes here so click `SAVE AND CONTINUE` to move to the `Test users` page. You will need to add the Gmail address you will be using with this integration as a test user before you will be allowed to use the API. Once you have added your email address under `Test users` click `SAVE AND CONTINUE` which will take to the 'Summary' page (you do not need to do anything here).
-1. Click Credentials in the menu on the left hand side of the screen, then click `+ Create credentials` (at the top of the screen), then select `OAuth client ID`.
-1. Set the Application type to `TV and Limited Input` and give this credential set a name (like "Home Assistant Credentials") then click 'Create'.
-1. You will then be presented with a pop-up saying 'OAuth client created' showing `Your Client ID` and `Your Client Secret`. Make a note of these (for example, copy and paste them into a text editor) as you will need to put these in your `configuration.yaml` file shortly. Once you have noted these strings, click `OK`. If you need to find these credentials again at any point then simply navigate to `APIs & Services` > `Credentials` and you will see `Home Assistant Credentials` (or whatever you named them in the previous step) under `OAuth 2.0 Client IDs`. To view both the `Client ID` and `Client secret`, click on the pencil icon, this will take you to the settings page for these credentials and the information will be on the right hand side of the page.
-1. We need to double check that the "Google Calendar API" has been automatically enabled. To do this, select `Library` from the menu, then search for "Google Calendar API". If it is enabled you will see `API Enabled` with a green tick next to it. If it is not enabled, then enable it.
+2. The wizard will ask you to choose a project to manage your application. Select a project and click continue.
+3. Verify that your calendar API was enabled and click 'Go to credentials'
+4. Navigate to APIs & Services (left sidebar) > [Credentials](https://console.cloud.google.com/apis/credentials)
+5. Click on the field on the left of the screen, **OAuth Consent Screen**.
+6. Select **External** and **Create**.
+7. Set the *App Name* (the name of the application asking for consent) to anything you want e.g.  *Home Assistant*.
+8. You then need to select a *Support email*. To do this, simply click the drop down box and select your email address.
+9. You finally need to complete the section: *Developer contact information*. To do this, simply enter your email address (same as above is fine).
+10.  Scroll to the bottom and click **Save and Continue**. Don't have to fill out anything else or it may enable additional review.
+11.  You will then be automatically taken to the Scopes page. You do not need to add any scopes here so click Save and Continue to move to the Optional info page. You do not need to add anything to the Optional info page so click Save and Continue which will take you to the Summary page. Click Back to Dashboard.
+12.  Click **OAuth consent screen** again and set *Publish Status* to **Production** otherwise your credentials will expire every 7 days.
+13.  Click **Credentials** in the menu on the left hand side of the screen, then click **Create credentials** (at the top of the screen), then select *OAuth client ID*.
+14.  Set the Application type to *TV and Limited Input* and give this credential set a name (like "Home Assistant Credentials") then click **Create**.
+15. You will then be presented with a pop-up saying *OAuth client created* showing *Your Client ID* and *Your Client Secret*. Make a note of these (for example, copy and paste them into a text editor) as you will need these shortly. Once you have noted these strings, click **OK**. If you need to find these credentials again at any point then simply navigate to *APIs & Services > Credentials* and you will see *Home Assistant Credentials* (or whatever you named them in the previous step) under *OAuth 2.0 Client IDs*. To view both the *Client ID* and *Client secret*, click on the pencil icon, this will take you to the settings page for these credentials and the information will be on the right hand side of the page.
+16. Double check that the *Google Calendar API* has been automatically enabled. To do this, select **Library** from the menu, then search for *Google Calendar API*. If it is enabled, you will see *API Enabled* with a green tick next to it. If it is not enabled, then enable it.
 
 {% enddetails %}
 
 {% include integrations/config_flow.md %}
 
-The integration setup will next give you instructions to enter the Application Credentials (OAuth Client ID and Client Secret) and authorize Home Assistant to access your account and Calendars.
+The integration setup will next give you instructions to enter the [Application Credentials](/integrations/application_credentials/) (OAuth Client ID and Client Secret) and authorize Home Assistant to access your account and Calendars.
+
 
 {% details "OAuth and Device Authorization steps" %}
 
@@ -53,25 +55,25 @@ The integration setup will next give you instructions to enter the Application C
 
     ![Screenshot of Link Account](/images/integrations/google/link_account.png)
 
-1. Click on the link [https://www.google.com/device](https://www.google.com/device) to open a Google website which should open a new window where you can enter the code.
+2. Click on the link [https://www.google.com/device](https://www.google.com/device) to open a Google website which should open a new window where you can enter the code.
 
-1. Home Assistant will wait for a short time while you complete the authorization steps, checking in the background for the authorization to be completed.
+3. Home Assistant will wait for a short time while you complete the authorization steps, checking in the background for the authorization to be completed.
 
     ![Screenshot of Enter Code](/images/integrations/google/enter_code.png)
 
-1. Continue through the steps of selecting the account you used when creating the credentials in the Google Developer Console.
+4. Continue through the steps of selecting the account you used when creating the credentials in the Google Developer Console.
 
-1. **NOTE**: You may get a message telling you that the app has not been verified and you will need to acknowledge that in
+5. **NOTE**: You may get a message telling you that the app has not been verified and you will need to acknowledge that in
 order to proceed.
 
-1. Depending on your `configuration.yaml`, you will either be granting Home Assistant *read only* or *read write* access
+6. Depending on your `configuration.yaml`, you will either be granting Home Assistant *read only* or *read write* access
 to all the Google Calendars available to your linked account.
 
-1. You should then see a *Success!* message from Google.
+7. You should then see a *Success!* message from Google.
 
     ![Screenshot of Device Connected](/images/integrations/google/device_connected.png)
 
-1. You may close the window, and return back to Home Assistant where you should see a *Success!* message from Home Assistant.
+8. You may close the window, and return back to Home Assistant where you should see a *Success!* message from Home Assistant.
 
     ![Screenshot of Success](/images/integrations/google/success.png)
 
@@ -80,6 +82,8 @@ to all the Google Calendars available to your linked account.
 ## Troubleshooting
 
 If the setup process fails and you see an error message such as *Authentication code expired, please try again* you may want to try the flow again. You may also check the logs for additional error messages that may indicate a misconfiguration such as an invalid client id or secret.
+
+If you have an error with your credentials, you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
 
 ## Calendar Entities
 
@@ -119,11 +123,11 @@ Using the entity state and attributes is more error prone and less flexible than
 
 {% enddetails %}
 
-### Service `google.add_event`
+### Service `google.create_event`
 
-You can use the service `google.add_event` to create a new calendar event in a calendar. You can find the Calendar's ID Google Calendar Settings. All dates and times are in your local time, the integration gets your time zone from your `configuration.yaml` file.
+You can use the service `google.create_event` to create a new calendar event in a calendar.
 
-{% details "Add Event Service details" %}
+{% details "Create Event Service details" %}
 
 <div class='note'>
 
@@ -131,9 +135,10 @@ This will only be available if you have given Home Assistant `read-write` access
 
 </div>
 
+A calendar `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
+
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `calendar_id` | no | The id of the calendar you want. | *****@group.calendar.google.com
 | `summary` | no | Acts as the title of the event. | Bowling
 | `description` | yes | The description of the event. | Birthday bowling
 | `start_date_time` | yes | The date and time the event should start. | 2019-03-10 20:00:00
@@ -147,6 +152,18 @@ This will only be available if you have given Home Assistant `read-write` access
 You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
 
 </div>
+
+This is a full example of service call in YAML:
+
+```yaml
+service: google.create_event
+target:
+  entity_id: calendar.device_automation_schedules
+data:
+  summary: "Example"
+  start_date: "2022-10-1"
+  end_date: "2022-10-2"
+```
 
 {% enddetails %}
 

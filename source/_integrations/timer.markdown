@@ -12,7 +12,7 @@ ha_integration_type: helper
 
 The `timer` integration aims to simplify automations based on (dynamic) durations.
 
-When a timer finishes or gets canceled the corresponding events are fired. This allows you to differentiate if a timer has switched from `active` to `idle` because the given duration has elapsed or it has been canceled. To control timers in your automations you can use the services mentioned below. When calling the `start` service on a timer that is already running, it resets the duration it will need to finish and restart the timer without triggering a canceled or finished event. This, for example, makes it easy to create timed lights that get triggered by motion. Starting a timer triggers a started event unless the timer is paused, in that case, it triggers a restarted event.
+When a timer finishes or gets canceled the corresponding events are fired. This allows you to differentiate if a timer has switched from `active` to `idle` because the given duration has elapsed or it has been canceled. To control timers in your automations you can use the services mentioned below. When calling the `start` service on a timer that is already running, it resets the duration it will need to finish and restarts the timer without triggering a canceled or finished event. This, for example, makes it easy to create timed lights that get triggered by motion. Starting a timer triggers a started event unless the timer is paused, in that case, it triggers a restarted event.
 
 
 ## Configuration
@@ -22,7 +22,7 @@ You can also click the following button to be redirected to the Helpers page of 
 
 {% my helpers badge %}
 
-To be able to add Helpers via the user interface you should have default_config: in your configuration.yaml, it should already be there by default unless you removed it. If you removed default_config: from your configuration, you must add timer: to your configuration.yaml first, then you can use the UI.
+To be able to add Helpers via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it. If you removed `default_config:` from your configuration, you must add `timer:` to your `configuration.yaml` first, then you can use the UI.
 
 Timers can also be configured via configuration.yaml:
 To add a timer to your installation, add the following to your `configuration.yaml` file:

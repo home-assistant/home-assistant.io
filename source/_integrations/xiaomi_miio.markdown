@@ -16,7 +16,6 @@ ha_codeowners:
   - '@rytilahti'
   - '@syssi'
   - '@starkillerOG'
-  - '@bieniu'
 ha_domain: xiaomi_miio
 ha_config_flow: true
 ha_zeroconf: true
@@ -72,6 +71,13 @@ you used in the Xiaomi Home App (where you initially setup the device). There ar
 6 servers: `cn`, `de`, `i2`, `ru`, `sg` and `us`; please see
 [this page](https://www.openhab.org/addons/bindings/miio/#country-servers) for
 the server to use for each country.
+
+## Troubleshooting
+
+The most common problems are:
+- Xiaomi Miio devices do not communicate across subnets/VLANs due to the source address of the UDP packet not belonging to the subnet of the device itself, [more information and solutions](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets).
+- Roborock vacuums need to be connected to the Xiaomi Home app, not the Roborock app, [more information](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#roborock-vacuum-not-detected).
+- Blocking the network access to the device is known to cause intermittent connection issues due to the device's internal software hanging and a watchdog restarting the internal software, [more information](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#intermittent-connection-issues-timeouts-xiaomi-vacuum).
 
 ## Xiaomi Gateway
 
@@ -216,8 +222,12 @@ Supported devices:
 | Air Purifier 3 (2019)  | zhimi.airpurifier.ma4  | |
 | Air Purifier 3H (2019) | zhimi.airpurifier.mb3  | |
 | Air Purifier 3C        | zhimi.airpurifier.mb4  | |
+| Air Purifier ZA1       | zhimi.airpurifier.za1  | |
+| Air Purifier 4         | zhimi.airp.mb5         | |
+| Air Purifier 4 PRO     | zhimi.airp.vb4         | |
 | Air Fresh A1           | dmaker.airfresh.a1     | MJXFJ-150-A1 |
 | Air Fresh VA2          | zhimi.airfresh.va2     | |
+| Air Fresh VA4          | zhimi.airfresh.va4     | |
 | Air Fresh T2017        | dmaker.airfresh.t2017  | MJXFJ-300-G1 |
 | Air Humidifier         | zhimi.humidifier.v1    | |
 | Air Humidifier CA1     | zhimi.humidifier.ca1   | |
@@ -447,7 +457,7 @@ Child Lock              | Turn on/off the child lock
 Number                  | Description
 ----------------------- | -----------------------
 Favorite Motor Speed    | Set the favorite motor speed
-LED Brihtness           | Set the LED brightness
+LED Brightness           | Set the LED brightness
 
 - Sensor entities
 
@@ -464,6 +474,41 @@ Switch                  | Description
 ----------------------- | -----------------------
 Buzzer                  | Turn on/off the buzzer
 Child Lock              | Turn on/off the child lock
+
+### Air Purifier ZA1 (zhimi.airpurifier.za1)
+
+- Power (on, off)
+- Operation modes (Auto, Silent, Favorite)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Favorite Level          | Set the favorite level
+
+- Sensor entities
+
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Humidity                | The current humidity measured                                  | True
+Temperature             | The current temperature measured                               | True
+TVOC                    | The current concentration of Total Organic Volatile Components | True
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the Display (bright, dim, off)
 
 ### Air Purifier V3 (zhimi.airpurifier.v3)
 
@@ -495,6 +540,49 @@ Switch                  | Description
 Buzzer                  | Turn on/off the buzzer
 Child Lock              | Turn on/off the child lock
 LED                     | Turn on/off the LED
+
+### Air Purifier 4/4 PRO (zhimi.airp.mb5/zhimi.airp.vb4)
+
+These models use newer MiOT communication protocol.
+
+- Power (on, off)
+- Operation modes (Auto, Silent, Favorite, Fan)
+- Attributes (fan platform)
+- Number entities
+
+Number                  | Description
+----------------------- | -----------------------
+Fan Level               | Set the fan level
+Favorite Level          | Set the favorite level
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the Display (bright, dim, off)
+
+- Sensor entities
+
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Filter Life Remaining   | The remaining life of the filter in %                          | True
+Filter Time Left        | The remaining life of the filter in days                       | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+PM10                    | The current particulate matter 10 measured(4 PRO only)         | True
+Purify Volume           | The volume of purified air in qubic meter                      | False
+Temperature             | The current temperature measured                               | True
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
+Ionizer                 | Turn on/off the negative ion generator
+
 
 ### Air Fresh A1 (dmaker.airfresh.a1)
 
@@ -567,6 +655,41 @@ Child Lock              | Turn on/off `child lock`
 LED                     | Turn on/off `led`
 
 
+### Air Fresh VA4
+
+- Power (on, off)
+- Operation modes (Auto, Silent, Interval, Low, Middle, Strong)
+- Attributes (fan platform)
+  - `use_time`
+  - `extra_features`
+- Sensor entities
+
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Carbon Dioxide          | The current carbon dioxide measured in ppm                     | True
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Temperature             | The current temperature measured                               | True
+Use Time                | The accumulative number of seconds the device has been in use  | False
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+LED Brightness          | Controls the brightness of the LEDs (bright, dim, off)
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off `buzzer`
+Child Lock              | Turn on/off `child lock`
+LED                     | Turn on/off `led`
+Auxiliary Heat          | Turn on/off `heater`
+
+
 ### Air Fresh T2017 (dmaker.airfresh.t2017)
 
 - Power (on, off)
@@ -583,6 +706,13 @@ Button                  | Description
 ----------------------- | ------------------------------------------ 
 Reset Dust Filter       | Resets filter lifetime and usage of the dust filter  
 Reset Upper Filter      | Resets filter lifetime and usage of the upper filter 
+
+- Select entities
+
+Select                  | Description
+----------------------- | -----------------------
+Auxiliary Heat Level    | Controls the level of the heater (Low, Medium, High)
+Display Orientation     | Controls the orientation of the display (Forward, Left, Right)
 
 - Sensor entities
 
@@ -1038,12 +1168,6 @@ Set the extra features.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 | `features`                |       no | Integer, known values are 0 and 1.                      |
 
-### Troubleshooting `Unable to find device` error messages
-
-Check if the device is in the same subnet as the Home Assistant instance. Otherwise, you should configure your router/firewall to put this device in the same VLAN as the Home Assistant instance.
-
-If it's not possible to use VLANs for some reason, your last resort may be using NAT translation, between the IPs.
-
 ## Xiaomi Air Quality Monitor
 
 The `xiaomi_miio` Air Quality Monitor is observing your Xiaomi Mi Air Quality Monitor (PM2.5) and reporting the air quality index and other values.
@@ -1487,7 +1611,7 @@ Main Brush Left*:
 Sensor Dirty Left*:
   description: How long the sensor can  be used in seconds
 Current Clean Time:
-  description: The current cleaning time of the vacuum. If the vaccuum is not cleaning, this sensor will have the same value as the "Last Clean Duration" sensor.
+  description: The current cleaning time of the vacuum. If the vacuum is not cleaning, this sensor will have the same value as the "Last Clean Duration" sensor.
 Current Clean Area:
   description: The current area that has been cleaned. If the vacuum is not cealning, this sensor will have the same value as the "Last Clean Area" sensor.
 Last Clean Area*:
@@ -1594,7 +1718,7 @@ vacuum_kitchen:
 Valid room numbers can be retrieved using miio command-line tool:
 
 ```bash
-miiocli vacuum --ip <ip of the vacuum> --token <your vacuum token> get_room_mapping
+miiocli roborockvacuum --ip <ip of the vacuum> --token <your vacuum token> get_room_mapping
 ```
 
 It will return the full mapping of room numbers to user-defined names as a list of (number,name) tuples.

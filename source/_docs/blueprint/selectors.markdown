@@ -21,6 +21,7 @@ The following selectors are currently available:
 - [Attribute selector](#attribute-selector)
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
+- [Config entry selector](#config-entry-selector)
 - [Date selector](#date-selector)
 - [Date & time selector](#date--time-selector)
 - [Device selector](#device-selector)
@@ -33,6 +34,7 @@ The following selectors are currently available:
 - [Object selector](#object-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
+- [State selector](#state-selector)
 - [Target selector](#target-selector)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
@@ -214,7 +216,7 @@ area:
 
 ## Attribute selector
 
-The attributes selector shows a list of state attribites from a provided entity
+The attributes selector shows a list of state attributes from a provided entity
 of which one can be selected.
 
 This allows for selecting, e.g., the "Effect" attribute from a light entity, or the
@@ -279,9 +281,30 @@ max_mireds:
 
 The output of this selector is the number of mired selected, for example, `243`.
 
+## Config entry selector
+
+The config entry selector allows the user to select an integration
+configuration entry. The selector returns the entry ID of the selected
+integration configuration entry.
+
+![Screenshot of the Configuration entry selector](/images/blueprints/selector-config-entry.png)
+
+```yaml
+config_entry:
+```
+
+{% configuration config_entry %}
+integration:
+  description: Limits the list of selectable configuration entries to a single integration domain.
+  type: string
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the entry ID of the config entry, for example, `6b68b250388cbe0d620c92dd3acc93ec`.
+
 ## Date selector
 
-The date selector shows a date input that allows the user to specify a date. 
+The date selector shows a date input that allows the user to specify a date.
 
 ![Screenshot of the Date selector](/images/blueprints/selector-date.png)
 
@@ -291,13 +314,13 @@ This selector does not have any other options; therefore, it only has its key.
 date:
 ```
 
-The output of this selector is will contain the date in Year-Month-Day
+The output of this selector will contain the date in Year-Month-Day
 (`YYYY-MM-DD`) format, for example, `2022-02-22`.
 
 ## Date & time selector
 
 The date selector shows a date and time input that allows the user to specify a
-date with a specific time. 
+date with a specific time.
 
 ![Screenshot of the Date & time selector](/images/blueprints/selector-datetime.png)
 
@@ -307,7 +330,7 @@ This selector does not have any other options; therefore, it only has its key.
 datetime:
 ```
 
-The output of this selector is will contain the date in Year-Month-Day
+The output of this selector will contain the date in Year-Month-Day
 (`YYYY-MM-DD`) format and the time in 24-hour format, for example:
 `2022-02-22 13:30:00`.
 
@@ -430,7 +453,7 @@ duration:
 ```
 
 {% configuration attribute %}
-enable_days:
+enable_day:
   description: When `true`, the duration selector will allow selecting days.
   type: boolean
   default: false
@@ -441,7 +464,7 @@ The output of this selector is a mapping of the time values the user selected.
 For example:
 
 ```yaml
-days: 1 # Only when enable_days was set to true
+days: 1 # Only when enable_day was set to true
 hours: 12
 minutes: 30
 seconds: 15
@@ -596,7 +619,7 @@ radius: 500 # Only provided when radius was set to true.
 
 The media selector is a powerful selector that allows a user to easily select
 media to play on a media device. Media can be a lot of things, for example,
-cameras, local media, text-to-speech, Home Assistant Dashboads, and many more.
+cameras, local media, text-to-speech, Home Assistant Dashboards, and many more.
 
 The user selects the device to play media on, and automatically limits the
 selectable media suitable for the selected device.
@@ -641,10 +664,10 @@ the select value.
 ![Screenshot of a number selector](/images/blueprints/selector-number.png)
 
 On the user interface, the input can either be in a slider or number mode.
-Both modes limit the user input by a minimal and maximum value, and can
+Both modes limit the user input by a minimum and maximum value, and can
 have a unit of measurement to go with it.
 
-In its most basic form, this selector requires a minimal and maximum value:
+In its most basic form, this selector requires a minimum and maximum value:
 
 ```yaml
 number:
@@ -654,7 +677,7 @@ number:
 
 {% configuration number %}
 min:
-  description: The minimal user-settable number value.
+  description: The minimum user-settable number value.
   type: [integer, float]
   required: true
 max:
@@ -662,8 +685,8 @@ max:
   type: [integer, float]
   required: true
 step:
-  description: The step value of the number value.
-  type: [integer, float]
+  description: The step size of the number value. Set to `"any"` to allow any number.
+  type: [integer, float, "any"]
   required: false
   default: 1
 unit_of_measurement:
@@ -752,7 +775,7 @@ select:
 
 {% configuration select %}
 options:
-  description: > 
+  description: >
     List of options that the user can choose from. Small lists (5 items or less), are displayed as radio buttons. When more items are added, a dropdown list is used.
   type: list
   required: true
@@ -797,7 +820,7 @@ select:
 
 {% configuration select_map %}
 options:
-  description: > 
+  description: >
     List of options that the user can choose from. Small lists (5 items or less), are displayed as radio buttons. When more items are added, a dropdown list is used.
   type: map
   required: true
@@ -819,6 +842,25 @@ it returns: `g`, in the first example it would return `Green`.
 When `multiple` is `true`, the output of this selector is the list of selected
 option values. In this case, if `Green` was selected, in the first example it
 would return ["Green"] and in the last example it returns ["g"].
+
+## State selector
+
+The state selector shows a list of states for a provided entity of which
+one can be selected.
+
+![Screenshot of an state selector](/images/blueprints/selector-state.png)
+
+{% configuration state %}
+entity_id:
+  description: The entity ID of which an state can be selected from.
+  type: string
+  required: true
+{% endconfiguration %}
+
+The output of this selector is the select state (not the translated or
+prettified name shown in the frontend).
+
+For example: `heat_cool`.
 
 ## Target selector
 
@@ -970,11 +1012,19 @@ suffix:
   type: string
   required: false
 type:
-  description: > 
-    The type of input. This is a browser hint, which can improve
-    the client-side validation of the input. The value isn't validated
-    by the backend. Possible types are:
+  description: >
+    The type of input. This supplies the [HTML `type` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types),
+    which controls how the browser displays and validates the field. A subset of types available to the attribute are supported,
+    since some are handled by other selectors. Possible types are:
     `color`, `date`, `datetime-local`, `email`, `month`, `number`, `password`, `search`, `tel`, `text`, `time`, `url`, `week`.
+  type: string
+  default: text
+  required: false
+autocomplete:
+  description: >
+    Guides the browser on the type of information which should automatically fill the field.
+    This supplies the [HTML `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete).
+    Any value supported by the HTML attribute is valid.
   type: string
   required: false
 {% endconfiguration %}
@@ -994,13 +1044,13 @@ theme:
 
 This selector does not have any other options; therefore, it only has its key.
 
-The output of this selector is will contain the selected theme, for example:
+The output of this selector will contain the selected theme, for example:
 `waves_dark`.
 
 ## Time selector
 
 The time selector shows a time input that allows the user to specify a time
-of the day. 
+of the day.
 
 ![Screenshot of a time selector](/images/blueprints/selector-time.png)
 
@@ -1010,5 +1060,5 @@ This selector does not have any other options; therefore, it only has its key.
 time:
 ```
 
-The output of this selector is will contain the time in 24-hour format,
+The output of this selector will contain the time in 24-hour format,
 for example, `23:59:59`.

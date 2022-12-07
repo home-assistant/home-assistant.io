@@ -9,6 +9,7 @@ ha_quality_scale: internal
 ha_domain: alert
 ha_codeowners:
   - '@home-assistant/core'
+  - '@frenck'
 ha_integration_type: integration
 ---
 
@@ -103,7 +104,7 @@ done_message:
   type: template
 notifiers:
   description: "List of `notification` integrations to use for alerts."
-  required: true
+  required: false
   type: list
 data:
   description: "Dictionary of extra parameters to send to the notifier."

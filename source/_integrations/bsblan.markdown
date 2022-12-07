@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: bsblan
 ha_platforms:
   - climate
+  - diagnostics
 ha_integration_type: integration
 ---
 
