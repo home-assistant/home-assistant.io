@@ -93,7 +93,13 @@ Z-Wave.Me Z-Way requires Z-Wave.Me hardware:
 
 ## Installing Z-Way
 
-Z-Wave.Me Z-Way runs on various platforms: Raspberry Pi OS, Linux, Windows. Installation instructions are available here: https://z-wave.me/z-way/download-z-way/
+Z-Way can be installed as standalone as well as in a supervised Home Assistant, HAOS and on Home Assitsant Yellow controller.
+
+Check [Z-Wave.Me Add-on repository](https://github.com/Z-Wave-Me/ha-z-wave-me-addon) or use the installation button
+
+[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fz-wave-me%2Fha-z-wave-me-addon)
+
+As standalone, Z-Wave.Me Z-Way can run on various platforms: Raspberry Pi OS, Linux, Windows. Installation instructions are available here: https://z-wave.me/z-way/download-z-way/
 
 ## Migration to Z-Way
 
