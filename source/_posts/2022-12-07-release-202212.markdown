@@ -124,18 +124,19 @@ provides an additional visual indication of the entity's state.
 
 <img class="no-shadow" src='/images/blog/2022-12/tile-colors.png' alt='Screenshot showing the new state colors provided by the Tile card'>
 
-[Checkout the our documentation for more information about Tile features](/dashboards/tile/#tile-features)
+## State colors!
 
-But that is not all! The Tile card also got colors!
+Those lovely new state colors added to the Tile card, as shown above, are not
+just added to the tile card. This same color logic has now also been applied to
+the state history and the logbook!
 
-Based on the state of the entity shown in the Tile card, the card will
-get different colors. This color provides an additional visual indication
-of what the state of the entity is.
+<img class="no-shadow" src='/images/blog/2022-12/state-colors.png' alt='Screenshot showing the new state colors in history and logbooks'>
 
-<p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/197503420-6b3aa7de-ce38-4a68-a4e7-8eb74eb406d9.png' alt='Lorem ipsum'>
-Note: Placeholder screenshot that needs to be replaced.
-</p>
+Previously, these colors would be random. Now they are predictable, recognizable
+and, above all: just look a lot better 🤩
+
+This same experience will also be visible on the dedicated Logbook and History
+pages of course.
 
 ## Local calendar
 
