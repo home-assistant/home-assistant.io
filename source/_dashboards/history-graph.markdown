@@ -46,7 +46,7 @@ show_names:
   required: false
   description: If false, no entity names are shown in the card.
   type: boolean
-  default: true
+  default: false
 {% endconfiguration %}
 
 ## Options For Entities
