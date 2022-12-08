@@ -1,5 +1,5 @@
 ---
-title: "MQTT Update"
+title: "MQTT Text"
 description: "Instructions on how to interact with a device exposing text capability through MQTT from within Home Assistant."
 ha_category:
   - Text
