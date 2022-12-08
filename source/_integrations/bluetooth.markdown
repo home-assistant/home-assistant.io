@@ -91,7 +91,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - LM Technologies LM1010 (BCM20702A0) 📶
 - Nuu You BT40 (CSR8510A10)
 - Panda Wireless PBU40 (CSR8510A10)
-- Pluggable USB-BT4LE (BCM20702A0)
+- Plugable USB-BT4LE (BCM20702A0)
 - QGOO BT-06A (CSR8510A10)
 - Raspberry Pi 3B+ (CYW43455)
 - Raspberry Pi 4B (CYW43455)
