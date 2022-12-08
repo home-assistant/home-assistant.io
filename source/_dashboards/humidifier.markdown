@@ -32,6 +32,10 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+current_humidity_sensor:
+  required: false
+  description: Sensor for the current humidity.
+  type: string
 {% endconfiguration %}
 
 ## Example
@@ -42,4 +46,5 @@ Alternatively, the card can be configured using YAML:
 - type: humidifier
   entity: humidifier.bedroom
   name: Bedroom Humidifier
+  current_humidity_sensor: sensor.bedroom_humidity
 ```
