@@ -20,7 +20,7 @@ The following devices are currently supported by this integration:
  
 - RWE/innogy Smart Plug (PSS)
  
-##Prequisites
+## Prequisites
  
 This integration communicates with the local version of LIVISI SmartHome only. 
  
