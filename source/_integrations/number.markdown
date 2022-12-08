@@ -29,6 +29,7 @@ The type of data a number represents impacts how it is displayed in the frontend
 - **carbon_dioxide**: Carbon Dioxide in CO2 (Smoke)
 - **carbon_monoxide**: Carbon Monoxide in CO (Gas CNG/LPG)
 - **current**: Current in A
+- **data_size**: Data size in bit, kbit, Mbit, Gbit, B, kB, MB, GB, TB, PB, EB, ZB, YB, KiB, MiB, GiB, TiB, PiB, EiB, ZiB, or YiB
 - **distance**: Generic distance in km, m, cm, mm, mi, yd, or in
 - **energy**: Energy in Wh, kWh or MWh
 - **frequency**: Frequency in Hz, kHz, MHz or GHz
@@ -46,7 +47,7 @@ The type of data a number represents impacts how it is displayed in the frontend
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
 - **power_factor**: Power factor in %
 - **power**: Power in W or kW
-- **precipitation**: Accumulated precipitation in in or mm
+- **precipitation**: Accumulated precipitation in cm, in or mm
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d, or mm/h
 - **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg, or psi
 - **reactive_power**: Reactive power in var
