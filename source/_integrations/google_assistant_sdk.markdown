@@ -4,7 +4,7 @@ description: Instructions on how to use Google Assistant SDK in Home Assistant.
 ha_category:
   - Utility
 ha_iot_class: Cloud Polling
-ha_release: '2022.12'
+ha_release: '2023.01'
 ha_config_flow: true
 ha_domain: google_assistant_sdk
 ha_codeowners:
