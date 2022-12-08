@@ -35,7 +35,7 @@ The type of data a number represents impacts how it is displayed in the frontend
 - **gas**: Gasvolume in m³ or ft³
 - **humidity**: Percentage of humidity in the air
 - **illuminance**: The current light level in lx or lm
-- **irradiance**: Irradiance in W/m² or BTU/(h.ft²)
+- **irradiance**: Irradiance in W/m² or BTU/(h⋅ft²)
 - **moisture**: Percentage of water in a substance
 - **monetary**: The monetary value
 - **nitrogen_dioxide**: Concentration of Nitrogen Dioxide in µg/m³
