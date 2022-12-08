@@ -29,7 +29,7 @@ You must have a [Honeygain](https://r.honeygain.me/LEWISF7B55) account.
 {% configuration_basic %}
 Email Address:
   description: Your Honeygain account's email address, this is required.
-API Secret:
+Password:
   description: Your Honeygain password for the account, this is required.
 {% endconfiguration_basic %}
 
