@@ -282,6 +282,7 @@ source/_integrations/homekit.markdown @bdraco
 source/_integrations/homekit_controller.markdown @Jc2k @bdraco
 source/_integrations/homematic.markdown @pvizeli @danielperna84
 source/_integrations/homewizard.markdown @DCSBL
+source/_integrations/honeygain.markdown @SplinterHead
 source/_integrations/honeywell.markdown @rdfurman
 source/_integrations/http.markdown @home-assistant/core
 source/_integrations/huawei_lte.markdown @scop @fphammerle
