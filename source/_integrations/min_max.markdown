@@ -5,11 +5,11 @@ ha_category:
   - Helper
   - Sensor
   - Utility
-ha_iot_class: Local Push
+ha_iot_class: Calculated
 ha_release: 0.31
 ha_quality_scale: internal
 ha_codeowners:
-  - '@fabaff'
+  - '@gjohansson-ST'
 ha_domain: min_max
 ha_config_flow: true
 ha_platforms:

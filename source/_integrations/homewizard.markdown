@@ -10,7 +10,9 @@ ha_domain: homewizard
 ha_codeowners:
   - '@DCSBL'
 ha_platforms:
+  - button
   - diagnostics
+  - number
   - sensor
   - switch
 ha_zeroconf: true
@@ -85,4 +87,3 @@ The HomeWizard Energy devices are designed to work with the HomeWizard Energy ap
 
 Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.
 This feature is currently only available for the Wifi Energy Socket with firmware version `3.01` or later.
-
