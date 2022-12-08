@@ -54,6 +54,7 @@ The type of data a number represents impacts how it is displayed in the frontend
 - **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg, or psi
 - **reactive_power**: Reactive power in var
 - **signal_strength**: Signal strength in dB or dBm
+- **sound_pressure**: Sound pressure in dB or dBA
 - **speed**: Generic speed in ft/s, in/d, in/h, km/h, kn, m/s, mph, or mm/d
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
 - **temperature**: Temperature in °C or °F
