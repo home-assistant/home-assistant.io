@@ -91,7 +91,7 @@ scan_interval:
   description: Define the refrequency to call the REST endpoint in seconds.
   required: false
   type: integer
-  default: 30
+  default: 600
 sensor:
   description: A list of sensors to create from the shared data. All configuration settings that are supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
   required: true
