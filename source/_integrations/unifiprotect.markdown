@@ -279,16 +279,6 @@ Removes an existing message for Doorbells.
 | `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances.  |
 | `message`              | No       | Existing custom message to remove for Doorbells.                                                             |
 
-### Service unifiprotect.set_doorbell_message
-
-Use to dynamically set the message on a Doorbell LCD screen. This service should only be used to set dynamic messages (i.e. setting the current outdoor temperature on your Doorbell). Static messages should still be set using the Select entity and can be added/removed using the `add_doorbell_text`/`remove_doorbell_text` services.
-
-| Service data attribute | Optional | Description                                                                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | No       | The Doorbell Text select entity for your Doorbell.                                                           |
-| `message`              | No       | The message you would like to display on the LCD screen of your Doorbell. Must be less than 30 characters.   |
-| `duration`             | Yes      | Number of minutes to display the message for before returning to the default message. The default is to not expire. |
-
 ### Service unifiprotect.set_chime_paired_doorbells
 
 Use to set the paired doorbell(s) with a smart chime.
