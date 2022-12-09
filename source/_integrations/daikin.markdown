@@ -95,16 +95,20 @@ _When "Holiday mode" is enabled, the following action take place:_
 
 ## Sensor
 
-The `daikin` sensor platform integrates Daikin air conditioning systems into Home Assistant, enabling displaying the following parameters:
+The `daikin` sensor platform integrates Daikin air conditioning systems into Home Assistant, enabling displaying the following parameters by device:
 
 - Inside temperature
-- Outside temperature
 - Inside humidity
-- Estimated power consumption (not per device, but sum of installation)
 - Hourly energy consumption in cool mode
 - Hourly energy consumption in heat mode
-- Outside unit's compressor frequency
-- Today's total energy consumption (not per device, but sum of installation, resets at 00:00)
+- Today's total energy consumption (updated hourly, resets at 00:00)
+
+The integration displays the following parameters for the outdoor compressor:
+
+- Outside temperature
+- Outside compressor Estimated power consumption (sum of all devices)
+- Outside compressor Energy consumption (sum of all devices, resets at 00:00)
+- Outside compressor frequency
 
 <div class='note'>
 
@@ -117,11 +121,12 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 
 <div class='note'>
 
-- The 'Today's total energy consumption' and 'Estimated power consumption' sensor is updated every time 100 Wh are consumed by all different operating modes summed together. These values are the values for the whole installation, not per device (unless, you have only one device).
-- The 'Estimated power consumption' sensor is derived from the energy consumption and not provided by the AC directly.
+- The 'Outdoor compressor Energy consumption' and 'Outdoor compressor Estimated power consumption' sensors are updated every time 100 Wh are consumed by all different operating modes summed together.
+- The 'Outdoor compressor Estimated power consumption' sensor is derived from the above energy consumption and not provided by the AC directly.
 - The 'cool/heat' energy sensors are updated hourly with the previous hour energy consumption
   of a given mode and a given AC.
 - The 'cool' mode also includes the 'fan' and 'dehumidifier' modes' power consumption.
+- If you have multiple indoor devices, the 'Outdoor compressor' sensors will be created multiple times but will all report the same values. You can disable all but one.
 
 </div>
 

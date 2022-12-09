@@ -12,7 +12,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@tkdrob'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 This Radarr integration pulls data from a given [Radarr](https://radarr.video/) instance.
