@@ -315,7 +315,6 @@ The following integrations are now available via the Home Assistant UI:
 
 ## Release 2022.12.1 - December 8
 
-- 2022.12.0 ([@frenck] - [#83482]) ([abode docs]) ([accuweather docs])
 - Set connectable as false for sensirion_ble ([@chkuendig] - [#83481]) ([sensirion_ble docs])
 - Make sure super async_added_to_hass is called ([@elupus] - [#83493]) ([philips_js docs])
 - Bump `simplisafe-python` to 2022.12.0 ([@bachya] - [#83497]) ([simplisafe docs])
