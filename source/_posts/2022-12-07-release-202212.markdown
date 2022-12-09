@@ -60,6 +60,7 @@ Happy holidays and for the last time in 2022: Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2022.12.1 - December 8](#release-2022121---december-8)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -312,6 +313,64 @@ The following integrations are now available via the Home Assistant UI:
 [Pushbullet]: /integrations/pushbullet
 [Scrape]: /integrations/scrape
 
+## Release 2022.12.1 - December 8
+
+- Set connectable as false for sensirion_ble ([@chkuendig] - [#83481]) ([sensirion_ble docs])
+- Make sure super async_added_to_hass is called ([@elupus] - [#83493]) ([philips_js docs])
+- Bump `simplisafe-python` to 2022.12.0 ([@bachya] - [#83497]) ([simplisafe docs])
+- Bump python-matter-server to 1.0.7 ([@marcelveldt] - [#83507]) ([matter docs])
+- Bump pyhik to 0.3.2 ([@mezz64] - [#83517]) ([hikvision docs])
+- Bump ical to 4.2.2 ([@allenporter] - [#83520]) ([local_calendar docs])
+- Fix issue with Callable, Union, and Python 3.9 [mqtt] ([@cdce8p] - [#83547]) ([mqtt docs])
+- Update frontend to 20221208.0 ([@bramkragten] - [#83551]) ([frontend docs])
+- Improve local calendar input validation error handling ([@allenporter] - [#83563]) ([local_calendar docs])
+- Bump pip_check conflicts +1 ([@frenck] - [#83536])
+- Bump intellifire4py to 2.2.2 ([@jeeftor] - [#83589]) ([intellifire docs])
+- Bump bluetooth-auto-recovery to 0.5.5 ([@bdraco] - [#83597]) ([bluetooth docs])
+- Disable multi-pan ([@balloob] - [#83603]) ([homeassistant_yellow docs]) ([homeassistant_sky_connect docs]) ([homeassistant_hardware docs])
+
+[#83481]: https://github.com/home-assistant/core/pull/83481
+[#83482]: https://github.com/home-assistant/core/pull/83482
+[#83493]: https://github.com/home-assistant/core/pull/83493
+[#83497]: https://github.com/home-assistant/core/pull/83497
+[#83507]: https://github.com/home-assistant/core/pull/83507
+[#83517]: https://github.com/home-assistant/core/pull/83517
+[#83520]: https://github.com/home-assistant/core/pull/83520
+[#83536]: https://github.com/home-assistant/core/pull/83536
+[#83547]: https://github.com/home-assistant/core/pull/83547
+[#83551]: https://github.com/home-assistant/core/pull/83551
+[#83563]: https://github.com/home-assistant/core/pull/83563
+[#83589]: https://github.com/home-assistant/core/pull/83589
+[#83597]: https://github.com/home-assistant/core/pull/83597
+[#83603]: https://github.com/home-assistant/core/pull/83603
+[@allenporter]: https://github.com/allenporter
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cdce8p]: https://github.com/cdce8p
+[@chkuendig]: https://github.com/chkuendig
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@jeeftor]: https://github.com/jeeftor
+[@marcelveldt]: https://github.com/marcelveldt
+[@mezz64]: https://github.com/mezz64
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[bluetooth docs]: /integrations/bluetooth/
+[frontend docs]: /integrations/frontend/
+[hikvision docs]: /integrations/hikvision/
+[homeassistant_hardware docs]: /integrations/homeassistant_hardware/
+[homeassistant_sky_connect docs]: /integrations/homeassistant_sky_connect/
+[homeassistant_yellow docs]: /integrations/homeassistant_yellow/
+[intellifire docs]: /integrations/intellifire/
+[local_calendar docs]: /integrations/local_calendar/
+[matter docs]: /integrations/matter/
+[mqtt docs]: /integrations/mqtt/
+[philips_js docs]: /integrations/philips_js/
+[sensirion_ble docs]: /integrations/sensirion_ble/
+[simplisafe docs]: /integrations/simplisafe/
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
@@ -523,7 +582,7 @@ YAML configuration of MQTT entities under the platform key (e.g., `light`),
 which was deprecated in Home Assistant Core 2022.6, is no longer supported.
 The configuration must instead be done under the `mqtt` key.
 
-The legacy MQTT device tracker is no longer supported. See 
+The legacy MQTT device tracker is no longer supported. See
 [the documentation](/integrations/device_tracker.mqtt/) for the supported MQTT
 device tracker configuration.
 
