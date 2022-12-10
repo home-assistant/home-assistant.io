@@ -10,7 +10,12 @@ ha_codeowners:
 ha_domain: xbox_live
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
+
+<div class='note warning'>
+  This integration is pending removal from Home Assistant and will be no longer available as of Home Assistant 2023.2.
+</div>
 
 The Xbox Live integration is able to track [Xbox](https://xbox.com/) profiles.
 

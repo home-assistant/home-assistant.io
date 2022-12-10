@@ -12,6 +12,7 @@ ha_codeowners:
   - '@jyavenard'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 Integration for the [IoTaWatt](https://www.iotawatt.com/) Open WiFi Electricity Monitor. It
@@ -24,7 +25,7 @@ and create them as sensors in Home Assistant.
 
 You can use the accumulated energy sensors directly with the Home Assistant energy dashboard.
 
-If you have an energy production system such as solar panels, following these instructions:
+If you have an energy production system such as solar panels, follow these instructions:
 
 ### Configure IoTaWatt
 

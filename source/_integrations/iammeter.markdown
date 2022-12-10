@@ -11,6 +11,7 @@ ha_codeowners:
   - '@lewei50'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 [IAMMETER](https://www.iammeter.com/) provides both a bi-directional single-phase energy meter([WEM3080](https://www.iammeter.com/products/single-phase-meter)) and a bi-directional three-phase energy monitor ([WEM3080T](https://www.iammeter.com/products/three-phase-meter)). Both of them can be integrated into Home Assistant.

@@ -11,7 +11,9 @@ ha_codeowners:
 ha_domain: ambient_station
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
+ha_integration_type: hub
 ---
 
 The `Ambient Weather Station` integration retrieves local weather information

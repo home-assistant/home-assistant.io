@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.56
 ha_domain: namecheapdns
+ha_integration_type: integration
 ---
 
 With the `namecheapdns` integration you can automatically update your dynamic DNS entry at [namecheapdns](https://www.namecheap.com/store/domains/freedns/).

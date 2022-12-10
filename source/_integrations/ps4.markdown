@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: ps4
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `ps4` integration allows you to control a
@@ -29,7 +30,7 @@ The `ps4` integration allows you to control a
   Read the section "Granting Port Access" below before continuing.
 </div>
 
-2. Navigate to `Configuration -> Integrations` and press the plus button in the bottom right corner. Select `PlayStation 4` from the list of integrations.
+2. Navigate to `Settings -> Integrations` and press the plus button in the bottom right corner. Select `PlayStation 4` from the list of integrations.
 
 3. Follow instructions displayed to generate user credentials. You will know this step is completed when a form with fields appears.
 

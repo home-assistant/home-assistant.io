@@ -8,6 +8,7 @@ ha_domain: media_source
 ha_codeowners:
   - '@hunterjm'
 ha_quality_scale: internal
+ha_integration_type: system
 ---
 
 The Media Source integration platform allows integrations to expose media for

@@ -2,8 +2,8 @@
 title: Pilight
 description: Instructions on how to setup Pilight within Home Assistant.
 ha_category:
-  - DIY
   - Binary Sensor
+  - DIY
   - Sensor
   - Switch
 ha_release: 0.26
@@ -16,6 +16,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 [Pilight](https://www.pilight.org/) is a modular and open source solution to communicate with 433 MHz devices and runs on various small form factor computers. A lot of common [protocols](https://manual.pilight.org/protocols/index.html) are already available.
@@ -82,7 +83,7 @@ pilight:
 
 ## Binary Sensor
 
-The `pilight` binary sensor platform implement the [pilight hub](#configuration) binary sensor functionality. Two type of Pilight binary sensor configuration available. A normal sensor which send the on and off state cyclical and a trigger sensor which send only a trigger when an event happened (for example lots of cheap PIR motion detector).
+The `pilight` binary sensor platform implements the [pilight hub](#configuration) binary sensor functionality. There are two types of Pilight binary sensor configuration: a normal sensor which sends the on and off cyclical state and a trigger sensor which sends only a trigger when an event happened (for example lots of cheap PIR motion detectors).
 
 To enable a Pilight binary sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -151,7 +152,7 @@ binary_sensor:
 
 This `pilight` sensor platform for 433 MHz devices uses a value in the message payload as the sensor value. Unique identifiers (e.g., _uuid_) can be set to distinguish between multiple pilight devices. To use a pilight sensor the pilight Home Assistant hub has to be set up.
 
-To use your sensor via pilight, make sure it is [supported](https://wiki.pilight.org/doku.php/protocols) and add the following to your `configuration.yaml` file:
+To use your sensor via pilight, make sure it is [supported](https://wiki.pilight.org/protocols) and add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

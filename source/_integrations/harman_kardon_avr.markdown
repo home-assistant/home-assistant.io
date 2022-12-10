@@ -8,6 +8,7 @@ ha_release: 0.85
 ha_domain: harman_kardon_avr
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `harman_kardon_avr` platform allows you to control Harman Kardon Network Receivers from Home Assistant.

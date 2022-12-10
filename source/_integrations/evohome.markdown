@@ -2,8 +2,8 @@
 title: Honeywell Total Connect Comfort (Europe)
 description: Instructions on how to integrate a Honeywell Evohome/TCC system with Home Assistant.
 ha_category:
-  - Hub
   - Climate
+  - Hub
   - Water Heater
 ha_release: '0.80'
 ha_iot_class: Cloud Polling
@@ -13,6 +13,7 @@ ha_domain: evohome
 ha_platforms:
   - climate
   - water_heater
+ha_integration_type: integration
 ---
 
 The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:

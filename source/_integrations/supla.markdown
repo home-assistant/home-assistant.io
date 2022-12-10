@@ -3,8 +3,8 @@ title: Supla
 description: Instructions for integration with Supla Cloud's Web API
 ha_release: 0.92
 ha_category:
-  - Hub
   - Cover
+  - Hub
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@mwegrzynek'
@@ -12,6 +12,7 @@ ha_domain: supla
 ha_platforms:
   - cover
   - switch
+ha_integration_type: integration
 ---
 
 The [Supla](https://supla.org/) is an Open Source home automation system for ESP8266 based devices. It has its own set of protocols, its own firmware and commercially available devices (produced for example by [Zamel](https://zamel.pl/pl-PL/produkty/supla-sterowanie-wi-fi))

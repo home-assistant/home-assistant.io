@@ -10,6 +10,7 @@ ha_platforms:
   - media_player
 ha_codeowners:
   - '@Drafteed'
+ha_integration_type: integration
 ---
 
 The `lg_netcast` platform allows you to control a LG Smart TV running NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013). For the new LG WebOS TV's use the [webostv](/integrations/webostv#media-player) platform.

@@ -8,6 +8,7 @@ ha_release: 0.47
 ha_domain: sesame
 ha_platforms:
   - lock
+ha_integration_type: integration
 ---
 
 The `sesame` platform allows you to control your [Sesame](https://candyhouse.co/) smart locks made by CANDY HOUSE, Inc.

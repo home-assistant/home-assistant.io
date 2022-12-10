@@ -1,5 +1,5 @@
 ---
-title: Ubiquiti UniFi LED
+title: UniFi LED
 description: Instructions on how to configure the UniFi LED integration with UniFi LED Controller by Ubiquiti.
 ha_category:
   - Light
@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: unifiled
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 [UniFi LED](https://unifi-led.ui.com/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a system of controller managed LED light panels and dimmers.

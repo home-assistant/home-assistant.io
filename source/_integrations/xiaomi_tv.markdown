@@ -10,9 +10,10 @@ ha_codeowners:
 ha_domain: xiaomi_tv
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
-The `xiaomi_tv` platform allows you to control a [Xiaomi TV](https://www.mi.com/en/mitv3s/65flat/).
+The `xiaomi_tv` platform allows you to control a [Xiaomi TV](https://www.mi.com/global/mitv3s/65flat/).
 
 You need to make sure the TV is connected to the internet, and that your Home Assistant instance is on the same network.
 

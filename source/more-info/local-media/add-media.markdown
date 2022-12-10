@@ -15,7 +15,7 @@ If you are running Home Assistant OS or Supervised, you can access your
 (automatically) created media folder using the Samba add-on.
 
 If you haven't installed the Samba add-on yet, you can do so by browsing to
-the {% my supervisor title="Configuration > Add-ons & Backups" %} panel. Next, click on
+the {% my supervisor title="Settings > Add-ons" %} panel. Next, click on
 the "Add-on store" tab and search for "Samba" and click on it.
 
 On the Samba add-on page, you can find a tab called "Documentation" with

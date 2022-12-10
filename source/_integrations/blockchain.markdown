@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: blockchain
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `Blockchain` sensor platform displays Bitcoin wallet balances from [blockchain.com](https://blockchain.com).

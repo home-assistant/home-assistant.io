@@ -2,8 +2,8 @@
 title: Itho Daalderop Spider
 description: Instructions on how to setup the Spider hub within Home Assistant.
 ha_category:
-  - Hub
   - Climate
+  - Hub
   - Switch
 ha_iot_class: Cloud Polling
 ha_release: 0.75
@@ -15,6 +15,7 @@ ha_platforms:
   - climate
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `spider` integration is the main integration to integrate all [Itho Daalderop Spider](https://www.ithodaalderop.nl/spider-thermostaat) related platforms. You will need your Spider account information (username, password) to discover and control devices which are related to your account.

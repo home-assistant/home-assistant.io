@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: netdata
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `netdata` sensor platform allows you to display information collected by [Netdata](https://my-netdata.io/).

@@ -6,88 +6,57 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_domain: mjpeg
+ha_config_flow: true
 ha_platforms:
   - camera
+ha_integration_type: integration
 ---
 
-The `mjpeg` camera platform allows you to integrate IP cameras which are capable
-to stream their video with MJPEG into Home Assistant.
+The MJPEG IP Camera integration allows you to integrate IP cameras which are
+capable to stream their video with MJPEG (Motion JPEG) into Home Assistant.
 
-## Configuration
+## Prerequisites
 
-To enable this camera in your installation,
-add the following to your `configuration.yaml` file:
+To use this integration, you will need to at least have the video streaming
+URL for your camera. If you don't know it, you could try to look it up
+in the [iSpy Camera Connection Database](https://www.ispyconnect.com/cameras).
 
-```yaml
-# Example configuration.yaml entry
-camera:
-  - platform: mjpeg
-    mjpeg_url: http://192.168.1.92/mjpeg
-```
+{% include integrations/config_flow.md %}
 
-{% configuration %}
-mjpeg_url:
+{% configuration_basic %}
+MJPEG URL:
   description: The URL your camera serves the video on, e.g., `http://192.168.1.21:2112/`
-  required: true
-  type: string
-still_image_url:
-  description: The URL for thumbnail picture if camera support that.
-  required: false
-  type: string
-name:
-  description: This parameter allows you to override the name of your camera.
-  required: false
-  type: string
-username:
+Still Image URL:
+  description: The URL for thumbnail picture (if the camera support that).
+Username:
   description: The username for accessing your camera.
-  required: false
-  type: string
-password:
+Password:
   description: The password for accessing your camera.
-  required: false
-  type: string
-authentication:
-  description: "`basic` or `digest` auth for requests."
-  required: false
-  type: string
-  default: basic
-verify_ssl:
+Verify SSL:
   description: Validate the SSL certificate for this camera.
-  required: false
-  type: boolean
-  default: true
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
-## Examples
+This integration support both basic and digest authentication, which one to
+use is automatically detected when using a username and password.
 
-Example of using a DCS-930L Wireless N Network Camera from D-Link:
+## Examples of MJPEG and still image URLs
 
-```yaml
-camera:
-  - platform: mjpeg
-    name: Livingroom Camera
-    still_image_url: http://IP/image.jpg
-    mjpeg_url: http://IP/video/mjpg.cgi
-```
+- Blue Iris Cameras / Blue Iris Server:
+  - MJPEG URL: `http://IP:PORT/mjpg/CAMERASHORTNAME/video.mjpeg`
+  - Still Image URL: `http://IP:PORT/image/CAMERASHORTNAME`
 
-Example of integrating Blue Iris Cameras from a Blue Iris server.
+- DCS-930L Wireless N Network Camera from D-Link:
+  - MJPEG URL: `http://IP/video/mjpg.cgi`
+  - Still Image URL: `http://IP/image.jpg`
 
-```yaml
-camera:
-  - platform: mjpeg
-    name: Livingroom Camera
-    mjpeg_url: http://IP:PORT/mjpg/CAMERASHORTNAME/video.mjpeg
-    username: BLUE_IRIS_USERNAME
-    password: BLUE_IRIS_PASSWORD
-    authentication: basic
-```
+- DCS-933L Wireless N Network Camera from D-Link:
+  - MJPEG URL: `http://IP:PORT/video/mjpg.cgi`
+  - Still Image URL: `http://IP:PORT/image/jpeg.cgi`
 
-Example of using a DCS-933L Wireless N Network Camera from D-Link:
+- OctoPrint (OctoPi):
+  - MJPEG URL: `http://IP/webcam/?action=stream`
+  - Still Image URL: `http://IP/webcam/?action=snapshot`
 
-```yaml
-camera:
-  - platform: mjpeg
-    name: "YOUR_FRIENDLY_NAME"
-    still_image_url: "http://USER:PASSWORD@IP_CAM:PORT/image/jpeg.cgi"
-    mjpeg_url: "http://USER:PASSWORD@IP_CAM:PORT/video/mjpg.cgi"
-```
+- Legacy Foscam / wanscam
+  - MJPEG URL: `http://IP:PORT/videostream.cgi` (add ?resultion=32 for 640x480 or ?resultion=32 for 320x240)
+  - Still Image URL: `http://IP:PORT/snapshot.cgi`

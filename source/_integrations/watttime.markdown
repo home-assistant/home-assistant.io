@@ -10,7 +10,9 @@ ha_codeowners:
   - '@bachya'
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: service
 ---
 
 The `watttime` integration allows users to get real-time emissions data for a latitude/longitude from [WattTime](https://www.watttime.org).

@@ -37,7 +37,7 @@ This sections just contains some random numbers of the Home Assistant eco-system
 
 ## Commit per year
 
-The numbers below only covers the [main git repository](https://github.com/home-assistant/home-assistant/) and doesn't take the helpers ([home-assistant.io](https://github.com/home-assistant/home-assistant.io), [home-assistant-polymer](https://github.com/home-assistant/home-assistant-polymer), etc.) into account.
+The numbers below only covers the [main git repository](https://github.com/home-assistant/home-assistant/) and doesn't take the helpers ([home-assistant.io](https://github.com/home-assistant/home-assistant.io), [frontend](https://github.com/home-assistant/frontend), etc.) into account.
 
 ```bash
 2013: 147

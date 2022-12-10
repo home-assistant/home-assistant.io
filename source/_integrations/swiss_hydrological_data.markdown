@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: swiss_hydrological_data
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `swiss_hydrological_data` sensor will show you details (temperature, level, and discharge) of rivers and lakes in Switzerland.

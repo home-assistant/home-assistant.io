@@ -8,6 +8,7 @@ ha_release: 0.82
 ha_domain: niko_home_control
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 The `niko_home_control` platform allows you to integrate your [Niko Home Control](https://www.niko.eu/enus/products/niko-home-control) into Home Assistant.

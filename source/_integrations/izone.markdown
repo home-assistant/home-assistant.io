@@ -4,7 +4,7 @@ description: Instructions on how to integrate iZone climate control devices with
 ha_category:
   - Climate
 ha_release: '0.100'
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@Swamp-Ig'
@@ -12,13 +12,14 @@ ha_domain: izone
 ha_homekit: true
 ha_platforms:
   - climate
+ha_integration_type: integration
 ---
 
 The `iZone` integration allows access of control of a local [iZone](https://izone.com.au/) ducted reverse-cycle climate control devices. These are largely available in Australia.
 
 ## Supported hardware
 
-Any current iZone unit with ducted reverse cycle airconditioning and the CB wired or wireless bridge device installed should currently work. There is currently no support for the iZone lights, reticulation, or other devices.
+Any current iZone unit with ducted reverse cycle air-conditioning, and the CB wired or wireless bridge device installed should currently work. There is currently no support for the iZone lights, reticulation, or other devices.
 
 {% include integrations/config_flow.md %}
 

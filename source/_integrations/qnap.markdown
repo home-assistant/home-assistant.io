@@ -5,11 +5,10 @@ ha_category:
   - System Monitor
 ha_release: 0.38
 ha_iot_class: Local Polling
-ha_codeowners:
-  - '@colinodell'
 ha_domain: qnap
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 This `qnap` sensor allows getting various statistics from your [QNAP NAS](https://www.qnap.com/en-us/).

@@ -58,6 +58,8 @@ holidays. So, the first release in 2022, will be Wednesday, 2 February 2022._
 - [Release 2021.12.6 - December 27](#release-2021126---december-27)
 - [Release 2021.12.7 - December 29](#release-2021127---december-29)
 - [Release 2021.12.8 - January 4](#release-2021128---january-4)
+- [Release 2021.12.9 - January 10](#release-2021129---january-10)
+- [Release 2021.12.10 - January 17](#release-20211210---january-17)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -133,7 +135,7 @@ automatically populates with entities of devices you have assigned
 to that specific area.
 
 <p class='img'>
-<img src='/images/blog/2021-12/area-card.png' alt='Screenshot of a new area Lovelace card'>
+<img src='/images/dashboards/area-card.png' alt='Screenshot of a new area Lovelace card'>
 Screenshot of a new area Lovelace card.
 </p>
 
@@ -904,6 +906,150 @@ like before. Done by [@marvin-w].
 [systemmonitor docs]: /integrations/systemmonitor/
 [tuya docs]: /integrations/tuya/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
+
+## Release 2021.12.9 - January 10
+
+- Bump pychromecast to 10.2.3 ([@emontnemery] - [#63429]) ([cast docs])
+- Bump flux_led to 0.27.40 to fix SK6812RGBW white level reporting ([@bdraco] - [#63435]) ([flux_led docs])
+- Fix incorrect access to entity registry in Xiaomi Miio ([@frenck] - [#63446]) ([xiaomi_miio docs])
+- Pickup screenlogic codeowner ([@bdraco] - [#61477]) ([screenlogic docs])
+- Bump screenlogicpy ([@dieselrabbit] - [#63533]) ([screenlogic docs])
+- Bump soco to 0.25.3 ([@jjlawren] - [#63548]) ([sonos docs])
+- Fix KeyError during call to homekit.unpair ([@bdraco] - [#63627]) ([homekit docs])
+- Ensure selected entity is pre-selected in homekit options flow ([@bdraco] - [#63628]) ([homekit docs])
+- Bump flux_led to 0.27.41 ([@bdraco] - [#63638]) ([flux_led docs])
+- Add default mode 'auto' for tradfri starkvind air purifier on turn on ([@leahoswald] - [#63641]) ([tradfri docs])
+- Bump flux_led to 0.27.42 ([@bdraco] - [#63651]) ([flux_led docs])
+- Split august motion and image capture binary sensors ([@bdraco] - [#62154]) ([august docs])
+- Bump yalexs to 1.1.16 ([@bdraco] - [#62700]) ([august docs])
+- Fix august locks failing to lock/unlock ([@bdraco] - [#63652]) ([august docs])
+- Switchbot Set initial state for switch ([@RenierM26] - [#63654]) ([switchbot docs])
+- Fix Tuya climate c_f DP not being a string ([@frenck] - [#63680]) ([tuya docs])
+- Fix Netgear used method version ([@starkillerOG] - [#63686]) ([netgear docs])
+- Bump flux_led to 0.27.44 to fix CCT ceiling lights ([@bdraco] - [#63712]) ([flux_led docs])
+- Bump PySwitchbot to 0.13.2 ([@RenierM26] - [#63713]) ([switchbot docs])
+- Bump WazeRouteCalculator to 0.14 ([@k-korn] - [#63718]) ([waze_travel_time docs])
+- Fix zwave_js device actions ([@raman325] - [#63769]) ([zwave_js docs])
+- Add client metadata to cloud register ([@ludeeus] - [#63794]) ([cloud docs])
+- Support Tuya strip lights with correct values for saturation and brightness ([@Knodd] - [#63812]) ([tuya docs])
+- Bump flux_led to 0.27.45 to fix missing controls on ZJ21410 models ([@bdraco] - [#63854]) ([flux_led docs])
+- Bump aioharmony to 0.2.9 ([@bdraco] - [#63858]) ([harmony docs])
+- Bump frontend to 20211229.1 ([@balloob] - [#63866]) ([frontend docs])
+
+[#61477]: https://github.com/home-assistant/core/pull/61477
+[#62154]: https://github.com/home-assistant/core/pull/62154
+[#62700]: https://github.com/home-assistant/core/pull/62700
+[#63429]: https://github.com/home-assistant/core/pull/63429
+[#63435]: https://github.com/home-assistant/core/pull/63435
+[#63446]: https://github.com/home-assistant/core/pull/63446
+[#63533]: https://github.com/home-assistant/core/pull/63533
+[#63548]: https://github.com/home-assistant/core/pull/63548
+[#63627]: https://github.com/home-assistant/core/pull/63627
+[#63628]: https://github.com/home-assistant/core/pull/63628
+[#63638]: https://github.com/home-assistant/core/pull/63638
+[#63641]: https://github.com/home-assistant/core/pull/63641
+[#63651]: https://github.com/home-assistant/core/pull/63651
+[#63652]: https://github.com/home-assistant/core/pull/63652
+[#63654]: https://github.com/home-assistant/core/pull/63654
+[#63680]: https://github.com/home-assistant/core/pull/63680
+[#63686]: https://github.com/home-assistant/core/pull/63686
+[#63712]: https://github.com/home-assistant/core/pull/63712
+[#63713]: https://github.com/home-assistant/core/pull/63713
+[#63718]: https://github.com/home-assistant/core/pull/63718
+[#63769]: https://github.com/home-assistant/core/pull/63769
+[#63794]: https://github.com/home-assistant/core/pull/63794
+[#63812]: https://github.com/home-assistant/core/pull/63812
+[#63854]: https://github.com/home-assistant/core/pull/63854
+[#63858]: https://github.com/home-assistant/core/pull/63858
+[#63866]: https://github.com/home-assistant/core/pull/63866
+[@Knodd]: https://github.com/Knodd
+[@RenierM26]: https://github.com/RenierM26
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@dieselrabbit]: https://github.com/dieselrabbit
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jjlawren]: https://github.com/jjlawren
+[@k-korn]: https://github.com/k-korn
+[@leahoswald]: https://github.com/leahoswald
+[@ludeeus]: https://github.com/ludeeus
+[@raman325]: https://github.com/raman325
+[@starkillerOG]: https://github.com/starkillerOG
+[august docs]: /integrations/august/
+[cast docs]: /integrations/cast/
+[cloud docs]: /integrations/cloud/
+[flux_led docs]: /integrations/flux_led/
+[frontend docs]: /integrations/frontend/
+[harmony docs]: /integrations/harmony/
+[homekit docs]: /integrations/homekit/
+[netgear docs]: /integrations/netgear/
+[screenlogic docs]: /integrations/screenlogic/
+[sonos docs]: /integrations/sonos/
+[switchbot docs]: /integrations/switchbot/
+[tradfri docs]: /integrations/tradfri/
+[tuya docs]: /integrations/tuya/
+[waze_travel_time docs]: /integrations/waze_travel_time/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.12.10 - January 17
+
+- Avoid removing zwave_js devices for non-ready nodes ([@kpine] - [#59964]) ([zwave_js docs])
+- Convert siri requests for target heating cooling state auto to a valid mode ([@bdraco] - [#60220]) ([homekit docs])
+- dlna_dmr: Allow for upnp attributes with None contents ([@chishm] - [#63892]) ([dlna_dmr docs])
+- Convert disabled_by to DeviceEntryDisabler on load ([@agners] - [#63944]) ([deconz docs]) ([picnic docs])
+- Fix homekit options being mutated during config_flow/migration ([@bdraco] - [#64003])
+- Bump nexia to 0.9.13 to fix setting emergency heat ([@bdraco] - [#64020]) ([nexia docs])
+- Bump flux_led to 0.28.3 to fix setting colorloop on older models ([@bdraco] - [#64094]) ([flux_led docs])
+- Fix changing the preset mode ([@bieniu] - [#64119]) ([shelly docs])
+- Fix flux_led turn on when brightness is zero on newer devices ([@bdraco] - [#64129]) ([flux_led docs])
+- Ensure august status is current when integration loads ([@bdraco] - [#64027]) ([august docs])
+- Fix august lock/unlock with older bridges ([@bdraco] - [#64143]) ([august docs])
+- Ignore unavailable entities when creating zwave_js device actions list ([@raman325] - [#64184]) ([zwave_js docs])
+- Fix KNX onboarding when there is no yaml config defined yet ([@farmio] - [#64216]) ([knx docs])
+- Bump bimmer_connected to 0.8.10 ([@rikroe] - [#64314]) ([bmw_connected_drive docs])
+- Ensure status is correct at start for older august bridges ([@bdraco] - [#64144]) ([august docs])
+- Bump flux_led to 0.28.4 to fix setting white temp on 0x35 devices ([@bdraco] - [#64326]) ([flux_led docs])
+- Orphaned MAC addresses breaks UniFi options flow ([@Kane610] - [#64327]) ([unifi docs])
+
+[#59964]: https://github.com/home-assistant/core/pull/59964
+[#60220]: https://github.com/home-assistant/core/pull/60220
+[#63892]: https://github.com/home-assistant/core/pull/63892
+[#63944]: https://github.com/home-assistant/core/pull/63944
+[#64003]: https://github.com/home-assistant/core/pull/64003
+[#64020]: https://github.com/home-assistant/core/pull/64020
+[#64027]: https://github.com/home-assistant/core/pull/64027
+[#64094]: https://github.com/home-assistant/core/pull/64094
+[#64119]: https://github.com/home-assistant/core/pull/64119
+[#64129]: https://github.com/home-assistant/core/pull/64129
+[#64143]: https://github.com/home-assistant/core/pull/64143
+[#64144]: https://github.com/home-assistant/core/pull/64144
+[#64184]: https://github.com/home-assistant/core/pull/64184
+[#64216]: https://github.com/home-assistant/core/pull/64216
+[#64314]: https://github.com/home-assistant/core/pull/64314
+[#64326]: https://github.com/home-assistant/core/pull/64326
+[#64327]: https://github.com/home-assistant/core/pull/64327
+[@Kane610]: https://github.com/Kane610
+[@agners]: https://github.com/agners
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@chishm]: https://github.com/chishm
+[@farmio]: https://github.com/farmio
+[@kpine]: https://github.com/kpine
+[@raman325]: https://github.com/raman325
+[@rikroe]: https://github.com/rikroe
+[august docs]: /integrations/august/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[deconz docs]: /integrations/deconz/
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[flux_led docs]: /integrations/flux_led/
+[homekit docs]: /integrations/homekit/
+[knx docs]: /integrations/knx/
+[nexia docs]: /integrations/nexia/
+[picnic docs]: /integrations/picnic/
+[shelly docs]: /integrations/shelly/
+[unifi docs]: /integrations/unifi/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
 

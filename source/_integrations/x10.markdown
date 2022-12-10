@@ -8,6 +8,7 @@ ha_release: 0.25
 ha_domain: x10
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 The `x10` light platform allows you to control your X10 based lights with Home Assistant.

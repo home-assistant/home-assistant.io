@@ -11,6 +11,7 @@ ha_domain: opnsense
 ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 [OPNsense](https://opnsense.org/) is an open source HardenedBSD based firewall

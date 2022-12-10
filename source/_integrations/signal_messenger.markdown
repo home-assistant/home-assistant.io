@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: signal_messenger
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `signal_messenger` integration uses the [Signal Messenger REST API](https://github.com/bbernhard/signal-cli-rest-api) to deliver notifications from Home Assistant to your Android or iOS device.
@@ -89,4 +90,22 @@ action:
     data:
       attachments:
         - "/tmp/surveillance_camera.jpg"
+```
+
+### Text message with an attachment from a URL
+
+To attach files from outside of Home Assistant, the URLs must be added to the [`allowlist_external_urls`](/docs/configuration/basic/#allowlist_external_urls) list.
+
+Note there is a 50MB size limit for attachments retrieved via URLs. You can also set `verify_ssl` to `false` to ignore SSL errors (default `true`).
+
+```yaml
+...
+action:
+  service: notify.NOTIFIER_NAME
+  data:
+    message: "Person detected on Front Camera!"
+    data:
+      verify_ssl: false
+      urls:
+        - "http://homeassistant.local/api/frigate/notifications/<event-id>/thumbnail.jpg"
 ```

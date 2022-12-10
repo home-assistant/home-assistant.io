@@ -8,6 +8,7 @@ ha_iot_class: Cloud Push
 ha_domain: google_translate
 ha_platforms:
   - tts
+ha_integration_type: integration
 ---
 
 The `google_translate` text-to-speech platform uses the unofficial [Google Translate Text-to-Speech engine](https://translate.google.com/) to read a text with natural sounding voices. Contrary to what the name suggests, the integration only does text-to-speech and does not translate messages sent to it.

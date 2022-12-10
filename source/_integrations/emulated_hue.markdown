@@ -7,6 +7,9 @@ ha_release: 0.27
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: emulated_hue
+ha_integration_type: integration
+ha_codeowners:
+  - '@bdraco'
 ---
 
 <div class='note warning'>
@@ -15,8 +18,8 @@ Be aware that `emulated_hue` doesn't work for new users of **Google Home** with 
 
 </div>
 
-The `emulated_hue` integration provides a virtual Philips Hue bridge, written entirely in software that allows services that work with the Hue API to interact with Home Assistant
-entities. The driving use case behind for functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no setup cost outside of configuration changes.
+The `emulated_hue` integration provides a virtual [Philips Hue](https://www.philips-hue.com) bridge, written entirely in software that allows services that work with the Hue API to interact with Home Assistant
+entities. The driving use case behind this functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no setup cost outside of configuration changes.
 The virtual bridge can turn entities on/off or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
 
 <div class='note'>
@@ -29,7 +32,7 @@ It is recommended to assign a static IP address to the computer running Home Ass
 
 <div class='note'>
 
-Both Google Home and Alexa use the device they were initially set up with for communication with `emulated_hue`. In other words: if you remove/replace this device you will also break `emulated_hue`. To recover your `emulated_hue` functionality, backup your `config/emulated_hue_ids.json` file, delete the original one and reboot your Home Assistant instance.
+Both Google Home and Alexa use the device they were initially set up with for communication with `emulated_hue`. In other words: if you remove/replace this device you will also break `emulated_hue`. To recover your `emulated_hue` functionality, backup your `config/.storage/emulated_hue.ids` file, delete the original one and reboot your Home Assistant instance.
 
 If you added or upgraded to a newer Alexa device and devices are not found, you must change to listen_port: 80. If Alexa responds with "value is out of range for device..." it means switches were automatically added as lights in discovery. Remove each device in the Alexa app. Turn on all the switches in Home Assistant. In the Alexa app go to "Add New Device" select "Switch" and then "other" to add them correctly.
 
@@ -152,7 +155,7 @@ These attributes used to be found under the `customize` section of `homeassistan
 You can verify that the `emulated_hue` integration has been loaded and is responding by pointing a local browser to the following URL:
 
 - `http://<HA IP Address>:80/description.xml` - This URL should return a descriptor file in the form of an XML file.
-- `http://<HA IP Address>:80/api/pi/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
+- `http://<HA IP Address>:80/api/v2/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
 
 Verify that the URLs above are using port 80, rather than port 8300 (i.e., `http://<HA IP Address>:80/description.xml`). Both Google Home and Amazon Alexa/Echo (as of the 2019-08 firmware) require port 80.
 

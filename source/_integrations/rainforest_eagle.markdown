@@ -9,11 +9,14 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@gtdiehl'
   - '@jcalbert'
+  - '@hastarin'
 ha_domain: rainforest_eagle
 ha_platforms:
+  - diagnostics
   - sensor
 ha_config_flow: true
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 Integrate energy usage and price from the Rainforest Automation's [Eagle-200](https://rainforestautomation.com/rfa-z114-eagle-200/)

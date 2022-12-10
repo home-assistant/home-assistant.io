@@ -6,7 +6,7 @@ body:
       value: |
         Thanks for opening an issue to provide feedback on our website/documentation.
 
-        Please note, this form is not for reporting bugs with running Home Assistant or its integrations.
+        **Please note, this form is not for reporting bugs with running Home Assistant or its integrations.**
         Those bugs should be reported in the [Home Assistant Core issue tracker][core].
 
         [core]: https://github.com/home-assistant/core/issues
@@ -34,11 +34,10 @@ body:
   - type: input
     attributes:
       label: Version
-      placeholder: "e.g., 2021.2.0"
+      placeholder: "e.g., 2022.7.0"
       description: >
-        Current version of the documentation. This usually matches the Home
-        Assistant Core release version, and can be found at the bottom of the
-        page.
+        Latest stable version version of Home Assistant available
+        (which does not have to match the version you are using).
   - type: textarea
     attributes:
       label: Additional information

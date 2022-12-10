@@ -2,8 +2,8 @@
 title: Airthings
 description: Instructions on how to integrate Airthings into Home Assistant.
 ha_category:
-  - Sensor
   - Environment
+  - Sensor
 ha_release: '2021.10'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -12,6 +12,7 @@ ha_domain: airthings
 ha_config_flow: true
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 Integrates Airthings sensors into Home Assistant.

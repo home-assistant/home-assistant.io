@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: hikvision
 ha_platforms:
   - binary_sensor
+ha_integration_type: integration
 ---
 
 The Hikvision Binary Sensor is a platform that parses the event stream of a
@@ -24,8 +25,8 @@ unchecking "Notify the surveillance center" in the camera configuration or by
 using the "ignored" customize option detailed below.
 
 <div class='note'>
-In order for the sensors to work the hikvision user must have the 'Remote: Notify Surveillance Center/Trigger Alarm Output' permission which can be enabled from the user management section of the web interface.
-Also the 'WEB Authentication' needs to be set to 'digest/basic' in the security/authentication section. Ensure this is applied on each individual camera in case of using an NVR.
+In order for the sensors to work the hikvision user must have the 'Remote: Notify Surveillance Center/Trigger Alarm Output' permission which can be enabled from the user management section of the web interface. If authentication issues persist after permissions are verified, try accessing using an admin user. Certain devices will only authenticate with an admin account despite permissions being set correctly.
+Also, the 'WEB Authentication' needs to be set to 'digest/basic' in the security/authentication section. Ensure this is applied on each individual camera in case of using an NVR.
 </div>
 
 For example, if you configure a camera with the name "Front Porch" that has
@@ -53,16 +54,18 @@ binary_sensor.home_line_crossing_2
 This platform should work with all Hikvision cameras and nvrs,
 and has been confirmed to work with the following models:
 
-- DS-2CD3132-I
-- DS-2CD2232-I5
 - DS-2CD2032-I
 - DS-2CD2042WD-I
+- DS-2CD2043G0-I
 - DS-2CD2142FWD-I
 - DS-2CD2155FWD-IS
+- DS-2CD2232-I5
 - DS-2CD2385G1
-- IPC-D140H(-M)
+- DS-2CD2387G2-LU
+- DS-2CD3132-I
 - DS-7616NI-K2 (NVR)
 - ERI-K104-PR (NVR)
+- IPC-D140H(-M)
 
 This platform also was confirmed to work with the following Hikvison-based NVRS
 
@@ -142,7 +145,6 @@ Supported sensor/event types are:
 - Motion
 - Line Crossing
 - Field Detection
-- Video Loss
 - Tamper Detection
 - Shelter Alarm
 - Disk Full

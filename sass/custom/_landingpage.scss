@@ -331,6 +331,10 @@ $ha__primary_color: #03a9f4;
           color: #ffffff;
         }
       }
+      .banner-overlay-button.disabled {
+        background-color: #bdbdbd;
+        cursor: initial;
+       }
       .below-button {
         margin-top: 8px;
         text-align: center;
@@ -897,7 +901,7 @@ $ha__primary_color: #03a9f4;
         width: 100%;
         left: unset;
         font-size: 2em;
-        line-height: 0px;
+        line-height: 1em;
 
         svg {
           width: 152px;

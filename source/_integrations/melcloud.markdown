@@ -13,6 +13,7 @@ ha_platforms:
   - climate
   - sensor
   - water_heater
+ha_integration_type: integration
 ---
 
 The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://www.melcloud.com/) enabled devices into Home Assistant.
@@ -61,6 +62,7 @@ The following attributes are available for `sensor` platform entities:
 
 - Room temperature
 - Energy - The total consumed energy in kWh. **Not supported by all models.**
+- Daily energy - Energy consumption within a 24h window in kWh. This reading resets at midnight on the timezone of the MELCloud service. The exact time needs to be determined by following the sensor value until a reset is detected.
 
 ## Air-to-Water device
 

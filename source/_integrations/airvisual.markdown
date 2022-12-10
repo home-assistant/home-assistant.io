@@ -10,14 +10,16 @@ ha_codeowners:
 ha_domain: airvisual
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: device
 ---
 
 The `airvisual` sensor platform queries the [AirVisual](https://www.iqair.com) cloud API for air quality data. Data can be collected via latitude/longitude, by city/state/country, or from an [AirVisual Node/Pro unit](https://www.iqair.com/air-quality-monitors/airvisual-pro).
 
 ## Using the AirVisual Cloud API
 
-AirVisual API keys can be obtained [here](https://www.iqair.com/air-pollution-data-api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
+AirVisual API keys can be obtained [here](https://www.iqair.com/dashboard/api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
 
 The Community API key is valid for 12 months after which it will expire. You must then go back to the AirVisual website, delete your old key, create a new one following the same steps and update your configuration with the new key.
 

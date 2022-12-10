@@ -9,6 +9,7 @@ ha_domain: ecoal_boiler
 ha_platforms:
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `ecoal_boiler` integration is the base for pumps and sensors managed by [esterownik.pl eCoal boiler controller](https://esterownik.pl/nasze-produkty/ecoal).

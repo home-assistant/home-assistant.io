@@ -2,10 +2,10 @@
 title: StarLine
 description: Instructions on how to setup your StarLine account with Home Assistant.
 ha_category:
-  - Car
   - Binary Sensor
-  - Presence Detection
+  - Car
   - Lock
+  - Presence Detection
   - Sensor
   - Switch
 ha_release: 0.103
@@ -20,6 +20,7 @@ ha_platforms:
   - lock
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `starline` integration lets you retrieve data of your [StarLine](https://www.alarmstarline.com/) security system from the [StarLine portal](https://my.starline.ru/). You will need a working StarLine account.

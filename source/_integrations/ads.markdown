@@ -2,12 +2,12 @@
 title: ADS
 description: Connect Home Assistant to TwinCAT devices via the ADS interface
 ha_category:
-  - Hub
   - Binary Sensor
+  - Cover
+  - Hub
   - Light
   - Sensor
   - Switch
-  - Cover
 ha_release: '0.60'
 ha_iot_class: Local Push
 ha_domain: ads
@@ -17,6 +17,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The ADS (automation device specification) describes a device-independent and fieldbus independent interface for communication between [Beckhoff](https://www.beckhoff.com/) automation devices running [TwinCAT](https://www.beckhoff.hu/english.asp?twincat/default.htm) and other devices implementing this interface.

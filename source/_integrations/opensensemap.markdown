@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: opensensemap
 ha_platforms:
   - air_quality
+ha_integration_type: integration
 ---
 
 The `opensensemap` air quality platform will query the open data API of [openSenseMap.org](https://opensensemap.org/) to monitor air quality sensor station.

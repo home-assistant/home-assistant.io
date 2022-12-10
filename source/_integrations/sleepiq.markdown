@@ -2,41 +2,47 @@
 title: SleepIQ
 description: Instructions for how to integrate SleepIQ beds within Home Assistant.
 ha_category:
-  - Health
-  - Sensor
   - Binary Sensor
+  - Button
+  - Health
+  - Light
+  - Number
+  - Select
+  - Sensor
+  - Switch
 ha_release: 0.29
 ha_iot_class: Cloud Polling
 ha_domain: sleepiq
+ha_config_flow: true
+ha_dhcp: true
+ha_codeowners:
+  - '@mfugate1'
+  - '@kbickar'
 ha_platforms:
   - binary_sensor
+  - button
+  - light
+  - number
+  - select
   - sensor
+  - switch
+ha_integration_type: integration
 ---
 
-The SleepIQ implementation lets you view sensor data from [SleepIQ by SleepNumber](https://www.sleepnumber.com/sleepiq-sleep-tracker). In particular, it lets you see the occupancy and current SleepNumber (ie current firmness) of each side of a SleepNumber bed.
+The SleepIQ integration lets you integrate your SleepNumber Bed via [SleepIQ by SleepNumber](https://www.sleepnumber.com/sleepiq-sleep-tracker).
 
-## Setup
+There is currently support for the following platforms within Home Assistant:
 
-You will need an account on [SleepIQ](https://sleepiq.sleepnumber.com/) to use this component.
+- Binary Sensor - View occupancy of each side
+- Button - Calibrate the bed
+- Button - Stop the pump
+- Light - Control lights on supported models
+- Number - View/Set the actuator positions of the foundation
+- Number - View/Set firmness for each side
+- Select - Choose a foundation preset position
+- Sensor - View pressure of each side
+- Switch - Toggle Privacy mode
 
-## Configuration
+You will need an account on [SleepIQ](https://sleepiq.sleepnumber.com/) to use this integration.
 
-To set it up, add the following information to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sleepiq:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: Your SleepIQ username (usually an e-mail address).
-  required: true
-  type: string
-password:
-  description: Your SleepIQ password.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}

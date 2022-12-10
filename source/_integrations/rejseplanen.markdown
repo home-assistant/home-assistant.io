@@ -10,6 +10,7 @@ ha_codeowners:
   - '@DarkFox'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `rejseplanen` sensor will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).

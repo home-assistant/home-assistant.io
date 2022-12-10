@@ -43,6 +43,7 @@ feedback: false
         <div class="links">
           <a href="https://community.home-assistant.io">Forums</a>
           <a href="/join-chat/">Chat</a>
+          <a href="/newsletter/">Newsletter</a>
         </div>
       </div>
 
@@ -59,7 +60,7 @@ feedback: false
         Use Alexa to control Home Assistant.
 
         <div class="links">
-          <a href="/cloud/">LEARN MORE</a>
+          <a href="/cloud/" aria-label="Learn more about use Alexa to control Home Assistant">LEARN MORE</a>
         </div>
       </div>
       <div class="material-card text">
@@ -67,7 +68,7 @@ feedback: false
         Use Google Assistant to control Home Assistant.
 
         <div class="links">
-          <a href="/cloud/">LEARN MORE</a>
+          <a href="/cloud/" aria-label="Learn more about use Google Assistant to control Home Assistant">LEARN MORE</a>
         </div>
       </div>
 
@@ -88,19 +89,39 @@ feedback: false
       </a>
     </div>
     <div class="grid__item two-thirds lap-two-thirds palm-one-whole">
+      <!-- State of the Open Home 2022 -->
       <a
+        href="https://www.youtube.com/watch?v=D936T1Ze8-4"
+        target="_blank"
         class="material-card picture-promo"
-        href="/state-of-the-open-home/"
         style="
-          padding-top: 56%;
-          background: center/contain no-repeat url(/images/state-of-the-open-home/promo.png) #fff;
+          background-image: url(/images/frontpage/state-of-the-open-home-2022.png);
+          background-size: cover;
+          padding-top: 45%;
         "
-      >
+      ></a>
+
+      <!-- SkyConnect -->
+      <a class="material-card picture-promo" href="/skyconnect/" style="
+          background-image: url(/images/skyconnect/skyconnect-cover.png);
+          background-size: cover;
+          background-color: #41bdf5;
+        ">
+        <div class="caption">
+          <div class="title">
+            Home Assistant SkyConnect
+            <div class="subtitle">
+              Best way to add Zigbee and Matter to Home Assistant
+            </div>
+          </div>
+          <svg viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+        </div>
       </a>
 
+      <!-- Home Assistant Yellow -->
       <a
         class="material-card picture-promo"
-        href="https://www.crowdsupply.com/nabu-casa/home-assistant-yellow"
+        href="https://yellow.home-assistant.io"
         style="
           background-image: url(/images/frontpage/yellow-frontpage.jpg);
           background-size: cover;

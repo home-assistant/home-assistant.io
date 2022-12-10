@@ -1,5 +1,5 @@
 ---
-title: The month of 'What the Heck?!'
+title: The month of 'What the Heck?! (2020)'
 description: "Ever felt that 'What the heck Home Assistant?!' moment? This month, we would like to learn about your 'what the heck?!' moments..."
 date: 2020-08-18 00:00:00
 date_formatted: "August 18, 2020"

@@ -9,30 +9,41 @@ ha_codeowners:
   - '@Swamp-Ig'
 ha_iot_class: Calculated
 ha_domain: sun
+ha_config_flow: true
+ha_integration_type: integration
 ---
 
-The sun integration will use your current location to track if the sun is above or
-below the horizon. The sun can be used within automation as
-[a trigger with an optional offset to simulate dawn/dusk][sun_trigger] or as [a condition with an optional offset to test if the sun has already set or risen][sun_condition].
+The sun integration will use the location as
+{% my general title="configured in your Home Assistant configuration" %} to
+track if the sun is above or below the horizon. The sun can be used within
+automations as
+[a trigger with an optional offset to simulate dawn/dusk][sun_trigger] or as
+[a condition with an optional offset to test if the sun has already set or risen][sun_condition].
 
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
 [sun_condition]: /docs/scripts/conditions/#sun-condition
 
-## Configuration
+## Configured by default
 
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This integration is by default configured and installed, and you don't need
+to configure it yourself, unless you've disabled or removed the
+[`default_config:`](/integrations/default_config/) line from your
+YAML configuration.
+
+If that is the case, you can configure it as described in the next paragraphs.
+
+{% include integrations/config_flow.md %}
+
+## YAML Configuration
+
+Alternatlively, this integration can be configured and set up manually via YAML
+instead. To enable the sun integration in your installation, add the
+following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sun:
 ```
-
-{% configuration %}
-elevation:
-  description: "The (physical) elevation of your location, in meters above sea level. Defaults to the `elevation` in `configuration.yaml`, which is retrieved from Google Maps if not set."
-  required: false
-  type: integer
-{% endconfiguration %}
 
 <p class='img'>
 <img src='/images/screenshots/more-info-dialog-sun.png' />

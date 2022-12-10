@@ -7,6 +7,7 @@ ha_release: 0.86
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: emulated_roku
+ha_integration_type: integration
 ---
 
 This integration integrates an emulated Roku API into Home Assistant,
@@ -121,26 +122,6 @@ The following is an example implementation of an automation:
   - service: media_player.volume_up
     target:
       entity_id: media_player.amplifier
-```
-
-## Selecting apps, channels, or favorites
-
-Apps, channels, and favorites are exposed as media content to the integration. You can see which ones are available by clicking the media button in the media player more info card for your TV. To capture the `content_id` for the one you want to use in an automation or script, turn your logging on to debug level and tail the log while choosing the media content in the media player more info card. You will find a log message that looks like this when you choose the media:
-
-```txt
-2021-11-22 01:45:14 DEBUG (MainThread) [homeassistant.core] Bus:Handling <Event call_service[L]: domain=media_player, service=play_media, service_data=entity_id=media_player.philips936_tv, media_content_id=com.amazon.ignition.IgnitionActivity-com.amazon.amazonvideo.livingroom, media_content_type=app>
-```
-
-Then you can turn that into a service call for the script or automation like the following, which can then open the app/channel/favorite automatically.
-
-```yaml
-service: media_player.play_media
-data:
-  media_content_id: com.amazon.ignition.IgnitionActivity-com.amazon.amazonvideo.livingroom
-  media_content_type: app
-target:
-  entity_id:
-    - media_player.philips936_tv
 ```
 
 ## Troubleshooting

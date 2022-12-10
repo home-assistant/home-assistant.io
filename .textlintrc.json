@@ -1,5 +1,7 @@
 {
-  "filters": {},
+  "filters": {
+    "comments": true
+  },
   "rules": {
     "common-misspellings": {
       "ignore": ["Proove", "Alot"]
@@ -233,7 +235,7 @@
         "SwitchBot",
         "Synology",
         "Tado",
-        "Tahoma",
+        "TaHoma",
         "TCP/IP",
         "TensorFlow",
         "Tesla",

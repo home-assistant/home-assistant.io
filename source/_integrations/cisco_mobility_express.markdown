@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: cisco_mobility_express
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 This is a presence detection scanner for [Cisco](https://www.cisco.com) Mobility Express wireless controllers.

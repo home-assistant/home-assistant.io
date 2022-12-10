@@ -10,6 +10,7 @@ ha_codeowners:
   - '@bazwilliams'
 ha_platforms:
   - binary_sensor
+ha_integration_type: integration
 ---
 
 The `tapsaff` binary sensor provides the 'Taps Aff' status for a given location within the UK using [Taps Aff](https://www.taps-aff.co.uk/).

@@ -8,6 +8,7 @@ ha_release: 0.58
 ha_domain: viaggiatreno
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `viaggiatreno` sensor will give you information about configured train ids and stations using the public [ViaggiaTreno](http://viaggiatreno.it) API.
@@ -15,8 +16,8 @@ The `viaggiatreno` sensor will give you information about configured train ids a
 To activate the sensor you need at least two parameters: the `train_id` and the `station_id`.
 
 The first is available just looking at the [ViaggiaTreno](http://viaggiatreno.it/) timetable, the latter can be obtained using the dedicated API endpoint:
-`http://www.viaggiatreno.it/viaggiatrenonew/resteasy/viaggiatreno/autocompletaStazione/<Station name>`
-(e.g., `http://www.viaggiatreno.it/viaggiatrenonew/resteasy/viaggiatreno/autocompletaStazione/ROMA` will list all station names (with ids) that starts with *ROMA*).
+`http://www.viaggiatreno.it/infomobilita/resteasy/viaggiatreno/autocompletaStazione/<Station name>`
+(e.g., `http://www.viaggiatreno.it/infomobilita/resteasy/viaggiatreno/autocompletaStazione/ROMA` will list all station names (with ids) that starts with *ROMA*).
 
 <div class='note'>
 

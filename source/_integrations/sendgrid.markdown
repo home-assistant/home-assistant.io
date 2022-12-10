@@ -8,6 +8,7 @@ ha_domain: sendgrid
 ha_iot_class: Cloud Push
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `sendgrid` notification platform sends email notifications via [SendGrid](https://sendgrid.com/), a proven cloud-based email platform.

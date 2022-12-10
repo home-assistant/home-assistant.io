@@ -9,6 +9,9 @@ ha_config_flow: true
 ha_domain: google_travel_time
 ha_platforms:
   - sensor
+ha_codeowners:
+  - '@eifinger'
+ha_integration_type: integration
 ---
 
 The `google_travel_time` sensor provides travel time from the [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/).
@@ -22,6 +25,10 @@ You need to register for an API key by following the instructions [here](https:/
 A quota can be set against the API to avoid exceeding the free credit amount. Set the 'Elements per day' to a limit of 645 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/distance-matrix/usage-and-billing#set-caps)
 
 {% include integrations/config_flow.md %}
+
+Notes:
+
+- Origin and Destination can be the address or the GPS coordinates of the location (GPS coordinates have to be separated by a comma). You can also enter an entity ID that provides this information in its state, an entity ID with latitude and longitude attributes, or zone friendly name (case sensitive).
 
 ## Manual Polling
 
