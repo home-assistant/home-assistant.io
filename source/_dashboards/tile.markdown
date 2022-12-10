@@ -158,6 +158,27 @@ type:
   type: string
 {% endconfiguration %}
 
+### Light temperature
+
+Widget that displays a slider to select the temperature color for a [light](/integrations/light).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-features/light_temperature.png' alt='Screenshot of the tile card with light temperature feature'>
+  Screenshot of the tile card with light temperature feature
+</p>
+
+```yaml
+features:
+  - type: "light-temperature"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`light-temperature`"
+  type: string
+{% endconfiguration %}
+
 ### Vacuum commands
 
 Widget that display buttons to control a [vacuum](/integrations/vacuum).
