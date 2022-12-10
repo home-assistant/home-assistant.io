@@ -15,6 +15,10 @@ The `slow_pwm` platform is a `number` implemented in Home Assistant. It can be u
 The switches will be controlled by Pulse-Width-Manipulation (PWM, See https://en.wikipedia.org/wiki/Pulse-width_modulation). 
 This enables the usage of digital switches in more advanded controller systems like PID controllers or thermostats.
 
+## Configuration
+
+To create a slow_pwm number, add the following lines to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 number:
