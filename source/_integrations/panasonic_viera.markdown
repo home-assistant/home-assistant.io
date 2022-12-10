@@ -146,6 +146,7 @@ The list with all known valid keys can be found [here](https://github.com/floria
 - TX-55EXW604S
 - TX-55FX680W
 - TX-55FZ802B
+- TX-55JZ1000W
 - TX-58AX802B
 - TX-58DX700B
 - TX-58DX800E
