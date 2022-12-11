@@ -782,11 +782,27 @@ payload_template: "{{ states('device_tracker.paulus') }}"
 
 {% endraw %}
 
-`payload` must be a string. If you want to send JSON then you need to format/escape it properly. Like:
+`payload` must be a string. When using Home Assistant's YAML editor for formatting JSON
+you should take special care if `payload` contains template content.
+Make sure you escape the template blocks as like in the example below.
 
 ```yaml
-topic: home-assistant/light/1/state
-payload: "{\"Status\":\"off\", \"Data\":\"something\"}"
+service: mqtt.publish
+data:
+  topic: homeassistant/sensor/Acurite-986-1R-51778/config
+  payload: >-
+    {"device_class": "temperature",
+    "name": "Acurite-986-1R-51778-T",
+    "unit_of_measurement": "\u00b0C",
+    "value_template": "{% raw %}{% raw %}{{ value|float }}{%{% endraw %} endraw %}",
+    "state_topic": "rtl_433/rtl433/devices/Acurite-986/1R/51778/temperature_C",
+    "unique_id": "Acurite-986-1R-51778-T",
+    "device": {
+    "identifiers": "Acurite-986-1R-51778",
+    "name": "Acurite-986-1R-51778",
+    "model": "Acurite-986",
+    "manufacturer": "rtl_433" }
+    }
 ```
 
 Example of how to use `qos` and `retain`:
