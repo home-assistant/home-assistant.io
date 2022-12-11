@@ -782,9 +782,21 @@ payload_template: "{{ states('device_tracker.paulus') }}"
 
 {% endraw %}
 
-`payload` must be a string. When using Home Assistant's YAML editor for formatting JSON
+`payload` must be a string.
+If you want to send JSON using the YAML editor then you need to format/escape
+it properly. Like:
+
+```yaml
+topic: home-assistant/light/1/state
+payload: "{\"Status\":\"off\", \"Data\":\"something\"}"`
+```
+
+When using Home Assistant's YAML editor for formatting JSON
 you should take special care if `payload` contains template content.
-Make sure you escape the template blocks as like in the example below.
+Home Assistant will force you in to the YAML editor and will treat your
+definition as a template. Make sure you escape the template blocks as like
+in the example below. Home Assistant will convert the result to a string
+and will pass it to the MQTT publish service.
 
 ```yaml
 service: mqtt.publish
