@@ -61,6 +61,7 @@ Happy holidays and for the last time in 2022: Enjoy the release!
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.12.1 - December 8](#release-2022121---december-8)
+- [Release 2022.12.2 - December 11](#release-2022122---december-11)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -370,6 +371,63 @@ The following integrations are now available via the Home Assistant UI:
 [philips_js docs]: /integrations/philips_js/
 [sensirion_ble docs]: /integrations/sensirion_ble/
 [simplisafe docs]: /integrations/simplisafe/
+
+## Release 2022.12.2 - December 11
+
+- Bump pyrisco to 0.5.7 ([@maartenweyns] - [#83548]) ([risco docs])
+- Bump pychromecast to 13.0.2 ([@emontnemery] - [#83625]) ([cast docs])
+- Fix fibaro climate unit ([@rappenze] - [#83659]) ([fibaro docs])
+- Fix event sensor for UniFi Protect ([@AngellusMortis] - [#83663]) ([unifiprotect docs])
+- Add missing CONF_SPEED to sensor device_trigger SCHEMA ([@SukramJ] - [#83679]) ([sensor docs])
+- Bump aioshelly to 5.1.1 ([@thecode] - [#83680]) ([shelly docs])
+- Fix delay setting up new Yale Access Bluetooth entries ([@bdraco] - [#83683]) ([yalexs_ble docs])
+- Fix loading of Fritz!Smarthome issues on older Fritz!Box ([@mib1185] - [#83688]) ([fritzbox docs])
+- Bump androidtv dependency of androitv component ([@chatziko] - [#83707]) ([androidtv docs])
+- lifx: bump aiolifx_effects dependency to v0.3.1 ([@Djelibeybi] - [#83730]) ([lifx docs])
+- Fix IPv6 sensor is only loaded when Fritz!Box is in router mode ([@mib1185] - [#83757]) ([fritz docs])
+- Fix scan_interval in Scrape ([@gjohansson-ST] - [#83758]) ([scrape docs])
+
+[#83482]: https://github.com/home-assistant/core/pull/83482
+[#83548]: https://github.com/home-assistant/core/pull/83548
+[#83592]: https://github.com/home-assistant/core/pull/83592
+[#83625]: https://github.com/home-assistant/core/pull/83625
+[#83659]: https://github.com/home-assistant/core/pull/83659
+[#83663]: https://github.com/home-assistant/core/pull/83663
+[#83679]: https://github.com/home-assistant/core/pull/83679
+[#83680]: https://github.com/home-assistant/core/pull/83680
+[#83683]: https://github.com/home-assistant/core/pull/83683
+[#83688]: https://github.com/home-assistant/core/pull/83688
+[#83707]: https://github.com/home-assistant/core/pull/83707
+[#83730]: https://github.com/home-assistant/core/pull/83730
+[#83757]: https://github.com/home-assistant/core/pull/83757
+[#83758]: https://github.com/home-assistant/core/pull/83758
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@SukramJ]: https://github.com/SukramJ
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@chatziko]: https://github.com/chatziko
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@maartenweyns]: https://github.com/maartenweyns
+[@mib1185]: https://github.com/mib1185
+[@rappenze]: https://github.com/rappenze
+[@thecode]: https://github.com/thecode
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[androidtv docs]: /integrations/androidtv/
+[cast docs]: /integrations/cast/
+[fibaro docs]: /integrations/fibaro/
+[fritz docs]: /integrations/fritz/
+[fritzbox docs]: /integrations/fritzbox/
+[lifx docs]: /integrations/lifx/
+[risco docs]: /integrations/risco/
+[scrape docs]: /integrations/scrape/
+[sensor docs]: /integrations/sensor/
+[shelly docs]: /integrations/shelly/
+[unifiprotect docs]: /integrations/unifiprotect/
+[yalexs_ble docs]: /integrations/yalexs_ble/
 
 ## Need help? Join the community!
 
