@@ -451,7 +451,9 @@ The following integrations are now available via the Home Assistant UI:
 - Bump version of ZHA quirks to 0.0.89 ([@dmulcahey] - [#83848]) ([zha docs])
 - Bump pychromecast to 13.0.3 ([@emontnemery] - [#83861]) ([cast docs])
 - Move template check into fritzbox entry setup ([@mib1185] - [#83863]) ([fritzbox docs])
+- Use the async_migrate_paypal_agreement function to get the migration URL ([@ludeeus] - [#83469]) ([cloud docs])
 
+[#83469]: https://github.com/home-assistant/core/pull/83469
 [#83482]: https://github.com/home-assistant/core/pull/83482
 [#83592]: https://github.com/home-assistant/core/pull/83592
 [#83778]: https://github.com/home-assistant/core/pull/83778
