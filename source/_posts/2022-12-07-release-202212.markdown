@@ -62,6 +62,7 @@ Happy holidays and for the last time in 2022: Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.12.1 - December 8](#release-2022121---december-8)
 - [Release 2022.12.2 - December 11](#release-2022122---december-11)
+- [Release 2022.12.3 - December 11](#release-2022123---december-11)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -428,6 +429,19 @@ The following integrations are now available via the Home Assistant UI:
 [shelly docs]: /integrations/shelly/
 [unifiprotect docs]: /integrations/unifiprotect/
 [yalexs_ble docs]: /integrations/yalexs_ble/
+
+## Release 2022.12.3 - December 11
+
+- Drop aiohttp to 3.8.1 ([@balloob] - [#83795])
+
+[#83482]: https://github.com/home-assistant/core/pull/83482
+[#83592]: https://github.com/home-assistant/core/pull/83592
+[#83778]: https://github.com/home-assistant/core/pull/83778
+[#83795]: https://github.com/home-assistant/core/pull/83795
+[@balloob]: https://github.com/balloob
+[@frenck]: https://github.com/frenck
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
 
 ## Need help? Join the community!
 
