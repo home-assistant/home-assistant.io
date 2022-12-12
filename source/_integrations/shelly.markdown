@@ -271,6 +271,8 @@ shelly:
   coap_port: 12345
 ```
 
+Additionally, make sure the firewall or network boundary allows 5683 (or the customized port) on the udp protocol.
+
 ## Additional info
 
 Shelly devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol#SNTP) for features like power measurement.
