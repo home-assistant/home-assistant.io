@@ -39,6 +39,12 @@ Password:
 
 The integration will create sensor entities for metrics that relate to your account:
 
-- Account Balance
+- Account balance
 - Today's current earnings
+- Number of active devices
 
+### Button
+
+The integration exposes a button for automating tasks:
+
+- Opening the daily pot
