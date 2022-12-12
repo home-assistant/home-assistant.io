@@ -21,8 +21,7 @@ ha_integration_type: integration
 The Transmission integration allows you to monitor your [Transmission](https://www.transmissionbt.com/) BitTorrent downloads from within Home Assistant and set up automations based on that information.
 
 <div class='note warning'>
-This integration is compatible with Transmission client versions 1.31 - 2.82.
-Transmission 3.0 is NOT supported!
+This integration is only compatible with Transmission clients versions 1.31 - 2.82.
 </div>
 
 ## Setup
