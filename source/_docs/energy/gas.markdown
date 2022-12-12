@@ -24,6 +24,7 @@ We have worked with creator [Marcel Zuidwijk](https://www.zuidwijk.com) to devel
 ![Photo of SlimmeLezer attached to a smart electricity meter](/images/docs/energy/slimmelezer.jpg)
 
 #### Read the Gas Meter using an AI-on-the-edge-device
+
 [AI-on-the-edge-device](https://github.com/jomjol/AI-on-the-edge-device) is a project running on an ESP32-CAM and can be fully integrated into Home Assistant using the Home Assistant Discovery Functionality of MQTT. It digitalizes your gas/water/electricity meter display and provides its data through various ways. 
 
 <img src='/images/docs/energy/ai-on-the-edge-device.jpg' alt='AI-on-the-edge-device Workflow'>
