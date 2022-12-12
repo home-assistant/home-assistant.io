@@ -150,8 +150,6 @@ The ecobee ventilator entity has some extra attributes to represent the state of
 | `ventilator_type` | The type of ventilator present for the thermostat. The possible values are `none`, `ventilator`, `hrv`, and `erv`.
 | `ventilator_min_on_time_home` | The minimum amount of time (in minutes) that the ventilator will run per hour, when you are home. This is determined by the minimum ventilator runtime setting which can be changed in the ecobee app or on the thermostat itself.
 | `ventilator_min_on_time_away` | The minimum amount of time (in minutes) that the ventilator will run per hour, when you are away. This is determined by the minimum ventilator runtime setting which can be changed in the ecobee app or on the thermostat itself.
-| `is_ventilator_timer_on` | This represents whether the ventilator timer is on or off. If set to true, the ventilator will run for 20 mins then stop.
-
 ## Services
 
 Besides the standard services provided by the Home Assistant [Climate](/integrations/climate/) integration, the following extra services are provided by the ecobee integration:
@@ -165,7 +163,6 @@ Besides the standard services provided by the Home Assistant [Climate](/integrat
 - `ecobee.set_occupancy_modes`
 - `ecobee.set_ventilator_min_on_time_home`
 - `ecobee.set_ventilator_min_on_time_away`
-- `ecobee.set_ventilator_timer`
 
 ### Service `ecobee.create_vacation`
 
@@ -255,13 +252,4 @@ Set the minimum ventilator on time for away mode.
 | Service data attribute        | Optional | Description                                                                                                              |
 | ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `entity_id`                   | yes      | String or list of strings that point at `entity_id`'s of fan devices to control. Use `entity_id: all` to target all. |
-| `ventilator_min_on_time_away` | no       | integer (between 0 and 60, e.g. 30)                                                                                      |
-
-### Service `ecobee.set_ventilator_timer`
-
-Turn on or off ventilator timer. If turned on, ventilator will start running and stop after 20 minutes. If turned off, ventilator will stop.
-
-| Service data attribute   | Optional | Description                                                                                                              |
-| ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `entity_id`              | yes      | String or list of strings that point at `entity_id`'s of fan devices to control. Use `entity_id: all` to target all. |
-| `is_ventilator_timer_on` | no       | true or false                                                                                                            |
+| `ventilator_min_on_time_away` | no       | integer (between 0 and 60, e.g. 30)
