@@ -474,6 +474,7 @@ The following integrations are now available via the Home Assistant UI:
 [accuweather docs]: /integrations/accuweather/
 [bluetooth docs]: /integrations/bluetooth/
 [cast docs]: /integrations/cast/
+[cloud docs]: /integrations/cloud/
 [fritzbox docs]: /integrations/fritzbox/
 [frontend docs]: /integrations/frontend/
 [zha docs]: /integrations/zha/
