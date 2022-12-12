@@ -63,6 +63,7 @@ Happy holidays and for the last time in 2022: Enjoy the release!
 - [Release 2022.12.1 - December 8](#release-2022121---december-8)
 - [Release 2022.12.2 - December 11](#release-2022122---december-11)
 - [Release 2022.12.3 - December 11](#release-2022123---december-11)
+- [Release 2022.12.4 - December 12](#release-2022124---december-12)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -442,6 +443,38 @@ The following integrations are now available via the Home Assistant UI:
 [@frenck]: https://github.com/frenck
 [abode docs]: /integrations/abode/
 [accuweather docs]: /integrations/accuweather/
+
+## Release 2022.12.4 - December 12
+
+- Bump bluetooth-auto-recovery to 1.0.0 ([@bdraco] - [#83800]) ([bluetooth docs])
+- Update frontend to 20221212.0 ([@bramkragten] - [#83842]) ([frontend docs])
+- Bump version of ZHA quirks to 0.0.89 ([@dmulcahey] - [#83848]) ([zha docs])
+- Bump pychromecast to 13.0.3 ([@emontnemery] - [#83861]) ([cast docs])
+- Move template check into fritzbox entry setup ([@mib1185] - [#83863]) ([fritzbox docs])
+
+[#83482]: https://github.com/home-assistant/core/pull/83482
+[#83592]: https://github.com/home-assistant/core/pull/83592
+[#83778]: https://github.com/home-assistant/core/pull/83778
+[#83797]: https://github.com/home-assistant/core/pull/83797
+[#83800]: https://github.com/home-assistant/core/pull/83800
+[#83842]: https://github.com/home-assistant/core/pull/83842
+[#83848]: https://github.com/home-assistant/core/pull/83848
+[#83861]: https://github.com/home-assistant/core/pull/83861
+[#83863]: https://github.com/home-assistant/core/pull/83863
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@dmulcahey]: https://github.com/dmulcahey
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@mib1185]: https://github.com/mib1185
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[bluetooth docs]: /integrations/bluetooth/
+[cast docs]: /integrations/cast/
+[fritzbox docs]: /integrations/fritzbox/
+[frontend docs]: /integrations/frontend/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
