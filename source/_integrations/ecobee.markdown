@@ -134,9 +134,7 @@ The ecobee climate entity has some extra attributes to represent the state of th
 
 ### Concepts
 
-The ecobee thermostat supports the addition of an accessory. If you have a air exchanger (ventilator, hrv or erv) you can control it via the Ventilator entity.
-
-The _state_ is the state of the ventilator. (on or off). It tells you if the ventilator is currently running.
+The ecobee thermostat supports the addition of an accessory. If you have an air exchanger (ventilator, HRV, or ERV), you can control it via the Fan entity.
 
 The turn-on turn-off control of the fan, is powering the 20 min manual mode (Same as on the ecobee device). So it is expected behavior that when you turn it on, it only stays on for 20 min.
 
@@ -146,10 +144,15 @@ The ecobee ventilator entity has some extra attributes to represent the state of
 
 | Name | Description |
 | ---- | ----------- |
-| `is_on` | Current status of the ventilator. The possible values are True or False.
 | `ventilator_type` | The type of ventilator present for the thermostat. The possible values are `none`, `ventilator`, `hrv`, and `erv`.
+
+### Number
+
+| Name | Description |
+| ---- | ----------- |
 | `ventilator_min_on_time_home` | The minimum amount of time (in minutes) that the ventilator will run per hour, when you are home. This is determined by the minimum ventilator runtime setting which can be changed in the ecobee app or on the thermostat itself.
 | `ventilator_min_on_time_away` | The minimum amount of time (in minutes) that the ventilator will run per hour, when you are away. This is determined by the minimum ventilator runtime setting which can be changed in the ecobee app or on the thermostat itself.
+
 ## Services
 
 Besides the standard services provided by the Home Assistant [Climate](/integrations/climate/) integration, the following extra services are provided by the ecobee integration:
@@ -161,8 +164,6 @@ Besides the standard services provided by the Home Assistant [Climate](/integrat
 - `ecobee.set_dst_mode`
 - `ecobee.set_mic_mode`
 - `ecobee.set_occupancy_modes`
-- `ecobee.set_ventilator_min_on_time_home`
-- `ecobee.set_ventilator_min_on_time_away`
 
 ### Service `ecobee.create_vacation`
 
@@ -235,21 +236,3 @@ Enable/disable Smart Home/Away and Follow Me modes.
 | `entity_id`            | yes      | ecobee thermostat on which to set occupancy modes |
 | `auto_away`            | yes      | true or false                                     |
 | `follow_me`            | yes      | true or false                                     |
-
-### Service `ecobee.set_ventilator_min_on_time_home`
-
-Set the minimum ventilator on time for home mode.
-
-| Service data attribute        | Optional | Description                                                                                                              |
-| ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `entity_id`                   | yes      | String or list of strings that point at `entity_id`'s of fan devices to control. Use `entity_id: all` to target all. |
-| `ventilator_min_on_time_home` | no       | integer (between 0 and 60, e.g. 30)                                                                                      |
-
-### Service `ecobee.set_ventilator_min_on_time_away`
-
-Set the minimum ventilator on time for away mode.
-
-| Service data attribute        | Optional | Description                                                                                                              |
-| ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `entity_id`                   | yes      | String or list of strings that point at `entity_id`'s of fan devices to control. Use `entity_id: all` to target all. |
-| `ventilator_min_on_time_away` | no       | integer (between 0 and 60, e.g. 30)
