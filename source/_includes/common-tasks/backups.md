@@ -23,9 +23,13 @@ A partial backup consists of any number of the above default directories and ins
 
 ### Restoring a Backup on a new install
 
-You can make use of backup which you have copied off of a previous install to restore to a new installation during the onboarding process. Follow the link at the bottom of the account creation page to upload your backup from the previous installation.
+You can make use of backup which you have copied off of a previous install to restore to a new installation during the onboarding process. 
 
-For restoring a backup at any other time, visit the Supervisor backup panel in your UI and use the following steps:
+![Set your username and password.](/images/getting-started/username.png)
+
+Click on the link at the bottom that says *Alternatively you can restore from a previous backup* to upload your backup from the previous installation.
+
+For restoring a backup at any other time, go to {% my supervisor_backups title="Settings > System > Backups" %} and use the following steps:
 
 1. Select "Upload Backup" from the icon in the upper right of the page.
 2. Click on the folder icon to navigate to your backup .tar file and select it.
