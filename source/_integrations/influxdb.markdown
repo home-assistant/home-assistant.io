@@ -333,6 +333,7 @@ sensor:
     api_version: 2
     organization: RANDOM_16_DIGIT_HEX_ID
     token: GENERATED_AUTH_TOKEN
+    bucket: MYBUCKET 
     queries_flux: 
       - group_function: mean
         imports: 
@@ -342,6 +343,29 @@ sensor:
           filter(fn: (r) => r._field == "value" and r.domain == "sensor" and strings.containsStr(v: r.entity_id, substr: "humidity"))
           |> keep(columns: ["_value"])
         range_start: "-1d"
+```
+
+The influxdb sensor for `api_version: 2` *rewrites* the flux-query before it is sent to the database. As a minimal, the bucket and range are prefixed and a '|> limit(n: 1)' postfixed. 
+If you do not specify the bucket as a config, you can write the exact query (including 'from(bucket: "MYBUCKET")'-statements etc).
+
+```yaml
+# Example configuration.yaml entry, recommended to validate the query in InfluxDB UI
+sensor: 
+  - platform: influxdb
+    api_version: 2
+    organization: RANDOM_16_DIGIT_HEX_ID
+    token: GENERATED_AUTH_TOKEN
+    # bucket: MYBUCKET 
+    queries_flux: 
+      - name: "Current spot price"
+        range_start: "-1h"
+        unique_id: current_spot_price
+        query: >
+          from(bucket: "MYBUCKET")
+            |> range(start: -1h)
+            |> filter(fn: (r) => r["_measurement"] == "spot" and r["_field"] == "price")
+            |> last(column: "_value")
+            |> keep(columns: ["_value"])
 ```
 
 {% configuration %}
@@ -396,9 +420,8 @@ organization:
   required: inclusive
 bucket:
   type: string
-  description: 2.xx only - Name of the bucket (not the generated bucket ID) within your Organization to read from. This sets the default bucket for sensors, individual sensors can also read from a different bucket.
+  description: 2.xx only - Name of the bucket (not the generated bucket ID) within your Organization to read from. This sets the default bucket for sensors, individual sensors can also read from a different bucket. Leaving `bucket` unspecified bypasses the rewriting of queries in `queries_flux`.
   required: false
-  default: Home Assistant
 queries:
   type: list
   description: 1.xx only - List of sensors to expose in Home Assistant. Each sensor's state is set by configuring an InfluxQL query.
@@ -462,21 +485,21 @@ queries_flux:
       required: false
     range_start:
       type: string
-      description: "Duration or time value to start range from. All Flux queries require a `range` filter, one is automatically added to the beginning of your Flux query in the form of `range(start: {range_start}, stop: {range_stop})`."
+      description: "Duration or time value to start range from. All Flux queries require a `range` filter, one is automatically added to the beginning of your Flux query in the form of `range(start: {range_start}, stop: {range_stop})`. `range_start` is ignored if `bucket` is left unspecified."
       required: false
       default: -15m
     range_stop:
       type: string
-      description: Duration or time value to stop range at. See `range_start` above for how this is used in query.
+      description: Duration or time value to stop range at. See `range_start` above for how this is used in query.  `range_stop` is ignored if `bucket` is left unspecified.
       required: false
       default: now()
     query:
       type: template
-      description: "One or more flux filters used to get to the data you want. These should limit resultset to one table, or any beyond the first will be ignored. Your query should not begin or end with a pipe (`|>`). This supports [templates](/docs/configuration/templating/#building-templates)."
+      description: "One or more flux filters used to get to the data you want. These should limit resultset to one table, or any beyond the first will be ignored. Your query should not begin or end with a pipe (`|>`). This supports [templates](/docs/configuration/templating/#building-templates). If `bucket` is left unspecified, this query is has to be a syntactically full Flux-query. Flux-comments (`// ...`) do not work."
       required: true
     group_function:
       type: string
-      description: "The group function to be used. If provided, this will add a filter to the end of your query like this `{group_function}(column: \"_value\")`. Note that unlike the 1.xx queries, this **does not** default to mean. You can omit if you wish to use your own aggregator, which takes additional/different parameters or want to act on a different column. If omitted, then a filter of `limit(n: 1)` will be added to the end instead to restrict to one result per table."
+      description: "The group function to be used. If provided, this will add a filter to the end of your query like this `{group_function}(column: \"_value\")`. Note that unlike the 1.xx queries, this **does not** default to mean. You can omit if you wish to use your own aggregator, which takes additional/different parameters or want to act on a different column. If omitted, then a filter of `limit(n: 1)` will be added to the end instead to restrict to one result per table.  `group_function` is ignored if `bucket` is left unspecified."
       required: false
     value_template:
       type: template
@@ -484,12 +507,11 @@ queries_flux:
       required: false
     bucket:
       type: string
-      description: Name of the bucket within your Organization to read from.
+      description: Name of the bucket within your Organization to read from. Leaving `bucket` unspecified bypasses the rewriting of this query.
       required: false
-      default: Home Assistant
     imports:
       type: [string, list]
-      description: Libraries to import in order to execute your query. Ex. `strings`, `date`, `experimental/query`, etc.
+      description: Libraries to import in order to execute your query. Ex. `strings`, `date`, `experimental/query`, etc. `imports` are ignored if `bucket` is left unspecified and instead the import statements can be added in the query.
       required: false
 {% endconfiguration %}
 
@@ -541,16 +563,17 @@ sensor:
     api_version: 2
     token: GENERATED_AUTH_TOKEN
     organization: RANDOM_16_DIGIT_HEX_ID
-    bucket: BUCKET_NAME
     queries_flux:
       - range_start: "-1d"
         name: "How long have I been here"
+        bucket: BUCKET_NAME
         query: >
           filter(fn: (r) => r._domain == "person" and r._entity_id == "me" and r._value != "{{ states('person.me') }}")
           |> map(fn: (r) => ({ _value: r._time }))
         value_template: "{{ relative_time(strptime(value, '%Y-%m-%d %H:%M:%S %Z')) }}"
       - range_start: "-1d"
         name: "Cost of my house today across all power sensor"
+        bucket: BUCKET_NAME
         query: >
           filter(fn: (r) => r.domain == "sensor" and r._field == "value" and regexp.matchRegexpString(r: /_power$/, v: r.entity_id))
           |> keep(columns: ["_value", "_time"])
@@ -563,6 +586,30 @@ sensor:
         name: "Average CPU temp today"
         query: "filter(fn: (r) => r._field == \"value\" and r.entity_id == \"glances_cpu_temperature\")"
         group_function: mean
+      - name: "Joined values"
+        unique_id: "influxdb_joined_values"
+        query: >
+          import "date"
+          bucket = "MYBUCKET"
+          a = from(bucket: bucket)
+            |> range(start: date.truncate(t:-1h, unit: 1h))
+            |> filter(fn: (r) => r["_field"] == "aValue")
+            |> window(every: 1h)
+            |> group(columns: ["_field"])
+            |> keep(columns: ["_value","_time"])
+          b = from(bucket: bucket)
+            |> range(start: -1h)
+            |> filter(fn: (r) => r["_field"] == "bValue")
+            |> window(every: 1h)
+            |> group(columns: ["entity_id"])
+            |> map(fn: (r) => ({r with _time: date.truncate(t: r._start, unit: 1h) }))
+            |> keep(columns: ["_value","_time"])
+          joined = join(tables: {a: a, b: b}, on: ["_time"])
+            |> map(fn: (r) => ({r with _value: (r._value_a * r._value_b) }))
+            |> keep(columns: ["_value"])
+            |> sum()
+            |> yield(name: "joined")
+
 ```
 
 {% endraw %}
