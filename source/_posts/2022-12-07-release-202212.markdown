@@ -452,10 +452,15 @@ The following integrations are now available via the Home Assistant UI:
 - Bump pychromecast to 13.0.3 ([@emontnemery] - [#83861]) ([cast docs])
 - Move template check into fritzbox entry setup ([@mib1185] - [#83863]) ([fritzbox docs])
 - Use the async_migrate_paypal_agreement function to get the migration URL ([@ludeeus] - [#83469]) ([cloud docs])
+- Fix issue on Overkiz Domestic Hot water heater entities with away mode ([@nyroDev] - [#83684]) ([overkiz docs])
+- Bump pyoverkiz to 1.7.2 ([@nyroDev] - [#83866]) ([overkiz docs])
+- Fix bleak-retry-connector get_device hang with HAOS 9.4 and only proxies ([@bdraco] - [#83879]) ([bluetooth docs])
+- Fix HomeKit media players when entity has duplicate sources ([@bdraco] - [#83890]) ([homekit docs])
 
 [#83469]: https://github.com/home-assistant/core/pull/83469
 [#83482]: https://github.com/home-assistant/core/pull/83482
 [#83592]: https://github.com/home-assistant/core/pull/83592
+[#83684]: https://github.com/home-assistant/core/pull/83684
 [#83778]: https://github.com/home-assistant/core/pull/83778
 [#83797]: https://github.com/home-assistant/core/pull/83797
 [#83800]: https://github.com/home-assistant/core/pull/83800
@@ -463,13 +468,18 @@ The following integrations are now available via the Home Assistant UI:
 [#83848]: https://github.com/home-assistant/core/pull/83848
 [#83861]: https://github.com/home-assistant/core/pull/83861
 [#83863]: https://github.com/home-assistant/core/pull/83863
+[#83866]: https://github.com/home-assistant/core/pull/83866
+[#83879]: https://github.com/home-assistant/core/pull/83879
+[#83890]: https://github.com/home-assistant/core/pull/83890
 [@balloob]: https://github.com/balloob
 [@bdraco]: https://github.com/bdraco
 [@bramkragten]: https://github.com/bramkragten
 [@dmulcahey]: https://github.com/dmulcahey
 [@emontnemery]: https://github.com/emontnemery
 [@frenck]: https://github.com/frenck
+[@ludeeus]: https://github.com/ludeeus
 [@mib1185]: https://github.com/mib1185
+[@nyroDev]: https://github.com/nyroDev
 [abode docs]: /integrations/abode/
 [accuweather docs]: /integrations/accuweather/
 [bluetooth docs]: /integrations/bluetooth/
@@ -477,6 +487,8 @@ The following integrations are now available via the Home Assistant UI:
 [cloud docs]: /integrations/cloud/
 [fritzbox docs]: /integrations/fritzbox/
 [frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[overkiz docs]: /integrations/overkiz/
 [zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
