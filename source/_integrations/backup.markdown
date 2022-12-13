@@ -68,4 +68,5 @@ automation:
 ```
 
 ## Restoring from a backup
+
 To restore from a backup, see [Restoring a Backup on a new install](/common-tasks/supervised/#restoring-a-backup-on-a-new-install)
