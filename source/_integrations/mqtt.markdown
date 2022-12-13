@@ -361,6 +361,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'pl_arm_vacation':     'payload_arm_vacation',
     'pl_prs':              'payload_press',
     'pl_rst':              'payload_reset',
+    'pl_auto_zone':        'payload_auto_zone',
     'pl_avail':            'payload_available',
     'pl_cln_sp':           'payload_clean_spot',
     'pl_cls':              'payload_close',
