@@ -63,7 +63,7 @@ The type of data a number represents impacts how it is displayed in the frontend
 - **voltage**: Voltage in V
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, or ft³
 - **water**: Water consumption in L, gal, m³, or ft³
-- **weight**: Generic mass in kg, g, mg, µg, oz, or lb
+- **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
 - **wind_speed**: Wind speed in ft/s, km/h, kn, m/s, or mph
  
 ## Services
