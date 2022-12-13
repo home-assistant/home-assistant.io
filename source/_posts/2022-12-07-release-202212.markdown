@@ -64,6 +64,7 @@ Happy holidays and for the last time in 2022: Enjoy the release!
 - [Release 2022.12.2 - December 11](#release-2022122---december-11)
 - [Release 2022.12.3 - December 11](#release-2022123---december-11)
 - [Release 2022.12.4 - December 12](#release-2022124---december-12)
+- [Release 2022.12.5 - December 13](#release-2022125---december-13)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -489,6 +490,39 @@ The following integrations are now available via the Home Assistant UI:
 [frontend docs]: /integrations/frontend/
 [homekit docs]: /integrations/homekit/
 [overkiz docs]: /integrations/overkiz/
+[zha docs]: /integrations/zha/
+
+## Release 2022.12.5 - December 13
+
+- Fix Just Nimbus error codes ([@kvanzuijlen] - [#83856]) ([justnimbus docs])
+- Fix saving options with missing ignored sources in BraviaTV ([@Drafteed] - [#83891]) ([braviatv docs])
+- Bump pychromecast to 13.0.4 ([@emontnemery] - [#83896]) ([cast docs])
+- Update frontend to 20221213.0 ([@bramkragten] - [#83940]) ([frontend docs])
+
+[#83482]: https://github.com/home-assistant/core/pull/83482
+[#83592]: https://github.com/home-assistant/core/pull/83592
+[#83778]: https://github.com/home-assistant/core/pull/83778
+[#83797]: https://github.com/home-assistant/core/pull/83797
+[#83856]: https://github.com/home-assistant/core/pull/83856
+[#83870]: https://github.com/home-assistant/core/pull/83870
+[#83891]: https://github.com/home-assistant/core/pull/83891
+[#83896]: https://github.com/home-assistant/core/pull/83896
+[#83940]: https://github.com/home-assistant/core/pull/83940
+[@Drafteed]: https://github.com/Drafteed
+[@balloob]: https://github.com/balloob
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@kvanzuijlen]: https://github.com/kvanzuijlen
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[bluetooth docs]: /integrations/bluetooth/
+[braviatv docs]: /integrations/braviatv/
+[cast docs]: /integrations/cast/
+[fritzbox docs]: /integrations/fritzbox/
+[frontend docs]: /integrations/frontend/
+[justnimbus docs]: /integrations/justnimbus/
+[sleepiq docs]: /integrations/sleepiq/
 [zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
