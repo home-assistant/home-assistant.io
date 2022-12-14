@@ -63,7 +63,7 @@ using a selector. Week profiles must be created and edited using the Nobø Energ
 
 ### No preset "Off"
 
-Nobø heaters does not support preset "Off". This is not a limitation of the integration, but a safety mechanism in the
+Nobø heaters do not support preset "Off". This is not a limitation of the integration, but a safety mechanism in the
 Nobø system (perhaps related to frozen pipes due to frost in Nordic regions). 
 "Away" temperature is fixed to 7°C and cannot be altered. On/off receivers will be off when the zone is in "Away" status.
 
