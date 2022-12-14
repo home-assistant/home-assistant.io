@@ -2,15 +2,12 @@
 title: Ultraloq
 description: Connect and control your Ultraloq Z-Wave series devices using the Z-Wave integration
 ha_release: '2022.11'
-ha_iot_class: Local Push
 ha_category:
   - Lock
 ha_domain: ultraloq
 ha_integration_type: virtual
 works_with:
   - zwave
-ha_platforms:
-  - lock
 ha_iot_standard: zwave
 ---
 

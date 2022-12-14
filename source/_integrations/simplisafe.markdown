@@ -166,4 +166,4 @@ event data that contains the following keys:
 Note that when Home Assistant restarts, `SIMPLISAFE_NOTIFICATION` events will fire once
 again for any notifications still active in the SimpliSafe web and mobile apps. To
 prevent this, either (a) clear them in the web/mobile app or (b) utilize the 
-`simplisafe.clear_notifications` service described above.
+`clear_notifications` button provided by the alarm control panel.

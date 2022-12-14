@@ -36,7 +36,7 @@ automation:
       offset: -00:15:00
 ```
 
-Calendar triggers should should generally not use automation mode `single` to ensure the trigger
+Calendar triggers should not generally use automation mode `single` to ensure the trigger
 can fire when multiple events start at the same time (e.g., use `queued` or `parallel` instead). Note that calendars are read once every 15 minutes. When testing, make sure you do not plan events less than 15 minutes away from the current time, or your trigger might not fire.
 
 See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) for additional trigger data available for conditions or actions.
