@@ -45,6 +45,12 @@ We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-as
 
 ![Photo of Home Assistant Glow attached to an electricity meter](/images/docs/energy/home-assistant-glow.jpg)
 
+#### Read the meter using an AI-on-the-edge-device
+
+[AI-on-the-edge-device](https://github.com/jomjol/AI-on-the-edge-device) is a project running on an ESP32-CAM and can be fully integrated into Home Assistant using the Home Assistant discovery functionality of MQTT. It digitalizes your gas/water/electricity meter display and provides its data in various ways. 
+
+![Photo of the AI-on-the-edge-device Workflow](/images/docs/energy/ai-on-the-edge-device.jpg)
+
 ### Using a CT clamp sensor
 
 CT clamp sensors measure your energy usage by looking at the current passing through an electrical wire. This makes it possible to calculate the energy usage. In Home Assistant we have support for off-the-shelf CT clamp sensors and you can build your own.
