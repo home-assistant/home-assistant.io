@@ -65,6 +65,7 @@ Happy holidays and for the last time in 2022: Enjoy the release!
 - [Release 2022.12.3 - December 11](#release-2022123---december-11)
 - [Release 2022.12.4 - December 12](#release-2022124---december-12)
 - [Release 2022.12.5 - December 13](#release-2022125---december-13)
+- [Release 2022.12.6b0 - December 14](#release-2022126b0---december-14)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -522,6 +523,47 @@ The following integrations are now available via the Home Assistant UI:
 [fritzbox docs]: /integrations/fritzbox/
 [frontend docs]: /integrations/frontend/
 [justnimbus docs]: /integrations/justnimbus/
+[sleepiq docs]: /integrations/sleepiq/
+[zha docs]: /integrations/zha/
+
+## Release 2022.12.6b0 - December 14
+
+- Do not add a Content-Type header to ingress ([@zeehio] - [#83425]) ([hassio docs])
+- Bump lupupy dependency to v0.2.3 ([@majuss] - [#83765]) ([lupusec docs])
+- Bump aioshelly to 5.1.2 to fix state updates not firing after reconnect ([@bdraco] - [#83950]) ([shelly docs])
+- Bump aioesphomeapi to 13.0.2 to fix reconnects after bad protobuf message ([@bdraco] - [#83951]) ([esphome docs])
+- Ignore certain device trigger validation errors ([@emontnemery] - [#83972]) ([device_automation docs])
+
+[#83425]: https://github.com/home-assistant/core/pull/83425
+[#83482]: https://github.com/home-assistant/core/pull/83482
+[#83592]: https://github.com/home-assistant/core/pull/83592
+[#83765]: https://github.com/home-assistant/core/pull/83765
+[#83778]: https://github.com/home-assistant/core/pull/83778
+[#83797]: https://github.com/home-assistant/core/pull/83797
+[#83870]: https://github.com/home-assistant/core/pull/83870
+[#83944]: https://github.com/home-assistant/core/pull/83944
+[#83950]: https://github.com/home-assistant/core/pull/83950
+[#83951]: https://github.com/home-assistant/core/pull/83951
+[#83972]: https://github.com/home-assistant/core/pull/83972
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@majuss]: https://github.com/majuss
+[@zeehio]: https://github.com/zeehio
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[bluetooth docs]: /integrations/bluetooth/
+[braviatv docs]: /integrations/braviatv/
+[cast docs]: /integrations/cast/
+[device_automation docs]: /integrations/device_automation/
+[esphome docs]: /integrations/esphome/
+[fritzbox docs]: /integrations/fritzbox/
+[frontend docs]: /integrations/frontend/
+[hassio docs]: /integrations/hassio/
+[justnimbus docs]: /integrations/justnimbus/
+[lupusec docs]: /integrations/lupusec/
+[shelly docs]: /integrations/shelly/
 [sleepiq docs]: /integrations/sleepiq/
 [zha docs]: /integrations/zha/
 
