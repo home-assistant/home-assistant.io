@@ -4,7 +4,7 @@ description: Instructions on how to integrate PurpleAir sensors with Home Assist
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: 2022.12.0
+ha_release: 2023.1.0
 ha_codeowners:
   - '@bachya'
 ha_domain: purpleair
