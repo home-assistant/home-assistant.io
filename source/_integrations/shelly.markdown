@@ -261,7 +261,7 @@ As soon as you change the temperature, it gets enabled again.
 
 ## CoAP port (generation 1)
 
-In some cases, it may be needed to customize the CoAP port (default: `5683`) your Home Assistant instance is listening to.
+In some cases, it may be needed to customize the CoAP UDP port (default: `5683`) your Home Assistant instance is listening to.
 
 In order to change it, add the following key to your `configuration.yaml`:
 
