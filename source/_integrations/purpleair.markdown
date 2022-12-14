@@ -20,6 +20,9 @@ ha_config_flow: true
 
 {% include integrations/option_flow.md %}
 
-## Tracking and Untracking Additional Sensors
-
-To start, each instance of the PurpleAir integration tracks a single sensor. To track or untrack additional sensors, simply use the UI options screen described above.
+{% configuration_basic %}
+Add Sensor:
+  description: Track an additional sensor.
+Remove Sensor:
+  description: Untrack a sensor.
+{% endconfiguration_basic %}
