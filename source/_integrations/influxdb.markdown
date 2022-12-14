@@ -308,7 +308,7 @@ influxdb:
 
 </div>
 
-### Configuration
+### Sensor-configuration
 
 To configure this sensor, you need to define the sensor connection variables and a list of queries to your `configuration.yaml` file. A sensor will be created for each query:
 
