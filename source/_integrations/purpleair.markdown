@@ -12,7 +12,6 @@ ha_platforms:
   - sensor
 ha_integration_type: device
 ha_config_flow: true
-ha_integration_type: device
 ---
 
 [PurpleAir](https://www2.purpleair.com/) makes sensors that measure hyper-local air quality data and share it with the public.
