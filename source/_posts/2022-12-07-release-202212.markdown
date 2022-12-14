@@ -65,7 +65,7 @@ Happy holidays and for the last time in 2022: Enjoy the release!
 - [Release 2022.12.3 - December 11](#release-2022123---december-11)
 - [Release 2022.12.4 - December 12](#release-2022124---december-12)
 - [Release 2022.12.5 - December 13](#release-2022125---december-13)
-- [Release 2022.12.6b0 - December 14](#release-2022126b0---december-14)
+- [Release 2022.12.6 - December 14](#release-2022126---december-14)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -526,7 +526,7 @@ The following integrations are now available via the Home Assistant UI:
 [sleepiq docs]: /integrations/sleepiq/
 [zha docs]: /integrations/zha/
 
-## Release 2022.12.6b0 - December 14
+## Release 2022.12.6 - December 14
 
 - Do not add a Content-Type header to ingress ([@zeehio] - [#83425]) ([hassio docs])
 - Bump lupupy dependency to v0.2.3 ([@majuss] - [#83765]) ([lupusec docs])
