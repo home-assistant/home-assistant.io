@@ -75,7 +75,7 @@ payload_not_home:
   type: string
   default: "not_home"
 payload_auto_zone:
-  description: The payload value that will have the device's location automatically derived from home assistant's zones.
+  description: The payload value that will have the device's location automatically derived from Home Assistant's zones.
   required: false
   type: string
   default: auto_zone
@@ -211,7 +211,7 @@ payload_not_home:
   type: string
   default: not_home
 payload_auto_zone:
-  description: The payload value that will have the device's location automatically derived from home assistant's zones.
+  description: The payload value that will have the device's location automatically derived from Home Assistant's zones.
   required: false
   type: string
   default: auto_zone
