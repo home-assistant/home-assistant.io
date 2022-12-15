@@ -11,73 +11,27 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `slow_pwm` platform is a `number` implemented in Home Assistant. It can be used to control one or multiple digital switches in an analog control algorithm. 
+The `slow_pwm` platform is a `number`. It can be used to control one or multiple digital switches in an analog control algorithm. 
 The switches will be controlled by Pulse-Width-Manipulation (PWM, See https://en.wikipedia.org/wiki/Pulse-width_modulation). 
-This enables the usage of digital switches in more advanded controller systems like PID controllers or thermostats.
+This enables the usage of digital switches in modulated modes. This is typically usefull in slow systems like floorheater or boiler heater controller systems. The [PID controller](/integrations/pid) can use this number as regulated output. 
 
 ## Configuration
-
-To create a slow_pwm number, add the following lines to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-number:
-  - platform: slow_pwm
-    numbers:
-      - name: Floorheater living room
-        outputs:
-          - entity_id: "switch.living_room_group1"
-``` 
-
-{% configuration %}
-name:
-  description: Name of the slow_pwm.
-  required: true
-  type: string
-outputs:
-  description: `entity_id`'s for switches, must be toggle devices. When multiple outputs are selected, the range of 0..100% will be shared over the multiple switches. For example, with 2 switches at 50% output only the first switch will be on full time, at 75% the first switch will be on 100% of the time, and the second 50%.
-  required: true
-  type: multiple strings
-minimum:
-  description: Minimal value of the slow_pwm number. Timed output will be normalized between minimum and maximum.
-  required: false
-  default: 0
-  type: float
-maximum:
-  description: Maximal value of the slow_pwm number. Timed output will be normalized between minimum and maximum.
-  required: false
-  default: 100
-  type: float
-cycle_time:
-  description: Cycle time for the PWM cycle.
-  required: false
-  default: 00:30:00
-  type: time_period
-step:
-  description: Step value. Smallest value `0.001`.
-  required: false
-  type: float
-  default: 1
-mode:
-  description: Control how the number should be displayed in the UI. Can be set to `box` or `slider` to force a display mode.
-  required: false
-  type: string
-  default: '"auto"'
-{% endconfiguration %}
-
-## Full configuration example
-
-```yaml
-number:
-  - platform: slow_pwm
-    numbers:
-      - name: Floorheater living room
-        outputs:
-          - entity_id: "switch.living_room_group1"
-          - entity_id: "switch.living_room_group2"
-         minimum: 10
-         maximum: 200
-         cycle_time: 00:10:00
-         step: 3
-         mode: "auto"
-```
+{% include integrations/config_flow.md %}
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have. You can change it again later.
+Output switch entities:
+  description: One or more output switches. When multiple outputs are selected, the range of 0..100% will be shared over the multiple switches. For example, with 2 switches at 50% output only the first switch will be on full time, at 75% the first switch will be on 100% of the time, and the second 50%.
+Minimum:
+  description: Minimal value of the number. On this value, all switches will be switched off continously.
+Maximum:
+  description: Maximal value of the number. On this value, all switches will be switched on continously.
+Cycle time:
+  description: Duration to execute a single controller cycle.
+Minimal switch time:
+  description: Shortest possible time a switch should be on- or off. This parameter is typically usefull in slow switching applications like the wax-valve of domestic heater systems.
+Step:
+  description: Step size of the number.
+Mode: 
+  description: Mode of user interface elements.
+{% endconfiguration_basic %}
