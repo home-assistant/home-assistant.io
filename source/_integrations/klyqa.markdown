@@ -21,6 +21,8 @@ The `klyqa` integration will allow users to integrate with their Klyqa Account t
 
 Please visit the [Klyqa website](https://www.klyqa.de/) for further information about Klyqa devices.
 
+The account settings of the user will be synchronized to Home Assistant. Devices, Rooms and Device Groups of the user will be synchronized.
+
 There is currently support for the following device types within Home Assistant:
 
 - **Light**: Dim the brightness of the lights, set scenes, set colors, set temperature and turn the lights on and off.
