@@ -30,7 +30,7 @@ type:
   type: string
 entities:
   required: true
-  description: "A list of entity IDs or `entity` objects (see below), or an external statistic id"
+  description: "A list of entity IDs or `entity` objects (see below), or an external statistic id. Note: After specifying the first one, all others can only be selected with the same unit of measurement."
   type: list
 days_to_show:
   required: false
