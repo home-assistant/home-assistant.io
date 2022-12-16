@@ -16,6 +16,7 @@ ha_codeowners:
   - '@bieniu'
   - '@thecode'
   - '@chemelli74'
+  - '@bdraco'
 ha_iot_class: Local Push
 ha_domain: shelly
 featured: true
@@ -33,6 +34,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
@@ -259,7 +261,7 @@ As soon as you change the temperature, it gets enabled again.
 
 ## CoAP port (generation 1)
 
-In some cases, it may be needed to customize the CoAP port (default: `5683`) your Home Assistant instance is listening to.
+In some cases, it may be needed to customize the CoAP UDP port (default: `5683`) your Home Assistant instance is listening to.
 
 In order to change it, add the following key to your `configuration.yaml`:
 

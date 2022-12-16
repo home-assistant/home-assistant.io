@@ -52,7 +52,7 @@ Please note, device names configured in the SwitchBot app are not transferred in
 - Curtain (WoCurtain)
 - Humidifier (WoHumi)
 - Light Strip (WoStrip)
-- Meter (WoSensorTH)
+- Meter/Meter Plus 70BB (WoSensorTH)
 - Motion Sensor (WoPresence)
 - Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
 

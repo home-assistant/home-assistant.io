@@ -5,7 +5,6 @@ ha_category:
   - Sensor
 ha_release: 0.31
 ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_codeowners:
   - '@fabaff'
   - '@gjohansson-ST'
@@ -14,6 +13,7 @@ ha_domain: scrape
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The `scrape` sensor platform is scraping information from websites. The sensor loads an HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/), it will most likely only work with simple web pages and it can be time-consuming to get the right section.
@@ -91,7 +91,7 @@ scan_interval:
   description: Define the refrequency to call the REST endpoint in seconds.
   required: false
   type: integer
-  default: 30
+  default: 600
 sensor:
   description: A list of sensors to create from the shared data. All configuration settings that are supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
   required: true

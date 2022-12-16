@@ -43,7 +43,7 @@ ha_platforms:
   - siren
   - switch
   - water_heater
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The Overkiz (by Somfy) integration platform is used by many different vendors, like Somfy, Hitachi, and Atlantic. This integration will allow users to integrate their devices into Home Assistant using the Overkiz API.

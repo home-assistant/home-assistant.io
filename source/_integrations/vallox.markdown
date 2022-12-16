@@ -12,8 +12,8 @@ ha_domain: vallox
 ha_platforms:
   - binary_sensor
   - fan
-  - sensor
   - number
+  - sensor
   - switch
 ha_codeowners:
   - '@andre-richter'

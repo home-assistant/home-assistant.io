@@ -90,8 +90,9 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - Kinivo BTD-400 (BCM20702A0)
 - LM Technologies LM1010 (BCM20702A0) 📶
 - Nuu You BT40 (CSR8510A10)
+- ORICO BTA-403 (CSR8510A10)
 - Panda Wireless PBU40 (CSR8510A10)
-- Pluggable USB-BT4LE (BCM20702A0)
+- Plugable USB-BT4LE (BCM20702A0)
 - QGOO BT-06A (CSR8510A10)
 - Raspberry Pi 3B+ (CYW43455)
 - Raspberry Pi 4B (CYW43455)
@@ -173,6 +174,7 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 - tp-link UB400 (CSR4) - Frequent connection failures with active connections
 - tp-link UB500 (RTL8761BU) - Frequent connection failures with active connections
 - Unbranded CSR 4.0 clones with USB id 0a12:0001 - Unrecoverable driver failure
+- 5 CORE CSR 4.0 (CSR CLONE) - Unrecoverable driver failure
 
 ## Multiple adapters
 

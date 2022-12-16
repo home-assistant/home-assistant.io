@@ -10,6 +10,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@emontnemery'
+  - '@jbouwh'
 ha_domain: mqtt
 ha_platforms:
   - alarm_control_panel
@@ -18,6 +19,7 @@ ha_platforms:
   - camera
   - climate
   - cover
+  - device_tracker
   - diagnostics
   - fan
   - humidifier
@@ -28,11 +30,10 @@ ha_platforms:
   - sensor
   - siren
   - switch
-  - tag
   - text
   - update
-  - vacuum
 ha_integration_type: integration
+ha_quality_scale: gold
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
@@ -168,7 +169,7 @@ mosquitto_sub -h 127.0.0.1 -v -t "home-assistant/#"
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier, and the remaining device configuration without the device type.
 
-{% details "Platforms supported by MQTT discovery" %}
+{% details "Entity components supported by MQTT discovery" %}
 
 - [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
@@ -218,7 +219,7 @@ Best practice for entities with a `unique_id` is to set `<object_id>` to `unique
 
 #### Discovery payload
 
-The payload must be a serialized JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
+The payload must be a serialized JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the component's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
 
 Subsequent messages on a topic where a valid payload has been received will be handled as a configuration update, and a configuration update with an empty payload will cause a previously discovered device to be deleted.
 
@@ -623,7 +624,7 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
 #### Use object_id to influence the entity id
 
 
-The entity id is automatically generated from the entity's name. All MQTT entity components optionally support providing an `object_id` which will be used instead if provided.
+The entity id is automatically generated from the entity's name. All MQTT components optionally support providing an `object_id` which will be used instead if provided.
 
 - Configuration topic: `homeassistant/sensor/device1/config`
 - Example configuration payload:
@@ -640,9 +641,9 @@ In the example above, the entity_id will be `sensor.my_super_device` instead of 
 
 ## Manual configured MQTT items
 
-For most platforms it is also possible to manual set up MQTT items in `configuration.yaml`. Read more [about configuration in YAML](/docs/configuration/yaml).
+For most components it is also possible to manual set up MQTT items in `configuration.yaml`. Read more [about configuration in YAML](/docs/configuration/yaml).
 
-{% details "MQTT platforms that support setup via YAML" %}
+{% details "MQTT components that support setup via YAML" %}
 
 - [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
@@ -671,11 +672,11 @@ If you have a lot of manual configured items you might want to consider [splitti
 
 ## Using Templates
 
-The MQTT platform support templating. Read more [about using templates with the MQTT integration](/docs/configuration/templating/#using-templates-with-the-mqtt-integration).
+The MQTT integration supports templating. Read more [about using templates with the MQTT integration](/docs/configuration/templating/#using-templates-with-the-mqtt-integration).
 
 ## MQTT Notifications
 
-The MQTT notification support is different than the other [notification](/integrations/notify/) platforms. It is a service. This means that you don't have to create a configuration entry but you need to provide more details when calling the service.
+The MQTT notification support is different than for the other [notification](/integrations/notify/) components. It is a service. This means you need to provide more details when calling the service.
 
 **Call Service** section from **Developer Tools** -> **Services** allows you to send MQTT messages. Choose *mqtt.publish*  from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 
@@ -781,11 +782,39 @@ payload_template: "{{ states('device_tracker.paulus') }}"
 
 {% endraw %}
 
-`payload` must be a string. If you want to send JSON then you need to format/escape it properly. Like:
+`payload` must be a string.
+If you want to send JSON using the YAML editor then you need to format/escape
+it properly. Like:
 
 ```yaml
 topic: home-assistant/light/1/state
-payload: "{\"Status\":\"off\", \"Data\":\"something\"}"
+payload: "{\"Status\":\"off\", \"Data\":\"something\"}"`
+```
+
+When using Home Assistant's YAML editor for formatting JSON
+you should take special care if `payload` contains template content.
+Home Assistant will force you in to the YAML editor and will treat your
+definition as a template. Make sure you escape the template blocks as like
+in the example below. Home Assistant will convert the result to a string
+and will pass it to the MQTT publish service.
+
+```yaml
+service: mqtt.publish
+data:
+  topic: homeassistant/sensor/Acurite-986-1R-51778/config
+  payload: >-
+    {"device_class": "temperature",
+    "name": "Acurite-986-1R-51778-T",
+    "unit_of_measurement": "\u00b0C",
+    "value_template": "{% raw %}{% raw %}{{ value|float }}{%{% endraw %} endraw %}",
+    "state_topic": "rtl_433/rtl433/devices/Acurite-986/1R/51778/temperature_C",
+    "unique_id": "Acurite-986-1R-51778-T",
+    "device": {
+    "identifiers": "Acurite-986-1R-51778",
+    "name": "Acurite-986-1R-51778",
+    "model": "Acurite-986",
+    "manufacturer": "rtl_433" }
+    }
 ```
 
 Example of how to use `qos` and `retain`:

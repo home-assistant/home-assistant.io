@@ -39,7 +39,7 @@ ha_platforms:
   - sensor
   - switch
   - text
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The UniFi Protect integration adds support for retrieving Camera feeds and Sensor data from a [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on a UniFi OS Console.
