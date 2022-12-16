@@ -115,6 +115,8 @@ it is expected to see `NCP entered failed state. Requesting APP controller resta
 
 </div>
 
+{% include integrations/config_flow.md %}
+
 ## Configuration - GUI
 
 Connect your radio module and restart Home Assistant.
