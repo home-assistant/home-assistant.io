@@ -115,7 +115,7 @@ it is expected to see `NCP entered failed state. Requesting APP controller resta
 
 </div>
 
-# Configuration
+## Configuration - GUI
 
 {% include integrations/config_flow.md %}
 
