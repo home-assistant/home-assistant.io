@@ -4,9 +4,9 @@ description: Instructions for how to integrate ecobee thermostats and sensors wi
 ha_category:
   - Binary Sensor
   - Climate
-  - Fan
   - Humidifier
   - Notifications
+  - Number
   - Sensor
   - Weather
 featured: true
@@ -19,9 +19,9 @@ ha_domain: ecobee
 ha_platforms:
   - binary_sensor
   - climate
-  - fan
   - humidifier
   - notify
+  - number
   - sensor
   - weather
 ha_zeroconf: true
@@ -134,17 +134,7 @@ The ecobee climate entity has some extra attributes to represent the state of th
 
 ### Concepts
 
-The ecobee thermostat supports the addition of an accessory. If you have an air exchanger (ventilator, HRV, or ERV), you can control it via the Fan entity.
-
-The turn-on turn-off control of the fan, is powering the 20 min manual mode (Same as on the ecobee device). So it is expected behavior that when you turn it on, it only stays on for 20 min.
-
-### Attributes
-
-The ecobee ventilator entity has some extra attributes to represent the state of the ventilator.
-
-| Name | Description |
-| ---- | ----------- |
-| `ventilator_type` | The type of ventilator present for the thermostat. The possible values are `none`, `ventilator`, `hrv`, and `erv`.
+The ecobee thermostat supports the addition of an accessory. If you have an air exchanger (ventilator, HRV, or ERV), you can control it via the min time home and min time away numbers.
 
 ### Number
 
