@@ -82,6 +82,10 @@ The integration setup will next give you instructions to enter the [Application 
 
 If you have an error with your credentials you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
 
+## Configuration
+
+In the configure page you can set the language code of the interactions with Google Assistant. If not configured, the integration picks one based on the Home Assistant configured language and country.
+
 ## Services
 
 ### Service `google_assistant_sdk.send_text_command`
