@@ -50,6 +50,7 @@ Please note, device names configured in the SwitchBot app are not transferred in
 - Bot (WoHand)
 - Contact Sensor (WoContact)
 - Curtain (WoCurtain)
+- Humidifier (WoHumi)
 - Light Strip (WoStrip)
 - Meter/Meter Plus 70BB (WoSensorTH)
 - Motion Sensor (WoPresence)
