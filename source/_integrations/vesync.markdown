@@ -3,6 +3,7 @@ title: VeSync
 description: Instructions on how to set up VeSync switches, outlets, and fans within Home Assistant.
 ha_category:
   - Fan
+  - Humidifier
   - Light
   - Switch
 ha_release: 0.66
@@ -15,6 +16,7 @@ ha_codeowners:
 ha_domain: vesync
 ha_platforms:
   - fan
+  - humidifier
   - light
   - sensor
   - switch
@@ -27,10 +29,11 @@ The devices must be added to the VeSync App before this integration can discover
 
 The following platforms are supported:
 
-- **light**
-- **switch**
 - **fan**
+- **humidifier**
+- **light**
 - **sensor**
+- **switch**
 
 ## Supported Devices
 
