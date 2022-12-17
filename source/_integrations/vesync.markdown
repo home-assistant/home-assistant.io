@@ -83,8 +83,8 @@ the configuration section below.
 
 ## Services
 
-| Service | Description |
-|---------|-------------|
+| Service          | Description                                        |
+|------------------|----------------------------------------------------|
 | `update_devices` | Poll Vesync server to find and add any new devices |
 
 ## Power & Energy Sensors
@@ -104,9 +104,9 @@ itself. Note that prior versions of the integration exposed these as state attri
 ## Fan & Air Quality Sensors
 All VeSync air purifiers expose the remaining filter life, and some also expose air quality measurements.
 
-| Sensor                                  | Description                                                        | Example |
-| --------------------------------------- | ------------------------------------------------------------------ | ------- |
-| `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, Core200S/300s/400s/600s)         | 142       |
+| Sensor                  | Description                                                                            | Example   |
+| ----------------------- | -------------------------------------------------------------------------------------- | --------- |
+| `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, Core200S/300s/400s/600s)              | 142       |
 | `air_quality`           | The current air quality reading. (LV-PUR131S, Core300s/400s/600s)                      | excellent |
 | `pm2_5`                 | The current air quality reading. (Core300s/400s/600s)                                  | 8         |
 
