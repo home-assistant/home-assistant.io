@@ -65,6 +65,14 @@ This integration supports devices controllable by the VeSync App.  The following
 - Core 600S: Smart True HEPA Air Purifier
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
 
+### Humidifiers
+
+- Classic 200S: Smart Ultrasonic Cool Mist Humidifier
+- Classic 300S: Ultrasonic Smart Humidifier
+- Dual 200S: Smart Top-Fill Humidifier
+- LV600S: Smart Hybrid Ultrasonic Humidifier
+- OasisMist™ Smart Humidifier
+
 ## Prerequisite
 
 Before you can use this integration, all devices must be registered with the
@@ -115,6 +123,14 @@ VeSync air purifiers will expose the following details depending on the features
 | `screen_status`         | The current status of the screen. (LV-PUR131S)                                    | on              |
 | `night_light`           | The current status of the night light (Core200S/Core400s)                         | off             |
 | `child_lock`            | The current status of the child lock (Core200S/300s/400s)                         | off             |
+
+## Humidifier Sensors
+
+All VeSync humidifiers will expose the current room's humidity:
+
+| Sensor                  | Description                                                                       | Example         |
+| ----------------------- | --------------------------------------------------------------------------------- | --------------- |
+| `humidity`              | The current humidity of the room that the device is in.                           | 50%             |
 
 ## Extracting Attribute data
 
