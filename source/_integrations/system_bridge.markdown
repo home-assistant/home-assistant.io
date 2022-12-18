@@ -104,6 +104,9 @@ data:
           body:
             url: http://homeassistant.local:8123/lovelace/cameras
         label: Open Cameras
+    audio:
+      source: https://d3qhmae9zx9eb.cloudfront.net/home/amzn_sfx_doorbell_chime_02.mp3
+      volume: 80
   title: Test Title
   message: This is a message
 ```
@@ -138,6 +141,10 @@ Here is an example action that will open a URL in the device's browser:
     body:
       url: http://homeassistant.local:8123/lovelace/cameras
 ```
+
+##### Audio (`data` parameter)
+
+This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file (an MP3 for example).
 
 For more API commands, refer to the API documentation [here](https://system-bridge.timmo.dev/docs/api).
 
