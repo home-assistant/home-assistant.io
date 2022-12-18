@@ -7,7 +7,7 @@ description: "The Statistics Graph card allows you to display a graph with stati
 
 The Statistics Graph card allows you to display a graph of statistics data for each of the entities listed.
 
-Statistics are gathered every hour for sensors that support it. It will either keep the `min`, `max` and `mean` of a sensors value for a specific hour, or the `sum` for a metered entity.
+Statistics are gathered every 5 minutes for sensors that support it. It will either keep the `min`, `max` and `mean` of a sensors value for a specific hour, or the `sum` for a metered entity.
 
 If your sensor doesn't work with statistics, check [this](/more-info/statistics/).
 
@@ -30,7 +30,7 @@ type:
   type: string
 entities:
   required: true
-  description: "A list of entity IDs or `entity` objects, see below."
+  description: "A list of entity IDs or `entity` objects (see below), or an external statistic id"
   type: list
 days_to_show:
   required: false

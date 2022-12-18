@@ -34,11 +34,11 @@ frontend:
             required: true
             type: [list, string]
   extra_module_url:
-    description: "List of additional javascript modules to load in `latest` javascript mode."
+    description: "List of additional JavaScript modules to load in `latest` JavaScript mode."
     required: false
     type: list
   extra_js_url_es5:
-    description: "List of additional javascript code to load in `es5` javascript mode."
+    description: "List of additional JavaScript code to load in `es5` JavaScript mode."
     required: false
     type: list
   development_repo:
@@ -51,7 +51,7 @@ frontend:
 
 ### Theme format
 
-The frontend integration allows you to create custom themes to influence the look and feel of the user interface.
+The frontend integration allows you to create custom themes to influence the look and feel of the user interface. Note that we only officially support the `primary-color` and `accent-color` properties. Although we do our best to keep things working, the behavior of other properties can change between releases.
 
 ```yaml
 # Example configuration.yaml entry

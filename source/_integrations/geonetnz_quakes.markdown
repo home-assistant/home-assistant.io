@@ -13,7 +13,7 @@ ha_domain: geonetnz_quakes
 ha_platforms:
   - geo_location
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The `geonetnz_quakes` integration lets you use a GeoJSON feed provided by 

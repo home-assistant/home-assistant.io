@@ -55,6 +55,7 @@ This integration provides the following sensors:
 | Name                | Description                                 |
 | ------------------- | ------------------------------------------- |
 | Indoor Temperature  | The reported temperature from the device    |
+| Indoor Humidity     | The reported humidity from the device       |
 | Outdoor Temperature | Lyric's outdoor temperature report          |
 | Outdoor Humidity    | Lyric's outdoor humidity                    |
 | Next Period Time    | The next time the thermostat will change    |

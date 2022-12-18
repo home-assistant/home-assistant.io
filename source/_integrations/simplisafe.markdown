@@ -19,7 +19,7 @@ ha_platforms:
   - lock
   - sensor
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The `simplisafe` integration integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
@@ -166,4 +166,4 @@ event data that contains the following keys:
 Note that when Home Assistant restarts, `SIMPLISAFE_NOTIFICATION` events will fire once
 again for any notifications still active in the SimpliSafe web and mobile apps. To
 prevent this, either (a) clear them in the web/mobile app or (b) utilize the 
-`simplisafe.clear_notifications` service described above.
+`clear_notifications` button provided by the alarm control panel.
