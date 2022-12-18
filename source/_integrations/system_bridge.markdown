@@ -146,8 +146,6 @@ Here is an example action that will open a URL in the device's browser:
 
 This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file (an MP3 for example).
 
-For more API commands, refer to the API documentation [here](https://system-bridge.timmo.dev/docs/api).
-
 ### Service `system_bridge.open_path`
 
 Open a URL or file on the server using the default application.
