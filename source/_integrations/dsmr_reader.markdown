@@ -35,7 +35,13 @@ To use this DSMR Reader sensor integration, you need to have a DSMR Reader insta
 
 ## Configuring the Energy Dashboard
 
-It is most advisable to use the "reading" sensors in the energy dashboard over the "merged" and "day" sources. The "reading" sensors provide the most stable source of data for Home Assistant to use. These MQTT values are part of the "Telegram: Split topic" MQTT values within DSMR Reader, so make sure to enable it.
+It is most advisable to not use the "total" and "daily" sources. The regular "reading" sensors provide the most stable source of data for Home Assistant to use. These MQTT values are part of the "Telegram: Split topic" MQTT values within DSMR Reader, so make sure to enable them.
+
+| Section          | Sensors to configure                        |
+| ---------------- | ------------------------------------------- |
+| Grid consumption | Low tariff usage, High tariff usage         |
+| Return to grid   | Low tariff returned, High tariff returned   |
+| Gas consumption  | Gas meter usage                             |
 
 ## Difference with the DSMR integration
 
