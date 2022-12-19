@@ -12,6 +12,7 @@ ha_codeowners:
 ha_quality_scale: silver
 ha_platforms:
   - sensor
+  - calendar
 ha_integration_type: integration
 ---
 
@@ -34,3 +35,7 @@ The remaining five sensors are disabled by default and can be enabled on the dev
 - `sensor.sonarr_queue`: The number of episodes in the queue.
 - `sensor.sonarr_shows`: The number of series in Sonarr.
 - `sensor.sonarr_wanted`: The number of episodes still wanted.
+
+## Calendar
+
+The Sonarr integration provides `calendar.sonarr_episodes` to show the upcoming episodes on HomeAssistant's calendar view
