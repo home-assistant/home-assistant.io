@@ -65,7 +65,8 @@ Happy holidays and for the last time in 2022: Enjoy the release!
 - [Release 2022.12.3 - December 11](#release-2022123---december-11)
 - [Release 2022.12.4 - December 12](#release-2022124---december-12)
 - [Release 2022.12.5 - December 13](#release-2022125---december-13)
-- [Release 2022.12.6b0 - December 14](#release-2022126b0---december-14)
+- [Release 2022.12.6 - December 14](#release-2022126---december-14)
+- [Release 2022.12.7 - December 17](#release-2022127---december-17)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -526,7 +527,7 @@ The following integrations are now available via the Home Assistant UI:
 [sleepiq docs]: /integrations/sleepiq/
 [zha docs]: /integrations/zha/
 
-## Release 2022.12.6b0 - December 14
+## Release 2022.12.6 - December 14
 
 - Do not add a Content-Type header to ingress ([@zeehio] - [#83425]) ([hassio docs])
 - Bump lupupy dependency to v0.2.3 ([@majuss] - [#83765]) ([lupusec docs])
@@ -565,6 +566,65 @@ The following integrations are now available via the Home Assistant UI:
 [lupusec docs]: /integrations/lupusec/
 [shelly docs]: /integrations/shelly/
 [sleepiq docs]: /integrations/sleepiq/
+[zha docs]: /integrations/zha/
+
+## Release 2022.12.7 - December 17
+
+- Bump pySwitchbot to 0.23.2 ([@bdraco] - [#84002]) ([switchbot docs])
+- Re-add missing Growatt TLX values ([@muppet3000] - [#84040]) ([growatt_server docs])
+- Update frontend to 20221213.1 ([@bramkragten] - [#84058]) ([frontend docs])
+- Bump govee-ble to 0.19.3 ([@bdraco] - [#84062]) ([govee_ble docs])
+- Update Tibber lib, improve realtime streaming ([@Danielhiversen] - [#84065]) ([tibber docs])
+- Bump bluetooth-auto-recovery to 1.0.3 ([@bdraco] - [#84075]) ([bluetooth docs])
+- Make sure philips_hs remote entity calls parent added ([@elupus] - [#84082]) ([philips_js docs])
+- Bump ical to 4.2.3 ([@allenporter] - [#84104]) ([local_calendar docs])
+- Fix check if Surveillance Station is available in Synology DSM ([@mib1185] - [#84140]) ([synology_dsm docs])
+- Fix KNX ConfigFlow for manual secure tunnel keys ([@farmio] - [#84155]) ([knx docs])
+
+[#83482]: https://github.com/home-assistant/core/pull/83482
+[#83592]: https://github.com/home-assistant/core/pull/83592
+[#83778]: https://github.com/home-assistant/core/pull/83778
+[#83797]: https://github.com/home-assistant/core/pull/83797
+[#83870]: https://github.com/home-assistant/core/pull/83870
+[#83944]: https://github.com/home-assistant/core/pull/83944
+[#83998]: https://github.com/home-assistant/core/pull/83998
+[#84002]: https://github.com/home-assistant/core/pull/84002
+[#84040]: https://github.com/home-assistant/core/pull/84040
+[#84058]: https://github.com/home-assistant/core/pull/84058
+[#84062]: https://github.com/home-assistant/core/pull/84062
+[#84065]: https://github.com/home-assistant/core/pull/84065
+[#84075]: https://github.com/home-assistant/core/pull/84075
+[#84082]: https://github.com/home-assistant/core/pull/84082
+[#84104]: https://github.com/home-assistant/core/pull/84104
+[#84140]: https://github.com/home-assistant/core/pull/84140
+[#84155]: https://github.com/home-assistant/core/pull/84155
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@elupus]: https://github.com/elupus
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@mib1185]: https://github.com/mib1185
+[@muppet3000]: https://github.com/muppet3000
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[bluetooth docs]: /integrations/bluetooth/
+[braviatv docs]: /integrations/braviatv/
+[cast docs]: /integrations/cast/
+[fritzbox docs]: /integrations/fritzbox/
+[frontend docs]: /integrations/frontend/
+[govee_ble docs]: /integrations/govee_ble/
+[growatt_server docs]: /integrations/growatt_server/
+[justnimbus docs]: /integrations/justnimbus/
+[knx docs]: /integrations/knx/
+[local_calendar docs]: /integrations/local_calendar/
+[philips_js docs]: /integrations/philips_js/
+[sleepiq docs]: /integrations/sleepiq/
+[switchbot docs]: /integrations/switchbot/
+[synology_dsm docs]: /integrations/synology_dsm/
+[tibber docs]: /integrations/tibber/
 [zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
