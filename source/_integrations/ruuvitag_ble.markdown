@@ -21,7 +21,7 @@ Integrates [Ruuvi](https://ruuvi.com/)'s RuuviTag BLE devices into Home Assistan
 
 The RuuviTag BLE integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
-**Callout:** If RuuviTags are not discovered, [update to the latest firmware](https://ruuvi.com/software-update/)
+If your RuuviTags are not discovered, please make sure to update them to [the latest firmware](https://ruuvi.com/software-update/).
 
 ## Supported devices
 
