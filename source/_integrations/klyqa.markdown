@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `klyqa` integration will allow users to integrate with their Klyqa Account their Klyqa smart devices into Home Assistant and use it to automate their homes.
+The Klyqa integration will allow users to integrate with their Klyqa account with their Klyqa smart devices.
 
 Please visit the [Klyqa website](https://www.klyqa.de/) for further information about Klyqa devices.
 
