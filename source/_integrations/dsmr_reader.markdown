@@ -29,6 +29,7 @@ To use this DSMR Reader sensor integration, you need to have a DSMR Reader insta
    - Day consumption: Split topic
    - Gas consumption: Split topic
    - Meter Statistics: Split topic
+   - Quarter-hour peak consumption: Split topic
    - Telegram: Split topic
 
 {% include integrations/config_flow.md %}
