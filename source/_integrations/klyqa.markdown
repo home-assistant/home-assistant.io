@@ -13,7 +13,6 @@ ha_domain: klyqa
 ha_homekit: true
 ha_platforms:
   - light
-  - vacuum
 ha_integration_type: integration
 ---
 
@@ -22,6 +21,8 @@ The Klyqa integration will allow users to integrate with their Klyqa account wit
 Please visit the [Klyqa website](https://www.klyqa.de/) for further information about Klyqa devices.
 
 The account settings of the user will be synchronized to Home Assistant. Devices, Rooms and Device Groups of the user will be synchronized.
+
+{% include integrations/config_flow.md %}
 
 There is currently support for the following device types within Home Assistant:
 
