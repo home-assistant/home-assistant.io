@@ -20,6 +20,6 @@ Integrates LD2410B sensors from [Hi-Link](http://www.hlktech.net/) into Home Ass
 
 {% include integrations/config_flow.md %}
 
-It currently provides the motion and static value. Other values, including configuring it are TODO.
+It currently provides the motion and static value.
 
 You can currently configure the settings for motion/static triggers by USB with either the [desktop software](https://drive.google.com/drive/folders/1p4dhbEJA3YubyIjIIC7wwVsSo8x29Fq-?usp=sharing) or the Bluetooth [mobile app](https://www.pgyer.com/Lq8p).
