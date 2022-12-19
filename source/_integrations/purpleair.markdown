@@ -17,3 +17,12 @@ ha_config_flow: true
 [PurpleAir](https://www2.purpleair.com/) makes sensors that measure hyper-local air quality data and share it with the public.
 
 {% include integrations/config_flow.md %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Add Sensor:
+  description: Track an additional sensor.
+Remove Sensor:
+  description: Untrack a sensor.
+{% endconfiguration_basic %}
