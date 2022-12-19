@@ -24,7 +24,7 @@ regenerate: false
 {%- assign components_by_version = site.integrations | group_components_by_release -%}
 {%- assign categories = components | map: 'ha_category' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
 {%- assign iot_classes = components | map: 'ha_iot_class' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
-{%- assign quality_scales = components | map: 'ha_quality_scale' | join: ',' | join: ',' | split: ',' | uniq | sort  -%}
+{%- assign quality_scales = components | map: 'ha_quality_scale' | join: ',' | join: ',' | split: ',' | uniq  -%}
 
 <p class='note'>
   Support for these integrations is provided by the Home Assistant community.
@@ -87,12 +87,12 @@ regenerate: false
 
   <div class="grid__item one-quarter lap-one-whole palm-one-whole">
     <div class="integration_filter">
-      <select class="ha_category" name="quality_scales" class="capitalize" data-id="quality_scale">
+      <select class="ha_category" name="quality_scales" data-id="quality_scale">
         <option value="#">Quality Scale</option>
         {%- for quality_scale in quality_scales -%}
           {%- assign quality_scale_count = components | where: 'ha_quality_scale', quality_scale | size -%}
           {%- if quality_scale_count != 0 -%}
-          <option class="capitalize" value="{{ quality_scale | slugify }}">{{ quality_scale }}</option>
+          <option value="{{ quality_scale | slugify }}">{{ quality_scale | capitalize }}</option>
           {%- endif -%}
         {%- endfor -%}
       </select>
