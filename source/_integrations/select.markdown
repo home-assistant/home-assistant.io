@@ -22,3 +22,22 @@ The Select entities registers the following services:
 | Service | Data | Description |
 | ------- | ---- | ----------- |
 | `select_option` | `option`<br>`entity_id(s)`<br>`area_id(s)` | Set the current select option of specific `select` entities
+| `select_first` | | Select the first option.
+| `select_last` | | Select the last option.
+
+
+#### Service `select.select_next`
+
+Select the next option.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `cycle` | yes | Whether to cycle to the first value after the last. Default: `true`
+
+#### Service `select.select_previous`
+
+Select the previous option.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `cycle` | yes | Whether to cycle to the last value before the first. Default: `true`
