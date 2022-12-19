@@ -35,7 +35,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **energy**: Energy in Wh, kWh or MWh
 - **enum**: Has a limited set of (non-numeric) states
 - **frequency**: Frequency in Hz, kHz, MHz or GHz
-- **gas**: Gasvolume in m³ or ft³
+- **gas**: Gasvolume in m³, ft³, or CCF
 - **humidity**: Percentage of humidity in the air
 - **illuminance**: The current light level in lx or lm
 - **irradiance**: Irradiance in W/m² or BTU/(h⋅ft²)
@@ -62,8 +62,8 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **timestamp**: Datetime object or timestamp string (ISO 8601)
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
 - **voltage**: Voltage in V
-- **volume**: Generic volume in L, mL, gal, fl. oz., m³, or ft³
-- **water**: Water consumption in L, gal, m³, or ft³
+- **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
+- **water**: Water consumption in L, gal, m³, ft³, or CCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
 - **wind_speed**: Wind speed in ft/s, km/h, kn, m/s, or mph
 
