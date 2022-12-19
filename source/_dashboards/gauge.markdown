@@ -102,7 +102,7 @@ segments:
 
 ## Examples
 
-Title and unit of measurement:
+### Title and unit of measurement:
 
 ```yaml
 type: gauge
@@ -116,7 +116,7 @@ entity: sensor.cpu_usage
 Screenshot of the gauge card with custom title and unit of measurement.
 </p>
 
-Define the severity map:
+### Define the severity map:
 
 ```yaml
 type: gauge
@@ -129,16 +129,19 @@ severity:
   red: 85
 ```
 
-Multiple segments:
+### Definition of multiple segments:
 
+Alternatively to the of the limited severity map, color segments can be freely defined with their color values for RGB in hex. This allows a more detailed segmentation by color:
+
+#### Humidity 
 <p class='img'>
-<img src='/images/dashboards/gauge_segments.png' alt='Screenshot of the gauge card with multiple colored segments.'>
-Screenshot of the gauge card with multiple colored segments.
+<img src='/images/dashboards/gauge_segments_humidity.png' alt='Screenshot of a gauge card with colored segments for humidity.'>
+Screenshot of a gauge card with colored segments for humidity.
 </p>
 
 ```yaml
 type: gauge
-entity: sensor.kitchen_humidity
+entity: sensor.humidity
 needle: true
 min: 20
 max: 80
@@ -150,23 +153,94 @@ segments:
   - from: 40
     color: '#43a047'
   - from: 60
-    color: '#ffa600'
+    color: '#4396a0'
   - from: 65
-    color: '#db4437'
+    color: '#437ba0'
+  - from: 70
+    color: '#4362a0'
 ```
 
-CSS variables can be used (instead of CSS '#rrggbb') for default gauge segment colors:
+#### Outdoor temperature
+
+<p class='img'>
+<img src='/images/dashboards/gauge_segments_feelslike_temperature.png' alt='Screenshot of a gauge card with colored segments for temperature.'>
+Screenshot of a gauge card with colored segments for temperature.
+</p>
+
+```yaml
+type: gauge
+entity: sensor.feelslike_temperature
+needle: true
+min: -15
+max: 50
+segments:
+  - from: -15
+    color: '#8438e0'
+  - from: -5
+    color: '#4362a0'
+  - from: 2
+    color: '#4362a0'
+  - from: 9
+    color: '#4396a0'
+  - from: 16
+    color: '#43a047'
+  - from: 25
+    color: '#ffa600'
+  - from: 36
+    color: '#db4437'
+  - from: 45
+    color: '#7e0023'
+```
+
+#### Air Quality Index (AQI)
+
+
+<p class='img'>
+<img src='/images/dashboards/gauge_segments_aqi.png' alt='Screenshot of a gauge card with colored segments for Air Quality Index.'>
+Screenshot of a gauge card with colored segments for Air Quality Index.
+</p>
+
+```
+type: gauge
+entity: sensor.u_s_air_quality_index
+min: 0
+max: 320
+name: AQI
+needle: true
+segments:
+  - from: 0
+    color: '#009966'
+  - from: 51
+    color: '#ffde33'
+  - from: 101
+    color: '#ff9933'
+  - from: 151
+    color: '#cc0033'
+  - from: 201
+    color: '#660099'
+  - from: 300
+    color: '#7e0023'
+```
+
+### CSS variables
+
+CSS variables can be used (instead of CSS '#rrggbb') for default gauge segment colors.
 
 - `var(--success-color)` for green color
 - `var(--warning-color)` for yellow color
 - `var(--error-color)` for red color
 - `var(--info-color)` for blue color
 
-Therefore, the previous example can be defined also as:
+<p class='img'>
+<img src='/images/dashboards/gauge_segments.png' alt='Screenshot of the gauge card with multiple colored segments.'>
+Screenshot of the gauge card with multiple colored segments.
+</p>
+
+Therefore, this graph can be defined as:
 
 ```yaml
 type: gauge
-entity: sensor.kitchen_humidity
+entity: sensor.percentage_sensor
 needle: true
 min: 20
 max: 80
@@ -182,3 +256,4 @@ segments:
   - from: 65
     color: var(--error-color)
 ```
+
