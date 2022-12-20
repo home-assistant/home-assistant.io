@@ -72,6 +72,8 @@ To help with development of this component, enable `info` level logging for `hom
 | Last Clock Synchronization | Sensor | Timestamp | When the device clock was last synchronized. |
 | Last Backup | Sensor | Timestamp | When the last backup of the device configuration has been retrieved. |
 
+If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).
+
 ### Service `onvif.ptz`
 
 If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your camera.
@@ -88,4 +90,11 @@ If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your ca
 | `move_mode` | PTZ moving mode. Allowed values: `ContinuousMove`, `RelativeMove`, `AbsoluteMove`, `GotoPreset`, `Stop`. Default :`RelativeMove` |
 | `continuous_duration` | Set ContinuousMove delay in seconds before stopping the move. Allowed values: floating point numbers or integer. Default : 0.5 |
 
-If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).
+### Service `onvif.aux`
+
+If your ONVIF camera supports PTZ auxiliary commands (e.g. for running the wiper or turning on the heater), you will be able to run them with this service.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
+| `cmd` | Command to send (e.g. `tt:Wiper|On`). Options depend on camera capability. |
