@@ -62,4 +62,4 @@ We’ve created a YAML-based format to [declare and test](https://github.com/hom
 
 For each language we’re going to need one or more language leaders. Language leaders are responsible for reviewing the contributions in their language and making sure that they are grammatically correct.
 
-If you want to apply to be a language leader, join us in `#devs_voice` on [Discord](https://www.home-assistant.io/join-chat/) or open an issue in [our intents repository](https://github.com/home-assistant/intents).
+If you want to apply to be a language leader, join us in `#devs_voice` on [Discord](https://www.home-assistant.io/join-chat/) or open an issue in [our intents repository](https://github.com/home-assistant/intents/issues).
