@@ -13,28 +13,34 @@ ha_platforms:
   - climate
 ha_integration_type: integration
 ---
-  
-This integration allows you to control your Homewizard Climate devices in Home Assistant. There are a multitude of brands that use Homewizard apps for their smart controls.
 
-  
+This integration allows you to control your Homewizard Climate devices in Home Assistant. There are a multitude of
+brands that use Homewizard apps for their smart controls.
+
 ### Supported Devices
-This integration is in an early stage of development and only works for the following device types returned from the Homewizard Climate API:
+
+This integration is in an early stage of development and only works for the following device types returned from the
+Homewizard Climate API:
 
 - `heaterfan`
 
 It has been tested on the following devices:
+
 - [Princess Smart Heating and Cooling Tower (01.347000.01.001)](https://www.princesshome.eu/en-gb/princess-01-347000-01-001-smart-heating-and-01.347000.01.001)
-    
+
 ![](https://www.princesshome.eu/product/image/large/01.347000.01.001_3.jpg)
 
 [//]: # (<img src="https://www.princesshome.eu/product/image/large/01.347000.01.001_3.jpg" alt="" width="200"/>)
 
 ### Configuration
-When adding this integration, you need to provide the `username` and `password` you use to login to the Homewizard Climate app. 
+
+When adding this integration, you need to provide the `username` and `password` you use to login to the Homewizard
+Climate app.
 
 ### Entities
-After configuration, this will create a [climate](/integrations/climate/) entity for each device registered in your Homewizard Climate cloud that has a [supported device type](#supported-devices):
 
+After configuration, this will create a [climate](/integrations/climate/) entity for each device registered in your
+Homewizard Climate cloud that has a [supported device type](#supported-devices):
 
 | Service call      | Performed action                                                                                                                                                                                                                                                         |
 |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -49,6 +55,15 @@ After configuration, this will create a [climate](/integrations/climate/) entity
 | turn_aux_heat_off | NOT IMPLEMENTED                                                                                                                                                                                                                                                          |
 | set_humidity      | NOT IMPLEMENTED                                                                                                                                                                                                                                                          |
 
-
 ### Limitations
-- There's no easy way to set the fan speed to any number of your choosing (1-10 in `HVAC.COOL` and 1-4 in `HVAC.HEAT`). This will be resolved in a future update to add a `fan` entity alongside the `climate` one to provide full control.
+
+- There's no easy way to set the fan speed to any number of your choosing (1-10 in `HVAC.COOL` and 1-4 in `HVAC.HEAT`).
+  This will be resolved in a future update to add a `fan` entity alongside the `climate` one to provide full control.
+
+<div class='note warning'>
+
+This integration uses an unofficial library to communicate with Homewizard Climate's API/Websocket and is maintained by
+unaffiliated individuals. So it may stop working at any point in time. We'll do our best to keep it running but there's
+no guarantee.
+
+</div>
