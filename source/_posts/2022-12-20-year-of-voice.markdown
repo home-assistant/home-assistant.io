@@ -36,7 +36,7 @@ If you follow the news, it might sound like voice assistants have failed. Amazon
 
 With Home Assistant we’ve always been interested in voice. We used to work with [Snips](https://snips.ai/) back in the day, but they got acquired and shut down. We worked with Stanford on their [Almond/Genie platform](/blog/2021/12/21/stanford-genie/), but it is a research driven project that never got production ready. And yes, you can use Home Assistant to send all your data to the clouds of Google and Amazon to leverage their voice assistants, but you shouldn't have to give up your privacy to turn on the lights by voice.
 
-The most promising project out there is [Rhasspy](https://rhasspy.readthedocs.io/en/latest/) created by [Mike Hansen](https://github.com/synesthesiam). A project that allowed people to build their own voice assistant, which could also tie into Home Assistant. Rhasspy stands out from other open source voice projects because Mike didn’t focus on just English. Instead, his goal has been to make it work for everyone and he already supports 16 different languages today.
+The most promising project out there is [Rhasspy](https://rhasspy.readthedocs.io/en/latest/), created by [Mike Hansen](https://github.com/synesthesiam). A project that allows people to build their own local voice assistant, which can also tie into Home Assistant. Rhasspy stands out from other open source voice projects because Mike doesn’t focus on just English. Instead, his goal is to make it work for everyone. This is going great as Rhasspy supports already 16 different languages today.
 
 With Home Assistant we want to make a privacy and locally focused smart home available to everyone. Mike’s approach with Rhasspy aligns with Home Assistant, and so we’re happy to announce that Mike has joined Nabu Casa to work full-time on voice in Home Assistant.
 
@@ -60,6 +60,8 @@ Take for example the sentence: `Turn on the bedroom lights`. Write it up like `T
 
 We’ve created a YAML-based format to [declare and test](https://github.com/home-assistant/intents#intents-for-home-assistant) these sentences. The next step is that we need you 🫵
 
-For each language we’re going to need one or more language leaders. Language leaders are responsible for reviewing the contributions in their language and making sure that they are grammatically correct.
+For each language we’re going to need one or more language leaders. Language leaders are responsible for reviewing the contributions in their language and making sure that they are grammatically correct. If you want to apply to be a language leader, join us in `#devs_voice` on [Discord](/join-chat/) or open an issue in [our intents repository](https://github.com/home-assistant/intents/issues).
 
-If you want to apply to be a language leader, join us in `#devs_voice` on [Discord](/join-chat/) or open an issue in [our intents repository](https://github.com/home-assistant/intents/issues).
+We also need people that want to contribute sentences to their language to help build out our collection. See our intents repository on [how to get started](https://github.com/home-assistant/intents#contributing-sentences).
+
+
