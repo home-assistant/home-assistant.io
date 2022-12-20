@@ -78,7 +78,7 @@ payload_reset:
   description: The payload value that will have the device's location automatically derived from Home Assistant's zones.
   required: false
   type: string
-  default: "RST"
+  default: "None"
 source_type:
   description: Attribute of a device tracker that affects state when being used to track a [person](/integrations/person/). Valid options are `gps`, `router`, `bluetooth`, or `bluetooth_le`.
   required: false
@@ -214,7 +214,7 @@ payload_reset:
   description: The payload value that will have the device's location automatically derived from Home Assistant's zones.
   required: false
   type: string
-  default: "RST"
+  default: "None"
 qos:
   description: The maximum QoS level of the state topic.
   required: false
