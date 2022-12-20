@@ -35,3 +35,76 @@ Step:
 Mode: 
   description: Mode of user interface elements.
 {% endconfiguration_basic %}
+
+## YAML Configuration
+
+Alternatlively, this integration can be configured and set up manually via YAML
+instead. To enable the Integration sensor in your installation, add the
+following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+number:
+  - platform: slow_pwm
+    - name: Floorheater living room
+      outputs:
+        - "switch.living_room_group1"
+``` 
+
+{% configuration %}
+name:
+  description: Name of the slow_pwm.
+  required: true
+  type: string
+outputs:
+  description: `entity_id`'s for switches, must be toggle devices. When multiple outputs are selected, the range of 0..100% will be shared over the multiple switches. For example, with 2 switches at 50% output only the first switch will be on full time, at 75% the first switch will be on 100% of the time, and the second 50%.
+  required: true
+  type: multiple strings
+minimum:
+  description: Minimal value of the slow_pwm number. Timed output will be normalized between minimum and maximum.
+  required: false
+  default: 0
+  type: float
+maximum:
+  description: Maximal value of the slow_pwm number. Timed output will be normalized between minimum and maximum.
+  required: false
+  default: 100
+  type: float
+cycle_time:
+  description: Cycle time for the PWM cycle.
+  required: false
+  default: 00:30:00
+  type: time_period
+step:
+  description: Step value. Smallest value `0.001`.
+  required: false
+  type: float
+  default: 1
+mode:
+  description: Control how the number should be displayed in the UI. Can be set to `box` or `slider` to force a display mode.
+  required: false
+  type: string
+  default: '"auto"'
+unique_id:
+  description: Unique id to be able to configure the entity in the UI.
+  required: false
+  type: string
+{% endconfiguration %}
+
+## Full configuration example
+
+```yaml
+number:
+  - platform: slow_pwm
+    - name: Floorheater living room
+      outputs:
+        - "switch.living_room_group1"
+        - "switch.living_room_group2"
+      minimum: 10
+      maximum: 200
+      cycle_time: 00:10:00
+      minimal_switch_time: 00:00:10
+      step: 3
+      mode: "auto"
+      unique_id: "MyUniqueID_1234"
+```
