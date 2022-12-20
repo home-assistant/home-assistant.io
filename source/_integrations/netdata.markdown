@@ -13,7 +13,15 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `netdata` sensor platform allows you to display information collected by [Netdata](https://my-netdata.io/).
+The `netdata` sensor platform allows you to display information collected by [Netdata](https://www.netdata.cloud/).
+
+## Prerequisites
+
+A running Netdata instance, accessible from your Home Assistant. The Netdata instance may be manually installed
+on the same host Home Assistant is running on, or on a different host. You can validate that Netdata is 
+and accessible, by running:
+
+```curl -X GET "http://[Netdata_Instance]:19999/api/v1/info"```
 
 ## Setup
 
