@@ -17,11 +17,7 @@ The `netdata` sensor platform allows you to display information collected by [Ne
 
 ## Prerequisites
 
-A running Netdata instance, accessible from your Home Assistant. The Netdata instance may be manually installed
-on the same host Home Assistant is running on, or on a different host. You can validate that Netdata is 
-and accessible, by running:
-
-```curl -X GET "http://[Netdata_Instance]:19999/api/v1/info"```
+A running Netdata instance, accessible from your Home Assistant instance. For more information on setting up Netdata, [check out their documentation](https://learn.netdata.cloud/docs/).
 
 ## Setup
 
