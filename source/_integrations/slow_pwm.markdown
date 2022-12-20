@@ -46,9 +46,9 @@ following to your `configuration.yaml` file:
 # Example configuration.yaml entry
 number:
   - platform: slow_pwm
-    - name: Floorheater living room
-      outputs:
-        - "switch.living_room_group1"
+    name: Floorheater living room
+    outputs:
+      - "switch.living_room_group1"
 ``` 
 
 {% configuration %}
@@ -96,15 +96,15 @@ unique_id:
 ```yaml
 number:
   - platform: slow_pwm
-    - name: Floorheater living room
-      outputs:
-        - "switch.living_room_group1"
-        - "switch.living_room_group2"
-      minimum: 10
-      maximum: 200
-      cycle_time: 00:10:00
-      minimal_switch_time: 00:00:10
-      step: 3
-      mode: "auto"
-      unique_id: "MyUniqueID_1234"
+    name: Floorheater living room
+    outputs:
+      - "switch.living_room_group1"
+      - "switch.living_room_group2"
+    minimum: 10
+    maximum: 200
+    cycle_time:  {'hours':0, 'minutes':20, 'seconds': 00}
+    minimal_switch_time: {'hours':0, 'minutes':0, 'seconds': 30}
+    step: 3
+    mode: "auto"
+    unique_id: "MyUniqueID_1234"
 ```
