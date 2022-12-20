@@ -22,7 +22,7 @@ This integration is in an early stage of development and only works for the foll
 
 - `heaterfan`
 
-It has been tested on the following devices (even though it might work on others too):
+It has been tested on the following devices:
 - [Princess Smart Heating and Cooling Tower (01.347000.01.001)](https://www.princesshome.eu/en-gb/princess-01-347000-01-001-smart-heating-and-01.347000.01.001)
     
 ![](https://www.princesshome.eu/product/image/large/01.347000.01.001_3.jpg)
