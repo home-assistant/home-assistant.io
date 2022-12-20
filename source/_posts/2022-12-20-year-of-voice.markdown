@@ -24,6 +24,7 @@ It's a big and bold goal, but achievable given the right constraints. The amount
 <br>
 
 Our #1 priority is supporting different languages. There are enough projects out there trying to create an English voice assistant. But for us that just doesn't cut it. People need to be able to speak in their own language, as that is the most accessible and only acceptable language for a voice assistant for the smart home.
+<!--more-->
 
 To keep the amount of work ahead of us manageable, we're going to limit the number of possible actions and focus on the basics of interacting with your smart home. No web searches, making calls or voice games. And definitely no "by the way"s!
 
