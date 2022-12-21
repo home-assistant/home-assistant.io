@@ -69,4 +69,4 @@ automation:
 
 ## Restoring from a backup
 
-Restoring from a backup is supported through the UI when running [Home Assistant Operating System](/common-tasks/os/#making-a-backup-from-the-ui) or [Supervised](/common-tasks/supervised/#restoring-a-backup-on-a-new-install) install.
+Restoring from a backup is supported through the UI when running [Home Assistant Operating System](/common-tasks/os/#making-a-backup-from-the-ui) or [Supervised](/common-tasks/supervised/#restoring-a-backup-on-a-new-install) install. [Core](/common-tasks/core/#backups) and [container](/common-tasks/container/#backups) restores are more manual.

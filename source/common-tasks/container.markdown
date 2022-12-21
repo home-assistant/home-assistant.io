@@ -8,3 +8,4 @@ installation: container
 {% include common-tasks/beta_version.md %}
 {% include common-tasks/development_version.md %}
 {% include common-tasks/configuration_check.md %}
+{% include common-tasks/backups_container.md %}
