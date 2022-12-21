@@ -67,6 +67,7 @@ Happy holidays and for the last time in 2022: Enjoy the release!
 - [Release 2022.12.5 - December 13](#release-2022125---december-13)
 - [Release 2022.12.6 - December 14](#release-2022126---december-14)
 - [Release 2022.12.7 - December 17](#release-2022127---december-17)
+- [Release 2022.12.8 - December 21](#release-2022128---december-21)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -624,6 +625,56 @@ The following integrations are now available via the Home Assistant UI:
 [sleepiq docs]: /integrations/sleepiq/
 [switchbot docs]: /integrations/switchbot/
 [synology_dsm docs]: /integrations/synology_dsm/
+[tibber docs]: /integrations/tibber/
+[zha docs]: /integrations/zha/
+
+## Release 2022.12.8 - December 21
+
+- Add missing preset for Overkiz atlantic electrical heater ([@nyroDev] - [#84080]) ([overkiz docs])
+- Fix connectable Bluetooth devices not going available after scanner recovers ([@bdraco] - [#84172]) ([bluetooth docs])
+- Bump ical to 4.2.4 ([@allenporter] - [#84248]) ([local_calendar docs])
+- Bump bluetooth-data-tools to 0.3.1 ([@bdraco] - [#84258]) ([bluetooth docs]) ([led_ble docs])
+- Skip client metadata values that are None ([@ludeeus] - [#84293]) ([cloud docs])
+- Improve Tibber rt Pulse streaming ([@Danielhiversen] - [#84313]) ([tibber docs])
+- Fix attribute check in prometheus exporter ([@mib1185] - [#84321]) ([prometheus docs])
+
+[#83482]: https://github.com/home-assistant/core/pull/83482
+[#83592]: https://github.com/home-assistant/core/pull/83592
+[#83778]: https://github.com/home-assistant/core/pull/83778
+[#83797]: https://github.com/home-assistant/core/pull/83797
+[#83870]: https://github.com/home-assistant/core/pull/83870
+[#83944]: https://github.com/home-assistant/core/pull/83944
+[#83998]: https://github.com/home-assistant/core/pull/83998
+[#84080]: https://github.com/home-assistant/core/pull/84080
+[#84162]: https://github.com/home-assistant/core/pull/84162
+[#84172]: https://github.com/home-assistant/core/pull/84172
+[#84248]: https://github.com/home-assistant/core/pull/84248
+[#84258]: https://github.com/home-assistant/core/pull/84258
+[#84293]: https://github.com/home-assistant/core/pull/84293
+[#84313]: https://github.com/home-assistant/core/pull/84313
+[#84321]: https://github.com/home-assistant/core/pull/84321
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@frenck]: https://github.com/frenck
+[@ludeeus]: https://github.com/ludeeus
+[@mib1185]: https://github.com/mib1185
+[@nyroDev]: https://github.com/nyroDev
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[bluetooth docs]: /integrations/bluetooth/
+[braviatv docs]: /integrations/braviatv/
+[cast docs]: /integrations/cast/
+[cloud docs]: /integrations/cloud/
+[fritzbox docs]: /integrations/fritzbox/
+[frontend docs]: /integrations/frontend/
+[justnimbus docs]: /integrations/justnimbus/
+[led_ble docs]: /integrations/led_ble/
+[local_calendar docs]: /integrations/local_calendar/
+[overkiz docs]: /integrations/overkiz/
+[prometheus docs]: /integrations/prometheus/
+[sleepiq docs]: /integrations/sleepiq/
 [tibber docs]: /integrations/tibber/
 [zha docs]: /integrations/zha/
 
