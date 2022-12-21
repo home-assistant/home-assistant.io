@@ -1,6 +1,6 @@
 ## Backups
 
-Backup of your Home Assistant and add-on data and configuration. They are stored in a compressed archive file (.tar). Backups are made from the Supervisor Backups panel. There is also a service available that allows you to trigger the creation of a backup from an automation. Backups are stored in the `/backup` directory.
+Backup of your Home Assistant and add-on data and configuration. They are stored in a compressed archive file (.tar). Backups are made from {% my supervisor_backups title="Settings > System > Backups" %}. There is also a service available that allows you to trigger the creation of a backup from an automation. Backups are stored in the `/backup` directory.
 
 A full backup includes the following directories:
 
@@ -12,14 +12,7 @@ A full backup includes the following directories:
 
 A partial backup consists of any number of the above default directories and installed add-ons.
 
-### Making a Backup from the UI
-
-1. Go to {% my supervisor_backups title="Settings > System > Backups" %} in the UI.
-2. Click the **Create backup** button in the lower right.
-3. Provide a name for the backup.
-4. Choose full or partial.
-5. Choose to password protect or not. Password-protected backups cannot easily be browsed outside of Home Assistant OS.
-6. Click "Create" to begin the backup.
+{% include common-tasks/backups_create.md %}
 
 ### Restoring a Backup on a new install
 
@@ -52,15 +45,4 @@ When the restore is complete, Home Assistant will restart to apply the new setti
 
 Use `ha help` to get more information about the command line usage.
 
-
-### Copying your backups to another location
-
-You often need a backup in case your system has crashed. If you only store them on the crashed device, you won't be able to access them easily. We recommend that you manually copy them from `/backup` to another machine on occasion. Or even better, create an automation to handle that, or make use of one of the following add-ons:
-
-- [Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
-- [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync)
-- [OneDrive Backup](https://github.com/lavinir/hassio-onedrive-backup)
-- [Nextcloud Backup](https://github.com/Sebclem/hassio-nextcloud-backup)
-- [Remote Backup (scp/rsync/rclone)](https://github.com/ikifar2012/remote-backup-addon)
-- [Samba backup](https://github.com/thomasmauerer/hassio-addons/tree/master/samba-backup)
-- [Syncthing](https://github.com/Poeschl/Hassio-Addons/tree/main/syncthing)
+{% include common-tasks/backups_offsite.md %}
