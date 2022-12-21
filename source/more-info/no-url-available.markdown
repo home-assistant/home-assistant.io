@@ -64,14 +64,14 @@ like this.
 Please note, you'll need to enable advanced mode in your user profile in order
 to set this up.
 
-Go to **Settings** -> **System** -> **General**.
+Go to **Settings** -> **System** -> **Network**.
 
-On this page, two fields that can resolve this issue: "External URL"
-and "Internal URL".
+On this page, two fields that can resolve this issue: "Local Network"
+and "Internet".
 
-- **Internal URL**: The URL you type in your browser when you are **at home**,
+- **Local Network**: The URL you type in your browser when you are **at home**,
 connected to your home network, e.g., `http://homeassistant.local:8123`
-- **External URL**: The URL you type in your browser when you are **not home**,
+- **Internet**: The URL you type in your browser when you are **not home**,
 connected to your home network, e.g., `https://example.duckdns.org`
 
 Some additional notes:

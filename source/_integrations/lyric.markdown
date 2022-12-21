@@ -26,7 +26,7 @@ To set up this component, you first **must** set up a developer account with Hon
 
 1. Go to the [developer site](https://developer.honeywellhome.com) and register with an account.
 1. Next, create a [new app](https://developer.honeywellhome.com/user/me/apps/add) via the `My Apps` section.
-   1. App Name: You can use any name here.
+   1. App Name: You can use any name here, but it must not contain special characters.
    1. Callback URL: `https://my.home-assistant.io/redirect/oauth`
 
 {% details "I have manually disabled My Home Assistant" %}
@@ -42,20 +42,11 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% enddetails %}
 
-Once your app is created, copy the `Consumer Key` and `Consumer Secret`. These will be your `client_id` and `client_secret` to add to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-lyric:
-  client_id: MY_CONSUMER_KEY
-  client_secret: MY_CONSUMER_SECRET
-```
-
-You should now restart the server.
-
 You can then add the integration in the frontend via the steps below.
 
 {% include integrations/config_flow.md %}
+
+The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
 ## Sensors
 
@@ -64,6 +55,7 @@ This integration provides the following sensors:
 | Name                | Description                                 |
 | ------------------- | ------------------------------------------- |
 | Indoor Temperature  | The reported temperature from the device    |
+| Indoor Humidity     | The reported humidity from the device       |
 | Outdoor Temperature | Lyric's outdoor temperature report          |
 | Outdoor Humidity    | Lyric's outdoor humidity                    |
 | Next Period Time    | The next time the thermostat will change    |

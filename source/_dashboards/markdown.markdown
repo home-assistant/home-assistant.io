@@ -10,7 +10,7 @@ The Markdown card is used to render [Markdown](https://commonmark.org/help/).
 The renderer uses [Marked.js](https://marked.js.org), which supports [several specifications of Markdown](https://marked.js.org/#specifications), including CommonMark, GitHub Flavored Markdown (GFM) and `markdown.pl`.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_markdown.png' alt='Screenshot of the markdown card'>
+<img src='/images/dashboards/markdown.png' alt='Screenshot of the markdown card'>
 Screenshot of the Markdown card.
 </p>
 
@@ -125,7 +125,7 @@ You can also use our [\`ha-alert\`](https://design.home-assistant.io/#components
 Example:
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_markdown_ha-alert.png' alt='Screenshot of the ha-alert elements in a markdown card'>
+<img src='/images/dashboards/markdown_ha-alert.png' alt='Screenshot of the ha-alert elements in a markdown card'>
 Screenshot of the ha-alert elements in a markdown card.
 </p>
 

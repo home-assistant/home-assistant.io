@@ -215,3 +215,7 @@ tap_action:
 hold_action:
   action: more-info
 ```
+
+## Limitations
+
+It is not possible to use templates for actions. But calling a [script](/docs/scripts/) is a good alternative.

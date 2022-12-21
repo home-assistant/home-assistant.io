@@ -18,11 +18,7 @@ ha_integration_type: integration
 
 The `withings` sensor platform consumes data from various health products produced by [Withings](https://www.withings.com).
 
-## Setup
-
-For simplicity, these instructions assume your installation uses Home Assistant Cloud.
-
-### Step 1 - Create a Withings Account
+## Create a Withings Account
 
 You must have a developer account to distribute the data. [Create a free development account](https://account.withings.com/partner/add_oauth2).
 
@@ -54,51 +50,31 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 
 {% enddetails %}
 
-### Step 2 - Configure Home Assistant
+{% include integrations/config_flow.md %}
 
-- Add the Withings configuration YAML.
-    ```yaml
-    # Example configuration.yaml entry
-    withings:
-      client_id: CLIENT_ID
-      client_secret: CONSUMER_SECRET
-    ```
-- Confirm your YAML configuration is valid by using the `Check Config` tool (see note).
-    - Note: In order for "Check Configuration" to be visible, you must enable "Advanced Mode" on your user profile. The "Check Configuration" tool can be found by clicking "Configuration" from the sidebar (cog icon) and then clicking "Server Control".
-- Restart Home Assistant.
+The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
-
-### Step 3 - Authorize Home Assistant
-
-- Add the Withings integration.
-- Once authorized, the tab/window will close and the integration page will prompt to select a profile. Select the profile you chose while on the Withings site.
+Once authorized, the tab/window will close and the integration page will prompt to select a profile. Select the profile you chose while on the Withings site.
   - Note: It's important you select the same profile from the previous step. Choosing a different one will result in Home Assistant displaying the wrong data.
-- Data will synchronize immediately and update under the following conditions:
-    - If `use_webhook` is enabled:
-        - Each time Withings notifies Home Assistant of a data change.
-        - Every 120 minutes.
-    - If `use_webhook` is not enabled:
-        - Every 10 minutes.
+
+Data will synchronize immediately and update under the following conditions:
+  - If `use_webhook` is enabled:
+      - Each time Withings notifies Home Assistant of a data change.
+      - Every 120 minutes.
+  - If `use_webhook` is not enabled:
+      - Every 10 minutes.
 
 ## Configuration
+
+There are additional configuration options available:
 
 ```yaml
 # Example configuration.yaml entry
 withings:
-    client_id: CLIENT_ID
-    client_secret: CONSUMER_SECRET
     use_webhook: true
 ```
 
 {% configuration %}
-client_id:
-  description: The OAuth client id (get from https://account.withings.com/partner/add_oauth2)
-  required: true
-  type: string
-client_secret:
-  description: The OAuth secret (get from https://account.withings.com/partner/add_oauth2)
-  required: true
-  type: string
 use_webhook:
   description: "Configure Withings to notify Home Assistant when data changes. This also required to populate the in_bed sensor. Note: In order for this to work, your Home Assistant install must be accessible to the internet."
   required: false

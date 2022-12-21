@@ -32,16 +32,19 @@ There is support for the following platform types within Home Assistant:
 
 ## Prerequisites
 
-1. Visit [the Neato Developer Network](https://developers.neatorobotics.com/applications) and create a new app.
+Visit [the Neato Developer Network](https://developers.neatorobotics.com/applications) and create a new app.
 
 <div class='note'>
 
-You will have to enter a name, a description and your redirect URL.
+You will have to enter a name, a description, and the redirect URI:
 
-Use `https://my.home-assistant.io/redirect/oauth` as the redirect URL.
+- **Name**: can be anything you like, for example, "Home Assistant".
+- **Description**: can be anything you like, for example, "Home Assistant integration for Neato"
+- **Redirect URI**: `https://my.home-assistant.io/redirect/oauth`
+- **Terms Of Service URL**: leave blank
+- **Privacy Policy URL**: leave blank
 
 You have to select all three scopes (`public_profile`, `control_robots` and `maps`).
-
 </div>
 
 {% details "I have manually disabled My Home Assistant" %}
@@ -60,29 +63,9 @@ instance does not need to be exposed to the Internet.
 
 {% enddetails %}
 
-2. Add the newly created `client_id` and `client_secret` to your configuration.yaml:
-
-```yaml
-# Example configuration.yaml entry
-neato:
-  client_id: YOUR_CLIENT_ID
-  client_secret: YOUR_CLIENT_SECRET
-```
-
-3. Restart Home Assistant
-
-{% configuration %}
-client_id:
-  description: Client ID for the Neato account.
-  required: true
-  type: string
-client_secret:
-  description: Client Secret for the Neato account.
-  required: true
-  type: string
-{% endconfiguration %}
-
 {% include integrations/config_flow.md %}
+
+The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
 <div class='note'>
 
