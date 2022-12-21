@@ -46,6 +46,14 @@ The following values are supported for the preset_mode state attribute:
 - `temperature`: *Disables* the schedule and holds the set temperature indefinitely.
 - `away`: Places the thermostat in away mode
 
+The meanings of the values of the climate entity's `schedule_part` state attribute are:
+
+- `0`: morning
+- `1`: day
+- `2`: evening
+- `3`: night
+- `255`: schedule inactive (i.e., the thermostat is in one of the other modes)
+
 Note - Please ensure that you update your thermostat to the latest firmware. Initially tested on firmware 5.10 and currently VH6.79.  
 
 Local API mode needs to be enabled via the thermostat's *Menu > WiFi > Local API Options > Local API - ON*
