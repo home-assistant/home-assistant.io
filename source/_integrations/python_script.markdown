@@ -42,7 +42,7 @@ It is created as a first step, to help with:
 - How to log the script activity
 - How to troubleshoot / manually call the script.
 
-Start by enabling the Python_script integration and create the first script.
+Start by enabling the Python Scripts integration and create the first script.
 
 - Add to `configuration.yaml`: `python_script:`
 - Create the folder `<config>/python_scripts`
