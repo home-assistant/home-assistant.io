@@ -24,7 +24,7 @@ Calendar entities are here to be consumed and provided by other integrations.
 
 This page, therefore, does not provide instructions on how to create calendar
 entities. Please see the ["Calendar" category](/integrations/#calendar) on the
-integrations page to find integration offering update entities.
+integrations page to find integration offering calendar entities.
 
 </div>
 
