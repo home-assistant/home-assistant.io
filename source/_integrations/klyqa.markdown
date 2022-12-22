@@ -16,11 +16,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Klyqa integration will allow users to integrate with their Klyqa account with their Klyqa smart devices.
+The Klyqa integration will allow users to integrate with their Klyqa account their Klyqa smart devices.
 
 Please visit the [Klyqa website](https://www.klyqa.de/) for further information about Klyqa devices.
 
-The account settings of the user will be synchronized to Home Assistant. Devices, Rooms and Device Groups of the user will be synchronized.
+Devices, Rooms and Device Groups of the user will be imported.
 
 {% include integrations/config_flow.md %}
 
