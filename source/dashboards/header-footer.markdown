@@ -44,6 +44,7 @@ alt_text:
   required: false
   description: "Image alternate text. This is useful for users of assistive technology."
   type: string  
+{% endconfiguration %}
 
 ## Buttons header & footer
 
