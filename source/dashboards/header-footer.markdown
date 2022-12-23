@@ -42,7 +42,7 @@ double_tap_action:
   type: map
 alt_text:
   required: false
-  description: "Image alternate text. This is useful for users of assistive technology."
+  description: "Alternative text for the image. This is useful for users of assistive technology."
   type: string  
 {% endconfiguration %}
 
