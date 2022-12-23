@@ -7,7 +7,7 @@ no_toc: true
 
 Conditions can be used within a script or automation to prevent further execution. When a condition evaluates to `true`, the script or automation will be executed. If any other value is returned the script or automation stops executing. A condition will look at the system at that moment. For example, a condition can test if a switch is currently turned on or off.
 
-Unlike a trigger, which is always `or`, conditions are `and` by default - all conditions have to be `true`.
+Unlike a trigger, which is always `or`, conditions are `and` by default - all conditions have to be True.
 
 All conditions support an optional `alias`.
 
@@ -17,7 +17,7 @@ All conditions support an optional `alias`.
 
 ### AND condition
 
-Test multiple conditions in one condition statement. Passes if all embedded conditions are `true`.
+Test multiple conditions in one condition statement. Passes if all embedded conditions are True.
 
 ```yaml
 condition:
@@ -64,7 +64,7 @@ condition:
 
 ### OR condition
 
-Test multiple conditions in one condition statement. Passes if any embedded condition is `true`.
+Test multiple conditions in one condition statement. Passes if any embedded condition is True.
 
 ```yaml
 condition:
@@ -95,7 +95,7 @@ condition:
 
 ### Mixed AND and OR conditions
 
-Test multiple AND and OR conditions in one condition statement. Passes if any embedded condition is `true`.
+Test multiple AND and OR conditions in one condition statement. Passes if any embedded condition is True.
 This allows you to mix several AND and OR conditions together.
 
 ```yaml
@@ -134,7 +134,7 @@ condition:
 
 ### NOT condition
 
-Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** `true`.
+Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** True.
 
 ```yaml
 condition:
@@ -378,7 +378,7 @@ condition:
 
 The sun condition can also test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger][sun_trigger].
 
-Note that if only `before` key is used, the condition will be `true` _from midnight_ until sunrise/sunset. If only `after` key is used, the condition will be `true` from sunset/sunrise _until midnight_. If both `before: sunrise` and `after: sunset` keys are used, the condition will be `true` _from midnight_ until sunrise **and** from sunset _until midnight_. If both `after: sunrise` and `before: sunset` keys are used, the condition will be `true`  from sunrise until sunset.
+Note that if only `before` key is used, the condition will be True _from midnight_ until sunrise/sunset. If only `after` key is used, the condition will be True from sunset/sunrise _until midnight_. If both `before: sunrise` and `after: sunset` keys are used, the condition will be True _from midnight_ until sunrise **and** from sunset _until midnight_. If both `after: sunrise` and `before: sunset` keys are used, the condition will be True from sunrise until sunset.
 
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
 
@@ -412,13 +412,13 @@ condition:
     before: sunset
 ```
 
-A visual timeline is provided below showing an example of when these conditions are `true`. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions are `true`.
+A visual timeline is provided below showing an example of when these conditions are True. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions are True.
 
 ![Graphic showing an example of sun conditions](/images/docs/scripts/sun-conditions.svg)
 
 ## Template condition
 
-The template condition tests if the [given template][template] renders a value equal to `true`. This is achieved by having the template result in a `true` boolean expression or by having the template render `true`.
+The template condition tests if the [given template][template] renders a value equal to True. This is achieved by having the template result in a True boolean expression or by having the template render True.
 
 {% raw %}
 
