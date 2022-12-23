@@ -35,7 +35,7 @@
       The {{ page.title | default: page.name }} brand was introduced in Home Assistant {{ page.ha_release | default: "unknown" }}.
     {%- else -%}
       The {{ page.title | default: page.name }} {{ page.ha_integration_type | default: "integration" }} was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
-      and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io/#integrations" target="_blank" rel="noopener">
+      and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io/integrations" target="_blank" rel="noopener">
 
       {% if percentage < 1 %}
         {{ active_installations }}</a> active installations.

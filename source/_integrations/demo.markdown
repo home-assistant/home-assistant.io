@@ -34,6 +34,7 @@ ha_platforms:
   - siren
   - stt
   - switch
+  - text
   - tts
   - update
   - vacuum

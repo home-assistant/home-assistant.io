@@ -5,7 +5,6 @@ ha_category:
   - Notifications
   - Sensor
 ha_release: 0.44
-ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_domain: pushbullet
 ha_platforms:
@@ -14,6 +13,7 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@engrbm87'
+ha_config_flow: true
 ---
 
 There is currently support for the following device types within Home Assistant:

@@ -21,8 +21,9 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - update
   - vacuum
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The Litter-Robot integration allows you to control and monitor your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders.
@@ -49,6 +50,7 @@ You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot or 
 | Waste Drawer                  | `sensor` | Displays the current waste drawer level.                                         |
 | Clean Cycle Wait Time Minutes | `select` | View and select the clean cycle wait time.                                       |
 | Reset Waste Drawer            | `button` | Button to reset the waste drawer level to 0%, only for Litter-Robot 3.           |
+| Firmware                      | `update` | View and update to the latest firmware, only for Litter-Robot 4.                 |
 
 ### Feeder-Robot
 

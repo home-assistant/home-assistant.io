@@ -15,6 +15,7 @@ homeassistant:
   elevation: 430
   unit_system: metric
   currency: USD
+  country: US
   time_zone: "America/Los_Angeles"
   external_url: "https://www.example.com"
   internal_url: "http://homeassistant.local:8123"
@@ -68,6 +69,7 @@ currency:
   description: "Pick your currency code from the column **Code** of [Wikipedia's list of ISO 4217 active codes](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)"
   required: false
   type: string
+  default: "EUR"
 external_url:
   description: "The URL that Home Assistant is available on from the internet. For example: `https://example.duckdns.org:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported."
   required: false
@@ -105,6 +107,15 @@ legacy_templates:
   required: false
   type: boolean
   default: false
+language:
+  description: "Default language used by Home Assistant. This may, for example, influence the language used by voice assistants. The language should be specified as an RFC 5646 language tag, and must be a language which Home Assistant is translated to."
+  required: false
+  type: string
+  default: "en"
+country:
+  description: "Country in which Home Assistant is running. This may, for example, influence radio settings to comply with local regulations. The country should be specified as an ISO 3166.1 alpha-2 code. Pick your country from the column **Code** of [Wikipedia's list of ISO 31661 alpha-2 officially assigned code codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)"
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Reload Core Service

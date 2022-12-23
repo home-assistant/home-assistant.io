@@ -5,7 +5,7 @@ toc: true
 no_toc: true
 ---
 
-Conditions can be used within a script or automation to prevent further execution. When a condition does not return true, the script or automation stops executing. A condition will look at the system at that moment. For example, a condition can test if a switch is currently turned on or off.
+Conditions can be used within a script or automation to prevent further execution. When a condition evaluates to true, the script or automation will be executed. If any other value is returned the script or automation stops executing. A condition will look at the system at that moment. For example, a condition can test if a switch is currently turned on or off.
 
 Unlike a trigger, which is always `or`, conditions are `and` by default - all conditions have to be true.
 
@@ -306,8 +306,8 @@ The condition will pass if the attribute matches the given state.
 condition:
   condition: state
   entity_id: climate.living_room_thermostat
-  attribute: hvac_modes
-  state: "heat"
+  attribute: fan_mode
+  state: "auto"
 ```
 
 Finally, the `state` option accepts helper entities (also known as `input_*`
