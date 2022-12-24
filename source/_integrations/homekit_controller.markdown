@@ -113,7 +113,7 @@ Clicking on one will drop you in to the automation editor with a trigger pre-fil
 <img src='/images/integrations/homekit_controller/device_automation_new.png' />
 </p>
 
-When you have filled in the rest of the form to create your migration it will show up against that device in the device registry.
+When you have filled in the rest of the form to create your automation it will show up against that device in the device registry.
 
 <p class='img'>
 <img src='/images/integrations/homekit_controller/device_automation_finish.png' />

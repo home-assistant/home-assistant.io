@@ -10,6 +10,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@emontnemery'
+  - '@jbouwh'
 ha_domain: mqtt
 ha_platforms:
   - alarm_control_panel
@@ -18,6 +19,7 @@ ha_platforms:
   - camera
   - climate
   - cover
+  - device_tracker
   - diagnostics
   - fan
   - humidifier
@@ -28,10 +30,10 @@ ha_platforms:
   - sensor
   - siren
   - switch
-  - tag
+  - text
   - update
-  - vacuum
 ha_integration_type: integration
+ha_quality_scale: gold
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
@@ -96,6 +98,11 @@ The MQTT protocol setting defaults to version `3.1.1`. If your MQTT broker suppo
 
 With a secure broker connection it is possible to use a client certificate for authentication. To set the client certificate and private key turn on the option `Use a client certificate` and click "Next" to show the controls to upload the files. Only a PEM encoded client certificates together with a PEM encoded private key can be uploaded. Make sure the private key has no password set.
 
+#### Using WebSockets as transport
+
+You can select `websockets` as transport method if your MQTT broker supports it. When you select `websockets` and click `NEXT` you will be able to add a WebSockets path (default = `/` and WebSockets headers (optional). The target WebSockets URI: `ws://{broker}:{port}{WebSockets path}` is built with `broker`, `port` and `ws_path` (WebSocket path) settings.
+To configure the WebSocketS headers supply a valid JSON dictionary string. E.g. `{ "Authorization": "token" , "x-header": "some header"}`. The default transport method is `tcp`. The WebSockets transport can be secured using TLS and optionally using user credentials or a client certificate.
+
 <div class='note'>
 
 A configured client certificate will only be active if broker certificate validation is enabled.
@@ -108,8 +115,8 @@ To change the settings, click on "Configure" in the integration page in the UI, 
 
 ### Discovery options
 
-MQTT discovery is enabled by default. Discovery can be turned off. The prefix for the discovery topic (default `homeassistant`) can be changed.
-See the [MQTT Discovery section](#mqtt-discovery)
+MQTT discovery is enabled by default. Discovery can be turned off. The prefix for the discovery topic (default `homeassistant`) can be changed here as well.
+See also [MQTT Discovery section](#mqtt-discovery)
 
 ### Birth and last will messages
 
@@ -162,7 +169,7 @@ mosquitto_sub -h 127.0.0.1 -v -t "home-assistant/#"
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier, and the remaining device configuration without the device type.
 
-{% details "Platforms supported by MQTT discovery" %}
+{% details "Entity components supported by MQTT discovery" %}
 
 - [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
@@ -184,6 +191,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Switch](/integrations/switch.mqtt/)
 - [Update](/integrations/update.mqtt/)
 - [Tag Scanner](/integrations/tag.mqtt/)
+- [Text](/integrations/text.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
 
 {% enddetails %}
@@ -211,7 +219,7 @@ Best practice for entities with a `unique_id` is to set `<object_id>` to `unique
 
 #### Discovery payload
 
-The payload must be a serialized JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
+The payload must be a serialized JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the component's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
 
 Subsequent messages on a topic where a valid payload has been received will be handled as a configuration update, and a configuration update with an empty payload will cause a previously discovered device to be deleted.
 
@@ -230,7 +238,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'aux_stat_tpl':        'aux_state_template',
     'aux_stat_t':          'aux_state_topic',
     'av_tones':            'available_tones',
-    'avty'                 'availability',
+    'avty':                'availability',
     'avty_mode':           'availability_mode',
     'avty_t':              'availability_topic',
     'avty_tpl':            'availability_template',
@@ -253,6 +261,9 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'clr_temp_stat_t':     'color_temp_state_topic',
     'clr_temp_tpl':        'color_temp_template',
     'clr_temp_val_tpl':    'color_temp_value_template',
+    'clrm':                'color_mode',
+    'clrm_stat_t':         'color_mode_state_topic',
+    'clrm_val_tpl':        'color_mode_value_template',
     'cln_t':               'cleaning_topic',
     'cln_tpl':             'cleaning_template',
     'cmd_off_tpl':         'command_off_template',
@@ -269,6 +280,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'dock_t':              'docked_topic',
     'dock_tpl':            'docked_template',
     'e':                   'encoding',
+    'en':                  'enabled_by_default',
     'ent_cat':             'entity_category',
     'ent_pic':             'entity_picture',
     'err_t':               'error_topic',
@@ -299,22 +311,28 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'hs_stat_t':           'hs_state_topic',
     'hs_val_tpl':          'hs_value_template',
     'ic':                  'icon',
+    'img_e':               'image_encoding',
     'init':                'initial',
     'hum_cmd_t':           'target_humidity_command_topic',
     'hum_cmd_tpl':         'target_humidity_command_template',
     'hum_stat_t':          'target_humidity_state_topic',
-    'hum_stat_tpl':        'target_humidity_state_template',
+    'hum_state_tpl':       'target_humidity_state_template',
     'json_attr':           'json_attributes',
     'json_attr_t':         'json_attributes_topic',
     'json_attr_tpl':       'json_attributes_template',
     'l_ver_t':             'latest_version_topic',
     'l_ver_tpl':           'latest_version_template',
+    'lrst_t':              'last_reset_topic',
+    'lrst_val_tpl':        'last_reset_value_template',
+    'max':                 'max',
+    'min':                 'min',
     'max_mirs':            'max_mireds',
     'min_mirs':            'min_mireds',
     'max_temp':            'max_temp',
     'min_temp':            'min_temp',
     'max_hum':             'max_humidity',
     'min_hum':             'min_humidity',
+    'mode':                'mode',
     'mode_cmd_tpl':        'mode_command_template',
     'mode_cmd_t':          'mode_command_topic',
     'mode_stat_tpl':       'mode_state_template',
@@ -324,6 +342,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'obj_id':              'object_id',
     'off_dly':             'off_delay',
     'on_cmd_type':         'on_command_type',
+    'ops':                 'options',
     'opt':                 'optimistic',
     'osc_cmd_t':           'oscillation_command_topic',
     'osc_cmd_tpl':         'oscillation_command_template',
@@ -333,11 +352,15 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'pct_cmd_tpl':         'percentage_command_template',
     'pct_stat_t':          'percentage_state_topic',
     'pct_val_tpl':         'percentage_value_template',
+    'ptrn':                'pattern',
     'pl':                  'payload',
     'pl_arm_away':         'payload_arm_away',
     'pl_arm_home':         'payload_arm_home',
     'pl_arm_custom_b':     'payload_arm_custom_bypass',
     'pl_arm_nite':         'payload_arm_night',
+    'pl_arm_vacation':     'payload_arm_vacation',
+    'pl_prs':              'payload_press',
+    'pl_rst':              'payload_reset',
     'pl_avail':            'payload_available',
     'pl_cln_sp':           'payload_clean_spot',
     'pl_cls':              'payload_close',
@@ -380,10 +403,18 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'rel_s':               'release_summary',
     'rel_u':               'release_url',
     'ret':                 'retain',
-    'rgb_cmd_tpl':         'rgb_command_template',
     'rgb_cmd_t':           'rgb_command_topic',
+    'rgb_cmd_tpl':         'rgb_command_template',
     'rgb_stat_t':          'rgb_state_topic',
     'rgb_val_tpl':         'rgb_value_template',
+    'rgbw_cmd_t':          'rgbw_command_topic',
+    'rgbw_cmd_tpl':        'rgbw_command_template',
+    'rgbw_stat_t':         'rgbw_state_topic',
+    'rgbw_val_tpl':        'rgbw_value_template',
+    'rgbww_cmd_t':         'rgbww_command_topic',
+    'rgbww_cmd_tpl':       'rgbww_command_template',
+    'rgbww_stat_t':        'rgbww_state_topic',
+    'rgbww_val_tpl':       'rgbww_value_template',
     'send_cmd_t':          'send_command_topic',
     'send_if_off':         'send_if_off',
     'set_fan_spd_t':       'set_fan_speed_topic',
@@ -407,11 +438,12 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'stat_t':              'state_topic',
     'stat_tpl':            'state_template',
     'stat_val_tpl':        'state_value_template',
+    'step':                'step',
     'stype':               'subtype',
-    'sup_duration':        'support_duration',
+    'sup_clrm':            'supported_color_modes',
+    'sup_dur':             'support_duration',
     'sup_vol':             'support_volume_set',
     'sup_feat':            'supported_features',
-    'sup_off':             'supported_turn_off',
     'swing_mode_cmd_tpl':  'swing_mode_command_template',
     'swing_mode_cmd_t':    'swing_mode_command_topic',
     'swing_mode_stat_tpl': 'swing_mode_state_template',
@@ -444,6 +476,8 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'uniq_id':             'unique_id',
     'unit_of_meas':        'unit_of_measurement',
     'val_tpl':             'value_template',
+    'whit_cmd_t':          'white_command_topic',
+    'whit_scl':            'white_scale',
     'whit_val_cmd_t':      'white_value_command_topic',
     'whit_val_scl':        'white_value_scale',
     'whit_val_stat_t':     'white_value_state_topic',
@@ -457,7 +491,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
 {% details "Supported abbreviations for device registry configuration" %}
 
 ```txt
-    'cu':                  'configuration_url'
+    'cu':                  'configuration_url',
     'cns':                 'connections',
     'ids':                 'identifiers',
     'name':                'name',
@@ -590,7 +624,7 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
 #### Use object_id to influence the entity id
 
 
-The entity id is automatically generated from the entity's name. All MQTT entity components optionally support providing an `object_id` which will be used instead if provided.
+The entity id is automatically generated from the entity's name. All MQTT components optionally support providing an `object_id` which will be used instead if provided.
 
 - Configuration topic: `homeassistant/sensor/device1/config`
 - Example configuration payload:
@@ -607,9 +641,9 @@ In the example above, the entity_id will be `sensor.my_super_device` instead of 
 
 ## Manual configured MQTT items
 
-For most platforms it is also possible to manual set up MQTT items in `configuration.yaml`. Read more [about configuration in YAML](/docs/configuration/yaml).
+For most components it is also possible to manual set up MQTT items in `configuration.yaml`. Read more [about configuration in YAML](/docs/configuration/yaml).
 
-{% details "MQTT platforms that support setup via YAML" %}
+{% details "MQTT components that support setup via YAML" %}
 
 - [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
@@ -628,17 +662,21 @@ For most platforms it is also possible to manual set up MQTT items in `configura
 - [Sensor](/integrations/sensor.mqtt/)
 - [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
+- [Text](/integrations/text.mqtt/)
+- [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
 
 {% enddetails %}
 
+If you have a lot of manual configured items you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
+
 ## Using Templates
 
-The MQTT platform support templating. Read more [about using templates with the MQTT integration](/docs/configuration/templating/#using-templates-with-the-mqtt-integration).
+The MQTT integration supports templating. Read more [about using templates with the MQTT integration](/docs/configuration/templating/#using-templates-with-the-mqtt-integration).
 
 ## MQTT Notifications
 
-The MQTT notification support is different than the other [notification](/integrations/notify/) platforms. It is a service. This means that you don't have to create a configuration entry but you need to provide more details when calling the service.
+The MQTT notification support is different than for the other [notification](/integrations/notify/) components. It is a service. This means you need to provide more details when calling the service.
 
 **Call Service** section from **Developer Tools** -> **Services** allows you to send MQTT messages. Choose *mqtt.publish*  from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 
@@ -744,11 +782,39 @@ payload_template: "{{ states('device_tracker.paulus') }}"
 
 {% endraw %}
 
-`payload` must be a string. If you want to send JSON then you need to format/escape it properly. Like:
+`payload` must be a string.
+If you want to send JSON using the YAML editor then you need to format/escape
+it properly. Like:
 
 ```yaml
 topic: home-assistant/light/1/state
-payload: "{\"Status\":\"off\", \"Data\":\"something\"}"
+payload: "{\"Status\":\"off\", \"Data\":\"something\"}"`
+```
+
+When using Home Assistant's YAML editor for formatting JSON
+you should take special care if `payload` contains template content.
+Home Assistant will force you in to the YAML editor and will treat your
+definition as a template. Make sure you escape the template blocks as like
+in the example below. Home Assistant will convert the result to a string
+and will pass it to the MQTT publish service.
+
+```yaml
+service: mqtt.publish
+data:
+  topic: homeassistant/sensor/Acurite-986-1R-51778/config
+  payload: >-
+    {"device_class": "temperature",
+    "name": "Acurite-986-1R-51778-T",
+    "unit_of_measurement": "\u00b0C",
+    "value_template": "{% raw %}{% raw %}{{ value|float }}{%{% endraw %} endraw %}",
+    "state_topic": "rtl_433/rtl433/devices/Acurite-986/1R/51778/temperature_C",
+    "unique_id": "Acurite-986-1R-51778-T",
+    "device": {
+    "identifiers": "Acurite-986-1R-51778",
+    "name": "Acurite-986-1R-51778",
+    "model": "Acurite-986",
+    "manufacturer": "rtl_433" }
+    }
 ```
 
 Example of how to use `qos` and `retain`:

@@ -25,16 +25,20 @@ The type of data a number represents impacts how it is displayed in the frontend
 - **None**: Generic number. This is the default and doesn't need to be set.
 - **apparent_power**: Apparent power in VA.
 - **aqi**: Air Quality Index
+- **atmospheric_pressure**: Atmospheric pressure in cbar, bar, hPa, inHg, kPa, mbar, Pa, psi
 - **battery**: Percentage of battery that is left
 - **carbon_dioxide**: Carbon Dioxide in CO2 (Smoke)
 - **carbon_monoxide**: Carbon Monoxide in CO (Gas CNG/LPG)
 - **current**: Current in A
+- **data_rate**: Data rate in bit/s, kbit/s, Mbit/s, Gbit/s, B/s, kB/s, MB/s, GB/s, KiB/s, MiB/s, or GiB/s
+- **data_size**: Data size in bit, kbit, Mbit, Gbit, B, kB, MB, GB, TB, PB, EB, ZB, YB, KiB, MiB, GiB, TiB, PiB, EiB, ZiB, or YiB
 - **distance**: Generic distance in km, m, cm, mm, mi, yd, or in
 - **energy**: Energy in Wh, kWh or MWh
 - **frequency**: Frequency in Hz, kHz, MHz or GHz
-- **gas**: Gasvolume in m³ or ft³
+- **gas**: Gasvolume in m³, ft³, or CCF
 - **humidity**: Percentage of humidity in the air
 - **illuminance**: The current light level in lx or lm
+- **irradiance**: Irradiance in W/m² or BTU/(h⋅ft²)
 - **moisture**: Percentage of water in a substance
 - **monetary**: The monetary value
 - **nitrogen_dioxide**: Concentration of Nitrogen Dioxide in µg/m³
@@ -46,19 +50,20 @@ The type of data a number represents impacts how it is displayed in the frontend
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
 - **power_factor**: Power factor in %
 - **power**: Power in W or kW
-- **precipitation**: Accumulated precipitation in in or mm
+- **precipitation**: Accumulated precipitation in cm, in or mm
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d, or mm/h
 - **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg, or psi
 - **reactive_power**: Reactive power in var
 - **signal_strength**: Signal strength in dB or dBm
+- **sound_pressure**: Sound pressure in dB or dBA
 - **speed**: Generic speed in ft/s, in/d, in/h, km/h, kn, m/s, mph, or mm/d
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
 - **temperature**: Temperature in °C or °F
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
 - **voltage**: Voltage in V
-- **volume**: Generic volume in L, mL, gal, fl. oz., m³, or ft³
-- **water**: Water consumption in L, gal, m³, or ft³
-- **weight**: Generic mass in kg, g, mg, µg, oz, or lb
+- **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
+- **water**: Water consumption in L, gal, m³, ft³, or CCF
+- **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
 - **wind_speed**: Wind speed in ft/s, km/h, kn, m/s, or mph
  
 ## Services

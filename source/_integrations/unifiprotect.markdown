@@ -38,7 +38,8 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+  - text
+ha_integration_type: hub
 ---
 
 The UniFi Protect integration adds support for retrieving Camera feeds and Sensor data from a [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on a UniFi OS Console.
@@ -157,11 +158,12 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
   * If your camera is a G4 Doorbell Pro, an additional camera entity will be added for the Package Camera. The Package Camera entity will _not_ have streaming capabilities regardless of whether RTSPS is enabled on the channel or not. This is due to the Package Camera having a very low FPS that does not make it compatible with HLS streaming.
 * **Media Player** - If your camera has a speaker, you will get a media player entity that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say Service](/integrations/tts/#service-say).
 * **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
-* **Sensors** - Sensors include "Is Dark", "Motion Detected", "Detected Object" (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
-  * The Detected Object sensor will have the values of "none", "person", or "vehicle" based on object UniFi Protect detected.
+* **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
+  * There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected.
 * **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
   * configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
-  * configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds.
+  * configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
+  * configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
 * **Button** - A disabled by default button is added for each camera device. The button will let you reboot your camera device.
 
 ### UniFi Protect Floodlights
@@ -310,17 +312,6 @@ These URLs work great when trying to send notifications. Home Assistant will aut
 | `/api/unifiprotect/video/{nvr_id}/{camera_id}/{start}/{end}` | Proxies a MP4 video clip from UniFi Protect for a specific camera. Start and end must be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html). |
 
 ## Troubleshooting
-
-### Enabling Debug Logging
-
-Both the UniFi Protect integration and the Python library it uses provide debug logging that can help you with troubleshooting connectivity issues. To enable debug logging for both, add the following to your `configuration.yaml` file:
-
-```yaml
-logger:
-  logs:
-    pyunifiprotect: debug
-    homeassistant.components.unifiprotect: debug
-```
 
 ### Delay in Video Feed
 
