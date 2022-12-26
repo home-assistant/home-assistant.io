@@ -30,7 +30,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **data_rate**: Data rate in bit/s, kbit/s, Mbit/s, Gbit/s, B/s, kB/s, MB/s, GB/s, KiB/s, MiB/s, or GiB/s
 - **data_size**: Data size in bit, kbit, Mbit, Gbit, B, kB, MB, GB, TB, PB, EB, ZB, YB, KiB, MiB, GiB, TiB, PiB, EiB, ZiB, or YiB
 - **date**: Date string (ISO 8601)
-- **distance**: Generic distance in km, m, cm, mm, mi, yd, or in
+- **distance**: Generic distance in km, m, cm, mm, µm, mi, yd, or in
 - **duration**: Duration in days, hours, minutes or seconds
 - **energy**: Energy in Wh, kWh or MWh
 - **enum**: Has a limited set of (non-numeric) states
