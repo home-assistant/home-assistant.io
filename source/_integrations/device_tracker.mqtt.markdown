@@ -28,34 +28,6 @@ mqtt:
 ```
 
 {% configuration %}
-devices:
-  description: List of devices with their topic.
-  required: true
-  type: list
-qos:
-  description: The QoS level of the topic.
-  required: false
-  type: integer
-payload_home:
-  description: The payload value that represents the 'home' state for the device.
-  required: false
-  type: string
-  default: "home"
-payload_not_home:
-  description: The payload value that represents the 'not_home' state for the device.
-  required: false
-  type: string
-  default: "not_home"
-source_type:
-  description: Attribute of a device tracker that affects state when being used to track a [person](/integrations/person/). Valid options are `gps`, `router`, `bluetooth`, or `bluetooth_le`.
-  required: false
-  type: string
-  default: gps
-{% endconfiguration %}
-
-{% enddetails %}
-
-{% configuration %}
 availability:
   description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
   required: false
