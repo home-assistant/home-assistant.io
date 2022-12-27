@@ -73,7 +73,7 @@ In the Brel Home app on Android go to the `me` page (home screen 4th tab), tap 5
 
 ### Bloc Blinds app
 
-The official Bloc Blinds app doesn't seem to hand out the API key on Android, it does seem to provide the API key on the iOS version of the official Bloc Blinds app.
+In the official Bloc Blinds app go to settings (three bars > gear icon), go to the `About` page, Tap five time on the bloc blinds icon in the middle and a pop-up with the key will be shown.
 
 ### Connector app
 Click the about page of the connector app 5 times to get the key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)).
