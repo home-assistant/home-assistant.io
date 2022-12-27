@@ -20,6 +20,8 @@ Optimistic mode can be forced, even if state topic is available. Try to enable i
 
 It's mandatory for locks to support `lock` and `unlock`. A lock may optionally support `open`, (e.g. to open the bolt in addition to the latch), in this case, `payload_open` is required in the configuration. If the lock is in optimistic mode, it will change states to `unlocked` when handling the `open` command.
 
+<a id='new_format'></a>
+
 To enable MQTT locks in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -28,25 +30,6 @@ mqtt:
   lock:
     - command_topic: "home/frontdoor/set"
 ```
-
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `lock` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-lock:
-  - platform: mqtt
-    command_topic: "home/frontdoor/set"
-```
-
-{% enddetails %}
 
 {% configuration %}
 availability:
