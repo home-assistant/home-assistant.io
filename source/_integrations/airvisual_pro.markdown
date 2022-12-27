@@ -15,11 +15,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `airvisual_pro` platform allows users to retrieve data from an [AirVisual Node/Pro unit](https://www.iqair.com/air-quality-monitors/airvisual-pro). Communication with the device occurs over the local network.
+The AirVisual Pro integration allows users to retrieve data from an [AirVisual Node/Pro unit](https://www.iqair.com/air-quality-monitors/airvisual-pro). Communication with the device occurs over the local network.
 
 ## Determining the Passowrd
 
-You will need the device's Samba password, which can be found on the unit: https://support.iqair.com/en/articles/3029331-download-the-airvisual-node-pro-s-data-using-samba
+You will need the device's Samba password, which [can be found on the unit](https://support.iqair.com/en/articles/3029331-download-the-airvisual-node-pro-s-data-using-samba).
 
 {% include integrations/config_flow.md %}
 
