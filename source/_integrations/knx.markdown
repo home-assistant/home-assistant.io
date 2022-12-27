@@ -290,7 +290,14 @@ remove:
 
 ## Exposing entity states, entity attributes or time to KNX bus
 
-KNX integration is able to expose entity states or attributes to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address. It is also possible to expose the current time.
+KNX integration is able to expose entity states or attributes to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address.
+It is also possible to expose the current time and date. These are sent to the bus every hour.
+
+<div class='note'>
+
+Expose is only triggered on state changes. If you need periodical telegrams, use an automation with the `knx.send` service to send the value to the bus.
+
+</div>
 
 ```yaml
 # Example configuration.yaml entry
@@ -299,6 +306,7 @@ knx:
     - type: temperature
       entity_id: sensor.owm_temperature
       address: "0/0/2"
+      cooldown: 600
     - type: string
       address: "0/6/4"
       entity_id: sensor.owm_weather
@@ -345,6 +353,16 @@ default:
   type: [boolean, string, integer, float]
   default: None
   required: false
+cooldown:
+  description: Minimum time in seconds between two sent telegrams. This can be used to avoid flooding the KNX bus when exposing frequently changing states. If the state changes multiple times within the cooldown period the most recent value will be sent.
+  type: float
+  default: 0
+  required: false
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Binary Sensor
@@ -1848,13 +1866,14 @@ Add the following lines to your Home Assistant `configuration.yaml` to activate 
 logger:
   default: warning
   logs:
-    # For most debugging needs `xnx.log` and one of `xknx.knx` or `xknx.telegram` are a good choice.
-    xknx: debug  # sets the level of all loggers
+    # For most debugging needs `xnx.log` and `xknx.telegram` are a good choice.
+    xknx: info  # sets the level of all loggers
     xknx.log: debug  # provides general information (connection, etc.)
-    xknx.raw_socket: debug  # logs incoming UDP frames in raw hex format
+    xknx.raw_socket: warning  # logs incoming UDP frames in raw hex format
     xknx.knx: debug  # logs incoming and outgoing KNX/IP frames at socket level
+    xknx.cemi: debug  # logs incoming and outgoing CEMI frames
     xknx.telegram: debug  # logs telegrams before they are being processed at device level or sent to an interface
-    xknx.state_updater: debug  # provides information about the state updater
+    xknx.state_updater: warning  # provides information about the state updater
 ```
 
 You can use the service `logger.set_level` to change the log level of a handler on a running instance.
