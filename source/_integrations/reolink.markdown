@@ -33,7 +33,7 @@ Reolink is aware of this and a solution is already implemented in beta firmware.
 
 ## Camera streams
 
-This integration creates a few camera entities, one for each stream type with diffrent resolutions: Main, Sub, Ext and Images.
+This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext and Images.
 The Sub stream camera entity is enabled by default, the other streams are disabled by default.
 The Images stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate, this can be used when the hi-res RTMP/RTSP video stream are too laggy.
 
@@ -57,10 +57,10 @@ The following models are not to be supported:
 
 ## Reducing latency and load time
 
-To get considerebly lower lattency and faster loading, a addon can be used to convert the RTSP stream to a WebRTC stream.
+To get considerebly lower lattency and faster loading, a add-on can be used to convert the RTSP stream to a WebRTC stream.
 1) In the configuration options of this reolink integration, select 'RTSP' as stream protocol.
-2) add https://github.com/allenporter/stream-addons to the [addon repositories](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fallenporter%2Fstream-addons).
-3) Install en start the 'RTSPtoWeb - WebRTC' addon.
+2) add https://github.com/allenporter/stream-addons to the [add-on repositories](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fallenporter%2Fstream-addons).
+3) Install en start the 'RTSPtoWeb - WebRTC' add-on.
 4) The [RTSPtoWebRTC integration](https://www.home-assistant.io/integrations/rtsp_to_webrtc/) should now be automatically discovered. Navigate to the integrations dashboard in Home Assistant and install this integration.
 5) Check in the 'development tools' -> 'status' that the camera attribute 'frontend_stream_type' now shows 'web_rtc' for the reolink cameras.
 
