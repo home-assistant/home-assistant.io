@@ -18,6 +18,8 @@ When a `state_topic` is not available, the siren will work in optimistic mode. I
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect operation.
 
+<a id='new_format'></a>
+
 To enable this siren in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -26,24 +28,6 @@ mqtt:
   siren:
     - command_topic: "home/bedroom/siren/set"
 ```
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `siren` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-siren:
-  - platform: mqtt
-    command_topic: "home/bedroom/siren/set"
-```
-
-{% enddetails %}
 
 {% configuration %}
 availability:
