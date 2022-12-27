@@ -3,7 +3,7 @@ title: AirVisual Pro
 description: Instructions on how to use AirVisual Pro devices within Home Assistant
 ha_category:
   - Health
-ha_release: 2022.11.0
+ha_release: 2023.1
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@bachya'
