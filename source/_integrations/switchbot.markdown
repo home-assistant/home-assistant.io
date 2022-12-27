@@ -55,6 +55,7 @@ Please note, device names configured in the SwitchBot app are not transferred in
 - Meter/Meter Plus 70BB (WoSensorTH)
 - Motion Sensor (WoPresence)
 - Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
+- Lock (WoLock)
 
 ## SwitchBot Entity
 
@@ -67,7 +68,29 @@ There are three attributes available on the SwitchBot entity to give you more in
 
 - `Retry count`: How many times to retry sending commands to your SwitchBot devices.
 
-### Error codes and troubleshooting
+## SwitchBot Lock
+
+Integration currently only uses the primary lock state, in dual lock mode not all things might work properly.
+
+### Lock Encryption Key
+To be able to use the lock it's encryption key needs to be retrieved from internal SwitchBot API.
+In the `PySwitchbot` Python library there is a [script](https://github.com/Danielhiversen/pySwitchbot/blob/master/scripts/get_encryption_key.py) to make the appropriate calls to that API to retrieve your key.
+<div class='note warning'>
+This script currently doesn't support authentication providers like Google, only username and password accounts can be used.
+</div>
+
+You can download the current up-to date version of this script using the following command:
+```shell
+wget https://raw.githubusercontent.com/Danielhiversen/pySwitchbot/master/scripts/get_encryption_key.py
+```
+after downloading the script you can obtain your key details by running it with the following parameters:
+```shell
+python3 get_encryption_key.py MAC_ADDRESS USERNAME
+```
+where `MAC_ADDRESS` is the MAC address of the lock and `USERNAME` is your username used to log in into the SwitchBot app.
+Next you'll be prompted to enter your password, and after that the script should output your `Key ID` and `Encryption key` values required for the lock setup.
+
+## Error codes and troubleshooting
 
 The SwitchBot integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
