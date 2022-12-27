@@ -37,7 +37,7 @@ The type of data a number represents impacts how it is displayed in the frontend
 - **frequency**: Frequency in Hz, kHz, MHz or GHz
 - **gas**: Gasvolume in m³, ft³, or CCF
 - **humidity**: Percentage of humidity in the air
-- **illuminance**: The current light level in lx or lm
+- **illuminance**: The current light level in lx
 - **irradiance**: Irradiance in W/m² or BTU/(h⋅ft²)
 - **moisture**: Percentage of water in a substance
 - **monetary**: The monetary value
