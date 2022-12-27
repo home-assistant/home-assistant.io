@@ -80,6 +80,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 ### Known working high performance adapters
 
 - ASUS USB-BT400 (BCM20702A0)
+- Avantree BTDG-40S (CSR8510A10)
 - Cable Matters 604002-BLK (BCM20702A0)
 - Enbiawit BT403 (CSR8510A10)
 - Feasycom FSC-BP119 (CSR8510A10) 📶
@@ -91,11 +92,13 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - LM Technologies LM1010 (BCM20702A0) 📶
 - Nuu You BT40 (CSR8510A10)
 - ORICO BTA-403 (CSR8510A10)
+- ORICO BTA-409 (CSR8510A10)
 - Panda Wireless PBU40 (CSR8510A10)
 - Plugable USB-BT4LE (BCM20702A0)
 - QGOO BT-06A (CSR8510A10)
 - Raspberry Pi 3B+ (CYW43455)
 - Raspberry Pi 4B (CYW43455)
+- ROCKETEK BT4Y (CSR8510A10)
 - SABRENT BT-UB40 (CSR8510A10)
 - SoundBot SB342 (BCM20702A0)
 - StarTech USBBT1EDR4 (CSR8510A10)
