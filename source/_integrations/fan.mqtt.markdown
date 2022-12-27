@@ -18,6 +18,7 @@ When a `state_topic` is not available, the fan will work in optimistic mode. In 
 
 Optimistic mode can be forced even if a `state_topic` is available. Try to enable it if you are experiencing incorrect fan operation.
 
+<a id='new_format'></a>
 To enable MQTT fans in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -26,25 +27,6 @@ mqtt:
   fan:
     - command_topic: "bedroom_fan/on/set"
 ```
-
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `fan` platform key
-does not work anymore.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-fan:
-  - platform: "mqtt"
-    command_topic: "bedroom_fan/on/set"
-```
-
-{% enddetails %}
 
 {% configuration %}
 availability:

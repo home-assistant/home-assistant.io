@@ -42,31 +42,14 @@ Optimistic mode can be forced, even if the `state_topic` is available. Try to en
 Home Assistant internally assumes that a light's state corresponds to a defined `color_mode`.
 The state of MQTT lights with default schema and support for both color and color temperature will set the `color_mode` according to the last received valid color or color temperature. Optionally, a `color_mode_state_topic` can be configured for explicit control of the `color_mode`
 
+<a id='new_format'></a>
+
 ```yaml
 # Example configuration.yaml entry
 mqtt:
   light:
     - command_topic: "office/rgb1/light/switch"
 ```
-
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `light` platform key
-does not work anymore.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-light:
-  - platform: "mqtt"
-    command_topic: "office/rgb1/light/switch"
-```
-
-{% enddetails %}
 
 {% configuration %}
 availability:

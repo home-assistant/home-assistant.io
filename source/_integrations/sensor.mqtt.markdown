@@ -12,6 +12,7 @@ This `mqtt` sensor platform uses the MQTT message payload as the sensor value. I
 
 ## Configuration
 
+<a id='new_format'></a>
 To use your MQTT sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -20,25 +21,6 @@ mqtt:
   sensor:
     - state_topic: "home/bedroom/temperature"
 ```
-
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `sensor` platform key
-does not work anymore.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-sensor:
-  - platform: mqtt
-    state_topic: "home/bedroom/temperature"
-```
-
-{% enddetails %}
 
 {% configuration %}
 availability:
