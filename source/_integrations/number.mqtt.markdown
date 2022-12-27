@@ -23,14 +23,6 @@ mqtt:
     - command_topic: my-device/threshold
 ```
 
-```yaml
-number:
-  - platform: mqtt
-    command_topic: my-device/threshold
-```
-
-{% enddetails %}
-
 {% configuration %}
 availability:
   description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
