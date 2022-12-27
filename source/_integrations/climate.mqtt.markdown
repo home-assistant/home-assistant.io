@@ -83,6 +83,14 @@ availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
+current_humidity_template:
+  description: A template with which the value received on `current_humidity_topic` will be rendered.
+  required: false
+  type: template
+current_humidity_topic:
+  description: The MQTT topic on which to listen for the current humidity.
+  required: false
+  type: string
 current_temperature_template:
   description: A template with which the value received on `current_temperature_topic` will be rendered.
   required: false
