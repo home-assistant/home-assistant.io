@@ -84,7 +84,7 @@ If you have an error with your credentials you can delete them in the [Applicati
 
 ## Configuration
 
-In the configure page you can set the language code of the interactions with Google Assistant. If not configured, the integration picks one based on the Home Assistant configured language and country.
+On the configure page, you can set the language code of the interactions with Google Assistant. If not configured, the integration picks one based on Home Assistant's configured language and country.
 
 ## Services
 
