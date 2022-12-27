@@ -18,6 +18,7 @@ This documentation has 3 sections. Configuration for `legacy` vacuum with exampl
 ## Configuration
 
 <a id='new_format'></a>
+
 To add your MQTT vacuum to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml

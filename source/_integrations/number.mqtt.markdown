@@ -13,6 +13,7 @@ The `mqtt` Number platform allows you to integrate devices that might expose con
 ## Configuration
 
 <a id='new_format'></a>
+
 To enable MQTT Number in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml

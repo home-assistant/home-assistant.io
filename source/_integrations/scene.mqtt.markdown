@@ -13,6 +13,7 @@ The `mqtt` scene platform lets you control your MQTT enabled scenes.
 ## Configuration
 
 <a id='new_format'></a>
+
 To enable a MQTT scene in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml

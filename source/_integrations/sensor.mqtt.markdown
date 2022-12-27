@@ -13,6 +13,7 @@ This `mqtt` sensor platform uses the MQTT message payload as the sensor value. I
 ## Configuration
 
 <a id='new_format'></a>
+
 To use your MQTT sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
