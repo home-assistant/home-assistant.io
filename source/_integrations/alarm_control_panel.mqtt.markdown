@@ -43,7 +43,7 @@ mqtt:
 
 The configuration format of manual configured MQTT items has changed.
 The old format that places configurations under the `alarm_control_panel` platform key
-should no longer be used and is deprecated.
+is no longer available.
 
 The above example shows the new and modern way,
 this is the previous/old example:

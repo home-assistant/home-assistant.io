@@ -42,7 +42,7 @@ mqtt:
 
 The configuration format of manual configured MQTT items has changed.
 The old format that places configurations under the `cover` platform key
-should no longer be used and is deprecated.
+does not work anymore.
 
 The above example shows the new and modern way,
 this is the previous/old example:

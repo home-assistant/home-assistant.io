@@ -55,7 +55,7 @@ mqtt:
 
 The configuration format of manual configured MQTT items has changed.
 The old format that places configurations under the `light` platform key
-should no longer be used and is deprecated.
+does not work anymore.
 
 The above example shows the new and modern way,
 this is the previous/old example:
@@ -524,10 +524,6 @@ In an ideal scenario, the MQTT device will have a state topic to publish state c
 When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from the device (message from `state_topic`).
 
 Optimistic mode can be forced, even if state topic is available. Try enabling it if the light is operating incorrectly.
-
-<div class='note warning'>
-The way manual MQTT Fans are configured has changed. Placing configurations under the `fan` platform key is deprecated.
-</div>
 
 ```yaml
 # Example configuration.yaml entry
