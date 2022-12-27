@@ -37,11 +37,12 @@ tld:
 {% endconfiguration %}
 
 Check the [complete list of supported languages](https://translate.google.com/intl/en_ALL/about/languages/) (languages where "Talk" feature is enabled in Google Translate) for allowed values.
-Use the 2 digit language code which you can find at the end of URL when you click on Language name. 
+Use the 2-digit language code which you can find at the end of the URL when you click on the language name. 
 
-Check the [complete list of supported tld](https://www.google.com/supported_domains) for allowed TLD values. This is used to force the dialect used when multiple fall into the same 2 digit language code(ie, *US, UK, AU*)
+Check the [complete list of supported tld](https://www.google.com/supported_domains) for allowed TLD values. This is used to force the dialect used when multiple fall into the same 2-digit language code(i.e., *US, UK, AU*)
 
 You can also use supported BCP 47 tags like the below or the 2-2 digit format for your supported dialect(`en-gb` or `en-us`). Below is a list of the currently implemented mappings:
+
 | Dialect | Language | TLD |
 |---------|----------|-----|
 |en-us|en|com|
@@ -74,7 +75,7 @@ tts:
 
 ## Service say
 
-The `google_translate_say` service support `language` and also `options` for set, `tld`. The text for speech is set with `message`. Since release 0.92, service name can be defined in configuration `service_name` option.
+The `google_translate_say` service supports `language` and also `options` for setting `tld`. The text for speech is set with `message`. Since release 0.92, the service name can be defined in the configuration `service_name` option.
 
 Say to all `media_player` device entities:
 
