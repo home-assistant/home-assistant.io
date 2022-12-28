@@ -82,9 +82,11 @@ The integration setup will next give you instructions to enter the [Application 
 
 If you have an error with your credentials you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
 
+If broadcasting doesn't work, make sure: the speakers aren't in do not disturb mode and that the Home Assistant server is in the same network as the speakers.
+
 ## Configuration
 
-On the configure page, you can set the language code of the interactions with Google Assistant. If not configured, the integration picks one based on Home Assistant's configured language and country.
+On the configure page, you can set the language code of the interactions with Google Assistant. If not configured, the integration picks one based on Home Assistant's configured language and country. Supported languages are listed [here](https://developers.google.com/assistant/sdk/reference/rpc/languages)
 
 ## Services
 
