@@ -15,12 +15,15 @@ ha_codeowners:
   - '@RenierM26'
   - '@murtas'
   - '@Eloston'
+  - '@dsypniewski'
 ha_domain: switchbot
 ha_bluetooth: true
 ha_platforms:
   - binary_sensor
   - cover
+  - humidifier
   - light
+  - lock
   - sensor
   - switch
 ha_config_flow: true

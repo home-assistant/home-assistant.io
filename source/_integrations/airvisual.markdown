@@ -1,5 +1,5 @@
 ---
-title: AirVisual
+title: AirVisual Cloud
 description: Instructions on how to use AirVisual data within Home Assistant
 ha_category:
   - Health
@@ -12,7 +12,7 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: device
+ha_integration_type: service
 ---
 
 The `airvisual` sensor platform queries the [AirVisual](https://www.iqair.com) cloud API for air quality data. Data can be collected via latitude/longitude or city/state/country.

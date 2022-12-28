@@ -13,7 +13,7 @@ ha_domain: androidtv
 ha_platforms:
   - diagnostics
   - media_player
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The `androidtv` platform allows you to control an Android TV device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
