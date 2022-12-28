@@ -43,5 +43,5 @@ Battery-powered cameras are not yet supported.
 
 ## Reolink firmware limitations
 
-- The Reolink NVR only sends ONVIF event-notifications if motion happens on the camera connected to the first (index "0") channel.
-- Reolink doorbell presses only generate ONVIF event notifications when the doorbell is directly connected to your network. No doorbell press events are generated when connecting the Reolink doorbell to an NVR.
+- The Reolink NVR only sends event-notifications if motion happens on the camera connected to the first (index "0") channel, therefore the binary sensors of all channels will only be updated when the first channel sees motion.
+- Reolink doorbell presses only generate ONVIF event notifications when the doorbell is directly connected to your network. The doorbell visitor binary sensor will not work when connecting the Reolink doorbell to an NVR.
