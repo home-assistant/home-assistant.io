@@ -36,11 +36,7 @@ The Images stream provides a sequence of image snapshots giving very low latency
 
 ## Configuration options
 
-In the options menu, the following parameters can be configured:
-
-| Parameter               | Description                                                                                                 |
-| :-------------------    | :---------------------------------------------------------------------------------------------------------- |
-| Protocol                | Switch between the RTMP or RTSP streaming protocol.                                                         |
+In the options menu, the `Protocol` can be configured to RTSP or RTMP streaming protocol. 
 
 ## Unsupported models
 
