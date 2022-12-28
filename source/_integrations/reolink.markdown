@@ -47,10 +47,4 @@ The following models have been tested and confirmed to work:
 - Reolink Video Doorbell PoE
 - Reolink Video Doorbell WiFi
 
-The following models are not supported:
-
-- Battery-powered cameras
-- B800: Only with NVR
-- B400: Only with NVR
-- D400: Only with NVR
-
+Battery-powered cameras are not yet supported.
