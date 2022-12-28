@@ -18,16 +18,6 @@ The integration allows you to control [Reolink](https://reolink.com/) NVRs or ca
 
 {% include integrations/config_flow.md %}
 
-## Reolink firmware limitations
-
-<div class='note warning'>
-The Reolink NVR only sends ONVIF event-notifications if motion happens on the camera connected to the first (index "0") channel.
-</div>
-
-<div class='note warning'>
-Reolink doorbell presses only generate ONVIF event notifications when the doorbell is directly connected to your network. No doorbell press events are generated when connecting the Reolink doorbell to an NVR.
-</div>
-
 ## Camera streams
 
 This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, and Images.
@@ -48,3 +38,8 @@ The following models have been tested and confirmed to work:
 - Reolink Video Doorbell WiFi
 
 Battery-powered cameras are not yet supported.
+
+## Reolink firmware limitations
+
+- The Reolink NVR only sends ONVIF event-notifications if motion happens on the camera connected to the first (index "0") channel.
+- Reolink doorbell presses only generate ONVIF event notifications when the doorbell is directly connected to your network. No doorbell press events are generated when connecting the Reolink doorbell to an NVR.
