@@ -67,16 +67,16 @@ Transition the volume level over the specified duration. If the device is powere
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "04:20:00"
-  action:
-    - service: snooz.transition_on
-      target:
-        entity_id: fan.snooz_abcd
-      data:
-        volume: 33
-        duration: 120
+  - trigger:
+      - platform: time
+        at: "04:20:00"
+    action:
+      - service: snooz.transition_on
+        target:
+          entity_id: fan.snooz_abcd
+        data:
+          volume: 33
+          duration: 120
 ```
 
 ### Service `snooz.transition_off`
