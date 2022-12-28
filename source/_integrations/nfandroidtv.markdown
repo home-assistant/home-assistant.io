@@ -59,7 +59,7 @@ interrupt:
   type: boolean
 {% endconfiguration %}
 
-This is a fully customized YAML you can use inside `data` to test how the final notification will look like:
+This is a fully customized YAML you can use inside `data` to test how the final notification will look like (for using this inside a service call look at the service example at the end of this page):
 
 ```yaml
 fontsize: "large"
