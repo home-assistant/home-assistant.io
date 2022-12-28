@@ -308,6 +308,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'hold_stat_tpl':       'hold_state_template',
     'hold_stat_t':         'hold_state_topic',
     'hs_cmd_t':            'hs_command_topic',
+    'hs_cmd_tpl':          'hs_command_template',
     'hs_stat_t':           'hs_state_topic',
     'hs_val_tpl':          'hs_value_template',
     'ic':                  'icon',
