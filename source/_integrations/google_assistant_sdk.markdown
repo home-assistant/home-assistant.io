@@ -21,7 +21,7 @@ This integration allows:
   - Start vacuuming
   - Stream front door on living room TV
   - Turn off kitchen TV
-  - Pay rain sounds on bedroom speaker
+  - Play rain sounds on bedroom speaker
 - Broadcast messages to Google Assistant speakers and displays without interrupting music/video playback. Examples:
   - Coffee is ready
   - Someone is at the front door
