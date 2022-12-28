@@ -134,7 +134,7 @@ condition:
 
 ### NOT condition
 
-Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** True.
+Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** true.
 
 ```yaml
 condition:
