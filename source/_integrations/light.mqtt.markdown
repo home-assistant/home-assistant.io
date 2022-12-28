@@ -555,6 +555,7 @@ availability_topic:
   type: string
 brightness:
   description: Flag that defines if the light supports brightness.
+  This value is implicit `true` when the light supports `color_temp` as `color_mode`.
   required: false
   type: boolean
   default: false
@@ -748,6 +749,22 @@ mqtt:
       brightness: true
       color_mode: true
       supported_color_modes: ["rgb"]
+```
+
+### Color temp and RGB support
+
+To enable a light with color_temp and RGB support in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  light:
+    - schema: json
+      name: mqtt_json_light_1
+      state_topic: "home/rgb1"
+      command_topic: "home/rgb1/set"
+      color_mode: true
+      supported_color_modes: ["rgb", "color_temp"]
 ```
 
 ### Brightness and no RGB support
