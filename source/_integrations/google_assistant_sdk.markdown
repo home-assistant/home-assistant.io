@@ -4,12 +4,14 @@ description: Instructions on how to use Google Assistant SDK in Home Assistant.
 ha_category:
   - Utility
 ha_iot_class: Cloud Polling
-ha_release: '2023.01'
+ha_release: 2023.1
 ha_config_flow: true
 ha_domain: google_assistant_sdk
 ha_codeowners:
   - '@tronikos'
-ha_integration_type: integration
+ha_integration_type: service
+ha_platforms:
+  - notify
 ---
 
 The Google Assistant SDK integration allows Home Assistant to interact with Google Assistant. If you want to use Google Assistant (for example, from your phone or Google Home device) to interact with your Home Assistant managed devices, then you want the [Google Assistant](/integrations/google_assistant) integration.
