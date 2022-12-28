@@ -64,7 +64,7 @@ condition:
 
 ### OR condition
 
-Test multiple conditions in one condition statement. Passes if any embedded condition is True.
+Test multiple conditions in one condition statement. Passes if any embedded condition is true.
 
 ```yaml
 condition:
