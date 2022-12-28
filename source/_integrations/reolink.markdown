@@ -35,7 +35,7 @@ Reolink is aware of this and a solution is already implemented in beta firmware.
 
 This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, and Images.
 The Sub stream camera entity is enabled by default; the other streams are disabled by default.
-The Images stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate, this can be used when the hi-res RTMP/RTSP video stream are too laggy.
+The Images stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the hi-res RTMP/RTSP video stream has too much lag.
 
 ## Configuration options
 
