@@ -17,9 +17,9 @@ ha_integration_type: integration
 
 Integrate [Prosegur](https://www.prosegur.com/) Smart Alarms into Home Assistant. 
 
-Prosegur is company providing intruder protection and detection systems to ensure the security of your home in Iberia, South America and RSA. 
+Prosegur is a company providing intruder protection and detection systems to ensure the security of your home in Iberia, South America and RSA. 
 
-Prosegur has line of connected alarm systems that can be controlled remotely through a cloud service. This integration taps in to the cloud service API providing functionalities similar to their mobile app.
+Prosegur has a line of connected alarm systems that can be controlled remotely through a cloud service. This integration taps into the cloud service API, providing functionalities similar to their mobile app.
 
 There is currently support for the following device types within Home Assistant:
 - Alarm
@@ -29,5 +29,5 @@ There is currently support for the following device types within Home Assistant:
 
 ### Service `camera.request_image`
 
-This service will have Prosegur cloud service "Request image" from your local camera. This service should only be called seldom, as Prosegur tends to throttle this service for long periods of time, resulting in error for both this integration and your Prosegur mobile application.
+This service will have Prosegur cloud service "Request image" from your local camera. This service should only be called seldom, as Prosegur tends to throttle this service for long periods of time, resulting in errors for both this integration and your Prosegur mobile application.
 
