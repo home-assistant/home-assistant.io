@@ -97,13 +97,13 @@ Once the transition completes, the volume level is restored to the value before 
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "16:20:00"
-  action:
-    - service: snooz.transition_off
-      target:
-        entity_id: fan.snooz_abcd
-      data:
-        duration: 120
+  - trigger:
+      - platform: time
+        at: "16:20:00"
+    action:
+      - service: snooz.transition_off
+        target:
+          entity_id: fan.snooz_abcd
+        data:
+          duration: 120
 ```
