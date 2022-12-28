@@ -412,7 +412,7 @@ condition:
     before: sunset
 ```
 
-A visual timeline is provided below showing an example of when these conditions are True. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions are True.
+A visual timeline is provided below, showing an example of when these conditions are true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions are true.
 
 ![Graphic showing an example of sun conditions](/images/docs/scripts/sun-conditions.svg)
 
