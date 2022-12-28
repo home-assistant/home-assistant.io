@@ -120,7 +120,7 @@ Example to broadcast to all speakers:
 ```yaml
 service: notify.google_assistant_sdk
 data:
-  command: time for dinner
+  message: time for dinner
 ```
 
 Example to broadcast to speakers in selected rooms:
@@ -128,7 +128,7 @@ Example to broadcast to speakers in selected rooms:
 ```yaml
 service: notify.google_assistant_sdk
 data:
-  command: time for dinner
+  message: time for dinner
   target:
     - bedroom
     - basement
