@@ -25,9 +25,7 @@ The Reolink NVR only sends ONVIF event-notifications if motion happens on the ca
 </div>
 
 <div class='note warning'>
-Reolink doorbell presses only generate ONVIF event-notifications when the doorbell is directly connected to your network.
-When connecting the Reolink doorbell to a NVR, no doorbell press events are generated.
-Reolink is aware of this and a solution is already implemented in beta firmware.
+Reolink doorbell presses only generate ONVIF event notifications when the doorbell is directly connected to your network. No doorbell press events are generated when connecting the Reolink doorbell to an NVR.
 </div>
 
 ## Camera streams
