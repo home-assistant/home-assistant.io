@@ -81,7 +81,7 @@ automation:
 
 ### Service `snooz.transition_off`
 
-Transition the volume level to the lowest setting over over the specified duration, then power off the device.
+Transition the volume level to the lowest setting over the specified duration, then power off the device.
 
 <div class='note'>
 Once the transition completes, the volume level is restored to the value before the transition started.
