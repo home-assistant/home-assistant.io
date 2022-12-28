@@ -38,13 +38,19 @@ The Images stream provides a sequence of image snapshots giving very low latency
 
 In the options menu, the `Protocol` can be configured to RTSP or RTMP streaming protocol. 
 
-## Unsupported models
+## Tested models
 
-The following models are not to be supported:
+The following models have been tested and confirmed to work:
+
+- RLN8-410 NVR
+- RLC-811A
+- Reolink Video Doorbell PoE
+- Reolink Video Doorbell WiFi
+
+The following models are not supported:
 
 - Battery-powered cameras
 - B800: Only with NVR
 - B400: Only with NVR
 - D400: Only with NVR
-- Lumus
 
