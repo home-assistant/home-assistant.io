@@ -21,8 +21,7 @@ The integration allows you to control [Reolink](https://reolink.com/) NVRs or ca
 ## Reolink firmware limitations
 
 <div class='note warning'>
-There is a BUG in Reolink NVR firmware: it only sends ONVIF event-notifications if motion happened on the camera connected to its very first (index "0") channel.
-Reolink is aware of this and are working on fixing the problem.
+The Reolink NVR only sends ONVIF event-notifications if motion happens on the camera connected to the first (index "0") channel.
 </div>
 
 <div class='note warning'>
