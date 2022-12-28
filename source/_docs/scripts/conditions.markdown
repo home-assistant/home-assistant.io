@@ -17,7 +17,7 @@ All conditions support an optional `alias`.
 
 ### AND condition
 
-Test multiple conditions in one condition statement. Passes if all embedded conditions are True.
+Test multiple conditions in one condition statement. Passes if all embedded conditions are true.
 
 ```yaml
 condition:
