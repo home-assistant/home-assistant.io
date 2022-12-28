@@ -9,8 +9,9 @@ ha_codeowners:
   - '@bachya'
 ha_domain: purpleair
 ha_platforms:
+  - diagnostics
   - sensor
-ha_integration_type: device
+ha_integration_type: integration
 ha_config_flow: true
 ---
 
