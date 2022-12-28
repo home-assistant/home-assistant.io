@@ -95,7 +95,7 @@ condition:
 
 ### Mixed AND and OR conditions
 
-Test multiple AND and OR conditions in one condition statement. Passes if any embedded condition is True.
+Test multiple AND and OR conditions in one condition statement. Passes if any embedded condition is true.
 This allows you to mix several AND and OR conditions together.
 
 ```yaml
