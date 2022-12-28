@@ -1,0 +1,438 @@
+---
+layout: post
+title: "2023.1: Beta release notes"
+description: "Beta release notes for Home Assistant Core 2023.1."
+date: 2022-12-28 00:00:00
+date_formatted: "January 4, 2023"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+- Release-Notes
+- Core
+og_image: /images/blog/2023-01/social.png
+---
+
+<a href='/integrations/#version/2023.1'><img src='/images/blog/2023-01/social.png' style='border: 0;box-shadow: none;'></a>
+
+<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+These are the beta release notes for Home Assistant Core 2023.1 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/Lovelace:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the Supervisor:<br>
+  <https://github.com/home-assistant/supervisor/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+version field (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+---
+<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+Home Assistant Core 2023.1! 🥂 🍾
+
+I have nothing to tell yet... this is still all beta!
+
+This is a fairly small release, as we all enjoy our Holidays a bit as well.
+Still, some nice little additions and tons of QA/bugfixes this release.
+
+Thanks for helping out testing the beta! ❤️
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [The year of the voice!](#the-year-of-the-voice)
+- [Aliases for voice assistants](#aliases-for-voice-assistants)
+- [Matter updates](#matter-updates)
+- [Calendar updates](#calendar-updates)
+- [Translation \& automation editor improvements for entity attributes](#translation--automation-editor-improvements-for-entity-attributes)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New Integrations](#new-integrations)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Breaking Changes](#breaking-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=T8gpiGZKX6w) 4 January 2023, at 12:00 PDT / 21:00 CET!
+
+<lite-youtube videoid="T8gpiGZKX6w" videotitle="Home Assistant 2023.1 Release Party"></lite-youtube>
+
+## The year of the voice!
+
+{% details "TODO" %}
+
+- Add story
+- Link to year of the voice blog announcement
+- Add links to the intents repositories and ask for help
+- Update intent response ([@synesthesiam] - [#83560]) ([conversation docs]) ([intent docs]) ([almond docs])
+- Update intent response ([@synesthesiam] - [#83858]) ([conversation docs]) ([intent docs])
+
+{% enddetails %}
+
+This is the year of the voice. This section needs some content.
+
+Announcement blog: [2023: Home Assistant's year of Voice](/blog/2022/12/20/year-of-voice/)
+
+Repository to contribute: [Intents for Home Assistant](https://github.com/home-assistant/intents)
+
+## Aliases for voice assistants
+
+{% details "TODO" %}
+
+- Expand story
+- Replace screenshot
+- Spelling/grammar
+
+{% enddetails %}
+
+Aliases for entity names are now configurable via the UI. Aliases are currently
+used by Google Assistant and was previously only available for use in YAML.
+This can, of course, later be used by our own Home Assistant voice assistant
+as well.
+
+These aliases are helpful in case you call the same device by multiple names,
+or, when using a voice assistant in multiple languages at the same time.
+
+<p class='img'>
+<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/209155967-e5b55145-c6b0-4e17-a7c8-d90725175518.png' alt='Lorem ipsum'>
+Note: Placeholder screenshot that needs to be replaced.
+</p>
+
+The aliases configuration can be found on each entity dialog, in the advanced
+settings section. It does require that entities are managable via the UI.
+
+## Matter updates
+
+{% details "TODO" %}
+
+- Add story/content/research
+- Add screenshot Android app?
+- Spelling/grammar
+
+{% enddetails %}
+
+Some updates on Matter in Home Assistant.
+
+The Android app with support for pairing Matter devices has been
+released.
+
+Decomissioning of matter devices have been added/fixed.
+
+## Calendar updates
+
+{% details "TODO" %}
+
+- Change title?
+- Add more story?
+- A screenshot would most certainly be nice :)
+- Spelling/grammar
+
+{% enddetails %}
+
+Last release introduced the local calendar, which included the capbility to
+manage calendar events from Home Assistant. These features now have been 
+added to the Google Calendar integration as well!
+
+This means you can now create a new event in your Google Calendar, straight
+from within Home Assistant. Neat!
+
+Also, support formonthly variations for recurrence rules have been added, which
+includes things like:
+
+- On the 20st day of the month
+- On the 3rd Wednesday
+- On the last Tuesday
+
+The local calendar has been extended to provide editing support for existing
+event now too 🤘
+
+## Translation & automation editor improvements for entity attributes
+
+{% details "TODO" %}
+
+- Better title
+- Better story
+- Spelling/grammar
+- Add `translation_key` property to entites ([@emontnemery] - [#82701]) ([recorder docs]) ([accuweather docs])
+- Add enum device_class and state options property to sensor entities ([@frenck] - [#82489]) ([demo docs]) ([sensor docs])
+- Add support for translating custom attribute state ([@emontnemery] - [#83386]) ([demo docs])
+- Add support for translating state attributes ([@emontnemery] - [#77028]) ([climate docs])
+
+{% enddetails %}
+
+This release is adding small improvements to the handling of entity attributes.
+
+Some entities provide additional properties, for example, climate entities
+provide presets. Or sensor entities provide a textual state from a fixed set of
+possible states.
+
+This release adds the possibility to our Home Assistant Core for sensor entities
+to provide all possible state for such sensors, and more importantly, it provides
+the capability for integrations to provide translations for those values!
+
+<p class='img'>
+<img class="no-shadow" src='https://user-images.githubusercontent.com/195327/203090437-3756a83b-b30a-471f-baf7-e949a5a649a5.png' alt='Lorem ipsum'>
+Note: Placeholder screenshot that needs to be replaced.
+</p>
+
+These things greatly improve the UI experience, especially in the automations
+and scripts editors. Those will now be able to provide more, and localized,
+suggestions directly from the UI.
+
+## Other noteworthy changes
+
+{% details "TODO" %}
+
+- Proof read/spelling/grammar
+- Last minute ones added?
+- Go over list again, might have missed something
+
+**Note**: Changes processed up to PR 84386
+
+{% enddetails %}
+
+There is much more juice in this release; here are some of the other
+noteworthy changes this release:
+
+- [@epenet] added a bunch of new device classes for sensors! We now have support
+  for data size, data rate, irradiance, sound pressure, and atmospheric pressure.
+- The [Shelly] integration now supports the Shelly Plus WallDimmer US,
+  thanks [@thecode]!
+- Configuration errors of automations and scripts with device automations have
+  been significatantly improved, providing you with much more details to help
+  you fix the problem. Thanks, [@emontnemery]! 
+- [@AngellusMortis] added a text entity to the [UniFi Protect], so you can now
+  set the message displayed on your doorbell. Awesome!
+- [Google Translate] has been extended with dialect support, thanks [@toddejohnson]!
+- [Yale Access Bluetooth] now has support for battery status, thanks [@bdraco]!
+- Two nice new additions to [SwitchBot], [@konikoni428] added support for power
+  monitor of wallplugs, and [@bdraco] added initial humidifier support! Awesome!
+- [@FuzzyMistborn], added support for [ecobee] Smart Enhanced thermostats,
+  thank you!
+- [KNX] expose biw has a cooldown option, which can be used to limit bus load.
+  Thanks, [@farmio]!
+
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@farmio]: https://github.com/farmio
+[@FuzzyMistborn]: https://github.com/FuzzyMistborn
+[@konikoni428]: https://github.com/konikoni428
+[@thecode]: https://github.com/thecode
+[@toddejohnson]: https://github.com/toddejohnson
+[ecobee]: /integrations/ecobee
+[Google Translate]: /integrations/google_translate
+[KNX]: /integrations/knx
+[Shelly]: /integrations/shelly
+[SwitchBot]: /integrations/switchbot
+[UniFi Protect]: /integrations/unifiprotect
+[Yale Access Bluetooth]: /integrations/yalexs_ble
+
+## New Integrations
+
+We welcome the following new integrations in this release:
+
+- [AirVisual Pro], added by [@bachya]
+- [Google Assistant SDK], added by [@tronikos]
+- [PurpleAir], added by [@bachya]
+- [Reolink], addedb by [@starkillerOG]
+
+[@bachya]: https://github.com/bachya
+[@starkillerOG]: https://github.com/starkillerOG
+[@tronikos]: https://github.com/tronikos
+[AirVisual Pro]: /integrations/airvisual_pro
+[Google Assistant SDK]: /integrations/google_assistant_sdk
+[PurpleAir]: /integrations/purpleair
+[Reolink]: /integrations/reolink
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Breaking Changes
+
+{% details "TODO" %}
+
+- Proof read/spelling/grammar
+
+**Note**: Breaking changes processed up to PR 84295
+
+{% enddetails %}
+
+{% details "air-Q" %}
+
+The unit for noise has been adjusted from `dBa` to `dBA`.
+
+([@epenet] - [#83581]) ([documentation](/integrations/airq))
+
+[@epenet]: https://github.com/epenet
+[#83581]: https://github.com/home-assistant/core/pull/83581
+
+{% enddetails %}
+
+{% details "AirVisual (Pro)" %}
+
+AirVisual Pro units are now their own Home Assistant integration (as opposed
+to be included with the original AirVisual integration that uses the AirVisual
+cloud API).
+
+Pro devices will automatically be migrated; as part of that migration,
+the Pro's device ID will change.
+
+If you utilize entity IDs belonging to a Pro in automations or scripts, you
+don't need to do anything; if, however, you utilize a Pro's device ID,
+please update those automations or scripts accordingly.
+
+([@bachya] - [#83583]) ([documentation](/integrations/airvisual_pro))
+
+[@bachya]: https://github.com/bachya
+[#83882]: https://github.com/home-assistant/core/pull/83882
+
+{% enddetails %}
+
+{% details "APC UPS Daemon" %}
+
+The previously deprecated YAML configuration of the APC UPS Daemon integration
+has been removed.
+
+APC UPS Daemon is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from your
+YAML configuration files.
+
+([@yuxincs] - [#83801]) ([documentation](/integrations/apcupsd))
+
+[@yuxincs]: https://github.com/yuxincs
+[#83801]: https://github.com/home-assistant/core/pull/83801
+
+{% enddetails %}
+
+{% details "Awair" %}
+
+The unit for sound level has been adjusted from `dBa` to `dBA`.
+
+([@epenet] - [#83582]) ([documentation](/integrations/awair))
+
+[@epenet]: https://github.com/epenet
+[#83582]: https://github.com/home-assistant/core/pull/83582
+
+{% enddetails %}
+
+{% details "deCONZ" %}
+
+A issue with the mapping of trigger of Styrbar has been discovered and fix.
+As a result, any automations relying on these triggers, will need to be
+manually adjusted/re-configured to adjust to this change.
+
+([@Kane610] - [#84257]) ([documentation](/integrations/deconz))
+
+[@Kane610]: https://github.com/Kane610
+[#84257]: https://github.com/home-assistant/core/pull/84257
+
+{% enddetails %}
+
+{% details "Fitbit" %}
+
+Units of measurements for length, mass, time, and volume have been aligned
+with standard Home Assistant units.
+
+([@epenet] - [#83936]) ([documentation](/integrations/fitbit))
+
+[@epenet]: https://github.com/epenet
+[#83936]: https://github.com/home-assistant/core/pull/83936
+
+{% enddetails %}
+
+{% details "Minut Point" %}
+
+The unit for sound has been adjusted from `dBa` to `dBA`.
+
+([@epenet] - [#83580]) ([documentation](/integrations/point))
+
+[@epenet]: https://github.com/epenet
+[#83580]: https://github.com/home-assistant/core/pull/83580
+
+{% enddetails %}
+
+{% details "Speedtest.net" %}
+
+The update frequency option has been removed. The default frequency is now 60
+minutes. If you like to customize the polling: disable polling update from
+system options and use the `update_entity` service in an automation to manually
+update it at your own custom schedule.
+
+([@engrbm87] - [#84295]) ([documentation](/integrations/speedtestdotnet))
+
+[@engrbm87]: https://github.com/engrbm87
+[#84295]: https://github.com/home-assistant/core/pull/84295
+
+{% enddetails %}
+
+{% details "Tomorrow.io" %}
+
+The imperial unit for `Global Horizontal Irradiance` has been adjusted from `BTU/(h×ft²)` to `BTU/(h⋅ft²)`
+
+([@epenet] - [#83574]) ([documentation](/integrations/tomorrowio))
+
+[@epenet]: https://github.com/epenet
+[#83574]: https://github.com/home-assistant/core/pull/83574
+
+{% enddetails %}
+
+{% details "Universal Devices ISY994" %}
+
+The unit for weighed decibels has been adjusted from `dBa` to `dBA`.
+
+([@epenet] - [#83583]) ([documentation](/integrations/isy994))
+
+[@epenet]: https://github.com/epenet
+[#83583]: https://github.com/home-assistant/core/pull/83583
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+- [Add more unit enumerators](https://developers.home-assistant.io/blog/2022/12/05/more-unit-enumerators)
+- [Multi-pan temporarily disabled](https://developers.home-assistant.io/blog/2022/12/08/multi-pan-rollback)
+- [Summary of unit system related changes](https://developers.home-assistant.io/blog/2022/12/07/unit_system_changes)
+- [Translating the state of entities](https://developers.home-assistant.io/blog/2022/12/01/entity_translations)
+
+## Farewell to the following
+
+The following integrations are also no longer available as of this release:
+
+- **Deutsche Bahn** has been removed. It relied on webscraping, which is no
+  longer allowed.
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2023.1](/changelogs/core-2023.1)
