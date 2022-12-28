@@ -418,7 +418,7 @@ A visual timeline is provided below, showing an example of when these conditions
 
 ## Template condition
 
-The template condition tests if the [given template][template] renders a value equal to True. This is achieved by having the template result in a True boolean expression or by having the template render True.
+The template condition tests if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render `True`.
 
 {% raw %}
 
