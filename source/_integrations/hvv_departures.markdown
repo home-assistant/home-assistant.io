@@ -45,9 +45,9 @@ The state is a timestamp representing the time for the next departure, not inclu
 | `line`      | Line number of the next departure                                                                                        |
 | `origin`    | The station where the transport started from                                                                             |
 | `direction` | The station where the transport ends                                                                                     |
-| `type`      | Type of the transportation, for example `Bus` or `S`                                                                     |
+| `type`      | Type of the transportation, for example, `Bus` or `S`                                                                     |
 | `id`        | A unique identifier for the line. In most cases, `line` is sufficient to identify the line                               |
-| `delay`     | Realtime data about the delay of the transport in seconds. Add this to the departure time to get the real departure time |
+| `delay`     | Real-time data about the delay of the transport in seconds. Add this to the departure time to get the real departure time |
 | `next`      | A list of the upcoming departures. Each element has the above attributes and `departure` containing the timestamp        |
 
 ## Elevator sensors
