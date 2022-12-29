@@ -176,8 +176,10 @@ This release adds support for using Shelly devices as a remote Bluetooth
 adapter as well!
 
 It works with all second-generation Shelly devices that use firmware 12.0 or
-later. Those are able to provide Bluetooth advertisements to Home Assistant's
-[Bluetooth integration](/integrations/bluetooth).
+later. Those are able to forward Bluetooth advertisements to Home Assistant's
+[Bluetooth integration](/integrations/bluetooth). Home Assistant is not able
+to use Shelly devices to connect to devices, something that is necessry to
+control devices via Bluetooth. For that, use our [Bluetooth Proxies](https://esphome.github.io/bluetooth-proxies/).
 
 This can greatly help with extending the range of your Bluetooth network to
 help with things like Bluetooth temperature or plant sensors in your home.
