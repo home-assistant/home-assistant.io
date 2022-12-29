@@ -7,7 +7,7 @@ ha_quality_scale: internal
 ha_domain: update
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 An update entity is an entity that indicates if an update is available for a
@@ -32,7 +32,7 @@ Update entities are here to be consumed and provided by other integrations and
 are are not designed to be created manually directly.
 
 This page, therefore, does not provide instructions on how to create update
-entities. Please see the ["Updates" category](/integrations/#updates) on the
+entities. Please see the ["Update" category](/integrations/#update) on the
 integrations page to find integration offering update entities.
 
 </div>

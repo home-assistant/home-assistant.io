@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: logger
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 The `logger` integration lets you define the level of logging activities in Home
@@ -79,7 +79,6 @@ where **namespace** is the *<component_namespace>* currently logging.
     description: Default log level. See [log_level](#log-levels).
     required: false
     type: string
-    default: debug
   logs:
     description: List of integrations and their log level.
     required: false
@@ -169,6 +168,8 @@ data:
   custom_components.my_integration: debug
   aiohttp: error
 ```
+
+## Viewing logs
 
 The log information are stored in the
 [configuration directory](/docs/configuration/) as `home-assistant.log`

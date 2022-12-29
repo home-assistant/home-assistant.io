@@ -77,7 +77,7 @@ In short, when any group member entity is `on`, the group will also be `on`. A c
 - Otherwise, the group state is `off`.
 
 ### Lock groups
-In short, when any group member entity is `unlocked`, the group will also be `unlocked`. A complete overview of how fan groups behave:
+In short, when any group member entity is `unlocked`, the group will also be `unlocked`. A complete overview of how lock groups behave:
 
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
@@ -112,7 +112,7 @@ To add or remove entities from an existing group, click on `Group options`, all 
 
 ## YAML Configuration
 
-Alternatlively, this integration can be configured and set up manually via YAML
+Alternatively, this integration can be configured and set up manually via YAML
 instead. Here are example of how to configure groups when using the `configuration.yaml` file.
 
 Example YAML configuration of a binary sensor group:

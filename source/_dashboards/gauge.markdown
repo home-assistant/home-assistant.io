@@ -61,7 +61,7 @@ max:
   default: 100
 needle:
   required: false
-  description: Show the gauge as a needle gauge.
+  description: Show the gauge as a needle gauge. Required to be set to true, if using segments.
   type: boolean
   default: false
 severity:
@@ -83,7 +83,7 @@ severity:
       type: integer
 segments:
   required: false
-  description: List of colors and their corresponding start values. Segments will override the severity settings.
+  description: List of colors and their corresponding start values. Segments will override the severity settings. Needle required to be true.
   type: list
   keys:
     from:
@@ -153,4 +153,32 @@ segments:
     color: '#ffa600'
   - from: 65
     color: '#db4437'
+```
+
+CSS variables can be used (instead of CSS '#rrggbb') for default gauge segment colors:
+
+- `var(--success-color)` for green color
+- `var(--warning-color)` for yellow color
+- `var(--error-color)` for red color
+- `var(--info-color)` for blue color
+
+Therefore, the previous example can be defined also as:
+
+```yaml
+type: gauge
+entity: sensor.kitchen_humidity
+needle: true
+min: 20
+max: 80
+segments:
+  - from: 0
+    color: var(--error-color)
+  - from: 35
+    color: var(--warning-color)
+  - from: 40
+    color: var(--success-color)
+  - from: 60
+    color: var(--warning-color)
+  - from: 65
+    color: var(--error-color)
 ```

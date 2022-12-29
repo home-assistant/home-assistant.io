@@ -22,7 +22,7 @@ ha_integration_type: integration
 
 The Nanoleaf integration allows you to control and monitor Nanoleaf Light Panels, Canvas, Shapes, Elements, and Lines.
 
-This integration does not support the Nanoleaf Remote and Essentials lights.
+This integration does not support the Nanoleaf Remote and Essentials lights. Controlling Nanoleaf Essentials lights is possible over Thread and Bluetooth through the HomeKit Controller integration.
 
 {% include integrations/config_flow.md %}
 

@@ -4,6 +4,7 @@ description: Plugwise Smile platform integration.
 ha_category:
   - Binary Sensor
   - Climate
+  - Number
   - Select
   - Sensor
   - Switch
@@ -21,10 +22,11 @@ ha_platforms:
   - binary_sensor
   - climate
   - diagnostics
+  - number
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 This enables [Plugwise](https://www.plugwise.com) components with a central Smile gateway to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
@@ -37,6 +39,7 @@ Platforms available - depending on your Smile and setup include:
  - `binary_sensor` (for showing the status of e.g. domestic hot water heating or secondary heater)
  - `switch` (for Plugs connected to Adam or Stealths and Circles connected to a Stretch)
  - `select` (for changing a thermostat schedule)
+ - `number` (for changing a boiler setpoint)
 
 The password can be found on the bottom of your Smile or Stretch, the ID, it should consist of 8 characters. To find your IP address use the Plugwise App: 
 
@@ -117,6 +120,22 @@ script:
           option: "Regulier"
 ```
 
+#### Change boiler setpoint
+
+Service: `number.set_value`
+
+```yaml
+# Example script change the boiler setpoint
+script:
+  change_max_boiler_tempeture_setpoint:
+    sequence:
+      - service: number.set_value
+        target:
+          entity_id: number.opentherm_max_boiler_temperature_setpoint
+        data:
+          value: 60
+```
+
 #### Set temperature
 
 Service: `climate.set_temperature`
@@ -139,7 +158,7 @@ script:
 
 Service: `climate.set_preset_mode`
 
-Available options include: `home`, `vacation`, `no_frost`, `asleep` & `away`.
+Available options include: `home`, `vacation` (Anna only), `no_frost`, `asleep` & `away`.
 
 Example:
 
@@ -157,18 +176,21 @@ script:
 
 The current implementation of the Python module (Plugwise-Smile) includes:
 
-Adam (zone_control):
+Adam (zone_control) with On/Off, OpenTherm, and Loria/Thermastage heating and cooling support:
 
  - v3.x
  - v2.3
 
- - Devices supported are Anna, Lisa, Jip, Floor, Tom, Koen and Plug - note a Koen always comes with a Plug (the active part) 
+ - Devices supported are Anna, Lisa, Jip, Floor, Tom, Plug, Aqara Smart Plug, and Koen (a Koen always comes with a Plug, the active part)
 
-Anna (thermostat):
+Anna (thermostat) with OnOff, OpenTherm heating, and Elga and Loria/Thermastage with heating and cooling support:
 
  - v4.x
  - v3.x
  - v1.x
+
+On the Elga, the cooling-mode can only be turned on, or off, via a switch present on the device, not via a toggle in the Plugwise App.
+Please make sure to reload the Plugwise integration after the cooling-mode-switch is turned off after being on, or the other way around. This will ensure that the Plugwise integration is being adapted to the change in function of the Elga.
 
 Smile P1 (DSMR):
 

@@ -9,7 +9,7 @@ ha_domain: fritzbox_callmonitor
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ha_codeowners:
   - '@cdce8p'
 ---

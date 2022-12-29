@@ -16,7 +16,7 @@ ha_integration_type: integration
 ---
 
 [Flipr](https://www.goflipr.com) is a smart pool monitor that publishes data to the cloud via SigFox.
-Flipr sends data like ph, chlorine or temperature to a cloud server on a regular basis in order to monitor your pool.
+Flipr sends data like pH, chlorine or temperature to a cloud server on a regular basis in order to monitor your pool.
 This integration gives you access to this information on Home Assistant in addition to the vendor's smartphone application.
 
 There is currently support for the following information within Home Assistant:
@@ -28,6 +28,7 @@ There is currently support for the following information within Home Assistant:
 - Last measure date
 - pH Status Indicator
 - Chlorine Status Indicator
+- Battery Level
 
 ## Prerequisites
 
@@ -47,5 +48,6 @@ It is recommended that you create your own card with the following sensors where
 - `sensor.flipr_[fliprid]_red_ox`
 - `sensor.flipr_[fliprid]_water_temp`
 - `sensor.flipr_[fliprid]_last_measured`
+- `sensor.flipr_[fliprid]_battery_level`
 
 Leave `binary_sensor.flipr_[fliprid]_ph_status` and `binary_sensor.flipr_[fliprid]_chlorine_status` as badges.

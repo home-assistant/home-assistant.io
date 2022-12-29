@@ -6,7 +6,7 @@ ha_category:
   - Binary Sensor
   - Button
   - Sensor
-  - Updates
+  - Update
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: qnap_qsw
@@ -19,6 +19,7 @@ ha_platforms:
 ha_codeowners:
   - '@Noltari'
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 This integration interacts with the local API of [QNAP QSW managed switches](https://www.qnap.com/en/product/series/qsw-managed-switches).
