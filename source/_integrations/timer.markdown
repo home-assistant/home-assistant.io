@@ -92,6 +92,15 @@ You can also use `entity_id: all` and all active timers will be started.
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
 | `duration`             |      yes | Duration in seconds or `00:00:00` until the timer finishes. |
 
+### Service `timer.change`
+
+Change an active timer. This changes the duration of the timer with the duration given. You can also use `entity_id: all` and all active timers will be started.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
+| `duration`             |      no  | Duration in seconds or `00:00:00` to add or subtract from the running timer. |
+
 ### Service `timer.pause`
 
 Pause a running timer. This will retain the remaining duration for later continuation. You can also use `entity_id: all` and all active timers will be paused.
