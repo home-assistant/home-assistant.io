@@ -102,9 +102,9 @@ Now you can use the `notify.events` service inside your Home Assistant to:
         - name: "remote_photo.jpg"
           url: "https://i.ibb.co/R27KsVQ/front-door-camera-1.jpg"
       actions:
-        - name: open_front_door
+        - name: notify_events_open_front_door
           title: Open door
-        - name: call_police
+        - name: notify_events_call_police
           title: Call the cops!
 ```
 
@@ -144,7 +144,7 @@ After you pushing one of those buttons, Notify.Events will trigger an Event thro
 ...
 trigger:
 - platform: event
-  event_type: call_police
+  event_type: notify_events_call_police
 ...
 ```
 
@@ -157,7 +157,7 @@ Every item of **actions** has the following properties:
 
 **Notice**: don't forget to make sure that your Home Assistant instance is reachable from the web and you've set the `external_url` parameter in your `configuration.yaml`.
 
-**Advice**: prefix the action `names` to prevent conflict with some other trigger Events, for example call you can use **"ne_"** prefix: `"ne_open_the_door"`, `"ne_turn_on_the_bedroom_ac"`, etc.
+**Please also pay attention**: all the action `names` **should have** "notify_events_" as a prefix to prevent conflict with some other trigger Events.
 
 ### Troubleshooting
 
