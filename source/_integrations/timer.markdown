@@ -94,7 +94,7 @@ You can also use `entity_id: all` and all active timers will be started.
 
 ### Service `timer.change`
 
-Change an active timer. This changes the duration of the timer with the duration given. You can also use `entity_id: all` and all active timers will be started.
+Change an active timer. This changes the duration of the timer with the duration given. You can also use `entity_id: all` and all active timers will be changed.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
