@@ -248,6 +248,7 @@ _All these can be extended if your usage calls for more resources._
     Using Wi-Fi on your VirtualBox host is unsupported.
     </div>
     6. Then go to "Audio" and choose "Intel HD Audio" as Audio Controller.
+    7. Go to "System" > "Acceleration" and set the Paravirtualization Interface to "None".
     <div class="note info">
 
     By default VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
