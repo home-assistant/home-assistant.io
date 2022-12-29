@@ -227,6 +227,11 @@ object_id:
   description: Used instead of `name` for automatic generation of `entity_id`
   required: false
   type: string
+optimistic:
+  description: Flag that defines if the climate works in optimistic mode
+  required: false
+  type: boolean
+  default: "`true` if no state topic defined, else `false`."
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -377,7 +382,8 @@ value_template:
 
 ## Optimistic mode
 
-If a property works in *optimistic mode* (when the corresponding state topic is not set), Home Assistant will assume that any state changes published to the command topics did work and change the internal state of the entity immediately after publishing to the command topic. If it does not work in optimistic mode, the internal state of the entity is only updated when the requested update is confirmed by the device through the state topic.
+If a property works in *optimistic mode* (when the corresponding state topic is not set), Home Assistant will assume that any state changes published to the command topics did work and change the internal state of the entity immediately after publishing to the command topic. If it does not work in optimistic mode, the internal state of the entity is only updated when the requested update is confirmed by the device through the state topic. You can enforce optimistic mode by setting the `optimistic`
+option to `true`. When set the internal state will always be updated, even when a state topic is defined.
 
 ## Using Templates
 
