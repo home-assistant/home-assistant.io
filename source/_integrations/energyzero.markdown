@@ -17,7 +17,9 @@ ha_integration_type: integration
 
 The EnergyZero integration integrates the [EnergyZero](https://www.energyzero.nl/) API platform with Home Assistant.
 
-The integration makes it possible to retrieve the dynamic energy/gas prices from EnergyZero in order to gain insight into the price trend of the day and to adjust your consumption accordingly.
+The integration makes it possible to retrieve the dynamic energy/gas prices
+from EnergyZero in order to gain insight into the price trend of the day and
+to adjust your consumption accordingly.
 
 Partners who purchase their energy through EnergyZero:
 
@@ -46,8 +48,12 @@ Every day around **14:00 UTC time**, the new prices are published for the follow
 
 #### Attributes
 
-The average entity is provided with multiple attributes, these consist of an hour / price mapping for the current day and tomorrow, between 00:00 and 14:00 UTC time the tomorrow attribute will not be present.
+The average entity is provided with multiple attributes. These consist
+of an hour/price mapping for the current day and tomorrow, between
+00:00 and 14:00 UTC time, the tomorrow attribute will not be present.
 
 ### Gas market price
 
-For the dynamic gas prices, only entities are created that display the `current` and `next hour` price, because the price is always fixed for 24 hours and the new prices are published every morning at **05:00 UTC time**.
+For the dynamic gas prices, only entities are created that display the
+`current` and `next hour` price because the price is always fixed for
+24 hours; new prices are published every morning at **05:00 UTC time**.
