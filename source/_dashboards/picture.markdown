@@ -23,7 +23,7 @@ image:
   type: string
 alt_text:
   required: false
-  description: "Alternative text for the image. This is useful for users of assistive technology."
+  description: Alternative text for the image. This is necessary for users of assistive technology. The [W3C images tutorial](https://www.w3.org/WAI/tutorials/images/) provides simple guidance for writing alternative text.
   type: string
 theme:
   required: false
