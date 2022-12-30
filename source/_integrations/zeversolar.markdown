@@ -1,0 +1,34 @@
+---
+title: Zeversolar
+description: Instructions on how to configure the Zeversolar integration within Home Assistant
+ha_category:
+  - Environment
+ha_release: 2023.2
+ha_iot_class: Local Polling
+ha_domain: zeversolar
+ha_platforms:
+  - sensor
+ha_config_flow: true
+ha_integration_type: integration
+ha_codeowners:
+  - '@kvanzuijlen'
+---
+
+The Zeversolar integration uses the local device IP to get information like the current power and
+todays total energy production.
+This integration allows you to collect and save data to get an historic overview of your Zeversolar
+production.
+
+## Prerequisites
+
+You need a Zeversolar inverter connected to your solar panels and wifi. Furthermore you need to
+get the Zeversolar IP address.
+
+{% include integrations/config_flow.md %}
+
+## Sensor Types
+
+When configured, the integration will create two sensors for each configured inverter:
+
+- Energy Today, in `kWh` (Kilowatt-hour)
+- Power in watts, in `W` (Watts)
