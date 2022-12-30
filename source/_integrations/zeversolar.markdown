@@ -30,5 +30,5 @@ get the Zeversolar IP address.
 
 When configured, the integration will create two sensors for each configured inverter:
 
-- Energy Today, in `kWh` (Kilowatt-hour)
-- Power in watts, in `W` (Watts)
+- Energy today, in `kWh` (Kilowatt-hour)
+- Current power, in `W` (Watts)
