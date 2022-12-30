@@ -101,8 +101,11 @@ Service data attribute | Format String | Description
 `time` | `%H:%M:%S` | This can be used to dynamically set the time.
 `datetime` | `%Y-%m-%d %H:%M:%S` | This can be used to dynamically set both the date & time.
 `timestamp` | N/A | This can be used to dynamically set both the date & time using a UNIX timestamp.
+`compare` | N/A | Compare new target datetime with existing datetime, and use their min/max. Sets new time without comparision if unset.
 
 To set both the date and time in the same call, use `date` and `time` together, or use `datetime` or `timestamp` by itself. Using `datetime` or `timestamp` has the advantage that both can be set using one template.
+
+In some use cases, you might want to only increase/decrease a datetime, but not "roll back" to an older value. This might happen if multiple automations or manual actions set different intervals on a datetime. In this case, use the `compare` operator to set the maximum (to avoid decreasing to older timestamps) respectively minimum (to avoid increasing to newer timestamps).
 
 #### input_datetime.reload
 
