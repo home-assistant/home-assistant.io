@@ -10,9 +10,9 @@ If you haven't set up a local media folder yet, check out this page on
 [setting up the local media source][setup-media]
 
 
-You can access your (automatically) created media folder using the dahsboard.
-Navigate to the {% my media_browser title="Media > Local Media" %} and in the 
-top right corner click manage. Here you can add and delete your media. 
+You can access your (automatically) created media folder using the dashboard.
+Navigate to the {% my media_browser title="Media > Local Media" %}, and in the 
+top right corner, click manage. Here you can add and delete your media. 
 
 ## Home Assistant OS & Supervised
 
