@@ -115,6 +115,11 @@ resource_template:
   description: The resource or endpoint that contains the value with template support.
   required: true
   type: template
+scan_interval: 
+  description: Interval in Seconds to refresh the data from source.
+  required: false
+  type: integer
+  default: 30  
 state_class:
   description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
   required: false
