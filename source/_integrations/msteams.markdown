@@ -17,32 +17,11 @@ The `Microsoft Teams` platform allows you to send notifications from Home Assist
 
 ## Setup
 
-To send a notification to teams, you need to add the Incoming Webhook app to your team channel. When the app is added, you will receive a webhook URL that needs to be added to your `configuration.yaml`.
+To send a notification to teams, you need to add the Incoming Webhook connector to your team channel. When the connector is added, you will receive a webhook URL that needs to be input in the URL configuration field.
 
+{% include integrations/config_flow.md %}
 
-## Configuration
-
-To add the Microsoft Teams platform to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-notify:
-  - platform: msteams
-    url: https://outlook.office.com/webhook/<ID>
-```
-
-{% configuration %}
-name:
-  description: Setting this parameter allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-  required: false
-  type: string
-  default: "notify"
-url:
-  description: The webhook URL created in the setup step.
-  required: true
-  type: string
-{% endconfiguration %}
-
-### Microsoft Teams service data
+### Service `notify.[name_from_config]`
 
 The following attributes can be placed inside `data` for extended functionality.
 
