@@ -15,13 +15,13 @@ ha_codeowners:
 ---
 
 The Zeversolar integration uses the local device IP to get information like the current power and
-todays total energy production.
-This integration allows you to collect and save data to get an historic overview of your Zeversolar
+today's total energy production.
+This integration allows you to collect and save data providig a historical overview of your Zeversolar
 production.
 
 ## Prerequisites
 
-You need a Zeversolar inverter connected to your solar panels and wifi. Furthermore you need to
+You need a Zeversolar inverter connected to your solar panels and Wi-Fi. Furthermore, you need to
 get the Zeversolar IP address.
 
 {% include integrations/config_flow.md %}
