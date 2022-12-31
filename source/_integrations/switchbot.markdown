@@ -7,6 +7,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Lock
 ha_release: 0.78
 ha_iot_class: Local Push
 ha_codeowners:
@@ -15,6 +16,7 @@ ha_codeowners:
   - '@RenierM26'
   - '@murtas'
   - '@Eloston'
+  - '@dsypniewski'
 ha_domain: switchbot
 ha_bluetooth: true
 ha_platforms:
@@ -23,6 +25,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - lock
 ha_config_flow: true
 ha_integration_type: integration
 ---
@@ -70,25 +73,40 @@ There are three attributes available on the SwitchBot entity to give you more in
 
 ## SwitchBot Lock
 
-Integration currently only uses the primary lock state, in dual lock mode not all things might work properly.
+The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
 
-### Lock Encryption Key
-To be able to use the lock it's encryption key needs to be retrieved from internal SwitchBot API.
-In the `PySwitchbot` Python library there is a [script](https://github.com/Danielhiversen/pySwitchbot/blob/master/scripts/get_encryption_key.py) to make the appropriate calls to that API to retrieve your key.
+A SwitchBot lock can be set up in Home Assistant in two different ways. You can enter the key id and encryption key yourself, or Home Assistant can import them from your SwitchBot account.
+### SwitchBot account (recommended)
+Using this option you can provide your SwitchBot account login credentials and Home Assistant will import the appropriate encryption key from your account.
+
+{% configuration_basic %}
+Username:
+  description: SwitchBot account username
+Password:
+  description: SwitchBot account password
+{% endconfiguration_basic %}
+
 <div class='note warning'>
-This script currently doesn't support authentication providers like Google, only username and password accounts can be used.
+This integration doesn't support SSO accounts (Login with Google, etc.) only username and password accounts.
 </div>
 
-You can download the current up-to date version of this script using the following command:
-```shell
-wget https://raw.githubusercontent.com/Danielhiversen/pySwitchbot/master/scripts/get_encryption_key.py
-```
-after downloading the script you can obtain your key details by running it with the following parameters:
-```shell
-python3 get_encryption_key.py MAC_ADDRESS USERNAME
-```
-where `MAC_ADDRESS` is the MAC address of the lock and `USERNAME` is your username used to log in into the SwitchBot app.
-Next you'll be prompted to enter your password, and after that the script should output your `Key ID` and `Encryption key` values required for the lock setup.
+### Enter lock encryption key manually
+This option is for those that would rather obtain the encryption key themselves, and/or want to know exactly where and how are their account credentials used.
+
+{% configuration_basic %}
+Key ID:
+  description: Locks' encryption key ID
+Encryption key:
+  description: Locks' encryption key
+{% endconfiguration_basic %}
+
+Currently, the only verified way of obtaining locks encryption key is through SwitchBot internal API.
+`PySwitchbot` library has a [script](https://github.com/Danielhiversen/pySwitchbot/blob/master/scripts/get_encryption_key.py) - that can be easily reviewed, for making the appropriate API call (the same library is used by Home Assistant in the first method).
+1. Install `PySwitchbot` library: `pip install PySwitchbot>=0.34.0`
+2. Download the script from GitHub
+3. Run the script: `python3 get_encryption_key.py MAC USERNAME` where `MAC` is MAC address of the lock and `USERNAME` is your SwitchBot account username
+4. When asked enter your account password
+5. If authentication succeeded then script should output your key id and encryption key.
 
 ## Error codes and troubleshooting
 
