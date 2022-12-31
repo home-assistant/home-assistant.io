@@ -3,7 +3,7 @@ title: JVC Projector
 description: Instructions on how to integrate JVC Projector into Home Assistant.
 ha_category:
   - Remote
-ha_release: '2023.1'
+ha_release: '2023.2'
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
