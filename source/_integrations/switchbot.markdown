@@ -100,13 +100,7 @@ Encryption key:
   description: Locks' encryption key
 {% endconfiguration_basic %}
 
-Currently, the only verified way of obtaining locks encryption key is through SwitchBot internal API.
-`PySwitchbot` library has a [script](https://github.com/Danielhiversen/pySwitchbot/blob/master/scripts/get_encryption_key.py) - that can be easily reviewed, for making the appropriate API call (the same library is used by Home Assistant in the first method).
-1. Install `PySwitchbot` library: `pip install PySwitchbot>=0.34.0`
-2. Download the script from GitHub
-3. Run the script: `python3 get_encryption_key.py MAC USERNAME` where `MAC` is MAC address of the lock and `USERNAME` is your SwitchBot account username
-4. When asked enter your account password
-5. If authentication succeeded then script should output your key id and encryption key.
+For instructions on how to obtain locks encryption key see README in [PySwitchbot](https://github.com/Danielhiversen/pySwitchbot) project.
 
 ## Error codes and troubleshooting
 
