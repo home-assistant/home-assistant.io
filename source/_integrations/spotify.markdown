@@ -22,7 +22,7 @@ library from Home Assistant.
 
 ## Prerequisites
 
-- An active Spotify account. A premium is not required, but recommended.
+- An active Spotify account. A premium account is not required, but recommended.
   Premium accounts can be controlled (pause, play, next, etc.), while
   free accounts can only be used for browsing and current playback status.
 - Spotify compatible playback [source](#selecting-output-source) device
