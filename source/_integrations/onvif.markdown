@@ -98,3 +98,46 @@ If your ONVIF camera supports PTZ auxiliary commands (e.g. for running the wiper
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
 | `cmd` | Command to send (e.g. `tt:Wiper|On`). Options depend on camera capability. |
+
+### Service `onvif.set_imaging_settings`
+
+Allos you to set various Imaging Settings as defined in [The ONVIF Imaging
+Service Spec](https://www.onvif.org/specs/srv/img/ONVIF-Imaging-Service-Spec-v210.pdf). 
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
+| `settings` | Command to send (e.g. `tt:Wiper|On`). Options depend on camera capability. |
+
+Valid setting keys depend on your camera capabilities, but may include:
+
+* `BacklightCompensation`
+* `Brightness`
+* `ColorSaturation`
+* `Contrast`
+* `Exposure`
+* `Focus`
+* `IrCutFilter`
+* `Sharpness`
+* `WideDynamicRange`
+* `WhiteBalance`
+
+Some settings take simple values while others take data structures. For example,
+to turn on auto-focus, you would run:
+
+  service: onvif.set_imaging_settings
+  data:
+    settings:
+      Focus:
+        AutoFocusMode: AUTO
+  target:
+    entity_id: camera.skycam_media_profile1
+
+To force the IR lamp to turn on, you would run:
+
+  service: onvif.set_imaging_settings
+  data:
+    settings:
+      IrLampCutoff: OFF
+  target:
+    entity_id: camera.skycam_media_profile1
