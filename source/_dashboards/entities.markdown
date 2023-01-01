@@ -31,6 +31,16 @@ show_header_toggle:
   description: Button to turn on/off all entities.
   type: boolean
   default: true
+sort_by_state:
+  required: false
+  description: Sort entities by state (numeric).
+  type: boolean
+  default: false
+reverse_sort_order:
+  required: false
+  description: Reverse the sort order (disabled means `descending`).
+  type: boolean
+  default: false
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
