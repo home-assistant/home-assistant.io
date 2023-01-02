@@ -30,7 +30,7 @@ The `statistics` integration is different to [Long-term Statistics](https://deve
 
 ## Characteristics
 
-The following statistical characteristics are available. Pay close attention to the right configuration of `sampling_size` and/or `max_age`, as most characteristics are directly influenced by these settings. 
+The following statistical characteristics are available. Pay close attention to the right configuration of `sampling_size` and/or `max_age`, as most characteristics are directly influenced by these settings.
 
 ### Numeric Source Sensor
 
