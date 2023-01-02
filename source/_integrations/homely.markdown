@@ -12,7 +12,6 @@ ha_codeowners:
   - '@kolaf'
 ha_domain: homely
 ha_platforms:
-  - binary_sensor
   - sensor
 ha_integration_type: hub
 ---
