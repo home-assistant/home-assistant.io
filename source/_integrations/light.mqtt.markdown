@@ -228,7 +228,7 @@ hs_command_topic:
   required: false
   type: string
 hs_state_topic:
-  description: "The MQTT topic subscribed to receive color state updates in HS format.
+  description: "The MQTT topic subscribed to receive color state updates in HS format. The expected payload is the hue and saturation values separated by commas, for example, `359.5,100.0`.
   Note: Brightness is received separately in the `brightness_state_topic`."
   required: false
   type: string
@@ -387,7 +387,7 @@ xy_command_topic:
   required: false
   type: string
 xy_state_topic:
-  description: The MQTT topic subscribed to receive XY state updates.
+  description: The MQTT topic subscribed to receive XY state updates. The expected payload is the X and Y color values separated by commas, for example, `0.675,0.322`.
   required: false
   type: string
 xy_value_template:
