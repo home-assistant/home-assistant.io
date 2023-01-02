@@ -100,7 +100,7 @@ Encryption key:
   description: Locks' encryption key
 {% endconfiguration_basic %}
 
-For instructions on how to obtain locks encryption key see README in [PySwitchbot](https://github.com/Danielhiversen/pySwitchbot) project.
+For instructions on how to obtain locks encryption key see README in [PySwitchbot](https://github.com/Danielhiversen/pySwitchbot#obtaining-locks-encryption-key) project.
 
 ## Error codes and troubleshooting
 
