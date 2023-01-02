@@ -77,6 +77,11 @@ name:
   required: false
   default: file name
   type: string
+icon:
+  description: "Any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix name with `mdi:`, ie `mdi:file`.
+  required: false
+  default: mdi:file
+  type: string
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
   required: false
