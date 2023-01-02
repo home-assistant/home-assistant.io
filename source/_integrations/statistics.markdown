@@ -30,7 +30,7 @@ The `statistics` integration is different to [Long-term Statistics](https://deve
 
 ## Characteristics
 
-The following statistical characteristics are available. Pay close attention to the right configuration of `sampling_size` and/or `max_age`, as most characteristics are directly influenced by these settings.
+The following statistical characteristics are available. Pay close attention to the right configuration of `sampling_size` and/or `max_age`, as most characteristics are directly influenced by these settings. 
 
 ### Numeric Source Sensor
 
@@ -155,3 +155,8 @@ unique_id:
   required: false
   type: string
 {% endconfiguration %}
+
+| :exclamation: An important note of `max_age` and `sampling_size`t   |
+|---------------------------------------------------------------------|
+
+The `max_age` variable is only valid within the measured samples specified by `sampling_size` (default 20). Specify a wide-enough `sampling_size` if using an extended max age (eg, when looking for `max_age` 1 hour, a sensor which produces 1 measurement a minute should have at least a `sampling_size` of 60.
