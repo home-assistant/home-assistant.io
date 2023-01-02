@@ -5,7 +5,7 @@ ha_category:
   - Hub
   - Presence Detection
   - Sensor
-ha_release: xxx
+ha_release: '2023.2'
 ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_codeowners:
