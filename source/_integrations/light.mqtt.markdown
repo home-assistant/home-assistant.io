@@ -378,6 +378,10 @@ white_scale:
   required: false
   type: integer
   default: 255
+xy_command_template:
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `xy_command_topic`. Available variables: `x` and `y`."
+  required: false
+  type: string
 xy_command_topic:
   description: "The MQTT topic to publish commands to change the light's XY state."
   required: false
