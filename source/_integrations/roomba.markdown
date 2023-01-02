@@ -47,7 +47,7 @@ The Roomba Integration will add the following sensors.
 Sensors:
 - roomba_battery_level : The status of your battery
 - roomba_bin_full (if Roomba has the capacity to do) : Bin Full status
-- roomba_missions_cancelled: Total missions that have been cancelled
+- roomba_missions_cancelled: Total missions that have been canceled
 - roomba_missions_failed: Total missions that have failed
 - roomba_missions_successful: Total successful missions
 - roomba_missions_total: All total missions together
