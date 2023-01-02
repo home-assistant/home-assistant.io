@@ -156,7 +156,6 @@ unique_id:
   type: string
 {% endconfiguration %}
 
-| :exclamation: An important note of `max_age` and `sampling_size`t   |
-|---------------------------------------------------------------------|
+### An important note on `max_age` and `sampling_size`
 
 The `max_age` option is only valid within the measured samples specified by `sampling_size` (default 20). Specify a wide-enough `sampling_size` if using an extended max-age (e.g., when looking for `max_age` 1 hour, a sensor that produces one measurement a minute should have at least a `sampling_size` of 60.
