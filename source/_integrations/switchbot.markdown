@@ -76,7 +76,9 @@ There are three attributes available on the SwitchBot entity to give you more in
 The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
 
 A SwitchBot lock can be set up in Home Assistant in two different ways. You can enter the key id and encryption key yourself, or Home Assistant can import them from your SwitchBot account.
+
 ### SwitchBot account (recommended)
+
 Using this option you can provide your SwitchBot account login credentials and Home Assistant will import the appropriate encryption key from your account.
 
 {% configuration_basic %}
@@ -90,7 +92,8 @@ Password:
 This integration doesn't support SSO accounts (Login with Google, etc.) only username and password accounts.
 </div>
 
-### Enter lock encryption key manually
+### Enter the lock encryption key manually
+
 This option is for those that would rather obtain the encryption key themselves, and/or want to know exactly where and how are their account credentials used.
 
 {% configuration_basic %}
@@ -100,7 +103,7 @@ Encryption key:
   description: Locks' encryption key
 {% endconfiguration_basic %}
 
-For instructions on how to obtain locks encryption key see README in [PySwitchbot](https://github.com/Danielhiversen/pySwitchbot#obtaining-locks-encryption-key) project.
+For instructions on how to obtain the locks encryption key, see README in [PySwitchbot](https://github.com/Danielhiversen/pySwitchbot#obtaining-locks-encryption-key) project.
 
 ## Error codes and troubleshooting
 
