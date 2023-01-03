@@ -217,6 +217,10 @@ effect_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the effect value."
   required: false
   type: string
+hs_command_template:
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `hs_command_topic`. Available variables: `hue` and `sat`."
+  required: false
+  type: string
 hs_command_topic:
   description: "The MQTT topic to publish commands to change the light's color state in HS format (Hue Saturation).
   Range for Hue: 0° .. 360°, Range of Saturation: 0..100.
@@ -224,7 +228,7 @@ hs_command_topic:
   required: false
   type: string
 hs_state_topic:
-  description: "The MQTT topic subscribed to receive color state updates in HS format.
+  description: "The MQTT topic subscribed to receive color state updates in HS format. The expected payload is the hue and saturation values separated by commas, for example, `359.5,100.0`.
   Note: Brightness is received separately in the `brightness_state_topic`."
   required: false
   type: string
@@ -374,12 +378,16 @@ white_scale:
   required: false
   type: integer
   default: 255
+xy_command_template:
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `xy_command_topic`. Available variables: `x` and `y`."
+  required: false
+  type: string
 xy_command_topic:
   description: "The MQTT topic to publish commands to change the light's XY state."
   required: false
   type: string
 xy_state_topic:
-  description: The MQTT topic subscribed to receive XY state updates.
+  description: The MQTT topic subscribed to receive XY state updates. The expected payload is the X and Y color values separated by commas, for example, `0.675,0.322`.
   required: false
   type: string
 xy_value_template:

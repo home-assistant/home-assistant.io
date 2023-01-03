@@ -308,6 +308,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'hold_stat_tpl':       'hold_state_template',
     'hold_stat_t':         'hold_state_topic',
     'hs_cmd_t':            'hs_command_topic',
+    'hs_cmd_tpl':          'hs_command_template',
     'hs_stat_t':           'hs_state_topic',
     'hs_val_tpl':          'hs_value_template',
     'ic':                  'icon',
@@ -483,6 +484,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'whit_val_stat_t':     'white_value_state_topic',
     'whit_val_tpl':        'white_value_template',
     'xy_cmd_t':            'xy_command_topic',
+    'xy_cmd_tpl':          'xy_command_template',
     'xy_stat_t':           'xy_state_topic',
     'xy_val_tpl':          'xy_value_template',
 ```
