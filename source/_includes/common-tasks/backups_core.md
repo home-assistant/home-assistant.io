@@ -25,5 +25,3 @@ Start Home Assistant:
 ```bash
 hass
 ```
-
-{% include common-tasks/backups_offsite.md %}

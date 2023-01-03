@@ -13,5 +13,3 @@ Untar the backup file and `homeassistant.tar.gz` inside the backup file and copy
 If you're looking to slim down your backup, check if your configuration directory contains a large database file (`home-assistant_v2.db`). See the [`recorder`](/integrations/recorder/) integration page for options to keep your database data down to a size that won't cause issues. Note the keep days, purge interval, and include/exclude options.
 
 Start Home Assistant container.
-
-{% include common-tasks/backups_offsite.md %}
