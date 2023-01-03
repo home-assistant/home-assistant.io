@@ -24,6 +24,8 @@ First, open the `Services` tab and select `HTTP API` from the side menu. Activat
 
 If you have activated authentication, you have to create a user account. Click on `Account 1` at the top and check the `Account Enabled` checkbox. Enter the desired credentials and assign the account the appropriate privileges via the checkboxes below. Now you're ready to go!
 
+{% include integrations/config_flow.md %}
+
 ## Supported platforms
 
 The 2N Telekomunikace integration currently supports the following device platforms within Home Assistant:
@@ -31,6 +33,3 @@ The 2N Telekomunikace integration currently supports the following device platfo
 ### Button
 
 The 2N button platform allows you to restart your 2N device, or allows you to perform an audio test on the device, if supported.
-
-
-{% include integrations/config_flow.md %}
