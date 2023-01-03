@@ -68,6 +68,7 @@ Happy holidays and for the last time in 2022: Enjoy the release!
 - [Release 2022.12.6 - December 14](#release-2022126---december-14)
 - [Release 2022.12.7 - December 17](#release-2022127---december-17)
 - [Release 2022.12.8 - December 21](#release-2022128---december-21)
+- [Release 2022.12.9 - January, 2](#release-2022129---january-2)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -679,6 +680,17 @@ The following integrations are now available via the Home Assistant UI:
 [sleepiq docs]: /integrations/sleepiq/
 [tibber docs]: /integrations/tibber/
 [zha docs]: /integrations/zha/
+
+## Release 2022.12.9 - January, 2
+
+- Handle not available add-on in hassio add-on manager ([#84943] - [@MartinHjelmare])
+- Fix failing HomeKit Controller diagnostics tests ([#84936] - [@bdraco])
+
+[#84936]: https://github.com/home-assistant/core/pull/84936
+[#84943]: https://github.com/home-assistant/core/pull/84943
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@bdraco]: https://github.com/bdraco
+
 
 ## Need help? Join the community!
 
