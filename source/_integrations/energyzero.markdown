@@ -46,12 +46,6 @@ Every day around **14:00 UTC time**, the new prices are published for the follow
 - Time of day when the price is at its lowest
 - Percentage of the current price compared to the maximum price
 
-#### Attributes
-
-The average entity is provided with multiple attributes. These consist
-of an hour/price mapping for the current day and tomorrow, between
-00:00 and 14:00 UTC time, the tomorrow attribute will not be present.
-
 ### Gas market price
 
 For the dynamic gas prices, only entities are created that display the
