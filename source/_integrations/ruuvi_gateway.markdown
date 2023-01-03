@@ -11,8 +11,6 @@ ha_codeowners:
 ha_domain: ruuvi_gateway
 ha_dhcp: true
 ha_integration_type: integration
-works_with:
-  - local
 ---
 
 Integrates [Ruuvi Gateway](https://ruuvi.com/gateway/) devices as
