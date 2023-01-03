@@ -63,9 +63,9 @@ The Mosquitto project runs a [public broker](https://test.mosquitto.org). This i
 
 ## Broker configuration
 
-MQTT broker settings are configured when the MQTT integration is first setup, and can be changed later if needed.
+MQTT broker settings are configured when the MQTT integration is first set up and can be changed later if needed.
 
-Add the MQTT integration, then provide your broker's hostname (or IP address) and port, and (if required) the username and password that Home Assistant should use. To change the settings later, click on "Configure" in the integration page in the UI, then "Re-configure MQTT".
+Add the MQTT integration, then provide your broker's hostname (or IP address) and port and (if required) the username and password that Home Assistant should use. To change the settings later, click on "Configure" on the integration page in the UI, then "Re-configure MQTT".
 
 <div class='note'>
 
