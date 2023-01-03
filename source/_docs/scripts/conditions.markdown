@@ -241,7 +241,7 @@ condition:
   condition: state
   entity_id: device_tracker.paulus
   state: "not_home"
-  # optional: trigger only if state was this for last X time.
+  # optional: Evaluates to true only if state was this for last X time.
   for:
     hours: 1
     minutes: 10
