@@ -554,7 +554,7 @@ availability_topic:
   required: false
   type: string
 brightness:
-  description: Flag that defines if the light supports brightness. This value is implicit `true` when the light supports `color_temp` as `color_mode`.
+  description: Flag that defines if the light supports brightness. This value is implicit `true` when the light supports `color_temp`, `hs` or `xy` as `color_mode`.
   required: false
   type: boolean
   default: false
