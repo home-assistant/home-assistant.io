@@ -1,15 +1,6 @@
 ## Backups
 
-Backup of your Home Assistant. They are stored in a compressed archive file (.tar). Backups are made from {% my supervisor_backups title="Settings > System > Backups" %}. There is also a service available that allows you to trigger the creation of a backup from an automation. Backups are stored in the `/backup` directory.
-
-A full backup includes the following directories:
-
-* `config`
-* `share`
-* `ssl`
-* `media`
-
-A partial backup consists of any number of the above default directories.
+Backup of your Home Assistant. They are stored in a compressed archive file (.tar). Backups are made from {% my supervisor_backups title="Settings > System > Backups" %}. There is also a service available that allows you to trigger the creation of a backup from an automation. Backups are stored in the `/backup` directory and includes files in the configuration directory.
 
 {% include common-tasks/backups_create.md %}
 
