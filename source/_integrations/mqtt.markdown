@@ -50,8 +50,6 @@ The most private option is running your own MQTT broker.
 
 The recommended setup method is to use the [Mosquitto MQTT broker add-on](https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/DOCS.md).
 
-</div>
-
 <div class='note warning'>
 
 Neither ActiveMQ MQTT broker nor the RabbitMQ MQTT Plugin are supported, use a known working broker like Mosquitto instead.
@@ -59,19 +57,26 @@ There are [at least two](https://issues.apache.org/jira/browse/AMQ-6360) [issues
 
 </div>
 
-### Connect to a public broker
+### Use a public broker
 
 The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home. To use the public mosquitto broker, configure the MQTT integration to connect to broker `test.mosquitto.org` on port 1883 or 8883.
 
-<div class='note'>
-
-If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then add `certificate: auto` to your broker configuration and restart Home Assistant.
-
-</div>
-
 ## Broker configuration
 
-MQTT broker settings are configured when the MQTT integration is first setup, and can be changed if needed. To change the settings, click on "Configure" in the integration page in the UI, then "Re-configure MQTT".
+MQTT broker settings are configured when the MQTT integration is first setup, and can be changed later if needed.
+
+Add the MQTT integration, then provide your broker's hostname (or IP address) and port, and (if required) the username and password that Home Assistant should use. To change the settings later, click on "Configure" in the integration page in the UI, then "Re-configure MQTT".
+
+<div class='note'>
+
+If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then add
+```yaml
+mqtt:
+  certificate: auto
+```
+to your broker configuration and restart Home Assistant.
+
+</div>
 
 ### Advanced broker configuration
 
