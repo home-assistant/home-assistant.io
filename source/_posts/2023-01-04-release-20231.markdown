@@ -29,7 +29,7 @@ Starting this amazing year with: Home Assistant Core 2023.1! 🎊
 A fairly small release, as we all enjoyed our Holidays. Yet, the first traces
 of the voice project is already visible: support for entity aliases!
 
-Still, this release contains over 500 changes, most of which are
+Still, this release contains over 800 changes, most of which are
 quality improvements, bug and stability fixes, and other minor improvements.
 The perfect release to start the year with, an easy upgrade worth doing.
 
@@ -136,6 +136,11 @@ to Home Assistant should be a much better experience now.
 Lastly, the [Home Assistant Companion app for Android](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android)
 with support for pairing Matter devices has been released! Making the
 commisioning experience even better!
+
+<!-- insert screenshot/movie here -->
+
+This does require your Android device to be updated with Matter support which
+Google is rolling out within the Google Home app in recent Android versions.
 
 Support for pairing Matter devices using our iOS Companion app is being worked
 on.
