@@ -42,7 +42,7 @@ PS: Did you know [Home Assistant is now on Mastodon](https://fosstodon.org/@home
 <!--more-->
 
 - [The year of the voice!](#the-year-of-the-voice)
-- [Aliases for voice assistants](#aliases-for-voice-assistants)
+- [Entity aliases for voice assistants](#entity-aliases-for-voice-assistants)
 - [Matter updates](#matter-updates)
 - [Calendar updates](#calendar-updates)
 - [Translation \& automation editor improvements for entity attributes](#translation--automation-editor-improvements-for-entity-attributes)
@@ -85,31 +85,36 @@ their language's contributions and making sure they are grammatically correct.
 Anyone can apply to become one. If you want to apply to be a language leader,
 join us in [#devs_voice on Discord](/join-chat) or [open an issue](https://github.com/home-assistant/intents/issues).
 
-## Aliases for voice assistants
+## Entity aliases for voice assistants
 
-{% details "TODO" %}
+The first little thing related to the voice project found in Home Assistant:
+Aliases for entity names are now configurable via the UI.
 
-- Expand story
-- Replace screenshot
-- Spelling/grammar
+Currently, configured aliases are used by Google Assistant and, of course, can
+later be used by our own voice assistant.
 
-{% enddetails %}
+These aliases are helpful in case you call the same device by multiple names
+or when using a voice assistant in multiple languages at the same time.
 
-Aliases for entity names are now configurable via the UI. Aliases are currently
-used by Google Assistant and was previously only available for use in YAML.
-This can, of course, later be used by our own Home Assistant voice assistant
-as well.
+<img class="no-shadow" src='/images/blog/2023-01/aliases.png' alt='Screenshot showing the alias editing capabilities added to the more info dialog of entities'>
 
-These aliases are helpful in case you call the same device by multiple names,
-or, when using a voice assistant in multiple languages at the same time.
+The new aliases feature can be found on each entity's more information dialog
+in the settings tab in the advanced section. If you use
+[Home Assistant Could](https://www.nabucasa.com/), you can also manage your
+entity aliases (and the devices to expose to Google Assistant) in your
+[Home Assistant Cloud settings](https://my.home-assistant.io/redirect/cloud/).
 
-<p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/5878303/209155967-e5b55145-c6b0-4e17-a7c8-d90725175518.png' alt='Lorem ipsum'>
-Note: Placeholder screenshot that needs to be replaced.
-</p>
+Multi-language can be an important factor when using Google Assistant, as those
+can be configured to support two languages at the same time. For example,
+English and Dutch simultaneously. Aliases allow you to provide names
+for translations as an alias. For instance, I have added
+"Woonkamer stofzuiger" (Dutch) as an alias to my living room vacuum.
 
-The aliases configuration can be found on each entity dialog, in the advanced
-settings section. It does require that entities are managable via the UI.
+<img class="no-shadow" src='/images/blog/2023-01/aliases-cloud-multi-language.png' alt='Screenshot showing adding multiple languages as aliases via the Home Assistant Cloud manage entities screen'>
+
+It was previously possible to configure Google Assistant-specific aliases via
+YAML as well, and this remains working. You can use either YAML or easily manage
+them via the UI.
 
 ## Matter updates
 
