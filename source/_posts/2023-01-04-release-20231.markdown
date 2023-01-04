@@ -179,7 +179,7 @@ they can be in, for which, of course, translations can be provided for now too.
 
 In the above screenshot, on the left, you can see how the presets of my
 thermostat now show up nicely in a human-readable format (instead of, for example,
-"anti_forst" in previous releases).
+"anti_frost" in previous releases).
 
 On the right, the [Moon](/integrations/moon) sensor used in an automation
 trigger, Home Assistant can now suggest states you can use in those cases.
