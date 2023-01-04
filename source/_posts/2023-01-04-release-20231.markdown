@@ -160,38 +160,28 @@ added. This includes repetitions like: on the 20th day or the first Wednesday of
 the month. The latter, of course, is helpful to put the Home Assistant
 release day on your calendar 😉
 
-## Translation & automation editor improvements for entity attributes
+## Translation improvements for entities
 
-{% details "TODO" %}
+The support for translations for entity has been improved, especially those
+of entity attributes! A relatively small change that is improving the UI
+experience quite a bit.
 
-- Better title
-- Better story
-- Spelling/grammar
-- Add `translation_key` property to entites ([@emontnemery] - [#82701]) ([recorder docs]) ([accuweather docs])
-- Add enum device_class and state options property to sensor entities ([@frenck] - [#82489]) ([demo docs]) ([sensor docs])
-- Add support for translating custom attribute state ([@emontnemery] - [#83386]) ([demo docs])
-- Add support for translating state attributes ([@emontnemery] - [#77028]) ([climate docs])
+Some entities provide additional properties For example, climate entities
+provide presets or fan modes. Integrations can now offer translations for
+those attribute values.
 
-{% enddetails %}
+Additionally, textual sensor entities can now provide a list of possible states
+they can be in, for which, of course, translations can be provided for now too.
 
-This release is adding small improvements to the handling of entity attributes.
+<img class="no-shadow" src='/images/blog/2023-01/entity-translations.png' alt='Screenshots showing the effects of having translated entity attributes'>
 
-Some entities provide additional properties, for example, climate entities
-provide presets. Or sensor entities provide a textual state from a fixed set of
-possible states.
+In the above screenshot, on the left, you can see how the presets of my
+thermostat now show up nicely in a human-readable format (instead of, for example,
+"anti_forst" in previous releases).
 
-This release adds the possibility to our Home Assistant Core for sensor entities
-to provide all possible state for such sensors, and more importantly, it provides
-the capability for integrations to provide translations for those values!
-
-<p class='img'>
-<img class="no-shadow" src='https://user-images.githubusercontent.com/195327/203090437-3756a83b-b30a-471f-baf7-e949a5a649a5.png' alt='Lorem ipsum'>
-Note: Placeholder screenshot that needs to be replaced.
-</p>
-
-These things greatly improve the UI experience, especially in the automations
-and scripts editors. Those will now be able to provide more, and localized,
-suggestions directly from the UI.
+On the right, the [Moon](/integrations/moon) sensor used in an automation
+trigger, Home Assistant can now suggest states you can use in those cases.
+Those suggestions will also be translated into the language you are using.
 
 ## Other noteworthy changes
 
