@@ -193,16 +193,6 @@ suggestions directly from the UI.
 
 ## Other noteworthy changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-- Last minute ones added?
-- Go over list again, might have missed something
-
-**Note**: Changes processed up to PR 84386
-
-{% enddetails %}
-
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
@@ -211,21 +201,23 @@ noteworthy changes this release:
 - The [Shelly] integration now supports the Shelly Plus WallDimmer US,
   thanks [@thecode]!
 - Configuration errors of automations and scripts with device automations have
-  been significatantly improved, providing you with much more details to help
+  been significantly improved, providing you with much more details to help
   you fix the problem. Thanks, [@emontnemery]! 
 - [@AngellusMortis] added a text entity to the [UniFi Protect], so you can now
   set the message displayed on your doorbell. Awesome!
 - [Google Translate] has been extended with dialect support, thanks [@toddejohnson]!
 - [Yale Access Bluetooth] now has support for battery status, thanks [@bdraco]!
-- Two nice new additions to [SwitchBot], [@konikoni428] added support for power
-  monitor of wallplugs, and [@bdraco] added initial humidifier support! Awesome!
+- Three nice new additions to [SwitchBot], [@konikoni428] added support for power
+  monitor of wallplugs, [@bdraco] added initial humidifier support, and
+  [@dsypniewski] added support for SwitchBot locks! Awesome!
 - [@FuzzyMistborn], added support for [ecobee] Smart Enhanced thermostats,
   thank you!
-- [KNX] expose biw has a cooldown option, which can be used to limit bus load.
+- [KNX] expose now has a cooldown option, which can be used to limit bus load.
   Thanks, [@farmio]!
 
 [@AngellusMortis]: https://github.com/AngellusMortis
 [@bdraco]: https://github.com/bdraco
+[@dsypniewski]: https://github.com/dsypniewski
 [@emontnemery]: https://github.com/emontnemery
 [@epenet]: https://github.com/epenet
 [@farmio]: https://github.com/farmio
