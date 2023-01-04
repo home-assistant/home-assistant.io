@@ -60,7 +60,8 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 ## The year of the voice!
 
 You should have heard about it by now; 2023 is [Home Assistant's year of Voice](/blog/2022/12/20/year-of-voice/)!
-As covered by [The Verge](https://www.theverge.com/2022/12/27/23527790/home-assistant-voice-control-rhasspy-nabu-casa-smart-google-siri-alexa),
+It is our goal for 2023 to let users control Home Assistant in their own
+language. As covered by [The Verge](https://www.theverge.com/2022/12/27/23527790/home-assistant-voice-control-rhasspy-nabu-casa-smart-google-siri-alexa),
 [ArsTechnica](https://arstechnica.com/gadgets/2022/12/with-voice-assistants-in-trouble-home-assistant-starts-a-local-alternative/),
 and [many others](https://9to5google.com/2022/12/23/home-assistant-voice/).
 
@@ -118,12 +119,6 @@ them via the UI.
 
 ## Progress on Matter
 
-{% details "TODO" %}
-
-- Add screenshot/movie clip from Android app?
-
-{% enddetails %}
-
 Last December release, we [introduced Matter support](/blog/2022/12/07/release-202212/#it-does-matter),
 and progress has been made since then. The code base has seen many fixes and
 improvements, and much effort has been put into adding more automated
@@ -134,10 +129,12 @@ improved (and fixed). So, adding [your first Matter device](https://nabucasa.git
 to Home Assistant should be a much better experience now.
 
 Lastly, the [Home Assistant Companion app for Android](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android)
-with support for pairing Matter devices has been released! Making the
-commisioning experience even better!
+with support for pairing Matter devices has been released! Thanks to the fantastic
+work by [@jpelgrom](https://github.com/jpelgrom) on the Android app, the 
+commissioning experience is now even better! Here is a quick video showing
+how that works:
 
-<!-- insert screenshot/movie here -->
+<lite-youtube videoid="ELBrpnbRT-8" videotitle="Commission a Matter device with Home Assistant using the Home Assistant Companion app for Android"></lite-youtube>
 
 This does require your Android device to be updated with Matter support which
 Google is rolling out within the Google Home app in recent Android versions.
