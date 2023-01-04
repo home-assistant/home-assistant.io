@@ -164,7 +164,7 @@ release day on your calendar 😉
 
 ## Translation improvements for entities
 
-The support for translations for entity has been improved, especially those
+The support for translations for entities has been improved, especially those
 of entity attributes! A relatively small change that is improving the UI
 experience quite a bit.
 
