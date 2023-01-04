@@ -53,7 +53,7 @@ PS: Did you know [Home Assistant is now on Mastodon](https://fosstodon.org/@home
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=T8gpiGZKX6w) 4 January 2023, at 12:00 PDT / 21:00 CET!
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=T8gpiGZKX6w) 4 January 2023, at 12:00 PST / 21:00 CET!
 
 <lite-youtube videoid="T8gpiGZKX6w" videotitle="Home Assistant 2023.1 Release Party"></lite-youtube>
 
