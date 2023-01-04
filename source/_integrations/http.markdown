@@ -139,7 +139,7 @@ If you want to apply additional IP filtering, and automatically ban brute force 
   banned_at: "2016-11-16T19:20:03"
 ```
 
-After a ban is added a Persistent Notification is populated to the Home Assistant frontend.
+After a ban is added a Persistent Notification is populated to the Home Assistant frontend. Additionally, an event `ban_ip` is triggered with `ip` and `hostname` of the banned IP is fired onto the event bus.
 
 ## Hosting files
 

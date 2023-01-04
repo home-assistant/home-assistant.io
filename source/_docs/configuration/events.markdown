@@ -169,6 +169,28 @@ This event is fired when scenes have been reloaded and thus might have changed.
 
 This event contains no additional data.
 
+## `login_failed`
+
+Integration: [`http`](/integrations/http/)
+
+This event is fired when a login attempt is unsuccessful.
+
+| Field       | Description                              |
+| ----------- | ---------------------------------------- |
+| `ip`        | IP address that attempted the login.     |
+| `hostname`  | Hostname that attempted the login.       |
+
+## `ip_ban`
+
+Integration: [`http`](/integrations/http/)
+
+This event fires when an IP address is banned.
+
+| Field       | Description                              |
+| ----------- | ---------------------------------------- |
+| `ip`        | IP address that has been banned.         |
+| `hostname`  | Hostname of the IP that has been banned. |
+
 ## `script_started`
 
 Integration: [`script`](/integrations/script/)
