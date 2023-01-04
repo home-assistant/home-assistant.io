@@ -195,7 +195,7 @@ noteworthy changes this release:
 - The [Shelly] integration now supports the Shelly Plus WallDimmer US,
   thanks [@thecode]!
 - Configuration errors of automations and scripts with device automations have
-  been significantly improved, providing you with much more details to help
+  been significantly improved, providing you with much more detail to help
   you fix the problem. Thanks, [@emontnemery]! 
 - [@AngellusMortis] added a text entity to the [UniFi Protect], so you can now
   set the message displayed on your doorbell. Awesome!
