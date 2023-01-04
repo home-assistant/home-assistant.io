@@ -417,7 +417,7 @@ The imperial unit for `Global Horizontal Irradiance` has been adjusted from `BTU
 
 {% details "Universal Devices ISY994" %}
 
-The unit for weighed decibels has been adjusted from `dBa` to `dBA`.
+The unit for weighted decibels has been adjusted from `dBa` to `dBA`.
 
 ([@epenet] - [#83583]) ([documentation](/integrations/isy994))
 
