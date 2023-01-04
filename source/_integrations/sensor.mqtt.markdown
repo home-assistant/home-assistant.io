@@ -106,7 +106,7 @@ device:
       required: false
       type: string
 device_class:
-  description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend.
+  description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend. This needs to be set to make it show on the area card, i.e 'temperature', 'humidity' etc, otherwise it fails to show.
   required: false
   type: device_class
   default: None
