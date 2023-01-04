@@ -44,8 +44,8 @@ PS: Did you know [Home Assistant is now on Mastodon](https://fosstodon.org/@home
 - [The year of the voice!](#the-year-of-the-voice)
 - [Entity aliases for voice assistants](#entity-aliases-for-voice-assistants)
 - [Progress on Matter](#progress-on-matter)
-- [Calendar updates](#calendar-updates)
-- [Translation \& automation editor improvements for entity attributes](#translation--automation-editor-improvements-for-entity-attributes)
+- [Extending calendar support](#extending-calendar-support)
+- [Translation improvements for entities](#translation-improvements-for-entities)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Need help? Join the community!](#need-help-join-the-community)
@@ -140,33 +140,25 @@ commisioning experience even better!
 Support for pairing Matter devices using our iOS Companion app is being worked
 on.
 
-## Calendar updates
+## Extending calendar support
 
-{% details "TODO" %}
+The last release introduced [the local calendar](/blog/2022/12/07/release-202212/#local-calendar),
+which included the capability to manage calendar events from Home Assistant.
+These features have now been added to the [Google Calendar](/integrations/google/)
+integration as well!
 
-- Change title?
-- Add more story?
-- A screenshot would most certainly be nice :)
-- Spelling/grammar
-
-{% enddetails %}
-
-Last release introduced the local calendar, which included the capbility to
-manage calendar events from Home Assistant. These features now have been 
-added to the Google Calendar integration as well!
-
-This means you can now create a new event in your Google Calendar, straight
+Meaning you can now create a new event in your Google Calendar, straight
 from within Home Assistant. Neat!
 
-Also, support formonthly variations for recurrence rules have been added, which
-includes things like:
+Furthermore, the local calendar has been extended to provide editing support for existing
+events 🤘
 
-- On the 20st day of the month
-- On the 3rd Wednesday
-- On the last Tuesday
+<img class="no-shadow" src='/images/blog/2023-01/calendar.png' alt='Screenshots showing the new edit event and monthly recurrence of events capabilities'>
 
-The local calendar has been extended to provide editing support for existing
-event now too 🤘
+Lastly, support for monthly variations in the recurrence rules has been
+added. This includes repetitions like: on the 20th day or the first Wednesday of
+the month. The latter, of course, is helpful to put the Home Assistant
+release day on your calendar 😉
 
 ## Translation & automation editor improvements for entity attributes
 
