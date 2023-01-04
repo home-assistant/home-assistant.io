@@ -248,7 +248,7 @@ We welcome the following new integrations in this release:
 - [AirVisual Pro], added by [@bachya]
 - [Google Assistant SDK], added by [@tronikos]
 - [PurpleAir], added by [@bachya]
-- [Reolink], addedb by [@starkillerOG]
+- [Reolink], added by [@starkillerOG]
 
 [@bachya]: https://github.com/bachya
 [@starkillerOG]: https://github.com/starkillerOG
