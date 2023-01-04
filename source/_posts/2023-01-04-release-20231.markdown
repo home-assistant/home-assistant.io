@@ -276,6 +276,24 @@ other news about building an Open Home; straight into your inbox.
 
 ## Breaking Changes
 
+{% details "Image Upload / Default Config" %}
+
+The `image` integration domain was renamed to `image_upload`.
+
+This change would only affect you when you have removed the
+[`default_config`](/integrations/default_config) from your configuration.
+In that case, you need to manually adjust your configuration to rename `image`
+to `image_upload`.
+
+The rename was done to free up the `image` domain for future use.
+
+([@frenck] - [#84063]) ([documentation](/integrations/image_upload))
+
+[@frenck]: https://github.com/frenck
+[#84063]: https://github.com/home-assistant/core/pull/84063
+
+{% enddetails %}
+
 {% details "air-Q" %}
 
 The unit for noise has been adjusted from `dBa` to `dBA`.
