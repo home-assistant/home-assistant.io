@@ -276,14 +276,6 @@ other news about building an Open Home; straight into your inbox.
 
 ## Breaking Changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-
-**Note**: Breaking changes processed up to PR 84295
-
-{% enddetails %}
-
 {% details "air-Q" %}
 
 The unit for noise has been adjusted from `dBa` to `dBA`.
@@ -297,7 +289,7 @@ The unit for noise has been adjusted from `dBa` to `dBA`.
 
 {% details "AirVisual (Pro)" %}
 
-AirVisual Pro units are now their own Home Assistant integration (as opposed
+AirVisual Pro units now have their own Home Assistant integration (as opposed
 to be included with the original AirVisual integration that uses the AirVisual
 cloud API).
 
@@ -320,7 +312,7 @@ please update those automations or scripts accordingly.
 The previously deprecated YAML configuration of the APC UPS Daemon integration
 has been removed.
 
-APC UPS Daemon is now configured via the UI, any existing YAML configuration
+APC UPS Daemon is now configured via the UI. Any existing YAML configuration
 has been imported in previous releases and can now be safely removed from your
 YAML configuration files.
 
@@ -344,8 +336,8 @@ The unit for sound level has been adjusted from `dBa` to `dBA`.
 
 {% details "deCONZ" %}
 
-A issue with the mapping of trigger of Styrbar has been discovered and fix.
-As a result, any automations relying on these triggers, will need to be
+An issue with the mapping of triggers of Styrbar has been discovered and fixed.
+As a result, any automations relying on these triggers will need to be
 manually adjusted/re-configured to adjust to this change.
 
 ([@Kane610] - [#84257]) ([documentation](/integrations/deconz))
@@ -392,6 +384,22 @@ update it at your own custom schedule.
 
 {% enddetails %}
 
+{% details "Tankerkoenig" %}
+
+The previously deprecated YAML configuration of the Tankerkoenig
+integration has been removed.
+
+Tankerkoenig is now configured via the UI, any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@mib1185] - [#84711]) ([documentation](/integrations/tankerkoenig))
+
+[@mib1185]: https://github.com/engrbm87
+[#84711]: https://github.com/home-assistant/core/pull/84711
+
+{% enddetails %}
+
 {% details "Tomorrow.io" %}
 
 The imperial unit for `Global Horizontal Irradiance` has been adjusted from `BTU/(h×ft²)` to `BTU/(h⋅ft²)`
@@ -429,7 +437,7 @@ changes and new features available for your integration: Be sure to follow our
 
 The following integrations are also no longer available as of this release:
 
-- **Deutsche Bahn** has been removed. It relied on webscraping, which is no
+- **Deutsche Bahn** has been removed. It relied on web scraping, which is no
   longer allowed.
 
 ## All changes
