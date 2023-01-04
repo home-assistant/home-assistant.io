@@ -75,7 +75,7 @@ All the different possible intent sentences are now being collected in the
 repository, and [we are looking for contributions](https://github.com/home-assistant/intents/blob/main/CONTRIBUTING.md)!
 So, feel free to jump in and help out!
 
-An overview of the current status of all intents and languages can found on
+An overview of the current status of all intents and languages can be found on
 [this page](https://home-assistant.github.io/intents/). The page gives insight
 into the parts we need help with.
 
