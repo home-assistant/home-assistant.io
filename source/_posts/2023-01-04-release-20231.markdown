@@ -59,21 +59,31 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 ## The year of the voice!
 
-{% details "TODO" %}
+You should have heard about it by now; 2023 is [Home Assistant's year of Voice](/blog/2022/12/20/year-of-voice/)!
+As covered by [The Verge](https://www.theverge.com/2022/12/27/23527790/home-assistant-voice-control-rhasspy-nabu-casa-smart-google-siri-alexa),
+[ArsTechnica](https://arstechnica.com/gadgets/2022/12/with-voice-assistants-in-trouble-home-assistant-starts-a-local-alternative/),
+and [many others](https://9to5google.com/2022/12/23/home-assistant-voice/).
 
-- Add story
-- Link to year of the voice blog announcement
-- Add links to the intents repositories and ask for help
-- Update intent response ([@synesthesiam] - [#83560]) ([conversation docs]) ([intent docs]) ([almond docs])
-- Update intent response ([@synesthesiam] - [#83858]) ([conversation docs]) ([intent docs])
+The work on voice has already started by collecting intents in all the different
+languages we want to support. Intents describe the user's intention with what
+they've said (or written), so Home Assistant can understand what to do,
+like the action to take and which devices are involved.
 
-{% enddetails %}
+All the different possible intent sentences are now being collected in the
+[Intents for Home Assistant](https://github.com/home-assistant/intents) GitHub
+repository, and [we are looking for contributions](https://github.com/home-assistant/intents/blob/main/CONTRIBUTING.md)!
+So, feel free to jump in and help out!
 
-This is the year of the voice. This section needs some content.
+An overview of the current status of all intents and languages can found on
+[this page](https://home-assistant.github.io/intents/). The page gives insight
+into the parts we need help with.
 
-Announcement blog: [2023: Home Assistant's year of Voice](/blog/2022/12/20/year-of-voice/)
+Lastly, we are also looking for language leaders! Each language is maintained
+by one or more language leaders. Language leaders are responsible for reviewing
+their language's contributions and making sure they are grammatically correct.
 
-Repository to contribute: [Intents for Home Assistant](https://github.com/home-assistant/intents)
+Anyone can apply to become one. If you want to apply to be a language leader,
+join us in [#devs_voice on Discord](/join-chat) or [open an issue](https://github.com/home-assistant/intents/issues).
 
 ## Aliases for voice assistants
 
