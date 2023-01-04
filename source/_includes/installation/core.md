@@ -84,7 +84,7 @@ python3 -m pip install wheel
 Once you have installed the required Python package, it is now time to install Home Assistant Core!
 
 ```bash
-pip3 install homeassistant
+pip3 install homeassistant=={{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}
 ```
 
 Start Home Assistant Core for the first time. This will complete the installation for you, automatically creating the `.homeassistant` configuration directory in the `/home/homeassistant` directory, and installing any basic dependencies.
