@@ -129,8 +129,8 @@ and progress has been made since then. The code base has seen many fixes and
 improvements, and much effort has been put into adding more automated
 tests and quality assurance.
 
-There are also notable improvements; commissioning and decommissing Matter
-devices have been improved (and fixed). So, adding your first Matter device
+There are also notable improvements; commissioning Matter devices have been
+improved (and fixed). So, adding [your first Matter device](https://nabucasa.github.io/matter-example-apps/)
 to Home Assistant should be a much better experience now.
 
 Lastly, the [Home Assistant Companion app for Android](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android)
