@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2023.1: Happy new year of the voice!"
+title: "2023.1: Happy New Year of the voice!"
 description: "The first release of the year of the voice! Adding entity aliases for your voice assistants, calendar event editing, progress on Matter, and entity translations improvements!"
 date: 2023-01-04 00:00:00
 date_formatted: "January 4, 2023"
