@@ -43,7 +43,7 @@ PS: Did you know [Home Assistant is now on Mastodon](https://fosstodon.org/@home
 
 - [The year of the voice!](#the-year-of-the-voice)
 - [Entity aliases for voice assistants](#entity-aliases-for-voice-assistants)
-- [Matter updates](#matter-updates)
+- [Progress on Matter](#progress-on-matter)
 - [Calendar updates](#calendar-updates)
 - [Translation \& automation editor improvements for entity attributes](#translation--automation-editor-improvements-for-entity-attributes)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -116,22 +116,29 @@ It was previously possible to configure Google Assistant-specific aliases via
 YAML as well, and this remains working. You can use either YAML or easily manage
 them via the UI.
 
-## Matter updates
+## Progress on Matter
 
 {% details "TODO" %}
 
-- Add story/content/research
-- Add screenshot Android app?
-- Spelling/grammar
+- Add screenshot/movie clip from Android app?
 
 {% enddetails %}
 
-Some updates on Matter in Home Assistant.
+Last December release, we [introduced Matter support](/blog/2022/12/07/release-202212/#it-does-matter),
+and progress has been made since then. The code base has seen many fixes and
+improvements, and much effort has been put into adding more automated
+tests and quality assurance.
 
-The Android app with support for pairing Matter devices has been
-released.
+There are also notable improvements; commissioning and decommissing Matter
+devices have been improved (and fixed). So, adding your first Matter device
+to Home Assistant should be a much better experience now.
 
-Decomissioning of matter devices have been added/fixed.
+Lastly, the [Home Assistant Companion app for Android](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android)
+with support for pairing Matter devices has been released! Making the
+commisioning experience even better!
+
+Support for pairing Matter devices using our iOS Companion app is being worked
+on.
 
 ## Calendar updates
 
