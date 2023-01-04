@@ -6,7 +6,7 @@ description: Detailed changelog for the Home Assistant Core 2022.11 release
 These are all the changes included in the Home Assistant Core 2022.11 release.
 
 For a summary in a more readable format:
-[Release notes blog for this release](/blog/2022/10/26/release-202211/).
+[Release notes blog for this release](/blog/2022/11/02/release-202211/).
 
 ## Full Changelog
 

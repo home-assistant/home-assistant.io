@@ -23,15 +23,23 @@ You can add or remove items from your shopping list by using the following servi
 
 ### Service `shopping_list.add_item`
 
-Adds an item to the shopping list.
+Add an item to the shopping list.
 
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `name`                 |       no | Name of the item to add. Example: "Milk"               |
 
+### Service `shopping_list.remove_item`
+
+Remove the first item with matching name from the shopping list.
+
+| Service data attribute | Optional | Description                                            |
+|------------------------|----------|--------------------------------------------------------|
+| `name`                 |       no | Name of the item to remove. Example: "Milk"            |
+
 ### Service `shopping_list.complete_item`
 
-Marks an item as completed in the shopping list. It does not remove the item.
+Mark the first item with matching name as completed in the shopping list. It does not remove the item.
 
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
@@ -39,7 +47,7 @@ Marks an item as completed in the shopping list. It does not remove the item.
 
 ### Service `shopping_list.incomplete_item`
 
-Marks an item as incomplete in the shopping list.
+Mark the first item with matching name as incomplete in the shopping list.
 
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
@@ -47,11 +55,11 @@ Marks an item as incomplete in the shopping list.
 
 ### Service `shopping_list.complete_all`
 
-Marks all items as completed in the shopping list. It does not remove the items.
+Mark all items as completed in the shopping list (without removing them from the list).
 
 ### Service `shopping_list.incomplete_all`
 
-Marks all items as incomplete in the shopping list.
+Mark all items as incomplete in the shopping list.
 
 ### Service `shopping_list.clear_completed_items`
 
@@ -59,18 +67,32 @@ Clear completed items from the shopping list.
 
 ## Using in Automations
 
-The simplest way to use the shopping list with automations (e.g., when entering a zone with shops) is to create a notification that can be clicked to open the shopping list.
+A `shopping_list_updated` event is triggered when items in the list are modified, with the following data payload attached to it. This can be used to trigger automations such as sending a push notification when someone adds an item to the shopping list, which when clicked, will open the list.
+
+| Data payload attribute | Description                                                                                                        |
+|------------------------|--------------------------------------------------------------------------------------------------------------------|
+| `action`               | What action was taken on the item. Either `add` for a new item being added, or `update` for an item being updated. |
+| `item`                 | A dictionary containing details of the item that was updated.                                                      |
+| `item.id`              | A unique ID for this item                                                                                          |
+| `item.name`            | The text attached to the item, for example `Milk`                                                                  |
+| `item.complete`        | A boolean indicated whether the item has been marked as complete.                                                  |
 
 {% raw %}
 
 ```yaml
-- service: notify.notify
-  data:
-    title: "Time to shop?"
-    message: "Click to open the shopping list"
+alias: "Notify on new shopping list item"
+trigger:
+  - platform: event
+    event_type: shopping_list_updated
+    event_data:
+      action: "add"
+action:
+  - service: notify.notify
     data:
-      clickAction: "/shopping-list"
-      url: "/shopping-list"
+      message: "{{ trigger.event.data.item.name }} has been added to the shopping list"
+      data:
+        clickAction: "/shopping-list"
+        url: "/shopping-list"
 ```
 
 {% endraw %}

@@ -18,6 +18,7 @@ ha_platforms:
   - notify
   - sensor
   - switch
+  - text
 ha_config_flow: true
 ha_integration_type: integration
 ---
@@ -841,6 +842,12 @@ void send_status_message()
 
 ## Notify
 
+<div class='note warning'>
+
+The Notify platform is deprecated and replaced with the [Text platform](#text).
+
+</div>
+
 Setting the `target` key in the service call will target the name of the MySensors device in Home Assistant. MySensors device names follow the notation: "[Child description]" or alternatively "[Sketch name] [Node id] [Child id]".
 
 #### Notify automation example
@@ -1223,6 +1230,74 @@ void incomingMessage(const MyMessage &message) {
     Serial.print("Changing code to ");
     Serial.println(code);
     gw.send(msgCode.set(code));
+  }
+}
+```
+
+## Text
+
+The following sensor types are supported:
+
+#### MySensors version 2.0 and higher
+
+| S_TYPE | V_TYPE |
+| ------ | ------ |
+| S_INFO | V_TEXT |
+
+#### Text example sketch
+
+```cpp
+/*
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
+ */
+
+// Enable debug prints to serial monitor
+#define MY_DEBUG
+#define MY_RADIO_NRF24
+
+#include <MySensors.h>
+#include <SPI.h>
+
+#define SN "TextSensor"
+#define SV "1.0"
+#define CHILD_ID 1
+
+MyMessage textMsg(CHILD_ID, V_TEXT);
+bool initialValueSent = false;
+
+void setup(void) {
+}
+
+void presentation() {
+  sendSketchInfo(SN, SV);
+  present(CHILD_ID, S_INFO, "TextSensor1");
+}
+
+void loop() {
+  if (!initialValueSent) {
+    Serial.println("Sending initial value");
+    // Send initial values.
+    send(textMsg.set("-"));
+    Serial.println("Requesting initial value from controller");
+    request(CHILD_ID, V_TEXT);
+    wait(2000, C_SET, V_TEXT);
+  }
+}
+
+void receive(const MyMessage &message) {
+  if (message.type == V_TEXT) {
+    if (!initialValueSent) {
+      Serial.println("Receiving initial value from controller");
+      initialValueSent = true;
+    }
+    // Dummy print
+    Serial.print("Message: ");
+    Serial.print(message.sensor);
+    Serial.print(", Message: ");
+    Serial.println(message.getString());
+    // Send message to controller
+    send(textMsg.set(message.getString()));
   }
 }
 ```

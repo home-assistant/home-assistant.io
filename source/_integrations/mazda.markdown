@@ -6,6 +6,7 @@ ha_category:
   - Binary Sensor
   - Button
   - Car
+  - Climate
   - Lock
   - Presence Detection
   - Sensor
@@ -19,6 +20,7 @@ ha_domain: mazda
 ha_platforms:
   - binary_sensor
   - button
+  - climate
   - device_tracker
   - diagnostics
   - lock
@@ -27,14 +29,16 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Mazda Connected Services integration allows you to retrieve data from a Mazda vehicle. In order to use this integration, you must first register your vehicle using the MyMazda app ([iOS](https://apps.apple.com/us/app/mymazda/id451886367)/[Android](https://play.google.com/store/apps/details?id=com.interrait.mymazda)).
+The Mazda Connected Services integration allows you to control and retrieve data from a Mazda vehicle. In order to use this integration, you must first register your vehicle using the MyMazda app ([iOS](https://apps.apple.com/us/app/mymazda/id451886367)/[Android](https://play.google.com/store/apps/details?id=com.interrait.mymazda)).
 
 This integration requires an active Mazda Connected Services subscription and a compatible vehicle. The following Mazda vehicles are Mazda Connected Services capable:
 
-- Mazda3: 2019+
 - CX-30: 2020+
 - CX-5: 2021+
+- CX-50: 2023+
+- CX-60: 2022+
 - CX-9: 2021+
+- Mazda3: 2019+
 - MX-30: 2020+
 
 {% include integrations/config_flow.md %}
@@ -91,6 +95,10 @@ Displays the current door lock status of the vehicle, and locks/unlocks the door
 ### Switch
 
 For electric vehicles, a "charging" switch entity will be created, which allows viewing and controlling the charging state of the vehicle battery.
+
+### Climate
+
+For electric vehicles, a climate entity will be created that allows controlling the vehicle's HVAC system. This includes turning the HVAC system on and off, setting a target temperature, and turning the front and rear defrosters on and off.
 
 ## Services
 
