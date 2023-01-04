@@ -27,7 +27,7 @@ recording on YouTube.
 Starting this amazing year with: Home Assistant Core 2023.1! 🎊
 
 A fairly small release, as we all enjoyed our Holidays. Yet, the first traces
-of the voice project is already visible: support for entity aliases!
+of the voice project are already visible: support for entity aliases!
 
 Still, this release contains over 800 changes, most of which are
 quality improvements, bug and stability fixes, and other minor improvements.
@@ -101,7 +101,7 @@ or when using a voice assistant in multiple languages at the same time.
 
 The new aliases feature can be found on each entity's more information dialog
 in the settings tab in the advanced section. If you use
-[Home Assistant Could](https://www.nabucasa.com/), you can also manage your
+[Home Assistant Cloud](https://www.nabucasa.com/), you can also manage your
 entity aliases (and the devices to expose to Google Assistant) in your
 [Home Assistant Cloud settings](https://my.home-assistant.io/redirect/cloud/).
 
@@ -168,7 +168,7 @@ The support for translations for entity has been improved, especially those
 of entity attributes! A relatively small change that is improving the UI
 experience quite a bit.
 
-Some entities provide additional properties For example, climate entities
+Some entities provide additional properties, for example, climate entities
 provide presets or fan modes. Integrations can now offer translations for
 those attribute values.
 
