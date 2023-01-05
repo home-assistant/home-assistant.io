@@ -89,7 +89,7 @@ If broadcasting doesn't work, make sure: the speakers aren't in do not disturb m
 
 Multiple Google accounts are not supported.
 
-Limitations of the underlying library are listed [here](https://github.com/tronikos/gassist_text#limitationsknown-issues).
+Limitations of the underlying library are listed [here](https://github.com/tronikos/gassist_text#limitationsknown-issues) (media playback, routines, and personal results are not working).
 
 ## Configuration
 
