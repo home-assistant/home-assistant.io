@@ -338,6 +338,9 @@ If you receive 404 errors linked to reporting state in your log, Home Assistant 
 
 Your fulfillment URL may be invalid or unreachable. Recheck the `Fulfillment URL` as specified in [Manual Setup](#manual-setup) and verify that it's publicly reachable.
 
+#### 500 / 429 error on request sync
+This error may occur if the service key is invalid. Try deleting and creating a new service account and key
+
 #### NGINX
 
 When using NGINX, ensure that your `proxy_pass` line *does not* have a trailing `/`, as this will result in errors. Your line should look like:
