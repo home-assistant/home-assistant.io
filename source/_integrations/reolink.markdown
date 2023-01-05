@@ -34,13 +34,16 @@ The Images stream provides a sequence of image snapshots giving very low latency
 
 The following models have been tested and confirmed to work:
 
-- RLN8-410 NVR
-- RLC-811A
-- RLC-823A
-- RLC-420-5MP
+- E1 Pro
 - E1 Zoom (Images stream not supported)
+- RCL-410W
 - Reolink Video Doorbell PoE
 - Reolink Video Doorbell WiFi
+- RLC-420-5MP
+- RLC-520
+- RLC-811A
+- RLC-823A
+- RLN8-410 NVR
 
 Battery-powered cameras are not yet supported.
 
