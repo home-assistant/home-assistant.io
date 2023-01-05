@@ -28,7 +28,10 @@ The Pi-hole integration allows you to retrieve statistics and interact with a
 
 Please note, that during the integration set up, an API key can be provided.
 Providing one, gives access to the Pi-Hole `disable` service and a switch
-to enable/disable Pi-Hole from Home Assistant.
+to enable/disable Pi-Hole from Home Assistant.  If you untick "Statistics Only"
+you will be presented with a place to enter your API key on the next page. Your
+API key can be obtained by running 'sudo cat /etc/pihole/setupVars.conf | grep PASSWORD'
+on the pi running Pi-Hole.
 
 ## Services
 
