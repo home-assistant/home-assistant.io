@@ -40,6 +40,7 @@ The following models have been tested and confirmed to work:
 - Reolink Video Doorbell PoE
 - Reolink Video Doorbell WiFi
 - RLC-420-5MP
+- RLC-511W
 - RLC-520
 - RLC-811A
 - RLC-820A
