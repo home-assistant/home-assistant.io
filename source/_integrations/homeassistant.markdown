@@ -67,6 +67,17 @@ action:
     longitude: 117.22743
 ```
 
+### Service `homeassistant.get_location`
+
+Retrieve the location of the Home Assistant default zone (usually "Home").
+
+#### Example
+
+```yaml
+action:
+  service: homeassistant.get_location
+```
+
 ### Service `homeassistant.toggle`
 
 Generic service to toggle devices on/off. Same usage as the
