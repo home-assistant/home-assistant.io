@@ -83,7 +83,13 @@ The integration setup will next give you instructions to enter the [Application 
 
 If you have an error with your credentials you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
 
-If broadcasting doesn't work, make sure: the speakers aren't in do not disturb mode and that the Home Assistant server is in the same network as the speakers.
+If broadcasting doesn't work, make sure: the speakers aren't in do not disturb mode, the Home Assistant server is in the same network as the speakers, and IPv6 is disabled in the router.
+
+## Limitations/known issues
+
+Multiple Google accounts are not supported.
+
+Limitations of the underlying library are listed [here](https://github.com/tronikos/gassist_text#limitationsknown-issues).
 
 ## Configuration
 
