@@ -49,10 +49,10 @@ envisalink:
   timeout: 10
   panic_type: Police
   zones:
-    11:
+    1:
       name: "Back Door"
       type: "opening"
-    21:
+    2:
       name: "First Floor Motion"
       type: "motion"
   partitions:
@@ -112,7 +112,7 @@ panic_type:
   default: Police
   type: string
 zones:
-  description: "Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information about the visual representation of a zone, take a look at the [Binary Sensor](/integrations/binary_sensor/#device-class) documentation. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*"
+  description: "Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. Zone numbers correspond to the zone numbers configured on your alarm system and must be in the range of 1 to 64. For each zone, at least a name must be given. For more information about the visual representation of a zone, take a look at the [Binary Sensor](/integrations/binary_sensor/#device-class) documentation. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*"
   required: false
   type: integer
   keys:
