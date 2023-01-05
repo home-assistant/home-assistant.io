@@ -42,6 +42,7 @@ The following models have been tested and confirmed to work:
 - RLC-420-5MP
 - RLC-520
 - RLC-811A
+- RLC-820A
 - RLC-823A
 - RLN8-410 NVR
 
