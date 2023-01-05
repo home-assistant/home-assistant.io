@@ -38,6 +38,7 @@ The following models have been tested and confirmed to work:
 - RLC-811A
 - RLC-823A
 - RLC-420-5MP
+- E1 Zoom (Images stream not supported)
 - Reolink Video Doorbell PoE
 - Reolink Video Doorbell WiFi
 
