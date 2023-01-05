@@ -5,7 +5,7 @@ ha_category:
   - Sensor
   - Presence Detection
 ha_bluetooth: true
-ha_release: 2023.1
+ha_release: 2023.2
 ha_iot_class: Local Push
 ha_codeowners:
   - '@930913'
