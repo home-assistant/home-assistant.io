@@ -19,7 +19,7 @@ ha_integration_type: integration
 The `sql` sensor platform enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
 This can be used to present statistics about Home Assistant sensors if used with the `recorder` integration database. It can also be used with an external data source.
 
-**This integration can be configured using both config flow and by yaml.**
+**This integration can be configured using both config flow and by YAML.**
 
 {% include integrations/config_flow.md %}
 
