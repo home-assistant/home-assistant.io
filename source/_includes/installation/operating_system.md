@@ -130,8 +130,10 @@ sudo apt install libfuse2
 
     {% if variant.key == "odroid-n2" %}
     [Guide: Flashing Odroid-N2 using OTG-USB](/hassio/flashing_n2_otg/)
-    {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
+    {% elsif variant.key == "rpi4" %}
       _(64-bit is recommended)_
+    {% elsif variant.key == "rpi3-64" %}
+      _(32-bit is recommended)_
     {% endif %}
 
 {% endfor %}
