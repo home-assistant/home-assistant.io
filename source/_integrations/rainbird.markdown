@@ -24,11 +24,9 @@ This `rainbird` integration allows interacting with [LNK WiFi](https://www.rainb
 
 There is currently support for the following device types within Home Assistant:
 
-- [Configuration Options](#configuration-options)
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
-- [Services](#services)
 
 {% include integrations/config_flow.md %}
 
@@ -52,14 +50,17 @@ Switches are automatically added for all available zones of configured controlle
 
 ## Services
 
-The Rain Bird switch platform exposes a service to start a single irrigation for a given duration.
+The integration exposes services to give additional control over a Rain Bird device.
 
-| Service | Description |
-| ------- | ----------- |
-| rainbird.start_irrigation | Set a duration state attribute for a switch and turn the irrigation on.|
-| rainbird.set_rain_delay | Set how long automatic irrigation is turned off.|
+### `rainbird.start_irrigation`
 
-The service can be used as part of an automation script. For example:
+Start a Rain Bird zone for a set number of minutes. This service accepts a Rain Bird sprinkler
+zone switch entity and allows a custom duration unlike the switch.
+
+| Service Data Attribute | Optional | Description                                           |
+| ---------------------- | -------- | ----------------------------------------------------- |
+| `duration`             | no       | Nmber of minutes for this zone to be turned on.       |
+
 
 ```yaml
 # Example configuration.yaml automation entry
@@ -74,3 +75,12 @@ automation:
           entity_id: switch.sprinkler_1
           duration: 5
 ```
+
+### `rainbird.set_rain_delay`
+
+Sets the number of days to disable automatic irrigation. This service accepts a target of
+a Rain Bird device.
+
+| Service Data Attribute | Optional | Description                                           |
+| ---------------------- | -------- | ----------------------------------------------------- |
+| `duration`             | no       | Number of days for the device to be turned off.       |
