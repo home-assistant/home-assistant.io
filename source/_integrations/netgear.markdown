@@ -71,10 +71,10 @@ The following router features can be turned on/off, and the status can be read:
 
 ### Speed test data
 
-The "Average Ping", "Downlink Bandwidth" and "Uplink Bandwidth" can be tracked by performing a speed test every 2 hours.
-If these sensor entities are enabled they will first show previous results on integration load, the first new speed tests happens 2 hours after the integration loads.
-The speed test interval is chosen to be 2 hours to not put unnecessary load on the network and reduce data usage.
-When one or more of the three sensors is enabled the speedtests will be performed, note that this can cause high data usage dependend on your internet connection speed which might be relevant when using metered/limited networks.
+The "Average Ping", "Downlink Bandwidth," and "Uplink Bandwidth" can be tracked by performing a speed test every 2 hours.
+If these sensor entities are enabled, they will first show previous results on integration load. The first new speed tests happens 2 hours after the integration loads.
+The speed test interval is chosen to be 2 hours not to put unnecessary load on the network and reduce data usage.
+When one or more of the three sensors is enabled, the speed tests will be performed. Note that this can cause high data usage depending on your internet connection speed which might be relevant when using metered/limited networks.
 
 ### Ethernet link status
 
