@@ -23,3 +23,11 @@ Integrates LD2410B sensors from [Hi-Link](http://www.hlktech.net/) into Home Ass
 It currently provides the motion and static value.
 
 You can currently configure the settings for motion/static triggers by USB with either the [desktop software](https://drive.google.com/drive/folders/1p4dhbEJA3YubyIjIIC7wwVsSo8x29Fq-?usp=sharing) or the Bluetooth [mobile app](https://www.pgyer.com/Lq8p).
+
+## Purchasing
+
+<div class='note'>
+There are multiple similar versions of the board. Make sure to buy the -B versions as these are the ones with Bluetooth and have been tested.
+</div>
+
+You can buy this module bareboard or in a devkit from [AliExpress](https://www.aliexpress.com/item/1005004351593073.html).
