@@ -17,6 +17,8 @@ ha_integration_type: integration
 
 The Starlink integration allows you to integrate your [Starlink](https://www.starlink.com/) into Home Assistant.
 
+**Important:** Your Starlink must **not** be in bypass mode. In this mode, the local API is unavailable, and this integration will not work.
+
 {% include integrations/config_flow.md %}
 
 ### Sensor
