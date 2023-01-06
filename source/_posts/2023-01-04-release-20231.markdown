@@ -85,7 +85,7 @@ by one or more language leaders. Language leaders are responsible for reviewing
 their language's contributions and making sure they are grammatically correct.
 
 Anyone can apply to become one. If you want to apply to be a language leader,
-join us in [#devs_voice on Discord](/join-chat) or [open an issue](https://github.com/home-assistant/intents/issues).
+join us in [#devs_voice on Discord](/join-chat) or [open a discussion topic](https://github.com/home-assistant/intents/discussions).
 
 ## Entity aliases for voice assistants
 
