@@ -22,7 +22,7 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.
+The Yeelight integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.
 
 There is support for the following device types within Home Assistant:
 
@@ -193,6 +193,7 @@ This integration is tested to work with the following models. If you have a diff
 | `RGBW`     | MJDP02YL     | Mi LED smart Lamp - white and color Wi-Fi Version|
 | `lamp`     | MJTD02YL     | Xiaomi Mijia Desk Lamp Pro                       |
 | `lamp1`    | MJTD01YL     | Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM) |
+| `lamp9`    | YLCT03YL     | Yeelight Staria Bedside Lamp Pro                 |
 | `lamp15`   | YLTD003      | Yeelight LED Screen Light Bar Pro                |
 | `ceiling1` | YLXD01YL     | Yeelight Ceiling Light                           |
 | `ceiling2` | YLXD03YL     | Yeelight Ceiling Light - Youth Version           |

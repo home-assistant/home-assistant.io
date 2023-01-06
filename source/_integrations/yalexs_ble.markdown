@@ -34,6 +34,8 @@ Devices must have a Yale Access module installed to function with this integrati
 - YRD226 (Yale Assure Lock Touchscreen Deadbolt with Physical Key)
 - YRL226 (Yale Assure Door Lever Lock Keypad)
 - YRD256 (Yale Assure Lock Keypad)
+- YRD420 (Yale Assure Lock 2)
+- YRD450 (Yale Assure Lock 2 Key Free)
 - ASL-05 (August WiFi Smart Lock - Gen 4)
 - ASL-03 (August Smart Lock Pro - Gen 3)
 - ASL-02 (August Smart Lock Pro - Gen 2)
@@ -42,7 +44,7 @@ Devices must have a Yale Access module installed to function with this integrati
 
 These devices do not send updates, but can be locked and unlocked.
 
-- MD-04I (Yale Conexis L1)
+- MD-04I (Yale Conexis L1, Yale Conexis L2)
 - YRCB-490 (Yale Smart Cabinet Lock)
 
 ## Push updates

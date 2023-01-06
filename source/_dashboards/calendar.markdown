@@ -5,7 +5,7 @@ sidebar_label: Calendar
 description: "The calendar card displays your calendar entities in a month, day and list view"
 ---
 
-The Calendar card displays your [calendar](/integrations/#calendar) entities in a month, day and list view.
+The Calendar card displays your [calendar](/integrations/#calendar) entities in a month, day and list view (7 days).
 
 <p class='img'>
   <img src='/images/dashboards/calendar_card.png' alt='Screenshot of the 
@@ -21,7 +21,7 @@ To add the Calendar card to your user interface, click the menu (three dots at t
 Title:
   description: The title displayed at the top of the card.
 Initial View:
-  description: "The view that will show first when the card is loaded onto the page. Options are `Month View`, `Day View`, or `List View`."
+  description: "The view that will show first when the card is loaded onto the page. Options are `Month View`, `Day View`, or `List (7 days)`."
 Entities:
   description: The calendar entities that will be displayed in the card.
 Theme:
@@ -43,7 +43,7 @@ title:
   type: string
 initial_view:
   required: false
-  description: "The view that will show first when the card is loaded onto the page. Options are `dayGridMonth`, `dayGridDay`, and `listWeek`."
+  description: "The view that will show first when the card is loaded onto the page. Options are `dayGridMonth`, `dayGridDay`, and `listWeek`. Note that `listWeek` does show the next 7 days, not a calendar week."
   type: string
 entities:
   required: true

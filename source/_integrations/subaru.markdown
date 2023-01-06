@@ -14,6 +14,7 @@ ha_codeowners:
 ha_domain: subaru
 ha_platforms:
   - device tracker
+  - diagnostics
   - lock
   - sensor
 ha_integration_type: integration

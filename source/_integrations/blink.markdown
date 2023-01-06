@@ -34,7 +34,7 @@ The preferred method for setting this up is by using the configuration flow. Go 
 
 1. You are sent an email asking for you to allow Home Assistant to access Blink.  In this case, leave the pin field blank and hit `Submit`.
 
-2. You are sent an email containing a 2FA pin.  In this case, please enter the pin and hit `Submit`.
+2. You are sent an email or SMS containing a 2FA pin.  In this case, please enter the pin and hit `Submit`.
 
 Your integration will then set up.  Given that setup is asynchronous, you may see your sensors before they have finished extracting data from the Blink servers.  After a few minutes (at most) this information should populate.
 
