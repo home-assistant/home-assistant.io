@@ -39,7 +39,6 @@ The following models have been tested and confirmed to work:
 - RLC-823A
 - RLC-420-5MP
 - E1 Zoom
-- E1 Pro
 - E1 Outdoor
 - Reolink Video Doorbell PoE
 - Reolink Video Doorbell WiFi
