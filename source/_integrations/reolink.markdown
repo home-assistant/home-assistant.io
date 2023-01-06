@@ -45,6 +45,9 @@ The following models have been tested and confirmed to work:
 
 Battery-powered cameras are not yet supported.
 
+The following models are lacking the HTTP webserver API and can therfore not work with this integration:
+- E1 Pro
+
 ## Reolink firmware limitations
 
 - The Reolink NVR only sends event-notifications if motion happens on the camera connected to the first (index "0") channel, therefore the binary sensors of all channels will only be updated when the first channel sees motion.
