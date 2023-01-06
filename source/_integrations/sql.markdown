@@ -23,7 +23,7 @@ This can be used to present statistics about Home Assistant sensors if used with
 
 {% include integrations/config_flow.md %}
 
-## Configuration by yaml
+## Configuration by YAML
 
 To configure this sensor, define the sensor connection variables and a list of queries to your `configuration.yaml` file. A sensor will be created for each query.
 
