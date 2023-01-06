@@ -34,7 +34,12 @@ To enable it, add the following lines to your `configuration.yaml` file (example
 # Example configuration.yaml
 sql:
   - name: Sun state
-    query: "SELECT * FROM states WHERE entity_id = 'sun.sun' ORDER BY state_id DESC LIMIT 1;"
+    query: >
+      SELECT *
+      FROM states
+      WHERE entity_id = 'sun.sun'
+      ORDER BY state_id
+      DESC LIMIT 1;
     column: "state"
 ```
 {% endraw %}
