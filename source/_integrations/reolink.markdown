@@ -35,6 +35,7 @@ The snapshots stream provides a sequence of image snapshots giving very low late
 The following models have been tested and confirmed to work:
 
 - RLN8-410 NVR
+- RLC-810A
 - RLC-811A
 - RLC-823A
 - RLC-420-5MP
