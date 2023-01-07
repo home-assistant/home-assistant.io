@@ -37,6 +37,7 @@ The following models have been tested and confirmed to work:
 - RLN8-410 NVR
 - RLC-810A
 - RLC-811A
+- RLC-820A
 - RLC-823A
 - RLC-420-5MP
 - E1 Zoom
