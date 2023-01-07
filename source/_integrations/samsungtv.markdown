@@ -16,7 +16,7 @@ ha_platforms:
   - media_player
 ha_zeroconf: true
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).

@@ -17,12 +17,13 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - select
   - sensor
   - switch
   - update
 ha_zeroconf: true
 ha_homekit: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The RainMachine integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).
@@ -38,12 +39,20 @@ Note that some entities are disabled by default. If you are missing a sensor or 
 
 {% include integrations/config_flow.md %}
 
+## Configuaration Options
+
+The integration has two configuration options: 
+
+1. "Default Zone Run Time": sets a default duration when turning on a zone switch (default: 600 seconds). This can be overriden with a service call (see below). 
+2. "Use Run Times from App": if enabled, will use the zone-specific run times from the last time the zone was turned on manually in the RainMachine App – this allows you to set per-zone default times using the RainMachine app instead of the same default time for all zones.
+
 ## Services
 
 Services accept either device IDs or entity IDs, depending on the nature of the service:
 
 - Services that require a device ID as a target:
   - `rainmachine.pause_watering`
+  - `rainmachine.push_flow_meter_data`
   - `rainmachine.push_weather_data`
   - `rainmachine.restrict_watering`
   - `rainmachine.stop_all`
@@ -63,13 +72,22 @@ Pause all watering activities for a number of seconds. After the pause is comple
 | ---------------------- | -------- | ------------------------------ |
 | `seconds`              | no       | The number of seconds to pause |
 
+### `rainmachine.push_flow_meter_data`
+
+Push Flow Meter data from Home Assistant to the RainMachine device.
+
+| Service Data Attribute | Optional | Description                                                                                                |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| `value`                | no       | The flow meter value to send. May be any positive number.                                                  |
+| `unit_of_measurement`  | yes      | The flow meter units to send. String must be one of "clicks", "gal", "litre", or "m3"  (default: "litre"). |
+
 ### `rainmachine.push_weather_data`
 
 Push Weather Data from Home Assistant to the RainMachine device.
 
 Local Weather Push service should be enabled from Settings > Weather > Developer tab for RainMachine to consider the values being sent. Units must be sent in metric; no conversions are performed by the integration. Note: RAIN and QPF values shouldn't be sent as cumulative values but the measured/forecasted values for each hour or day. The RainMachine Mixer will sum all RAIN or QPF values in the current day to have the day total RAIN or QPF.
 
-See details of RainMachine API here: 
+See details of RainMachine API here:
 <https://rainmachine.docs.apiary.io/#reference/weather-services/parserdata/post>
 
 | Service Data Attribute | Optional | Description                                                                                                           |
@@ -105,9 +123,9 @@ Start a RainnMachine program.
 
 Start a RainMachine zone for a set number of seconds.
 
-| Service Data Attribute | Optional | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| `zone_run_time`        | yes      | The number of seconds to run; defaults to 60 seconds |
+| Service Data Attribute | Optional | Description                                           |
+| ---------------------- | -------- | ----------------------------------------------------- |
+| `zone_run_time`        | yes      | The number of seconds to run; defaults to 600 seconds |
 
 ### `rainmachine.stop_all`
 
@@ -134,7 +152,7 @@ Remove all watering restrictions enforced by `rainmachine.restrict_watering`.
 After Home Assistant loads, new switches will be added for every enabled program and zone. These work as expected:
 
 - Program On/Off: starts/stops a program
-- Zone On/Off: starts/stops a zone (using the `zone_run_time` parameter to determine how long to run for)
+- Zone On/Off: starts/stops a zone (using the configuration options described above to determine how long to run for)
 
 Programs and zones are linked. While a program is running, you will see both the program and zone switches turned on; turning either one off will turn the other one off (just like in the web app).
 

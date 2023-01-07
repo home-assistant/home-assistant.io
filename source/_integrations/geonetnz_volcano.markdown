@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: geonetnz_volcano
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The `geonetnz_volcano` integration lets you use a GeoJSON feed provided by 

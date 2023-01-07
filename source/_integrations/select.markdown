@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: select
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 Keeps track on `select` entities in your environment, their state, and allows

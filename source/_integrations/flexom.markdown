@@ -16,12 +16,16 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+  - Water Heater
 ha_domain: flexom
+ha_integration_type: virtual
+ha_supporting_domain: overkiz
+ha_supporting_integration: Overkiz
+ha_release: 2022.2
 ha_codeowners:
   - '@imicknl'
   - '@vlebourl'
   - '@tetienne'
-ha_integration_type: integration
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
@@ -38,12 +42,10 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - water_heater
 ha_iot_class: Cloud Polling
-ha_zeroconf: true
 ha_dhcp: true
-ha_supporting_domain: overkiz
-ha_supporting_integration: Overkiz
-ha_release: 2022.2
+ha_zeroconf: true
 ---
 
 {% include integrations/supported_brand.md %}

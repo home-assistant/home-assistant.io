@@ -10,7 +10,7 @@ ha_codeowners:
   - '@dcramer'
   - '@frenck'
 ha_domain: sentry
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 <div class='note warning'>

@@ -7,6 +7,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Lock
 ha_release: 0.78
 ha_iot_class: Local Push
 ha_codeowners:
@@ -15,6 +16,7 @@ ha_codeowners:
   - '@RenierM26'
   - '@murtas'
   - '@Eloston'
+  - '@dsypniewski'
 ha_domain: switchbot
 ha_bluetooth: true
 ha_platforms:
@@ -23,6 +25,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - lock
 ha_config_flow: true
 ha_integration_type: integration
 ---
@@ -50,10 +53,12 @@ Please note, device names configured in the SwitchBot app are not transferred in
 - Bot (WoHand)
 - Contact Sensor (WoContact)
 - Curtain (WoCurtain)
+- Humidifier (WoHumi)
 - Light Strip (WoStrip)
-- Meter (WoSensorTH)
+- Meter/Meter Plus 70BB (WoSensorTH)
 - Motion Sensor (WoPresence)
 - Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
+- Lock (WoLock)
 
 ## SwitchBot Entity
 
@@ -66,7 +71,41 @@ There are three attributes available on the SwitchBot entity to give you more in
 
 - `Retry count`: How many times to retry sending commands to your SwitchBot devices.
 
-### Error codes and troubleshooting
+## SwitchBot Lock
+
+The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
+
+A SwitchBot lock can be set up in Home Assistant in two different ways. You can enter the key id and encryption key yourself, or Home Assistant can import them from your SwitchBot account.
+
+### SwitchBot account (recommended)
+
+Using this option you can provide your SwitchBot account login credentials and Home Assistant will import the appropriate encryption key from your account.
+
+{% configuration_basic %}
+Username:
+  description: SwitchBot account username
+Password:
+  description: SwitchBot account password
+{% endconfiguration_basic %}
+
+<div class='note warning'>
+This integration doesn't support SSO accounts (Login with Google, etc.) only username and password accounts.
+</div>
+
+### Enter the lock encryption key manually
+
+This option is for those that would rather obtain the encryption key themselves, and/or want to know exactly where and how are their account credentials used.
+
+{% configuration_basic %}
+Key ID:
+  description: Locks' encryption key ID
+Encryption key:
+  description: Locks' encryption key
+{% endconfiguration_basic %}
+
+For instructions on how to obtain the locks encryption key, see README in [PySwitchbot](https://github.com/Danielhiversen/pySwitchbot#obtaining-locks-encryption-key) project.
+
+## Error codes and troubleshooting
 
 The SwitchBot integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
