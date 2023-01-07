@@ -1,7 +1,7 @@
 ---
 title: Homewizard Climate
 description: Home assistant integration for Homewizard Climate devices
-ha_release: 2023.1
+ha_release: 2023.2
 ha_category:
   - Climate
 ha_iot_class: Cloud Pushing
