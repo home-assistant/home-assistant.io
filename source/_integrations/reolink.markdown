@@ -26,9 +26,9 @@ Protocol:
 
 ## Camera streams
 
-This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, and Images.
+This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, and Snapshots.
 The Sub stream camera entity is enabled by default; the other streams are disabled by default.
-The Images stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the hi-res RTMP/RTSP video stream has too much lag.
+The snapshots stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the hi-res RTMP/RTSP video stream has too much lag.
 
 ## Tested models
 
@@ -36,7 +36,11 @@ The following models have been tested and confirmed to work:
 
 - RLN8-410 NVR
 - RLC-811A
+- RLC-823A
 - RLC-420-5MP
+- E1 Zoom
+- E1 Pro
+- E1 Outdoor
 - Reolink Video Doorbell PoE
 - Reolink Video Doorbell WiFi
 
