@@ -59,7 +59,8 @@ zone switch entity and allows a custom duration unlike the switch.
 
 | Service Data Attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
-| `duration`             | no       | Nmber of minutes for this zone to be turned on.       |
+| `entity_id`            | no       | The Rain Bird Sprinkler zone switch to turn on.       |
+| `duration`             | no       | Number of minutes for this zone to be turned on.      |
 
 
 ```yaml
@@ -72,7 +73,7 @@ automation:
     action:
       - service: rainbird.start_irrigation
         data:
-          entity_id: switch.sprinkler_1
+          entity_id: switch.rain_bird_sprinkler_1
           duration: 5
 ```
 
@@ -81,6 +82,7 @@ automation:
 Sets the number of days to disable automatic irrigation. This service accepts a target of
 a Rain Bird device.
 
-| Service Data Attribute | Optional | Description                                           |
-| ---------------------- | -------- | ----------------------------------------------------- |
-| `duration`             | no       | Number of days for the device to be turned off.       |
+| Service Data Attribute | Optional | Description                                            |
+| ---------------------- | -------- | ------------------------------------------------------ |
+| `config_entry`         | no       | The configuration entry id for the rainbird controller |
+| `duration`             | no       | Number of days for the device to be turned off.        |
