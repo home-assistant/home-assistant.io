@@ -45,7 +45,7 @@ scan_interval:
   description: The time interval, in seconds, to poll the Hydrawise cloud.
   required: false
   type: integer
-  default: 30
+  default: 120
 {% endconfiguration %}
 
 To get your API access token log into your [Hydrawise account](https://app.hydrawise.com/config/login) and in the 'My Account Details' section under Account Settings click 'Generate API Key'. Enter that key in your configuration file as `YOUR_API_KEY`.
