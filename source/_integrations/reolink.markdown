@@ -26,28 +26,33 @@ Protocol:
 
 ## Camera streams
 
-This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, and Images.
+This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, and Snapshots.
 The Sub stream camera entity is enabled by default; the other streams are disabled by default.
-The Images stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the hi-res RTMP/RTSP video stream has too much lag.
+The snapshots stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the hi-res RTMP/RTSP video stream has too much lag.
 
 ## Tested models
 
 The following models have been tested and confirmed to work:
 
-- E1 Pro
-- E1 Zoom (Images stream not supported)
-- RCL-410W
-- Reolink Video Doorbell PoE
-- Reolink Video Doorbell WiFi
+- E1 Zoom
+- E1 Outdoor
+- RLC-410W
 - RLC-420-5MP
 - RLC-511W
 - RLC-520
+- RLC-810A
 - RLC-811A
 - RLC-820A
 - RLC-823A
+- RLC-420-5MP
 - RLN8-410 NVR
+- Reolink Video Doorbell (PoE and Wi-Fi)
 
 Battery-powered cameras are not yet supported.
+
+The following models are lacking the HTTP webserver API and can therfore not work with this integration:
+
+- E1 Pro
 
 ## Reolink firmware limitations
 

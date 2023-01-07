@@ -68,7 +68,7 @@ data:
 
 Running this script show absolutely no output on the screen, but it logs with level `info`. You must have the [Logger](/integrations/logger/) enabled at least for level `info`.
 
- Your `confiuration.yaml` should include something like this.
+ Your `configuration.yaml` should include something like this.
  
 ```yaml
 logger:
