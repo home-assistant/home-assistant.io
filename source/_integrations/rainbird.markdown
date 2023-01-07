@@ -80,7 +80,7 @@ automation:
 ### `rainbird.set_rain_delay`
 
 Sets the number of days to disable automatic irrigation. This service accepts a target of
-a Rain Bird device.
+a Rain Bird config entry.
 
 | Service Data Attribute | Optional | Description                                            |
 | ---------------------- | -------- | ------------------------------------------------------ |
