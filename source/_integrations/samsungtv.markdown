@@ -3,6 +3,7 @@ title: Samsung Smart TV
 description: Instructions on how to integrate a Samsung Smart TV into Home Assistant.
 ha_category:
   - Media Player
+  - Remote
 ha_release: 0.13
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -14,6 +15,7 @@ ha_ssdp: true
 ha_platforms:
   - diagnostics
   - media_player
+  - remote
 ha_zeroconf: true
 ha_dhcp: true
 ha_integration_type: device
@@ -93,6 +95,53 @@ media_content_type: channel
 
 It's possible to switch between the 2 sources `TV` and `HDMI`.
 Some older models also expose the installed applications through the WebSocket, in which case the source list is adjusted accordingly.
+
+### Remote
+
+The integration supports `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` service.
+
+The exact supported keys varies between TV models. See [this link](https://github.com/jaruba/ha-samsungtv-tizen/blob/master/Key_codes.md) for possible keys.
+
+{% details "Some commonly used commands" %}
+
+- KEY_UP
+- KEY_DOWN
+- KEY_LEFT
+- KEY_RIGHT
+- KEY_ENTER
+- KEY_RETURN
+- KEY_HOME
+- KEY_REWIND
+- KEY_FORWARD
+- KEY_ACTIONMENU
+- KEY_0
+- KEY_1
+- KEY_2
+- KEY_3
+- KEY_4
+- KEY_5
+- KEY_6
+- KEY_7
+- KEY_8
+- KEY_9
+
+{% enddetails %}
+
+**Example to send sequence of commands:**
+
+```yaml
+service: remote.send_command
+target:
+  device_id: 72953f9b4c9863e28ddd52c87dcebe05
+data:
+  command:
+    - KEY_MENU
+    - KEY_RIGHT
+    - KEY_UP
+    - KEY_UP
+    - KEY_ENTER
+
+```
 
 ### Known issues and restrictions
 
