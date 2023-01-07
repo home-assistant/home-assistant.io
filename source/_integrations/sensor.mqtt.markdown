@@ -12,6 +12,8 @@ This `mqtt` sensor platform uses the MQTT message payload as the sensor value. I
 
 ## Configuration
 
+<a id='new_format'></a>
+
 To use your MQTT sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -20,25 +22,6 @@ mqtt:
   sensor:
     - state_topic: "home/bedroom/temperature"
 ```
-
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `sensor` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-sensor:
-  - platform: mqtt
-    state_topic: "home/bedroom/temperature"
-```
-
-{% enddetails %}
 
 {% configuration %}
 availability:
@@ -143,7 +126,7 @@ entity_category:
   type: string
   default: None
 expire_after:
-  description: Defines the number of seconds after the sensor's state expires, if it's not updated. After expiry, the sensor's state becomes `unavailable`.
+  description: If set, it defines the number of seconds after the sensor's state expires, if it's not updated. After expiry, the sensor's state becomes `unavailable`. Default the sensors state never expires.
   required: false
   type: integer
   default: 0
@@ -210,7 +193,7 @@ unit_of_measurement:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the value. Available variables: `entity_id`. The `entity_id` can be used to reference the entity's attributes. If the template throws an error, the current state will be used instead."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the value. If the template throws an error, the current state will be used instead."
   required: false
   type: template
 {% endconfiguration %}

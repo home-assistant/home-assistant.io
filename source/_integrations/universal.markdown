@@ -58,6 +58,7 @@ media_player:
       is_volume_muted: ENTITY_ID|ATTRIBUTE
       state: ENTITY_ID|ATTRIBUTE
     device_class: tv
+    unique_id: a_unique_string
 ```
 
 {% configuration %}
@@ -83,6 +84,10 @@ attributes:
   type: string
 device_class:
   description: The device class that this entity represents. Can be `tv`, `speaker`, or `receiver`.
+  required: false
+  type: string
+unique_id:
+  description: A unique identifier for this entity. Needs to be unique within the `media_player` platform.
   required: false
   type: string
 {% endconfiguration %}
@@ -305,6 +310,7 @@ media_player:
         data:
           activity: "{{ source }}"
     device_class: tv
+    unique_id: media_room_harmony_hub
 ```
 
 {% endraw %}

@@ -31,7 +31,7 @@ An easy way to create this is to start with the "Edit zone DNS" template then ad
 
 ### Usage of external service
 
-This platform uses the API from [ipify.org](https://www.ipify.org/) to set the public IP address.
+This integration uses the whoami service from [home-assistant/services.home-assistant.io](https://github.com/home-assistant/services.home-assistant.io) to set the public IP address.
 
 ### Limitations
 

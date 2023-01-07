@@ -33,7 +33,7 @@ It is possible that we detect your device because it uses the MiBeacon protocol 
 - Moisture
 - Illumination
 - Conductivity
-- Formalehyde
+- Formaldehyde
 - Consumable
 - Voltage
 - Battery
@@ -43,6 +43,8 @@ It also supports the following classes of binary sensors:
 - Light
 - Smoke
 - Moisture
+
+The entities for the sensor classes are added after the values are first received. This means entities for values that are broadcasted at a lower interval (e.g., battery) might show up later.
 
 ## Encryption
 

@@ -7,7 +7,7 @@ ha_iot_class: Local Push
 ha_release: 0.94
 ha_domain: ssdp
 ha_quality_scale: internal
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 The `ssdp` "Simple Service Discovery Protocol" (part of UPnP) integration will scan the network for supported devices and services. Discovered integrations will show up in the discovered section on the integrations page in the configuration panel.
@@ -47,6 +47,6 @@ The following integrations are automatically discovered by the SSDP integration:
  - [Sony Songpal](/integrations/songpal/)
  - [Synology DSM](/integrations/synology_dsm/)
  - [Ubiquiti UniFi](/integrations/unifi/)
- - [Universal Devices ISY994](/integrations/isy994/)
+ - [Universal Devices ISY/IoX](/integrations/isy994/)
  - [UPnP](/integrations/upnp/)
  - [WiLight](/integrations/wilight/)

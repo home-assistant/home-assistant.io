@@ -15,7 +15,7 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The `openuv` integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).

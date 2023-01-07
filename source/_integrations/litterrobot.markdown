@@ -7,7 +7,7 @@ ha_category:
   - Sensor
   - Switch
   - Vacuum
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_release: 2021.3
 ha_config_flow: true
 ha_codeowners:
@@ -16,12 +16,14 @@ ha_codeowners:
 ha_domain: litterrobot
 ha_dhcp: true
 ha_platforms:
+  - binary_sensor
   - button
   - select
   - sensor
   - switch
+  - update
   - vacuum
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The Litter-Robot integration allows you to control and monitor your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders.
@@ -40,6 +42,7 @@ You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot or 
 | Night Light Mode              | `switch` | When turned on, automatically turns on the night light in darker settings.       |
 | Panel Lockout                 | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
 | Last Seen                     | `sensor` | Displays the time the unit was last seen / reported an update.                   |
+| Litter level                  | `sensor` | Displays the litter level, only for Litter-Robot 4.                              |
 | Pet weight                    | `sensor` | Displays the last measured pet weight, only for Litter-Robot 4.                  |
 | Sleep Mode Start Time         | `sensor` | When sleep mode is enabled, displays the current or next sleep mode start time.  |
 | Sleep Mode End Time           | `sensor` | When sleep mode is enabled, displays the current or last sleep mode end time.    |
@@ -47,6 +50,7 @@ You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot or 
 | Waste Drawer                  | `sensor` | Displays the current waste drawer level.                                         |
 | Clean Cycle Wait Time Minutes | `select` | View and select the clean cycle wait time.                                       |
 | Reset Waste Drawer            | `button` | Button to reset the waste drawer level to 0%, only for Litter-Robot 3.           |
+| Firmware                      | `update` | View and update to the latest firmware, only for Litter-Robot 4.                 |
 
 ### Feeder-Robot
 

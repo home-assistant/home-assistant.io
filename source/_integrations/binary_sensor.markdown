@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: binary_sensor
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 Binary sensors are similar to other [sensors](/integrations/sensor) in that they

@@ -33,6 +33,7 @@ The integration adds the following sensors:
 - Cost
 - Current Mode
 - Depot Price
+- Energy Price
 - Max Available Power
 - State of Charge
 - Status Description

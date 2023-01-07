@@ -6,7 +6,7 @@ ha_category:
   - Binary Sensor
   - Button
   - Sensor
-  - Updates
+  - Update
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: qnap_qsw

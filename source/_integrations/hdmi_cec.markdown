@@ -10,6 +10,8 @@ ha_platforms:
   - media_player
   - switch
 ha_integration_type: integration
+ha_codeowners:
+  - '@inytar'
 ---
 
 The `hdmi_cec` integration provides services that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entities for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as sound-bars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.
@@ -36,9 +38,9 @@ ln -s /path/to/your/installation/of/_cec.so /path/to/your/venv/lib/python*/site-
 
 ```
 
-##### Symlinking examples:
+##### Symlinking examples
 
-For the default virtual environment of a [Manual install for Raspberry Pi](/docs/installation/raspberry-pi/) the command would be as follows.
+For the default virtual environment of a [Manual install for Raspberry Pi](/installation/raspberrypi) the command would be as follows.
 
 ```bash
 ln -s /usr/local/lib/python*/dist-packages/cec.py /srv/homeassistant/lib/python*/site-packages
@@ -54,20 +56,21 @@ If after symlinking and adding `hdmi_cec:` to your configuration you are getting
 
 ## Testing your installation
 
-*  Login to Raspberry Pi
+* Login to Raspberry Pi
 
 ```bash
 ssh pi@your_raspberry_pi_ip
 ```
 
-*  at the command line type:
+* at the command line type:
 
 ```bash
 echo scan | cec-client -s -d 1
 ```
+
 Note: to use this command you have to install cec-utils package. In Debian based should be: ```sudo apt install cec-utils```
 
-*  This will give you the list of devices that are on the bus
+* This will give you the list of devices that are on the bus
 
 ```bash
 opening a connection to the CEC adapter...
@@ -144,7 +147,6 @@ hdmi_cec:
   host: 192.168.1.3
 ```
 
-
 ## Services
 
 ### Select Device
@@ -199,6 +201,7 @@ action:
 Call the `hdmi_cec.volume` service with one of following commands:
 
 #### Volume up
+
 Increase volume three times:
 
 ```json
@@ -218,6 +221,7 @@ Stop increasing volume:
 ```
 
 #### Volume down
+
 Decrease volume three times:
 
 ```json
@@ -237,6 +241,7 @@ Stop decreasing volume:
 ```
 
 #### Volume mute
+
 Toggle mute:
 
 ```json
@@ -245,8 +250,7 @@ Toggle mute:
 
 value is ignored.
 
-
 ## Useful References
 
 * [CEC overview](https://kwikwai.com/knowledge-base/the-hdmi-cec-bus/)
-* [CEC-o-matic](http://www.cec-o-matic.com/)
+* [CEC-o-matic](https://www.cec-o-matic.com/)

@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: media_player
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 Interacts with media players on your network.
@@ -147,7 +147,7 @@ Currently only supported on [Denon AVR](/integrations/denonavr/) and  [Songpal](
 
 #### Service `media_player.shuffle_set`
 
-Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integrations/spotify), [MPD](/integrations/mpd), [Kodi](/integrations/kodi), [Roon](/integrations/roon), [Squeezebox](/integrations/squeezebox) and [Universal](/integrations/universal).
+Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integrations/spotify), [MPD](/integrations/mpd), [Kodi](/integrations/kodi), [Roon](/integrations/roon), [Owntone](/integrations/forked_daapd), [Squeezebox](/integrations/squeezebox) and [Universal](/integrations/universal).
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |

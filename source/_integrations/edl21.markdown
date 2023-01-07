@@ -6,8 +6,6 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.107
 ha_domain: edl21
-ha_codeowners:
-  - '@mtdcr'
 ha_platforms:
   - sensor
 ha_integration_type: integration
@@ -21,7 +19,7 @@ Compatible transceivers:
 
 - [DIY](https://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf-rs232-ausgang)
 - [Weidmann Elektronik Schreib-/Lesekopf USB](https://shop.weidmann-elektronik.de/index.php?page=product&info=24)
-- [USB IR Lesekopf EHZ Lese-Schreib-Kopf Volkszähler Hichi Smartmeter](https://www.ebay.de/itm/313455434998)
+- [USB IR Lesekopf EHZ Lese-Schreib-Kopf Volkszähler Hichi Smartmeter](https://www.ebay.de/itm/313884760667)
 
 Tested smart meters:
 

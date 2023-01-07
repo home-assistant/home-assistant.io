@@ -13,7 +13,7 @@ ha_domain: moon
 ha_platforms:
   - sensor
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The Moon integration tracks the phases of the moon.

@@ -17,6 +17,7 @@ ha_ssdp: true
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - sensor
 ha_integration_type: integration
 ---
@@ -79,18 +80,24 @@ Supported sensors:
 
 ## Camera
 
-If the OctoPrint host is equipped with a web camera it is possible to add this as well using the [`MJPEG IP Camera`](/integrations/mjpeg) integration. Use `http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=stream` for the MJPEG URL and `http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=snapshot` as the still image URL.
-
-<!-- textlint-disable -->
-
-{% my config_flow_start badge domain="mjpeg" %}
-
-<!-- textlint-enable -->
+The OctoPrint integration provides a camera feed if one is configured in OctoPrint.
 
 ## Buttons
 
-The OctoPrint integration provides the following buttons.
+The OctoPrint integration provides the following buttons:
 
 - Pause Job
 - Resume Job
 - Stop Job
+
+## Troubleshooting
+
+### Device is already configured for a second instance
+
+This is typically caused by copying/backup/restoring part of the config files between OctoPrint instances.
+
+1. SSH into the OctoPrint instance that is being added.
+2. Edit the `config.yaml` for the instance (Typically `/home/pi/.octoprint`)
+3. Under `plugins/discovery`, change the value of `upnpUuid` to have a different uuid.
+4. Restart the OctoPrint service
+5. Attempt to add the instance once again.
