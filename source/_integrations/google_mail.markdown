@@ -2,19 +2,20 @@
 title: Google Mail
 description: Instructions on how to use Google Mail in Home Assistant.
 ha_category:
-  - Utility
+  - Notifications
 ha_iot_class: Cloud Polling
 ha_release: '2023.2'
 ha_config_flow: true
 ha_domain: google_mail
 ha_platforms:
+  - notify
   - sensor
 ha_codeowners:
   - '@tkdrob'
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Google Mail integration allows you to connect your [Google Mail](https://mail.google.com) to Home Assistant. The integration adds a service to allow you to set an email auto-response for when you go on vacation.
+The Google Mail integration allows you to connect your [Google Mail](https://mail.google.com) to Home Assistant. The integration adds a service to allow you to set an email auto-response for when you go on vacation. A `notify` service is also added allowing you to draft or send emails in plain text.
 
 ## Prerequisites
 
@@ -88,3 +89,36 @@ You can use the service `google_mail.set_vacation` to set vacation options.
 | `end` | no | Last day of the vacation. | 11-26-2022
 
 {% enddetails %}
+
+The added `notify` service will be named after the email address you chose on the consent screen. For example, an email address named "example@gmail.com" wil display as `notify.example_gmail_com`.
+
+### Google Mail Notify Service Data
+
+The following attributes can be placed inside the `data` key of the service call for extended functionality:
+
+| Attribute              | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `cc`               |      yes | List of recipients to be carbon copied.
+| `bcc`                   |      yes | List of recipients to be back carbon copied.
+| `from`                   |      yes | Default is current authenticated user. Typically only applies to GSuite accounts where the user has delegate access to a shared mailbox.
+| `send`                 |      yes | Default is true. Set this to false to create a draft instead. Recipients are not required in this instance.
+
+### Examples
+
+This is the full service call to send an email:
+
+```yaml
+service: notify.example_gmail_com
+data:
+  message: test
+  title: test email
+  target:
+    - example2@gmail.com
+  data:
+    cc:
+      - example3@gmail.com
+    bcc:
+      - example4@gmail.com
+    from: example@gmail.com
+    send: true
+```
