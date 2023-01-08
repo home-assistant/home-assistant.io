@@ -33,3 +33,14 @@ The following sensors are added for each Starlink system:
 - Uplink throughput - The amount of data being uploaded through Starlink in Mbit/s
 - Downlink throughput - The amount of data being downloaded through Starlink in Mbit/s
 - Last boot time - The time Starlink was last turned on
+
+### Binary Sensor
+
+Binary sensors are configured based on available "alerts" that Starlink exposes. These may change over time, so we can't provide a comprehensive list. Here is an example of alerts you can expect:
+
+- Currently obstructed - Whether Starlink is currently obstructed
+- Roaming - Whether Starlink system is "roaming". Roaming is an optional upgrade that allows you to use your Starlink outside of your home address
+- Mast is not vertical - Whether Starlink is mounted straight
+- Motors stuck - Whether Starlink is unable to move
+- Thermal throttle - Whether Starlink has reduced performance to avoid overheating
+- Is heating - Whether Starlink is heating the dish
