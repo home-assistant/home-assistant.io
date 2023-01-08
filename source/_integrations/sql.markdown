@@ -25,7 +25,7 @@ This can be used to present statistics about Home Assistant sensors if used with
 
 See [supported engines](/integrations/recorder/#custom-database-engines) for which you can connect with this integration.
 
-The SQL integration will connect to the default SQLite if "Database URL" has not been specified. If you use a different database recorder (eg MariaDB or others), you will have to specify the "Database URL" manually during integration setup.
+The SQL integration will connect to the Home Assistant Recorder database if "Database URL" has not been specified.
 
 There is no explicit configuration required for attributes. The integration will set all additional columns returned by the query as attributes. 
 
