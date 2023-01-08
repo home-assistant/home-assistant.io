@@ -34,20 +34,25 @@ The snapshots stream provides a sequence of image snapshots giving very low late
 
 The following models have been tested and confirmed to work:
 
-- RLN8-410 NVR
+- E1 Zoom
+- E1 Outdoor
+- RLC-410W
+- RLC-420-5MP
+- RLC-511W
+- RLC-520
+- RLC-522
 - RLC-810A
 - RLC-811A
 - RLC-820A
 - RLC-823A
 - RLC-420-5MP
-- E1 Zoom
-- E1 Outdoor
-- Reolink Video Doorbell PoE
-- Reolink Video Doorbell WiFi
+- RLN8-410 NVR
+- Reolink Video Doorbell (PoE and Wi-Fi)
 
 Battery-powered cameras are not yet supported.
 
 The following models are lacking the HTTP webserver API and can therfore not work with this integration:
+
 - E1 Pro
 
 ## Reolink firmware limitations
