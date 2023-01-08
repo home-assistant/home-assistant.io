@@ -64,6 +64,7 @@ Available demo platforms:
 - [Notification](/integrations/notify/) (`notify`)
 - [Number](/integrations/number/) (`number`)
 - [Remote](/integrations/remote/) (`remote`)
+- [Select](/integrations/select/) (`select`)
 - [Sensor](/integrations/sensor/) (`sensor`)
 - [Switch](/integrations/switch/) (`switch`)
 - [Text-to-speech](/integrations/tts/) (`tts`)
