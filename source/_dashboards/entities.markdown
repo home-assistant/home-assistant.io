@@ -31,16 +31,15 @@ show_header_toggle:
   description: Button to turn on/off all entities.
   type: boolean
   default: true
-sort_by_state:
+enable_sorting:
   required: false
-  description: Sort entities by state (numeric).
+  description: Sort entities by state.
   type: boolean
   default: false
-reverse_sort_order:
+sort_configs:
   required: false
-  description: Reverse the sort order (disabled means `descending`).
-  type: boolean
-  default: false
+  description: "A list of sort configurations that should be applied (see below)"
+  type: list
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
@@ -383,6 +382,122 @@ download:
   default: false
 {% endconfiguration %}
 
+## Options for sort configurations
+
+Each configured sort method is applied to given entities until an order can be
+established. If a method can't sort two given values (because they are equal),
+the next method will be applied. If no method works, the order won't be changed.
+
+### numeric
+
+Sorts the entities by their numeric value.
+
+{% configuration %}
+type:
+  required: true
+  description: "`numeric`"
+  type: string
+reverse:
+  required: false
+  description: Reverse the sort order.
+  default: false
+{% endconfiguration %}
+
+### alpha
+
+Sort the entities by alphabetical order. Numeric values will be sorted after
+alphabetical/mixed values.
+
+{% configuration %}
+type:
+  required: true
+  description: "`alpha`"
+  type: string
+reverse:
+  required: false
+  description: Reverse the sort order.
+  default: false
+ignore_case:
+  required: false
+  description: Ignore the case while sorting.
+  default: false
+{% endconfiguration %}
+
+### ip
+
+Sort the entities by interpreting the values as IP addresses.
+
+{% configuration %}
+type:
+  required: true
+  description: "`ip`"
+  type: string
+reverse:
+  required: false
+  description: Reverse the sort order.
+  default: false
+{% endconfiguration %}
+
+### random
+
+Sort the entities randomly.
+
+{% configuration %}
+type:
+  required: true
+  description: "`random`"
+  type: string
+reverse:
+  required: false
+  description: Reverse the sort order.
+  default: false
+{% endconfiguration %}
+
+### last_changed
+
+Sort the entities by the last changed time.
+
+{% configuration %}
+type:
+  required: true
+  description: "`last_changed`"
+  type: string
+reverse:
+  required: false
+  description: Reverse the sort order.
+  default: false
+{% endconfiguration %}
+
+### last_updated
+
+Sort the entities by the last update time.
+
+{% configuration %}
+type:
+  required: true
+  description: "`last_update`"
+  type: string
+reverse:
+  required: false
+  description: Reverse the sort order.
+  default: false
+{% endconfiguration %}
+
+### last_triggered
+
+Sort the entities by the last trigger time.
+
+{% configuration %}
+type:
+  required: true
+  description: "`last_triggered`"
+  type: string
+reverse:
+  required: false
+  description: Reverse the sort order.
+  default: false
+{% endconfiguration %}
+
 ## Examples
 
 ### Entity rows
@@ -478,4 +593,25 @@ entities:
       confirmation:
         text: Are you sure you want to restart?
       service: script.libreelec_power_cycle
+```
+
+### Sorted entity rows
+
+In this example the entities will be first sorted by their numeric value
+and then by the last time they changed. Therefore the most recently changed
+sensor with the highest temperature will at the first place.
+
+```yaml
+type: entities
+title: Sorted entities card sample
+enable_sorting: true
+sort_configs:
+  - type: numeric
+    reverse: true
+  - type: last_changed
+    reverse: true
+entities:
+  - sensor.office_temperature
+  - sensor.kitchen_temperature
+  - sensor.garden_temperature
 ```
