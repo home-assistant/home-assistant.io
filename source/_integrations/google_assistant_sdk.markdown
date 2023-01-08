@@ -106,6 +106,16 @@ data:
   command: turn off kitchen TV
 ```
 
+You can also send multiple commands in the same conversation context which is useful to unlock doors or open covers that need PIN. Example:
+
+```yaml
+service: google_assistant_sdk.send_text_command
+data:
+  command:
+    - open the garage door
+    - "1234"
+```
+
 ### Service `notify.google_assistant_sdk`
 
 You can use the service `notify.google_assistant_sdk` to broadcast messages to Google Assistant speakers and displays without interrupting music/video playback.
