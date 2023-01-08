@@ -242,7 +242,8 @@ _All these can be extended if your usage calls for more resources._
     2. Select Type "Linux" and Version "Linux 2.6 / 3.x / 4.x (64-bit)"
     3. Select "Use an existing virtual hard disk file", select the unzipped VDI file from above
     4. Edit the "Settings" of the VM and go "System" then "Motherboard" and select "Enable EFI"
-    5. Then go to "Network" "Adapter 1" choose "Bridged Adapter" and choose your Network adapter
+    5. Edit the "Settings" of the VM and go "System" then "Processor" and set 2 CPU cores
+    6. Then go to "Network" "Adapter 1" choose "Bridged Adapter" and choose your Network adapter
     <div class="note warning">
     Please keep in mind that the bridged adapter only functions over a hardwired ethernet connection. 
     Using Wi-Fi on your VirtualBox host is unsupported.
