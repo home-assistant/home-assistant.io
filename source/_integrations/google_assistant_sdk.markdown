@@ -29,7 +29,8 @@ This integration allows:
   - Water leak detected in the master bathroom
 - Playback Google Assistant audio response for any query on any media player. Examples
   - Tell me a joke
-  - Count down from 100
+  - Say the ABC
+  - Sing happy birthday to Nikos
 
 ## Prerequisites
 
