@@ -163,7 +163,7 @@ Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant 
 Once loaded, the following services will be exposed with the `isy994.` prefix, to allow advanced control over the ISY and its connected devices:
 
  - Entity services for Home Assistant-connected entities: `send_node_command`, `send_raw_node_command`, `set_on_level`, and `set_ramp_rate`.
- - Generic ISY services: `system_query`, `set_variable`, `send_program_command`, and `run_network_resource`.
+ - Generic ISY services: `set_variable`, `send_program_command`, and `run_network_resource`.
  - Management services for the ISY Home Assistant integration: `reload` and `cleanup_entities`.
 
 #### Service `isy994.send_node_command`
@@ -233,17 +233,6 @@ Send an ISY set_ramp_rate command to a `light` Node to set the devices' ramp rat
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |     no   | Name(s) of target entities for the command, e.g., `light.front_porch`. |
 | `value` | no | The integer index value to set the Ramp Rate to in a range of `0` (9.5 minutes) to `31` (0.1 Seconds), e.g., `28` |
-
-#### Service `isy994.system_query` (Deprecated)
-
-Request the ISY Query the connected devices. 
-
-⚠️ DEPRECATED in 2023.2.0 ⚠️: Use the Query button entities or `button.press` service instead. This service will be removed in 2023.5.0.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `address` | yes | ISY Address to Query. Omitting this requests a system-wide scan (typically recommended by UDI to be scheduled once per day), e.g., `"1A 2B 3C 1"` |
-| `isy` | yes | If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console). Omitting this will cause all ISYs to be queried, e.g., `"ISY"` |
 
 #### Service `isy994.set_variable`
 
