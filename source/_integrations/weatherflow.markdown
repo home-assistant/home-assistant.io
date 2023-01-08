@@ -17,7 +17,7 @@ ha_domain: weatherflow
 
 ## Overview
 
-This integration is a local-only WeatherFlow integration that reads UDP data from a [WeatherFlow Tempest](https://weatherflow.com/tempest-weather-system/) compatible weather stations. It utilizes WeatherFlow's published [UDP API](https://weatherflow.github.io/Tempest/api/udp.html) to decode and present the data.
+This integration is a local-only WeatherFlow integration that reads UDP data from a [WeatherFlow Tempest](https://weatherflow.com/tempest-weather-system/) compatible weather station.
 
 ## Installation Notes
 
