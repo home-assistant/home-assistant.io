@@ -31,6 +31,7 @@ This integration allows:
   - Tell me a joke
   - Say the ABC
   - Sing happy birthday to Nikos
+  - What does the elephant say?
 
 ## Prerequisites
 
