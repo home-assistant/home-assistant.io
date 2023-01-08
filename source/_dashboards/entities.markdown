@@ -423,6 +423,7 @@ ignore_case:
   default: false
 {% endconfiguration %}
 
+<!-- textlint-disable terminology -->
 ### ip
 
 Sort the entities by interpreting the values as IP addresses.
@@ -437,6 +438,7 @@ reverse:
   description: Reverse the sort order.
   default: false
 {% endconfiguration %}
+<!-- textlint-enable terminology -->
 
 ### random
 
