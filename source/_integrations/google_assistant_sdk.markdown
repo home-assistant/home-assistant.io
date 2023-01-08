@@ -27,6 +27,9 @@ This integration allows:
   - Someone is at the front door
   - Smoke detected in the master bedroom
   - Water leak detected in the master bathroom
+- Playback Google Assistant audio response for any query on any media player. Examples
+  - Tell me a joke
+  - Count down from 100
 
 ## Prerequisites
 
@@ -133,3 +136,24 @@ data:
     - bedroom
     - basement
 ```
+
+### Service `tts.google_assistant_sdk_say`
+
+In your configuration.yaml you first need to add:
+
+```yaml
+tts:
+  - platform: google_assistant_sdk
+```
+
+Then for example you can call:
+
+```yaml
+service: tts.google_assistant_sdk_say
+data:
+  message: tell me a joke
+  entity_id: media_player.living_room_speaker
+  cache: false
+```
+
+which will say a joke on your living room speaker.
