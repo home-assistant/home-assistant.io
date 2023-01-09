@@ -52,6 +52,8 @@ There is currently support for the following device types within Home Assistant:
 
 Home Assistant is capable of communicating with any binary sensor, cover, fan, light, lock, sensor and switch that is configured on the controller. Using the programs on the controller, custom binary sensors, covers, fans, locks, and switches can also be created.
 
+ISY Networking Module Resources can be executed using the buttons created.
+
 {% include integrations/config_flow.md %}
 
 ## Manual configuration
@@ -165,7 +167,7 @@ Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant 
 Once loaded, the following services will be exposed with the `isy994.` prefix, to allow advanced control over the ISY and its connected devices:
 
  - Entity services for Home Assistant-connected entities: `send_node_command`, `send_raw_node_command`, `set_on_level`, and `set_ramp_rate`.
- - Generic ISY services: `system_query`, `send_program_command`, and `run_network_resource`.
+ - Generic ISY services: `system_query` and `send_program_command`.
  - Management services for the ISY Home Assistant integration: `reload` and `cleanup_entities`.
 
 #### Service `isy994.send_node_command`
@@ -255,16 +257,6 @@ Send a command to control an ISY program or folder. Valid commands are `run`, `r
 | `address` | yes | The address of the program to control (optional, use either `address` or `name`), e.g., `"04B1"` |
 | `name` | yes | The name of the program to control (optional, use either `address` or `name`), e.g., `"My Program"` |
 | `isy` | yes | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same program name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
-
-#### Service `isy994.run_network_resource`
-
-Run a network resource on the ISY.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `address` | yes | The address of the network resource to execute (optional, use either `address` or `name`), e.g., `121` |
-| `name` | yes | The name of the network resource to execute (optional, use either `address` or `name`), e.g., `"Network Resource 1"` |
-| `isy` | yes | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same resource name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
 
 #### Service `isy994.reload`
 

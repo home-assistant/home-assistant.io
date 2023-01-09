@@ -83,6 +83,14 @@ availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
+current_humidity_template:
+  description: A template with which the value received on `current_humidity_topic` will be rendered.
+  required: false
+  type: template
+current_humidity_topic:
+  description: The MQTT topic on which to listen for the current humidity.
+  required: false
+  type: string
 current_temperature_template:
   description: A template with which the value received on `current_temperature_topic` will be rendered.
   required: false
@@ -189,10 +197,20 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+max_humidity:
+  description: The minimum target humidity percentage that can be set.
+  required: false
+  type: integer
+  default: 99
 max_temp:
   description: Maximum set point available.
   type: float
   required: false
+min_humidity:
+  description: The maximum target humidity percentage that can be set.
+  required: false
+  type: integer
+  default: 30
 min_temp:
   description: Minimum set point available.
   type: float
@@ -313,6 +331,22 @@ swing_modes:
   required: false
   default: ['on', 'off']
   type: list
+target_humidity_command_template:
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `target_humidity_command_topic`.
+  required: false
+  type: template
+target_humidity_command_topic:
+  description: The MQTT topic to publish commands to change the target humidity.
+  required: false
+  type: string
+target_humidity_state_topic:
+  description: The MQTT topic subscribed to receive the target humidity. If this is not set, the target humidity works in optimistic mode (see below).
+  required: false
+  type: string
+target_humidity_state_template:
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value for the climate `target_humidity` state.
+  required: false
+  type: string
 temperature_command_template:
   description: A template to render the value sent to the `temperature_command_topic` with.
   required: false
