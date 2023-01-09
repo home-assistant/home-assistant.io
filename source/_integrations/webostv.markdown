@@ -29,6 +29,12 @@ There is currently support for the following device types within Home Assistant:
 
 To begin with enable *LG Connect Apps* feature in *Network* settings of the TV.
 
+<div class='note warning'>
+
+Currently, firmware 03.30.14 breaks connection with the TV, avoid updating to this version.
+
+</div>
+
 {% include integrations/config_flow.md %}
 
 ## Turn on action
