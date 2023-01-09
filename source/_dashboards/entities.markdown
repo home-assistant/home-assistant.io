@@ -422,6 +422,7 @@ reverse:
 ignore_case:
   required: false
   description: Ignore the case while sorting.
+  type: boolean
   default: false
 {% endconfiguration %}
 
