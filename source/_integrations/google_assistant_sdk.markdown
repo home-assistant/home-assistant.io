@@ -138,7 +138,7 @@ data:
 ## Conversation agent
 
 In configuration.yaml add:
-```
+```yaml
 conversation:
 ```
 
