@@ -49,7 +49,7 @@ There is currently support for the following device types within Home Assistant:
 
 Home Assistant is capable of communicating with any binary sensor, cover, fan, light, lock, sensor and switch that is configured on the controller. Using the programs on the controller, custom binary sensors, covers, fans, locks, and switches can also be created.
 
-ISY Networking Module Resources can be executed using the Buttons created.
+ISY Networking Module Resources can be executed using the buttons created.
 
 {% include integrations/config_flow.md %}
 
