@@ -39,7 +39,7 @@ Currently, this includes support for the following product classes:
 - BleBox rollerGate
 - BleBox gateBox
 
-For now, only a minimum set of features are supported (e.g., no tilt support for shutterBox).
+Set of features includes tilt support for shutterBox.
 
 ## Binary sensors
 This integration adds BleBox device as a binary_sensor in Home Assistant.
