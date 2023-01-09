@@ -24,7 +24,7 @@ The integration implements the following platforms:
 
 ## Climate
 
-The `Seitron` climate platform provides current and target temperature information for the heating system, boiler status and HVAC mode.
+The Seitron climate platform provides current and target temperature information for the heating system, boiler status, and HVAC mode.
 
 ### Integration services
 
