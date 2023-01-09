@@ -14,20 +14,23 @@ ha_codeowners:
 ha_config_flow: true
 ---
 
-The `imap` integration is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) and reporting the amount of unread emails. Other search criteria can be used as shown in the example below.
+The IMAP integration is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) and reporting the number of unread emails. Other search criteria can be used, as shown in the example below.
 
 {% include integrations/config_flow.md %}
 
 ### Gmail with App Password
 
-If you’re going to use Gmail, you need to create a [App Password](https://support.google.com/mail/answer/185833).
+If you’re going to use Gmail, you need to create an [App Password](https://support.google.com/mail/answer/185833).
 
 1. Go to your [Google Account](https://myaccount.google.com/)
 2. Select **Security**
 3. Under “Signing in to Google” select **App Passwords**
 4. Sign in to your Account, and create a new App Password for Gmail.
-
-You can now use this as your password for Gmail, in your configuration.
+5. Then you can setup the intergation as below:
+    - Server: `imap.gmail.com`
+    - Port: `993`
+    - Username: Your full email address
+    - Password: The new app password
 
 ### Configuring IMAP Searches
 
@@ -37,24 +40,12 @@ By default, this integration will count unread emails. By configuring the search
 * `FROM`, `TO`, `SUBJECT` to find emails in a folder (see [IMAP RFC for all standard options](https://tools.ietf.org/html/rfc3501#section-6.4.4))
 * [Gmail's IMAP extensions](https://developers.google.com/gmail/imap/imap-extensions) allow raw Gmail searches, like `X-GM-RAW "in: inbox older_than:7d"` to show emails older than one week in your inbox. Note that raw Gmail searches will ignore your folder configuration and search all emails in your account!
 
-#### Config entry sample with search examples
+### Selecting a charset supported by the imap server
 
-```
-  server: imap.gmail.com
-  port: 993
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  folder: INBOX
-  search: FROM <sender@email.com>, SUBJECT <subject here>
-  # Or use X-GM-RAW search-term like this, to find unread emails from the last 7 days in your inbox
-  # search: 'X-GM-RAW "in: inbox newer_than:7d is:unread"'
-
-# Example entry for Office 365
-
-  server: outlook.office365.com
-  port: 993
-  username: email@address.com
-  password: password
-  search: FROM <sender@email.com>, SUBJECT <subject here>
-  charset: US-ASCII
-```
+Below is an example for setting up the integration to connect to your Microsoft 365 account that requires `US_ASCII` as charset:
+  - Server: `outlook.office365.com`
+  - Port: `993`
+  - Username: Your full email address
+  - Password: Your password
+  - Charset: `US-ASCII`
+  
