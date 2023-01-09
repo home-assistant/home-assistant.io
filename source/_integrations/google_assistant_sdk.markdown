@@ -30,7 +30,7 @@ This integration allows:
 - Playback Google Assistant audio response for any query on any media player. Examples
   - Tell me a joke
   - Say the ABC
-  - Sing happy birthday to Nikos
+  - Sing happy birthday
   - What does the elephant say?
 
 ## Prerequisites
