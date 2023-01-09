@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `Seitron` integration allows Home Assistant to connect to [Seitron](https://www.seitron.com) thermostats, reporting and setting its status.
+The Seitron integration allows Home Assistant to connect to [Seitron](https://www.seitron.com) thermostats, to report and set their status.
 The integration implements the following platforms:
 
 - Climate
