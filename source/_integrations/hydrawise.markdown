@@ -45,7 +45,7 @@ scan_interval:
   description: The time interval, in seconds, to poll the Hydrawise cloud.
   required: false
   type: integer
-  default: 30
+  default: 120
 {% endconfiguration %}
 
 To get your API access token log into your [Hydrawise account](https://app.hydrawise.com/config/login) and in the 'My Account Details' section under Account Settings click 'Generate API Key'. Enter that key in your configuration file as `YOUR_API_KEY`.
@@ -75,6 +75,13 @@ monitored_conditions:
 
 <div class='note warning'>
 The Hydrawise API removed the ability to read the rain sensor status. Therefore it is no longer supported by the Hydrawise integration to Home Assistant.
+</div>
+
+<div class='note warning'>
+
+The Hydrawise API uses rate limiting and might throw errors in case the `scan_interval` is too low or too many manual service calls are triggered:
+The limit is 3 calls to start/stop/suspend a zone per 30 seconds and an additional limit across the entire API of 30 calls in a 5-minute period per user.
+
 </div>
 
 ## Sensor
