@@ -449,10 +449,6 @@ type:
   required: true
   description: "`random`"
   type: string
-reverse:
-  required: false
-  description: Reverse the sort order.
-  default: false
 {% endconfiguration %}
 
 ### last_changed
