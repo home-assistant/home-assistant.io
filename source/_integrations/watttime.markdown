@@ -12,10 +12,10 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The `watttime` integration allows users to get real-time emissions data for a latitude/longitude from [WattTime](https://www.watttime.org).
+The WattTime integration allows users to get real-time emissions data for a latitude/longitude from [WattTime](https://www.watttime.org).
 
 ## Registering an Account
 
@@ -23,8 +23,8 @@ WattTime account registration is accomplished [via the REST API itself](https://
 
 ```bash
 curl -X "POST" "https://api2.watttime.org/v2/register" \
-     -H 'Content-Type: application/json; charset=utf-8' \
-     -d $'{
+     -H 'Content-Type: application/json' \
+     -d '{
        "username": "<USERNAME>",
        "password": "<PASSWORD>",
        "email": "<EMAIL>",

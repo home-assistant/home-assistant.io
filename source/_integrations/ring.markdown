@@ -11,8 +11,6 @@ ha_category:
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_codeowners:
-  - '@balloob'
 ha_domain: ring
 ha_dhcp: true
 ha_platforms:
@@ -88,8 +86,8 @@ You may consider some modifications in the subdirectory and the filename to suit
 ```yaml
     data:
       url: "{{ state_attr('camera.front_door', 'video_url') }}"
-      subdir: "{{ state_attr('camera.front_door', 'friendly_name') }}/{{ now().strftime("%m.%Y") }}"
-      filename: "{{ now().strftime("%Y-%m-%d-at-%H-%M-%S") }}.mp4"
+      subdir: "{{ state_attr('camera.front_door', 'friendly_name') }}/{{ now().strftime('%Y.%m') }}"
+      filename: "{{ now().strftime('%Y-%m-%d-at-%H-%M-%S') }}.mp4"
 ```
 {% endraw %}
 

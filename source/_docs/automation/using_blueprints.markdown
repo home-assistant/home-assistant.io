@@ -13,7 +13,7 @@ Quick links:
 
 Automations based on a blueprint only need to be configured to be used. What needs to be configured differs on each blueprint.
 
-To create your first automation based on a blueprint, go to **{% my config %}** and then **{% my blueprints %}**. Find the blueprint that you want to use and click on "Create Automation".
+To create your first automation based on a blueprint, go to **{% my config %}** -> **Automations & Scenes** -> **{% my blueprints %}**. Find the blueprint that you want to use and click on "Create Automation".
 
 This will open the automation editor with the blueprint selected. Give it a name and configure the blueprint and click on the blue button "Save Automation" in the bottom right.
 

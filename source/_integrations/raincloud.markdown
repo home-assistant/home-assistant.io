@@ -50,7 +50,7 @@ password:
 
 ## Binary Sensor
 
-Once you have enabled the [Raincloud component](#configuration), add the following to your `configuration.yaml` file:
+Once you have enabled the [Raincloud integration](#configuration), add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

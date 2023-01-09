@@ -34,7 +34,10 @@ The `ps4` integration allows you to control a
 
 3. Follow instructions displayed to generate user credentials. You will know this step is completed when a form with fields appears.
 
-4. Pair Home Assistant to your PlayStation 4 by filling in the fields.
+4. On the PS4, go to Settings / Mobile App Connection Settings / Add Device, a PIN will be displayed.
+
+5. Pair Home Assistant to your PlayStation 4 by filling in the fields using the PIN from the above step.
+
 - **Note:** To find your correct region refer to the section [Regions](#regions)
 
 ## Granting Port Access

@@ -1,6 +1,6 @@
 ---
 title: Elexa Guardian
-description: Instructions on how to integrate SimpliSafe into Home Assistant.
+description: Instructions on how to integrate Guardian into Home Assistant.
 ha_iot_class: Local Polling
 ha_release: '0.111'
 ha_category:
@@ -20,7 +20,7 @@ ha_platforms:
   - sensor
   - switch
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The `guardian` integration integrates
@@ -36,14 +36,6 @@ There is currently support for the following device types within Home Assistant:
 {% include integrations/config_flow.md %}
 
 ## Services
-
-### `guardian.disable_ap`
-
-Disable the device's onboard access point.
-
-### `guardian.enable_ap`
-
-Enable the device's onboard access point.
 
 ### `guardian.pair_sensor`
 

@@ -259,7 +259,7 @@ Optional:
 
 ### Plex
 
-To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](/integrations/plex/#service-play_media) and prepend the `media_content_id` with `plex://`:
+To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](/integrations/plex/#service-media_playerplay_media) and prepend the `media_content_id` with `plex://`:
 
 ```yaml
 'cast_plex_to_chromecast':

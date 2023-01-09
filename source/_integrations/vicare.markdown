@@ -34,7 +34,7 @@ There is currently support for the following device types within Home Assistant:
 
 Set `username`and `password` to your Viessmann Developer Portal login credentials.
 The required Client ID can be obtained as follows:
-1. Register and login in the [Viessmann Developer Portal](https://developer.viessmann.com).
+1. Register and login in the [Viessmann Developer Portal](https://developer.viessmann.com). Use the same account as the one you registered your device with in ViCare.
 2. In the menu navigate to API Keys.
 3. Create a new OAuth client using the following data:
   ```txt
@@ -42,6 +42,7 @@ The required Client ID can be obtained as follows:
   Google reCAPTCHA: Disabled
   Redirect URIs: vicare://oauth-callback/everest
   ```
+4. Copy the Client ID from the Viessmann portal and enter this in the API Key field in Home Assistant.
 
 The `heating_type` can either be `auto` to automatically find the most suitable type for your device or one of `gas`, `oil`, `pellets`, `heatpump`, `fuelcell`, `hybrid`.
 
@@ -54,7 +55,7 @@ The Viessmann API is rate-limited. If you exceed one of the limits below you wil
 - Limit 1: 120 calls for a time window of 10 minutes
 - Limit 2: 1450 calls for a time window of 24 hours
 
-The default `scan_interval` of 60 seconds will work within these limits. Note however that any additional requests to the API, e.g., by setting the temperature via the integration but also by interacting with the ViCare app also counts into those limits. It is therefore advised to adjust the scan_interval to your usage scenario.
+The integration polls the Viessmann API every 60 seconds and will work within these limits. Note however that any additional requests to the API, e.g., by setting the temperature via the integration but also by interacting with the ViCare app also counts into those limits.
 
 ## Climate
 

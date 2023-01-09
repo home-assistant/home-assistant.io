@@ -8,6 +8,7 @@ ha_release: 2022.8
 ha_iot_class: Local Push
 ha_codeowners:
   - '@bdraco'
+  - '@PierreAronnax'
 ha_domain: govee_ble
 ha_config_flow: true
 ha_platforms:
