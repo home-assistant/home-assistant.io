@@ -12,6 +12,8 @@ The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.
 
 ## Configuration
 
+<a id='new_format'></a>
+
 To enable this climate platform in your installation, first add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -21,26 +23,6 @@ mqtt:
     - name: Study
       mode_command_topic: "study/ac/mode/set"
 ```
-
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `climate` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-climate:
-  - platform: mqtt
-    name: Study
-    mode_command_topic: "study/ac/mode/set"
-```
-
-{% enddetails %}
 
 {% configuration %}
 action_template:
@@ -99,6 +81,14 @@ availability_template:
   type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
+  required: false
+  type: string
+current_humidity_template:
+  description: A template with which the value received on `current_humidity_topic` will be rendered.
+  required: false
+  type: template
+current_humidity_topic:
+  description: The MQTT topic on which to listen for the current humidity.
   required: false
   type: string
 current_temperature_template:
@@ -207,10 +197,20 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+max_humidity:
+  description: The minimum target humidity percentage that can be set.
+  required: false
+  type: integer
+  default: 99
 max_temp:
   description: Maximum set point available.
   type: float
   required: false
+min_humidity:
+  description: The maximum target humidity percentage that can be set.
+  required: false
+  type: integer
+  default: 30
 min_temp:
   description: Minimum set point available.
   type: float
@@ -245,6 +245,11 @@ object_id:
   description: Used instead of `name` for automatic generation of `entity_id`
   required: false
   type: string
+optimistic:
+  description: Flag that defines if the climate works in optimistic mode
+  required: false
+  type: boolean
+  default: "`true` if no state topic defined, else `false`."
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -326,6 +331,22 @@ swing_modes:
   required: false
   default: ['on', 'off']
   type: list
+target_humidity_command_template:
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `target_humidity_command_topic`.
+  required: false
+  type: template
+target_humidity_command_topic:
+  description: The MQTT topic to publish commands to change the target humidity.
+  required: false
+  type: string
+target_humidity_state_topic:
+  description: The MQTT topic subscribed to receive the target humidity. If this is not set, the target humidity works in optimistic mode (see below).
+  required: false
+  type: string
+target_humidity_state_template:
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value for the climate `target_humidity` state.
+  required: false
+  type: string
 temperature_command_template:
   description: A template to render the value sent to the `temperature_command_topic` with.
   required: false
@@ -395,7 +416,7 @@ value_template:
 
 ## Optimistic mode
 
-If a property works in *optimistic mode* (when the corresponding state topic is not set), Home Assistant will assume that any state changes published to the command topics did work and change the internal state of the entity immediately after publishing to the command topic. If it does not work in optimistic mode, the internal state of the entity is only updated when the requested update is confirmed by the device through the state topic.
+If a property works in *optimistic mode* (when the corresponding state topic is not set), Home Assistant will assume that any state changes published to the command topics did work and change the internal state of the entity immediately after publishing to the command topic. If it does not work in optimistic mode, the internal state of the entity is only updated when the requested update is confirmed by the device through the state topic. You can enforce optimistic mode by setting the `optimistic` option to `true`. When set, the internal state will always be updated, even when a state topic is defined.
 
 ## Using Templates
 

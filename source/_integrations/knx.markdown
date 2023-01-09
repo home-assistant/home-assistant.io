@@ -15,6 +15,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Text
   - Weather
 ha_release: 0.24
 ha_iot_class: Local Push
@@ -38,9 +39,10 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - text
   - weather
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to KNX/IP devices.
@@ -61,6 +63,7 @@ There is currently support for the following device types within Home Assistant:
 - [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Text](#text)
 - [Weather](#weather)
 
 {% include integrations/config_flow.md %}
@@ -287,7 +290,14 @@ remove:
 
 ## Exposing entity states, entity attributes or time to KNX bus
 
-KNX integration is able to expose entity states or attributes to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address. It is also possible to expose the current time.
+KNX integration is able to expose entity states or attributes to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address.
+It is also possible to expose the current time and date. These are sent to the bus every hour.
+
+<div class='note'>
+
+Expose is only triggered on state changes. If you need periodical telegrams, use an automation with the `knx.send` service to send the value to the bus.
+
+</div>
 
 ```yaml
 # Example configuration.yaml entry
@@ -296,6 +306,7 @@ knx:
     - type: temperature
       entity_id: sensor.owm_temperature
       address: "0/0/2"
+      cooldown: 600
     - type: string
       address: "0/6/4"
       entity_id: sensor.owm_weather
@@ -342,6 +353,16 @@ default:
   type: [boolean, string, integer, float]
   default: None
   required: false
+cooldown:
+  description: Minimum time in seconds between two sent telegrams. This can be used to avoid flooding the KNX bus when exposing frequently changing states. If the state changes multiple times within the cooldown period the most recent value will be sent.
+  type: float
+  default: 0
+  required: false
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Binary Sensor
@@ -586,7 +607,7 @@ knx:
 
 `setpoint_shift_mode` allows the two following DPTs to be used:
 
-- DPT6002 (for 1 byte signed integer)
+- DPT6010 (for 1 byte signed integer with scale factor)
 - DPT9002 (for 2 byte float)
 
 Example:
@@ -641,7 +662,7 @@ temperature_address:
   required: true
   type: [string, list]
 temperature_step:
-  description: Defines the step size in Kelvin for each step of setpoint_shift.
+  description: Defines the step size in Kelvin for each step of setpoint_shift (scale factor). For non setpoint-shift configurations this is used to set the step of temperature sliders in UI.
   required: false
   type: float
   default: 0.1
@@ -1447,6 +1468,10 @@ entity_category:
   required: false
   type: string
   default: None
+device_class:
+  description: Overrides the [class of the device](/integrations/sensor/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ### Value Types
@@ -1661,12 +1686,78 @@ entity_category:
   required: false
   type: string
   default: None
+device_class:
+  description: Sets the [class of the device](/integrations/switch/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 {% endconfiguration %}
 
 The optional `state_address` can be used to inform Home Assistant about state changes not triggered by a telegram to the `address` e.g., if you configure a timer on a channel. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
 
 Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 Switches having a `state_address` configured request their current state from the KNX bus.
+
+## Text
+
+The KNX text platform allows to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus with its current state.
+
+<div class='note'>
+
+Text entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+Texts having a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  text:
+    - name: "Info"
+      address: "0/0/1"
+    - name: "ASCII Info"
+      address: "0/0/2"
+      state_address: "0/0/3"
+      type: string
+    - name: "Greeting"
+      address: "0/0/4"
+      respond_to_read: true
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: Group address new values will be sent to.
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus.
+  required: false
+  type: [string, list]
+type:
+  description: Either `latin_1` for DPT 16.001 or `string` for DPT 16.000 (ASCII).
+  required: false
+  type: [string, integer]
+  default: latin_1
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+mode:
+  description: Specifies the mode used in the UI. `text` or `password` are valid.
+  required: false
+  type: string
+  default: text
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
+{% endconfiguration %}
 
 ## Weather
 
@@ -1775,13 +1866,14 @@ Add the following lines to your Home Assistant `configuration.yaml` to activate 
 logger:
   default: warning
   logs:
-    # For most debugging needs `xnx.log` and one of `xknx.knx` or `xknx.telegram` are a good choice.
-    xknx: debug  # sets the level of all loggers
+    # For most debugging needs `xnx.log` and `xknx.telegram` are a good choice.
+    xknx: info  # sets the level of all loggers
     xknx.log: debug  # provides general information (connection, etc.)
-    xknx.raw_socket: debug  # logs incoming UDP frames in raw hex format
+    xknx.raw_socket: warning  # logs incoming UDP frames in raw hex format
     xknx.knx: debug  # logs incoming and outgoing KNX/IP frames at socket level
+    xknx.cemi: debug  # logs incoming and outgoing CEMI frames
     xknx.telegram: debug  # logs telegrams before they are being processed at device level or sent to an interface
-    xknx.state_updater: debug  # provides information about the state updater
+    xknx.state_updater: warning  # provides information about the state updater
 ```
 
 You can use the service `logger.set_level` to change the log level of a handler on a running instance.

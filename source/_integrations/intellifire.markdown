@@ -47,7 +47,13 @@ The following controllable entities are available:
 
 ### Fan
 
-- **Fan** - If your unit is equipped with a fan - this entry will be present. There are 4 fan speeds (1-4), with 0 being off.
+If your unit is equipped with a fan - this entry will be present. There are 5 possible fan control values:
+
+- `0%` - Off
+- `25%` - Quiet
+- `50%` - Low
+- `75%` - Medium
+- `100%` - High
 
 ### Climate
 

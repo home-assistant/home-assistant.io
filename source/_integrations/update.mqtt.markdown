@@ -17,7 +17,7 @@ To enable MQTT Update in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  select:
+  update:
     - state_topic: topic-installed
       latest_version_topic: topic-latest
 ```
@@ -128,6 +128,10 @@ entity_category:
   required: false
   type: string
   default: None
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -146,7 +150,7 @@ latest_version_template:
   type: template
 latest_version_topic:
   description: The MQTT topic subscribed to receive an update of the latest version.
-  required: true
+  required: false
   type: string
 name:
   description: The name of the Select.
@@ -165,21 +169,33 @@ qos:
   required: false
   type: integer
   default: 0
+release_summary:
+  description: Summary of the release notes or changelog. This is suitable a brief update description of max 255 characters.
+  required: false
+  type: string
+release_url:
+  description: URL to the full release notes of the latest version available.
+  required: false
+  type: string
 retain:
   description: If the published message should have the retain flag on or not.
   required: false
   type: boolean
   default: false
 state_topic:
-  description: The MQTT topic subscribed to receive an update of the installed version.
-  required: true
+  description: "The MQTT topic subscribed to receive state updates. The state update may be either JSON or a simple string with `installed_version` value. When a JSON payload is detected, the state value of the JSON payload should supply the `installed_version` and can optional supply: `latest_version`, `title`, `release_summary`, `release_url` or an `entity_picture` URL."
+  required: false
+  type: string
+title:
+  description: Title of the software, or firmware update. This helps to differentiate between the device or entity name versus the title of the software installed.
+  required: false
   type: string
 unique_id:
   description: An ID that uniquely identifies this Select. If two Selects have the same unique ID Home Assistant will raise an exception.
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the installed version value."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the `installed_version` state value or to render to a valid JSON payload on from the payload received on `state_topic`."
   required: false
   type: template
 {% endconfiguration %}
@@ -201,13 +217,83 @@ This is an example of Update entity configuration for Shelly Gen1 device.
 mqtt:
   update:
     - name: "Shelly Plug S Firmware Update"
+      title: "Shelly Plug S Firmware"
+      release_url: "https://shelly-api-docs.shelly.cloud/gen1/#changelog"
+      entity_picture: "https://brands.home-assistant.io/_/shelly/icon.png"
       state_topic: "shellies/shellyplug-s-112233/info"
       value_template: "{{ value_json['update'].old_version }}"
-      latest_firmware_topic: "shellies/shellyplug-s-112233/info"
-      latest_firmware_template: "{% if value_json['update'].new_version %}{{ value_json['update'].new_version }}{% else %}{{ value_json['update'].old_version }}{% endif %}"
+      latest_version_topic: "shellies/shellyplug-s-112233/info"
+      latest_version_template: "{% if value_json['update'].new_version %}{{ value_json['update'].new_version }}{% else %}{{ value_json['update'].old_version }}{% endif %}"
       device_class: "firmware"
       command_topic: "shellies/shellyplug-s-112233/command"
       payload_install: "update_fw"
+```
+
+{% endraw %}
+
+JSON can also be used as `state_topic` payload.
+
+{% raw %}
+
+```json
+{
+  "installed_version": "1.21.0",
+  "latest_version": "1.22.0",
+  "title": "Device Firmware",
+  "release_url": "https://example.com/release",
+  "release_summary": "A new version of our amazing firmware",
+  "entity_picture": "https://example.com/icon.png"
+}
+```
+
+{% endraw %}
+
+For the above JSON payload, the `update` entity configuration should look like this:
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  update:
+    - name: "Amazing Device Update"
+      title: "Device Firmware"
+      state_topic: "amazing-device/state-topic"
+      device_class: "firmware"
+      command_topic: "amazing-device/command"
+      payload_install: "install"
+```
+
+{% endraw %}
+
+If the device/service sends data as JSON but the schema differs, `value_template` can be use to reformat the JSON.
+
+{% raw %}
+
+```json
+{
+  "installed_ver": "2022.11",
+  "new_ver": "2022.12"
+}
+```
+
+{% endraw %}
+
+For the above JSON payload, the `update` entity configuration should look like this:
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  update:
+    - name: "Amazing Device Update"
+      title: "Device Firmware"
+      state_topic: "amazing-device/state-topic"
+      value_template: "{{ {'installed_version': value_json.installed_ver, 'latest_version': value_json.new_ver } | to_json }}"
+      device_class: "firmware"
+      command_topic: "amazing-device/command"
+      payload_install: "install"
 ```
 
 {% endraw %}

@@ -4,13 +4,13 @@ description: Instructions on how to use Lutron Caseta devices with Home Assistan
 featured: true
 ha_category:
   - Binary Sensor
+  - Button
   - Cover
   - Fan
   - Hub
   - Light
   - Scene
   - Switch
-  - Button
 ha_release: 0.41
 ha_iot_class: Local Push
 ha_domain: lutron_caseta
@@ -23,13 +23,13 @@ ha_zeroconf: true
 ha_homekit: true
 ha_platforms:
   - binary_sensor
+  - button
   - cover
   - diagnostics
   - fan
   - light
   - scene
   - switch
-  - button
 ha_integration_type: integration
 ---
 

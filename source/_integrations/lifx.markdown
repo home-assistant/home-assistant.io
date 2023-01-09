@@ -12,8 +12,10 @@ ha_homekit: true
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - light
   - select
+  - sensor
 ha_integration_type: integration
 ha_codeowners:
   - '@bdraco'
@@ -66,15 +68,27 @@ To determine whether or not a HEV cycle is currently running, Home Assistant exp
 | `power` | Start a HEV cycle (`True`) or stop a cycle (`False`).
 | `duration` | Duration (in seconds) for the HEV cycle. The default duration of two hours (7200 seconds) is used if this attribute is omitted.
 
-## Applying themes
+## Sensors
 
-You can apply a pre-defined theme to a LIFX multizone device using the Theme configuration entity either manually via the drop-down box on the device configuration screen in the UI or by calling the `select.select_option` service in an automation or script.
+The following sensors are available depending on the LIFX model:
 
-When starting a hardware-based move effect, you can specify a theme using the `lifx.effect_move` service. See below for more information about this service.
+| Sensor | Description |
+| ------ | ----------- |
+| Clean cycle | Indicates whether a HEV cycle is currently active on a LIFX Clean bulb |
+| Infrared brightness | Controls the infrared brightness amount on a LIFX Nightvision bulb |
+| RSSI | Indicates the current WiFi signal strength on any LIFX bulb (disabled by default) |
+
+Note that these sensors are only updated every 30 seconds and may not reflect the current state if changes are made externally to Home Assistant.
+
+## Themes
+
+Home Assistant provides a collection of predefined themes for LIFX multizone lights, each designed to mimic the theme of the same name from the LIFX smartphone app.
+
+To apply a theme interactively, use the theme selection drop-down box found on the device configuration screen.
+
+To apply a theme as part of an automation, use the `select.select_option` service call. You can also apply a theme when calling the `lifx.effect_move` service. See the **Light effects** section below for more details, including how to set a custom theme for that effect.
 
 The following themes are available: `autumn`, `blissful`, `cheerful`, `dream`, `energizing`, `epic`, `exciting`, `focusing`, `halloween`, `hanukkah`, `holly`, `independence_day`, `intense`, `mellow`, `peaceful`, `powerful`, `relaxing`, `santa`, `serene`, `soothing`, `sports`, `spring`, `tranquil`, `warming`.
-
-Each theme should closely match the theme of the same name in the LIFX smartphone app but may not be identical.
 
 ## Light effects
 
@@ -127,7 +141,8 @@ Run a software-based flash effect by changing to a color and then back.
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 | `color_name` | A color name such as `red` or `green`.
 | `rgb_color` | A list containing three integers representing the RGB color you want the light to be.
-| `brightness` | Integer between 0 and 255 for how bright the color should be.
+| `brightness` | Integer between 1 and 255 for how bright the color should be.
+| `brightness_pct` | Alternative to `brightness`. Specify in percent between 1 and 100 for how bright the color should be.
 | `period` | The duration of a single pulse (in seconds).
 | `cycles` | The total number of pulses.
 | `mode` | The way to change between colors. Valid modes: `blink` (default - direct transition to new color for 'period' time with original color between cycles), `breathe` (color fade transition to new color and back to original), `ping` (short pulse of new color), `strobe` (light turns off between color changes), `solid`(light does not return to original color between cycles).
@@ -140,7 +155,10 @@ Run a software-based effect that continuously loops colors around the color whee
 | Service data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
-| `brightness` | Number between 0 and 255 indicating brightness of the effect. Leave this out to maintain the current brightness of each participating light.
+| `brightness` | Number between 1 and 255 indicating the brightness of the effect. Leave this out to maintain the current brightness of each participating light.
+| `brightness_pct` | Alternative to `brightness`. Specify in percent between 1 and 100 how bright each participating light should be.
+| `saturation_min` | Number between 1 and 100 indicating the minimum saturation of the colors in the loop. Leave this out to use the default of 80%.
+| `saturation_max` | Number between 1 and 100 indicating the maximum saturation of the colors in the loop. Leave this out to use the default of 100%.
 | `period` | Duration (in seconds) between starting a new color change.
 | `transition` | Duration (in seconds) where lights are actively changing color.
 | `change` | Hue movement per period, in degrees on a color wheel (ranges from 0 to 359).

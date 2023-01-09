@@ -11,11 +11,9 @@ ha_domain: mqtt
 
 The `mqtt` device tracker platform allows you to define new device_trackers through [manual YAML configuration](#yaml-configuration) in `configuration.yaml` and also to automatically discover device_trackers [using the MQTT Discovery protocol](#using-the-discovery-protocol).
 
-<div class='note info'>
-  At the moment, manual configured device trackers can only reloaded by restarting Home Assistant.
-</div>
-
 ## Configuration
+
+<a id='new_format'></a>
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -28,60 +26,6 @@ mqtt:
   - name: "paulus_oneplus"
     state_topic: "location/paulus"
 ```
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `switch` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example and deprecated configuration schema:
-
-```yaml
-device_tracker:
-  - platform: mqtt
-    devices:
-      paulus_oneplus: "location/paulus"
-      annetherese_n4: "location/annetherese"
-```
-
-To set the state of the device_tracker then you need to publish a JSON message to the topic (e.g., via mqtt.publish service). As an example, the following JSON message would set the `paulus_oneplus` device_tracker to `home`:
-
-```json
-{
-  "topic": "location/paulus",
-  "payload": "home"
-}
-```
-
-{% configuration %}
-devices:
-  description: List of devices with their topic.
-  required: true
-  type: list
-qos:
-  description: The QoS level of the topic.
-  required: false
-  type: integer
-payload_home:
-  description: The payload value that represents the 'home' state for the device.
-  required: false
-  type: string
-  default: "home"
-payload_not_home:
-  description: The payload value that represents the 'not_home' state for the device.
-  required: false
-  type: string
-  default: "not_home"
-source_type:
-  description: Attribute of a device tracker that affects state when being used to track a [person](/integrations/person/). Valid options are `gps`, `router`, `bluetooth`, or `bluetooth_le`.
-  required: false
-  type: string
-  default: gps
-{% endconfiguration %}
-
-{% enddetails %}
 
 {% configuration %}
 availability:
@@ -205,6 +149,11 @@ payload_not_home:
   required: false
   type: string
   default: not_home
+payload_reset:
+  description: The payload value that will have the device's location automatically derived from Home Assistant's zones.
+  required: false
+  type: string
+  default: "None"
 qos:
   description: The maximum QoS level of the state topic.
   required: false
@@ -276,7 +225,7 @@ mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -
 To set the state of the device tracker to specific coordinates:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/state -m '{"latitude": 32.87336, "longitude": -117.22743, "gps_accuracy": 1.2}'
+mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/attributes -m '{"latitude": 32.87336, "longitude": -117.22743, "gps_accuracy": 1.2}'
 ```
 
 

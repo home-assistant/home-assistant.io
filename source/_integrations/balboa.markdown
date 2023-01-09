@@ -23,6 +23,12 @@ There is currently support for the following device types within Home Assistant:
 - Binary Sensor (Filter cycles and circulation pumps)
 - Climate
 
+## Compatible hardware
+
+Balboa Spa Client integration support local control of hot tub spas equipped with a Balboa BP system and a bwa™ Wi-Fi Module (50350).
+
+Balboa Spa Client integration is not compatible with ControlMySpa™ cloud API used by Balboa ControlMySpa Gateway Ultra (59303).
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}

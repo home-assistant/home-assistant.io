@@ -13,18 +13,21 @@ ha_release: 0.49
 ha_codeowners:
   - '@robbiet480'
   - '@frenck'
+  - '@bachya'
 ha_domain: lametric
 ha_platforms:
   - button
+  - diagnostics
   - notify
   - number
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ha_config_flow: true
 ha_ssdp: true
 ha_dhcp: true
+ha_quality_scale: platinum
 ---
 
 [LaMetric TIME](https://lametric.com/) is a smart clock that can be used to access applications, listen to web radio and display notifications.

@@ -20,7 +20,7 @@ ha_platforms:
   - sensor
   - switch
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The `guardian` integration integrates

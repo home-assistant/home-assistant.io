@@ -5,7 +5,7 @@ ha_category:
   - Environment
   - Sensor
 ha_release: '2022.11'
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@vincegio'
 ha_domain: airthings_ble

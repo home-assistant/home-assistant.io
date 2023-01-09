@@ -43,7 +43,7 @@ ha_platforms:
   - switch
   - vacuum
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The Tuya integration integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps.
@@ -79,7 +79,8 @@ This is a separate account from the one you made for the app. You cannot log in 
   ![](/images/integrations/tuya/image_004.png)
 4. Click `Confirm` in the app.
 5. To confirm that everything worked, navigate to the `All Devices` tab. Here you should be able to find the devices from the app.
-6. If zero devices are imported. Try changing the DataCenter and check the account used is the "Home Owner".
+6. If zero devices are imported, try changing the DataCenter and check the account used is the "Home Owner".
+   You can change DataCenter by clicking the Cloud icon on the left menu, then clicking the Edit link in the Operation column for your newly created project. You can change DataCenter in the popup window.
 
 ![](/images/integrations/tuya/image_005.png)
 
@@ -102,10 +103,10 @@ Click the created project to enter the `Project Overview` page and get the `Auth
     description: Go to your cloud project on [Tuya IoT Platform](https://iot.tuya.com/). Find the **Access Secret** under [Authorization Key](#get-authorization-key) on the **Project Overview** tab.
 
   Account:
-    description: Tuya Smart or Smart Life **app** account.
+    description: Tuya Smart or Smart Life **app** account, not your Tuya IoT platform account.
 
   Password:
-    description: The password of your **app** account.
+    description: The password of your **app** account, not your Tuya IoT platform account.
 
 {% endconfiguration_basic %}
 
@@ -148,6 +149,9 @@ Click the created project to enter the `Project Overview` page and get the `Auth
     - Smart Home Scene Linkage
 
     - IoT Data Analytics
+
+"28841002: No permissions. Your subscription to cloud development plan has expired":
+  description: Your subscription to Tuya cloud development **IoT Core Service** resources has expired, please [extend it](https://iot.tuya.com/cloud/products/detail?abilityId=1442730014117204014) in `Cloud` > `Cloud Services` > `IoT Core` > `My Subscriptions` tab > `Subscribed Resources` > `IoT Core` > `Extend Trial Period`. 
 
 {% endconfiguration_basic %}
 

@@ -1,8 +1,9 @@
 ---
-title: Universal Devices ISY994
-description: Instructions on how to setup the ISY994 controller within Home Assistant.
+title: Universal Devices ISY/IoX
+description: Instructions on how to setup an ISY controller within Home Assistant.
 ha_category:
   - Binary Sensor
+  - Button
   - Climate
   - Cover
   - Fan
@@ -21,6 +22,7 @@ ha_codeowners:
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - fan
@@ -29,15 +31,17 @@ ha_platforms:
   - sensor
   - switch
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The ISY994 is a home automation controller that is capable of controlling Insteon and X10 devices. Some models of the ISY994 can even control Z-Wave devices.
-The ISY994 controller is manufactured by [Universal Devices](https://www.universal-devices.com/smarthome).
+ISY is a home automation controller capable of controlling Insteon, X10, Z-Wave and Zigbee/Matter devices connected to supported hardware manufactured by [Universal Devices, Inc.](https://www.universal-devices.com/).
 
-There is currently support for the following device types within Home Assistant:
+This integration supports the legacy ISY994 hardware family, as well as current ISY-on-Anything (IoX) hardware, such as the [eisy](https://www.universal-devices.com/product/eisy-home/) or [Polisy](https://www.universal-devices.com/polisy/) devices.
+
+There is currently support for the following platforms within Home Assistant:
 
 - Binary Sensor
+- Button
 - Climate
 - Cover
 - Light
@@ -46,7 +50,9 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
-Home Assistant is capable of communicating with any binary sensor, cover, fan, light, lock, sensor and switch that is configured on the controller. Using the programs on the controller, custom binary sensors, covers, fans, locks, and switches can also be created.
+Home Assistant is capable of communicating with any binary sensor, cover, fan, light, lock, sensor and switch that is configured on the controller. Using the programs on the controller, custom binary sensors, covers, fans, locks, and switches can also be created. Each device and the ISY hub also include a Query button to query the device.
+
+ISY Networking Module Resources can be executed using the buttons created.
 
 {% include integrations/config_flow.md %}
 
@@ -105,9 +111,9 @@ Once the ISY controller is configured, it will automatically import any binary s
 
 ### Sensors
 
-An Insteon door/window sensor will show up as a single Binary Sensor rather than two discrete devices like it does in the ISY994 admin panel. Note that when in "Two Nodes" mode, the sensor will have an UNKNOWN state until the sensor changes for the first time since the last Home Assistant reboot. If you do not use Insteon scenes that are controlled directly from the door sensor, you may prefer to set the sensor to "One Node" mode using the ISY Admin Panel.
+An Insteon door/window sensor will show up as a single Binary Sensor rather than two discrete devices like it does in the ISY Admin Console. Note that when in "Two Nodes" mode, the sensor will have an UNKNOWN state until the sensor changes for the first time since the last Home Assistant reboot. If you do not use Insteon scenes that are controlled directly from the door sensor, you may prefer to set the sensor to "One Node" mode using the ISY Admin Panel.
 
-Each Insteon leak sensor will also show up as a single Binary Sensor as opposed to the two nodes seen in the ISY994. The name of the device will be based on what the parent node is named in the ISY994, which is typically the one with "-Dry" at the end of the name. This may be confusing, because "On" means wet in Home Assistant. You can rename this node in Home Assistant to be more clear, see the [Customization section](/docs/configuration/customizing-devices/) of your configuration.
+Each Insteon leak sensor will also show up as a single Binary Sensor as opposed to the two nodes seen in the ISY Admin Console. The name of the device will be based on what the parent node is named in the ISY, which is typically the one with "-Dry" at the end of the name. This may be confusing, because "On" means wet in Home Assistant. You can rename this node in Home Assistant to be more clear, see the [Customization section](/docs/configuration/customizing-devices/) of your configuration.
 
 If your leak or door/window sensor supports heartbeats, a new binary_sensor device will be added to Home Assistant to represent the battery state. The sensor will stay "Off" so long as the daily heartbeats occur. If a heartbeat is missed, the sensor will flip to "On". The name of this device will be based on the heartbeat node in the ISY.
 
@@ -136,7 +142,7 @@ automation:
         entity_id: light.lr_track_lights_rear
 ```
 
-All `isy994_control` events will have an `entity_id` and `control` parameter in its `event_data`. You'll need to refer to ISY994 documentation for the list of every possible control type, but the common ones are:
+All `isy994_control` events will have an `entity_id` and `control` parameter in its `event_data`. You'll need to refer to ISY documentation for the list of every possible control type, but the common ones are:
 
 - `DON`: On button.
 - `DOF`: Off button.
@@ -150,7 +156,7 @@ All `isy994_control` events will have an `entity_id` and `control` parameter in 
 
 ### Insteon Scenes & Keypad/Remote Buttons
 
-All Insteon scenes configured in the ISY994 will show up as a `switch` in Home Assistant, as they do not support dimming or setting specific brightness settings as Home Assistant's `light` component.
+All Insteon scenes configured in the ISY Admin Console will show up as a `switch` in Home Assistant, as they do not support dimming or setting specific brightness settings as Home Assistant's `light` component.
 
 Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant to allow support for using Control Events in Automations. These devices are added as `sensors` since they cannot be directly controlled (turned on/off); their state is the last ON level command they sent, in a range from `0` (Off) to `255` (On 100%).  Note: these devices may report incorrect states before being used after a reboot of the ISY. Secondary Keypad buttons may be turned on or off using ISY Scenes (refer to ISY Documentation for more details).
 
@@ -159,8 +165,8 @@ Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant 
 Once loaded, the following services will be exposed with the `isy994.` prefix, to allow advanced control over the ISY and its connected devices:
 
  - Entity services for Home Assistant-connected entities: `send_node_command`, `send_raw_node_command`, `set_on_level`, and `set_ramp_rate`.
- - Generic ISY services: `system_query`, `set_variable`, `send_program_command`, and `run_network_resource`.
- - Management services for the ISY994 Home Assistant integration: `reload` and `cleanup_entities`.
+ - Generic ISY services: `set_variable`, and `send_program_command`.
+ - Management services for the ISY Home Assistant integration: `reload` and `cleanup_entities`.
 
 #### Service `isy994.send_node_command`
 
@@ -210,7 +216,7 @@ Rename a node or group (scene) on the ISY994. Note: this will not automatically 
 | Service data attribute | Optional | Description                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------- |
 | `entity_id`            | no       | Name of target entity for the command, e.g., `light.front_porch`. |
-| `name`                 | no       | The new name to use within the ISY994.                         |
+| `name`                 | no       | The new name to use within the ISY.                         |
 
 #### Service `isy994.set_on_level`
 
@@ -229,15 +235,6 @@ Send an ISY set_ramp_rate command to a `light` Node to set the devices' ramp rat
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |     no   | Name(s) of target entities for the command, e.g., `light.front_porch`. |
 | `value` | no | The integer index value to set the Ramp Rate to in a range of `0` (9.5 minutes) to `31` (0.1 Seconds), e.g., `28` |
-
-#### Service `isy994.system_query`
-
-Request the ISY Query the connected devices.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `address` | yes | ISY Address to Query. Omitting this requests a system-wide scan (typically recommended by UDI to be scheduled once per day), e.g., `"1A 2B 3C 1"` |
-| `isy` | yes | If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console). Omitting this will cause all ISYs to be queried, e.g., `"ISY"` |
 
 #### Service `isy994.set_variable`
 
@@ -263,23 +260,13 @@ Send a command to control an ISY program or folder. Valid commands are `run`, `r
 | `name` | yes | The name of the program to control (optional, use either `address` or `name`), e.g., `"My Program"` |
 | `isy` | yes | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same program name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
 
-#### Service `isy994.run_network_resource`
-
-Run a network resource on the ISY.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `address` | yes | The address of the network resource to execute (optional, use either `address` or `name`), e.g., `121` |
-| `name` | yes | The name of the network resource to execute (optional, use either `address` or `name`), e.g., `"Network Resource 1"` |
-| `isy` | yes | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same resource name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
-
 #### Service `isy994.reload`
 
-Reload the ISY994 connection(s) without restarting Home Assistant. Use this service to pick up new devices that have been added or changed on the ISY since the last restart of Home Assistant.
+Reload the ISY connection(s) without restarting Home Assistant. Use this service to pick up new devices that have been added or changed on the ISY since the last restart of Home Assistant.
 
 #### Service `isy994.cleanup_entities`
 
-Cleanup old entities no longer used by the ISY994 integrations. Useful if you've removed devices from the ISY or changed the filter string options in the configuration to exclude additional items and they were not properly removed
+Cleanup old entities no longer used by the ISY integration. Useful if you've removed devices from the ISY or changed the filter string options in the configuration to exclude additional items and they were not properly removed
 by Home Assistant.
 
 ### Creating Custom Devices using ISY Programs
