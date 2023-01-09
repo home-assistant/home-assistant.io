@@ -400,6 +400,7 @@ type:
 reverse:
   required: false
   description: Reverse the sort order.
+  type: boolean
   default: false
 {% endconfiguration %}
 
@@ -416,6 +417,7 @@ type:
 reverse:
   required: false
   description: Reverse the sort order.
+  type: boolean
   default: false
 ignore_case:
   required: false
@@ -436,6 +438,7 @@ type:
 reverse:
   required: false
   description: Reverse the sort order.
+  type: boolean
   default: false
 {% endconfiguration %}
 <!-- textlint-enable terminology -->
@@ -463,6 +466,7 @@ type:
 reverse:
   required: false
   description: Reverse the sort order.
+  type: boolean
   default: false
 {% endconfiguration %}
 
@@ -478,6 +482,7 @@ type:
 reverse:
   required: false
   description: Reverse the sort order.
+  type: boolean
   default: false
 {% endconfiguration %}
 
@@ -493,6 +498,7 @@ type:
 reverse:
   required: false
   description: Reverse the sort order.
+  type: boolean
   default: false
 {% endconfiguration %}
 
