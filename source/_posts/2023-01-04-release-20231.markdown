@@ -49,6 +49,7 @@ PS: Did you know [Home Assistant is now on Mastodon](https://fosstodon.org/@home
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Release 2023.1.1 - January 5](#release-202311---january-5)
+- [Release 2023.1.2 - January 8](#release-202312---january-8)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -303,6 +304,58 @@ We welcome the following new integrations in this release:
 [switchbot docs]: /integrations/switchbot/
 [tasmota docs]: /integrations/tasmota/
 [unifi docs]: /integrations/unifi/
+[zha docs]: /integrations/zha/
+
+## Release 2023.1.2 - January 8
+
+- Allow SensorDeviceClass.POWER_FACTOR unit None ([@epenet] - [#85287]) ([sensor docs]) ([number docs])
+- Retry ZHA config entry setup when `ENETUNREACH` is caught ([@puddly] - [#84615]) ([zha docs])
+- Fix dsmr_reader peak hour consumption unit of measurement ([@Glodenox] - [#85301]) ([dsmr_reader docs])
+- Bump reolink-aio to 0.1.3 ([@starkillerOG] - [#85309]) ([reolink docs])
+- Bump life360 package to 5.5.0 ([@pnbruckner] - [#85322]) ([life360 docs])
+- Switch play pause method in philips js ([@elupus] - [#85343]) ([philips_js docs])
+- Bump ZHA dependencies ([@puddly] - [#85355]) ([zha docs])
+- Add note to SwitchBot locks that usernames are case sensitive ([@bdraco] - [#85359]) ([switchbot docs])
+- Bump pySwitchbot to 0.36.3 ([@bdraco] - [#85360]) ([switchbot docs])
+- Increase Hydrawise default scan interval ([@mobilutz] - [#85398]) ([hydrawise docs])
+- Bump ical to 4.2.9 ([@allenporter] - [#85401]) ([local_calendar docs])
+- Bump gcal_sync to 4.1.1 ([@allenporter] - [#85453]) ([google docs])
+
+[#84615]: https://github.com/home-assistant/core/pull/84615
+[#85120]: https://github.com/home-assistant/core/pull/85120
+[#85277]: https://github.com/home-assistant/core/pull/85277
+[#85287]: https://github.com/home-assistant/core/pull/85287
+[#85301]: https://github.com/home-assistant/core/pull/85301
+[#85309]: https://github.com/home-assistant/core/pull/85309
+[#85322]: https://github.com/home-assistant/core/pull/85322
+[#85343]: https://github.com/home-assistant/core/pull/85343
+[#85355]: https://github.com/home-assistant/core/pull/85355
+[#85359]: https://github.com/home-assistant/core/pull/85359
+[#85360]: https://github.com/home-assistant/core/pull/85360
+[#85398]: https://github.com/home-assistant/core/pull/85398
+[#85401]: https://github.com/home-assistant/core/pull/85401
+[#85453]: https://github.com/home-assistant/core/pull/85453
+[@Glodenox]: https://github.com/Glodenox
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@mobilutz]: https://github.com/mobilutz
+[@pnbruckner]: https://github.com/pnbruckner
+[@puddly]: https://github.com/puddly
+[@starkillerOG]: https://github.com/starkillerOG
+[dsmr_reader docs]: /integrations/dsmr_reader/
+[google docs]: /integrations/google/
+[hydrawise docs]: /integrations/hydrawise/
+[life360 docs]: /integrations/life360/
+[local_calendar docs]: /integrations/local_calendar/
+[number docs]: /integrations/number/
+[philips_js docs]: /integrations/philips_js/
+[reolink docs]: /integrations/reolink/
+[sensor docs]: /integrations/sensor/
+[switchbot docs]: /integrations/switchbot/
 [zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
