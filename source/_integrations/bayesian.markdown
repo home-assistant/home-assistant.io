@@ -15,13 +15,13 @@ ha_codeowners:
   - '@HarvsG'
 ---
 
-The `bayesian` binary sensor platform observes the state from multiple sensors and uses [Bayes' rule](https://en.wikipedia.org/wiki/Bayes%27_theorem) to estimate the probability that an event has occurred given the state of the observed sensors. If the estimated posterior probability is above the `probability_threshold`, the sensor is `on` otherwise it is `off`.
+The `bayesian` binary sensor platform observes the state from multiple sensors. It uses [Bayes' rule](https://en.wikipedia.org/wiki/Bayes%27_theorem) to estimate the probability that an event is occurring given the state of the observed sensors. If the estimated posterior probability is above the `probability_threshold`, the sensor is `on`; otherwise, it is `off`.
 
 This allows for the detection of complex events that may not be readily observable, e.g., cooking, showering, in bed, the start of a morning routine, etc. It can also be used to gain greater confidence about events that _are_ directly observable, but for which the sensors can be unreliable, e.g., presence.
 
 ## Theory
 
-A key concept in Bayes' Rule is the difference between the probability of the 'event given the observation' and the probability of the 'observation given the event'. In some cases these probabilities will be similar. The probability that someone is in the room given that motion is detected is similar to the probability motion is detected given that someone is in the room. In other cases, the distinction is much more important. The probability I have just arrived home (the event) each time the front door contact sensor reports `open` (the observation) (p=0.2) is not the same as the probability the front door contact sensor reports `open` (the observation) when I come home (the event) (p=0.999).
+A key concept in Bayes' Rule is the difference between the probability of the 'event given the observation' and the probability of the 'observation given the event'. In some cases, these probabilities will be similar. The probability that someone is in the room given that motion is detected is similar to the probability motion is detected given that someone is in the room when motion sensors are accurate. In other cases, the distinction is much more important. The probability one has just arrived home (the event) each time the front door contact sensor reports `open` (the observation) (p=0.2) is not the same as the probability the front door contact sensor reports `open` (the observation) when one comes home (the event) (p=0.999). This difference is because one opens the door several times a day for other purposes.
 
 In the configuration use the probability of the observation (the sensor state in question) given the event (the assumed state of the Bayesian binary_sensor).
 

@@ -15,7 +15,9 @@ ha_platforms:
   - diagnostics
 ---
 
-The `google_assistant` integration allows you to control things via Google Assistant on your mobile, tablet or Google Home device.
+The `google_assistant` integration allows you to control your Home Assistant devices via Google Assistant on your mobile, tablet or Google Home device.
+
+If you want to send commands to Google Assistant to control devices supported by Google Assistant but not by Home Assistant, or broadcast messages to Google Assistant speakers and displays without interrupting music/video playback, take a look at the [Google Assistant SDK](/integrations/google_assistant_sdk) integration.
 
 ## Automatic setup via Home Assistant Cloud
 
@@ -335,6 +337,10 @@ If you receive 404 errors linked to reporting state in your log, Home Assistant 
 #### Error during linking: "Could not update the setting. Please check your connection"
 
 Your fulfillment URL may be invalid or unreachable. Recheck the `Fulfillment URL` as specified in [Manual Setup](#manual-setup) and verify that it's publicly reachable.
+
+#### 500 / 429 error on request sync
+
+This error may occur if the service key is invalid. Try deleting and creating a new service account and key.
 
 #### NGINX
 

@@ -37,15 +37,15 @@ It is not possible to use Python imports with this integration. If you want to d
 This is a simplified example that does no real work.
 It is created as a first step, to help with:
 
-- Demonstrate how to setup the script
+- Demonstrating how to setup the script
 - How to process the input data
 - How to log the script activity
 - How to troubleshoot / manually call the script.
 
-Start by enabling the Python script and create the first script.
+Start by enabling the Python Scripts integration and create the first script.
 
 - Add to `configuration.yaml`: `python_script:`
-- Create folder `<config>/python_scripts`
+- Create the folder `<config>/python_scripts`
 - Create a file `<config>/python_scripts/hello_world.py` in the folder and give it this content:
 
 ```python
@@ -68,7 +68,7 @@ data:
 
 Running this script show absolutely no output on the screen, but it logs with level `info`. You must have the [Logger](/integrations/logger/) enabled at least for level `info`.
 
- Your `confiuration.yaml` should include something like this.
+ Your `configuration.yaml` should include something like this.
  
 ```yaml
 logger:
@@ -82,7 +82,7 @@ logger:
 The following example shows how to trigger a custom event over the `hass.bus`.
 
 This example uses the `hello_world.py` from the previous example.
-Edit the file and the code listed below to the end of the file.
+Edit the file adding the code listed below to the end of the file.
 There is no need to reload the configuration or restart Home Assistant.
 
 ```python
