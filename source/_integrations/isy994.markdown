@@ -119,7 +119,7 @@ If your leak or door/window sensor supports heartbeats, a new binary_sensor devi
 
 ### ISY/IoX Variables
 
-Integer and State Variables from the ISY are imported as `number` entities. You can choose which variables are enabled by default by setting the "Variable Sensor String" Config Option and using it as part of the variable name in the ISY Admin Console (e.g. `HA.` in options and `HA.Variable Name` on the ISY) or you can manually enable the entities you need from the ISY Variables device in Home Assistant.
+Integer and State Variables from the ISY are imported as `number` entities. You can choose which variables are enabled by default by setting the "Variable Sensor String" Config Option and using it as part of the variable name in the ISY Admin Console (e.g., `HA.` in options and `HA.Variable Name` on the ISY) or you can manually enable the entities you need from the ISY Variables device in Home Assistant.
 
 ### Handling Insteon or Other ISY Control Events
 
