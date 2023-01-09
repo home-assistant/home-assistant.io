@@ -27,6 +27,8 @@ The integration can control your Alarm Panel by publishing to the `command_topic
 
 ## Configuration
 
+<a id='new_format'></a>
+
 To enable this platform, add the following lines to your `configuration.yaml`:
 
 ```yaml
@@ -36,26 +38,6 @@ mqtt:
     - state_topic: "home/alarm"
       command_topic: "home/alarm/set"
 ```
-
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `alarm_control_panel` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-alarm_control_panel:
-  - platform: mqtt
-    state_topic: "home/alarm"
-    command_topic: "home/alarm/set"
-```
-
-{% enddetails %}
 
 {% configuration %}
 availability:

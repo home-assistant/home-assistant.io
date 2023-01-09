@@ -30,7 +30,7 @@ RTSPtoWebRTC registers with the camera integration to override the camera attrib
 
 See [WebRTC](https://webrtc.org/) for more technical details on the open standard for real-time communication. Here is a short summary of how it works:
 
-- The Home Assistant Frontend is a WebRTC client. This just means there is some javascript for initiating a WebRTC stream which creates an *offer*.
+- The Home Assistant Frontend is a WebRTC client. This just means there is some JavaScript for initiating a WebRTC stream which creates an *offer*.
 - The `webrtc` integration is responsible for *signaling*, passing the *offer* and an RTSP URL to the *RTSPtoWebRTC* server.
 - The *RTSPtoWeb{RTC}* server opens the RTSP URL, and returns back an *answer*.
 - The Frontend accepts the answer and then establishes a *peer connection* to the *RTSPtoWebRTC* server.

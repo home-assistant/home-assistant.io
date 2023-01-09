@@ -5,20 +5,20 @@ ha_category:
   - Binary Sensor
   - Lock
   - Sensor
-ha_bluetooth: true
 ha_release: 2022.9
-ha_iot_class: Local Push
+ha_domain: august_ble
+ha_integration_type: virtual
+ha_supporting_domain: yalexs_ble
+ha_supporting_integration: Yale Access Bluetooth
+ha_bluetooth: true
 ha_codeowners:
   - '@bdraco'
-ha_domain: august_ble
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - lock
   - sensor
-ha_integration_type: integration
-ha_supporting_domain: yalexs_ble
-ha_supporting_integration: Yale Access Bluetooth
+ha_iot_class: Local Push
 ---
 
 Integrates [August](https://august.com/) locks over Bluetooth into Home Assistant.

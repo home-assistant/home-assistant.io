@@ -20,7 +20,7 @@ ha_integration_type: integration
 
 The `envisalink` integration will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Eyez On, known as the Envisalink. The Envisalink evl3 and evl4 boards provide a TCP/IP interface to the alarm panel, where it emulates an alarm keypad. This board also exposes a raw TCP/IP based API, upon which this integration is built. Currently, the Envisalink version 4 is the latest model. This integration supports both the evl3 and the evl4.
 
-Please visit the [eyezon website](http://www.eyezon.com/) for further information about the evl3 and evl4 boards.
+Please visit the [eyezon website](https://www.eyezon.com/) for further information about the evl3 and evl4 boards.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -49,10 +49,10 @@ envisalink:
   timeout: 10
   panic_type: Police
   zones:
-    11:
+    1:
       name: "Back Door"
       type: "opening"
-    21:
+    2:
       name: "First Floor Motion"
       type: "motion"
   partitions:
@@ -112,7 +112,7 @@ panic_type:
   default: Police
   type: string
 zones:
-  description: "Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information about the visual representation of a zone, take a look at the [Binary Sensor](/integrations/binary_sensor/#device-class) documentation. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*"
+  description: "Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. Zone numbers correspond to the zone numbers configured on your alarm system and must be in the range of 1 to 64. For each zone, at least a name must be given. For more information about the visual representation of a zone, take a look at the [Binary Sensor](/integrations/binary_sensor/#device-class) documentation. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*"
   required: false
   type: integer
   keys:
