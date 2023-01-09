@@ -18,6 +18,8 @@ The integration allows you to control [Reolink](https://reolink.com/) NVRs or ca
 
 {% include integrations/config_flow.md %}
 
+A Reolink user account with admin privileges is needed for the proper operation of this integration.
+
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
 Protocol:
