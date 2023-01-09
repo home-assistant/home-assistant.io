@@ -60,7 +60,7 @@ If your unit is equipped with a fan - this entry will be present. There are 5 po
 - **Thermostat** - This entity will be present if your unit has thermostatic control.
 
 
-### Lights
+### Light
 
 The integration provides a light entity if the unit is equipped with lights.
 
