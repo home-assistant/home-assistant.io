@@ -10,7 +10,7 @@ ha_domain: radio_browser
 ha_config_flow: true
 ha_codeowners:
   - '@frenck'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The Radio Browser integration allows you to use the directory of

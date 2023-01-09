@@ -207,7 +207,7 @@ This option is recommended only if Option 1 does not work. The MAC address shoul
 # Example configuration.yaml entry, using a Hub Token
 geniushub:
   token: GENIUS_HUB_TOKEN
-  mac : GENIUS_HUB_MAC
+  mac: GENIUS_HUB_MAC
 ```
 
 ```yaml

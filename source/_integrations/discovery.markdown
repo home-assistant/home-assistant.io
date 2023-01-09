@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: discovery
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 This is the legacy discovery integration for Home Assistant. It's use is no longer recommended. Use the [SSDP](/integrations/ssdp/), [Zeroconf](/integrations/zeroconf/) and [USB](/integrations/usb/) integrations instead.
