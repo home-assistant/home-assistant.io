@@ -26,7 +26,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **battery**: Percentage of battery that is left
 - **carbon_dioxide**: Carbon Dioxide in CO2 (Smoke)
 - **carbon_monoxide**: Carbon Monoxide in CO (Gas CNG/LPG)
-- **current**: Current in A
+- **current**: Current in A, mA
 - **data_rate**: Data rate in bit/s, kbit/s, Mbit/s, Gbit/s, B/s, kB/s, MB/s, GB/s, KiB/s, MiB/s, or GiB/s
 - **data_size**: Data size in bit, kbit, Mbit, Gbit, B, kB, MB, GB, TB, PB, EB, ZB, YB, KiB, MiB, GiB, TiB, PiB, EiB, ZiB, or YiB
 - **date**: Date string (ISO 8601)
@@ -61,7 +61,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **temperature**: Temperature in °C or °F
 - **timestamp**: Datetime object or timestamp string (ISO 8601)
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
-- **voltage**: Voltage in V
+- **voltage**: Voltage in V, mV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **water**: Water consumption in L, gal, m³, ft³, or CCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
