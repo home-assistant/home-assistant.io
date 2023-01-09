@@ -25,8 +25,6 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 
 ### Sensor
 
-The following sensors are added for each Starlink system:
-
 - Ping - The ping that Starlink has measured, in ms
 - Azimuth - The direction Dishy is facing in degrees
 - Elevation - Dishy's current elevation in degrees
@@ -36,11 +34,12 @@ The following sensors are added for each Starlink system:
 
 ### Binary Sensor
 
-Binary sensors are configured based on available "alerts" that Starlink exposes. These may change over time, so we can't provide a comprehensive list. Here is an example of alerts you can expect:
-
-- Currently obstructed - Whether Starlink is currently obstructed
-- Roaming - Whether Starlink system is "roaming". Roaming is an optional upgrade that allows you to use your Starlink outside of your home address
-- Mast is not vertical - Whether Starlink is mounted straight
-- Motors stuck - Whether Starlink is unable to move
+- Obstructed - Whether Dishy is currently obstructed
+- Roaming - Whether Starlink is "roaming". Roaming is an optional upgrade that allows you to use your Starlink outside of your home address. It is also known as "portability"
+- Heating - Whether Dishy is currently heating. This may be due to cold temperatures, or an attempt to thaw snow and ice
+- Idle - Whether Starlink is in an "idle" state to save power
+- Update pending - Whether there's currently an update waiting to be installed
+- Mast near vertical - Whether Dishy is mounted straight
+- Motors stuck - Whether Dishy is unable to move
 - Thermal throttle - Whether Starlink has reduced performance to avoid overheating
-- Is heating - Whether Starlink is heating the dish
+- Unexpected location - Whether Starlink has detected operation outside of its designated area
