@@ -174,3 +174,21 @@ automation:
           - sensor.LATITUDE_LONGITUDE_current_uv_index
 ```
 {% endraw %}
+
+## Expired API Keys and Re-authentication
+
+In OpenUV, an `HTTP 403` response indicates one of two conditions:
+
+1. An invalid API key
+2. An API key whose daily/monthly limit is reached
+
+Unfortunately, the integration is unable to determine which is which from the API data
+provided by OpenUV. So, this strategy is followed:
+
+1. Any `HTTP 403` will trigger a re-auth flow.
+2. In the case of an overrun API call limit, once the limit expires and the coordinator
+   successfully retrieves data, any existing re-auth flow is canceled.
+
+If you receive a re-authentication notice and are certain that your key has merely
+reached its daily call limit, you can safely ignore the notice.
+
