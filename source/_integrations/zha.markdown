@@ -71,15 +71,15 @@ There is also support for grouping of lights, switches, and fans (i.e. support f
 
 ZHA integration follows the official Zigbee specification standards and uses one Zigbee Coordinator to set up and control a Zigbee network. Once ZHA has been installed and the Zigbee Coordinator is configured you will be able to directly join/pair Zigbee Router Device and Zigbee End Device products to that Zigbee network, regardless of the manufacturer and brand of that Zigbee-based product. Please see the respective sections below for compatible Zigbee radio modules hardware (physical radio adapter) and information on supported Zigbee devices.
 
-Before installing the integration you will need to buy and connect a Zigbee Coordinator adapter to the computer running the Home Assistant installation. The general recommendation is to buy a newer model of Zigbee Coordinator adapter hardware and to flash the latest firmware to it, the reason that is it will usually offer better interoperability with all functions of most Zigbee 3.0 compliant devices on the market. 
+Before installing the integration you will need to buy and connect a Zigbee Coordinator adapter to the computer running the Home Assistant installation. The general recommendation is to buy a newer model of Zigbee Coordinator adapter hardware and to flash the latest firmware to it, the reason that is it will usually offer better interoperability with all functions of most Zigbee 3.0 compliant devices on the market.
 
-Supported devices are Zigbee Router Devices, which are normally mains-powered that act as Zigbee signal repeaters within the Zigbee network mesh to extend its range and improve coverage, and Zigbee End Devices, which will not act as Zigbee signal repeaters and are usually but not always battery-operated sensors. 
+Supported devices are Zigbee Router Devices, which are normally mains-powered that act as Zigbee signal repeaters within the Zigbee network mesh to extend its range and improve coverage, and Zigbee End Devices, which will not act as Zigbee signal repeaters and are usually but not always battery-operated sensors.
 
 ### Limitations
 
 Note that ZHA only supports connecting one dedicated Zigbee Coordinator adapter with a single Zigbee network and that the Zigbee Coordinator adapter cannot already be connected or used by any other application. Any devices that are or have previously been connected to another Zigbee implementation will also need to first be reset to their factory default settings before they can be paired/joined to ZHA, please see each device manufacturer's documentation.
 
-ZHA does not yet support devices that can only use the ("Zigbee Green Power") profile which is used in a few batteryless self-powered or energy harvesting devices, (such as for example; Philips Hue Click, Philips Hue Tap, and some "Friends of Hue" partnership switches). The reason for this is that ZGP profile support has not yet been implemented in the [zigpy](https://github.com/zigpy/zigpy) library.
+ZHA does not yet support devices that can only use the ZGP ("Zigbee Green Power") profile which is used in a few batteryless self-powered or energy harvesting devices, (such as for example; Philips Hue Click, Philips Hue Tap, and some "Friends of Hue" partnership switches). The reason for this is that ZGP profile support has not yet been implemented in the [zigpy](https://github.com/zigpy/zigpy) library.
 
 ZHA does not support devices that can only use the ZSE ("Zigbee Smart Energy") profile because "Zigbee SE" is not part of the Zigbee 3.0 specification standard and thus not implemented in the Zigbee stack of commonly available Zigbee Coordinator adapters.
 
