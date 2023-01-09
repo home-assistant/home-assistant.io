@@ -37,7 +37,9 @@ The following models have been tested and confirmed to work:
 - E1 Zoom
 - E1 Outdoor
 - RLC-410W
+- RLC-411
 - RLC-420-5MP
+- RLC-511
 - RLC-511W
 - RLC-520
 - RLC-522
@@ -47,6 +49,7 @@ The following models have been tested and confirmed to work:
 - RLC-823A
 - RLC-420-5MP
 - RLN8-410 NVR
+- Reolink Duo Floodlight PoE (IPC_529B17B8MP)
 - Reolink Video Doorbell (PoE and Wi-Fi)
 
 Battery-powered cameras are not yet supported.
