@@ -30,6 +30,20 @@ This integration creates a few camera entities, one for each stream type with di
 The Sub stream camera entity is enabled by default; the other streams are disabled by default.
 The Images stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the RTMP/RTSP/FLV video stream has too much lag.
 
+## Binary sensors
+
+Depending on the supported features of the camera binary sensors are added for:
+
+- motion detection
+- doorbell presses
+- AI person detection
+- AI vehicle detection
+- AI pet detection
+- AI face detection
+
+These sensors are polled every 60 seconds and receive ONVIF push events for immediate updates.
+Not all camera models generate ONVIF push events for all event types, some binary sensors might therefore only be polled.
+
 ## Tested models
 
 The following models have been tested and confirmed to work:
