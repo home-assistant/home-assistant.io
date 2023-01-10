@@ -185,10 +185,12 @@ In OpenUV, an `HTTP 403` response indicates one of two conditions:
 Unfortunately, the integration is unable to determine which is which from the API data
 provided by OpenUV. So, this strategy is followed:
 
-1. Any `HTTP 403` will trigger a re-auth flow.
-2. In the case of an overrun API call limit, once the limit expires and the coordinator
-   successfully retrieves data, any existing re-auth flow is canceled.
+1. Any `HTTP 403` response will create a persistent notification asking you to
+   re-authenticate the OpenUV integration.
+2. In the case of an overrun API call limit, once the the `homeassistant.update_entity`
+   service call is successful, existing re-authentication notifications will
+   automatically be removed.
 
-If you receive a re-authentication notice and are certain that your key has merely
-reached its daily call limit, you can safely ignore the notice.
+If you receive a re-authentication notification and are certain that your key has merely
+reached its daily call limit, you can safely ignore it.
 
