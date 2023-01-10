@@ -10,6 +10,7 @@ ha_category:
   - Hub
   - Light
   - Lock
+  - Number
   - Sensor
   - Switch
 ha_release: 0.28
@@ -28,6 +29,7 @@ ha_platforms:
   - fan
   - light
   - lock
+  - number
   - sensor
   - switch
 ha_dhcp: true
@@ -47,6 +49,7 @@ There is currently support for the following platforms within Home Assistant:
 - Light
 - Fan
 - Lock
+- Number
 - Sensor
 - Switch
 
@@ -117,7 +120,9 @@ Each Insteon leak sensor will also show up as a single Binary Sensor as opposed 
 
 If your leak or door/window sensor supports heartbeats, a new binary_sensor device will be added to Home Assistant to represent the battery state. The sensor will stay "Off" so long as the daily heartbeats occur. If a heartbeat is missed, the sensor will flip to "On". The name of this device will be based on the heartbeat node in the ISY.
 
-Integer and State Variables from the ISY can be used as sensors by setting the `variable_sensor_string` and adding it as part of the variable name in the ISY. For example, if you have a variable named `HA.my_variable` and a `variable_sensor_string` of `"HA."`, it will be automatically added as a `sensor` in Home Assistant.
+### ISY/IoX Variables
+
+Integer and State Variables from the ISY are imported as `number` entities. You can choose which variables are enabled by default by setting the "Variable Sensor String" Config Option and using it as part of the variable name in the ISY Admin Console (e.g., `HA.` in options and `HA.Variable Name` on the ISY) or you can manually enable the entities you need from the ISY Variables device in Home Assistant.
 
 ### Handling Insteon or Other ISY Control Events
 
@@ -165,7 +170,7 @@ Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant 
 Once loaded, the following services will be exposed with the `isy994.` prefix, to allow advanced control over the ISY and its connected devices:
 
  - Entity services for Home Assistant-connected entities: `send_node_command`, `send_raw_node_command`, `set_on_level`, and `set_ramp_rate`.
- - Generic ISY services: `set_variable`, and `send_program_command`.
+ - Generic ISY services: `send_program_command`
  - Management services for the ISY Home Assistant integration: `reload` and `cleanup_entities`.
 
 #### Service `isy994.send_node_command`
@@ -235,19 +240,6 @@ Send an ISY set_ramp_rate command to a `light` Node to set the devices' ramp rat
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |     no   | Name(s) of target entities for the command, e.g., `light.front_porch`. |
 | `value` | no | The integer index value to set the Ramp Rate to in a range of `0` (9.5 minutes) to `31` (0.1 Seconds), e.g., `28` |
-
-#### Service `isy994.set_variable`
-
-Set an ISY variable's current or initial value. Variables can be set by either type/address or by name.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `value` | no | The integer value to be sent, e.g., `255` |
-| `address` | no | The address of the variable for which to set the value, e.g., `5` |
-| `type` | no | The variable type, 1 = Integer, 2 = State, e.g., `2` |
-| `name` | yes | The name of the variable to set (Optional, use `name` instead of `type` and `address`), e.g., `"my_variable_name"` |
-| `init` | yes | If True, the initial (init) value will be updated instead of the current value, e.g., `false` |
-| `isy` | yes | If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same variable name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
 
 #### Service `isy994.send_program_command`
 
