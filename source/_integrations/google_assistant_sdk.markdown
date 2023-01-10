@@ -137,12 +137,12 @@ data:
 
 ## Conversation agent
 
-In configuration.yaml add:
+In `configuration.yaml` add:
 ```yaml
 conversation:
 ```
 
-In the configure options of the integration enable the conversation agent and then you can converse with Google Assistant by pressing the microphone in the frontend (supported browsers only):
+In the configure options of the integration, enable the conversation agent and then you can converse with Google Assistant by pressing the microphone in the frontend (supported browsers only):
 
 ![google_assistant_sdk_conversation](https://user-images.githubusercontent.com/9987465/211274341-85dfe8a2-840f-4670-9e82-01777318e463.png)
 
