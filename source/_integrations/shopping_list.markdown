@@ -13,7 +13,7 @@ ha_integration_type: integration
 
 The `shopping_list` integration allows you to keep track of shopping list items.
 
-Your shopping list will be accessible from the sidebar, and you can optionally add the [Shopping List card](/dashboards/shopping-list/) to your dashboard. With the [Conversation integration](/integrations/conversation/) you can add items to your shopping list using voice commands like "Add eggs to my shopping list."
+Your shopping list will be accessible from the sidebar, and you can optionally add the [Shopping List card](/dashboards/shopping-list/) to your dashboard. With the [Conversation integration](/integrations/conversation/), you can add items to your shopping list using voice commands like "Add eggs to my shopping list."
 
 {% include integrations/config_flow.md %}
 
@@ -21,11 +21,11 @@ Your shopping list will be accessible from the sidebar, and you can optionally a
 
 The integration creates three entities, which expose the counts of the number of items in the shopping list. There is one each for:
 
-* The total number of items
-* The number of incomplete items
-* The number of completed items
+- The total number of items
+- The number of incomplete items
+- The number of completed items
 
-These are useful when used in automations, for example to notify you if you're at the shops and there are incomplete items in your shopping list.
+These are useful when used in automations, for example, to notify you if you're at the shops and there are incomplete items in your shopping list.
 
 ## Services
 
