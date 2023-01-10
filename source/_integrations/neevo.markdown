@@ -2,7 +2,8 @@
 title: "OTODATA Nee-Vo Tank Monitoring"
 description: "Integration for OTODATA Nee-Vo Tank Monitoring system"
 ha_release: "2023.1.3"
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_iot_class: "Cloud Polling"
 ha_config_flow: true
 ha_platforms:
