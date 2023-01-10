@@ -112,9 +112,10 @@ sudo apt install libfuse2
 {% if page.installation_type == 'odroid' %}
    If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
 {% endif %}
-2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. (You may need to run it with administrator privileges on Windows).
+2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. (You may need to run it with administrator privileges on Windows. For ARM Apple devices it is recommended to use <a href="https://www.raspberrypi.com/software/" target="_blank">Raspberry Pi Imager</a>).
 3. Select "Flash from URL"
 ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
+For ARM Apple devices, download the image from 4. Select "Chose OS" and "Own Image" in Raspberry Pi Imager.
 
 4. Get the URL for your {{site.installation.types[page.installation_type].board}}:
 {% if site.installation.types[page.installation_type].variants.size > 1 %}
