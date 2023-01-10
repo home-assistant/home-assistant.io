@@ -18,24 +18,29 @@ The following selectors are currently available:
 - [Action selector](#action-selector)
 - [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
+  - [Example area selectors](#example-area-selectors)
 - [Attribute selector](#attribute-selector)
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
 - [Config entry selector](#config-entry-selector)
 - [Date selector](#date-selector)
-- [Date & time selector](#date--time-selector)
+- [Date \& time selector](#date--time-selector)
 - [Device selector](#device-selector)
+  - [Example device selector](#example-device-selector)
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
+  - [Example entity selector](#example-entity-selector)
 - [Icon selector](#icon-selector)
 - [Location selector](#location-selector)
 - [Media selector](#media-selector)
 - [Number selector](#number-selector)
+  - [Example number selectors](#example-number-selectors)
 - [Object selector](#object-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
 - [Target selector](#target-selector)
+  - [Example target selectors](#example-target-selectors)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
@@ -800,6 +805,24 @@ mode:
     radio buttons. When more items are added, a dropdown list is used. If
     `custom_value` is `true`, this setting will be ignored and the frontend
     will use a `dropdown` input.
+  type: string
+  required: false
+translation_domain:
+  description: >
+    Allows translations provided by an integration where `translation_domain`
+    is the integration domain that is providing the selector option strings
+    translation. See the documentation on
+    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    for more information.
+  type: string
+  required: false
+translation_key:
+  description: >
+    Allows translations provided by an integration where `translation_key`
+    is the translation key that is providing the selector option strings
+    translation. See the documentation on
+    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    for more information.
   type: string
   required: false
 {% endconfiguration %}
