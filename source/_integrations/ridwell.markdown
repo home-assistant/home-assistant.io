@@ -10,6 +10,7 @@ ha_codeowners:
   - '@bachya'
 ha_config_flow: true
 ha_platforms:
+  - calendar
   - diagnostics
   - sensor
   - switch
