@@ -3,6 +3,7 @@ title: Universal Devices ISY/IoX
 description: Instructions on how to setup an ISY controller within Home Assistant.
 ha_category:
   - Binary Sensor
+  - Button
   - Climate
   - Cover
   - Fan
@@ -22,6 +23,7 @@ ha_codeowners:
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - fan
@@ -38,9 +40,10 @@ ISY is a home automation controller capable of controlling Insteon, X10, Z-Wave 
 
 This integration supports the legacy ISY994 hardware family, as well as current ISY-on-Anything (IoX) hardware, such as the [eisy](https://www.universal-devices.com/product/eisy-home/) or [Polisy](https://www.universal-devices.com/polisy/) devices.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following platforms within Home Assistant:
 
 - Binary Sensor
+- Button
 - Climate
 - Cover
 - Light
@@ -50,7 +53,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
-Home Assistant is capable of communicating with any binary sensor, cover, fan, light, lock, sensor and switch that is configured on the controller. Using the programs on the controller, custom binary sensors, covers, fans, locks, and switches can also be created.
+Home Assistant is capable of communicating with any binary sensor, cover, fan, light, lock, sensor and switch that is configured on the controller. Using the programs on the controller, custom binary sensors, covers, fans, locks, and switches can also be created. Each device and the ISY hub also include a Query button to query the device.
 
 ISY Networking Module Resources can be executed using the buttons created.
 
@@ -167,7 +170,7 @@ Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant 
 Once loaded, the following services will be exposed with the `isy994.` prefix, to allow advanced control over the ISY and its connected devices:
 
  - Entity services for Home Assistant-connected entities: `send_node_command`, `send_raw_node_command`, `set_on_level`, and `set_ramp_rate`.
- - Generic ISY services: `system_query` and `send_program_command`.
+ - Generic ISY services: `send_program_command`
  - Management services for the ISY Home Assistant integration: `reload` and `cleanup_entities`.
 
 #### Service `isy994.send_node_command`
@@ -237,15 +240,6 @@ Send an ISY set_ramp_rate command to a `light` Node to set the devices' ramp rat
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |     no   | Name(s) of target entities for the command, e.g., `light.front_porch`. |
 | `value` | no | The integer index value to set the Ramp Rate to in a range of `0` (9.5 minutes) to `31` (0.1 Seconds), e.g., `28` |
-
-#### Service `isy994.system_query`
-
-Request the ISY Query the connected devices.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `address` | yes | ISY Address to Query. Omitting this requests a system-wide scan (typically recommended by UDI to be scheduled once per day), e.g., `"1A 2B 3C 1"` |
-| `isy` | yes | If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console). Omitting this will cause all ISYs to be queried, e.g., `"ISY"` |
 
 #### Service `isy994.send_program_command`
 
