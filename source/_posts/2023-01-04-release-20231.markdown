@@ -50,6 +50,7 @@ PS: Did you know [Home Assistant is now on Mastodon](https://fosstodon.org/@home
 - [New Integrations](#new-integrations)
 - [Release 2023.1.1 - January 5](#release-202311---january-5)
 - [Release 2023.1.2 - January 8](#release-202312---january-8)
+- [Release 2023.1.3 - January 10](#release-202313---january-10)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -357,6 +358,59 @@ We welcome the following new integrations in this release:
 [sensor docs]: /integrations/sensor/
 [switchbot docs]: /integrations/switchbot/
 [zha docs]: /integrations/zha/
+
+## Release 2023.1.3 - January 10
+
+- Bump pyunifiprotect to 4.6.0 ([@AngellusMortis] - [#85483]) ([unifiprotect docs])
+- Remove invalid Signal Strength device class from NETGEAR ([@frenck] - [#85510]) ([netgear docs])
+- Restore Netgear signal strength icon ([@starkillerOG] - [#85512])
+- Remove invalid state class in Subaru sensor ([@epenet] - [#85520]) ([subaru docs])
+- Bump sense_energy to 0.11.1 ([@kbickar] - [#85533]) ([sense docs]) ([emulated_kasa docs])
+- Bump pyunifiprotect to 4.6.1 ([@AngellusMortis] - [#85547]) ([unifiprotect docs])
+- Do not check ble scanner state for sleepy shelly devices ([@bdraco] - [#85566]) ([shelly docs])
+- Remove no-longer-needed invalid API key monitor for OpenUV ([@bachya] - [#85573]) ([openuv docs])
+- Bump aioshelly to 5.2.1 to fix Task exception was never retrieved ([@thecode] - [#85575]) ([shelly docs])
+- Bump gcal-sync to 4.1.2 ([@allenporter] - [#85631]) ([google docs])
+- Bump hatasmota to 0.6.3 ([@emontnemery] - [#85633]) ([tasmota docs])
+- Update frontend to 20230110.0 ([@piitaya] - [#85640]) ([frontend docs])
+
+[#85120]: https://github.com/home-assistant/core/pull/85120
+[#85277]: https://github.com/home-assistant/core/pull/85277
+[#85481]: https://github.com/home-assistant/core/pull/85481
+[#85483]: https://github.com/home-assistant/core/pull/85483
+[#85510]: https://github.com/home-assistant/core/pull/85510
+[#85512]: https://github.com/home-assistant/core/pull/85512
+[#85520]: https://github.com/home-assistant/core/pull/85520
+[#85533]: https://github.com/home-assistant/core/pull/85533
+[#85547]: https://github.com/home-assistant/core/pull/85547
+[#85566]: https://github.com/home-assistant/core/pull/85566
+[#85573]: https://github.com/home-assistant/core/pull/85573
+[#85575]: https://github.com/home-assistant/core/pull/85575
+[#85631]: https://github.com/home-assistant/core/pull/85631
+[#85633]: https://github.com/home-assistant/core/pull/85633
+[#85640]: https://github.com/home-assistant/core/pull/85640
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@allenporter]: https://github.com/allenporter
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@kbickar]: https://github.com/kbickar
+[@piitaya]: https://github.com/piitaya
+[@starkillerOG]: https://github.com/starkillerOG
+[@thecode]: https://github.com/thecode
+[emulated_kasa docs]: /integrations/emulated_kasa/
+[frontend docs]: /integrations/frontend/
+[google docs]: /integrations/google/
+[netgear docs]: /integrations/netgear/
+[openuv docs]: /integrations/openuv/
+[sense docs]: /integrations/sense/
+[shelly docs]: /integrations/shelly/
+[subaru docs]: /integrations/subaru/
+[tasmota docs]: /integrations/tasmota/
+[unifiprotect docs]: /integrations/unifiprotect/
 
 ## Need help? Join the community!
 
