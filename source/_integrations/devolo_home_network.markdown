@@ -50,7 +50,7 @@ Currently the following device types within Home Assistant are supported.
 
 * Turn on/off guest wifi
   * Is enabled by default
-* Turn of/off the device LEDs
+* Turn on/off the device LEDs
   * Is enabled by default
 
 ## Supported devolo Devices
