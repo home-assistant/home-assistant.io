@@ -1,16 +1,13 @@
 ---
 title: EVSE WiFi
-description: Instructions on how to integrate a WiFi-equipped Simple EVSE Charging station with Home Assistant
+description: Instructions on how to integrate a Wi-Fi-equipped Simple EVSE Charging station with Home Assistant
 ha_category:
   - Car
-ha_release: 0.38
+ha_release: 2023.1.1
 ha_iot_class: Local Polling
 ha_domain: evse_wifi
 ha_platforms:
   - sensor
-  - switch
-  - button
-  - number
 ha_integration_type: integration
 ---
 
@@ -19,6 +16,8 @@ This EVSE WiFi device platform pulls data from an [SimpleEvse-WiFi](https://gith
 ## Configuration
 
 To enable this sensor in your installation, search for "Evse-Wifi" in the Integrations and add it via the Configuration-Flow
+
+{% include integrations/config-flow.md %}
 
 ## Sensors
 
@@ -35,15 +34,3 @@ To enable this sensor in your installation, search for "Evse-Wifi" in the Integr
 - Milage [km] (Milage charged in current charge phase)
 - Vehicle State (State of the Vehicle as Integer)
 - Vehicle State Text (State of the Vehilce as a String)
-
-## Buttons
-
-- Reboot Evse ESP
-
-## Switches 
-
-- Charge State
-
-## Numbers
-
-- Charge Current
