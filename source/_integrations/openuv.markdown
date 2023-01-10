@@ -188,7 +188,7 @@ provided by OpenUV. So, this strategy is followed:
 1. Any `HTTP 403` response will create a persistent notification asking you to
    re-authenticate the OpenUV integration.
 2. In the case of an overrun API call limit, once the `homeassistant.update_entity`
-   service call is successful, existing re-authentication notifications will
+   service call is again successful, existing re-authentication notifications will
    automatically be removed.
 
 If you receive a re-authentication notification and are certain that your key has merely
