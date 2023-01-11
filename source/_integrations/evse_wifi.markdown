@@ -17,7 +17,7 @@ This EVSE WiFi device platform pulls data from an [SimpleEvse-WiFi](https://gith
 
 To enable this sensor in your installation, search for "Evse-Wifi" in the Integrations and add it via the Configuration-Flow
 
-{% include integrations/config-flow.md %}
+{% include integrations/config_flow.md %}
 
 ## Sensors
 
