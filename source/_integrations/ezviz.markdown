@@ -23,6 +23,8 @@ It also exposes an RTSP stream, by using the local camera IPs (so the device hos
 
 As there is no official documentation for the API, the component retrieves data from the API used in the EZVIZ mobile app, [hosted here](https://apiieu.ezvizlife.com).
 
+The authentication requires an EZVIZ account with two-step verification disabled. Google, Facebook, TikTok or other Oauth based accounts will not work.
+
 The password for each camera is usually written near the QR code. This could be underneath the device or in the user manual. It is usually referred to as the camera "verification code".
 
 {% include integrations/config_flow.md %}
