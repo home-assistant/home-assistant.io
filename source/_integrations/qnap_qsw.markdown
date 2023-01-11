@@ -62,6 +62,17 @@ The following *sensors* are created:
 | temperature         | Switch temperature.                |
 | uptime              | Uptime seconds.                    |
 
+The following sensors are created for each port (or LACP):
+
+| Condition           | Description                        |
+| :------------------ | :--------------------------------- |
+| link_speed          | Link speed.                        |
+| rx                  | RX bytes.                          |
+| rx_errors           | Number of RX errors.               |
+| rx_speed            | RX speed.                          |
+| tx                  | TX bytes.                          |
+| tx_speed            | TX speed.                          |
+
 ## Update
 
 | Update              | Description                        |

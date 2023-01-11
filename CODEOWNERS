@@ -351,6 +351,7 @@ source/_integrations/landisgyr_heat_meter.markdown @vpathuis
 source/_integrations/launch_library.markdown @ludeeus @DurgNomis-drol
 source/_integrations/laundrify.markdown @xLarry
 source/_integrations/lcn.markdown @alengwenus
+source/_integrations/ld2410_ble.markdown @930913
 source/_integrations/led_ble.markdown @bdraco
 source/_integrations/legrand.markdown @cgtobi
 source/_integrations/leviton_z_wave.markdown @home-assistant/z-wave
