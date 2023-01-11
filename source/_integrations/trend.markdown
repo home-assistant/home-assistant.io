@@ -23,10 +23,7 @@ as part of automations, where you want to base an action on a trend.
 
 {% include integrations/config_flow.md %}
 
-## Configuration
-
-To enable Trend binary sensors in your installation,
-add the following to your `configuration.yaml` file:
+You can also configure this helper via YAML like so:
 
 ```yaml
 # Example configuration.yaml entry
