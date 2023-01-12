@@ -151,5 +151,5 @@ Or by calling the `conversation.process` service with the transcribed text:
 ```yaml
 service: conversation.process
 data:
-  text: dim the family room lights
+  text: "Dim the family room lights"
 ```
