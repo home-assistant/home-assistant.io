@@ -606,6 +606,8 @@ actions in the `else` part, you may want to consider using
 
 [Template shorthand notation][shorthand-template] can be used with if-then. The code below is equivalent to the example above.
 
+{% raw %}
+
 ```yaml
 script:
   - if: "{{ is_state('zone.home', 0) }}"
@@ -619,6 +621,8 @@ script:
         data:
           message: "Skipped cleaning, someone is home!"
 ```
+
+{% endraw %}
 
 ## Choose a Group of Actions
 
