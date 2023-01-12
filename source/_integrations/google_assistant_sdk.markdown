@@ -27,7 +27,7 @@ This integration allows:
   - Someone is at the front door
   - Smoke detected in the master bedroom
   - Water leak detected in the master bathroom
-- Having a conversation with Google Assistant using the [conversation](https://www.home-assistant.io/integrations/conversation/) integration via text or voice.
+- Having a conversation with Google Assistant using the [conversation](/integrations/conversation/) integration via text or voice.
 
 ## Prerequisites
 
