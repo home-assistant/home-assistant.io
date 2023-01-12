@@ -34,15 +34,15 @@ The Images stream provides a sequence of image snapshots giving very low latency
 
 Depending on the supported features of the camera binary sensors are added for:
 
-- motion detection
-- doorbell presses
+- Motion detection
+- Doorbell presses
 - AI person detection
 - AI vehicle detection
 - AI pet detection
 - AI face detection
 
 These sensors are polled every 60 seconds and receive ONVIF push events for immediate updates.
-Not all camera models generate ONVIF push events for all event types, some binary sensors might therefore only be polled.
+Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
 
 ## Tested models
 
