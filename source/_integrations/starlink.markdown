@@ -38,7 +38,6 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 - Roaming - Whether Starlink is "roaming". Roaming is an optional upgrade that allows you to use your Starlink outside of your home address. It is also known as "portability"
 - Heating - Whether Dishy is currently heating. This may be due to cold temperatures, or an attempt to thaw snow and ice
 - Idle - Whether Starlink is in an "idle" state to save power
-- Update pending - Whether there's currently an update waiting to be installed
 - Mast near vertical - Whether Dishy is mounted straight
 - Motors stuck - Whether Dishy is unable to move
 - Thermal throttle - Whether Starlink has reduced performance to avoid overheating
