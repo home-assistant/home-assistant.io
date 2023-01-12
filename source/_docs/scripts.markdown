@@ -604,7 +604,7 @@ This action supports nesting, however, if you find yourself using nested if-then
 actions in the `else` part, you may want to consider using
 [choose](#choose-a-group-of-actions) instead.
 
-[Template shorthand notation](https://www.home-assistant.io/docs/scripts/conditions/#template-condition-shorthand-notation) can be used with if-then. The code below is equivalent to the example above.
+[Template shorthand notation][shorthand-template] can be used with if-then. The code below is equivalent to the example above.
 
 ```yaml
 script:
