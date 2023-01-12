@@ -61,6 +61,15 @@ ISY Networking Module Resources can be executed using the buttons created.
 
 Once the ISY controller is configured, it will automatically import any binary sensors, covers, fans, lights, locks, sensors and switches it can locate.
 
+### Configuration Options
+
+There are several options available to further customize what is imported from the ISY controller and entity behavior.
+
+- Sensor String: This is the string that is used to identify which devices are to be assumed to be sensors instead of lights or switches. If this string is found in the device name or folder, Home Assistant will assume it is a sensor or binary sensor (if the device has on/off or true/false states). This is only necessary for nodes that are not automatically detected as sensors by Home Assistant. Insteon door, window, motion and leak sensors should all be detected automatically.
+- Variable Sensor String: This is the string that is used to identify which Integer or State Variables are to be enabled by default as `number` entities. If this string is found in the device name, Home Assistant will assume it is a sensor. Default is `"HA."`.
+- Ignore String: Any devices that contain this string in their name (or folder path) will be ignored by Home Assistant. They will not become entities at all and will not fire `control_events`. Default is `"{IGNORE ME}"`.
+- Restore Light State: If disabled (default behavior), lights turned ON from Home Assistant without a `brightness` parameter set, will turn on to the `on_level` set within the physical device. For example, on Insteon devices this would be the same brightness as if the switch/device was turned ON. If this setting is enabled, lights that are turned on from Home Assistant will go to the last known brightness value. Both the `on_level` and `last_brightness` values are available as attributes if needed for device-specific customization.
+
 ### Sensors
 
 An Insteon door/window sensor will show up as a single Binary Sensor rather than two discrete devices like it does in the ISY Admin Console. Note that when in "Two Nodes" mode, the sensor will have an UNKNOWN state until the sensor changes for the first time since the last Home Assistant reboot. If you do not use Insteon scenes that are controlled directly from the door sensor, you may prefer to set the sensor to "One Node" mode using the ISY Admin Panel.
