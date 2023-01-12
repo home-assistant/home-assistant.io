@@ -4,6 +4,8 @@ description: Instructions on how to integrate Starlink into Home Assistant.
 ha_category:
   - Sensor
   - Binary Sensor
+  - Switch
+  - Button
   - Network
 ha_release: 2023.2
 ha_iot_class: Local Polling
@@ -14,6 +16,8 @@ ha_domain: starlink
 ha_platforms:
   - sensor
   - binary_sensor
+  - switch
+  - button
 ha_integration_type: integration
 ---
 
@@ -42,3 +46,11 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 - Motors stuck - Whether Dishy is unable to move
 - Thermal throttle - Whether Starlink has reduced performance to avoid overheating
 - Unexpected location - Whether Starlink has detected operation outside of its designated area
+
+### Switch
+
+- Stowed - Controls whether Dishy is stowed
+
+### Button
+
+- Reboot - Reboots your Starlink system
