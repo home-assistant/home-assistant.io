@@ -51,6 +51,7 @@ PS: Did you know [Home Assistant is now on Mastodon](https://fosstodon.org/@home
 - [Release 2023.1.1 - January 5](#release-202311---january-5)
 - [Release 2023.1.2 - January 8](#release-202312---january-8)
 - [Release 2023.1.3 - January 10](#release-202313---january-10)
+- [Release 2023.1.4 - January 12](#release-202314---january-12)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -411,6 +412,48 @@ We welcome the following new integrations in this release:
 [subaru docs]: /integrations/subaru/
 [tasmota docs]: /integrations/tasmota/
 [unifiprotect docs]: /integrations/unifiprotect/
+
+## Release 2023.1.4 - January 12
+
+- Upgrade aionanoleaf to 0.2.1 ([@milanmeu] - [#83669]) ([nanoleaf docs])
+- Improve Huawei LTE SSDP inclusion ([@scop] - [#85572]) ([huawei_lte docs])
+- Remove oauth2client dependency in Google Sheets ([@tkdrob] - [#85637]) ([google_sheets docs])
+- Upgrade huawei-lte-api to 1.6.11 ([@scop] - [#85669]) ([huawei_lte docs])
+- Update pyTibber to 0.26.8 ([@Danielhiversen] - [#85702]) ([tibber docs])
+- Bump pylitterbot to 2023.1.0 ([@natekspencer] - [#85484]) ([litterrobot docs])
+- Use built in polling for litterrobot update entity ([@natekspencer] - [#84678]) ([litterrobot docs])
+- Fix Litter-Robot 4 firmware versions reported while updating ([@natekspencer] - [#85710]) ([litterrobot docs])
+- Use jemalloc in Docker builds ([@frenck] - [#85738])
+- Bump aiowebostv to 0.3.0 ([@thecode] - [#85756]) ([webostv docs])
+
+[#83669]: https://github.com/home-assistant/core/pull/83669
+[#84678]: https://github.com/home-assistant/core/pull/84678
+[#85120]: https://github.com/home-assistant/core/pull/85120
+[#85277]: https://github.com/home-assistant/core/pull/85277
+[#85481]: https://github.com/home-assistant/core/pull/85481
+[#85484]: https://github.com/home-assistant/core/pull/85484
+[#85572]: https://github.com/home-assistant/core/pull/85572
+[#85637]: https://github.com/home-assistant/core/pull/85637
+[#85645]: https://github.com/home-assistant/core/pull/85645
+[#85669]: https://github.com/home-assistant/core/pull/85669
+[#85702]: https://github.com/home-assistant/core/pull/85702
+[#85710]: https://github.com/home-assistant/core/pull/85710
+[#85738]: https://github.com/home-assistant/core/pull/85738
+[#85756]: https://github.com/home-assistant/core/pull/85756
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@balloob]: https://github.com/balloob
+[@frenck]: https://github.com/frenck
+[@milanmeu]: https://github.com/milanmeu
+[@natekspencer]: https://github.com/natekspencer
+[@scop]: https://github.com/scop
+[@thecode]: https://github.com/thecode
+[@tkdrob]: https://github.com/tkdrob
+[google_sheets docs]: /integrations/google_sheets/
+[huawei_lte docs]: /integrations/huawei_lte/
+[litterrobot docs]: /integrations/litterrobot/
+[nanoleaf docs]: /integrations/nanoleaf/
+[tibber docs]: /integrations/tibber/
+[webostv docs]: /integrations/webostv/
 
 ## Need help? Join the community!
 
