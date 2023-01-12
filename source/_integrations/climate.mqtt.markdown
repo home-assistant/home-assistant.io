@@ -220,7 +220,7 @@ mode_command_template:
   required: false
   type: template
 mode_command_topic:
-  description: The MQTT topic to publish commands to change the HVAC operation mode.
+  description: The MQTT topic to publish commands to change the HVAC operation mode. Use with `mode_command_template` if you only want to publish the power state.
   required: false
   type: string
 mode_state_template:
@@ -270,10 +270,6 @@ payload_on:
   required: false
   type: string
   default: "ON"
-power_command_topic:
-  description: The MQTT topic to publish commands to change the power state. This is useful if your device has a separate power toggle in addition to mode.
-  required: false
-  type: string
 precision:
   description: The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`.
   required: false
@@ -449,6 +445,8 @@ Similarly for `*_command_topic`s, a template can be specified to render the outg
 
 A full configuration example looks like the one below.
 
+{% raw %}
+
 ```yaml
 # Full example configuration.yaml entry
 mqtt:
@@ -469,11 +467,13 @@ mqtt:
         - "eco"
         - "sleep"
         - "activity"
-      power_command_topic: "study/ac/power/set"
       preset_mode_command_topic: "study/ac/preset_mode/set"
       mode_command_topic: "study/ac/mode/set"
+      mode_command_template: "{{ value if value=="off" else "on" }}"
       temperature_command_topic: "study/ac/temperature/set"
       fan_mode_command_topic: "study/ac/fan/set"
       swing_mode_command_topic: "study/ac/swing/set"
       precision: 1.0
 ```
+
+{% endraw %}
