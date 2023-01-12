@@ -3,6 +3,8 @@ title: Starlink
 description: Instructions on how to integrate Starlink into Home Assistant.
 ha_category:
   - Sensor
+  - Binary Sensor
+  - Network
 ha_release: 2023.2
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -11,6 +13,7 @@ ha_codeowners:
 ha_domain: starlink
 ha_platforms:
   - sensor
+  - binary_sensor
 ha_integration_type: integration
 ---
 
@@ -22,11 +25,20 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 
 ### Sensor
 
-The following sensors are added for each Starlink system:
-
 - Ping - The ping that Starlink has measured, in ms
 - Azimuth - The direction Dishy is facing in degrees
 - Elevation - Dishy's current elevation in degrees
 - Uplink throughput - The amount of data being uploaded through Starlink in Mbit/s
 - Downlink throughput - The amount of data being downloaded through Starlink in Mbit/s
 - Last boot time - The time Starlink was last turned on
+
+### Binary Sensor
+
+- Obstructed - Whether Dishy is currently obstructed
+- Roaming - Whether Starlink is "roaming". Roaming is an optional upgrade that allows you to use your Starlink outside of your home address. It is also known as "portability"
+- Heating - Whether Dishy is currently heating. This may be due to cold temperatures, or an attempt to thaw snow and ice
+- Idle - Whether Starlink is in an "idle" state to save power
+- Mast near vertical - Whether Dishy is mounted straight
+- Motors stuck - Whether Dishy is unable to move
+- Thermal throttle - Whether Starlink has reduced performance to avoid overheating
+- Unexpected location - Whether Starlink has detected operation outside of its designated area
