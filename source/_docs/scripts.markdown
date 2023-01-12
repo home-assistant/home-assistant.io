@@ -604,6 +604,22 @@ This action supports nesting, however, if you find yourself using nested if-then
 actions in the `else` part, you may want to consider using
 [choose](#choose-a-group-of-actions) instead.
 
+[Template shorthand notation](https://www.home-assistant.io/docs/scripts/conditions/#template-condition-shorthand-notation) can be used with if-then. The code below is equivalent to the example above.
+
+```yaml
+script:
+  - if: "{{ is_state('zone.home', 0) }}"
+    then:
+      - alias: "Then start cleaning already!"
+        service: vacuum.start
+        target:
+          area_id: living_room
+    else:
+      - service: notify.notify
+        data:
+          message: "Skipped cleaning, someone is home!"
+```
+
 ## Choose a Group of Actions
 
 This action allows you to select a sequence of other actions from a list of sequences.
