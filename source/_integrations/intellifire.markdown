@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Climate
   - Fan
+  - Light
   - Number
   - Sensor
   - Switch
@@ -17,6 +18,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - climate
+  - light
   - fan
   - number
   - sensor
@@ -56,6 +58,11 @@ If your unit is equipped with a fan - this entry will be present. There are 5 po
 ### Climate
 
 - **Thermostat** - This entity will be present if your unit has thermostatic control.
+
+
+### Light
+
+The integration provides a light entity if the unit is equipped with lights.
 
 ### Number
 
