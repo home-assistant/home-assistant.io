@@ -111,10 +111,14 @@ sensor:
 ## Linux specific
 
 To retrieve all available network interfaces on a Linux System, execute the
-`ifconfig` command.
+`ifconfig` or `ip` command. The command differ based on your operation systm and version.
 
 ```bash
 ifconfig -a | sed 's/[ \t].*//;/^$/d'
+```
+
+```bash
+ip link show
 ```
 
 ## Windows specific
