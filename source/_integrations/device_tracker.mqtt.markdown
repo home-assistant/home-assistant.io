@@ -149,6 +149,11 @@ payload_not_home:
   required: false
   type: string
   default: not_home
+payload_reset:
+  description: The payload value that will have the device's location automatically derived from Home Assistant's zones.
+  required: false
+  type: string
+  default: "None"
 qos:
   description: The maximum QoS level of the state topic.
   required: false

@@ -17,6 +17,7 @@ The `lacrosse` sensor platform is using the data provided by a [Jeelink](https:/
 
 - Technoline TX 29 IT (temperature only)
 - Technoline TX 29 DTH-IT (including humidity)
+- TFA Dostmann LaCrosse sensors (type 30.3147.IT)
 
 ## Setup
 

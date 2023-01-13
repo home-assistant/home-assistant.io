@@ -108,10 +108,10 @@ social:
     account: "https://fosstodon.org/@homeassistant"
 
 # Home Assistant release details
-current_major_version: 2022
-current_minor_version: 12
-current_patch_version: 9
-date_released: 2023-01-02
+current_major_version: 2023
+current_minor_version: 1
+current_patch_version: 4
+date_released: 2023-01-12
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -203,14 +203,10 @@ installation:
       board: Raspberry Pi
       installation_media: "SD card"
       variants:
-        - name: "Raspberry Pi 4 64-bit"
+        - name: "Raspberry Pi 4"
           key: "rpi4-64"
-        - name: "Raspberry Pi 4 32-bit"
-          key: "rpi4"
-        - name: "Raspberry Pi 3 64-bit"
+        - name: "Raspberry Pi 3"
           key: "rpi3-64"
-        - name: "Raspberry Pi 3 32-bit"
-          key: "rpi3"
 
     tinkerboard:
       board: ASUS Tinkerboard

@@ -276,7 +276,6 @@
 /getting-started/basic /docs/configuration/basic
 /getting-started/browsers /docs/frontend/browsers
 /getting-started/customizing-devices /docs/configuration/customizing-devices
-/getting-started/devices /docs/configuration/devices
 /getting-started/installation /docs/installation
 /getting-started/installation-docker /docs/installation/docker
 /getting-started/installation-virtualenv /docs/installation/virtualenv
@@ -412,6 +411,7 @@
 /docs/tools/keyring/ /docs/configuration/secrets
 /docs/tools/credstash/ /docs/configuration/secrets
 /docs/scripts/editor/ /docs/scripts
+/getting-started/devices /integrations
 
 # Blog
 /blog/2019/05/29/release-94 /blog/2019/06/05/release-94
@@ -435,6 +435,7 @@
 /integrations/ciscospark /more-info/removed-integration 301
 /integrations/coinmarketcap /more-info/removed-integration 301
 /integrations/crimereports /more-info/removed-integration 301
+/integrations/deutsche_bahn /more-info/removed-integration 301
 /integrations/device_tracker.trackr /more-info/removed-integration 301
 /integrations/dht /more-info/removed-integration 301
 /integrations/digitalloggers /more-info/removed-integration 301

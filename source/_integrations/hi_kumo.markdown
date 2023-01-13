@@ -26,6 +26,7 @@ ha_codeowners:
   - '@imicknl'
   - '@vlebourl'
   - '@tetienne'
+  - '@nyroDev'
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel

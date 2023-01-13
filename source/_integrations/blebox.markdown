@@ -19,6 +19,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
 [BleBox](https://blebox.eu/?lang=en) produces small, low-power, surprisingly affordable, feature-rich WiFi devices for serverless home automation.
@@ -73,6 +74,7 @@ This integration adds the BleBox device as a climate in Home Assistant.
 Currently, this includes support for the following product classes:
 
 - BleBox saunaBox
+- BleBox thermoBox
 
 ## Air Quality
 
