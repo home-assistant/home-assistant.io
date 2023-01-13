@@ -79,11 +79,11 @@ You can also control the green status light brightness with **Status light brigh
 ## Identify
 
 The identify button can be pressed to let the status light blink for a few seconds.
-This feature is currently only available for the Wifi P1 meter with firmware version `4.00` or later and the Wifi Energy Socket.
+This feature is currently only available for the Wifi P1 meter and the Wifi Energy Socket.
 
 ## Cloud communication
 
 The HomeWizard Energy devices are designed to work with the HomeWizard Energy app and require communication with the HomeWizard cloud to make them function with the app. The "Cloud connection" configuration toggle can be used to turn off all communication with the HomeWizard cloud, making the device fully local. The device cannot communicate with the app, and the device won't receive any future firmware updates.
 
 Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.
-This feature is currently only available for the Wifi P1 meter with firmware version `4.00` or later and the Wifi Energy Socket.
+This feature is currently only available for the Wifi P1 meter and the Wifi Energy Socket.
