@@ -13,10 +13,6 @@ ha_integration_type: integration
 
 This EVSE WiFi device platform pulls data from an [SimpleEvse-WiFi](https://github.com/CurtRod/SimpleEVSE-WiFi) Charging station equipped with an ESP8266-based Wi-Fi connection.
 
-## Configuration
-
-To enable this sensor in your installation, search for "Evse-Wifi" in the Integrations and add it via the Configuration-Flow
-
 {% include integrations/config_flow.md %}
 
 ## Sensors
