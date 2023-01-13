@@ -23,8 +23,6 @@ It also exposes an RTSP stream, by using the local camera IPs (so the device hos
 
 As there is no official documentation for the API, the component retrieves data from the API used in the EZVIZ mobile app, [hosted here](https://apiieu.ezvizlife.com).
 
-The authentication requires an EZVIZ account with two-step verification disabled. Google, Facebook, TikTok or other Oauth based accounts will not work.
-
 The password for each camera is usually written near the QR code. This could be underneath the device or in the user manual. It is usually referred to as the camera "verification code".
 
 {% include integrations/config_flow.md %}
@@ -92,3 +90,8 @@ To enable/disable motion detection, use the Home Assistant built in services.
 | Service data attribute | Description |
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
+
+----
+## Troubleshooting
+
+* `authentication failed`: The authentication requires an EZVIZ account with two-step verification disabled. Google, Facebook, TikTok or other Oauth based accounts will not work.
