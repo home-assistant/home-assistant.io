@@ -6,6 +6,9 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_domain: systemmonitor
+ha_codeowners:
+  - '@gjohansson-ST'
+ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: integration
@@ -14,40 +17,13 @@ ha_integration_type: integration
 The `systemmonitor` sensor platform allows you to monitor disk usage,
 memory usage, CPU usage, and running processes. 
 
-To add this platform to your installation,
-add the following to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /config
-      - type: memory_free
-```
+These sensors will show up and update their information every 15 seconds.
 
-{% configuration %}
-resources:
-  description: Contains all entries to display.
-  required: true
-  type: list
-  keys:
-    type:
-      description: The type of the information to display, please check the table below for details.
-      required: true
-    arg:
-      description: Argument to use, please check the table below for details.
-      required: false
-{% endconfiguration %}
+The table contains types and their argument to use when adding sensors.
 
-After restarting Home Assistant, these sensors will show up and update their
-information every 15 seconds.
-
-The table contains types and their argument to use in your `configuration.yaml`
-file.
-
-| Type (`type:`)         | Argument (`arg:`)         | Argument mandatory        |
+| Type                   | Argument                  | Argument mandatory        |
 | :--------------------- |:--------------------------|:--------------------------|
 | disk_use_percent       | Path, e.g., `/`           | no                        |
 | disk_use               | Path, e.g., `/`           | no                        |
@@ -91,17 +67,6 @@ tmpfs           934M     0  934M   0% /dev/shm
 
 Defining a `disk_use` sensor for `/` and `/home/pi` is redundant and will return the same values, since they both belong to the same "disk". However, defining separate sensors for `/dev` and `/dev/shm` is possible and provides different values, since those are treated as separate "disks" by the integration.
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: systemmonitor
-    resources:
-      - type: disk_use
-        arg: /dev
-      - type: disk_use
-        arg: /dev/shm
-```
-
 ## Processor temperature
 
 - If no hardware sensor data is available (e.g., because the integration runs in a virtualized environment), the sensor entity will not be created.
@@ -120,16 +85,11 @@ ifconfig -a | sed 's/[ \t].*//;/^$/d'
 ## Windows specific
 
 When running this platform on Microsoft Windows, Typically,
-the default interface would be called `Local Area Connection`,
-so your configuration might look like:
+the default interface would be called `Local Area Connection`.
+so your configuration might be configured:
 
-```yaml
-sensor:
-  - platform: systemmonitor
-    resources:
-      - type: network_in
-        arg: "Local Area Connection"
-```
+Type: `network_in`
+Argument: `Local Area Connection`
 
 If you need to use some other interface, open a command line prompt and type `ipconfig` to list all interface names. For example a wireless connection output from `ipconfig` might look like:
 
@@ -141,44 +101,3 @@ Wireless LAN adapter Wireless Network Connection:
 ```
 
 Where the name is `Wireless Network Connection`.
-
-## All available resources
-
-```yaml
-# Example configuration.yaml entry with all entry types (delete/comment out as necessary)
-sensor:
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /config
-      - type: disk_use
-      - type: disk_free
-      - type: memory_use_percent
-      - type: memory_use
-      - type: memory_free
-      - type: swap_use_percent
-      - type: swap_use
-      - type: swap_free
-      - type: load_1m
-      - type: load_5m
-      - type: load_15m
-      - type: network_in
-        arg: eth0
-      - type: network_out
-        arg: eth0
-      - type: throughput_network_in
-        arg: eth0
-      - type: throughput_network_out
-        arg: eth0
-      - type: packets_in
-        arg: eth0
-      - type: packets_out
-        arg: eth0
-      - type: ipv4_address
-        arg: eth0
-      - type: ipv6_address
-        arg: eth0
-      - type: processor_use
-      - type: processor_temperature
-      - type: last_boot
-```
