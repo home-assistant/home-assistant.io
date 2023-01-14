@@ -127,7 +127,7 @@ Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant 
 
 Once loaded, the following services will be exposed with the `isy994.` prefix, to allow advanced control over the ISY and its connected devices:
 
- - Entity services for Home Assistant-connected entities: `send_node_command`, `send_raw_node_command`, `set_on_level`, and `set_ramp_rate`.
+ - Entity services for Home Assistant-connected entities: `send_node_command`, `send_raw_node_command`, and `set_ramp_rate`.
  - Generic ISY services: `send_program_command`
  - Management services for the ISY Home Assistant integration: `reload` and `cleanup_entities`.
 
@@ -180,15 +180,6 @@ Rename a node or group (scene) on the ISY994. Note: this will not automatically 
 | ---------------------- | -------- | -------------------------------------------------------------- |
 | `entity_id`            | no       | Name of target entity for the command, e.g., `light.front_porch`. |
 | `name`                 | no       | The new name to use within the ISY.                         |
-
-#### Service `isy994.set_on_level`
-
-Send an ISY set_on_level command to a `light` Node to set the devices' local On Level.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |     no  | Name(s) of target entities for the command, e.g., `light.front_porch`. |
-| `value` | no | The integer value to set the On Level to in a range of 0-255, e.g., `255` |
 
 #### Service `isy994.set_ramp_rate`
 
