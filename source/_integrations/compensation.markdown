@@ -30,6 +30,20 @@ compensation:
     data_points:
       - [0.2, -80.0]
       - [1.0, 0.0]
+
+  media_player_db_volume:
+    source: media_player.yamaha_receiver_zone_2
+    attribute: volume_level
+    unit_of_measurement: dB
+    # Ensure that the sensor's value will not have a state lower than -80.0
+    # when the source sensors value is less than 0.2
+    apply_lower_limit: True
+    # Ensure that the sensor's value will not have a state greater than 0.0
+    # when the source sensors value is greater than 1.0
+    apply_upper_limit: True
+    data_points:
+      - [0.2, -80.0]
+      - [1.0, 0.0]
 ```
 
 {% configuration %}
@@ -63,4 +77,14 @@ unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
   required: false
   type: string
+apply_lower_limit:
+  description: "Enables a lower limit for the sensor.  The lower limit is defined by the data collections (`data_points`) lowest `uncompensated_value`.  For example, if the lowest `uncompensated_value` value is `1.0` and the paired `compensated_value` is `0.0`, the any `source` state less than `1.0` will produce a compensated state of `0.0`.""
+  required: false
+  type: boolean
+  default: false
+apply_upper_limit:
+  description: "Enables an upper limit for the sensor.  The upper limit is defined by the data collections (`data_points`) greatest `uncompensated_value`.  For example, if the greatest `uncompensated_value` value is `5.0` and the paired `compensated_value` is `10.0`, the any `source` state greater than `5.0` will produce a compensated state of `10.0`."
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
