@@ -76,6 +76,10 @@ login_attempts_threshold:
   required: false
   type: integer
   default: -1
+ip_ban_whitelist:
+  description: A list of trusted networks that that will be ignored by IP fltering.
+  required: false
+  type: [string, list]
 ssl_profile:
   description: The [Mozilla SSL profile](https://wiki.mozilla.org/Security/Server_Side_TLS) to use. Only lower if you are experiencing integrations causing SSL handshake errors.
   required: false
@@ -100,6 +104,9 @@ http:
     - 172.30.33.0/24
   ip_ban_enabled: true
   login_attempts_threshold: 5
+  ip_ban_whitelist:
+    - 10.0.0.0/24
+    - 172.30.33.0/24
 ```
 
 The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).
@@ -140,6 +147,8 @@ If you want to apply additional IP filtering, and automatically ban brute force 
 ```
 
 After a ban is added a Persistent Notification is populated to the Home Assistant frontend.
+
+Note that you can define a list of whitelisted IP networks (CIDR) using key `ip_ban_whitelist`, failed login attemps from an IP matching any whitelisted network will be logged but the IP will never be banned.
 
 ## Hosting files
 
