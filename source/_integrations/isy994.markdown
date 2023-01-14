@@ -11,6 +11,7 @@ ha_category:
   - Light
   - Lock
   - Number
+  - Select
   - Sensor
   - Switch
 ha_release: 0.28
@@ -30,6 +31,7 @@ ha_platforms:
   - light
   - lock
   - number
+  - select
   - sensor
   - switch
 ha_dhcp: true
@@ -50,6 +52,7 @@ There is currently support for the following platforms within Home Assistant:
 - Fan
 - Lock
 - Number
+- Select
 - Sensor
 - Switch
 
@@ -180,15 +183,6 @@ Rename a node or group (scene) on the ISY994. Note: this will not automatically 
 | ---------------------- | -------- | -------------------------------------------------------------- |
 | `entity_id`            | no       | Name of target entity for the command, e.g., `light.front_porch`. |
 | `name`                 | no       | The new name to use within the ISY.                         |
-
-#### Service `isy994.set_ramp_rate`
-
-Send an ISY set_ramp_rate command to a `light` Node to set the devices' ramp rate. Refer to the PyISY documentation for the [available values](https://github.com/automicus/PyISY/blob/d053369f7531370a907136bf25a177632adccd1e/pyisy/constants.py#L630).
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |     no   | Name(s) of target entities for the command, e.g., `light.front_porch`. |
-| `value` | no | The integer index value to set the Ramp Rate to in a range of `0` (9.5 minutes) to `31` (0.1 Seconds), e.g., `28` |
 
 #### Service `isy994.send_program_command`
 
