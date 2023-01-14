@@ -431,7 +431,6 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'stat_open':           'state_open',
     'stat_opening':        'state_opening',
     'stat_stopped':        'state_stopped',
-    'stat_jammed':         'state_jammed',
     'stat_locked':         'state_locked',
     'stat_locking':         'state_locking',
     'stat_unlocked':       'state_unlocked',
