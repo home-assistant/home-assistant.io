@@ -153,3 +153,5 @@ service: conversation.process
 data:
   text: "Dim the family room lights"
 ```
+
+Note: a lot of Google Assistant responses are empty bubbles, especially for home control commands, like turn on the lights. This is expected. For those, Google Assistant responds with HTML and Home Assistant integrations are [not allowed](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md) to parse HTML.
