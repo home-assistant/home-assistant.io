@@ -20,7 +20,7 @@ Optimistic mode can be forced, even if state topic is available. Try to enable i
 
 It's mandatory for locks to support `lock` and `unlock`. A lock may optionally support `open`, (e.g. to open the bolt in addition to the latch), in this case, `payload_open` is required in the configuration. If the lock is in optimistic mode, it will change states to `unlocked` when handling the `open` command.
 
-An MQTT lock can also report the intermediate states `unlocking`, `locking` and a state when the lock is `jammed`.
+An MQTT lock can also report the intermediate states `unlocking` and `locking`.
 <a id='new_format'></a>
 
 To enable MQTT locks in your installation, add the following to your `configuration.yaml` file:
@@ -194,11 +194,6 @@ retain:
   required: false
   type: boolean
   default: false
-state_jammed:
-  description: The payload sent to by the lock when it's jammed.
-  required: false
-  type: string
-  default: JAMMED
 state_locked:
   description: The payload sent to by the lock when it's locked.
   required: false
