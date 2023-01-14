@@ -15,6 +15,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Text
   - Weather
 ha_release: 0.24
 ha_iot_class: Local Push
@@ -38,6 +39,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - text
   - weather
 ha_config_flow: true
 ha_integration_type: hub
@@ -61,6 +63,7 @@ There is currently support for the following device types within Home Assistant:
 - [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Text](#text)
 - [Weather](#weather)
 
 {% include integrations/config_flow.md %}
@@ -82,16 +85,15 @@ knx:
 
 Please see the dedicated platform sections below about how to configure them correctly.
 
-
 ### Group addresses
 
 Group addresses are configured as strings or integers in the format "1/2/3" for 3-level GA-structure, "1/2" for 2-level GA-structure or "1" for free GA-structure.
 
 The HA KNX integration uses configured `state_address` or `*_state_address` to update the state of a function. These addresses are read by GroupValueRead requests on startup and when there was no incoming telegram for one hour (default `sync_state`).
 
-It is possible to configure passive/listening group addresses for all functions of every KNX platform (except `expose` and `notify`). This allows having multiple group addresses to update the state of its function (e.g., the brightness of a light). When group addresses are configured as a list of strings, the first item is the active sending or state-reading address and the rest is registered as passive addresses. This schema behaves like in ETS configuration where the first is the "sending" address and others are just for updating the communication object.
+It is possible to configure passive/listening group addresses for all functions of every KNX platform (except `expose` and `notify`). This allows having multiple group addresses to update the state of its function (e.g., the brightness of a light). When group addresses are configured as a list of strings, the first item is the active sending or state-reading address and the rest is registered as passive addresses. This schema behaves like in ETS configuration where the first is the "sending" address and others are just for updating the group object.
 
-If your KNX device provides active state communication objects it is advised to use `*_state_address` instead of passive addresses as it reduces configuration complexity and avoids wrong states (e.g., when channels are logically locked).
+If your KNX device provides active state group objects it is advised to use `*_state_address` instead of passive addresses as it reduces configuration complexity and avoids wrong states (e.g., when channels are logically locked).
 
 ```yaml
 knx:
@@ -287,7 +289,14 @@ remove:
 
 ## Exposing entity states, entity attributes or time to KNX bus
 
-KNX integration is able to expose entity states or attributes to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address. It is also possible to expose the current time.
+KNX integration is able to expose entity states or attributes to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address.
+It is also possible to expose the current time and date. These are sent to the bus every hour.
+
+<div class='note'>
+
+Expose is only triggered on state changes. If you need periodical telegrams, use an automation with the `knx.send` service to send the value to the bus.
+
+</div>
 
 ```yaml
 # Example configuration.yaml entry
@@ -296,6 +305,7 @@ knx:
     - type: temperature
       entity_id: sensor.owm_temperature
       address: "0/0/2"
+      cooldown: 600
     - type: string
       address: "0/6/4"
       entity_id: sensor.owm_weather
@@ -342,6 +352,16 @@ default:
   type: [boolean, string, integer, float]
   default: None
   required: false
+cooldown:
+  description: Minimum time in seconds between two sent telegrams. This can be used to avoid flooding the KNX bus when exposing frequently changing states. If the state changes multiple times within the cooldown period the most recent value will be sent.
+  type: float
+  default: 0
+  required: false
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Binary Sensor
@@ -586,7 +606,7 @@ knx:
 
 `setpoint_shift_mode` allows the two following DPTs to be used:
 
-- DPT6002 (for 1 byte signed integer)
+- DPT6010 (for 1 byte signed integer with scale factor)
 - DPT9002 (for 2 byte float)
 
 Example:
@@ -606,7 +626,7 @@ knx:
 ```
 
 `operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` / `operation_mode_standby_address` are not necessary if `operation_mode_address` is specified.
-If the actor doesn't support explicit state communication objects the `*_state_address` can be configured with the same group address as the writeable `*_address`. The read flag for the `*_state_address` communication object has to be set in ETS to support initial reading e.g., when starting Home Assistant.
+If the actor doesn't support explicit state group objects the `*_state_address` can be configured with the same group address as the writeable `*_address`. The read flag for the `*_state_address` group object has to be set in ETS to support initial reading e.g., when starting Home Assistant.
 
 The following values are valid for the `heat_cool_address` and the `heat_cool_state_address`:
 
@@ -641,7 +661,7 @@ temperature_address:
   required: true
   type: [string, list]
 temperature_step:
-  description: Defines the step size in Kelvin for each step of setpoint_shift.
+  description: Defines the step size in Kelvin for each step of setpoint_shift (scale factor). For non setpoint-shift configurations this is used to set the step of temperature sliders in UI.
   required: false
   type: float
   default: 0.1
@@ -1069,7 +1089,7 @@ entity_category:
 
 Many KNX devices can change their state internally without a message to the switch address on the KNX bus, e.g., if you configure a scene or a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given `state_address` (in most cases from the light actuator), it will overwrite the state of the object.
 
-For switching/light actuators that are only controlled by a single group address and don't have dedicated state communication objects you can set `state_address` to the same value as `address`.
+For switching/light actuators that are only controlled by a single group address and don't have dedicated state group objects you can set `state_address` to the same value as `address`.
 
 *Note on tunable white:* Home Assistant uses Mireds as the unit for color temperature, whereas KNX typically uses Kelvin. The Kelvin/Mireds relationship is reciprocal, not linear, therefore the color temperature pickers (sliders) in Home Assistant may not align with ones of KNX visualizations. This is the expected behavior.
 
@@ -1152,7 +1172,7 @@ knx:
       color_temperature_mode: absolute
       min_kelvin: 2550
       max_kelvin: 6200
-    # actuator without dedicated state communication object
+    # actuator without dedicated state group object
     # color mode: onoff
     - name: "Simple light"
       address: "1/0/5"
@@ -1489,6 +1509,7 @@ device_class:
 |   8.007 | delta_time_hrs                |            2 |      -32768 ... 32767      | h              |
 |   8.010 | percentV16                    |            2 |      -32768 ... 32767      | %              |
 |   8.011 | rotation_angle                |            2 |      -32768 ... 32767      | °              |
+|   8.012 | length_m                      |            2 |      -32768 ... 32767      | m              |
 |       9 | 2byte_float                   |            2 |  -671088.64 ... 670760.96  |                |
 |   9.001 | temperature                   |            2 |      -273 ... 670760       | °C             |
 |   9.002 | temperature_difference_2byte  |            2 |     -670760 ... 670760     | K              |
@@ -1498,6 +1519,7 @@ device_class:
 |   9.006 | pressure_2byte                |            2 |        0 ... 670760        | Pa             |
 |   9.007 | humidity                      |            2 |        0 ... 670760        | %              |
 |   9.008 | ppm                           |            2 |  -671088.64 ... 670760.96  | ppm            |
+|   9.009 | air_flow                      |            2 |  -671088.64 ... 670760.96  | m³/h           |
 |   9.010 | time_1                        |            2 |     -670760 ... 670760     | s              |
 |   9.011 | time_2                        |            2 |     -670760 ... 670760     | ms             |
 |   9.020 | voltage                       |            2 |  -671088.64 ... 670760.96  | mV             |
@@ -1509,12 +1531,18 @@ device_class:
 |   9.026 | rain_amount                   |            2 |  -671088.64 ... 670760.96  | l/m²           |
 |   9.027 | temperature_f                 |            2 |     -459.6 ... 670760      | °F             |
 |   9.028 | wind_speed_kmh                |            2 |        0 ... 670760        | km/h           |
+|   9.029 | absolute_humidity             |            2 |        0 ... 670760        | g/m³           |
+|   9.030 | concentration_ugm3            |            2 |        0 ... 670760        | μg/m³          |
 |     9.? | enthalpy                      |            2 |  -671088.64 ... 670760.96  | H              |
 |      12 | 4byte_unsigned                |            4 |      0 ... 4294967295      |                |
+|  12.001 | pulse_4_ucount                |            4 |      0 ... 4294967295      | counter pulses |
+|  12.100 | long_time_period_sec          |            4 |      0 ... 4294967295      | s              |
+|  12.101 | long_time_period_min          |            4 |      0 ... 4294967295      | min            |
+|  12.100 | long_time_period_hrs          |            4 |      0 ... 4294967295      | h              |
 | 12.1200 | volume_liquid_litre           |            4 |      0 ... 4294967295      | l              |
 | 12.1201 | volume_m3                     |            4 |      0 ... 4294967295      | m³             |
 |      13 | 4byte_signed                  |            4 | -2147483648 ... 2147483647 |                |
-|  13.001 | pulse_4byte                   |            4 | -2147483648 ... 2147483647 | pulses         |
+|  13.001 | pulse_4byte                   |            4 | -2147483648 ... 2147483647 | counter pulses |
 |  13.002 | flow_rate_m3h                 |            4 | -2147483648 ... 2147483647 | m³/h           |
 |  13.010 | active_energy                 |            4 | -2147483648 ... 2147483647 | Wh             |
 |  13.011 | apparant_energy               |            4 | -2147483648 ... 2147483647 | VAh            |
@@ -1522,6 +1550,7 @@ device_class:
 |  13.013 | active_energy_kwh             |            4 | -2147483648 ... 2147483647 | kWh            |
 |  13.014 | apparant_energy_kvah          |            4 | -2147483648 ... 2147483647 | kVAh           |
 |  13.015 | reactive_energy_kvarh         |            4 | -2147483648 ... 2147483647 | kVARh          |
+|  13.016 | active_energy_mwh             |            4 | -2147483648 ... 2147483647 | MWh            |
 |  13.100 | long_delta_timesec            |            4 | -2147483648 ... 2147483647 | s              |
 |      14 | 4byte_float                   |            4 |                            |                |
 |  14.000 | acceleration                  |            4 |                            | m/s²           |
@@ -1581,11 +1610,11 @@ device_class:
 |  14.054 | phaseanglerad                 |            4 |                            | rad            |
 |  14.055 | phaseangledeg                 |            4 |                            | °              |
 |  14.056 | power                         |            4 |                            | W              |
-|  14.057 | powerfactor                   |            4 |                            | cosΦ           |
+|  14.057 | powerfactor                   |            4 |                            |                |
 |  14.058 | pressure                      |            4 |                            | Pa             |
 |  14.059 | reactance                     |            4 |                            | Ω              |
 |  14.060 | resistance                    |            4 |                            | Ω              |
-|  14.061 | resistivity                   |            4 |                            | Ω m            |
+|  14.061 | resistivity                   |            4 |                            | Ωm             |
 |  14.062 | self_inductance               |            4 |                            | H              |
 |  14.063 | solid_angle                   |            4 |                            | sr             |
 |  14.064 | sound_intensity               |            4 |                            | W/m²           |
@@ -1599,11 +1628,12 @@ device_class:
 |  14.072 | thermal_conductivity          |            4 |                            | W/mK           |
 |  14.073 | thermoelectric_power          |            4 |                            | V/K            |
 |  14.074 | time_seconds                  |            4 |                            | s              |
-|  14.075 | torque                        |            4 |                            | N m            |
+|  14.075 | torque                        |            4 |                            | Nm             |
 |  14.076 | volume                        |            4 |                            | m³             |
 |  14.077 | volume_flux                   |            4 |                            | m³/s           |
 |  14.078 | weight                        |            4 |                            | N              |
 |  14.079 | work                          |            4 |                            | J              |
+|  14.080 | apparent_power                |            4 |                            | VA             |
 |  16.000 | string                        |           14 |           ASCII            |                |
 |  16.001 | latin_1                       |           14 |    ISO 8859-1 / Latin-1    |                |
 |  17.001 | scene_number                  |            1 |          1 ... 64          |                |
@@ -1675,6 +1705,68 @@ The optional `state_address` can be used to inform Home Assistant about state ch
 
 Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 Switches having a `state_address` configured request their current state from the KNX bus.
+
+## Text
+
+The KNX text platform allows to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus with its current state.
+
+<div class='note'>
+
+Text entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+Texts having a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  text:
+    - name: "Info"
+      address: "0/0/1"
+    - name: "ASCII Info"
+      address: "0/0/2"
+      state_address: "0/0/3"
+      type: string
+    - name: "Greeting"
+      address: "0/0/4"
+      respond_to_read: true
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: Group address new values will be sent to.
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus.
+  required: false
+  type: [string, list]
+type:
+  description: Either `latin_1` for DPT 16.001 or `string` for DPT 16.000 (ASCII).
+  required: false
+  type: [string, integer]
+  default: latin_1
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+mode:
+  description: Specifies the mode used in the UI. `text` or `password` are valid.
+  required: false
+  type: string
+  default: text
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
+{% endconfiguration %}
 
 ## Weather
 
@@ -1783,13 +1875,17 @@ Add the following lines to your Home Assistant `configuration.yaml` to activate 
 logger:
   default: warning
   logs:
-    # For most debugging needs `xnx.log` and one of `xknx.knx` or `xknx.telegram` are a good choice.
-    xknx: debug  # sets the level of all loggers
+    # For most debugging needs `xnx.log` and `xknx.telegram` are a good choice.
+    xknx: info  # sets the level of all loggers
+    # Loggers for different layers of KNX communication
     xknx.log: debug  # provides general information (connection, etc.)
-    xknx.raw_socket: debug  # logs incoming UDP frames in raw hex format
-    xknx.knx: debug  # logs incoming and outgoing KNX/IP frames at socket level
-    xknx.telegram: debug  # logs telegrams before they are being processed at device level or sent to an interface
-    xknx.state_updater: debug  # provides information about the state updater
+    xknx.telegram: debug  # logs telegrams before they are being processed or sent
+    xknx.cemi: debug  # logs incoming and outgoing CEMI frames
+    xknx.ip_secure: debug  # logs IP Secure relevant information
+    xknx.knx: debug  # logs incoming and outgoing KNX/IP frames
+    xknx.raw_socket: warning  # logs incoming UDP/TCP frames in raw hex format at socket level
+    # Loggers for xknx internals
+    xknx.state_updater: warning  # provides information about the state updater
 ```
 
 You can use the service `logger.set_level` to change the log level of a handler on a running instance.
@@ -1804,13 +1900,14 @@ Every `*_state_address` is read on startup sequentially if not configured differ
 > Error: KNX bus did not respond in time (2.0 secs) to GroupValueRead request for: '1/2/3'
 ```
 
-#### No communication object (CO) assigned to the group address (GA) has the Read-Flag set in ETS
+#### No group object (GO) assigned to the group address (GA) has the Read-Flag set in ETS
 
-- Enable the read flag for *one* CO assigned to the GA. Use the one most likely to hold the current state (e.g., for a light entity's `brightness_state_address` the according CO of the dimming actuator).
+- Enable the read flag for *one* GO assigned to the GA. Use the one most likely to hold the current state (e.g., for a light entity's `brightness_state_address` the according GO of the dimming actuator).
 
 #### Response telegrams are not passing a line coupler, router or other filter in the installation
 
-- Use a dummy device in ETS for Home Assistant. These can be found in the ETS online catalog. Assign it to the line your interface connects Home Assistant to and link its communication objects to the group addresses you are using in Home Assistant. ETS will generate filter tables that are applied to your line couplers after updating their application.
+- Assign the group addresses used by Home Assistant to the used interface in ETS if your interface application supports that. ETS will generate filter tables that are applied to your line couplers after updating their application.
+- If your interface application doesn't support that, use a dummy device in ETS for Home Assistant. These can be found in the ETS online catalog. Assign it to the line your interface connects Home Assistant to and link its group objects to the group addresses you are using in Home Assistant.
 
 #### Unresponsive system
 
@@ -1839,12 +1936,3 @@ The `unique_id` for KNX entities is generated based on required configuration va
 - weather: `address_temperature`
 
 There can not be multiple entities on the same platform sharing these exact group addresses, even if they differ in other configuration.
-
-### xknx.yaml configuration
-
-```log
-> The 'config_file' option near /homeassistant/configuration.yaml:42 is deprecated, please remove it from your configuration
-> Invalid config for [knx]: [config_file] is an invalid option for [knx]. Check: knx->knx->config_file.
-```
-
-The feature to specify a xknx configuration schema file in the Home Assistant configuration YAML file (via `config_file:`) is deprecated since Home Assistant 2021.4. You can use the [xknx.yaml config converter](https://xknx.io/config-converter/) to convert it to a Home Assistant compatible `configuration.yaml` schema.

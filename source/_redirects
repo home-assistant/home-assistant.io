@@ -22,8 +22,8 @@
 /energy /home-energy-management
 /integrations/energy /docs/energy 301!
 
-/amber https://www.crowdsupply.com/nabu-casa/home-assistant-yellow
-/yellow https://www.crowdsupply.com/nabu-casa/home-assistant-yellow
+/amber https://yellow.home-assistant.io
+/yellow https://yellow.home-assistant.io
 /blog/2021/09/13/home-assistant-amber/ /blog/2021/09/13/home-assistant-yellow/
 
 # Older development pages
@@ -435,6 +435,7 @@
 /integrations/ciscospark /more-info/removed-integration 301
 /integrations/coinmarketcap /more-info/removed-integration 301
 /integrations/crimereports /more-info/removed-integration 301
+/integrations/deutsche_bahn /more-info/removed-integration 301
 /integrations/device_tracker.trackr /more-info/removed-integration 301
 /integrations/dht /more-info/removed-integration 301
 /integrations/digitalloggers /more-info/removed-integration 301
@@ -453,6 +454,7 @@
 /integrations/gntp /more-info/removed-integration 301
 /integrations/gpmdp /more-info/removed-integration 301
 /integrations/griddy /more-info/removed-integration 301
+/integrations/hangouts /more-info/removed-integration 301
 /integrations/history_graph /more-info/removed-integration 301
 /integrations/htu21d /more-info/removed-integration 301
 /integrations/huawei_router /more-info/removed-integration 301

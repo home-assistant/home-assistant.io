@@ -65,6 +65,9 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Fan Preset Mode](#fan-preset-mode)
     - [Fan Direction](#fan-direction)
     - [Fan Oscillation](#fan-oscillation)
+  - [Humidifier](#humidifier)
+    - [Humidifier target humidity](#humidifier-target-humidity)
+    - [Humidifier Mode](#humidifier-mode)
   - [Image Processing](#image-processing)
     - [Presence Detection Notification](#presence-detection-notification)
   - [Input Number](#input-number)
@@ -490,6 +493,9 @@ The following integrations are currently supported:
     - [Fan Preset Mode](#fan-preset-mode)
     - [Fan Direction](#fan-direction)
     - [Fan Oscillation](#fan-oscillation)
+  - [Humidifier](#humidifier)
+    - [Humidifier target humidity](#humidifier-target-humidity)
+    - [Humidifier Mode](#humidifier-mode)
   - [Image Processing](#image-processing)
     - [Presence Detection Notification](#presence-detection-notification)
   - [Input Number](#input-number)
@@ -548,7 +554,7 @@ Users must opt-in to the disarm by voice feature in the Alexa App. Alexa will re
   <img height='460' src='/images/integrations/alexa/alexa_app_security_system_pin.png' alt='Screenshot: Alexa App Security System PIN'/></a>
 </p>
 
-To use the exiting code configured for the Alarm Control Panel the `code` must be 4 digits and the `code_format` attribute must be `FORMAT_NUMBER`. After discovery, the Alexa app will offer the ability to use the existing `code`, or create an additional 4 digit PIN to use with Alexa.
+To use the existing code configured for the Alarm Control Panel the `code` must be 4 digits and the `code_format` attribute must be `number`. After discovery, the Alexa app will offer the ability to use the existing `code`, or create an additional 4 digit PIN to use with Alexa.
 
 The existing code is never communicated to Alexa from Home Assistant. During disarming, Alexa will ask for a PIN. The PIN spoken to Alexa is relayed to Home Assistant and passed to the `alarm_control_panel.alarm_disarm` service. If the `alarm_control_panel.alarm_disarm` service fails for any reason, it is assumed the PIN was incorrect and reported to Alexa as an invalid PIN.
 
@@ -820,6 +826,20 @@ The fan device must support the `oscillating` attribute.
 | `en-US` | _"oscillate"_, _"swivel"_, _"oscillation"_, _"spin"_, _"back and forth"_ |
 
 Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
+
+### Humidifier
+
+Control power, target humidity and mode.
+
+#### Humidifier target humidity
+
+- _"Alexa, set the [entity name] humidity to fifty percent."_
+
+#### Humidifier Mode
+
+The humidifier device must support the `mode` attribute.
+
+- _"Alexa, set the [entity name] mode to eco."_
 
 ### Image Processing
 
