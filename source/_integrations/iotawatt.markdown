@@ -25,10 +25,6 @@ and create them as sensors in Home Assistant.
 
 You can use the energy sensors directly with the Home Assistant energy dashboard.
 
-<div class="note warning">
-The Accumulated sensors should not be used.  That was a legacy feature for older versions of IotaWatt before it had integrators.  They should be removed in a future version of this integration.  
-</div>
-
 If you have an energy production system such as solar panels, follow these instructions:
 
 ### Configure IoTaWatt
