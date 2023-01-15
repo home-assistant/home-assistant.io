@@ -177,7 +177,7 @@ sensor:
   - platform: rest
     resource: http://ip.jsontest.com
     name: External IP
-    value_template: "{{ value_json.ip }}"
+    value_template: "{{ value_json["ip"] }}"
 ```
 
 {% endraw %}
@@ -193,7 +193,7 @@ sensor:
   - platform: rest
     resource: http://IP_ADRRESS:61208/api/2/mem/used
     name: Used mem
-    value_template: "{{ value_json.used| multiply(0.000000954) | round(0) }}"
+    value_template: "{{ value_json["used"] | multiply(0.000000954) | round(0) }}"
     unit_of_measurement: MB
 ```
 
@@ -212,7 +212,7 @@ sensor:
   - platform: rest
     resource: http://IP_ADDRESS:8123/api/states/sensor.weather_temperature
     name: Temperature
-    value_template: "{{ value_json.state }}"
+    value_template: "{{ value_json["state"] }}"
     unit_of_measurement: "°C"
 ```
 
@@ -274,7 +274,7 @@ sensor:
     username: YOUR_GITHUB_USERNAME
     password: YOUR_GITHUB_ACCESS_TOKEN
     authentication: basic
-    value_template: "{{ value_json.tag_name }}"
+    value_template: "{{ value_json["tag_name"] }}"
     headers:
       Accept: application/vnd.github.v3+json
       Content-Type: application/json
@@ -297,7 +297,7 @@ sensor:
       - date
       - milliseconds_since_epoch
     resource: http://date.jsontest.com/
-    value_template: "{{ value_json.time }}"
+    value_template: "{{ value_json["time"] }}"
   - platform: template
     sensors:
       date:
