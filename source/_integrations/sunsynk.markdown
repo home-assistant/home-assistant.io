@@ -14,6 +14,6 @@ ha_codeowners:
   - '@jamesridgway'
 ---
 
-The Sunsunk integration gets data from the [PowerView Inteless APIs](https://pv.inteless.com/) to allow you to get details from your Sunsynk inverter and integrate these in your Home Assistant installation.
+The Sunsynk integration gets data from the [PowerView Inteless APIs](https://pv.inteless.com/) to allow you to get details from your Sunsynk inverter and integrate these in your Home Assistant installation.
 
 {% include integrations/config_flow.md %}
