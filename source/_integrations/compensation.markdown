@@ -78,7 +78,7 @@ unit_of_measurement:
   required: false
   type: string
 apply_lower_limit:
-  description: "Enables a lower limit for the sensor.  The lower limit is defined by the data collections (`data_points`) lowest `uncompensated_value`.  For example, if the lowest `uncompensated_value` value is `1.0` and the paired `compensated_value` is `0.0`, the any `source` state less than `1.0` will produce a compensated state of `0.0`.""
+  description: "Enables a lower limit for the sensor.  The lower limit is defined by the data collections (`data_points`) lowest `uncompensated_value`.  For example, if the lowest `uncompensated_value` value is `1.0` and the paired `compensated_value` is `0.0`, the any `source` state less than `1.0` will produce a compensated state of `0.0`."
   required: false
   type: boolean
   default: false
