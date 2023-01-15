@@ -191,6 +191,7 @@ source/_integrations/epsonworkforce.markdown @ThaStealth
 source/_integrations/eq3btsmart.markdown @rytilahti
 source/_integrations/escea.markdown @lazdavila
 source/_integrations/esphome.markdown @OttoWinter @jesserockz
+source/_integrations/eufylife_ble.markdown @bdr99
 source/_integrations/evil_genius_labs.markdown @balloob
 source/_integrations/evohome.markdown @zxdavb
 source/_integrations/ezviz.markdown @RenierM26 @baqs
