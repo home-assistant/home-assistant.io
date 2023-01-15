@@ -132,7 +132,7 @@ Once loaded, the following services will be exposed with the `isy994.` prefix, t
 
  - Entity services for Home Assistant-connected entities: `send_node_command`, `send_raw_node_command`, and `set_ramp_rate`.
  - Generic ISY services: `send_program_command`
- - Management services for the ISY Home Assistant integration: `reload` and `cleanup_entities`.
+ - Management services for the ISY Home Assistant integration: `reload`.
 
 #### Service `isy994.send_node_command`
 
@@ -198,11 +198,6 @@ Send a command to control an ISY program or folder. Valid commands are `run`, `r
 #### Service `isy994.reload`
 
 Reload the ISY connection(s) without restarting Home Assistant. Use this service to pick up new devices that have been added or changed on the ISY since the last restart of Home Assistant.
-
-#### Service `isy994.cleanup_entities`
-
-Cleanup old entities no longer used by the ISY integration. Useful if you've removed devices from the ISY or changed the filter string options in the configuration to exclude additional items and they were not properly removed
-by Home Assistant.
 
 ### Creating Custom Devices using ISY Programs
 
