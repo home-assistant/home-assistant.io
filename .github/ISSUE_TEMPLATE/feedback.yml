@@ -24,6 +24,7 @@ body:
       value: |
         ## Details
   - type: input
+    id: url
     attributes:
       label: URL
       placeholder: "http://www.home-assistant.io/..."
@@ -32,6 +33,7 @@ body:
     validations:
       required: true
   - type: input
+    id: version
     attributes:
       label: Version
       placeholder: "e.g., 2022.7.0"
