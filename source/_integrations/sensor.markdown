@@ -60,7 +60,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
 - **temperature**: Temperature in °C or °F
 - **timestamp**: Datetime object or timestamp string (ISO 8601)
-- **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
+- **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³ or ppb
 - **voltage**: Voltage in V, mV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **water**: Water consumption in L, gal, m³, ft³, or CCF
