@@ -103,7 +103,7 @@ content: |
 
 ## Icons
 
-You can use [materialdesignicons.com](https://materialdesignicons.com/) icons in the `content` of the card.
+You can use [Material Design Icons](https://pictogrammers.com/library/mdi/) icons in the `content` of the card.
 
 For example:
 

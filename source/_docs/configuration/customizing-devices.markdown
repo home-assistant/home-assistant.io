@@ -32,7 +32,7 @@ entity_picture:
   required: false
   type: string
 icon:
-  description: "Any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release. You can check when an icon was added to MaterialDesignIcons.com at [MDI History](https://materialdesignicons.com/history)."
+  description: "Any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release."
   required: false
   type: string
 assumed_state:
