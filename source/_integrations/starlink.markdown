@@ -4,7 +4,6 @@ description: Instructions on how to integrate Starlink into Home Assistant.
 ha_category:
   - Sensor
   - Binary Sensor
-  - Switch
   - Button
   - Network
 ha_release: 2023.2
