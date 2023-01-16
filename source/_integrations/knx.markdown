@@ -2,12 +2,12 @@
 title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Button
   - Climate
   - Cover
   - Fan
+  - Hub
   - Light
   - Notifications
   - Number
@@ -15,6 +15,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Text
   - Weather
 ha_release: 0.24
 ha_iot_class: Local Push
@@ -23,34 +24,30 @@ ha_codeowners:
   - '@farmio'
   - '@marvin-w'
 ha_domain: knx
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - button
-  - diagnostics
   - climate
   - cover
+  - diagnostics
   - fan
   - light
   - notify
   - number
   - scene
-  - sensor
   - select
+  - sensor
   - switch
+  - text
   - weather
 ha_config_flow: true
+ha_integration_type: hub
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to KNX/IP devices.
 
 The integration requires a local KNX/IP interface or router. Through this, it will establish a connection between Home Assistant and your KNX bus.
-
-<div class='note warning'>
-
-Please note, the KNX platform does not support KNX Secure.
-
-</div>
 
 There is currently support for the following device types within Home Assistant:
 
@@ -66,6 +63,7 @@ There is currently support for the following device types within Home Assistant:
 - [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Text](#text)
 - [Weather](#weather)
 
 {% include integrations/config_flow.md %}
@@ -120,6 +118,31 @@ knx:
 Connection parameters are set up when adding the integration and can be changed from the `Integrations` panel.
 
 Use `route back` if your tunneling server is located on a different network.
+
+### KNX Secure
+
+The KNX integration currently supports IP secure tunneling.
+IP secure via routing and data secure are currently not supported.
+
+In order to use IP Secure you will have to chose "Tunneling" -> "TCP with IP Secure" in the config flow.
+
+You can configure the IP Secure credentials either manually or by providing a `.knxkeys` file, which you can obtain by exporting the keyring in ETS as seen in the screenshot below.
+
+![Export Keyring in ETS5](/images/integrations/knx/export_keyring_ets.png)
+
+The `.knxkeys` file has to be placed in `config/.storage/knx/yourfile.knxkeys`.
+
+If you decide to configure IP Secure manually you will need the user ID, the user password and the device authentication password.
+
+The user id 0 is reserved and the user id 1 is used for management tasks, thus you will need to specify a user id that is 2 or higher according to the tunneling channel you would like to use. 
+
+The following screenshot will show how you can get the device authentication password in ETS.
+
+![Obtain device authentication password in ETS](/images/integrations/knx/device_authentication_password.png)
+
+The user password can be obtained almost the same way as seen in the below screenshot.
+
+![Obtain the user password in ETS](/images/integrations/knx/user_password.png)
 
 ## Events
 
@@ -267,7 +290,14 @@ remove:
 
 ## Exposing entity states, entity attributes or time to KNX bus
 
-KNX integration is able to expose entity states or attributes to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address. It is also possible to expose the current time.
+KNX integration is able to expose entity states or attributes to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address.
+It is also possible to expose the current time and date. These are sent to the bus every hour.
+
+<div class='note'>
+
+Expose is only triggered on state changes. If you need periodical telegrams, use an automation with the `knx.send` service to send the value to the bus.
+
+</div>
 
 ```yaml
 # Example configuration.yaml entry
@@ -276,6 +306,7 @@ knx:
     - type: temperature
       entity_id: sensor.owm_temperature
       address: "0/0/2"
+      cooldown: 600
     - type: string
       address: "0/6/4"
       entity_id: sensor.owm_weather
@@ -322,6 +353,16 @@ default:
   type: [boolean, string, integer, float]
   default: None
   required: false
+cooldown:
+  description: Minimum time in seconds between two sent telegrams. This can be used to avoid flooding the KNX bus when exposing frequently changing states. If the state changes multiple times within the cooldown period the most recent value will be sent.
+  type: float
+  default: 0
+  required: false
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Binary Sensor
@@ -566,7 +607,7 @@ knx:
 
 `setpoint_shift_mode` allows the two following DPTs to be used:
 
-- DPT6002 (for 1 byte signed integer)
+- DPT6010 (for 1 byte signed integer with scale factor)
 - DPT9002 (for 2 byte float)
 
 Example:
@@ -604,11 +645,11 @@ The following values are valid for the Home Assistant [Climate](/integrations/cl
 
 The following presets are valid for the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute. Supported values for your KNX thermostats can be specified via `operation_modes` configuration variable:
 
-- `Auto` (maps internally to `PRESET_NONE` within Home Assistant)
-- `Comfort` (maps internally to `PRESET_COMFORT` within Home Assistant)
-- `Standby` (maps internally to `PRESET_AWAY` within Home Assistant)
-- `Night` (maps internally to `PRESET_SLEEP` within Home Assistant)
-- `Frost` Protection (maps internally to `PRESET_ECO` within Home Assistant)
+- `Auto` (maps to `none` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
+- `Comfort` (maps to `comfort` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
+- `Standby` (maps to `away` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
+- `Night` (maps to `sleep` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
+- `Frost Protection` (maps to `eco` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
 
 {% configuration %}
 name:
@@ -621,7 +662,7 @@ temperature_address:
   required: true
   type: [string, list]
 temperature_step:
-  description: Defines the step size in Kelvin for each step of setpoint_shift.
+  description: Defines the step size in Kelvin for each step of setpoint_shift (scale factor). For non setpoint-shift configurations this is used to set the step of temperature sliders in UI.
   required: false
   type: float
   default: 0.1
@@ -823,6 +864,11 @@ travelling_time_up:
   required: false
   default: 25
   type: integer
+invert_updown:
+  description: Set this to `true` to invert the binary up/down commands from/to your KNX actuator. Default is 0 for UP; 1 for DOWN.
+  required: false
+  default: false
+  type: boolean
 invert_position:
   description: Set this to `true` if your actuator reports fully closed position as 0% in KNX.
   required: false
@@ -1154,6 +1200,11 @@ name:
   description: A name for this device used within Home Assistant.
   required: false
   type: string
+type:
+  description: A DPT identifier representing a text value ("string" or "latin_1" - see [KNX Sensor](#sensor)) used to encode the notification.
+  required: false
+  default: "latin_1"
+  type: string
 {% endconfiguration %}
 
 ## Number
@@ -1417,6 +1468,10 @@ entity_category:
   required: false
   type: string
   default: None
+device_class:
+  description: Overrides the [class of the device](/integrations/sensor/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ### Value Types
@@ -1570,7 +1625,8 @@ entity_category:
 |  14.077 | volume_flux                   |            4 |                            | m³/s           |
 |  14.078 | weight                        |            4 |                            | N              |
 |  14.079 | work                          |            4 |                            | J              |
-|  16.000 | string                        |           14 |                            |                |
+|  16.000 | string                        |           14 |           ASCII            |                |
+|  16.001 | latin_1                       |           14 |    ISO 8859-1 / Latin-1    |                |
 |  17.001 | scene_number                  |            1 |          1 ... 64          |                |
 
 ### More examples
@@ -1630,12 +1686,78 @@ entity_category:
   required: false
   type: string
   default: None
+device_class:
+  description: Sets the [class of the device](/integrations/switch/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 {% endconfiguration %}
 
 The optional `state_address` can be used to inform Home Assistant about state changes not triggered by a telegram to the `address` e.g., if you configure a timer on a channel. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
 
 Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 Switches having a `state_address` configured request their current state from the KNX bus.
+
+## Text
+
+The KNX text platform allows to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus with its current state.
+
+<div class='note'>
+
+Text entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+
+Texts having a `state_address` configured request their current state from the KNX bus.
+
+</div>
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  text:
+    - name: "Info"
+      address: "0/0/1"
+    - name: "ASCII Info"
+      address: "0/0/2"
+      state_address: "0/0/3"
+      type: string
+    - name: "Greeting"
+      address: "0/0/4"
+      respond_to_read: true
+```
+
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+address:
+  description: Group address new values will be sent to.
+  required: true
+  type: [string, list]
+state_address:
+  description: Group address for retrieving the state from the KNX bus.
+  required: false
+  type: [string, list]
+type:
+  description: Either `latin_1` for DPT 16.001 or `string` for DPT 16.000 (ASCII).
+  required: false
+  type: [string, integer]
+  default: latin_1
+respond_to_read:
+  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  required: false
+  type: boolean
+  default: false
+mode:
+  description: Specifies the mode used in the UI. `text` or `password` are valid.
+  required: false
+  type: string
+  default: text
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
+{% endconfiguration %}
 
 ## Weather
 
@@ -1744,13 +1866,14 @@ Add the following lines to your Home Assistant `configuration.yaml` to activate 
 logger:
   default: warning
   logs:
-    # For most debugging needs `xnx.log` and one of `xknx.knx` or `xknx.telegram` are a good choice.
-    xknx: debug  # sets the level of all loggers
+    # For most debugging needs `xnx.log` and `xknx.telegram` are a good choice.
+    xknx: info  # sets the level of all loggers
     xknx.log: debug  # provides general information (connection, etc.)
-    xknx.raw_socket: debug  # logs incoming UDP frames in raw hex format
+    xknx.raw_socket: warning  # logs incoming UDP frames in raw hex format
     xknx.knx: debug  # logs incoming and outgoing KNX/IP frames at socket level
+    xknx.cemi: debug  # logs incoming and outgoing CEMI frames
     xknx.telegram: debug  # logs telegrams before they are being processed at device level or sent to an interface
-    xknx.state_updater: debug  # provides information about the state updater
+    xknx.state_updater: warning  # provides information about the state updater
 ```
 
 You can use the service `logger.set_level` to change the log level of a handler on a running instance.

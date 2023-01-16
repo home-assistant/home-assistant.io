@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: pulseaudio_loopback
 ha_platforms:
   - switch
+ha_integration_type: integration
 ---
 
 The goal behind this switch is to allow a very flexible whole home audio system based upon [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/).

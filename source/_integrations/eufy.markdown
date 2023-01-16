@@ -11,6 +11,7 @@ ha_domain: eufy
 ha_platforms:
   - light
   - switch
+ha_integration_type: integration
 ---
 
 The `eufy` integration is the main integration to integrate various [eufy](https://www.eufylife.com/) devices with Home Assistant.

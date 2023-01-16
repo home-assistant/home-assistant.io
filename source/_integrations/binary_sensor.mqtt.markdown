@@ -20,14 +20,15 @@ Stateless devices such as buttons, remote controls etc are better represented by
 
 The `mqtt` binary sensor platform optionally supports a list of  `availability` topics to receive online and offline messages (birth and LWT messages) from the MQTT device. During normal operation, if the MQTT sensor device goes offline (i.e., publishes `payload_not_available` to an `availability` topic), Home Assistant will display the binary sensor as `unavailable`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant update after subscription and Home Assistant will display the correct availability state of the binary sensor when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the binary sensor as `unavailable` when Home Assistant starts up. If no `availability` topic is defined, Home Assistant will consider the MQTT device to be `available` and will display its state.
 
+<a id='new_format'></a>
 To use an MQTT binary sensor in your installation,
 add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-  - platform: mqtt
-    state_topic: "home-assistant/window/contact"
+mqtt:
+  binary_sensor:
+    - state_topic: "home-assistant/window/contact"
 ```
 
 {% configuration %}
@@ -51,7 +52,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -60,7 +61,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -80,6 +81,10 @@ device:
       description: "A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `'connections': ['mac', '02:5b:26:a8:dc:12']`."
       required: false
       type: [list, map]
+    hw_version:
+      description: The hardware version of the device.
+      required: false
+      type: string
     identifiers:
       description: A list of IDs that uniquely identify the device. For example a serial number.
       required: false
@@ -128,7 +133,7 @@ entity_category:
   type: string
   default: None
 expire_after:
-  description: Defines the number of seconds after the sensor's state expires, if it's not updated. After expiry, the sensor's state becomes `unavailable`.
+  description: If set, it defines the number of seconds after the sensor's state expires, if it's not updated. After expiry, the sensor's state becomes `unavailable`. Default the sensors state never expires.
   required: false
   type: integer
 force_update:
@@ -141,7 +146,7 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -195,7 +200,7 @@ unique_id:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) that returns a string to be compared to `payload_on`/`payload_off` or an empty string, in which case the MQTT message will be removed. Available variables: `entity_id`. Remove this option when 'payload_on' and 'payload_off' are sufficient to match your payloads (i.e no pre-processing of original message is required)."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that returns a string to be compared to `payload_on`/`payload_off` or an empty string, in which case the MQTT message will be removed. Remove this option when `payload_on` and `payload_off` are sufficient to match your payloads (i.e no pre-processing of original message is required)."
   required: false
   type: string
 {% endconfiguration %}
@@ -223,18 +228,18 @@ The example below shows a full configuration for a binary sensor:
 
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-  - platform: mqtt
-    name: "Window Contact Sensor"
-    state_topic: "home-assistant/window/contact"
-    payload_on: "ON"
-    availability:
-      - topic: "home-assistant/window/availability"
-        payload_available: "online"
-        payload_not_available: "offline"
-    qos: 0
-    device_class: opening
-    value_template: "{{ value_json.state }}"
+mqtt:
+  binary_sensor:
+    - name: "Window Contact Sensor"
+      state_topic: "home-assistant/window/contact"
+      payload_on: "ON"
+      availability:
+        - topic: "home-assistant/window/availability"
+          payload_available: "online"
+          payload_not_available: "offline"
+      qos: 0
+      device_class: opening
+      value_template: "{{ value_json.state }}"
 ```
 
 {% endraw %}
@@ -245,10 +250,10 @@ binary_sensor:
 
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-  - platform: mqtt
-    state_topic: "lab_button/cmnd/POWER"
-    value_template: "{%if is_state(entity_id,\"on\")-%}OFF{%-else-%}ON{%-endif%}"
+mqtt:
+  binary_sensor:
+    - state_topic: "lab_button/cmnd/POWER"
+      value_template: "{%if is_state(entity_id,\"on\")-%}OFF{%-else-%}ON{%-endif%}"
 ```
 
 {% endraw %}
@@ -269,10 +274,10 @@ The configuration will look like the example below:
 
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-  - platform: mqtt
-    name: Bathroom
-    state_topic: "home/bathroom/switch/button"
-    payload_on: "1"
-    payload_off: "0"
+mqtt:
+  binary_sensor:
+    - name: Bathroom
+      state_topic: "home/bathroom/switch/button"
+      payload_on: "1"
+      payload_off: "0"
 ```

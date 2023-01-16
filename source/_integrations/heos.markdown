@@ -12,6 +12,7 @@ ha_domain: heos
 ha_ssdp: true
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The HEOS integration adds support for [HEOS](https://www.denon.com/en-gb/shop/amplifiersmrs/heosavr) capable products, such as speakers, amps, and receivers (Denon and Marantz) into Home Assistant. Features currently include:

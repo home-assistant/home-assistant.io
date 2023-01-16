@@ -1,7 +1,8 @@
 ---
 title: Kostal Plenticore Solar Inverter
 description: Instructions on how to integrate Kostal Plenticore solar inverter within Home Assistant.
-ha_category: Energy
+ha_category:
+  - Energy
 ha_release: 2021.5
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -9,9 +10,12 @@ ha_codeowners:
   - '@stegm'
 ha_domain: kostal_plenticore
 ha_platforms:
-  - sensor
+  - diagnostics
+  - number
   - select
+  - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Kostal Plenticore integration allows you to get data from [Kostal Plenticore](https://www.kostal-solar-electric.com/) solar inverters and integrate them into your Home Assistant installation. It allows you also to change some of settings values of the inverter.
@@ -53,9 +57,9 @@ The following sensors are available in the library:
 | DC3 Current             | A    | Current of string 3. |
 | PV to Battery Power     | W    | Power used to charge the battery. |
 | Energy Manager State    |      | State of the energy manager. |
-| Battery Cycles          |      | Number of full charge/discharge cylces. |
+| Battery Cycles          |      | Number of full charge/discharge cycles. |
 | Battery Power           | W    | Power from (+)/to (-) the battery. |
-| Battery SoC             | %    | Soc of the Battery. |
+| Battery SoC             | %    | SoC of the Battery. |
 | Autarky Day             | %    | Autarky of the current day. |
 | Autarky Month           | %    | Autarky of the current month. |
 | Autarky Year            | %    | Autarky of the current year. |
@@ -115,9 +119,7 @@ The following sensors are available in the library:
 
 | Name                    | Unit | RW | Description   |
 |-------------------------|------|----|:--------------|
-| Battery Dynamic Soc     |      | RW | Dynamic SoC. |
-| Battery min Home Consumption | W    | RW | Min. home consumption power for battery. |
-| Battery min Soc         | %    | RW | Min. SoC of battery. |
+| Battery Dynamic SoC     |      | RW | Dynamic SoC. |
 | Battery Smart Control   |      | RW | Enable smart battery control |
 | Battery Strategy        |      | RW | Battery strategy. |
 | Shadow Management       |      | RW | PV string shadow management. |
@@ -125,3 +127,12 @@ The following sensors are available in the library:
 <div class='note'>
 Setting values change less often, therefore these sensors are only polled every 5 minutes.
 </div>
+
+## Number
+
+The following Number entities are available. The values could also be change from Home Assistant.
+
+| Name                    | Unit | RW | Description   |
+|-------------------------|------|----|:--------------|
+| Battery min Home Consumption | W    | RW | Min. home consumption power for battery. |
+| Battery min SoC         | %    | RW | Min. SoC of battery. |

@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: telegram
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `telegram` platform uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
@@ -386,10 +387,14 @@ action:
   service: notify.NOTIFIER_NAME
   data:
     title: "*Send a message*"
-    message: "That's an example that sends a message with message_tag and disable_notification."
+    message: |-
+      That's an example that sends a message with message_tag, disable_notification and disable_web_page_preview.
+      <a href="https://www.home-assistant.io/">HA site</a>
     data:
+      parse_mode: html
       message_tag: "example_tag"
       disable_notification: True
+      disable_web_page_preview: True
 ```
 
 {% configuration %}
@@ -400,6 +405,10 @@ parse_mode:
 disable_notification:
   description: True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound.
   required: false
+  default: false
+  type: boolean
+disable_web_page_preview:
+  description: True/false to display a webpage preview.
   default: false
   type: boolean
 message_tag:

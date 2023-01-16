@@ -19,9 +19,10 @@ ha_platforms:
   - sensor
   - switch
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
-The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/).
+The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/freebox/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -37,7 +38,7 @@ Please consult the [API documentation](https://dev.freebox.fr/sdk/os/) for more 
 
 ### Via the frontend
 
-Menu: **Configuration** -> **Devices & Services**. Search for "Freebox", add your host and port, click submit.
+Menu: **Settings** -> **Devices & Services**. Search for "Freebox", add your host and port, click submit.
 
 If you add the integration for the first time, follow the instructions in the [Initial setup](#initial-setup) section.
 
@@ -89,7 +90,7 @@ Only the routers with Freebox OS are supported:
 
 ## Presence Detection
 
-This platform offers presence detection by keeping track of the devices connected to a [Freebox](https://www.free.fr/) router.
+This platform offers presence detection by keeping track of the devices connected to a [Freebox](https://www.free.fr/freebox/) router.
 
 ### Notes
 

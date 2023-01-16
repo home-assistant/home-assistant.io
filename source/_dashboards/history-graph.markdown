@@ -8,12 +8,12 @@ description: "The History Graph card allows you to display a graph for each of t
 The History Graph card allows you to display a graph for each of the entities listed.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_history_graph.png' alt='Screenshot of the history graph card for entities without a unit_of_measurement'>
+<img src='/images/dashboards/history_graph.png' alt='Screenshot of the history graph card for entities without a unit_of_measurement'>
 Screenshot of the History Graph card, when the sensor has no `unit_of_measurement` defined.
 </p>
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_history_graph_lines.png' alt='Screenshot of the history graph card for entities with a unit_of_measurement'>
+<img src='/images/dashboards/history_graph_lines.png' alt='Screenshot of the history graph card for entities with a unit_of_measurement'>
 Screenshot of the History Graph card, when the sensor has a `unit_of_measurement` defined.
 </p>
 
@@ -42,6 +42,11 @@ title:
   required: false
   description: The card title.
   type: string
+show_names:
+  required: false
+  description: If false, no entity names are shown in the card.
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Options For Entities

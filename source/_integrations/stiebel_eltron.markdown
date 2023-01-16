@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: stiebel_eltron
 ha_platforms:
   - climate
+ha_integration_type: integration
 ---
 
 The `stiebel_eltron` integration lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).

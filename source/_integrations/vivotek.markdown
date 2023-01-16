@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: vivotek
 ha_platforms:
   - camera
+ha_integration_type: integration
 ---
 
 The `vivotek` camera platform allows you to integrate a VIVOTEK IP camera into Home Assistant.

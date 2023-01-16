@@ -15,6 +15,7 @@ ha_platforms:
   - camera
   - light
   - switch
+ha_integration_type: integration
 ---
 
 The Hyperion integration allows you to integrate your

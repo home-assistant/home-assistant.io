@@ -8,9 +8,10 @@ ha_release: 0.56
 ha_domain: clickatell
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
-The `clickatell` platform uses [Clickatell](https://clickatell.com) to deliver SMS notifications from Home Assistant.
+The `clickatell` platform uses [Clickatell](https://www.clickatell.com) to deliver SMS notifications from Home Assistant.
 
 ## Setup
 

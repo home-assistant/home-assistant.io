@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: qnap
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 This `qnap` sensor allows getting various statistics from your [QNAP NAS](https://www.qnap.com/en-us/).
@@ -57,7 +58,7 @@ timeout:
   default: 10
   type: integer
 username:
-  description: An administration user to connect to the QNAP NAS. This user must be a member of the _administration_ group.
+  description: An administration user to connect to the QNAP NAS. This user must be a member of the _administration_ group and MFA must be disabled for that account.
   required: true
   type: string
 password:
@@ -123,3 +124,5 @@ If your QNAP device uses self-signed certificates, set the `verify_ssl` option t
 ### QNAP device support
 
 This integration works with most (but not all) QNAP devices. A complete, up-to-date [list of compatible devices can be found here](https://github.com/colinodell/python-qnapstats#device-support).
+
+If your QNAP device is running QTS 5, make sure you log into the device's web interface (with the same account you've configured in Home Assistant) and complete any agreements, warnings, wizards, setup, etc. as the QNAP API may block requests until those are completed.

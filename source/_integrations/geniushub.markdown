@@ -2,11 +2,11 @@
 title: Genius Hub
 description: Instructions on how to integrate a Genius Hub with Home Assistant.
 ha_category:
-  - Climate
-  - Water Heater
-  - Sensor
   - Binary Sensor
+  - Climate
+  - Sensor
   - Switch
+  - Water Heater
 ha_release: 0.92
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -18,6 +18,7 @@ ha_platforms:
   - sensor
   - switch
   - water_heater
+ha_integration_type: integration
 ---
 
 The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its zones, devices, and issues.
@@ -206,7 +207,7 @@ This option is recommended only if Option 1 does not work. The MAC address shoul
 # Example configuration.yaml entry, using a Hub Token
 geniushub:
   token: GENIUS_HUB_TOKEN
-  mac : GENIUS_HUB_MAC
+  mac: GENIUS_HUB_MAC
 ```
 
 ```yaml

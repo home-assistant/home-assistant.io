@@ -5,7 +5,7 @@ description: "Multiple powerful and configurable dashboards in Home Assistant."
 
 You can define multiple dashboards in Home Assistant. Each dashboard can be added to the sidebar. This makes it possible to create separate control dashboards for each individual part of your house.
 
-You can manage your dashboards via the user interface. Go to **Configuration** -> **Dashboards**. Here you can see all defined dashboards and create new ones.
+You can manage your dashboards via the user interface. Go to **Settings** -> **Dashboards**. Here you can see all defined dashboards and create new ones.
 
 ## Using YAML for the default dashboard
 

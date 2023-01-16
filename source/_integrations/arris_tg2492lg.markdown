@@ -1,7 +1,6 @@
 ---
 title: Arris TG2492LG
 description: Instructions on how to integrate Arris TG2492LG routers into Home Assistant.
-logo: arris.jpg
 ha_category:
   - Presence Detection
 ha_release: 0.109
@@ -11,6 +10,7 @@ ha_codeowners:
 ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 This platform allows you to detect presence by looking at connected devices to an Arris TG2492LG router.

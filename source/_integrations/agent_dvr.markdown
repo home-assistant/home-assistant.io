@@ -2,8 +2,8 @@
 title: Agent DVR
 description: Access and control Agent DVR from Home Assistant.
 ha_category:
-  - Camera
   - Alarm
+  - Camera
 ha_config_flow: true
 ha_release: '0.110'
 ha_iot_class: Local Polling
@@ -13,6 +13,7 @@ ha_domain: agent_dvr
 ha_platforms:
   - alarm_control_panel
   - camera
+ha_integration_type: integration
 ---
 
 [Agent DVR](https://www.ispyconnect.com/download.aspx/) is a free* software DVR solution for windows 10, Mac and Linux. Agent DVR runs as a service or console application and can access and control a huge range of third party cameras with advanced motion detection, including DeepStack integration for object recognition. The iSpyConnect website provides secured (SSL) remote access without port forwarding needed.

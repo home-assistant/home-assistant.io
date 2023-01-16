@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: shodan
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `shodan` sensor platform is displaying the total of result of a

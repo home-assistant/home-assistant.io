@@ -67,6 +67,21 @@ The gas consumption graph card shows the amount of gas consumed per source.
 type: energy-gas-graph
 ```
 
+## Water consumption graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/water-graph.png' alt='Screenshot of the water consumption graph card'>
+  Screenshot of the water consumption graph card.
+</p>
+
+The water consumption graph card shows the amount of water consumed per source.
+
+#### Example
+
+```yaml
+type: energy-water-graph
+```
+
 ## Energy distribution
 
 <p class='img'>
@@ -108,7 +123,7 @@ type: energy-sources-table
   Screenshot of the Grid neutrality gauge card.
 </p>
 
-The grid neutrality gauge card represents your energy dependency. If it's green, it means you produced more energy than that you consumed from the grid. If it's in the red, it means that you relied on the grid for part of your home's energy consumption.
+The grid neutrality gauge card represents your energy dependency. If the needle is in the purple, you returned more energy to the grid than you consumed from it. If it's in the blue, you consumed more energy from the grid than you returned.
 
 #### Example
 ```yaml

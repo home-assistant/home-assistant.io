@@ -8,6 +8,7 @@ ha_release: 0.75
 ha_domain: futurenow
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 The `futurenow` light platform allows you to use [P5](https://www.p5.hu/) FutureNow relay/dimmer units as lights. Currently supported units: 

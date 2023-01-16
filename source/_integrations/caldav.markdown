@@ -8,19 +8,24 @@ ha_release: '0.60'
 ha_domain: caldav
 ha_platforms:
   - calendar
+ha_integration_type: integration
 ---
 
 The `caldav` platform allows you to connect to your WebDAV calendar and generate binary sensors. A different sensor will be created for each individual calendar, or you can specify custom calendars which match a criteria you define (more on that below). These sensors will be `on` if you have an on going event in that calendar or `off` if the event is later in time, or if there is no event at all. The WebDAV calendar get updated roughly every 15 minutes.
 
 ## Prerequisites
 
-You need to have a CalDAV server and credentials for it. This integration was tested against [Baikal](http://sabre.io/baikal/) but any integration complying with the RFC4791 should work. [Nextcloud](https://nextcloud.com/) and [Owncloud](https://owncloud.org/) work fine.
+You need to have a CalDAV server and credentials for it. This integration was tested against [Baikal](https://sabre.io/baikal/) but any integration complying with the RFC4791 should work. [Nextcloud](https://nextcloud.com/) and [Owncloud](https://owncloud.org/) work fine.
+
+{% details "Notes for Home Assistant Core Installations" %}
 
 You might need some additional system packages to compile the Python CalDAV library. On a Debian based system, install them by:
 
 ```bash
 sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev
 ```
+
+{% enddetails %}
 
 ## Basic Setup
 
@@ -42,6 +47,15 @@ calendar:
     username: john.doe
     password: !secret caldav
     url: https://nextcloud.example.com/remote.php/dav
+```
+
+```yaml
+# Example configuration.yaml entry for Radicale, calendars will be found automatically
+calendar:
+  - platform: caldav
+    username: john.doe
+    password: !secret caldav
+    url: https://radicale.example.com/
 ```
 
 ```yaml

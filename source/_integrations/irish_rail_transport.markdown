@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: irish_rail_transport
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `irish_rail_transport` sensor will give you the time until the next two departures (within 90 minutes) from an Irish Rail station using the RTPI information.

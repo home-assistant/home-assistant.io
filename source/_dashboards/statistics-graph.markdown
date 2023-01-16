@@ -7,17 +7,17 @@ description: "The Statistics Graph card allows you to display a graph with stati
 
 The Statistics Graph card allows you to display a graph of statistics data for each of the entities listed.
 
-Statistics are gathered every hour for sensors that support it. It will either keep the `min`, `max` and `mean` of a sensors value for a specific hour, or the `sum` for a metered entity.
+Statistics are gathered every 5 minutes for sensors that support it. It will either keep the `min`, `max` and `mean` of a sensors value for a specific hour, or the `sum` for a metered entity.
 
 If your sensor doesn't work with statistics, check [this](/more-info/statistics/).
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_statistics_graph_line.png' alt='Screenshot of the statistics graph card for power entities'>
+<img src='/images/dashboards/statistics_graph_line.png' alt='Screenshot of the statistics graph card for power entities'>
 Screenshot of the Statistics Graph card with none metered entities and `chart_type` `line`.
 </p>
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_statistics_graph_bar.png' alt='Screenshot of the statistics graph card for energy entities'>
+<img src='/images/dashboards/statistics_graph_bar.png' alt='Screenshot of the statistics graph card for energy entities'>
 Screenshot of the Statistics Graph card with a metered entity and `chart_type` `bar`.
 </p>
 
@@ -30,7 +30,7 @@ type:
   type: string
 entities:
   required: true
-  description: "A list of entity IDs or `entity` objects, see below."
+  description: "A list of entity IDs or `entity` objects (see below), or an external statistic id"
   type: list
 days_to_show:
   required: false

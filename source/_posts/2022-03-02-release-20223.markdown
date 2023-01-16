@@ -38,6 +38,8 @@ Enjoy the release!
 
 ../Frenck
 
+<!--more-->
+
 - [The Home Assistant Newsletter](#the-home-assistant-newsletter)
 - [Media Selector and the new "Play media" action](#media-selector-and-the-new-play-media-action)
 - [More media sources!](#more-media-sources)
@@ -54,6 +56,8 @@ Enjoy the release!
 - [Release 2022.3.4 - March 11](#release-202234---march-11)
 - [Release 2022.3.5 - March 15](#release-202235---march-15)
 - [Release 2022.3.6 - March 21](#release-202236---march-21)
+- [Release 2022.3.7 - March 23](#release-202237---march-23)
+- [Release 2022.3.8 - March 29](#release-202238---march-29)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Updates for custom integration developers](#updates-for-custom-integration-developers)
@@ -601,6 +605,75 @@ The following integrations are now available via the Home Assistant UI:
 [tplink docs]: /integrations/tplink/
 [velbus docs]: /integrations/velbus/
 
+## Release 2022.3.7 - March 23
+
+- Fix targeting all or none entities in service calls ([@emontnemery] - [#68513])
+- Add support for general API exception in Sense integration ([@kbickar] - [#68517]) ([sense docs]) ([emulated_kasa docs])
+- Add cooldown timer before Sonos resubscriptions ([@jjlawren] - [#68521]) ([sonos docs])
+- Hue handle HTTP errors ([@balloob] - [#68396]) ([hue docs])
+- Simplify Hue error handling a bit ([@marcelveldt] - [#68529]) ([hue docs])
+- Filter IPv6 addresses from AppleTV zeroconf discovery ([@bdraco] - [#68530]) ([apple_tv docs])
+- Bump aiohue to 4.4.0 ([@marcelveldt] - [#68556]) ([hue docs])
+- Bump aiohue to version 4.4.1 ([@marcelveldt] - [#68579]) ([hue docs])
+- Bump py-synologydsm-api to 1.0.7 ([@mib1185] - [#68584]) ([synology_dsm docs])
+
+[#68396]: https://github.com/home-assistant/core/pull/68396
+[#68513]: https://github.com/home-assistant/core/pull/68513
+[#68517]: https://github.com/home-assistant/core/pull/68517
+[#68521]: https://github.com/home-assistant/core/pull/68521
+[#68529]: https://github.com/home-assistant/core/pull/68529
+[#68530]: https://github.com/home-assistant/core/pull/68530
+[#68556]: https://github.com/home-assistant/core/pull/68556
+[#68579]: https://github.com/home-assistant/core/pull/68579
+[#68584]: https://github.com/home-assistant/core/pull/68584
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@jjlawren]: https://github.com/jjlawren
+[@kbickar]: https://github.com/kbickar
+[@marcelveldt]: https://github.com/marcelveldt
+[@mib1185]: https://github.com/mib1185
+[apple_tv docs]: /integrations/apple_tv/
+[emulated_kasa docs]: /integrations/emulated_kasa/
+[hue docs]: /integrations/hue/
+[sense docs]: /integrations/sense/
+[sonos docs]: /integrations/sonos/
+[synology_dsm docs]: /integrations/synology_dsm/
+
+## Release 2022.3.8 - March 29
+
+- Revert "Take Abode camera snapshot before fetching latest image" ([@kevdliu] - [#68626]) ([abode docs])
+- Fix screenlogic to get the macaddress from discovery ([@bdraco] - [#68687]) ([screenlogic docs])
+- Ensure solaredge can still be setup with an ignored entry ([@bdraco] - [#68688]) ([solaredge docs])
+- Add option to connect to elkm1 non-secure when secure is discovered ([@bdraco] - [#68735]) ([elkm1 docs])
+- Increase zwave_js add-on start attempts before timeout ([@MartinHjelmare] - [#68736]) ([zwave_js docs])
+- Fix ignoring elkm1 discovery ([@bdraco] - [#68750]) ([elkm1 docs])
+- Update sense library to 0.10.4 ([@kbickar] - [#68816]) ([sense docs]) ([emulated_kasa docs]) (dependency)
+- Pin click to fix typer issue ([@epenet] - [#68808])
+- Cleanup package constraints ([@epenet] - [#68833])
+
+[#68626]: https://github.com/home-assistant/core/pull/68626
+[#68687]: https://github.com/home-assistant/core/pull/68687
+[#68688]: https://github.com/home-assistant/core/pull/68688
+[#68735]: https://github.com/home-assistant/core/pull/68735
+[#68736]: https://github.com/home-assistant/core/pull/68736
+[#68750]: https://github.com/home-assistant/core/pull/68750
+[#68808]: https://github.com/home-assistant/core/pull/68808
+[#68816]: https://github.com/home-assistant/core/pull/68816
+[#68833]: https://github.com/home-assistant/core/pull/68833
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@bdraco]: https://github.com/bdraco
+[@epenet]: https://github.com/epenet
+[@kbickar]: https://github.com/kbickar
+[@kevdliu]: https://github.com/kevdliu
+[abode docs]: /integrations/abode/
+[elkm1 docs]: /integrations/elkm1/
+[emulated_kasa docs]: /integrations/emulated_kasa/
+[screenlogic docs]: /integrations/screenlogic/
+[sense docs]: /integrations/sense/
+[solaredge docs]: /integrations/solaredge/
+[zwave_js docs]: /integrations/zwave_js/
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
@@ -1100,6 +1173,14 @@ The stale restored sensor can be safely removed.
 
 [@tschnilo]: https://github.com/tschnilo
 [#63339]: https://github.com/home-assistant/core/pull/63339
+
+{% enddetails %}
+
+{% details "Workday" %}
+
+Workday now requires a 2-character [ISO 3166-1] country code instead of the country's name. States, provinces and constituent countries must now be listed using the `province` setting. Please see the [documentation](/integrations/workday) for examples.
+
+[ISO 3166-1]: https://en.wikipedia.org/wiki/ISO_3166-1
 
 {% enddetails %}
 

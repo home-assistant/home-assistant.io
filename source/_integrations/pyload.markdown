@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: pyload
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `pyload` platform allows you to monitor your downloads with [pyLoad](https://pyload.net/) from within Home Assistant and setup automation based on the information.

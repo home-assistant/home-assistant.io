@@ -16,8 +16,8 @@ ha_platforms:
   - diagnostics
   - light
   - number
-  - sensor
   - select
+  - sensor
   - switch
 ha_codeowners:
   - '@icemanch'
@@ -25,6 +25,7 @@ ha_codeowners:
 ha_quality_scale: platinum
 ha_config_flow: true
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The Magic Home integration supports several brands of switches, bulbs, and controllers that use the same protocol. Chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work with this integration if you can control the device with the Magic Home app or the Surp Life app.
@@ -35,7 +36,7 @@ Example of bulbs:
 
 - [MagicLight Smart Bulbs](https://www.magiclightbulbs.com/lightbulbs) or [Amazon](https://www.amazon.com/gp/product/B081YJHHB1/)
 - [RGBCW Downlights](https://www.amazon.com/gp/product/B093Q83G7S/)
-- [RGBCW Floodlights](https://www.amazon.com/gp/product/B09J38NKPN)
+- [RGBCW Floodlights](https://www.amazon.com/dp/product/B08CDS3N6H)
 
 Examples of controllers with strips:
 
@@ -46,7 +47,7 @@ Examples of controllers:
 - [Single color](https://www.amazon.com/gp/product/B07J5B3R5L/)
 - [RGB](https://www.amazon.com/gp/product/B07C1LN7FZ/)
 - [RGBW](https://www.amazon.com/gp/product/B07J9QCQNN/)
-- [RGBCW](https://www.amazon.com/gp/product/B09BMC4JNJ/)
+- [RGBCW](https://www.amazon.co.uk/gp/product/B09BMC4JNJ/)
 - [RGB/W/CW](https://www.amazon.com/gp/product/B01DY56N8U/)
 
 Examples of addressable controllers:
@@ -109,7 +110,7 @@ These devices have been sold under at least the following brands:
 - Mowelai
 - Nexlux
 - OBSESS
-- [Offdarks](http://offdarks.net)
+- Offdarks
 - PH LED
 - PHOPOLLO
 - [Pin Stadium Pinball Lights](https://pinstadium.com/)
@@ -131,7 +132,7 @@ These devices have been sold under at least the following brands:
 
 {% include integrations/config_flow.md %}
 
-After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Configuration -> Integrations and selecting the "Magic Home" configuration for the bulb or controller. 
+After the devices have been added they can be configured with different effects listed below. These settings can be accessed by navigating to the integration settings in Settings -> Integrations and selecting the "Magic Home" configuration for the bulb or controller. 
 
 **Custom Effect**\
 A list of RGB colors can be entered to create an effect. The effect speed can be adjusted using the slider underneath.

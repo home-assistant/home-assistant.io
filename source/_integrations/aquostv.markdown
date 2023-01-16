@@ -8,9 +8,10 @@ ha_iot_class: Local Polling
 ha_domain: aquostv
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
-The `aquostv` platform allows you to control a [Sharp Aquos TV](http://www.sharp-world.com/aquos/en/index.html).
+The `aquostv` platform allows you to control a [Sharp Aquos TV](https://global.sharp/aquos/en/index.html).
 
 When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
 
@@ -67,6 +68,7 @@ Also, with **power_on_enabled** as True, the Aquos logo on your TV will stay on 
 ## Currently known supported models
 
 - LC-40LE830U
+- LC-40CFE6242E (no volume control, not fully tested but able to poll state)
 - LC-46LE830U
 - LC-52LE830U
 - LC-60LE830U

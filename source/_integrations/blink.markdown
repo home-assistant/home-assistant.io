@@ -2,10 +2,10 @@
 title: Blink
 description: Instructions for how to integrate Blink camera/security system within Home Assistant.
 ha_category:
-  - Hub
   - Alarm
   - Binary Sensor
   - Camera
+  - Hub
   - Sensor
 ha_release: '0.40'
 ha_iot_class: Cloud Polling
@@ -19,6 +19,7 @@ ha_platforms:
   - camera
   - sensor
 ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The `blink` integration lets you view camera images and motion events from [Blink](https://blinkforhome.com/) camera and security systems.
@@ -33,7 +34,7 @@ The preferred method for setting this up is by using the configuration flow. Go 
 
 1. You are sent an email asking for you to allow Home Assistant to access Blink.  In this case, leave the pin field blank and hit `Submit`.
 
-2. You are sent an email containing a 2FA pin.  In this case, please enter the pin and hit `Submit`.
+2. You are sent an email or SMS containing a 2FA pin.  In this case, please enter the pin and hit `Submit`.
 
 Your integration will then set up.  Given that setup is asynchronous, you may see your sensors before they have finished extracting data from the Blink servers.  After a few minutes (at most) this information should populate.
 
@@ -98,7 +99,7 @@ The following are some examples showing how to correctly make service calls usin
 
 ### Snap Picture and Save Locally
 
-This example script shows how to take a picture with your camera, named `My Camera` in your Blink app (this is **not necessarily** the friendly name in home-assistant).  After snapping a picture, the image will then be saved to a local directory called `/tmp/my_image.jpg`.  Note that this example makes use of services found in the [camera integration](/integrations/camera#service-snapshot)
+This example script shows how to take a picture with your camera, named `My Camera` in your Blink app (this is **not necessarily** the friendly name in Home Assistant).  After snapping a picture, the image will then be saved to a local directory called `/tmp/my_image.jpg`.  Note that this example makes use of services found in the [camera integration](/integrations/camera#service-snapshot)
 
 ```yaml
 alias: "Blink Snap Picture"

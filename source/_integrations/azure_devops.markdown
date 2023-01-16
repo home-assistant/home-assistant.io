@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: azure_devops
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Azure DevOps integration allows you to control and monitor your

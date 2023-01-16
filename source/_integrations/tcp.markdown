@@ -10,6 +10,7 @@ ha_domain: tcp
 ha_platforms:
   - binary_sensor
   - sensor
+ha_integration_type: integration
 ---
 
 The TCP integration allows the integration of some services for which a specific Home Assistant integration does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this integration will allow integration with it.

@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: hikvisioncam
 ha_platforms:
   - switch
+ha_integration_type: integration
 ---
 
 This `hikvisioncam` switch platform allows you to control your motion detection setting on your [Hikvision](https://www.hikvision.com/) camera.

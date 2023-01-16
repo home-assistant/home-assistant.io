@@ -8,16 +8,18 @@ ha_release: 0.81
 ha_domain: lg_soundbar
 ha_platforms:
   - media_player
+ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The `lg_soundbar` platform allows you to control [LG Soundbars](https://www.lg.com/us/sound-bars) from Home Assistant.
 
 Supported devices:
 
-- Devices in the SK range with Ethernet and/or Wi-Fi
+- Devices in the SK and SN range with Ethernet and/or Wi-Fi
 
-Compatible devices will be automatically added if the [`discovery`](/integrations/discovery/) integration is enabled.
+{% include integrations/config_flow.md %}
 
-### Supported operations
+## Supported operations
 
 - These devices support mute, volume control, source selection and mode selection.

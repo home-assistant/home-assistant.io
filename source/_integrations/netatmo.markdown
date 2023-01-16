@@ -2,14 +2,16 @@
 title: Netatmo
 description: Instructions on how to integrate Netatmo integration into Home Assistant.
 ha_category:
-  - Hub
-  - Environment
-  - Weather
-  - Sensor
-  - Climate
   - Camera
+  - Climate
+  - Cover
+  - Environment
+  - Hub
   - Light
   - Media Source
+  - Sensor
+  - Switch
+  - Weather
 ha_release: '0.20'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -19,11 +21,14 @@ ha_domain: netatmo
 ha_homekit: true
 ha_platforms:
   - camera
-  - diagnostics
   - climate
+  - cover
+  - diagnostics
   - light
-  - sensor
   - select
+  - sensor
+  - switch
+ha_integration_type: hub
 ---
 
 The Netatmo integration platform is the main integration to integrate all Netatmo related platforms.
@@ -32,8 +37,10 @@ There is currently support for the following device types within Home Assistant:
 
 - [Camera](#camera)
 - [Climate](#climate)
+- [Cover](#cover)
 - [Light](#light)
 - [Sensor](#sensor)
+- [Switch](#switch)
 - [Webhook Events](#webhook-events)
 
 {% include integrations/config_flow.md %}
@@ -48,20 +55,31 @@ To edit an existing area, enter its name and follow the dialog.
 
 ## Camera
 
-The `netatmo` camera platform is consuming the information provided by a [Netatmo Smart Indoor](https://www.netatmo.com/en-gb/security/cam-indoor) or [Outdoor](https://www.netatmo.com/en-gb/security/cam-outdoor) camera. This integration allows you to view the current live stream created by the camera.
+The `netatmo` camera platform is consuming the information provided by a [Netatmo Smart Indoor](https://www.netatmo.com/en-gb/security/cam-indoor), [Outdoor](https://www.netatmo.com/en-gb/security/cam-outdoor) and [Netatmo Smart Video Doorbell](https://www.netatmo.com/en-gb/security/doorbell) camera. This integration allows you to view the current live stream created by the camera (exception: video doorbell).
+
+The doorbell is currently not supported with the Home Assistant Cloud link mode (configured in the integration). Please use a [Netatmo dev account](#development--testing-with-your-own-client-id). Note that: if you have already created the Netatmo integration, you must remove it and configure it with the Netatmo dev account as explained in the previous link. Then you will see a Smart Doorbell device with a camera sensor.
 
 ## Climate
 
-The `netatmo` thermostat platform is consuming the information provided by a [Netatmo Smart Thermostat](https://www.netatmo.com/product/energy/thermostat) or [Netatmo Smart Radiator Valve](https://www.netatmo.com/en-gb/energy/additional-valve). This integration allows you to view the current temperature and control the setpoint.
+The `netatmo` thermostat platform is consuming the information provided by a [Netatmo Smart Thermostat](https://www.netatmo.com/product/energy/thermostat), [Smart Modulating Thermostat](https://www.netatmo.com/en-gb/energy/modulating-thermostat) and [Netatmo Smart Radiator Valve](https://www.netatmo.com/en-gb/energy/additional-valve). This integration allows you to view the current temperature and control the setpoint.
+
+## Cover
+
+The `netatmo` cover platform provides support for Bubendorff shutters. 
 
 ## Light
 
 The `netatmo` light platform is consuming information provided by a [Netatmo Smart Outdoor](https://www.netatmo.com/en-gb/security/cam-outdoor) camera and requires an active webhook. This integration allows you to turn on/off the flood lights.
+It further provides support for Legrand/BTicino dimmers.
 
 ## Sensor
 
 The `netatmo` sensor platform is consuming the information provided by a [Netatmo Smart Home Weather Station](https://www.netatmo.com/en-us/weather/weatherstation) a
 [Netatmo Smart Indoor Air Quality Monitor](https://www.netatmo.com/en-us/aircare/homecoach) device or [Netatmo Public Weather Stations](https://weathermap.netatmo.com/).
+
+## Switch
+
+The `netatmo` switch platform provides support for Legrand/BTicino switches and power plugs.
 
 ## Services
 
@@ -221,29 +239,9 @@ In your Netatmo Application configuration, do not enter a 'redirect URI' or a 'w
   
 </div>
 
-Next, add the following lines to your `configuration.yaml`:
+See [Application Credentials](/integrations/application_credentials) for instructions on how to configure your *Client ID* and *Client Secret*, then enable Netatmo through the integrations page.
 
-```yaml
-# Example configuration.yaml entry
-netatmo:
-  client_id: YOUR_CLIENT_ID
-  client_secret: YOUR_CLIENT_SECRET
-```
-
-{% configuration %}
-client_id:
-  description: The `client id` from your Netatmo app.
-  required: true
-  type: string
-client_secret:
-  description: The `client secret` from your Netatmo app.
-  required: true
-  type: string
-{% endconfiguration %}
-
-**After the `client_id` and `client_secret` are added to your `configuration.yaml` you must restart Home Assistant and then enable Netatmo through the integrations page.**
-
-Menu: **Configuration** -> **Devices & Services**.
+Menu: **Settings** -> **Devices & Services**.
 
 Click on the `+` sign to add an integration and click on **Netatmo**.
 After completing the configuration flow, the Netatmo integration will be available.

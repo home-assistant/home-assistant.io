@@ -33,6 +33,8 @@ We are just getting started with things. As usual our users are really good at f
 
 ![Screenshot of App on Quest](/images/blog/2022-01-android/app_on_quest.png)
 
+<!--more-->
+
 ## Hello Sidequest!
 
 Wait Sidequest, what is that? Sidequest is the alternative App Store for the Oculus Quest.

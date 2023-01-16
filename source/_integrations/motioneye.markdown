@@ -14,10 +14,11 @@ ha_platforms:
   - camera
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The motionEye integration allows you to integrate your
-[motionEye](https://github.com/ccrisan/motioneye) server into Home Assistant. motionEye
+[motionEye](https://github.com/motioneye-project/motioneye) server into Home Assistant. motionEye
 is an open source web-frontend for the motion daemon, used to centralize the management
 and visualization of multiple types of cameras.
 
@@ -312,7 +313,7 @@ A dashboard card with icons that will call the `action` service to send action c
         tap_action:
           action: call-service
           service: motioneye.action
-          service_data:
+          data:
             action: left
             entity_id: camera.living_room
       - entity: camera.living_room
@@ -320,7 +321,7 @@ A dashboard card with icons that will call the `action` service to send action c
         tap_action:
           action: call-service
           service: motioneye.action
-          service_data:
+          data:
             action: right
             entity_id: camera.living_room
       - entity: camera.living_room
@@ -328,7 +329,7 @@ A dashboard card with icons that will call the `action` service to send action c
         tap_action:
           action: call-service
           service: motioneye.action
-          service_data:
+          data:
             action: up
             entity_id: camera.living_room
       - entity: camera.living_room
@@ -336,7 +337,7 @@ A dashboard card with icons that will call the `action` service to send action c
         tap_action:
           action: call-service
           service: motioneye.action
-          service_data:
+          data:
             action: down
             entity_id: camera.living_room
 ```

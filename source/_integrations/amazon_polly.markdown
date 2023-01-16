@@ -8,6 +8,7 @@ ha_domain: amazon_polly
 ha_iot_class: Cloud Push
 ha_platforms:
   - tts
+ha_integration_type: integration
 ---
 
 The `amazon_polly` text-to-speech platform that works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.
@@ -41,7 +42,7 @@ aws_secret_access_key:
   required: true
   type: string
 profile_name:
-  description: A credentials profile name.
+  description: A credentials profile name. If provided, you must **not** provide an `aws_access_key_id` nor an `aws_secrete_access_key`. 
   required: false
   type: string
 region_name:
@@ -50,12 +51,12 @@ region_name:
   type: [string, list]
   default: us-east-1
 text_type:
-  description: "Specify wherever to use text (default) or ssml markup by default."
+  description: "Whether to interpret messages as `text` or as [`ssml`](https://docs.aws.amazon.com/polly/latest/dg/ssml.html) by default."
   required: false
   type: string
   default: text
 voice:
-  description: Voice name to be used.
+  description: The [Voice Name/ID](https://docs.aws.amazon.com/polly/latest/dg/voicelist.html) to be used for generated speech by default. 
   required: false
   type: string
 output_format:

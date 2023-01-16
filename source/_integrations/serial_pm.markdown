@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: serial_pm
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 Particulate matter sensors measure the amount of very small particles in the air.

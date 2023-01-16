@@ -15,6 +15,7 @@ ha_platforms:
   - diagnostics
   - sensor
   - switch
+ha_integration_type: hub
 ---
 
 <div class='note warning'>

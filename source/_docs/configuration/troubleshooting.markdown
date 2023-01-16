@@ -29,7 +29,7 @@ One of the most common problems with Home Assistant is an invalid `configuration
 - You can verify your configuration's YAML structure using [this online YAML parser](https://yaml-online-parser.appspot.com/) or [YAML Validator](https://codebeautify.org/yaml-validator/).
 - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltproject.io/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
 
-`configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiple platforms for one component, you can append a [number or string](/docs/configuration/devices/#style-2-list-each-entity-separately) to the name or nest them using [this style](/docs/configuration/devices/#style-1-collect-every-entity-under-the-parent):
+`configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiple platforms for one component, you can append a number or string to the name or nest them:
 
 ```yaml
 sensor:
@@ -97,3 +97,34 @@ The only characters valid in entity names are:
 - Underscores
 
 If you create an entity with other characters then Home Assistant may not generate an error for that entity. However you will find that attempts to use that entity will generate errors (or possibly fail silently).
+
+## Debug Logs and Diagnostics
+
+The first thing you will need before reporting an issue online is debug logs and diagnostics (if available) for the integration giving you trouble. Getting those ahead of time will ensure someone can help resolve your issue in the fastest possible manner.
+
+### Enabling Debug Logging
+
+To enable debug logging for an integration, go to **Settings -> Devices & Services** and then click the triple dots for the integration giving you trouble and click **Enable Debug Logging**.
+
+<p class='img'>
+  <img src='/images/docs/configuration/enable-debug-logging.gif' alt='Example of Enable Debug Logging'>
+  Example of Enable Debug Logging.
+</p>
+
+### Disable Debug Logging and Download Logs
+
+Once you enable debug logging, you ideally need to make the error happen. Run your automation, change up your device or whatever was giving you an error and then come back and disable Debug Logging. Disabling debug logging is the same as enabling, but now you will see **Disable Debug Logging**. After you disable debug logging, it will automatically prompt you to download your log file. Save this to a safe location to upload later.
+
+<p class='img'>
+  <img src='/images/docs/configuration/disable-debug-logging.gif' alt='Example of Disable Debug Logging'>
+  Example of Disable Debug Logging.
+</p>
+
+### Download Diagnostics
+
+After you download logs, you will also want to download the diagnostics for the integration giving you trouble. If the integration provides diagnostics, it will appear in the same menu that the Debug Logging toggle appeared.
+
+<p class='img'>
+  <img src='/images/docs/configuration/download-diagnostics.gif' alt='Example of Download Diagnostics'>
+  Example of Download Diagnostics.
+</p>

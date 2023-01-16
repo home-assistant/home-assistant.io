@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: smart_meter_texas
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The [Smart Meter Texas](https://www.smartmetertexas.com/) integration allows Texas residents to integrate their electric meters into Home Assistant. This integration will create a sensor for each meter that shows the current reading.

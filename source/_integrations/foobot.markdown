@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: foobot
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `foobot` sensor platform will fetch air quality data from your or yours [Foobot device(s)](https://foobot.io/features/).

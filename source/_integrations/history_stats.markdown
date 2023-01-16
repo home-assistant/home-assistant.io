@@ -2,14 +2,15 @@
 title: History Stats
 description: Instructions about how to integrate historical statistics into Home Assistant.
 ha_category:
-  - Utility
   - Sensor
+  - Utility
 ha_iot_class: Local Polling
 ha_release: 0.39
 ha_quality_scale: internal
 ha_domain: history_stats
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `history_stats` sensor platform provides quick statistics about another integration or platforms, using data from the [`history`](/integrations/history/) integration.
@@ -89,7 +90,7 @@ Depending on the sensor type you choose, the `history_stats` integration can sho
 
 - **time**: The default value, which is the tracked time, in hours
 - **ratio**: The tracked time divided by the length of your period, as a percentage
-- **count**: How many times the integration you track was changed to the state you track
+- **count**: How many times the tracked entity matched the configured state during the time period
 
 ## Time periods
 
@@ -106,12 +107,12 @@ The duration variable is used when the time period is fixed. Different syntaxes 
 
 ```yaml
 # 6 hours
-duration: 06:00
+duration: "06:00"
 ```
 
 ```yaml
 # 1 minute, 30 seconds
-duration: 00:01:30
+duration: "00:01:30"
 ```
 
 ```yaml
@@ -137,7 +138,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+    start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
     end: "{{ now() }}"
 ```
 
@@ -148,7 +149,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    end: "{{ now().replace(hour=0, minute=0, second=0) }}"
+    end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
     duration:
       hours: 24
 ```
@@ -160,7 +161,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    start: "{{ now().replace(hour=6, minute=0, second=0) }}"
+    start: "{{ now().replace(hour=6, minute=0, second=0, microsecond=0) }}"
     duration:
       hours: 5
 ```
@@ -174,8 +175,30 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}"
+    start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0, microsecond=0) ) - now().weekday() * 86400 }}"
     end: "{{ now() }}"
+```
+
+{% endraw %}
+
+**Current month**: starts the first day of the current month at 00:00, ends right now.
+
+{% raw %}
+
+```yaml
+    start: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0 ) }}"
+    end: "{{ now() }}"
+```
+
+{% endraw %}
+
+**Previous month**: starts the first day of the previous month at 00:00, ends the first day of the current month.
+
+{% raw %}
+
+```yaml
+    start: "{{ now().replace(day=1, month=now().month-1, hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0) }}"
 ```
 
 {% endraw %}
@@ -185,7 +208,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    end: "{{ (now().replace(minute=0,second=0) + timedelta(hours=8)).replace(hour=16) }}"
+    end: "{{ (now().replace(minute=0, second=0, microsecond=0) + timedelta(hours=8)).replace(hour=16) }}"
     duration:
         hours: 24
 ```
@@ -197,7 +220,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    end: "{{ now().replace(hour=0, minute=0, second=0) }}"
+    end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
     duration:
       days: 30
 ```

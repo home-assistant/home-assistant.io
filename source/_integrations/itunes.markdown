@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: itunes
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `itunes` media player platform allows you to control [iTunes](https://apple.com/itunes/) from Home Assistant. It uses a 3rd party server that you run on your Mac called [itunes-api](https://github.com/maddox/itunes-api). Play, pause or skip songs remotely on iTunes running on your Mac.

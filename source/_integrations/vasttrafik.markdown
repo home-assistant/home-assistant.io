@@ -8,6 +8,7 @@ ha_release: '0.30'
 ha_domain: vasttrafik
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `vasttrafik` sensor will provide you traveling details for the larger Göteborg area in Sweden from the [Västtrafik](https://vasttrafik.se/) public transportation service.

@@ -14,9 +14,10 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@javicalle'
+ha_integration_type: integration
 ---
 
-The `rflink` integration supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` integration supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/en/21-rflink-). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 The 433 MHz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
 
@@ -153,6 +154,26 @@ rflink:
 ```
 
 This configuration will ignore the button `1` of the `newkaku` device with ID `000001`, all devices of the `digitech` protocol and all switches of the `kaku` protocol device with codewheel ID `1`.
+
+### Invert cover
+
+Devices can be configure to work in inverted mode by adding option in `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry for inverted RTS cover
+cover:
+  - platform: rflink
+    devices:
+      # Rfloader created remote control which is used by Home Assistant
+      RTS_0a0a0a_1:
+        name: "Blind office"
+        aliases: 
+          - rts_0f1f2f_01 # ID of the remote control (Somfy smove in this case)
+        type: inverted
+ ```
+
+This configuration uses `0a0a0a` to control the inverted shutter (send UP to close and Down to open) and listen commands sent by `0f1f2f` remote control.
+
 
 ### Device support
 

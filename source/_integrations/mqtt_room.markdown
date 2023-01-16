@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_domain: mqtt_room
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `mqtt_room` sensor platform allows you to detect the indoor location of devices using MQTT clients.
@@ -25,6 +26,11 @@ sensor:
 ```
 
 {% configuration %}
+away_timeout:
+  description: The time in seconds after which the state should be set to `not_home` if there were no updates. `0` disables the check.
+  required: false
+  default: 0
+  type: integer
 device_id:
   description: The device id to track for this sensor.
   required: true
@@ -43,11 +49,10 @@ timeout:
   required: false
   default: 5
   type: integer
-away_timeout:
-  description: The time in seconds after which the state should be set to `not_home` if there were no updates. `0` disables the check.
+unique_id:
+  description: "An ID that uniquely identifies this room sensor. If two sensors have the same unique ID, Home Assistant will raise an exception."
   required: false
-  default: 0
-  type: integer
+  type: string
 {% endconfiguration %}
 
 ## Usage

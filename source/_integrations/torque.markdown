@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: torque
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `torque` platform will allow you to monitor [Torque](https://torque-bhp.com/) data relayed from a Bluetooth OBD2 stick via the Torque mobile application.
@@ -28,7 +29,7 @@ Under the **Logging Preferences** header:
 Under the **Realtime Web Upload** header:
 
 - Check **Upload to web-server**.
-- Enter `https://HOST:PORT/api/torque` as the **Web-server URL**, where `HOST` and `PORT` are your externally accessible Home Assistant HTTP host. To use a Bearer Token, this has to be [SSL/TSL](/docs/ecosystem/certificates/).
+- Enter `https://HOST/api/torque` or `https://@/HOST:PORT/api/torque` as the **Web-server URL**, where `HOST` and `PORT` are your externally accessible Home Assistant HTTP host. To use a Bearer Token, this has to be [SSL/TSL](/docs/ecosystem/certificates/).
 - Enable **Send https: Bearer Token**  (available since Torque Pro 1.12.46)
 - Paste a Long-Lived Access Token from any Home Assistant user in **Set Bearer Token** field.
 - Enter an email address in **User Email Address** (this can be any non empty string you like). 

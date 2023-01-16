@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: nina
 ha_platforms:
   - binary_sensor
+ha_integration_type: integration
 ---
 
 The [NINA](https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-nina_node.html) integration displays warnings from the [Bundesamt für Bevölkerungsschutz und Katastrophenhilfe](https://www.bbk.bund.de/) in Germany.
@@ -23,8 +24,11 @@ For each county/city it creates warning slots that change to Unsafe when warning
 
 | Attribute    | Description                            |
 | ------------ | -------------------------------------- |
-| `Headline` | *(str)* Official headline of the warning. |
-| `ID` | *(str)* Individual ID for each warning. |
-| `Sent` | *(time)* Transmission time and date (UTC) of the issued warning. |
-| `Start` | *(time)* Starting time and date (UTC) of the issued warning. Can be empty. |
-| `Expires` | *(time)* Expiration time and date (UTC) of the issued warning. Can be empty. |
+| `headline` | *(str)* Official headline of the warning. |
+| `description` | *(str)* Official description of the warning. |
+| `sender` | *(str)* Sender of the warning. Can be empty. |
+| `severity` | *(str)* Severity of the warning. <br>Extreme - Extraordinary threat to life or property <br>Severe - Significant threat to life or property <br>Moderate - Possible threat to life or property <br>Minor – Minimal to no known threat to life or property <br>Unknown - Severity unknown |
+| `id` | *(str)* Individual ID for each warning. |
+| `sent` | *(time)* Transmission time and date (UTC) of the issued warning. |
+| `start` | *(time)* Starting time and date (UTC) of the issued warning. Can be empty. |
+| `expires` | *(time)* Expiration time and date (UTC) of the issued warning. Can be empty. |

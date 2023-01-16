@@ -18,14 +18,16 @@ When a `state_topic` is not available, the humidifier will work in optimistic mo
 
 Optimistic mode can be forced even if a `state_topic` is available. Try to enable it if you are experiencing incorrect humidifier operation.
 
+<a id='new_format'></a>
+
 To enable MQTT humidifiers in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-humidifier:
-  - platform: mqtt
-    command_topic: "bedroom_humidifier/on/set"
-    target_humidity_command_topic: "bedroom_humidifier/humidity/set"
+mqtt:
+  humidifier:
+    - command_topic: "bedroom_humidifier/on/set"
+      target_humidity_command_topic: "bedroom_humidifier/humidity/set"
 ```
 
 {% configuration %}
@@ -49,7 +51,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -58,7 +60,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -66,7 +68,7 @@ availability_topic:
   required: false
   type: string
 command_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `command_topic`.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `command_topic`.
   required: false
   type: template
 command_topic:
@@ -86,6 +88,10 @@ device:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: [list, map]
+    hw_version:
+      description: The hardware version of the device.
+      required: false
+      type: string
     identifiers:
       description: A list of IDs that uniquely identify the device. For example a serial number.
       required: false
@@ -139,7 +145,7 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -201,7 +207,7 @@ payload_reset_mode:
   type: string
   default: 'None'
 target_humidity_command_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `target_humidity_command_topic`.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `target_humidity_command_topic`.
   required: false
   type: template
 target_humidity_command_topic:
@@ -213,11 +219,11 @@ target_humidity_state_topic:
   required: false
   type: string
 target_humidity_state_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value for the humidifier `target_humidity` state.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value for the humidifier `target_humidity` state.
   required: false
   type: string
 mode_command_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to generate the payload to send to `mode_command_topic`.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `mode_command_topic`.
   required: false
   type: template
 mode_command_topic:
@@ -229,7 +235,7 @@ mode_state_topic:
   required: false
   type: string
 mode_state_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value for the humidifier `mode` state.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value for the humidifier `mode` state.
   required: false
   type: string
 modes:
@@ -252,7 +258,7 @@ state_topic:
   required: false
   type: string
 state_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the state."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value from the state."
   required: false
   type: string
 unique_id:
@@ -279,31 +285,31 @@ The example below shows a full configuration for a MQTT humidifier including mod
 
 ```yaml
 # Example configuration.yaml
-humidifier:
-  - platform: mqtt
-    name: "Bedroom humidifier"
-    device_class: "humidifier"
-    state_topic: "bedroom_humidifier/on/state"
-    command_topic: "bedroom_humidifier/on/set"
-    target_humidity_command_topic: "bedroom_humidifier/humidity/set"
-    target_humidity_state_topic: "bedroom_humidifier/humidity/state"
-    mode_state_topic: "bedroom_humidifier/mode/state"
-    mode_command_topic: "bedroom_humidifier/preset/preset_mode"
-    modes:
-      - "normal"
-      - "eco"
-      - "away"
-      - "boost"
-      - "comfort"
-      - "home"
-      - "sleep"
-      - "auto"
-      - "baby"
-    qos: 0
-    payload_on: "true"
-    payload_off: "false"
-    min_humidity: 30
-    max_humidity: 80
+mqtt:
+  humidifier:
+    - name: "Bedroom humidifier"
+      device_class: "humidifier"
+      state_topic: "bedroom_humidifier/on/state"
+      command_topic: "bedroom_humidifier/on/set"
+      target_humidity_command_topic: "bedroom_humidifier/humidity/set"
+      target_humidity_state_topic: "bedroom_humidifier/humidity/state"
+      mode_state_topic: "bedroom_humidifier/mode/state"
+      mode_command_topic: "bedroom_humidifier/preset/preset_mode"
+      modes:
+        - "normal"
+        - "eco"
+        - "away"
+        - "boost"
+        - "comfort"
+        - "home"
+        - "sleep"
+        - "auto"
+        - "baby"
+      qos: 0
+      payload_on: "true"
+      payload_off: "false"
+      min_humidity: 30
+      max_humidity: 80
 ```
 
 {% endraw %}

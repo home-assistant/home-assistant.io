@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: obihai
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `obihai` integration allows you to view the call status for your [Obihai devices](https://www.obitalk.com/info/products#home_section).
