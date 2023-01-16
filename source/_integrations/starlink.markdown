@@ -15,7 +15,6 @@ ha_domain: starlink
 ha_platforms:
   - sensor
   - binary_sensor
-  - switch
   - button
 ha_integration_type: integration
 ---
