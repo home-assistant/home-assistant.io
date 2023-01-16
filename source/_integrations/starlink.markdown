@@ -45,10 +45,6 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 - Thermal throttle - Whether Starlink has reduced performance to avoid overheating
 - Unexpected location - Whether Starlink has detected operation outside of its designated area
 
-### Switch
-
-- Stowed - Controls whether Dishy is stowed
-
 ### Button
 
 - Reboot - Reboots your Starlink system
