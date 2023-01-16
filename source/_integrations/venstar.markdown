@@ -39,20 +39,13 @@ Currently supported functionality:
 - Remote temperature sensors
 - Thermostat alerts (Filter replacement/etc)
 - Reading IAQ and CO2 levels (on supported devices, e.g. T3950, only)
+- Reading the current schedule state (morning/day/evening/night/inactive)
 
 The following values are supported for the preset_mode state attribute:
 
 - `none`: *Enables* the scheduling functionality.
 - `temperature`: *Disables* the schedule and holds the set temperature indefinitely.
 - `away`: Places the thermostat in away mode
-
-The meanings of the values of the climate entity's `schedule_part` state attribute are:
-
-- `0`: morning
-- `1`: day
-- `2`: evening
-- `3`: night
-- `255`: schedule inactive (i.e., the thermostat is in one of the other modes)
 
 Note - Please ensure that you update your thermostat to the latest firmware. Initially tested on firmware 5.10 and currently VH6.79.  
 
