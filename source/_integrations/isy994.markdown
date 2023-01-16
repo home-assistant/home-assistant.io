@@ -126,6 +126,10 @@ All Insteon scenes configured in the ISY Admin Console will show up as a `switch
 
 Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant to allow support for using Control Events in Automations. These devices are added as `sensors` since they cannot be directly controlled (turned on/off); their state is the last ON level command they sent, in a range from `0` (Off) to `255` (On 100%).  Note: these devices may report incorrect states before being used after a reboot of the ISY. Secondary Keypad buttons may be turned on or off using ISY Scenes (refer to ISY Documentation for more details).
 
+### Insteon Device Configuration Support
+
+Insteon device will include entitites for setting the device On Level, Ramp Rate, and Backlight Level, if supported; as well as `button` entities for `Beep` and `Query` actions. Note: Backlight Level cannot be read from the device, so an assumed state is used. The current state in Home Assistant will be valid if the backlight is changed from Home Assistant and will also be updated if changed from the ISY Admin Console or REST command while Home Assistant is running. Additional configuration changes still require the ISY Admin Console.
+
 ### Services
 
 Once loaded, the following services will be exposed with the `isy994.` prefix, to allow advanced control over the ISY and its connected devices:
