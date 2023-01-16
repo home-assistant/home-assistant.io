@@ -27,7 +27,7 @@ This integration allows:
   - Someone is at the front door
   - Smoke detected in the master bedroom
   - Water leak detected in the master bathroom
-- Playback Google Assistant audio response for any query on any media player. Examples
+- Playback Google Assistant audio response for any query on any media player. Examples:
   - Tell me a joke
   - Say the ABC
   - Sing happy birthday
@@ -102,13 +102,23 @@ You can use the service `google_assistant_sdk.send_text_command` to send command
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `command`              | no       | Command to send to Google Assistant. | turn off kitchen TV |
+| `media_player`         | yes       | Name(s) of media player entities to play response on | media_player.living_room_speaker |
 
-Example:
+Examples:
 
 ```yaml
 service: google_assistant_sdk.send_text_command
 data:
   command: turn off kitchen TV
+```
+
+```yaml
+# Say a joke on the living room speaker
+service: tts.google_assistant_sdk_say
+data:
+  message: tell me a joke
+  entity_id: media_player.living_room_speaker
+  cache: false
 ```
 
 ### Service `notify.google_assistant_sdk`
@@ -138,24 +148,3 @@ data:
     - bedroom
     - basement
 ```
-
-### Service `tts.google_assistant_sdk_say`
-
-In your configuration.yaml you first need to add:
-
-```yaml
-tts:
-  - platform: google_assistant_sdk
-```
-
-Then for example you can call:
-
-```yaml
-service: tts.google_assistant_sdk_say
-data:
-  message: tell me a joke
-  entity_id: media_player.living_room_speaker
-  cache: false
-```
-
-which will say a joke on your living room speaker.
