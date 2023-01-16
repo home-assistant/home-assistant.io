@@ -17,7 +17,7 @@ Every entity in Home Assistant has a default icon assigned to it. There are way 
 
 ### Icon Picker
 
-The most common way you can find an icons is using the icon picker built right into Home Assistant. Click into the "Icon" field when customizing an entity and start typing, the list will filter to icons that match your search criteria. You can also scroll through all available icons when the field is empty.
+The most common way you can find icons is by using the icon picker built right into Home Assistant. Click into the "Icon" field when customizing an entity and start typing. The list will filter to icons that match your search criteria. You can also scroll through all available icons when the field is empty.
 
 <p class='img'>
   <img src='/images/screenshots/icon-picker.png' alt='Icon Picker in Home Assistant' />
@@ -39,7 +39,7 @@ The easiest way to browse and find icons outside of Home Assistant is with the o
 
 <div class='note info'>
 
-  Not all icons that appear in the MDI Picker Browser Extension may be available in Home Assistant (yet!). While the browser extension is updated as MDI release new packages, Home Assistant may lag behind until its next release.
+  Not all icons that appear in the MDI Picker Browser Extension may be available in Home Assistant (yet!). While the browser extension is updated as MDI releases new packages, Home Assistant may lag behind until its next release.
 
 </div>
 
@@ -81,4 +81,4 @@ If you want to contribute a new icon to the library, familiarize yourself with t
 
 ### Suggesting an Icon Alias
 
-Sometimes an icon exists, but you weren't able to find it with the terms you were searching for. If this has ever happened to you, please [open an issue with the MDI team to suggest new aliases](https://github.com/Templarian/MaterialDesign/issues/new?assignees=&labels=Alias&template=4_alias.yml) that can be added to existing icons.
+Sometimes an icon exists, but you aren't able to find it with the terms you were searching for. If this has ever happened to you, please [open an issue with the MDI team to suggest new aliases](https://github.com/Templarian/MaterialDesign/issues/new?assignees=&labels=Alias&template=4_alias.yml) that can be added to existing icons.
