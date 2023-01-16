@@ -50,6 +50,8 @@ PS: Did you know [Home Assistant is now on Mastodon](https://fosstodon.org/@home
 - [New Integrations](#new-integrations)
 - [Release 2023.1.1 - January 5](#release-202311---january-5)
 - [Release 2023.1.2 - January 8](#release-202312---january-8)
+- [Release 2023.1.3 - January 10](#release-202313---january-10)
+- [Release 2023.1.4 - January 12](#release-202314---january-12)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -357,6 +359,101 @@ We welcome the following new integrations in this release:
 [sensor docs]: /integrations/sensor/
 [switchbot docs]: /integrations/switchbot/
 [zha docs]: /integrations/zha/
+
+## Release 2023.1.3 - January 10
+
+- Bump pyunifiprotect to 4.6.0 ([@AngellusMortis] - [#85483]) ([unifiprotect docs])
+- Remove invalid Signal Strength device class from NETGEAR ([@frenck] - [#85510]) ([netgear docs])
+- Restore Netgear signal strength icon ([@starkillerOG] - [#85512])
+- Remove invalid state class in Subaru sensor ([@epenet] - [#85520]) ([subaru docs])
+- Bump sense_energy to 0.11.1 ([@kbickar] - [#85533]) ([sense docs]) ([emulated_kasa docs])
+- Bump pyunifiprotect to 4.6.1 ([@AngellusMortis] - [#85547]) ([unifiprotect docs])
+- Do not check ble scanner state for sleepy shelly devices ([@bdraco] - [#85566]) ([shelly docs])
+- Remove no-longer-needed invalid API key monitor for OpenUV ([@bachya] - [#85573]) ([openuv docs])
+- Bump aioshelly to 5.2.1 to fix Task exception was never retrieved ([@thecode] - [#85575]) ([shelly docs])
+- Bump gcal-sync to 4.1.2 ([@allenporter] - [#85631]) ([google docs])
+- Bump hatasmota to 0.6.3 ([@emontnemery] - [#85633]) ([tasmota docs])
+- Update frontend to 20230110.0 ([@piitaya] - [#85640]) ([frontend docs])
+
+[#85120]: https://github.com/home-assistant/core/pull/85120
+[#85277]: https://github.com/home-assistant/core/pull/85277
+[#85481]: https://github.com/home-assistant/core/pull/85481
+[#85483]: https://github.com/home-assistant/core/pull/85483
+[#85510]: https://github.com/home-assistant/core/pull/85510
+[#85512]: https://github.com/home-assistant/core/pull/85512
+[#85520]: https://github.com/home-assistant/core/pull/85520
+[#85533]: https://github.com/home-assistant/core/pull/85533
+[#85547]: https://github.com/home-assistant/core/pull/85547
+[#85566]: https://github.com/home-assistant/core/pull/85566
+[#85573]: https://github.com/home-assistant/core/pull/85573
+[#85575]: https://github.com/home-assistant/core/pull/85575
+[#85631]: https://github.com/home-assistant/core/pull/85631
+[#85633]: https://github.com/home-assistant/core/pull/85633
+[#85640]: https://github.com/home-assistant/core/pull/85640
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@allenporter]: https://github.com/allenporter
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@kbickar]: https://github.com/kbickar
+[@piitaya]: https://github.com/piitaya
+[@starkillerOG]: https://github.com/starkillerOG
+[@thecode]: https://github.com/thecode
+[emulated_kasa docs]: /integrations/emulated_kasa/
+[frontend docs]: /integrations/frontend/
+[google docs]: /integrations/google/
+[netgear docs]: /integrations/netgear/
+[openuv docs]: /integrations/openuv/
+[sense docs]: /integrations/sense/
+[shelly docs]: /integrations/shelly/
+[subaru docs]: /integrations/subaru/
+[tasmota docs]: /integrations/tasmota/
+[unifiprotect docs]: /integrations/unifiprotect/
+
+## Release 2023.1.4 - January 12
+
+- Upgrade aionanoleaf to 0.2.1 ([@milanmeu] - [#83669]) ([nanoleaf docs])
+- Improve Huawei LTE SSDP inclusion ([@scop] - [#85572]) ([huawei_lte docs])
+- Remove oauth2client dependency in Google Sheets ([@tkdrob] - [#85637]) ([google_sheets docs])
+- Upgrade huawei-lte-api to 1.6.11 ([@scop] - [#85669]) ([huawei_lte docs])
+- Update pyTibber to 0.26.8 ([@Danielhiversen] - [#85702]) ([tibber docs])
+- Bump pylitterbot to 2023.1.0 ([@natekspencer] - [#85484]) ([litterrobot docs])
+- Use built in polling for litterrobot update entity ([@natekspencer] - [#84678]) ([litterrobot docs])
+- Fix Litter-Robot 4 firmware versions reported while updating ([@natekspencer] - [#85710]) ([litterrobot docs])
+- Use jemalloc in Docker builds ([@frenck] - [#85738])
+- Bump aiowebostv to 0.3.0 ([@thecode] - [#85756]) ([webostv docs])
+
+[#83669]: https://github.com/home-assistant/core/pull/83669
+[#84678]: https://github.com/home-assistant/core/pull/84678
+[#85120]: https://github.com/home-assistant/core/pull/85120
+[#85277]: https://github.com/home-assistant/core/pull/85277
+[#85481]: https://github.com/home-assistant/core/pull/85481
+[#85484]: https://github.com/home-assistant/core/pull/85484
+[#85572]: https://github.com/home-assistant/core/pull/85572
+[#85637]: https://github.com/home-assistant/core/pull/85637
+[#85645]: https://github.com/home-assistant/core/pull/85645
+[#85669]: https://github.com/home-assistant/core/pull/85669
+[#85702]: https://github.com/home-assistant/core/pull/85702
+[#85710]: https://github.com/home-assistant/core/pull/85710
+[#85738]: https://github.com/home-assistant/core/pull/85738
+[#85756]: https://github.com/home-assistant/core/pull/85756
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@balloob]: https://github.com/balloob
+[@frenck]: https://github.com/frenck
+[@milanmeu]: https://github.com/milanmeu
+[@natekspencer]: https://github.com/natekspencer
+[@scop]: https://github.com/scop
+[@thecode]: https://github.com/thecode
+[@tkdrob]: https://github.com/tkdrob
+[google_sheets docs]: /integrations/google_sheets/
+[huawei_lte docs]: /integrations/huawei_lte/
+[litterrobot docs]: /integrations/litterrobot/
+[nanoleaf docs]: /integrations/nanoleaf/
+[tibber docs]: /integrations/tibber/
+[webostv docs]: /integrations/webostv/
 
 ## Need help? Join the community!
 
