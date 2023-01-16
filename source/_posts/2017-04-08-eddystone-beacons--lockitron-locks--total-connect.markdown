@@ -21,7 +21,7 @@ Also want to take a moment to thank Austin Andrews aka [Templarian] for his [Mat
 
 [hass-fb]: https://www.facebook.com/homeassistantio
 [diyAutomate]: https://www.youtube.com/c/diyautomate
-[mli]: https://materialdesignicons.com/
+[mli]: https://pictogrammers.com/library/mdi/
 [Templarian]: https://github.com/templarian
 
 ## New integrations

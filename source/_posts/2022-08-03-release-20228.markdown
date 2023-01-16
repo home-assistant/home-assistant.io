@@ -784,7 +784,7 @@ to handle the extra decimal places.
 {% details "Material Design Icons" %}
 
 In the latest Material Design Icons update,
-[several icons have been renamed or removed](https://dev.materialdesignicons.com/changelog#version-7.0.96).
+[several icons have been renamed or removed](https://pictogrammers.com/docs/library/mdi/releases/changelog/#version-7096).
 Removed and renamed icons will continue to work for the next two releases.
 
 Please make sure you update any use of the following MDI icons:

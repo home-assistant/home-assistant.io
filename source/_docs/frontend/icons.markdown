@@ -7,7 +7,7 @@ description: "Material Design Icons in the Home Assistant frontend"
   <img src='/images/frontend/mdi.png' alt='Material Design Icons' />
 </p>
 
-Home Assistant utilizes the community-driven [Material Design Icons](https://www.materialdesignicons.com/) (MDI) project for icons in the frontend. The icon library is a superset of the base icon library provided by Google and contains thousands of community-made icons for very specific applications, industries, and use-cases.
+Home Assistant utilizes the community-driven [Material Design Icons](https://pictogrammers.com/library/mdi/) (MDI) project for icons in the frontend. The icon library is a superset of the base icon library provided by Google and contains thousands of community-made icons for very specific applications, industries, and use-cases.
 
 ## Default Icons
 
@@ -43,23 +43,23 @@ The easiest way to browse and find icons outside of Home Assistant is with the o
 
 </div>
 
-### MaterialDesignIcons.com
+### Material Design Icons on the Pictogrammers Website
 
-The last way to browse through available icons is on the official website, [MaterialDesignIcons.com](https://materialdesignicons.com).
+The last way to browse through available icons is by viewing the library on the Pictogrammers website, [https://pictogrammers.com/library/mdi/](https://pictogrammers.com/library/mdi/). Select an icon you'd like to use, then click "Home Assistant" to see an example of its usage.
 
 <div class='note info'>
 
-  The official MDI website is updated in real-time as new icons are added. This means an icon you find there may not yet be released or available in Home Assistant (yet!) for several releases. You can check when an icon was added by viewing the [MDI history](https://materialdesignicons.com/history).
+  The Pictogrammers website will always show the latest release of the Material Design Icons library. However, you may find icons that may not yet be available in Home Assistant (yet!). Watch the Home Assistant release notes for announcements on upgrades of the Material Design Icons library.
 
 </div>
 
 ## Suggesting or Contributing New Icons
 
-Being open-source like Home Assistant, the Material Design Icons project is always accepting suggestions and contributions to expand the library.
+Being open-source like Home Assistant, the Material Design Icons library is always accepting suggestions and contributions to expand the library.
 
 <div class='note info'>
 
-  Before suggesting or creating a new icon, it is very important that you [search the current library](https://materialdesignicons.com) and [search all issues](https://github.com/Templarian/MaterialDesign/issues?q=is%3Aissue), open and closed, on their GitHub. Try searching with different terms that might mean the same thing. (e.g. "user", "person", "account")
+  Before suggesting or creating a new icon, it is very important that you [search the current library](https://pictogrammers.com/library/mdi/) and [search all issues](https://github.com/Templarian/MaterialDesign/issues?q=is%3Aissue), open and closed, on their GitHub. Try searching with different terms that might mean the same thing. (e.g. "user", "person", "account")
 
 </div>
 
@@ -69,16 +69,16 @@ If you have an idea for an icon that isn't currently in the library, but are not
 
 ### Contributing a New Icon
 
-If you want to contribute a new icon to the library, familiarize yourself with the [System icons guidelines](https://material.io/design/iconography/system-icons.html#design-principles) in the Material Design system. Then create your icon and [submit it to the MDI team for review](https://github.com/Templarian/MaterialDesign/issues/new?assignees=&labels=Icon+Request%2CContribution&template=2_contribution.yml).
+If you want to contribute a new icon to the library, familiarize yourself with the [System icons guidelines](https://material.io/design/iconography/system-icons.html#design-principles) in the Material Design system. Then create your icon and [submit it to the Pictogrammers team for review](https://github.com/Templarian/MaterialDesign/issues/new?assignees=&labels=Icon+Request%2CContribution&template=2_contribution.yml).
 
 #### Tips for Creating New Icons
 
 - Really pay attention to [Material Design guidelines](https://material.io/design/iconography/system-icons.html#design-principles).
 - Keep in mind that icons are meant to be contextual, not literal.
 - When it comes to little details, less is more.
-- If you're unsure, open an issue with MDI. They're more than happy to help you!
+- If you're unsure, open an issue on their GitHub. They're more than happy to help you!
 - Not all icons make it into the library and that is okay!
 
 ### Suggesting an Icon Alias
 
-Sometimes an icon exists, but you aren't able to find it with the terms you were searching for. If this has ever happened to you, please [open an issue with the MDI team to suggest new aliases](https://github.com/Templarian/MaterialDesign/issues/new?assignees=&labels=Alias&template=4_alias.yml) that can be added to existing icons.
+Sometimes an icon exists, but you aren't able to find it with the terms you were searching for. If this has ever happened to you, please [open an issue with the Pictogrammers team to suggest new aliases](https://github.com/Templarian/MaterialDesign/issues/new?assignees=&labels=Alias&template=4_alias.yml) that can be added to existing icons.

@@ -495,7 +495,7 @@ noteworthy changes this release:
 [Hue]: /integrations/hue
 [Linn / OpenHome]: /integrations/linn
 [Logitech Squeezebox]: /integrations/squeezebox
-[Material Design Icons]: https://materialdesignicons.com/
+[Material Design Icons]: https://pictogrammers.com/library/mdi/
 [Music Player Daemon (MPD)]: /integrations/mpd
 [Panasonic Viera]: /integrations/panasonic_viera
 [RFXCOM RFXtrx]: /integrations/rfxtrx

@@ -30,7 +30,7 @@ name:
   default: Name of entity
 icon:
   required: false
-  description: Overwrites icon or entity picture. You can use any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
+  description: Overwrites icon or entity picture. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.
   type: string
   default: Entity domain icon
 image:
@@ -87,7 +87,7 @@ name:
   type: string
 icon:
   required: false
-  description: Overwrites icon or entity picture. You can use any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
+  description: Overwrites icon or entity picture. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.
   type: string
 image:
   required: false
