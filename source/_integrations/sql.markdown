@@ -80,7 +80,7 @@ sql:
       required: false
       type: string
     device_class:
-      description: Provide [device class](https://www.home-assistant.io/integrations/sensor#device-class) for this sensor.
+      description: Provide [device class](/integrations/sensor#device-class) for this sensor.
       required: false
       type: string
     state_class:
