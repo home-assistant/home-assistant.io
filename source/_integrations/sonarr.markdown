@@ -38,6 +38,6 @@ The remaining five sensors are disabled by default and can be enabled on the dev
 
 ## Calendar
 
-The Sonarr integration provides `calendar.sonarr_episodes` to show the upcoming episodes on HomeAssistant's calendar view
+The Sonarr integration provides `calendar.sonarr_episodes` to show the upcoming episodes on Home Assistant's calendar view
 
 If the calendar is empty, increase the "Number of upcoming days to display" option in the integration
