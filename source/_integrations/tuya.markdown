@@ -115,6 +115,7 @@ Click the created project to enter the `Project Overview` page and get the `Auth
 {% configuration_basic %}
 
 If no devices show up in Home Assistant:
+  description: >
     - First make sure the devices show up in Tuya's cloud portal under the devices tab. 
     - In the Tuya IoT configuration cloud portal you must NOT link your non-developer account under the "Users" tab. Doing so will work, and you can even still add the devices under the devices tab, but the api will send 0 devices down to Home Assistant. You must only link the account under the Devices->"Link Tuya App Account". If it shows up on the users  tab be sure to delete it.
     - Your region may not be correctly set.
