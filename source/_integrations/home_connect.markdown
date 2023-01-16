@@ -49,7 +49,7 @@ Note that it depends on the appliance and on API permissions which of the featur
 
 If you don't have [My Home Assistant](/integrations/my) on your installation,
 you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
-instead.
+instead. But it is important to have the My Home Assistant Url in the redirect Urls list too.
 
 The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
 authentication process.
