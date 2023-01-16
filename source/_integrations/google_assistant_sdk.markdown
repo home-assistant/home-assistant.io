@@ -102,7 +102,7 @@ You can use the service `google_assistant_sdk.send_text_command` to send command
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `command`              | no       | Command to send to Google Assistant. | turn off kitchen TV |
-| `media_player`         | yes       | Name(s) of media player entities to play response on | media_player.living_room_speaker |
+| `media_player`         | yes      | Name(s) of media player entities to play response on | media_player.living_room_speaker |
 
 Examples:
 
@@ -114,11 +114,10 @@ data:
 
 ```yaml
 # Say a joke on the living room speaker
-service: tts.google_assistant_sdk_say
+service: google_assistant_sdk.send_text_command
 data:
-  message: tell me a joke
-  entity_id: media_player.living_room_speaker
-  cache: false
+  command: tell me a joke
+  media_player: media_player.living_room_speaker
 ```
 
 ### Service `notify.google_assistant_sdk`
