@@ -91,9 +91,11 @@ Reminder that the breakpoints used below can be determined from the aforemention
 guidelines.
 </div>
 
+{% raw %}
+
 ```yaml
 sensor:
-    - name: Local Outdoor Air Quality
+    - name: "Local Outdoor Air Quality"
       state: >
         {% set pm2_5_avg = states("sensor.average_outdoor_pm2_5_24h") | int %}
         {% if 0 <= pm2_5_avg <= 12.0 %}
@@ -141,3 +143,5 @@ sensor:
         {% endif %}
       unique_id: local_outdoor_air_quality
 ```
+
+{% endraw %}
