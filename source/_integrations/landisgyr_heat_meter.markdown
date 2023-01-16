@@ -38,6 +38,7 @@ Further data that is read from the device is added as diagnostic entities:
 - Ownership number
 - Volume previous year (m3)
 - Heat previous year (MWh)
+- Heat previous year (GJ)
 - Error number
 - Device number
 - Measurement period minutes
@@ -73,7 +74,7 @@ For detailed control on polling and time of polling, consider disabling polling 
 
 For detailed control on when the device is polled, disable the default polling for this integration and create an automation that will update one of the entities (the other entities will be updated as well)
 
-If you're comfortable with YAML, this game could be used:
+If you're comfortable with YAML, this code could be used:
 
 ```yaml
 alias: "Heat Meter manual update"

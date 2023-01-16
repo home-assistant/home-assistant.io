@@ -13,6 +13,7 @@ ha_domain: webostv
 ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
+  - diagnostics
   - media_player
   - notify
 ha_quality_scale: platinum
@@ -176,4 +177,4 @@ automation:
 
 ## Notes
 
-If Home Assistant and your TV are not on the same network, you need to create a firewall rule, which allows a connection on port 3000 with the TCP protocol from Home Assistant to your TV.
+If Home Assistant and your TV are not on the same network, you need to create a firewall rule, which allows a connection on ports 3000 & 3001 with the TCP protocol from Home Assistant to your TV.

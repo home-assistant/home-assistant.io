@@ -4,6 +4,7 @@ description: Instructions on how to integrate Risco alarms into HA using Risco C
 ha_category:
   - Alarm
   - Binary Sensor
+  - Switch
 ha_release: '0.115'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -15,6 +16,7 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -42,10 +44,10 @@ If you have multiple sites, only the first site will be used.
 
 The integration will connect locally to your system.
 No dependency on the cloud, and instantaneous updates, but is harder to set up.
-You will need the master code to your system, and with older models,
+You will need the panel access code (default 5678) to your system, this access code is NOT the same as the installer/subinstaller code, and with older models,
 you might need to either disconnect your system from the cloud, or set up a proxy that will allow you to connect both locally and via the cloud.
 
-The local version of the integration does not support events, and the `arming` state.
+The local version of the integration does not support events, and the `arming` state, but provides an additional binary sensor per zone (with the `_alarmed` suffix) that signals whether this zone is currently triggering an alarm.
 
 {% include integrations/config_flow.md %}
 
@@ -87,30 +89,9 @@ And in the reverse direction:
 | Arm Away | Arm |
 | Arm Home | Partial Arm |
 
-## Services
-
-### Service `risco.bypass_zone`
-
-This service marks a zone as bypassed so that the alarm isn't triggered when the zone is triggered.
-
-Note you can only bypass a zone when the partitions it belongs to are disarmed, and it will take effect next time you arm.
-
-Risco automatically un-bypasses the zone after the alarm is disarmed again.
-
-| Service Data Attribute | Required | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            | no     | String or list of strings of entity_ids of zones. Use entity_id: all to target all zones. |
-
-### Service `risco.unbypass_zone`
-
-This undoes a zone bypass. You can only unbypass a zone when the partitions it belongs to are disarmed.
-
-| Service Data Attribute | Required | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            | no     | String or list of strings of entity_ids of zones. Use entity_id: all to target all zones. |
-
 ## Supported Platforms:
 
 - [Alarm Control Panel](/integrations/alarm_control_panel/)
 - [Binary Sensor](/integrations/binary_sensor/)
 - [Sensor](/integrations/sensor/)
+- [Switch](/integrations/switch/)

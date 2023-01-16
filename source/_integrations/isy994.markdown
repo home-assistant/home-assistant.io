@@ -29,7 +29,7 @@ ha_platforms:
   - sensor
   - switch
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The ISY994 is a home automation controller that is capable of controlling Insteon and X10 devices. Some models of the ISY994 can even control Z-Wave devices.

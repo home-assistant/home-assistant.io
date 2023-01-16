@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Climate
   - Cover
+  - Light
   - Lock
   - Sensor
   - Siren
@@ -19,6 +20,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - cover
+  - light
   - lock
   - sensor
   - siren
@@ -39,7 +41,7 @@ The integration is tested and verified for the following devices from YoLink:
 
 * YS6602/4 YS6704 (outlet | plug)
 * YS7103/4/5 (siren)
-* YS7704 (door sensor)
+* YS7704/7705/7706 (door sensor)
 * YS7707 (Contact Sensor)
 * YS7804/5 (motion sensor)
 * YS7903/4 (leak sensor)
@@ -50,4 +52,6 @@ The integration is tested and verified for the following devices from YoLink:
 * YS5705/6 (switch)
 * YS7A01/2 (CO & Smoke Sensor)
 * YS4002/3 (Thermostat)
-* YS4906/8 YS7706 (Garage Door Sensor/ Garage Door Controller)
+* YS4906/8 (Garage Door Sensor/ Garage Door Controller)
+* YS5707 (Dimmer)
+* YS6801/2 (MultiOutlet)

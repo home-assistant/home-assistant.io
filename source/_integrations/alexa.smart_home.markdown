@@ -65,6 +65,9 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Fan Preset Mode](#fan-preset-mode)
     - [Fan Direction](#fan-direction)
     - [Fan Oscillation](#fan-oscillation)
+  - [Humidifier](#humidifier)
+    - [Humidifier target humidity](#humidifier-target-humidity)
+    - [Humidifier Mode](#humidifier-mode)
   - [Image Processing](#image-processing)
     - [Presence Detection Notification](#presence-detection-notification)
   - [Input Number](#input-number)
@@ -115,16 +118,6 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 ## Create an AWS Lambda Function
 
 We will write a small piece of code hosted as an AWS Lambda function that will redirect requests from the Alexa Smart Home skill to your Home Assistant instance, then the Alexa integration in Home Assistant will process the request and send back the response. The Lambda function will then deliver the response back to the Alexa Smart Home skill.
-
-<div class='info'>
-
-There already are some great alternative tutorials and solutions to ours in our community to achieve the same goal of creating your Alexa Smart Home Skill and its connection to Home Assistant, for example: [haaska](https://github.com/mike-grant/haaska/wiki).
-
-Amazon also has provided a [step-by-step guide](https://developer.amazon.com/docs/smarthome/steps-to-build-a-smart-home-skill.html) to create a Smart Home Skill, however you have to adapt its sample code to match the Home Assistant API.
-  
-You can follow this document or others, but you cannot mix and match different solutions since they may have different designs.
-
-</div>
 
 OK, let's go. You first need to sign in to your [AWS console](https://console.aws.amazon.com/), if you don't have an AWS account yet, you can create a new user [here](https://aws.amazon.com/free/) with 12-month free tier benefit. You don't need to worry about the cost if your account has already passed the first 12 months, as AWS provides up to 1 million Lambda requests, 1GB of outbound data and all inbound data for free, every month, for all users. See [Lambda pricing](https://aws.amazon.com/lambda/pricing/) for more details.
 
@@ -490,6 +483,9 @@ The following integrations are currently supported:
     - [Fan Preset Mode](#fan-preset-mode)
     - [Fan Direction](#fan-direction)
     - [Fan Oscillation](#fan-oscillation)
+  - [Humidifier](#humidifier)
+    - [Humidifier target humidity](#humidifier-target-humidity)
+    - [Humidifier Mode](#humidifier-mode)
   - [Image Processing](#image-processing)
     - [Presence Detection Notification](#presence-detection-notification)
   - [Input Number](#input-number)
@@ -548,7 +544,7 @@ Users must opt-in to the disarm by voice feature in the Alexa App. Alexa will re
   <img height='460' src='/images/integrations/alexa/alexa_app_security_system_pin.png' alt='Screenshot: Alexa App Security System PIN'/></a>
 </p>
 
-To use the exiting code configured for the Alarm Control Panel the `code` must be 4 digits and the `code_format` attribute must be `FORMAT_NUMBER`. After discovery, the Alexa app will offer the ability to use the existing `code`, or create an additional 4 digit PIN to use with Alexa.
+To use the existing code configured for the Alarm Control Panel the `code` must be 4 digits and the `code_format` attribute must be `number`. After discovery, the Alexa app will offer the ability to use the existing `code`, or create an additional 4 digit PIN to use with Alexa.
 
 The existing code is never communicated to Alexa from Home Assistant. During disarming, Alexa will ask for a PIN. The PIN spoken to Alexa is relayed to Home Assistant and passed to the `alarm_control_panel.alarm_disarm` service. If the `alarm_control_panel.alarm_disarm` service fails for any reason, it is assumed the PIN was incorrect and reported to Alexa as an invalid PIN.
 
@@ -820,6 +816,20 @@ The fan device must support the `oscillating` attribute.
 | `en-US` | _"oscillate"_, _"swivel"_, _"oscillation"_, _"spin"_, _"back and forth"_ |
 
 Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
+
+### Humidifier
+
+Control power, target humidity and mode.
+
+#### Humidifier target humidity
+
+- _"Alexa, set the [entity name] humidity to fifty percent."_
+
+#### Humidifier Mode
+
+The humidifier device must support the `mode` attribute.
+
+- _"Alexa, set the [entity name] mode to eco."_
 
 ### Image Processing
 
@@ -1095,6 +1105,6 @@ logger:
 
 [alexa-dev-console]: https://developer.amazon.com/alexa/console/ask
 [emulated-hue-component]: /integrations/emulated_hue/
-[generate-long-lived-access-token]: https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token
+[generate-long-lived-access-token]: https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token
 [alexa-display-categories]: https://developer.amazon.com/docs/alexa/device-apis/alexa-discovery.html#display-categories
 [alexa-supported-locales]: https://developer.amazon.com/docs/alexa/device-apis/list-of-interfaces.html

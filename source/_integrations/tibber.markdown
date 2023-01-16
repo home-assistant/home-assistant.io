@@ -55,6 +55,32 @@ The `tibber` sensor provides the current electricity price if you are a [Tibber]
 You also get sensors for monthly consumption, monthly cost, and monthly peak hour
 If you have a Tibber Pulse it will also show the electricity consumption in real time.
 
+## Available Sensors
+
+- Accumulated cost since midnight (requires active Tibber power deal)
+- kWh consumed since midnight
+- net kWh produced since midnight
+- net kWh produced since last hour shift
+- Current on L1, L2 and L3
+- Estimate of kWh consumption current hour
+- kWh consumed since since last hour shift
+- Average consumption since midnight (Watt)
+- Last meter active import register state (kWh)
+- Last meter active export register state (kWh)
+- Peak consumption since midnight (Watt)
+- Min consumption since midnight (Watt)
+- Consumption at the moment (Watt)
+- Consumption at the moment (Watt)
+- Net production (A-) at the moment (Watt)
+- The total price (energy + taxes)
+- Device signal strength (Pulse - dB; Watty - percent)
+- Voltage on phase 1, 2 and 3
+- Monthly cost
+- Monthly net consumption
+- Monthly peak hour
+- Time of max hour consumption
+
+</div>
 
 ## Examples
 
@@ -82,5 +108,7 @@ The electricity price can be used to make automations. The sensor has a `max_pri
        target: "device/daniel_telefon_cat"
        message: "The electricity price is now {{ states('sensor.electricity_price_hamretunet_10') }}"
 ```
+
+
 
 {% endraw %}

@@ -95,7 +95,7 @@ Variables can be templated.
 
 Variables have local scope. This means that if a variable is changed in a nested sequence block, that change will not be visible in an outer sequence block.
 
-The following example will always say "There are 0 people home". Inside the `if` sequence the `variables` action will only alter the `people` variable for that sequence.
+Inside the `if` sequence the `variables` action will only alter the `people` variable for that sequence.
 
 {% raw %}
 
@@ -114,11 +114,13 @@ sequence:
       - variables:
           people: "{{ people + 1 }}"
       # At this scope, people will now be 1 ...
+      - service: notify.notify
+        data:
+          message: "There are {{ people }} people home" # "There are 1 people home"
   # ... but at this scope it will still be 0
-  # Announce the count of people home
   - service: notify.notify
     data:
-      message: "There are {{ people }} people home"
+      message: "There are {{ people }} people home" # "There are 0 people home"
 ```
 
 {% endraw %}

@@ -67,5 +67,5 @@ The following sensors show the direction of energy:
 
 ### Device Info
 
-- Model number: PowerWall 2 (GW2) by Tesla
+- Model Number
 - Firmware Revision

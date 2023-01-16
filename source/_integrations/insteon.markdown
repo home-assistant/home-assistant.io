@@ -43,7 +43,7 @@ Overview of supported Insteon modems & hubs
 [pyinsteon]: https://github.com/pyinsteon/pyinsteon
 [2413U]: https://www.insteon.com/powerlinc-modem-usb
 [2412S]: https://www.insteon.com/powerlinc-modem-serial
-[2448A7]: https://www.smarthome.com/insteon-2448a7-portable-usb-adapter.html
+[2448A7]: https://www.insteon.com/support-knowledgebase/2014/12/10/usb-wireless-adapter-quick-start-guide
 [2245]: https://www.insteon.com/insteon-hub/
 [2242]: https://www.insteon.com/support-knowledgebase/2014/9/26/insteon-hub-owners-manual
 

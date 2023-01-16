@@ -21,7 +21,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `harmony` remote platform allows you to control the state of your [Harmony Hub Device](https://www.logitech.com/en-us/product/harmony-hub).
+The `harmony` remote platform allows you to control the state of your [Harmony Hub Device](https://support.myharmony.com/hub).
 
 Supported units:
 

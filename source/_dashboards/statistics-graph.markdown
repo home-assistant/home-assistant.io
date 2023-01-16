@@ -17,7 +17,7 @@ Screenshot of the Statistics Graph card with none metered entities and `chart_ty
 Screenshot of the Statistics Graph card with a metered entity and `chart_type` `bar`.
 </p>
 
-Statistics are gathered every hour for sensors that support it. It will either keep the `min`, `max` and `mean` of a sensors value for a specific hour, or the `sum` for a metered entity.
+Statistics are gathered every 5 minutes for sensors that support it. It will either keep the `min`, `max` and `mean` of a sensors value for a specific hour, or the `sum` for a metered entity.
 
 If your sensor doesn't work with statistics, check [this](/more-info/statistics/).
 
@@ -36,7 +36,7 @@ type:
   type: string
 entities:
   required: true
-  description: "A list of entity IDs or `entity` objects, see below."
+  description: "A list of entity IDs or `entity` objects (see below), or an external statistic id"
   type: list
 days_to_show:
   required: false

@@ -18,7 +18,7 @@ ha_platforms:
   - device_tracker
   - sensor
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The devolo Home Network integration allows you to monitor your PLC network.

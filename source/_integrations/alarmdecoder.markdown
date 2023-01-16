@@ -190,7 +190,7 @@ The tables below show the key press sequences used for arming for the different 
 
 <div class='note'>
 
-The `chr(4)` and `chr(5)` sequences below are equivalent to pressing the <em>Stay</em> and <em>Away</em> keypad keys respectively (as outlined in the <a href='http://www.alarmdecoder.com/wiki/index.php/Protocol#Special_Keys'>AlarmDecoder documentation</a>).
+The `chr(4)` and `chr(5)` sequences below are equivalent to pressing the <em>Stay</em> and <em>Away</em> keypad keys respectively (as outlined in the <a href='https://www.alarmdecoder.com/wiki/index.php/Protocol#Special_Keys'>AlarmDecoder documentation</a>).
 
 </div>
 

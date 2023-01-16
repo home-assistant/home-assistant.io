@@ -61,6 +61,12 @@ The [multi-factor authentication module](/docs/authentication/multi-factor-auth/
 
 </div>
 
+<div class='note info'>
+
+You cannot trust a network that you are using in any [trusted_proxies](/integrations/http/#reverse-proxies). The `trusted_networks` authentication will fail with the message: Your computer is not allowed
+
+</div>
+
 Here is an example in `configuration.yaml` to set up Trusted Networks:
 
 ```yaml
