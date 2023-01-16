@@ -12,7 +12,7 @@ The Entity Filter card allows you to define a list of entities that you want to 
 Screenshot of the Entity Filter card.
 </p>
 
-This type of card can also be used together with rest of cards that allow multiple entities, allowing you to use [glance](/dashboards/glance/) or [picture-glance](/dashboards/picture-glance/). By default it uses [entities](/dashboards/entities/) card model.
+This type of card can also be used together with other cards that allow multiple entities, allowing you to use [glance](/dashboards/glance/) or [picture-glance](/dashboards/picture-glance/). By default, it uses the [entities](/dashboards/entities/) card model.
 
 To add the Entity Filter card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
 
