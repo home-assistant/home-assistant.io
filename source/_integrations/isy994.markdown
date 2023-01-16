@@ -128,7 +128,7 @@ Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant 
 
 ### Insteon Device Configuration Support
 
-Insteon device will include entitites for setting the device On Level, Ramp Rate, and Backlight Level, if supported; as well as `button` entities for `Beep` and `Query` actions. Note: Backlight Level cannot be read from the device, so an assumed state is used. The current state in Home Assistant will be valid if the backlight is changed from Home Assistant and will also be updated if changed from the ISY Admin Console or REST command while Home Assistant is running. Additional configuration changes still require the ISY Admin Console.
+Insteon devices will include entities for setting the device On Level, Ramp Rate, and Backlight Level, if supported; as well as `button` entities for `Beep` and `Query` actions. Note: Backlight Level cannot be read from the device, so an assumed state is used. The current state in Home Assistant will be valid if the backlight is changed from Home Assistant and will also be updated if changed from the ISY Admin Console or REST command while Home Assistant is running. Additional configuration changes still require the ISY Admin Console.
 
 ### Services
 
