@@ -47,25 +47,26 @@ You have to enable the local API to allow Home Assistant to communicate with you
 
 ## Sensors
 
-The HomeWizard Energy API only exposes properties that are used within the HomeWizard Energy app. The available properties are listed below.
+Sensors for the P1 meter, Energy socket, and kWh meter:
 
-| Name | Unit | Availability | Description |
-| --- | --- | --- | --- |
-| Wi-Fi SSID | | HWE-P1, HWE-SKT, HWE-WTR, SDM230-wifi, SDM630-wifi  | The SSID of the connected network. |
-| Wi-Fi strength | % | HWE-P1, HWE-SKT, HWE-WTR, SDM230-wifi, SDM630-wifi  | Percentage of the Wi-Fi connection. |
-| Total energy import T1 | kWh | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Energy import reading. |
-| Total energy import T2 | kWh | HWE-P1 | Energy import reading for other tariff. |
-| Total energy export T1 | kWh | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Energy export reading. |
-| Total energy export T2 | kWh | HWE-P1 | Energy export reading for other tariff. |
-| Active power | w | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Active power usage. |
-| Active power L1 | w | HWE-P1, HWE-SKT, SDM230-wifi, SDM630-wifi  | Active power usage line 1, for `SDM230-wifi` and`HWE-SKT` this value is the same as `Active power`. |
-| Active power L2 | w | HWE-P1, SDM630-wifi | Active power usage line 2. |
-| Active power L3 | w | HWE-P1, SDM630-wifi | Active power usage line 3. |
-| Total gas | m3 | HWE-P1 | Current gas import reading, only available when your smart meter is connected to a gas meter. |
-| DSMR version | | HWE-P1 | The detected DSMR version. |
-| Smart meter model | | HWE-P1 | The detected smart meter model. |
-| Active water usage | liter per minute | HWE-WTR | The current usage of water. |
-| Total water usage | m3 | HWE-WTR | Total of water measured since installation. |
+- **Total energy import/export (kWh)**: Total energy imported or exported since installation. Each tariff has its own sensor (e.g., T1, T2) and a sensor for the combined value.
+- **Active power (W)**: Active power that is measured on each phase.
+
+Sensors for P1 meter, only available when smart meter exposes these values:
+
+- **Gas usage (m³)**: Total gas used since the installation of the gas meter. A gas meter sends its measurement once every 5 minutes or per hour, depending on the version of the smart meter.
+- **Active tariff**: Current tariff that is used. Can be used to keep consumption as low as possible during peak hours.
+- **Active voltage (V)**: Active voltage that is measured on each phase.
+- **Active current (A)**: Active current that is measured on each phase.
+- **Active frequency (Hz)**: Net frequency.
+- **Voltage sags and swells**: Number of times a voltage sag or well has been detected.
+- **Power failures**: Two sensors that indicate the number of power failures that have been detected by the smart meter. One for all power failures and another for 'long' power failures.
+- **Peak demand**: Belgium users are started to get charged for the peak usage per month (see [capaciteitstarief](https://www.fluvius.be/nl/thema/factuur-en-tarieven/capaciteitstarief)). Two sensors are available: One that shows the current quarterly average and another that shows the peak measured this month. Both these sensors are provided directly from the smart meter and can be used to keep the peak as low as possible.
+
+Sensors for Water meter:
+
+- **Active usage (L/min)**: Flow of water that is measured at that time.
+- **Total usage (m³)**: Total water usage since the installation of the HomeWizard Water meter.
 
 ## Energy Socket
 
