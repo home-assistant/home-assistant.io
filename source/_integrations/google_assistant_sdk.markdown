@@ -96,7 +96,7 @@ You can use the service `google_assistant_sdk.send_text_command` to send command
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `command`              | no       | Command to send to Google Assistant. | turn off kitchen TV |
+| `command`              | no       | Command(s) to send to Google Assistant. | turn off kitchen TV |
 
 Example:
 
