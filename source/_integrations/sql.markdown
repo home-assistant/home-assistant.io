@@ -80,11 +80,11 @@ sql:
       required: false
       type: string
     device_class:
-      description: Provide [device class](/integrations/sensor#device-class) for this sensor.
+      description: "Provide [device class](/integrations/sensor#device-class) for this sensor."
       required: false
       type: string
     state_class:
-      decription: Provide [state class](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes) for this sensor.
+      decription: "Provide [state class](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes) for this sensor."
       required: false
       type: string
 {% endconfiguration %}
