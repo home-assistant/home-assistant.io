@@ -72,7 +72,7 @@ availability_topic:
 code_format:
   description: A regular expression to validate a supplied code when it is set during the service call to `open`, `lock` or `unlock` the MQTT lock.
   required: false
-  type: regex
+  type: string
 command_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `command_topic`. The lock command template accepts the parameters `value` and `code`. The `value` parameter will contain the configured value for either `payload_open`, `payload_lock` or `payload_unlock`. The `code` parameter is only available if it is set during the service call to `open`, `lock` or `unlock` the MQTT lock.
   required: false
