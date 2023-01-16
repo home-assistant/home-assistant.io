@@ -132,7 +132,6 @@ Once loaded, the following services will be exposed with the `isy994.` prefix, t
 
  - Entity services for Home Assistant-connected entities: `send_node_command`, `send_raw_node_command`, and `set_ramp_rate`.
  - Generic ISY services: `send_program_command`
- - Management services for the ISY Home Assistant integration: `reload`.
 
 #### Service `isy994.send_node_command`
 
@@ -194,10 +193,6 @@ Send a command to control an ISY program or folder. Valid commands are `run`, `r
 | `address` | yes | The address of the program to control (optional, use either `address` or `name`), e.g., `"04B1"` |
 | `name` | yes | The name of the program to control (optional, use either `address` or `name`), e.g., `"My Program"` |
 | `isy` | yes | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same program name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
-
-#### Service `isy994.reload`
-
-Reload the ISY connection(s) without restarting Home Assistant. Use this service to pick up new devices that have been added or changed on the ISY since the last restart of Home Assistant.
 
 ### Creating Custom Devices using ISY Programs
 
