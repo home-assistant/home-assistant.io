@@ -55,7 +55,7 @@ Sensors for the P1 meter, Energy socket, and kWh meter:
 Sensors for P1 meter, only available when smart meter exposes these values:
 
 - **Gas usage (m³)**: Total gas used since the installation of the gas meter. A gas meter sends its measurement once every 5 minutes or per hour, depending on the version of the smart meter.
-- **Active tariff**: Current tariff that is used, can be used to keep consumption as low as possible during peak hours.
+- **Active tariff**: Current tariff that is used. Can be used to keep consumption as low as possible during peak hours.
 - **Active voltage (V)**: Active voltage that is measured on each phase.
 - **Active current (A)**: Active current that is measured on each phase.
 - **Active frequency (Hz)**: Net frequency.
