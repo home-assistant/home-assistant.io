@@ -52,7 +52,7 @@ PS: Did you know [Home Assistant is now on Mastodon](https://fosstodon.org/@home
 - [Release 2023.1.2 - January 8](#release-202312---january-8)
 - [Release 2023.1.3 - January 10](#release-202313---january-10)
 - [Release 2023.1.4 - January 12](#release-202314---january-12)
-- [Release 2023.1.5 - January 16](#release-202315---january-16)
+- [Release 2023.1.5 - January 17](#release-202315---january-17)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -456,7 +456,7 @@ We welcome the following new integrations in this release:
 [tibber docs]: /integrations/tibber/
 [webostv docs]: /integrations/webostv/
 
-## Release 2023.1.5 - January 16
+## Release 2023.1.5 - January 17
 
 - Make API key mandatory for PI-Hole ([@mib1185] - [#85885]) ([pi_hole docs])
 - Reolink check for admin ([@starkillerOG] - [#85570]) ([reolink docs]) (dependency)
