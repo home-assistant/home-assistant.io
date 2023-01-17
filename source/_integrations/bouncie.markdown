@@ -25,7 +25,7 @@ To generate an Bouncie application credentials -
 2. Login with your `bouncie.com` credentials
 3. Click on `+ ADD APPLICATION` 
 4. Provide a `name` for the application e.g., Home Assistant Integration
-5. Provide a unique `client_id` e.g. alphanumeric random string
+5. Provide a unique `client_id` e.g., an alphanumeric random string
 6. Provide redirect URL to be your Home Assistant URL
 7. Click on `SAVE`
 8. Visit https://auth.bouncie.com/dialog/authorize?response_type=code&`client_id`=&redirect_uri=`redirect_url` in a browser.
