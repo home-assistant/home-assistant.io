@@ -15,9 +15,9 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-Asus Router integration provides a way to monitor any ASUSWRT-powered device (including routers, access points and AiMesh nodes) from Home Assistant. The integration uses native Asus HTTP(S) API the same way you are accessing device Web UI for setup or configuration.
+Asus Router integration provides a way to monitor any ASUSWRT-powered device (including routers, access points, and AiMesh nodes) from Home Assistant. The integration uses native Asus HTTP(S) API the same way you are accessing the device Web UI for setup or configuration.
 
-User needs to provide the following information for the setup:
+The user needs to provide the following information for the setup:
 
 {% include integrations/config_flow.md %}
 {% configuration %}
@@ -40,8 +40,7 @@ The following sensors are created:
 |Entity|     Description|Units|Attributes|
 |------|----------------|-----|----------|
 |`cpu` |Device CPU usage|`%`  |<li>`core_{x}`, where `x` - is the number of CPU core, units - `%`</li>|
-|`ram` |Device RAM usage|`%`  |<li>`total`, `used`, `free` - amount of the RAM of the corresponding state, units - `kB`</li>|
-
+|`ram` |Device RAM usage|`%`  |<li>`total`, `used`, `free` - the amount of the RAM of the corresponding state, units - `kB`</li>|
 
 ### Firmware and hardware limitations
 
@@ -53,6 +52,6 @@ The firmware support includes devices with original (stock) firmware (versions s
 
 <div class='note'>
 
-Options flow provides a possibility to change all the configurations except for the hostname.
+Options flow allows changing all the configurations except for the hostname.
 
 </div>
