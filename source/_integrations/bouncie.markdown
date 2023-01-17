@@ -17,7 +17,7 @@ ha_integration_type: integration
 The Bouncie integration uses the [Bouncie](https://www.bouncie.dev/) web service
 as a source for monitoring your car(s).
 
-## Setup
+## Prerequisites
 
 To generate an Bouncie application credentials -
 
