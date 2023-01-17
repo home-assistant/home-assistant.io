@@ -195,10 +195,10 @@ retain:
   type: boolean
   default: false
 state_jammed:
-  description: The payload sent to `state_topic` by the lock when it's indicating a jammed motor.
+  description: The payload sent to `state_topic` by the lock when it's jammed.
   required: false
   type: string
-  default: MOTOR_JAMMED
+  default: JAMMED
 state_locked:
   description: The payload sent to `state_topic` by the lock when it's locked.
   required: false
@@ -209,15 +209,15 @@ state_locking:
   required: false
   type: string
   default: LOCKING
-state_ok:
-  description: The payload sent to `state_topic` by the lock when it's indicating the lock is okay and not jammed.
-  required: false
-  type: string
-  default: MOTOR_OK
 state_topic:
-  description: The MQTT topic subscribed to receive state updates. It accepts states configured with `state_jammed`, `state_ok`, `state_locked`, `state_unlocked`, `state_locking` or `state_unlocking`.
+  description: The MQTT topic subscribed to receive state updates. It accepts states configured with `state_jammed`, `state_unjammed`, `state_locked`, `state_unlocked`, `state_locking` or `state_unlocking`.
   required: false
   type: string
+state_unjammed:
+  description: The payload sent to `state_topic` by the lock when it's indicating the lock is not jammed anymore.
+  required: false
+  type: string
+  default: UNJAMMED
 state_unlocked:
   description: The payload sent to `state_topic` by the lock when it's unlocked.
   required: false
