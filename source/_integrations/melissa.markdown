@@ -6,8 +6,10 @@ ha_category:
   - Hub
 ha_release: 0.63
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ha_codeowners:
   - '@kennedyshead'
+  - '@bkbilly'
 ha_domain: melissa
 ha_platforms:
   - climate
@@ -22,24 +24,4 @@ There is currently support for the following device types within Home Assistant:
 
 The climate platform will be automatically configured if Melissa integration is configured.
 
-## Configuration
-
-To set the Melissa integration up, add the following information to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-melissa:
-  username: YOUR_MELISSA_USERNAME
-  password: YOUR_PASSWORD
-```
-
-{% configuration %}
-  username:
-    description: The username for accessing your Melissa account.
-    required: true
-    type: string
-  password:
-    description: The password for accessing your Melissa account.
-    required: true
-    type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
