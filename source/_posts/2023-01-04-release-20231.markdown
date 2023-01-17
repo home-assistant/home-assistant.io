@@ -459,29 +459,31 @@ We welcome the following new integrations in this release:
 ## Release 2023.1.5 - January 16
 
 - Make API key mandatory for PI-Hole ([@mib1185] - [#85885]) ([pi_hole docs])
-- Reolink check for admin ([@starkillerOG] - [#85570]) ([reolink docs])
+- Reolink check for admin ([@starkillerOG] - [#85570]) ([reolink docs]) (dependency)
 - Remove sky connect config entry if USB stick is not plugged in ([@emontnemery] - [#85765]) ([usb docs]) ([homeassistant_sky_connect docs])
 - Remove WAQI unsupported UOM ([@yuvalabou] - [#85768]) ([waqi docs])
-- Bump pySwitchbot to 0.36.4 ([@bdraco] - [#85777]) ([switchbot docs])
+- Bump pySwitchbot to 0.36.4 ([@bdraco] - [#85777]) ([switchbot docs]) (dependency)
 - Remove oauth2client dependency in Google Assistant SDK ([@tronikos] - [#85785]) ([google_assistant_sdk docs])
 - Fix WebOS TV image fetch SSL verify failure ([@thecode] - [#85841]) ([webostv docs])
-- Bump aiohomekit to 2.4.4 ([@bdraco] - [#85853]) ([homekit_controller docs])
+- Bump aiohomekit to 2.4.4 ([@bdraco] - [#85853]) ([homekit_controller docs]) (dependency)
 - Skip over files without mime type in Jellyfin ([@j-stienstra] - [#85874]) ([jellyfin docs])
-- Bump google-nest-sdm to 2.1.2 ([@allenporter] - [#84926]) ([nest docs])
-- Bump google-nest-sdm to 2.2.2 ([@allenporter] - [#85899]) ([nest docs])
+- Bump google-nest-sdm to 2.1.2 ([@allenporter] - [#84926]) ([nest docs]) (dependency)
+- Bump google-nest-sdm to 2.2.2 ([@allenporter] - [#85899]) ([nest docs]) (dependency)
 - Add a timeout during OAuth token exchange and additional debug logging ([@allenporter] - [#85911]) ([nest docs])
-- Bump aiowebostv to 0.3.1 to fix support for older devices ([@thecode] - [#85916]) ([webostv docs])
+- Bump aiowebostv to 0.3.1 to fix support for older devices ([@thecode] - [#85916]) ([webostv docs]) (dependency)
 - Fix webOS TV SSDP discovery missing friendly name ([@thecode] - [#85917]) ([webostv docs])
 - Update webOS TV codeowners ([@thecode] - [#85959]) ([webostv docs])
-- Bump aiowebostv to 0.3.2 ([@thecode] - [#86031]) ([webostv docs])
+- Bump aiowebostv to 0.3.2 ([@thecode] - [#86031]) ([webostv docs]) (dependency)
 - Handle ignored shelly entries when discovering via zeroconf ([@bdraco] - [#86039]) ([shelly docs])
-- Update pyTibber to 0.26.8 ([@Danielhiversen] - [#86044]) ([tibber docs])
+- Update pyTibber to 0.26.8 ([@Danielhiversen] - [#86044]) ([tibber docs]) (dependency)
+- bump reolink-aio to 0.2.1 ([@starkillerOG] - [#85571]) ([reolink docs]) (dependency)
 
 [#84926]: https://github.com/home-assistant/core/pull/84926
 [#85120]: https://github.com/home-assistant/core/pull/85120
 [#85277]: https://github.com/home-assistant/core/pull/85277
 [#85481]: https://github.com/home-assistant/core/pull/85481
 [#85570]: https://github.com/home-assistant/core/pull/85570
+[#85571]: https://github.com/home-assistant/core/pull/85571
 [#85645]: https://github.com/home-assistant/core/pull/85645
 [#85764]: https://github.com/home-assistant/core/pull/85764
 [#85765]: https://github.com/home-assistant/core/pull/85765
