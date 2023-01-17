@@ -233,7 +233,7 @@ unique_id:
    required: false
    type: string
 value_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a state value from the payload. to `state_topic`
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a state value from the payload.
   required: false
   type: string
 {% endconfiguration %}
