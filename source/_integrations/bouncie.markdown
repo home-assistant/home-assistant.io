@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `bouncie` integration uses the [Bouncie](https://www.bouncie.dev/) web service
+The Bouncie integration uses the [Bouncie](https://www.bouncie.dev/) web service
 as a source for monitoring your car(s).
 
 ## Setup
