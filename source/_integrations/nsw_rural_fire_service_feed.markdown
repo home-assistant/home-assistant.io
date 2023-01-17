@@ -5,6 +5,7 @@ ha_category:
   - Geolocation
 ha_iot_class: Cloud Polling
 ha_release: 0.81
+ha_config_flow: true
 ha_codeowners:
   - '@exxamalte'
 ha_domain: nsw_rural_fire_service_feed
@@ -29,38 +30,7 @@ The entity's information can be used for example if a bush fire that produces sm
 
 The data is updated every 5 minutes.
 
-## Configuration
-
-To integrate the NSW Rural Fire Service Incidents feed, add the following lines to your `configuration.yaml`.
-
-```yaml
-# Example configuration.yaml entry
-geo_location:
-  - platform: nsw_rural_fire_service_feed
-```
-
-{% configuration %}
-radius:
-  description: The distance in kilometers around Home Assistant's coordinates in which incidents are included.
-  required: false
-  type: float
-  default: 20.0
-categories:
-  description: List of incident category names found in the feed. Only incidents from the feed that match any of these categories are included. Valid categories are 'Emergency Warning', 'Watch and Act', 'Advice', 'Not Applicable'.
-  required: false
-  type: list
-  default: None. Any incident regardless of its category will be included.
-latitude:
-  description: Latitude of the coordinates around which events are considered.
-  required: false
-  type: string
-  default: Latitude defined in your `configuration.yaml`
-longitude:
-  description: Longitude of the coordinates around which events are considered.
-  required: false
-  type: string
-  default: Longitude defined in your `configuration.yaml`
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## State Attributes
 
@@ -81,19 +51,3 @@ The following state attributes are available for each entity in addition to the 
 | fire               | `True` if this incident is a fire, `False` otherwise. |
 | size               | Size in hectare |
 | responsible_agency | Agency responsible for this incident. |
-
-## Advanced Configuration Example
-
-Depending on your personal circumstances with regards to bush fire risk you may want to adjust the radius and define the categories of fire warnings you are actually interested in.
-
-```yaml
-# Example configuration.yaml entry
-geo_location:
-  - platform: nsw_rural_fire_service_feed
-    entity_namespace: "nsw_fire_service_feed"
-    radius: 10
-    categories:
-      - 'Emergency Warning'
-      - 'Watch and Act'
-      - 'Advice'
-```
