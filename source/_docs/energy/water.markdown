@@ -33,7 +33,6 @@ Maybe you like to build one yourself?
 
 Another common alternative is using image recognition using one of the following.
 
-- [AI-on-the-edge-device](https://github.com/jomjol/AI-on-the-edge-device) running machine learning algorithms on an ESP32
 - [watermeter](https://github.com/nohn/watermeter) running classic OCR and statistical pattern recognition on any system supporting Docker
 
 If you manually integrate your sensors, for example, using the [MQTT](/integrations/mqtt) or [RESTful](/integrations/rest) integrations: Make sure you set and provide the `device_class`, `state_class`, and `unit_of_measurement` for those sensors.
