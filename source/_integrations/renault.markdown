@@ -88,11 +88,3 @@ Notes:
   },
 ]
 ```
-
-### Service `renault.charge_start`
-
-Start charge on vehicle.
-
-  | Service data attribute | Required | Description |
-  | ---------------------- | -------- | ----------- |
-  | `vehicle`| yes | device_id of the vehicle |
