@@ -36,6 +36,7 @@ The snapshots stream provides a sequence of image snapshots giving very low late
 
 The following models have been tested and confirmed to work:
 
+- C1 Pro
 - E1 Zoom
 - E1 Outdoor
 - RLC-410W
