@@ -52,6 +52,7 @@ PS: Did you know [Home Assistant is now on Mastodon](https://fosstodon.org/@home
 - [Release 2023.1.2 - January 8](#release-202312---january-8)
 - [Release 2023.1.3 - January 10](#release-202313---january-10)
 - [Release 2023.1.4 - January 12](#release-202314---january-12)
+- [Release 2023.1.5 - January 16](#release-202315---january-16)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -453,6 +454,80 @@ We welcome the following new integrations in this release:
 [litterrobot docs]: /integrations/litterrobot/
 [nanoleaf docs]: /integrations/nanoleaf/
 [tibber docs]: /integrations/tibber/
+[webostv docs]: /integrations/webostv/
+
+## Release 2023.1.5 - January 16
+
+- Make API key mandatory for PI-Hole ([@mib1185] - [#85885]) ([pi_hole docs])
+- Reolink check for admin ([@starkillerOG] - [#85570]) ([reolink docs])
+- Remove sky connect config entry if USB stick is not plugged in ([@emontnemery] - [#85765]) ([usb docs]) ([homeassistant_sky_connect docs])
+- Remove WAQI unsupported UOM ([@yuvalabou] - [#85768]) ([waqi docs])
+- Bump pySwitchbot to 0.36.4 ([@bdraco] - [#85777]) ([switchbot docs])
+- Remove oauth2client dependency in Google Assistant SDK ([@tronikos] - [#85785]) ([google_assistant_sdk docs])
+- Fix WebOS TV image fetch SSL verify failure ([@thecode] - [#85841]) ([webostv docs])
+- Bump aiohomekit to 2.4.4 ([@bdraco] - [#85853]) ([homekit_controller docs])
+- Skip over files without mime type in Jellyfin ([@j-stienstra] - [#85874]) ([jellyfin docs])
+- Bump google-nest-sdm to 2.1.2 ([@allenporter] - [#84926]) ([nest docs])
+- Bump google-nest-sdm to 2.2.2 ([@allenporter] - [#85899]) ([nest docs])
+- Add a timeout during OAuth token exchange and additional debug logging ([@allenporter] - [#85911]) ([nest docs])
+- Bump aiowebostv to 0.3.1 to fix support for older devices ([@thecode] - [#85916]) ([webostv docs])
+- Fix webOS TV SSDP discovery missing friendly name ([@thecode] - [#85917]) ([webostv docs])
+- Update webOS TV codeowners ([@thecode] - [#85959]) ([webostv docs])
+- Bump aiowebostv to 0.3.2 ([@thecode] - [#86031]) ([webostv docs])
+- Handle ignored shelly entries when discovering via zeroconf ([@bdraco] - [#86039]) ([shelly docs])
+- Update pyTibber to 0.26.8 ([@Danielhiversen] - [#86044]) ([tibber docs])
+
+[#84926]: https://github.com/home-assistant/core/pull/84926
+[#85120]: https://github.com/home-assistant/core/pull/85120
+[#85277]: https://github.com/home-assistant/core/pull/85277
+[#85481]: https://github.com/home-assistant/core/pull/85481
+[#85570]: https://github.com/home-assistant/core/pull/85570
+[#85645]: https://github.com/home-assistant/core/pull/85645
+[#85764]: https://github.com/home-assistant/core/pull/85764
+[#85765]: https://github.com/home-assistant/core/pull/85765
+[#85768]: https://github.com/home-assistant/core/pull/85768
+[#85777]: https://github.com/home-assistant/core/pull/85777
+[#85785]: https://github.com/home-assistant/core/pull/85785
+[#85841]: https://github.com/home-assistant/core/pull/85841
+[#85853]: https://github.com/home-assistant/core/pull/85853
+[#85874]: https://github.com/home-assistant/core/pull/85874
+[#85885]: https://github.com/home-assistant/core/pull/85885
+[#85899]: https://github.com/home-assistant/core/pull/85899
+[#85911]: https://github.com/home-assistant/core/pull/85911
+[#85916]: https://github.com/home-assistant/core/pull/85916
+[#85917]: https://github.com/home-assistant/core/pull/85917
+[#85959]: https://github.com/home-assistant/core/pull/85959
+[#86031]: https://github.com/home-assistant/core/pull/86031
+[#86039]: https://github.com/home-assistant/core/pull/86039
+[#86044]: https://github.com/home-assistant/core/pull/86044
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@j-stienstra]: https://github.com/j-stienstra
+[@mib1185]: https://github.com/mib1185
+[@starkillerOG]: https://github.com/starkillerOG
+[@thecode]: https://github.com/thecode
+[@tronikos]: https://github.com/tronikos
+[@yuvalabou]: https://github.com/yuvalabou
+[google_assistant_sdk docs]: /integrations/google_assistant_sdk/
+[google_sheets docs]: /integrations/google_sheets/
+[homeassistant_sky_connect docs]: /integrations/homeassistant_sky_connect/
+[homekit_controller docs]: /integrations/homekit_controller/
+[huawei_lte docs]: /integrations/huawei_lte/
+[jellyfin docs]: /integrations/jellyfin/
+[litterrobot docs]: /integrations/litterrobot/
+[nanoleaf docs]: /integrations/nanoleaf/
+[nest docs]: /integrations/nest/
+[pi_hole docs]: /integrations/pi_hole/
+[reolink docs]: /integrations/reolink/
+[shelly docs]: /integrations/shelly/
+[switchbot docs]: /integrations/switchbot/
+[tibber docs]: /integrations/tibber/
+[usb docs]: /integrations/usb/
+[waqi docs]: /integrations/waqi/
 [webostv docs]: /integrations/webostv/
 
 ## Need help? Join the community!
