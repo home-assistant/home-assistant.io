@@ -74,69 +74,7 @@ This platform also was confirmed to work with the following Hikvison-based NVRS
 
 ## Configuration
 
-To enable this sensor,
-add the following lines are required in your `configuration.yaml` file:
-
-```yaml
-binary_sensor:
-  - platform: hikvision
-    host: IP_ADDRESS
-    username: user
-    password: pass
-```
-
-{% configuration %}
-host:
-  description: The IP address of the camera you would like to connect to.
-  required: true
-  type: string
-username:
-  description: The username to authenticate with.
-  required: true
-  type: string
-password:
-  description: The password to authenticate with.
-  required: true
-  type: string
-name:
-  description: >
-    The name you would like to give the camera in Home Assistant,
-    defaults to name defined in the camera.
-  required: false
-  type: string
-port:
-  description: The port to connect to the camera on.
-  required: false
-  type: integer
-  default: 80
-ssl:
-  description: "`true` if you want to connect with HTTPS. Be sure to set the port also."
-  required: false
-  type: boolean
-  default: false
-customize:
-  description: >
-    This attribute contains sensor-specific override values.
-    Only sensor name needs defined:
-  required: false
-  type: map
-  keys:
-    ignored:
-      description: >
-        Ignore this sensor completely. It won't be shown in
-        the Web Interface and no events are generated for it.
-      required: false
-      type: boolean
-      default: false
-    delay:
-      description: >
-        Specify the delay to wait after a sensor event ends before notifying
-        Home Assistant in seconds. This is useful to catch multiple quick trips
-        in one window without the state toggling on and off.
-      required: false
-      type: integer
-      default: 5
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ### Supported types
 
