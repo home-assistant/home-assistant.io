@@ -12,10 +12,11 @@ ha_codeowners:
 ha_domain: bsblan
 ha_platforms:
   - climate
+  - diagnostics
 ha_integration_type: integration
 ---
 
-This integration integrates [BSBLan](https://github.com/fredlcore/bsb_lan) device into Home Assistant.
+This integration integrates [BSBLan](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
 
 BSBLan is a device that is made by `Frederik Holst` and `Ulf Dieckmann` for documentation and with
 the help of many other contributors.
@@ -39,4 +40,4 @@ To see a more detailed listing of the reported systems which are successfully us
 - [`Other Manufacturers (e.g. Fujitsu, Atlantic, Weishaupt)`](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#313-other-manufacturers)
 
 The integration is tested with the stable firmware version `1.00`. A newer firmware versions will not work, because the parameters are changed of the specific info that is needed.
-Please use the latest release. [release 1.0](https://github.com/fredlcore/bsb_lan/releases/tag/v1.0)
+Please use the latest release. [release 1.0](https://github.com/fredlcore/BSB-LAN/releases/tag/v1.0)

@@ -34,13 +34,17 @@
     {%- if page.ha_brand -%}
       The {{ page.title | default: page.name }} brand was introduced in Home Assistant {{ page.ha_release | default: "unknown" }}.
     {%- else -%}
-      The {{ page.title | default: page.name }} {{ page.ha_integration_type | default: "integration" }} was introduced in Home Assistant {{ page.ha_release | default: "unknown" }},
-      and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io/#integrations" target="_blank" rel="noopener">
+      The {{ page.title | default: page.name }} {{ page.ha_integration_type | default: "integration" }} was introduced in Home Assistant {{ page.ha_release | default: "unknown" }}
 
-      {% if percentage < 1 %}
-        {{ active_installations }}</a> active installations.
-      {% else %}
-        {{ percentage | remove: ".0" }}%</a> of the active installations.
+      {%- if page.ha_iot_standard -%}
+        .
+      {%- else -%}
+        , and it's used by <a title="Open analytics.home-assistant.io" href="https://analytics.home-assistant.io/integrations" target="_blank" rel="noopener">
+        {% if percentage < 1 %}
+          {{ active_installations }}</a> active installations.
+        {% else %}
+          {{ percentage | remove: ".0" }}%</a> of the active installations.
+        {% endif %}
       {% endif %}
 
       {%- if page.ha_iot_class %}

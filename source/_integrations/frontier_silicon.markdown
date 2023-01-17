@@ -16,7 +16,7 @@ ha_codeowners:
 This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the [UNDOK] app.
 
 ## Supported Models
-* Hama: [IR110], [DIR3110]
+* Hama: [IR50], [IR110], [DIR3110]
 * Medion: [Medion Radios]
 * Silvercrest: [SIRD 14 C2 (archived website)]
 * Teufel: [Radio 3sixty (2019)]
@@ -107,6 +107,7 @@ The Frontier Silicon API does not provide a multi-user environment. There is alw
 
 [Frontier Silicon chipset]: https://www.frontiersmart.com/solution/solutions-for-digital-radio/
 [Medion Radios]: https://www.medion.com/de/shop/internetradios
+[IR50]: https://support.hama.com/00054840/hama-internetradio-ir50-wifi
 [IR110]: https://www.hama.com/00054823/hama-ir110ms-internet-radio-multiroom-app-control-black
 [DIR3110]: https://www.hama.com/00054824/hama-dir3110ms-digital-radio-fm-dab-dab+-internet-radio-app-multiroom-white
 [MD 87466]: https://www.conrad.com/p/medion-p83302-md-87466-internet-kitchen-radio-dab-fm-aux-internet-radio-dlna-compatible-white-1434428

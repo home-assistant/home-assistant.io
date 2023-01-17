@@ -13,7 +13,7 @@ ha_domain: gdacs
 ha_platforms:
   - geo_location
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The `gdacs` integration lets you use a GeoRSS feed provided by [GDACS](https://www.gdacs.org/) with information about major droughts, earthquakes, floods, tropical cyclones, tsunamis and volcanic activities worldwide.

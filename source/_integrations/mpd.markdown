@@ -26,7 +26,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: IP address of the Host where Music Player Daemon is running.
+  description: Hostname or IP address of the Host where Music Player Daemon is running.
   required: true
   type: string
 port:

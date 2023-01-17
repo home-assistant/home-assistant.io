@@ -10,7 +10,9 @@ ha_domain: homewizard
 ha_codeowners:
   - '@DCSBL'
 ha_platforms:
+  - button
   - diagnostics
+  - number
   - sensor
   - switch
 ha_zeroconf: true
@@ -65,9 +67,23 @@ The HomeWizard Energy API only exposes properties that are used within the HomeW
 | Active water usage | liter per minute | HWE-WTR | The current usage of water. |
 | Total water usage | m3 | HWE-WTR | Total of water measured since installation. |
 
-## Switches
+## Energy Socket
 
-The Wifi Energy Socket (`HWE-SKT`) outlet state can be controlled the switch platform. There are two switches:
+The Wifi Energy Socket (`HWE-SKT`) outlet state and status light can be controlled. There are two switches:
 
 - **Switch**: Controls the outlet state of the Energy Socket. This switch is locked out when `Switch Lock` is turned on. 
 - **Switch lock**: Forces the outlet state in the `on` position and disables the physical button. This option is useful when the socket is used for a device that must not be turned off, such as a refrigerator.
+
+You can also control the green status light brightness with **Status light brightness**. This light turns on when the switch is on.
+
+## Identify
+
+The identify button can be pressed to let the status light blink for a few seconds.
+This feature is currently only available for the Wifi Energy Socket with firmware version `3.01` or later.
+
+## Cloud communication
+
+The HomeWizard Energy devices are designed to work with the HomeWizard Energy app and require communication with the HomeWizard cloud to make them function with the app. The "Cloud connection" configuration toggle can be used to turn off all communication with the HomeWizard cloud, making the device fully local. The device cannot communicate with the app, and the device won't receive any future firmware updates.
+
+Cloud communication is restored when the switch is turned on again. Cloud communications are also restored after a factory reset, or when the device is put in pairing mode.
+This feature is currently only available for the Wifi Energy Socket with firmware version `3.01` or later.

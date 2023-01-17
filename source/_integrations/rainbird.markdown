@@ -9,6 +9,7 @@ ha_release: 0.61
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@konikvranik'
+  - '@allenporter'
 ha_domain: rainbird
 ha_platforms:
   - binary_sensor

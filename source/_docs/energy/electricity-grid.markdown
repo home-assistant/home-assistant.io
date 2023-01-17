@@ -35,7 +35,7 @@ We have worked with creator [Marcel Zuidwijk](https://www.zuidwijk.com) to devel
 
 The Zigbee Energy Profile is a wireless energy standard to provide real-time information about electricity usage. This standard is available in some meters in the US, UK and Australia. This is not "normal" Zigbee as implemented by Home Assistant but requires special certified hardware.
 
-One such option with a local API is the [Rainforest EAGLE-200](/integrations/rainforest_eagle/).
+We are not currently aware of a device that implements this which supports a local API and is compatible with Home Assistant.
 
 #### Reading the meter via a pulse counter
 
@@ -48,6 +48,12 @@ We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-as
 #### Using (Smart Message Language) interface
 
 In countries like Germany, SML (Smart Message Language) is used typically. ESPHome's [SML (Smart Message Language)](https://esphome.io/components/sml.html) is one way to integrate it. If you prefer to integrate it via MQTT, [sml2mqtt](https://github.com/spacemanspiff2007/sml2mqtt) is another open source option.
+
+#### Read the meter using an AI-on-the-edge-device
+
+[AI-on-the-edge-device](https://github.com/jomjol/AI-on-the-edge-device) is a project running on an ESP32-CAM and can be fully integrated into Home Assistant using the Home Assistant discovery functionality of MQTT. It digitalizes your gas/water/electricity meter display and provides its data in various ways.
+
+![Photo of the AI-on-the-edge-device Workflow](/images/docs/energy/ai-on-the-edge-device.jpg)
 
 ### Using a CT clamp sensor
 

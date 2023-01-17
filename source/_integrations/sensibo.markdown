@@ -117,6 +117,14 @@ For AirQ device, these sensors are available:
 - TVOC
 - CO2
 
+For Element device, these sensors are available:
+
+- PM 2.5
+- TVOC
+- CO2
+- Ethanol
+- Air quality
+
 For climate devices, these sensors are available:
 
 - Climate React low temperature threshold

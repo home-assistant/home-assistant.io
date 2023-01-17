@@ -51,7 +51,7 @@ frontend:
 
 ### Theme format
 
-The frontend integration allows you to create custom themes to influence the look and feel of the user interface.
+The frontend integration allows you to create custom themes to influence the look and feel of the user interface. Note that we only officially support the `primary-color` and `accent-color` properties. Although we do our best to keep things working, the behavior of other properties can change between releases.
 
 ```yaml
 # Example configuration.yaml entry

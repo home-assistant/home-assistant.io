@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: qld_bushfire
 ha_platforms:
   - geo_location
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The `qld_bushfire` platform lets you integrate a 
