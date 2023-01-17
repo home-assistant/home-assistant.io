@@ -25,4 +25,6 @@ Add Sensor:
   description: Track an additional sensor.
 Remove Sensor:
   description: Untrack a sensor.
+Settings:
+  description: Configure additional settings.
 {% endconfiguration_basic %}
