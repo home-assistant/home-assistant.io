@@ -807,15 +807,6 @@ mode:
     will use a `dropdown` input.
   type: string
   required: false
-translation_domain:
-  description: >
-    Allows translations provided by an integration where `translation_domain`
-    is the integration domain that is providing the selector option strings
-    translation. See the documentation on
-    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
-    for more information.
-  type: string
-  required: false
 translation_key:
   description: >
     Allows translations provided by an integration where `translation_key`
