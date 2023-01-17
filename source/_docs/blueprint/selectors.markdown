@@ -23,6 +23,7 @@ The following selectors are currently available:
 - [Color temperature selector](#color-temperature-selector)
 - [Config entry selector](#config-entry-selector)
 - [Date selector](#date-selector)
+- [Date & time selector](#date--time-selector)
 - [Device selector](#device-selector)
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
