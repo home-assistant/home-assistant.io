@@ -145,14 +145,6 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
-motor_state_topic:
-  description: The MQTT topic subscribed to receive motor state updates. It accepts states the `state_jammed`, `state_ok`.
-  required: false
-  type: string
-motor_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a state value from the payload send to `motor_state_topic`."
-  required: false
-  type: string
 name:
   description: The name of the lock.
   required: false
@@ -203,7 +195,7 @@ retain:
   type: boolean
   default: false
 state_jammed:
-  description: The payload sent to `motor_state_topic` by the lock when it's indicating a jammed motor.
+  description: The payload sent to `state_topic` by the lock when it's indicating a jammed motor.
   required: false
   type: string
   default: MOTOR_JAMMED
@@ -218,12 +210,12 @@ state_locking:
   type: string
   default: LOCKING
 state_ok:
-  description: The payload sent to `motor_state_topic` by the lock when it's indicating the lock is okay and not jammed.
+  description: The payload sent to `state_topic` by the lock when it's indicating the lock is okay and not jammed.
   required: false
   type: string
   default: MOTOR_OK
 state_topic:
-  description: The MQTT topic subscribed to receive state updates. It accepts states configured with `state_locked`, `state_unlocked`, `state_locking` or `state_unlocking`.
+  description: The MQTT topic subscribed to receive state updates. It accepts states configured with `state_jammed`, `state_ok`, `state_locked`, `state_unlocked`, `state_locking` or `state_unlocking`.
   required: false
   type: string
 state_unlocked:
@@ -267,7 +259,6 @@ The example below shows a full configuration for a MQTT lock.
 mqtt:
   lock:
     - name: Frontdoor
-      motor_state_topic: "home-assistant/frontdoor/motor_state"
       state_topic: "home-assistant/frontdoor/state"
       command_topic: "home-assistant/frontdoor/set"
       payload_lock: "LOCK"

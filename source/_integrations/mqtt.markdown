@@ -339,8 +339,6 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'mode_stat_tpl':       'mode_state_template',
     'mode_stat_t':         'mode_state_topic',
     'modes':               'modes',
-    'mot_stat_t':          'motor_state_topic',
-    'mot_val_tmp':         "motor_value_template',
     'name':                'name',
     'obj_id':              'object_id',
     'off_dly':             'off_delay',
