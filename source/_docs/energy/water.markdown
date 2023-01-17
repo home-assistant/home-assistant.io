@@ -30,7 +30,6 @@ Maybe you like to build one yourself?
  
 ![Photo of the AI-on-the-edge-device Workflow](/images/docs/energy/ai-on-the-edge-device.jpg)
 
-
 Another common alternative is using image recognition using one of the following.
 
 - [AI-on-the-edge-device](https://github.com/jomjol/AI-on-the-edge-device) running machine learning algorithms on an ESP32
