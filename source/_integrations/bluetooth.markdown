@@ -108,7 +108,7 @@ These adapters generally offer the fastest connect times and do not require addi
 #### Broadcom (BCM) based adapters
 
 <div class='note warning'>
-These adapters may require additional patch files available at <a href="https://github.com/winterheart/broadcom-bt-firmware">https://github.com/winterheart/broadcom-bt-firmware<a> for stable operation.
+These adapters may require additional patch files available at <a href="https://github.com/winterheart/broadcom-bt-firmware">https://github.com/winterheart/broadcom-bt-firmware</a> for stable operation.
   
 There is currently no supported method to install these patch files when using Home Assistant Operating System.
 </div>
