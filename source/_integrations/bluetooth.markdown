@@ -134,6 +134,8 @@ Most of these adapters can hold seven (7) connections at the same time.
 - Raspberry Pi 3B+ (CYW43455)
 - Raspberry Pi 4B (CYW43455)
 
+These adapters are connected via the UART bus which may limit their performance.
+
 #### High-performance determination methodology
 
 Performance is primarily determined by a combination of the chip and the Linux drivers for the adapter. Some vendors using the same chip had an unacceptable performance and are listed as unsupported.
