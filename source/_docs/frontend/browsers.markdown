@@ -7,7 +7,7 @@ Home Assistant requires a web browser to show the frontend and supports all majo
 
 If a browser is listed as working but you are still having problems, it is possible that some add-on or extension may be the problem. Some add-ons or extension are known to cause issue with the frontend, but it's not possible to test them all.
 
-If you are having issues with the frontend displaying correctly, you should disable all your add-ons or extensions and enable them one at a time. At last but not least, consider restarting your Browser.
+If you are having issues with the frontend displaying correctly, you should disable all your add-ons or extensions and enable them one at a time. At last but not least, consider restarting your browser.
 
 We would appreciate if you help to keep this page up-to-date and add feedback.
 
