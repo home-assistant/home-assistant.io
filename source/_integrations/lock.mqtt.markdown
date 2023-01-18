@@ -214,10 +214,9 @@ state_topic:
   required: false
   type: string
 state_unjammed:
-  description: The payload sent to `state_topic` by the lock when it's indicating the lock is not jammed anymore.
+  description: If configured, the payload sent to `state_topic` by the lock when it is no longer jammed. By default any other state received on `state_topic` (`state_locked`, `state_unlocked`, `state_locking` or `state_unlocking`) will reset the jammed state condition.
   required: false
   type: string
-  default: UNJAMMED
 state_unlocked:
   description: The payload sent to `state_topic` by the lock when it's unlocked.
   required: false
