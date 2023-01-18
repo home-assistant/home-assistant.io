@@ -17,19 +17,28 @@ ha_integration_type: hub
 
 The integration provides a way to monitor any ASUSWRT-powered device (including routers, access points, and AiMesh nodes) from Home Assistant. The integration uses native ASUS HTTP(S) API the same way you are accessing the device Web UI for setup or configuration.
 
-The user needs to provide the following information for the setup:
-
 {% include integrations/config_flow.md %}
 {% configuration %}
 host:
+  type: string
+  required: true
   description: hostname or IP address of the device
 username:
+  type: string
+  required: true
   description: login to access the device Web UI (default for ASUS devices is `admin`)
 password:
+  type: string
+  required: true
   description: password to access the device Web UI
 port:
+  type: integer
+  required: false
   description: port for the connection (if the device uses non-standard ports for connection). The standard values are `80` for non-SSL and `8443` for SSL connection - they can be handled by the integration automatically and do not need to be provided explicitly
 ssl:
+  type: boolean
+  required: true
+  default: true
   description: whether to use SSL connection (in order to use SSL connection, this feature should be enabled on the device)
 {% endconfiguration %}
 
