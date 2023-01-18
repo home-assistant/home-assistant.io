@@ -17,27 +17,7 @@ If you are running the Home Assistant DuckDNS add-on this integration is not req
 
 </div>
 
-## Configuration
-
-To use the integration in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-duckdns:
-  domain: YOUR_SUBDOMAIN
-  access_token: YOUR_ACCESS_TOKEN
-```
-
-{% configuration duckdns %}
-  domain:
-    description: Your duckdns subdomain (without the `.duckdns.org` suffix).
-    required: true
-    type: string
-  access_token:
-    description: Your DuckDNS access token. Log in to the site to get one.
-    required: true
-    type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Service `set_txt`
 
