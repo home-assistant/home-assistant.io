@@ -213,10 +213,6 @@ state_topic:
   description: The MQTT topic subscribed to receive state updates. It accepts states configured with `state_jammed`, `state_unjammed`, `state_locked`, `state_unlocked`, `state_locking` or `state_unlocking`.
   required: false
   type: string
-state_unjammed:
-  description: If configured, the payload sent to `state_topic` by the lock when it is no longer jammed. By default any other state received on `state_topic` (`state_locked`, `state_unlocked`, `state_locking` or `state_unlocking`) will reset the jammed state condition.
-  required: false
-  type: string
 state_unlocked:
   description: The payload sent to `state_topic` by the lock when it's unlocked.
   required: false
