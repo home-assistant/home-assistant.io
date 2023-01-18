@@ -37,7 +37,7 @@ Read out what your meter readings are for energy consumption/yield, see what you
 - Gas Consumption (m3)
 - Power Consumption / Production (W)
 - Energy Consumption Low/High (kWh)
-- Energy Production Low/High (kwH)
+- Energy Production Low/High (kWh)
 - Energy Tariff Period (low / high)
 
 ### Phases

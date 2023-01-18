@@ -171,3 +171,9 @@ binary_sensor:
   required: false
   type: list
 {% endconfiguration %}
+
+<div class='note'>
+
+Use either `resource` or `resource_template`.
+
+</div>

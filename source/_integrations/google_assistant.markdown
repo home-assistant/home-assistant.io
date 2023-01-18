@@ -15,7 +15,9 @@ ha_platforms:
   - diagnostics
 ---
 
-The `google_assistant` integration allows you to control things via Google Assistant on your mobile, tablet or Google Home device.
+The `google_assistant` integration allows you to control your Home Assistant devices via Google Assistant on your mobile, tablet or Google Home device.
+
+If you want to send commands to Google Assistant to control devices supported by Google Assistant but not by Home Assistant, or broadcast messages to Google Assistant speakers and displays without interrupting music/video playback, take a look at the [Google Assistant SDK](/integrations/google_assistant_sdk) integration.
 
 ## Automatic setup via Home Assistant Cloud
 
@@ -134,7 +136,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
 2. Click `Develop` on the top of the page, then click `Actions` located in the hamburger menu on the top left.
-3. Upload `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest) for both Node and Chrome by clicking the `Upload Javascript files` button.
+3. Upload `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest) for both Node and Chrome by clicking the `Upload JavaScript files` button.
 4. Add device scan configuration:
    1. Click `+ New scan config` if no configuration exists
    2. Select `MDNS`
@@ -147,7 +149,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 8. Restart Home Assistant Core.
 9. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Assistant support.
 
-You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome).
+You can debug the setup by following [these instructions](https://developers.home.google.com/local-home/test#debugging_from_chrome).
 
 ### YAML Configuration
 
@@ -282,6 +284,8 @@ Entities that have not been explicitly assigned to rooms but have been placed in
 <div class='note'>
 
 Some devices, such as `scene` or `script`, must be assigned to an `area` before other members of a shared Google Home Household can use them. This is because household members in a shared Google Home will not be able to view devices that are not assigned to a room _unless_ they were the user who linked the service to Google Home. This issue isn't immediately apparent because `script` and `scene` devices aren't visible in the main Google Home dashboard.
+  
+The automatic room assignment will not work when multiple homes are set up in your Google account.
 
 </div>
 
@@ -333,6 +337,10 @@ If you receive 404 errors linked to reporting state in your log, Home Assistant 
 #### Error during linking: "Could not update the setting. Please check your connection"
 
 Your fulfillment URL may be invalid or unreachable. Recheck the `Fulfillment URL` as specified in [Manual Setup](#manual-setup) and verify that it's publicly reachable.
+
+#### 500 / 429 error on request sync
+
+This error may occur if the service key is invalid. Try deleting and creating a new service account and key.
 
 #### NGINX
 

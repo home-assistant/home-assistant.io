@@ -301,7 +301,16 @@ This error message occurs when you do not have an active Home Assistant Cloud (N
 
 The personal access token does not match the expected format. Make sure you are copying the entire token and that there are no extraneous characters (such as trailing whitespace) and try again.
 
-#### Error: The token is invalid or no longer authorized
+#### Error: `pysmartthings.errors.APIInvalidGrant: Invalid refresh token:` (after a restore)
+
+You can fix this by using the SmartThings App to re-grant authorization to the API token you created before. 
+1. Open SmartThings app on your mobile device (not HA)
+2. Select `Automations` from bottom
+3. Select your Home Assistant automation from the list
+4. Click "Done", then click "Allow"
+5. Reload your SmartThings integration from Home Assistant Devices panel
+
+#### Error: The token is invalid or no longer authorized (not solved by above)
 
 The personal access token entered is not valid or has been deleted. Create a new token per the instructions in the prerequisites and try again.
 

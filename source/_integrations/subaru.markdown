@@ -12,6 +12,7 @@ ha_codeowners:
   - '@G-Two'
 ha_domain: subaru
 ha_platforms:
+  - diagnostics
   - lock
   - sensor
 ha_integration_type: integration

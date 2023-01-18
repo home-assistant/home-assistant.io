@@ -15,7 +15,7 @@ This integration allows you to track and control various light bulbs. Read the i
 
 ### Default turn-on values
 
-To set the default color, brightness and transition values when the light is turned on, create a custom `light_profiles.csv`, normally located in the default configuration folder where you find `configuration.yaml`. 
+To set the default color, brightness and transition values when the light is turned on, create a custom `light_profiles.csv`, normally located in the default configuration folder where you find `configuration.yaml`.
 
 The `light_profiles.csv` has to have a header. The format of the header is:
 
@@ -49,8 +49,8 @@ Most lights do not support all attributes. You can check the integration documen
 | `rgb_color` | yes | A list containing three integers between 0 and 255 representing the RGB color you want the light to be. Three comma-separated integers that represent the color in RGB, within square brackets.
 | `rgbw_color` | yes | A list containing four integers between 0 and 255 representing the RGBW color you want the light to be. Four comma-separated integers that represent the color in RGBW (red, green, blue, white), within square brackets. This attribute will be ignored by lights which do not support RGBW colors.
 | `rgbww_color` | yes | A list containing five integers between 0 and 255 representing the RGBWW color you want the light to be. Five comma-separated integers that represent the color in RGBWW (red, green, blue, cold white, warm white), within square brackets. This attribute will be ignored by lights which do not support RGBWW colors.
-| `color_temp` | yes | An integer in mireds representing the color temperature you want the light to be.
-| `kelvin` | yes | Alternatively, you can specify the color temperature in Kelvin.
+| `color_temp_kelvin` | yes | An integer in Kelvin representing the color temperature you want the light to be.
+| `color_temp` | yes | Alternatively, you can specify the color temperature in Mireds.
 | `color_name` | yes | A human-readable string of a color name, such as `blue` or `goldenrod`. All [CSS3 color names](https://www.w3.org/TR/css-color-3/#svg-color) are supported.
 | `brightness` | yes | Integer between 0 and 255 for how bright the light should be, where 0 means the light is off, 1 is the minimum brightness and 255 is the maximum brightness supported by the light.
 | `brightness_pct`| yes | Alternatively, you can specify brightness in percent (a number between 0 and 100), where 0 means the light is off, 1 is the minimum brightness and 100 is the maximum brightness supported by the light.

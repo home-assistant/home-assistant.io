@@ -7,6 +7,7 @@ ha_category:
   - Weather
 ha_platforms:
   - camera
+  - diagnostics
   - sensor
   - weather
 ha_release: 0.95

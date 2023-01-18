@@ -79,7 +79,8 @@ This is a separate account from the one you made for the app. You cannot log in 
   ![](/images/integrations/tuya/image_004.png)
 4. Click `Confirm` in the app.
 5. To confirm that everything worked, navigate to the `All Devices` tab. Here you should be able to find the devices from the app.
-6. If zero devices are imported. Try changing the DataCenter and check the account used is the "Home Owner".
+6. If zero devices are imported, try changing the DataCenter and check the account used is the "Home Owner".
+   You can change DataCenter by clicking the Cloud icon on the left menu, then clicking the Edit link in the Operation column for your newly created project. You can change DataCenter in the popup window.
 
 ![](/images/integrations/tuya/image_005.png)
 
@@ -102,16 +103,27 @@ Click the created project to enter the `Project Overview` page and get the `Auth
     description: Go to your cloud project on [Tuya IoT Platform](https://iot.tuya.com/). Find the **Access Secret** under [Authorization Key](#get-authorization-key) on the **Project Overview** tab.
 
   Account:
-    description: Tuya Smart or Smart Life **app** account.
+    description: Tuya Smart or Smart Life **app** account, not your Tuya IoT platform account.
 
   Password:
-    description: The password of your **app** account.
+    description: The password of your **app** account, not your Tuya IoT platform account.
 
 {% endconfiguration_basic %}
 
 ## Error codes and troubleshooting
 
 {% configuration_basic %}
+
+If no devices show up in Home Assistant:
+  description: >
+    - First, make sure the devices show up in Tuya's cloud portal under the devices tab.
+
+    - In the Tuya IoT configuration cloud portal, you must NOT link your non-developer account under the "Users" tab. Doing so will work, and you can even still add the devices under the devices tab, but the API will send 0 devices down to Home Assistant. You must only link the account under the Devices->"Link Tuya App Account". If it shows up on the users tab, be sure to delete it.
+
+    - Your region may not be correctly set.
+
+    - Make sure your cloud plan does not need to be renewed (see error #28841002 on this page).
+
 
 "1004: sign invalid":
   description: Incorrect Access ID or Access Secret. Please refer to the **Configuration** part above.

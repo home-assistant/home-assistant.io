@@ -35,7 +35,7 @@ ha_integration_type: integration
 </a>
 
 
-The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
+The `nest` integration allows you to integrate a few [supported](https://developers.google.com/nest/device-access/supported-devices) Google [Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -49,7 +49,7 @@ You are in control of the information and capabilities exposed to Home Assistant
 
 <div class='note'>
 
-The Nest Smart Device Management (SDM) API **requires a US$5 fee**.
+The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
 
 </div>
 
@@ -289,7 +289,7 @@ All cameras have motion and person triggers, however only some support capturing
 | Nest Cam with floodlight | WebRTC | Motion<br>Person | N/A |
 | Nest Doorbell (battery) | WebRTC | Motion<br>Person<br>Chime | Clip Preview (mp4, gif) |
 | Nest Doorbell (wired) | RTSP<br>Recording | Motion<br>Person<br>Sound<br>Chime | Snapshot (jpg) |
-| Nest Hub Max | RTSP<br>Recording | Motion<br>Person<br>Sound<br><sub><sup>* [SDM API known issue](https://github.com/home-assistant/core/issues/58482)</sup></sub> | Snapshot (jpg) |
+| Nest Hub Max | RTSP<br>Recording | Motion<br>Person<br>Sound<br> | Snapshot (jpg) |
 
 Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
 

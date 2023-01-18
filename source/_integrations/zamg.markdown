@@ -18,7 +18,7 @@ ha_codeowners:
 
 The `zamg` platform uses meteorological details published by the Austrian weather service [Zentralanstalt für Meteorologie und Geodynamik (ZAMG)](https://www.zamg.ac.at).
 
-Only observations for capital cities are publicly available. You can check the list of stations in [CSV format](https://www.zamg.ac.at/ogd).
+With this integration, it is possible to get weather station data from up to 228 different ZAMG stations across Austria. The integration uses the [datahub-api](https://dataset.api.hub.zamg.ac.at/v1/docs/index.html).
 
 {% include integrations/config_flow.md %}
 
@@ -34,18 +34,20 @@ This integration provides the following sensors:
 |Name|Description|
 |----|-----------|
 |Temperature|Temperature in °C|
+|Temperature Average|Average Temperature in °C|
 |Humidity|Humidity in %|
 |Dew Point|Dew point in °C|
+|Dew Point Average|Average Dew point in °C|
 |Pressure|Station pressure in hPa|
 |Pressure at Sea Level|Sea level pressure in hPa|
 |Wind Speed|Wind speed in km/h|
 |Top Wind Speed|Max wind speed in km/h|
 |Wind Bearing|Wind bearing in °|
 |Top Wind Bearing|Wind bearing at max speed in °|
-|Sun Last Hour|Sunshine in the last hour in %|
-|Precipitation|Precipitation in 1/m²|
-|Station Name|Station name|
-|Station Elevation|The station elevation in m|
-|Update Date|Update date of last read data|
-|Update Time|Update time of last read data|
-|Station id|The station id|
+|Sun Last 10 Minutes|Sunshine in the last 10 minutes in sec|
+|Precipitation|Precipitation in mm|
+|Snow|Snow in cm|
+
+<div class='note'>
+Not every station supports every sensor.
+</div>

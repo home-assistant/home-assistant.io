@@ -1,18 +1,18 @@
 ---
-title: Image
-description: The image integration handle image assets in Home Assistant.
+title: Image Upload
+description: The image upload integration handle image assets in Home Assistant.
 ha_category:
   - Other
 ha_release: 0.115
 ha_codeowners:
   - '@home-assistant/core'
-ha_domain: image
+ha_domain: image_upload
 ha_quality_scale: internal
 ha_integration_type: system
 ---
 
-The Image integration allows Home Assistant to handle image assets in Home Assistant, for example,
-the profile photos of your systems account.
+The Image Upload integration allows Home Assistant to handle image assets in
+Home Assistant, for example, the profile photos of your systems account.
 
 ## Configuration
 
@@ -24,5 +24,5 @@ integration manually:
 
 ```yaml
 # Example configuration.yaml entry
-image:
+image_upload:
 ```

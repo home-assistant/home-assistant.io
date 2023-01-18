@@ -84,6 +84,7 @@ $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /h
 #### Serial to network proxies:
 
 - [ser2net](https://ser2net.sourceforge.net)
+- [Smart Meter bridge](https://github.com/legolasbo/smartmeterBridge)
 - [WIZnet WIZ110SR](https://www.wiznet.io/product-item/wiz110sr/)
 
 DIY solutions (ESP8266 based):
@@ -120,6 +121,14 @@ connection: &con0096
     connector: serialdev,
               /dev/ttyUSB0,
               115200n81,local
+```
+
+Optional configuration example for Smart Meter Bridge:
+```yml
+serial_port: "/dev/ttyUSB0"
+dsmr_version: "4"
+server:
+  port: 9988
 ```
 
 ### Technical overview

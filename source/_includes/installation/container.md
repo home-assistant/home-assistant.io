@@ -80,7 +80,7 @@ Once the Home Assistant Container is running Home Assistant should be accessible
 
 ### Exposing Devices
 
-In order to use Z-Wave, Zigbee or other integrations that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your container instructions:
+In order to use Zigbee or other integrations that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your container instructions:
 
 {% tabbed_block %}
 

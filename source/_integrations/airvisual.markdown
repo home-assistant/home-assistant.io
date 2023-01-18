@@ -1,5 +1,5 @@
 ---
-title: AirVisual
+title: AirVisual Cloud
 description: Instructions on how to use AirVisual data within Home Assistant
 ha_category:
   - Health
@@ -12,14 +12,14 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: device
+ha_integration_type: service
 ---
 
-The `airvisual` sensor platform queries the [AirVisual](https://www.iqair.com) cloud API for air quality data. Data can be collected via latitude/longitude, by city/state/country, or from an [AirVisual Node/Pro unit](https://www.iqair.com/air-quality-monitors/airvisual-pro).
+The `airvisual` sensor platform queries the [AirVisual](https://www.iqair.com) cloud API for air quality data. Data can be collected via latitude/longitude or city/state/country.
 
 ## Using the AirVisual Cloud API
 
-AirVisual API keys can be obtained [here](https://www.iqair.com/air-pollution-data-api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
+AirVisual API keys can be obtained [here](https://www.iqair.com/dashboard/api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
 
 The Community API key is valid for 12 months after which it will expire. You must then go back to the AirVisual website, delete your old key, create a new one following the same steps and update your configuration with the new key.
 
@@ -35,10 +35,6 @@ For example:
 
 </div>
 
-## Using an AirVisual Node/Pro Unit
-
-The integration can communicate to Node/Pro units over the local network. You will need the IP address/hostname of the unit and its Samba password (which can be found on the unit; [instructions here](https://support.iqair.com/en/articles/3029331-download-the-airvisual-node-pro-s-data-using-samba)).
-
 {% include integrations/config_flow.md %}
 
 ## Determining the City/State/Country
@@ -52,8 +48,6 @@ For example, Sao Paulo, Brazil shows a breadcrumb title of `Brazil > Sao Paulo >
 - Country: `Brazil`
 
 ## Sensor Types
-
-### Cloud API
 
 When configured, the platform will create three sensors for each air quality standard:
 
@@ -93,17 +87,3 @@ Particulate (<= 10 μm) | PM10 | [EPA: Particulate Matter (PM) Pollution](https:
 Ozone | O | [EPA: Ozone Pollution](https://www.epa.gov/ozone-pollution)
 Sulpher Dioxide | SO2 | [EPA: Sulfur Dioxide (SO2) Pollution](https://www.epa.gov/so2-pollution)
 Carbon Monoxide | CO | [EPA: Carbon Monoxide (CO) Pollution in Outdoor Air](https://www.epa.gov/co-pollution)
-
-### Node/Pro
-
-Node/Pro units will create a variety of sensors:
-
-- Air Quality Index (AQI)
-- Battery Level
-- Carbon Dioxide (CO2)
-- Humidity
-- Particulate (<= 0.1 μm) (PM0.1)
-- Particulate (<= 2.5 μm) (PM2.5)
-- Particulate (<= 10 μm) (PM10)
-- Temperature
-- Volatile Organic Compounds (VOC)

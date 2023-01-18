@@ -239,15 +239,15 @@ _All these can be extended if your usage calls for more resources._
 - title: VirtualBox
   content: |
     1. Create a new virtual machine
-    2. Select Type “Linux” and Version “Linux 2.6 / 3.x / 4.x (64-bit)”
-    3. Select “Use an existing virtual hard disk file”, select the unzipped VDI file from above
-    4. Edit the “Settings” of the VM and go “System” then “Motherboard” and select “Enable EFI”
-    5. Then go to “Network” “Adapter 1” choose “Bridged Adapter” and choose your Network adapter
+    2. Select Type "Linux" and Version "Linux 2.6 / 3.x / 4.x (64-bit)"
+    3. Select "Use an existing virtual hard disk file", select the unzipped VDI file from above
+    4. Edit the "Settings" of the VM and go "System" then "Motherboard" and select "Enable EFI"
+    5. Then go to "Network" "Adapter 1" choose "Bridged Adapter" and choose your Network adapter
     <div class="note warning">
     Please keep in mind that the bridged adapter only functions over a hardwired ethernet connection. 
     Using Wi-Fi on your VirtualBox host is unsupported.
     </div>
-    6. Then go to “Audio” and choose “Intel HD Audio” as Audio Controller.
+    6. Then go to "Audio" and choose "Intel HD Audio" as Audio Controller.
     <div class="note info">
 
     By default VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
@@ -261,11 +261,11 @@ _All these can be extended if your usage calls for more resources._
 - title: KVM (virt-manager)
   content: |
     1. Create a new virtual machine in `virt-manager`
-    2. Select “Import existing disk image”, provide the path to the QCOW2 image above
-    3. Choose “Generic Default” for the operating system
-    4. Check the box for “Customize configuration before install”
-    5. Select your bridge under “Network Selection”
-    6. Under customization select “Overview” -> “Firmware” -> “UEFI x86_64: ...”
+    2. Select "Import existing disk image", provide the path to the QCOW2 image above
+    3. Choose "Generic Default" for the operating system
+    4. Check the box for "Customize configuration before install"
+    5. Select your bridge under "Network Selection"
+    6. Under customization select "Overview" -> "Firmware" -> "UEFI x86_64: ...". Make sure to select a non-secureboot version of OVMF (does not contain the word `secure`, `secboot`, etc.), e.g., `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
     7. Click "Add Hardware" (bottom left), and select "Channel"
     8. Select device type: "unix"
     9. Select name: "org.qemu.guest_agent.0"

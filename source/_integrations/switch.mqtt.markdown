@@ -18,6 +18,8 @@ When a `state_topic` is not available, the switch will work in optimistic mode. 
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect switch operation.
 
+<a id='new_format'></a>
+
 To enable this switch in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -26,25 +28,6 @@ mqtt:
   switch:
     - command_topic: "home/bedroom/switch1/set"
 ```
-
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `switch` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-switch:
-  - platform: mqtt
-    command_topic: "home/bedroom/switch1/set"
-```
-
-{% enddetails %}
 
 {% configuration %}
 availability:

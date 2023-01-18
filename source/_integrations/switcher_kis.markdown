@@ -13,6 +13,7 @@ ha_codeowners:
   - '@thecode'
 ha_domain: switcher_kis
 ha_platforms:
+  - button
   - climate
   - cover
   - diagnostics
@@ -39,16 +40,29 @@ If you completed the integration setup but are still unable to control the devic
 
 {% include integrations/config_flow.md %}
 
+## Buttons
+
+For Switcher Breeze the integration provides the following buttons:
+
+- For devices that are also controlled in other ways or often go out of sync with Switcher Breeze, there are `Assume on` & `Assume off` buttons which you can use to can tell Switcher Breeze if your device is currently running or not without sending a new command to the device.
+
+- For devices which do not support swing status for the vertical swing, the integration provides separate `Vertical swing on` & `Vertical swing off` buttons.
+
 ## Sensors
 
+For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switcher V2/V4) the integration provides the following sensors:
 | Sensor Name         | Description                                            | Example           |
 | ------------------- | ------------------------------------------------------ | ----------------- |
-| `Auto Shutdown`     | The auto shutdown time limit configured on the device  | 01:30:00          |
-| `Remaining Time`    | Time remaining to shutdown (auto or timer)             | 01:29:41          |
+| `Auto Shutdown`*    | The auto shutdown time limit configured on the device  | 01:30:00          |
+| `Remaining Time`*   | Time remaining to shutdown (auto or timer)             | 01:29:41          |
 | `Electric Current`  | The electric current in amps                           | 12.5 A            |
 | `Power Consumption` | The power consumption in watts                         | 2756 W            |
 
+*Currently not supported for Switcher Power Plug
+  
 ## Services
+
+For Switcher power control devices (Switcher Touch, Switcher V2/V4) the integration provides the following sensors:
 
 ### Service: `switcher_kis.set_auto_off`
 

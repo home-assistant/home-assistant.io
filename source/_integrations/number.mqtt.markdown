@@ -12,6 +12,8 @@ The `mqtt` Number platform allows you to integrate devices that might expose con
 
 ## Configuration
 
+<a id='new_format'></a>
+
 To enable MQTT Number in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -20,24 +22,6 @@ mqtt:
   number:
     - command_topic: my-device/threshold
 ```
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `number` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-number:
-  - platform: mqtt
-    command_topic: my-device/threshold
-```
-
-{% enddetails %}
 
 {% configuration %}
 availability:
