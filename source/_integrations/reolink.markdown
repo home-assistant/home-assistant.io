@@ -36,6 +36,7 @@ The snapshots stream provides a sequence of image snapshots giving very low late
 
 The following models have been tested and confirmed to work:
 
+- C1 Pro
 - E1 Zoom
 - E1 Outdoor
 - RLC-410W
@@ -63,3 +64,4 @@ The following models are lacking the HTTP webserver API and can therfore not wor
 
 - The Reolink NVR only sends event-notifications if motion happens on the camera connected to the first (index "0") channel, therefore the binary sensors of all channels will only be updated when the first channel sees motion.
 - Reolink doorbell presses only generate ONVIF event notifications when the doorbell is directly connected to your network. The doorbell visitor binary sensor will not work when connecting the Reolink doorbell to an NVR.
+- Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) prior to setting up the integration.

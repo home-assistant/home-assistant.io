@@ -12,6 +12,12 @@ The Picture card allows you to set an image to use for navigation to various pat
 Screenshot of the picture card.
 </p>
 
+To add the Picture card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+
 {% configuration %}
 type:
   required: true
@@ -39,16 +45,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Options For Exemptions
-
-{% configuration badges %}
-user:
-  required: true
-  description: User ID that can see the view tab.
-  type: string
-{% endconfiguration %}
-
-## Examples
+### Examples
 
 Navigate to another view:
 
