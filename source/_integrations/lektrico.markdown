@@ -17,9 +17,12 @@ ha_platforms:
 
 The Lektrico Charging Station integration integrates your [Lektrico Charging Station](https://lektri.co/en/product/ev-charging-station-lektri-co-svik-7-4kw-ac/) into your Home Assistant and allows you to monitor it.
 
-## Configuration
 
 The Lektrico Charging Station device will be added as a sensor in Home Assistant.
 
-Before adding the integration you must know the device's IP.
-For this you can use some network scanners.
+## Prerequisite
+
+Before adding the integration, you must know the device's IP.
+
+{% include integrations/config_flow.md %}
+
