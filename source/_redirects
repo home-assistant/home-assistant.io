@@ -195,7 +195,6 @@
 /integrations/input_slider /integrations/input_number
 /integrations/leviton /integrations/leviton_z_wave
 /integrations/light.switch /integrations/switch_as_x
-/integrations/openalpr /integrations/openalpr_local
 /integrations/pca /integrations/elv
 /integrations/pollen /integrations/iqvia
 /integrations/polling /integrations/telegram_polling
@@ -479,6 +478,8 @@
 /integrations/nello /more-info/removed-integration 301
 /integrations/nma /more-info/removed-integration 301
 /integrations/nuimo_controller /more-info/removed-integration 301
+/integrations/openalpr /more-info/removed-integration 301
+/integrations/openalpr_local /more-info/removed-integration 301
 /integrations/orangepi_gpio /more-info/removed-integration 301
 /integrations/ozw /more-info/removed-integration 301
 /integrations/pcal9535a /more-info/removed-integration 301

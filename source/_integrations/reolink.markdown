@@ -21,14 +21,14 @@ The integration allows you to control [Reolink](https://reolink.com/) NVRs or ca
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
 Protocol:
-  description: Switch between RTSP or RTMP streaming protocol. 
+  description: Switch between RTSP, RTMP or FLV streaming protocol. 
 {% endconfiguration_basic %}
 
 ## Camera streams
 
 This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, and Images.
 The Sub stream camera entity is enabled by default; the other streams are disabled by default.
-The Images stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the hi-res RTMP/RTSP video stream has too much lag.
+The Images stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the RTMP/RTSP/FLV video stream has too much lag.
 
 ## Tested models
 

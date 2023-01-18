@@ -27,6 +27,7 @@ This integration allows:
   - Someone is at the front door
   - Smoke detected in the master bedroom
   - Water leak detected in the master bathroom
+- Having a conversation with Google Assistant using the [conversation](/integrations/conversation/) integration via text or voice.
 
 ## Prerequisites
 
@@ -132,4 +133,23 @@ data:
   target:
     - bedroom
     - basement
+```
+
+## Conversation agent
+
+In `configuration.yaml` add:
+```yaml
+conversation:
+```
+
+In the configure options of the integration, enable the conversation agent and then you can converse with Google Assistant by pressing the microphone in the frontend (supported browsers only):
+
+![Screenshot Conversation](/images/integrations/google_assistant_sdk/conversation.png)
+
+Or by calling the `conversation.process` service with the transcribed text:
+
+```yaml
+service: conversation.process
+data:
+  text: "Dim the family room lights"
 ```

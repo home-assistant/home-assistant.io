@@ -43,43 +43,6 @@ In case you did nothing after the tariff change on 2021-06-01, both powers are e
 You can add up to 2 sensors (one for each geographic zone) by adding them again through the integrations panel,
 and you can change the sensor configuration anytime by going to the integration's options.
 
-### Advanced configuration
-
-PVPC Hourly Pricing allows manual configuration by adding a section to your `configuration.yaml`.
-
-```yaml
-# Set up electricity price sensors as a component:
-pvpc_hourly_pricing:
-  - name: "PVPC"
-    tariff: "2.0TD"
-    power: 3.45
-    power_p3: 4.6
-  - name: "PVPC-CYM"
-    tariff: "2.0TD (Ceuta/Melilla)"
-```
-
-{% configuration %}
-name:
-  description: Custom name for the sensor.
-  required: true
-  type: string
-tariff:
-  description: Electric tariff by geographic zone.
-  required: true
-  default: 2.0TD
-  type: string
-power:
-  description: Contracted electric power in kW.
-  required: false
-  default: 3.3
-  type: float
-power_p3:
-  description: Contracted electric power in kW for valley period (P3).
-  required: false
-  default: 3.3
-  type: float
-{% endconfiguration %}
-
 <div class='note'>
 
 The sensor provides an hourly price for energy consumed, but the variable cost of energy is only one of the factors that add up to the electricity bill:

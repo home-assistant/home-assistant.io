@@ -27,7 +27,7 @@ You can currently configure the settings for motion/static triggers by USB with 
 ## Purchasing
 
 <div class='note'>
-There are multiple similar versions of the board. Make sure to buy the -B versions as these are the ones with Bluetooth and have been tested.
+There are multiple similar versions of the board. Make sure to buy the LD2410B or LD2410C versions as these are the ones with Bluetooth and have been tested.
 </div>
 
 You can buy this module bareboard or in a devkit from [AliExpress](https://www.aliexpress.com/item/1005004351593073.html).
