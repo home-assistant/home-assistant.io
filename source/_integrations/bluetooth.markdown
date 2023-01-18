@@ -103,7 +103,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 
 Most of these adapters can hold five (5) connections at the same time.
 
-These adapters generally offer the fastest connect times and do not require additonal drivers or patch files.
+These adapters generally offer the fastest connect times and do not require additional drivers or patch files.
 
 #### Broadcom (BCM) based adapters
 
