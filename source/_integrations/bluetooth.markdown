@@ -77,33 +77,22 @@ Some systems may not come with Bluetooth and require a USB adapter. Installing a
 
 If you experience an unreliable Bluetooth connection, installing a short USB extension cable between your Bluetooth adapter and your Home Assistant server may improve reliability.
 
-### Known working high performance adapters
+### Known working high-performance adapters
 
-- ASUS USB-BT400 (BCM20702A0)
+#### Cambridge Silicon Radio (CSR) Based adapters
+
 - Avantree BTDG-40S (CSR8510A10)
-- Cable Matters 604002-BLK (BCM20702A0)
 - Enbiawit BT403 (CSR8510A10)
 - Feasycom FSC-BP119 (CSR8510A10) 📶
-- GMYLE 3340 (BCM20702A0)
 - HIDEEZ BT0015-01 (CSR8510A10)
-- IOGEAR GBU521W6 (BCM20702A0)
-- INSIGNIA NS-PCY5BMA (BCM20702A0)
-- Kinivo BTD-400 (BCM20702A0)
-- LM Technologies LM1010 (BCM20702A0) 📶
 - Nuu You BT40 (CSR8510A10)
 - ORICO BTA-403 (CSR8510A10)
 - ORICO BTA-409 (CSR8510A10)
 - Panda Wireless PBU40 (CSR8510A10)
-- Plugable USB-BT4LE (BCM20702A0)
 - QGOO BT-06A (CSR8510A10)
-- Raspberry Pi 3B+ (CYW43455)
-- Raspberry Pi 4B (CYW43455)
 - ROCKETEK BT4Y (CSR8510A10)
 - SABRENT BT-UB40 (CSR8510A10)
-- SoundBot SB342 (BCM20702A0)
 - StarTech USBBT1EDR4 (CSR8510A10)
-- StarTech USBBT2EDR4 (BCM20702A0)
-- Targus ACB10US1 (BCM20702A0)
 - Techkey PBT06H (CSR8510A10)
 - TRENDnet TBW-107UB (CSR8510A10)
 - UGREEN CM109 (CSR8510A10)
@@ -111,6 +100,41 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - WAVLINK WL-BT4001 (CSR8510A10)
 
 📶 Denotes external antenna
+
+Most of these adapters can hold five (5) connections at the same time.
+
+These adapters generally offer the fastest connect times and do not require additonal drivers or patch files.
+
+#### Broadcom (BCM) based adapters
+
+<div class='note warning'>
+These adapters may require additional patch files available at https://github.com/winterheart/broadcom-bt-firmware for stable operation.
+  
+There is currently no supported method to install these patch files when using Home Assistant Operating sytem.
+</div>
+  
+- ASUS USB-BT400 (BCM20702A0)
+- Cable Matters 604002-BLK (BCM20702A0)
+- GMYLE 3340 (BCM20702A0)
+- IOGEAR GBU521W6 (BCM20702A0)
+- INSIGNIA NS-PCY5BMA (BCM20702A0)
+- Kinivo BTD-400 (BCM20702A0)
+- LM Technologies LM1010 (BCM20702A0) 📶
+- Plugable USB-BT4LE (BCM20702A0)
+- SoundBot SB342 (BCM20702A0)
+- StarTech USBBT2EDR4 (BCM20702A0)
+- Targus ACB10US1 (BCM20702A0)
+
+📶 Denotes external antenna
+
+Most of these adapters can hold seven (7) connections at the same time.
+
+#### Cypress based adapters
+
+- Raspberry Pi 3B+ (CYW43455)
+- Raspberry Pi 4B (CYW43455)
+
+#### High-performance determination methodology
 
 Performance is primarily determined by a combination of the chip and the Linux drivers for the adapter. Some vendors using the same chip had an unacceptable performance and are listed as unsupported.
 
@@ -128,19 +152,13 @@ Performance testing used the following hardware:
 - Advertisements from an Oral-B iO Series 8
 - External Adapters only: Home Assistant Blue running Home Assistant Operating System 9.3 with a USB extension cable.
 
-#### Broadcom adapters (BCM20702A0)
-
-Most of these adapters can hold seven (7) connections at the same time.
-
-These adapters may take an additional 120 seconds to initialize after boot with Home Assistant Operating System 9.3 when using an ODROID N2+; eventually, they come online.
-
-#### Cambridge Silicon Radio adapters (CSR8510A10)
-
-Most of these adapters can hold five (5) connections at the same time.
-
-These adapters generally offer the fastest connect times.
-
 ### Known working adapters
+
+#### Realtek RTL8761BU adapters
+
+<div class='note warning'>
+These adapters do not have a reset pin. If they stop responding, there is currently no way for the kernel to reset them automatically. A generic USB reset for these adapters has been introduced in Linux kernel 6.1 and later.
+</div>
 
 - ASUS USB-BT500 (RTL8761BU)
 - Avantree DG45 (RTL8761BU)
@@ -160,10 +178,6 @@ These adapters generally offer the fastest connect times.
 
 📶 Denotes external antenna
 
-#### Realtek RTL8761BU adapters
-
-These adapters do not have a reset pin. If they stop responding, there is currently no way for the kernel to reset them automatically. A generic USB reset for these adapters has been introduced in Linux kernel 6.1 and later.
-
 ### Unsupported adapters
 
 - Alfa AWUS036EACS (RTL8821CU) - Frequent connection failures and drop outs
@@ -181,6 +195,8 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 
 ## Multiple adapters
 
+The Bluetooth integration employs automatic failover and connection path logic to achieve high availability.
+
 Support for multiple local Bluetooth adapters is available on Linux systems only. Place adapters far enough away from each other to reduce interference.
 
 The following methods are known to work to add multiple adapters:
@@ -193,15 +209,17 @@ Integrations that have followed the [Best practices for library authors](https:/
 
 ## Passive Scanning
 
-Passive Scanning on Linux can be enabled in the options flow per adapter if the host system runs BlueZ 5.63 or later with experimental features enabled.
+Passive Scanning on Linux can be enabled in the options flow per adapter if the host system runs BlueZ 5.63 or later with experimental features enabled. This functionality is available with Home Assitant Operating System 9.4 and later.
 
 Many integrations require active scanning and may not function when scanning is passive.
 
 {% include integrations/option_flow.md %}
 
-## Remote adapters
+## Remote adapters (Bluetooth proxies)
 
 The Bluetooth integration supports receiving advertisement data from external adapters for devices and sensors that do not need an active connection, as well as establishing active connections. The number of remote scanners is limited only by the performance of the host system.
+
+When adding multiple remote adapters to increase range or available connection slots, separate them enough to avoid interference with each other.
 
 The following remote adapters are supported:
 
