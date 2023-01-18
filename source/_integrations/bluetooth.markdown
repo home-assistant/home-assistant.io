@@ -110,7 +110,7 @@ These adapters generally offer the fastest connect times and do not require addi
 <div class='note warning'>
 These adapters may require additional patch files available at https://github.com/winterheart/broadcom-bt-firmware for stable operation.
   
-There is currently no supported method to install these patch files when using Home Assistant Operating sytem.
+There is currently no supported method to install these patch files when using Home Assistant Operating System.
 </div>
   
 - ASUS USB-BT400 (BCM20702A0)
