@@ -203,6 +203,7 @@ Support for multiple local Bluetooth adapters is available on Linux systems only
 
 The following methods are known to work to add multiple adapters:
 
+- [Remote Adapters (Bluetooth proxies)](#remote-adapters-bluetooth-proxies)
 - Long USB Extension cables
 - USB-Ethernet extenders
 - [USB/IP](https://usbip.sourceforge.net/)
@@ -233,17 +234,6 @@ The following remote adapters are supported:
   - Bluetooth advertisement listening: Shelly v2 device with firmware 12.0 or later
   - Single active connection: not supported
   - Multiple active connections: not supported
-
-### ESPHome requirements
-
-Devices with an ESP32 chip running ESPHome must enable the `bluetooth_proxy` component and be added to Home Assistant before advertisements are forwarded.
-
-```yaml
-esp32_ble_tracker:
-bluetooth_proxy:
-```
-
-Many integrations require an active scan for discovery. By default, the [ESPHome tracker](https://esphome.io/components/esp32_ble_tracker.html) runs in active mode. Adding ESPHome remotes that have active scanning disabled may cause some integrations to malfunction.
 
 ## Troubleshooting
 
