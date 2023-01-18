@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-Asus Router integration provides a way to monitor any ASUSWRT-powered device (including routers, access points, and AiMesh nodes) from Home Assistant. The integration uses native ASUS HTTP(S) API the same way you are accessing the device Web UI for setup or configuration.
+The integration provides a way to monitor any ASUSWRT-powered device (including routers, access points, and AiMesh nodes) from Home Assistant. The integration uses native ASUS HTTP(S) API the same way you are accessing the device Web UI for setup or configuration.
 
 The user needs to provide the following information for the setup:
 
