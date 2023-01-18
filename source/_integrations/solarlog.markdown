@@ -2,8 +2,8 @@
 title: Solar-Log
 description: Instructions on how to integrate Solar-Log sensors within Home Assistant.
 ha_category:
-  - Sensor
   - Energy
+  - Sensor
 ha_release: 0.101
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: solarlog
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `solarlog` integration uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to allow you to get details from your Solar-Log device and integrate these into your Home Assistant installation.
@@ -35,11 +36,10 @@ In case you would like to convert the values, for example, to Wh instead of the 
 
 ```yaml
 # Example configuration.yaml entry for sensor template platform
-sensor:
-  - platform: template
-    sensors:
-      solarlog_yield_day_template:
-        value_template: "{{ (states('sensor.solarlog_yield_day') | float * 1000) | round(0) }}"
+template:
+  - sensor:
+    - name: "Solarlog yield day"
+      state: "{{ (states('sensor.solarlog_yield_day') | float(default=0) * 1000) | round(0,default=0) }}"
 ```
 
 {% endraw %}

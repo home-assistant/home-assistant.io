@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: fido
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 Integrate your [Fido](https://www.fido.ca/) account information into Home Assistant.
@@ -78,7 +79,7 @@ monitored_variables:
       description: Talk time used
     talk_limit:
       description: Talk time limit
-    talt_remaining:
+    talk_remaining:
       description: Talk time remaining
     other_talk_used:
       description: Other talk time used (It could be international calls)

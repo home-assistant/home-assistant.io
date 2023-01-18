@@ -8,6 +8,7 @@ ha_iot_class: Cloud Push
 ha_domain: prowl
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `prowl` platform uses [Prowl](https://www.prowlapp.com/) to deliver push notifications from Home Assistant to your iOS device.

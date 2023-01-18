@@ -21,7 +21,7 @@ A great place to find popular configurations is on this
 
 ## Popular Blueprints
 
-This is a list of the most popular [blueprints](/integrations/blueprint) in the [Blueprint Exchange category on the forums](https://community.home-assistant.io/c/blueprints-exchange/53/l/top/all).
+This is a list of the most popular [blueprints](/integrations/blueprint) in the [Blueprint Exchange category on the forums](https://www.home-assistant.io/get-blueprints).
 
 {% for post in site.data.blueprint_exchange_data limit:25 %}
 

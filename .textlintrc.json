@@ -1,5 +1,7 @@
 {
-  "filters": {},
+  "filters": {
+    "comments": true
+  },
   "rules": {
     "common-misspellings": {
       "ignore": ["Proove", "Alot"]
@@ -140,6 +142,7 @@
         "IP",
         "iPad",
         "iPhone",
+        "ISY",
         "ISY994",
         "iTunes",
         "JSON-RPC",
@@ -233,7 +236,7 @@
         "SwitchBot",
         "Synology",
         "Tado",
-        "Tahoma",
+        "TaHoma",
         "TCP/IP",
         "TensorFlow",
         "Tesla",

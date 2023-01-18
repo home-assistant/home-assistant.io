@@ -9,6 +9,7 @@ ha_domain: profiler
 ha_codeowners:
   - '@bdraco'
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 The Profiler integration provides a profile which is a set of statistics that identifies how much time each part of Home Assistant is taking. It can help track down a performance issue or provide insight about a misbehaving integration.
@@ -27,12 +28,28 @@ When the profile is complete, Profiler will generate a Python `cprof` and a `cal
 
 The `cprof` file can be viewed with:
 
-[SnakeViz](https://jiffyclub.github.io/snakeviz/)
-[Gprof2dot](https://github.com/jrfonseca/gprof2dot)
+* [SnakeViz](https://jiffyclub.github.io/snakeviz/)
+* [Gprof2dot](https://github.com/jrfonseca/gprof2dot)
 
 Additionally, the profiler will generate a `callgrind.out` file that can be viewed with:
 
-[kcachegrind](https://kcachegrind.github.io/) or qcachegrind
+* [KCachegrind or QCachegrind](https://kcachegrind.github.io/)
+* [Gprof2dot](https://github.com/jrfonseca/gprof2dot)
+
+The gprof2dot tool generates [DOT](http://www.graphviz.org/doc/info/lang.html) files, which can be converted to images using the `dot` tool from [Graphviz](http://www.graphviz.org/) or viewed directly using [xdot](https://github.com/jrfonseca/xdot.py). The `-e` and `-n` parameters can be used to set the minimum percentage required to include a function in the output file. Observe these examples:
+
+```bash
+# Generating the .dot files:
+gprof2dot -f pstats    -e 0.05 -n 0.25 profile.1234567890123456.cprof -o profile.dot
+gprof2dot -f callgrind -e 0.05 -n 0.25 callgrind.out.1234567890123456 -o callgrind.dot
+
+# Converting to SVG and PNG formats:
+dot callgrind.dot -Tsvg -o callgrind.svg
+dot callgrind.dot -Tpng -o callgrind.png
+
+# Alternatively, both commands in a single line:
+gprof2dot -f pstats profile.1234567890123456.cprof | dot -Tsvg -o profile.svg
+```
 
 ### Service `profiler.memory`
 

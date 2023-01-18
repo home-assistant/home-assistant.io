@@ -3,15 +3,12 @@ title: "Setting up presence detection"
 description: "Instructions on how to setup presence detection within Home Assistant."
 ---
 
-Presence detection detects if people are home, which is the most valuable input for automation. Knowing who is home or where they are, will open a whole range of other automation options:
+Presence detection detects if people are home, which can be valuable input for automation. Knowing who is home or where they are, will open a whole range of other automation options:
 
 - Send me a notification when my child arrives at school
 - Turn on the AC when I leave work
 
-<p class='img'>
-<img src='/images/screenshots/map.png' />
-Screenshot of Home Assistant showing a school, work and home zone and two people.
-</p>
+![Screenshot of Home Assistant showing a school, work and home zone and two people.](/images/screenshots/map.png)
 
 ### Adding presence detection
 
@@ -23,10 +20,9 @@ During the setup of Home Assistant Companion on your mobile device, the app will
 
 
 ### Zones
+![Map with zones](/images/screenshots/badges-zone.png)
 
-<img src='/images/screenshots/badges-zone.png' style='float: right; margin-left: 8px; height: 100px;'>
-
-Zones allow you to name areas on a map. These areas can then be used to name the location a tracked user is, or use entering/leaving a zone as an automation [trigger] or [condition]. Zones can be set up from configuration screen.
+Zones allow you to name areas on a map. These areas can then be used to name the location a tracked user is, or use entering/leaving a zone as an automation [trigger] or [condition]. See [Zones integration](/integrations/zone/) page for more details like creating zones.
 
 <div class='note'>
 The map view will hide all devices that are home.

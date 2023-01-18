@@ -63,6 +63,9 @@ Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.11.1 - November 5](#release-2021111---november-5)
 - [Release 2021.11.2 - November 9](#release-2021112---november-9)
+- [Release 2021.11.3 - November 11](#release-2021113---november-11)
+- [Release 2021.11.4 - November 15](#release-2021114---november-15)
+- [Release 2021.11.5 - November 19](#release-2021115---november-19)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -472,6 +475,135 @@ The following integrations are now available via the Home Assistant UI:
 [velbus docs]: /integrations/velbus/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [zha docs]: /integrations/zha/
+
+## Release 2021.11.3 - November 11
+
+- Fix rpi_camera setup hanging on initialization ([@enegaard] - [#59316]) ([rpi_camera docs])
+- Fix state of sense net_production sensor ([@kbickar] - [#59391]) ([sense docs]) ([emulated_kasa docs])
+- Update frontend to 20211109.0 ([@bramkragten] - [#59451]) ([frontend docs])
+- Fix zeroconf with sonos v1 firmware ([@bdraco] - [#59460]) ([sonos docs])
+- Ignore None state in state_change_event ([@dgomes] - [#59485]) ([integration docs])
+- Fix wirelesstag switch arm/disarm ([@sergeymaysak] - [#59515]) ([wirelesstag docs])
+- Remove incomplete segment on stream restart ([@uvjustin] - [#59532]) ([stream docs])
+
+[#59316]: https://github.com/home-assistant/core/pull/59316
+[#59391]: https://github.com/home-assistant/core/pull/59391
+[#59451]: https://github.com/home-assistant/core/pull/59451
+[#59460]: https://github.com/home-assistant/core/pull/59460
+[#59485]: https://github.com/home-assistant/core/pull/59485
+[#59515]: https://github.com/home-assistant/core/pull/59515
+[#59532]: https://github.com/home-assistant/core/pull/59532
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@dgomes]: https://github.com/dgomes
+[@enegaard]: https://github.com/enegaard
+[@kbickar]: https://github.com/kbickar
+[@sergeymaysak]: https://github.com/sergeymaysak
+[@uvjustin]: https://github.com/uvjustin
+[emulated_kasa docs]: /integrations/emulated_kasa/
+[frontend docs]: /integrations/frontend/
+[integration docs]: /integrations/integration/
+[rpi_camera docs]: /integrations/rpi_camera/
+[sense docs]: /integrations/sense/
+[sonos docs]: /integrations/sonos/
+[stream docs]: /integrations/stream/
+[wirelesstag docs]: /integrations/wirelesstag/
+
+## Release 2021.11.4 - November 15
+
+- Air visual : robustness at startup when evaluate time interval ([@jugla] - [#59544]) ([airvisual docs])
+- Override api url in norway_air ([@ludeeus] - [#59573]) ([norway_air docs]) ([met docs])
+- Fix firmware status check for Fritz ([@chemelli74] - [#59578]) ([fritz docs])
+- Always use a step size of 1 for z-wave js fans ([@mkowalchuk] - [#59622]) ([zwave_js docs])
+- Fix favorite RPM max value in Xiaomi Miio ([@bieniu] - [#59631]) ([xiaomi_miio docs])
+- Bump zeroconf to 0.36.12 ([@bdraco] - [#59133]) ([zeroconf docs])
+- Bump zeroconf to 0.36.13 ([@bdraco] - [#59644]) ([zeroconf docs])
+- Bump greecliamate to 0.12.4 ([@cmroche] - [#59645]) ([gree docs])
+- Ensure flux_led bulbs turn on even if brightness is 0 ([@bdraco] - [#59661])
+- Update aiolookin to 0.0.4 version ([@ANMalko] - [#59684]) ([lookin docs])
+- Fix bug in AirVisual re-auth ([@bachya] - [#59685]) ([airvisual docs])
+- Bump greeclimate to 0.12.5 ([@cmroche] - [#59730]) ([gree docs])
+- Bump flux_led to 0.24.21 ([@bdraco] - [#59662]) ([flux_led docs])
+- Bump flux_led to 0.24.24 ([@bdraco] - [#59740]) ([flux_led docs])
+- Fix invalid string syntax in French OwnTracks config flow ([@spacegaier] - [#59752]) ([owntracks docs])
+
+[#59133]: https://github.com/home-assistant/core/pull/59133
+[#59544]: https://github.com/home-assistant/core/pull/59544
+[#59573]: https://github.com/home-assistant/core/pull/59573
+[#59578]: https://github.com/home-assistant/core/pull/59578
+[#59622]: https://github.com/home-assistant/core/pull/59622
+[#59631]: https://github.com/home-assistant/core/pull/59631
+[#59644]: https://github.com/home-assistant/core/pull/59644
+[#59645]: https://github.com/home-assistant/core/pull/59645
+[#59661]: https://github.com/home-assistant/core/pull/59661
+[#59662]: https://github.com/home-assistant/core/pull/59662
+[#59684]: https://github.com/home-assistant/core/pull/59684
+[#59685]: https://github.com/home-assistant/core/pull/59685
+[#59730]: https://github.com/home-assistant/core/pull/59730
+[#59740]: https://github.com/home-assistant/core/pull/59740
+[#59752]: https://github.com/home-assistant/core/pull/59752
+[@ANMalko]: https://github.com/ANMalko
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@chemelli74]: https://github.com/chemelli74
+[@cmroche]: https://github.com/cmroche
+[@jugla]: https://github.com/jugla
+[@ludeeus]: https://github.com/ludeeus
+[@mkowalchuk]: https://github.com/mkowalchuk
+[@spacegaier]: https://github.com/spacegaier
+[airvisual docs]: /integrations/airvisual/
+[flux_led docs]: /integrations/flux_led/
+[fritz docs]: /integrations/fritz/
+[gree docs]: /integrations/gree/
+[lookin docs]: /integrations/lookin/
+[met docs]: /integrations/met/
+[norway_air docs]: /integrations/norway_air/
+[owntracks docs]: /integrations/owntracks/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zeroconf docs]: /integrations/zeroconf/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.11.5 - November 19
+
+- Use source list property instead of the attribute in Denon AVR integration ([@bieniu] - [#59768]) ([denonavr docs])
+- Fix typo in attribute for Fritz ([@chemelli74] - [#59791]) ([fritz docs])
+- Fix Netgear init error on orbi models ([@starkillerOG] - [#59799]) ([netgear docs])
+- Bump velbusaio to 2021.11.7 ([@Cereal2nd] - [#59817]) ([velbus docs])
+- Fix invalid string syntax in OwnTracks config flow translations ([@spacegaier] - [#59838]) ([owntracks docs])
+- Strip out deleted entities when configuring homekit ([@bdraco] - [#59844]) ([homekit docs])
+- Bugfix in Tuya Number value scaling ([@PlusPlus-ua] - [#59903]) ([tuya docs])
+- Fix Tuya back scaling in Climate and Humidifer entities ([@frenck] - [#59909]) ([tuya docs])
+- Store: copy pending data ([@balloob] - [#59934])
+- Remove test_check_package_version_does_not_match ([@emontnemery] - [#59785])
+
+[#59768]: https://github.com/home-assistant/core/pull/59768
+[#59785]: https://github.com/home-assistant/core/pull/59785
+[#59791]: https://github.com/home-assistant/core/pull/59791
+[#59799]: https://github.com/home-assistant/core/pull/59799
+[#59817]: https://github.com/home-assistant/core/pull/59817
+[#59838]: https://github.com/home-assistant/core/pull/59838
+[#59844]: https://github.com/home-assistant/core/pull/59844
+[#59903]: https://github.com/home-assistant/core/pull/59903
+[#59909]: https://github.com/home-assistant/core/pull/59909
+[#59934]: https://github.com/home-assistant/core/pull/59934
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@PlusPlus-ua]: https://github.com/PlusPlus-ua
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@chemelli74]: https://github.com/chemelli74
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@spacegaier]: https://github.com/spacegaier
+[@starkillerOG]: https://github.com/starkillerOG
+[denonavr docs]: /integrations/denonavr/
+[fritz docs]: /integrations/fritz/
+[homekit docs]: /integrations/homekit/
+[netgear docs]: /integrations/netgear/
+[owntracks docs]: /integrations/owntracks/
+[tuya docs]: /integrations/tuya/
+[velbus docs]: /integrations/velbus/
 
 ## If you need help...
 

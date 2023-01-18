@@ -2,15 +2,16 @@
 title: Dovado
 description: How to integrate Dovado within Home Assistant.
 ha_category:
-  - System Monitor
   - Notifications
   - Sensor
+  - System Monitor
 ha_release: 0.87
 ha_iot_class: Local Polling
 ha_domain: dovado
 ha_platforms:
   - notify
   - sensor
+ha_integration_type: integration
 ---
 
 The `dovado` integration manages communication with the [Dovado](https://www.dovado.com/) router.

@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_domain: systemmonitor
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `systemmonitor` sensor platform allows you to monitor disk usage,
@@ -90,6 +91,17 @@ tmpfs           934M     0  934M   0% /dev/shm
 
 Defining a `disk_use` sensor for `/` and `/home/pi` is redundant and will return the same values, since they both belong to the same "disk". However, defining separate sensors for `/dev` and `/dev/shm` is possible and provides different values, since those are treated as separate "disks" by the integration.
 
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: systemmonitor
+    resources:
+      - type: disk_use
+        arg: /dev
+      - type: disk_use
+        arg: /dev/shm
+```
+
 ## Processor temperature
 
 - If no hardware sensor data is available (e.g., because the integration runs in a virtualized environment), the sensor entity will not be created.
@@ -129,3 +141,44 @@ Wireless LAN adapter Wireless Network Connection:
 ```
 
 Where the name is `Wireless Network Connection`.
+
+## All available resources
+
+```yaml
+# Example configuration.yaml entry with all entry types (delete/comment out as necessary)
+sensor:
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /config
+      - type: disk_use
+      - type: disk_free
+      - type: memory_use_percent
+      - type: memory_use
+      - type: memory_free
+      - type: swap_use_percent
+      - type: swap_use
+      - type: swap_free
+      - type: load_1m
+      - type: load_5m
+      - type: load_15m
+      - type: network_in
+        arg: eth0
+      - type: network_out
+        arg: eth0
+      - type: throughput_network_in
+        arg: eth0
+      - type: throughput_network_out
+        arg: eth0
+      - type: packets_in
+        arg: eth0
+      - type: packets_out
+        arg: eth0
+      - type: ipv4_address
+        arg: eth0
+      - type: ipv6_address
+        arg: eth0
+      - type: processor_use
+      - type: processor_temperature
+      - type: last_boot
+```

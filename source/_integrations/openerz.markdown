@@ -10,6 +10,7 @@ ha_codeowners:
   - '@misialq'
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 This `openerz` sensor platform uses [OpenERZ](http://openerz.metaodi.ch/) API to access data from Entsorgung und Recycling Zürich (ERZ). It reports the next pickup date for the specified zip and waste type.

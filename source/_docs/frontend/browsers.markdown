@@ -72,7 +72,7 @@ There are reports that devices running with iOS prior to iOS 10, especially old 
 [Chrome]: https://www.google.com/chrome/
 [Chromium]: https://www.chromium.org/
 [Conkeror]: http://conkeror.org/
-[Edge]: https://www.microsoft.com/en-us/windows/microsoft-edge
+[Edge]: https://www.microsoft.com/en-us/edge
 [elinks]: http://elinks.or.cz/
 [Epiphany]: https://wiki.gnome.org/Apps/Web
 [Firefox]: https://www.mozilla.org/en-US/firefox/
@@ -80,12 +80,12 @@ There are reports that devices running with iOS prior to iOS 10, especially old 
 [Iridium]: https://iridiumbrowser.de/
 [Konqueror]: https://konqueror.org/
 [Lynx]: https://lynx.browser.org/
-[Midori]: https://astian.org/midori-browser/
+[Midori]: https://astian.org/en/midori-browser/
 [Opera]: https://www.opera.com/
 [Safari]: https://www.apple.com/safari/
 [surf]: https://surf.suckless.org/
 [Tor Browser]: https://www.torproject.org/
 [Uzbl]: https://www.uzbl.org/
-[w3m]: http://w3m.sourceforge.net/
-[Waterfox]: https://www.waterfoxproject.org
+[w3m]: https://w3m.sourceforge.net/
+[Waterfox]: https://www.waterfox.net
 [LG webOS TV Built-In]: https://www.lg.com/uk/support/help-library/details-on-enjoying-internet-browsing-on-your-lg-webos-tv-CT00008334-1435838149474

@@ -12,11 +12,13 @@ The `mqtt` button platform lets you send an MQTT message when the button is pres
 
 ## Configuration
 
+<a id='new_format'></a>
+
 ```yaml
 # Example configuration.yaml entry
-button:
-  - platform: mqtt
-    command_topic: "home/bedroom/switch1/reboot"
+mqtt:
+  button:
+    - command_topic: "home/bedroom/switch1/reboot"
 ```
 
 {% configuration %}
@@ -39,15 +41,27 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+    value_template:
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      required: false
+      type: template
 availability_mode:
   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
   required: false
   type: string
   default: latest
+availability_template:
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  required: false
+  type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
+command_template:
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `command_topic`.
+  required: false
+  type: template
 command_topic:
   description: The MQTT topic to publish commands to trigger the button.
   required: false
@@ -65,6 +79,10 @@ device:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list
+    hw_version:
+      description: The hardware version of the device.
+      required: false
+      type: string
     identifiers:
       description: A list of IDs that uniquely identify the device. For example a serial number.
       required: false
@@ -93,11 +111,21 @@ device:
       description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
+device_class:
+  description: The [type/class](/integrations/button/#device-class) of the button to set the icon in the frontend.
+  required: false
+  type: device_class
+  default: None
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false
   type: boolean
   default: true
+encoding:
+  description: The encoding of the published messages.
+  required: false
+  type: string
+  default: "utf-8"
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -108,7 +136,7 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
@@ -167,20 +195,20 @@ In this section, you will find some real-life examples of how to use this featur
 
 ### Full configuration
 
-The example below shows a full configuration for a switch.
+The example below shows a full configuration for a button.
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: mqtt
-    unique_id: bedroom_switch_reboot_btn
-    name: "Reboot Bedroom Switch"
-    state_topic: "home/bedroom/switch1"
-    command_topic: "home/bedroom/switch1/commands"
-    availability:
-      - topic: "home/bedroom/switch1/available"
-    payload_press: "reboot"
-    qos: 0
-    retain: false
-    entity_category: "config"
+mqtt:
+  button:
+    - unique_id: bedroom_switch_reboot_btn
+      name: "Restart Bedroom Switch"
+      command_topic: "home/bedroom/switch1/commands"
+      payload_press: "restart"
+      availability:
+        - topic: "home/bedroom/switch1/available"
+      qos: 0
+      retain: false
+      entity_category: "config"
+      device_class: "restart"
 ```

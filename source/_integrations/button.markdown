@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_domain: button
 ha_codeowners:
   - '@home-assistant/core'
+ha_integration_type: entity
 ---
 
 A button entity is an entity that can fire an event / trigger an action towards
@@ -52,3 +53,17 @@ This service can be called to trigger a button press for that entity.
   target:
     entity_id: button.my_button
 ```
+
+## Device Class
+
+The way these buttons are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/).
+The following device classes are supported for buttons:
+
+<p class='img'>
+<img src='/images/screenshots/button_classes_icons.png' />
+Example of device class icons.
+</p>
+
+- **None**: Generic button. This is the default and doesn't need to be set.
+- **restart**: The button restarts the device.
+- **update**: The button updates the software of the device.

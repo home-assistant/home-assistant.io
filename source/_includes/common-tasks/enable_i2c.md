@@ -45,11 +45,11 @@ and make sure the first partition is available.
 
 Alternatively, by attaching a keyboard and screen to your device, you can access the physical terminal to the Home Assistant Operating System.
 
-You can enable i2c via this terminal:
+You can enable I2C via this terminal:
 
 - Login as `root`.
 - Type `login` and press enter to access the shell.
-- Type the following to enable i2c, you may need to replace `sda1` with `sdb1` or `mmcblk0p1` depending on your platform:
+- Type the following to enable I2C, you may need to replace `sda1` with `sdb1` or `mmcblk0p1` depending on your platform:
 
   ```shell
   mkdir /tmp/mnt
@@ -65,5 +65,5 @@ You can enable i2c via this terminal:
 
 After rebooting the host there should be `i2c-0` and similar device files in `/dev`. If such device files are missing, enabling I2C failed for some reason. You can check the status of I2C kernel modules by using `lsmod | grep i2c` in the terminal. If they are loaded, you should find at least the entry `i2c_dev`. Active usage of the modules is indicated by a number, e.g. `i2c_dev 20480 2` would indicate two active I2C device files.
 
-An active I2C can also be check with a multi meter showing 3.3 V on the I2C pins GPIO2 and GPIO3. 
+An active I2C can also be checked with a multi meter showing 3.3 V on the I2C pins GPIO2 and GPIO3. 
   

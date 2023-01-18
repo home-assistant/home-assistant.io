@@ -7,6 +7,7 @@ ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: browser
+ha_integration_type: integration
 ---
 
 The `browser` integration provides a service to open URLs in the default browser on the host machine.

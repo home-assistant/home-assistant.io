@@ -2,8 +2,8 @@
 title: Filter
 description: Instructions on how to integrate Data Filter Sensors into Home Assistant.
 ha_category:
-  - Utility
   - Sensor
+  - Utility
 ha_release: 0.65
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -12,11 +12,12 @@ ha_codeowners:
 ha_domain: filter
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `filter` platform enables sensors that process the states of other entities.
 
-`filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/lovelace/history-graph/) component.
+`filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/dashboards/history-graph/) component.
 
 <p class='img'>
   <img src='/images/screenshots/filter-sensor.png' />
@@ -64,6 +65,10 @@ name:
   description: Name to use in the frontend.
   required: false
   type: string
+unique_id:
+  description: An ID that uniquely identifies the filter sensor. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 filters:
   description: Filters to be used.
   required: true
@@ -73,16 +78,16 @@ filters:
       description: Algorithm to be used to filter data. Available filters are  `lowpass`, `outlier`, `range`, `throttle`, `time_throttle` and `time_simple_moving_average`.
       required: true
       type: string
+    precision:
+      description: Defines the precision of the filtered state, through the argument of round().
+      required: false
+      type: integer
+      default: 2
     window_size:
       description: Size of the window of previous states. Time based filters such as `time_simple_moving_average` will require a time period (size in time), while other filters such as `outlier` will require an integer (size in number of states). Time periods are in _hh:mm_ format and must be quoted.
       required: false
       type: [integer, time]
       default: 1
-    precision:
-      description: See [_lowpass_](#low-pass) filter. Defines the precision of the filtered state, through the argument of round().
-      required: false
-      type: integer
-      default: None
     time_constant:
       description: See [_lowpass_](#low-pass) filter. Loosely relates to the amount of time it takes for a state to influence the output.
       required: false
@@ -123,8 +128,6 @@ B = 1.0 / time_constant
 A = 1.0 - B
 LowPass(state) = A * previous_state + B * state
 ```
-
-The returned value is rounded to the number of decimals defined in (`precision`).
 
 ### Outlier
 

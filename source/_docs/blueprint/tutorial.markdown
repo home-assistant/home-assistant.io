@@ -1,9 +1,15 @@
 ---
-title: "Blueprint tutorial"
-description: "Tutorial on creating a blueprint."
+title: "Automation blueprint tutorial"
+description: "Tutorial on creating an automation blueprint."
 ---
 
-In this tutorial, we're going to create a blueprint that controls a light based on a motion sensor. We will do this by taking an existing automation and converting it to a blueprint.
+<div class='note'>
+
+While the tutorial only shows how to create an automation blueprint, scripts also support blueprints in the same way.
+
+</div>
+
+In this tutorial, we're going to create an automation blueprint that controls a light based on a motion sensor. We will do this by taking an existing automation and converting it to a blueprint.
 
 For this tutorial, we use a simple automation. The process for converting a complex automation is not any different.
 
@@ -120,6 +126,7 @@ Blueprints are easier to use if it's easy to see what each field is used for. We
 ```yaml
 blueprint:
   name: Motion Light Tutorial
+  description: Turn a light on based on detected motion
   domain: automation
   input:
     motion_sensor:
@@ -230,7 +237,7 @@ For this tutorial, we're going to share it on GitHub Gists. This is a good optio
 - Content is the content of the blueprint file.
 - Click the "Create Gist" button
 
-You can now copy the URL of your new Gist and share it with other people. They can import it by going to **Configuration**, **Blueprints** and clicking on the blue "Import Blueprint" button.
+You can now copy the URL of your new Gist and share it with other people. They can import it by going to **Settings** -> **Automations & Scenes** -> **Blueprints** and clicking on the blue "Import Blueprint" button.
 
 ### Share on the Blueprint Exchange
 

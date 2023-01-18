@@ -1,7 +1,8 @@
 ---
 title: MeteoAlarm
 description: Instructions on how to set up MeteoAlarm binary sensors within Home Assistant.
-ha_category: Binary Sensor
+ha_category:
+  - Binary Sensor
 ha_release: 0.93
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -9,6 +10,7 @@ ha_codeowners:
 ha_domain: meteoalarm
 ha_platforms:
   - binary_sensor
+ha_integration_type: integration
 ---
 
 The `MeteoAlarm` platform allows one to watch for weather alerts in europe from [MeteoAlarm](https://www.meteoalarm.org) (EUMETNET). To use this binary sensor, you need the name of your country and the province name from  [MeteoAlarm](https://feeds.meteoalarm.org). Please note that you need to write the exact country name (with hyphens) as at the end of the URL starting with: `https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-`.
@@ -41,10 +43,10 @@ province:
   required: true
   type: string
 language:
-  description: "The 2 letters of your language, please be aware that this is only possible in the current country. So 'ne' is only possible in Netherlands. Possible options are: bu, bs, ce, da, de, ee, en, es, ga, ca, su, fr, gr, he, hr, ma, is, it, li, la, sr, mk, ma, ne, no, po, pt, ro, cp, sv, sl, eu."
+  description: "The ISO code of your language, please be aware that this is only possible in the current country. So 'nl-NL' or 'nl-BE' is only possible in Netherlands or Belgium"
   required: false
   type: string
-  default: "en"
+  default: "en-US"
 {% endconfiguration %}
 
 

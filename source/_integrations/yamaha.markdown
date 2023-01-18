@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: yamaha
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `yamaha` platform allows you to control [Yamaha Network Receivers](https://usa.yamaha.com/products/audio-visual/av-receivers-amps/rx) from Home Assistant.
@@ -21,6 +22,7 @@ Supported devices:
 - [RX-V673](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v673/specs.html)
 - [RX-V685](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v585_u/specs.html)
 - [RX-V773](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v773/specs.html)
+- [RX-V3067](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v3067/specs.html)
 - And more
 
 To add a Yamaha Network Receiver to your installation, add the following to your `configuration.yaml` file:

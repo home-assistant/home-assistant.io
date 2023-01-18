@@ -1,17 +1,23 @@
 ---
 title: Viessmann ViCare
 description: Instructions how to integrate Viessmann heating devices with Home Assistant
-ha_category: Climate
+ha_category:
+  - Climate
 ha_release: 0.99
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@oischinger'
+ha_config_flow: true
 ha_domain: vicare
 ha_platforms:
   - binary_sensor
+  - button
   - climate
+  - diagnostics
   - sensor
   - water_heater
+ha_dhcp: true
+ha_integration_type: integration
 ---
 
 The `ViCare` integration lets you control [Viessmann](https://www.viessmann.com) devices via the Viessmann ViCare (REST) API.
@@ -22,19 +28,12 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate) (Heating)
 - [Water Heater](#water-heater) (Domestic Hot Water)
 - [Sensor](#sensor) (Sensor)
+- [Button](#button) (Button)
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To set it up, add the following information to your `configuration.yaml` file:
-
-```yaml
-vicare:
-  username: VICARE_EMAIL
-  password: VICARE_PASSWORD
-  client_id: VICARE_CLIENT_ID
-```
-
-The above-required configuration parameters can be obtained as follows:
+Set `username`and `password` to your Viessmann Developer Portal login credentials.
+The required Client ID can be obtained as follows:
 1. Register and login in the [Viessmann Developer Portal](https://developer.viessmann.com).
 2. In the menu navigate to API Keys.
 3. Create a new OAuth client using the following data:
@@ -43,39 +42,8 @@ The above-required configuration parameters can be obtained as follows:
   Google reCAPTCHA: Disabled
   Redirect URIs: vicare://oauth-callback/everest
   ```
-4. Copy the Client ID to the configuration, e.g., `client_id: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"`.
-5. Set `username`and `password` to your Viessmann Developer Portal login credentials.
 
-
-{% configuration %}
-username:
-  description: Your username for the Viessmann developer portal
-  required: true
-  type: string
-password:
-  description: Your password for the Viessmann developer portal
-  required: true
-  type: string
-client_id:
-  description: Your API key from the Viessmann developer portal
-  required: true
-  type: string
-name:
-  description: The friendly_name of the device (will be appended with *Heating* or *Water*)
-  required: false
-  default: ViCare
-  type: string
-heating_type:
-  description: One of `generic`, `gas`, `heatpump` or `fuelcell`. Specifying the heating_type provides additional attributes and sensors specific for the heating system.
-  required: false
-  type: string
-  default: generic
-scan_interval:
-  description: The update frequency of this component in seconds. See [Viessmann API limits](#viessmann-api-limits)
-  default: 60
-  required: false
-  type: integer
-{% endconfiguration %}
+The `heating_type` can either be `auto` to automatically find the most suitable type for your device or one of `gas`, `oil`, `pellets`, `heatpump`, `fuelcell`, `hybrid`.
 
 Multiple device instances might be generated depending on the number of burners and/or circuits of your installation. If there is more than a single instance all devices are suffixed with the circuit or burner ID.
 
@@ -86,7 +54,7 @@ The Viessmann API is rate-limited. If you exceed one of the limits below you wil
 - Limit 1: 120 calls for a time window of 10 minutes
 - Limit 2: 1450 calls for a time window of 24 hours
 
-The default `scan_interval` of 60 seconds will work within these limits. Note however that any additional requests to the API, e.g., by setting the temperature via the integration but also by interacting with the ViCare app also counts into those limits. It is therefore advised to adjust the scan_interval to your usage scenario.
+The integration polls the Viessmann API every 60 seconds and will work within these limits. Note however that any additional requests to the API, e.g., by setting the temperature via the integration but also by interacting with the ViCare app also counts into those limits.
 
 ## Climate
 
@@ -162,4 +130,8 @@ Sets the target temperature of domestic hot water to the given temperature.
 
 ## Sensor
 
-Additional data from ViCare is available as separate sensors. The sensors are automatically created based on the configured `heating_type`.
+Additional data from ViCare is available as separate sensors. The sensors are automatically discovered based on the available API data points.
+
+## Button
+
+Button entities are available for triggering like a one-time charge of the water heater.

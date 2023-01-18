@@ -4,6 +4,10 @@ description: Instructions on how to setup water heater devices within Home Assis
 ha_release: 0.81
 ha_domain: water_heater
 ha_quality_scale: internal
+ha_category: []
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: entity
 ---
 
 The `water_heater` integration is built for the controlling and monitoring of hot water heaters.

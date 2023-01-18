@@ -8,9 +8,14 @@ ha_iot_class: Local Polling
 ha_domain: pandora
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 If you have a Pandora account, you can control it from Home Assistant with this media player.
+
+<div class='note'>
+This integration is only available on Home Assistant Core installation types. Unfortunately, it cannot be used with Home Assistant OS, Supervised or Container.
+</div>
 
 ### Installation of Pianobar
 

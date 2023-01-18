@@ -12,6 +12,7 @@ ha_domain: sia
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+ha_integration_type: integration
 ---
 
 The SIA Alarm Systems integration provides integration with several alarm systems that implement the SIA Protocol, including [Ajax Systems](https://ajax.systems/). This protocol is listen-only, so does not allow you to turn on/off your alarm system, it just updates the state to reflect your alarm and allows you to act on that state, for instance turning on all lights and opening the curtains when the alarm triggers. The underlying package has support for different variants of SIA, including DC-09, DC-04 and a limited set of ADM-CID. If your alarm system uses the ADM-CID standard and it isn't working, please log an issue [here](https://github.com/eavanvalkenburg/pysiaalarm/issues/new).
@@ -25,7 +26,7 @@ To use this platform, you need to setup your alarm system to communicate using t
 3. Enable "Connect on demand".
 4. Place Account Id - 3-16 ASCII hex characters. For example AAA.
 5. Insert Home Assistant IP address. The hub must be able to reach this IP address. There is no cloud connection necessary.
-6. Insert Home Assistant listening port. This port must not be used by anything else on the machine Home Assistant is running on, see the notes on [port usage](###Portusage) below.
+6. Insert Home Assistant listening port. This port must not be used by anything else on the machine Home Assistant is running on, see the notes on [port usage](#port-usage) below.
 7. Select Preferred Network. Ethernet is preferred if hub and HA in same network. Multiple networks are not tested.
 8. Enable Periodic Reports. The interval with which the alarm systems reports to the monitoring station, default is 1 minute. This component adds 30 seconds before setting the alarm unavailable to deal with slights latencies between ajax and HA and the async nature of HA.
 9. Encryption is preferred but optional. Password is 16, 24 or 32 ASCII characters.
@@ -59,7 +60,7 @@ The port used with this component must be a port no other processes use on the m
 
 ### Entities
 
-In the initial version, after setup you will see one alarm_control_panel per account and zone combination. This entity will have 5 attributes that reflect all messages that came in for that account and zone, it includes fields for `last_code`, `zone`, `last_message`, `last_id`, `last_timestamp`. The alarm_control_panel state itself is changed based on a subset of values, including but not limited to codes: `CA`, `CB`, `CG`, `BA`, `TA`, `OA`, `NC`, `NL`, for the full list check the code on GitHub. If you expected the state to change then please log which code it was and create an issue on GitHub as well.
+In the initial version, after setup you will see one alarm_control_panel per account and zone combination. This entity will have 5 attributes that reflect all messages that came in for that account and zone, it includes fields for `last_code`, `last_zone`, `last_message`, `last_id`, `last_timestamp`. The alarm_control_panel state itself is changed based on a subset of values, including but not limited to codes: `CA`, `CB`, `CG`, `BA`, `TA`, `OA`, `NC`, `NL`, for the full list check the code on GitHub. If you expected the state to change then please log which code it was and create an issue on GitHub as well.
 
 ### Events
 
