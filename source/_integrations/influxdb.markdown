@@ -333,7 +333,7 @@ sensor:
     api_version: 2
     organization: RANDOM_16_DIGIT_HEX_ID
     token: GENERATED_AUTH_TOKEN
-    bucket: MYBUCKET 
+    bucket: "MYBUCKET"
     queries_flux: 
       - group_function: mean
         imports: 
