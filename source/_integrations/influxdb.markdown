@@ -353,7 +353,7 @@ If you do not specify the bucket as a config, you can write the exact query (inc
 sensor: 
   - platform: influxdb
     api_version: 2
-    organization: RANDOM_16_DIGIT_HEX_ID
+    organization: "RANDOM_16_DIGIT_HEX_ID"
     token: GENERATED_AUTH_TOKEN
     # bucket: MYBUCKET 
     queries_flux: 
