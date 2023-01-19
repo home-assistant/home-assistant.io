@@ -44,7 +44,7 @@ For an English example, create the file `config/custom_sentences/en/temperature.
 # Example temperature.yaml entry
 language: "en"
 intents:
-  OutsideHumidity:
+  CustomOutsideHumidity:
     data:
       - sentences:
           - "What is the humidity outside"
