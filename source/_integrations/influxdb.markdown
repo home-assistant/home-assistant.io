@@ -345,7 +345,7 @@ sensor:
         range_start: "-1d"
 ```
 
-The influxdb sensor for `api_version: 2` *rewrites* the flux-query before it is sent to the database. As a minimal, the bucket and range are prefixed and a '|> limit(n: 1)' postfixed. 
+The InfluxDB sensor for `api_version: 2` *rewrites* the flux query before it is sent to the database. As a minimal, the bucket and range are prefixed and a `|> limit(n: 1)` is postfixed. 
 If you do not specify the bucket as a config, you can write the exact query (including 'from(bucket: "MYBUCKET")'-statements etc).
 
 ```yaml
