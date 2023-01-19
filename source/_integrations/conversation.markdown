@@ -28,7 +28,7 @@ conversation:
 
 By default, a collection of [community contributed sentences](https://github.com/home-assistant/intents/) are supported in a growing [list of languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages).
 
-In English, you can say things like "turn on kitchen lights" or "turn off lights in the bedroom" if you have an area named "bedroom". These sentences are automatically mapped to the [built-in intents](https://developers.home-assistant.io/docs/intent_builtin/).
+In English, you can say things like "turn on kitchen lights" or "turn off lights in the bedroom" if you have an area named "bedroom".
 
 ## Adding custom sentences
 
