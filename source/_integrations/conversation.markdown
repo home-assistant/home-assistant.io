@@ -69,6 +69,93 @@ intent_script:
 More complex [actions](https://www.home-assistant.io/docs/scripts/) can be done in `intent_script`, such as calling services and firing events.
 
 
+## Extending built-in intents
+
+Extending the built-in intents, such as `HassTurnOn` and `HassTurnOff`, can be done as well.
+
+For example, create the file `config/custom_sentences/en/on_off.yaml` and add:
+
+{% raw %}
+
+```yaml
+# Example on_off.yaml entry
+language: "en"
+intents:
+  HassTurnOn:
+    data:
+      - sentences:
+          - "engage [the] kitchen lights"
+        slots:
+          name: "kitchen lights"
+  HassTurnOff:
+    data:
+      - sentences:
+          - "disengage [the] kitchen lights"
+        slots:
+          name: "kitchen lights"
+```
+
+{% endraw %}
+
+Now when you say "engage the kitchen lights", it will turn on a light named "kitchen lights". Saying "disengage kitchen lights" will turn it off.
+
+Let's generalize this to other entities. The built-in `{name}` and `{area}` lists contain the names of your Home Assistant entities and areas.
+
+Adding `{name}` to `config/custom_sentences/en/on_off.yaml`:
+
+{% raw %}
+
+```yaml
+# Example on_off.yaml entry
+language: "en"
+intents:
+  HassTurnOn:
+    data:
+      - sentences:
+          - "engage [the] {name}"
+  HassTurnOff:
+    data:
+      - sentences:
+          - "disengage [the] {name}"
+```
+
+{% endraw %}
+
+You can now "engage" or "disengage" any entity.
+
+Lastly, let's add sentences for turning lights on and off in specific areas:
+
+{% raw %}
+
+```yaml
+# Example on_off.yaml entry
+language: "en"
+intents:
+  HassTurnOn:
+    data:
+      - sentences:
+          - "engage [the] {name}"
+      - sentences:
+          - "engage [all] lights in [the] {area}"
+        slots:
+          name: "all"
+          domain: "light"
+  HassTurnOff:
+    data:
+      - sentences:
+          - "disengage [the] {name}"
+      - sentences:
+          - "disengage [all] lights in [the] {area}"
+        slots:
+          name: "all"
+          domain: "light"
+```
+
+{% endraw %}
+
+It's now possible to say "engage all lights in the bedroom", which will turn on every light in the area named "bedroom".
+
+
 ## Service `conversation.process`
 
 | Service data attribute | Optional | Description      |
