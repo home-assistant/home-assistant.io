@@ -61,7 +61,7 @@ To produce a response, create an `intent_script` entry in your `configuration.ya
 intent_script:
   OutsideHumidity:
     speech:
-      text: It is currently {{ states("sensor.outside_humidity") }} percent humidity outside.
+      text: "It is currently {{ states("sensor.outside_humidity") }} percent humidity outside."
 ```
 
 {% endraw %}
@@ -100,7 +100,7 @@ lists:
 
 {% endraw %}
 
-The `media_player` list is referenced as `{media_player}` in the sentence templates. Its values contain both an `in` and `out` part, where `in` is the input text and `out` is the output value used in `intent_script`.
+The `media_player` list is referenced as `{media_player}` in the sentence templates. Its values contain both an `in` and `out` part, where `in` is the input text and `out` is the output value (`entity_id`) used in `intent_script` to call the `media_player.volume_set` service.
 
 In `configuration.yaml`:
 
