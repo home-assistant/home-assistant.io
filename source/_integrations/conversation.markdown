@@ -34,7 +34,7 @@ In English, you can say things like "turn on kitchen lights" or "turn off lights
 
 You can add your own sentence templates to teach Home Assistant about new sentences. These sentences can work with the [built-in intents](https://developers.home-assistant.io/docs/intent_builtin/) or trigger a custom action by defining custom intents with the [intent script integration](/integrations/intent_script/).
 
-To get started, create a `custom_sentences/<language>` directory in your Home Assistant `config` directory where `<language>` is the [language code](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages) you've configured, such as `en` for English.
+To get started, create a `custom_sentences/<language>` directory in your Home Assistant `config` directory where `<language>` is the [language code](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages) of your language, such as `en` for English.
 
 For an English example, create the file `config/custom_sentences/en/temperature.yaml` and add:
 
