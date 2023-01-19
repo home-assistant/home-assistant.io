@@ -53,6 +53,7 @@ PS: Did you know [Home Assistant is now on Mastodon](https://fosstodon.org/@home
 - [Release 2023.1.3 - January 10](#release-202313---january-10)
 - [Release 2023.1.4 - January 12](#release-202314---january-12)
 - [Release 2023.1.5 - January 17](#release-202315---january-17)
+- [Release 2023.1.6 - January 19](#release-202316---january-19)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -530,6 +531,47 @@ We welcome the following new integrations in this release:
 [tibber docs]: /integrations/tibber/
 [usb docs]: /integrations/usb/
 [waqi docs]: /integrations/waqi/
+[webostv docs]: /integrations/webostv/
+
+## Release 2023.1.6 - January 19
+
+- Fix Matter unique_id generation ([@marcelveldt] - [#86046]) ([matter docs])
+- Code styling tweaks to the Matter integration ([@frenck] - [#86096]) ([matter docs])
+- Bump govee-ble to 0.21.1 ([@bdraco] - [#86103]) ([govee_ble docs])
+- Adjust device registry for Matter devices ([@marcelveldt] - [#86108]) ([matter docs])
+- Fix live logbook stalling when there are no historical events with a high commit interval ([@bdraco] - [#86110]) ([logbook docs])
+- Fix Shelly sleeping Gen2 device updates ([@thecode] - [#86198]) ([shelly docs])
+- Update allowlisted OAuth redirect URIs for Wear OS in China ([@jpelgrom] - [#86247]) ([auth docs])
+
+[#85120]: https://github.com/home-assistant/core/pull/85120
+[#85277]: https://github.com/home-assistant/core/pull/85277
+[#85481]: https://github.com/home-assistant/core/pull/85481
+[#85645]: https://github.com/home-assistant/core/pull/85645
+[#85764]: https://github.com/home-assistant/core/pull/85764
+[#86046]: https://github.com/home-assistant/core/pull/86046
+[#86058]: https://github.com/home-assistant/core/pull/86058
+[#86096]: https://github.com/home-assistant/core/pull/86096
+[#86103]: https://github.com/home-assistant/core/pull/86103
+[#86108]: https://github.com/home-assistant/core/pull/86108
+[#86110]: https://github.com/home-assistant/core/pull/86110
+[#86198]: https://github.com/home-assistant/core/pull/86198
+[#86247]: https://github.com/home-assistant/core/pull/86247
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@frenck]: https://github.com/frenck
+[@jpelgrom]: https://github.com/jpelgrom
+[@marcelveldt]: https://github.com/marcelveldt
+[@thecode]: https://github.com/thecode
+[auth docs]: /integrations/auth/
+[google_sheets docs]: /integrations/google_sheets/
+[govee_ble docs]: /integrations/govee_ble/
+[huawei_lte docs]: /integrations/huawei_lte/
+[litterrobot docs]: /integrations/litterrobot/
+[logbook docs]: /integrations/logbook/
+[matter docs]: /integrations/matter/
+[nanoleaf docs]: /integrations/nanoleaf/
+[shelly docs]: /integrations/shelly/
+[tibber docs]: /integrations/tibber/
 [webostv docs]: /integrations/webostv/
 
 ## Need help? Join the community!
