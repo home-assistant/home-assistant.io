@@ -5,6 +5,7 @@ ha_category:
   - Sensor
   - Binary Sensor
   - Button
+  - Switch
   - Network
 ha_release: 2023.2
 ha_iot_class: Local Polling
@@ -15,6 +16,7 @@ ha_domain: starlink
 ha_platforms:
   - sensor
   - binary_sensor
+  - switch
   - button
 ha_integration_type: integration
 ---
@@ -48,3 +50,7 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 ### Button
 
 - Reboot - Reboots your Starlink system
+
+### Switch
+
+- Stowed - Controls whether Dishy is stowed
