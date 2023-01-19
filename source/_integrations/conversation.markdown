@@ -34,7 +34,7 @@ In English, you can say things like "turn on kitchen lights" or "turn off lights
 
 You can add your own [sentence templates](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax) to teach Home Assistant about new sentences. These sentences can work with the [built-in intents](https://developers.home-assistant.io/docs/intent_builtin/) or trigger a custom action by defining custom intents with the [intent script integration](/integrations/intent_script/).
 
-To get started, create a `custom_sentences/<language>` directory in your Home Assistant `config` directory where `<language>` is the [language code](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages) of your language, such as `en` for English.
+To get started, create a `custom_sentences/<language>` directory in your Home Assistant `config` directory where `<language>` is the [language code](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages) of your language, such as `en` for English. These YAML files are automatically merged, and may contain intents, lists, or expansion rules.
 
 For an English example, create the file `config/custom_sentences/en/temperature.yaml` and add:
 
@@ -52,7 +52,7 @@ intents:
 
 {% endraw %}
 
-To teach Home Assistant how to handle the custom `CustomOutsideHumidity ` intent, create an `intent_script` entry in your `configuration.yaml` file:
+To teach Home Assistant how to handle the custom `CustomOutsideHumidity` intent, create an `intent_script` entry in your `configuration.yaml` file:
 
 {% raw %}
 
@@ -66,69 +66,17 @@ intent_script:
 
 {% endraw %}
 
-## Adding advanced custom sentences
+More complex [actions](https://www.home-assistant.io/docs/scripts/) can be done in `intent_script`, such as calling services and firing events.
 
-Sentences can contain a specialized [template syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax), such as optional words and references to lists of names or numbers.
-
-The following configuration can handle sentences like "set living room volume to 100" and "change volume in the bedroom to 50".
-
-In `config/custom_sentences/en/media_player.yaml`:
-
-{% raw %}
-
-```yaml
-# Example media_player.yaml entry
-language: "en"
-intents:
-  SetVolume:
-    data:
-      - sentences:
-          - "(set|change) {media_player} volume to {volume} [percent]"
-          - "(set|change) volume in [the] {media_player} to {volume} [percent]"
-lists:
-  media_player:
-    values:
-      - in: "living room"
-        out: "media_player.living_room"
-      - in: "bedroom"
-        out: "media_player.bedroom"
-  volume:
-    range:
-      from: 0
-      to: 100
-```
-
-{% endraw %}
-
-The `media_player` list is referenced as `{media_player}` in the sentence templates. Its values contain both an `in` and `out` part, where `in` is the input text and `out` is the output value (`entity_id`) used in `intent_script` to call the `media_player.volume_set` service.
-
-In `configuration.yaml`:
-
-{% raw %}
-
-```yaml
-# Example configuration.yaml entry
-intent_script:
-  SetVolume:
-    action:
-      service: "media_player.volume_set"
-      data:
-        entity_id: "{{ media_player }}"
-        volume_level: "{{ volume / 100.0 }}"
-    speech:
-      text: "Volume changed to {{ volume }}"
-```
-
-{% endraw %}
 
 ## Service `conversation.process`
 
-| Service data attribute | Optional | Description                                      |
-|------------------------|----------|--------------------------------------------------|
-| `text`                 |      yes | Transcribed text                                 |
+| Service data attribute | Optional | Description      |
+|------------------------|----------|------------------|
+| `text`                 | yes      | Transcribed text |
 
 ## Service `conversation.reload`
 
-| Service data attribute | Optional | Description                                      |
-|------------------------|----------|--------------------------------------------------|
-| `language`             |      yes | Language to clear intent cache for. Defaults to Home Assistant language.               |
+| Service data attribute | Optional | Description                                                              |
+|------------------------|----------|--------------------------------------------------------------------------|
+| `language`             | yes      | Language to clear intent cache for. Defaults to Home Assistant language. |
