@@ -24,73 +24,99 @@ The conversation integration allows you to converse with Home Assistant. You can
 conversation:
 ```
 
-{% configuration %}
-intents:
-  description: Intents that the conversation integration should understand.
-  required: false
-  type: map
-  keys:
-    '`<INTENT NAME>`':
-      description: Sentences that should trigger this intent.
-      required: true
-      type: list
-{% endconfiguration %}
+## Default sentences
+
+By default, a collection of [community contributed sentences](https://github.com/home-assistant/intents/) are supported in a growing [list of languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages).
+
+In English, you can say things like "turn on kitchen lights" or "turn off lights in the bedroom" if you have an area named "bedroom". These sentences are automatically mapped to the [built-in intents](https://developers.home-assistant.io/docs/intent_builtin/).
 
 ## Adding custom sentences
 
-By default, it will support turning devices on and off. You can say things like "turn on kitchen lights" or "turn the living room lights off". You can also configure your own sentences to be processed. This works by mapping sentences to intents and then configure the [intent script integration](/integrations/intent_script/) to handle these intents.
+Custom sentences can be mapped to your own [intents](https://developers.home-assistant.io/docs/intent_index) and then linked to any action in Home Assistant with the [intent script integration](/integrations/intent_script/).
 
-Here is a simple example to be able to ask what the temperature in the living room is.
+To get started, create a `custom_sentences/<language>` directory in your Home Assistant `config` directory where `<language>` is the [language code](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages) you've configured, such as `en` for English.
+
+For an English example, create the file `config/custom_sentences/en/temperature.yaml` and add:
+
+{% raw %}
+
+```yaml
+# Example temperature.yaml entry
+language: "en"
+intents:
+  OutsideHumidity:
+    data:
+      - sentences:
+          - "What is the humidity outside"
+```
+
+{% endraw %}
+
+To produce a response, create an `intent_script` entry in your `configuration.yaml` file:
 
 {% raw %}
 
 ```yaml
 # Example configuration.yaml entry
-conversation:
-  intents:
-    LivingRoomTemperature:
-     - What is the temperature in the living room
-
 intent_script:
-  LivingRoomTemperature:
+  OutsideHumidity:
     speech:
-      text: It is currently {{ states.sensor.temperature }} degrees in the living room.
+      text: It is currently {{ states("sensor.outside_humidity") }} percent humidity outside.
 ```
 
 {% endraw %}
 
 ## Adding advanced custom sentences
 
-Sentences can contain slots (marked with curly braces: `{name}`) and optional words (marked with square brackets: `[the]`). The values of slots will be passed on to the intent and are available inside the templates.
+Sentences can contain a specialized [template syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax), such as optional words and references to lists of names or numbers.
 
-The following configuration can handle the following sentences:
+The following configuration can handle sentences like "set living room volume to 100" and "change volume in the bedroom to 50".
 
-- Change the lights to red
-- Change the lights to green
-- Change the lights to blue
-- Change the lights to the color red
-- Change the lights to the color green
-- Change the lights to the color blue
+In `config/custom_sentences/en/media_player.yaml`:
+
+{% raw %}
+
+```yaml
+# Example media_player.yaml entry
+language: "en"
+intents:
+  SetVolume:
+    data:
+      - sentences:
+          - "(set|change) {media_player} volume to {volume} [percent]"
+          - "(set|change) volume in [the] {media_player} to {volume} [percent]"
+lists:
+  media_player:
+    values:
+      - in: "living room"
+        out: "media_player.living_room"
+      - in: "bedroom"
+        out: "media_player.bedroom"
+  volume:
+    range:
+      from: 0
+      to: 100
+```
+
+{% endraw %}
+
+The `media_player` list is referenced as `{media_player}` in the sentence templates. Its values contain both an `in` and `out` part, where `in` is the input text and `out` is the output value used in `intent_script`.
+
+In `configuration.yaml`:
 
 {% raw %}
 
 ```yaml
 # Example configuration.yaml entry
-conversation:
-  intents:
-    ColorLight:
-     - Change the lights to [the color] {color}
 intent_script:
-  ColorLight:
-    speech:
-      text: Changed the lights to {{ color }}.
+  SetVolume:
     action:
-      service: light.turn_on
+      service: "media_player.volume_set"
       data:
-        rgb_color:
-          - "{% if color == 'red' %}255{% else %}0{% endif %}"
-          - "{% if color == 'green' %}255{% else %}0{% endif %}"
-          - "{% if color == 'blue' %}255{% else %}0{% endif %}"
+        entity_id: "{{ media_player }}"
+        volume_level: "{{ volume / 100.0 }}"
+    speech:
+      text: "Volume changed to {{ volume }}"
 ```
 
 {% endraw %}
@@ -100,3 +126,9 @@ intent_script:
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
 | `text`                 |      yes | Transcribed text                                 |
+
+## Service `conversation.reload`
+
+| Service data attribute | Optional | Description                                      |
+|------------------------|----------|--------------------------------------------------|
+| `language`             |      yes | Language to clear intent cache for               |
