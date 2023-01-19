@@ -354,7 +354,7 @@ sensor:
   - platform: influxdb
     api_version: 2
     organization: "RANDOM_16_DIGIT_HEX_ID"
-    token: GENERATED_AUTH_TOKEN
+    token: "GENERATED_AUTH_TOKEN"
     # bucket: MYBUCKET 
     queries_flux: 
       - name: "Current spot price"
