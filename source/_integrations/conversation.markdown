@@ -66,7 +66,7 @@ intent_script:
 
 {% endraw %}
 
-More complex [actions](https://www.home-assistant.io/docs/scripts/) can be done in `intent_script`, such as calling services and firing events.
+More complex [actions](/docs/scripts/) can be done in `intent_script`, such as calling services and firing events.
 
 
 ## Extending built-in intents
