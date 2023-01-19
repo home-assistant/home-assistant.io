@@ -566,7 +566,7 @@ sensor:
     queries_flux:
       - range_start: "-1d"
         name: "How long have I been here"
-        bucket: BUCKET_NAME
+        bucket: "BUCKET_NAME"
         query: >
           filter(fn: (r) => r._domain == "person" and r._entity_id == "me" and r._value != "{{ states('person.me') }}")
           |> map(fn: (r) => ({ _value: r._time }))
