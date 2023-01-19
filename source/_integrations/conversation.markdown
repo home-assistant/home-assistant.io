@@ -52,7 +52,7 @@ intents:
 
 {% endraw %}
 
-To produce a response, create an `intent_script` entry in your `configuration.yaml` file:
+To teach Home Assistant how to handle the custom `CustomOutsideHumidity ` intent, create an `intent_script` entry in your `configuration.yaml` file:
 
 {% raw %}
 
