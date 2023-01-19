@@ -210,7 +210,7 @@ state_locking:
   type: string
   default: LOCKING
 state_topic:
-  description: The MQTT topic subscribed to receive state updates. It accepts states configured with `state_jammed`, `state_unjammed`, `state_locked`, `state_unlocked`, `state_locking` or `state_unlocking`.
+  description: The MQTT topic subscribed to receive state updates. It accepts states configured with `state_jammed`, `state_locked`, `state_unlocked`, `state_locking` or `state_unlocking`.
   required: false
   type: string
 state_unlocked:
