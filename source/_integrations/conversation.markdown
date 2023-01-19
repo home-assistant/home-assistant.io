@@ -131,4 +131,4 @@ intent_script:
 
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
-| `language`             |      yes | Language to clear intent cache for               |
+| `language`             |      yes | Language to clear intent cache for. Defaults to Home Assistant language.               |
