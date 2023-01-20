@@ -1,5 +1,5 @@
 ---
-title: Thread
+title: Open Thread Border Router
 ha_category:
   - Other
 ha_release: 2023.2
@@ -12,5 +12,6 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Thread integration allows calling an Open Thread Border Router's REST API to Python.
+The Open Thread Border Router integration allows calling an Open Thread Border Router's REST API from Python and via websocket.
 The integration is automatically setup when the "Silicon Labs Multiprotocol" add-on is installed.
+{% include integrations/config_flow.md %}
