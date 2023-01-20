@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `touchline` climate platform let you control [Roth EnergyLogic Touchline](https://www.roth-uk.com/en/roth-touchline.htm) floor heating thermostats from Roth.
+The Roth Touchline integrations let you control [Roth EnergyLogic Touchline](https://www.roth-uk.com/en/roth-touchline.htm) floor heating thermostats from Roth.
 
 <div class='note'>
 This integration does not work with the newer Roth Softline and Touchline SL/PL.
