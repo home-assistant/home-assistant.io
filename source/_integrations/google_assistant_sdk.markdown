@@ -30,6 +30,8 @@ This integration allows:
   - Smoke detected in the master bedroom
   - Water leak detected in the master bathroom
 
+<lite-youtube videoid="a-Is8GtLJCs" videotitle="Controlling Google Home With Home Assistant!" posterquality="maxresdefault"></lite-youtube>
+
 ## Prerequisites
 
 You need to configure developer credentials to allow Home Assistant to access your Google Account.
