@@ -132,6 +132,8 @@ This is because the Google Assistant device will connect directly to the IP of y
 
 For secure remote access, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} add-on instead of directing external traffic straight to Home Assistant.
 
+If you've also configured secure local access, you'll need to set [`local_fulfillment_port`](#local_fulfillment_port) to a port where Home Assistant is accessible over plaintext HTTP.
+
 </div>
 
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
@@ -185,6 +187,10 @@ secure_devices_pin:
   required: false
   type: string
   default: ""
+local_fulfillment_port:
+  description: "Home Assistant port that Google Assistant devices should connect to for local fulfillment. Must be plaintext HTTP. Defaults to Home Assistant's `internal_url`."
+  required: false
+  type: integer
 service_account:
   description: Service account information. You can use an include statement with your downloaded JSON file, enter data here directly or use secrets file to populate.
   required: true
