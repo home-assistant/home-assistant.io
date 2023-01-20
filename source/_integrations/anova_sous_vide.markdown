@@ -11,7 +11,7 @@ ha_domain: anova_sous_vide
 ha_integration_type: integration
 ---
 
-The `anova_sous_vide` sensor platform allows you to control [Anova](https://anovaculinary.com/pages/find-your-anova-precision-cooker) sous vides with wifi capability.
+The Anova Sous Vide sensor platform allows you to control [Anova](https://anovaculinary.com/pages/find-your-anova-precision-cooker) sous vides with wifi capability.
 
 Supported devices (tested):
 
@@ -25,16 +25,9 @@ Supported devices (untested):
 
 The 'nano' versions of the sous vide are not supported, but as long as your app is connected to the sous vide, the data should update. They would be better served using BLE instead of API calls.
 
-To add this platform to your installation, add the following to your `configuration.yaml` file:
+To add this platform to your installation, You will need your device id.
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  platform: anova_sous_vide
-  device_id: DEVICE_ID
-```
-
-You can find the Device id by connecting your sous vide to the app, Then going Profile -> Settings(Gear Icon) -> Connection -> Cooker Details
+You can find the Device id by connecting your sous vide to the app, Then going Profile -> Settings(Gear Icon) -> Connection -> Cooker Details.
 
 ## Sensor
 
