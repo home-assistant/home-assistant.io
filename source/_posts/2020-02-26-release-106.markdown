@@ -281,7 +281,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
         - "spatemp"
         - "airtemp"
       json_attributes_path: "$.response.temp"
-      value_template: "{{ value_json.response.temp.poolsp }}"
+      value_template: "{{ value_json['response']['temp']['poolsp'] }}"
     - platform: rest
       resource: http://192.168.1.5/status.xml
       json_attributes:

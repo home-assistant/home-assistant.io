@@ -320,7 +320,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
      - platform: mqtt
        command_topic: "/dev/ha/lock/cmd"
        state_topic:   "/dev/ha/lock/state"
-       value_template: "{{ value_json.state }}"
+       value_template: "{{ value_json['state'] }}"
        state_locked: "locked"
        state_unlocked: "unlocked"
    ```

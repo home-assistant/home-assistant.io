@@ -217,7 +217,7 @@ mqtt:
     - name: "RSSI"
       state_topic: "home/sensor1/infojson"
       unit_of_measurement: "dBm"
-      value_template: "{{ value_json.RSSI }}"
+      value_template: "{{ value_json['RSSI'] }}"
       availability:
         - topic: "home/sensor1/status"
       payload_available: "online"
@@ -229,7 +229,7 @@ mqtt:
 
 ### JSON attributes template configuration
 
-The example sensor below shows a configuration example which uses a JSON dict: `{"Timer1":{"Arm": <status>, "Time": <time>}, "Timer2":{"Arm": <status>, "Time": <time>}}` on topic `tele/sonoff/sensor` with a template to add `Timer1.Arm` and `Timer1.Time` as extra attributes. To instead only add `Timer1.Arm`as an extra attribute, change `json_attributes_template` to: {% raw %}`"{{ {'Arm': value_json.Timer1} | tojson }}"`{% endraw %}.
+The example sensor below shows a configuration example which uses a JSON dict: `{"Timer1":{"Arm": <status>, "Time": <time>}, "Timer2":{"Arm": <status>, "Time": <time>}}` on topic `tele/sonoff/sensor` with a template to add `Timer1.Arm` and `Timer1.Time` as extra attributes. To instead only add `Timer1.Arm`as an extra attribute, change `json_attributes_template` to: {% raw %}`"{{ {'Arm': value_json['Timer1']} | tojson }}"`{% endraw %}.
 
 Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `Arm` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.timer1', 'Arm') }}`{% endraw %}.
 
@@ -241,14 +241,14 @@ mqtt:
   sensor:
     - name: "Timer 1"
       state_topic: "tele/sonoff/sensor"
-      value_template: "{{ value_json.Timer1.Arm }}"
+      value_template: "{{ value_json['Timer1'].Arm'] }}"
       json_attributes_topic: "tele/sonoff/sensor"
-      json_attributes_template: "{{ value_json.Timer1 | tojson }}"
+      json_attributes_template: "{{ value_json['Timer1'] | tojson }}"
     - name: "Timer 2"
       state_topic: "tele/sonoff/sensor"
-      value_template: "{{ value_json.Timer2.Arm }}"
+      value_template: "{{ value_json['Timer2'].Arm'] }}"
       json_attributes_topic: "tele/sonoff/sensor"
-      json_attributes_template: "{{ value_json.Timer2 | tojson }}"
+      json_attributes_template: "{{ value_json['Timer2'] | tojson }}"
 ```
 
 {% endraw %}
@@ -296,7 +296,7 @@ mqtt:
     - name: "Battery Tablet"
       state_topic: "owntracks/tablet/tablet"
       unit_of_measurement: "%"
-      value_template: "{{ value_json.batt }}"
+      value_template: "{{ value_json['batt'] }}"
 ```
 
 {% endraw %}
@@ -324,11 +324,11 @@ mqtt:
     - name: "Temperature"
       state_topic: "office/sensor1"
       unit_of_measurement: "°C"
-      value_template: "{{ value_json.temperature }}"
+      value_template: "{{ value_json['temperature'] }}"
     - name: "Humidity"
       state_topic: "office/sensor1"
       unit_of_measurement: "%"
-      value_template: "{{ value_json.humidity }}"
+      value_template: "{{ value_json['humidity'] }}"
 ```
 
 {% endraw %}

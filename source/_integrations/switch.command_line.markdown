@@ -108,9 +108,9 @@ switch:
           curl -X PUT -d '{"on":false}' "http://ip_address/api/sensors/27/config/"
         command_state: curl http://ip_address/api/sensors/27/
         value_template: >
-          {{value_json.config.on}}
+          {{value_json['config']['on']}}
         icon_template: >
-          {% if value_json.config.on == true %} mdi:toggle-switch
+          {% if value_json['config']['on'] == true %} mdi:toggle-switch
           {% else %} mdi:toggle-switch-off
           {% endif %}
 ```

@@ -270,7 +270,7 @@ mqtt:
   alarm_control_panel:
     - name: "Alarm Panel With Numeric Keypad"
       state_topic: "alarmdecoder/panel"
-      value_template: "{{value_json.state}}"
+      value_template: "{{value_json['state']}}"
       command_topic: "alarmdecoder/panel/set"
       code: mys3cretc0de
 ```
@@ -289,7 +289,7 @@ mqtt:
   alarm_control_panel:
     - name: "Alarm Panel With Text Code Dialog"
       state_topic: "alarmdecoder/panel"
-      value_template: "{{ value_json.state }}"
+      value_template: "{{ value_json['state'] }}"
       command_topic: "alarmdecoder/panel/set"
       code: REMOTE_CODE_TEXT
       command_template: >
@@ -302,7 +302,7 @@ mqtt:
   alarm_control_panel:
     - name: "Alarm Panel With Numeric Keypad"
       state_topic: "alarmdecoder/panel"
-      value_template: "{{ value_json.state }}"
+      value_template: "{{ value_json['state'] }}"
       command_topic: "alarmdecoder/panel/set"
       code: REMOTE_CODE
       command_template: >

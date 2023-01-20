@@ -165,7 +165,7 @@ automation:
     - platform: mqtt
       topic: "living_room/switch/ac"
       payload: "on"
-      value_template: "{{ value_json.state }}"
+      value_template: "{{ value_json['state'] }}"
 ```
 
 {% endraw %}

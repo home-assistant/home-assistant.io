@@ -201,7 +201,7 @@ sensor:
       - date
       - milliseconds_since_epoch
     command: "python3 /home/pi/.homeassistant/scripts/datetime.py"
-    value_template: "{{ value_json.time }}"
+    value_template: "{{ value_json['time'] }}"
 ```
 
 {% endraw %}

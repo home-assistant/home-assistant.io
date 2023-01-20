@@ -85,7 +85,7 @@ Discover the tag scanner:
 {% raw %}
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t homeassistant/tag/0AFFD2/config -m '{"topic": "0AFFD2/tag_scanned", "value_template": "{{ value_json.PN532.UID }}"}'
+mosquitto_pub -h 127.0.0.1 -t homeassistant/tag/0AFFD2/config -m '{"topic": "0AFFD2/tag_scanned", "value_template": "{{ value_json['PN532'].UID'] }}"}'
 ```
 
 {% endraw %}

@@ -239,7 +239,7 @@ mqtt:
           payload_not_available: "offline"
       qos: 0
       device_class: opening
-      value_template: "{{ value_json.state }}"
+      value_template: "{{ value_json['state'] }}"
 ```
 
 {% endraw %}

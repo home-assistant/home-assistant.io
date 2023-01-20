@@ -263,17 +263,17 @@ mqtt:
         - send_command
       command_topic: "vacuum/command"
       battery_level_topic: "vacuum/state"
-      battery_level_template: "{{ value_json.battery_level }}"
+      battery_level_template: "{{ value_json['battery_level'] }}"
       charging_topic: "vacuum/state"
-      charging_template: "{{ value_json.charging }}"
+      charging_template: "{{ value_json['charging'] }}"
       cleaning_topic: "vacuum/state"
-      cleaning_template: "{{ value_json.cleaning }}"
+      cleaning_template: "{{ value_json['cleaning'] }}"
       docked_topic: "vacuum/state"
-      docked_template: "{{ value_json.docked }}"
+      docked_template: "{{ value_json['docked'] }}"
       error_topic: "vacuum/state"
-      error_template: "{{ value_json.error }}"
+      error_template: "{{ value_json['error'] }}"
       fan_speed_topic: "vacuum/state"
-      fan_speed_template: "{{ value_json.fan_speed }}"
+      fan_speed_template: "{{ value_json['fan_speed'] }}"
       set_fan_speed_topic: "vacuum/set_fan_speed"
       fan_speed_list:
         - min

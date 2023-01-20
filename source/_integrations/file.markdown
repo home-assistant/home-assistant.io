@@ -111,7 +111,7 @@ sensor:
   - platform: file
     name: Temperature
     file_path: /home/user/.homeassistant/sensor.json
-    value_template: '{{ value_json.temperature }}'
+    value_template: '{{ value_json['temperature'] }}'
     unit_of_measurement: "°C"
 ```
 

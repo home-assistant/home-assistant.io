@@ -290,7 +290,7 @@ mqtt:
     - name: "Amazing Device Update"
       title: "Device Firmware"
       state_topic: "amazing-device/state-topic"
-      value_template: "{{ {'installed_version': value_json.installed_ver, 'latest_version': value_json.new_ver } | to_json }}"
+      value_template: "{{ {'installed_version': value_json['installed_ver'], 'latest_version': value_json['new_ver'] } | to_json }}"
       device_class: "firmware"
       command_topic: "amazing-device/command"
       payload_install: "install"

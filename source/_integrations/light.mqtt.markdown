@@ -419,9 +419,9 @@ mqtt:
       brightness_command_topic: "office/rgb1/brightness/set"
       rgb_state_topic: "office/rgb1/rgb/status"
       rgb_command_topic: "office/rgb1/rgb/set"
-      state_value_template: "{{ value_json.state }}"
-      brightness_value_template: "{{ value_json.brightness }}"
-      rgb_value_template: "{{ value_json.rgb | join(',') }}"
+      state_value_template: "{{ value_json['state'] }}"
+      brightness_value_template: "{{ value_json['brightness'] }}"
+      rgb_value_template: "{{ value_json['rgb'] | join(',') }}"
       qos: 0
       payload_on: "ON"
       payload_off: "OFF"
@@ -1139,12 +1139,12 @@ mqtt:
         {%- endif -%}
         }
       command_off_template: '{"state": "off"}'
-      state_template: '{{ value_json.state }}'
-      brightness_template: '{{ value_json.brightness }}'
-      red_template: '{{ value_json.color[0] }}'
-      green_template: '{{ value_json.color[1] }}'
-      blue_template: '{{ value_json.color[2] }}'
-      effect_template: '{{ value_json.effect }}'
+      state_template: '{{ value_json['state'] }}'
+      brightness_template: '{{ value_json['brightness'] }}'
+      red_template: '{{ value_json['color'][0] }}'
+      green_template: '{{ value_json['color'][1] }}'
+      blue_template: '{{ value_json['color'][2] }}'
+      effect_template: '{{ value_json['effect'] }}'
 ```
 
 {% endraw %}
@@ -1177,9 +1177,9 @@ mqtt:
         {%- endif -%}
         }
       command_off_template: '{"turn":"off", "mode": "white"}'
-      state_template: "{% if value_json.ison and value_json.mode == 'white' %}on{% else %}off{% endif %}"
-      brightness_template: "{{ value_json.brightness | float | multiply(2.55) | round(0) }}"
-      color_temp_template: "{{ (1000000 / value_json.temp | float) | round(0) }}"
+      state_template: "{% if value_json['ison'] and value_json['mode'] == 'white' %}on{% else %}off{% endif %}"
+      brightness_template: "{{ value_json['brightness'] | float | multiply(2.55) | round(0) }}"
+      color_temp_template: "{{ (1000000 / value_json['temp'] | float) | round(0) }}"
       payload_available: "true"
       payload_not_available: "false"
       max_mireds: 334

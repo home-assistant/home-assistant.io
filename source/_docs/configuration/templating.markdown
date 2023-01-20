@@ -588,7 +588,7 @@ Example using `is_defined` to parse a JSON payload:
 {% raw %}
 
 ```text
-{{ value_json.val | is_defined }}
+{{ value_json['val'] | is_defined }}
 ```
 
 {% endraw %}
@@ -825,7 +825,7 @@ The template for `on` would be:
 {% raw %}
 
 ```yaml
-'{{value_json.on}}'
+'{{value_json['on']}}'
 ```
 
 {% endraw %}
@@ -864,7 +864,7 @@ The following overview contains a couple of options to get the needed values:
 {"primes": [2, 3, 5, 7, 11, 13]}
 
 # Extract first prime number 
-{{ value_json.primes[0] }}
+{{ value_json['primes'][0] }}
 
 # Format output
 {{ "%+.1f" | value_json }}
@@ -880,9 +880,9 @@ The following overview contains a couple of options to get the needed values:
 {{ sqrt(e) }}
 
 # Timestamps
-{{ value_json.tst | timestamp_local }}
-{{ value_json.tst | timestamp_utc }}
-{{ value_json.tst | timestamp_custom('%Y', True) }}
+{{ value_json['tst'] | timestamp_local }}
+{{ value_json['tst'] | timestamp_utc }}
+{{ value_json['tst'] | timestamp_custom('%Y', True) }}
 ```
 
 {% endraw %}
@@ -900,7 +900,7 @@ To evaluate a response, go to **{% my developer_template title="Developer Tools 
          "hum":"35%"
          } }%}
 
-{{value_json.data.hum[:-1]}}
+{{value_json['data']['hum'][:-1]}}
 ```
 
 {% endraw %}
@@ -924,7 +924,7 @@ With given payload:
 { "state": "ON", "temperature": 21.902 }
 ```
 
-Template {% raw %}```{{ value_json.temperature | round(1) }}```{% endraw %} renders to `21.9`.
+Template {% raw %}```{{ value_json['temperature'] | round(1) }}```{% endraw %} renders to `21.9`.
 
 Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 

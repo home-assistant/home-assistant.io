@@ -289,7 +289,7 @@ mqtt:
       command_topic: "cmnd/SIREN/POWER"
       availability_topic: "tele/SIREN/LWT"
       command_template: "{{ value }}"
-      state_value_template: "{{ value_json.POWER }}"
+      state_value_template: "{{ value_json['POWER'] }}"
       payload_on: "ON"
       payload_off: "OFF"
       payload_available: "Online"
