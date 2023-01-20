@@ -49,6 +49,7 @@ You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot or 
 | Status Code                   | `sensor` | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc).     |
 | Waste Drawer                  | `sensor` | Displays the current waste drawer level.                                         |
 | Clean Cycle Wait Time Minutes | `select` | View and select the clean cycle wait time.                                       |
+| Panel brightness              | `select` | View and select the panel brightness, only for Litter-Robot 4.                   |
 | Reset Waste Drawer            | `button` | Button to reset the waste drawer level to 0%, only for Litter-Robot 3.           |
 | Firmware                      | `update` | View and update to the latest firmware, only for Litter-Robot 4.                 |
 
