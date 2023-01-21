@@ -25,6 +25,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
+- [Switch](#switch)
 
 {% include integrations/config_flow.md %}
 
@@ -34,6 +35,7 @@ The following binary sensors are added for each Powerwall:
 
 - Grid Services - On/ Off
 - Grid Status - On/ Off
+- Off-grid Status - On/ Off
 - Powerwall Charging - Charging/ Not Charging
 - Powerwall Connected to Tesla - Connected / Not Connected
 - Powerwall Status - On/ Off
@@ -64,6 +66,12 @@ The following sensors show the direction of energy:
 - Powerwall Load Import - Load energy imported in kWh
 - Powerwall Generator Export - Generator energy exported in kWh
 - Powerwall Generator Import - Generator energy imported in kWh
+
+### Switch
+
+The following switches are added for each Powerwall:
+
+- Take Powerwall Off-Grid - Go off-grid (simulate a grid outage)
 
 ### Device Info
 
