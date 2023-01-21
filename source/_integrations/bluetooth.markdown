@@ -178,6 +178,7 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 - tp-link UB500 (RTL8761BU) - Frequent connection failures with active connections
 - Unbranded CSR 4.0 clones with USB id 0a12:0001 - Unrecoverable driver failure
 - 5 CORE CSR 4.0 (CSR CLONE) - Unrecoverable driver failure
+  - These clones will usually show a message like `CSR: Unbranded CSR clone detected; adding workarounds and force-suspending once...` in the system log when they are plugged in.
 
 ## Multiple adapters
 
