@@ -23,6 +23,7 @@ regenerate: false
 {%- assign components = site.integrations | sort: 'title' -%}
 {%- assign components_by_version = site.integrations | group_components_by_release -%}
 {%- assign categories = components | map: 'ha_category' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
+{%- assign iot_classes = components | map: 'ha_iot_class' | join: ',' | split: ',' | uniq | sort -%}
 
 <p class='note'>
   Support for these integrations is provided by the Home Assistant community.
@@ -44,6 +45,16 @@ regenerate: false
           </optgroup>
           {%- endfor -%}
         </select></div>
+
+      <h3 class="title">IoT Class</h3>
+      {%- for iot_class in iot_classes -%}
+      {%- assign iot_class_count = components | where: 'ha_iot_class', iot_class | size -%}
+      {%- if iot_class and iot_class != 'Other' and iot_class_count != 0 -%}
+      <a href='#{{ iot_class | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ iot_class }} ({{ iot_class_count }})</a>
+      {%- endif -%}
+      {%- endfor -%}
+
+      <h3 class="title">Category</h3>
       {%- for category in categories -%}
       {%- assign components_count = components | where: 'ha_category', category | size -%}
       {%- if category and category != 'Other' and components_count != 0 -%}
@@ -103,7 +114,7 @@ var allComponents = [
         {% capture category %}"{{ ha_category | slugify | downcase }}"{% endcapture %}
         {% assign categories = categories | push: category %}
       {%- endfor -%}
-      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}"},
+      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}", iot_class: "{{ component.ha_iot_class | slugify | downcase }}"},
     {% endif -%}
   {%- endfor -%}
   false
@@ -208,7 +219,7 @@ allComponents.pop(); // remove placeholder element at the end
           // regular filter categories
           search = hash.substring(1);
           filter = function (comp) {
-            return comp.cat.includes(search);
+            return comp.cat.includes(search) || comp.iot_class === search;
           };
         }
 
