@@ -1002,7 +1002,7 @@ sensors:
       required: false
       type: float
     zero_suppress:
-      description: Suppress values close to zero. If -zero_suppress < value < +zero_suppress --> 0. Can be float or integer
+      description: Suppress values close to zero. If -zero_suppress <= value <= +zero_suppress --> 0. Can be float or integer
       required: false
       type: float
     state_class:
