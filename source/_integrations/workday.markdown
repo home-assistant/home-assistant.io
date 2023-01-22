@@ -65,7 +65,7 @@ days_offset:
   type: integer
   default: 0
 add_holidays:
-  description: "Add custom holidays (such as company, personal holidays or vacations). Needs to formatted as `YYYY-MM-DD`."
+  description: "Add custom holidays (such as company, personal holidays or vacations). Can be a single date or an inclusive range of dates, formatted as `YYYY-MM-DD`."
   required: false
   type: list
 remove_holidays:
@@ -90,7 +90,7 @@ One other thing to watch is how the `holiday` keyword is used. Your first instin
 
 ## Full examples
 
-This example excludes Saturdays and Sundays but not pre-configured holidays. Two custom holidays are added.
+This example excludes Saturdays and Sundays but not pre-configured holidays. It adds custom holidays on Feb 24, Apr 25, and the days between-and-including Apr 30 to May 4.
 
 ```yaml
 # Example 1 configuration.yaml entry
@@ -102,6 +102,7 @@ binary_sensor:
     add_holidays:
       - "2020-02-24"
       - "2020-04-25"
+      - ["2020-04-30", "2020-05-04"]
 ```
 
 This example excludes Saturdays, Sundays and holidays. One custom holiday is added.
