@@ -994,17 +994,17 @@ sensors:
       required: false
       type: string
     min_value:
-      description: The minimum allowed value of a sensor. If value < min_value --> min_value
+      description: The minimum allowed value of a sensor. If value < min_value --> min_value. Can be float or integer
       required: false
-      type: number
+      type: float
     max_value:
-      description: The maximum allowed value of a sensor. If value > max_value --> max_value
+      description: The maximum allowed value of a sensor. If value > max_value --> max_value. Can be float or integer
       required: false
-      type: number
+      type: float
     zero_suppress:
-      description: Suppress values close to zero. If -zero_suppress < value < +zero_suppress --> 0
+      description: Suppress values close to zero. If -zero_suppress < value < +zero_suppress --> 0. Can be float or integer
       required: false
-      type: number
+      type: float
     state_class:
       description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
       required: false
