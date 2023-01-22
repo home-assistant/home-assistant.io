@@ -7,7 +7,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_release: 2023.2
 ha_codeowners:
-  - '@conway220'
+  - '@Lash-L'
 ha_domain: anova_sous_vide
 ha_integration_type: integration
 ---
