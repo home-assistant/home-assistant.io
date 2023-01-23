@@ -6,6 +6,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Update
   - Vacuum
 ha_iot_class: Cloud Push
 ha_release: 2021.3
