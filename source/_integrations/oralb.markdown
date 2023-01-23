@@ -8,7 +8,7 @@ ha_release: 2022.11
 ha_iot_class: Local Push
 ha_codeowners:
   - '@bdraco'
-  - '@conway220'
+  - '@Lash-L'
 ha_domain: oralb
 ha_config_flow: true
 ha_platforms:

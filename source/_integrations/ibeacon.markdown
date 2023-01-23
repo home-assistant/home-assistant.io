@@ -77,6 +77,7 @@ To get the Estimated distance sensor to work, in most cases, it has to be calibr
 - [NRF51822 iBeacon](https://www.aliexpress.com/item/32826502025.html)
 - [NRF52810 iBeacon](https://www.aliexpress.com/item/1005003211033416.html)
 - [Pawscout Tag](https://pawscout.com/shop/pawscout-tag/)
+- [SwiftFinder](https://www.amazon.com/dp/B089MD5NP7) (Requires being paired to a phone first before it starts transmitting once a minute, otherwise it stays asleep)
 
 ## Example automation
 

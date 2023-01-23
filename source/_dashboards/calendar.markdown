@@ -13,7 +13,9 @@ The Calendar card displays your [calendar](/integrations/#calendar) entities in 
   Screenshot of the Calendar card.
 </p>
 
-To add the Calendar card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Calendar** from the card picker. All options for this card can be configured via the user interface.
+To add the Calendar card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+All options for this card can be configured via the user interface.
 
 ## Card Settings
 
@@ -28,9 +30,9 @@ Theme:
   description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
 {% endconfiguration_basic %}
 
-### YAML
+## YAML Configuration
 
-This is for if you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -55,7 +57,7 @@ theme:
   type: string
 {% endconfiguration %}
 
-Example:
+### Examples
 
 ```yaml
 type: calendar
