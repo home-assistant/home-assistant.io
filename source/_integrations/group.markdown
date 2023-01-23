@@ -359,6 +359,7 @@ This integration provides the following services to modify groups and a service 
 | | `Icon` | Name of the icon for the group.
 | | `Entities` | List of all members in the group. Not compatible with **delta**.
 | | `Add Entities` | List of members that will change on group listening.
+| | `Remove Entities` | List of members that will be removed from group listening.
 | | `All` | Enable this option if the group should only turn on when all entities are on.
 | `remove` | `Object ID` | Group id and part of entity id.
 | `reload` | `Object ID` | Group id and part of entity id.
