@@ -118,7 +118,7 @@ update_audyssey:
   default: false
   type: boolean
 use_telnet:
-  description: Specifies if a telnet connection should be used to receive device status updates. Using telnet provides realtime updates (local push) for many values but each receiver is limited to a single connection. If you enable this setting, no other connection to your device can be made via telnet. This means, for example, the Denon AVR Remote app will not work if this option is enabled. This will be set to true for new installations of the integration but false for existing installs to prevent compatibility issues with the Denon AVR Remote app.
+  description: Specifies if a telnet connection should be used to receive device status updates. Using telnet provides realtime updates (local push) for many values but each receiver is limited to a single connection. If you enable this setting, no other connection to your device can be made via telnet. This will be set to true for new installations of the integration but false for existing installs to prevent compatibility issues.
   required: false
   default: true
   type: boolean
