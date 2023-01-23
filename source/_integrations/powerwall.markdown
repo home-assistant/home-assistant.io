@@ -34,6 +34,7 @@ The following binary sensors are added for each Powerwall:
 
 - Grid Services - On/ Off
 - Grid Status - On/ Off
+- Off-grid Status - On/ Off
 - Powerwall Charging - Charging/ Not Charging
 - Powerwall Connected to Tesla - Connected / Not Connected
 - Powerwall Status - On/ Off
