@@ -69,6 +69,14 @@ availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
+code_format:
+  description: A regular expression to validate a supplied code when it is set during the service call to `open`, `lock` or `unlock` the MQTT lock.
+  required: false
+  type: string
+command_template:
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `command_topic`. The lock command template accepts the parameters `value` and `code`. The `value` parameter will contain the configured value for either `payload_open`, `payload_lock` or `payload_unlock`. The `code` parameter is set during the service call to `open`, `lock` or `unlock` the MQTT lock and will be set `None` if no code was passed.
+  required: false
+  type: template
 command_topic:
   description: The MQTT topic to publish commands to change the lock state.
   required: true
@@ -255,7 +263,9 @@ mqtt:
   lock:
     - name: Frontdoor
       state_topic: "home-assistant/frontdoor/state"
+      code_format: "^\\d{4}$"
       command_topic: "home-assistant/frontdoor/set"
+      command_template: '{ "action": "{{ value }}", "code":"{{ code }}" }'
       payload_lock: "LOCK"
       payload_unlock: "UNLOCK"
       state_locked: "LOCK"
