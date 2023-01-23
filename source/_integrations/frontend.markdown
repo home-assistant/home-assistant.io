@@ -76,9 +76,9 @@ They can be changed it using `primary-color` and `accent-color` properties.
 
 #### State color
 
-Each entity has it own color, based on `domain`, `device_class` and `state`, to be easily recognizable. Theses colors are used in [dashboards](/dashboards/) and [history](/integrations/history/). Home Assistant has default rules that fit most of users use-cases.
+Each entity has it own color, based on `domain`, `device_class`, and `state`, to be easily recognizable. Theses colors are used in [dashboards](/dashboards/) and [history](/integrations/history/). Home Assistant has default rules that fit most use cases.
 
-Here is a list of domains that support colors : `alarm_control_panel`, `alert`, `automation`, `binary_sensor`, `calendar`, `camera`, `climate`, `cover`, `device_tracker`, `fan`, `group`, `humidifier`, `input_boolean`, `light`, `lock`, `media_player`, `person`, `plant`, `remote`, `schedule`, `script`, `siren`, `sun`, `switch`, `timer`, `update` and `vacuum`.
+Here is a list of domains that support colors: `alarm_control_panel`, `alert`, `automation`, `binary_sensor`, `calendar`, `camera`, `climate`, `cover`, `device_tracker`, `fan`, `group`, `humidifier`, `input_boolean`, `light`, `lock`, `media_player`, `person`, `plant`, `remote`, `schedule`, `script`, `siren`, `sun`, `switch`, `timer`, `update`, and `vacuum`.
 
 These rules can be customized using theme properties:
 
@@ -87,22 +87,22 @@ These rules can be customized using theme properties:
 3. `state-{domain}-(active|inactive)-color`
 4. `state-(active|inactive)-color`
 
-Note that if multiple properties match with your entity, the first one will be used in this order.
+Note that if multiple properties match your entity, the first one will be used in this order.
 
 ```yaml
 # Example configuration.yaml entry
 frontend:
   themes:
     my_theme:
-      state-cover-garage_door-open-color: '#ff0000'
-      state-media_player-inactive-color: '#795548'
+      state-cover-garage_door-open-color: "#ff0000"
+      state-media_player-inactive-color: "#795548"
 ```
 
 The example above defines red color for open garage doors and brown color for inactive media players.
 
 ### Unsupported properties
 
-Although we do our best to keep things working, the behavior of other properties can change between releases. For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.ts).
+Although we do our best to keep things working, the behavior of other properties can change between releases. For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/frontend/blob/master/src/resources/ha-style.ts).
 
 ### Dark mode support
 
