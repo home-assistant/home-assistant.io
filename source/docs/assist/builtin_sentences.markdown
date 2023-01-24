@@ -1,6 +1,5 @@
 ---
-title: "Default Sentences"
-description: "Default Sentences."
+title: "Assist - Default Sentences"
 ---
 
 Home Assistant comes with built-in sentences [contributed by the community](https://github.com/home-assistant/intents/) for dozens of languages.

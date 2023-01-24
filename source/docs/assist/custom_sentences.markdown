@@ -1,6 +1,5 @@
 ---
-title: "Custom Sentences"
-description: "Custom Sentences."
+title: "Assist - Custom Sentences"
 ---
 
 You may add your own sentences to the intent recognizer by either extending an existing intent or creating a new one. You may also [customize responses](#customizing-responses) for existing intents.

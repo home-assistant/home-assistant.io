@@ -1,9 +1,8 @@
 ---
-title: "Android"
-description: "Android."
+title: "Assist on Android."
 ---
 
-Assist is available on WearOS using the [Home Assistant Companion App](https://companion.home-assistant.io/).
+Assist is available on WearOS using the [Home Assistant Companion App](https://companion.home-assistant.io/) and "Conversation" tile.
 
 ![Android WearOS app](/images/assist/android_watch.png)
 

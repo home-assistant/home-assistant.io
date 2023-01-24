@@ -1,6 +1,5 @@
 ---
-title: "Aliases"
-description: "Aliases."
+title: "Assist - Entity Aliases"
 ---
 
 Assist will use the names of your entities, as well as any aliases you've configured.
