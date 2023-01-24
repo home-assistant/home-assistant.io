@@ -106,9 +106,9 @@ On the configure page, you can set the language code of the interactions with Go
 
 You can use the service `google_assistant_sdk.send_text_command` to send commands to Google Assistant.
 
-| Service data attribute | Optional | Description                          | Example             |
-| ---------------------- | -------- | ------------------------------------ | ------------------- |
-| `command`              | no       | Command to send to Google Assistant. | turn off kitchen TV |
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `command`              | no       | Command(s) to send to Google Assistant. | turn off kitchen TV |
 
 Example:
 
@@ -116,6 +116,16 @@ Example:
 service: google_assistant_sdk.send_text_command
 data:
   command: turn off kitchen TV
+```
+
+You can also send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
+
+```yaml
+service: google_assistant_sdk.send_text_command
+data:
+  command:
+    - "open the garage door"
+    - "1234"
 ```
 
 ### Service `notify.google_assistant_sdk`
