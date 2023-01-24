@@ -241,7 +241,7 @@ all:
   type: boolean
   default: false
 type:
-  description: Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range` or `sum`.
+  description: "Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range`, or `sum`."
   type: string
   required: true
 ignore_non_numeric:
