@@ -1,0 +1,28 @@
+<section class="aside-module grid__item one-whole lap-one-half">
+  {% assign elements = site.assist | sort_natural: 'title' %}
+
+  <div class="section">
+    <h1 class="title delta">Assist</h1>
+    <ul class="divided sidebar-menu">
+      <li>{% active_link /assist/ Introduction %}</li>
+      <li>
+        {% active_link /assist/builtin_sentences/ Built-in Sentences %}
+      </li>
+      <li>
+        {% active_link /assist/custom_sentences/ Custom Sentences %}
+      </li>
+      <li>
+        {% active_link /assist/aliases/ Aliases %}
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h1 class="title delta">Apps &amp; Hardware</h1>
+    <ul class="divided sidebar-menu">
+      <li>{% active_link /assist/android/ Android %}</li>
+      <li>{% active_link /assist/ios/ iOS %}</li>
+    </ul>
+  </div>
+
+</section>
