@@ -243,8 +243,7 @@ all:
 type:
   description: Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range` or `sum`.
   type: string
-  required: false
-  default: max
+  required: true
 ignore_non_numeric:
   description: Only available for `sensor` group. Set this to `true` if the group state should ignore sensors with non numeric values.
   type: boolean
