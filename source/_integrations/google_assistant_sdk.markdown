@@ -106,13 +106,13 @@ data:
   command: turn off kitchen TV
 ```
 
-You can also send multiple commands in the same conversation context which is useful to unlock doors or open covers that need PIN. Example:
+You can also send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
 
 ```yaml
 service: google_assistant_sdk.send_text_command
 data:
   command:
-    - open the garage door
+    - "open the garage door"
     - "1234"
 ```
 
