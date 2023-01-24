@@ -36,15 +36,7 @@ Any US-based Honeywell thermostat the uses [Honeywell Total Connect Comfort (TCC
 
 The climate platform integrates Honeywell US-based thermostats into Home Assistant, allowing control of the thermostat through the user interface. The current inside temperature, operating mode, and fan state are also displayed on the thermostat card.
 
-The following services are also available:
-
-- [**set_hvac_mode**](/integrations/climate/#service-climateset_hvac_mode) (`off`, `heat`, `cool`,`auto`)
-- [**target temperature**](/integrations/climate#service-climateset_temperature)
-- [**turn on/off**](/integrations/climate#service-climateturn_on)
-- [**fan mode**](/integrations/climate#service-climateset_fan_mode) (`on`, `auto`, `diffuse`)
-- [**target humidity**](/integrations/climate#service-climateset_humidity) 
-- [**Preset**](/integrations/climate#service-climateset_preset_mode)
-- [**Aux Heat**](/integrations/climate#service-climateset_aux_heat)
+All climate [Services](/integrations/climate) are supported except set_swing_mode
 
 ## Sensor
 
