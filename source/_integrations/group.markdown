@@ -105,7 +105,7 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 - The group state is combined / calculated based on `type` selected to determine the minimum, maximum, latest (last), mean, median, range or sum of the collected states.
 - Members can be any `sensor`, `number` or `input_number` holding numeric states.
 - The group state is `unavailable` if all group members are `unavailable`.
-- If `all` is True then group state will be `unavailable` if one member is `unavailable` or does not have a numeric state.
+- If `ignore_non_numeric` is `false` then group state will be `unavailable` if one member is `unavailable` or does not have a numeric state.
 
 ## Managing groups
 
@@ -241,25 +241,25 @@ all:
   type: boolean
   default: false
 type:
-  description: Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range` or `sum`
+  description: Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range` or `sum`.
   type: string
   required: false
   default: max
-round_digits:
-  description: Only available for `sensor` group. Round value to specified number of digits.
-  type: int
+ignore_non_numeric:
+  description: Only available for `sensor` group. Set this to `true` if the group state should ignore sensors with non numeric values.
+  type: boolean
   required: false
-  default: 2
+  default: false
 unit_of_measurement:
   description: Only available for `sensor` group. Set the unit of measurement for the sensor.
   type: string
   required: false
 device_class:
-  description: Only available for `sensor` group. Set the device class for the sensor according to [available options](https://www.home-assistant.io/integrations/sensor/#device-class)
+  description: Only available for `sensor` group. Set the device class for the sensor according to [available options](https://www.home-assistant.io/integrations/sensor/#device-class).
   type: string
   required: false
 state_class:
-  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes)
+  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes).
   type: string
   required: false
 {% endconfiguration %}
