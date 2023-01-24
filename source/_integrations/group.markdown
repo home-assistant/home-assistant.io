@@ -254,7 +254,7 @@ unit_of_measurement:
   type: string
   required: false
 device_class:
-  description: Only available for `sensor` group. Set the device class for the sensor according to [available options](https://www.home-assistant.io/integrations/sensor/#device-class).
+  description: Only available for `sensor` group. Set the device class for the sensor according to [available options](/integrations/sensor/#device-class).
   type: string
   required: false
 state_class:
