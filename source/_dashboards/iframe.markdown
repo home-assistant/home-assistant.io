@@ -40,7 +40,7 @@ aspect_ratio:
   default: "50%"
 allow_open_top_navigation:
   required: false
-  description: 'Allow the user to open iframe content links by opening the default browser in Home Assistant mobile app. It is false by default because it adds allow-top-navigation-by-user-activation on the iframe sandbox attribute which is a less secure. So set it to true if you need it and are confident with the iframe content.'
+  description: 'Allow the user to open iframe content links by opening the default browser in the Home Assistant mobile app. It is false by default because it adds allow-top-navigation-by-user-activation on the iframe sandbox attribute which is less secure. So set it to true if you need it and are confident with the iframe content.'
   type: boolean
   default: false
 title:
