@@ -28,7 +28,7 @@ If your system is compatible with this integration, then you will be able access
 
 ## Supported hardware
 
-Any US based Honeywell thermostat the uses [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/)
+Any US-based Honeywell thermostat the uses [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/)
 
 {% include integrations/config_flow.md %}
 
