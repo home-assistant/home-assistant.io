@@ -1142,6 +1142,7 @@ following lines to configuration.yaml:
 
 ```yaml
 logger:
+  default: warning
   logs:
     homeassistant.components.modbus: debug
     pymodbus.client: debug

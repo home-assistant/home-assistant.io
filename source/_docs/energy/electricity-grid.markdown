@@ -45,6 +45,10 @@ We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-as
 
 ![Photo of Home Assistant Glow attached to an electricity meter](/images/docs/energy/home-assistant-glow.jpg)
 
+#### Using (Smart Message Language) interface
+
+In countries like Germany, SML (Smart Message Language) is used typically. ESPHome's [SML (Smart Message Language)](https://esphome.io/components/sml.html) is one way to integrate it. If you prefer to integrate it via MQTT, [sml2mqtt](https://github.com/spacemanspiff2007/sml2mqtt) is another open source option.
+
 #### Read the meter using an AI-on-the-edge-device
 
 [AI-on-the-edge-device](https://github.com/jomjol/AI-on-the-edge-device) is a project running on an ESP32-CAM and can be fully integrated into Home Assistant using the Home Assistant discovery functionality of MQTT. It digitalizes your gas/water/electricity meter display and provides its data in various ways.
@@ -64,6 +68,10 @@ _Attention! Installing CT clamp sensor devices requires opening your electrical 
 ### Data provided by your energy provider
 
 Some energy providers will provide you real-time information about your usage and have this data integrated into Home Assistant.
+
+### Manual Integration
+
+If you manually integrate your sensors, for example, using the [MQTT](/integrations/mqtt) or [Template](/integrations/template) integrations: Make sure you set and provide the `device_class`, `state_class`, and `unit_of_measurement` for those sensors.
 
 ### Troubleshooting
 

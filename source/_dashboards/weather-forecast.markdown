@@ -12,7 +12,7 @@ The Weather Forecast card displays the weather. Very useful to include on interf
   Screenshot of the Weather card.
 </p>
 
-To add the Weather card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Weather** from the card picker.
+To add the Weather card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
 
 ## Card Settings
 
@@ -37,9 +37,9 @@ Theme:
 
 </div>
 
-### YAML
+## YAML Configuration
 
-This is for if you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -83,7 +83,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-Example
+### Example
 
 ```yaml
 type: weather-forecast
@@ -112,8 +112,6 @@ Example theme configuration:
 --weather-icon-sun-color: orange
 --weather-icon-rain-color: purple
 ```
-
-&nbsp;
 
 #### Personal Icons
 
