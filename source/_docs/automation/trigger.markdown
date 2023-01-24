@@ -743,7 +743,7 @@ automation:
 
 ## Time pattern trigger
 
-With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value (when using the web interface this is required, the fields cannot be left empty).
+With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value (when using the web interface this is required, the fields cannot be left empty). You can specify a range by separating start and end with a `-`, multiple ranges must be separated by a `,`.
 
 ```yaml
 automation:
@@ -763,6 +763,13 @@ automation 3:
   trigger:
     - platform: time_pattern
       # You can also match on interval. This will match every 5 minutes
+      minutes: "/5"
+
+automation 4:
+  trigger:
+    - platform: time_pattern
+      # You can match on ranges. This will match every 5 minutes, but only in the morning and evening
+      hours: "7-9,17-20"
       minutes: "/5"
 ```
 
