@@ -17,14 +17,13 @@ Screenshot of the Gauge card.
 Screenshot of the Gauge card in needle mode.
 </p>
 
-To add the Gauge card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Gauge** from the card picker. All options for this card can be configured via the user interface.
+To add the Gauge card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
 
-Alternatively, the card can be configured using YAML:
+All options for this card can be configured via the user interface.
 
-```yaml
-type: gauge
-entity: sensor.cpu_usage
-```
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -100,7 +99,7 @@ segments:
       type: string
 {% endconfiguration %}
 
-## Examples
+### Examples
 
 Title and unit of measurement:
 

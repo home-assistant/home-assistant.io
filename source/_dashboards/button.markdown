@@ -12,7 +12,9 @@ The Button card allows you to add buttons to perform tasks.
 Screenshot of three Button Cards.
 </p>
 
-To add the Button card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Button** from the card picker. All options for this card can be configured via the user interface.
+To add the Button card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+All options for this card can be configured via the user interface.
 
 ## Card Settings
 
@@ -37,9 +39,9 @@ Hold Action:
   description: The action taken on card tap and hold. For more information, see the [action documentation](/dashboards/actions/#hold-action).
 {% endconfiguration_basic %}
 
-### YAML
+## YAML Configuration
 
-This is for if you use YAML mode or prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -108,23 +110,14 @@ action_name:
   default: Run
 {% endconfiguration %}
 
-Example:
+### Examples
+
+Basic example:
 
 ```yaml
 type: button
 entity: light.living_room
 ```
-
-## Options For Exemptions
-
-{% configuration badges %}
-user:
-  required: true
-  description: The id of the user that can see the view tab.
-  type: string
-{% endconfiguration %}
-
-## Examples
 
 Button Card with a button name and a script that runs when card is tapped:
 
