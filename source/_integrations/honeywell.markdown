@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `Honeywell` integration integrates Home Assistant with _US-based_ [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/) climate systems.
+The Honeywell integration integrates Home Assistant with _US-based_ [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/) climate systems.
 
 It uses the [aiosomecomfort](https://github.com/mkmer/AIOSomecomfort) client library. It does not support the home security functionality of TCC.
 
