@@ -48,7 +48,7 @@ The following services are also available:
 
 ## Sensor
 
-The `honeywell` sensor platform integrates outside temperature and outside humidity into Home Assistant as sensors for each device.
+The sensor platform integrates outside temperature and outside humidity into Home Assistant as sensors for each device.
 
 This integration will add Home Assistant sensors for the following:
 |Sensor|Value|
