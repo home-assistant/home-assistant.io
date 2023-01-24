@@ -52,6 +52,17 @@ show_delivered:
   default: false
 {% endconfiguration %}
 
+## Service `add_tracking`
+
+ You can use the service `seventeentrack.add_tracking` to add new packages to your 17Track account. 
+ 
+ _If the tracking number is already added to your account the service will throw an error._
+
+
+| Service data attribute | Required | Type | Description |
+| ---------------------- | -------- | -------- | ----------- |
+| `tracking_number` | `True` | string | Tracking number
+| `friendly_name` | `False` | string | Friendly name of package
 ## Package statuses
 
 [17track's API](https://api.17track.net/en/doc) provides the following tracking statuses. The integration creates a sensor for each status, which contains the packages in that status. The sensor's displayed value is the number of packages in that status.
