@@ -5,17 +5,20 @@ ha_category:
   - Binary Sensor
   - Energy
   - Sensor
+  - Switch
 ha_release: 0.108
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
   - '@jrester'
+  - '@daniel-simpson'
 ha_domain: powerwall
 ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
