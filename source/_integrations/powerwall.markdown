@@ -73,7 +73,7 @@ The following sensors show the direction of energy:
 
 The following switches are added for each Powerwall:
 
-- Take Powerwall Off-Grid - Go off-grid (simulate a grid outage)
+- Off-Grid operation - Take your Powerwall off-grid (simulate a grid outage)
 
 ### Device Info
 
