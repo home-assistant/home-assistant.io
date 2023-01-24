@@ -1,0 +1,59 @@
+---
+title: "Assist on Apple devices"
+---
+
+Assist is integrated into Apple devices using the [Shortcuts app](https://support.apple.com/guide/shortcuts/welcome/ios) that is part of every Apple device. Assist can be used in the following ways on Apple devices:
+
+- Activated by Siri by saying the shortcut name "Hey Siri, Assist"
+- Added to your iPhone home screen
+- Pinned to your Mac menu bar
+- Activated via a keyboard shortcut on your Mac
+- Added as an Apple Watch complication
+
+<lite-youtube videoid="sQ7X7jz1SrA" videotitle="Assist on Apple HomePod"></lite-youtube>
+
+## Installation
+
+To get started make sure you're running the latest version of the [Home Assistant Companion app](https://apps.apple.com/us/app/home-assistant/id1099568401?itsct=apps_box_badge&itscg=30200) and have updated your Apple devices. Then download the two shortcuts and open them to import them:
+
+- [Assist shortcut](/docs/assist/Assist.shortcut)
+- [Assist Button shortcut](/docs/assist/Assist%20Button.shortcut)
+
+There are two versions of the shortcut. The normal shortcut works better with Siri while the Button shortcut has the ability to use speech-to-text when triggered outside of Siri and can customize the input language (instead of relying on the OS language)
+
+[_Last updated: Jan 24, 2022_](#changelog)
+
+### Adjusting the language
+
+Imported shortcuts are set to English by default. You will need to edit them to adjust the language.
+
+Open the shortcuts app, and edit the Assist shortcuts (one at a time). The text in quotes will be shown in the language of your device.
+
+- **Button shortcut only:** Tap the arrow next to _"Dictate text"_ and select your language
+- Tap the arrow next to _"Assist with `Provided Input`"_ and select your language.
+
+<p class='note'>
+You can import the button shortcut multiple times to use multiple languages.
+</p>
+
+## Multiple servers
+
+If you have multiple Home Assistant apps, you will need to import the shortcuts multiple times, once for each server, and update the target server.
+
+Open the shortcuts app and edit each Assist shortcut. The text in quotes will be shown in the language of your device.
+
+- Tap the arrow next to _"Assist with `Provided Input`"_ and select your Home Assistant server.
+
+## Customizing the Siri experience
+
+Siri allows activating shortcuts by their name. If you change the name of the "Assist" shortcut, you will also have to refer to it by its new name: "Hey Siri, my new name". Be aware that Siri can get confused and might not work if your shortcut name overlaps with actual Siri commands.
+
+It is possible to change the text that Siri says when activating the Assist shortcut. Open the shortcuts app and edit each your Assist shortcut. The text in quotes will be shown in the language of your device.
+
+- Find _"Ask for `Text`"_ and tap on _`How can I assist?`_ and change it to your desired prompt.
+
+## Changelog
+
+### Version 1 - Jan 24, 2022
+
+Initial release
