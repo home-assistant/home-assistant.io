@@ -28,7 +28,19 @@ If your system is compatible with this integration, then you will be able access
 
 ## Supported hardware
 
-Any US-based Honeywell thermostat the uses [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/)
+Home Assistant is integrated with the following devices through [https://mytotalconnectcomfort.com/portal/](https://mytotalconnectcomfort.com/portal/):
+
+- Thermostats
+  - Every thermostat is exposed as a `climate` entity
+  - Example devices: TH6320R1004
+- Sensors
+  - A Temperature `sensor` entity.
+  - A Humidity `sensor` entity.
+  - Example devices: C7089R1013
+
+Others devices like Security systems are not currently supported by this integration.
+
+## Configuration
 
 {% include integrations/config_flow.md %}
 
