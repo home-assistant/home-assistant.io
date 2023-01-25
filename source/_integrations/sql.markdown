@@ -76,7 +76,7 @@ Use `db_size` as column for value.
 Change `table_schema="homeassistant"` to the name that you use as the database name, to ensure that your sensor will work properly.
 
 ```sql
-SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;
+SELECT table_schema "database", Round(Sum(data_length + index_length) / POWER(1024,2), 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;
 ```
 Use `value` as column for value.
 
