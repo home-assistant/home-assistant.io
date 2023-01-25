@@ -58,7 +58,7 @@ The type of data a number represents impacts how it is displayed in the frontend
 - **sound_pressure**: Sound pressure in dB or dBA
 - **speed**: Generic speed in ft/s, in/d, in/h, km/h, kn, m/s, mph, or mm/d
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
-- **temperature**: Temperature in °C or °F
+- **temperature**: Temperature in °C, °F or K
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
 - **voltage**: Voltage in V, mV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF

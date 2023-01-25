@@ -76,18 +76,18 @@ They can be changed it using `primary-color` and `accent-color` variables.
 
 #### State color
 
-Each entity has its own color, based on `domain`, `device_class`, and `state`, to be easily recognizable. Theses colors are used in [dashboards](/dashboards/) and [history](/integrations/history/). Home Assistant has default rules that fit most use cases.
+Each entity has its own color, based on `domain`, `device_class`, and `state`, to be easily recognizable. Theses colors are used in [dashboards](/dashboards/) and [history](/integrations/history/). Home Assistant has default color rules that fit most use cases.
 
 Here is a list of domains that support colors: `alarm_control_panel`, `alert`, `automation`, `binary_sensor`, `calendar`, `camera`, `climate`, `cover`, `device_tracker`, `fan`, `group`, `humidifier`, `input_boolean`, `light`, `lock`, `media_player`, `person`, `plant`, `remote`, `schedule`, `script`, `siren`, `sun`, `switch`, `timer`, `update`, and `vacuum`.
 
-These rules can be customized using theme variables:
+The color rules can be customized using theme variables:
 
 1. `state-{domain}-{device_class}-{state}-color`
 2. `state-{domain}-{state}-color`
 3. `state-{domain}-(active|inactive)-color`
 4. `state-(active|inactive)-color`
 
-Note that if multiple properties match your entity, the first one will be used in this order.
+Note that the variables will be used in the listed order, so if multiple match your entity, the first matching variable (= most specific one) will be used.
 
 ```yaml
 # Example configuration.yaml entry

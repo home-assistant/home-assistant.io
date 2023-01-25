@@ -239,7 +239,7 @@ The same thing can also be expressed as a filter:
 {% raw %}
 
 ```text
-{{ expand(['device_tracker.paulus', 'group.child_trackers']) 
+{{ expand(['device_tracker.paulus', 'group.child_trackers'])
   | selectattr("attributes.battery", 'defined')
   | join(', ', attribute="attributes.battery") }}
 ```
@@ -262,7 +262,7 @@ The same thing can also be expressed as a test:
 {% raw %}
 
 ```text
-{{ expand('group.energy_sensors') 
+{{ expand('group.energy_sensors')
   | selectattr("state", 'is_number') | join(', ') }}
 ```
 
@@ -450,7 +450,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
    ```yaml
    # Is the current time past 10:15?
-   {{ now() > today_at("10:15") }} 
+   {{ now() > today_at("10:15") }}
    ```
 
    {% endraw %}
@@ -465,8 +465,8 @@ For example, if you wanted to select a field from `trigger` in an automation bas
    {% raw %}
 
    ```yaml
-   # 77 minutes before current time. 
-   {{ now() - timedelta( hours = 1, minutes = 17 ) }} 
+   # 77 minutes before current time.
+   {{ now() - timedelta( hours = 1, minutes = 17 ) }}
    ```
 
    {% endraw %}
@@ -476,15 +476,15 @@ For example, if you wanted to select a field from `trigger` in an automation bas
    {% raw %}
 
    ```yaml
-   # Renders to "00:10:00" 
-   {{ as_timedelta("PT10M") }} 
+   # Renders to "00:10:00"
+   {{ as_timedelta("PT10M") }}
    ```
 
    {% endraw %}
 
 - Filter `timestamp_local(default)` converts a UNIX timestamp to the ISO format string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
 - Filter `timestamp_utc(default)` converts a UNIX timestamp to the ISO format string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
-- Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
+- Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
 
 <div class='note'>
 
@@ -681,11 +681,11 @@ The last argument of the closest function has an implicit `expand`, and can take
 {% raw %}
 
 ```text
-Closest out of given entities: 
+Closest out of given entities:
     {{ closest(['group.children', states.device_tracker]) }}
-Closest to a coordinate:  
+Closest to a coordinate:
     {{ closest(23.456, 23.456, ['group.children', states.device_tracker]) }}
-Closest to some entity: 
+Closest to some entity:
     {{ closest(states.zone.school, ['group.children', states.device_tracker]) }}
 ```
 
@@ -696,15 +696,41 @@ It will also work as a filter over an iterable group of entities or groups:
 {% raw %}
 
 ```text
-Closest out of given entities: 
+Closest out of given entities:
     {{ ['group.children', states.device_tracker] | closest }}
-Closest to a coordinate:  
+Closest to a coordinate:
     {{ ['group.children', states.device_tracker] | closest(23.456, 23.456) }}
-Closest to some entity: 
+Closest to some entity:
     {{ ['group.children', states.device_tracker] | closest(states.zone.school) }}
 ```
 
 {% endraw %}
+
+### Contains
+
+Jinja provides by default a [`in` operator](https://jinja.palletsprojects.com/en/latest/templates/#other-operators) how return `True` when one element is `in` a provided list.
+The `contains` test and filter allow you to do the exact opposite and test for a list containing an element. This is particularly useful in `select` or `selectattr` filter, as well as to check if a device has a specific attribute, a `supported_color_modes`, a specific light effect.
+
+Some examples:
+{% raw %}
+
+- `{{ state_attr('light.dining_room', 'effect_list') | contains('rainbow') }}` will return `true` if the light has a `rainbow` effect.
+- `{{ expand('light.office') | selectattr("attributes.supported_color_modes", 'contains', 'color_temp') | list }}` will return all light that support color_temp in the office group.
+- ```text
+    {% set current_month = now().month %}
+    {% set extra_ambiance = [
+      {'name':'Halloween', 'month': [10,11]},
+      {'name':'Noel', 'month': [1,11,12]}
+    ]%}
+    {% set to_add = extra_ambiance | selectattr('month', 'contains', current_month ) | map(attribute='name') | list  %}
+    {% set to_remove = extra_ambiance | map(attribute='name') | reject('in', to_add) | list %}
+    {{ (state_attr('input_select.light_theme', 'options') + to_add ) | unique | reject('in', to_remove) | list }}
+  ```
+  This more complex example uses the `contains` filter to match the current month with a list. In this case, it's used to generate a list of light theme to give to the `Input select: Set options` service.
+
+
+{% endraw %}
+
 
 ### Numeric functions and filters
 
@@ -863,7 +889,7 @@ The following overview contains a couple of options to get the needed values:
 # Incoming value:
 {"primes": [2, 3, 5, 7, 11, 13]}
 
-# Extract first prime number 
+# Extract first prime number
 {{ value_json.primes[0] }}
 
 # Format output
