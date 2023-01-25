@@ -67,12 +67,12 @@ frontend:
 
 The example above defines two themes named `happy` and `sad`. For each theme, you can set values for CSS variables. If you want to provide hex color values, wrap those in apostrophes, since otherwise, YAML would consider them a comment (`primary-color: "#123456"`).
 
-### Supported Properties
+### Supported theme variables
 
 #### Primary and accent color
 
 Primary and accent colors are the main colors of the application.
-They can be changed it using `primary-color` and `accent-color` properties.
+They can be changed it using `primary-color` and `accent-color` variables.
 
 #### State color
 
@@ -80,7 +80,7 @@ Each entity has its own color, based on `domain`, `device_class`, and `state`, t
 
 Here is a list of domains that support colors: `alarm_control_panel`, `alert`, `automation`, `binary_sensor`, `calendar`, `camera`, `climate`, `cover`, `device_tracker`, `fan`, `group`, `humidifier`, `input_boolean`, `light`, `lock`, `media_player`, `person`, `plant`, `remote`, `schedule`, `script`, `siren`, `sun`, `switch`, `timer`, `update`, and `vacuum`.
 
-These rules can be customized using theme properties:
+These rules can be customized using theme variables:
 
 1. `state-{domain}-{device_class}-{state}-color`
 2. `state-{domain}-{state}-color`
@@ -100,9 +100,9 @@ frontend:
 
 The example above defines red color for open garage doors and brown color for inactive media players.
 
-### Unsupported properties
+### Unsupported theme variables
 
-Although we do our best to keep things working, the behavior of other properties can change between releases. For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/frontend/blob/master/src/resources/ha-style.ts).
+Although we do our best to keep things working, the behavior of other theme variables can change between releases. For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/frontend/blob/master/src/resources/ha-style.ts).
 
 ### Dark mode support
 
