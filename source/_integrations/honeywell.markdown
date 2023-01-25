@@ -24,21 +24,21 @@ If your system is compatible with this integration, then you will be able access
 - [Climate](#climate)
 - [Sensor](#sensor)
 
+{% include integrations/config_flow.md %}
+
 ## Supported hardware
 
 Home Assistant is integrated with the following devices through [https://mytotalconnectcomfort.com/portal/](https://mytotalconnectcomfort.com/portal/):
 
 - Thermostats
-  - Every thermostat is exposed as a `climate` entity
+  - Every thermostat is exposed as a climate entity
   - Known working devices: TH6320R1004, RTH9585WF1004
 - Sensors
-  - A Temperature `sensor` entity.
-  - A Humidity `sensor` entity.
+  - A Temperature sensor entity.
+  - A Humidity sensor entity.
   - Known working devices: C7089R1013
 
 Others devices like Security systems are not currently supported by this integration
-
-{% include integrations/config_flow.md %}
 
 ## Climate
 
