@@ -87,7 +87,7 @@ These rules can be customized using theme variables:
 3. `state-{domain}-(active|inactive)-color`
 4. `state-(active|inactive)-color`
 
-Note that if multiple properties match your entity, the first one will be used in this order.
+Note that if multiple theme variable match your entity, the most precise one will be used (according to the order above).
 
 ```yaml
 # Example configuration.yaml entry
