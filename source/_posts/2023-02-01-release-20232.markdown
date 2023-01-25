@@ -17,7 +17,7 @@ og_image: /images/blog/2023-02/social.png
 
 <!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
 
-These are the beta release notes for Home Assistant Core 2023.1 (and is thus a
+These are the beta release notes for Home Assistant Core 2023.2 (and is thus a
 work in progress).
 
 If you encounter any issues with the beta release, please report them on GitHub:
