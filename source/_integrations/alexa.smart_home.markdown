@@ -70,7 +70,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Humidifier Mode](#humidifier-mode)
   - [Image Processing](#image-processing)
     - [Presence Detection Notification](#presence-detection-notification)
-  - [Input Number](#input-number)
+  - [Input Number and Number](#input-number-and-number)
   - [Light](#light)
     - [Brightness](#brightness)
     - [Color Temperature](#color-temperature)
@@ -488,7 +488,7 @@ The following integrations are currently supported:
     - [Humidifier Mode](#humidifier-mode)
   - [Image Processing](#image-processing)
     - [Presence Detection Notification](#presence-detection-notification)
-  - [Input Number](#input-number)
+  - [Input Number and Number](#input-number-and-number)
   - [Light](#light)
     - [Brightness](#brightness)
     - [Color Temperature](#color-temperature)
@@ -852,15 +852,15 @@ Display category will default to `CAMERA` to enable presence detected notificati
 
 </div>
 
-### Input Number
+### Input Number and Number
 
-Control an `input_number` entity with Alexa. Configures Alexa with the `min`, `max`, `step`, and `unit_of_measurement` attributes for the entity.
+Control an `input_number` or `number` entity with Alexa. Configures Alexa with the `min`, `max`, `step`, and `unit_of_measurement` attributes for the entity.
 
 - _"Alexa, set [entity name] to forty five [unit of measurement]."_
 - _"Alexa, increase the [entity name] by two."_
 - _"Alexa, set the [entity name] to maximum."_
 
-The following table lists the possible friendly name synonyms available for a Input Number with `min: -90, max: 90, step: 45, unit_of_measurement: degrees`.
+The following table lists the possible friendly name synonyms available for a Input Number or Number with `min: -90, max: 90, step: 45, unit_of_measurement: degrees`.
 
 | Fan Range | Friendly Name Synonyms                    |
 | --------- | ----------------------------------------- |
