@@ -216,7 +216,7 @@ they will be able to exchange encryption keys with each other. Removing the
 need for you to find, copy & paste those. Just a single click and setup is
 done!
 
-But that is not all, wat is really mind blowing, is that the ESPHome integration
+But that is not all, what is really mind blowing, is that the ESPHome integration
 will now provide update entites when using the ESPHome add-on! Yes, you
 can update your ESPHome devices directly from Home Assistant and even automate
 with them!
