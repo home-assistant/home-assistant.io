@@ -12,6 +12,12 @@ The Picture Entity card displays an entity in the form of an image. Instead of i
   Background changes according to the entity state.
 </p>
 
+To add the Picture Entity card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+
 {% configuration %}
 type:
   required: true
@@ -78,7 +84,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## How to use state_filter
+### How to use state_filter
 
 Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
 
@@ -88,7 +94,7 @@ state_filter:
   "off": brightness(50%) hue-rotate(45deg)
 ```
 
-## Examples
+### Examples
 
 Basic example:
 

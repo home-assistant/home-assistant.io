@@ -70,7 +70,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Humidifier Mode](#humidifier-mode)
   - [Image Processing](#image-processing)
     - [Presence Detection Notification](#presence-detection-notification)
-  - [Input Number](#input-number)
+  - [Input Number and Number](#input-number-and-number)
   - [Light](#light)
     - [Brightness](#brightness)
     - [Color Temperature](#color-temperature)
@@ -118,16 +118,6 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 ## Create an AWS Lambda Function
 
 We will write a small piece of code hosted as an AWS Lambda function that will redirect requests from the Alexa Smart Home skill to your Home Assistant instance, then the Alexa integration in Home Assistant will process the request and send back the response. The Lambda function will then deliver the response back to the Alexa Smart Home skill.
-
-<div class='info'>
-
-There already are some great alternative tutorials and solutions to ours in our community to achieve the same goal of creating your Alexa Smart Home Skill and its connection to Home Assistant, for example: [haaska](https://github.com/mike-grant/haaska/wiki).
-
-Amazon also has provided a [step-by-step guide](https://developer.amazon.com/docs/smarthome/steps-to-build-a-smart-home-skill.html) to create a Smart Home Skill, however you have to adapt its sample code to match the Home Assistant API.
-  
-You can follow this document or others, but you cannot mix and match different solutions since they may have different designs.
-
-</div>
 
 OK, let's go. You first need to sign in to your [AWS console](https://console.aws.amazon.com/), if you don't have an AWS account yet, you can create a new user [here](https://aws.amazon.com/free/) with 12-month free tier benefit. You don't need to worry about the cost if your account has already passed the first 12 months, as AWS provides up to 1 million Lambda requests, 1GB of outbound data and all inbound data for free, every month, for all users. See [Lambda pricing](https://aws.amazon.com/lambda/pricing/) for more details.
 
@@ -498,7 +488,7 @@ The following integrations are currently supported:
     - [Humidifier Mode](#humidifier-mode)
   - [Image Processing](#image-processing)
     - [Presence Detection Notification](#presence-detection-notification)
-  - [Input Number](#input-number)
+  - [Input Number and Number](#input-number-and-number)
   - [Light](#light)
     - [Brightness](#brightness)
     - [Color Temperature](#color-temperature)
@@ -862,15 +852,15 @@ Display category will default to `CAMERA` to enable presence detected notificati
 
 </div>
 
-### Input Number
+### Input Number and Number
 
-Control an `input_number` entity with Alexa. Configures Alexa with the `min`, `max`, `step`, and `unit_of_measurement` attributes for the entity.
+Control an `input_number` or `number` entity with Alexa. Configures Alexa with the `min`, `max`, `step`, and `unit_of_measurement` attributes for the entity.
 
 - _"Alexa, set [entity name] to forty five [unit of measurement]."_
 - _"Alexa, increase the [entity name] by two."_
 - _"Alexa, set the [entity name] to maximum."_
 
-The following table lists the possible friendly name synonyms available for a Input Number with `min: -90, max: 90, step: 45, unit_of_measurement: degrees`.
+The following table lists the possible friendly name synonyms available for a Input Number or Number with `min: -90, max: 90, step: 45, unit_of_measurement: degrees`.
 
 | Fan Range | Friendly Name Synonyms                    |
 | --------- | ----------------------------------------- |
@@ -879,6 +869,10 @@ The following table lists the possible friendly name synonyms available for a In
 | 0         | _"zero"_                                  |
 | 45        | _"forty five"_                            |
 | 90        | _"ninety"_, _"maximum"_, _"max"_          |
+
+The `unit_of_measurement` will be used to select a supported unit label from the [Global Alexa catalog](https://developer.amazon.com/en-US/docs/alexa/device-apis/resources-and-assets.html#global-alexa-catalog). If there is no match it will be assigned a preset controller.
+
+The following units are supported: °C, °F, K, m, km, mi, yd, in, kg, g, oz, lb, L, ft³, m³, gal and %
 
 ### Light
 

@@ -7,7 +7,11 @@ description: "The Entities card is the most common type of card. It groups items
 
 The Entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.
 
-To add the Entities card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Entities** from the card picker.
+To add the Entities card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -373,9 +377,9 @@ download:
   default: false
 {% endconfiguration %}
 
-## Examples
+### Examples
 
-### Entity rows
+#### Entity rows
 
 ```yaml
 type: entities
@@ -393,7 +397,7 @@ entities:
   - group.all_locks
 ```
 
-### Buttons row
+#### Buttons row
 
 Above the divider are regular entity rows, below one of type `buttons`. Note that regular entity rows automatically show the entity name, whereas for buttons you have to explicitly specify a label / name.
 
@@ -416,7 +420,7 @@ entities:
         name: Dining Ceiling
 ```
 
-### Other special rows
+#### Other special rows
 
 <p class='img'>
 <img src='/images/dashboards/entity_row_special.jpg' alt='Screenshot of other special rows'>
