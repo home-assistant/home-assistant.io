@@ -872,28 +872,7 @@ The following table lists the possible friendly name synonyms available for a In
 
 The `unit_of_measurement` will be used to select a supported unit label from the [Global Alexa catalog](https://developer.amazon.com/en-US/docs/alexa/device-apis/resources-and-assets.html#global-alexa-catalog). If there is no match it will be assigned a preset controller.
 
-The following specific Home Assistant units are supported:
-
-- UnitOfTemperature.CELSIUS
-- AlexaGlobalCatalog.UNIT_TEMPERATURE_CELSIUS
-- UnitOfTemperature.FAHRENHEIT
-- UnitOfTemperature.KELVIN
-- UnitOfLength.METERS
-- UnitOfLength.KILOMETERS
-- UnitOfLength.INCHES
-- UnitOfLength.FEET
-- UnitOfLength.YARDS
-- UnitOfLength.MILES
-- UnitOfMass.GRAMS
-- UnitOfMass.KILOGRAMS
-- UnitOfMass.POUNDS
-- UnitOfMass.OUNCES
-- UnitOfVolume.LITERS
-- UnitOfVolume.CUBIC_FEET
-- UnitOfVolume.CUBIC_METERS
-- UnitOfVolume.GALLONS
-- PERCENTAGE
-
+The following units are supported: °C, °F, K, m, km, mi, yd, in, kg, g, oz, lb, L, ft³, m³, gal and %
 
 ### Light
 
