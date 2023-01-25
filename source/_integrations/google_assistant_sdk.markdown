@@ -158,12 +158,6 @@ data:
 
 ## Conversation agent
 
-In `configuration.yaml` add:
-
-```yaml
-conversation:
-```
-
 In the configure options of the integration, enable the conversation agent and then you can converse with Google Assistant by pressing the microphone in the frontend (supported browsers only):
 
 ![Screenshot Conversation](/images/integrations/google_assistant_sdk/conversation.png)
@@ -175,3 +169,5 @@ service: conversation.process
 data:
   text: "Dim the family room lights"
 ```
+
+Note: due to a bug in the Google Assistant API, not all responses contain text, especially for home control commands, like turn on the lights. These will be shown as `<empty response>`. For those, Google Assistant responds with HTML and Home Assistant integrations are [not allowed](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md) to parse HTML.
