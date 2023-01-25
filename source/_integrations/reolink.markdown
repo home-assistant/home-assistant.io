@@ -23,7 +23,7 @@ A Reolink user account with admin privileges is needed for the proper operation 
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
 Protocol:
-description: Switch between RTSP, RTMP or FLV streaming protocol.
+  description: Switch between RTSP, RTMP or FLV streaming protocol.
 {% endconfiguration_basic %}
 
 ## Camera streams
