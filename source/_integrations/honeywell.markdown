@@ -18,7 +18,6 @@ ha_integration_type: integration
 
 The Honeywell integration integrates Home Assistant with _US-based_ [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/) climate systems.
 
-
 If your system is compatible with this integration, then you will be able access it via [https://mytotalconnectcomfort.com/portal/](https://mytotalconnectcomfort.com/portal/) (note the `/portal/`).
 
 - [Supported hardware](#supported-hardware)
@@ -31,15 +30,13 @@ Home Assistant is integrated with the following devices through [https://mytotal
 
 - Thermostats
   - Every thermostat is exposed as a `climate` entity
-  - Example devices: TH6320R1004
+  - Known working devices: TH6320R1004, RTH9585WF1004
 - Sensors
   - A Temperature `sensor` entity.
   - A Humidity `sensor` entity.
-  - Example devices: C7089R1013
+  - Known working devices: C7089R1013
 
-Others devices like Security systems are not currently supported by this integration.
-
-## Configuration
+Others devices like Security systems are not currently supported by this integration
 
 {% include integrations/config_flow.md %}
 
