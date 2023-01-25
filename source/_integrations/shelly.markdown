@@ -61,6 +61,12 @@ Generation 2 devices use the `RPC` protocol to communicate with the integration.
 Integration is communicating directly with the device; cloud connection is not needed.
 </div>
 
+## Bluetooth Support
+
+Shelly generation 2 devices running firmware 0.12 or later can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
+
+{% include integrations/option_flow.md %}
+
 ## Entity naming (generation 1)
 
 The integration uses `Device Name` to name its entities if the device has only one relay or no relays at all.
@@ -284,8 +290,3 @@ Please check from the device Web UI that the configured server is reachable.
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - OTA update service does not support battery-powered devices
 
-## Bluetooth Support
-
-Shelly generation 2 devices running firmware 0.12 or later can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
-
-{% include integrations/option_flow.md %}

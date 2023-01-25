@@ -90,7 +90,7 @@ You can also use `entity_id: all` and all active timers will be started.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
-| `duration`             |      yes | Duration in seconds or `00:00:00` until the timer finishes. |
+| `duration`             |      yes | Duration in seconds or `01:23:45` format until the timer finishes. |
 
 ### Service `timer.pause`
 

@@ -62,8 +62,11 @@ initial_state:
 Device class is currently supported by the following platforms:
 
 - [Binary Sensor](/integrations/binary_sensor/)
+- [Button](/integrations/button/)
 - [Cover](/integrations/cover/)
+- [Humidifier](/integrations/humidifier/)
 - [Media Player](/integrations/media_player/)
+- [Number](/integrations/number/)
 - [Sensor](/integrations/sensor/)
 - [Switch](/integrations/switch/)
 
