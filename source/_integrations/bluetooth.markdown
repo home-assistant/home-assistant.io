@@ -82,6 +82,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 #### Cambridge Silicon Radio (CSR) Based adapters
 
 - Avantree BTDG-40S (CSR8510A10)
+- Sena UD100-G03 (CSR8510A10) 📶
 - Enbiawit BT403 (CSR8510A10)
 - Feasycom FSC-BP119 (CSR8510A10) 📶
 - HIDEEZ BT0015-01 (CSR8510A10)
