@@ -12,9 +12,9 @@ ha_domain: openai_conversation
 ha_integration_type: service
 ---
 
-The OpenAI integration adds a conversation agent powered by [OpenAI](https://www.openai.com) completion models in Home Assistant.
+The OpenAI integration adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
 
-This conversation agent is unable to control your house. It can only query information that has been provided by Home Assistant.
+This conversation agent is unable to control your house. It can only query information that has been provided by Home Assistant. To be able to answer questions about your house, Home Assistant will need to provide OpenAI with the details of your house, which include names of users, areas, devices and their states.
 
 This integration requires an API key to use, [which you can generate here.](https://beta.openai.com/account/api-keys).
 
