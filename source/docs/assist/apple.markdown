@@ -2,6 +2,8 @@
 title: "Assist on Apple devices"
 ---
 
+_The Assist shortcut will be available in the Mac and iOS beta channel soon and will be part of the next release for iOS and Mac._
+
 Assist is integrated into Apple devices using the [Shortcuts app](https://support.apple.com/guide/shortcuts/welcome/ios) that is part of every Apple device. Assist can be used in the following ways on Apple devices:
 
 - Activated by Siri by saying the shortcut name "Hey Siri, Assist"
