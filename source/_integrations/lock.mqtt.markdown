@@ -20,7 +20,7 @@ Optimistic mode can be forced, even if state topic is available. Try to enable i
 
 It's mandatory for locks to support `lock` and `unlock`. A lock may optionally support `open`, (e.g. to open the bolt in addition to the latch), in this case, `payload_open` is required in the configuration. If the lock is in optimistic mode, it will change states to `unlocked` when handling the `open` command.
 
-An MQTT lock can also report the intermediate states `unlocking` and `locking`.
+An MQTT lock can also report the intermediate states `unlocking`, `locking` or `jammed` if the motor reports a jammed state.
 <a id='new_format'></a>
 
 To enable MQTT locks in your installation, add the following to your `configuration.yaml` file:
@@ -69,6 +69,14 @@ availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
+code_format:
+  description: A regular expression to validate a supplied code when it is set during the service call to `open`, `lock` or `unlock` the MQTT lock.
+  required: false
+  type: string
+command_template:
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `command_topic`. The lock command template accepts the parameters `value` and `code`. The `value` parameter will contain the configured value for either `payload_open`, `payload_lock` or `payload_unlock`. The `code` parameter is set during the service call to `open`, `lock` or `unlock` the MQTT lock and will be set `None` if no code was passed.
+  required: false
+  type: template
 command_topic:
   description: The MQTT topic to publish commands to change the lock state.
   required: true
@@ -194,27 +202,32 @@ retain:
   required: false
   type: boolean
   default: false
+state_jammed:
+  description: The payload sent to `state_topic` by the lock when it's jammed.
+  required: false
+  type: string
+  default: JAMMED
 state_locked:
-  description: The payload sent to by the lock when it's locked.
+  description: The payload sent to `state_topic` by the lock when it's locked.
   required: false
   type: string
   default: LOCKED
 state_locking:
-  description: The payload sent to by the lock when it's locking.
+  description: The payload sent to `state_topic` by the lock when it's locking.
   required: false
   type: string
   default: LOCKING
 state_topic:
-  description: The MQTT topic subscribed to receive state updates.
+  description: The MQTT topic subscribed to receive state updates. It accepts states configured with `state_jammed`, `state_locked`, `state_unlocked`, `state_locking` or `state_unlocking`.
   required: false
   type: string
 state_unlocked:
-  description: The payload sent to by the lock when it's unlocked.
+  description: The payload sent to `state_topic` by the lock when it's unlocked.
   required: false
   type: string
   default: UNLOCKED
 state_unlocking:
-  description: The payload sent to by the lock when it's unlocking.
+  description: The payload sent to `state_topic` by the lock when it's unlocking.
   required: false
   type: string
   default: UNLOCKING
@@ -223,7 +236,7 @@ unique_id:
    required: false
    type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value from the payload."
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a state value from the payload.
   required: false
   type: string
 {% endconfiguration %}
@@ -249,12 +262,18 @@ The example below shows a full configuration for a MQTT lock.
 mqtt:
   lock:
     - name: Frontdoor
-      state_topic: "home-assistant/frontdoor/"
+      state_topic: "home-assistant/frontdoor/state"
+      code_format: "^\\d{4}$"
       command_topic: "home-assistant/frontdoor/set"
+      command_template: '{ "action": "{{ value }}", "code":"{{ code }}" }'
       payload_lock: "LOCK"
       payload_unlock: "UNLOCK"
       state_locked: "LOCK"
       state_unlocked: "UNLOCK"
+      state_locking: "LOCKING"
+      state_unlocking: "UNLOCKING"
+      state_jammed: "MOTOR_JAMMED"
+      state_ok: "MOTOR_OK"
       optimistic: false
       qos: 1
       retain: true

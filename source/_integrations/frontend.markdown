@@ -51,7 +51,7 @@ frontend:
 
 ### Theme format
 
-The frontend integration allows you to create custom themes to influence the look and feel of the user interface. Note that we only officially support the `primary-color` and `accent-color` properties. Although we do our best to keep things working, the behavior of other properties can change between releases.
+The frontend integration allows you to create custom themes to influence the look and feel of the user interface.
 
 ```yaml
 # Example configuration.yaml entry
@@ -59,13 +59,50 @@ frontend:
   themes:
     happy:
       primary-color: pink
-      text-primary-color: purple
-      mdc-theme-primary: plum
+      accent-color: orange
     sad:
       primary-color: steelblue
+      accent-color: darkred
 ```
 
-The example above defines two themes named `happy` and `sad`. For each theme, you can set values for CSS variables. If you want to provide hex color values, wrap those in apostrophes, since otherwise, YAML would consider them a comment (`primary-color: '#123456'`). For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.ts).
+The example above defines two themes named `happy` and `sad`. For each theme, you can set values for CSS variables. If you want to provide hex color values, wrap those in apostrophes, since otherwise, YAML would consider them a comment (`primary-color: "#123456"`).
+
+### Supported theme variables
+
+#### Primary and accent color
+
+Primary and accent colors are the main colors of the application.
+They can be changed it using `primary-color` and `accent-color` variables.
+
+#### State color
+
+Each entity has its own color, based on `domain`, `device_class`, and `state`, to be easily recognizable. Theses colors are used in [dashboards](/dashboards/) and [history](/integrations/history/). Home Assistant has default color rules that fit most use cases.
+
+Here is a list of domains that support colors: `alarm_control_panel`, `alert`, `automation`, `binary_sensor`, `calendar`, `camera`, `climate`, `cover`, `device_tracker`, `fan`, `group`, `humidifier`, `input_boolean`, `light`, `lock`, `media_player`, `person`, `plant`, `remote`, `schedule`, `script`, `siren`, `sun`, `switch`, `timer`, `update`, and `vacuum`.
+
+The color rules can be customized using theme variables:
+
+1. `state-{domain}-{device_class}-{state}-color`
+2. `state-{domain}-{state}-color`
+3. `state-{domain}-(active|inactive)-color`
+4. `state-(active|inactive)-color`
+
+Note that the variables will be used in the listed order, so if multiple match your entity, the first matching variable (= most specific one) will be used.
+
+```yaml
+# Example configuration.yaml entry
+frontend:
+  themes:
+    my_theme:
+      state-cover-garage_door-open-color: "#ff0000"
+      state-media_player-inactive-color: "#795548"
+```
+
+The example above defines red color for open garage doors and brown color for inactive media players.
+
+### Unsupported theme variables
+
+Although we do our best to keep things working, the behavior of other theme variables can change between releases. For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/frontend/blob/master/src/resources/ha-style.ts).
 
 ### Dark mode support
 
@@ -82,7 +119,6 @@ frontend:
     happy:
       primary-color: pink
       text-primary-color: purple
-      mdc-theme-primary: plum
     sad:
       primary-color: steelblue
       modes:

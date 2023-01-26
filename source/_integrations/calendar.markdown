@@ -38,6 +38,8 @@ Some calendar integrations allow Home Assistant to manage your calendars
 directly from Home Assistant. In this case, you can add new events by clicking
 the “Add event” button in the lower right corner of the calendar dashboard.
 
+Also see [Services](#services) below.
+
 ## Automation
 
 Calendar [Triggers](/docs/automation/trigger) enable automation based on an
@@ -139,3 +141,41 @@ automation:
 {% endraw %}
 
 {% enddetails %}
+
+## Services
+
+Some calendar integrations allow Home Assistant to manage your calendars
+directly using services. The services provided by some calendar entities are described below or you can read more about [Service Calls](/docs/scripts/service-calls/).
+
+### Service `calendar.create_event`
+
+Add a new calendar event. A calendar `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `summary` | no | Acts as the title of the event. | Bowling
+| `description` | yes | The description of the event. | Birthday bowling
+| `start_date_time` | yes | The date and time the event should start. | 2019-03-10 20:00:00
+| `end_date_time` | yes | The date and time the event should end. | 2019-03-10 23:00:00
+| `start_date` | yes | The date the whole day event should start. | 2019-03-10
+| `end_date` | yes | The date the whole day event should end. | 2019-03-11
+| `in` | yes | Days or weeks that you want to create the event in. | "days": 2
+
+
+<div class='note'>
+
+You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
+
+</div>
+
+This is a full example of service call in YAML:
+
+```yaml
+service: calendar.create_event
+target:
+  entity_id: calendar.device_automation_schedules
+data:
+  summary: "Example"
+  start_date: "2022-10-01"
+  end_date: "2022-10-02"
+```

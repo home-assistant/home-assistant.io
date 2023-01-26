@@ -25,7 +25,7 @@ This integration is a meta-component and configures a default set of integration
 - [History](/integrations/history/) (`history`)
 - [Home Assistant Alerts](/integrations/homeassistant_alerts) (`homeassistant_alerts`)
 - [Home Assistant Cloud](/integrations/cloud/) (`cloud`)
-- [Image](/integrations/image/) (`image`)
+- [Image upload](/integrations/image_upload/) (`image_upload`)
 - [Input boolean](/integrations/input_boolean/) (`input_boolean`)
 - [Input button](/integrations/input_button/) (`input_button`)
 - [Input datetime](/integrations/input_datetime/) (`input_datetime`)

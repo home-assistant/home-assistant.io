@@ -181,7 +181,7 @@ views:
       default: view index
     icon:
       required: false
-      description: Icon-name from Material Design Icons. You can use any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`. Only for "View", not for "Subview".
+      description: Icon-name from Material Design Icons. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`. Only for "View", not for "Subview".
       type: string
     background:
       required: false

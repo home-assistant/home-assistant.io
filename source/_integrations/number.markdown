@@ -24,7 +24,7 @@ The type of data a number represents impacts how it is displayed in the frontend
 
 - **None**: Generic number. This is the default and doesn't need to be set.
 - **apparent_power**: Apparent power in VA.
-- **aqi**: Air Quality Index
+- **aqi**: Air Quality Index (unitless).
 - **atmospheric_pressure**: Atmospheric pressure in cbar, bar, hPa, inHg, kPa, mbar, Pa, psi
 - **battery**: Percentage of battery that is left
 - **carbon_dioxide**: Carbon Dioxide in CO2 (Smoke)
@@ -48,7 +48,7 @@ The type of data a number represents impacts how it is displayed in the frontend
 - **pm1**: Concentration of particulate matter less than 1 micrometer in µg/m³
 - **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
-- **power_factor**: Power factor in %
+- **power_factor**: Power factor(unitless), unit may be `None` or %
 - **power**: Power in W or kW
 - **precipitation**: Accumulated precipitation in cm, in or mm
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d, or mm/h
@@ -58,7 +58,7 @@ The type of data a number represents impacts how it is displayed in the frontend
 - **sound_pressure**: Sound pressure in dB or dBA
 - **speed**: Generic speed in ft/s, in/d, in/h, km/h, kn, m/s, mph, or mm/d
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
-- **temperature**: Temperature in °C or °F
+- **temperature**: Temperature in °C, °F or K
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
 - **voltage**: Voltage in V, mV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
