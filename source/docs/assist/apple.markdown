@@ -4,7 +4,7 @@ title: "Assist on Apple devices"
 
 _The Assist shortcut will be available in the Mac and iOS beta channel today and will be part of the next release for iOS and Mac._
 
-Assist is integrated into Apple devices using the [Shortcuts app](https://support.apple.com/guide/shortcuts/welcome/ios) that is part of every Apple device. Assist can be used in the following ways on Apple devices:
+Assist is integrated into Apple devices using the [Shortcuts app](https://support.apple.com/guide/shortcuts/welcome/ios) that is available on all Apple devices. Assist can be used in the following ways on Apple devices:
 
 - Activated by Siri by saying the shortcut name "Hey Siri, Assist"
 - Added to your iPhone home screen
@@ -21,6 +21,8 @@ To get started make sure you're running the latest version of the [Home Assistan
 - [Assist shortcut](https://www.icloud.com/shortcuts/4172210db1d74599bf9ae4f9e1e3d6ed)
 - [Assist Button shortcut](https://www.icloud.com/shortcuts/73ebb68ca1a24ae1811b7d6971203334)
 
+![Expanded Shortcuts Action](/images/assist/ios-expanded-shortcut-action.jpeg)
+
 There are two versions of the shortcut. The normal shortcut works better with Siri while the Button shortcut has the ability to use speech-to-text when triggered outside of Siri and can customize the input language (instead of relying on the OS language)
 
 [_Last updated: Jan 26, 2022_](#changelog)
@@ -31,11 +33,11 @@ Shortcuts triggerd via Siri will always use the same language as Siri is set to.
 
 Open the shortcuts app, and edit the Button Assist shortcut. The text in quotes will be shown in the language of your device.
 
-- Tap the arrow next to _"Dictate text"_ and select your language
-- Tap the arrow next to _"Assist with `Provided Input`"_ and select your language.
+- Use the arrow to expand the _"Dictate text"_ action options, and select your language
+- Use the arrow to expand the _"Assist with `Provided Input`"_ options, and select your language.
 
 <p class='note'>
-You can import the button shortcut multiple times to create versions for different languages.
+You can import the button shortcut multiple times to create versions for different languages, when asked if you would like to replace your Shortcut, choose "Keep Both".
 </p>
 
 ## Multiple servers
@@ -44,7 +46,7 @@ The Assist shortcut works also if you have configured multiple Home Assistant se
 
 Open the shortcuts app and edit each Assist shortcut. The text in quotes will be shown in the language of your device.
 
-- Tap the arrow next to _"Assist with `Provided Input`"_ and select your Home Assistant server.
+- Use the arrow to expand the _"Assist with `Provided Input`"_ action, and select your Home Assistant server.
 
 ## Customizing the Siri experience
 
@@ -53,6 +55,8 @@ Siri allows activating shortcuts by their name. If you change the name of the "A
 It is possible to change the text that Siri says when activating the Assist shortcut. Open the shortcuts app and edit each your Assist shortcut. The text in quotes will be shown in the language of your device.
 
 - Find _"Ask for `Text`"_ and tap on _`How can I assist?`_ and change it to your desired prompt.
+
+You can also use the share action to [add a Shortcut to your Home Screen](https://support.apple.com/guide/shortcuts/apd735880972/ios) or set an [Accessibility Shortcut](https://support.apple.com/en-gb/HT204390) to run this Shortcut when you triple-click the Side button.
 
 ## Changelog
 
