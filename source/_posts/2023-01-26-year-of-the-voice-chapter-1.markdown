@@ -20,7 +20,7 @@ _To watch the video presentation of this blog post, including live demos, check 
 
 The core of a voice assistant is to be able to understand the intention of a spoken sentence. What is it the user wants to do? To extract these intentions we created our own template sentence matching format and intent recognizer named [Hassil](https://github.com/home-assistant/hassil).
 
-This new format is used by our new [Home Assistant Intents](https://github.com/home-assistant/intents) project. The goal of this project is to collect home automation sentences in every possible language. Since it's start a month ago, we have had 112 people contribute. The project now supports 22 languages and 14 more are in progress.
+This new format is used by our new [Home Assistant Intents](https://github.com/home-assistant/intents) project. The goal of this project is to collect home automation sentences in every possible language. Since it's start a month ago, we have had 112 people contribute. The project now supports [22 languages and 14 more are in progress](https://home-assistant.github.io/intents/).
 
 ## Assist
 
