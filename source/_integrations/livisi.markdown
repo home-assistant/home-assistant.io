@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: livisi
 ha_platforms:
   - binary_sensor
+  - climate
   - switch
 ha_integration_type: integration
 
@@ -22,6 +23,7 @@ The following devices are currently supported by this integration:
  
 - Indoor Smart Plug (PSS)
 - Window-Door Sensor (WDS)
+- Room Heating Control (VRCC) that includes support for physical heating devices such as RSTx, WRT, FSC8
  
 ##Prequisites
  
