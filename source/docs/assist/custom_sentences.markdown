@@ -2,7 +2,7 @@
 title: "Assist - Custom Sentences"
 ---
 
-You may add your own sentences to the intent recognizer by either extending an existing intent or creating a new one. You may also [customize responses](#customizing-responses) for existing intents.
+You may add your own sentences to the intent recognizer by either extending an [existing intent](https://developers.home-assistant.io/docs/intent_builtin/) or creating a new one. You may also [customize responses](#customizing-responses) for existing intents.
 
 ## In configuration.yaml
 
@@ -28,7 +28,7 @@ conversation:
 
 {% endraw %}
 
-This extends the default English sentences for turning on a Home Assistant entity, allowing you to say "activate the kitchen lights" as well as "turn on the kitchen lights".
+This extends the default English sentences for the `HassTurnOn` intent, allowing you to say "activate the kitchen lights" as well as "turn on the kitchen lights".
 
 New intents can also be added, with their responses and actions defined using the [`intent_script`](/integrations/intent_script/) integration:
 

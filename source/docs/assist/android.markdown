@@ -6,7 +6,7 @@ _The new tile is currently available in the [Android beta](https://play.google.c
 
 Assist is available on WearOS using the [Home Assistant Companion App](https://companion.home-assistant.io/) and "Assist" tile.
 
-<img src="/images/assist/android_watch.png" alt="Screenshot of the Android Wear Assist tile" class="no-shadow" />
+<lite-youtube videoid="Dr_ZCbt8w5k" videotitle="Assist on Android Wear"></lite-youtube>
 
 ## Installation
 
