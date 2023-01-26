@@ -52,7 +52,7 @@ For Apple devices we have been able to create a fully hands-free experience by i
 
 [Read the Assist via Siri and Apple Shortcuts documentation.](/docs/assist/apple/)
 
-_The Assist shortcut will be available in the Mac and iOS beta channel soon and will be part of the next release for iOS and Mac._
+_The Assist shortcut will be available in the Mac and iOS beta channel today and will be part of the next release for iOS and Mac._
 
 <lite-youtube videoid="sQ7X7jz1SrA" videotitle="Assist on Apple HomePod"></lite-youtube>
 

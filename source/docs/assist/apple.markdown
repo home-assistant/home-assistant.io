@@ -2,7 +2,7 @@
 title: "Assist on Apple devices"
 ---
 
-_The Assist shortcut will be available in the Mac and iOS beta channel soon and will be part of the next release for iOS and Mac._
+_The Assist shortcut will be available in the Mac and iOS beta channel today and will be part of the next release for iOS and Mac._
 
 Assist is integrated into Apple devices using the [Shortcuts app](https://support.apple.com/guide/shortcuts/welcome/ios) that is part of every Apple device. Assist can be used in the following ways on Apple devices:
 
@@ -56,6 +56,6 @@ It is possible to change the text that Siri says when activating the Assist shor
 
 ## Changelog
 
-### Version 1 - Jan 24, 2022
+### Version 1 - Jan 26, 2022
 
 Initial release
