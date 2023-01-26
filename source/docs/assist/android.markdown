@@ -4,8 +4,7 @@ title: "Assist on Android."
 
 Assist is available on WearOS using the [Home Assistant Companion App](https://companion.home-assistant.io/) and "Conversation" tile.
 
-![Android WearOS app](/images/assist/android_watch.png)
-
+<img src="/images/assist/android_watch.png" alt="Screenshot of the Android Wear Assist tile" class="no-shadow" />
 
 ## Installation
 
