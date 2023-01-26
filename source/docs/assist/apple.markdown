@@ -18,12 +18,12 @@ Assist is integrated into Apple devices using the [Shortcuts app](https://suppor
 
 To get started make sure you're running the latest version of the [Home Assistant Companion app](https://apps.apple.com/us/app/home-assistant/id1099568401?itsct=apps_box_badge&itscg=30200) and have updated your Apple devices. Then download the two shortcuts and open them to import them:
 
-- [Assist shortcut](/docs/assist/Assist.shortcut)
-- [Assist Button shortcut](/docs/assist/Assist%20Button.shortcut)
+- [Assist shortcut](https://www.icloud.com/shortcuts/4172210db1d74599bf9ae4f9e1e3d6ed)
+- [Assist Button shortcut](https://www.icloud.com/shortcuts/73ebb68ca1a24ae1811b7d6971203334)
 
 There are two versions of the shortcut. The normal shortcut works better with Siri while the Button shortcut has the ability to use speech-to-text when triggered outside of Siri and can customize the input language (instead of relying on the OS language)
 
-[_Last updated: Jan 24, 2022_](#changelog)
+[_Last updated: Jan 26, 2022_](#changelog)
 
 ### Adjusting the language
 
