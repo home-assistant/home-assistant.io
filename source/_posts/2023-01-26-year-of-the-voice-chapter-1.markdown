@@ -40,7 +40,7 @@ The new feature is enabled by default in the Home Assistant 2023.2 release. Tap 
 
 We want to make it as easy as possible to use Assist. To enable this for Android users, we have added a new tile to the Android Wear app. A simple swipe from the clock face will show the assist button and allows you to send voice commands.
 
-_The new tile is currently available in beta and will be part of the next Android release._
+_The new tile is currently available in the [Android beta](https://play.google.com/apps/testing/io.homeassistant.companion.android) and will be part of the next Android release._
 
 <img src="/images/assist/android_watch.png" alt="Screenshot of the Android Wear Assist tile" class="no-shadow" />
 
@@ -49,6 +49,8 @@ _The new tile is currently available in beta and will be part of the next Androi
 For Apple devices we have been able to create a fully hands-free experience by integrating with Siri. The Home Assistant app has been updated to include a new Apple Shortcut Assist action.
 
 The shortcut can also be manually triggered from your Mac taskbar, iPhone home screen or Apple Watch complication.
+
+_The Assist shortcut will be available in the Mac and iOS beta channel soon and will be part of the next release for iOS and Mac._
 
 <lite-youtube videoid="sQ7X7jz1SrA" videotitle="Assist on Apple HomePod"></lite-youtube>
 
@@ -75,3 +77,14 @@ All Assist interfaces will continue to work, regardless of the Assist engine tha
 
 <lite-youtube videoid="orgTMVy0TrI" videotitle="Google Assistant on Apple HomePod"></lite-youtube>
 
+The OpenAI GPT-3 Assist engine will process all your interactions using GPT-3, a sibling of the infamous ChatGPT. It will not be able to help you control your house or [help you automate your house](/blog/2023/01/23/help-others-leave-ai-at-the-dor/). Anything you ask it may or may not be factually correct. But it can be fun!
+
+_In a future release we're planning to make it possible to configure multiple Assist engines to handle interactions._
+
+## What's next
+
+For Year of the Voice - Chapter 1 we focused on building the core of the technology, intent recognition, into Home Assistant while relying on Google and Apple to do the hard parts (speech recognition). This allowed us the fastest path to get something to the community to play with.
+
+Our next step is to continue collecting home automation sentences for all languages ([anyone can help!](https://developers.home-assistant.io/docs/voice/intent-recognition/)). Updates will be included with every major release of Home Assistant.
+
+We have also started working on integrating Speech-to-Text and Text-to-Speech with Assist but don't have a timeline yet when that will be ready. Stay tuned!
