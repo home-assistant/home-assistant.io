@@ -138,6 +138,6 @@ To force the IR lamp to turn on, you would run:
   service: onvif.set_imaging_settings
   data:
     settings:
-      IrLampCutoff: OFF
+      IrCutFilter: OFF
   target:
     entity_id: camera.skycam_media_profile1
