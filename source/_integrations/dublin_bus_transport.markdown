@@ -10,6 +10,9 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 ---
+<div class='note warning'>
+The API used at [Dub Linked](https://data.smartdublin.ie/) is no longer accessible, rendering this integration unusable.
+</div>
 
 The `dublin_bus_transport` sensor will give you the time until the next two departures from a Dublin bus stop using the RTPI information.
 
