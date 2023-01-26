@@ -12,7 +12,7 @@ og_image: /images/blog/2023-01-26-year-of-the-voice-chapter-1/social.png
 
 This year is Home Assistant's [year of the voice](https://www.home-assistant.io/blog/2022/12/20/year-of-voice/). It is our goal for 2023 to let users control Home Assistant in their own language. Today, one month into 2023, we start our first chapter.
 
-At Home Assistant we believe that technology is meant to be played with and projects should be usable as soon as possible. Together with the community we can then iterate and refine. That's why today, we're delivering a basic experience for 22 different languages to interact with Home Assistant. Oh, and we are also releasing some fun stuff that we cooked up along the way.
+At Home Assistant we believe that technology is meant to be played with, and projects should be usable as soon as possible. Together with the community we can then iterate and refine. That's why today, we're delivering a basic experience for 22 languages to interact with Home Assistant. Oh, and we are also releasing some fun stuff that we cooked up along the way.
 
 _To watch the video presentation of this blog post, including live demos, check [the recording of our live stream](https://www.youtube.com/live/ixgNT3RETPg)._
 
@@ -20,19 +20,19 @@ _To watch the video presentation of this blog post, including live demos, check 
 
 The core of a voice assistant is to be able to understand the intention of a spoken sentence. What is it the user wants to do? To extract these intentions we created our own template sentence matching format and intent recognizer named [Hassil](https://github.com/home-assistant/hassil).
 
-This new format is used by our new [Home Assistant Intents](https://github.com/home-assistant/intents) project. The goal of this project is to collect home automation sentences in every possible language. Since it's start a month ago, we have had 112 different people contribute. The project now supports 22 languages and 14 more are in progress.
+This new format is used by our new [Home Assistant Intents](https://github.com/home-assistant/intents) project. The goal of this project is to collect home automation sentences in every possible language. Since it's start a month ago, we have had 112 people contribute. The project now supports 22 languages and 14 more are in progress.
 
 ## Assist
 
-We have added a new feature to Home Assistant: <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'> Assist. It allow users to use natural language to control Home Assistant powered by Hassil and the sentences from the Home Assistant Intent project.
+We have added a new feature to Home Assistant: <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'> Assist. It allow users to use natural language to control Home Assistant. It is powered by Hassil and the sentences from the Home Assistant Intent project.
 
 <!--more-->
 
-We want Assist to be as accessible to as many people as possible. To do this, we made it work without requiring extra hardware to power advanced AI models. Through a combination of smart algorithms combined with sheer brute force (we are collecting a lot of sentences), we have been able to make a system that works for most common sentences. (Support for AI-powered intent recognizers might come in the future.)
+We want Assist to be as accessible to as many people as possible. To do this, we made it work without requiring extra hardware – just update to Home Assistant 2023.2 and you can start! Through a combination of smart algorithms combined with sheer brute force (we are collecting a lot of sentences), we have been able to make a system that works for most common sentences. Support for more powerful, AI-powered, intent recognizers might come in the future as an opt-in feature.
 
 Assist is enabled by default in the Home Assistant 2023.2 release. Tap the new Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'> at the top right of the dashboard to use it.
 
-[Read the Assist documentation.](https://next.home-assistant.io/docs/assist/)
+[Assist documentation.](https://next.home-assistant.io/docs/assist/)
 
 <img src="/images/blog/2023-01-26-year-of-the-voice-chapter-1/assist-dialog.png" alt="Screenshot of the Assist dialog" class='no-shadow' />
 
@@ -40,7 +40,7 @@ Assist is enabled by default in the Home Assistant 2023.2 release. Tap the new A
 
 We want to make it as easy as possible to use Assist. To enable this for Android users, we have added a new tile to the Android Wear app. A simple swipe from the clock face will show the assist button and allows you to send voice commands.
 
-[Read the Assist on Android Wear documentation.](https://next.home-assistant.io/docs/assist/android/)
+[Assist on Android Wear documentation.](https://next.home-assistant.io/docs/assist/android/)
 
 _The new tile is currently available in the [Android beta](https://play.google.com/apps/testing/io.homeassistant.companion.android) and will be part of the next Android release._
 
@@ -48,9 +48,9 @@ _The new tile is currently available in the [Android beta](https://play.google.c
 
 ## Assist via Siri and Apple Shortcuts
 
-For Apple devices we have been able to create a fully hands-free experience by integrating with Siri. This is powered by a new Apple Shortcut Assist action included in the Home Assistant app. This shortcut action can also be manually triggered from your Mac taskbar, iPhone home screen or Apple Watch complication. We have two ready-made shortcuts that users can import with a single tap to unlock these features.
+For Apple devices we have been able to create a fully hands-free experience by integrating with Siri. This is powered by a new Apple Shortcut action called Assist, which is part of the Home Assistant app. This shortcut action can also be manually triggered from your Mac taskbar, iPhone home screen or Apple Watch complication. We have two ready-made shortcuts that users can import from the documentation with a single tap to unlock these features.
 
-[Read the Assist via Siri and Apple Shortcuts documentation.](https://next.home-assistant.io/docs/assist/apple/)
+[Assist via Siri and Apple Shortcuts documentation.](https://next.home-assistant.io/docs/assist/apple/)
 
 _The Assist shortcut will be available in the Mac and iOS beta channel today and will be part of the next release for iOS and Mac._
 
@@ -78,7 +78,7 @@ The Home Assistant 2023.2 release includes two alternative Assist engines that y
 
 The Google Assistant Assist engine is able to control your devices if you have linked up your Home Assistant instance to Google Assistant.
 
-All Assist interfaces will continue to work, regardless of the Assist engine that is being used. So if you ever wanted to use Google Assistant on your HomePod, now you can 🤭
+All ways to intereact with Assist will work, as they are not bound to the the Assist engine that is being used. So if you ever wanted to use Google Assistant on your HomePod, now you can 🤭
 
 <lite-youtube videoid="orgTMVy0TrI" videotitle="Google Assistant on Apple HomePod"></lite-youtube>
 
@@ -88,7 +88,7 @@ _In a future release we're planning to make it possible to configure multiple As
 
 ## What's next
 
-For Year of the Voice - Chapter 1 we focused on building the core of the technology, intent recognition, into Home Assistant while relying on Google and Apple to do the hard parts (speech recognition). This allowed us the fastest path to get something to the community to play with.
+For Year of the Voice - Chapter 1 we focused on building intent recognition into Home Assistant while relying on Google and Apple to do the hard parts (speech recognition). This allowed us the fastest path to get something to the community to play with.
 
 We will continue collecting home automation sentences for all languages ([anyone can help!](https://developers.home-assistant.io/docs/voice/intent-recognition/)). Updates will be included with every major release of Home Assistant.
 
