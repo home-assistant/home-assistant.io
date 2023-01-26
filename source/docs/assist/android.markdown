@@ -2,15 +2,15 @@
 title: "Assist on Android."
 ---
 
-Assist is available on WearOS using the [Home Assistant Companion App](https://companion.home-assistant.io/) and "Conversation" tile.
+Assist is available on WearOS using the [Home Assistant Companion App](https://companion.home-assistant.io/) and "Assist" tile.
 
 <img src="/images/assist/android_watch.png" alt="Screenshot of the Android Wear Assist tile" class="no-shadow" />
 
 ## Installation
 
-After [installing the companion app](https://companion.home-assistant.io/docs/getting_started/) and connecting it to your Home Assistant instance, visit the Android WatchOS app and add the "Conversation" tile to your watch:
+After [installing the companion app](https://companion.home-assistant.io/docs/getting_started/) and connecting it to your Home Assistant, visit the Android WatchOS app and click "Add tile" inside the Tiles area. Select the "Assist" tile to add it to your watch:
 
-![Conversation tile](/images/assist/android_tile.jpg)
+![Conversation tile](/images/assist/android_tile.png)
 
 
 ## Usage
@@ -19,7 +19,7 @@ Swipe left on your watch until the "Assist" button is visible:
 
 ![Assist button](/images/assist/android_watch_1.png)
 
-After pressing the "Assist", wait for "Speak Now" to be displayed:
+After pressing "Assist", wait for "Speak Now" to be displayed:
 
 ![Assist button](/images/assist/android_watch_2.png)
 
