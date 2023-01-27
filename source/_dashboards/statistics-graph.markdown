@@ -57,7 +57,7 @@ title:
   type: string
 period:
   required: false
-  description: The period of the rendered graph. `5minute`, `hour`, `day` or `month` 
+  description: The period of the rendered graph. `5minute`, `hour`, `day`, `week` or `month` 
   type: string  
 {% endconfiguration %}
 
