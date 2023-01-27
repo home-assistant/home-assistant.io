@@ -39,7 +39,6 @@ You can find the Device id by connecting your sous vide to the app, Then going P
 - State - The current state of the sous vide ("Preheating", "Cooking", "Maintaining").
 - Target Temperature - The temperature the sous vide is set to heat to.
 - Cook Time Remaining - How long is left in the cook in seconds.
-- Firmware Version - The firmware the sous vide is operating off of.
 - Heater Temperature - The current temperature of the heater.
 - Triac Temperature - The current temperature of the triac.
 - Water Temperature - The current temperature of the water.
