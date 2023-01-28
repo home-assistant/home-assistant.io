@@ -22,13 +22,9 @@ ha_integration_type: integration
 ---
 
 The Pi-hole integration allows you to retrieve statistics and interact with a
-[Pi-hole](https://pi-hole.net/) system.
+[Pi-hole](https://pi-hole.net/) system. If your Pi-hole web interface is password protected, an API key is needed for the setup (_from Settings -> API / Web interface_).
 
 {% include integrations/config_flow.md %}
-
-Please note, that during the integration set up, an API key can be provided.
-Providing one, gives access to the Pi-Hole `disable` service and a switch
-to enable/disable Pi-Hole from Home Assistant.
 
 ## Services
 

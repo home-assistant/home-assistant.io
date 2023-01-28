@@ -392,9 +392,6 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'pl_unlk':             'payload_unlock',
     'pos_clsd':            'position_closed',
     'pos_open':            'position_open',
-    'pow_cmd_t':           'power_command_topic',
-    'pow_stat_t':          'power_state_topic',
-    'pow_stat_tpl':        'power_state_template',
     'pr_mode_cmd_t':       'preset_mode_command_topic',
     'pr_mode_cmd_tpl':     'preset_mode_command_template',
     'pr_mode_stat_t':      'preset_mode_state_topic',
@@ -429,13 +426,16 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'stat_cla':            'state_class',
     'stat_clsd':           'state_closed',
     'stat_closing':        'state_closing',
+    'stat_jam':            'state_jammed',
     'stat_off':            'state_off',
     'stat_on':             'state_on',
     'stat_open':           'state_open',
     'stat_opening':        'state_opening',
     'stat_stopped':        'state_stopped',
     'stat_locked':         'state_locked',
+    'stat_locking':         'state_locking',
     'stat_unlocked':       'state_unlocked',
+    'stat_unlocking':       'state_unlocking',
     'stat_t':              'state_topic',
     'stat_tpl':            'state_template',
     'stat_val_tpl':        'state_value_template',
@@ -509,6 +509,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
 
 The following software has built-in support for MQTT discovery:
 
+- [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
 - [ebusd](https://github.com/john30/ebusd)
 - [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
@@ -520,15 +521,16 @@ The following software has built-in support for MQTT discovery:
 - [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [SmartHome](https://github.com/roncoa/SmartHome)
+- [SpeedTest-CLI MQTT](https://github.com/adorobis/speedtest-CLI2mqtt)
 - [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
 - [Teleinfo MQTT](https://fmartinou.github.io/teleinfo2mqtt) (starting with 3.0.0)
 - [Tydom2MQTT](https://fmartinou.github.io/tydom2mqtt/)
 - [What's up Docker?](https://fmartinou.github.io/whats-up-docker/) (starting with 3.5.0)
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
+- [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
 - [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
 - [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
-- [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
 
 ### Discovery examples
 

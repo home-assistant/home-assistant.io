@@ -133,20 +133,6 @@ history:
      - sensor.date
 ```
 
-If you'd like the order of display of the sensors to follow the way they are
-listed in the included entity list,
-you can set the flag `use_include_order` to true.
-
-```yaml
-# Example configuration.yaml entry using specified entity display order
-history:
-  use_include_order: true
-  include:
-    entities:
-      - sun.sun
-      - light.front_porch
-```
-
 {% include common-tasks/filters.md %}
 
 #### Implementation details
