@@ -29,7 +29,7 @@ encoding:
   type: string
   default: "utf-8"
 name:
-  description: The name of the MQTT service. The service will get a name `mqtt.{name}`. If a service with that name already exists an error will be logged. The `name` cannot be set to `publish` or `dump`, since these reserved for the built-in MQTT services. If the `name` is not set the service will get a name `mqtt.service_{node_id}`. The `node_id` is the `node_id` used in the discovery topic.
+  description: The name of the MQTT service. The service will get a name `mqtt.{name}`. If a service with that name already exists an error will be logged. The `name` cannot be set to `dump`, `publish` or `reload`, since these reserved for the built-in MQTT services. If the `name` is not set the service will get a name `mqtt.service_{node_id}`. The `node_id` is the `node_id` used in the discovery topic.
   required: false
   type: string
 qos:
@@ -92,10 +92,13 @@ schema:
       type: boolean
       default: false
     exclusive:
-      description: Makes the service parameter exclusive with other service parameters that have the same `exclusive` key set.
+      description: Makes the service parameter exclusive from other service parameters that have the same `exclusive` key set.
       required: false
       type: string
-      default: false
+    inclusive:
+      description: Makes the service parameter inclusive with other service parameters that have the same `inclusive` key set.
+      required: false
+      type: string
 {% endconfiguration %}
 
 ## Service parameter types
