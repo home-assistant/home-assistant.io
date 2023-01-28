@@ -718,22 +718,6 @@ please be sure to update them to be compatible with this change.
 [@Drafteed]: https://github.com/Drafteed
 [#84885]: https://github.com/home-assistant/core/pull/84885
 
-{% enddetails %}
-
-{% details "Spain electricity hourly pricing (PVPC)" %}
-
-The previously deprecated YAML configuration of the Spain electricity hourly
-pricing (PVPC) integration has been removed.
-
-Spain electricity hourly pricing (PVPC) is now configured via the UI. Any
-existing YAML configuration has been imported in previous releases and can now
-be safely removed from your YAML configuration files.
-
-([@azogue] - [#85614]) ([documentation](/integrations/pvpc_hourly_pricing))
-
-[@azogue]: https://github.com/azogue
-[#85614]: https://github.com/home-assistant/core/pull/85614
-
 ---
 
 The `source_list` no longer contains a list of applications and TV channels.
@@ -752,6 +736,22 @@ and incompatible to this change.
 
 [@Drafteed]: https://github.com/Drafteed
 [#85288]: https://github.com/home-assistant/core/pull/85288
+
+{% enddetails %}
+
+{% details "Spain electricity hourly pricing (PVPC)" %}
+
+The previously deprecated YAML configuration of the Spain electricity hourly
+pricing (PVPC) integration has been removed.
+
+Spain electricity hourly pricing (PVPC) is now configured via the UI. Any
+existing YAML configuration has been imported in previous releases and can now
+be safely removed from your YAML configuration files.
+
+([@azogue] - [#85614]) ([documentation](/integrations/pvpc_hourly_pricing))
+
+[@azogue]: https://github.com/azogue
+[#85614]: https://github.com/home-assistant/core/pull/85614
 
 {% enddetails %}
 
