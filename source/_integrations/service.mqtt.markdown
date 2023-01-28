@@ -14,7 +14,6 @@ MQTT Services created can be used in automations and will, when called, publish 
 MQTT services are only supported through [MQTT discovery](/integrations/mqtt/#mqtt-discovery), manual setup through `configuration.yaml` is not supported.
 The discovery topic needs to be: `<discovery_prefix>/service/[<node_id>/]<object_id>/config`.
 
-
 {% configuration %}
 command_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `command_topic` when the MQTT service is called. The supplied service parameters are available as variables.
@@ -61,7 +60,7 @@ schema:
       required: false
       type: string
     example:
-      description: The example text shown with the parameter. If not set a default suggestion is shown depending on `type`.
+      description: The example text shown with the parameter. If not set a default suggestion is shown depending on `type`. The default example is shown in the table below.
       required: false
       type: string
     options:
@@ -101,14 +100,18 @@ schema:
 
 ## Service parameter types
 
-- `bool`: Provides a boolean option switch. Returns `true`, `false`.
-- `dropdown`: Provides a `select` selector with dropdown box. Returns a `list` of the selected values.
-- `int`: Provides a service parameter with integer validation. Returns an `int`.
-- `float`: Provides a service parameter with float validation. Returns a `float`.
-- `string`: Provides a service parameter with string validation. Returns a `string`.
-- `multiline`: Provides a service parameter with string validation in a multiline box. Returns a (multiline) `string`.
-- `password`: Provides a password masked service parameter with string validation. Returns a `string`.
-- `select`: See `dropdown`, but in this case the options are listed. Returns a `list` of the selected values.
+The table below shows the available options for service parameter `type`.
+
+`type` | Description | Returns | Example
+---|---|---|---
+`bool` | Option switch | `bool` | False
+`dropdown` | Dropdown box | `list` |
+`int` | Integer input | `int` | 42
+`float` | Float input | `float` | 12.3
+`string` | String input | `string` | Abc
+`multiline` | Multiline input | `string` | Abc
+`password` | Masked input | `string` | s3cretp@assw0rd
+`select` | Listed select | `list` |
 
 Service parameters will return `None` if they are not set.
 
