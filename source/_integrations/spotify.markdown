@@ -36,9 +36,10 @@ an application at Spotify using the Spotify Developer website. This will
 provide you with the Spotify application credentials Home Assistant needs
 to allow you to log in with your Spotify account.
 
-1. Log in to the [Spotify Developer](https://developer.spotify.com) Dashboard.
-2. Visit the [My Applications](https://developer.spotify.com/my-applications/#!/applications) page.
-3. Click the **CREATE AN APP** button in the top right. Enter a name and
+1. If Spotify was previously integrated in your Home Assistant with a _different_ account, remove the previous Spotify account credentials via  https://my.home-assistant.io/redirect/application_credentials/
+2. Log in to the [Spotify Developer](https://developer.spotify.com) Dashboard.
+3. Visit the [My Applications](https://developer.spotify.com/my-applications/#!/applications) page.
+4. Click the **CREATE AN APP** button in the top right. Enter a name and
    description; feel free to use any name and description you like.
 
   ![Creating a Spotify Application](/images/integrations/spotify/create-spotify-application.png)
