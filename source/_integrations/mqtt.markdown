@@ -187,12 +187,17 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Scene](/integrations/scene.mqtt/)
 - [Select](/integrations/select.mqtt/)
 - [Sensor](/integrations/sensor.mqtt/)
+- [Service*](/integrations/service.mqtt/)
 - [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
 - [Update](/integrations/update.mqtt/)
-- [Tag Scanner](/integrations/tag.mqtt/)
+- [Tag Scanner*](/integrations/tag.mqtt/)
 - [Text](/integrations/text.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+
+The `Tag Scanner` and `Service` components behave differently and are not producing entities.
+The [Tag Scanner](/integrations/tag.mqtt/) component allows to discover MQTT `Tags`.
+The [Service](/integrations/service.mqtt/) component allows to discover MQTT services.
 
 {% enddetails %}
 
@@ -275,6 +280,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'cod_trig_req':        'code_trigger_required',
     'curr_temp_t':         'current_temperature_topic',
     'curr_temp_tpl':       'current_temperature_template',
+    'cust_val':            'custom_value',
     'dev':                 'device',
     'dev_cla':             'device_class',
     'dock_t':              'docked_topic',
@@ -285,6 +291,8 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'ent_pic':             'entity_picture',
     'err_t':               'error_topic',
     'err_tpl':             'error_template',
+    'excl':                'exclusive',
+    'expl':                'example',
     'fanspd_t':            'fan_speed_topic',
     'fanspd_tpl':          'fan_speed_template',
     'fanspd_lst':          'fan_speed_list',
@@ -339,6 +347,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'mode_stat_tpl':       'mode_state_template',
     'mode_stat_t':         'mode_state_topic',
     'modes':               'modes',
+    'mul':                 'multiple',
     'name':                'name',
     'obj_id':              'object_id',
     'off_dly':             'off_delay',
@@ -401,6 +410,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'rel_s':               'release_summary',
     'rel_u':               'release_url',
     'ret':                 'retain',
+    'req':                 'required',
     'rgb_cmd_t':           'rgb_command_topic',
     'rgb_cmd_tpl':         'rgb_command_template',
     'rgb_stat_t':          'rgb_state_topic',
