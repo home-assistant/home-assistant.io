@@ -162,7 +162,7 @@ they will keep working for the upcoming two releases. Home Assistant will
 write warnings in the logs in case you are using one of the affected icons.
 The breaking changes section has more information about this.
 
-[mdi]: https://materialdesignicons.com/
+[mdi]: https://pictogrammers.com/library/mdi/
 
 ## Encrypted communications support for ESPHome
 

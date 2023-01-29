@@ -36,46 +36,59 @@ There is currently support for the following device types within Home Assistant:
 {% include integrations/config_flow.md %}
 
 ## Supported Devices
+
+See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kasa#supported-devices) for an up to date list.
+
+## Supported devices
+
 ### Plugs
 
 - HS100
 - HS103
 - HS105
-- HS110 (supports consumption sensors)
+- HS107
+- HS110
+- KP100
 - KP105
-- KP115 (supports consumption sensors)
-- KP125 (supports consumption sensors)
+- KP115
+- KP125
+- KP401
+- EP10
 
-### Strip (Multi-Plug)
+### Power Strips
 
-- HS107 (indoor 2-outlet)
-- HS300 (powerstrip 6-outlet) (supports consumption sensors)
-- KP303 (powerstrip 3-outlet)
-- KP400 (outdoor 2-outlet)
-- KP200 (indoor 2-outlet)
-- KP40 (outdoor 2-outlet)
-- EP40 (outdoor 2-outlet)
+- EP40
+- HS300
+- KP303
+- KP400
 
-### Wall Switches
+### Wall switches
 
+- ES20M
 - HS200
 - HS210
-- HS220 (acts as a light)
+- HS220
+- KS200M
+- KS220M
+- KS230
 
 ### Bulbs
 
+- EP40
 - LB100
 - LB110
 - LB120
 - LB130
 - LB230
+- KL50
+- KL60
 - KL110
 - KL120
 - KL125
 - KL130
-- KB130
+- KL135
 
-### Light Strips
+### Light strips
 
 - KL400
 - KL420

@@ -29,7 +29,7 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 
 {% include integrations/config_flow.md %}
 
-## Entities provided by the integration is
+## Entities provided by the integration
 - Air temperature.
 - Road temperature.
 - Relative humidity.

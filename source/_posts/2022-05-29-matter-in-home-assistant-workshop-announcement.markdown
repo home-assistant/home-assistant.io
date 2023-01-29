@@ -12,7 +12,9 @@ categories:
 og_image: /images/blog/2022-05-matter-in-home-assistant-workshop-announcement/social.png
 ---
 
-<img src='/images/blog/2022-05-matter-in-home-assistant-workshop-announcement/header.png' alt="Decorative header." class='no-shadow'>
+<!--<img src='/images/blog/2022-05-matter-in-home-assistant-workshop-announcement/header.png' alt="Decorative header." class='no-shadow'>-->
+
+<lite-youtube videoid="9fOHBl5w0_k" videotitle="Matter in Home Assistant workshop"></lite-youtube>
 
 ## [The workshop instructions can be found here.](/matter-june-22)
 

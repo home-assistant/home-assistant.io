@@ -102,4 +102,4 @@ The plan is to hire developers to work fulltime on Home Assistant. We have grown
 _For more background on these topics, check out [HASS Podcast 15](https://hasspodcast.io/ha015/)._
 
 [1]: https://nolanlawson.com/2017/03/05/what-it-feels-like-to-be-an-open-source-maintainer/
-[2]: https://www.kennethreitz.org/essays/the-reality-of-developer-burnout
+[2]: https://kennethreitz.org/essays/2017/01/05/the-reality-of-developer-burnout

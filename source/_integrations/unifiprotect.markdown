@@ -38,7 +38,8 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+  - text
+ha_integration_type: hub
 ---
 
 The UniFi Protect integration adds support for retrieving Camera feeds and Sensor data from a [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on a UniFi OS Console.
@@ -53,24 +54,28 @@ This Integration supports all UniFi OS Consoles that can run UniFi Protect. Curr
 * Any UniFi "Dream" device (**UDMPRO**, **UDR**, or **UDMSE**), _except the base UniFi Dream Machine/UDM_
 * UniFi Cloud Key Gen2 Plus (**UCKP**) firmware version v2.0.24+
 
-UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware v2.0.24 or newer.
+UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware `v2.0.24` or newer.
 
 ### Software Support
 
-The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
+The absolute **minimal** software version is `v1.20.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
 
 #### About UniFi Early Access
 
-Since UniFi Protect has its own release cycle, you should only upgrade UniFi Protect _after_ the next Home Assistant release to ensure the new version is fully supported. Most importantly, that means **do not use Early Access versions of UniFi Protect if you want your UniFi Protect integration to be stable**. Early Access versions can and will break the UniFi Protect Home Assistant integration unexpectedly. If you desire to use Early Access versions of UniFi Protect, you can disable automatic updates and wait for the next bugfix version of UniFi Protect to come out.
+<div class='note warning'>
 
-For example, the latest UniFi Protect Early Access version as of `2022.5.4` is UniFi Protect `2.0.0-beta.5` and the latest Early Access version of UniFi Protect is `2.0.0-beta.7`. So that means:
+**Early Access releases are not supported by Home Assistant.**
 
-* **do not** upgrade to `2.0.0-beta.7` until `2022.5.5` or `2022.6.0` comes out
-* the recommended version of UniFi Protect are any `1.21.x` version or `2.0.0-beta` version before `2.0.0-beta.7`
+Using Early Access versions will likely cause your UniFi Protect integration to break unexpectedly.
+</div>
 
 #### Downgrading UniFi Protect
 
-In the event you accidentally upgrade to an Early Access version of UniFi Protect and it breaks your UniFi Protect Home Assistant integration, you can access your <a href="https://help.ui.com/hc/en-us/articles/204909374#h_01F8G1NSFWE9GWXMT977VQEP8V" target="_blank" rel="noopener">UniFi OS Console via SSH</a> and then do the following:
+In the event you accidentally upgrade to an Early Access version of UniFi Protect you can downgrade to a stable version by either [restoring a backup](https://help.ui.com/hc/en-us/articles/360008976393-UniFi-Backups-and-Migration) or by manually downgrading your UniFi Protect.
+
+##### Manually Downgrade
+
+Manually downgrading comes with its own risks and it is not recommended unless you do not have a backup available. Some Protect versions cannot be downgraded from (like `v2.0` to `v1.21`). To downgrade, you can access your [UniFi OS Console via SSH](https://help.ui.com/hc/en-us/articles/204909374#h_01F8G1NSFWE9GWXMT977VQEP8V) and then do the following:
 
 ```bash
 # run this command first _only_ if you are on a 1.x firmware of the UDM Pro
@@ -82,9 +87,13 @@ apt-get update
 apt-get install --reinstall --allow-downgrades unifi-protect=2.0.0~beta.5 -y
 ```
 
-You can replace `2.0.0-beta.5` with whatever version of UniFi Protect you want to downgrade to.
+You can replace `2.0.0~beta.5` with whatever version of UniFi Protect you want to downgrade to. Any dashes in the version (`-`), replace with tilde (`~`).
 
-**Note**: if you want to downgrade to another Early Access version, you must have <a href="https://help.ui.com/hc/en-us/articles/115012240067-UniFi-How-to-enable-remote-access" target="_blank" rel="noopener">Remote Access enabled</a> and have the Early Access release channel enabled.
+<div class='note'>
+
+If you want to downgrade to another Early Access version, you must have [Remote Access enabled](https://help.ui.com/hc/en-us/articles/115012240067-UniFi-How-to-enable-remote-access) and have the Early Access release channel enabled.
+
+</div>
 
 ### Local User
 
@@ -149,11 +158,12 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
   * If your camera is a G4 Doorbell Pro, an additional camera entity will be added for the Package Camera. The Package Camera entity will _not_ have streaming capabilities regardless of whether RTSPS is enabled on the channel or not. This is due to the Package Camera having a very low FPS that does not make it compatible with HLS streaming.
 * **Media Player** - If your camera has a speaker, you will get a media player entity that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say Service](/integrations/tts/#service-say).
 * **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
-* **Sensors** - Sensors include "Is Dark", "Motion Detected", "Detected Object" (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
-  * The Detected Object sensor will have the values of "none", "person", or "vehicle" based on object UniFi Protect detected.
+* **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
+  * There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected.
 * **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
   * configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
-  * configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds.
+  * configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
+  * configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
 * **Button** - A disabled by default button is added for each camera device. The button will let you reboot your camera device.
 
 ### UniFi Protect Floodlights
@@ -271,16 +281,6 @@ Removes an existing message for Doorbells.
 | `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances.  |
 | `message`              | No       | Existing custom message to remove for Doorbells.                                                             |
 
-### Service unifiprotect.set_doorbell_message
-
-Use to dynamically set the message on a Doorbell LCD screen. This service should only be used to set dynamic messages (i.e. setting the current outdoor temperature on your Doorbell). Static messages should still be set using the Select entity and can be added/removed using the `add_doorbell_text`/`remove_doorbell_text` services.
-
-| Service data attribute | Optional | Description                                                                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | No       | The Doorbell Text select entity for your Doorbell.                                                           |
-| `message`              | No       | The message you would like to display on the LCD screen of your Doorbell. Must be less than 30 characters.   |
-| `duration`             | Yes      | Number of minutes to display the message for before returning to the default message. The default is to not expire. |
-
 ### Service unifiprotect.set_chime_paired_doorbells
 
 Use to set the paired doorbell(s) with a smart chime.
@@ -301,18 +301,9 @@ These URLs work great when trying to send notifications. Home Assistant will aut
 | `/api/unifiprotect/thumbnail/{nvr_id}/{event_id}`            | Proxies a JPEG event thumbnail from UniFi Protect. |
 | `/api/unifiprotect/video/{nvr_id}/{camera_id}/{start}/{end}` | Proxies a MP4 video clip from UniFi Protect for a specific camera. Start and end must be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html). |
 
+`nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect integration. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any entity provided by the UniFi Protect integration that can be reversed to a UniFi Protect camera (i.e., an entity ID of a detected object sensor).
+
 ## Troubleshooting
-
-### Enabling Debug Logging
-
-Both the UniFi Protect integration and the Python library it uses provide debug logging that can help you with troubleshooting connectivity issues. To enable debug logging for both, add the following to your `configuration.yaml` file:
-
-```yaml
-logger:
-  logs:
-    pyunifiprotect: debug
-    homeassistant.components.unifiprotect: debug
-```
 
 ### Delay in Video Feed
 

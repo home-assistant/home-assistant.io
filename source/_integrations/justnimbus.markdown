@@ -23,7 +23,7 @@ usage.
 To configure and use this integration, you need to have a
 [JustNimbus water bag](https://justnimbus.com/regenwatersysteem/) (Dutch), and
 you need to be subscribed for the web dashboard functionality. For this configuration, you need the
-client ID from the URL. For example: `https://dashboard.justnimbus.com/api/installation/<client_id>/data`.
+client ID from the URL. For example: `https://dashboard.justnimbus.com/my-installations/<client_id>`.
 
 {% include integrations/config_flow.md %}
 

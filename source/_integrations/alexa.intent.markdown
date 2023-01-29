@@ -395,4 +395,4 @@ Alexa will now respond with a random phrase each time. You can use the include f
 [large-icon]: /images/integrations/alexa/alexa-512x512.png
 [small-icon]: /images/integrations/alexa/alexa-108x108.png
 [templates]: /topics/templating/
-[generate-long-lived-access-token]: https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token
+[generate-long-lived-access-token]: https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token

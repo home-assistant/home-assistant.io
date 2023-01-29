@@ -20,10 +20,10 @@ To enable this sensor, add the following lines to your `configuration.yaml`, it 
 ```yaml
 # Example configuration.yaml entry using cloud based Emoncms
 sensor:
-  platform: emoncms
-  api_key: API_KEY
-  url: https://emoncms.org
-  id: 1
+  - platform: emoncms
+    api_key: API_KEY
+    url: https://emoncms.org
+    id: 1
 ```
 
 As of Feb 2020, the integration will discover all sensors from Emoncms and will use the unit of measurement specified in the Feed from Emoncms, in preference to the one set in the configuration. Tested with [Emoncms](https://github.com/emoncms/emoncms) V10.1.13 - `unit` was added to the API around version V9.9.1.

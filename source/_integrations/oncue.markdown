@@ -9,6 +9,7 @@ ha_release: 2022.2
 ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
+  - '@peterager'
 ha_dhcp: true
 ha_domain: oncue
 ha_platforms:

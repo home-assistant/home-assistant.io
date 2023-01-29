@@ -8,7 +8,7 @@ ha_category:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 Keeps track which remotes are in your environment, their state and allows you to control them.

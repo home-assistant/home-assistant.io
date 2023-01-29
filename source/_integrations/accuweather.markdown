@@ -14,7 +14,7 @@ ha_platforms:
   - diagnostics
   - sensor
   - weather
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The AccuWeather integration uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location.

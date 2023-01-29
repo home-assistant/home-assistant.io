@@ -10,7 +10,7 @@ ha_platforms:
   - light
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 Keeps track which switches are in your environment, their state and allows you to control them.
