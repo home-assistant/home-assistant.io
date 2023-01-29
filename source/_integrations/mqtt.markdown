@@ -30,8 +30,10 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - tag
   - text
   - update
+  - vacuum
 ha_integration_type: integration
 ha_quality_scale: gold
 ---
