@@ -63,3 +63,6 @@ The service call will fail when no product can be found, or when no `product_id`
     config_entry_id: 6b4be47a1fa7c3764f14cf756dc9899d
     product_name: "Picnic cola zero"
 ```
+
+To find your config_entry_id open the file \config\.storage\core.config_entries
+and look for the Picnic entry and then copy the id mentioned here: "entry_id": "xxxxxxxxxxxxxxxxxxxxxxx"
