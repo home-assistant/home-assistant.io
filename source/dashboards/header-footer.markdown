@@ -73,7 +73,7 @@ entities:
       type: string
     icon:
       required: false
-      description: Override the entity icon. You can use any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
+      description: Override the entity icon. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.
       type: string
     image:
       required: false
