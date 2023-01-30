@@ -15,6 +15,11 @@ The OneTracker integration allows one to track deliveries by [OneTracker](https:
 
 The sensor value shows the number of packages that are not in `Delivered` state. As attributes are the number of packages per status.
 
+## Prerequisites
+
+To use this sensor, you need an [OneTracker Account](https://onetracker.app/signin). If you need to create an account you will need to download the [Android](https://play.google.com/store/apps/details?id=app.onetracker.android)
+or [iOS](https://itunes.apple.com/us/app/onetracker-package-tracking/id1409295535) application.
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -23,11 +28,6 @@ email:
 password:
   description: Password used for OneTracker account.
 {% endconfiguration_basic %}
-
-## Prerequisites
-
-To use this sensor, you need an [OneTracker Account](https://onetracker.app/signin). If you need to create an account you will need to download the [Android](https://play.google.com/store/apps/details?id=app.onetracker.android)
-or [iOS](https://itunes.apple.com/us/app/onetracker-package-tracking/id1409295535) application.
 
 ## Sensor
 
