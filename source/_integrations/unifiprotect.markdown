@@ -75,7 +75,7 @@ In the event you accidentally upgrade to an Early Access version of UniFi Protec
 
 ##### Manually Downgrade
 
-Manually downgrading comes with its own risks and it is not recommended unless you do not have a backup available. Some Protect versions cannot be downgraded from (like `v2.0` to `v1.21`). To downgrade, you can access your [UniFi OS Console via SSH](https://help.ui.com/hc/en-us/articles/204909374#h_01F8G1NSFWE9GWXMT977VQEP8V) and then do the following:
+Manually downgrading comes with its own risks and is not recommended unless you have a backup available. Some Protect versions cannot be downgraded from (like `v2.0` to `v1.21`). To downgrade, you can access your [UniFi OS Console via SSH](https://help.ui.com/hc/en-us/articles/204909374#h_01F8G1NSFWE9GWXMT977VQEP8V) and then do the following:
 
 ```bash
 # run this command first _only_ if you are on a 1.x firmware of the UDM Pro
