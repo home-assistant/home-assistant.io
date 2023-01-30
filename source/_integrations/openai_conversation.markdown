@@ -16,6 +16,6 @@ The OpenAI integration adds a conversation agent powered by [OpenAI](https://www
 
 This conversation agent is unable to control your house. It can only query information that has been provided by Home Assistant. To be able to answer questions about your house, Home Assistant will need to provide OpenAI with the details of your house, which include areas, devices and their states.
 
-This integration requires an API key to use, [which you can generate here.](https://beta.openai.com/account/api-keys).
+This integration requires an API key to use, [which you can generate here](https://beta.openai.com/account/api-keys).
 
 {% include integrations/config_flow.md %}
