@@ -28,7 +28,7 @@ password:
   type: string
 {% endconfiguration_basic %}
 
-## Setup
+## Prerequisites
 
 To use this sensor, you need an [OneTracker Account](https://onetracker.app/signin). If you need to create an account you will need to download the [Android](https://play.google.com/store/apps/details?id=app.onetracker.android)
 or [iOS](https://itunes.apple.com/us/app/onetracker-package-tracking/id1409295535) application.
