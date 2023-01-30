@@ -47,14 +47,11 @@ schema:
   required: false
   type: list
   keys:
-    name:
-      description: Then `name` of the field to identify the parameter exposed in variables passed to the `command_template`.
-      required: true
-      type: string
-    type:
-      description: The `type` of the parameter that is to be used. It must be set to a [supported service parameter type](/integrations/service.mqtt/#service-parameter-types).
-      required: true
-      type: string
+    custom_value:
+      description: When a `select` or `dropdown` type is used (see `type`), this option allows to set a value that is not in the list.
+      required: false
+      type: boolean
+      default: false
     description:
       description: The description of the parameter shown in the UI.
       required: false
@@ -63,41 +60,44 @@ schema:
       description: The example text shown with the parameter. If not set a default suggestion is shown depending on `type`. The default example is shown in the table below.
       required: false
       type: string
-    options:
-      description: When a `select` or `dropdown` type is used, this provides the options shown. The list can be a simple list of strings or a list of `value` and `label` key pairs.
-      required: false
-      type: list
-      keys:
-        value:
-          description: The value for the `option` that is expose to the `command_template` variables. Must be configured with label.
-          required: false
-          type: string
-        label:
-          description: The label shown in the UI for the `option`.  Must be configured with value.
-          required: false
-          type: string
+    exclusive:
+      description: Makes the service parameter exclusive from other service parameters that have the same `exclusive` key set. Cannot be used with `inclusive` or `required`.
+      required: exclusive
+      type: string
+    inclusive:
+      description: Makes the service parameter inclusive with other service parameters that have the same `inclusive` key set. Cannot be used with `exclusive` or `required`.
+      required: exclusive
+      type: string
     multiple:
       description: When a `select` or `dropdown` type is used, this option is set to allow multiple options to be selected.
       required: false
       type: boolean
       default: false
-    custom_value:
-      description: When a `select` or `dropdown` type is used, this option allows to set a value that is not in the list.
-      required: false
-      type: boolean
-      default: false
-    required:
-      description: Makes the service parameter required.
-      required: false
-      type: boolean
-      default: false
-    exclusive:
-      description: Makes the service parameter exclusive from other service parameters that have the same `exclusive` key set.
-      required: false
+    name:
+      description: Then `name` of the field to identify the parameter exposed in variables passed to the `command_template`.
+      required: true
       type: string
-    inclusive:
-      description: Makes the service parameter inclusive with other service parameters that have the same `inclusive` key set.
+    options:
+      description: When a `select` or `dropdown` is set as `type`, this value must provide the options that are available. The list can be a simple list of strings or a list of `value` and `label` key pairs.
       required: false
+      type: list
+      keys:
+        label:
+          description: The label shown in the UI for the `option`.  Must be configured with value.
+          required: inclusive
+          type: string
+        value:
+          description: The value for the `option` that is expose to the `command_template` variables. Must be configured with label.
+          required: inclusive
+          type: string
+    required:
+      description: Makes the service parameter required. Cannot be used with `exclusive` or `inclusive`.
+      required: exclusive
+      type: boolean
+      default: false
+    type:
+      description: The `type` of the parameter that is to be used. It must be set to a [supported service parameter type](/integrations/service.mqtt/#service-parameter-types).
+      required: true
       type: string
 {% endconfiguration %}
 
