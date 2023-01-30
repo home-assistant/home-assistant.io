@@ -12,7 +12,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@tkdrob'
-ha_integration_type: device
+ha_integration_type: service
 ---
 
 The Google Mail integration allows you to connect your [Google Mail](https://mail.google.com) to Home Assistant. The integration adds a service to allow you to set an email auto-response for when you go on vacation. A `notify` service is also added, allowing you to draft or send emails in plain text.

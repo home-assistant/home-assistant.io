@@ -23,6 +23,7 @@ ha_platforms:
   - diagnostics
   - fan
   - humidifier
+  - light
   - lock
   - number
   - scene
@@ -31,7 +32,9 @@ ha_platforms:
   - siren
   - switch
   - text
+  - tag
   - update
+  - vacuum
 ha_integration_type: integration
 ha_quality_scale: gold
 ---

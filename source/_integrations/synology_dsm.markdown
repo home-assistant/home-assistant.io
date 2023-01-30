@@ -23,6 +23,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
 The Synology DSM integration provides access to various statistics from your [Synology NAS](https://www.synology.com) (_DSM 5.x and higher_) as well as cameras from the [Surveillance Station](https://www.synology.com/en-us/surveillance).

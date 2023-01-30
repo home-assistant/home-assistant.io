@@ -1,5 +1,5 @@
 ---
-title: Reolink NVR/camera
+title: Reolink IP NVR/camera
 description: Instructions on how to integrate Reolink devices (NVR/cameras) into Home Assistant.
 ha_category:
   - Camera
@@ -7,11 +7,13 @@ ha_iot_class: Local Polling
 ha_release: 2023.1
 ha_domain: reolink
 ha_codeowners:
-  - "@starkillerOG"
+  - '@starkillerOG'
 ha_config_flow: true
 ha_platforms:
-  - Camera
+  - binary_sensor
+  - camera
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 The integration allows you to control [Reolink](https://reolink.com/) NVRs or cameras.

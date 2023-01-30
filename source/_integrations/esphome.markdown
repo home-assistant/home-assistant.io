@@ -4,6 +4,7 @@ description: Support for ESPHome devices using the native ESPHome API.
 featured: true
 ha_category:
   - DIY
+  - Update
 ha_release: 0.85
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -27,6 +28,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - update
 ha_integration_type: device
 ha_dhcp: true
 works_with:
