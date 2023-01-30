@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `OneTracker` platform allows one to track deliveries by [OneTracker](https://onetracker.app), a service that supports 490+ couriers worldwide. To use the tracking API functionality, the Essentials plan is required. This plan includes 100 shipments per month. There are various paid-for tiers after that.
+The OneTracker integration allows one to track deliveries by [OneTracker](https://onetracker.app), a service that supports 490+ couriers worldwide. To use the tracking API functionality, the Essentials plan is required. This plan includes 100 shipments per month. There are various paid-for tiers after that.
 
 The sensor value shows the number of packages that are not in `Delivered` state. As attributes are the number of packages per status.
 
@@ -20,12 +20,8 @@ The sensor value shows the number of packages that are not in `Delivered` state.
 {% configuration_basic %}
 email:
   description: Email used for OneTracker account.
-  required: true
-  type: string
 password:
   description: Password used for OneTracker account.
-  required: true
-  type: string
 {% endconfiguration_basic %}
 
 ## Prerequisites
