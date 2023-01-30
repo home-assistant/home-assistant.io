@@ -119,7 +119,7 @@ GEM
     tzinfo-data (1.2022.7)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.4.2)
-    webrick (1.8.0)
+    webrick (1.8.1)
 
 PLATFORMS
   ruby
