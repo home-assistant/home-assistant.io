@@ -13,7 +13,7 @@ categories:
 og_image: /images/blog/2023-02/social.png
 ---
 
-<!--<a href='/integrations/#version/2023.2'><img src='/images/blog/2023-02/social.png' style='border: 0;box-shadow: none;'></a>-->
+<a href='/integrations/#version/2023.2'><img src='/images/blog/2023-02/social.png' style='border: 0;box-shadow: none;'></a>
 
 <!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
 
@@ -65,9 +65,9 @@ Enjoy the (beta) release!
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=lorem) 1 February 2023, at 12:00 PST / 21:00 CET!
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=S3XRVsqRX9k) 1 February 2023, at 12:00 PST / 21:00 CET!
 
-<!--<lite-youtube videoid="lorem" videotitle="Home Assistant 2023.2 Release Party"></lite-youtube>-->
+<lite-youtube videoid="S3XRVsqRX9k" videotitle="Home Assistant 2023.2 Release Party"></lite-youtube>
 
 ## Introducing Assist!
 

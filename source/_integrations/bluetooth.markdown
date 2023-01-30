@@ -92,6 +92,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - QGOO BT-06A (CSR8510A10)
 - ROCKETEK BT4Y (CSR8510A10)
 - SABRENT BT-UB40 (CSR8510A10)
+- Sena UD100-G03 (CSR8510A10) 📶
 - StarTech USBBT1EDR4 (CSR8510A10)
 - Techkey PBT06H (CSR8510A10)
 - TRENDnet TBW-107UB (CSR8510A10)

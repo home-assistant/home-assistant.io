@@ -8,7 +8,7 @@ ha_release: 2023.1
 ha_config_flow: true
 ha_domain: google_assistant_sdk
 ha_codeowners:
-  - "@tronikos"
+  - '@tronikos'
 ha_integration_type: service
 ha_platforms:
   - notify
