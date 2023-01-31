@@ -2,8 +2,6 @@
 title: "Assist on Android."
 ---
 
-_The new tile is currently available in the [Android beta](https://play.google.com/apps/testing/io.homeassistant.companion.android) and will be part of the next Android release._
-
 Assist is available on WearOS using the [Home Assistant Companion App](https://companion.home-assistant.io/) and "Assist" tile.
 
 <lite-youtube videoid="Dr_ZCbt8w5k" videotitle="Assist on Android Wear"></lite-youtube>
