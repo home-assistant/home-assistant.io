@@ -18,3 +18,10 @@ We appreciate that people want to help others, but if you don't have the knowled
 Using an AI system to generate an answer while not providing attribution to AI will result in a ban. If you use attribution, we will delete your post and issue a warning. This also means suggesting someone "ask ChatGPT" is not an acceptable response.
 
 If AI systems get better, we will revisit this rule.
+
+To clarify as a result of questions on the linked forum thread:
+
+1. If you respond to someone by simply asking the question to ChatGPT and then reposting whatever it says unsourced and untested you’ll be banned.
+1. Same as above but you attribute it to ChatGPT you’ll be warned to stop doing that
+1. If you respond by saying “go ask ChatGPT” you’ll be warned to stop doing that. Since that is basically the same as #2 (sharing exactly what ChatGPT says in response but attributed to ChatGPT)
+1. If you go ask ChatGPT, review the response, test it, correct the flaws and then post a working solution - you’ll probably get a solution checkmark and be celebrated as a great member of the community
