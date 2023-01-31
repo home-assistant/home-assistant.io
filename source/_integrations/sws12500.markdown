@@ -1,0 +1,49 @@
+---
+title: "Sencor SWS 12500 Weather Station"
+description: "Integration of SWS 12500 weather station."
+ha_release: "2023.1.8"
+ha_category: Weather
+ha_iot_class: "Local Push"
+ha_config_flow: "true"
+ha_codeowners:
+  - '@schizza'
+ha_domain: sws12500
+ha_platforms:
+  - sensor
+---
+*Integrates your weather station seamlessly into Home Assistant.*
+
+This integration will listen for data from your station and passes them into respective sensors.
+
+## Requirements
+
+- [Sencor SWS 12500 Weather Station](https://www.sencor.cz/profesionalni-meteorologicka-stanice/sws-12500)
+- Station set to send data directly to Home Assistant
+- Open communication between station and HA
+
+## Configure your station in AP mode
+
+You need to configure your station in AP mode to send data to your local HA installation.
+
+- hold WiFi button on the back of station for 6 seconds until AP will flash on display.
+- select your station from available APs on your computer
+- connect to station's setup page: `http://192.168.1.1` from your browser
+- in the third URL section fill in address to your local HA installation
+- fill in `ID` and `KEY`. You can use [online tool](https://www.allkeysgenerator.com/Random/Security-Encryption-Key-Generator.aspx) to generate random keys.
+
+  ![station_setup](/images/integrations/sws12500/station_hint.png)
+
+Now *Let's add the integration to HA*
+
+{% include integrations/config_flow.md %}
+
+Once integration is installed to Home Assistant, you need to provide set of `API_ID` and `API_KEY` as you defined them in your station:
+
+```plain
+API_ID: ID in station's config
+API_KEY: PASSWORD in station's config
+```
+
+If your security data is changed for some reason, you need to reconfigure the platform.
+
+As soon as the integration is added into HA it will listen for incoming data from station and starts to fill sensors as soon as data will first arrive.
