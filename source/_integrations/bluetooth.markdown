@@ -92,6 +92,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - QGOO BT-06A (CSR8510A10)
 - ROCKETEK BT4Y (CSR8510A10)
 - SABRENT BT-UB40 (CSR8510A10)
+- Sena UD100-G03 (CSR8510A10) 📶
 - StarTech USBBT1EDR4 (CSR8510A10)
 - Techkey PBT06H (CSR8510A10)
 - TRENDnet TBW-107UB (CSR8510A10)
@@ -119,6 +120,7 @@ There is currently no supported method to install these patch files when using H
 - IOGEAR GBU521W6 (BCM20702A0)
 - INSIGNIA NS-PCY5BMA (BCM20702A0)
 - Kinivo BTD-400 (BCM20702A0)
+- LM Technologies LM506 (BCM20702A1)
 - LM Technologies LM1010 (BCM20702A0) 📶
 - Plugable USB-BT4LE (BCM20702A0)
 - SoundBot SB342 (BCM20702A0)
@@ -170,6 +172,7 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 - ISEKIE KW-B3519 (RTL8761BU)
 - Maxuni BT-501 (RTL8761BU)
 - MPOW BH45A (RTL8761BU)
+- Plugable USB-BT5 (RTL8761BU)
 - StarTech USBA-BLUETOOTH-V5-C2 (RTL8761BU)
 - SUMEE BT501 (RTL8761BU)
 - UGREEN CM390 (RTL8761BU)
