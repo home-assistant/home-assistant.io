@@ -11,5 +11,5 @@ ha_integration_type: service
 ha_config_flow: true
 ---
 
-The Thread integration is currently a placheolder, but will manage Thread network credentials in a future release.
+The Thread integration is currently a placeholder, but will manage Thread network credentials in a future release.
 The integration is automatically setup when the "Silicon Labs Multiprotocol" add-on is installed.
