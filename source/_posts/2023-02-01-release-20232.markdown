@@ -26,9 +26,6 @@ It is hard to sum up all of this in this release blog, so I'm not even going
 to try doing it in this introduction, but holy mother of smart homes: this is
 exciting stuff! 😮
 
-Some great quality-of-life improvements for sensors: Removing the need for
-quite a bit of templating, making it all more accessible for everybody!
-
 My personal favorite this release: huge steps into an even tighter integration
 with our amazing sister project: [ESPHome](https://esphome.io). Creating
 and maintaining your own DIY IoT devices just became a lot easier.
@@ -89,7 +86,7 @@ at the top right of your dashboard to start using it.
 Oh, and we are also releasing some fun stuff we've cooked up along the way!
 [Read more about Assist](/docs/assist/) and other released voice features in the
 [Chapter 1: Assist](/blog/2023/01/26/year-of-the-voice-chapter-1/) blogpost
-and a video presentation (includes live demos) [on YouTube](https://www.youtube.com/live/ixgNT3RETPg).
+and a [video presentation (including live demos) on YouTube](https://www.youtube.com/live/ixgNT3RETPg).
 
 ## Streaming history
 
@@ -101,7 +98,10 @@ happening and update the graphs in real-time 😲
 These history cards now show live power usage, while I'm brewing a cup of coffee.
 </p>
 
-As a result of that, we can now write less frequently to the database in our
+But this isn't just limited to history cards, your
+{% my history title="history dashboard" %} is now live too!
+
+As a result of this all, we can now write less frequently to the database in our
 recorder. It took years of changes to get us to this point (thanks [@bdraco] 🙏).
 It greatly reduces resource usage and increases storage lifetimes significantly.
 The previously introduced live logbook and now the live history were the
@@ -112,11 +112,10 @@ experienced re-opening the iOS companion app when using history cards.
 
 ## Grouping sensors
 
-The [group helper](/integrations/group) now support sensors too!
-
-Sensor groups can combine entities with a numeric state, like
-[sensors](/integrations/sensor), [number](/integrations/number),
-and [number helpers](/integrations/input_number) entities.
+The [group helper](/integrations/group) now support sensors too! Sensor groups
+can combine entities with a numeric state, like [sensors](/integrations/sensor),
+[number](/integrations/number), and [number helpers](/integrations/input_number)
+entities.
 
 <img class="no-shadow" src='/images/blog/2023-02/sensor-groups.png' alt='Screenshot the process of adding a new sensor group'>
 
