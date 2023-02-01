@@ -321,7 +321,7 @@ We welcome the following new integrations in this release:
   a notify service to draft or send emails.
 
 - [LD2410 BLE], added by [@930913]<br />
-  Integrates a [$4 LD2410B-P Bluetooth mmwave sensor], which works with our
+  Integrates a [$4 LD2410 Bluetooth mmWave sensor], which works with our
   Bluetooth proxies!
 
 - [Mopeka], added by [@bdraco]<br />
@@ -374,7 +374,7 @@ findability. These are new:
 [@kvanzuijlen]: https://github.com/kvanzuijlen
 [@OnFreund]: https://github.com/OnFreund
 [@tkdrob]: https://github.com/tkdrob
-[$4 LD2410B-P Bluetooth mmwave sensor]: https://www.aliexpress.com/item/1005004351593073.html
+[$4 LD2410 Bluetooth mmWave sensor]: https://www.aliexpress.com/item/1005004351593073.html
 [Android TV]: /integrations/androidtv
 [ANWB Energie]: /integrations/anwb_energie
 [Energie VanOns]: /integrations/energie_vanons
