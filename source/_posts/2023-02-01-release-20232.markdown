@@ -101,36 +101,22 @@ Note: This is a temporary placeholder screenshot. Needs replacement.
 
 ## Streaming history
 
-{% details "TODO" %}
-
-- Add story
-- Spelling/grammar
-- Add fresh animation?
-- Add support for streaming (push) history ([@bdraco] - [#85892]) ([history docs]) (noteworthy)
-- Increase default recorder commit interval to 5 seconds ([@bdraco] - [#86115]) ([recorder docs]) (breaking-change) (noteworthy)
-- Improve performance of fetching and storing history and events with the database ([@bdraco] - [#84870]) ([recorder docs]) (breaking-change) (noteworthy)
-- Add support for streaming history (#15112) @bdraco
-  - https://github.com/home-assistant/frontend/pull/15112
-- Should also resolve more authentication errors/bans (e.g. on iOS)
-
-{% enddetails %}
-
-Graphs shown in history, are now (streaming) updates live! That means
-you can see them update in real-time 😲
+History cards now update live! We now stream the state changes while they are
+happening and update the graphs in real-time 😲
 
 <p class='img'>
-<img src='https://user-images.githubusercontent.com/663432/212584923-2148b052-d1d8-4e26-a958-1a21c98078bb.gif' alt='Temporary placeholder screenshot. Needs replacement.'></a>
-Note: This is a temporary placeholder screenshot. Needs replacement.
+<img src='/images/blog/2023-02/streaming-history-cards.gif' alt='Screenshot showing a history card presenting the power usage of a kitching coffeemaker, updating live while brewing coffee'></a>
+These history cards now show live power usage, while I'm brewing a cup of coffee.
 </p>
 
 As a result of that, we can now write less frequently to the database in our
-recorder. It took years of changes to get us to this point (thanks [@bdraco] 🙏),
-it greatly reduces I/O and increases storage lifetimes significantly. The
-previously introduces live logbook and now the live history are only the last
-pieces that made this possible.
+recorder. It took years of changes to get us to this point (thanks [@bdraco] 🙏).
+It greatly reduces resource usage and increases storage lifetimes significantly.
+The previously introduced live logbook and now the live history were the
+last pieces that made this possible.
 
 As a side-effect, it should also resolve the authentication errors some people
-experienced when re-opening the iOS companion app.
+experienced re-opening the iOS companion app when using history cards.
 
 ## Changing the precision of a sensor
 
