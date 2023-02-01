@@ -28,7 +28,7 @@ exciting stuff! 😮
 
 My personal favorite this release: huge steps into an even tighter integration
 with our amazing sister project: [ESPHome](https://esphome.io). Creating
-and maintaining your own DIY IoT devices just became a lot easier.
+and maintaining your own secure DIY IoT devices just became a lot easier.
 
 And since we are talking about awesomeness, have you noticed the large amount
 of logos in the release image above? So many new integrations! 🤩 
@@ -173,7 +173,7 @@ There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
 - You can now add aliases to your areas too! Our new Assist feature
-  leverages this!
+  leverages this.
 - Got an energy sensor in `Wh`, but you'd like it to be `kWh`? You can now
   change the units of energy sensors in the entity settings.
 - Each entity in the frontend has its own color, which is based on the current
@@ -195,12 +195,15 @@ noteworthy changes this release:
 - The [Tile card] now has a vertical option! Great, [@TheZoker]!
 - [Jellyfin] now works with TV shows in the media browser. Thanks, [@j-stienstra]!
 - We have bumped the CHIP/Matter SDK version used by our [Matter] implementation
-  to 1.0.0.2, which according to [their release notes], contains many fixes.
+  to 1.0.0.2, which [contains many fixes].
 - From the Month of "What the heck?": Old-style [groups] can now remove entities
   from the group using the `group.set` service. Thanks, [@gjohansson-ST]!
 - You might have noticed a [Thread] and an [Open Thread Border Router] integration
   being added to this release. These are currently not for active use but for
   initial early development.
+- The experimental multi-pan feature has been enabled again. Allowing to run
+  both Zigbee and Thread using the single radio found in both Home Assistant
+  Yellow and Home Assistant SkyConnect.
 - The following integrations now reached a [Platinum] level on the
   [integration quality scale]:
   - [Renault] excellent job [@epenet]!
@@ -228,7 +231,7 @@ noteworthy changes this release:
 [Renault]: /integrations/renault
 [Reolink]: /integrations/reolink
 [service]: /integrations/calendar/#services
-[their release notes]: https://github.com/project-chip/connectedhomeip/releases/tag/v1.0.0.2
+[contains many fixes]: https://github.com/project-chip/connectedhomeip/releases/tag/v1.0.0.2
 [Thread]: /integrations/thread
 [Tile card]: /dashboards/tile/
 [UniFi Network]: /integrations/unifi
