@@ -54,8 +54,8 @@ Enjoy the (beta) release!
 
 - [Introducing Assist!](#introducing-assist)
 - [Streaming history](#streaming-history)
-- [Sensor groups](#sensor-groups)
-- [Sensor precision](#sensor-precision)
+- [Changing precision of a sensor](#changing-precision-of-a-sensor)
+- [Grouping sensors](#grouping-sensors)
 - [Now even tighter integrated with ESPHome](#now-even-tighter-integrated-with-esphome)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
@@ -140,7 +140,26 @@ pieces that made this possible.
 As a side-effect, it should also resolve the authentication errors some people
 experienced when re-opening the iOS companion app.
 
-## Sensor groups
+## Changing the precision of a sensor
+
+Got a sensor that has too many decimals in its numeric value for your use case?
+Would you like it to be rounded to fewer decimals or maybe even a
+nice round number?
+
+Just ~~create a template sensor~~ change its precision directly from the UI!
+
+<img class="no-shadow" src='/images/blog/2023-02/entity-precision.png' alt='Screenshot showing one can adjust the precision of a sensor entity from the Home Assistant UI'>
+
+Previously, this would generally need a template sensor and would have resulted
+in having two entities, which is far from efficient from a resource perspective
+and not that user friendly-either.
+
+This new setting makes it easier. It is a true entity setting, which means that
+changing the precision will actually affect the entity state. It applies to
+your dashboard and everything that uses the entity, including automations
+and recorded history.
+
+## Grouping sensors
 
 {% details "TODO" %}
 
@@ -150,6 +169,8 @@ experienced when re-opening the iOS companion app.
 - Add sensor to group ([@gjohansson-ST] - [#83186]) ([group docs]) (new-platform) (noteworthy)
 
 {% enddetails %}
+
+But wait, there is more sensor goodness in this release.
 
 You can now create sensor groups! To add one, go to Settings -> Device & Services
 -> Helpers tab -> Create helper -> Group -> Sensor group.
