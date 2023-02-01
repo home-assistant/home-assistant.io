@@ -189,8 +189,8 @@ noteworthy changes this release:
   Thanks, [@starkillerOG]!
 - There is now a [service] that allows for the creation of calendar events. So,
   you can now automate events to be added to your calendars! Amazing, [@allenporter]!
-- When selecting an entity from a list in the UI, it will now exclude already
-  added entities. Helpful! Thanks, [@piitaya]!
+- When selecting multiple entities from a list in the UI, it will now exclude
+  already added entities. No more accidentally added duplicates! Thanks, [@piitaya]!
 - [@Kane610] added PoE power sensors to the [UniFi Network] integrations, nice!
 - The [Tile card] now has a vertical option! Great, [@TheZoker]!
 - [Jellyfin] now works with TV shows in the media browser. Thanks, [@j-stienstra]!
