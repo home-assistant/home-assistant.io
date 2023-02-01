@@ -197,7 +197,7 @@ noteworthy changes this release:
 - Got an energy sensor in `Wh`, but you'd like it to be `kWh`? You can now
   change the units of energy sensors in the entity settings.
 - Each entity in the frontend has its own color, which is based on the current
-- entity state. We now have [officially added support](/integrations/frontend/#state-color)
+  entity state. We now have [officially added support](/integrations/frontend/#state-color)
   for themes to customize these.
 - The most awesome integration of all, got even better. [@Lash-L] added support
   for the battery state of your [Oral-B] toothbrush!
