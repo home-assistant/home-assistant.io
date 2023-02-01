@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2023.2: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2023.2."
-date: 2023-01-25 00:00:00
+title: "2023.2: How can I Assist?"
+description: "Meet: Assist! Our new assistant! Furthermore, an even tighter integration with ESPHome, streaming history graphs, sensor groups, and more than 15 new integrations!"
+date: 2023-02-01 00:00:00
 date_formatted: "February 1, 2023"
 author: Franck Nijhof
 author_twitter: frenck
