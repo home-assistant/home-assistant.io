@@ -88,6 +88,8 @@ Oh, and we are also releasing some fun stuff we've cooked up along the way!
 [Chapter 1: Assist](/blog/2023/01/26/year-of-the-voice-chapter-1/) blogpost
 and a [video presentation (including live demos) on YouTube](https://www.youtube.com/live/ixgNT3RETPg).
 
+<lite-youtube videoid="ixgNT3RETPg" videotitle="Year of the Voice - Chapter 1"></lite-youtube>
+
 ## Streaming history
 
 History cards now update live! We now stream the state changes while they are
@@ -112,7 +114,7 @@ experienced re-opening the iOS companion app when using history cards.
 
 ## Grouping sensors
 
-The [group helper](/integrations/group) now support sensors too! Sensor groups
+The [group helper](/integrations/group) now supports sensors too! Sensor groups
 can combine entities with a numeric state, like [sensors](/integrations/sensor),
 [number](/integrations/number), and [number helpers](/integrations/input_number)
 entities.
