@@ -46,7 +46,6 @@ _PS: Just a reminder that valentine's day is coming up. Be sure to share the lov
 
 - [Meet: Assist!](#meet-assist)
 - [Streaming history](#streaming-history)
-- [Changing the precision of a sensor](#changing-the-precision-of-a-sensor)
 - [Grouping sensors](#grouping-sensors)
 - [Now even tighter integrated with ESPHome](#now-even-tighter-integrated-with-esphome)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -111,29 +110,9 @@ last pieces that made this possible.
 As a side-effect, it should also resolve the authentication errors some people
 experienced re-opening the iOS companion app when using history cards.
 
-## Changing the precision of a sensor
-
-Got a sensor that has too many decimals in its numeric value for your use case?
-Would you like it to be rounded to fewer decimals or maybe even a
-nice round number?
-
-Just ~~create a template sensor~~ change its precision directly from the UI!
-
-<img class="no-shadow" src='/images/blog/2023-02/entity-precision.png' alt='Screenshot showing one can adjust the precision of a sensor entity from the Home Assistant UI'>
-
-Previously, this would generally need a template sensor and would have resulted
-in having two entities, which is far from efficient from a resource perspective
-and not that user-friendly either.
-
-This new setting makes it easier. It is a true entity setting, which means that
-changing the precision will actually affect the entity state. It applies to
-your dashboard and everything that uses the entity, including automations
-and recorded history.
-
 ## Grouping sensors
 
-But wait, there is more sensor goodness in this release. The
-[group helper](/integrations/group) now support sensors too!
+The [group helper](/integrations/group) now support sensors too!
 
 Sensor groups can combine entities with a numeric state, like
 [sensors](/integrations/sensor), [number](/integrations/number),
