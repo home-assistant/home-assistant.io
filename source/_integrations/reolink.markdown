@@ -1,5 +1,5 @@
 ---
-title: Reolink NVR/camera
+title: Reolink IP NVR/camera
 description: Instructions on how to integrate Reolink devices (NVR/cameras) into Home Assistant.
 ha_category:
   - Camera
@@ -10,8 +10,10 @@ ha_codeowners:
   - '@starkillerOG'
 ha_config_flow: true
 ha_platforms:
-  - Camera
+  - binary_sensor
+  - camera
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 The integration allows you to control [Reolink](https://reolink.com/) NVRs or cameras.
@@ -23,14 +25,28 @@ A Reolink user account with admin privileges is needed for the proper operation 
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
 Protocol:
-  description: Switch between RTSP or RTMP streaming protocol. 
+  description: Switch between RTSP, RTMP or FLV streaming protocol.
 {% endconfiguration_basic %}
 
 ## Camera streams
 
 This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, and Snapshots.
 The Sub stream camera entity is enabled by default; the other streams are disabled by default.
-The snapshots stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the hi-res RTMP/RTSP video stream has too much lag.
+The Images stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the RTMP/RTSP/FLV video stream has too much lag.
+
+## Binary sensors
+
+Depending on the supported features of the camera binary sensors are added for:
+
+- Motion detection
+- Doorbell presses
+- AI person detection
+- AI vehicle detection
+- AI pet detection
+- AI face detection
+
+These sensors are polled every 60 seconds and receive ONVIF push events for immediate updates.
+Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
 
 ## Tested models
 

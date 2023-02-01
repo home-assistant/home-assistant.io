@@ -33,8 +33,8 @@ The type of data a number represents impacts how it is displayed in the frontend
 - **data_rate**: Data rate in bit/s, kbit/s, Mbit/s, Gbit/s, B/s, kB/s, MB/s, GB/s, KiB/s, MiB/s, or GiB/s
 - **data_size**: Data size in bit, kbit, Mbit, Gbit, B, kB, MB, GB, TB, PB, EB, ZB, YB, KiB, MiB, GiB, TiB, PiB, EiB, ZiB, or YiB
 - **distance**: Generic distance in km, m, cm, mm, mi, yd, or in
-- **energy**: Energy in Wh, kWh or MWh
-- **frequency**: Frequency in Hz, kHz, MHz or GHz
+- **energy**: Energy in Wh, kWh, MWh, MJ, or GJ
+- **frequency**: Frequency in Hz, kHz, MHz, or GHz
 - **gas**: Gasvolume in m³, ft³, or CCF
 - **humidity**: Percentage of humidity in the air
 - **illuminance**: The current light level in lx
@@ -58,7 +58,7 @@ The type of data a number represents impacts how it is displayed in the frontend
 - **sound_pressure**: Sound pressure in dB or dBA
 - **speed**: Generic speed in ft/s, in/d, in/h, km/h, kn, m/s, mph, or mm/d
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
-- **temperature**: Temperature in °C or °F
+- **temperature**: Temperature in °C, °F or K
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
 - **voltage**: Voltage in V, mV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
