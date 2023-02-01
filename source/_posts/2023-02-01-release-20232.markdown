@@ -323,7 +323,7 @@ findability. These are new:
 [Mijndomein Energie]: /integrations/mijndomein_energie
 [Mopeka]: /integrations/mopeka
 [OpenAI Conversation]: /integrations/openai_conversation
-[Read Your Meter Pro]: /intgrations/rympro
+[Read Your Meter Pro]: /integrations/rympro
 [Ruuvi Gateway]: /integrations/ruuvi_gateway
 [SFR Box]: /integrations/sfr_box
 [Starlink]: /integrations/starlink
