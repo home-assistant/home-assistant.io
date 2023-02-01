@@ -152,7 +152,7 @@ Just ~~create a template sensor~~ change its precision directly from the UI!
 
 Previously, this would generally need a template sensor and would have resulted
 in having two entities, which is far from efficient from a resource perspective
-and not that user friendly-either.
+and not that user-friendly either.
 
 This new setting makes it easier. It is a true entity setting, which means that
 changing the precision will actually affect the entity state. It applies to
@@ -161,26 +161,26 @@ and recorded history.
 
 ## Grouping sensors
 
-{% details "TODO" %}
+But wait, there is more sensor goodness in this release. The
+[group helper](/integrations/group) now support sensors too!
 
-- Add story
-- Spelling/grammar
-- Keep or move to other noteworthy?
-- Add sensor to group ([@gjohansson-ST] - [#83186]) ([group docs]) (new-platform) (noteworthy)
+Sensor groups can combine entities with a numeric state, like
+[sensors](/integrations/sensor), [number](/integrations/number),
+and [number helpers](/integrations/input_number) entities.
 
-{% enddetails %}
+<img class="no-shadow" src='/images/blog/2023-02/sensor-groups.png' alt='Screenshot the process of adding a new sensor group'>
 
-But wait, there is more sensor goodness in this release.
+{% my config_flow_start badge domain="group" %}
 
-You can now create sensor groups! To add one, go to Settings -> Device & Services
--> Helpers tab -> Create helper -> Group -> Sensor group.
+This feature is a revised, improved, and more logical version of the
+"Min/Max" integration / "Combine the state of several sensors" helper.
+It is likely we are going to replace those with this new sensor group
+in the future.
 
-Sensor groups are able to combine sensor, number and number helpers entities.
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/195327/214066635-82a56f21-bd33-4adf-b292-d7023817b550.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
-Note: This is a temporary placeholder screenshot. Needs replacement.
-</p>
+Compared to those previously mentioned methods, the sensor groups have the
+additional options to hide their member entities and the option to ignore
+sensors that currently are not in a numeric state (i.e., currently "unavailable"
+or "unknown").
 
 ## Now even tighter integrated with ESPHome
 
