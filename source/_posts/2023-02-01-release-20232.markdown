@@ -427,20 +427,9 @@ other news about building an Open Home; straight into your inbox.
 
 ## Breaking Changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-- Update docs for:
-  - Fix logic of disabled condition for "OR" ([@karliemeads] - [#79718]) (breaking-change)
-
-
-**Note**: Breaking changes processed up to PR 86470
-
-{% enddetails %}
-
 {% details "Python 3.9 support has been removed" %}
 
-Python 3.9 support has previously been deprecated and now has been removed.
+Python 3.9 support has previously been deprecated and has now been removed.
 Home Assistant now requires Python 3.10 to run.
 
 If you are using Home Assistant OS, Home Assistant Container, or Home Assistant
@@ -458,9 +447,9 @@ Your system has been using Python 3.10 for quite some time already.
 
 {% details "Automations & Scripts" %}
 
-A disabled condition, in for example an automation or script, will no longer
+A disabled condition, for example, in an automation or script, will no longer
 always be a pass/`True` within an `OR` condition. Instead, in those
-cases the condition will now have no effect when disabled.
+cases, the condition will now have no effect when disabled.
 
 ([@karliemeads] - [#79718]) ([documentation](/integrations/automations))
 
@@ -471,9 +460,9 @@ cases the condition will now have no effect when disabled.
 
 {% details "AccuWeather" %}
 
-For precipitation entity, the unit was changed from `mm` to `mm/h`
-(`in` to `in/h`), which will result in the need to fix the unit for 
-long-term statistics. You can do that in `Developer Tools` -> `Stats`.
+For the precipitation entity, the unit was changed from `mm` to `mm/h`
+(`in` to `in/h`), resulting in the need to fix the unit for long-term
+statistics. You can do that in `Developer Tools` -> `Stats`.
 
 ([@bieniu] - [#86088]) ([documentation](/integrations/accuweather))
 
@@ -501,7 +490,7 @@ them to match this change.
 {% details "Fitbit" %}
 
 The state values of the Fitbit sensor entities will change to remove any
-thousands delimiters. For example: `1,500` will become `1500`.
+thousands delimiters. For example, `1,500` will become `1500`.
 
 If you're using the state of these entities in automations or scripts,
 you need to update them to handle the new state format.
@@ -532,9 +521,9 @@ and notifications are checked every 5 minutes.
 
 The `use_include_order` YAML configuration option has been removed.
 
-This option was used to sort the history on the original history panel which
+This option was used to sort the history on the original history panel which,
 is no longer used. As it no longer has a function and only serves to
-slow down the response it has been removed.
+slow down the response, it has been removed.
 
 ([@bdraco] - [#86365]) ([documentation](/integrations/history))
 
@@ -546,10 +535,10 @@ slow down the response it has been removed.
 {% details "IoTaWatt" %}
 
 The IoTAWatt integration no longer provides sensors with the "Accumulated"
-suffix. The accumulated sensor have been introduced to support net energy
+suffix. The accumulated sensors have been introduced to support net energy
 export/import metering.
 
-Newer versions of IoTaWatt provide "Integrators", which allow to achieve the
+Newer versions of IoTaWatt provide "Integrators", which allow achieving the
 same more efficiently and with higher accuracy.
 
 You should configure [Integrators](https://docs.iotawatt.com/en/master/integrators.html)
@@ -569,7 +558,7 @@ The Matter integration now requires running Matter Server version `2.0.0`.
 If you're using the Matter Server add-on to run the Matter Server,
 you will need version `3.0.0` of the add-on.
 
-We had to change our vendor ID in the add-on, as a result of this, all devices
+We had to change our vendor ID in the add-on; as a result, all devices
 need to be recommissioned.
 
 ([@MartinHjelmare] - [#86470]) ([documentation](/integrations/matter))
@@ -582,13 +571,13 @@ need to be recommissioned.
 {% details "Nettigo Air Monitor" %}
 
 The states of air quality sensors have been standardized to match Home Assistant
-core rules. This affects 2 states some sensors of NAM can provide:
+core rules. This affects two states some sensors of NAM can provide:
 
 - `very low`, which now became `very_low`
 - `very high`, which now became `very_high`
 
 If you used those states directly in your automations, scripts, or templates;
-you will need to adjust those to match these changes.
+you would need to adjust those to match these changes.
 
 ([@frenck] - [#85245]) ([documentation](/integrations/nam))
 
@@ -600,8 +589,8 @@ you will need to adjust those to match these changes.
 {% details "Pentair ScreenLogic" %}
 
 The Pentair ScreenLogic integration now correctly categorizes all known lights.
-It may be necessary to remove any lights that were previously incorrectly
-created as switch entities.
+Removing any lights that were previously incorrectly created as switch entities
+may be necessary.
 
 ([@dieselrabbit] - [#86608]) ([documentation](/integrations/screenlogic))
 
@@ -627,9 +616,9 @@ YAML configuration files.
 ---
 
 The extra state attribute "Domains blocked" has been removed from all sensors.
-It is already exposed as own, dedicated, sensor.
+It is already exposed as its own dedicated sensor.
 
-If you used the state attribute in your automations or scripts, you will
+If you used the state attribute in your automations or scripts, you would
 need to adjust them to use the dedicated sensor instead.
 
 ([@mib1185] - [#85424]) ([documentation](/integrations/pi_hole))
@@ -641,7 +630,7 @@ need to adjust them to use the dedicated sensor instead.
 
 {% details "Rain Bird" %}
 
-Rainbird is now configured via the UI and configuration from YAML has been
+Rainbird is now configured via the UI, and configuration from YAML has been
 imported automatically.
 
 However, there are a few notable changes:
@@ -654,15 +643,15 @@ However, there are a few notable changes:
   You may check the `binary_sensor` state to get equivalent behavior.
 
 Also, the way the "Rain Delay" is managed has changed. The Rain Delay, which
-pauses irrigation for a specified number of days, is now manage with a Number
+pauses irrigation for a specified number of days, is now managed with a `number`
 entity which can be controlled directly from the UI.
 
 The existing service call `rainbird.set_rain_delay` and the Raindelay sensor
 have been deprecated. Any existing automations or scripts that make service
 calls to `rainbird.set_rain_delay` will need to be replaced with a call
 to `number.set_value`. Additionally, the existing service call was updated to
-require a integration entry configuration since it previously had undefined
-behavior, so it is recommend to move directly to the new number service call.
+require an integration entry configuration since it previously had undefined
+behavior, so it is recommended to move directly to the new number service call.
 
 ([@allenporter] - [#85271] [#86208]) ([documentation](/integrations/rainbird))
 
@@ -682,9 +671,8 @@ avoids the need to read the database after the initial sync, there is no
 remaining core functionality that needs a lower commit interval.
 
 The [`commit_interval`](/integrations/recorder/#commit_interval) can be adjusted
-to a lower value in the event an integration that has not been be updated
-to watch for events instead of reading the database needs
-to read the database sooner.
+to a lower value in the event an integration has not been updated to watch for
+events instead of reading the database needs to read the database sooner.
 
 ([@bdraco] - [#86115]) ([documentation](/integrations/recorder))
 
@@ -708,10 +696,10 @@ Please use the dedicated start charge button entity to start the charge instead.
 {% details "Sony Bravia TV" %}
 
 Sony Bravia TV media players no longer have fake (assumed) `playing` or `paused`
-states and those are replaced with the `on` state.
+states, and those are replaced with the `on` state.
 
 If you have automations or scripts that use the `playing` or `paused` state,
-please be sure to update them to be compatible with this change.
+please update them to be compatible with this change.
 
 ([@Drafteed] - [#84885]) ([documentation](/integrations/braviatv))
 
@@ -728,9 +716,9 @@ If you have automations or scripts that use `media_player.select_source` to
 switch apps or channels on the Bravia TV, the automations need to be
 updated to use `media_player.play_media` service instead.
 
-The options flow has been removed from the integration, as the only one
+The options flow has been removed from the integration, as the only
 configurable setting `ignored_sources` was no longer relevant
-and incompatible to this change.
+and incompatible with this change.
 
 ([@Drafteed] - [#85288]) ([documentation](/integrations/braviatv))
 
@@ -757,7 +745,7 @@ be safely removed from your YAML configuration files.
 
 {% details "Tado" %}
 
-The swing modes of Tado have changed. This is in order to standardize with other
+The swing modes of Tado have changed. This is to standardize with other
 integrations, and so it can support translations.
 
 - `ON` became the lowercase `on`
@@ -777,8 +765,7 @@ need to adjust those to this change.
 
 All extra state attributes from Twinkly light entities have been removed.
 
-They mostly added information about the device and not about the actual light
-state itself.
+They mostly added information about the device, the actual light state itself.
 
 ([@frenck] - [#84986]) ([documentation](/integrations/twinkly))
 
@@ -796,7 +783,7 @@ release.
 The `isy994.set_variable` service has been deprecated in favor of using
 the `number` entities to directly set the variable values.
 
-Please update any dashboards, scripts and automations that may be using these
+Please update any dashboards, scripts, and automations that may be using these
 entities or service.
 
 ([@shbatm] - [#85511]) ([documentation](/integrations/isy994))
@@ -811,9 +798,9 @@ removed for nodes that are not the main (load) node.
 
 On Level and Ramp Rate sensors have been removed for non-dimmable (non-`light.`)
 devices. Only load devices receive communication error updates and only
-dimmable devices support `OL` and `RR` command. 
+dimmable devices support `OL` and `RR` commands. 
 
-The other entities were previously added but do not receive valid states from
+The other entities were previously added but did not receive valid states from
 the ISY or end-devices. These sensors were disabled by default.
 
 ([@shbatm] - [#85744]) ([documentation](/integrations/isy994))
@@ -923,8 +910,8 @@ The following integrations are also no longer available as of this release:
 
 - **Almond** has been removed. It is in a non-working state, and the services
   have been shut down.
-- **OpenALPR Local** previously deprecated and has now been removed. It doesn't
-  work correctly and has no usage, according to our public analytics.
+- **OpenALPR Local** was previously deprecated and has now been removed. It
+  doesn't work correctly and has no usage, according to our public analytics.
 
 ## All changes
 
