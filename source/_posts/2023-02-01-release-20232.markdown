@@ -381,6 +381,23 @@ Your system has been using Python 3.10 for quite some time already.
 
 {% enddetails %}
 
+{% details "MariaDB" %}
+
+If you are using MariaDB with Home Assistant recorder, please make sure
+you run `10.5.17` , `10.6.9`, `10.7.5`, `10.8.4` (depending on which major
+release you are using). If you are using the MariaDB core add-on,
+make sure to update it to the latest version: `2.5.2`.
+
+Older versions of MariaDB suffer from a significant performance regression
+when retrieving history data or purging the database.
+
+([@bdraco] - [#87040])
+
+[@bdraco]: https://github.com/bdraco
+[#87040]: https://github.com/home-assistant/core/pull/87040
+
+{% enddetails %}
+
 {% details "Automations & Scripts" %}
 
 A disabled condition, for example, in an automation or script, will no longer
