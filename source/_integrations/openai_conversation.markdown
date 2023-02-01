@@ -19,6 +19,7 @@ This conversation agent is unable to control your house. It can only query infor
 This integration requires an API key to use, [which you can generate here.](https://platform.openai.com/account/api-keys). This is a paid service, we advise you to monitor your costs in the [OpenAI portal](https://platform.openai.com/account) closely and configure [usage limits](https://platform.openai.com/account/billing/limits) to avoid unwanted costs associated with using the service.
 
 {% include integrations/config_flow.md %}
+
 ### Generate an API Key
 
 The OpenAI key is used to authenticate requests to the OpenAI API. To generate an API key take the following steps:
