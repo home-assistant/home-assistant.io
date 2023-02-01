@@ -56,7 +56,7 @@ Enjoy the (beta) release!
 - [Streaming history](#streaming-history)
 - [Sensor groups](#sensor-groups)
 - [Sensor precision](#sensor-precision)
-- [Now even more integrated with ESPHome](#now-even-more-integrated-with-esphome)
+- [Now even tighter integrated with ESPHome](#now-even-tighter-integrated-with-esphome)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -161,81 +161,39 @@ Sensor groups are able to combine sensor, number and number helpers entities.
 Note: This is a temporary placeholder screenshot. Needs replacement.
 </p>
 
-## Sensor precision
+## Now even tighter integrated with ESPHome
 
-{% details "TODO" %}
+[ESPHome](https://esphome.io) already works really well with Home Assistant.
+Yet, this release makes it even better!
 
-- Add story
-- Spelling/grammar
-- Replace screenshot
-
-{% enddetails %}
-
-Got a sensor that has too many decimals in its numeric value? You'd like it to
-round it to a single, or maybe even no decimals at all?
-
-Just ~~create a template sensor~~ change it directly from the UI!
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/14281572/214518675-8d663617-59f2-4aa6-b8f0-fded2355f4c5.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
-Note: This is a temporary placeholder screenshot. Needs replacement.
-</p>
-
-This is an true entity setting, which means that changing the precision, will
-actually affect your entity state. So, it applies not just to your dashboard,
-but everything that uses the entity, including automations.
-
-## Now even more integrated with ESPHome
-
-{% details "TODO" %}
-
-- Add story
-- Spelling/grammar
-- Replace screenshot of an ESPHome device updating?
-- Add ESPHome update entities ([@balloob] - [#85717]) ([esphome docs]) (new-platform) (noteworthy)
-- Handle ESPHome dashboard discovery ([@balloob] - [#85662]) ([esphome docs]) (noteworthy)
-- Automatically fetch the encryption key from the ESPHome dashboard ([@balloob] - [#85709]) ([esphome docs]) (noteworthy)
-- Add friendly name support for ESPHome ([@jesserockz] - [#85976]) ([esphome docs]) (dependency) (noteworthy)
-- Update ESPHome devices from HA ([@balloob] - [#86249]) ([esphome docs]) (noteworthy)
-
-{% enddetails %}
-
-ESPHome already works really well with Home Assistant, yet, this release
-makes it even better!
-
-As of the next release of ESPHome: add a friendly, more human name
-to your ESPHome devices. Home Assistant will pick those up, making your
-ESPHome devices look better in Home Assistant out of the box.
-
-Talking about out of the box experience, we added some features in case you
-are using the ESPHome add-on. The ESPHome add-on and Home Assistant will now
-communicate with each other, bringing in a lot of new features.
+If you are using the ESPHome add-on, we have some great improvements for you.
+The add-on and Home Assistant will now communicate with each other, bringing
+in many new features.
 
 When you set up a new device in ESPHome and next add it to Home Assistant,
-they will be able to exchange encryption keys with each other. Removing the
-need for you to find, copy & paste those. Just a single click and setup is
-done!
+they will be able to exchange encryption keys. Removing the need for you to
+find, copy & paste those. Just a single click and the setup is done! 🚀
 
-But that is not all, what is really mind blowing, is that the ESPHome integration
-will now provide update entites when using the ESPHome add-on! Yes, you
-can update your ESPHome devices directly from Home Assistant and even automate
-with them!
+But that is not all. What is really mind-blowing, is that the ESPHome
+integration will now provide update entities when using the add-on!
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/1444314/211913429-973b6e05-b0ee-4686-b789-799cd4d73e9d.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
-Note: This is a temporary placeholder screenshot. Needs replacement.
-</p>
+<img class="no-shadow" src='/images/blog/2023-02/esphome-update-entities.png' alt='Screenshots, left one showing pending updates for ESPHome devices. Right one: an ESPHome device installing an update straight from Home Assistant'>
 
-## Other noteworthy changes
+Right now, the update entities will only indicate if a device needs updating.
+However, when the next major release of ESPHome (2023.2) becomes available,
+it will support updating them too! Yes, at that point, you can update your
+ESPHome devices directly from Home Assistant and even automate it!
 
-{% details "TODO" %}
+Also, ESPHome is deprecating the old password-based authentication for its
+API in favor of the more secure encryption key. If one of your ESPHome devices
+is still using a plain password, Home Assistant will notify you by creating
+an issue in your {% my repairs title="Repairs dashboard" %}.
 
-- Proof read/spelling/grammar
-- Last minute ones added?
-- Go over list again, might have missed something
-- Mention thread being there... not ready yet, for dev/early alpha purposes.
+<img class="no-shadow" src='/images/blog/2023-02/esphome-repairs-encryption-key.png' alt='Screenshot showing an raised repair issue for a ESPHome device still using the deprecated API password instead of an API encryption key'>
 
-**Note**: Changes processed up to PR 86115
+We've also prepared for the next release of ESPHome (2023.2), in which you can
+add a friendly, more human name to your ESPHome devices. Home Assistant will
+pick those up, making your ESPHome devices look better out-of-the-box!
 
 ## Other noteworthy changes
 
