@@ -444,7 +444,7 @@ For example, interference from USB 3.0 ports and unshielded USB peripheral cable
 
 Zigbee also uses [mesh networking topology](https://en.wikipedia.org/wiki/Mesh_networking), which means that most mains-powered devices are a "Zigbee Router" that can act as a signal repeater and range extended by transmitting data over long distances by passing data messages through the Zigbee network mesh of intermediate devices to reach more distant Zigbee devices. Thus to have a healthy Zigbee network, you need many Zigbee Router devices relatively close to each other in order to achieve good coverage and range.
 
-#### Simple actions that should improve most Zigbee setups and common root causes of interference
+#### Actions that can improve most Zigbee setups and common root causes of interference
 
 - Zigbee adapter hardware:
   - Bad performance from old/outdated/obsolete Zigbee adapter hardware or poor Zigbee adapter antenna:
