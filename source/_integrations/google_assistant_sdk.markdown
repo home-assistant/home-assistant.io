@@ -121,14 +121,14 @@ Examples:
 ```yaml
 service: google_assistant_sdk.send_text_command
 data:
-  command: turn off kitchen TV
+  command: "turn off kitchen TV"
 ```
 
 ```yaml
 # Say a joke on the living room speaker
 service: google_assistant_sdk.send_text_command
 data:
-  command: tell me a joke
+  command: "tell me a joke"
   media_player: media_player.living_room_speaker
 
 You can also send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
