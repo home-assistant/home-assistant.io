@@ -54,7 +54,7 @@ Enjoy the (beta) release!
 
 - [Introducing Assist!](#introducing-assist)
 - [Streaming history](#streaming-history)
-- [Changing precision of a sensor](#changing-precision-of-a-sensor)
+- [Changing the precision of a sensor](#changing-the-precision-of-a-sensor)
 - [Grouping sensors](#grouping-sensors)
 - [Now even tighter integrated with ESPHome](#now-even-tighter-integrated-with-esphome)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -859,7 +859,7 @@ can now be safely removed from your YAML configuration files.
 
 {% enddetails %}
 
-{% details "ZHA" %}
+{% details "Zigbee Home Automation" %}
 
 The `AnalogInput` sensor entities for certain Xiaomi plugs have been removed
 from ZHA.
