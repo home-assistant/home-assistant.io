@@ -72,7 +72,7 @@ Today we like you to meet:
 allows you to use natural language to control Home Assistant. It is powered by
 [Hassil](https://github.com/home-assistant/hassil) and the sentences
 (contributed by 112! people) from the
-[Home Assistant Intent](https://home-assistant.github.io/intents/) project.
+[Home Assistant Intents](https://home-assistant.github.io/intents/) project.
 
 We believe technology is meant to be played with, and projects should be
 usable as soon as possible. Together with the community, we can then iterate
@@ -96,7 +96,7 @@ History cards now update live! We now stream the state changes while they are
 happening and update the graphs in real-time 😲
 
 <p class='img'>
-<img src='/images/blog/2023-02/streaming-history-cards.gif' alt='Screenshot showing a history card presenting the power usage of a kitching coffeemaker, updating live while brewing coffee'></a>
+<img src='/images/blog/2023-02/streaming-history-cards.gif' alt='Screenshot showing a history card presenting the power usage of a kitchen coffeemaker, updating live while brewing coffee'></a>
 These history cards now show live power usage, while I'm brewing a cup of coffee.
 </p>
 
@@ -119,7 +119,7 @@ can combine entities with a numeric state, like [sensors](/integrations/sensor),
 [number](/integrations/number), and [number helpers](/integrations/input_number)
 entities.
 
-<img class="no-shadow" src='/images/blog/2023-02/sensor-groups.png' alt='Screenshot the process of adding a new sensor group'>
+<img class="no-shadow" src='/images/blog/2023-02/sensor-groups.png' alt='Screenshot showing the process of adding a new sensor group'>
 
 {% my config_flow_start badge domain="group" %}
 
@@ -161,7 +161,7 @@ API in favor of the more secure encryption key. If one of your ESPHome devices
 is still using a plain password, Home Assistant will notify you by creating
 an issue in your {% my repairs title="Repairs dashboard" %}.
 
-<img class="no-shadow" src='/images/blog/2023-02/esphome-repairs-encryption-key.png' alt='Screenshot showing an raised repair issue for a ESPHome device still using the deprecated API password instead of an API encryption key'>
+<img class="no-shadow" src='/images/blog/2023-02/esphome-repairs-encryption-key.png' alt='Screenshot showing a raised repair issue for an ESPHome device still using the deprecated API password instead of an API encryption key'>
 
 We've also prepared for the next release of ESPHome (2023.2), in which you can
 add a friendly, more human name to your ESPHome devices. Home Assistant will
@@ -507,7 +507,7 @@ need to be recommissioned.
 {% details "Nettigo Air Monitor" %}
 
 The states of air quality sensors have been standardized to match Home Assistant
-core rules. This affects two states some sensors of NAM can provide:
+core rules. This affects two states of the sensors that NAM can provide:
 
 - `very low`, which now became `very_low`
 - `very high`, which now became `very_high`
@@ -608,7 +608,7 @@ remaining core functionality that needs a lower commit interval.
 
 The [`commit_interval`](/integrations/recorder/#commit_interval) can be adjusted
 to a lower value in the event an integration has not been updated to watch for
-events instead of reading the database needs to read the database sooner.
+events instead of reading the database and needs to read the database sooner.
 
 ([@bdraco] - [#86115]) ([documentation](/integrations/recorder))
 
@@ -687,7 +687,7 @@ integrations, and so it can support translations.
 - `ON` became the lowercase `on`
 - `OFF` became the lowercase `off`
 
-If you used these swing modes in your automation or scripts, you might
+If you used these swing modes in your automations or scripts, you might
 need to adjust those to this change.
 
 ([@emontnemery] - [#84278]) ([documentation](/integrations/tado))
