@@ -15,40 +15,32 @@ og_image: /images/blog/2023-02/social.png
 
 <a href='/integrations/#version/2023.2'><img src='/images/blog/2023-02/social.png' style='border: 0;box-shadow: none;'></a>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
-These are the beta release notes for Home Assistant Core 2023.2 (and is thus a
-work in progress).
-
-If you encounter any issues with the beta release, please report them on GitHub:
-
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/dashboards:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
-
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
-
-Issues introduced in the beta are processed with priority.
-
----
-
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
 Home Assistant Core 2023.2! 🎉
 
-I have nothing to tell yet... this is still all beta!
+This release covers the first month of development of 2023, and it is setting
+one heck of a high bar for the rest of the year! 😅
 
-Thanks for helping out testing the beta! ❤️
+Undoubtedly, the most spectacular features are related to the
+[first chapter of Year of the Voice](/blog/2023/01/26/year-of-the-voice-chapter-1/). 🎙️
+It is hard to sum up all of this in this release blog, so I'm not even going
+to try doing it in this introduction, but holy mother of smart homes: this is
+exciting stuff! 😮
 
-Enjoy the (beta) release!
+Some great quality-of-life improvements for sensors: Removing the need for
+quite a bit of templating, making it all more accessible for everybody!
+
+My personal favorite this release: huge steps into an even tighter integration
+with our amazing sister project: [ESPHome](https://esphome.io). Creating
+and maintaining your own DIY IoT devices just became a lot easier.
+
+And since we are talking about awesomeness, have you noticed the large amount
+of logos in the release image above? So many new integrations! 🤩 
+
+Enjoy the release!
 
 ../Frenck
+
+_PS: Just a reminder that valentine's day is coming up. Be sure to share the love! ❤️_
 
 <!--more-->
 
