@@ -768,7 +768,8 @@ need to adjust those to this change.
 
 All extra state attributes from Twinkly light entities have been removed.
 
-They mostly added information about the device, the actual light state itself.
+They mostly added information about the device,
+not the actual light state itself.
 
 ([@frenck] - [#84986]) ([documentation](/integrations/twinkly))
 
