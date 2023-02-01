@@ -6,7 +6,7 @@ description: Detailed changelog for the Home Assistant Core 2023.2 release
 These are all the changes included in the Home Assistant Core 2023.2 release.
 
 For a summary in a more readable format:
-[Release notes blog for this release](/blog/2023/01/25/release-20232/).
+[Release notes blog for this release](/blog/2023/02/01/release-20232/).
 
 ## Full Changelog
 
@@ -56,7 +56,7 @@ For a summary in a more readable format:
 - Update orjson to 3.8.3 ([@frenck] - [#84878])
 - Renovate Ambient PWS config flow tests ([@bachya] - [#84879])
 - Improve `shelly` generic typing ([@cdce8p] - [#84889])
-- Add SFR Box integration ([@epenet] - [#84780])
+- Add SFR Box integration ([@epenet] - [#84780]) 
 - Remove redundant Guardian handler unsub logic ([@bachya] - [#84905])
 - Fix handling of empty google_calendars.yaml file ([@allenporter] - [#84909])
 - Use entity descriptions in mysensors binary sensor ([@MartinHjelmare] - [#84897])
@@ -118,12 +118,12 @@ For a summary in a more readable format:
 - Bump pycoolmasternet-async and add coolmaster swing mode ([@amitfin] - [#82809])
 - Add door, opening and motion sensors to Xiaomi-ble ([@Ernst79] - [#84990])
 - Fix incorrectly return type on bad_identifier in UniFi Protect ([@frenck] - [#85050])
-- Zeversolar integration ([@kvanzuijlen] - [#84887])
+- Zeversolar integration ([@kvanzuijlen] - [#84887]) 
 - Import mqtt and recorder locally in test fixtures ([@emontnemery] - [#85067])
 - Fix double time conversion in async_track_point_in_utc_time ([@bdraco] - [#85036])
 - Move add Device tracker entities to UniFi controller ([@Kane610] - [#84883])
-- Ruuvi Gateway integration ([@akx] - [#84853])
-- Add EnergyZero integration ([@klaasnicolaas] - [#83886])
+- Ruuvi Gateway integration ([@akx] - [#84853]) 
+- Add EnergyZero integration ([@klaasnicolaas] - [#83886]) 
 - Bump scapy to 2.5.0 ([@bdraco] - [#85074])
 - Add MQTT climate setting for current humidity ([@Stonos] - [#84592])
 - Make switch platform use common UniFi entity class ([@Kane610] - [#84458])
@@ -131,7 +131,7 @@ For a summary in a more readable format:
 - Add translation key for IPP printer integration ([@piitaya] - [#84441])
 - ISY994: Add dhcp support for eisy ([@shbatm] - [#85083])
 - Correct initial config of MQTT climate ([@jbouwh] - [#85097])
-- Add ANWB Energie (virtual) integration ([@klaasnicolaas] - [#85077])
+- Add ANWB Energie (virtual) integration ([@klaasnicolaas] - [#85077]) 
 - Revert "Disable sky connect config entry if USB stick is not plugged in" ([@emontnemery] - [#85103])
 - Sensibo select platform translations ([@gjohansson-ST] - [#82743])
 - Remove unnecessary `title` kwarg in options flows ([@bachya] - [#85131])
@@ -143,7 +143,7 @@ For a summary in a more readable format:
 - Fix typo in Tuya climate ([@o951753o] - [#85185])
 - Adjust set_humidity type hints ([@epenet] - [#85176])
 - Allow SensorDeviceClass.POWER_FACTOR unit None ([@emontnemery] - [#85181])
-- Add Mijndomein Energie virtual integration ([@klaasnicolaas] - [#85165])
+- Add Mijndomein Energie virtual integration ([@klaasnicolaas] - [#85165]) 
 - Generalize a base ReCollect Waste entity ([@bachya] - [#85166])
 - Bump pybravia to 0.3.0 ([@Drafteed] - [#85127])
 - Bumb python-homewizard-energy to 1.4.0 ([@DCSBL] - [#85114])
@@ -162,7 +162,7 @@ For a summary in a more readable format:
 - Restore low battery state on ISY994 Insteon heartbeat nodes ([@shbatm] - [#85209])
 - Avoid some data merges in the bluetooth remote scanners when nothing has changed ([@bdraco] - [#85270])
 - Add additional device classes and units to ISY994 aux sensors ([@shbatm] - [#85274])
-- Add LD2410 BLE integration ([@930913] - [#83883])
+- Add LD2410 BLE integration ([@930913] - [#83883]) 
 - Improve weather Forecast typing ([@frenck] - [#85019])
 - Bump bluetooth-data-tools to 0.3.1 for ld2410-ble ([@cgarwood] - [#85278])
 - Use async with timeout ([@balloob] - [#85281])
@@ -204,8 +204,8 @@ For a summary in a more readable format:
 - Add config flow for Rain Bird ([@allenporter] - [#85271])
 - EZVIZ: Add mac to device info ([@RenierM26] - [#85378])
 - Add beep button entity to ISY994 Insteon devices ([@shbatm] - [#85367])
-- Add Google Mail integration ([@tkdrob] - [#82637])
-- Add Starlink Integration ([@boswelja] - [#77091])
+- Add Google Mail integration ([@tkdrob] - [#82637]) 
+- Add Starlink Integration ([@boswelja] - [#77091]) 
 - Add QNAP QSW sensors for each port ([@Noltari] - [#76811])
 - Hassil intents ([@synesthesiam] - [#85156])
 - Fix unit of illuminance in Plugwise illuminance sensor ([@bouwew] - [#85392])
@@ -289,7 +289,7 @@ For a summary in a more readable format:
 - Remove invalid state class in tado ([@epenet] - [#85624])
 - Remove invalid state class in deconz ([@epenet] - [#85615])
 - Fix unknown data in vultr ([@epenet] - [#85627])
-- Add kitchen_sink integration ([@emontnemery] - [#85592])
+- Add kitchen_sink integration ([@emontnemery] - [#85592]) 
 - Fix unknown data in homematicip_cloud ([@epenet] - [#85618])
 - Bump AIOAladdinConnect to 0.1.52 ([@mkmer] - [#85632])
 - Bump plugwise to v0.27.1 ([@bouwew] - [#85630])
@@ -315,7 +315,7 @@ For a summary in a more readable format:
 - Use fallback advertising interval for non-connectable Bluetooth devices ([@Alcoinus] - [#85701])
 - Bump moehlenhoff-alpha2 to 1.3.0 ([@TitanNano] - [#85720])
 - Remove unreachable config entry migration in pvpc hourly pricing ([@azogue] - [#85700])
-- Add Energie VanOns virtual integration ([@klaasnicolaas] - [#85704])
+- Add Energie VanOns virtual integration ([@klaasnicolaas] - [#85704]) 
 - Clean attributes in pvpc hourly pricing ElecPriceSensor ([@azogue] - [#85688])
 - Address review comments for D-Link config flow ([@tkdrob] - [#85712])
 - Add binary_sensor to Starlink ([@boswelja] - [#85409])
@@ -402,7 +402,7 @@ For a summary in a more readable format:
 - Core code styling improvements ([@frenck] - [#85963])
 - Bump pymodbus library to V3.1.0 ([@janiversen] - [#85961])
 - Bump PyISY to 3.1.6 ([@shbatm] - [#85974])
-- Ensure remote bluetooth adapters are loaded before integrations that need them ([@bdraco] - [#85723])
+- Ensure remote bluetooth adapters are loaded before integrations that need them ([@bdraco] - [#85723]) 
 - Make Synology DSM integration fully async ([@mib1185] - [#85904])
 - Support availability for ISY994 devices ([@shbatm] - [#85928])
 - Deprecate ISY994 custom cleanup entities service ([@shbatm] - [#85931])
@@ -443,7 +443,7 @@ For a summary in a more readable format:
 - Remove the usage of HA core unit constant in withings own unit definitions ([@mib1185] - [#85942])
 - Deprecate ISY994 custom reload service ([@shbatm] - [#86019])
 - Replace deprecated constants and utils by their successors in NWS tests ([@mib1185] - [#85926])
-- Add Fire TV virtual integration ([@jrieger] - [#85741])
+- Add Fire TV virtual integration ([@jrieger] - [#85741]) 
 - Add Insteon backlight control support to ISY994, bump PyISY to 3.1.8 ([@shbatm] - [#85981])
 - Set deviceclass to speaker for Sonos media_player ([@mvdwetering] - [#80694])
 - Add enable/disable config switch for ISY994 devices ([@shbatm] - [#85975])
@@ -464,7 +464,7 @@ For a summary in a more readable format:
 - Remove signal strength state class from Huawei LTE transmit power sensor ([@scop] - [#85973])
 - Add typings to OVO Energy integration ([@timmo001] - [#75944])
 - oralb async_poll doc comment typo ([@Lash-L] - [#86049])
-- Add EufyLife Bluetooth integration ([@bdr99] - [#85907])
+- Add EufyLife Bluetooth integration ([@bdr99] - [#85907]) 
 - Code styling tweaks to the zeroconf integration ([@frenck] - [#86048])
 - Address Starlink code quality and add update sensor ([@boswelja] - [#86066])
 - Allow converting units of additional sensor device classes ([@emontnemery] - [#86072])
@@ -478,7 +478,7 @@ For a summary in a more readable format:
 - Fix invalid constant in vicare ([@epenet] - [#86079])
 - Add diagnostics to devolo Home Network ([@Shutgun] - [#86022])
 - Soma connect update ([@ratsept] - [#85682])
-- Add Thread integration ([@emontnemery] - [#85002])
+- Add Thread integration ([@emontnemery] - [#85002]) 
 - Fix typo in energy: misplaced closing brace ([@lunmay] - [#86027])
 - Add Enum device class for HomeWizard active tariff ([@DCSBL] - [#86078])
 - Remove config entry specifics from FlowManager ([@emontnemery] - [#85565])
@@ -543,7 +543,7 @@ For a summary in a more readable format:
 - Add jammed state support for MQTT lock ([@jbouwh] - [#86010])
 - Support password less PI-Hole installations ([@mib1185] - [#86184])
 - Add sensors for smart and gas meter identifiers (serial numbers) in HomeWizard ([@DCSBL] - [#86282])
-- Add Stookwijzer ([@fwestenberg] - [#84435])
+- Add Stookwijzer ([@fwestenberg] - [#84435]) 
 - Stricter pylint message control ([@frenck] - [#86154])
 - Code styling tweaks to the tests - Part 1 ([@frenck] - [#86192])
 - Import recorder locally in test fixtures ([@emontnemery] - [#86286])
@@ -632,7 +632,7 @@ For a summary in a more readable format:
 - Always add `code` to template vars MQTT lock command template ([@jbouwh] - [#86460])
 - Drop unused dtype ([@cdce8p] - [#86459])
 - Update stream timestamp discontinuity check with audio ([@uvjustin] - [#86446])
-- Add Thread integration ([@emontnemery] - [#86283])
+- Add Thread integration ([@emontnemery] - [#86283]) 
 - Rename fake kitchen_sink demo locks to more common name ([@jbouwh] - [#86452])
 - Prevent wilcard coverage ignore if tests exist ([@epenet] - [#86455])
 - Rename logbook constant ([@epenet] - [#86464])
@@ -679,7 +679,7 @@ For a summary in a more readable format:
 - Enable T20 (flake8-print) to ban use of print statements ([@frenck] - [#86525])
 - Add `lacrosse` to strict-typing ([@cdce8p] - [#86527])
 - Add browse media and play media support in Bravia TV ([@Drafteed] - [#85288])
-- Fix wrong notification sound name in LaMetric ([@eineinhornmiau] - [#86483])
+- Fix wrong notification sound name in LaMetric ([@mythicaleinhorn] - [#86483])
 - Replace `None` constant [ps4] ([@cdce8p] - [#86541])
 - Replace `None` constants [minecraft_server] ([@cdce8p] - [#86540])
 - Improve `ring` typing ([@cdce8p] - [#86539])
@@ -707,7 +707,7 @@ For a summary in a more readable format:
 - Add rainbird rain delay number entity, deprecating the sensor and service ([@allenporter] - [#86208])
 - Migrate shelly to use async_forward_entry_setups ([@bdraco] - [#86554])
 - Migrate NextDNS to use `async_forward_entry_setups` ([@bieniu] - [#86567])
-- ReadYourMeter Pro integration ([@OnFreund] - [#85986])
+- ReadYourMeter Pro integration ([@OnFreund] - [#85986]) 
 - Migrate life360 to use async_forward_entry_setups ([@bdraco] - [#86571])
 - Migrate steam_online to use async_forward_entry_setups ([@bdraco] - [#86578])
 - Migrate soundtouch to use async_forward_entry_setups ([@bdraco] - [#86577])
@@ -757,11 +757,89 @@ For a summary in a more readable format:
 - Add diagnostics to LiteJet ([@joncar] - [#86600])
 - Bump python-matter-server 2.0.1 ([@MartinHjelmare] - [#86625])
 - Bump gassist-text to 0.0.10 ([@tronikos] - [#85782])
-- Add OpenAI integration ([@balloob] - [#86621])
+- Add OpenAI integration ([@balloob] - [#86621]) 
 - Bump home-assistant-intents 2023.1.25 ([@synesthesiam] - [#86626])
 - Upgrade python-homewizard-energy to 1.8.0 ([@DCSBL] - [#86627])
-- Add Mopeka integration ([@bdraco] - [#86500])
+- Add Mopeka integration ([@bdraco] - [#86500]) 
 - Update frontend to 20230125.0 ([@bramkragten] - [#86628])
+- Print expected device class units in error log ([@elupus] - [#86125])
+- Fix oauth2 error ([@balloob] - [#86634])
+- Google Assistant: unset agent on unload ([@balloob] - [#86635])
+- Correct units on mopeka battery voltage sensor ([@bdraco] - [#86663])
+- Bump ZHA quirks lib ([@dmulcahey] - [#86669])
+- Add error handling for OpenAI ([@balloob] - [#86671])
+- Add device registration to the Nuki component ([@pree] - [#79806])
+- Migrate Nuki to new entity naming style ([@Nardol] - [#80021])
+- Update ndms2_client to 0.1.2 ([@foxel] - [#86624])
+- Add known webostv button to list ([@MHFDoge] - [#86674])
+- Make openai conversation prompt template more readable + test case ([@balloob] - [#86676])
+- Fix missing interface key in deCONZ logbook ([@Kane610] - [#86684])
+- Terminate strings at NUL when recording states and events ([@emontnemery] - [#86687])
+- Update Inovelli Blue Series switch support in ZHA ([@dmulcahey] - [#86711])
+- Bump python-matter-server to 2.0.2 ([@MartinHjelmare] - [#86712])
+- Remove gas device class from current sensor in dsmr_reader ([@frenck] - [#86725])
+- Fix state classes for duration device class ([@frenck] - [#86727])
+- Bump aioshelly to 5.3.1 ([@thecode] - [#86751])
+- OpenAI: Fix device without model ([@balloob] - [#86754])
+- Fix state class issues in Ambient PWS ([@bachya] - [#86758])
+- ESPHome update: Store reference to runtime data, not one of its values ([@balloob] - [#86762])
+- Remove esphome password from config flow data if not needed ([@jesserockz] - [#86763])
+- Chunk MariaDB and Postgresql data migration to avoid running out of buffer space ([@bdraco] - [#86680])
+- Fix Bluetooth discoveries missing between restarts ([@bdraco] - [#86808])
+- Bump plugwise to v0.27.4 ([@bouwew] - [#86812])
+- Fix D-Link config flow auth ([@tkdrob] - [#86824])
+- Check for missing ISY994 Z-Wave Properties ([@shbatm] - [#86829])
+- Update frontend to 20230128.0 ([@piitaya] - [#86838])
+- Fix D-Link attributes ([@tkdrob] - [#86842])
+- Improve websocket throughput of state changes ([@bdraco] - [#86855])
+- Fix tradfri air quality device class ([@MartinHjelmare] - [#86861])
+- Fix v32 schema migration when MySQL global.time_zone is configured with non-UTC timezone ([@bdraco] - [#86867])
+- Ignore empty payloads from DSMR Reader ([@Glodenox] - [#86841])
+- Address Google mail late review ([@tkdrob] - [#86847])
+- Cache the names and area lists in the default agent ([@bdraco] - [#86874])
+- Add Bosch SHC description and host form strings ([@tschamm] - [#86897])
+- Fix old indices not being removed in schema migration leading to slow MySQL queries ([@bdraco] - [#86917])
+- Drop minus sign on negative zero ([@emontnemery] - [#86939])
+- Fix MQTT discovery failing after bad config update ([@jbouwh] - [#86935])
+- Speed up live history setup if there is no pending data to commit ([@bdraco] - [#86942])
+- Fix ThreeWayHandle sensor in Overkiz integration ([@iMicknl] - [#86953])
+- Silence spurious warnings about removing ix_states_entity_id with newer installs ([@bdraco] - [#86961])
+- Fix some mobile app sensor registration/update issues ([@balloob] - [#86965])
+- Performance improvements for Assist ([@synesthesiam] - [#86966])
+- Use device area id in intent matching ([@synesthesiam] - [#86678])
+- Honeywell auto mode invalid attribute ([@mkmer] - [#86728])
+- ZHA config flow cleanup ([@puddly] - [#86742])
+- Catch AndroidTV exception on setup ([@ollo69] - [#86819])
+- Uses PolledSmartEnergySummation for ZLinky ([@piitaya] - [#86960])
+- Fix error on empty location in ssdp messages ([@StevenLooman] - [#86970])
+- Ensure a proper scope_id is given for IPv6 addresses when initializing the SSDP component ([@StevenLooman] - [#86975])
+- Allow any state class when using the precipitation device class ([@frenck] - [#86977])
+- Update frontend to 20230130.0 ([@bramkragten] - [#86978])
+- Bump ZHA dependencies ([@puddly] - [#86979])
+- Check dashboard when showing reauth form ([@balloob] - [#86980])
+- Bump pyisy to 3.1.11 ([@shbatm] - [#86981])
+- Prioritize entity names over area names in Assist matching ([@synesthesiam] - [#86982])
+- ESPHome discovered dashboard checks reauth flows ([@balloob] - [#86993])
+- ESPHome handle remove password and no encryption ([@balloob] - [#86995])
+- Bump env_canada to 0.5.27 ([@michaeldavie] - [#86996])
+- Bump ESPHome Dashboard API 1.2.3 ([@balloob] - [#86997])
+- Bump plugwise to v0.27.5 ([@bouwew] - [#87001])
+- Only report invalid numeric value for sensors once ([@frenck] - [#87010])
+- Honeywell Correct key name ([@mkmer] - [#87018])
+- Bump home-assistant-intents to 2023.1.31 ([@synesthesiam] - [#87034])
+- Add a repair issue when using MariaDB is affected by MDEV-25020 ([@bdraco] - [#87040])
+- Fix Yamaha MusicCast zone sleep select entity ([@frenck] - [#87041])
+- Improve JSON errors from HTTP view ([@balloob] - [#87042])
+- Ensure humidity is still exported to HomeKit when it is read-only ([@bdraco] - [#87051])
+- Trigger update of ESPHome update entity when static info updates ([@balloob] - [#87058])
+- Guard what version we can install ESPHome updates with ([@balloob] - [#87059])
+- Bump AIOAladdinConnect to 0.1.54 ([@mkmer] - [#86749])
+- Bump AIOAladdinConnect to 0.1.55 ([@mkmer] - [#87086])
+- Reduce chance of queue overflow during schema migration ([@bdraco] - [#87090])
+- Fix Assist skipping entities that are hidden or have entity category ([@balloob] - [#87096])
+- Update pyTibber to 0.26.12 ([@Danielhiversen] - [#87098])
+- Update frontend to 20230201.0 ([@bramkragten] - [#87099])
+- Bump isort from 5.11.4 to 5.12.0 ([@ludeeus] - [#86890])
 
 [#72494]: https://github.com/home-assistant/core/pull/72494
 [#74623]: https://github.com/home-assistant/core/pull/74623
@@ -779,7 +857,9 @@ For a summary in a more readable format:
 [#79481]: https://github.com/home-assistant/core/pull/79481
 [#79718]: https://github.com/home-assistant/core/pull/79718
 [#79742]: https://github.com/home-assistant/core/pull/79742
+[#79806]: https://github.com/home-assistant/core/pull/79806
 [#79816]: https://github.com/home-assistant/core/pull/79816
+[#80021]: https://github.com/home-assistant/core/pull/80021
 [#80694]: https://github.com/home-assistant/core/pull/80694
 [#81623]: https://github.com/home-assistant/core/pull/81623
 [#81979]: https://github.com/home-assistant/core/pull/81979
@@ -1292,6 +1372,7 @@ For a summary in a more readable format:
 [#86115]: https://github.com/home-assistant/core/pull/86115
 [#86121]: https://github.com/home-assistant/core/pull/86121
 [#86122]: https://github.com/home-assistant/core/pull/86122
+[#86125]: https://github.com/home-assistant/core/pull/86125
 [#86126]: https://github.com/home-assistant/core/pull/86126
 [#86127]: https://github.com/home-assistant/core/pull/86127
 [#86128]: https://github.com/home-assistant/core/pull/86128
@@ -1511,10 +1592,85 @@ For a summary in a more readable format:
 [#86615]: https://github.com/home-assistant/core/pull/86615
 [#86616]: https://github.com/home-assistant/core/pull/86616
 [#86621]: https://github.com/home-assistant/core/pull/86621
+[#86624]: https://github.com/home-assistant/core/pull/86624
 [#86625]: https://github.com/home-assistant/core/pull/86625
 [#86626]: https://github.com/home-assistant/core/pull/86626
 [#86627]: https://github.com/home-assistant/core/pull/86627
 [#86628]: https://github.com/home-assistant/core/pull/86628
+[#86634]: https://github.com/home-assistant/core/pull/86634
+[#86635]: https://github.com/home-assistant/core/pull/86635
+[#86663]: https://github.com/home-assistant/core/pull/86663
+[#86669]: https://github.com/home-assistant/core/pull/86669
+[#86671]: https://github.com/home-assistant/core/pull/86671
+[#86674]: https://github.com/home-assistant/core/pull/86674
+[#86676]: https://github.com/home-assistant/core/pull/86676
+[#86678]: https://github.com/home-assistant/core/pull/86678
+[#86680]: https://github.com/home-assistant/core/pull/86680
+[#86684]: https://github.com/home-assistant/core/pull/86684
+[#86687]: https://github.com/home-assistant/core/pull/86687
+[#86711]: https://github.com/home-assistant/core/pull/86711
+[#86712]: https://github.com/home-assistant/core/pull/86712
+[#86725]: https://github.com/home-assistant/core/pull/86725
+[#86727]: https://github.com/home-assistant/core/pull/86727
+[#86728]: https://github.com/home-assistant/core/pull/86728
+[#86742]: https://github.com/home-assistant/core/pull/86742
+[#86749]: https://github.com/home-assistant/core/pull/86749
+[#86751]: https://github.com/home-assistant/core/pull/86751
+[#86754]: https://github.com/home-assistant/core/pull/86754
+[#86758]: https://github.com/home-assistant/core/pull/86758
+[#86762]: https://github.com/home-assistant/core/pull/86762
+[#86763]: https://github.com/home-assistant/core/pull/86763
+[#86808]: https://github.com/home-assistant/core/pull/86808
+[#86812]: https://github.com/home-assistant/core/pull/86812
+[#86819]: https://github.com/home-assistant/core/pull/86819
+[#86824]: https://github.com/home-assistant/core/pull/86824
+[#86829]: https://github.com/home-assistant/core/pull/86829
+[#86838]: https://github.com/home-assistant/core/pull/86838
+[#86841]: https://github.com/home-assistant/core/pull/86841
+[#86842]: https://github.com/home-assistant/core/pull/86842
+[#86847]: https://github.com/home-assistant/core/pull/86847
+[#86855]: https://github.com/home-assistant/core/pull/86855
+[#86861]: https://github.com/home-assistant/core/pull/86861
+[#86867]: https://github.com/home-assistant/core/pull/86867
+[#86874]: https://github.com/home-assistant/core/pull/86874
+[#86890]: https://github.com/home-assistant/core/pull/86890
+[#86897]: https://github.com/home-assistant/core/pull/86897
+[#86917]: https://github.com/home-assistant/core/pull/86917
+[#86935]: https://github.com/home-assistant/core/pull/86935
+[#86939]: https://github.com/home-assistant/core/pull/86939
+[#86942]: https://github.com/home-assistant/core/pull/86942
+[#86953]: https://github.com/home-assistant/core/pull/86953
+[#86960]: https://github.com/home-assistant/core/pull/86960
+[#86961]: https://github.com/home-assistant/core/pull/86961
+[#86965]: https://github.com/home-assistant/core/pull/86965
+[#86966]: https://github.com/home-assistant/core/pull/86966
+[#86970]: https://github.com/home-assistant/core/pull/86970
+[#86975]: https://github.com/home-assistant/core/pull/86975
+[#86977]: https://github.com/home-assistant/core/pull/86977
+[#86978]: https://github.com/home-assistant/core/pull/86978
+[#86979]: https://github.com/home-assistant/core/pull/86979
+[#86980]: https://github.com/home-assistant/core/pull/86980
+[#86981]: https://github.com/home-assistant/core/pull/86981
+[#86982]: https://github.com/home-assistant/core/pull/86982
+[#86993]: https://github.com/home-assistant/core/pull/86993
+[#86995]: https://github.com/home-assistant/core/pull/86995
+[#86996]: https://github.com/home-assistant/core/pull/86996
+[#86997]: https://github.com/home-assistant/core/pull/86997
+[#87001]: https://github.com/home-assistant/core/pull/87001
+[#87010]: https://github.com/home-assistant/core/pull/87010
+[#87018]: https://github.com/home-assistant/core/pull/87018
+[#87034]: https://github.com/home-assistant/core/pull/87034
+[#87040]: https://github.com/home-assistant/core/pull/87040
+[#87041]: https://github.com/home-assistant/core/pull/87041
+[#87042]: https://github.com/home-assistant/core/pull/87042
+[#87051]: https://github.com/home-assistant/core/pull/87051
+[#87058]: https://github.com/home-assistant/core/pull/87058
+[#87059]: https://github.com/home-assistant/core/pull/87059
+[#87086]: https://github.com/home-assistant/core/pull/87086
+[#87090]: https://github.com/home-assistant/core/pull/87090
+[#87096]: https://github.com/home-assistant/core/pull/87096
+[#87098]: https://github.com/home-assistant/core/pull/87098
+[#87099]: https://github.com/home-assistant/core/pull/87099
 [@930913]: https://github.com/930913
 [@Alcoinus]: https://github.com/Alcoinus
 [@Andre0512]: https://github.com/Andre0512
@@ -1523,14 +1679,17 @@ For a summary in a more readable format:
 [@Cereal2nd]: https://github.com/Cereal2nd
 [@CoMPaTech]: https://github.com/CoMPaTech
 [@DCSBL]: https://github.com/DCSBL
+[@Danielhiversen]: https://github.com/Danielhiversen
 [@Drafteed]: https://github.com/Drafteed
 [@Ernst79]: https://github.com/Ernst79
 [@Gerigot]: https://github.com/Gerigot
+[@Glodenox]: https://github.com/Glodenox
 [@GrahamJB1]: https://github.com/GrahamJB1
 [@IceBotYT]: https://github.com/IceBotYT
 [@Jorei]: https://github.com/Jorei
 [@Kane610]: https://github.com/Kane610
 [@Lash-L]: https://github.com/Lash-L
+[@MHFDoge]: https://github.com/MHFDoge
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@MatthiasLohr]: https://github.com/MatthiasLohr
 [@Nardol]: https://github.com/Nardol
@@ -1542,6 +1701,7 @@ For a summary in a more readable format:
 [@Savjee]: https://github.com/Savjee
 [@SgtBatten]: https://github.com/SgtBatten
 [@Shutgun]: https://github.com/Shutgun
+[@StevenLooman]: https://github.com/StevenLooman
 [@Stonos]: https://github.com/Stonos
 [@TheJulianJES]: https://github.com/TheJulianJES
 [@TitanNano]: https://github.com/TitanNano
@@ -1576,13 +1736,13 @@ For a summary in a more readable format:
 [@dmulcahey]: https://github.com/dmulcahey
 [@eMerzh]: https://github.com/eMerzh
 [@eifinger]: https://github.com/eifinger
-[@eineinhornmiau]: https://github.com/eineinhornmiau
 [@elupus]: https://github.com/elupus
 [@emontnemery]: https://github.com/emontnemery
 [@engrbm87]: https://github.com/engrbm87
 [@epenet]: https://github.com/epenet
 [@exxamalte]: https://github.com/exxamalte
 [@farmio]: https://github.com/farmio
+[@foxel]: https://github.com/foxel
 [@frenck]: https://github.com/frenck
 [@fwestenberg]: https://github.com/fwestenberg
 [@gjohansson-ST]: https://github.com/gjohansson-ST
@@ -1606,6 +1766,7 @@ For a summary in a more readable format:
 [@lemanjo]: https://github.com/lemanjo
 [@liudger]: https://github.com/liudger
 [@ljungqvist]: https://github.com/ljungqvist
+[@ludeeus]: https://github.com/ludeeus
 [@lunmay]: https://github.com/lunmay
 [@majuss]: https://github.com/majuss
 [@marcelveldt]: https://github.com/marcelveldt
@@ -1614,20 +1775,24 @@ For a summary in a more readable format:
 [@mdegat01]: https://github.com/mdegat01
 [@mdonoughe]: https://github.com/mdonoughe
 [@mib1185]: https://github.com/mib1185
+[@michaeldavie]: https://github.com/michaeldavie
 [@mkmer]: https://github.com/mkmer
 [@mvdwetering]: https://github.com/mvdwetering
 [@mxr]: https://github.com/mxr
+[@mythicaleinhorn]: https://github.com/mythicaleinhorn
 [@nareddyt]: https://github.com/nareddyt
 [@natekspencer]: https://github.com/natekspencer
 [@nijel]: https://github.com/nijel
 [@niklasdoerfler]: https://github.com/niklasdoerfler
 [@o951753o]: https://github.com/o951753o
 [@oischinger]: https://github.com/oischinger
+[@ollo69]: https://github.com/ollo69
 [@ondras12345]: https://github.com/ondras12345
 [@orosam]: https://github.com/orosam
 [@osmaa]: https://github.com/osmaa
 [@pavoni]: https://github.com/pavoni
 [@piitaya]: https://github.com/piitaya
+[@pree]: https://github.com/pree
 [@puddly]: https://github.com/puddly
 [@pvizeli]: https://github.com/pvizeli
 [@ratsept]: https://github.com/ratsept
@@ -1650,315 +1815,327 @@ For a summary in a more readable format:
 [@tkdrob]: https://github.com/tkdrob
 [@tradel]: https://github.com/tradel
 [@tronikos]: https://github.com/tronikos
+[@tschamm]: https://github.com/tschamm
 [@tyge68]: https://github.com/tyge68
 [@uvjustin]: https://github.com/uvjustin
 [@wibbit]: https://github.com/wibbit
 [@yuvalabou]: https://github.com/yuvalabou
 [@yuxincs]: https://github.com/yuxincs
 [@zebardy]: https://github.com/zebardy
-[abode docs]: /integrations/abode/
-[accuweather docs]: /integrations/accuweather/
-[adguard docs]: /integrations/adguard/
-[airly docs]: /integrations/airly/
-[airthings_ble docs]: /integrations/airthings_ble/
-[airvisual docs]: /integrations/airvisual/
-[airvisual_pro docs]: /integrations/airvisual_pro/
-[airzone docs]: /integrations/airzone/
-[aladdin_connect docs]: /integrations/aladdin_connect/
-[alexa docs]: /integrations/alexa/
-[almond docs]: /integrations/almond/
-[ambient_station docs]: /integrations/ambient_station/
-[anthemav docs]: /integrations/anthemav/
-[anwb_energie docs]: /integrations/anwb_energie/
-[apcupsd docs]: /integrations/apcupsd/
-[august docs]: /integrations/august/
-[axis docs]: /integrations/axis/
-[bitcoin docs]: /integrations/bitcoin/
-[blebox docs]: /integrations/blebox/
-[bluemaestro docs]: /integrations/bluemaestro/
-[bluetooth docs]: /integrations/bluetooth/
-[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
-[bond docs]: /integrations/bond/
-[bosch_shc docs]: /integrations/bosch_shc/
-[braviatv docs]: /integrations/braviatv/
-[broadlink docs]: /integrations/broadlink/
-[brunt docs]: /integrations/brunt/
-[bsblan docs]: /integrations/bsblan/
-[bthome docs]: /integrations/bthome/
-[caldav docs]: /integrations/caldav/
-[calendar docs]: /integrations/calendar/
-[camera docs]: /integrations/camera/
-[cast docs]: /integrations/cast/
-[cert_expiry docs]: /integrations/cert_expiry/
-[climacell docs]: /integrations/climacell/
-[climate docs]: /integrations/climate/
-[co2signal docs]: /integrations/co2signal/
-[comfoconnect docs]: /integrations/comfoconnect/
-[config docs]: /integrations/config/
-[conversation docs]: /integrations/conversation/
-[coolmaster docs]: /integrations/coolmaster/
-[cover docs]: /integrations/cover/
-[debugpy docs]: /integrations/debugpy/
-[deconz docs]: /integrations/deconz/
-[default_config docs]: /integrations/default_config/
-[deluge docs]: /integrations/deluge/
-[demo docs]: /integrations/demo/
-[derivative docs]: /integrations/derivative/
-[device_automation docs]: /integrations/device_automation/
-[devolo_home_network docs]: /integrations/devolo_home_network/
-[dhcp docs]: /integrations/dhcp/
-[diagnostics docs]: /integrations/diagnostics/
-[dlink docs]: /integrations/dlink/
-[ecobee docs]: /integrations/ecobee/
-[econet docs]: /integrations/econet/
-[ecowitt docs]: /integrations/ecowitt/
-[elgato docs]: /integrations/elgato/
-[elkm1 docs]: /integrations/elkm1/
-[emoncms docs]: /integrations/emoncms/
-[energie_vanons docs]: /integrations/energie_vanons/
-[energy docs]: /integrations/energy/
-[energyzero docs]: /integrations/energyzero/
-[escea docs]: /integrations/escea/
-[esphome docs]: /integrations/esphome/
-[eufy docs]: /integrations/eufy/
-[eufylife_ble docs]: /integrations/eufylife_ble/
-[ezviz docs]: /integrations/ezviz/
-[filter docs]: /integrations/filter/
-[fire_tv docs]: /integrations/fire_tv/
-[firmata docs]: /integrations/firmata/
-[fitbit docs]: /integrations/fitbit/
-[fjaraskupan docs]: /integrations/fjaraskupan/
-[flume docs]: /integrations/flume/
-[flux_led docs]: /integrations/flux_led/
-[folder_watcher docs]: /integrations/folder_watcher/
-[forked_daapd docs]: /integrations/forked_daapd/
-[freedompro docs]: /integrations/freedompro/
-[fritz docs]: /integrations/fritz/
-[fritzbox docs]: /integrations/fritzbox/
-[fronius docs]: /integrations/fronius/
-[frontend docs]: /integrations/frontend/
-[generic docs]: /integrations/generic/
-[generic_hygrostat docs]: /integrations/generic_hygrostat/
-[geniushub docs]: /integrations/geniushub/
-[geonetnz_quakes docs]: /integrations/geonetnz_quakes/
-[geonetnz_volcano docs]: /integrations/geonetnz_volcano/
-[gios docs]: /integrations/gios/
-[glances docs]: /integrations/glances/
-[goalzero docs]: /integrations/goalzero/
-[google docs]: /integrations/google/
-[google_assistant docs]: /integrations/google_assistant/
-[google_assistant_sdk docs]: /integrations/google_assistant_sdk/
-[google_mail docs]: /integrations/google_mail/
-[google_sheets docs]: /integrations/google_sheets/
-[google_wifi docs]: /integrations/google_wifi/
-[group docs]: /integrations/group/
-[guardian docs]: /integrations/guardian/
-[hassio docs]: /integrations/hassio/
-[heos docs]: /integrations/heos/
-[here_travel_time docs]: /integrations/here_travel_time/
-[history docs]: /integrations/history/
-[homeassistant_hardware docs]: /integrations/homeassistant_hardware/
-[homeassistant_sky_connect docs]: /integrations/homeassistant_sky_connect/
-[homeassistant_yellow docs]: /integrations/homeassistant_yellow/
-[homematicip_cloud docs]: /integrations/homematicip_cloud/
-[homewizard docs]: /integrations/homewizard/
-[honeywell docs]: /integrations/honeywell/
-[http docs]: /integrations/http/
-[huawei_lte docs]: /integrations/huawei_lte/
-[hue docs]: /integrations/hue/
-[huisbaasje docs]: /integrations/huisbaasje/
-[ign_sismologia docs]: /integrations/ign_sismologia/
-[imap docs]: /integrations/imap/
-[influxdb docs]: /integrations/influxdb/
-[insteon docs]: /integrations/insteon/
-[integration docs]: /integrations/integration/
-[intellifire docs]: /integrations/intellifire/
-[intent docs]: /integrations/intent/
-[iotawatt docs]: /integrations/iotawatt/
-[iperf3 docs]: /integrations/iperf3/
-[ipp docs]: /integrations/ipp/
-[iqvia docs]: /integrations/iqvia/
-[islamic_prayer_times docs]: /integrations/islamic_prayer_times/
-[isy994 docs]: /integrations/isy994/
-[jellyfin docs]: /integrations/jellyfin/
-[keymitt_ble docs]: /integrations/keymitt_ble/
-[kitchen_sink docs]: /integrations/kitchen_sink/
-[knx docs]: /integrations/knx/
-[konnected docs]: /integrations/konnected/
-[kostal_plenticore docs]: /integrations/kostal_plenticore/
-[lacrosse docs]: /integrations/lacrosse/
-[lacrosse_view docs]: /integrations/lacrosse_view/
-[lametric docs]: /integrations/lametric/
-[landisgyr_heat_meter docs]: /integrations/landisgyr_heat_meter/
-[lcn docs]: /integrations/lcn/
-[ld2410_ble docs]: /integrations/ld2410_ble/
-[lg_soundbar docs]: /integrations/lg_soundbar/
-[life360 docs]: /integrations/life360/
-[lifx docs]: /integrations/lifx/
-[light docs]: /integrations/light/
-[litejet docs]: /integrations/litejet/
-[litterrobot docs]: /integrations/litterrobot/
-[local_calendar docs]: /integrations/local_calendar/
-[lock docs]: /integrations/lock/
-[logbook docs]: /integrations/logbook/
-[lupusec docs]: /integrations/lupusec/
-[lutron_caseta docs]: /integrations/lutron_caseta/
-[magicseaweed docs]: /integrations/magicseaweed/
-[matter docs]: /integrations/matter/
-[mazda docs]: /integrations/mazda/
-[media_extractor docs]: /integrations/media_extractor/
-[melnor docs]: /integrations/melnor/
-[metoffice docs]: /integrations/metoffice/
-[mfi docs]: /integrations/mfi/
-[mijndomein_energie docs]: /integrations/mijndomein_energie/
-[mill docs]: /integrations/mill/
-[min_max docs]: /integrations/min_max/
-[minecraft_server docs]: /integrations/minecraft_server/
-[mobile_app docs]: /integrations/mobile_app/
-[modbus docs]: /integrations/modbus/
-[modem_callerid docs]: /integrations/modem_callerid/
-[moehlenhoff_alpha2 docs]: /integrations/moehlenhoff_alpha2/
-[mopeka docs]: /integrations/mopeka/
-[motion_blinds docs]: /integrations/motion_blinds/
-[motioneye docs]: /integrations/motioneye/
-[mqtt docs]: /integrations/mqtt/
-[mysensors docs]: /integrations/mysensors/
-[nam docs]: /integrations/nam/
-[nanoleaf docs]: /integrations/nanoleaf/
-[nest docs]: /integrations/nest/
-[netatmo docs]: /integrations/netatmo/
-[netgear docs]: /integrations/netgear/
-[nextdns docs]: /integrations/nextdns/
-[nibe_heatpump docs]: /integrations/nibe_heatpump/
-[notion docs]: /integrations/notion/
-[nsw_rural_fire_service_feed docs]: /integrations/nsw_rural_fire_service_feed/
-[nuki docs]: /integrations/nuki/
-[number docs]: /integrations/number/
-[nut docs]: /integrations/nut/
-[nws docs]: /integrations/nws/
-[oncue docs]: /integrations/oncue/
-[ondilo_ico docs]: /integrations/ondilo_ico/
-[onewire docs]: /integrations/onewire/
-[openai_conversation docs]: /integrations/openai_conversation/
-[openalpr_local docs]: /integrations/openalpr_local/
-[openerz docs]: /integrations/openerz/
-[opengarage docs]: /integrations/opengarage/
-[openuv docs]: /integrations/openuv/
-[oralb docs]: /integrations/oralb/
-[otbr docs]: /integrations/otbr/
-[ovo_energy docs]: /integrations/ovo_energy/
-[philips_js docs]: /integrations/philips_js/
-[pi_hole docs]: /integrations/pi_hole/
-[ping docs]: /integrations/ping/
-[plugwise docs]: /integrations/plugwise/
-[powerwall docs]: /integrations/powerwall/
-[prusalink docs]: /integrations/prusalink/
-[ps4 docs]: /integrations/ps4/
-[purpleair docs]: /integrations/purpleair/
-[pvpc_hourly_pricing docs]: /integrations/pvpc_hourly_pricing/
-[python_script docs]: /integrations/python_script/
-[qnap_qsw docs]: /integrations/qnap_qsw/
-[qwikswitch docs]: /integrations/qwikswitch/
-[rainbird docs]: /integrations/rainbird/
-[rainmachine docs]: /integrations/rainmachine/
-[recollect_waste docs]: /integrations/recollect_waste/
-[recorder docs]: /integrations/recorder/
-[renault docs]: /integrations/renault/
-[reolink docs]: /integrations/reolink/
-[repairs docs]: /integrations/repairs/
-[rest docs]: /integrations/rest/
-[rflink docs]: /integrations/rflink/
-[rfxtrx docs]: /integrations/rfxtrx/
-[ridwell docs]: /integrations/ridwell/
-[ring docs]: /integrations/ring/
-[roon docs]: /integrations/roon/
-[rss_feed_template docs]: /integrations/rss_feed_template/
-[ruuvi_gateway docs]: /integrations/ruuvi_gateway/
-[ruuvitag_ble docs]: /integrations/ruuvitag_ble/
-[rympro docs]: /integrations/rympro/
-[sabnzbd docs]: /integrations/sabnzbd/
-[samsungtv docs]: /integrations/samsungtv/
-[scrape docs]: /integrations/scrape/
-[screenlogic docs]: /integrations/screenlogic/
-[sensibo docs]: /integrations/sensibo/
-[sensor docs]: /integrations/sensor/
-[sentry docs]: /integrations/sentry/
-[sfr_box docs]: /integrations/sfr_box/
-[shelly docs]: /integrations/shelly/
-[simplisafe docs]: /integrations/simplisafe/
-[sleepiq docs]: /integrations/sleepiq/
-[snmp docs]: /integrations/snmp/
-[snooz docs]: /integrations/snooz/
-[solaredge docs]: /integrations/solaredge/
-[soma docs]: /integrations/soma/
-[sonarr docs]: /integrations/sonarr/
-[sonos docs]: /integrations/sonos/
-[soundtouch docs]: /integrations/soundtouch/
-[spotify docs]: /integrations/spotify/
-[sql docs]: /integrations/sql/
-[squeezebox docs]: /integrations/squeezebox/
-[starlink docs]: /integrations/starlink/
-[steam_online docs]: /integrations/steam_online/
-[stookwijzer docs]: /integrations/stookwijzer/
-[stream docs]: /integrations/stream/
-[switchbee docs]: /integrations/switchbee/
-[switchbot docs]: /integrations/switchbot/
-[syncthing docs]: /integrations/syncthing/
-[syncthru docs]: /integrations/syncthru/
-[synology_dsm docs]: /integrations/synology_dsm/
-[tado docs]: /integrations/tado/
-[tcp docs]: /integrations/tcp/
-[tellstick docs]: /integrations/tellstick/
-[template docs]: /integrations/template/
-[thread docs]: /integrations/thread/
-[tile docs]: /integrations/tile/
-[tod docs]: /integrations/tod/
-[todoist docs]: /integrations/todoist/
-[tolo docs]: /integrations/tolo/
-[tomorrowio docs]: /integrations/tomorrowio/
-[torque docs]: /integrations/torque/
-[totalconnect docs]: /integrations/totalconnect/
-[tplink docs]: /integrations/tplink/
-[tradfri docs]: /integrations/tradfri/
-[trafikverket_ferry docs]: /integrations/trafikverket_ferry/
-[trafikverket_train docs]: /integrations/trafikverket_train/
-[trafikverket_weatherstation docs]: /integrations/trafikverket_weatherstation/
-[transmission docs]: /integrations/transmission/
-[tts docs]: /integrations/tts/
-[tuya docs]: /integrations/tuya/
-[twentemilieu docs]: /integrations/twentemilieu/
-[twinkly docs]: /integrations/twinkly/
-[unifi docs]: /integrations/unifi/
-[unifiprotect docs]: /integrations/unifiprotect/
-[upnp docs]: /integrations/upnp/
-[uptime docs]: /integrations/uptime/
-[usgs_earthquakes_feed docs]: /integrations/usgs_earthquakes_feed/
-[utility_meter docs]: /integrations/utility_meter/
-[velbus docs]: /integrations/velbus/
-[venstar docs]: /integrations/venstar/
-[vicare docs]: /integrations/vicare/
-[volkszaehler docs]: /integrations/volkszaehler/
-[vultr docs]: /integrations/vultr/
-[wallbox docs]: /integrations/wallbox/
-[watttime docs]: /integrations/watttime/
-[weather docs]: /integrations/weather/
-[webostv docs]: /integrations/webostv/
-[websocket_api docs]: /integrations/websocket_api/
-[whirlpool docs]: /integrations/whirlpool/
-[whois docs]: /integrations/whois/
-[withings docs]: /integrations/withings/
-[wiz docs]: /integrations/wiz/
-[wled docs]: /integrations/wled/
-[workday docs]: /integrations/workday/
-[xiaomi_ble docs]: /integrations/xiaomi_ble/
-[xiaomi_miio docs]: /integrations/xiaomi_miio/
-[yalexs_ble docs]: /integrations/yalexs_ble/
-[yamaha docs]: /integrations/yamaha/
-[yamaha_musiccast docs]: /integrations/yamaha_musiccast/
-[youless docs]: /integrations/youless/
-[zamg docs]: /integrations/zamg/
-[zeroconf docs]: /integrations/zeroconf/
-[zeversolar docs]: /integrations/zeversolar/
-[zha docs]: /integrations/zha/
-[zwave_js docs]: /integrations/zwave_js/
-[zwave_me docs]: /integrations/zwave_me/
+[abode docs]: https://www.home-assistant.io/integrations/abode/
+[accuweather docs]: https://www.home-assistant.io/integrations/accuweather/
+[adguard docs]: https://www.home-assistant.io/integrations/adguard/
+[airly docs]: https://www.home-assistant.io/integrations/airly/
+[airthings_ble docs]: https://www.home-assistant.io/integrations/airthings_ble/
+[airvisual docs]: https://www.home-assistant.io/integrations/airvisual/
+[airvisual_pro docs]: https://www.home-assistant.io/integrations/airvisual_pro/
+[airzone docs]: https://www.home-assistant.io/integrations/airzone/
+[aladdin_connect docs]: https://www.home-assistant.io/integrations/aladdin_connect/
+[alexa docs]: https://www.home-assistant.io/integrations/alexa/
+[almond docs]: https://www.home-assistant.io/integrations/almond/
+[ambient_station docs]: https://www.home-assistant.io/integrations/ambient_station/
+[androidtv docs]: https://www.home-assistant.io/integrations/androidtv/
+[anthemav docs]: https://www.home-assistant.io/integrations/anthemav/
+[anwb_energie docs]: https://www.home-assistant.io/integrations/anwb_energie/
+[apcupsd docs]: https://www.home-assistant.io/integrations/apcupsd/
+[august docs]: https://www.home-assistant.io/integrations/august/
+[axis docs]: https://www.home-assistant.io/integrations/axis/
+[bitcoin docs]: https://www.home-assistant.io/integrations/bitcoin/
+[blebox docs]: https://www.home-assistant.io/integrations/blebox/
+[bluemaestro docs]: https://www.home-assistant.io/integrations/bluemaestro/
+[bluetooth docs]: https://www.home-assistant.io/integrations/bluetooth/
+[bmw_connected_drive docs]: https://www.home-assistant.io/integrations/bmw_connected_drive/
+[bond docs]: https://www.home-assistant.io/integrations/bond/
+[bosch_shc docs]: https://www.home-assistant.io/integrations/bosch_shc/
+[braviatv docs]: https://www.home-assistant.io/integrations/braviatv/
+[broadlink docs]: https://www.home-assistant.io/integrations/broadlink/
+[brunt docs]: https://www.home-assistant.io/integrations/brunt/
+[bsblan docs]: https://www.home-assistant.io/integrations/bsblan/
+[bthome docs]: https://www.home-assistant.io/integrations/bthome/
+[caldav docs]: https://www.home-assistant.io/integrations/caldav/
+[calendar docs]: https://www.home-assistant.io/integrations/calendar/
+[camera docs]: https://www.home-assistant.io/integrations/camera/
+[cast docs]: https://www.home-assistant.io/integrations/cast/
+[cert_expiry docs]: https://www.home-assistant.io/integrations/cert_expiry/
+[climacell docs]: https://www.home-assistant.io/integrations/climacell/
+[climate docs]: https://www.home-assistant.io/integrations/climate/
+[co2signal docs]: https://www.home-assistant.io/integrations/co2signal/
+[comfoconnect docs]: https://www.home-assistant.io/integrations/comfoconnect/
+[config docs]: https://www.home-assistant.io/integrations/config/
+[conversation docs]: https://www.home-assistant.io/integrations/conversation/
+[coolmaster docs]: https://www.home-assistant.io/integrations/coolmaster/
+[cover docs]: https://www.home-assistant.io/integrations/cover/
+[debugpy docs]: https://www.home-assistant.io/integrations/debugpy/
+[deconz docs]: https://www.home-assistant.io/integrations/deconz/
+[default_config docs]: https://www.home-assistant.io/integrations/default_config/
+[deluge docs]: https://www.home-assistant.io/integrations/deluge/
+[demo docs]: https://www.home-assistant.io/integrations/demo/
+[derivative docs]: https://www.home-assistant.io/integrations/derivative/
+[device_automation docs]: https://www.home-assistant.io/integrations/device_automation/
+[devolo_home_network docs]: https://www.home-assistant.io/integrations/devolo_home_network/
+[dhcp docs]: https://www.home-assistant.io/integrations/dhcp/
+[diagnostics docs]: https://www.home-assistant.io/integrations/diagnostics/
+[dlink docs]: https://www.home-assistant.io/integrations/dlink/
+[dlna_dmr docs]: https://www.home-assistant.io/integrations/dlna_dmr/
+[dlna_dms docs]: https://www.home-assistant.io/integrations/dlna_dms/
+[dsmr_reader docs]: https://www.home-assistant.io/integrations/dsmr_reader/
+[ecobee docs]: https://www.home-assistant.io/integrations/ecobee/
+[econet docs]: https://www.home-assistant.io/integrations/econet/
+[ecowitt docs]: https://www.home-assistant.io/integrations/ecowitt/
+[elgato docs]: https://www.home-assistant.io/integrations/elgato/
+[elkm1 docs]: https://www.home-assistant.io/integrations/elkm1/
+[emoncms docs]: https://www.home-assistant.io/integrations/emoncms/
+[energie_vanons docs]: https://www.home-assistant.io/integrations/energie_vanons/
+[energy docs]: https://www.home-assistant.io/integrations/energy/
+[energyzero docs]: https://www.home-assistant.io/integrations/energyzero/
+[environment_canada docs]: https://www.home-assistant.io/integrations/environment_canada/
+[escea docs]: https://www.home-assistant.io/integrations/escea/
+[esphome docs]: https://www.home-assistant.io/integrations/esphome/
+[eufy docs]: https://www.home-assistant.io/integrations/eufy/
+[eufylife_ble docs]: https://www.home-assistant.io/integrations/eufylife_ble/
+[ezviz docs]: https://www.home-assistant.io/integrations/ezviz/
+[filter docs]: https://www.home-assistant.io/integrations/filter/
+[fire_tv docs]: https://www.home-assistant.io/integrations/fire_tv/
+[firmata docs]: https://www.home-assistant.io/integrations/firmata/
+[fitbit docs]: https://www.home-assistant.io/integrations/fitbit/
+[fjaraskupan docs]: https://www.home-assistant.io/integrations/fjaraskupan/
+[flume docs]: https://www.home-assistant.io/integrations/flume/
+[flux_led docs]: https://www.home-assistant.io/integrations/flux_led/
+[folder_watcher docs]: https://www.home-assistant.io/integrations/folder_watcher/
+[forked_daapd docs]: https://www.home-assistant.io/integrations/forked_daapd/
+[freedompro docs]: https://www.home-assistant.io/integrations/freedompro/
+[fritz docs]: https://www.home-assistant.io/integrations/fritz/
+[fritzbox docs]: https://www.home-assistant.io/integrations/fritzbox/
+[fronius docs]: https://www.home-assistant.io/integrations/fronius/
+[frontend docs]: https://www.home-assistant.io/integrations/frontend/
+[generic docs]: https://www.home-assistant.io/integrations/generic/
+[generic_hygrostat docs]: https://www.home-assistant.io/integrations/generic_hygrostat/
+[geniushub docs]: https://www.home-assistant.io/integrations/geniushub/
+[geonetnz_quakes docs]: https://www.home-assistant.io/integrations/geonetnz_quakes/
+[geonetnz_volcano docs]: https://www.home-assistant.io/integrations/geonetnz_volcano/
+[gios docs]: https://www.home-assistant.io/integrations/gios/
+[glances docs]: https://www.home-assistant.io/integrations/glances/
+[goalzero docs]: https://www.home-assistant.io/integrations/goalzero/
+[google docs]: https://www.home-assistant.io/integrations/google/
+[google_assistant docs]: https://www.home-assistant.io/integrations/google_assistant/
+[google_assistant_sdk docs]: https://www.home-assistant.io/integrations/google_assistant_sdk/
+[google_mail docs]: https://www.home-assistant.io/integrations/google_mail/
+[google_sheets docs]: https://www.home-assistant.io/integrations/google_sheets/
+[google_wifi docs]: https://www.home-assistant.io/integrations/google_wifi/
+[group docs]: https://www.home-assistant.io/integrations/group/
+[guardian docs]: https://www.home-assistant.io/integrations/guardian/
+[hassio docs]: https://www.home-assistant.io/integrations/hassio/
+[heos docs]: https://www.home-assistant.io/integrations/heos/
+[here_travel_time docs]: https://www.home-assistant.io/integrations/here_travel_time/
+[history docs]: https://www.home-assistant.io/integrations/history/
+[homeassistant_hardware docs]: https://www.home-assistant.io/integrations/homeassistant_hardware/
+[homeassistant_sky_connect docs]: https://www.home-assistant.io/integrations/homeassistant_sky_connect/
+[homeassistant_yellow docs]: https://www.home-assistant.io/integrations/homeassistant_yellow/
+[homekit docs]: https://www.home-assistant.io/integrations/homekit/
+[homematicip_cloud docs]: https://www.home-assistant.io/integrations/homematicip_cloud/
+[homewizard docs]: https://www.home-assistant.io/integrations/homewizard/
+[honeywell docs]: https://www.home-assistant.io/integrations/honeywell/
+[http docs]: https://www.home-assistant.io/integrations/http/
+[huawei_lte docs]: https://www.home-assistant.io/integrations/huawei_lte/
+[hue docs]: https://www.home-assistant.io/integrations/hue/
+[huisbaasje docs]: https://www.home-assistant.io/integrations/huisbaasje/
+[ign_sismologia docs]: https://www.home-assistant.io/integrations/ign_sismologia/
+[imap docs]: https://www.home-assistant.io/integrations/imap/
+[influxdb docs]: https://www.home-assistant.io/integrations/influxdb/
+[insteon docs]: https://www.home-assistant.io/integrations/insteon/
+[integration docs]: https://www.home-assistant.io/integrations/integration/
+[intellifire docs]: https://www.home-assistant.io/integrations/intellifire/
+[intent docs]: https://www.home-assistant.io/integrations/intent/
+[iotawatt docs]: https://www.home-assistant.io/integrations/iotawatt/
+[iperf3 docs]: https://www.home-assistant.io/integrations/iperf3/
+[ipp docs]: https://www.home-assistant.io/integrations/ipp/
+[iqvia docs]: https://www.home-assistant.io/integrations/iqvia/
+[islamic_prayer_times docs]: https://www.home-assistant.io/integrations/islamic_prayer_times/
+[isy994 docs]: https://www.home-assistant.io/integrations/isy994/
+[jellyfin docs]: https://www.home-assistant.io/integrations/jellyfin/
+[keenetic_ndms2 docs]: https://www.home-assistant.io/integrations/keenetic_ndms2/
+[keymitt_ble docs]: https://www.home-assistant.io/integrations/keymitt_ble/
+[kitchen_sink docs]: https://www.home-assistant.io/integrations/kitchen_sink/
+[knx docs]: https://www.home-assistant.io/integrations/knx/
+[konnected docs]: https://www.home-assistant.io/integrations/konnected/
+[kostal_plenticore docs]: https://www.home-assistant.io/integrations/kostal_plenticore/
+[lacrosse docs]: https://www.home-assistant.io/integrations/lacrosse/
+[lacrosse_view docs]: https://www.home-assistant.io/integrations/lacrosse_view/
+[lametric docs]: https://www.home-assistant.io/integrations/lametric/
+[landisgyr_heat_meter docs]: https://www.home-assistant.io/integrations/landisgyr_heat_meter/
+[lcn docs]: https://www.home-assistant.io/integrations/lcn/
+[ld2410_ble docs]: https://www.home-assistant.io/integrations/ld2410_ble/
+[lg_soundbar docs]: https://www.home-assistant.io/integrations/lg_soundbar/
+[life360 docs]: https://www.home-assistant.io/integrations/life360/
+[lifx docs]: https://www.home-assistant.io/integrations/lifx/
+[light docs]: https://www.home-assistant.io/integrations/light/
+[litejet docs]: https://www.home-assistant.io/integrations/litejet/
+[litterrobot docs]: https://www.home-assistant.io/integrations/litterrobot/
+[local_calendar docs]: https://www.home-assistant.io/integrations/local_calendar/
+[lock docs]: https://www.home-assistant.io/integrations/lock/
+[logbook docs]: https://www.home-assistant.io/integrations/logbook/
+[lupusec docs]: https://www.home-assistant.io/integrations/lupusec/
+[lutron_caseta docs]: https://www.home-assistant.io/integrations/lutron_caseta/
+[magicseaweed docs]: https://www.home-assistant.io/integrations/magicseaweed/
+[matter docs]: https://www.home-assistant.io/integrations/matter/
+[mazda docs]: https://www.home-assistant.io/integrations/mazda/
+[media_extractor docs]: https://www.home-assistant.io/integrations/media_extractor/
+[melnor docs]: https://www.home-assistant.io/integrations/melnor/
+[metoffice docs]: https://www.home-assistant.io/integrations/metoffice/
+[mfi docs]: https://www.home-assistant.io/integrations/mfi/
+[mijndomein_energie docs]: https://www.home-assistant.io/integrations/mijndomein_energie/
+[mill docs]: https://www.home-assistant.io/integrations/mill/
+[min_max docs]: https://www.home-assistant.io/integrations/min_max/
+[minecraft_server docs]: https://www.home-assistant.io/integrations/minecraft_server/
+[mobile_app docs]: https://www.home-assistant.io/integrations/mobile_app/
+[modbus docs]: https://www.home-assistant.io/integrations/modbus/
+[modem_callerid docs]: https://www.home-assistant.io/integrations/modem_callerid/
+[moehlenhoff_alpha2 docs]: https://www.home-assistant.io/integrations/moehlenhoff_alpha2/
+[mopeka docs]: https://www.home-assistant.io/integrations/mopeka/
+[motion_blinds docs]: https://www.home-assistant.io/integrations/motion_blinds/
+[motioneye docs]: https://www.home-assistant.io/integrations/motioneye/
+[mqtt docs]: https://www.home-assistant.io/integrations/mqtt/
+[mysensors docs]: https://www.home-assistant.io/integrations/mysensors/
+[nam docs]: https://www.home-assistant.io/integrations/nam/
+[nanoleaf docs]: https://www.home-assistant.io/integrations/nanoleaf/
+[nest docs]: https://www.home-assistant.io/integrations/nest/
+[netatmo docs]: https://www.home-assistant.io/integrations/netatmo/
+[netgear docs]: https://www.home-assistant.io/integrations/netgear/
+[nextdns docs]: https://www.home-assistant.io/integrations/nextdns/
+[nibe_heatpump docs]: https://www.home-assistant.io/integrations/nibe_heatpump/
+[notion docs]: https://www.home-assistant.io/integrations/notion/
+[nsw_rural_fire_service_feed docs]: https://www.home-assistant.io/integrations/nsw_rural_fire_service_feed/
+[nuki docs]: https://www.home-assistant.io/integrations/nuki/
+[number docs]: https://www.home-assistant.io/integrations/number/
+[nut docs]: https://www.home-assistant.io/integrations/nut/
+[nws docs]: https://www.home-assistant.io/integrations/nws/
+[oncue docs]: https://www.home-assistant.io/integrations/oncue/
+[ondilo_ico docs]: https://www.home-assistant.io/integrations/ondilo_ico/
+[onewire docs]: https://www.home-assistant.io/integrations/onewire/
+[openai_conversation docs]: https://www.home-assistant.io/integrations/openai_conversation/
+[openalpr_local docs]: https://www.home-assistant.io/integrations/openalpr_local/
+[openerz docs]: https://www.home-assistant.io/integrations/openerz/
+[opengarage docs]: https://www.home-assistant.io/integrations/opengarage/
+[openuv docs]: https://www.home-assistant.io/integrations/openuv/
+[oralb docs]: https://www.home-assistant.io/integrations/oralb/
+[otbr docs]: https://www.home-assistant.io/integrations/otbr/
+[overkiz docs]: https://www.home-assistant.io/integrations/overkiz/
+[ovo_energy docs]: https://www.home-assistant.io/integrations/ovo_energy/
+[philips_js docs]: https://www.home-assistant.io/integrations/philips_js/
+[pi_hole docs]: https://www.home-assistant.io/integrations/pi_hole/
+[ping docs]: https://www.home-assistant.io/integrations/ping/
+[plugwise docs]: https://www.home-assistant.io/integrations/plugwise/
+[powerwall docs]: https://www.home-assistant.io/integrations/powerwall/
+[prusalink docs]: https://www.home-assistant.io/integrations/prusalink/
+[ps4 docs]: https://www.home-assistant.io/integrations/ps4/
+[purpleair docs]: https://www.home-assistant.io/integrations/purpleair/
+[pvpc_hourly_pricing docs]: https://www.home-assistant.io/integrations/pvpc_hourly_pricing/
+[python_script docs]: https://www.home-assistant.io/integrations/python_script/
+[qnap_qsw docs]: https://www.home-assistant.io/integrations/qnap_qsw/
+[qwikswitch docs]: https://www.home-assistant.io/integrations/qwikswitch/
+[rainbird docs]: https://www.home-assistant.io/integrations/rainbird/
+[rainmachine docs]: https://www.home-assistant.io/integrations/rainmachine/
+[recollect_waste docs]: https://www.home-assistant.io/integrations/recollect_waste/
+[recorder docs]: https://www.home-assistant.io/integrations/recorder/
+[renault docs]: https://www.home-assistant.io/integrations/renault/
+[reolink docs]: https://www.home-assistant.io/integrations/reolink/
+[repairs docs]: https://www.home-assistant.io/integrations/repairs/
+[rest docs]: https://www.home-assistant.io/integrations/rest/
+[rflink docs]: https://www.home-assistant.io/integrations/rflink/
+[rfxtrx docs]: https://www.home-assistant.io/integrations/rfxtrx/
+[ridwell docs]: https://www.home-assistant.io/integrations/ridwell/
+[ring docs]: https://www.home-assistant.io/integrations/ring/
+[roon docs]: https://www.home-assistant.io/integrations/roon/
+[rss_feed_template docs]: https://www.home-assistant.io/integrations/rss_feed_template/
+[ruuvi_gateway docs]: https://www.home-assistant.io/integrations/ruuvi_gateway/
+[ruuvitag_ble docs]: https://www.home-assistant.io/integrations/ruuvitag_ble/
+[rympro docs]: https://www.home-assistant.io/integrations/rympro/
+[sabnzbd docs]: https://www.home-assistant.io/integrations/sabnzbd/
+[samsungtv docs]: https://www.home-assistant.io/integrations/samsungtv/
+[scrape docs]: https://www.home-assistant.io/integrations/scrape/
+[screenlogic docs]: https://www.home-assistant.io/integrations/screenlogic/
+[sensibo docs]: https://www.home-assistant.io/integrations/sensibo/
+[sensor docs]: https://www.home-assistant.io/integrations/sensor/
+[sentry docs]: https://www.home-assistant.io/integrations/sentry/
+[sfr_box docs]: https://www.home-assistant.io/integrations/sfr_box/
+[shelly docs]: https://www.home-assistant.io/integrations/shelly/
+[simplisafe docs]: https://www.home-assistant.io/integrations/simplisafe/
+[sleepiq docs]: https://www.home-assistant.io/integrations/sleepiq/
+[snmp docs]: https://www.home-assistant.io/integrations/snmp/
+[snooz docs]: https://www.home-assistant.io/integrations/snooz/
+[solaredge docs]: https://www.home-assistant.io/integrations/solaredge/
+[soma docs]: https://www.home-assistant.io/integrations/soma/
+[sonarr docs]: https://www.home-assistant.io/integrations/sonarr/
+[sonos docs]: https://www.home-assistant.io/integrations/sonos/
+[soundtouch docs]: https://www.home-assistant.io/integrations/soundtouch/
+[spotify docs]: https://www.home-assistant.io/integrations/spotify/
+[sql docs]: https://www.home-assistant.io/integrations/sql/
+[squeezebox docs]: https://www.home-assistant.io/integrations/squeezebox/
+[ssdp docs]: https://www.home-assistant.io/integrations/ssdp/
+[starlink docs]: https://www.home-assistant.io/integrations/starlink/
+[steam_online docs]: https://www.home-assistant.io/integrations/steam_online/
+[stookwijzer docs]: https://www.home-assistant.io/integrations/stookwijzer/
+[stream docs]: https://www.home-assistant.io/integrations/stream/
+[switchbee docs]: https://www.home-assistant.io/integrations/switchbee/
+[switchbot docs]: https://www.home-assistant.io/integrations/switchbot/
+[syncthing docs]: https://www.home-assistant.io/integrations/syncthing/
+[syncthru docs]: https://www.home-assistant.io/integrations/syncthru/
+[synology_dsm docs]: https://www.home-assistant.io/integrations/synology_dsm/
+[tado docs]: https://www.home-assistant.io/integrations/tado/
+[tcp docs]: https://www.home-assistant.io/integrations/tcp/
+[tellstick docs]: https://www.home-assistant.io/integrations/tellstick/
+[template docs]: https://www.home-assistant.io/integrations/template/
+[thread docs]: https://www.home-assistant.io/integrations/thread/
+[tibber docs]: https://www.home-assistant.io/integrations/tibber/
+[tile docs]: https://www.home-assistant.io/integrations/tile/
+[tod docs]: https://www.home-assistant.io/integrations/tod/
+[todoist docs]: https://www.home-assistant.io/integrations/todoist/
+[tolo docs]: https://www.home-assistant.io/integrations/tolo/
+[tomorrowio docs]: https://www.home-assistant.io/integrations/tomorrowio/
+[torque docs]: https://www.home-assistant.io/integrations/torque/
+[totalconnect docs]: https://www.home-assistant.io/integrations/totalconnect/
+[tplink docs]: https://www.home-assistant.io/integrations/tplink/
+[tradfri docs]: https://www.home-assistant.io/integrations/tradfri/
+[trafikverket_ferry docs]: https://www.home-assistant.io/integrations/trafikverket_ferry/
+[trafikverket_train docs]: https://www.home-assistant.io/integrations/trafikverket_train/
+[trafikverket_weatherstation docs]: https://www.home-assistant.io/integrations/trafikverket_weatherstation/
+[transmission docs]: https://www.home-assistant.io/integrations/transmission/
+[tts docs]: https://www.home-assistant.io/integrations/tts/
+[tuya docs]: https://www.home-assistant.io/integrations/tuya/
+[twentemilieu docs]: https://www.home-assistant.io/integrations/twentemilieu/
+[twinkly docs]: https://www.home-assistant.io/integrations/twinkly/
+[unifi docs]: https://www.home-assistant.io/integrations/unifi/
+[unifiprotect docs]: https://www.home-assistant.io/integrations/unifiprotect/
+[upnp docs]: https://www.home-assistant.io/integrations/upnp/
+[uptime docs]: https://www.home-assistant.io/integrations/uptime/
+[usgs_earthquakes_feed docs]: https://www.home-assistant.io/integrations/usgs_earthquakes_feed/
+[utility_meter docs]: https://www.home-assistant.io/integrations/utility_meter/
+[velbus docs]: https://www.home-assistant.io/integrations/velbus/
+[venstar docs]: https://www.home-assistant.io/integrations/venstar/
+[vicare docs]: https://www.home-assistant.io/integrations/vicare/
+[volkszaehler docs]: https://www.home-assistant.io/integrations/volkszaehler/
+[vultr docs]: https://www.home-assistant.io/integrations/vultr/
+[wallbox docs]: https://www.home-assistant.io/integrations/wallbox/
+[watttime docs]: https://www.home-assistant.io/integrations/watttime/
+[weather docs]: https://www.home-assistant.io/integrations/weather/
+[webostv docs]: https://www.home-assistant.io/integrations/webostv/
+[websocket_api docs]: https://www.home-assistant.io/integrations/websocket_api/
+[whirlpool docs]: https://www.home-assistant.io/integrations/whirlpool/
+[whois docs]: https://www.home-assistant.io/integrations/whois/
+[withings docs]: https://www.home-assistant.io/integrations/withings/
+[wiz docs]: https://www.home-assistant.io/integrations/wiz/
+[wled docs]: https://www.home-assistant.io/integrations/wled/
+[workday docs]: https://www.home-assistant.io/integrations/workday/
+[xiaomi_ble docs]: https://www.home-assistant.io/integrations/xiaomi_ble/
+[xiaomi_miio docs]: https://www.home-assistant.io/integrations/xiaomi_miio/
+[yalexs_ble docs]: https://www.home-assistant.io/integrations/yalexs_ble/
+[yamaha docs]: https://www.home-assistant.io/integrations/yamaha/
+[yamaha_musiccast docs]: https://www.home-assistant.io/integrations/yamaha_musiccast/
+[yeelight docs]: https://www.home-assistant.io/integrations/yeelight/
+[youless docs]: https://www.home-assistant.io/integrations/youless/
+[zamg docs]: https://www.home-assistant.io/integrations/zamg/
+[zeroconf docs]: https://www.home-assistant.io/integrations/zeroconf/
+[zeversolar docs]: https://www.home-assistant.io/integrations/zeversolar/
+[zha docs]: https://www.home-assistant.io/integrations/zha/
+[zwave_js docs]: https://www.home-assistant.io/integrations/zwave_js/
+[zwave_me docs]: https://www.home-assistant.io/integrations/zwave_me/
