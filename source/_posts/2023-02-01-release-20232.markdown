@@ -398,9 +398,9 @@ findability. These are new:
 
 The following integrations are now available via the Home Assistant UI:
 
-- [Rain Bird], done by [@allenporter]
-- [IMAP], done by [@engrbm87]
-- [D-Link], done by [@tkdrob]
+- **[Rain Bird]**, done by [@allenporter]
+- **[IMAP]**, done by [@engrbm87]
+- **[D-Link]**, done by [@tkdrob]
 
 [@allenporter]: https://github.com/allenporter
 [@engrbm87]: https://github.com/engrbm87
