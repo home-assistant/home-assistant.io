@@ -237,18 +237,21 @@ Note: This is a temporary placeholder screenshot. Needs replacement.
 
 **Note**: Changes processed up to PR 86115
 
-{% enddetails %}
+## Other noteworthy changes
 
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- You can now add aliases to your areas too! This is used by our new Assist
-  features.
+- You can now add aliases to your areas too! Our new Assist feature
+  leverages this!
 - Got an energy sensor in `Wh`, but you'd like it to be `kWh`? You can now
   change the units of energy sensors in the entity settings.
+- Each entity in the frontend has its own color, which is based on the current
+- entity state. We now have [officially added support](/integrations/frontend/#state-color)
+  for themes to customize these.
 - The most awesome integration of all, got even better. [@Lash-L] added support
   for the battery state of your [Oral-B] toothbrush!
-- The automations & scripts UI, now support selecting other entities for
+- The automations & scripts UI now support selecting other entities for
   above/below in the numeric state conditions & triggers. Thanks, [@karwosts]!
 - The [Reolink] integration now supports FLV streams, cameras can be discovered
   on the network, but more importantly: binary sensors! For things
@@ -256,21 +259,21 @@ noteworthy changes this release:
   Thanks, [@starkillerOG]!
 - There is now a [service] that allows for the creation of calendar events. So,
   you can now automate events to be added to your calendars! Amazing, [@allenporter]!
-- When selecting an entity from a list in the UI, it will now exclude entities
-  that already have been added. Helpful! Thanks, [@piitaya]!
+- When selecting an entity from a list in the UI, it will now exclude already
+  added entities. Helpful! Thanks, [@piitaya]!
 - [@Kane610] added PoE power sensors to the [UniFi Network] integrations, nice!
 - The [Tile card] now has a vertical option! Great, [@TheZoker]!
 - [Jellyfin] now works with TV shows in the media browser. Thanks, [@j-stienstra]!
 - We have bumped the CHIP/Matter SDK version used by our [Matter] implementation
-  to to 1.0.0.2, which according to [their release notes] contains lots of fixes.
-- From the Month of "What the heck?": Old style [groups] can now remove entities
+  to 1.0.0.2, which according to [their release notes], contains many fixes.
+- From the Month of "What the heck?": Old-style [groups] can now remove entities
   from the group using the `group.set` service. Thanks, [@gjohansson-ST]!
 - You might have noticed a [Thread] and an [Open Thread Border Router] integration
-  being added this release. These are currently not for active use, but for inital
-  early development.
+  being added to this release. These are currently not for active use but for
+  initial early development.
 - The following integrations now reached a [Platinum] level on the
   [integration quality scale]:
-  - [Renault] nice job [@epenet]!
+  - [Renault] excellent job [@epenet]!
   - [HomeWizard Energy] awesome work [@DCSBL]!
 
 [@allenporter]: https://github.com/allenporter
