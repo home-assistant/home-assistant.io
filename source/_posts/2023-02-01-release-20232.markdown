@@ -44,7 +44,7 @@ _PS: Just a reminder that valentine's day is coming up. Be sure to share the lov
 
 <!--more-->
 
-- [Introducing Assist!](#introducing-assist)
+- [Meet: Assist!](#meet-assist)
 - [Streaming history](#streaming-history)
 - [Changing the precision of a sensor](#changing-the-precision-of-a-sensor)
 - [Grouping sensors](#grouping-sensors)
@@ -61,43 +61,36 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 <lite-youtube videoid="S3XRVsqRX9k" videotitle="Home Assistant 2023.2 Release Party"></lite-youtube>
 
-## Introducing Assist!
+## Meet: Assist!
 
-{% details "TODO" %}
+It's [Home Assistant's Year of the Voice](/blog/2022/12/20/year-of-voice/), and
+it's our goal to let users control Home Assistant in their own language.
+Together with the Home Assistant community, we have been hard at work building
+the foundation for this.
 
-- Add story
-- Spelling/grammar
-- Add links to new documentation for it
-- Remove livestream embed, reference/link it instead.
-- Add aliases to areas #15198
-- Load custom sentences from config directory ([@synesthesiam] - [#85558]) ([conversation docs]) (noteworthy)
+Today we like you to meet:
 
-{% enddetails %}
+<img class="no-shadow" src='/images/blog/2023-02/assist.png' alt='Screenshot showing one can adjust the precision of a sensor entity from the Home Assistant UI'>
 
-Not going to spoil too much beans during the beta yet... but you absolutely
-want to go and watch the livestream on Thursday, 26 January, at 12:00 PST / 21:00 CET!
+<img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'> Assist
+allows you to use natural language to control Home Assistant. It is powered by
+[Hassil](https://github.com/home-assistant/hassil) and the sentences
+(contributed by 112! people) from the
+[Home Assistant Intent](https://home-assistant.github.io/intents/) project.
 
-Join us today to learn about new assistant features for Home Assistant.
+We believe technology is meant to be played with, and projects should be
+usable as soon as possible. Together with the community, we can then iterate
+and refine. That's why today, we're delivering a basic experience supporting
+a stunning 22! languages that work with Assist.
 
-<lite-youtube videoid="ixgNT3RETPg" videotitle="Home Assistant Year of the Voice - Chapter 1"></lite-youtube>
+Go ahead, it is enabled by default; just tap the new Assist icon
+<img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'>
+at the top right of your dashboard to start using it.
 
-It's [Home Assistant's Year of the Voice](/blog/2022/12/20/year-of-voice/) and
-it's our goal to let users control Home Assistant in their own language. With
-the Home Assistant community we've been hard at work on building the foundation
-and add support to control Home Assistant in 39 different languages.
-
-But if you really want to get a taste on what is going on... you might notice a
-little new icon here:
-
-<p class='img'>
-<img src='https://cdn.discordapp.com/attachments/1041774037912797204/1063793645532225596/image1.jpg' alt='Temporary placeholder screenshot. Needs replacement.'></a>
-Note: This is a temporary placeholder screenshot. Needs replacement.
-</p>
-
-<p class='img'>
-<img src='https://cdn.discordapp.com/attachments/1041774037912797204/1063793645247017101/image0.jpg' alt='Temporary placeholder screenshot. Needs replacement.'></a>
-Note: This is a temporary placeholder screenshot. Needs replacement.
-</p>
+Oh, and we are also releasing some fun stuff we've cooked up along the way!
+[Read more about Assist](/docs/assist/) and other released voice features in the
+[Chapter 1: Assist](/blog/2023/01/26/year-of-the-voice-chapter-1/) blogpost
+and a video presentation (includes live demos) [on YouTube](https://www.youtube.com/live/ixgNT3RETPg).
 
 ## Streaming history
 
