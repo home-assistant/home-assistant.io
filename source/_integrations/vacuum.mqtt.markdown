@@ -70,7 +70,7 @@ availability_topic:
   required: false
   type: string
 battery_level_template:
-  description: Defines a [template](/topics/templating/) to define the battery level of the vacuum. This is required if `battery_level_topic` is set.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define the battery level of the vacuum. This is required if `battery_level_topic` is set.
   required: false
   type: string
 battery_level_topic:
@@ -78,7 +78,7 @@ battery_level_topic:
   required: false
   type: string
 charging_template:
-  description: Defines a [template](/topics/templating/) to define the charging state of the vacuum. This is required if `charging_topic` is set.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define the charging state of the vacuum. This is required if `charging_topic` is set.
   required: false
   type: string
 charging_topic:
@@ -367,7 +367,7 @@ command_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this switch is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this switch is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:

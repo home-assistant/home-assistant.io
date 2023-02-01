@@ -49,7 +49,7 @@ There are two generations of devices. Both generations are supported by this int
 
 Generation 1 devices use the `CoIoT` protocol to communicate with the integration. For Shelly firmware 1.10.0 or newer, `CoIoT` must be enabled in the device settings. Navigate to the local IP address of your Shelly device, **Internet & Security** >> **ADVANCED - DEVELOPER SETTINGS** and check the box **Enable CoIoT**.
 
-We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. This is mandatory for Shelly Motion with firmware 1.1.0 or newer. After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
+We recommend using `unicast` for communication. To enable this, enter the local IP address of the Home Assistant server and port `5683` into the **CoIoT peer** field and push **SAVE** button. **This is mandatory for battery operated devices**. After changing the **CoIoT peer**, the Shelly device needs to be manually restarted.
 
 ## Shelly device configuration (generation 2)
 
@@ -60,6 +60,12 @@ Generation 2 devices use the `RPC` protocol to communicate with the integration.
 <div class="note">
 Integration is communicating directly with the device; cloud connection is not needed.
 </div>
+
+## Bluetooth Support
+
+Shelly generation 2 devices running firmware 0.12 or later can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
+
+{% include integrations/option_flow.md %}
 
 ## Entity naming (generation 1)
 
@@ -283,9 +289,3 @@ Please check from the device Web UI that the configured server is reachable.
 - Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - OTA update service does not support battery-powered devices
-
-## Bluetooth Support
-
-Shelly generation 2 devices running firmware 0.12 or later can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
-
-{% include integrations/option_flow.md %}
