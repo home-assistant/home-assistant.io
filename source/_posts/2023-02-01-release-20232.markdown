@@ -69,7 +69,7 @@ the foundation for this.
 
 Today we like you to meet:
 
-<img class="no-shadow" src='/images/blog/2023-02/assist.png' alt='Screenshot showing one can adjust the precision of a sensor entity from the Home Assistant UI'>
+<img class="no-shadow" src='/images/blog/2023-02/assist.png' alt='Screenshot showing the new assist feature being used to turn on lights'>
 
 <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'> Assist
 allows you to use natural language to control Home Assistant. It is powered by
