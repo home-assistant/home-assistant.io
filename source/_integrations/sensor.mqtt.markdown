@@ -185,7 +185,7 @@ state_class:
   type: string
   default: None
 state_topic:
-  description: The MQTT topic subscribed to receive sensor values. If `device_class` is set, a numeric value is expected, an empty value `''` will be ignored, value `None` will set the sensor to an `unknown` state. This allows to handle values for numeric sensors that do not supply a valid numeric `value`.
+  description: The MQTT topic subscribed to receive sensor values. If `device_class`, `state_class` or `unit_of_measurement` is set, and a numeric value is expected, an empty value `''` will be ignored and will not update the state and a `None` value will set the sensor to an `unknown` state.
   required: true
   type: string
 unique_id:
