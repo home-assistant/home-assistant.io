@@ -430,7 +430,6 @@ Home Assistant's ZHA integration already supports most standard device types out
 
 The few devices that will for example not join/pair properly or while joined/paired do not present all attributes in the ZHA integration likely deviate from the Zigbee specifications set by the [CSA (Connectivity Standards Alliance, formerly the Zigbee Alliance)](https://csa-iot.org/all-solutions/zigbee/) and may therefore require proper bug reports with debug logs from the end-users and as a device owner you may need to actively assistant troubleshooting by providing the information developers need to code custom [ZHA Device Handlers)](https://github.com/zigpy/zha-device-handlers/blob/dev/README.md) that convert/translate non-compliant device functions so they will work properly with the ZHA integration.
 
-Such a custom "ZHA Device Handler" are Python script that internally is also referred to as a "quirk" because they fix or workaround "quirks" in devices, like deviations from the standard specifications. ZHA Device Handles do this by transparently, acting as an in-line translator/converter, translating and converting non-compliant device messages and instead presenting them to the application as coming from a virtual compliant device that follows the official Zigbee standard. These ZHA Device Handlers for Home Assistant can thus be used to parse custom messages to and from Zigbee devices. Once a quirk is coded, the ZHA Device Handlers that are made can then be reused by all users with the same devices in future versions of Home Assistant.
 
 
 ### Reporting issues
