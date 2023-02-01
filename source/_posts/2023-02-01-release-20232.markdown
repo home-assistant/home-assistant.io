@@ -304,61 +304,61 @@ noteworthy changes this release:
 
 We welcome the following new integrations in this release:
 
-- [EnergyZero], added by [@klaasnicolaas]<br />
-  Retreives dynamic (hourly) energy & gas prices from the Dutch utility company
+- **[EnergyZero]**, added by [@klaasnicolaas]<br />
+  Retrieves dynamic (hourly) energy & gas prices from the Dutch utility company
   EnergyZero.
 
-- [EufyLife], added by [@bdr99]<br />
-  Integrate Eufy smart scales over bluetooth.
+- **[EufyLife]**, added by [@bdr99]<br />
+  Integrate Eufy smart scales over Bluetooth.
 
-- [Everything but the Kitchen Sink], added by [@emontnemery]<br />
-  This is a test integration, which provide various entities and odd and
-  obsecure ends. It can be helpful for development purposes, generally no
-  use otherwise.
+- **[Everything but the Kitchen Sink]**, added by [@emontnemery]<br />
+  This is a test integration, which provides various odd and obscure entities.
+  It can be helpful for development purposes, but generally no use otherwise.
 
-- [Google Mail], added by [@tkdrob]<br />
+- **[Google Mail]**, added by [@tkdrob]<br />
   Provides services to manage your Google Mail auto-response and provides
-  a notify service to draft or send emails.
+  a notification service to send (or draft) emails.
 
-- [LD2410 BLE], added by [@930913]<br />
+- **[LD2410 BLE]**, added by [@930913]<br />
   Integrates a [$4 LD2410 Bluetooth mmWave sensor], which works with our
   Bluetooth proxies!
 
-- [Mopeka], added by [@bdraco]<br />
-  Works with your Mopeka makes BLE propane tank monitors.
+- **[Mopeka]**, added by [@bdraco]<br />
+  Works with your Mopeka BLE propane tank monitors.
 
-- [OpenAI Conversation], added by [@balloob]<br />
-  OpenAI integration that uses GPT-3 to power a conversation agent.
+- **[OpenAI Conversation]**, added by [@balloob]<br />
+  OpenAI integration that uses GPT-3 to showcase replacing the Home Assistant
+  conversation agent. Note: It cannot control anything in your home.
 
-- [Read Your Meter Pro], added by [@OnFreund]<br />
-  Pull in your water usage / meter readings from your Read Your Meter Pro account.
+- **[Read Your Meter Pro]**, added by [@OnFreund]<br />
+  Pull in your water usage/meter readings from your Read Your Meter Pro account.
 
-- [Ruuvi Gateway], added by [@akx]<br />
+- **[Ruuvi Gateway]**, added by [@akx]<br />
   Integrates the Ruuvi Gateway that reads your Ruuvi sensors.
 
-- [SFR Box], added by [@epenet]<br />
-  Offers integration with the SFR broadband router.
+- **[SFR Box]**, added by [@epenet]<br />
+  Offers integration with the SFR broadband routers.
 
-- [Starlink], added by [@boswelja]<br />
+- **[Starlink]**, added by [@boswelja]<br />
   Starlink is a satellite internet constellation operated by SpaceX.
   Integrate your Starlink dish with Home Assistant.
 
-- [Stookwijzer], added by [@fwestenberg]<br />
-  Stookwijzer advises people wether or not to burn pallets or wood, or to
+- **[Stookwijzer]**, added by [@fwestenberg]<br />
+  Stookwijzer advises wether to burn pallets or wood, or to
   use the barbecue. This can prevent health problems for people in the area
   (NL only).
 
-- [Zeversolar], added by [@kvanzuijlen]<br />
+- **[Zeversolar]**, added by [@kvanzuijlen]<br />
   Get power and energy information from your Zeversolar solar inverter locally.
 
 This release also has some new virtual integrations. Virtual integrations
 are stubs that are handled by other (existing) integrations to help with
 findability. These are new:
 
-- [ANWB Energie] provided by [EnergyZero], added by [@klaasnicolaas]
-- [Energie VanOns] provided by [EnergyZero], added by [@klaasnicolaas]
-- [Mijndomein Energie] provided by [EnergyZero], added by [@klaasnicolaas]
-- [Fire TV] provided by [Android TV], added by [@jrieger]
+- **[ANWB Energie]** provided by [EnergyZero], added by [@klaasnicolaas]
+- **[Energie VanOns]** provided by [EnergyZero], added by [@klaasnicolaas]
+- **[Mijndomein Energie]** provided by [EnergyZero], added by [@klaasnicolaas]
+- **[Fire TV]** provided by [Android TV], added by [@jrieger]
 
 [@930913]: https://github.com/930913
 [@akx]: https://github.com/akx
