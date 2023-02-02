@@ -1,19 +1,17 @@
 ---
-title: Reolink IP NVR/camera
+title: Reolink NVR/camera
 description: Instructions on how to integrate Reolink devices (NVR/cameras) into Home Assistant.
 ha_category:
   - Camera
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_release: 2023.1
 ha_domain: reolink
 ha_codeowners:
-  - '@starkillerOG'
+  - "@starkillerOG"
 ha_config_flow: true
 ha_platforms:
-  - binary_sensor
-  - camera
+  - Camera
 ha_integration_type: integration
-ha_dhcp: true
 ---
 
 The integration allows you to control [Reolink](https://reolink.com/) NVRs or cameras.
@@ -68,6 +66,7 @@ The following models have been tested and confirmed to work:
 - RLC-820A
 - RLC-823A
 - RLN8-410 NVR
+- RLN16-410 NVR
 - Reolink Duo Floodlight PoE
 - Reolink Video Doorbell (PoE and Wi-Fi)
 
@@ -79,6 +78,6 @@ The following models are lacking the HTTP webserver API and can therfore not wor
 
 ## Reolink firmware limitations
 
-- The Reolink NVR only sends event-notifications if motion happens on the camera connected to the first (index "0") channel, therefore the binary sensors of all channels will only be updated when the first channel sees motion.
-- Reolink doorbell presses only generate ONVIF event notifications when the doorbell is directly connected to your network. The doorbell visitor binary sensor will not work when connecting the Reolink doorbell to an NVR.
+- The Reolink NVR only sends event-notifications if motion happens on the camera connected to the first (index "0") channel, therefore the binary sensors of all channels will only be updated when the first channel sees motion. Beta NVR firmware v3.0.0.211_23011204 fixes this issue, you can request beta firmware from reolink support, release firmware is expected in a few weeks.
+- Reolink doorbell presses only generate ONVIF event notifications when the doorbell is directly connected to your network. The doorbell visitor binary sensor will not work when connecting the Reolink doorbell to an NVR. Beta NVR firmware v3.0.0.211_23011204 fixes this issue, you can request beta firmware from reolink support, release firmware is expected in a few weeks.
 - Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) prior to setting up the integration.
