@@ -15,6 +15,12 @@ Although these systems generate elaborate and well structured answers, they are 
 
 We appreciate that people want to help others, but if you don't have the knowledge, leave it to someone else. Giving an incorrect answer makes things worse. You are wasting everybody's time, including the person asking the question. Trying out an answer that doesn't work is frustrating because you think you're doing something wrong.
 
-Using an AI system to generate an answer while not providing attribution to AI will result in a ban. If you use attribution, we will delete your post and issue a warning. This also means suggesting someone "ask ChatGPT" is not an acceptable response.
+Therefore, from now on, the rules for answering questions in the Home Assistant community will be amended with the following:
+
+   * If you respond to someone by simply asking the question to ChatGPT and then reposting whatever it says unsourced and untested you’ll be banned.
+   * Same as above but you attribute it to ChatGPT you’ll be warned to stop doing that
+   * If you respond by saying “go ask ChatGPT” you’ll be warned to stop doing that. Since that is basically the same as #2 (sharing exactly what ChatGPT says in response but attributed to ChatGPT)
+   * If you go ask ChatGPT, review the response, test it, correct the flaws (if any) and then post a working solution - no problem
+ 
 
 If AI systems get better, we will revisit this rule.
