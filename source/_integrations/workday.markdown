@@ -43,7 +43,8 @@ name:
 country:
   description: >
     Country code according to [holidays](https://pypi.org/project/holidays/) notation.
-  required: true
+    If not provided, an empty set of holidays will be used.
+  required: false
   type: string
 province:
   description: Subdivision code according to [holidays](https://pypi.org/project/holidays/) notation.
@@ -65,17 +66,21 @@ days_offset:
   type: integer
   default: 0
 add_holidays:
-  description: "Add custom holidays (such as company, personal holidays or vacations). Needs to formatted as `YYYY-MM-DD`."
+  description: >
+    Add custom holidays (such as company, personal holidays or vacations). Needs to formatted as `YYYY-MM-DD`.
+    Works even if no country is provided.
   required: false
   type: list
 remove_holidays:
-  description: "Remove holidays (treat holiday as workday). Can be formatted as `YYYY-MM-DD` or by name for a partial string match (e.g. Thanksgiving)."
+  description: >
+    Remove holidays (treat holiday as workday). Can be formatted as `YYYY-MM-DD` or by name for a partial string match (e.g. Thanksgiving).
+    Cannot be used to mark weekends as workdays; only holidays can be removed.
   required: false
   type: list
 {% endconfiguration %}
 
 Days are specified as follows: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
-The keyword `holiday` is used for public holidays identified by the holidays module.
+The keyword `holiday` is used for public holidays identified by the holidays module and holidays added by the `add_holidays` configuration option.
 
 <div class='note warning'>
 
@@ -96,9 +101,8 @@ This example excludes Saturdays and Sundays but not pre-configured holidays. Two
 # Example 1 configuration.yaml entry
 binary_sensor:
   - platform: workday
-    country: US
     workdays: [mon, tue, wed, thu, fri]
-    excludes: [sat, sun]
+    excludes: [sat, sun, holiday]
     add_holidays:
       - "2020-02-24"
       - "2020-04-25"
