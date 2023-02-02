@@ -77,6 +77,7 @@ lists:
         out: "media_player.bedroom"
   volume:
     range:
+      type: number
       from: 0
       to: 100
 ```
