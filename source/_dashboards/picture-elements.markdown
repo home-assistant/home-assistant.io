@@ -413,8 +413,6 @@ style:
   # Positioning of the element
   left: 50%
   top: 50%
-  # Overwrite color for icons
-  "--paper-item-icon-color": pink
 ```
 
 ### How to use state_image
