@@ -9,12 +9,14 @@ comments: true
 categories: Public-Service-Announcement
 ---
 
-Today we're introducing a new rule for the Home Assistant community: it's no longer allowed to use ChatGPT or other AI systems to help others.
+Today we're introducing a new rule for the Home Assistant community: it's no longer allowed to use ChatGPT or other AI systems to provide untested or unsourced solutions help others.
 
-Although these systems generate elaborate and well structured answers, they are wrong. Often they are wrong in subtle ways which only someone with the right expertise could detect. And those people wouldn't need AI to have written that answer.
+Although these systems generate elaborate and well structured answers, often they are wrong in subtle ways which only someone with the right expertise could detect. And those people wouldn't need AI to have written that answer.
 
 We appreciate that people want to help others, but if you don't have the knowledge, leave it to someone else. Giving an incorrect answer makes things worse. You are wasting everybody's time, including the person asking the question. Trying out an answer that doesn't work is frustrating because you think you're doing something wrong.
 
-Using an AI system to generate an answer while not providing attribution to AI will result in a ban. If you use attribution, we will delete your post and issue a warning. This also means suggesting someone "ask ChatGPT" is not an acceptable response.
+Using an AI system to generate your answer without proper research or testing is strictly banned. Doing so with attribution will result in your post deleted and a warning issued. If you post that same answer without any attribution this will result in a ban. This also means suggesting someone "ask ChatGPT" is not an acceptable response.
+
+Using an AI system as **part** of your research while helping answer a question is fine, so long as your provided solution is actually properly tested. In this case attribution will not result in any punitive action.
 
 If AI systems get better, we will revisit this rule.
