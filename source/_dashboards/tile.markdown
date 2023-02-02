@@ -43,7 +43,7 @@ show_entity_picture:
   default: false
 vertical:
   required: false
-  description: Displays the icon above the name and state
+  description: Displays the icon above the name and state.
   type: boolean
   default: false
 tap_action:
