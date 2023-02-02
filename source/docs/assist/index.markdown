@@ -16,6 +16,9 @@ Assist is available to use on most platforms that can interface with Home Assist
 
 Did Assist not understand your sentence? [Contribute them.](https://developers.home-assistant.io/docs/voice/intent-recognition/)
 
+If you have opted to not use `default_config:` you must enable the [conversation](https://www.home-assistant.io/integrations/conversation/) integration before you can use Assist.
+ 
 _Assist was introduced in Home Assistant 2023.2._
+
 
 <lite-youtube videoid="sQ7X7jz1SrA" videotitle="Assist on Apple HomePod"></lite-youtube>
