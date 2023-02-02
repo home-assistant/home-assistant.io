@@ -20,5 +20,4 @@ If you have opted to not use `default_config:` you must enable the [conversation
  
 _Assist was introduced in Home Assistant 2023.2._
 
-
 <lite-youtube videoid="sQ7X7jz1SrA" videotitle="Assist on Apple HomePod"></lite-youtube>
