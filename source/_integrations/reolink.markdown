@@ -11,7 +11,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
-  - Camera
+  - camera
 ha_integration_type: integration
 ha_dhcp: true
 ---
