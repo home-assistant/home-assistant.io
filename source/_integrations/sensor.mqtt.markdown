@@ -170,6 +170,10 @@ payload_not_available:
   required: false
   type: string
   default: offline
+precision:
+  description: The number of decimals which should be used in the sensor's state after rounding.
+  required: false
+  type: integer
 qos:
   description: The maximum QoS level of the state topic.
   required: false
@@ -323,6 +327,7 @@ mqtt:
   sensor:
     - name: "Temperature"
       state_topic: "office/sensor1"
+      precision: 1
       unit_of_measurement: "°C"
       value_template: "{{ value_json.temperature }}"
     - name: "Humidity"
