@@ -136,7 +136,7 @@ There are four `homeassistant` services that aren't tied to any single domain, t
 
 Complete service details and examples can be found on the [Home Assistant integration][homeassistant-integration-services] page.
 
-[templating]: /topics/templating/
+[templating]: /docs/configuration/templating/
 [google travel time]: /integrations/google_travel_time/
 [template sensor]: /integrations/template/
 [light]: /integrations/light/
