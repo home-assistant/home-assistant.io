@@ -9,7 +9,7 @@ comments: true
 categories: Public-Service-Announcement
 ---
 
-Today we're introducing a new rule for the Home Assistant community: it's no longer allowed to use ChatGPT or other AI systems to provide untested or unsourced solutions help others.
+Today we're introducing a new rule for the Home Assistant community: it's no longer allowed to use ChatGPT or other AI systems to provide untested or unsourced solutions to help others.
 
 Although these systems generate elaborate and well structured answers, often they are wrong in subtle ways which only someone with the right expertise could detect. And those people wouldn't need AI to have written that answer.
 
