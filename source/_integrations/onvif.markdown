@@ -15,6 +15,7 @@ ha_platforms:
   - camera
   - diagnostics
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
