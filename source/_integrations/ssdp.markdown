@@ -47,6 +47,6 @@ The following integrations are automatically discovered by the SSDP integration:
  - [Sony Songpal](/integrations/songpal/)
  - [Synology DSM](/integrations/synology_dsm/)
  - [Ubiquiti UniFi](/integrations/unifi/)
- - [Universal Devices ISY994](/integrations/isy994/)
+ - [Universal Devices ISY/IoX](/integrations/isy994/)
  - [UPnP](/integrations/upnp/)
  - [WiLight](/integrations/wilight/)

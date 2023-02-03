@@ -49,3 +49,61 @@ Fan speed percentage is mapped to the device volume level.
 <div class='note'>
 Speed percentages less than 10 have no effect - they all map to a value of 1 on the device.
 </div>
+
+## Services
+
+### Service `snooz.transition_on`
+
+Transition the volume level over the specified duration. If the device is powered off, the transition will start at the lowest volume level.
+
+{% my developer_call_service badge service="snooz.transition_on" %}
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `duration` | yes | Number of seconds to transition to target volume.
+| `volume` | yes | Percentage volume level. If not specified, the volume on the device is used.
+
+#### Automation example
+
+```yaml
+automation:
+  - trigger:
+      - platform: time
+        at: "04:20:00"
+    action:
+      - service: snooz.transition_on
+        target:
+          entity_id: fan.snooz_abcd
+        data:
+          volume: 33
+          duration: 120
+```
+
+### Service `snooz.transition_off`
+
+Transition the volume level to the lowest setting over the specified duration, then power off the device.
+
+<div class='note'>
+Once the transition completes, the volume level is restored to the value before the transition started.
+</div>
+
+{% my developer_call_service badge service="snooz.transition_off" %}
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `duration` | yes | Number of seconds to complete the transition.
+
+#### Automation example
+
+```yaml
+automation:
+  - trigger:
+      - platform: time
+        at: "16:20:00"
+    action:
+      - service: snooz.transition_off
+        target:
+          entity_id: fan.snooz_abcd
+        data:
+          duration: 120
+```
