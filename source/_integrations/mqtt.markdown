@@ -516,6 +516,7 @@ The following software has built-in support for MQTT discovery:
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
 - [ebusd](https://github.com/john30/ebusd)
 - [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
+- [EMS-ESP32 (and EMS-ESP)](https://github.com/emsesp/EMS-ESP32)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
 - [HASS.Agent](https://github.com/LAB02-Research/HASS.Agent)
