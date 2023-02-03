@@ -130,6 +130,7 @@ service: google_assistant_sdk.send_text_command
 data:
   command: "tell me a joke"
   media_player: media_player.living_room_speaker
+```
 
 You can also send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
 
@@ -171,7 +172,7 @@ data:
 
 ## Conversation agent
 
-In the configure options of the integration, enable the conversation agent and then you can converse with Google Assistant by pressing the microphone in the frontend (supported browsers only):
+In the configure options of the integration, enable the conversation agent and then you can converse with Google Assistant by tapping the Assist icon at the top right of your dashboard:
 
 ![Screenshot Conversation](/images/integrations/google_assistant_sdk/conversation.png)
 
