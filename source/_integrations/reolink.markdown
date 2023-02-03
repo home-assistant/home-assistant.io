@@ -58,6 +58,7 @@ The following models have been tested and confirmed to work:
 - RLC-410W
 - RLC-411
 - RLC-420
+- RLC-510A
 - RLC-511
 - RLC-511W
 - RLC-520
