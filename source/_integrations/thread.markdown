@@ -13,7 +13,7 @@ ha_config_flow: true
 
 The Thread integration helps you track the different Thread networks in your home and helps you manage their credentials. It is currently a work in progress.
 
-Thread is a low-power mesh networking standard which allows users to connect their devices within a home network. Thread allows devices to communicate with each other without the need for a central gateway or router. This makes it ideal for home automation, where a large number of devices may need to be connected.
+Thread is a low-power mesh networking standard which allows users to connect their devices within a home network. It uses the same RF technology as Zigbee, but provides IP connectivity similar to Wi-Fi. Unlike Zigbee, Thread does not allow to control devices directly: It is just a communication protocol. A higher level protocol such as Matter or HomeKit is required to control Thread enabled devices. Thread allows devices to communicate with each other without the need for a central gateway or router. This makes it ideal for home automation, where a large number of devices may need to be connected.
 
 To connect a Thread network to Home Assistant, Thread Border Routers (TBRs) are used. TBRs are devices that bridge the Thread network to a local Wi-Fi or Ethernet network. To add a TBR to Home Assistant, you can use our [Home Assistant Yellow](/yellow/) hub or the [Home Assistant SkyConnect](/skyconnect/) Zigbee/Thread stick.
 
