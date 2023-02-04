@@ -44,11 +44,6 @@ state_color:
   description: Set to `true` to have icons colored when entity is active.
   type: boolean
   default: false
-light_coloring:
-  required: false
-  description: Indicates whether the color of the icon for a `light` entity should reflect the color of the light. Set to `false` to use the default theme color for an active light instead.
-  type: boolean
-  default: true 
 header:
   required: false
   description: Header widget to render. See [header documentation](/dashboards/header-footer/).
@@ -101,6 +96,11 @@ state_color:
   description: Set to `true` to have icons colored when entity is active.
   type: boolean
   default: false
+light_coloring:
+  required: false
+  description: Indicates whether the color of the icon for a `light` entity should reflect the color of the light. Set to `false` to use the default theme color for an active light instead.
+  type: boolean
+  default: true
 tap_action:
   required: false
   description: Action taken on row tap. See [action documentation](/dashboards/actions/#tap-action).

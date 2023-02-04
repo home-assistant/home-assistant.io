@@ -87,6 +87,11 @@ state_color:
   description: If false, the icon does not change color when the entity is active.
   type: boolean
   default: true
+light_coloring:
+  required: false
+  description: Indicates whether the color of the icon for a `light` entity should reflect the color of the light. Set to `false` to use the default theme color for an active light instead.
+  type: boolean
+  default: true
 tap_action:
   required: false
   description: The action taken on card tap. For more information, see the [action documentation](/dashboards/actions/#tap-action).
