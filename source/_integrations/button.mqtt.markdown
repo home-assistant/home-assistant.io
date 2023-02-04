@@ -212,3 +212,8 @@ mqtt:
       entity_category: "config"
       device_class: "restart"
 ```
+
+### Automation
+
+MQTT Button offers limited automation capabilites - to make a remotely controlled button/press event see [`device_trigger.mqtt`](/integrations/device_trigger.mqtt/) or [`binary_sensor.mqtt`](/integrations/binary_sensor.mqtt/)
+
