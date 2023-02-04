@@ -130,7 +130,8 @@ automation:
         value_template: "{{ 'Front Lights' in trigger.calendar_event.summary }}"
     action:
       - if:
-          - "{{ trigger.event == 'start' }}"
+        - condition: template
+          value_template: "{{ trigger.event == 'start' }}"
         then:
           - service: light.turn_on
             entity_id: light.front
