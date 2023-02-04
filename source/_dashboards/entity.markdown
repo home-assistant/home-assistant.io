@@ -43,6 +43,11 @@ state_color:
   description: Set to `true` to have icon colored when entity is active.
   type: boolean
   default: false  
+light_coloring:
+  required: false
+  description: Indicates whether the color of the icon for a `light` entity should reflect the color of the light. Set to `false` to use the default theme color for an active light instead.
+  type: boolean
+  default: true  
 attribute:
   required: false
   description: An attribute associated with the `entity`.
