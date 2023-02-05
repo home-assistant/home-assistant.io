@@ -69,7 +69,7 @@ There is also support for grouping of lights, switches, and fans (i.e. support f
 
 ## Introduction
 
-ZHA integration is a Zigbee gateway implementation that follows the standard Zigbee 3.0 specification as well as earlier revisions of the Zigbee Pro specification. In Zigbee, there are three different device types: Zigbee Coordinator (ZC), Zigbee Router (ZR), and Zigbee End Device (ZED). A Zigbee network always has one (and no more) Zigbee Coordinator, however, a Zigbee network can have multiple Zigbee Routers and multiple Zigbee End Devices.
+ZHA integration is a Zigbee gateway implementation that follows the standard Zigbee 3.0 specification (and earlier revisions). In Zigbee, there are three different device types: Zigbee Coordinator (ZC), Zigbee Router (ZR), and Zigbee End Device (ZED). A Zigbee network always has one (and no more) Zigbee Coordinator, however, a Zigbee network can have multiple Zigbee Routers and multiple Zigbee End Devices.
 
 A Zigbee Coordinator is the central device in a Zigbee network that manages and controls the network. It acts as a physical interface for the Zigbee wireless protocol, as well as being responsible for maintaining the Zigbee network topology and ensuring secure and efficient communication between Zigbee devices. Zigbee Router devices are mains-powered and will act as Zigbee signal repeaters within the Zigbee network mesh to extend its range and improve coverage, while Zigbee End Device devices are usually battery-operated sensors that will not act as Zigbee signal repeaters.
 
