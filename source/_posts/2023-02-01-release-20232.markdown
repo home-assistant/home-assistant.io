@@ -49,6 +49,7 @@ _PS: Just a reminder that valentine's day is coming up. Be sure to share the lov
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2023.2.1 - February 2](#release-202321---february-2)
+- [Release 2023.2.2 - February 4](#release-202322---february-4)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -395,6 +396,95 @@ The following integrations are now available via the Home Assistant UI:
 [reolink docs]: /integrations/reolink/
 [synology_dsm docs]: /integrations/synology_dsm/
 [zwave_me docs]: /integrations/zwave_me/
+
+## Release 2023.2.2 - February 4
+
+- Add missing mopeka translations ([@bdraco] - [#87421]) ([mopeka docs])
+- Fix call values in Aussie Broadband ([@Bre77] - [#87229]) ([aussie_broadband docs])
+- Handle failed Sonos subscriptions better ([@jjlawren] - [#87240]) ([sonos docs])
+- Filesize timestamp remove state class ([@gjohansson-ST] - [#87247]) ([filesize docs])
+- Bump reolink-aio to 0.3.4 ([@starkillerOG] - [#87272]) ([reolink docs])
+- Fix volume state class in renault ([@epenet] - [#87280]) ([renault docs])
+- Bump sfrbox-api to 0.0.6 ([@epenet] - [#87281]) ([sfr_box docs])
+- Extend state class sensor warnings with expected values ([@frenck] - [#87294]) ([sensor docs])
+- Fix incorrect description in sensor group config flow ([@frenck] - [#87298]) ([group docs])
+- Don't override icon in sensor group when device class is set ([@frenck] - [#87304]) ([group docs])
+- Fix Bravia TV refreshing zero volume level ([@Drafteed] - [#87318]) ([braviatv docs])
+- Fixed parser for zeversolar hardware version M10 ([@kvanzuijlen] - [#87319]) ([zeversolar docs])
+- Fix code format issue in Yale Smart Alarm ([@gjohansson-ST] - [#87323]) ([yale_smart_alarm docs])
+- Bump py-synologydsm-api to 2.1.2 ([@mib1185] - [#87324]) ([synology_dsm docs])
+- Bump oralb-ble to 0.17.2 ([@Lash-L] - [#87355]) ([oralb docs])
+- Update pylutron-caseta to 0.18.1 ([@mdonoughe] - [#87361]) ([lutron_caseta docs])
+- Fix exception when trying to poll a HomeKit device over Thread with no active encryption context ([@Jc2k] - [#87379]) ([homekit_controller docs])
+- Fix Ruuvi Gateway data being ignored when system is not using UTC time ([@akx] - [#87384]) ([ruuvi_gateway docs])
+- Fix state class in Enphase Envoy ([@vpathuis] - [#87397]) ([enphase_envoy docs])
+- Ignore invalid zeroconf names from devices with broken firmwares ([@bdraco] - [#87414]) ([zeroconf docs])
+- Disable mopeka accelerometer sensors by default ([@bdraco] - [#87420]) ([mopeka docs])
+- Bump aiohomekit to 2.4.6 ([@bdraco] - [#87427]) ([homekit_controller docs])
+- Update black to 23.1.0 ([@frenck] - [#87188])
+
+[#87188]: https://github.com/home-assistant/core/pull/87188
+[#87101]: https://github.com/home-assistant/core/pull/87101
+[#87221]: https://github.com/home-assistant/core/pull/87221
+[#87229]: https://github.com/home-assistant/core/pull/87229
+[#87240]: https://github.com/home-assistant/core/pull/87240
+[#87247]: https://github.com/home-assistant/core/pull/87247
+[#87272]: https://github.com/home-assistant/core/pull/87272
+[#87280]: https://github.com/home-assistant/core/pull/87280
+[#87281]: https://github.com/home-assistant/core/pull/87281
+[#87294]: https://github.com/home-assistant/core/pull/87294
+[#87298]: https://github.com/home-assistant/core/pull/87298
+[#87304]: https://github.com/home-assistant/core/pull/87304
+[#87318]: https://github.com/home-assistant/core/pull/87318
+[#87319]: https://github.com/home-assistant/core/pull/87319
+[#87323]: https://github.com/home-assistant/core/pull/87323
+[#87324]: https://github.com/home-assistant/core/pull/87324
+[#87355]: https://github.com/home-assistant/core/pull/87355
+[#87361]: https://github.com/home-assistant/core/pull/87361
+[#87379]: https://github.com/home-assistant/core/pull/87379
+[#87384]: https://github.com/home-assistant/core/pull/87384
+[#87397]: https://github.com/home-assistant/core/pull/87397
+[#87414]: https://github.com/home-assistant/core/pull/87414
+[#87420]: https://github.com/home-assistant/core/pull/87420
+[#87421]: https://github.com/home-assistant/core/pull/87421
+[#87427]: https://github.com/home-assistant/core/pull/87427
+[@Bre77]: https://github.com/Bre77
+[@Drafteed]: https://github.com/Drafteed
+[@Jc2k]: https://github.com/Jc2k
+[@Lash-L]: https://github.com/Lash-L
+[@akx]: https://github.com/akx
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jjlawren]: https://github.com/jjlawren
+[@kvanzuijlen]: https://github.com/kvanzuijlen
+[@mdonoughe]: https://github.com/mdonoughe
+[@mib1185]: https://github.com/mib1185
+[@starkillerOG]: https://github.com/starkillerOG
+[@vpathuis]: https://github.com/vpathuis
+[abode docs]: /integrations/abode/
+[aussie_broadband docs]: /integrations/aussie_broadband/
+[braviatv docs]: /integrations/braviatv/
+[enphase_envoy docs]: /integrations/enphase_envoy/
+[filesize docs]: /integrations/filesize/
+[group docs]: /integrations/group/
+[homekit_controller docs]: /integrations/homekit_controller/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[mopeka docs]: /integrations/mopeka/
+[oralb docs]: /integrations/oralb/
+[renault docs]: /integrations/renault/
+[reolink docs]: /integrations/reolink/
+[ruuvi_gateway docs]: /integrations/ruuvi_gateway/
+[sensor docs]: /integrations/sensor/
+[sfr_box docs]: /integrations/sfr_box/
+[sonos docs]: /integrations/sonos/
+[synology_dsm docs]: /integrations/synology_dsm/
+[yale_smart_alarm docs]: /integrations/yale_smart_alarm/
+[zeroconf docs]: /integrations/zeroconf/
+[zeversolar docs]: /integrations/zeversolar/
+
 
 ## Need help? Join the community!
 
