@@ -4,14 +4,17 @@ description: Instructions on how to integrate Balboa Spa WiFi within Home Assist
 ha_category:
   - Binary Sensor
   - Climate
+  - Fan
 ha_release: 2021.12
 ha_iot_class: Local Push
 ha_domain: balboa
 ha_platforms:
   - binary_sensor
   - climate
+  - fan
 ha_codeowners:
   - '@garbled1'
+  - '@natekspencer'
 ha_config_flow: true
 ha_integration_type: integration
 ---
