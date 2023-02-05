@@ -73,7 +73,7 @@ ZHA integration is a Zigbee gateway implementation that follows the standard Zig
 
 A Zigbee Coordinator is the central device in a Zigbee network that manages and controls the network. It acts as a physical interface for the Zigbee wireless protocol, as well as being responsible for maintaining the Zigbee network topology and ensuring secure and efficient communication between Zigbee devices. Zigbee Router devices are mains-powered and will act as Zigbee signal repeaters within the Zigbee network mesh to extend its range and improve coverage, while Zigbee End Device devices are usually battery-operated sensors that will not act as Zigbee signal repeaters.
 
-In the case of ZHA, the Zigbee Coordinator is a radio adapter or module hardware, that hardware contains a microcontroller which comes with firmware that runs the Zigbee protocol stack that the ZHA integration uses to manage a Zigbee network and communicate wirelessly with Zigbee devices via an integrated low-power digital radio and antenna.
+In the case of ZHA, the Zigbee Coordinator is a radio adapter or hardware module, that contains a microcontroller that runs the Zigbee protocol stack which the ZHA integration uses to manage and communicate with a Zigbee network and its devices.
 
 Therefore before installing the ZHA integration, you will need to buy and connect a Zigbee Coordinator radio adapter or module hardware, those usually come in the form of a USB dongle that plugs directly into the computer that is running the Home Assistant installation. The ZHA integration can work with many different "Zigbee Coordinator" adapters, however, be sure to read the respective sections below about compatible Zigbee radio adapters and modules hardware (e.i. the physical radio adapter).
 
