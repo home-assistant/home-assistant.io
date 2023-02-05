@@ -80,7 +80,7 @@ The integration currently only uses the primary lock state; in dual lock mode, n
 
 A SwitchBot lock can be set up in Home Assistant in two different ways. You can enter the key id and encryption key yourself, or Home Assistant can import them from your SwitchBot account.
 
-## Switchbot Blind Tilt
+## SwitchBot Blind Tilt
 
 The blind tilt is exposed as a cover entity with control of the tilt position only. Open is represented as 50% with closed down as 0% and closed up as 100%. Because Home Assistant believes 100% is open, the default cards will disable the open button when the tilt is at 100%, but the service call will still work and open the blind to 50%.
 
