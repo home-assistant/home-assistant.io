@@ -421,7 +421,9 @@ The following integrations are now available via the Home Assistant UI:
 - Ignore invalid zeroconf names from devices with broken firmwares ([@bdraco] - [#87414]) ([zeroconf docs])
 - Disable mopeka accelerometer sensors by default ([@bdraco] - [#87420]) ([mopeka docs])
 - Bump aiohomekit to 2.4.6 ([@bdraco] - [#87427]) ([homekit_controller docs])
+- Update black to 23.1.0 ([@frenck] - [#87188])
 
+[#87188]: https://github.com/home-assistant/core/pull/87188
 [#87101]: https://github.com/home-assistant/core/pull/87101
 [#87221]: https://github.com/home-assistant/core/pull/87221
 [#87229]: https://github.com/home-assistant/core/pull/87229
