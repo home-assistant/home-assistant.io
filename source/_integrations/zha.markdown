@@ -77,7 +77,7 @@ In the case of ZHA, the Zigbee Coordinator is a radio adapter or hardware module
 
 Before installing the ZHA integration, you will need to buy and connect a Zigbee Coordinator radio adapter or hardware module, those usually come in the form of a USB dongle that plugs directly into the computer that is running the Home Assistant installation. The ZHA integration can work with many different "Zigbee Coordinator" adapters, however, be sure to read the respective sections below about compatible Zigbee radio adapters and hardware modules.
 
-Once ZHA has been installed and the Zigbee Coordinator radio adapter or module is configured you will be able to directly join/pair Zigbee Router Device and Zigbee End Device products to that Zigbee network, regardless of the manufacturer and brand of that Zigbee-based product. Note that while it is generally recommended to buy Zigbee 3.0 compliant devices as those should, in theory, offer greater interoperability, be sure of the sections about which devices are supported and exception handling.
+Once ZHA has been set up and the Zigbee Coordinator radio adapter or module is configured, you will be able to directly join/pair any Zigbee device to the Zigbee network; regardless of the manufacturer and brand of that Zigbee-based product. Note, that while it is generally recommended to buy Zigbee 3.0 compliant devices as those should, in theory, offer greater interoperability, be sure of the sections about which devices are supported and exception handling.
 
 ## Compatible hardware
 
