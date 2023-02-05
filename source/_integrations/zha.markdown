@@ -441,7 +441,7 @@ To help resolve any kinks or compatibility problems, report bugs as issues with 
 
 Note that ZHA only supports connecting a single dedicated Zigbee Coordinator radio adapter or module with a single Zigbee network and that the Zigbee Coordinator cannot already be connected or used by any other application. Any devices that are or have previously been connected to another Zigbee implementation will also need to first be reset to their factory default settings before they can be paired/joined to ZHA, please see each device manufacturer's documentation.
 
-ZHA does currently not support devices that can only use the ZGP ("Zigbee Green Power") profile which is used in a few batteryless self-powered or energy harvesting devices, (such as for example; Philips Hue Click, Philips Hue Tap, and some "Friends of Hue" partnership switches). The reason for this is that ZGP profile support has not yet been implemented in the [zigpy](https://github.com/zigpy/zigpy) library.
+ZHA does currently not support devices that can only use the ZGP ("Zigbee Green Power") profile which is used in a few batteryless self-powered or energy harvesting devices, (such as for example; Philips Hue Click, Philips Hue Tap, and some "Friends of Hue" partnership switches).
 
 ZHA does not currently support devices that can only use the ZSE ("Zigbee Smart Energy") profile, that is however due to the "Zigbee SE" specification not being part of the standard Zigbee 3.0 specification and thus not implemented in most of the Zigbee protocol stacks that are commonly available Zigbee Coordinator radio adapters and modules.
 
