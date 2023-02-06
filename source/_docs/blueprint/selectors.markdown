@@ -115,7 +115,8 @@ area:
 device:
   description: >
     When device options are provided, the list of areas is filtered by areas
-    that at least provide one device that matches the given conditions.
+    that at least provide one device that matches the given conditions. Can be
+    either a object or a list of object.
   type: map
   keys:
     integration:
@@ -140,7 +141,8 @@ device:
 entity:
   description: >
     When entity options are provided, the list of areas is filtered by areas
-    that at least provide one entity that matches the given conditions.
+    that at least provide one entity that matches the given conditions. Can be
+    either a object or a list of object.
   type: map
   required: false
   keys:
@@ -376,7 +378,8 @@ model:
 entity:
   description: >
     When entity options are provided, the list of devices is filtered by devices
-    that at least provide one entity that matches the given conditions.
+    that at least provide one entity that matches the given conditions. Can be
+    either a object or a list of object.
   type: map
   required: false
   keys:
@@ -956,7 +959,8 @@ target:
 device:
   description: >
     When device options are provided, the targets are limited by devices
-    that at least match the given conditions.
+    that at least match the given conditions. Can be either a object or a list
+    of object.
   type: map
   keys:
     integration:
@@ -979,7 +983,8 @@ device:
 entity:
   description: >
     When entity options are provided, the targets are limited by entities
-    that at least match the given conditions.
+    that at least match the given conditions. Can be either a object or a list
+    of object.
   type: map
   required: false
   keys:
