@@ -22,7 +22,7 @@ Integrates [Oral-B](https://oralb.com/) devices into Home Assistant.
 
 The Oral-B integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. 
 
-All Bluetooth-enabled Oral-B toothbrushes should be discovered, but they may be incorrectly identified or may have some modes missing or incorrectly identified. The following devices have been correctly identifed and should work as expected.
+The integration can discover most Bluetooth-enabled Oral-B toothbrushes. Brushes not listed as supported below may not be correctly identified or have some modes missing.
 
 ## Supported devices
 
