@@ -126,10 +126,12 @@ This method will allow you to commission the device using Apple Home and from th
 This method will allow you to commission the device using Google Home and from there share it to Home Assistant. The result is that the device can be controlled from both Google Home and Home Assistant at the same time.
 
 <p class='note'>
-The steps below describe the process of manually adding the device to Google Home but in most cases, Android will already discover the presence of a commissionable Matter device and pop up a screen to start the commission process.
+The steps below describe the process of manually adding the device to Google Home, but in most cases, Android will already discover the presence of a commissionable Matter device and pop up a screen to start the commission process.
 
 [SCREENSHOT OF ANDROID THAT FOUND A MATTER DEVICE]
 </p>
+
+Jump to step 10 if you already commissioned the device to Google Home.
 
 1) Open the Home app on your Android device.
 2) Go to settings, press `Add device`, Choose `New device`.
@@ -139,9 +141,12 @@ The steps below describe the process of manually adding the device to Google Hom
 6) The process will start commissioning which takes up to a few minutes. It might ask you to agree with Google's privacy policy.
 7) If you're commissioning a test board (e.g. ESP32 running the example apps) and commissioning fails, you might need to take some actions in the Google Developer console, have a look at any instructions for your test device.
 8) Add the newly added device to a room, accept or edit the device name and finish commissioning.
-9) Lookup the device you've just added within Google Home and press the jogwheel to edit it. In the page with detailed descriptions and settings for the device, scroll all the way down and press the button `Turn On Pairing Mode`.
-10) You are now given a Setup code, copy this to the clipboard.
-11) Follow the [Commission a device using the iOS Companion app](Commission a device using the iOS Companion app) directions above to commission the device to Home Assistant where you paste the code you just received from Apple Home.
+9) The device can now be controlled from Google Home and the next step is to share it to Home Assistant.
+10) Open the device in Google Home and press the settings button (jog wheel) in the top right.
+11) Click `Linked Matter apps and services`.
+12) Press the button `Link apps and services` to link the device to Home Assistant.
+13) Choose Home Assistant from the list, you are redirected to the Home Assistant companion app now. Press `Add device`.
+14) Your device will now be commissioned to Home Assistant. When the process finishes, you're redirected to the device page in Home Assistant.
 
 
 [LINK TO VIDEO GOES HERE]
