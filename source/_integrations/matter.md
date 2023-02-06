@@ -23,9 +23,11 @@ ha_integration_type: integration
 
 This integration allows you to communicate with and control Matter devices on your local WiFi or Thread network.
 
-Matter is [the new standard for home automation](https://en.wikipedia.org/wiki/Matter_(standard)) which has just been released and (in the process of) being adopted by the tech industry.
+Matter is [the new standard for home automation](https://en.wikipedia.org/wiki/Matter_(standard)) which has just been released and (in the process of) being adopted by the tech industry. Its is a local protocol, controlling your devices is done without the need of any cloud. You can purchase a Matter compatible device, join it to Home Assistant (only) and you will have no dependency on a Vender specific cloud or whatsoever.
 
 Matter devices are available using either WiFi based communication or [Thread](/integrations/thread/). Bluetooth is used for commissioning (adopting) of new devices. Home Assistant supports both transports for Matter.
+
+Home Assistant only supports controlling Matter devices, it is not a bridge itself to turn devices within Home Assistant into Matter compatible devices.
 
 At this time there are only a few devices available that are compatible with the standard and some of them require you to join a beta/developer program. It is to be expected that more devices will hit the market during the 2nd quarter of 2023 and beyond.
 
@@ -35,16 +37,10 @@ Both the Matter standard itself and its implementation within Home Assistant are
 
 One of the great features of Matter is the so called "Multi Fabric" feature, which means that you can join the same device to multiple controllers. For example add it to Google Home, Apple Home and Home Assistant at the same time.
 
-In essence, Matter is a local protocol, meaning controlling your devices is done without the need of any cloud. In theory you can purchase a Matter compatible device, join it to Home Assistant (only) and you will have no dependency on an Vender specific cloud or whatsoever.
+Matter being a universal standard has some consessions. It is therefore recommended to use official integrations for Home Assistant (with a local API) over using the Matter protocol to communicate with a device. A good example is Philips Hue where the communication over Matter will only provide the basic controls over lights, the official integration will bring all Hue unique features like (dynamic) scenes, entertainment mode etc.
 
 <p class='note'>
-Matter being a universal standard has some consessions. It is therefore recommended that if an official integration exists (with a local API) within Home Assistant for a specific device, that is recommended over using the Matter protocol to communicate with a device. A good example is Philips Hue where the communication over Matter will only provide the basic controls over lights, the official integration will bring all Hue unique features like (dynamic) scenes, entertainment mode etc.
-</p>
-
-Home Assistant only supports controlling Matter devices, it is not a bridge itself to turn devices within Home Assistant into Matter compatible devices.
-
-<p class='note'>
-The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices (and any Thread Border routers) must be on the same LAN/VLAN as your controller (=Home Assistant). Implementations like mDNS reflectors usually do more harm than good. Also we've seen cases (e.g. on Unifi hardware) where IPv6 derrived from the Internet Provider caused issues with the discovery of Matter devices. Keep these notes in mind when you experience issues trying to commission or control Matter devices. Protocols like Matter are designed for regular residential network setups and do not play nice with enterprise solutions like VLAN's, Multicast filtering and even IGMP Snooping. Try to keep your network as simple and flat as possible when you want to experiment with Matter devices.
+The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices (and any Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Implementations like mDNS reflectors usually do more harm than good.
 </p>
 
 {% include integrations/config_flow.md %}
@@ -200,6 +196,9 @@ NOTES:
 - Look for the M addition in the model name, a device without the M (regular P125) is not Matter compliant.
 - This device is available in the US only.
 
+## Troubleshooting
+
+We've seen cases (e.g. on Unifi hardware) where IPv6 derived from the Internet Provider cause issues with the discovery of Matter devices. Keep these notes in mind when you experience issues trying to commission or control Matter devices. Protocols like Matter are designed for regular residential network setups and do not play nice with enterprise solutions like VLAN's, Multicast filtering and IGMP Snooping. Try to keep your network as simple and flat as possible to avoid issues.
 
 ## Advanced installation instructions
 
