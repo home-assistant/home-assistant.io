@@ -162,8 +162,10 @@ entity:
     device_class:
       description: >
         Limits the list of areas to areas that have entities with a certain
-        device class, for example, `motion` or `window`.
-      type: device_class
+        device class(es), for example, `motion` or `window`. Can be either a string
+        with a single device_class, or a list of string device_class to limit
+        the selection to.
+      type: [device_class, list]
       required: false
 multiple:
   description: >
@@ -397,8 +399,35 @@ entity:
     device_class:
       description: >
         Limits the list of entities to entities that have a certain device
-        class, for example, `motion` or `window`.
-      type: device_class
+        class(es), for example, `motion` or `window`. Can be either a string
+        with a single device_class, or a list of string device_class to limit
+        the selection to.
+      type: [device_class, list]
+      required: false
+filter:
+  description: >
+    When filter options are provided, the list of devices is filtered by devices
+    that at least provide one entity that matches the given conditions. Can be either
+    a object or a list of object.
+  type: map
+  required: false
+  keys:
+    integration:
+      description: >
+        Can be set to an integration domain. Limits the list of devices to devices
+        provided by the set integration domain.
+      type: string
+      required: false
+    manufacturer:
+      description: >
+        When set, it limits the list of devices to devices provided by the set
+        manufacturer name.
+      type: string
+      required: false
+    model:
+      description: >
+        When set, it limits the list of devices to devices that have the set model.
+      type: string
       required: false
 multiple:
   description: >
@@ -517,10 +546,42 @@ domain:
   required: false
 device_class:
   description: >
-    Limits the list of entities to entities that have a certain device class,
-    for example, `motion` or `window`.
-  type: device_class
+    Limits the list of entities to entities that have a certain device class(es),
+    for example, `motion` or `window`. Can be either a string with a single device_class,
+    or a list of string device_class to limit the selection to.
+  type: [device_class, list]
   required: false
+filter:
+  description: >
+    When filter options are provided, the entities are limited by entities
+    that at least match the given conditions. Can be either a object or a list of object.
+    Can be either a object or a list of object.
+  type: map
+  required: false
+  keys:
+    integration:
+      description: >
+        Can be set to an integration domain. Limits the list of entities to entities
+        provided by the set integration domain, for example,
+        [`zha`](/integrations/zha).
+      type: string
+      required: false
+    domain:
+      description: >
+        Limits the list of entities to entities of a certain domain(s), for example,
+        [`light`](/integrations/light) or
+        [`binary_sensor`](/integrations/binary_sensor). Can be either a string
+        with a single domain, or a list of string domains to limit the selection
+        to.
+      type: [string, list]
+      required: false
+    device_class:
+      description: >
+        Limits the list of entities to entities that have a certain device class(es),
+        for example, `motion` or `window`. Can be either a string with a single device_class,
+        or a list of string device_class to limit the selection to.
+      type: [device_class, list]
+      required: false
 multiple:
   description: >
     Allows selecting multiple entities. If set to `true`, the resulting value of
@@ -940,9 +1001,10 @@ entity:
       required: false
     device_class:
       description: >
-        Limits the targets to entities with a certain
-        device class, for example, `motion` or `window`.
-      type: device_class
+        Limits the targets to entities with a certain device class(es), for example,
+        `motion` or `window`. Can be either a string with a single device_class,
+        or a list of string device_class to limit the selection to.
+      type: [device_class, list]
       required: false
 {% endconfiguration %}
 
