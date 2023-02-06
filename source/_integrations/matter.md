@@ -25,7 +25,7 @@ This integration allows you to communicate with and control Matter devices on yo
 
 Matter is [the new standard for home automation](https://en.wikipedia.org/wiki/Matter_(standard)) which has just been released and (in the process of) being adopted by the tech industry.
 
-Matter devices are available using either WiFi based communication or [Thread](https://en.wikipedia.org/wiki/Thread_(network_protocol)) and Bluetooth is used for commissioning (adopting) of new devices. Home Assistant supports both transports for Matter.
+Matter devices are available using either WiFi based communication or [Thread](/integrations/thread/). Bluetooth is used for commissioning (adopting) of new devices. Home Assistant supports both transports for Matter.
 
 At this time there are only a few devices available that are compatible with the standard and some of them require you to join a beta/developer program. It is to be expected that more devices will hit the market during the 2nd quarter of 2023 and beyond.
 
