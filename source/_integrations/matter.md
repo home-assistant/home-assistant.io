@@ -72,7 +72,7 @@ Technically you can also commission devices using your Home Assistant server dir
 
 ### Commission a device using the iOS Companion app
 
-This will use the bluetooth connection of your phone to commission the device. Unless you pair it to other controllers yourself, the device will only be comissioned to Home Assistant.
+This will use the Bluetooth connection of your phone to commission the device. Unless you pair it to other controllers yourself, the device will only be commissioned to Home Assistant.
 
 1) Open The Home Assistant app on your phone.
 2) Go to Settings, Integrations.
@@ -88,7 +88,7 @@ This will use the bluetooth connection of your phone to commission the device. U
 
 ### Commission a device using the Android Companion app
 
-This will use the bluetooth connection of your phone to commission the device. Unless you pair it to other controllers yourself, the device will only be comissioned to Home Assistant.
+This will use the Bluetooth connection of your phone to commission the device. Unless you pair it to other controllers yourself, the device will only be commissioned to Home Assistant.
 
 1) Open The Home Assistant app on your phone.
 2) Go to Settings, Integrations.
@@ -141,7 +141,7 @@ Jump to step 10 if you already commissioned the device to Google Home.
 10) Open the device in Google Home and press the settings button (jog wheel) in the top right.
 11) Click `Linked Matter apps and services`.
 12) Press the button `Link apps and services` to link the device to Home Assistant.
-13) Choose Home Assistant from the list, you are redirected to the Home Assistant companion app now. Press `Add device`.
+13) Choose Home Assistant from the list, you are redirected to the Home Assistant Companion app now. Press `Add device`.
 14) Your device will now be commissioned to Home Assistant. When the process finishes, you're redirected to the device page in Home Assistant.
 
 
@@ -155,7 +155,7 @@ Because availability of actual Matter devices is sparse and proper HOWTO documen
 ### ESP32 dev board running Example app
 This is the most convenient and easy way to start playing with Matter. We have [prepared a page for you](https://nabucasa.github.io/matter-example-apps/) where you can easily flash Matter firmware to a supported ESP32 development board. We actually recommend the M5 Stamp C3 device running the Lightning app.
 
-NOTE for Android users: You need to follow the instructions at the bottom of the page to add the test device to the Google developer console, otherwise comissioning will fail. iOS users will not have this issue but they will get a prompt duing comissioning if you trust the development device.
+NOTE for Android users: You need to follow the instructions at the bottom of the page to add the test device to the Google developer console, otherwise commissioning will fail. iOS users will not have this issue but they will get a prompt duing commissioning if you trust the development device.
 
 1) Make sure you are using the Google Chrome or Microsoft Edge browser.
 2) Open https://nabucasa.github.io/matter-example-apps/
@@ -167,12 +167,12 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 8) Once the device is flashed with the Matter firmware, connect to the device again but this time choose `Logs & console`.
 9) You are presented with a console interface where you see live logging of events. This is actually an interactive shell where you can type commands. For a list of all commands, type `matter help` and press enter.
 10) To commission the device, we need the QR code. In the console type in `matter onboardingcodes ble` and copy/paste the URL in your browser.
-11) Use the QR code to comission the device using one of the above instructions on your phone, e.g. using the Home Assistant Companion app.
+11) Use the QR code to commission the device using one of the above instructions on your phone, e.g. using the Home Assistant Companion app.
 
 
 ### Eve Energy (power plug)
 1) Look for the Thread logo on the box to ensure you have the new device which is compatible with Matter.
-2) The Eve device runs on Homekit by default, you will need an iOS device to set it up out of the box.
+2) The Eve device runs on HomeKit by default, you will need an iOS device to set it up out of the box.
 3) The Eve device uses Thread for communication, therefore you will need to have a Thread Border Router configured in your network setup, such as the Apple TV 4K (2021/2022), Homepod Mini, or Homepod V2.
 4) You need to join the [Eve Beta program here](https://www.evehome.com/en/meet-matter) and wait for instructions per email.
 5) Update the firmware of your Eve device using the Eve beta app to Matter.
@@ -198,7 +198,7 @@ NOTES:
 
 ## Troubleshooting
 
-We've seen cases (e.g. on Unifi hardware) where IPv6 derived from the Internet Provider cause issues with the discovery of Matter devices. Keep these notes in mind when you experience issues trying to commission or control Matter devices. Protocols like Matter are designed for regular residential network setups and do not play nice with enterprise solutions like VLAN's, Multicast filtering and IGMP Snooping. Try to keep your network as simple and flat as possible to avoid issues.
+We've seen cases (e.g. on UniFi hardware) where IPv6 derived from the Internet Provider causes issues with the discovery of Matter devices. Keep these notes in mind when you experience issues trying to commission or control Matter devices. Protocols like Matter are designed for regular residential network setups and do not play nice with enterprise solutions like VLAN's, Multicast filtering and IGMP Snooping. Try to keep your network as simple and flat as possible to avoid issues.
 
 ## Advanced installation instructions
 
