@@ -64,7 +64,7 @@ If you change the configuration you have to restart the server. To do that you h
 
 </div>
 
-As the Docker command becomes more complex, switching to `docker compose` can be preferable and support automatically restarting on failure or system restart. Create a `compose.yml` file:
+As the Docker command becomes more complex, switching to `docker compose` can be preferable and support automatically restarting on failure or system restart. Create a file named `docker-compose.yml`:
 
 {% include installation/container/compose.md %}
 
