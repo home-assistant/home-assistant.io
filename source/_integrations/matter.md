@@ -30,7 +30,7 @@ Matter devices are available using either WiFi based communication or [Thread](/
 At this time there are only a few devices available that are compatible with the standard and some of them require you to join a beta/developer program. It is to be expected that more devices will hit the market during the 2nd quarter of 2023 and beyond.
 
 <p class='note'>
-Both the Matter standard itself and its implementation within Home Assistant are in a very early stage where only the basics are working and/or breaking changes can still happen. Using it in production is not really recommended yet until it matures a bit more.
+Both the Matter standard itself and its implementation within Home Assistant are in a very early stage where only the basics are working and/or breaking changes can still happen. Using it in production is not recommended yet until it matures a bit more.
 </p>
 
 One of the great features of Matter is the so called "Multi Fabric" feature, which means that you can join the same device to multiple controllers. For example add it to Google Home, Apple Home and Home Assistant at the same time.
