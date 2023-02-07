@@ -73,9 +73,9 @@ These are the commission methods we currently support and test. There are other 
 This will use the Bluetooth connection of your phone to commission the device. Unless you pair it to other controllers yourself, the device will only be commissioned to Home Assistant.
 
 1) Open The Home Assistant app on your phone.
-2) Go to Settings, Integrations.
-3) On the settings card for Matter, press the `Configure` button.
-4) Press the button `Commission device with mobile app`.
+2) Go to Settings, Devices & Services.
+3) On the Devices tab, press the `Add device` button.
+4) Choose `Add Matter device` as the top of the list.
 5) Scan the QR-code of the Matter device with your phone camera or press `More options...` to manually enter the Commission code.
 6) Press the `Add to Home Assistant` button which will start the commissioning process which may take up to a few minutes.
 7) If you're commissioning a test board or beta device you might get a prompt about an Uncertified Accessory". In this dialog press `Add Anyway`.
@@ -89,9 +89,9 @@ This will use the Bluetooth connection of your phone to commission the device. U
 This will use the Bluetooth connection of your phone to commission the device. Unless you pair it to other controllers yourself, the device will only be commissioned to Home Assistant.
 
 1) Open The Home Assistant app on your phone.
-2) Go to Settings, Integrations.
-3) On the settings card for Matter, press the `Configure` button.
-4) Press the button `Commission device with mobile app`.
+2) Go to Settings, Devices & Services.
+3) On the Devices tab, press the `Add device` button.
+4) Choose `Add Matter device` as the top of the list.
 5) Scan the QR-code of the Matter device with your phones camera or press the `Setup without QR-code` button to manually enter the Commission code.
 6) The process will start commissioning which takes up to a few minutes.
 7) If you're commissioning a test board (e.g. ESP32 running the example apps) and commissioning fails, you might need to take some actions in the Google Developer console, have a look at any instructions for your test device.
