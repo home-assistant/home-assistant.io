@@ -18,7 +18,7 @@ The `obihai` integration allows you to view the call status for your [Obihai dev
 
 {% include integrations/config_flow.md %}
 
-{% configuration %}
+{% configuration_basic %}
 host:
   description: IP Address of Obihai device
   required: true
@@ -33,7 +33,7 @@ password:
   required: false
   type: string
   default: admin
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 The following is a list of expected sensors and their expected states when using the `user` account:
 
