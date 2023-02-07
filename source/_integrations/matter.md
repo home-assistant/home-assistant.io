@@ -27,7 +27,7 @@ Matter is [the new standard for home automation](https://en.wikipedia.org/wiki/M
 
 Matter devices are available using either WiFi based communication or [Thread](/integrations/thread/). Bluetooth is used for commissioning (adopting) of new devices. Home Assistant supports both transports for Matter.
 
-Home Assistant only supports controlling Matter devices, it is not a bridge itself to turn devices within Home Assistant into Matter compatible devices.
+Home Assistant only supports control of Matter devices. Home Assistant is not a bridge itself and it cannot turn devices within Home Assistant into Matter compatible devices.
 
 At this time there are only a few devices available that are compatible with the standard and some of them require you to join a beta/developer program. It is to be expected that more devices will hit the market during the 2nd quarter of 2023 and beyond.
 
