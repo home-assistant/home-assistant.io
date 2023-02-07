@@ -513,7 +513,10 @@ The following integrations are now available via the Home Assistant UI:
 - Bump sensorpush-ble to 1.5.5 ([@bdraco] - [#87595]) ([sensorpush docs])
 - Improve rainbird device reliability by sending requests serially ([@allenporter] - [#87603]) ([rainbird docs])
 - Do not return cached values for entity states in emulated_hue ([@Tho85] - [#87642]) ([emulated_hue docs])
+- Bump pyrainbird to 2.0.0 ([@allenporter] - [#86851]) ([rainbird docs])
+- Bump PyISY to 3.1.13, check portal for network buttons ([@shbatm] - [#87650]) ([isy994 docs])
 
+[#86851]: https://github.com/home-assistant/core/pull/86851
 [#87101]: https://github.com/home-assistant/core/pull/87101
 [#87221]: https://github.com/home-assistant/core/pull/87221
 [#87409]: https://github.com/home-assistant/core/pull/87409
@@ -542,6 +545,7 @@ The following integrations are now available via the Home Assistant UI:
 [#87595]: https://github.com/home-assistant/core/pull/87595
 [#87603]: https://github.com/home-assistant/core/pull/87603
 [#87642]: https://github.com/home-assistant/core/pull/87642
+[#87650]: https://github.com/home-assistant/core/pull/87650
 [@Cereal2nd]: https://github.com/Cereal2nd
 [@Ernst79]: https://github.com/Ernst79
 [@Lash-L]: https://github.com/Lash-L
@@ -557,6 +561,7 @@ The following integrations are now available via the Home Assistant UI:
 [@mib1185]: https://github.com/mib1185
 [@michaeldavie]: https://github.com/michaeldavie
 [@rikroe]: https://github.com/rikroe
+[@shbatm]: https://github.com/shbatm
 [@tkdrob]: https://github.com/tkdrob
 [@zim514]: https://github.com/zim514
 [abode docs]: /integrations/abode/
@@ -565,6 +570,7 @@ The following integrations are now available via the Home Assistant UI:
 [emulated_hue docs]: /integrations/emulated_hue/
 [environment_canada docs]: /integrations/environment_canada/
 [inkbird docs]: /integrations/inkbird/
+[isy994 docs]: /integrations/isy994/
 [ld2410_ble docs]: /integrations/ld2410_ble/
 [lupusec docs]: /integrations/lupusec/
 [matter docs]: /integrations/matter/
