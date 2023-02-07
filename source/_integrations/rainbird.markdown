@@ -4,6 +4,7 @@ description: Instructions on how to integrate your Rain Bird LNK WiFi Module wit
 ha_category:
   - Irrigation
   - Binary Sensor
+  - Calendar
   - Sensor
   - Switch
 ha_config_flow: true
@@ -15,6 +16,7 @@ ha_codeowners:
 ha_domain: rainbird
 ha_platforms:
   - binary_sensor
+  - calendar
   - sensor
   - switch
 ha_integration_type: integration
@@ -25,6 +27,7 @@ This `rainbird` integration allows interacting with [LNK WiFi](https://www.rainb
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
+- [Calendar](#calendar)
 - [Number](#number)
 - [Switch](#switch)
 
@@ -38,6 +41,12 @@ will run when turning on a zone switch (default is 6 minutes). This can be overr
 ## Binary Sensor
 
 The `rainsensor` sensor will tell if you if the device has detected rain.
+
+## Calendar
+
+Some Rain Bird devices support automatic irrigation schedules configured with the Rain Bird App
+and are available in Home Assistant as a [Calendar](https://www.home-assistant.io/integrations/calendar/) entity. You can view the program schedule in the UI, or trigger other automations
+based on the irrigation start or end time.
 
 ## Number
 
