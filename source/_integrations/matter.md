@@ -37,7 +37,7 @@ Both the Matter standard itself and its implementation within Home Assistant are
 
 One of the great features of Matter is the so called _Multi Fabric_ feature: you can join the same device to multiple controllers. For example: add it to Google Home, Apple Home, and Home Assistant at the same time.
 
-Matter being a universal standard has some consessions. It is therefore recommended to use official integrations for Home Assistant (with a local API) over using the Matter protocol to communicate with a device. A good example is Philips Hue where the communication over Matter will only provide the basic controls over lights, the official integration will bring all Hue unique features like (dynamic) scenes, entertainment mode etc.
+For devices where Home Assistant provides an native integration (with local API), Matter may not be the best option. Matter, being a universal standard, might not have the nitty-gritty features that come with a product specific protocol. A good example is Philips Hue:  the communication over Matter only provides the basic controls over lights, the official integration brings all Hue unique features like (dynamic) scenes, entertainment mode, etc.
 
 <p class='note'>
 The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices (and any Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Implementations like mDNS reflectors usually do more harm than good.
