@@ -35,7 +35,7 @@ At this time there are only a few devices available that are compatible with the
 Both the Matter standard itself and its implementation within Home Assistant are in a very early stage where only the basics are working and/or breaking changes can still happen. Using it in production is not recommended yet until it matures a bit more.
 </p>
 
-One of the great features of Matter is the so called "Multi Fabric" feature, which means that you can join the same device to multiple controllers. For example add it to Google Home, Apple Home and Home Assistant at the same time.
+One of the great features of Matter is the so called _Multi Fabric_ feature: you can join the same device to multiple controllers. For example: add it to Google Home, Apple Home, and Home Assistant at the same time.
 
 Matter being a universal standard has some consessions. It is therefore recommended to use official integrations for Home Assistant (with a local API) over using the Matter protocol to communicate with a device. A good example is Philips Hue where the communication over Matter will only provide the basic controls over lights, the official integration will bring all Hue unique features like (dynamic) scenes, entertainment mode etc.
 
