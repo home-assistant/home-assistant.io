@@ -23,7 +23,7 @@ ha_integration_type: integration
 
 The Matter integration allows you to communicate with and control Matter devices on your local WiFi or Thread network.
 
-Matter is [the new standard for home automation](https://en.wikipedia.org/wiki/Matter_(standard)) which has just been released and (in the process of) being adopted by the tech industry. Its is a local protocol, controlling your devices is done without the need of any cloud. You can purchase a Matter compatible device, join it to Home Assistant (only) and you will have no dependency on a Vendor specific cloud or whatsoever.
+Matter is [the new standard for home automation](https://en.wikipedia.org/wiki/Matter_(standard)) which has just been released. It is in the process of being adopted by the tech industry. Matter is a local protocol, device control is done without the need of any cloud. You can join a Matter compatible device to Home Assistant without having to connect to a vendor specific cloud.
 
 Matter devices are available using either WiFi based communication or [Thread](/integrations/thread/). Bluetooth is used for commissioning (adopting) of new devices. Home Assistant supports both transports for Matter.
 
