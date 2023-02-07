@@ -101,7 +101,7 @@ This will use the Bluetooth connection of your phone to commission the device. U
 
 ### Commission a device from Apple Home
 
-This method will allow you to commission the device using Apple Home and from there share it to Home Assistant. The result is that the device can be conbtrolled from both Apple Home and Home Assistant at the same time.
+This method will allow you to commission the device using Apple Home and from there share it to Home Assistant. The result is that the device can be controlled from both Apple Home and Home Assistant at the same time.
 
 1) Open the Home app on your iOS device.
 2) Press the plus sign to add a new device, choose Accessory.
@@ -153,7 +153,7 @@ Because availability of actual Matter devices is sparse and proper HOWTO documen
 ### ESP32 dev board running Example app
 This is the most convenient and easy way to start playing with Matter. We have [prepared a page for you](https://nabucasa.github.io/matter-example-apps/) where you can easily flash Matter firmware to a supported ESP32 development board. We actually recommend the M5 Stamp C3 device running the Lightning app.
 
-NOTE for Android users: You need to follow the instructions at the bottom of the page to add the test device to the Google developer console, otherwise commissioning will fail. iOS users will not have this issue but they will get a prompt duing commissioning if you trust the development device.
+NOTE for Android users: You need to follow the instructions at the bottom of the page to add the test device to the Google developer console, otherwise commissioning will fail. iOS users will not have this issue but they will get a prompt during commissioning asking if you trust the development device.
 
 1) Make sure you are using the Google Chrome or Microsoft Edge browser.
 2) Open https://nabucasa.github.io/matter-example-apps/
@@ -175,9 +175,13 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 4) You need to join the [Eve Beta program here](https://www.evehome.com/en/meet-matter) and wait for instructions per email.
 5) Update the firmware of your Eve device using the Eve beta app to Matter.
 6) During the update process the Eve app will create a new QR code for you to save somewhere safe. This QR code is required when you want to commission the device to a Matter controller. The normal QR code attached to the device will no longer work!
-7) During the uprade priocess, the Eve app will join the device to Apple Home using Matter.
+7) During the uprade process, the Eve app will join the device to Apple Home using Matter.
 8) Confirm that the device is working properly within Apple Home.
 9) Follow our instructions above to share the device from Apple Home to Home Assistant.
+
+<p class='note'>
+Once the initial firmware upgrade to Matter is complete, the device can also be paired to non-Apple based Thread networks, like Google Home or later Home Assistant's own Thread implementation based on OTBR but you do need an Apple ecosystem running (iOS phone + Border router) for the first time setup. 
+</p>
 
 ### Eve Door & Window (contact sensor)
 See instructions for the Eve Energy above.
