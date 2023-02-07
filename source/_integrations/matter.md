@@ -128,7 +128,7 @@ The steps below describe the process of manually adding the device to Google Hom
 Jump to step 10 if you already commissioned the device to Google Home.
 
 1) Open the Home app on your Android device.
-2) Go to settings, press `Add device`, Choose `New device`.
+2) Go to settings, press `Add device`, choose `New device`.
 3) After clicking your Home location, a short search for devices will follow.
 4) Press `Setup a different device` and choose `Matter-enabled device`.
 5) Scan the QR-code of the Matter device with your phones camera or press the `Setup without QR-code` button to manually enter the Commission code.
