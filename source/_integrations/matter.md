@@ -68,8 +68,6 @@ Adding a new device to Home Assistant is called "commissioning" in Matter techni
 
 These are the commission methods we currently support and test. There are other ways too, such as commission from other controllers (SmartThings, Alexa) which will probably work too but these are untested.
 
-Technically you can also commission devices using your Home Assistant server directly, bypassing the need for the Companion app. This however has a dependency on Bluetooth which is both not practical and not compatible with the builtin Bluetooth integration, hence we only use this commissioning method in developer instances of Home Assistant.
-
 ### Commission a device using the iOS Companion app
 
 This will use the Bluetooth connection of your phone to commission the device. Unless you pair it to other controllers yourself, the device will only be commissioned to Home Assistant.
