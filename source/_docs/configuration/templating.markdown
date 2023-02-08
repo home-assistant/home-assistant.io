@@ -782,6 +782,8 @@ Like `float` and `int`, `bool` has a filter form. Using `none` as the default va
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
+- Filter `value|bitwise_lshift(num)` perform a bitwise left shift(<<) operation on `value` with `num` bits.
+- Filter `value|bitwise_rshift(num)` perform a bitwise right shift(>>) operation on `value` with `num` bits.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
 
 ### Functions and filters to process raw data
