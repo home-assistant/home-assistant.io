@@ -51,7 +51,7 @@ Elgato light.
 ### Sensors
 
 If you have a Key Light Mini, Home Assistant will provide an additional
-sensor that indicates the level of your battery in precent (%).
+sensor that indicates the level of your battery in percent (%).
 
 ## Services
 
