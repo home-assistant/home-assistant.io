@@ -16,6 +16,7 @@ ha_platforms:
   - diagnostics
   - light
   - sensor
+  - switch
 ha_integration_type: device
 ---
 
@@ -52,6 +53,12 @@ Elgato light.
 
 If you have a Key Light Mini, Home Assistant will provide an additional
 sensor that indicates the level of your battery in percent (%).
+
+### Switches
+
+If you have a Key Light Mini, Home Assistant will provide an additional
+switch that allows the control of the "Studio mode" of your light. When
+studio mode is enabled, your battery will not be used and bypassed.
 
 ## Services
 
