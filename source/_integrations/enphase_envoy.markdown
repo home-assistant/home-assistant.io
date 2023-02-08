@@ -24,4 +24,4 @@ A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and
 
 For newer models, the username `envoy` without a password will grant access to the device. For older models, the password for the `installer` user can be obtained with this: [tool](https://thecomputerperson.wordpress.com/2016/08/28/reverse-engineering-the-enphase-installer-toolkit/).
 
-In some cases, you need to use the username `envoy` with the last 6 digits of the unit's serial number as password. See [the enphase documentation](https://www4.enphase.com/en-us/support/faq/what-username-and-password-administration-page-envoy-local-interface) for more details on other units.
+In some cases, you need to use the username `envoy` with the last 6 digits of the unit's serial number as password. See [the enphase documentation](https://support.enphase.com/s/article/What-is-the-Username-and-Password-for-the-Administration-page-of-the-Envoy-local-interface) for more details on other units.
