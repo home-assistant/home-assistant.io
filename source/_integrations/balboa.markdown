@@ -16,12 +16,18 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-This integration adds support for [Balboa](http://www.balboawatergroup.com/) Spa WiFi Modules to be used within Home Assistant.
+This integration adds support for [Balboa](https://www.balboawatergroup.com/) Spa WiFi Modules to be used within Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor (Filter cycles and circulation pumps)
 - Climate
+
+## Compatible hardware
+
+Balboa Spa Client integration support local control of hot tub spas equipped with a Balboa BP system and a bwa™ Wi-Fi Module (50350).
+
+Balboa Spa Client integration is not compatible with ControlMySpa™ cloud API used by Balboa ControlMySpa Gateway Ultra (59303).
 
 {% include integrations/config_flow.md %}
 

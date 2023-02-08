@@ -4,12 +4,12 @@ description: Instructions on how to use Google Sheets in Home Assistant.
 ha_category:
   - Utility
 ha_iot_class: Cloud Polling
-ha_release: 2022.10
+ha_release: '2022.10'
 ha_config_flow: true
 ha_domain: google_sheets
 ha_codeowners:
   - '@tkdrob'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The Google Sheets integration allows you to connect your [Google Drive](https://drive.google.com) to Home Assistant. The integration adds a service to allow you to append rows to a Sheets document. The idea is that you can store data on there for further processing. When you set up a config entry, your drive will have a new sheet called Home Assistant. You can then rename this to whatever you like.
@@ -28,7 +28,7 @@ If you have already set up credentials, you can do step 1 and then skip to step 
 This section explains how to generate a Client ID and Client Secret on
 [Google Developers Console](https://console.developers.google.com/start/api?id=drive).
 
-1. First go to the [Google Developers Console](https://console.developers.google.com/start/api?id=drive)
+1. First go to the Google Developers Console to enable [Google Drive API](https://console.developers.google.com/start/api?id=drive) and [Google Sheets API](https://console.cloud.google.com/apis/enableflow?apiid=sheets.googleapis.com)
 2. The wizard will ask you to choose a project to manage your application. Select a project and click continue.
 3. Verify that your drive API was enabled and click 'Go to credentials'
 4. Navigate to APIs & Services (left sidebar) > [Credentials](https://console.cloud.google.com/apis/credentials)
@@ -81,6 +81,22 @@ You can use the service `google_sheets.append_sheet` to add a row of data to the
 | ---------------------- | -------- | ----------- | --------|
 | `config_entry` | no | Config entry to use.
 | `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1
-| `data` | no | Data to be appended to the worksheet. This puts the data on a new row, one value per column. | ["foo"]
+| `data` | no | Data to be appended to the worksheet. This puts the data on a new row, one value per column. | {"hello": world, "cool": True, "count": 5}
+
+{% raw %}
+
+```yaml
+# Example service call
+service: google_sheets.append_sheet
+data:
+  config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
+  worksheet: "Car Charging"
+  data:
+    Date: "{{ now().strftime('%-d-%b-%y') }}"
+    KWh: "{{ states('input_number.car_charging_kwh')|float(0) }}"
+    Cost: "{{ states('input_number.car_charging_cost')|float(0) }}"
+```
+
+{% endraw %}
 
 {% enddetails %}

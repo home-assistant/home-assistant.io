@@ -27,6 +27,8 @@ Optimistic mode can be forced, even if a `state_topic` / `position_topic` is def
 
 The `mqtt` cover platform optionally supports a list of `availability` topics to receive online and offline messages (birth and LWT messages) from the MQTT cover device. During normal operation, if the MQTT cover device goes offline (i.e., publishes a matching `payload_not_available` to any `availability` topic), Home Assistant will display the cover as "unavailable". If these messages are published with the `retain` flag set, the cover will receive an instant update after subscription and Home Assistant will display correct availability state of the cover when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the cover as "unavailable" when Home Assistant starts up.
 
+<a id='new_format'></a>
+
 To use your MQTT cover in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -35,25 +37,6 @@ mqtt:
   cover:
     - command_topic: "home-assistant/cover/set"
 ```
-
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `cover` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-cover:
-  - platform: mqtt
-    command_topic: "home-assistant/cover/set"
-```
-
-{% enddetails %}
 
 {% configuration %}
 availability:
@@ -97,7 +80,7 @@ command_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this cover is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this cover is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -222,7 +205,7 @@ position_open:
   type: integer
   default: 100
 position_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `position_topic` topic. Within the template the following variables are available: `entity_id`, `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/configuration/templating/#states) template function;"
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that can be used to extract the payload for the `position_topic` topic. Within the template the following variables are available: `entity_id`, `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/configuration/templating/#states) template function;"
   required: false
   type: string
 position_topic:
@@ -240,7 +223,7 @@ retain:
   type: boolean
   default: false
 set_position_template:
-  description: "Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{% raw %}{{ position }}{% endraw %}`. Within the template the following variables are available: `entity_id`, `position`, the target position in percent; `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/configuration/templating/#states) template function;"
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{% raw %}{{ position }}{% endraw %}`. Within the template the following variables are available: `entity_id`, `position`, the target position in percent; `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/configuration/templating/#states) template function;"
   required: false
   type: string
 set_position_topic:
@@ -282,7 +265,7 @@ tilt_closed_value:
   type: integer
   default: 0
 tilt_command_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_command_topic` topic. Within the template the following variables are available: `entity_id`, `tilt_position`, the target tilt position in percent; `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/configuration/templating/#states) template function;"
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that can be used to extract the payload for the `tilt_command_topic` topic. Within the template the following variables are available: `entity_id`, `tilt_position`, the target tilt position in percent; `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/configuration/templating/#states) template function;"
   required: false
   type: string
 tilt_command_topic:
@@ -310,7 +293,7 @@ tilt_optimistic:
   type: boolean
   default: "`true` if `tilt_status_topic` is not defined, else `false`"
 tilt_status_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_status_topic` topic. Within the template the following variables are available: `entity_id`, `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/configuration/templating/#states) template function;"
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that can be used to extract the payload for the `tilt_status_topic` topic. Within the template the following variables are available: `entity_id`, `position_open`; `position_closed`; `tilt_min`; `tilt_max`. The `entity_id` can be used to reference the entity's attributes with help of the [states](/docs/configuration/templating/#states) template function;"
   required: false
   type: string
 tilt_status_topic:
@@ -322,7 +305,7 @@ unique_id:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `state_topic` topic."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that can be used to extract the payload for the `state_topic` topic."
   required: false
   type: string
 {% endconfiguration %}

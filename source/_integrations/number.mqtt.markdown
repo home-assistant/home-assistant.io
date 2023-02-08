@@ -12,6 +12,8 @@ The `mqtt` Number platform allows you to integrate devices that might expose con
 
 ## Configuration
 
+<a id='new_format'></a>
+
 To enable MQTT Number in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -20,24 +22,6 @@ mqtt:
   number:
     - command_topic: my-device/threshold
 ```
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `number` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-number:
-  - platform: mqtt
-    command_topic: my-device/threshold
-```
-
-{% enddetails %}
 
 {% configuration %}
 availability:
@@ -77,7 +61,7 @@ command_topic:
   required: true
   type: string
 device:
-  description: "Information about the device this Number is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this Number is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:

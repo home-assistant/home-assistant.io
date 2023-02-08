@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@gtdiehl'
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---

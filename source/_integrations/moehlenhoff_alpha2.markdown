@@ -13,6 +13,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - sensor
+  - button
 ha_integration_type: integration
 ---
 

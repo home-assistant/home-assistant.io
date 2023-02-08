@@ -72,10 +72,10 @@ Not supported in [limited templates](#limited-templates).
 - Iterating `states` will yield each state sorted alphabetically by entity ID.
 - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
-- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity, `unknown` if it doesn't exist, `unavailable` if the object exists but is not yet available. 
-- `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
+- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity, `unknown` if it doesn't exist, `unavailable` if the object exists but is not yet available.
+- `is_state` compares an entity's state with a specified state or list of states and returns `True` or `False`. `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state. `is_state('device_tracker.paulus', ['home', 'work'])` will test if the given entity is any of the states in the list.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
-- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None`. 
+- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') is none` or `state_attr('sensor.my_sensor', 'attr') == None` (note the difference in the capitalization of none in both versions).
 - `has_value('sensor.my_sensor')` will test if the given entity exist and is not unknown or unavailable. A list of entities can be provided instead of a string. If a list is provided then the test will return false if any entity in the list does not exist, is unknown or is unavailable. Can be used as a filter or a test.
 
 <div class='note warning'>
@@ -107,6 +107,16 @@ Print out a list of all the sensor states:
 {% for state in states.sensor %}
   {{ state.entity_id }}={{ state.state }},
 {% endfor %}
+```
+
+{% endraw %}
+
+Entities that are on:
+
+{% raw %}
+
+```text
+{{ ['light.kitchen', 'light.dining_room'] | select('is_state', 'on') | list }}
 ```
 
 {% endraw %}
@@ -161,6 +171,9 @@ Other state examples:
 {{ as_local(states.sensor.time.last_changed) }}
 
 {{ states('sensor.expires') | as_datetime }}
+
+# Make a list of states
+{{ ['light.kitchen', 'light.dinig_room'] | map('states') | list }}
 ```
 
 {% endraw %}
@@ -201,6 +214,26 @@ With strings:
 
 {% endraw %}
 
+List of friendly names:
+
+{% raw %}
+
+```text
+{{ ['binary_sensor.garage_door', 'binary_sensor.front_door'] | map('state_attr', 'friendly_name') | list }}
+```
+
+{% endraw %}
+
+List of lights that are on with a brightness of 255:
+
+{% raw %}
+
+```text
+{{ ['light.kitchen', 'light.dinig_room'] | select('is_state', 'on') | select('is_state_attr', 'brightness', 255) | list }}
+```
+
+{% endraw %}
+
 ### Working with Groups
 
 Not supported in [limited templates](#limited-templates).
@@ -225,7 +258,7 @@ The same thing can also be expressed as a filter:
 {% raw %}
 
 ```text
-{{ expand(['device_tracker.paulus', 'group.child_trackers']) 
+{{ expand(['device_tracker.paulus', 'group.child_trackers'])
   | selectattr("attributes.battery", 'defined')
   | join(', ', attribute="attributes.battery") }}
 ```
@@ -248,7 +281,7 @@ The same thing can also be expressed as a test:
 {% raw %}
 
 ```text
-{{ expand('group.energy_sensors') 
+{{ expand('group.energy_sensors')
   | selectattr("state", 'is_number') | join(', ') }}
 ```
 
@@ -257,8 +290,8 @@ The same thing can also be expressed as a test:
 ### Devices
 
 - `device_entities(device_id)` returns a list of entities that are associated with a given device ID. Can also be used as a filter.
-- `device_attr(device_or_entity_id, attr_name)` returns the value of `attr_name` for the given device or entity ID. Not supported in [limited templates](#limited-templates).
-- `is_device_attr(device_or_entity_id, attr_name, attr_value)` returns whether the value of `attr_name` for the given device or entity ID matches `attr_value`. Not supported in [limited templates](#limited-templates).
+- `device_attr(device_or_entity_id, attr_name)` returns the value of `attr_name` for the given device or entity ID. Can also be used as a filter. Not supported in [limited templates](#limited-templates).
+- `is_device_attr(device_or_entity_id, attr_name, attr_value)` returns whether the value of `attr_name` for the given device or entity ID matches `attr_value`. Can also be used as a test. Not supported in [limited templates](#limited-templates).
 - `device_id(entity_id)` returns the device ID for a given entity ID or device name. Can also be used as a filter.
 
 #### Devices examples
@@ -281,14 +314,14 @@ The same thing can also be expressed as a test:
 
 ### Config Entries
 
-- `entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
+- `config_entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
 
 #### Config entries examples
 
 {% raw %}
 
 ```text
-{{ entry_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+{{ config_entry_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
 ```
 
 {% endraw %}
@@ -420,7 +453,6 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
 {% endraw %}
 
-
 ### Time
 
 `now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
@@ -437,7 +469,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
    ```yaml
    # Is the current time past 10:15?
-   {{ now() > today_at("10:15") }} 
+   {{ now() > today_at("10:15") }}
    ```
 
    {% endraw %}
@@ -452,8 +484,8 @@ For example, if you wanted to select a field from `trigger` in an automation bas
    {% raw %}
 
    ```yaml
-   # 77 minutes before current time. 
-   {{ now() - timedelta( hours = 1, minutes = 17 ) }} 
+   # 77 minutes before current time.
+   {{ now() - timedelta( hours = 1, minutes = 17 ) }}
    ```
 
    {% endraw %}
@@ -463,15 +495,15 @@ For example, if you wanted to select a field from `trigger` in an automation bas
    {% raw %}
 
    ```yaml
-   # Renders to "00:10:00" 
-   {{ as_timedelta("PT10M") }} 
+   # Renders to "00:10:00"
+   {{ as_timedelta("PT10M") }}
    ```
 
    {% endraw %}
 
 - Filter `timestamp_local(default)` converts a UNIX timestamp to the ISO format string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
 - Filter `timestamp_utc(default)` converts a UNIX timestamp to the ISO format string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
-- Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
+- Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
 
 <div class='note'>
 
@@ -519,7 +551,7 @@ The `from_json` filter operates similarly, but in the other direction, de-serial
 
 In this example, the special character '°' will be automatically escaped in order to produce valid JSON. The difference between the stringified object and the actual JSON is evident.
 
-*Template*
+#### Template
 
 {% raw %}
 
@@ -531,7 +563,7 @@ object|to_json: {{ temp|to_json(ensure_ascii=False) }}
 
 {% endraw %}
 
-*Output*
+#### Output
 
 {% raw %}
 
@@ -544,7 +576,7 @@ object|to_json: {"temperature": 25, "unit": "\u00b0C"}
 
 Conversely, `from_json` can be used to de-serialize a JSON string back into an object to make it possible to easily extract usable data.
 
-*Template*
+#### Template
 
 {% raw %}
 
@@ -555,7 +587,7 @@ The temperature is {{ temp.temperature }}{{ temp.unit }}
 
 {% endraw %}
 
-*Output*
+#### Output
 
 {% raw %}
 
@@ -607,12 +639,12 @@ Not supported in [limited templates](#limited-templates).
 - `distance()` will measure the distance in kilometers between home, entity, coordinates.
 - `closest()` will find the closest entity.
 
-
 #### Distance examples
 
 If only one location is passed in, Home Assistant will measure the distance from home.
 
 {% raw %}
+
 ```text
 
 Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
@@ -668,11 +700,11 @@ The last argument of the closest function has an implicit `expand`, and can take
 {% raw %}
 
 ```text
-Closest out of given entities: 
+Closest out of given entities:
     {{ closest(['group.children', states.device_tracker]) }}
-Closest to a coordinate:  
+Closest to a coordinate:
     {{ closest(23.456, 23.456, ['group.children', states.device_tracker]) }}
-Closest to some entity: 
+Closest to some entity:
     {{ closest(states.zone.school, ['group.children', states.device_tracker]) }}
 ```
 
@@ -683,15 +715,41 @@ It will also work as a filter over an iterable group of entities or groups:
 {% raw %}
 
 ```text
-Closest out of given entities: 
+Closest out of given entities:
     {{ ['group.children', states.device_tracker] | closest }}
-Closest to a coordinate:  
+Closest to a coordinate:
     {{ ['group.children', states.device_tracker] | closest(23.456, 23.456) }}
-Closest to some entity: 
+Closest to some entity:
     {{ ['group.children', states.device_tracker] | closest(states.zone.school) }}
 ```
 
 {% endraw %}
+
+### Contains
+
+Jinja provides by default a [`in` operator](https://jinja.palletsprojects.com/en/latest/templates/#other-operators) how return `True` when one element is `in` a provided list.
+The `contains` test and filter allow you to do the exact opposite and test for a list containing an element. This is particularly useful in `select` or `selectattr` filter, as well as to check if a device has a specific attribute, a `supported_color_modes`, a specific light effect.
+
+Some examples:
+{% raw %}
+
+- `{{ state_attr('light.dining_room', 'effect_list') | contains('rainbow') }}` will return `true` if the light has a `rainbow` effect.
+- `{{ expand('light.office') | selectattr("attributes.supported_color_modes", 'contains', 'color_temp') | list }}` will return all light that support color_temp in the office group.
+- ```text
+    {% set current_month = now().month %}
+    {% set extra_ambiance = [
+      {'name':'Halloween', 'month': [10,11]},
+      {'name':'Noel', 'month': [1,11,12]}
+    ]%}
+    {% set to_add = extra_ambiance | selectattr('month', 'contains', current_month ) | map(attribute='name') | list  %}
+    {% set to_remove = extra_ambiance | map(attribute='name') | reject('in', to_add) | list %}
+    {{ (state_attr('input_select.light_theme', 'options') + to_add ) | unique | reject('in', to_remove) | list }}
+  ```
+  This more complex example uses the `contains` filter to match the current month with a list. In this case, it's used to generate a list of light theme to give to the `Input select: Set options` service.
+
+
+{% endraw %}
+
 
 ### Numeric functions and filters
 
@@ -737,7 +795,7 @@ Like `float` and `int`, `bool` has a filter form. Using `none` as the default va
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
-- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted raises an error. 
+- Filter `round(precision, method, default)` will convert the input to a number and round it to `precision` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even). If the input value can't be converted to a `float`, returns the `default` value, or if omitted raises an error.
   - `round(precision, "floor", default)` will always round down to `precision` decimals
   - `round(precision, "ceil", default)` will always round up to `precision` decimals
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
@@ -749,7 +807,7 @@ Like `float` and `int`, `bool` has a filter form. Using `none` as the default va
 
 These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice-versa.
 The `pack` and `unpack` functions can also be used as a filter. They make use of the Python 3 `struct` library.
-See: https://docs.python.org/3/library/struct.html
+See: [Python struct library documentation](https://docs.python.org/3/library/struct.html)
 
 - Filter `value | pack(format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or when `format_string` is invalid.
 - Function `pack(value, format_string)` will convert a native type to a `bytes` type object. This will call function `struct.pack(format_string, value)`. Returns `None` if an error occurs or when `format_string` is invalid.
@@ -774,8 +832,12 @@ Some examples:
 
 - Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
 - Filter `slugify(separator="_")` will convert a given string into a "slug".
+- Filter `ordinal` will convert an integer into a number defining a position in a series (e.g., `1st`, `2nd`, `3rd`, `4th`, etc).
 
 ### Regular expressions
+
+For more information on regular expressions
+See: [Python regular expression operations](https://docs.python.org/3/library/re.html)
 
 - Test `string is match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
 - Test `string is search(find, ignorecase=False)` will match the find expression anywhere in the string using regex.
@@ -846,7 +908,7 @@ The following overview contains a couple of options to get the needed values:
 # Incoming value:
 {"primes": [2, 3, 5, 7, 11, 13]}
 
-# Extract first prime number 
+# Extract first prime number
 {{ value_json.primes[0] }}
 
 # Format output
