@@ -167,6 +167,18 @@ Once the initial firmware upgrade to Matter is complete, the device can also be 
 
 ## Troubleshooting
 
+### I do not see the option to add a Matter device in the settings
+We've added the option to Add a Matter device from the Settings --> Devices in a recent version of the Home Assistant frontend, available from version 2023.3 and upwards or if you're running the Home Assistant nightly channel. If you are on a previous version of Home Assistant, you should see a button `Configure` on the Matter integration card within Settings --> Devices & services --> Integrations. Click that configure button and you should be able to see the commission button on the Companion app.
+
+### I do not see the button "Commission using the Companion app"
+This button will only be visible within the Home Assistant Companion App (so not in the browser) and your device meets all requirements for Matter support.
+- For iOS, minimum version is iOS 16 (minimal 16.3 is preferred) and the most recent version of the HA companion app.
+- For Android, minimum version is 8.1 and the most recent version oif both the Google Home app and the (full) HA Companion app, downloaded from the app store.
+
+### When I'm trying to commission using the Android app, I get an error stating "Matter is currently unavailable"
+See above, make sure your device meets all requirements to support Matter. Update Android to the latest version and the Google Home and Home Assistant Companion app. To quickly verify if your device meets all requirements to support Matter, go to your (phoine/android) Settings --> Google --> devices & Sharing. There should be an entry there for "Matter devices".
+
+### Unable to commission devices, it keeps giving errors or stops working randomly
 We've seen cases (e.g. on UniFi hardware) where IPv6 derived from the Internet Provider causes issues with the discovery of Matter devices. Keep these notes in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and do not play nice with enterprise solutions like VLAN's, Multicast filtering and IGMP Snooping. Try to keep your network as simple and flat as possible to avoid issues.
 
 ## Advanced installation instructions
