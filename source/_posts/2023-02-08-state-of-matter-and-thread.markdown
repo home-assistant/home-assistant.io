@@ -110,7 +110,7 @@ To see it in action, SL Web Tools has been added to [the Home Assistant SkyConne
 
 SL Web Tools is powered by our new open source Python package [`silabs-universal-flasher`][sl-flasher]. We run this in the browser using [Pyodide].
 
-# TODO: Video updating HA SkyConnect with SL Web Tools
+<lite-youtube videoid="-88K23e8XYw" videotitle="SL Web Tools: upgrading Zigbee firmware in the browser"></lite-youtube>
 
 ## Building firmware for Silicon Labs chips
 
