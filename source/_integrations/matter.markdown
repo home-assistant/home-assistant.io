@@ -168,7 +168,7 @@ Once the initial firmware upgrade to Matter is complete, the device can also be 
 ## Troubleshooting
 
 ### I do not see the option to add a Matter device in the settings
-We've added the option to Add a Matter device from the Settings --> Devices in a recent version of the Home Assistant frontend, available from version 2023.3 and upwards or if you're running the Home Assistant nightly channel. If you are on a previous version of Home Assistant, you should see a button `Configure` on the Matter integration card within Settings --> Devices & services --> Integrations. Click that configure button and you should be able to see the commission button on the Companion app.
+We've added the option to **Add a Matter device** from the **Settings**>**Devices** in a recent version of the Home Assistant frontend, available from version 2023.3 and upwards or if you're running the Home Assistant nightly channel. If you are on a previous version of Home Assistant, you should see a button **Configure** on the Matter integration card within **Settings**>**Devices & Services**>**Integrations**. Click that **Configure** button and you should be able to see the **Commission** button on the Companion app.
 
 ### I do not see the button "Commission using the Companion app"
 This button will only be visible within the Home Assistant Companion App (so not in the browser) and your device meets all requirements for Matter support.
