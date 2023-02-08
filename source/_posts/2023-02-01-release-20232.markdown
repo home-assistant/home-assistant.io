@@ -50,6 +50,7 @@ _PS: Just a reminder that valentine's day is coming up. Be sure to share the lov
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2023.2.1 - February 2](#release-202321---february-2)
 - [Release 2023.2.2 - February 4](#release-202322---february-4)
+- [Release 2023.2.3 - February 7](#release-202323---february-7)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -485,6 +486,105 @@ The following integrations are now available via the Home Assistant UI:
 [zeroconf docs]: /integrations/zeroconf/
 [zeversolar docs]: /integrations/zeversolar/
 
+## Release 2023.2.3 - February 7
+
+- Speed up purge time with newer MariaDB versions ([@bdraco] - [#87409]) ([recorder docs])
+- Add missing name field to emulated_hue config ([@gregoryhaynes] - [#87456]) ([emulated_hue docs])
+- Bump lupupy to 0.2.7 ([@majuss] - [#87469]) ([lupusec docs])
+- Bump py-synologydsm-api to 2.1.4 ([@mib1185] - [#87471]) ([synology_dsm docs])
+- Disable uptime sensor by default in Unifi ([@tkdrob] - [#87484]) ([unifi docs])
+- Add the correct loggers to velbus manifest.json ([@Cereal2nd] - [#87488]) ([velbus docs])
+- Fix recorder run history during schema migration and startup ([@bdraco] - [#87492]) ([recorder docs])
+- Bump xiaomi-ble to 0.16.1 ([@Ernst79] - [#87496]) ([xiaomi_ble docs])
+- Bump jaraco.abode to 3.3.0 ([@zim514] - [#87498]) ([abode docs])
+- Bump bimmer_connected to 0.12.1 ([@rikroe] - [#87506]) ([bmw_connected_drive docs])
+- Add LD2410BLE support for new firmware version ([@bencorrado] - [#87507]) ([ld2410_ble docs])
+- Bump env_canada to 0.5.28 ([@michaeldavie] - [#87509]) ([environment_canada docs])
+- Optimize history.get_last_state_changes query ([@bdraco] - [#87554]) ([recorder docs])
+- OpenAI: Ignore devices without a name ([@balloob] - [#87558]) ([openai_conversation docs])
+- Bump oralb-ble to 0.17.4 ([@Lash-L] - [#87570]) ([oralb docs])
+- Fix matter remove config entry device ([@MartinHjelmare] - [#87571]) ([matter docs])
+- Fix indent on slow_range_in_select for MySQL/MariaDB ([@bdraco] - [#87581]) ([recorder docs])
+- Fix LD2410 BLE detection with passive scans ([@bdraco] - [#87584]) ([ld2410_ble docs])
+- Bump inkbird-ble to 0.5.6 ([@bdraco] - [#87590]) ([inkbird docs])
+- Bump sensorpro-ble to 0.5.3 ([@bdraco] - [#87591]) ([sensorpro docs])
+- Bump thermopro-ble to 0.4.5 ([@bdraco] - [#87592]) ([thermopro docs])
+- Bump bluemaestro-ble to 0.2.3 ([@bdraco] - [#87594]) ([bluemaestro docs])
+- Bump sensorpush-ble to 1.5.5 ([@bdraco] - [#87595]) ([sensorpush docs])
+- Improve rainbird device reliability by sending requests serially ([@allenporter] - [#87603]) ([rainbird docs])
+- Do not return cached values for entity states in emulated_hue ([@Tho85] - [#87642]) ([emulated_hue docs])
+- Bump pyrainbird to 2.0.0 ([@allenporter] - [#86851]) ([rainbird docs])
+- Bump PyISY to 3.1.13, check portal for network buttons ([@shbatm] - [#87650]) ([isy994 docs])
+
+[#86851]: https://github.com/home-assistant/core/pull/86851
+[#87101]: https://github.com/home-assistant/core/pull/87101
+[#87221]: https://github.com/home-assistant/core/pull/87221
+[#87409]: https://github.com/home-assistant/core/pull/87409
+[#87433]: https://github.com/home-assistant/core/pull/87433
+[#87456]: https://github.com/home-assistant/core/pull/87456
+[#87469]: https://github.com/home-assistant/core/pull/87469
+[#87471]: https://github.com/home-assistant/core/pull/87471
+[#87484]: https://github.com/home-assistant/core/pull/87484
+[#87488]: https://github.com/home-assistant/core/pull/87488
+[#87492]: https://github.com/home-assistant/core/pull/87492
+[#87496]: https://github.com/home-assistant/core/pull/87496
+[#87498]: https://github.com/home-assistant/core/pull/87498
+[#87506]: https://github.com/home-assistant/core/pull/87506
+[#87507]: https://github.com/home-assistant/core/pull/87507
+[#87509]: https://github.com/home-assistant/core/pull/87509
+[#87554]: https://github.com/home-assistant/core/pull/87554
+[#87558]: https://github.com/home-assistant/core/pull/87558
+[#87570]: https://github.com/home-assistant/core/pull/87570
+[#87571]: https://github.com/home-assistant/core/pull/87571
+[#87581]: https://github.com/home-assistant/core/pull/87581
+[#87584]: https://github.com/home-assistant/core/pull/87584
+[#87590]: https://github.com/home-assistant/core/pull/87590
+[#87591]: https://github.com/home-assistant/core/pull/87591
+[#87592]: https://github.com/home-assistant/core/pull/87592
+[#87594]: https://github.com/home-assistant/core/pull/87594
+[#87595]: https://github.com/home-assistant/core/pull/87595
+[#87603]: https://github.com/home-assistant/core/pull/87603
+[#87642]: https://github.com/home-assistant/core/pull/87642
+[#87650]: https://github.com/home-assistant/core/pull/87650
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@Ernst79]: https://github.com/Ernst79
+[@Lash-L]: https://github.com/Lash-L
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@Tho85]: https://github.com/Tho85
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bencorrado]: https://github.com/bencorrado
+[@frenck]: https://github.com/frenck
+[@gregoryhaynes]: https://github.com/gregoryhaynes
+[@majuss]: https://github.com/majuss
+[@mib1185]: https://github.com/mib1185
+[@michaeldavie]: https://github.com/michaeldavie
+[@rikroe]: https://github.com/rikroe
+[@shbatm]: https://github.com/shbatm
+[@tkdrob]: https://github.com/tkdrob
+[@zim514]: https://github.com/zim514
+[abode docs]: /integrations/abode/
+[bluemaestro docs]: /integrations/bluemaestro/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[emulated_hue docs]: /integrations/emulated_hue/
+[environment_canada docs]: /integrations/environment_canada/
+[inkbird docs]: /integrations/inkbird/
+[isy994 docs]: /integrations/isy994/
+[ld2410_ble docs]: /integrations/ld2410_ble/
+[lupusec docs]: /integrations/lupusec/
+[matter docs]: /integrations/matter/
+[openai_conversation docs]: /integrations/openai_conversation/
+[oralb docs]: /integrations/oralb/
+[rainbird docs]: /integrations/rainbird/
+[recorder docs]: /integrations/recorder/
+[sensorpro docs]: /integrations/sensorpro/
+[sensorpush docs]: /integrations/sensorpush/
+[synology_dsm docs]: /integrations/synology_dsm/
+[thermopro docs]: /integrations/thermopro/
+[unifi docs]: /integrations/unifi/
+[velbus docs]: /integrations/velbus/
+[xiaomi_ble docs]: /integrations/xiaomi_ble/
 
 ## Need help? Join the community!
 
