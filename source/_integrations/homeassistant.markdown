@@ -27,7 +27,7 @@ Reads the configuration files and checks them for correctness, but **does not** 
 
 Reload all YAML configuration that can be reloaded without restarting Home Assistant.
 
-It calls the `reload` service on all domains available on the system. Additionly,
+It calls the `reload` service on all domains that have it available. Additionally,
 it reloads the core configuration (equivalent to calling
 `homeassistant.reload_core_config`) and themes (`frontend.reload_themes`).
 
