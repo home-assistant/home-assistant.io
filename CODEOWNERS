@@ -262,7 +262,7 @@ source/_integrations/gpsd.markdown @fabaff
 source/_integrations/gree.markdown @cmroche
 source/_integrations/greeneye_monitor.markdown @jkeljo
 source/_integrations/group.markdown @home-assistant/core
-source/_integrations/growatt_server.markdown @indykoning @muppet3000 @JasperPlant
+source/_integrations/growatt_server.markdown @muppet3000
 source/_integrations/guardian.markdown @bachya
 source/_integrations/habitica.markdown @ASMfreaK @leikoilja
 source/_integrations/hardware.markdown @home-assistant/core
