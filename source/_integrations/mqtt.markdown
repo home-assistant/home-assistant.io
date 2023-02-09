@@ -526,6 +526,7 @@ The following software has built-in support for MQTT discovery:
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [SmartHome](https://github.com/roncoa/SmartHome)
 - [SpeedTest-CLI MQTT](https://github.com/adorobis/speedtest-CLI2mqtt)
+- [SwitchBot-MQTT-BLE-ESP32](https://github.com/devWaves/SwitchBot-MQTT-BLE-ESP32)
 - [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
 - [Teleinfo MQTT](https://fmartinou.github.io/teleinfo2mqtt) (starting with 3.0.0)
 - [Tydom2MQTT](https://fmartinou.github.io/tydom2mqtt/)
