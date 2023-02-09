@@ -3,7 +3,7 @@ title: VARTA Storage
 description: Instructions on how to configure VARTA Storage integration.
 ha_category:
   - Sensor
-ha_release: 2022.1
+ha_release: 2023.3
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
