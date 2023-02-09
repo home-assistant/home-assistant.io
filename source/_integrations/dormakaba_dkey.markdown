@@ -12,7 +12,7 @@ ha_domain: dormakaba_dkey
 ha_config_flow: true
 ha_platforms:
   - lock
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates Dormakaba dKey Bluetooth Low Energy connected locks into Home Assistant.
