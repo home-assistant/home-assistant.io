@@ -16,43 +16,43 @@ To add the Tile card to your user interface, click the menu (three dots at the t
 
 {% configuration %}
 type:
-  required: true
-  description: "`tile`"
-  type: string
+required: true
+description: "`tile`"
+type: string
 entity:
-  required: true
-  description: Entity ID.
-  type: string
+required: true
+description: Entity ID.
+type: string
 name:
-  required: false
-  description: Overwrites the name of entity.
-  type: string
+required: false
+description: Overwrites the name of entity.
+type: string
 icon:
-  required: false
-  description: Overwrites the icon of entity.
-  type: string
+required: false
+description: Overwrites the icon of entity.
+type: string
 color:
-  required: false
-  description: Set the color when the entity is active. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/tile/#available-color-tokens) or hex color code.
-  type: string
-  default: state
+required: false
+description: Set the color when the entity is active. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/tile/#available-color-tokens) or hex color code.
+type: string
+default: state
 show_entity_picture:
-  required: false
-  description: If your entity has a picture, it will replace the icon.
-  type: boolean
-  default: false
+required: false
+description: If your entity has a picture, it will replace the icon.
+type: boolean
+default: false
 tap_action:
-  required: false
-  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
-  type: map
+required: false
+description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
+type: map
 icon_tap_action:
-  required: false
-  description: Action taken on icon card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will `toggle` the entity (if possible), otherwise, show the "more-info" dialog.
-  type: map
+required: false
+description: Action taken on icon card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will `toggle` the entity (if possible), otherwise, show the "more-info" dialog.
+type: map
 features:
-  required: false
-  description: Additional widgets to control your entity. See [available features](/dashboards/tile/#tile-features).
-  type: list
+required: false
+description: Additional widgets to control your entity. See [available features](/dashboards/tile/#tile-features).
+type: list
 {% endconfiguration %}
 
 ## Examples
@@ -95,6 +95,27 @@ Some color tokens are available to colorize the tile card : `primary`, `accent`,
 
 Some entities have support for "features". These widgets add quick controls to the tile card.
 
+### Climate temperature
+
+Widget that display buttons to change the temperature for a [climate](/integrations/climate).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-features/climate_temperature.png' alt='Screenshot of the tile card with climate temperature feature'>
+  Screenshot of the tile card with climate temperature feature
+</p>
+
+```yaml
+features:
+  - type: "climate-temperature"
+```
+
+{% configuration %}
+type:
+required: true
+description: "`climate-temperature`"
+type: string
+{% endconfiguration %}
+
 ### Cover open/close
 
 Widget that display buttons to open, close or stop a [cover](/integrations/cover).
@@ -111,9 +132,9 @@ features:
 
 {% configuration %}
 type:
-  required: true
-  description: "`cover-open-close`"
-  type: string
+required: true
+description: "`cover-open-close`"
+type: string
 {% endconfiguration %}
 
 ### Cover tilt
@@ -132,9 +153,9 @@ features:
 
 {% configuration %}
 type:
-  required: true
-  description: "`cover-tilt`"
-  type: string
+required: true
+description: "`cover-tilt`"
+type: string
 {% endconfiguration %}
 
 ### Light brightness
@@ -153,9 +174,9 @@ features:
 
 {% configuration %}
 type:
-  required: true
-  description: "`light-brightness`"
-  type: string
+required: true
+description: "`light-brightness`"
+type: string
 {% endconfiguration %}
 
 ### Vacuum commands
@@ -180,11 +201,11 @@ features:
 
 {% configuration %}
 type:
-  required: true
-  description: "`vacuum-commands`"
-  type: string
+required: true
+description: "`vacuum-commands`"
+type: string
 commands:
-  required: true
-  description: List of commands to show on the card. The list can contain `start_pause`, `stop`, `clean_spot`, `locate` and `return_home`.
-  type: list
+required: true
+description: List of commands to show on the card. The list can contain `start_pause`, `stop`, `clean_spot`, `locate` and `return_home`.
+type: list
 {% endconfiguration %}
