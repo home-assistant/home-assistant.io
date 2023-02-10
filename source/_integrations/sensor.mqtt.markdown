@@ -61,7 +61,7 @@ availability_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -170,6 +170,10 @@ payload_not_available:
   required: false
   type: string
   default: offline
+suggested_display_precision:
+  description: The number of decimals which should be used in the sensor's state after rounding.
+  required: false
+  type: integer
 qos:
   description: The maximum QoS level of the state topic.
   required: false
@@ -323,6 +327,7 @@ mqtt:
   sensor:
     - name: "Temperature"
       state_topic: "office/sensor1"
+      suggested_display_precision: 1
       unit_of_measurement: "°C"
       value_template: "{{ value_json.temperature }}"
     - name: "Humidity"

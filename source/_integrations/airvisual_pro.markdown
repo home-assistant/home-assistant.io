@@ -12,7 +12,7 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The AirVisual Pro integration allows users to retrieve data from an [AirVisual Node/Pro unit](https://www.iqair.com/air-quality-monitors/airvisual-pro). Communication with the device occurs over the local network.

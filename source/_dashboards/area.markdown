@@ -12,12 +12,17 @@ The Area card lets you control and monitor an individual area.
   Screenshot of the Area card.
 </p>
 
+To add the Area card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
 
-To add the Area card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Area** from the card picker. All options for this card can be configured via the user interface.
+All options for this card can be configured via the user interface.
 
 Buttons will appear on the card for the entities in the area including fan, light and switch. A motion sensor icon will appear in the top left if a motion sensor is in the area and motion is detected by the motion sensor.
 
 If a camera is added to the area you can show the camera feed instead of the area picture.
+
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -43,23 +48,21 @@ theme:
   type: string
 {% endconfiguration %}
 
-## Example
-
-Alternatively, the card can be configured using YAML:
+### Example
 
 Basic example:
 
 ```yaml
-- type: area
-  area: bedroom
+type: area
+area: bedroom
 ```
 
 Complex example
 
 ```yaml
-- type: area
-  area: bedroom
-  navigation_path: my_bedroom
-  show_camera: true
-  theme: green
+type: area
+area: bedroom
+navigation_path: my_bedroom
+show_camera: true
+theme: green
 ```

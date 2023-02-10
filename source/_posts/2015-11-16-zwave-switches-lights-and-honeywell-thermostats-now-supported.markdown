@@ -10,7 +10,7 @@ categories:
 - Core
 ---
 
-<img src='/images/screenshots/custom-icons.png' style='float: right;' />We have all been hard at work to get this latest release ready. One of the big highlights in this release is the introduction of an extended iconset to be used in the frontend (credits to [@happyleavesaoc] for idea and prototype). To get started with customizing, pick any icon from [MaterialDesignIcons.com], prefix the name with `mdi:` and stick it into your `customize` section in `configuration.yaml`:
+<img src='/images/screenshots/custom-icons.png' style='float: right;' />We have all been hard at work to get this latest release ready. One of the big highlights in this release is the introduction of an extended iconset to be used in the frontend (credits to [@happyleavesaoc] for idea and prototype). To get started with customizing, pick any icon from [Material Design Icons], prefix the name with `mdi:` and stick it into your `customize` section in `configuration.yaml`:
 
 ```yaml
 homeassistant:
@@ -21,7 +21,7 @@ homeassistant:
 
 #### Breaking changes
 
- - Any existing zone icon will have to be replaced with one from [MaterialDesignIcons.com].
+ - Any existing zone icon will have to be replaced with one from [Material Design Icons].
  - LimitlessLED light services require colors to be specified in RGB instead of XY.
 
 #### Changes
@@ -43,7 +43,7 @@ homeassistant:
  * Switch RGB as the color unit used in light component ([@balloob])
  * Re-install platform and component dependencies after a Home Assistant version upgrade ([@balloob])
 
-[MaterialDesignIcons.com]: https://MaterialDesignIcons.com
+[Material Design Icons]: https://pictogrammers.com/library/mdi/
 [@sander76]: https://github.com/sander76
 [@happyleavesaoc]: https://github.com/happyleavesaoc
 [@ryanturner]: https://github.com/ryanturner

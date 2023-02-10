@@ -28,6 +28,7 @@ Tested smart meters:
 - Iskraemeco MT175 (ISKRA MT175-D2A51-V22-K0t)
 - EMH metering eHZ Generation K (enable InF as described in manual to retrieve full data)
 - efr SGM-C4 (enable InF as described in manual to retrieve full data)
+- easymeter Q3 ([Link](https://www.easymeter.com/products/zaehler/q3a))
 
 ## Configuration
 

@@ -126,13 +126,16 @@ All Insteon scenes configured in the ISY Admin Console will show up as a `switch
 
 Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant to allow support for using Control Events in Automations. These devices are added as `sensors` since they cannot be directly controlled (turned on/off); their state is the last ON level command they sent, in a range from `0` (Off) to `255` (On 100%).  Note: these devices may report incorrect states before being used after a reboot of the ISY. Secondary Keypad buttons may be turned on or off using ISY Scenes (refer to ISY Documentation for more details).
 
+### Insteon Device Configuration Support
+
+Insteon devices will include entities for setting the device On Level, Ramp Rate, and Backlight Level, if supported; as well as `button` entities for `Beep` and `Query` actions. Note: Backlight Level cannot be read from the device, so an assumed state is used. The current state in Home Assistant will be valid if the backlight is changed from Home Assistant and will also be updated if changed from the ISY Admin Console or REST command while Home Assistant is running. Additional configuration changes still require the ISY Admin Console.
+
 ### Services
 
 Once loaded, the following services will be exposed with the `isy994.` prefix, to allow advanced control over the ISY and its connected devices:
 
  - Entity services for Home Assistant-connected entities: `send_node_command`, `send_raw_node_command`, and `set_ramp_rate`.
  - Generic ISY services: `send_program_command`
- - Management services for the ISY Home Assistant integration: `reload`.
 
 #### Service `isy994.send_node_command`
 
@@ -194,10 +197,6 @@ Send a command to control an ISY program or folder. Valid commands are `run`, `r
 | `address` | yes | The address of the program to control (optional, use either `address` or `name`), e.g., `"04B1"` |
 | `name` | yes | The name of the program to control (optional, use either `address` or `name`), e.g., `"My Program"` |
 | `isy` | yes | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same program name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
-
-#### Service `isy994.reload`
-
-Reload the ISY connection(s) without restarting Home Assistant. Use this service to pick up new devices that have been added or changed on the ISY since the last restart of Home Assistant.
 
 ### Creating Custom Devices using ISY Programs
 
