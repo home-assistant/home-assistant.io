@@ -75,9 +75,9 @@ recorder:
       default: 10
       type: integer
     commit_interval:
-      description: How often (in seconds) the events and state changes are committed to the database. The default of `1` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the logbook and history will lag. If this is set to `0` (zero), commit are made as soon as possible after an event is processed.
+      description: How often (in seconds) the events and state changes are committed to the database. The default of `5` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the logbook and history will lag. If this is set to `0` (zero), commit are made as soon as possible after an event is processed.
       required: false
-      default: 1
+      default: 5
       type: integer
     exclude:
       description: Configure which integrations should be excluded from recordings. ([Configure Filter](#configure-filter))
@@ -227,15 +227,6 @@ Call the service `recorder.disable` to stop saving events and states to the data
 
 Call the service `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
 
-## Recommended engines and minimum versions
-
-The following database engines are tested when major changes are made to the recorder. Other database engines do not have an active core maintainer at this time and may require additional work to maintain.
-
-- SQLite ≥ 3.32.1
-- MariaDB ≥ 10.3
-- MySQL ≥ 8.0
-- PostgreSQL ≥ 12
-
 ## Custom database engines
 
 Here are examples to use with the [`db_url`](#db_url) configuration option.
@@ -335,6 +326,10 @@ Not all Python bindings for the chosen database engine can be installed directly
 
 ### MariaDB and MySQL
 
+<div class='note warning'>
+MariaDB versions before 10.5.17, 10.6.9, 10.7.5, and 10.8.4 suffer from a performance regression which can result in the system becoming overloaded while querying history data or purging the database.
+</div>
+
 Make sure the default character set of your database server is set to `utf8mb4` (see [MariaDB documentation](https://mariadb.com/kb/en/setting-character-sets-and-collations/#example-changing-the-default-character-set-to-utf-8)).
 If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package described below.
 
@@ -344,7 +339,7 @@ homeassistant@homeassistant:~$ source /srv/homeassistant/bin/activate
 (homeassistant) homeassistant@homeassistant:~$ pip3 install mysqlclient
 ```
 
-For MariaDB you may have to install a few dependencies. If you're using MariaDB version 10.2, `libmariadbclient-dev` was renamed to `libmariadb-dev`. If you're using MariaDB 10.3, the package `libmariadb-dev-compat` must also be installed. For MariaDB v10.0.34 only `libmariadb-dev-compat` is needed. Please install the correct packages based on your MariaDB version.
+For MariaDB you may have to install a few dependencies. If you're using MariaDB 10.3, the package `libmariadb-dev-compat` must also be installed. Please install the correct packages based on your MariaDB version.
 
 On the Python side we use the `mysqlclient`:
 
@@ -361,6 +356,8 @@ pip3 install mysqlclient
 ```
 
 After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you.
+
+The database engine must be `InnoDB` as `MyIASM` is not supported.
 
 ```bash
 SET GLOBAL default_storage_engine = 'InnoDB';

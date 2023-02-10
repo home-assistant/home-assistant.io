@@ -5,9 +5,9 @@ ha_category:
   - Binary Sensor
   - Cover
   - Light
+  - Lock
   - Sensor
   - Switch
-  - Lock
 ha_release: 0.78
 ha_iot_class: Local Push
 ha_codeowners:
@@ -27,7 +27,6 @@ ha_platforms:
   - lock
   - sensor
   - switch
-  - lock
 ha_config_flow: true
 ha_integration_type: integration
 ---

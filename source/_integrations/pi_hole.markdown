@@ -22,7 +22,7 @@ ha_integration_type: integration
 ---
 
 The Pi-hole integration allows you to retrieve statistics and interact with a
-[Pi-hole](https://pi-hole.net/) system. An API key is needed for the setup (_from Settings -> API / Web interface_).
+[Pi-hole](https://pi-hole.net/) system. If your Pi-hole web interface is password protected, an API key is needed for the setup (_from Settings -> API / Web interface_).
 
 {% include integrations/config_flow.md %}
 

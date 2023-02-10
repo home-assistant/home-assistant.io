@@ -17,6 +17,7 @@ This integration is a meta-component and configures a default set of integration
 - [Backup](/integrations/backup/) (`backup`)
 - [Bluetooth](/integrations/bluetooth/) (`bluetooth`)
 - [Configuration](/integrations/config/) (`config`)
+- [Conversation](/integrations/conversation/) (`conversation`)
 - [Counter](/integrations/counter/) (`counter`)
 - [DHCP Discovery](/integrations/dhcp/) (`dhcp`)
 - [Energy](/integrations/energy/) (`energy`)

@@ -85,6 +85,7 @@ Known supported devices:
 - Marantz NR1506
 - Marantz NR1510
 - Marantz NR1602
+- Marantz NR1603
 - Marantz NR1604
 - Marantz NR1606
 - Marantz NR1607

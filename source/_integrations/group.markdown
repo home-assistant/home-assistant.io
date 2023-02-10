@@ -11,6 +11,7 @@ ha_category:
   - Media Player
   - Notifications
   - Organization
+  - Sensor
   - Switch
 ha_release: pre 0.7
 ha_iot_class: Calculated
@@ -27,6 +28,7 @@ ha_platforms:
   - lock
   - media_player
   - notify
+  - sensor
   - switch
 ha_integration_type: helper
 ---
@@ -97,6 +99,13 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 - Otherwise, the group state is `playing` if all group members are `playing`.
 - Otherwise, the group state is `on` if at least one group member is not `off`, `unavailable` or `unknown`.
 - Otherwise, the group state is `off`.
+
+### Sensor groups
+
+- The group state is combined / calculated based on `type` selected to determine the minimum, maximum, latest (last), mean, median, range or sum of the collected states.
+- Members can be any `sensor`, `number` or `input_number` holding numeric states.
+- The group state is `unavailable` if all group members are `unavailable`.
+- If `ignore_non_numeric` is `false` then group state will be `unavailable` if one member is `unavailable` or does not have a numeric state.
 
 ## Managing groups
 
@@ -190,6 +199,18 @@ media_player:
       - media_player.living_room_tv
 ```
 
+Example YAML configuration of a sensor group:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: group
+    type: mean
+    entities:
+      - sensor.temperature_kitchen
+      - sensor.temperature_hallway
+```
+
 Example YAML configuration of a switch group:
 
 ```yaml
@@ -219,6 +240,27 @@ all:
   required: false
   type: boolean
   default: false
+type:
+  description: "Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range`, or `sum`."
+  type: string
+  required: true
+ignore_non_numeric:
+  description: Only available for `sensor` group. Set this to `true` if the group state should ignore sensors with non numeric values.
+  type: boolean
+  required: false
+  default: false
+unit_of_measurement:
+  description: Only available for `sensor` group. Set the unit of measurement for the sensor.
+  type: string
+  required: false
+device_class:
+  description: Only available for `sensor` group. Set the device class for the sensor according to [available options](/integrations/sensor/#device-class).
+  type: string
+  required: false
+state_class:
+  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes).
+  type: string
+  required: false
 {% endconfiguration %}
 
 ## Notify Groups
@@ -359,6 +401,7 @@ This integration provides the following services to modify groups and a service 
 | | `Icon` | Name of the icon for the group.
 | | `Entities` | List of all members in the group. Not compatible with **delta**.
 | | `Add Entities` | List of members that will change on group listening.
+| | `Remove Entities` | List of members that will be removed from group listening.
 | | `All` | Enable this option if the group should only turn on when all entities are on.
 | `remove` | `Object ID` | Group id and part of entity id.
 | `reload` | `Object ID` | Group id and part of entity id.
