@@ -144,7 +144,7 @@ a new pop-up asking for a radio type. In the pop-up:
 
 | Radio Type | Zigbee Radio Hardware |
 | ------------- | ------------- |
-| `ezsp`  | Silicon Labs EmberZNet protocol (e.g., Elelabs, HUSBZB-1, Telegesis) |
+| `ezsp`  | Silicon Labs EmberZNet protocol (e.g., Home Assistant SkyConnect, Elelabs, HUSBZB-1, Telegesis) |
 | `deconz` | dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II) |
 | `znp` | Texas Instruments (e.g., CC253x, CC26x2, CC13x2) |
 | `zigate` | ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi) |
@@ -433,11 +433,11 @@ Tip to new users is that, while there is no official list of supported devices, 
 
 ### ZHA exception and deviation handling
 
-The ZHA implementation in Home Assistant relies on a library called "[ZHA Device Handlers](https://github.com/zigpy/zha-device-handlers)" to resolve issues with Zigbee devices that do not fully conform with the Zigbee standards. The few devices that deviate from the Zigbee specifications set by the [Zigbee Alliance](https://zigbeealliance.org) may therefore require proper bug reports with debug logs from users to assistant the developers in writing custom [ZHA Device Handlers](https://github.com/zigpy/zha-device-handlers/blob/dev/README.md) for all of a device functions to work properly with the ZHA integration.
+Home Assistant's ZHA integration already supports most standard device types out-of-the-box as long as they follow the official Zigbee specifications, but for devices that manufacturers have not properly not fully Zigbee compatible, the ZHA integration has implemented a library called "[ZHA Device Handlers (also known as "zha-quirk")](https://github.com/zigpy/zha-device-handlers)" that handle and resolve compliance issues via custom conversion/translation of Zigbee parameters (clusters and attributes) for specific devices which do not conform with the Zigbee standards.
 
-Such a custom "ZHA Device Handler" are Python scripts that internally are also referred to as a "quirk" because they fix "quirks", like deviations from the standard specifications. ZHA Device Handles do this by transparently, acting as a translator, translating and converting non-compliant device messages and instead present them to the application as coming from a virtual compliant device. These ZHA Device Handlers for Home Assistant can thus be used to parse custom messages to and from Zigbee devices. The ZHA Device Handlers that are made can then be reused by all users in future versions of Home Assistant.
+The few devices that will, for example, not join/pair properly or, while joined/paired, do not present all attributes in the ZHA integration likely deviate from the Zigbee specifications set by the [CSA (Connectivity Standards Alliance)](https://csa-iot.org/all-solutions/zigbee/). These devices may therefore require the creation of a bug report by a device owner, supplying debug logs. The device owner may need to actively assist in troubleshooting by providing the information developers need to create custom ZHA Device Handlers.
 
-The custom quirks implementations for zigpy implemented as ZHA Device Handlers for Home Assistant are a similar concept to that of [Hub-connected Device Handlers for the SmartThings Classics platform](https://docs.smartthings.com/en/latest/device-type-developers-guide/) as well as that of [Zigbee-Herdsman Converters (formerly Zigbee-Shepherd Converters) as used by Zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html), meaning they are each virtual representations of a physical device that expose additional functionality that is not provided out-of-the-box by the existing integration between these platforms.
+
 
 ### Reporting issues
 

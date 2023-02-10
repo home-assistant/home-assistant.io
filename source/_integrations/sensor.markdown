@@ -11,7 +11,7 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-Sensors are a basic platform component in Home Assistant. They monitor the states and conditions of a variety of entities. An entity can be many things. This can include a physical device like a motion sensor that reports the battery level, a web service that retrieves the weather temperature, a built-in function that calculates the sun's elevation relative to your GPS position, or even a custom sensor you may have created to report the free space on your laptop. These are all *things* reporting different types of information.
+Sensors are a basic platform component in Home Assistant. They monitor the states and conditions of a variety of entities. An entity can be many things. This can include a physical device like a motion sensor that reports the battery level, a web service that retrieves the weather temperature, a built-in function that calculates the sun's elevation relative to your GPS position, or even a custom sensor you may have created to report the free space on your laptop. These are all _things_ reporting different types of information.
 
 Some of these sensors are built-in to Home Assistant, some are created automatically when you add an integration (see this [list](/integrations/#sensor)), and some can be created manually. The [Statistics](/integrations/statistics) and [Template](/integrations/template) sensors are two examples of the last case.
 
@@ -25,16 +25,16 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **atmospheric_pressure**: Atmospheric pressure in cbar, bar, hPa, inHg, kPa, mbar, Pa or psi
 - **battery**: Percentage of battery that is left in %
 - **carbon_dioxide**: Carbon Dioxide in CO2 (Smoke) in ppm
-- **carbon_monoxide**: Carbon Monoxide in CO (Gas CNG/LPG) in ppm 
+- **carbon_monoxide**: Carbon Monoxide in CO (Gas CNG/LPG) in ppm
 - **current**: Current in A, mA
 - **data_rate**: Data rate in bit/s, kbit/s, Mbit/s, Gbit/s, B/s, kB/s, MB/s, GB/s, KiB/s, MiB/s or GiB/s
 - **data_size**: Data size in bit, kbit, Mbit, Gbit, B, kB, MB, GB, TB, PB, EB, ZB, YB, KiB, MiB, GiB, TiB, PiB, EiB, ZiB or YiB
 - **date**: Date string (ISO 8601)
-- **distance**: Generic distance in km, m, cm, mm, mi, yd or in
-- **duration**: Duration in d, h, min or s
-- **energy**: Energy in Wh, kWh or MWh
+- **distance**: Generic distance in km, m, cm, mm, mi, yd, or in
+- **duration**: Duration in d, h, min, or s
+- **energy**: Energy in Wh, kWh, MWh, MJ, or GJ
 - **enum**: Has a limited set of (non-numeric) states
-- **frequency**: Frequency in Hz, kHz, MHz or GHz
+- **frequency**: Frequency in Hz, kHz, MHz, or GHz
 - **gas**: Gasvolume in m³, ft³ or CCF
 - **humidity**: Percentage of humidity in the air in %
 - **illuminance**: The current light level in lx
@@ -58,14 +58,14 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **sound_pressure**: Sound pressure in dB or dBA
 - **speed**: Generic speed in ft/s, in/d, in/h, km/h, kn, m/s, mph or mm/d
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
-- **temperature**: Temperature in °C or °F
+- **temperature**: Temperature in °C, °F or K
 - **timestamp**: Datetime object or timestamp string (ISO 8601)
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
 - **voltage**: Voltage in V, mV
-- **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³ or CCF
-- **water**: Water consumption in L, gal, m³, ft³ or CCF
-- **weight**: Generic mass in kg, g, mg, µg, oz, lb or st
-- **wind_speed**: Wind speed in ft/s, km/h, kn, m/s or mph
+- **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
+- **water**: Water consumption in L, gal, m³, ft³, or CCF
+- **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
+- **wind_speed**: Wind speed in ft/s, km/h, kn, m/s, or mph
 
 <p class='img'>
 <img src='/images/screenshots/sensor_device_classes_icons.png' />
