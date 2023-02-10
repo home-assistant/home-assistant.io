@@ -539,6 +539,9 @@ sensor:
 sensor:
   - platform: influxdb
     api_version: 2
+    ssl: false
+    host: localhost
+    port: 9999
     token: GENERATED_AUTH_TOKEN
     organization: RANDOM_16_DIGIT_HEX_ID
     bucket: BUCKET_NAME
