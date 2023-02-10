@@ -106,6 +106,27 @@ Some color tokens are available to colorize the tile card : `primary`, `accent`,
 
 Some entities have support for "features". These widgets add quick controls to the tile card.
 
+### Climate temperature
+
+Widget that display buttons to change the temperature for a [climate](/integrations/climate).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-features/climate_temperature.png' alt='Screenshot of the tile card with climate temperature feature'>
+  Screenshot of the tile card with climate temperature feature
+</p>
+
+```yaml
+features:
+  - type: "climate-temperature"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`climate-temperature`"
+  type: string
+{% endconfiguration %}
+
 ### Cover open/close
 
 Widget that display buttons to open, close or stop a [cover](/integrations/cover).
