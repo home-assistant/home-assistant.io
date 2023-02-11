@@ -55,7 +55,7 @@ Depending on the supported features of the camera number entities are added for:
 
 ## Update entity
 
-A update entity is available that checks for firmware updates every 12 hours.
+An update entity is available that checks for firmware updates every 12 hours.
 This does the same as pressing the "Check for latest version" in the Reolink applications.
 Unfortunately this does not always shows the latest available firmware (also not in the Reolink applications).
 The latest firmware can be downloaded from the [Reolink download center](https://reolink.com/download-center/) an uploaded to the camera/NVR manually.
