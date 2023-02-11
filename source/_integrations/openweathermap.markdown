@@ -104,3 +104,9 @@ The time period these sensors use depends on the forecast mode selected when con
 | `forecast_wind_speed`                | Wind speed for the forecast's time period, metre/sec.                                                                                                          |
 
 Details about the API are available in the [OpenWeatherMap documentation](https://openweathermap.org/api).
+
+### Forecast Weather Conditions Intervals
+
+Periodic forecast information is stored in the `forecast` attribute on the entity. To access and use the information should be reserved for advanced users using [Templates](/docs/configuration/templating/).
+
+![Example OpenWeatherMap forecast attributes](/images/integrations/openweathermap/OpenWeatherMap_Attributes.png)
