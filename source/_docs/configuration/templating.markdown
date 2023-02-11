@@ -154,7 +154,7 @@ Other state examples:
 {{ states('sensor.expires') | as_datetime }}
 
 # Make a list of states
-{{ ['light.kitchen', 'light.dinig_room'] | map('states') | list }}
+{{ ['light.kitchen', 'light.dining_room'] | map('states') | list }}
 ```
 
 {% endraw %}
