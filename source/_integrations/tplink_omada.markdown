@@ -18,7 +18,7 @@ The TP-Link Omada SDN Controller integration allows you to control your [TP-Link
 
 The integration provides basic configuration and status of Omada devices controlled by the controller. All supported devices connected to the controller will be added to Home Assistant.
 
-## Configuration UI
+{% include integrations/config_flow.md %}
 
 - Host: Enter the URL of the Omada management interface.
 - Verify SSL Certificates: Enable to check the validity of the certificate presented by the Omada controller.
@@ -26,8 +26,6 @@ The integration provides basic configuration and status of Omada devices control
 
 ### Multiple Sites
 If you have multiple sites managed by your controller, you will be prompted to choose which site to manage.
-
-{% include integrations/config_flow.md %}
 
 ## Supported Controllers
 
