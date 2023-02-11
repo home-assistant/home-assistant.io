@@ -34,3 +34,9 @@ The `weather` platform only knows the below listed conditions. The reason for th
 - 'windy'
 - 'windy-variant'
 - 'exceptional'
+
+### Forecast Weather Conditions Intervals
+
+Periodic forecast information is stored in the `forecast` attribute on the entity. To access and use the information should be reserved for advanced users using [Templates](/docs/configuration/templating/).
+
+![Example OpenWeatherMap forecast attributes](/images/integrations/openweathermap/OpenWeatherMap_Attributes.png)
