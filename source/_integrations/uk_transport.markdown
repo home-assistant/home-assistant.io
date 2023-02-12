@@ -31,6 +31,7 @@ sensor:
   - platform: uk_transport
     app_id: YOUR_APP_ID
     app_key: YOUR_APP_KEY
+    scan_interval: 86400
     queries:
       - mode: train
         origin: MAL
@@ -153,6 +154,6 @@ template:
 
 ## Managing API requests
 
-If you wish to manage the rate of API requests (e.g., to disable requests when you aren't interested in travel, so that you can request updates more frequently when you do travel) set a really long `scan_interval` in the configuration options, and use the service `homeassistant.update_entity` to request the update of an entity, rather than waiting for the next scheduled update.
+If you wish to manage the rate of API requests (e.g., to disable requests when you aren't interested in travel, so that you can request updates more frequently when you do travel) set a really long `scan_interval` (in seconds) in the configuration options, and use the service `homeassistant.update_entity` to request the update of an entity, rather than waiting for the next scheduled update.
 
 Powered by [transportAPI](https://www.transportapi.com/)
