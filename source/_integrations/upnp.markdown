@@ -43,3 +43,15 @@ logger:
 ```
 
 When creating an issue, please include the (relevant) logging with the issue. Any sensitive information such as IPs can be obfuscated.
+
+## Warnings statistics sensors
+
+Some devices do not follow the UPnP/IGD standard or are simply broken and provide invalid values when the router's traffic counters are read. According to the standard, the traffic counters should provide an increasing value between 0 bytes and 4.294.967.294 bytes. After the maximum value is reached, the counter should roll over to 0 and restart counting.
+
+There are several devices which do not adhere to this standard causing the traffic counters to be unusable. As a result, the traffic sensors might not be working properly, or Home Assistant might even given a warning such `Entity sensor.fritz_box_upload_summe from integration upnp has state class total_increasing, but its state is not strictly increasing. Triggered by state .... Please create a bug report at ...`. This is something the integration can nothing do about.
+
+Devices/brands with **known** defects (incomplete list!):
+* Fritz!
+* Compal Broadband Networks, Inc CH7465LG
+
+When this message is seen, the sensors regarding traffic should be disabled.
