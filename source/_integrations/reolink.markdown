@@ -52,6 +52,21 @@ Depending on the supported features of the camera number entities are added for:
 
 - Optical zoom control
 - Focus control
+- Floodlight brightness
+
+## Switch entities
+
+Depending on the supported features of the camera switch entities are added for:
+
+- Floodlight
+- Infra red lights
+
+## Select entities
+
+Depending on the supported features of the camera select entities are added for:
+
+- Floodlight mode (Off, Auto, Schedule)
+- Day night mode (Auto, Color, Black&White)
 
 ## Tested models
 
