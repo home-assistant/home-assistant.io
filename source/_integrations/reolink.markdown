@@ -48,6 +48,13 @@ Depending on the supported features of the camera binary sensors are added for:
 These sensors are polled every 60 seconds and receive ONVIF push events for immediate updates.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
 
+## Number entities
+
+Depending on the supported features of the camera number entities are added for:
+
+- Optical zoom control
+- Focus control
+
 ## Tested models
 
 The following models have been tested and confirmed to work:

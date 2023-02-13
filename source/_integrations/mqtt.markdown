@@ -444,6 +444,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'stat_val_tpl':        'state_value_template',
     'step':                'step',
     'stype':               'subtype',
+    'sug_dsp_prc':         'suggested_display_precision',
     'sup_clrm':            'supported_color_modes',
     'sup_dur':             'support_duration',
     'sup_vol':             'support_volume_set',
