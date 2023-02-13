@@ -29,6 +29,11 @@ This integration allows:
   - Someone is at the front door
   - Smoke detected in the master bedroom
   - Water leak detected in the master bathroom
+- Playback Google Assistant audio response for any query on any media player. Examples:
+  - Tell me a joke
+  - Say the ABC
+  - Sing happy birthday
+  - What does the elephant say?
 - Having a conversation with Google Assistant using the [conversation](/integrations/conversation/) integration via text or voice.
 
 <lite-youtube videoid="a-Is8GtLJCs" videotitle="Controlling Google Home With Home Assistant!" posterquality="maxresdefault"></lite-youtube>
@@ -109,14 +114,22 @@ You can use the service `google_assistant_sdk.send_text_command` to send command
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `command`              | no       | Command(s) to send to Google Assistant. | turn off kitchen TV |
+| `media_player`         | yes      | Name(s) of media player entities to play response on | media_player.living_room_speaker |
 
-Example:
+Examples:
 
 ```yaml
 service: google_assistant_sdk.send_text_command
 data:
-  command: turn off kitchen TV
+  command: "turn off kitchen TV"
 ```
+
+```yaml
+# Say a joke on the living room speaker
+service: google_assistant_sdk.send_text_command
+data:
+  command: "tell me a joke"
+  media_player: media_player.living_room_speaker
 
 You can also send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
 

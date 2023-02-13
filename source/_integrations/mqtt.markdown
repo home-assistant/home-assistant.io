@@ -441,6 +441,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'stat_val_tpl':        'state_value_template',
     'step':                'step',
     'stype':               'subtype',
+    'sug_dsp_prc':         'suggested_display_precision',
     'sup_clrm':            'supported_color_modes',
     'sup_dur':             'support_duration',
     'sup_vol':             'support_volume_set',
@@ -561,7 +562,7 @@ Delete the sensor by sending an empty message.
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m ''
 ```
 
-For more details please refer to the [MQTT testing section](/docs/mqtt/testing/).
+For more details please refer to the [MQTT testing section](/integrations/mqtt/#testing-your-setup).
 
 #### Sensors
 
