@@ -437,8 +437,6 @@ Home Assistant's ZHA integration already supports most standard device types out
 
 The few devices that will, for example, not join/pair properly or, while joined/paired, do not present all attributes in the ZHA integration likely deviate from the Zigbee specifications set by the [CSA (Connectivity Standards Alliance)](https://csa-iot.org/all-solutions/zigbee/). These devices may therefore require the creation of a bug report by a device owner, supplying debug logs. The device owner may need to actively assist in troubleshooting by providing the information developers need to create custom ZHA Device Handlers.
 
-
-
 ### Zigbee interference avoidance and network range/coverage optimization
 
 Sources of interference for radios can lead to transmission/reception loss or connection problems and show symptoms such as errors/failures when sending and receiving Zigbee messages/signals that can cause significant degradation in performance or even prevent devices from communicating at all. Below are some basic but essential tips for getting a good setup starting point to achieve better signal quality, improved coverage, and extended range.
@@ -482,16 +480,9 @@ Zigbee also uses [mesh networking topology](https://en.wikipedia.org/wiki/Mesh_n
     - First of all, try to place your Zigbee adapter away from Wi-Fi access points or sources of WiFi.
     - Place Zigbee adapters far away from electrical/power wires/cables, power supplies, and household appliances.
     - Zigbee could have overlapping frequency ranges with Wi-Fi, see the section above on defining Zigbee channel use.
-  - Add more and decrease the distance between Zigbee devices in Zigbee network mesh to get better range and coverage:
-    - Zigbee uses [mesh networking](https://en.wikipedia.org/wiki/Mesh_networking) and depends on having many "Zigbee Router" devices to extend range and coverage:
-      - Recommendation is to add additional mains-powered Zigbee devices known to be good Zigbee Router devices.
-        - Add more Zigbee Router devices and reduce their distances to extend network mesh coverage and range.
-          - Note that not all mains-powered devices have firmware that makes them act as a Zigbee Router device.
-          - Some brands/models of Zigbee Router devices are known to only work well with the same brand of devices.
-      - Buy a few known good dedicated Zigbee Router products (for example the “[IKEA Tradfri Signal Repeater](https://www.google.com/search?q=IKEA+Tradfri+Signal+Repeater)”).
-        - Search community forums for more "Zigbee signal repeater" or "Zigbee range extender" Zigbee Router tips.
-      - Buy a few additional new Zigbee USB adapters to use after re-flashing them with Zigbee Router firmware.
-        - Reflash/reuse modern Zigbee USB adapters to act as Zigbee Router devices by changing Zigbee firmware.
+- Improve Zigbee range/coverage by adding more Zigbee devices and decrease the distance between devices:
+  - Zigbee uses [mesh networking](https://en.wikipedia.org/wiki/Mesh_networking) and depends on having many "Zigbee Router" devices to extend range and coverage. Recommendation is to add additional mains-powered Zigbee devices known to be good Zigbee Router devices.
+  - Add more Zigbee Router devices and reduce their distances to extend network mesh coverage and range. Note that not all mains-powered devices have firmware that makes them act as Zigbee Router devices. Some brands/models of Zigbee Router devices are known to only work well with the same brand of devices. A tip to buying a few known good dedicated Zigbee Router products (check out for example the “[IKEA Tradfri Signal Repeater](https://www.google.com/search?q=IKEA+Tradfri+Signal+Repeater)” or re-flash new Zigbee Coordinator USB adapters with Zigbee Router firmware in order to repurpose them as Zigbee repeaters/extenders. Search the Home Assistant community forums using the keywords "Zigbee signal repeater" or "Zigbee range extender" to find more recommended Zigbee Router devices).
 
 ### Reporting issues
 
