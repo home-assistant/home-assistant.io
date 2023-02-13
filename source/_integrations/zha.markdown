@@ -426,8 +426,8 @@ Within ZHA is possible to use this backup and restore feature to migrate between
 To easily migrate from a Zigbee Coordinator radio adapter to another Zigbee Coordinator adapter you can use the config flow for radio migration that is built into the Zigbee Home Automation (ZHA) integration UI. That is, you want to seamlessly migrate from the old Zigbee Coordinator radio adapter that you are already using in the ZHA integration to a new Zigbee Coordinator radio adapter.
 
 Prerequisites:
-- Your old Zigbee Coordinator radio adapter used in the ZHA integration need to be of radio type ezsp (Silicon Labs EmberZnet), znp (Texas Instruments Z-Stack ZNP), or deconz (ConBee/RaspBee from dresden elektronik).
-  - If your old Zigbee Coordinator is a deconz (ConBee/RaspBee) radio adapter then you also need to make sure that is already running [deconz-firmware 0x26700700 (from 2021-08-18)](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Firmware-Changelog) or later before migrating.
+- Your old Zigbee Coordinator radio adapter used in the ZHA integration need to be of radio type ezsp (Silicon Labs EmberZnet), znp (Texas Instruments Z-Stack ZNP), or deCONZ (ConBee/RaspBee from dresden elektronik).
+  - If your old Zigbee Coordinator is a deCONZ (ConBee/RaspBee) radio adapter then you also need to make sure that is already running [firmware 0x26700700 (from 2021-08-18)](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Firmware-Changelog) or later before migrating.
 
 The radio migration flow can be found in the Home Assistant's UI under "Settings" -> "Devices & Services", select "CONFIGURE" on the Zigbee Home Assistant (ZHA) integration.
 
