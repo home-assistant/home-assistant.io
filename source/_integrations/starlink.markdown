@@ -33,8 +33,8 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 - Ping - The ping that Starlink has measured, in ms
 - Azimuth - The direction Dishy is facing in degrees
 - Elevation - Dishy's current elevation in degrees
-- Uplink throughput - The amount of data being uploaded through Starlink in Mbit/s
-- Downlink throughput - The amount of data being downloaded through Starlink in Mbit/s
+- Uplink throughput - The amount of data being uploaded through Starlink in Bit/s
+- Downlink throughput - The amount of data being downloaded through Starlink in Bit/s
 - Last boot time - The time Starlink was last turned on
 
 ### Binary Sensor
