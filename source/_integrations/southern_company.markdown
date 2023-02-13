@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Southern Company sensor platform allows you to get energy information from [Southern Company Energy Companies.](https://www.southerncompany.com/about/our-companies.html)
+The Southern Company sensor platform allows you to get energy information from [Southern Company Energy Companies](https://www.southerncompany.com/about/our-companies.html).
 
 Supported companies (tested):
 
