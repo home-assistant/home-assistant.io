@@ -28,7 +28,7 @@ Untested companies:
 
 Southern Company natural gas companies are not currently supported.
 
-To add this platform to your installation, You will need your southern company login email and password.
+To add this platform to your installation, You will need your Southern Company login email and password.
 
 {% include integrations/config_flow.md %}
 
