@@ -75,6 +75,7 @@ This includes:
 
 - The names of all your core integrations
 - The names and versions of all your custom integrations if you have any
+- The name and version of the engine used in the [recorder integration](/integrations/recorder)
 - Boolean to indicate that the [energy integration](/integrations/energy) is configured
 - Boolean to indicate that [HTTP certificate](https://www.home-assistant.io/integrations/http/#ssl_certificate) is configured
 
@@ -113,6 +114,10 @@ If your system includes the Supervisor, this will also contain:
   ],
   "energy": {
     "configured": true
+  },
+  "recorder": {
+    "engine": "sqlite",
+    "version": "123"
   },
   "certificate": false
 }
