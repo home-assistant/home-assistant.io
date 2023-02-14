@@ -27,8 +27,8 @@ v2c:
   host: "xxx.xxx.xx.xxx"
 ```
 
-In this integration is necessary to include the ip manually in the configuration.yaml, otherwise the integration does not work properly.
-Once you add your ip, you will need to restart Home Assistant for the changes to take effect. After that, you will be able to add entities in the dashboard.
+In this integration is necessary to include the IP manually in the configuration.yaml, otherwise the integration does not work properly.
+Once you add your IP, you will need to restart Home Assistant for the changes to take effect. After that, you will be able to add entities in the dashboard.
 
 ## Sensor:
 
@@ -59,6 +59,7 @@ The sensor adds the following entities :
 
 You need to be connected to the same wifi.
 
-The `ip` you need to write is not the `wifi ip`, is the one the charging station has, the `trydan ip`.
+The `
+` you need to write is not the `wifi IP`, is the one the charging station has, the `trydan IP`.
 
 For now, you will only be able to see the values of the Trydan, in the future we will add a function for also send values to the device.
