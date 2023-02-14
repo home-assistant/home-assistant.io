@@ -1145,7 +1145,7 @@ logger:
   default: warning
   logs:
     homeassistant.components.modbus: debug
-    pymodbus.client: debug
+    pymodbus: debug
 ```
 
 and restart Home Assistant, reproduce the problem, and include the log in the issue.
