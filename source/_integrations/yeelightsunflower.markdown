@@ -38,7 +38,3 @@ host:
 <div class='note'>
 When the hub is loaded, your lights will appear as devices with their Zigbee IDs as part of the entity name.
 </div>
-
-<div class='note warning'>
-The Yeelight Sunflower hub supports SSDP discovery, but that has not been built into the platform. Let the developer know if that would be helpful to you.
-</div>

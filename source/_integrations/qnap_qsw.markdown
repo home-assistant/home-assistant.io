@@ -6,7 +6,7 @@ ha_category:
   - Binary Sensor
   - Button
   - Sensor
-  - Updates
+  - Update
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: qnap_qsw
@@ -61,6 +61,17 @@ The following *sensors* are created:
 | fan_2_speed         | Fan 2 Speed.                       |
 | temperature         | Switch temperature.                |
 | uptime              | Uptime seconds.                    |
+
+The following sensors are created for each port (or LACP):
+
+| Condition           | Description                        |
+| :------------------ | :--------------------------------- |
+| link_speed          | Link speed.                        |
+| rx                  | RX bytes.                          |
+| rx_errors           | Number of RX errors.               |
+| rx_speed            | RX speed.                          |
+| tx                  | TX bytes.                          |
+| tx_speed            | TX speed.                          |
 
 ## Update
 

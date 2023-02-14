@@ -7,7 +7,7 @@ ha_release: 0.66
 ha_domain: ifttt
 ---
 
-The `ifttt` platform allows you to integrate security systems that have no open API but can be controlled through [IFTTT](https://ifttt.com/discover).
+The `ifttt` platform allows you to integrate security systems that have no open API but can be controlled through [IFTTT](https://ifttt.com/explore).
 
 This platform depends on the [IFTTT](/integrations/ifttt/) Home Assistant integration. See the integrations documentation to set it up.
 

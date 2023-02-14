@@ -4,6 +4,7 @@ description: Instructions for integrating HomematicIP into Home Assistant.
 ha_category:
   - Alarm
   - Binary Sensor
+  - Button
   - Climate
   - Cover
   - Hub
@@ -18,6 +19,7 @@ ha_domain: homematicip_cloud
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - button
   - climate
   - cover
   - light
@@ -33,6 +35,7 @@ There is currently support for the following device types within Home Assistant:
 
 * Alarm
 * Binary Sensor
+* Button
 * Climate
 * Cover
 * Light
@@ -111,6 +114,9 @@ Within this delay the device registration should be completed in the App, otherw
   * Remote Control for brand switches – 2x buttons (*HmIP-BRC2*) (battery only)
   * Pluggable Power Supply Monitoring (*HmIP-PMFS*)
   * Wired Inbound module – 32x channels (*HMIPW-DRI32*)
+
+* homematicip_cloud.button
+  * Wall Mounted Garage Door Controller (*HmIP-WGC*)
 
 * homematicip_cloud.climate
   * Climate group (*HmIP-HeatingGroup*)

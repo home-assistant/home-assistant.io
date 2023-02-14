@@ -5,7 +5,7 @@ sidebar_label: Calendar
 description: "The calendar card displays your calendar entities in a month, day and list view"
 ---
 
-The Calendar card displays your [calendar](/integrations/#calendar) entities in a month, day and list view.
+The Calendar card displays your [calendar](/integrations/#calendar) entities in a month, day and list view (7 days).
 
 <p class='img'>
   <img src='/images/dashboards/calendar_card.png' alt='Screenshot of the 
@@ -13,7 +13,9 @@ The Calendar card displays your [calendar](/integrations/#calendar) entities in 
   Screenshot of the Calendar card.
 </p>
 
-To add the Calendar card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Calendar** from the card picker. All options for this card can be configured via the user interface.
+To add the Calendar card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+All options for this card can be configured via the user interface.
 
 ## Card Settings
 
@@ -21,16 +23,16 @@ To add the Calendar card to your user interface, click the menu (three dots at t
 Title:
   description: The title displayed at the top of the card.
 Initial View:
-  description: "The view that will show first when the card is loaded onto the page. Options are `Month View`, `Day View`, or `List View`."
+  description: "The view that will show first when the card is loaded onto the page. Options are `Month View`, `Day View`, or `List (7 days)`."
 Entities:
   description: The calendar entities that will be displayed in the card.
 Theme:
   description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
 {% endconfiguration_basic %}
 
-### YAML
+## YAML Configuration
 
-This is for if you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -43,7 +45,7 @@ title:
   type: string
 initial_view:
   required: false
-  description: "The view that will show first when the card is loaded onto the page. Options are `dayGridMonth`, `dayGridDay`, and `listWeek`."
+  description: "The view that will show first when the card is loaded onto the page. Options are `dayGridMonth`, `dayGridDay`, and `listWeek`. Note that `listWeek` does show the next 7 days, not a calendar week."
   type: string
 entities:
   required: true
@@ -55,7 +57,7 @@ theme:
   type: string
 {% endconfiguration %}
 
-Example:
+### Examples
 
 ```yaml
 type: calendar

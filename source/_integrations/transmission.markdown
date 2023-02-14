@@ -20,6 +20,10 @@ ha_integration_type: integration
 
 The Transmission integration allows you to monitor your [Transmission](https://www.transmissionbt.com/) BitTorrent downloads from within Home Assistant and set up automations based on that information.
 
+<div class='note warning'>
+This integration is only compatible with Transmission clients versions 1.31 - 2.82.
+</div>
+
 ## Setup
 
 Your Transmission client must first be configured to allow remote access. In your Transmission client navigate to **Preferences** -> **Remote** tab and then click the **Allow remote access** checkbox.
@@ -86,7 +90,7 @@ Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), mag
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `name`    | yes | Name of the configured instance (Default: "Transmission")
+| `entry_id`    | no | The integration entry_id
 | `torrent` | no | Torrent to download
 
 ### Service `remove_torrent`
@@ -95,7 +99,7 @@ Removes a torrent from the client.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `name`    | no | Name of the configured instance (Default: "Transmission")
+| `entry_id`    | no | The integration entry_id
 | `id` | no | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors
 | `delete_data` | yes | Delete torrent data (Default: false)
 
@@ -105,7 +109,7 @@ Starts a torrent.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `name`    | no | Name of the configured instance (Default: "Transmission")
+| `entry_id`    | no | The integration entry_id
 | `id` | no | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors
 
 ### Service `stop_torrent`
@@ -114,7 +118,7 @@ Stops a torrent.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `name`    | no | Name of the configured instance (Default: "Transmission")
+| `entry_id`    | no | The integration entry_id
 | `id` | no | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors
 
 ## Templating

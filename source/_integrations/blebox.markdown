@@ -11,7 +11,7 @@ ha_codeowners:
   - '@riokuu'
 ha_domain: blebox
 ha_platforms:
-  - air_quality
+  - binary_sensor
   - button
   - climate
   - cover
@@ -19,6 +19,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
 [BleBox](https://blebox.eu/?lang=en) produces small, low-power, surprisingly affordable, feature-rich WiFi devices for serverless home automation.
@@ -36,10 +37,18 @@ This integration adds the BleBox device as a cover in Home Assistant.
 Currently, this includes support for the following product classes:
 
 - BleBox shutterBox
-- BleBox gateController
+- BleBox rollerGate
 - BleBox gateBox
 
 For now, only a minimum set of features are supported (e.g., no tilt support for shutterBox).
+
+## Binary sensors
+This integration adds BleBox device as a binary_sensor in Home Assistant.
+
+Currently, this includes support for the following product classes:
+
+- BleBox rainSensor
+- BleBox wind&rainSensor (rain only)
 
 ## Sensors
 
@@ -65,6 +74,7 @@ This integration adds the BleBox device as a climate in Home Assistant.
 Currently, this includes support for the following product classes:
 
 - BleBox saunaBox
+- BleBox thermoBox
 
 ## Air Quality
 

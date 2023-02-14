@@ -8,7 +8,7 @@ ha_domain: default_config
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 This integration is a meta-component and configures a default set of integrations for Home Assistant to load. The integrations that will be loaded are:
@@ -17,14 +17,16 @@ This integration is a meta-component and configures a default set of integration
 - [Backup](/integrations/backup/) (`backup`)
 - [Bluetooth](/integrations/bluetooth/) (`bluetooth`)
 - [Configuration](/integrations/config/) (`config`)
+- [Conversation](/integrations/conversation/) (`conversation`)
 - [Counter](/integrations/counter/) (`counter`)
 - [DHCP Discovery](/integrations/dhcp/) (`dhcp`)
 - [Energy](/integrations/energy/) (`energy`)
 - [Frontend](/integrations/frontend/) (`frontend`)
+- [Hardware](/integrations/hardware/) (`hardware`)
 - [History](/integrations/history/) (`history`)
 - [Home Assistant Alerts](/integrations/homeassistant_alerts) (`homeassistant_alerts`)
 - [Home Assistant Cloud](/integrations/cloud/) (`cloud`)
-- [Image](/integrations/image/) (`image`)
+- [Image upload](/integrations/image_upload/) (`image_upload`)
 - [Input boolean](/integrations/input_boolean/) (`input_boolean`)
 - [Input button](/integrations/input_button/) (`input_button`)
 - [Input datetime](/integrations/input_datetime/) (`input_datetime`)
@@ -32,11 +34,13 @@ This integration is a meta-component and configures a default set of integration
 - [Input select](/integrations/input_select/) (`input_select`)
 - [Input text](/integrations/input_text/) (`input_text`)
 - [Logbook](/integrations/logbook/) (`logbook`)
+- [Logger](/integrations/logger/) (`logger`)
 - [Map](/integrations/map/) (`map`)
 - [Media Source](/integrations/media_source/) (`media_source`)
 - [Mobile App Support](/integrations/mobile_app/) (`mobile_app`)
 - [My Home Assistant](/integrations/my/) (`my`)
 - [Person](/integrations/person/) (`person`)
+- [Schedule](/integrations/schedule/) (`schedule`)
 - [Scene](/integrations/scene/) (`scene`)
 - [Scripts](/integrations/script/) (`script`)
 - [Simple Service Discovery Protocol (SSDP)](/integrations/ssdp/) (`ssdp`)

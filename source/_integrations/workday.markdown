@@ -165,9 +165,3 @@ automation:
     target:
       entity_id: switch.heater
 ```
-
-<div class='note'>
-
-Please remember that [as explained here](/docs/configuration/devices/) you can only have a single `automation:` entry. Add the automation to your existing automations.
-
-</div>

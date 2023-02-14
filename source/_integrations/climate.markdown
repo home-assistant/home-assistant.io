@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: climate
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 The Climate integration allows you to control and monitor HVAC (heating, ventilating, and air conditioning) devices and thermostats.

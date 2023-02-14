@@ -13,6 +13,8 @@ ha_domain: awair
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_zeroconf: true
+ha_dhcp: true
 ---
 
 The Awair integration will fetch data from your [Awair devices](https://getawair.com).

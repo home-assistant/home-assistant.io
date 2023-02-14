@@ -424,4 +424,25 @@ amcrest:
       - ptz_preset
 ```
 
+## Example Automation to Detect Button Presses on AD110 and AD410 Doorbells
+
+Using this trigger in an automation will allow you to detect the press of the doorbell call button and create automations based upon it. 
+
+```yaml
+# Example automations.yaml entry
+alias: Doorbell Pressed
+description: "Trigger when Amcrest Button Press Event Fires"
+trigger:
+  - platform: event
+    event_type: amcrest
+    event_data:
+      event: "CallNoAnswered"
+      payload:
+        action: "Start"
+action:
+  - type: flash
+    entity_id: light.living_room
+    domain: light
+```
+
 To check if your Amcrest camera is supported/tested, visit the [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix) link from the `python-amcrest` project.
