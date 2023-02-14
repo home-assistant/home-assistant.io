@@ -51,6 +51,7 @@ _PS: Just a reminder that valentine's day is coming up. Be sure to share the lov
 - [Release 2023.2.1 - February 2](#release-202321---february-2)
 - [Release 2023.2.2 - February 4](#release-202322---february-4)
 - [Release 2023.2.3 - February 7](#release-202323---february-7)
+- [Release 2023.2.4 - February 13](#release-202324---february-13)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -585,6 +586,78 @@ The following integrations are now available via the Home Assistant UI:
 [unifi docs]: /integrations/unifi/
 [velbus docs]: /integrations/velbus/
 [xiaomi_ble docs]: /integrations/xiaomi_ble/
+
+## Release 2023.2.4 - February 13
+
+- Netgear ssdp discovery abort if no serial ([@starkillerOG] - [#87532]) ([netgear docs])
+- Reolink unregistered webhook on unexpected error ([@starkillerOG] - [#87538]) ([reolink docs])
+- Correct sensor restore entity in modbus ([@janiversen] - [#87563]) ([modbus docs])
+- Upgrading volvooncall to 0.10.2 ([@Gollam] - [#87572]) ([volvooncall docs])
+- Keep sleepy xiaomi-ble devices that don't broadcast regularly available ([@Ernst79] - [#87654]) ([xiaomi_ble docs])
+- Bump oralb-ble to 0.17.5 ([@Lash-L] - [#87657]) ([oralb docs])
+- Bump cryptography to 39.0.1 for CVE-2023-23931 ([@bdraco] - [#87658])
+- Bump yalexs_ble to 1.12.12 to fix reconnect when services fail to resolve ([@bdraco] - [#87664]) ([august docs]) ([yalexs_ble docs])
+- Fix bad battery sense in ambient_station ([@jpettitt] - [#87668]) ([ambient_station docs])
+- Bump reolink-aio to 0.4.0 ([@starkillerOG] - [#87733]) ([reolink docs])
+- Bump aiolifx to 0.8.9 ([@Djelibeybi] - [#87790]) ([lifx docs])
+- Ensure recorder still shuts down if the final commit fails ([@bdraco] - [#87799]) ([recorder docs])
+- Bump pyipma to 3.0.6 ([@dgomes] - [#87867]) ([ipma docs])
+- Fix unbound variable in Group sensor ([@gjohansson-ST] - [#87878]) ([group docs])
+- Retrigger Bluetooth discovery when calling async_rediscover_address ([@bdraco] - [#87884]) ([bluetooth docs])
+- Fix iaqualink exception handling after switch to httpx ([@flz] - [#87898]) ([iaqualink docs])
+- Bump aioesphomeapi to 13.3.1 ([@bdraco] - [#87969]) ([esphome docs])
+
+[#87101]: https://github.com/home-assistant/core/pull/87101
+[#87221]: https://github.com/home-assistant/core/pull/87221
+[#87433]: https://github.com/home-assistant/core/pull/87433
+[#87532]: https://github.com/home-assistant/core/pull/87532
+[#87538]: https://github.com/home-assistant/core/pull/87538
+[#87563]: https://github.com/home-assistant/core/pull/87563
+[#87572]: https://github.com/home-assistant/core/pull/87572
+[#87652]: https://github.com/home-assistant/core/pull/87652
+[#87654]: https://github.com/home-assistant/core/pull/87654
+[#87657]: https://github.com/home-assistant/core/pull/87657
+[#87658]: https://github.com/home-assistant/core/pull/87658
+[#87664]: https://github.com/home-assistant/core/pull/87664
+[#87668]: https://github.com/home-assistant/core/pull/87668
+[#87733]: https://github.com/home-assistant/core/pull/87733
+[#87790]: https://github.com/home-assistant/core/pull/87790
+[#87799]: https://github.com/home-assistant/core/pull/87799
+[#87867]: https://github.com/home-assistant/core/pull/87867
+[#87878]: https://github.com/home-assistant/core/pull/87878
+[#87884]: https://github.com/home-assistant/core/pull/87884
+[#87898]: https://github.com/home-assistant/core/pull/87898
+[#87969]: https://github.com/home-assistant/core/pull/87969
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@Ernst79]: https://github.com/Ernst79
+[@Gollam]: https://github.com/Gollam
+[@Lash-L]: https://github.com/Lash-L
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@dgomes]: https://github.com/dgomes
+[@flz]: https://github.com/flz
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@janiversen]: https://github.com/janiversen
+[@jpettitt]: https://github.com/jpettitt
+[@starkillerOG]: https://github.com/starkillerOG
+[abode docs]: /integrations/abode/
+[ambient_station docs]: /integrations/ambient_station/
+[august docs]: /integrations/august/
+[bluetooth docs]: /integrations/bluetooth/
+[esphome docs]: /integrations/esphome/
+[group docs]: /integrations/group/
+[iaqualink docs]: /integrations/iaqualink/
+[ipma docs]: /integrations/ipma/
+[lifx docs]: /integrations/lifx/
+[modbus docs]: /integrations/modbus/
+[netgear docs]: /integrations/netgear/
+[oralb docs]: /integrations/oralb/
+[recorder docs]: /integrations/recorder/
+[reolink docs]: /integrations/reolink/
+[volvooncall docs]: /integrations/volvooncall/
+[xiaomi_ble docs]: /integrations/xiaomi_ble/
+[yalexs_ble docs]: /integrations/yalexs_ble/
 
 ## Need help? Join the community!
 
