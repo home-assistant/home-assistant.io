@@ -140,7 +140,6 @@ DEPENDENCIES
   stringex (= 2.8.5)
   tzinfo (~> 2.0)
   tzinfo-data
-  wdm (~> 0.1.0)
 
 RUBY VERSION
    ruby 2.6.2p47
