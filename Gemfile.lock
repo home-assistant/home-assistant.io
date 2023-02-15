@@ -119,6 +119,7 @@ GEM
     tzinfo-data (1.2022.7)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.4.2)
+    webrick (1.8.1)
 
 PLATFORMS
   ruby
@@ -139,7 +140,6 @@ DEPENDENCIES
   stringex (= 2.8.5)
   tzinfo (~> 2.0)
   tzinfo-data
-  wdm (~> 0.1.0)
 
 RUBY VERSION
    ruby 2.6.2p47
