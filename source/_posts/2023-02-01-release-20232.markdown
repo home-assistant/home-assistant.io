@@ -673,7 +673,11 @@ The following integrations are now available via the Home Assistant UI:
 - Update orjson to resolve segmentation fault during JSON serialisation ([@mgjbroadbent] - [#88119])
 - Blebox fix thermobox reporting wrong state ([@riokuu] - [#88169]) ([blebox docs])
 - Bump reolink-aio to 0.4.2 ([@starkillerOG] - [#88175]) ([reolink docs])
+- Bump python-matter-server to 2.1.0 ([@marcelveldt] - [#88192]) ([matter docs])
 
+[#88192]: https://github.com/home-assistant/core/pull/88192
+[@marcelveldt]: https://github.com/marcelveldt
+[matter docs]: /integrations/matter/
 [#87101]: https://github.com/home-assistant/core/pull/87101
 [#87221]: https://github.com/home-assistant/core/pull/87221
 [#87433]: https://github.com/home-assistant/core/pull/87433
