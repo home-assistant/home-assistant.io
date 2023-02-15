@@ -37,6 +37,24 @@ This integration provides the following platforms:
 
 All vehicles linked to the account should then get added as devices, with sensors added as linked entity.
 
+## Buttons
+
+### Button `button.renault_start_charge`
+
+Start charging the vehicle.
+
+Note:
+
+- This button can be unavailable for your vehicle.
+
+### Button `button.renault_stop_charge`
+
+Stop charging the vehicle.
+
+Note:
+
+- This button can be unavailable for your vehicle.
+
 ## Services
 
 ### Service `renault.ac_start`
