@@ -30,30 +30,13 @@ This integration provides the following platforms:
 
 - Binary sensors - such as plug and charge status.
 - Device tracker - to track location of your car.
+- Buttons - to start/stop charge. (Button action can be unavailable for your vehicle.)
 - Selectors - to change the charge mode.
 - Sensors - such as battery level, outside temperature, odometer, estimated range, and charging rate.
 
 {% include integrations/config_flow.md %}
 
 All vehicles linked to the account should then get added as devices, with sensors added as linked entity.
-
-## Buttons
-
-### Button `button.renault_start_charge`
-
-Start charging the vehicle.
-
-Note:
-
-- This button can be unavailable for your vehicle.
-
-### Button `button.renault_stop_charge`
-
-Stop charging the vehicle.
-
-Note:
-
-- This button can be unavailable for your vehicle.
 
 ## Services
 
