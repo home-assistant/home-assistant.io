@@ -52,6 +52,7 @@ _PS: Just a reminder that valentine's day is coming up. Be sure to share the lov
 - [Release 2023.2.2 - February 4](#release-202322---february-4)
 - [Release 2023.2.3 - February 7](#release-202323---february-7)
 - [Release 2023.2.4 - February 13](#release-202324---february-13)
+- [Release 2023.2.5 - February 15](#release-202325---february-15)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -658,6 +659,63 @@ The following integrations are now available via the Home Assistant UI:
 [volvooncall docs]: /integrations/volvooncall/
 [xiaomi_ble docs]: /integrations/xiaomi_ble/
 [yalexs_ble docs]: /integrations/yalexs_ble/
+
+## Release 2023.2.5 - February 15
+
+- Update tibber lib 0.26.13 ([@Danielhiversen] - [#88018]) ([tibber docs])
+- Bump `pyopenuv` to 2023.02.0 ([@bachya] - [#88039]) ([openuv docs])
+- Honeywell disable detergent level by default ([@mkmer] - [#88040]) ([whirlpool docs])
+- Bump AIOAladdinConnect 0.1.56 ([@mkmer] - [#88041]) ([aladdin_connect docs])
+- Handle device reg fields not being valid data in openai conversion ([@balloob] - [#88047]) ([openai_conversation docs])
+- Bump pyoctoprintapi to 0.1.11 ([@rfleming71] - [#88052]) ([octoprint docs])
+- Fixed float number validation in sensor component ([@gertjanstulp] - [#88074]) ([sensor docs])
+- Statistics component fix device_class for incremental source sensors ([@ThomDietrich] - [#88096]) ([statistics docs])
+- Update orjson to resolve segmentation fault during JSON serialisation ([@mgjbroadbent] - [#88119])
+- Blebox fix thermobox reporting wrong state ([@riokuu] - [#88169]) ([blebox docs])
+- Bump reolink-aio to 0.4.2 ([@starkillerOG] - [#88175]) ([reolink docs])
+- Bump python-matter-server to 2.1.0 ([@marcelveldt] - [#88192]) ([matter docs])
+
+[#88192]: https://github.com/home-assistant/core/pull/88192
+[@marcelveldt]: https://github.com/marcelveldt
+[matter docs]: /integrations/matter/
+[#87101]: https://github.com/home-assistant/core/pull/87101
+[#87221]: https://github.com/home-assistant/core/pull/87221
+[#87433]: https://github.com/home-assistant/core/pull/87433
+[#87652]: https://github.com/home-assistant/core/pull/87652
+[#88007]: https://github.com/home-assistant/core/pull/88007
+[#88018]: https://github.com/home-assistant/core/pull/88018
+[#88039]: https://github.com/home-assistant/core/pull/88039
+[#88040]: https://github.com/home-assistant/core/pull/88040
+[#88041]: https://github.com/home-assistant/core/pull/88041
+[#88047]: https://github.com/home-assistant/core/pull/88047
+[#88052]: https://github.com/home-assistant/core/pull/88052
+[#88074]: https://github.com/home-assistant/core/pull/88074
+[#88096]: https://github.com/home-assistant/core/pull/88096
+[#88119]: https://github.com/home-assistant/core/pull/88119
+[#88169]: https://github.com/home-assistant/core/pull/88169
+[#88175]: https://github.com/home-assistant/core/pull/88175
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@ThomDietrich]: https://github.com/ThomDietrich
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@frenck]: https://github.com/frenck
+[@gertjanstulp]: https://github.com/gertjanstulp
+[@mgjbroadbent]: https://github.com/mgjbroadbent
+[@mkmer]: https://github.com/mkmer
+[@rfleming71]: https://github.com/rfleming71
+[@riokuu]: https://github.com/riokuu
+[@starkillerOG]: https://github.com/starkillerOG
+[abode docs]: /integrations/abode/
+[aladdin_connect docs]: /integrations/aladdin_connect/
+[blebox docs]: /integrations/blebox/
+[octoprint docs]: /integrations/octoprint/
+[openai_conversation docs]: /integrations/openai_conversation/
+[openuv docs]: /integrations/openuv/
+[reolink docs]: /integrations/reolink/
+[sensor docs]: /integrations/sensor/
+[statistics docs]: /integrations/statistics/
+[tibber docs]: /integrations/tibber/
+[whirlpool docs]: /integrations/whirlpool/
 
 ## Need help? Join the community!
 
