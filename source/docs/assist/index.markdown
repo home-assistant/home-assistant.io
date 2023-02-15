@@ -18,4 +18,8 @@ Did Assist not understand your sentence? [Contribute them.](https://developers.h
 
 _Assist was introduced in Home Assistant 2023.2._
 
+If you use YAML for configuration and have removed "default_config:", you must include "conversation:".
+
+Note that on many web browsers, http (non-ssl) sessions cannot access the microphone, you may need to consider shifting to https (ssl). This will not affect app devices, only web access.
+
 <lite-youtube videoid="sQ7X7jz1SrA" videotitle="Assist on Apple HomePod"></lite-youtube>
