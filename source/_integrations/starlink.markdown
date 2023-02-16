@@ -24,7 +24,7 @@ ha_quality_scale: silver
 
 The Starlink integration allows you to integrate your [Starlink](https://www.starlink.com/) into Home Assistant.
 
-**Important:** Your Starlink must **not** be in bypass mode. In this mode, the local API is unavailable, and this integration will not work.
+**Important:** If your Starlink is in bypass mode, you will need to open a route to it so that the local API can be accessed. Otherwise this integration will not work.
 
 {% include integrations/config_flow.md %}
 
@@ -33,8 +33,8 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 - Ping - The ping that Starlink has measured, in ms
 - Azimuth - The direction Dishy is facing in degrees
 - Elevation - Dishy's current elevation in degrees
-- Uplink throughput - The amount of data being uploaded through Starlink in Mbit/s
-- Downlink throughput - The amount of data being downloaded through Starlink in Mbit/s
+- Uplink throughput - The amount of data being uploaded through Starlink in Bit/s
+- Downlink throughput - The amount of data being downloaded through Starlink in Bit/s
 - Last boot time - The time Starlink was last turned on
 
 ### Binary Sensor
