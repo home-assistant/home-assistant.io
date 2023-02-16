@@ -90,6 +90,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - ORICO BTA-403 (CSR8510A10)
 - ORICO BTA-409 (CSR8510A10)
 - Panda Wireless PBU40 (CSR8510A10)
+- PlanexCOMM BT-Micro4 (CSR8510A10)
 - QGOO BT-06A (CSR8510A10)
 - ROCKETEK BT4Y (CSR8510A10)
 - SABRENT BT-UB40 (CSR8510A10)
