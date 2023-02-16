@@ -180,6 +180,7 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 - XDO BT802 (RTL8761BU) 📶
 - ZEXMTE BT-505 (RTL8761BU) 📶
 - ZEXMTE BT-DG54 (RTL8761BU) 📶
+- ZEXMTE Z01 (RTL8761BU) 📶
 - ZETSAGE BH451A (RTL8761BU) 📶
 
 📶 Denotes external antenna
