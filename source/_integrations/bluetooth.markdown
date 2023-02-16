@@ -198,7 +198,7 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 - eppfun AK3040G (ATS2851) - No driver available yet for USB id 10d7:b012
 - eppfun AK3040A (ATS2851) - No driver available yet for USB id 10d7:b012
 - KOAMTAC KBD 401G (CSR8510A10) - Adapter is unstable and drops out
-- TRIPP-LITE CU885A (CSR8510A10) - Adapter is unstable and drops out
+- TRIPP-LITE CU885A/U261-001-BT4 (CSR8510A10) - Adapter is unstable and drops out
 - QUMOX Bluetooth 5.0 (Barrot 8041A02) - No working driver
 - UGREEEN CM591 (ATS2851) - No driver available yet for USB id 10d7:b012
 - tp-link UB400 (CSR4) - Frequent connection failures with active connections
