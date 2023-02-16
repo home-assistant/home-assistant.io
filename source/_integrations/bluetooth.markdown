@@ -81,6 +81,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 
 #### Cambridge Silicon Radio (CSR) Based adapters
 
+- ANNE PRO CSR 4.0 (CSR8510A10)
 - Avantree BTDG-40S (CSR8510A10)
 - Enbiawit BT403 (CSR8510A10)
 - Feasycom FSC-BP119 (CSR8510A10) 📶
@@ -191,6 +192,7 @@ These adapters do not have a reset pin. If they stop responding, there is curren
 - Alfa AWUS036EACS (RTL8821CU) - Frequent connection failures and drop outs
 - BASEUS BR8651A01 BA04 - Advertisement drops out
 - Belkin F8T003 ver 2. - Fails to setup and add successfully
+- Bluegiga BLED112 - No driver available yet for USB id 2458:0001
 - EDIMAX EW-7611ULB (RTL8723BU) - Frequent connection failures and drop outs
 - EDUP EP-AC1661 (RTL8821CU) - Frequent connection failures and drop outs
 - eppfun AK3040G (ATS2851) - No driver available yet for USB id 10d7:b012
