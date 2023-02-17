@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ---
 
-[VARTA Storage](https://www.varta-storage-portal.com) allows you to integrate your Battery device into HomeAssistant.
+[VARTA Storage](https://www.varta-storage-portal.com) allows you to integrate your Battery device into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
