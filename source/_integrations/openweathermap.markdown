@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The OpenWeatherMap weather integrations uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location. It uses the [Weather integration platform](/integrations/weather/).
+The OpenWeatherMap weather integrations uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location.
 
 There is currently support for the following device types within Home Assistant:
 
