@@ -126,6 +126,7 @@ cover:
           target:
             entity_id: cover.example_blinds
 ```
+
 {% endraw %}
 
 ### SwitchBot account (recommended)
