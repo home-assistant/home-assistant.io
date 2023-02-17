@@ -20,7 +20,7 @@ If you decide to use `trusted_networks` as your `auth_provider` there won't be a
 </div>
 
 Authentication providers are configured in your `configuration.yaml` under the `homeassistant:` block. 
-If you are moving configuration to packages, this particular configuration must stay within 'configuration.yaml'. See Issue 16441 in the warning-block at the bottom of this page
+If you are moving configuration to packages, this particular configuration must stay within 'configuration.yaml'. See Issue 16441 in the warning block at the bottom of this page.
 
 
 You can supply more than one, for example:
