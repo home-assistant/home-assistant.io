@@ -83,6 +83,7 @@ A SwitchBot lock can be set up in Home Assistant in two different ways. You can 
 ## SwitchBot Blind Tilt
 
 The blind tilt is exposed as a cover entity with control of the tilt position only:
+
 | Tilt Position | Blind State |
 | ------------- | ----------- |
 | 100%          | Closed Up   |
