@@ -31,7 +31,7 @@ It calls the `reload` service on all domains that have it available. Additionall
 it reloads the core configuration (equivalent to calling
 `homeassistant.reload_core_config`) and themes (`frontend.reload_themes`).
 
-Prior to reloading, it run a basic configuration check. If that fails, the reload
+Prior to reloading, a basic configuration check is performed. If that fails, the reload
 will not be performed and will raise an error.
 
 ### Service `homeassistant.reload_config_entry`
