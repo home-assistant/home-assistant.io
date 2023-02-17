@@ -24,7 +24,7 @@ ha_integration_type: integration
 
 The `vallox` integration lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).
 
-The **fan** platform of this integration allows you to turn on/off the complete unit via the toggle switch and to select a ventilation profile.
+The **fan** platform of this integration allows you to turn on/off the complete unit via the toggle switch, control fan speed and select a ventilation profile.
 
 The **sensor** platform exposes a number of relevant metrics like fan speed, various air temperatures, and humidity.
 

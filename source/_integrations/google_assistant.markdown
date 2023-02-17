@@ -15,7 +15,9 @@ ha_platforms:
   - diagnostics
 ---
 
-The `google_assistant` integration allows you to control things via Google Assistant on your mobile, tablet or Google Home device.
+The `google_assistant` integration allows you to control your Home Assistant devices via Google Assistant on your mobile, tablet or Google Home device.
+
+If you want to send commands to Google Assistant to control devices supported by Google Assistant but not by Home Assistant, or broadcast messages to Google Assistant speakers and displays without interrupting music/video playback, take a look at the [Google Assistant SDK](/integrations/google_assistant_sdk) integration.
 
 ## Automatic setup via Home Assistant Cloud
 
@@ -282,6 +284,8 @@ Entities that have not been explicitly assigned to rooms but have been placed in
 <div class='note'>
 
 Some devices, such as `scene` or `script`, must be assigned to an `area` before other members of a shared Google Home Household can use them. This is because household members in a shared Google Home will not be able to view devices that are not assigned to a room _unless_ they were the user who linked the service to Google Home. This issue isn't immediately apparent because `script` and `scene` devices aren't visible in the main Google Home dashboard.
+  
+The automatic room assignment will not work when multiple homes are set up in your Google account.
 
 </div>
 
@@ -333,6 +337,10 @@ If you receive 404 errors linked to reporting state in your log, Home Assistant 
 #### Error during linking: "Could not update the setting. Please check your connection"
 
 Your fulfillment URL may be invalid or unreachable. Recheck the `Fulfillment URL` as specified in [Manual Setup](#manual-setup) and verify that it's publicly reachable.
+
+#### 500 / 429 error on request sync
+
+This error may occur if the service key is invalid. Try deleting and creating a new service account and key.
 
 #### NGINX
 

@@ -20,6 +20,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@lawfulchaos'
   - '@Z-Wave-Me'
+  - '@PoltoS'
 ha_domain: zwave_me
 ha_platforms:
   - binary_sensor

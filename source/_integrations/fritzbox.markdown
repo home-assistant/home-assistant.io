@@ -28,7 +28,7 @@ ha_codeowners:
 ha_integration_type: hub
 ---
 
-The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ!DECT](https://en.avm.de/products/fritzdect/) devices like switches, sensors and thermostats.
+The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ!DECT](https://en.avm.de/products/smart-home/) devices like switches, sensors and thermostats.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -49,6 +49,7 @@ Additionally, we also support to trigger smarthome templates.
 - FRITZ!Box 7490
 - FRITZ!Box 7430
 - [FRITZ!DECT 200](https://en.avm.de/products/fritzdect/fritzdect-200/)
+- [FRITZ!DECT 210](https://en.avm.de/products/fritzdect/fritzdect-210/)
 - [FRITZ!DECT 301](https://en.avm.de/products/fritzdect/fritzdect-301/)
 - [FRITZ!DECT 500](https://en.avm.de/products/fritzdect/fritzdect-500/)
 - [Eurotronic Comet DECT](https://eurotronic.org/produkte/dect-ule-heizkoerperthermostat/comet-dect/)

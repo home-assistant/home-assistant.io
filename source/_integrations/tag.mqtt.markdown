@@ -12,7 +12,7 @@ The `mqtt` tag scanner platform uses an MQTT message payload to generate tag sca
 
 ## Configuration
 
-MQTT scanners are only supported through [MQTT discovery](/docs/mqtt/discovery/), manual setup through `configuration.yaml` is not supported.
+MQTT scanners are only supported through [MQTT discovery](/integrations/mqtt/#mqtt-discovery), manual setup through `configuration.yaml` is not supported.
 The discovery topic needs to be: `<discovery_prefix>/tag/[<node_id>/]<object_id>/config`.
 
 {% configuration %}

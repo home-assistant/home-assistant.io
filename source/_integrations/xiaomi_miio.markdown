@@ -1387,6 +1387,7 @@ Currently supported services are:
   Fan speeds: `Silent`, `Standard`, `Medium`, `Turbo` and `Gentle` (exclusively for mopping).
 - `remote_control_*` (of your robot)
 - `xiaomi_clean_zone`
+- `xiaomi_clean_segment`
 
 ### Platform Services
 
@@ -1397,6 +1398,7 @@ In addition to all of the services provided by the `vacuum` integration (`start`
 - `xiaomi_miio.vacuum_remote_control_move`
 - `xiaomi_miio.vacuum_remote_control_move_step`
 - `xiaomi_miio.vacuum_clean_zone`
+- `xiaomi_miio.vacuum_clean_segment`
 
 ### Service `xiaomi_miio.vacuum_remote_control_start`
 
@@ -1613,7 +1615,7 @@ Sensor Dirty Left*:
 Current Clean Time:
   description: The current cleaning time of the vacuum. If the vacuum is not cleaning, this sensor will have the same value as the "Last Clean Duration" sensor.
 Current Clean Area:
-  description: The current area that has been cleaned. If the vacuum is not cealning, this sensor will have the same value as the "Last Clean Area" sensor.
+  description: The current area that has been cleaned. If the vacuum is not cleaning, this sensor will have the same value as the "Last Clean Area" sensor.
 Last Clean Area*:
   description: The last cleaned area in square meters
 Last Clean Duration*:

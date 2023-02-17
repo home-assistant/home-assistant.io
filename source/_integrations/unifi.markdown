@@ -61,6 +61,8 @@ This platform allows you to detect presence by looking at devices connected to a
 
 ### Troubleshooting and Time Synchronization
 
+If tracked devices continue to show "Home" when not connect/present and show connected in the UniFi Controller, disable 802.11r Fast Roaming.  When enabled, it has been observed on the various UniFi Controller versions, failure to declare disconnected clients.
+
 Presence detection depends on accurate time configuration between Home Assistant and the UniFi Network application.
 
 If Home Assistant and the UniFi Network application are running on separate machines or VMs ensure that all clocks are synchronized. Failing to have synchronized clocks will lead to Home Assistant failing to mark a device as home.

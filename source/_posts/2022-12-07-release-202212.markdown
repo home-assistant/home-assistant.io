@@ -61,6 +61,14 @@ Happy holidays and for the last time in 2022: Enjoy the release!
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2022.12.1 - December 8](#release-2022121---december-8)
+- [Release 2022.12.2 - December 11](#release-2022122---december-11)
+- [Release 2022.12.3 - December 11](#release-2022123---december-11)
+- [Release 2022.12.4 - December 12](#release-2022124---december-12)
+- [Release 2022.12.5 - December 13](#release-2022125---december-13)
+- [Release 2022.12.6 - December 14](#release-2022126---december-14)
+- [Release 2022.12.7 - December 17](#release-2022127---december-17)
+- [Release 2022.12.8 - December 21](#release-2022128---december-21)
+- [Release 2022.12.9 - January, 2](#release-2022129---january-2)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -169,8 +177,10 @@ This release adds support for using Shelly devices as a remote Bluetooth
 adapter as well!
 
 It works with all second-generation Shelly devices that use firmware 12.0 or
-later. Those are able to provide Bluetooth advertisements to Home Assistant's
-[Bluetooth integration](/integrations/bluetooth).
+later. Those are able to forward Bluetooth advertisements to Home Assistant's
+[Bluetooth integration](/integrations/bluetooth). Home Assistant is not able
+to use Shelly devices to connect to devices, something that is necessry to
+control devices via Bluetooth. For that, use our [Bluetooth Proxies](https://esphome.github.io/bluetooth-proxies/).
 
 This can greatly help with extending the range of your Bluetooth network to
 help with things like Bluetooth temperature or plant sensors in your home.
@@ -370,6 +380,317 @@ The following integrations are now available via the Home Assistant UI:
 [philips_js docs]: /integrations/philips_js/
 [sensirion_ble docs]: /integrations/sensirion_ble/
 [simplisafe docs]: /integrations/simplisafe/
+
+## Release 2022.12.2 - December 11
+
+- Bump pyrisco to 0.5.7 ([@maartenweyns] - [#83548]) ([risco docs])
+- Bump pychromecast to 13.0.2 ([@emontnemery] - [#83625]) ([cast docs])
+- Fix fibaro climate unit ([@rappenze] - [#83659]) ([fibaro docs])
+- Fix event sensor for UniFi Protect ([@AngellusMortis] - [#83663]) ([unifiprotect docs])
+- Add missing CONF_SPEED to sensor device_trigger SCHEMA ([@SukramJ] - [#83679]) ([sensor docs])
+- Bump aioshelly to 5.1.1 ([@thecode] - [#83680]) ([shelly docs])
+- Fix delay setting up new Yale Access Bluetooth entries ([@bdraco] - [#83683]) ([yalexs_ble docs])
+- Fix loading of Fritz!Smarthome issues on older Fritz!Box ([@mib1185] - [#83688]) ([fritzbox docs])
+- Bump androidtv dependency of androitv component ([@chatziko] - [#83707]) ([androidtv docs])
+- lifx: bump aiolifx_effects dependency to v0.3.1 ([@Djelibeybi] - [#83730]) ([lifx docs])
+- Fix IPv6 sensor is only loaded when Fritz!Box is in router mode ([@mib1185] - [#83757]) ([fritz docs])
+- Fix scan_interval in Scrape ([@gjohansson-ST] - [#83758]) ([scrape docs])
+
+[#83482]: https://github.com/home-assistant/core/pull/83482
+[#83548]: https://github.com/home-assistant/core/pull/83548
+[#83592]: https://github.com/home-assistant/core/pull/83592
+[#83625]: https://github.com/home-assistant/core/pull/83625
+[#83659]: https://github.com/home-assistant/core/pull/83659
+[#83663]: https://github.com/home-assistant/core/pull/83663
+[#83679]: https://github.com/home-assistant/core/pull/83679
+[#83680]: https://github.com/home-assistant/core/pull/83680
+[#83683]: https://github.com/home-assistant/core/pull/83683
+[#83688]: https://github.com/home-assistant/core/pull/83688
+[#83707]: https://github.com/home-assistant/core/pull/83707
+[#83730]: https://github.com/home-assistant/core/pull/83730
+[#83757]: https://github.com/home-assistant/core/pull/83757
+[#83758]: https://github.com/home-assistant/core/pull/83758
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@SukramJ]: https://github.com/SukramJ
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@chatziko]: https://github.com/chatziko
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@maartenweyns]: https://github.com/maartenweyns
+[@mib1185]: https://github.com/mib1185
+[@rappenze]: https://github.com/rappenze
+[@thecode]: https://github.com/thecode
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[androidtv docs]: /integrations/androidtv/
+[cast docs]: /integrations/cast/
+[fibaro docs]: /integrations/fibaro/
+[fritz docs]: /integrations/fritz/
+[fritzbox docs]: /integrations/fritzbox/
+[lifx docs]: /integrations/lifx/
+[risco docs]: /integrations/risco/
+[scrape docs]: /integrations/scrape/
+[sensor docs]: /integrations/sensor/
+[shelly docs]: /integrations/shelly/
+[unifiprotect docs]: /integrations/unifiprotect/
+[yalexs_ble docs]: /integrations/yalexs_ble/
+
+## Release 2022.12.3 - December 11
+
+- Drop aiohttp to 3.8.1 ([@balloob] - [#83795])
+
+[#83482]: https://github.com/home-assistant/core/pull/83482
+[#83592]: https://github.com/home-assistant/core/pull/83592
+[#83778]: https://github.com/home-assistant/core/pull/83778
+[#83795]: https://github.com/home-assistant/core/pull/83795
+[@balloob]: https://github.com/balloob
+[@frenck]: https://github.com/frenck
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+
+## Release 2022.12.4 - December 12
+
+- Bump bluetooth-auto-recovery to 1.0.0 ([@bdraco] - [#83800]) ([bluetooth docs])
+- Update frontend to 20221212.0 ([@bramkragten] - [#83842]) ([frontend docs])
+- Bump version of ZHA quirks to 0.0.89 ([@dmulcahey] - [#83848]) ([zha docs])
+- Bump pychromecast to 13.0.3 ([@emontnemery] - [#83861]) ([cast docs])
+- Move template check into fritzbox entry setup ([@mib1185] - [#83863]) ([fritzbox docs])
+- Use the async_migrate_paypal_agreement function to get the migration URL ([@ludeeus] - [#83469]) ([cloud docs])
+- Fix issue on Overkiz Domestic Hot water heater entities with away mode ([@nyroDev] - [#83684]) ([overkiz docs])
+- Bump pyoverkiz to 1.7.2 ([@nyroDev] - [#83866]) ([overkiz docs])
+- Fix bleak-retry-connector get_device hang with HAOS 9.4 and only proxies ([@bdraco] - [#83879]) ([bluetooth docs])
+- Fix HomeKit media players when entity has duplicate sources ([@bdraco] - [#83890]) ([homekit docs])
+
+[#83469]: https://github.com/home-assistant/core/pull/83469
+[#83482]: https://github.com/home-assistant/core/pull/83482
+[#83592]: https://github.com/home-assistant/core/pull/83592
+[#83684]: https://github.com/home-assistant/core/pull/83684
+[#83778]: https://github.com/home-assistant/core/pull/83778
+[#83797]: https://github.com/home-assistant/core/pull/83797
+[#83800]: https://github.com/home-assistant/core/pull/83800
+[#83842]: https://github.com/home-assistant/core/pull/83842
+[#83848]: https://github.com/home-assistant/core/pull/83848
+[#83861]: https://github.com/home-assistant/core/pull/83861
+[#83863]: https://github.com/home-assistant/core/pull/83863
+[#83866]: https://github.com/home-assistant/core/pull/83866
+[#83879]: https://github.com/home-assistant/core/pull/83879
+[#83890]: https://github.com/home-assistant/core/pull/83890
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@dmulcahey]: https://github.com/dmulcahey
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@ludeeus]: https://github.com/ludeeus
+[@mib1185]: https://github.com/mib1185
+[@nyroDev]: https://github.com/nyroDev
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[bluetooth docs]: /integrations/bluetooth/
+[cast docs]: /integrations/cast/
+[cloud docs]: /integrations/cloud/
+[fritzbox docs]: /integrations/fritzbox/
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[overkiz docs]: /integrations/overkiz/
+[zha docs]: /integrations/zha/
+
+## Release 2022.12.5 - December 13
+
+- Fix Just Nimbus error codes ([@kvanzuijlen] - [#83856]) ([justnimbus docs])
+- Fix saving options with missing ignored sources in BraviaTV ([@Drafteed] - [#83891]) ([braviatv docs])
+- Bump pychromecast to 13.0.4 ([@emontnemery] - [#83896]) ([cast docs])
+- Update frontend to 20221213.0 ([@bramkragten] - [#83940]) ([frontend docs])
+
+[#83482]: https://github.com/home-assistant/core/pull/83482
+[#83592]: https://github.com/home-assistant/core/pull/83592
+[#83778]: https://github.com/home-assistant/core/pull/83778
+[#83797]: https://github.com/home-assistant/core/pull/83797
+[#83856]: https://github.com/home-assistant/core/pull/83856
+[#83870]: https://github.com/home-assistant/core/pull/83870
+[#83891]: https://github.com/home-assistant/core/pull/83891
+[#83896]: https://github.com/home-assistant/core/pull/83896
+[#83940]: https://github.com/home-assistant/core/pull/83940
+[@Drafteed]: https://github.com/Drafteed
+[@balloob]: https://github.com/balloob
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@kvanzuijlen]: https://github.com/kvanzuijlen
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[bluetooth docs]: /integrations/bluetooth/
+[braviatv docs]: /integrations/braviatv/
+[cast docs]: /integrations/cast/
+[fritzbox docs]: /integrations/fritzbox/
+[frontend docs]: /integrations/frontend/
+[justnimbus docs]: /integrations/justnimbus/
+[sleepiq docs]: /integrations/sleepiq/
+[zha docs]: /integrations/zha/
+
+## Release 2022.12.6 - December 14
+
+- Do not add a Content-Type header to ingress ([@zeehio] - [#83425]) ([hassio docs])
+- Bump lupupy dependency to v0.2.3 ([@majuss] - [#83765]) ([lupusec docs])
+- Bump aioshelly to 5.1.2 to fix state updates not firing after reconnect ([@bdraco] - [#83950]) ([shelly docs])
+- Bump aioesphomeapi to 13.0.2 to fix reconnects after bad protobuf message ([@bdraco] - [#83951]) ([esphome docs])
+- Ignore certain device trigger validation errors ([@emontnemery] - [#83972]) ([device_automation docs])
+
+[#83425]: https://github.com/home-assistant/core/pull/83425
+[#83482]: https://github.com/home-assistant/core/pull/83482
+[#83592]: https://github.com/home-assistant/core/pull/83592
+[#83765]: https://github.com/home-assistant/core/pull/83765
+[#83778]: https://github.com/home-assistant/core/pull/83778
+[#83797]: https://github.com/home-assistant/core/pull/83797
+[#83870]: https://github.com/home-assistant/core/pull/83870
+[#83944]: https://github.com/home-assistant/core/pull/83944
+[#83950]: https://github.com/home-assistant/core/pull/83950
+[#83951]: https://github.com/home-assistant/core/pull/83951
+[#83972]: https://github.com/home-assistant/core/pull/83972
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@majuss]: https://github.com/majuss
+[@zeehio]: https://github.com/zeehio
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[bluetooth docs]: /integrations/bluetooth/
+[braviatv docs]: /integrations/braviatv/
+[cast docs]: /integrations/cast/
+[device_automation docs]: /integrations/device_automation/
+[esphome docs]: /integrations/esphome/
+[fritzbox docs]: /integrations/fritzbox/
+[frontend docs]: /integrations/frontend/
+[hassio docs]: /integrations/hassio/
+[justnimbus docs]: /integrations/justnimbus/
+[lupusec docs]: /integrations/lupusec/
+[shelly docs]: /integrations/shelly/
+[sleepiq docs]: /integrations/sleepiq/
+[zha docs]: /integrations/zha/
+
+## Release 2022.12.7 - December 17
+
+- Bump pySwitchbot to 0.23.2 ([@bdraco] - [#84002]) ([switchbot docs])
+- Re-add missing Growatt TLX values ([@muppet3000] - [#84040]) ([growatt_server docs])
+- Update frontend to 20221213.1 ([@bramkragten] - [#84058]) ([frontend docs])
+- Bump govee-ble to 0.19.3 ([@bdraco] - [#84062]) ([govee_ble docs])
+- Update Tibber lib, improve realtime streaming ([@Danielhiversen] - [#84065]) ([tibber docs])
+- Bump bluetooth-auto-recovery to 1.0.3 ([@bdraco] - [#84075]) ([bluetooth docs])
+- Make sure philips_hs remote entity calls parent added ([@elupus] - [#84082]) ([philips_js docs])
+- Bump ical to 4.2.3 ([@allenporter] - [#84104]) ([local_calendar docs])
+- Fix check if Surveillance Station is available in Synology DSM ([@mib1185] - [#84140]) ([synology_dsm docs])
+- Fix KNX ConfigFlow for manual secure tunnel keys ([@farmio] - [#84155]) ([knx docs])
+
+[#83482]: https://github.com/home-assistant/core/pull/83482
+[#83592]: https://github.com/home-assistant/core/pull/83592
+[#83778]: https://github.com/home-assistant/core/pull/83778
+[#83797]: https://github.com/home-assistant/core/pull/83797
+[#83870]: https://github.com/home-assistant/core/pull/83870
+[#83944]: https://github.com/home-assistant/core/pull/83944
+[#83998]: https://github.com/home-assistant/core/pull/83998
+[#84002]: https://github.com/home-assistant/core/pull/84002
+[#84040]: https://github.com/home-assistant/core/pull/84040
+[#84058]: https://github.com/home-assistant/core/pull/84058
+[#84062]: https://github.com/home-assistant/core/pull/84062
+[#84065]: https://github.com/home-assistant/core/pull/84065
+[#84075]: https://github.com/home-assistant/core/pull/84075
+[#84082]: https://github.com/home-assistant/core/pull/84082
+[#84104]: https://github.com/home-assistant/core/pull/84104
+[#84140]: https://github.com/home-assistant/core/pull/84140
+[#84155]: https://github.com/home-assistant/core/pull/84155
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@elupus]: https://github.com/elupus
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@mib1185]: https://github.com/mib1185
+[@muppet3000]: https://github.com/muppet3000
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[bluetooth docs]: /integrations/bluetooth/
+[braviatv docs]: /integrations/braviatv/
+[cast docs]: /integrations/cast/
+[fritzbox docs]: /integrations/fritzbox/
+[frontend docs]: /integrations/frontend/
+[govee_ble docs]: /integrations/govee_ble/
+[growatt_server docs]: /integrations/growatt_server/
+[justnimbus docs]: /integrations/justnimbus/
+[knx docs]: /integrations/knx/
+[local_calendar docs]: /integrations/local_calendar/
+[philips_js docs]: /integrations/philips_js/
+[sleepiq docs]: /integrations/sleepiq/
+[switchbot docs]: /integrations/switchbot/
+[synology_dsm docs]: /integrations/synology_dsm/
+[tibber docs]: /integrations/tibber/
+[zha docs]: /integrations/zha/
+
+## Release 2022.12.8 - December 21
+
+- Add missing preset for Overkiz atlantic electrical heater ([@nyroDev] - [#84080]) ([overkiz docs])
+- Fix connectable Bluetooth devices not going available after scanner recovers ([@bdraco] - [#84172]) ([bluetooth docs])
+- Bump ical to 4.2.4 ([@allenporter] - [#84248]) ([local_calendar docs])
+- Bump bluetooth-data-tools to 0.3.1 ([@bdraco] - [#84258]) ([bluetooth docs]) ([led_ble docs])
+- Skip client metadata values that are None ([@ludeeus] - [#84293]) ([cloud docs])
+- Improve Tibber rt Pulse streaming ([@Danielhiversen] - [#84313]) ([tibber docs])
+- Fix attribute check in prometheus exporter ([@mib1185] - [#84321]) ([prometheus docs])
+
+[#83482]: https://github.com/home-assistant/core/pull/83482
+[#83592]: https://github.com/home-assistant/core/pull/83592
+[#83778]: https://github.com/home-assistant/core/pull/83778
+[#83797]: https://github.com/home-assistant/core/pull/83797
+[#83870]: https://github.com/home-assistant/core/pull/83870
+[#83944]: https://github.com/home-assistant/core/pull/83944
+[#83998]: https://github.com/home-assistant/core/pull/83998
+[#84080]: https://github.com/home-assistant/core/pull/84080
+[#84162]: https://github.com/home-assistant/core/pull/84162
+[#84172]: https://github.com/home-assistant/core/pull/84172
+[#84248]: https://github.com/home-assistant/core/pull/84248
+[#84258]: https://github.com/home-assistant/core/pull/84258
+[#84293]: https://github.com/home-assistant/core/pull/84293
+[#84313]: https://github.com/home-assistant/core/pull/84313
+[#84321]: https://github.com/home-assistant/core/pull/84321
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@frenck]: https://github.com/frenck
+[@ludeeus]: https://github.com/ludeeus
+[@mib1185]: https://github.com/mib1185
+[@nyroDev]: https://github.com/nyroDev
+[abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
+[bluetooth docs]: /integrations/bluetooth/
+[braviatv docs]: /integrations/braviatv/
+[cast docs]: /integrations/cast/
+[cloud docs]: /integrations/cloud/
+[fritzbox docs]: /integrations/fritzbox/
+[frontend docs]: /integrations/frontend/
+[justnimbus docs]: /integrations/justnimbus/
+[led_ble docs]: /integrations/led_ble/
+[local_calendar docs]: /integrations/local_calendar/
+[overkiz docs]: /integrations/overkiz/
+[prometheus docs]: /integrations/prometheus/
+[sleepiq docs]: /integrations/sleepiq/
+[tibber docs]: /integrations/tibber/
+[zha docs]: /integrations/zha/
+
+## Release 2022.12.9 - January, 2
+
+- Handle not available add-on in hassio add-on manager ([#84943] - [@MartinHjelmare])
+- Fix failing HomeKit Controller diagnostics tests ([#84936] - [@bdraco])
+
+[#84936]: https://github.com/home-assistant/core/pull/84936
+[#84943]: https://github.com/home-assistant/core/pull/84943
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@bdraco]: https://github.com/bdraco
+
 
 ## Need help? Join the community!
 

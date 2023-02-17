@@ -19,7 +19,7 @@ Compatible transceivers:
 
 - [DIY](https://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf-rs232-ausgang)
 - [Weidmann Elektronik Schreib-/Lesekopf USB](https://shop.weidmann-elektronik.de/index.php?page=product&info=24)
-- [USB IR Lesekopf EHZ Lese-Schreib-Kopf Volkszähler Hichi Smartmeter](https://www.ebay.de/itm/313455434998)
+- [USB IR Lesekopf EHZ Lese-Schreib-Kopf Volkszähler Hichi Smartmeter](https://www.ebay.de/itm/313884760667)
 
 Tested smart meters:
 
@@ -28,6 +28,7 @@ Tested smart meters:
 - Iskraemeco MT175 (ISKRA MT175-D2A51-V22-K0t)
 - EMH metering eHZ Generation K (enable InF as described in manual to retrieve full data)
 - efr SGM-C4 (enable InF as described in manual to retrieve full data)
+- easymeter Q3 ([Link](https://www.easymeter.com/products/zaehler/q3a))
 
 ## Configuration
 

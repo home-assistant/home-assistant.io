@@ -91,7 +91,7 @@ scan_interval:
   description: Define the refrequency to call the REST endpoint in seconds.
   required: false
   type: integer
-  default: 30
+  default: 600
 sensor:
   description: A list of sensors to create from the shared data. All configuration settings that are supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
   required: true
@@ -253,10 +253,10 @@ This example tries to retrieve the price for electricity.
 ```yaml
 # Example configuration.yaml entry
 scrape:
-  - resource: https://elen.nu/timpriser-pa-el-for-elomrade-se3-stockholm/
+  - resource: https://elen.nu/dagens-spotpris/se3-stockholm/
     sensor:
       - name: Electricity price
-        select: ".text-lg:is(span)"
+        select: ".text-lg.font-bold"
         index: 1
         value_template: '{{ value | replace (",", ".") | float }}'
         unit_of_measurement: "öre/kWh"

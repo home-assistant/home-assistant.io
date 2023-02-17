@@ -12,7 +12,7 @@ ha_integration_type: system
 
 The `ssdp` "Simple Service Discovery Protocol" (part of UPnP) integration will scan the network for supported devices and services. Discovered integrations will show up in the discovered section on the integrations page in the configuration panel.
 
-Integrations can opt-in to be found by adding [an SSDP section](https://developers.home-assistant.io/docs/en/next/creating_integration_manifest.html#ssdp) to their `manifest.json`.
+Integrations can opt-in to be found by adding [an SSDP section](https://developers.home-assistant.io/docs/creating_integration_manifest/#ssdp) to their `manifest.json`.
 
 ## Configuration
 
@@ -47,6 +47,6 @@ The following integrations are automatically discovered by the SSDP integration:
  - [Sony Songpal](/integrations/songpal/)
  - [Synology DSM](/integrations/synology_dsm/)
  - [Ubiquiti UniFi](/integrations/unifi/)
- - [Universal Devices ISY994](/integrations/isy994/)
+ - [Universal Devices ISY/IoX](/integrations/isy994/)
  - [UPnP](/integrations/upnp/)
  - [WiLight](/integrations/wilight/)

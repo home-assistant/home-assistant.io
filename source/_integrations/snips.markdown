@@ -121,7 +121,7 @@ probability_threshold:
 
 ### Specifying the MQTT broker
 
-Messages between Snips and Home Assistant are passed via MQTT. We can either point Snips to the MQTT broker used by Home Assistant, as explained above, or tell Home Assistant which [MQTT broker](/docs/mqtt/) to use by adding the following entry to the `configuration.yaml` file:
+Messages between Snips and Home Assistant are passed via MQTT. We can either point Snips to the MQTT broker used by Home Assistant, as explained above, or tell Home Assistant which [MQTT broker](/integrations/mqtt) to use by adding the following entry to the `configuration.yaml` file:
 
 ```yaml
 mqtt:

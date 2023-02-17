@@ -38,6 +38,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - text
 ha_integration_type: hub
 ---
 
@@ -161,7 +162,8 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
   * There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected.
 * **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
   * configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
-  * configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds.
+  * configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
+  * configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
 * **Button** - A disabled by default button is added for each camera device. The button will let you reboot your camera device.
 
 ### UniFi Protect Floodlights
@@ -279,16 +281,6 @@ Removes an existing message for Doorbells.
 | `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances.  |
 | `message`              | No       | Existing custom message to remove for Doorbells.                                                             |
 
-### Service unifiprotect.set_doorbell_message
-
-Use to dynamically set the message on a Doorbell LCD screen. This service should only be used to set dynamic messages (i.e. setting the current outdoor temperature on your Doorbell). Static messages should still be set using the Select entity and can be added/removed using the `add_doorbell_text`/`remove_doorbell_text` services.
-
-| Service data attribute | Optional | Description                                                                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | No       | The Doorbell Text select entity for your Doorbell.                                                           |
-| `message`              | No       | The message you would like to display on the LCD screen of your Doorbell. Must be less than 30 characters.   |
-| `duration`             | Yes      | Number of minutes to display the message for before returning to the default message. The default is to not expire. |
-
 ### Service unifiprotect.set_chime_paired_doorbells
 
 Use to set the paired doorbell(s) with a smart chime.
@@ -308,6 +300,8 @@ These URLs work great when trying to send notifications. Home Assistant will aut
 | ------------------------------------------------------------ | -------------------------------------------------- |
 | `/api/unifiprotect/thumbnail/{nvr_id}/{event_id}`            | Proxies a JPEG event thumbnail from UniFi Protect. |
 | `/api/unifiprotect/video/{nvr_id}/{camera_id}/{start}/{end}` | Proxies a MP4 video clip from UniFi Protect for a specific camera. Start and end must be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html). |
+
+`nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect integration. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any entity provided by the UniFi Protect integration that can be reversed to a UniFi Protect camera (i.e., an entity ID of a detected object sensor).
 
 ## Troubleshooting
 

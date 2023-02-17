@@ -3,7 +3,7 @@ title: "MQTT Text"
 description: "Instructions on how to interact with a device exposing text capability through MQTT from within Home Assistant."
 ha_category:
   - Text
-ha_release: "2021.12"
+ha_release: "2022.12"
 ha_iot_class: Configurable
 ha_domain: mqtt
 ---
@@ -67,7 +67,7 @@ command_topic:
   required: true
   type: string
 device:
-  description: "Information about the device this of text capability is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this of text capability is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
