@@ -80,6 +80,34 @@ The integration currently only uses the primary lock state; in dual lock mode, n
 
 A SwitchBot lock can be set up in Home Assistant in two different ways. You can enter the key id and encryption key yourself, or Home Assistant can import them from your SwitchBot account.
 
+### SwitchBot account (recommended)
+
+Using this option you can provide your SwitchBot account login credentials and Home Assistant will import the appropriate encryption key from your account.
+
+{% configuration_basic %}
+Username:
+  description: SwitchBot account username
+Password:
+  description: SwitchBot account password
+{% endconfiguration_basic %}
+
+<div class='note warning'>
+This integration doesn't support SSO accounts (Login with Google, etc.) only username and password accounts.
+</div>
+
+### Enter the lock encryption key manually
+
+This option is for those that would rather obtain the encryption key themselves, and/or want to know exactly where and how are their account credentials used.
+
+{% configuration_basic %}
+Key ID:
+  description: Locks' encryption key ID
+Encryption key:
+  description: Locks' encryption key
+{% endconfiguration_basic %}
+
+For instructions on how to obtain the locks encryption key, see README in [PySwitchbot](https://github.com/Danielhiversen/pySwitchbot#obtaining-locks-encryption-key) project.
+
 ## SwitchBot Blind Tilt
 
 The blind tilt is exposed as a cover entity with control of the tilt position only:
@@ -129,34 +157,6 @@ cover:
 ```
 
 {% endraw %}
-
-### SwitchBot account (recommended)
-
-Using this option you can provide your SwitchBot account login credentials and Home Assistant will import the appropriate encryption key from your account.
-
-{% configuration_basic %}
-Username:
-  description: SwitchBot account username
-Password:
-  description: SwitchBot account password
-{% endconfiguration_basic %}
-
-<div class='note warning'>
-This integration doesn't support SSO accounts (Login with Google, etc.) only username and password accounts.
-</div>
-
-### Enter the lock encryption key manually
-
-This option is for those that would rather obtain the encryption key themselves, and/or want to know exactly where and how are their account credentials used.
-
-{% configuration_basic %}
-Key ID:
-  description: Locks' encryption key ID
-Encryption key:
-  description: Locks' encryption key
-{% endconfiguration_basic %}
-
-For instructions on how to obtain the locks encryption key, see README in [PySwitchbot](https://github.com/Danielhiversen/pySwitchbot#obtaining-locks-encryption-key) project.
 
 ## Error codes and troubleshooting
 
