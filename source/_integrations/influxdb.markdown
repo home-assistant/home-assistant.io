@@ -56,8 +56,8 @@ host:
   default: localhost
 port:
   type: integer
-  description: Port to use. 2.xx - No default port for 2.xx, otherwise 8086.
-  required: false
+  description: Port to use. 2.xx - Must specify port for 2.xx, otherwise 8086.
+  required: true
   default: 8086
 path:
   type: string
