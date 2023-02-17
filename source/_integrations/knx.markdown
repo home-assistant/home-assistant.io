@@ -1879,6 +1879,7 @@ logger:
     xknx.log: debug  # provides general information (connection, etc.)
     xknx.telegram: debug  # logs telegrams before they are being processed or sent
     xknx.cemi: debug  # logs incoming and outgoing CEMI frames
+    xknx.data_secure: debug  # logs Data Secure relevant information
     xknx.ip_secure: debug  # logs IP Secure relevant information
     xknx.knx: debug  # logs incoming and outgoing KNX/IP frames
     xknx.raw_socket: warning  # logs incoming UDP/TCP frames in raw hex format at socket level
