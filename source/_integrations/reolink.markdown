@@ -52,6 +52,8 @@ Depending on the supported features of the camera number entities are added for:
 
 - Optical zoom control
 - Focus control
+- Floodlight brightness
+- Volume
 
 ## Tested models
 
