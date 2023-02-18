@@ -57,7 +57,7 @@ host:
 port:
   type: integer
   description: Port to use. 2.xx - Must specify port for 2.xx, otherwise 8086.
-  required: true
+  required: false
   default: 8086
 path:
   type: string
