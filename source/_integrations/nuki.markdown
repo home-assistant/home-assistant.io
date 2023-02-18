@@ -32,8 +32,7 @@ For faster updates, the callback function of the Nuki bridge can be used. This r
   Host:
     description: Hostname or IP address of your Nuki bridge, e.g., `192.168.1.25`.
   Port:
-    description: Port of the Nuki bridge HTTP API.
-    default: 8080
+    description: Port of the Nuki bridge HTTP API, default: `8080`.
   Token:
     description: Token to authenticate against the Nuki bridge HTTP API.
 {% endconfiguration_basic %}
