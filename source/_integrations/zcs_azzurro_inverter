@@ -1,0 +1,32 @@
+---
+title: ZCS Azzurro Inverter
+description: Instructions on how to integrate ZCS Azzurro Inverter sensors into Home Assistant.
+ha_category:
+  - System Monitor
+ha_iot_class: Cloud Polling
+ha_release: 0.7.3
+ha_config_flow: true
+ha_codeowners:
+  - '@AlePerla'
+ha_domain: zcs_azzurro_inverter
+ha_platforms:
+  - sensor
+ha_integration_type: integration
+---
+
+The `zcs_azzurro_inverter` integration allows you to monitor the system information provided by the [ZCS Azzurro Inverter](https://github.com/AlePerla/zcs_azzurro_api) API. This enables to track realtime data from the inverter in Home Assistant.
+
+## Disclaimer
+
+This integration is not supported nor maintained from the product owner. 
+The code owner nor the product owner can guarantee the data readings are up to date and always reliable. Use this only for monitoring and integrate the device into your Home Assistant, not for safety reasons. 
+
+## Setup
+
+Setup requires to get the credentials from the [product owner's support team](https://zcsazzurro.com/). Credentials are the client_id received from the product owner's support team, plus the product's serial number.
+
+## Integration Entities
+
+Created entities are dependent by the ones available from the APIs. 
+The system has a list of possible entities but only the ones made available by the device during the configuration are actually added to Home Assistant. 
+Refer to the [APIs documentation](https://pypi.org/project/zcs-azzurro-api/) if something is missing. 
