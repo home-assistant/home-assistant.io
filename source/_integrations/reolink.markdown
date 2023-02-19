@@ -56,9 +56,9 @@ Depending on the supported features of the camera number entities are added for:
 ## Siren entities
 
 If the camera supports a siren, a siren entity will be created.
-When using siren turn on, the siren will continue to sound until the siren turn off is called.
-In some camera models there is delay up to 5 seconds between the turn off command and the sound stopping.
-The siren turn on supports duration (no turn off needed) and volume options.
+When using the siren turn-on service, the siren will continue to sound until the siren turn-off service is called.
+
+In some camera models, there is a delay of up to 5 seconds between the turn-off command and the sound stopping. The siren turn-on service supports setting a volume and a duration (no turn-off service call is needed in that case).
 
 ## Tested models
 
