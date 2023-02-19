@@ -130,7 +130,6 @@ service: google_assistant_sdk.send_text_command
 data:
   command: "tell me a joke"
   media_player: media_player.living_room_speaker
-```
 
 You can also send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
 

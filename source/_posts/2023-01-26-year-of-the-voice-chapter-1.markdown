@@ -42,7 +42,7 @@ We want to make it as easy as possible to use Assist. To enable this for Android
 
 [Assist on Android Wear documentation.](https://next.home-assistant.io/docs/assist/android/)
 
-_The tile is available in [Home Assistant Companion for Android 2023.1.1](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1)._
+_The new tile is currently available in the [Android beta](https://play.google.com/apps/testing/io.homeassistant.companion.android) and will be part of the next Android release._
 
 <lite-youtube videoid="Dr_ZCbt8w5k" videotitle="Assist on Android Wear"></lite-youtube>
 
@@ -52,7 +52,7 @@ For Apple devices we have been able to create a fully hands-free experience by i
 
 [Assist via Siri and Apple Shortcuts documentation.](https://next.home-assistant.io/docs/assist/apple/)
 
-_The Assist shortcut is available in [Home Assistant Companion for iOS 2023.2](https://apps.apple.com/us/app/home-assistant/id1099568401?itsct=apps_box_badge&itscg=30200). Mac version is awaiting approval._
+_The Assist shortcut will be available in the Mac and iOS beta channel today and will be part of the next release for iOS and Mac._
 
 <lite-youtube videoid="sQ7X7jz1SrA" videotitle="Assist on Apple HomePod"></lite-youtube>
 

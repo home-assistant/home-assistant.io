@@ -55,6 +55,10 @@ domain:
     `automation` and `script` are supported.
   type: string
   required: true
+author:
+  description: The name of the blueprint author.
+  type: string
+  required: false
 homeassistant:
   description: >
     Home Assistant requirements to be able to use the blueprint successfully.
