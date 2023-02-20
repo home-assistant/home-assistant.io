@@ -48,4 +48,3 @@ Below is an example for setting up the integration to connect to your Microsoft 
   - Username: Your full email address
   - Password: Your password
   - Charset: `US-ASCII`
-  
