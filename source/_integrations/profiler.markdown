@@ -53,6 +53,10 @@ gprof2dot -f pstats profile.1234567890123456.cprof | dot -Tsvg -o profile.svg
 
 ### Service `profiler.memory`
 
+<div class='note warning'>
+This service is unavailable when using Python 3.11 as the underlying guppy3 library does not yet support Python 3.11.
+</div>
+
 Start the memory profiler for the specified number of seconds.
 
 | Service data attribute | Optional | Description |
