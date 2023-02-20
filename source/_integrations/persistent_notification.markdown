@@ -24,8 +24,8 @@ The service `persistent_notification.create` takes in `message`, `title`, and `n
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `message`              |       no | Body of the notification. Accepts [templates](/topics/templating/).
-| `title`                |      yes | Title of the notification. Accepts [templates](/topics/templating/).
+| `message`              |       no | Body of the notification. Accepts [templates](/docs/configuration/templating/).
+| `title`                |      yes | Title of the notification. Accepts [templates](/docs/configuration/templating/).
 | `notification_id`      |      yes | If `notification_id` is given, it will overwrite the notification if there already was a notification with that ID.
 
 Here is how an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) with static content could look like.
@@ -38,7 +38,7 @@ action:
     title: "Custom subject"
 ```
 
-If you want to show some runtime information, you have to use [templates](/topics/templating/).
+If you want to show some runtime information, you have to use [templates](/docs/configuration/templating/).
 
 {% raw %}
 

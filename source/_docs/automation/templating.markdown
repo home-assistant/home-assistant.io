@@ -41,12 +41,11 @@ The following describes trigger data associated with all platforms.
 
 ### Device
 
+Inherites template variables from [event](#event) or [state](#state) template based on the type of trigger selected for the device.
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `device`.
-| `trigger.event` | Event object that matched.
-| `trigger.event.event_type` | Event type.
-| `trigger.event.data` | Optional event data.
 
 ### Event
 

@@ -12,7 +12,13 @@ The Glance card is useful to group multiple sensors in a compact overview. Keep 
 Screenshot of the Glance card.
 </p>
 
-To add the Glance card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Glance** from the card picker.
+To add the Glance card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+All options for this card can be configured via the user interface.
+
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -57,7 +63,7 @@ state_color:
   default: true
 {% endconfiguration %}
 
-## Options For Entities
+### Options For Entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
@@ -102,7 +108,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Options For Exemptions
+### Options For Exemptions
 
 {% configuration badges %}
 user:
@@ -111,7 +117,7 @@ user:
   type: string
 {% endconfiguration %}
 
-## Examples
+### Examples
 
 Basic example:
 

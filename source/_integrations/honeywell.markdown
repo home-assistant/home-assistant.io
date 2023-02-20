@@ -9,6 +9,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@rdfurman'
+  - '@mkmer'
 ha_domain: honeywell
 ha_platforms:
   - climate
