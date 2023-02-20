@@ -74,17 +74,44 @@ Components inside packages can only specify platform entries using configuration
 
 ## Create a packages folder
 
-One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory you can store any number of packages in a YAML file. This entry in your `configuration.yaml` will load all packages:
+One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory you can store any number of packages in YAML files. 
+See the documentation about [splitting the configuration](/docs/configuration/splitting_configuration/) for more information about `!include_dir_named`/`!include_dir_merge_named` and other include statements that might be helpful. The benefit of this approach is to pull all configurations required to integrate a system, into one file, rather than across several.
+
+The following examples allows to have subfolders in the `packages` folder
+
+### opt1: Merge files/folders
+This uses the concept splitting the configuration and will include all files in a directory and it's subdirectories; 'as if the content was written in configuration.yaml'
+
+This entry in your `configuration.yaml` will load all files in folder packages and subfolders:
 
 ```yaml
 homeassistant:
   packages: !include_dir_named packages
 ```
 
-This uses the concept splitting the configuration and will include all files in a directory with the keys representing the filenames.
-See the documentation about [splitting the configuration](/docs/configuration/splitting_configuration/) for more information about `!include_dir_named` and other include statements that might be helpful. The benefit of this approach is to pull all configurations required to integrate a system, into one file, rather than across several.
+and in `packages/subsystem1/functionality1.yaml`:
 
-The following example allows to have subfolders in the `packages` folder, which could make managing multiple packages easier by grouping:
+```yaml
+input_boolean:
+...
+binary_sensor:
+...
+automation:
+```
+
+and in `packages/subsystem2/functionality2.yaml`:
+
+```yaml
+template:
+...
+binary_sensor:
+...
+automation:
+```
+
+
+### opt2: Merge files/folders "named"
+This option uses the concept splitting the configuration and will include according to 'dir_merge_named'.
 
 ```yaml
 homeassistant:
@@ -110,3 +137,14 @@ It is possible to [customize entities](/docs/configuration/customizing-devices/)
 homeassistant:
   customize:
 ```
+
+
+---
+
+<div class='note warning'>
+
+If you are moving configuration to packages, auth_providers must stay within ‘configuration.yaml’. See [Issue 16441](https://github.com/home-assistant/core/issues/16441) and/ general documentation for [Authentication Providers](https://www.home-assistant.io/docs/authentication/providers/#configuring-auth-providers)
+  
+This is because Home Assistant processes the `auth_provider` during the `core` section loading, which is earlier than the `packages` processing.
+
+</div>
