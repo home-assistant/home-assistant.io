@@ -59,6 +59,11 @@ period:
   required: false
   description: The period of the rendered graph. `5minute`, `hour`, `day`, `week` or `month` 
   type: string  
+hide_legend:
+  required: false
+  description:  If true, the legend will be hidden.
+  type: boolean  
+  default: false
 {% endconfiguration %}
 
 ### Options For Entities
