@@ -156,6 +156,7 @@ The light strips allow setting a sequence effect.
 | `segments` | List of segments (0 for all) |
 | `brightness` | Initial brightness |
 | `duration` | Duration |
+| `repeat_times` | Repetitions (0 for continuous) |
 | `transition` | Transition |
 | `spread` | Speed of spread |
 | `direction` | Direction |

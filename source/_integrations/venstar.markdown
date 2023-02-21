@@ -39,6 +39,7 @@ Currently supported functionality:
 - Remote temperature sensors
 - Thermostat alerts (Filter replacement/etc)
 - Reading IAQ and CO2 levels (on supported devices, e.g. T3950, only)
+- Reading the current schedule state (morning/day/evening/night/inactive)
 
 The following values are supported for the preset_mode state attribute:
 
