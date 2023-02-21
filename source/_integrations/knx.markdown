@@ -120,20 +120,18 @@ Use `route back` if your tunneling server is located on a different network.
 
 ### KNX Secure
 
-The KNX integration currently supports IP secure tunneling.
-IP secure via routing and data secure are currently not supported.
-
-In order to use IP Secure you will have to chose "Tunneling" -> "TCP with IP Secure" in the config flow.
+The KNX integration supports IP Secure and Data Secure .
 
 You can configure the IP Secure credentials either manually or by providing a `.knxkeys` file, which you can obtain by exporting the keyring in ETS as seen in the screenshot below.
+Data Secure credentials are always sourced from a `.knxkeys` file. You can import or update the Keyring file from the integrations settings.
+
+For Data Secure, please make sure that all secured group addresses you want to use in Home Assistant are assigned to a tunnel of your interface or a dummy device in ETS and all participating devices are updated accordingly.
 
 ![Export Keyring in ETS5](/images/integrations/knx/export_keyring_ets.png)
 
-The `.knxkeys` file has to be placed in `config/.storage/knx/yourfile.knxkeys`.
-
 If you decide to configure IP Secure manually you will need the user ID, the user password and the device authentication password.
 
-The user id 0 is reserved and the user id 1 is used for management tasks, thus you will need to specify a user id that is 2 or higher according to the tunneling channel you would like to use. 
+The user id 0 is reserved and the user id 1 is used for management tasks, thus you will need to specify a user id that is 2 or higher according to the tunneling channel you would like to use.
 
 The following screenshot will show how you can get the device authentication password in ETS.
 
@@ -1881,6 +1879,7 @@ logger:
     xknx.log: debug  # provides general information (connection, etc.)
     xknx.telegram: debug  # logs telegrams before they are being processed or sent
     xknx.cemi: debug  # logs incoming and outgoing CEMI frames
+    xknx.data_secure: debug  # logs Data Secure relevant information
     xknx.ip_secure: debug  # logs IP Secure relevant information
     xknx.knx: debug  # logs incoming and outgoing KNX/IP frames
     xknx.raw_socket: warning  # logs incoming UDP/TCP frames in raw hex format at socket level

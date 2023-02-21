@@ -29,4 +29,4 @@ To try it yourself, check out [the demo](https://demo.home-assistant.io).
 
 - [Community Custom Cards](https://github.com/custom-cards)
 - [Home Assistant Cards](https://home-assistant-cards.bessarabov.com/)
-- [Material Design Icons](https://materialdesignicons.com/tag/community)
+- [Material Design Icons](https://pictogrammers.com/library/mdi/)

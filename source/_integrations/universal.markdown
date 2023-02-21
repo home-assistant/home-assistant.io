@@ -71,7 +71,7 @@ children:
   required: false
   type: list
 state_template:
-  description: "A [template](/topics/templating/) can be specified to render the state of the media player. In this way, the state may depend on entities that are not themselves media players, like switches or input booleans."
+  description: "A [template](/docs/configuration/templating/) can be specified to render the state of the media player. In this way, the state may depend on entities that are not themselves media players, like switches or input booleans."
   required: false
   type: template
 commands:

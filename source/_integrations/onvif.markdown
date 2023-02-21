@@ -15,6 +15,7 @@ ha_platforms:
   - camera
   - diagnostics
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -72,6 +73,8 @@ To help with development of this component, enable `info` level logging for `hom
 | Last Clock Synchronization | Sensor | Timestamp | When the device clock was last synchronized. |
 | Last Backup | Sensor | Timestamp | When the last backup of the device configuration has been retrieved. |
 
+If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).
+
 ### Service `onvif.ptz`
 
 If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your camera.
@@ -88,4 +91,12 @@ If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your ca
 | `move_mode` | PTZ moving mode. Allowed values: `ContinuousMove`, `RelativeMove`, `AbsoluteMove`, `GotoPreset`, `Stop`. Default :`RelativeMove` |
 | `continuous_duration` | Set ContinuousMove delay in seconds before stopping the move. Allowed values: floating point numbers or integer. Default : 0.5 |
 
-If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).
+### Supported Switches
+
+This integration uses the ONVIF auxiliary command and imaging service to send certain settings and information to the camera via switch entities. Below is a list of currently supported switches.
+
+| Name | Entity Name |  Description |
+|----------|-------------|-------------|
+| IR lamp  | `ir_lamp` |  Turn infrared lamp on and off via `IrCutFilter` ONVIF imaging setting. |
+| Autofocus  | `autofocus` |  Turn autofocus on and off via `AutoFocusMode` ONVIF imaging setting. |
+| Wiper  | `wiper` |  Turn on the lens wiper on and off via the `Wiper` ONVIF auxiliary command. |

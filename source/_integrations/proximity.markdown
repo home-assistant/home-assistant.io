@@ -77,7 +77,7 @@ zone:
       default: km
 {% endconfiguration %}
 
-To add multiple proximity components, simply use a list in your `configuration.yaml` file:
+To add multiple proximity components, add a mapping to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
