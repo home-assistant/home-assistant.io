@@ -336,12 +336,12 @@ $ha__primary_color: #03a9f4;
         display: flex;
         cursor: pointer;
         text-transform: capitalize;
+        font-weight: 900;
+        font-size: 18px;
+        color: #ffffff;
 
         div {
           margin: auto;
-          font-weight: 900;
-          font-size: 18px;
-          color: #ffffff;
         }
       }
 
