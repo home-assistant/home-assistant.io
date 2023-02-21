@@ -46,6 +46,27 @@ Sets the operation of any connected color-capable lights.
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `target`               | no       | An `area` containing the ScreenLogic device, the ScreenLogic `device` itself, or any `entity` from the ScreenLogic device you wish to set the color mode on. |
 | `color_mode`           | no       | The color mode to set. Valid values are listed below.                                                                                                        |
+## Examples
+
+### Current Pool/Spa Temperature
+
+Some may wish to have the current pool or spa temperature as a separate `sensor` entity in addition to the existing `climate` entity. This can be done with a [template sensor](/integrations/template):
+
+{% raw %}
+
+```yaml
+# Example template sensor
+template:
+  - sensor:
+      - name: "Pool Temperature"
+        # Replace the climate entity with your climate entity
+        state: "{{ state_attr('climate.pentair_XX_XX_XX_pool_heat', 'current_temperature') }}"
+        unit_of_measurement: "°F"
+        device_class: temperature
+        state_class: measurement
+```
+
+{% endraw %}
 
 ## Reference
 
