@@ -32,7 +32,7 @@ homeassistant:
 
 <div class='note'>
 
-  You will not be able to edit anything in {% my general title="Settings > System > General" %} in the UI if you are using YAML configuration for any of the following: name, latitude, longitude, elevation, unit_system, temperature_unit, time_zone, external_url, internal_url. Additionally, some options are only visible after "Advanced Mode" is enabled on your {% my profile title="User Profile" %}.
+  You will not be able to edit anything in {% my general title="Settings > System > General" %} in the UI if you are using YAML configuration for any of the following: name, latitude, longitude, elevation, unit_system, temperature_unit, time_zone, external_url, internal_url, country, currency. Additionally, some options are only visible after "Advanced Mode" is enabled on your {% my profile title="User Profile" %}.
 
 </div>
 
