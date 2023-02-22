@@ -2,7 +2,7 @@
 title: "Assist on Android."
 ---
 
-Assist is available on WearOS using the [Home Assistant Companion App](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android) and "Assist" tile.
+Assist is available on WearOS using the [Home Assistant Companion App](https://companion.home-assistant.io/) and "Assist" tile.
 
 <lite-youtube videoid="Dr_ZCbt8w5k" videotitle="Assist on Android Wear"></lite-youtube>
 

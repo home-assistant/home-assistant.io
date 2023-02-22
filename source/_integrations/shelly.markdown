@@ -193,7 +193,7 @@ You can also create automations using YAML, for example:
 | `SL`               | `single_long` |
 | `LS`               | `long_single` |
 
-Generation 2 devices use the values `btn_down`, `btn_up`, `single_push`, `double_push` and `long_push` as `click_type`.
+Generation 2 devices use the values `btn_down`, `btn_up`, `single_push`, `double_push`, `triple_push` and `long_push` as `click_type`.
 
 <div class="note">
 
