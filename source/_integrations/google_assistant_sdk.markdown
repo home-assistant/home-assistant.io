@@ -12,6 +12,7 @@ ha_codeowners:
 ha_integration_type: service
 ha_platforms:
   - notify
+ha_quality_scale: platinum
 ---
 
 The Google Assistant SDK integration allows Home Assistant to interact with Google Assistant. If you want to use Google Assistant (for example, from your phone or Google Home device) to interact with your Home Assistant managed devices, then you want the [Google Assistant](/integrations/google_assistant) integration.
