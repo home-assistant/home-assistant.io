@@ -8,6 +8,8 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@OnFreund'
+  - '@elad-bar'
+  - '@maorcc'
 ha_domain: rympro
 ha_platforms:
   - sensor

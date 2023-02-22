@@ -9,6 +9,9 @@ ha_domain: thread
 ha_iot_class: Local Polling
 ha_integration_type: service
 ha_config_flow: true
+ha_platforms:
+  - diagnostics
+ha_zeroconf: true
 ---
 
 The Thread integration helps you track the different Thread networks in your home and helps you manage their credentials. It is currently a work in progress.
