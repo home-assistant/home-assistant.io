@@ -18,24 +18,29 @@ The following selectors are currently available:
 - [Action selector](#action-selector)
 - [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
+  - [Example area selectors](#example-area-selectors)
 - [Attribute selector](#attribute-selector)
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
 - [Config entry selector](#config-entry-selector)
 - [Date selector](#date-selector)
-- [Date & time selector](#date--time-selector)
+- [Date \& time selector](#date--time-selector)
 - [Device selector](#device-selector)
+  - [Example device selector](#example-device-selector)
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
+  - [Example entity selector](#example-entity-selector)
 - [Icon selector](#icon-selector)
 - [Location selector](#location-selector)
 - [Media selector](#media-selector)
 - [Number selector](#number-selector)
+  - [Example number selectors](#example-number-selectors)
 - [Object selector](#object-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
 - [Target selector](#target-selector)
+  - [Example target selectors](#example-target-selectors)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
@@ -548,7 +553,7 @@ An example entity selector that, will only show entities that are:
 
 - Provided by the [ZHA](/integrations/zha) integration.
 - From the [Binary Sensor](/integrations/binary_sensor) domain.
-- Have presented themselves as devices of a motion device class.
+- Have presented themselves as devices of a motion or door device class.
 - Allows selecting one or more entities.
 
 And this is what it looks like in YAML:
@@ -558,7 +563,9 @@ entity:
   multiple: true
   integration: zha
   domain: binary_sensor
-  device_class: motion
+  device_class: 
+    - door
+    - motion
 ```
 
 ## Icon selector
