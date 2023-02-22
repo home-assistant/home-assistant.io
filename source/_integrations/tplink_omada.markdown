@@ -1,5 +1,5 @@
 ---
-title: TP-Link Omada SDN Controller
+title: TP-Link Omada
 description: Instructions on integrating TP-Link Omada SDN networking devices to Home Assistant.
 ha_category:
   - Hub
@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: tplink_omada
 ha_platforms:
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The TP-Link Omada SDN Controller integration allows you to control your [TP-Link Omada SDN Devices](https://www.tp-link.com/us/omada-sdn/) such as network switches, access points, and internet gateways. It requires a local Omada controller (software or hardware controllers) and does not currently support the paid-for TP-Link Omada Cloud Management SAAS Platform.

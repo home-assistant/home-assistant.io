@@ -14,7 +14,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - media_player
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_ssdp: true
 ---
 
