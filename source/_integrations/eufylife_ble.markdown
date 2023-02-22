@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: eufylife_ble
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The EufyLife integration allows you to integrate Eufy smart scales with Home Assistant.

@@ -62,7 +62,7 @@ For each Airzone zone (Thermostat) a *climate entity* is created.
 
 **HVAC mode can only be changed on a *parent zone*.**
 
-*Slave zones* can only enable/disable the current HVAC mode selected on the corresponding *parent zone*. Attempting to change the HVAC mode on a *child zone* will result on a Home Assistant error.
+*Child zones* can only enable/disable the current HVAC mode selected on the corresponding *parent zone*. Attempting to change the HVAC mode on a *child zone* will result on a Home Assistant error.
 
 ## Select
 

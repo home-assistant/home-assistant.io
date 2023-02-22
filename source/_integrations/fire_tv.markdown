@@ -1,6 +1,6 @@
 ---
 title: Amazon Fire TV
-description: Instructions on how to integrate Amazon Fire TV devices into Home Assistant.
+description: Connect and control your Amazon Fire TV devices using the Android TV integration
 ha_category:
   - Media Player
 ha_domain: fire_tv

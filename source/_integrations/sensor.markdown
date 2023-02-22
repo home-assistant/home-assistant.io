@@ -7,7 +7,7 @@ ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: sensor
 ha_codeowners:
-  - "@home-assistant/core"
+  - '@home-assistant/core'
 ha_integration_type: entity
 ---
 

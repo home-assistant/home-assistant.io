@@ -83,7 +83,6 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Equalizer Mode](#equalizer-mode)
     - [Inputs](#inputs)
     - [Playback State](#playback-state)
-    - [Seek](#seek)
   - [Scene](#scene)
   - [Script](#script)
   - [Sensor](#sensor)
@@ -501,7 +500,6 @@ The following integrations are currently supported:
     - [Equalizer Mode](#equalizer-mode)
     - [Inputs](#inputs)
     - [Playback State](#playback-state)
-    - [Seek](#seek)
   - [Scene](#scene)
   - [Script](#script)
   - [Sensor](#sensor)
@@ -979,10 +977,9 @@ Home Assistant will attempt to translate the `media_player` `source_list` into a
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-#### Seek
-
-- _"Alexa, skip 30 seconds on device."_
-- _"Alexa, go back 10 seconds on device."_
+<div class='note info'>
+Intents to seek forwards (skip) or to rewind (go back) are not supported at the moment.
+</div>
 
 ### Scene
 

@@ -11,9 +11,9 @@ ha_codeowners:
 ha_domain: moehlenhoff_alpha2
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - sensor
-  - button
 ha_integration_type: integration
 ---
 
