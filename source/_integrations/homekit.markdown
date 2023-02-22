@@ -408,7 +408,7 @@ The following integrations are currently supported:
 | media_player | TelevisionMediaPlayer | All media players that have `tv` as their `device_class`.  Represented as Television and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later. |
 | sensor | TemperatureSensor | All sensors that have `°C` or `°F` as their `unit_of_measurement` and `temperature` as their `device_class`. |
 | sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`. |
-| sensor | AirQualitySensor | All sensors that have `gas`/`pm10`/`pm25` as part of their `entity_id` or `gas`/`pm10`/`pm25`/`nitrogen_dioxide`/`volatile_organic_compounds` as their `device_class` |
+| sensor | AirQualitySensor | All sensors that have `gas`/`pm10`/`pm25` as part of their `entity_id` or `gas`/`pm10`/`pm25`/`nitrogen_dioxide`/`volatile_organic_compounds` as their `device_class`. The VOC mappings use the IAQ guidelines for Europe released by the WHO (World Health Organization). |
 | sensor | CarbonMonoxideSensor | All sensors that have `co` as their `device_class` |
 | sensor | CarbonDioxideSensor | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class` |
 | sensor | LightSensor | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class` |

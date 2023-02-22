@@ -88,7 +88,7 @@ current_humidity_template:
   required: false
   type: template
 current_humidity_topic:
-  description: The MQTT topic on which to listen for the current humidity.
+  description: The MQTT topic on which to listen for the current humidity. A `"None"` value received will reset the current temperature. Empty values (`'''`) will be ignored. 
   required: false
   type: string
 current_temperature_template:
@@ -96,7 +96,7 @@ current_temperature_template:
   required: false
   type: template
 current_temperature_topic:
-  description: The MQTT topic on which to listen for the current temperature.
+  description: The MQTT topic on which to listen for the current temperature. A `"None"` value received will reset the current humidity. Empty values (`'''`) will be ignored.
   required: false
   type: string
 device:
@@ -336,7 +336,7 @@ target_humidity_command_topic:
   required: false
   type: string
 target_humidity_state_topic:
-  description: The MQTT topic subscribed to receive the target humidity. If this is not set, the target humidity works in optimistic mode (see below).
+  description: The MQTT topic subscribed to receive the target humidity. If this is not set, the target humidity works in optimistic mode (see below). A `"None"` value received will reset the target humidity. Empty values (`'''`) will be ignored.
   required: false
   type: string
 target_humidity_state_template:
@@ -360,7 +360,7 @@ temperature_high_command_topic:
   required: false
   type: string
 temperature_high_state_template:
-  description: A template to render the value received on the `temperature_high_state_topic` with.
+  description: A template to render the value received on the `temperature_high_state_topic` with. A `"None"` value received will reset the temperature high set point. Empty values (`'''`) will be ignored.
   required: false
   type: template
 temperature_high_state_topic:
@@ -376,7 +376,7 @@ temperature_low_command_topic:
   required: false
   type: string
 temperature_low_state_template:
-  description: A template to render the value received on the `temperature_low_state_topic` with.
+  description: A template to render the value received on the `temperature_low_state_topic` with. A `"None"` value received will reset the temperature low set point. Empty values (`'''`) will be ignored.
   required: false
   type: template
 temperature_low_state_topic:
@@ -388,7 +388,7 @@ temperature_state_template:
   required: false
   type: template
 temperature_state_topic:
-  description: The MQTT topic to subscribe for changes in the target temperature. If this is not set, the target temperature works in optimistic mode (see below).
+  description: The MQTT topic to subscribe for changes in the target temperature. If this is not set, the target temperature works in optimistic mode (see below). A `"None"` value received will reset the temperature set point. Empty values (`'''`) will be ignored.
   required: false
   type: string
 temperature_unit:
