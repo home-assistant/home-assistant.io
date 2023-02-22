@@ -54,6 +54,12 @@ Depending on the supported features of the camera number entities are added for:
 - Focus control
 - Floodlight brightness
 - Volume
+- Guard return time
+- Motion sensitivity
+- AI face sensitivity
+- AI people sensitivity
+- AI vehicle sensitivity
+- AI pet sensitivity
 
 ## Tested models
 
