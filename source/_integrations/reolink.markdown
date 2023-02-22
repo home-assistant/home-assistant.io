@@ -55,6 +55,16 @@ Depending on the supported features of the camera number entities are added for:
 - Optical zoom control
 - Focus control
 
+## Select entities
+
+Depending on the supported features of the camera select entities are added for:
+
+- Floodlight mode (Off, Auto, Schedule)
+- Day night mode (Auto, Color, Black&White)
+- PTZ preset
+
+PTZ preset positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant open start of the integration. When adding new preset positions, please restart the reolink integration.
+
 ## Update entity
 
 An update entity is available that checks for firmware updates every 12 hours.
