@@ -61,11 +61,11 @@ Depending on the supported features of the camera light entities are added for:
 
 - Floodlight
 - Infra red lights in night mode
-- Status led
+- Status LED
 
 When the floodlight entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule)
 
-When IR light entity is OFF always OFF, when ON IR leds will be on when camera is in night vision mode, see "Day night mode"
+When IR light entity is OFF always OFF, when ON IR LEDs will be on when camera is in night vision mode, see "Day night mode"
 
 ## Update entity
 
