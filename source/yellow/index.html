@@ -272,7 +272,7 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
       </span>
     </div>
     <div class="distributors">
-<!--
+
       <a href="https://www.crowdsupply.com/nabu-casa/home-assistant-yellow#products" target="_blank">
         <div class="distributor">
           <div>
@@ -287,7 +287,7 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
           </svg>
         </div>
       </a>
- -->
+
       <a
         href="https://raspberrypi.dk/en?s=home+assistant+yellow&post_type=product"
         target="_blank"
@@ -343,4 +343,8 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
       closeDialog();
     }
   };
+
+  if (document.location.search === "?order") {
+    showBuyDialog();
+  }
 </script>
