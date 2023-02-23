@@ -304,7 +304,7 @@ noteworthy changes this release:
 - [@marcolivierarsenault] added support for [ecobee] ventilator, awesome!
 - The [Reolink] integration now provides entities to update the firmware of your camera, control zoom,
   and control auto-focus. Thanks [@starkillerOG]!
-- Adding your [KNX] Keyfile is now super easy, just upload it from your browser
+- [KNX] Data Secure support is added, and importing your Keyfile to use it is now super easy, just upload it from your browser
   when configuring it in Home Assistant. Awesome [@farmio]!
 - [@thecode] added support for [Shelly] Pro 3EM energy sensors, nice!
 - [ScreenLogic] now supports local push updates for almost all entities. Thanks [@dieselrabbit]!
