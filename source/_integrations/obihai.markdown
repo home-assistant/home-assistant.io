@@ -53,3 +53,11 @@ In addition to the above list the `admin` account can expect to see the followin
 - Obihai service status (`Normal`, `Down` or other states from Obihais network)
 - Sensors for each phone port in use (`On Hook`, `Off Hook` and `Ringing`)
 - Sensors for last caller name and number (this is also the current incoming call, will also show `--` if no data provided)
+
+### Service `obihai.reboot`
+
+Call the reboot command on the Obihai from Home Assistant.
+
+| Service Data Attribute | Required | Description                                                                                   |
+| ---------------------- | -------- | --------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Any Entity ID from the desired Obihai                                       |
