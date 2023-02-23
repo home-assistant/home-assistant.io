@@ -67,7 +67,7 @@ Enjoy the (beta) release!
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
 
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=3UaLAhG9Brc) 1 February 2023, at 12:00 PST / 21:00 CET!
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=3UaLAhG9Brc) 1 March 2023, at 12:00 PST / 21:00 CET!
 
 <lite-youtube videoid="3UaLAhG9Brc" videotitle="Home Assistant 2023.2 Release Party"></lite-youtube>
 
@@ -84,10 +84,13 @@ by [@piitaya] that will hopefully make this all better, more clear.
 
 <img class="no-shadow" src='/images/blog/2023-03/restart-home-assistant.png' alt='Screenshot showing the new restart dialog of Home Assistant that provides a guidance on what action to take.'>
 
-Nice, right? 🤩 What is entrily new is the first item shown: "Quick reload".
+Nice, right? 🤩 What is entirely new is the first item shown: "Quick reload".
 Quick reload calls all active integrations in your system that support
-reloading YAML configuration on the fly 🚀. Also, [@frenck] made quick reload
-available as a {% my developer_call_service service="homeassistant.reload_all" title="service" %}
+reloading YAML configuration on the fly 🚀.
+
+This means all integrations individually listed as reloadable under the YAML
+tab in the developer tools, are all reloaded at once! Also, [@frenck] made quick
+reload available as a {% my developer_call_service service="homeassistant.reload_all" title="service" %}
 too, so that you can automate with it.
 
 Lastly, the option to restart has also been added to the three-dotted overflow
@@ -129,7 +132,7 @@ Read more about [contributing sentences in our documentation](https://developers
 
 ## Cleaner entity information dialogs
 
-The entity information dialog (also known as the more-info dialogs), got some
+The entity information dialog (also known as the more-info dialogs) got some
 nice improvements in this release.
 
 <img class="no-shadow" src='/images/blog/2023-03/new-entity-dialog.png' alt='Screenshot showing the new entity information dialogs, highlighting the top bar changes.'>
@@ -245,7 +248,7 @@ available today in this release.
 Note: This is a temporary placeholder screenshot. Needs replacement.
 </p>
 
-Matter now has support for connecting to Matter brides, and [@ArturoGuerra]
+Matter now has support for connecting to Matter bridges, and [@ArturoGuerra]
 add support light colors!
 
 [@ArturoGuerra]: https://github.com/ArturoGuerra
@@ -541,7 +544,7 @@ Template covers using `optimistic: false` without `value_template` nor
 previous behavior, you must set `optimistic` value to `true`,
 or remove the optimistic declaration.
 
-([@ylemoigne] - [#87925]) ([documentation](/integrations/wiffi))
+([@ylemoigne] - [#87925]) ([documentation](/integrations/template))
 
 [@ylemoigne]: https://github.com/ylemoigne
 [#87925]: https://github.com/home-assistant/core/pull/87925
@@ -596,6 +599,22 @@ Home Assistant uses `lx`.
 
 [@mampfes]: https://github.com/mampfes
 [#87377]: https://github.com/home-assistant/core/pull/87377
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+With this release, you will need to update your zwave-js-server instance.
+
+- If you use the zwave_js add-on, you need at least version `0.1.76`.
+- If you use the Z-Wave JS UI add-on, you need at least version `1.6.3`.
+- If you use the Z-Wave JS UI Docker container, you need at least version `8.8.6`.
+- If you run your own Docker container or some other installation method,
+  you will need to update your zwave-js-server instance to at least `1.26.0`.
+
+([@raman325]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
 
 {% enddetails %}
 
