@@ -287,7 +287,7 @@ _All these can be extended if your usage calls for more resources._
     4. Select “Use Bridged Networking”
     5. Select “Use an existing virtual disk” and select the VMDK file above,
 
-    After creation of VM go to “Settings” and “Options” then “Advanced” and select “Firmware type” to “UEFI”.
+    After creation of VM go to “Settings” and “Options” then “Advanced” and select “Firmware type” to “UEFI”. In Player 17, this must be done by opening the .vmx configuration file for the VM and adding the line ```firmware = "efi"```
 
 {% elsif page.installation_type == 'alternative' %}
 
