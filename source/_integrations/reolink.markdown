@@ -55,6 +55,24 @@ Depending on the supported features of the camera number entities are added for:
 - Optical zoom control
 - Focus control
 
+## Switch entities
+
+Depending on the supported features of the camera switch entities are added for:
+
+- Record audio
+- Siren on event
+- Auto tracking
+- Auto focus
+- Guard return
+
+Depending on the supported features of the NVR/host, global switch entities are added for:
+
+- Record
+- Push notifications
+- Buzzer on event
+- Email on event
+- FTP upload
+
 ## Update entity
 
 An update entity is available that checks for firmware updates every 12 hours.
