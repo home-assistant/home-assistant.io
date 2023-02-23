@@ -605,16 +605,18 @@ Home Assistant uses `lx`.
 {% details "Z-Wave" %}
 
 With this release, you will need to update your zwave-js-server instance.
+You must use `zwave-js-server` 1.26.0 or greater (schema 24).
 
-- If you use the zwave_js add-on, you need at least version `0.1.76`.
-- If you use the Z-Wave JS UI add-on, you need at least version `1.6.3`.
-- If you use the Z-Wave JS UI Docker container, you need at least version `8.8.6`.
+- If you use the `Z-Wave JS` add-on, you need at least version `0.1.76`.
+- If you use the `Z-Wave JS UI` add-on, you need at least version `1.6.3`.
+- If you use the `Z-Wave JS UI` Docker container, you need at least version `8.8.6`.
 - If you run your own Docker container or some other installation method,
-  you will need to update your zwave-js-server instance to at least `1.26.0`.
+  you will need to update your `zwave-js-server` instance to at least `1.26.0`.
 
-([@raman325]) ([documentation](/integrations/zwave_js))
+([@raman325] - [#88520]) ([documentation](/integrations/zwave_js))
 
 [@raman325]: https://github.com/raman325
+[#88520]: https://github.com/home-assistant/core/pull/88520
 
 {% enddetails %}
 
