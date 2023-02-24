@@ -66,7 +66,8 @@ The integration provides a light entity if the unit is equipped with lights.
 
 ### Number
 
-The integration uses a Number entity to control flame height. Valid flame height vales are `1-5`.
+- **Flame height:** Valid flame height vales are `1-5`.
+- **Sleep timer:** `0` will disable the sleep timer. Valid values are `1-180` minutes.
 
 ### Sensor Types
 
