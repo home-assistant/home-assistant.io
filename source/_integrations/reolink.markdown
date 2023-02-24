@@ -55,6 +55,19 @@ Depending on the supported features of the camera number entities are added for:
 - Optical zoom control
 - Focus control
 
+## Button entities
+
+Depending on the supported features of the camera button entities are added for:
+
+- PTZ stop
+- PTZ left
+- PTZ right
+- PTZ up
+- PTZ down
+- PTZ calibrate
+- Guard go to
+- Guard set current position
+
 ## Update entity
 
 An update entity is available that checks for firmware updates every 12 hours.
