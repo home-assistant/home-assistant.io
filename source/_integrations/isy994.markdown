@@ -185,7 +185,7 @@ Set a Z-Wave Lock User Code via the ISY.
 
 | Service data attribute | Optional | Description                                                                                     |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of target entity for the command, e.g., `lock.front_door`. This must be an ISY Z-Wave Lock entity. |
+| `entity_id`            | no       | Name of target entity for the command, e.g., `lock.front_door`. The entity must be an ISY Z-Wave Lock entity. |
 | `user_num`             | no       | The user slot number to set on the end device.                                                  |
 | `code`                 | no       | The lock code to set for the user slot.                                                         |
 
@@ -196,8 +196,8 @@ Delete a Z-Wave Lock User Code via the ISY.
 
 | Service data attribute | Optional | Description                                                                                     |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of target entity for the command, e.g., `lock.front_door`. This must be an ISY Z-Wave Lock entity. |
-| `user_num`             | no       | The user slot number for which to delete the code on the end device.                            |
+| `entity_id`            | no       | Name of target entity for the command, e.g., `lock.front_door`. The entity must be an ISY Z-Wave Lock entity. |
+| `user_num`             | no       | The user slot number to delete the code on the end device.                            |
 
 #### Service `isy994.rename_node`
 
