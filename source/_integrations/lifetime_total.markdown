@@ -28,3 +28,4 @@ Name:
 description: The name the sensor should have. You can change it again later.
 Input entity:
 description: The sensor to convert to lifetime total. Should ideally be an entity with `total_increasing` state type
+{% endconfiguration_basic %}
