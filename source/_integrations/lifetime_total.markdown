@@ -6,7 +6,7 @@ ha_category:
   - Sensor
   - Utility
 ha_iot_class: Calculated
-ha_release: 2022.04
+ha_release: 2023.4
 ha_quality_scale: internal
 ha_codeowners:
   - '@avee87'
@@ -23,9 +23,9 @@ For example, if your electricity meter goes from 0 to 10kWh every day, correspon
 If input sensor state is unavailable or unknown, it will be ignored until the next correct value.
 
 {% include integrations/config_flow.md %}
-{% configuration_basic %}
+{% configuration %}
 Name:
 description: The name the sensor should have. You can change it again later.
 Input entity:
 description: The sensor to convert to lifetime total. Should ideally be an entity with `total_increasing` state type
-{% endconfiguration_basic %}
+{% endconfiguration %}
