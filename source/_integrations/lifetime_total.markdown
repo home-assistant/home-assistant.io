@@ -23,9 +23,9 @@ For example, if your electricity meter goes from 0 to 10kWh every day, correspon
 If input sensor state is unavailable or unknown, it will be ignored until the next correct value.
 
 {% include integrations/config_flow.md %}
-{% configuration %}
+{% configuration_basic %}
 Name:
-description: The name the sensor should have. You can change it again later.
+  description: The name the sensor should have. You can change it again later.
 Input entity:
-description: The sensor to convert to lifetime total. Should ideally be an entity with `total_increasing` state type
-{% endconfiguration %}
+  description: The sensor to convert to lifetime total. Should ideally be an entity with `total_increasing` state type.
+{% endconfiguration_basic %}
