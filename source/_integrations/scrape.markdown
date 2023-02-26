@@ -273,7 +273,7 @@ The example gets the container type and container cleaning date for the next two
 scrape:
   - resource: https://crm.cleanprofs.nl/search/planning
     method: POST
-    payload: zipcode=1111AA&street_number=99
+    payload: zipcode=5624JW&street_number=17
     headers:
       Content-Type: application/x-www-form-urlencoded
     sensor:
@@ -281,7 +281,7 @@ scrape:
         select: "div.nk-tb-item:nth-child(2) > div:nth-child(1) > span:nth-child(1)"
   - resource: https://crm.cleanprofs.nl/search/planning
     method: POST
-    payload: zipcode=1111AA&street_number=99
+    payload: zipcode=5624JW&street_number=17
     headers:
       Content-Type: application/x-www-form-urlencoded
     sensor:
@@ -289,7 +289,7 @@ scrape:
         select: "div.nk-tb-item:nth-child(2) > div:nth-child(3) > span:nth-child(1) > span:nth-child(1)"
   - resource: https://crm.cleanprofs.nl/search/planning
     method: POST
-    payload: zipcode=1111AA&street_number=99
+    payload: zipcode=5624JW&street_number=17
     headers:
       Content-Type: application/x-www-form-urlencoded
     sensor:
@@ -297,7 +297,7 @@ scrape:
         select: "div.nk-tb-item:nth-child(3) > div:nth-child(1) > span:nth-child(1)"
   - resource: https://crm.cleanprofs.nl/search/planning
     method: POST
-    payload: zipcode=1111AA&street_number=99
+    payload: zipcode=5624JW&street_number=17
     headers:
       Content-Type: application/x-www-form-urlencoded
     sensor:
