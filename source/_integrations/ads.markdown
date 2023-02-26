@@ -71,7 +71,7 @@ The ADS integration will register the service `write_by_name` allowing you to wr
 Service parameters:
 
 - **adsvar**: Name of the variable on the ADS device. To access global variables on *TwinCAT2* use a prepending dot `.myvariable`, for TwinCAT3 use `GBL.myvariable`.
-- **adstype**: Specify the type of the variable. Use one of the following: `int`, `byte`, `uint`, `bool`
+- **adstype**: Specify the type of the variable. Use one of the following: `int`, `byte`, `uint`, `bool`, `real`
 - **value**: The value that will be written in the variable.
 
 ## Binary Sensor
@@ -135,7 +135,7 @@ name:
 
 ## Sensor
 
-The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT*,  *BYTE*, *DINT* or *UDINT*.
+The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT*,  *BYTE*, *DINT*, *UDINT* or *REAL*.
 
 To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
 file:
@@ -156,7 +156,7 @@ adsvar:
   type: string
 adstype:
   required: false
-  description: The datatype of the ADS variable, possible values are int, uint, byte, dint, udint.
+  description: The datatype of the ADS variable, possible values are int, uint, byte, dint, udint, real.
   default: int
   type: string
 name:
