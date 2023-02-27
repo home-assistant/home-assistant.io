@@ -123,6 +123,8 @@ In this example, a switch is available to control the power to the television. S
 
 The children are a Chromecast and a Kodi player. If the Chromecast is playing, the Universal Media Player will reflect its status. If the Chromecast is idle and Kodi is playing, the universal media player will change to reflect its status.
 
+{% raw %}
+
 ```yaml
 media_player:
   platform: universal
@@ -172,6 +174,8 @@ media_player:
     source_list: media_player.receiver|source_list
 ```
 
+{% endraw %}
+
 ### Kodi CEC-TV control
 
 In this example, a [Kodi Media Player](/integrations/kodi) runs in a CEC capable device (OSMC/OpenElec running in a Raspberry Pi 24/7, for example), and, with the JSON-CEC Kodi add-on installed, it can turn on and off the attached TV.
@@ -181,6 +185,8 @@ We store the state of the attached TV in an [input boolean](/integrations/input_
 Because the input boolean used to store the TV state is only changing when using the Home Assistant `turn_on` and `turn_off` actions, and Kodi could be controlled by so many ways, we also define some automations to update this Input Boolean when needed.
 
 The complete configuration is:
+
+{% raw %}
 
 ```yaml
 homeassistant:
@@ -195,9 +201,11 @@ media_player:
   - platform: universal
     name: Kodi TV
     state_template: >
-      {% if is_state('media_player.kodi', 'idle') and
-      is_state('input_boolean.kodi_tv_state', 'off') %} off {% else %} {{
-      states('media_player.kodi') }} {% endif %}
+      {% if is_state('media_player.kodi', 'idle') and is_state('input_boolean.kodi_tv_state', 'off') %}
+        off
+      {% else %}
+        {{ states('media_player.kodi') }}
+      {% endif %}
     children:
       - media_player.kodi
     commands:
@@ -268,9 +276,13 @@ automation:
           entity_id: media_player.kodi_tv
 ```
 
+{% endraw %}
+
 ### Harmony Remote Example
 
 The complete configuration is:
+
+{% raw %}
 
 ```yaml
 media_player:
@@ -313,9 +325,13 @@ media_player:
     unique_id: media_room_harmony_hub
 ```
 
+{% endraw %}
+
 ### Override active children
 
 This example shows how you can use `active_children_template`:
+
+{% raw %}
 
 ```yaml
 media_player:
@@ -332,3 +348,5 @@ media_player:
          media_player.sony_tv_cast
       {% endif %}
 ```
+
+{% endraw %}
