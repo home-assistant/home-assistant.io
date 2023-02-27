@@ -4,6 +4,7 @@ description: Instructions on how to integrate your Obihai device into Home Assis
 ha_iot_class: Local Polling
 ha_category:
   - Sensor
+ha_config_flow: true
 ha_release: 0.99
 ha_codeowners:
   - '@dshokouhi'
