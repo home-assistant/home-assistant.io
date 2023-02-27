@@ -163,42 +163,48 @@ Other state examples:
 
 The examples below show the output of a temperature sensor with state `20.001`, unit `°C` and user configured presentation rounding set to 1 decimal.
 
-This results in the number `20.001`:
+The following example results in the number `20.001`:
+
 {% raw %}
 ```text
 {{ states('sensor.temperature') }}
 ```
 {% endraw %}
 
-This results in the string `"20.0 °C"`:
+The following example results in the string `"20.0 °C"`:
+
 {% raw %}
 ```text
 {{ states('sensor.temperature', with_unit=True) }}
 ```
 {% endraw %}
 
-This results in the string `"20.001 °C"`:
+The following example result in the string `"20.001 °C"`:
+
 {% raw %}
 ```text
 {{ states('sensor.temperature', with_unit=True, rounded=False) }}
 ```
 {% endraw %}
 
-This results in the number `20.0`:
+The following example results in the number `20.0`:
+
 {% raw %}
 ```text
 {{ states('sensor.temperature', rounded=True) }}
 ```
 {% endraw %}
 
-This results in the number `20.001`:
+The following example results in the number `20.001`:
+
 {% raw %}
 ```text
 {{ states.sensor.temperature.state }}
 ```
 {% endraw %}
 
-This results in the string `"20.0 °C"`:
+The following example results in the string `"20.0 °C"`:
+
 {% raw %}
 ```text
 {{ states.sensor.temperature.state_with_unit }}
