@@ -83,6 +83,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 
 - ANNE PRO CSR 4.0 (CSR8510A10)
 - Avantree BTDG-40S (CSR8510A10)
+- DIGITUS DN-30210-1 (CSR8510A10)
 - Enbiawit BT403 (CSR8510A10)
 - Feasycom FSC-BP119 (CSR8510A10) 📶
 - HIDEEZ BT0015-01 (CSR8510A10)
