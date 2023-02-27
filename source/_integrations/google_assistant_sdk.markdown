@@ -36,6 +36,8 @@ This integration allows:
   - What does the elephant say?
 - Having a conversation with Google Assistant using the [conversation](/integrations/conversation/) integration via text or voice.
 
+Note: If you want to get responses from commands to Google Assistant in automations install the [Google Assistant SDK Custom](https://github.com/tronikos/google_assistant_sdk_custom) integration.
+
 <lite-youtube videoid="a-Is8GtLJCs" videotitle="Controlling Google Home With Home Assistant!" posterquality="maxresdefault"></lite-youtube>
 
 ## Prerequisites
@@ -184,4 +186,4 @@ data:
   text: "Dim the family room lights"
 ```
 
-Note: due to a bug in the Google Assistant API, not all responses contain text, especially for home control commands, like turn on the lights. These will be shown as `<empty response>`. For those, Google Assistant responds with HTML and Home Assistant integrations are [not allowed](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md) to parse HTML.
+Note: due to a [bug](https://github.com/googlesamples/assistant-sdk-python/issues/391) in the Google Assistant API, not all responses contain text, especially for home control commands, like turn on the lights. These will be shown as `<empty response>`. To fix this install the [Google Assistant SDK Custom](https://github.com/tronikos/google_assistant_sdk_custom) integration.
