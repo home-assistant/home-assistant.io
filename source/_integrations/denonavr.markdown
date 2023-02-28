@@ -50,6 +50,8 @@ Known supported devices:
 - Denon AVR-X4700H
 - Denon AVR-X6500H
 - Denon AVR-X6700H
+- Denon AVR-X7200W
+- Denon AVR-X8500H
 - Denon AVR-1912
 - Denon AVR-2112CI
 - Denon AVR-2312CI
@@ -108,14 +110,19 @@ host:
   description: IP address of the device, e.g., 192.168.1.32. If not set, auto-discovery is used.
 show_all_sources:
   description: If True all sources are displayed in sources list even if they are marked as deleted in the receiver. If False deleted sources are not displayed. Some receivers have a bug that marks all sources as deleted in the interface. In this case, this option could help.
-zone1:
-  description: Specifies if zone 1 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
 zone2:
-  description: Specifies if zone 2 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports. Some receivers do not support a second zone.
+  description: Specifies if zone 2 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
+zone3:
+  description: Specifies if zone 3 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports. Some receivers do not support a second zone.
 update_audyssey:
   description: Specifies if Audyssey settings should be updated. This can take up to 10 seconds for some receivers.
   required: false
   default: false
+  type: boolean
+use_telnet:
+  description: Specifies if a telnet connection should be used to receive device status updates. Using telnet provides realtime updates (local push) for many values but each receiver is limited to a single connection. If you enable this setting, no other connection to your device can be made via telnet. This will be set to true for new installations of the integration but false for existing installs to prevent compatibility issues.
+  required: false
+  default: true
   type: boolean
 {% endconfiguration_basic %}
 
