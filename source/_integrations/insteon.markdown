@@ -77,14 +77,14 @@ The following capabilities are available in the Insteon panel:
   - **Write changes to the device**: Use the **Write changes** button to write added or changed records to the device.
   - **Undo changes**: ALDB record changes can be undone prior to being written to the device using the **Undo changes** button.
 
-<p class='note warning'>If you chose to use the Insteon app, it is recommended to add devices and scenes using the Insteon app. Home Assistant will see the devices and scenes as well.</p>
-<p class='note warning'>Editing a device's All-Link Database can cause the device to become unresponsive. If this occures, simply relink the device to the modem using the **Add device** directions above.</p>
+<p class='note warning'>If you choose to use the Insteon app, it is recommended to add devices and scenes using the Insteon app. Home Assistant will see the devices and scenes as well.</p>
+<p class='note warning'>Editing a device's All-Link Database can cause the device to become unresponsive. If this occurs, simply relink the device to the modem using the **Add device** directions in the [Insteon Panel](#insteon-panel).</p>
 
 [understanding linking]: https://www.insteon.com/support-knowledgebase/2015/1/28/understanding-linking
 
 ## INSTEON Scenes
 
-Trigger an INSTEON scene on or off, is done via automations. Two services are provided to support this feature:
+Triggering an INSTEON scene on or off is done via automations. Two services are provided to support this feature:
 
 - **insteon.scene_on**
   - **group**: (required) The INSTEON scene number to trigger.
