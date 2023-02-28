@@ -89,9 +89,9 @@ The integration setup will next give you instructions to enter the [Application 
 
 ## Enable personal results
 
-If you want to enable personal commands (e.g. "remind me tomorrow at 9pm to take out trash") follow below steps after successfully installing the integration. This is for advanced users since it requires creating an OAuth client ID of Desktop app, running a python program on your desktop (or laptop), and copying the resulting credentials.json to your Home Assistant config directory.
+If you want to enable personal commands (e.g. "remind me tomorrow at 9pm to take out trash") follow below steps after successfully installing the integration. This is for advanced users since it requires creating an OAuth client ID of Desktop app, running a Python program on your desktop (or laptop), and copying the resulting credentials to your Home Assistant config directory.
 
-{% details "Create google_assistant_sdk_credentials.json" %}
+{% details "Create credentials file" %}
 
 1. Navigate to https://console.cloud.google.com/apis/credentials
 2. Select the project you created earlier from the dropdown menu in the upper left corner.
@@ -100,18 +100,18 @@ If you want to enable personal commands (e.g. "remind me tomorrow at 9pm to take
 5. Click Create.
 6. In the OAuth client created screen, click on Download JSON.
 7. Rename the downloaded file to `client_secret.json`
-8. On your Windows or Linux or Mac machine download python if you don't have it already.
+8. On your Windows or Linux or Mac machine download Python if you don't have it already.
 9. Open terminal (on windows click on start and then type cmd).
-10. On the terminal run the following commands (preferably in a python virtual environment): 
+10. On the terminal run the following commands (preferably in a Python virtual environment): 
 11. `python -m pip install --upgrade google-auth-oauthlib[tool]`
 12. Under Windows: `google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype --scope https://www.googleapis.com/auth/gcm --save --client-secrets %userprofile%\Downloads\client_secret.json`
 13. Or under Linux: `google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype --scope https://www.googleapis.com/auth/gcm --save --client-secrets ~/Downloads/client_secret.json`
 14. A browser window will open asking you to select account to continue to the cloud project you created earlier.
 15. Once you select the correct account, add a tick to both: "Use your Google Assistant: broad access to your Google account."  and "Send information to your Android device.".
 16. Click continue.
-17. If everything was successful you will get "The authentication flow has completed. You may close this window." in your browser and in your terminal you will see the path where the credentials was saved. E.g. "credentials saved: C:\Users\user\AppData\Roaming\google-oauthlib-tool\credentials.json"
-18. In the file editor of your Home Assistant, typically http://homeassistant.local:8123/core_configurator, upload credentials.json in your config directory and rename it to "google_assistant_sdk_credentials.json".
-19. If you have .gitignore in your config directory, add google_assistant_sdk_credentials.json in that file to avoid uploading your credentials to GitHub.
+17. If everything was successful you will get "The authentication flow has completed. You may close this window." in your browser and in your terminal you will see the path where the credentials was saved. E.g. `credentials saved: C:\Users\user\AppData\Roaming\google-oauthlib-tool\credentials.json`
+18. In the file editor of your Home Assistant, typically http://homeassistant.local:8123/core_configurator, upload `credentials.json` in your config directory and rename it to `google_assistant_sdk_credentials.json`.
+19. If you have .gitignore in your config directory, add `google_assistant_sdk_credentials.json` in that file to avoid uploading your credentials to GitHub.
 
 {% enddetails %}
 
@@ -136,7 +136,7 @@ If broadcasting doesn't work, make sure: the speakers aren't in do not disturb m
 ## Limitations/known issues
 
 - Multiple Google accounts are not supported.
-- If you see the issued commands in https://myactivity.google.com/myactivity the integration is working fine. If the commands don't have the expected outcome don't open an issue in Home Assistant core project. Instead open an issue in https://github.com/googlesamples/assistant-sdk-python/issues. Examples of known Google Assistant API issues:
+- If you see the issued commands in https://myactivity.google.com/myactivity the integration is working fine. If the commands don't have the expected outcome don't open an issue in Home Assistant Core project. Instead open an issue in https://github.com/googlesamples/assistant-sdk-python/issues. Examples of known Google Assistant API issues:
   - Media playback commands (other than play news or play white noise or play rain sounds) don't work.
   - Routines don't work.
 
