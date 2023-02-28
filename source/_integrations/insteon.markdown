@@ -66,8 +66,8 @@ The following capabilities are available in the Insteon panel:
 - **Scenes**: Insteon scenes can be created, changed or deleted using the **Scenes** tab of the Insteon panel.
 - **Device Properties**: Insteon device properties, such as the LED brightness, can be managed using the Insteon panel. To see the available properties of a device, select the device from the list of devices in the Insteon panel. This will display the list of available properties for the specific device on the **Properties** tab. Each device type will have a different set of properties and not all devices have properties.
   - **Read device properties**:  Use the **Load from device** button to read the properties from the device.
-  - **Change device properties**: Device properties, such as turning the LED on or off, can be set from the device view of the Insteon panel. Select the device from the list of devices in the Insteon panel. Ensure the **Properties** tab is selected and select the specific property from the list. Use the dialog box to edit the property value. This does not write the change to the device.
-  - **Write property changes**: From the **Properties** tab of the device use the **Write to device** button to save the property changes to the device.
+  - **Change device properties**: Select the specific property from the list of properties. Use the dialog box to edit the property value. This does not write the change to the device.
+  - **Write property changes**: Use the **Write to device** button to save the property changes to the device.
   - **Undo changes**: Property changes can be undone before they are written to the device by selecting the **Undo changes** button.
 - **Device All-Link Database**: The Insteon All-Link Database (ALDB) contains the list of links to other devices in the Insteon network. The All-Link Database can be managed using the Insteon Panel. To see the All-Link Database of a device, select the device from the list of devices in the Insteon panel and select the **All-Link Database** tab.
   - **Read the ALDB**: Use the **Load from device** button to read the current ALDB records from the device.
