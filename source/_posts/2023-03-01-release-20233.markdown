@@ -347,7 +347,7 @@ We welcome the following new integrations in this release:
   Retrieves dynamic (hourly) energy & gas prices from the Dutch utility company
   easyEnergy.
 - **[TP-Link Omada SDN Controller]**, added by [@MarkGodwin]<br />
-  Control your TP-Link Omada SDN Devices such as network switches,
+  Control your TP-Link Omada SDN Devices, such as network switches,
   access points, and internet gateways.
 
 [@emontnemery]: https://github.com/emontnemery
