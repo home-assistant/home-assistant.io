@@ -23,7 +23,7 @@ ha_brand: true
 
 [HELTUN](https://www.heltun.com/) is a member of the Works with Home Assistant partner program for their Z-Wave products. HELTUN is committed to making sure their products are up-to-date and ready to use in Home Assistant.
 
-HELTUN thermostats make it easy to automate your heating system, their touch panel switches control your lighting and motorized appliances and their high load switches control any high load appliances like groups of lights, heaters or individual sockets.
+HELTUN thermostats make it easy to automate your heating system, their touch panel switches control your lighting and motorized appliances and their high load switches control any high load appliances like groups of lights, heaters, or individual sockets.
 
 HELTUN Z-Wave devices work locally and integrate seamlessly with the Z-Wave integration in Home Assistant (Z-Wave stick required). As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant.
 
