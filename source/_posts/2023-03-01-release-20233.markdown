@@ -258,12 +258,12 @@ add support light colors!
 Support for Python 3.11 is here! 🐍
 
 This change is only interesting if you manually run Home Assistant
-directly in Python (aka the Home Assistant Core installation method). If that
+directly in Python (the Home Assistant Core installation method). If that
 is the case, you can now start using Home Assistant using Python 3.11, which
 should dramatically improve performance over previous Python versions.
 
-We are working on upgrading to Python 3.11 for our Home Assistant OS,
-Supervised, and Container installation methods as well so we can provide
+We are also working on upgrading to Python 3.11 for our Home Assistant OS,
+Supervised, and Container installation methods so we can provide
 the same performance improvements. We'll keep you posted.
 
 ## Other noteworthy changes
