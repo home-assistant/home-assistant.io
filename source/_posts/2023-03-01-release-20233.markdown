@@ -15,39 +15,24 @@ og_image: /images/blog/2023-03/social.png
 
 <a href='/integrations/#version/2023.3'><img src='/images/blog/2023-03/social.png' style='border: 0;box-shadow: none;'></a>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
-These are the beta release notes for Home Assistant Core 2023.3 (and is thus a
-work in progress).
-
-If you encounter any issues with the beta release, please report them on GitHub:
-
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/dashboards:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
-
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
-
-Issues introduced in the beta are processed with priority.
-
----
-
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
 Home Assistant Core 2023.3! 🎉
 
-February was a short month, resulting in a short release cycle. Yet,
-this release brings in a lot of great improvements.
+February was a short month, resulting in a short release cycle, but... That
+didn't stop anybody from stuffing this release with many great improvements!
 
-Thanks for helping out testing the beta! ❤️
+As the release title most fittingly puts it, most features of this release
+show up in dialogs. New dialogs, restyled dialogs, new features that appear
+in dialogs, and all sorts of new dialogues you have with Assist. Something
+with "dialogs" all over these release notes!
 
-Enjoy the (beta) release!
+Besides dialogs, this release brings in three new integrations, updates to
+Thread and Matter, and quite an impressive list of other noteworthy changes.
+
+My personal favorite in this release is, undoubtedly, the all-new restart dialog.
+It brings in proper choice, less navigation, and it looks slick! I am genuinely
+really loving and enjoying the result. 🤩
+
+Enjoy the release!
 
 ../Frenck
 
