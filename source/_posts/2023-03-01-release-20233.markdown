@@ -22,7 +22,7 @@ didn't stop anybody from stuffing this release with many great improvements!
 
 As the release title most fittingly puts it, most features of this release
 show up in dialogs. New dialogs, restyled dialogs, new features that appear
-in dialogs, and all sorts of new dialogues can you have with Assist. Something
+in dialogs, and all sorts of new dialogues you can have with Assist. Something
 with "dialogs" all over these release notes!
 
 Besides dialogs, this release brings in three new integrations, updates to
@@ -42,7 +42,7 @@ Enjoy the release!
 - [Asking Assist for the current state of things](#asking-assist-for-the-current-state-of-things)
 - [Cleaner entity information dialogs](#cleaner-entity-information-dialogs)
 - [New dialogs for lights, switches and siren entities](#new-dialogs-for-lights-switches-and-siren-entities)
-- [Sensor precision](#sensor-precision)
+- [Sensor display precision](#sensor-display-precision)
 - [New create automation dialog](#new-create-automation-dialog)
 - [Thread \& Matter](#thread--matter)
 - [Python 3.11 support](#python-311-support)
@@ -91,7 +91,7 @@ settings screen.
 This release updates Assist with the capability to ask for the state of things
 around your home. For example:
 
-<img class="no-shadow" src='/images/blog/2023-03/ask-assist-for-states.png' alt='Screenshot showing the assist conversation dialog demonstrating new new intents to get the state of things in your home.'>
+<img class="no-shadow" src='/images/blog/2023-03/ask-assist-for-states.png' alt='Screenshot showing the assist conversation dialog demonstrating new intents to get the state of things in your home.'>
 
 Intents for three types of questions have been added:
 
@@ -103,7 +103,7 @@ Intents for three types of questions have been added:
   - _"Are any lights on in the bedroom?"_
   - _"Are all windows closed in the kitchen?"_
 - How many or which questions:
-  - _"How many lights on are in the office?"_
+  - _"How many lights are on in the office?"_
   - _"Which doors are open?"_
 
 Thanks, [@synesthesiam] for implementing this, and thanks to language leaders
@@ -117,7 +117,7 @@ Read more about [contributing sentences in our documentation](https://developers
 
 ## Cleaner entity information dialogs
 
-The entity information dialog (also known as the more-info dialogs) got some
+The entity information dialog (also known as the more-info dialog) got some
 nice improvements in this release.
 
 <img class="no-shadow" src='/images/blog/2023-03/new-entity-dialog.png' alt='Screenshot showing the new entity information dialogs, highlighting the top bar changes.'>
@@ -155,15 +155,15 @@ controls that come with the cleaner look we discussed in the previous paragraph.
 [@matthiasdebaat]: https://github.com/matthiasdebaat
 [@piitaya]: https://github.com/piitaya
 
-## Sensor precision
+## Sensor display precision
 
 Got a sensor that has too many decimals in its numeric value? Would you like
-to round it to a single or maybe even no decimals?
+to display it rounded to a single or maybe even no decimals?
 
 Just ~~create a template sensor~~ change it directly from the UI!
 
 <img class="no-shadow" src='/images/blog/2023-03/entity-precision.png' alt='Screenshot showing you can now set the numerical
-precision of an sensor entity value from the entity settings dialog.'>
+precision of a sensor entity value shown in the UI from the entity settings dialog.'>
 
 Thanks [@emontnemery] for building out this feature!
 
@@ -187,7 +187,7 @@ You can now quickly find and pick a Blueprint to use for your automation or
 create one from scratch. The overall look and feel is much more modern, and
 fits our current design better.
 
-<img class="no-shadow" src='/images/blog/2023-03/new-automation-dialog.png' alt='Screenshot showing the improved createnew automation dialogs, which allows easily start an new automation from a blueprint or from scratch.'>
+<img class="no-shadow" src='/images/blog/2023-03/new-automation-dialog.png' alt='Screenshot showing the improved createnew automation dialogs, which allows easily starting a new automation from a blueprint or from scratch.'>
 
 You may notice it now shows author information in this dialog. If you create
 Blueprints, you can now add [author information] to your Blueprint,
@@ -224,7 +224,7 @@ now connect, for example, your Hue hub over Matter!
 Two Philips Hue bridges connected using Matter, and it is fast!
 </p>
 
-Althought, if you want to connect your Hue hub, we of course recommend using
+Although, if you want to connect your Hue hub, we of course recommend using
 the dedicated [Hue integration](/integrations/hue), which will provide a much
 more stable and feature rich solution. Nevertheless, having bridge support is
 a huge milestone!
@@ -242,7 +242,7 @@ Support for Python 3.11 is here! 🐍
 
 This change is only interesting if you manually run Home Assistant
 directly in Python (the Home Assistant Core installation method). If that
-is the case, you can now start using Home Assistant using Python 3.11, which
+is the case, you can now start using Home Assistant with Python 3.11, which
 should dramatically improve performance over previous Python versions.
 
 We are also working on upgrading to Python 3.11 for our Home Assistant OS,
@@ -377,8 +377,8 @@ this will be customizable through the frontend.
 
 {% details "Atmospheric pressure device triggers" %}
 
-A bug with the atmospheric pressure sensor device triggers has been corrected,
-automations using such device triggers will need to be adjusted/reconfigured.
+A bug with the atmospheric pressure sensor device triggers has been corrected.
+Automations using such device triggers will need to be adjusted/reconfigured.
 
 ([@epenet] - [#88320]) ([documentation](/integrations/sensor))
 
@@ -461,7 +461,7 @@ Reference: [Sensirion_Gas_Sensors_SGP3x_TVOC_Concept.pdf](https://github.com/pau
 
 {% details "Matter" %}
 
-With this release, you will need to update your zwave-js-server instance.
+With this release, you will need to update your Matter Server instance.
 You must use `python-matter-server` 3.0.0 or greater (schema 2).
 
 - If you use the `Matter Server` add-on, you need to have at least version `4.0.0`.
@@ -546,8 +546,8 @@ or remove the optimistic declaration.
 
 {% details "Trafikverket Weather" %}
 
-The unit of measurement and device class has been incorrectly set to `mm` while the
-API is returning `mm/h`. This has now been corrected.
+The unit of measurement was incorrectly set to `mm` while the
+API is returning `mm/h`. The unit of measurement and device class have now been corrected.
 
 ([@gjohansson-ST] - [#87308]) ([documentation](/integrations/trafikverket_weatherstation))
 
@@ -560,9 +560,9 @@ API is returning `mm/h`. This has now been corrected.
 
 Labels used by custom projects for filtering are now case-sensitive.
 
-Previously there were automatically lower-cased by the integration,
+Previously the labels were automatically lower-cased by the integration,
 but in Todoist a label like `Test` and `test` are considered unique.
-Because of that labels will now by case sensitive in your configuration.
+Because of that labels will now be case sensitive in your configuration.
 
 ([@boralyl] - [#87904]) ([documentation](/integrations/todoist))
 
@@ -613,7 +613,7 @@ Home Assistant uses `lx`.
 {% details "Z-Wave" %}
 
 With this release, you will need to update your zwave-js-server instance.
-You must use `zwave-js-server` 1.26.0 or greater (schema 24).
+You must use `zwave-js-server` 1.26.0 or greater (schema 26).
 
 - If you use the `Z-Wave JS` add-on, you need at least version `0.1.76`.
 - If you use the `Z-Wave JS UI` add-on, you need at least version `1.6.3`.
