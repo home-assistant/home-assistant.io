@@ -89,13 +89,13 @@ Quick reload calls all active integrations in your system that support
 reloading YAML configuration on the fly 🚀.
 
 This means all integrations individually listed as reloadable under the YAML
-tab in the developer tools, are all reloaded at once! Also, [@frenck] made quick
-reload available as a {% my developer_call_service service="homeassistant.reload_all" title="service" %}
-too, so that you can automate with it.
+tab in the developer tools are reloaded simultaneously! Also, [@frenck] made
+quick reload available as a {% my developer_call_service service="homeassistant.reload_all" title="service" %},
+so you can automate with it.
 
-Lastly, the option to restart has also been added to the three-dotted overflow
-menu in the top right of the settings screen, to add another place for finding
-it more easily.
+Lastly, another place for finding it more easily; the option to restart has
+also been added to the three-dotted overflow menu in the top right of the
+settings screen.
 
 [@frenck]: https://github.com/frenck
 [@matthiasdebaat]: https://github.com/matthiasdebaat
