@@ -375,14 +375,6 @@ other news about building an Open Home; straight into your inbox.
 
 ## Breaking Changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-
-**Note**: Breaking changes processed up to PR 86100
-
-{% enddetails %}
-
 {% details "Assist / Conversation" %}
 
 Previously, all entities and areas were exposed to Assist's default agent. This
@@ -495,12 +487,28 @@ Reference: [Sensirion_Gas_Sensors_SGP3x_TVOC_Concept.pdf](https://github.com/pau
 
 {% enddetails %}
 
+{% details "Matter" %}
+
+With this release, you will need to update your zwave-js-server instance.
+You must use `python-matter-server` 3.0.0 or greater (schema 2).
+
+- If you use the `Matter Server` add-on, you need to have at least version `4.0.0`.
+- If you run your own Docker container, or some other installation method,
+  you will need to update your `python-matter-server` instance to at least `3.0.0`.
+
+([@marcelveldt] - [#88607]) ([documentation](/integrations/matter))
+
+[@marcelveldt]: https://github.com/marcelveldt
+[#88607]: https://github.com/home-assistant/core/pull/88607
+
+{% enddetails %}
+
 {% details "MQTT" %}
 
 The behavior for receiving values on sensors that expect numeric* values
 has changed.
 
-- From now on a `'None'` value or a value rendered to `'None'` will
+- A `'None'` value or a value rendered to `'None'` will
   set such a sensor to an `unknown` state.
 - Empty values on such sensors (`''`) are ignored and will not affect the state
   of the sensor.
@@ -524,11 +532,24 @@ published and no valid update value is available for the sensor.
 
 {% enddetails %}
 
+{% details "Plugwise" %}
+
+The unit of measurement for the P1 gas consumed interval sensor is changed
+from `m³` to `m³/h`. Go to Developer Option --> Statistics for the options
+on how to handle this change in your existing installation.
+
+([@bouwew] - [#87449]) ([documentation](/integrations/plugwise))
+
+[@bouwew]: https://github.com/bouwew
+[#87449]: https://github.com/home-assistant/core/pull/87449
+
+{% enddetails %}
+
 {% details "Profiler" %}
 
-The `profiler.memory` service is not available when using Python 3.11, due to
-an incompatibility with a needed dependency for this service. It will return if
-and when the used `guppy3` package becomes available with Python 3.11 compatibility.
+The `profiler.memory` service is unavailable when using Python 3.11, due to
+an incompatibility with a needed dependency for this service. It will return
+when the used `guppy3` package becomes available with Python 3.11 compatibility.
 
 ([@bdraco] - [#88136]) ([documentation](/integrations/profiler))
 
@@ -540,8 +561,8 @@ and when the used `guppy3` package becomes available with Python 3.11 compatibil
 {% details "Template: Covers" %}
 
 Template covers using `optimistic: false` without `value_template` nor
-`position_template` was having a managed state. If you want to keep the
-previous behavior, you must set `optimistic` value to `true`,
+`position_template` having a managed state. If you want to keep the
+previous behavior, you must set the `optimistic` value to `true`,
 or remove the optimistic declaration.
 
 ([@ylemoigne] - [#87925]) ([documentation](/integrations/template))
@@ -579,8 +600,8 @@ and scripts.
 The previously deprecated "Detected Object" sensor has been removed.
 
 The sensor was removed because if multiple objects are detected at once
-(very common for package detection) Home Assistant could not be automated
-using the second detected object. The sensor has been split out the single
+(very common for package detection), Home Assistant could not be automated
+using the second detected object. The sensor has been split out from the single
 Detected Object sensor into multiple binary issues for each detection type.
 
 ([@bdraco] - [#85656]) ([documentation](/integrations/unifiprotect))
@@ -626,12 +647,14 @@ changes and new features available for your integration: Be sure to follow our
 
 [devblog]: https://developers.home-assistant.io/blog/
 
+- [Added support for snapshot testing](https://developers.home-assistant.io/blog/2023/02/20/snapshot-testing/)
+- [Custom tile features](https://developers.home-assistant.io/blog/2023/02/28/custom-tile-features)
+- [Deprecated callback signatures for MQTT subscribe removed](https://developers.home-assistant.io/blog/2023/02/21/deprecated-callback-removed/)
 - [Intent Responses and Whitespace](https://developers.home-assistant.io/blog/2023/02/03/responses)
 - [Introducing drafting of PRs in our review process](https://developers.home-assistant.io/blog/2023/02/07/introducing-PR-drafting-in-reviews)
 - [The HassGetState intent](https://developers.home-assistant.io/blog/2023/02/09/hassgetstate)
 - [The number of decimals used when displaying a sensor state is now configurable](https://developers.home-assistant.io/blog/2023/02/08/sensor_presentation_rounding)
 - [Translation files removed from Core repository](https://developers.home-assistant.io/blog/2023/02/06/translations-files-removed-from-core)
-- [Added support for snapshot testing](https://developers.home-assistant.io/blog/2023/02/20/snapshot-testing/)
 
 ## All changes
 
