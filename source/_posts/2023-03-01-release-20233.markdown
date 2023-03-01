@@ -22,7 +22,7 @@ didn't stop anybody from stuffing this release with many great improvements!
 
 As the release title most fittingly puts it, most features of this release
 show up in dialogs. New dialogs, restyled dialogs, new features that appear
-in dialogs, and all sorts of new dialogues you have with Assist. Something
+in dialogs, and all sorts of new dialogues can you have with Assist. Something
 with "dialogs" all over these release notes!
 
 Besides dialogs, this release brings in three new integrations, updates to
