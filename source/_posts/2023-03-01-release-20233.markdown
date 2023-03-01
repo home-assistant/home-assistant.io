@@ -135,28 +135,22 @@ Nice job [@matthiasdebaat] and [@piitaya]!
 
 ## New dialogs for lights, switches and siren entities
 
-{% details "TODO" %}
-
-- Extend story
-- Spelling/grammar
-- Replace screenshot / screenrecording
-  Maybe combine a couple in a single screenshot?
-  ref: https://github.com/home-assistant/frontend/pull/15482
-
-{% enddetails %}
-
-There is more to tell about the more-info dialogs this release,
-as [@matthiasdebaat] and [@piitaya] have been working on the designs shared
+There is more to tell about this release's more-info dialogs. [@matthiasdebaat]
+and [@piitaya] have been working on the designs shared 
 [during the State of the Open Home 2022](https://www.youtube.com/live/D936T1Ze8-4?feature=share&t=5193).
 This release brings in the first overhauls to the entity dialogs of light,
-switch and siren entities.
+switch, and siren entities.
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5878303/220415665-2259d52c-93f8-4e6e-a090-24061d4fc8cb.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
-Note: This is a temporary placeholder screenshot. Needs replacement.
-</p>
+<img class="no-shadow" style="padding-right: 24px" src='/images/blog/2023-03/new-light-switch-more-info-dialog.png' alt='Screenshots showing the new entity more-info dialogs for a light, a switch and a switch with an assumed state.'>
 
-<video width="680px" controls="controls"><source src="https://user-images.githubusercontent.com/5878303/220415401-b4191979-a70b-4153-9962-a984d188dbcc.mp4" type="video/mp4"></video>
+The new dialogs are nice and clean. The new sliders and buttons work absolutely
+magnificent on both desk and mobile. For the brightness slider, you can drag
+it all down without turning the light off, making it possible to dim your
+light to even the lowest point.
+
+In case of a light, additional controls for turning on/off, color (temperature),
+and effects appear right below the slider. In the top right, you'll find the new
+controls that come with the cleaner look we discussed in the previous paragraph.
 
 [@matthiasdebaat]: https://github.com/matthiasdebaat
 [@piitaya]: https://github.com/piitaya
