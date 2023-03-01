@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2023.3: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2023.3."
-date: 2023-02-22 00:00:00
+title: "2023.3: Dialogs!"
+description: "A brand new restart dialog, ask Assist about the state of your home, amazing new dialogs for lights and switches, Thread & Matter updates, control the precision of your sensors, and Python 3.11 support."
+date: 2023-03-01 00:00:00
 date_formatted: "March 1, 2023"
 author: Franck Nijhof
 author_twitter: frenck
