@@ -201,24 +201,17 @@ You can find more information on
 
 ## New create automation dialog
 
-{% details "TODO" %}
+Let's continue the dialogs theme this release! As [@piitaya] also gave
+the dialog you see when you create a new automation, a facelift!
 
-- Eextend story
-- Add some recent screenshots
-- Spelling/grammar
+You can now quickly find and pick a Blueprint to use for your automation or
+create one from scratch. The overall look and feel is much more modern, and
+fits our current design better.
 
-{% enddetails %}
+<img class="no-shadow" src='/images/blog/2023-03/new-automation-dialog.png' alt='Screenshot showing the improved createnew automation dialogs, which allows easily start an new automation from a blueprint or from scratch.'>
 
-The dialog you see when you create a new automation, was given a facelift by
-[@piitaya].
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5878303/216008015-369893ae-f393-4c68-8e4c-d9a297f75d58.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
-Note: This is a temporary placeholder screenshot. Needs replacement.
-</p>
-
-You may notice it now show author information in this dialog. If you create
-Blueprints, you can add [author information] to your Blueprint,
+You may notice it now shows author information in this dialog. If you create
+Blueprints, you can now add [author information] to your Blueprint,
 which will be shown in this dialog.
 
 [@piitaya]: https://github.com/piitaya
