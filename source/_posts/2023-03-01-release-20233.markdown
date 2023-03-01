@@ -269,10 +269,10 @@ noteworthy changes this release:
 - [@marcelveldt] added support for Smart Scenes (Natural Light) to the [Philips Hue] integrations. Nice!
 - If your [ONVIF] camera supports it, it will now provide switch entities
   for auto-focus, wiper, and IR lights. Thanks, [@partofthething]!
-- The input select helper firsts, last, previous, and next services are now also
+- The input select helper first, last, previous, and next services are now also
   available on select entities, thanks [@frenck].
 - It looks like [@jesserockz] took a small break from [ESPHome] to implement support
-  for the SwitchBot Blind Tilt to the [SwitchBot] integrations. Thank you!
+  for the SwitchBot Blind Tilt to the [SwitchBot] integration. Thank you!
 - The [OpenAI Conversation] integration now has options to customize it to your liking, thanks [@bendews]!
 - [@marcolivierarsenault] added support for [ecobee] ventilator, awesome!
 - The [Reolink] integration now provides entities to update the firmware of your camera, control zoom,
