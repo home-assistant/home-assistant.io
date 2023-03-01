@@ -219,30 +219,41 @@ which will be shown in this dialog.
 
 ## Thread & Matter
 
-{% details "TODO" %}
-
-- Add/extend story, sum up what has become available this release.
-- Add some recent screenshots
-- Spelling/grammar
-- Add "add matter device" link to add integration dialog (#15365) @bramkragten
-- Add color support to matter lights ([@ArturoGuerra] - [#87366]) ([matter docs]) (noteworthy)
-
-{% enddetails %}
-
-Behind the scenes, a lot is happening adding, extending and improving
+Behind the scenes, a lot is happening; adding, extending and improving
 Thread & Matter support for Home Assistant.
 
-A couple of weeks ago, we've published [an extensive blog article on where we're at](/blog/2023/02/08/state-of-matter-and-thread/)
-right now. Some of the features mentioned in that blog post, will become
-available today in this release.
+A couple of weeks ago, we published [an extensive blog article on where we're at](/blog/2023/02/08/state-of-matter-and-thread/).
+Some of the features mentioned in that blog post will become available today.
+
+The most visual change is that the [Thread integration](/integration/thread)
+will now show up on your devices & services dashboard. The "Configure" button
+on the Thread card will reveal the all-new Thread panel.
+
+<img class="no-shadow" src='/images/blog/2023-03/thread-panel.png' alt='Screenshot of the all new Thread panel, giving insight into your Thread network(s).'>
+
+The Thread panel lets you view your Thread network(s) and provides controls
+to add an OpenThread border router. More importantly, an option to download
+diagnostics has been added in the three-dotted menu in the top right. This will
+help with finding, triaging, and fixing issues as the development
+on Thread continues.
+
+As for Matter, it now supports connecting to Matter bridges! So, you can
+now connect, for example, your Hue hub over Matter!
 
 <p class='img'>
-<img src='https://user-images.githubusercontent.com/5662298/219357671-6f51aeb0-2b64-43a7-92fb-d1a804164ae9.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
-Note: This is a temporary placeholder screenshot. Needs replacement.
+<img src='/images/blog/2023-03/matter-bridges.png' alt='Screenshot showing the Home Assistant Matter integration card, with lots of devices and entities; brought in by Hue bridges.'></a>
+Two Philips Hue bridges connected using Matter, and it is fast!
 </p>
 
-Matter now has support for connecting to Matter bridges, and [@ArturoGuerra]
-add support light colors!
+Althought, if you want to connect your Hue hub, we of course recommend using
+the dedicated [Hue integration](/integrations/hue), which will provide a much
+more stable and feature rich solution. Nevertheless, having bridge support is
+a huge milestone!
+
+Adding a Matter device is now also more logical. Just add a new device
+from the Devices & Services page, just like how you would add any other device
+or integration to Home Assistant. Oh! Let's not forget about [@ArturoGuerra],
+who added support for color lights to Matter! Thanks!
 
 [@ArturoGuerra]: https://github.com/ArturoGuerra
 
