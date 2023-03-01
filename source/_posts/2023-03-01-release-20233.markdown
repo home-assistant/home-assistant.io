@@ -268,50 +268,38 @@ the same performance improvements. We'll keep you posted.
 
 ## Other noteworthy changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-- Last minute ones added?
-- Go over list again, might have missed something
-- Ability to hide the legend of history graphs
-
-To consider:
-- The speedup on setting up MQTT are pretty massive
-  - Make mqtt discovery use callback functions ([@bdraco] - [#87883]) ([mqtt docs]) (noteworthy)
-  - Optimize mqtt matchers ([@bdraco] - [#87853]) ([mqtt docs]) (noteworthy)
-  - Avoid creating a task when waiting for the MQTT mid ([@bdraco] - [#87887]) ([mqtt docs]) (noteworthy)
-- Optimize fetching weekly/monthly/yearly statistics ([@bdraco] - [#87747]) ([recorder docs]) (noteworthy)
-- Optionally update sensor units when unit system is changed ([@emontnemery] - [#83851]) ([config docs]) ([sensor docs]) (noteworthy)
-
-**Note**: Changes processed up to PR 88451
-
-{% enddetails %}
-
 There is much more juice in this release; here are some of the other
 noteworthy changes this release:
 
-- You can now change the unit of measurement for sensor that provide power readings.
+- You can now change the unit of measurement for a sensor that provides power readings.
   So, if you like your kW sensor to be displayed as W, that is now possible. Thanks, [@emontnemery]!
-- All [contributed translations] are now automatically updated to the latest each release!
+- All [contributed translations] are now automatically updated with each release!
   This includes patch releases. Thanks, [@frenck].
+- Faster it is! [@bdraco] keeps improving the performance, and this release is no exception!
+  The statistics should be almost instant now, which is notable on
+  the energy dashboard. Lots of MQTT-related performance improvements too!
+- The statistic graph card can now hide the legend, nice and clean [@piitaya]!
 - You can now use templates in the `for` parameter of [state conditions]. Thanks, [@emontnemery]!
 - Our (opt-in only) {% my analytics %} will now include the database engine and version
-  you use with your recorder. This helps us making database related decisions and improvements.
+  you use with your recorder. This helps us making database-related decisions and improvements.
   Thanks, [@ludeeus]!
-- [@marcelveldt] added support for Smart Scenes (Natural Light) to the [Philips Hue] integrations, nice!
+- [@marcelveldt] added support for Smart Scenes (Natural Light) to the [Philips Hue] integrations. Nice!
 - If your [ONVIF] camera supports it, it will now provide switch entities
   for auto-focus, wiper, and IR lights. Thanks, [@partofthething]!
+- The input select helper firsts, last, previous, and next services are now also
+  available on select entities, thanks [@frenck].
 - It looks like [@jesserockz] took a small break from [ESPHome] to implement support
   for the SwitchBot Blind Tilt to the [SwitchBot] integrations. Thank you!
 - The [OpenAI Conversation] integration now has options to customize it to your liking, thanks [@bendews]!
 - [@marcolivierarsenault] added support for [ecobee] ventilator, awesome!
 - The [Reolink] integration now provides entities to update the firmware of your camera, control zoom,
   and control auto-focus. Thanks [@starkillerOG]!
-- [KNX] Data Secure support is added, and importing your Keyfile to use it is now super easy, just upload it from your browser
+- [KNX] Data Secure support is added, and importing your Keyfile to use it is now super easy. Just upload it from your browser
   when configuring it in Home Assistant. Awesome [@farmio]!
 - [@thecode] added support for [Shelly] Pro 3EM energy sensors, nice!
 - [ScreenLogic] now supports local push updates for almost all entities. Thanks [@dieselrabbit]!
 
+[@bdraco]: https://github.com/bdraco
 [@bendews]: https://github.com/bendews
 [@dieselrabbit]: https://github.com/dieselrabbit
 [@emontnemery]: https://github.com/emontnemery
@@ -322,6 +310,7 @@ noteworthy changes this release:
 [@marcelveldt]: https://github.com/marcelveldt
 [@marcolivierarsenault]: https://github.com/marcolivierarsenault
 [@partofthething]: https://github.com/partofthething
+[@piitaya]: https://github.com/piitaya
 [@starkillerOG]: https://github.com/starkillerOG
 [@thecode]: https://github.com/thecode
 [contributed translations]: https://developers.home-assistant.io/docs/translations
