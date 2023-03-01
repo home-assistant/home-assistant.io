@@ -18,6 +18,7 @@ ha_platforms:
   - Switch
   - Update
 ha_iot_standard: zwave
+ha_brand: true
 ---
 
 [HELTUN](https://www.heltun.com/) is a member of the Works with Home Assistant partner program for their Z-Wave products. HELTUN is committed to making sure their products are up-to-date and ready to use in Home Assistant.
