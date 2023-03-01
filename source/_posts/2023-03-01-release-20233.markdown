@@ -178,8 +178,8 @@ Note: This is a temporary placeholder screenshot. Needs replacement.
 
 ## Sensor precision
 
-Got a sensor that has too many decimals in its numeric value? You'd like it to
-round it to a single, or maybe even no decimals at all?
+Got a sensor that has too many decimals in its numeric value? Would you like
+to round it to a single or maybe even no decimals?
 
 Just ~~create a template sensor~~ change it directly from the UI!
 
@@ -192,7 +192,7 @@ This has also been extended into integrations, which now can provide
 a more precise value while suggesting to, show it with less precision
 by default. This allows you to change it if you don't like the defaults.
 
-When writing templates, you can also take advantage of the configured precision,
+You can also take advantage of the configured precision when writing templates,
 as the `states()` function has been extended to help with that.
 You can find more information on
 [formatting sensor states in the templating documentation](/docs/configuration/templating/#formatting-sensor-states).
