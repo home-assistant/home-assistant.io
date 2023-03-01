@@ -533,7 +533,7 @@ when the used `guppy3` package becomes available with Python 3.11 compatibility.
 {% details "Template: Covers" %}
 
 Template covers using `optimistic: false` without `value_template` nor
-`position_template` having a managed state. If you want to keep the
+`position_template` still updated state optimistically. The integration now respects the optimistic setting of false. If you want to keep the
 previous behavior, you must set the `optimistic` value to `true`,
 or remove the optimistic declaration.
 
