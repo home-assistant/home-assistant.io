@@ -573,6 +573,21 @@ API is returning `mm/h`. This has now been corrected.
 
 {% enddetails %}
 
+{% details "Todoist" %}
+
+Labels used by custom projects for filtering are now case-sensitive.
+
+Previously there were automatically lower-cased by the integration,
+but in Todoist a label like `Test` and `test` are considered unique.
+Because of that labels will now by case sensitive in your configuration.
+
+([@boralyl] - [#87904]) ([documentation](/integrations/todoist))
+
+[@boralyl]: https://github.com/boralyl
+[#87904]: https://github.com/home-assistant/core/pull/87904
+
+{% enddetails %}
+
 {% details "UniFi Protect" %}
 
 The `event_id` and `event_score` state attributes are now excluded from being
