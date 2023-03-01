@@ -67,6 +67,7 @@ The latest firmware can be downloaded from the [Reolink download center](https:/
 The following models have been tested and confirmed to work:
 
 - C1 Pro
+- C2 Pro
 - E1 Zoom
 - E1 Outdoor
 - RLC-410W
