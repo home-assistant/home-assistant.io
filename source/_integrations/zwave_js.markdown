@@ -44,7 +44,7 @@ ha_integration_type: hub
 ha_zeroconf: true
 ---
 
-This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant. If you're migrating from the legacy `zwave`, see [our migration instructions](#migrating-from-previous-z-wave-implementations).
+This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant.
 
 To Run Z-Wave you will need a [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules), a running Z-Wave JS server (using only **one** of the add-ons or installation methods described below), and the Z-Wave integration.
 
@@ -619,8 +619,6 @@ This is considered a very advanced use case. In this case you run the Z-Wave JS 
 
 For new installations, unique default keys will be auto-generated for you by the Z-Wave JS add-on. You can also generate those network keys in the Settings section of Z-Wave JS UI.
 
-If migrating from the legacy `zwave` integration, your network key from those integration should be entered as the S0 network key. Those integrations did not support S2 security, so you will not yet have S2 network keys to configure.
-
 Make sure that you keep a backup of these keys in a safe place. You will need to enter the same keys to be able to access securely paired devices.
 
 </div>
@@ -719,11 +717,6 @@ Correct, the Z-Wave JS UI project existed before Home Assistant had plans to mov
 
 Sure, in the settings of Z-Wave JS UI, make sure to enable "WS Server" and disable "Gateway".
 
-#### How do I use my OZW network key in Z-Wave JS UI?
-
-You can use your existing network key in Z-Wave JS UI but you need to slightly adjust it.
-The OZW looks like this: `0x01, 0x02, 0x03 etc.` while the network key format accepted in Z-Wave JS UI looks like this `0102030405 etc.`. You can simply edit your existing key and remove the `"0x"` part and the `", "` part so it becomes one large string of numbers.
-
 #### Should I name my devices in Home Assistant, or in Z-Wave JS UI?
 
 Ultimately, this is a personal decision. If you provide a name or location for a device in the Z-Wave JS UI, that name will be imported into Home Assistant when the integration is reloaded or Home Assistant is restarted. Any entity names, however, will not change if the device has already been set up by Home Assistant. Names set in Z-Wave JS UI _will not_ overwrite changes that have already been made in Home Assistant.
@@ -768,7 +761,7 @@ S2 security does not impose additional network traffic and provides additional b
 
 #### I'm having a problem, what should I do first?
 
-_Many_ reported issues result from RF interference caused by the system's USB ports. This can manifest in many ways, including devices that won't include at all, devices that won't include securely, sensors with erroneous values (packets corrupted), delayed control of devices, or no ability to control devices. These problems can be intermittent, and they may be newly apparent after switching from `ozw`, though they existed before, as Z-Wave interviews devices and reports errors differently.
+_Many_ reported issues result from RF interference caused by the system's USB ports. This can manifest in many ways, including devices that won't include at all, devices that won't include securely, sensors with erroneous values (packets corrupted), delayed control of devices, or no ability to control devices.
 
 **All users are encouraged to use a USB extension cable to prevent such interference.** Please try such a cable before opening an issue or requesting support on Discord. It will nearly always be the first troubleshooting step that we ask you to take anyway.
 
