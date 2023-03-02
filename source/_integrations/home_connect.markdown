@@ -46,7 +46,7 @@ Note that it depends on the appliance and on API permissions which of the featur
 *Important*: 
  - after performing the steps above **log out** of your Home Connect Developer account. If you don't so this, the configuration steps below will fail during OAuth authentication with the message `“error”: “unauthorized_client”`.
  - The provided Home Connect User Account email address **must** be all lowercase otherwise it will result in authentication failures.
- - All changes in the developer portal takes 15 minutes before the change is implemented
+ - All changes in the developer portal takes 15 minutes before the change is implemented.
 
 {% details "I have manually disabled My Home Assistant" %}
 
