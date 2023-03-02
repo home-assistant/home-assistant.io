@@ -587,20 +587,20 @@ The following features can be accessed from the integration configuration panel:
 
 - Add a new device to your network
 - Remove a device from your network
-- Heal your network
-- Opt-in or out of telemetry data
-- Access [controller statistics](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot) to troubleshoot your network's RF quality
+- Heal your network: This forces your network to rediscover routes to the controller from each device. This is useful when devices or the controller have moved to a new location, or if you are having significant problems with your network.
+- Third party data opt-in/out: The zwave-js project collects optional telemetry from users to help inform development decisions, influence manufacturers, etc. This is opt-in by default. 
+- Access [controller statistics](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot): This allows you to troubleshoot your network's RF quality
 
 ### Device Panel
 
 The following features can be accessed from the device panel of a Z-Wave device:
 
-- Update configuration parameters using a friendly UI
-- Re-interview the device
-- Heal the device
-- Remove a failed device
-- Access [node statistics](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot) to troubleshoot RF issues with the device
-- Manually update device firmware for devices that support it (controllers and devices with the Firmware Update Metadata Command Class)
+- Configuration parameter UI: This UI provides an easy way to look up and update configuration parameters for the device. While there is an existing service for setting configuration parameter values, this UI may sometimes be quicker to use for one off changes.
+- Re-interview the device: When your device is added to the network, it is interviewed to discover all of its capabilities. This forces the device to go through that process again and can be helpful if you don't see all the expected entities for your device.
+- Heal the device: This forces the device to rediscover its optimal route back to the controller. Use this if you think you are experiencing unexpected delays or RF issues with your device.
+- Remove a failed device: When a device has failed, it can't go through the normal exclusion process. Use this to force the controller to forget the device.
+- Access [node statistics](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot): This allows you to troubleshoot RF issues with the device.
+- Update firmware: This allows you to manually update a device's firmware. Only some devices support this feature (controllers and devices with the Firmware Update Metadata Command Class).
 
 ## Migrating from previous Z-Wave implementations
 
