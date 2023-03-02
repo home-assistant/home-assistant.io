@@ -343,7 +343,7 @@ We welcome the following new integrations in this release:
 
 [@mitch-dc]: https://github.com/mitch-dc
 [#88958]: https://github.com/home-assistant/core/pull/88958
-[nuheat docs]: https://www.home-assistant.io/integrations/nuheat/
+[nuheat docs]: /integrations/nuheat/
 [#86940]: https://github.com/home-assistant/core/pull/86940
 [#88956]: https://github.com/home-assistant/core/pull/88956
 [#88979]: https://github.com/home-assistant/core/pull/88979
