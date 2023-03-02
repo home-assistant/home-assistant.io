@@ -575,6 +575,33 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 | `trigger.event`             | Name of event.                                                                        |
 | `trigger.event_data`           | Any data included in the event.                                                                   |
 
+## Advanced Features (UI Only)
+
+While the integration aims to provide as much functionality through existing Home Assistant constructs (entities, states, automations, services, etc.), there are some features that are only available through the UI.
+
+All of these features can be accessed either in the Z-Wave integration configuration panel or in a Z-Wave device's device panel.
+
+### Integration Configuration Panel
+
+The following features can be accessed from the integration configuration panel:
+
+- Add a new device to your network
+- Remove a device from your network
+- Heal your network
+- Opt-in or out of telemetry data
+- Access [controller statistics](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot) to troubleshoot your network's RF quality
+
+### Device Panel
+
+The following features can be accessed from the device panel of a Z-Wave device:
+
+- Update configuration parameters using a friendly UI
+- Re-interview the device
+- Heal the device
+- Remove a failed device
+- Access [node statistics](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot) to troubleshoot RF issues with the device
+- Manually update device firmware for devices that support it (controllers and devices with the Firmware Update Metadata Command Class)
+
 ## Migrating from previous Z-Wave implementations
 
 If you are switching from the legacy `zwave` integration to the new Z-Wave integration, you will not need to recreate your entire network, as the network is **stored on your stick**. A few things, such as how you receive [central scene events](#events) will work differently than they did before.
