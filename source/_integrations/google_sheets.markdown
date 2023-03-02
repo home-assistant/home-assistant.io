@@ -44,7 +44,7 @@ This section explains how to generate a Client ID and Client Secret on
 13. Make sure **Publishing status** is set to production.
 14. Click **Credentials** in the menu on the left hand side of the screen, then click **Create credentials** (at the top of the screen), then select *OAuth client ID*.
 15. Set the Application type to *Web application* and give this credential set a name (like "Home Assistant Credentials").
-16. Add https://my.home-assistant.io/redirect/oauth to *Authorized redirect URIs* then click **Create**.
+16. Add https://my.home-assistant.io/redirect/oauth to *Authorized redirect URIs* then click **Create**. This is not a placeholder and is the URI that must be used.
 17. You will then be presented with a pop-up saying *OAuth client created* showing *Your Client ID* and *Your Client Secret*. Make a note of these (for example, copy and paste them into a text editor) as you will need these shortly. Once you have noted these strings, click **OK**. If you need to find these credentials again at any point then simply navigate to *APIs & Services > Credentials* and you will see *Home Assistant Credentials* (or whatever you named them in the previous step) under *OAuth 2.0 Client IDs*. To view both the *Client ID* and *Client secret*, click on the pencil icon, this will take you to the settings page for these credentials and the information will be on the right hand side of the page.
 18. Double check that the *Google Drive API* has been automatically enabled. To do this, select **Library** from the menu, then search for *Google Drive API*. If it is enabled you will see *API Enabled* with a green tick next to it. If it is not enabled, then enable it.
 
