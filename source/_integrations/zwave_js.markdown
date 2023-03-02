@@ -662,23 +662,6 @@ Some Z-Wave USB sticks can be auto-discovered, which can simplify the Z-Wave set
 
 Additional devices may be discoverable, however only devices that have been confirmed discoverable are listed above.
 
-#### Is there a way to easily export a dump of all my current Z-Wave nodes before I migrate?
-
-You can run the script below in the Developer Tools to get a full oversight of your nodes and their entities.
-
-{% raw %}
-
-```yaml
-{%- for node, zstates in states | selectattr('attributes.node_id', 'in', range(1000)) | groupby('attributes.node_id') %}
-
-{%- for s in zstates %}
-Node {{ node }};{{ s.name }};{{ s.entity_id }}{% endfor %}
-
-{%- endfor %}
-```
-
-{% endraw %}
-
 #### What happened to Zwavejs2Mqtt or the Z-Wave JS to MQTT add-on?
 
 Zwavejs2Mqtt was renamed Z-Wave JS UI in September 2022. They are synonymous with no difference between their capabilities.
