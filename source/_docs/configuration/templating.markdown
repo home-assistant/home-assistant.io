@@ -328,6 +328,21 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
+
+### Entities
+
+- `is_hidden(entity_id)` returns whether an entity has been hidden. Can also be used as a test.
+
+### Entities examples
+
+{% raw %}
+
+```text
+{{ area_entities('kitchen') | reject('is_hidden') }} # Gets a list of visible entities in the kitchen area
+```
+
+{% endraw %}
+
 ### Devices
 
 - `device_entities(device_id)` returns a list of entities that are associated with a given device ID. Can also be used as a filter.
