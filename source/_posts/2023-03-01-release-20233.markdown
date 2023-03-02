@@ -48,6 +48,7 @@ Enjoy the release!
 - [Python 3.11 support](#python-311-support)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
+- [Release 2023.3.1 - March 2](#release-202331---march-2)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -136,7 +137,7 @@ Nice job [@matthiasdebaat] and [@piitaya]!
 ## New dialogs for lights, switches and siren entities
 
 There is more to tell about this release's more-info dialogs. [@matthiasdebaat]
-and [@piitaya] have been working on the designs shared 
+and [@piitaya] have been working on the designs shared
 [during the State of the Open Home 2022](https://www.youtube.com/live/D936T1Ze8-4?feature=share&t=5193).
 This release brings in the first overhauls to the entity dialogs of light,
 switch, and siren entities.
@@ -329,6 +330,42 @@ We welcome the following new integrations in this release:
 [easyEnergy]: /integrations/easyenergy
 [TP-Link Omada SDN Controller]: /integrations/tplink_omada
 
+## Release 2023.3.1 - March 2
+
+- Update pyTibber to 0.27.0 ([@toini] - [#86940]) ([tibber docs]) (breaking-change)
+- Bump requests to 2.28.2 ([@mitch-dc] - [#88956])
+- Bump py-dormakaba-dkey to 1.0.4 ([@emontnemery] - [#88992]) ([dormakaba_dkey docs])
+- Fix KNX Keyfile upload ([@farmio] - [#89029]) ([knx docs])
+- Update orjson to 3.8.7 ([@frenck] - [#89037])
+- Update frontend to 20230302.0 ([@piitaya] - [#89042]) ([frontend docs])
+- Fix check on non numeric custom sensor device classes ([@jbouwh] - [#89052]) ([sensor docs])
+- Bump nuheat to 1.0.1 ([@mitch-dc] - [#88958]) ([nuheat docs])
+
+[@mitch-dc]: https://github.com/mitch-dc
+[#88958]: https://github.com/home-assistant/core/pull/88958
+[nuheat docs]: /integrations/nuheat/
+[#86940]: https://github.com/home-assistant/core/pull/86940
+[#88956]: https://github.com/home-assistant/core/pull/88956
+[#88979]: https://github.com/home-assistant/core/pull/88979
+[#88992]: https://github.com/home-assistant/core/pull/88992
+[#89029]: https://github.com/home-assistant/core/pull/89029
+[#89037]: https://github.com/home-assistant/core/pull/89037
+[#89042]: https://github.com/home-assistant/core/pull/89042
+[#89052]: https://github.com/home-assistant/core/pull/89052
+[@emontnemery]: https://github.com/emontnemery
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@mitch-dc]: https://github.com/mitch-dc
+[@piitaya]: https://github.com/piitaya
+[@toini]: https://github.com/toini
+[abode docs]: /integrations/abode/
+[dormakaba_dkey docs]: /integrations/dormakaba_dkey/
+[frontend docs]: /integrations/frontend/
+[knx docs]: /integrations/knx/
+[sensor docs]: /integrations/sensor/
+[tibber docs]: /integrations/tibber/
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
@@ -450,7 +487,7 @@ Fair | <= 64 | <= 1000
 Inferior | <= 96 | <= 3000
 Poor | > 96 | > 3000
 
-Reference: [Sensirion_Gas_Sensors_SGP3x_TVOC_Concept.pdf](https://github.com/paulvha/svm30/blob/master/extras/Sensirion_Gas_Sensors_SGP3x_TVOC_Concept.pdf) 
+Reference: [Sensirion_Gas_Sensors_SGP3x_TVOC_Concept.pdf](https://github.com/paulvha/svm30/blob/master/extras/Sensirion_Gas_Sensors_SGP3x_TVOC_Concept.pdf)
 
 ([@emanuelst] - [#87663]) ([documentation](/integrations/homekit))
 
@@ -600,7 +637,7 @@ Detected Object sensor into multiple binary issues for each detection type.
 
 {% details "Wiffi" %}
 
-The Wiffi unit of illuminance `lux` has been adjusted to the standard unit 
+The Wiffi unit of illuminance `lux` has been adjusted to the standard unit
 Home Assistant uses `lx`.
 
 ([@mampfes] - [#87377]) ([documentation](/integrations/wiffi))
