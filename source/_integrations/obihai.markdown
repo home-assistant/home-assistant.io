@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.99
 ha_codeowners:
   - '@dshokouhi'
+  - '@ejpenney'
 ha_domain: obihai
 ha_platforms:
   - sensor
