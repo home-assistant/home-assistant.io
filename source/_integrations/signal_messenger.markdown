@@ -67,30 +67,38 @@ recipients:
 
 
 ## Sending messages to Signal to trigger events
-In this example, we will be using signal-cli-rest-api to as a Home Assistant trigger. For example, you would be able to write 'light' to your Signal account linked to signal-cli-rest-api and have Home Assistant adjust the lights for you. To accomplish this, you will need to edit the `rest.yaml` configuration of Home Assistant, add the following resource:
-```- resource: "http://127.0.0.1:8080/v1/receive/<number>"
+
+In this example, we will be using Signal Messenger REST API to as a Home Assistant trigger. For example, you would be able to write "light" to your Signal account linked to Signal Messenger REST API and have Home Assistant adjust the lights for you. To accomplish this, you will need to edit the configuration of Home Assistant, adding a [RESTful resource](https://www.home-assistant.io/integrations/rest/) as follows:
+
+```yaml
+- resource: "http://127.0.0.1:8080/v1/receive/<number>"
   headers:
     Content-Type: application/json
   sensor:
     - name: "Signal message received"
-      value_template: '{{ value_json[0].envelope.dataMessage.message }}'
+      value_template: "{{ value_json[0].envelope.dataMessage.message }}" #this will fetch the message
+      json_attributes_path: $[0].envelope
+      json_attributes:
+       - source #using attributes you can get additional information, in this case the phone number.
   ```
-And then you can create an automation as follows:
-```alias: "[signal] message received"
+You can create an automation as follows, in this example we will make a simple chatbot. If you write "time" in the chat, the automation gets triggered, with the condition that the number (attribute source) is correct, to take action by sending a Signal notification back with the current time: now().
+
+```yaml
+...
 trigger:
   - platform: state
     entity_id:
       - sensor.signal_message_received
-condition: []
+    to: time
+condition:
+  - condition: state
+    entity_id: sensor.signal_message_received
+    attribute: source
+    state: "<yournumber>"
 action:
-  - if:
-      - condition: state
-        entity_id: sensor.signal_message_received
-        state: <word to use for trigger>
-    then:
-      - service: <service to run>
-        data: {}
-mode: single
+  - service: notify.signal
+    data:
+      message: "{{ now() }}"
 ```
 
 ## Examples
