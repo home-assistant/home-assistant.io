@@ -64,6 +64,7 @@ To improve the experience of writing Jinja templates, we have enabled the follow
 extensions:
 
 * [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
+* [Expression Statements](https://jinja.palletsprojects.com/en/3.0.x/templates/#expression-statement) (`do`)
 
 ## Home Assistant template extensions
 
@@ -987,6 +988,21 @@ To evaluate a response, go to **{% my developer_template title="Developer Tools 
          } }%}
 
 {{value_json.data.hum[:-1]}}
+```
+
+{% endraw %}
+
+### Mutable dictionaries and lists
+
+- Filter `as_mutable` takes a list or dictionary and returns a mutable copy that you can modify using the standard python methods and the [`do` syntax](https://jinja.palletsprojects.com/en/3.0.x/templates/#expression-statement).
+
+For example:
+
+{% raw %}
+
+```text
+{% set dict = {} | as_mutable %}
+{% do dict.update({"key": "value"}) %} {# dict now contains key->value #}
 ```
 
 {% endraw %}
