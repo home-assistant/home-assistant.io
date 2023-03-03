@@ -68,7 +68,7 @@ recipients:
 
 ## Sending messages to Signal to trigger events
 
-In this example, we will be using Signal Messenger REST API to as a Home Assistant trigger. For example, you would be able to write "light" to your Signal account linked to Signal Messenger REST API and have Home Assistant adjust the lights for you. To accomplish this, you will need to edit the configuration of Home Assistant, adding a [RESTful resource](https://www.home-assistant.io/integrations/rest/) as follows:
+In this example, we will be using Signal Messenger REST API as a Home Assistant trigger. For example, you would be able to write "time" to your Signal account linked to Signal Messenger REST API and have Home Assistant send you back the current time. To accomplish this, edit the configuration of Home Assistant, adding a [RESTful resource](https://www.home-assistant.io/integrations/rest/) as follows:
 
 ```yaml
 - resource: "http://127.0.0.1:8080/v1/receive/<number>"
