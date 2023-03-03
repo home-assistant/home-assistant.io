@@ -65,6 +65,34 @@ recipients:
   type: string
 {% endconfiguration %}
 
+
+## Sending messages to Signal to trigger events
+In this example, we will be using signal-cli-rest-api to as a Home Assistant trigger. For example, you would be able to write 'light' to your Signal account linked to signal-cli-rest-api and have Home Assistant adjust the lights for you. To accomplish this, you will need to edit the `rest.yaml` configuration of Home Assistant, add the following resource:
+```- resource: "http://127.0.0.1:8080/v1/receive/<number>"
+  headers:
+    Content-Type: application/json
+  sensor:
+    - name: "Signal message received"
+      value_template: '{{ value_json[0].envelope.dataMessage.message }}'
+  ```
+And then you can create an automation as follows:
+```alias: "[signal] message received"
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.signal_message_received
+condition: []
+action:
+  - if:
+      - condition: state
+        entity_id: sensor.signal_message_received
+        state: <word to use for trigger>
+    then:
+      - service: <service to run>
+        data: {}
+mode: single
+```
+
 ## Examples
 
 A few examples on how to use this integration as actions in automations.
