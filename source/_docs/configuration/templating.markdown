@@ -65,6 +65,31 @@ extensions:
 
 * [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
 
+### Reusing Templates
+
+You can write reusable Jinja templates by adding them to a `custom_jinja` folder under your
+configuration directory. All template files must have the `.jinja` extension. Templates in this
+folder will be loaded at startup. To reload the templates without restarting Home Assistant,
+invoke the `homeassistant.reload_custom_jinja` service.
+
+Once the templates are loaded, Jinja [includes](https://jinja.palletsprojects.com/en/3.0.x/templates/#include) and [imports](https://jinja.palletsprojects.com/en/3.0.x/templates/#import) will work
+using `config/custom_jinja` as the base directory.
+
+For example, you might define a macro in a template in `config/custom_jinja/formatter.jinja`:
+
+```jinja
+{% macro format_entity(entity_id) %}
+{{ state_attr(entity_id, 'friendly_name') }} - {{ states(entity_id) }}
+{% endmacro %}
+```
+
+In your automations, you could then reuse this macro by importing it:
+
+```jinja
+{% from 'formatter.jinja' import format_entity %}
+{{ format_entity('sensor.temperature') }}
+```
+
 ## Home Assistant template extensions
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
