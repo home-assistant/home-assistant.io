@@ -25,10 +25,45 @@ To enable this sensor in your installation, add this in your `configuration.yaml
 # Example for the configuration.yaml entry
 v2c:
   host: "xxx.xxx.xx.xxx"
+  
+input_text:
+  my_input_text:
+    name: "Escribe el número:"
+    initial: ""
+    max: 20
+
+input_number:
+  my_input_number:
+    max: 32
+    min: 6
+    name: "Intensity"
+    mode: slider
+    unit_of_measurement: A
+
+input_boolean:
+  lock_switch:
+    name: "Lock state:"
+  pause_switch:
+    name: "Pause state:"
+  
+input_select:
+  my_list:
+    name: My List
+    options:
+      - "Program:"
+      - "Dynamic:"
+      - "Payment:"
+      - "OCPP:"
+      - "Min Intensity:"
+      - "Max Intensity:"
+      - "Pause Dynamic:"
+      - "Dynamic Power Mode:"
+      - "Contracted Power:"
 ```
 
 In this integration is necessary to include the IP manually in the configuration.yaml, otherwise the integration does not work properly.
 Once you add your IP, you will need to restart Home Assistant for the changes to take effect. After that, you will be able to add entities in the dashboard.
+The inputs are useful if you want to write values to the charger. They are not mandatorie for the operation of the integration.
 
 ## Sensor:
 
