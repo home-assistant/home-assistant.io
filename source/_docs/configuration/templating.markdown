@@ -994,7 +994,7 @@ To evaluate a response, go to **{% my developer_template title="Developer Tools 
 
 ### Mutable dictionaries and lists
 
-- Filter `as_mutable` takes a list or dictionary and returns a mutable copy that you can modify using the standard python methods and the [`do` syntax](https://jinja.palletsprojects.com/en/3.0.x/templates/#expression-statement).
+- Filter `as_mutable` takes a list or dictionary and returns a mutable copy that you can modify using the standard Python methods and the [`do` syntax](https://jinja.palletsprojects.com/en/3.0.x/templates/#expression-statement).
 
 For example:
 
