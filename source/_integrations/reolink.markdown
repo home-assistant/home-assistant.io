@@ -173,6 +173,7 @@ Battery-powered cameras are not yet supported.
 The following models are lacking the HTTP webserver API and can therfore not work with this integration:
 
 - E1 Pro
+- E1
 
 ## Troubleshooting
 
