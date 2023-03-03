@@ -585,10 +585,10 @@ All of these features can be accessed either in the Z-Wave integration configura
 
 The following features can be accessed from the integration configuration panel:
 
-- **Add device**: Allows you to preprovision a SmartStart device or starts the inclusion process for adding a new device to your network.
+- **Add device**: Allows you to preprovision a SmartStart device or start the inclusion process for adding a new device to your network.
 - **Remove device**: Starts the exclusion process for removing a device from your network.
-- **Heal network**: Forces your network to rediscover routes to the controller from each device. This is useful when devices or the controller have moved to a new location, or if you are having significant problems with your network.
-- **Third party data opt-in/out:** The zwave-js project collects optional telemetry from users to help inform development decisions, influence manufacturers, etc. This telemetry is disabled by default and has to be opted into.
+- **Heal network**: Forces your network to rediscover routes to the controller from each device. This is useful when devices or the controller have moved to a new location, or if you are having significant problems with your network, but it also generates a lot of network traffic and should be used sparingly.
+- **Third party data opt-in/out:** Allows you to opt-in or oout of telemetry that the zwave-js project collects to help inform development decisions, influence manufacturers, etc. This telemetry is disabled by default and has to be opted into.
 - **[Controller statistics](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot):** Provides statistics about communication between the controller and other devices, allowing you to troubleshoot your network's RF quality.
 
 ### Device Panel
@@ -596,11 +596,11 @@ The following features can be accessed from the integration configuration panel:
 The following features can be accessed from the device panel of a Z-Wave device:
 
 - **Configure:** Provides an easy way to look up and update configuration parameters for the device. While there is an existing service for setting configuration parameter values, this UI may sometimes be quicker to use for one off changes.
-- **Re-interview:** When your device is added to the network, it is interviewed to discover all of its capabilities. This forces the device to go through that process again and can be helpful if you don't see all the expected entities for your device.
-- **Heal:** Forces the device to rediscover its optimal route back to the controller. Use this if you think you are experiencing unexpected delays or RF issues with your device.
-- **Remove failed:** When a device has failed, it can't go through the normal exclusion process. Use this to force the controller to forget the device.
+- **Re-interview:** Forces the device to go through the interview process again so that zwave-js can discover all of it's capabilities. Can be helpful if you don't see all the expected entities for your device.
+- **Heal:** Forces the device to rediscover its optimal route back to the controller. Use this if you think you are experiencing unexpected delays or RF issues with your device. Your device may not be as responsive during this process.
+- **Remove failed:** Forcefully removes this device from the controller. Used when a device has failed and it can't go through the normal exclusion process.
 - **[Statistics](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot):** Provides statistics about communication between this device and the controller, allowing you to troubleshoot RF issues with the device.
-- **Update firmware:** Allows you to manually update a device's firmware. Only some devices support this feature (controllers and devices with the Firmware Update Metadata Command Class).
+- **Update firmware:** Updates a device's firmware using a manually uploaded firmware file. Only some devices support this feature (controllers and devices with the Firmware Update Metadata Command Class).
 
 ## Advanced installation instructions
 
