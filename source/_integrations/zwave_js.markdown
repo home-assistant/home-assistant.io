@@ -588,7 +588,7 @@ The following features can be accessed from the integration configuration panel:
 - Add a new device to your network
 - Remove a device from your network
 - Heal your network: This forces your network to rediscover routes to the controller from each device. This is useful when devices or the controller have moved to a new location, or if you are having significant problems with your network.
-- Third party data opt-in/out: The zwave-js project collects optional telemetry from users to help inform development decisions, influence manufacturers, etc. This is opt-in by default. 
+- Third party data opt-in/out: The zwave-js project collects optional telemetry from users to help inform development decisions, influence manufacturers, etc. This is disabled by default and has to be opted into.
 - Access [controller statistics](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot): This allows you to troubleshoot your network's RF quality
 
 ### Device Panel
