@@ -77,18 +77,26 @@ using `config/custom_jinja` as the base directory.
 
 For example, you might define a macro in a template in `config/custom_jinja/formatter.jinja`:
 
-```jinja
+{% raw %}
+
+```text
 {% macro format_entity(entity_id) %}
 {{ state_attr(entity_id, 'friendly_name') }} - {{ states(entity_id) }}
 {% endmacro %}
 ```
 
+{% endraw %}
+
 In your automations, you could then reuse this macro by importing it:
 
-```jinja
+{% raw %}
+
+```text
 {% from 'formatter.jinja' import format_entity %}
 {{ format_entity('sensor.temperature') }}
 ```
+
+{% endraw %}
 
 ## Home Assistant template extensions
 
