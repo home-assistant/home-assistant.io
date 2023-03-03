@@ -97,6 +97,8 @@ Notes:
 
 The 1-Wire bus can be connected with a remote 1-wire host over a network connection using owfs and owserver.
 
+This can be done with a dedicated external device or via an add-on, such as https://github.com/lrybak/hassio-owserver
+
 ## Interface adapter setup
 
 `owserver` on Linux hosts is part of the [owfs 1-Wire file system](https://owfs.org/). When a 1-wire interface adapter is used, you can access sensors on a remote or local Linux host that is running `owserver`. `owserver` by default runs on port 4304. Use the `host` option to specify the host or IP of the remote server, and the optional `port` option to change the port from the default.
