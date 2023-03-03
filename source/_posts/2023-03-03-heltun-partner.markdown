@@ -16,7 +16,7 @@ og_image: /images/blog/2023-03-03-heltun-partner/social.png
 
 Today we’re excited to announce a Works with Home Assistant partnership with HELTUN!
 
-HELTUN's thermostats, switches and switch panels integrate to Home Assistant via Z-Wave (Z-Wave stick required) completely locally so that devices react instantly to your commands which allows for the best user experience with Home Assistant.
+HELTUN's thermostats, switches, and switch panels integrate with Home Assistant via Z-Wave (Z-Wave stick required) completely locally so that devices react instantly to your commands which allows for the best user experience with Home Assistant.
 
 With automatic firmware updates via Home Assistant we will continue to provide the best user experience for their devices.
 
