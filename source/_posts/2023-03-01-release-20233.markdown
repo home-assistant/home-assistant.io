@@ -205,7 +205,7 @@ Thread & Matter support for Home Assistant.
 A couple of weeks ago, we published [an extensive blog article on where we're at](/blog/2023/02/08/state-of-matter-and-thread/).
 Some of the features mentioned in that blog post will become available today.
 
-The most visual change is that the [Thread integration](/integration/thread)
+The most visual change is that the [Thread integration](/integrations/thread)
 will now show up on your devices & services dashboard. The "Configure" button
 on the Thread card will reveal the all-new Thread panel.
 
