@@ -598,7 +598,7 @@ The following features can be accessed from the device panel of a Z-Wave device:
 - **Configure:** Provides an easy way to look up and update configuration parameters for the device. While there is an existing service for setting configuration parameter values, this UI may sometimes be quicker to use for one off changes.
 - **Re-interview:** Forces the device to go through the interview process again so that zwave-js can discover all of its capabilities. Can be helpful if you don't see all the expected entities for your device.
 - **Heal:** Forces the device to rediscover its optimal route back to the controller. Use this if you think you are experiencing unexpected delays or RF issues with your device. Your device may be less responsive during this process.
-- **Remove failed:** Forcefully removes this device from the controller. Used when a device has failed and it can't go through the normal exclusion process.
+- **Remove failed:** Forces the controller to remove the device from the controller. Can be used when a device has failed and it can't go through the normal exclusion process.
 - **[Statistics](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot):** Provides statistics about communication between this device and the controller, allowing you to troubleshoot RF issues with the device.
 - **Update firmware:** Updates a device's firmware using a manually uploaded firmware file. Only some devices support this feature (controllers and devices with the Firmware Update Metadata Command Class).
 
