@@ -4,6 +4,7 @@ description: Instructions on how to integrate your Obihai device into Home Assis
 ha_iot_class: Local Polling
 ha_category:
   - Sensor
+ha_config_flow: true
 ha_release: 0.99
 ha_codeowners:
   - '@dshokouhi'
@@ -16,31 +17,16 @@ ha_integration_type: integration
 
 The `obihai` integration allows you to view the call status for your [Obihai devices](https://www.obitalk.com/info/products#home_section).
 
-To enable `obihai` in your installation, add the following to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: obihai
-    host: 192.168.1.x
-```
-
-{% configuration %}
+{% configuration_basic %}
 host:
   description: IP Address of Obihai device
-  required: true
-  type: string
 username:
   description: Username for the Obihai device.
-  required: false
-  type: string
-  default: admin
 password:
   description: Password for the Obihai device.
-  required: false
-  type: string
-  default: admin
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 The following is a list of expected sensors and their expected states when using the `user` account:
 
