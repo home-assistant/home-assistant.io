@@ -149,6 +149,7 @@ The following models have been tested and confirmed to work:
 - C2 Pro
 - E1 Zoom
 - E1 Outdoor
+- RLC-410
 - RLC-410W
 - RLC-411
 - RLC-420
