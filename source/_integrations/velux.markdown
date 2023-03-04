@@ -5,6 +5,7 @@ ha_category:
   - Cover
   - Scene
 ha_release: 0.49
+ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@Julius2342'
@@ -26,27 +27,7 @@ There is currently support for the following device types within Home Assistant:
 - Light
 - Scene
 
-## Configuration
-
-A `velux` section must be present in the `configuration.yaml` file and contain the following options as required:
-
-```yaml
-# Example configuration.yaml entry
-velux:
-  host: IP_ADDRESS
-  password: VELUX_PASSWORD
-```
-
-{% configuration %}
-host:
-  description: The IP address or hostname of the KLF 200 to use.
-  required: true
-  type: string
-password:
-  description: The password of the KLF 200 interface. Note that this is the same as the Wi-Fi password (in the upper box on the back), *not* the password for the web login.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Services
 
