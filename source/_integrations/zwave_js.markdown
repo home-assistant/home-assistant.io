@@ -577,7 +577,7 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 
 ## Advanced Features (UI Only)
 
-While the integration aims to provide as much functionality through existing Home Assistant constructs (entities, states, automations, services, etc.), there are some features that are only available through the UI.
+While the integration aims to provide as much functionality as possible through existing Home Assistant constructs (entities, states, automations, services, etc.), there are some features that are only available through the UI.
 
 All of these features can be accessed either in the Z-Wave integration configuration panel or in a Z-Wave device's device panel.
 
