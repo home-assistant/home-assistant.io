@@ -33,6 +33,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **distance**: Generic distance in km, m, cm, mm, mi, yd, or in
 - **duration**: Duration in d, h, min, or s
 - **energy**: Energy in Wh, kWh, MWh, MJ, or GJ
+- **energy_storage**: Stored energy in Wh, kWh, MWh, MJ, or GJ
 - **enum**: Has a limited set of (non-numeric) states
 - **frequency**: Frequency in Hz, kHz, MHz, or GHz
 - **gas**: Gasvolume in m³, ft³ or CCF
@@ -63,6 +64,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
 - **voltage**: Voltage in V, mV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
+- **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **water**: Water consumption in L, gal, m³, ft³, or CCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
 - **wind_speed**: Wind speed in ft/s, km/h, kn, m/s, or mph

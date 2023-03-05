@@ -18,6 +18,8 @@ When a timer finishes or gets canceled the corresponding events are fired. This 
   
 Timers will be restored to their correct state and time on Home Assistant startup and restarts when configured with the `restore` option.
 
+However, automations using the `timer.finished` event **will not** trigger if the timer expires when Home Assistant is not running.
+
 </div>
 
 ## Configuration
