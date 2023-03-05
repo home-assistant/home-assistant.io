@@ -68,6 +68,16 @@ Depending on the supported features of the camera button entities are added for:
 - Guard go to
 - Guard set current position
 
+## Select entities
+
+Depending on the supported features of the camera select entities are added for:
+
+- Floodlight mode (Off, Auto, Schedule)
+- Day night mode (Auto, Color, Black&White)
+- PTZ preset
+
+PTZ preset positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
+
 ## Siren entities
 
 If the camera supports a siren, a siren entity will be created.
