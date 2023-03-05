@@ -87,6 +87,10 @@ Once you have installed the required Python package, it is now time to install H
 pip3 install homeassistant=={{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}
 ```
 
+### Start Home Assistant core
+
+#### First run
+
 Start Home Assistant Core for the first time. This will complete the installation for you, automatically creating the `.homeassistant` configuration directory in the `/home/homeassistant` directory, and installing any basic dependencies.
 
 ```bash
@@ -102,3 +106,10 @@ If this address doesn't work you may also try `http://localhost:8123` or `http:/
 When you run the `hass` command for the first time, it will download, install and cache the necessary libraries/dependencies. This procedure may take anywhere between 5 to 10 minutes. During that time, you may get "site cannot be reached" error when accessing the web interface. This will only happen for the first time, and subsequent restarts will be much faster.
 
 </div>
+{% if page.installation_type == 'linux' or page.installation_type == 'generic-x86-64' %}
+
+#### Run Homeassistant core on startup
+
+On modern linux distros you can follow this [community guide](https://community.home-assistant.io/t/autostart-using-systemd/199497) to autostart homeassistant on boot.
+
+{% endif %}
