@@ -60,7 +60,7 @@ ac_mode:
   type: boolean
   default: false
 min_cycle_duration:
-  description: Set a minimum amount of time that the switch specified in the *heater* option must be in its current state prior to being switched either off or on.
+  description: Set a minimum amount of time that the switch specified in the *heater* option must be in its current state prior to being switched either off or on. This option will be ignored if the `keep_alive` option is set.
   required: false
   type: [time, integer]
 cold_tolerance:
@@ -74,7 +74,7 @@ hot_tolerance:
   default: 0.3
   type: float
 keep_alive:
-  description: Set a keep-alive interval. If set, the switch specified in the *heater* option will be triggered every time the interval elapses. Use with heaters and A/C units that shut off if they don't receive a signal from their remote for a while. Use also with switches that might lose state. The keep-alive call is done with the current valid climate integration state (either on or off).
+  description: Set a keep-alive interval. If set, the switch specified in the *heater* option will be triggered every time the interval elapses. Use with heaters and A/C units that shut off if they don't receive a signal from their remote for a while. Use also with switches that might lose state. The keep-alive call is done with the current valid climate integration state (either on or off). When `keep_alive` is set the `min_cycle_duration` option will be ignored.
   required: false
   type: [time, integer]
 initial_hvac_mode:

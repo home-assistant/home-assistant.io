@@ -67,6 +67,7 @@ Tested devices:
 - Epson WF3540
 - Epson WF3620
 - Epson WF3640
+- Epson WF4820
 - Epson EcoTank ET-77x0
 - Epson ET-2650
 - Epson ET-4750

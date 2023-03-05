@@ -13,7 +13,7 @@ ha_platforms:
 ha_config_flow: true
 ha_codeowners:
   - '@frenck'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The uptime integration provides a sensor that stores the timestamp

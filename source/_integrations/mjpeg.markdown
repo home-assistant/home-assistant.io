@@ -43,7 +43,7 @@ use is automatically detected when using a username and password.
 
 - Blue Iris Cameras / Blue Iris Server:
   - MJPEG URL: `http://IP:PORT/mjpg/CAMERASHORTNAME/video.mjpeg`
-  - Still Image URL: n/a
+  - Still Image URL: `http://IP:PORT/image/CAMERASHORTNAME`
 
 - DCS-930L Wireless N Network Camera from D-Link:
   - MJPEG URL: `http://IP/video/mjpg.cgi`
@@ -56,3 +56,7 @@ use is automatically detected when using a username and password.
 - OctoPrint (OctoPi):
   - MJPEG URL: `http://IP/webcam/?action=stream`
   - Still Image URL: `http://IP/webcam/?action=snapshot`
+
+- Legacy Foscam / wanscam
+  - MJPEG URL: `http://IP:PORT/videostream.cgi` (add ?resultion=32 for 640x480 or ?resultion=32 for 320x240)
+  - Still Image URL: `http://IP:PORT/snapshot.cgi`

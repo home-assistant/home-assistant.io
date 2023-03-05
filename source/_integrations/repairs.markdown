@@ -4,11 +4,11 @@ description: Home Assistant Repairs informs you about issues it has found in you
 ha_release: 2022.8
 ha_category:
   - Other
-ha_iot_class: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: repairs
-ha_integration_type: integration
+ha_integration_type: system
+ha_quality_scale: internal
 ---
 
 The Home Assistant Repairs integration will inform you about issues it has found
@@ -34,7 +34,7 @@ in the repairs dashboard is shown in the sidebar on the "Settings" menu item.
 
 <p class='img'>
 <img class="no-shadow" src='/images/integrations/repairs/number-of-repairs.png' alt='Screenshot showing the number of updates and repairs pending on the settings menu item in the sidebar'>
-The settings menu item shows the number of updatesd and repairable issues pending.
+The settings menu item shows the number of pending updates and repairable issues.
 </p>
 
 Navigate to {% my repairs title="**Settings** -> **System** -> **Repairs**" %}

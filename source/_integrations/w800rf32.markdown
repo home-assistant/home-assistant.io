@@ -12,7 +12,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `w800rf32` integration supports W800RF32 devices by [WGL Designs](http://www.wgldesigns.com/w800.html) which
+The `w800rf32` integration supports W800RF32 devices by WGL Designs which
 communicate in the frequency range of 310MHz or if you are outside Canada or the U.S., 433.92 MHz.
 
 The W800 family of RF receivers are designed to receive X10 RF signals generated from X10 products: Palm Pad

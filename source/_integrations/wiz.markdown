@@ -33,13 +33,13 @@ These devices have been sold under at least the following brands:
 - [4Lite](https://4liteuk.com/)
 - AEG
 - [Altair](https://altairlighting.com/default.dmx)
-- [Ansell](https://anselluk.com/)
+- [Ansell](https://ansell-lighting.com/)
 - [Atom Lighting](https://atomlighting.com.au/)
 - [ATX LED](https://atxledinc.com/)
 - [Brilliant](https://www.brilliantlightsource.com/)
 - [Designers Fountain](https://designersftn.com/default.dmx)
 - [Evoluziona](https://tecnolite.mx/)
-- [Fischer & Honsel](https://www.fischer-honsel.de/de/)
+- [Fischer & Honsel](https://fischer-honsel.com/)
 - [Gauss](https://gauss.ru/smartlight/products/)
 - iDual
 - [KSR](https://www.ksrlighting.com/)

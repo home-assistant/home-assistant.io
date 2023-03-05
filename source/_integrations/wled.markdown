@@ -5,7 +5,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
-  - Updates
+  - Update
 ha_release: 0.102
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -24,7 +24,7 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 [WLED](https://kno.wled.ge) is a fast and feature-rich

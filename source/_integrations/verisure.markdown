@@ -24,7 +24,7 @@ ha_platforms:
   - switch
 ha_config_flow: true
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.

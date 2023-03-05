@@ -17,6 +17,10 @@ ha_integration_type: integration
 
 Integrates [SensorPush](https://www.sensorpush.com/) devices into Home Assistant.
 
+## Activation is required
+
+Sensor entities (temperature, humidity, barometric pressure) will not be available to Home Assistant until you have activated the device with the SensorPush app on iOS or Android.
+
 ## Supported devices
 
 - [HT.w Water-Resistant Temperature / Humidity Smart Sensor](https://www.sensorpush.com/products/p/ht-w)

@@ -328,7 +328,7 @@ for documentation.
 
 * [BSkyB](http://en.wikipedia.org/wiki/BSkyB)
 * [pr.ofile.me](http://pr.ofile.me)
-* [Lukas Bestle](http://lu-x.me)
+* [Lukas Bestle]
 * [Matthew Tyas](http://matthewtyas.com/)
 
 ### Using inuit.css?

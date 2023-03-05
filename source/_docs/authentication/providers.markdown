@@ -19,7 +19,11 @@ If you decide to use `trusted_networks` as your `auth_provider` there won't be a
 
 </div>
 
-Authentication providers are configured in your `configuration.yaml` under the `homeassistant:` block. You can supply more than one, for example:
+Authentication providers are configured in your `configuration.yaml` under the `homeassistant:` block. 
+If you are moving configuration to packages, this particular configuration must stay within 'configuration.yaml'. See Issue 16441 in the warning block at the bottom of this page.
+
+
+You can supply more than one, for example:
 
 ```yaml
 homeassistant:
@@ -58,6 +62,12 @@ When you log in from one of these networks, you will be asked which user account
 <div class='note info'>
 
 The [multi-factor authentication module](/docs/authentication/multi-factor-auth/) will not participate in the login process if you are using this auth provider.
+
+</div>
+
+<div class='note info'>
+
+You cannot trust a network that you are using in any [trusted_proxies](/integrations/http/#reverse-proxies). The `trusted_networks` authentication will fail with the message: Your computer is not allowed
 
 </div>
 

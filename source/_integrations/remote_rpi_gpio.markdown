@@ -1,5 +1,5 @@
 ---
-title: remote_rpi_gpio
+title: Raspberry Pi Remote GPIO
 description: Instructions on how to integrate the GPIO capability of a Remote Raspberry Pi into Home Assistant.
 ha_category:
   - Binary Sensor

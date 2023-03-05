@@ -10,12 +10,13 @@ ha_codeowners:
   - '@garbled1'
   - '@epenet'
 ha_domain: onewire
+ha_quality_scale: gold
 ha_platforms:
   - binary_sensor
   - diagnostics
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 <div class='note warning'>

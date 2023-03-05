@@ -20,7 +20,7 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@tkdrob'
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The `skybell` implementation allows you to integrate your [Skybell.com](http://www.skybell.com/) doorbells in Home Assistant.

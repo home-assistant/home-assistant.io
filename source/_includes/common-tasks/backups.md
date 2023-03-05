@@ -1,6 +1,6 @@
 ## Backups
 
-Backup of your Home Assistant and add-on data and configuration. They are stored in a compressed archive file (.tar). Backups are made from the Supervisor Backups panel. There is also a service available that allows you to trigger the creation of a backup from an automation. Backups are stored in the /backup directory.
+Backup of your Home Assistant and add-on data and configuration. They are stored in a compressed archive file (.tar). Backups are made from the Supervisor Backups panel. There is also a service available that allows you to trigger the creation of a backup from an automation. Backups are stored in the `/backup` directory.
 
 A full backup includes the following directories:
 
@@ -55,6 +55,8 @@ You often need a backup in case your system has crashed. If you only store them 
 
 - [Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
 - [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync)
+- [OneDrive Backup](https://github.com/lavinir/hassio-onedrive-backup)
 - [Nextcloud Backup](https://github.com/Sebclem/hassio-nextcloud-backup)
-- [Samba backup](https://github.com/thomasmauerer/hassio-addons/tree/master/samba-backup)
 - [Remote Backup (scp/rsync/rclone)](https://github.com/ikifar2012/remote-backup-addon)
+- [Samba backup](https://github.com/thomasmauerer/hassio-addons/tree/master/samba-backup)
+- [Syncthing](https://github.com/Poeschl/Hassio-Addons/tree/main/syncthing)

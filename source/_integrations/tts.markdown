@@ -11,7 +11,7 @@ ha_domain: tts
 ha_quality_scale: internal
 ha_platforms:
   - notify
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 Text-to-Speech (TTS) enables Home Assistant to speak to you.
