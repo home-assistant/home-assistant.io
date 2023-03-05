@@ -57,6 +57,14 @@ There are a few very important rules to remember when adding templates to YAML:
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
+### Enabled Jinja Extensions
+
+Jinja supports a set of language extensions that add new functionality to the language.
+To improve the experience of writing Jinja templates, we have enabled the following
+extensions:
+
+* [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
+
 ## Home Assistant template extensions
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
@@ -163,42 +171,48 @@ Other state examples:
 
 The examples below show the output of a temperature sensor with state `20.001`, unit `°C` and user configured presentation rounding set to 1 decimal.
 
-This results in the number `20.001`:
+The following example results in the number `20.001`:
+
 {% raw %}
 ```text
 {{ states('sensor.temperature') }}
 ```
 {% endraw %}
 
-This results in the string `"20.0 °C"`:
+The following example results in the string `"20.0 °C"`:
+
 {% raw %}
 ```text
 {{ states('sensor.temperature', with_unit=True) }}
 ```
 {% endraw %}
 
-This results in the string `"20.001 °C"`:
+The following example result in the string `"20.001 °C"`:
+
 {% raw %}
 ```text
 {{ states('sensor.temperature', with_unit=True, rounded=False) }}
 ```
 {% endraw %}
 
-This results in the number `20.0`:
+The following example results in the number `20.0`:
+
 {% raw %}
 ```text
 {{ states('sensor.temperature', rounded=True) }}
 ```
 {% endraw %}
 
-This results in the number `20.001`:
+The following example results in the number `20.001`:
+
 {% raw %}
 ```text
 {{ states.sensor.temperature.state }}
 ```
 {% endraw %}
 
-This results in the string `"20.0 °C"`:
+The following example results in the string `"20.0 °C"`:
+
 {% raw %}
 ```text
 {{ states.sensor.temperature.state_with_unit }}
