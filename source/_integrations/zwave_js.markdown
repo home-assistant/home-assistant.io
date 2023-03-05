@@ -585,7 +585,7 @@ All of these features can be accessed either in the Z-Wave integration configura
 
 The following features can be accessed from the integration configuration panel:
 
-- **Add device:** Allows you to preprovision a SmartStart device or start the inclusion process for adding a new device to your network.
+- **Add device:** Allows you to pre-provision a SmartStart device or start the inclusion process for adding a new device to your network.
 - **Remove device:** Starts the exclusion process for removing a device from your network.
 - **Heal network:** Forces your network to rediscover routes to the controller from each device. This is useful when devices or the controller have moved to a new location, or if you are having significant problems with your network, but it also generates a lot of network traffic and should be used sparingly.
 - **Third party data opt-in/out:** Allows you to opt-in or out of telemetry that the zwave-js project collects to help inform development decisions, influence manufacturers, etc. This telemetry is disabled by default and has to be opted in to be activated.
