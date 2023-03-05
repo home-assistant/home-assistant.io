@@ -101,3 +101,9 @@ It may be possible to bypass this issue by using IP masquerading or a proxy.
 #### H and J models
 
 Some televisions from the H and J series use an encrypted protocol and require manual pairing with the TV. This should be detected automatically when attempting to send commands using the WebSocket connection, and trigger the corresponding authentication flow.
+
+#### Samsung TV keeps asking for permission
+
+The default setting on newer televisions is to ask for permission on ever connection attempt.
+To avoid this behavior, please ensure that you adjust this to `First time only` in the `Device connection manager > Access notification` settings of your television.
+It is also recommended to cleanup the previous attempts in `Device connection manager > Device list`

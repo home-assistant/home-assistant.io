@@ -55,12 +55,43 @@ Depending on the supported features of the camera number entities are added for:
 - Optical zoom control
 - Focus control
 
+## Button entities
+
+Depending on the supported features of the camera button entities are added for:
+
+- PTZ stop
+- PTZ left
+- PTZ right
+- PTZ up
+- PTZ down
+- PTZ calibrate
+- Guard go to
+- Guard set current position
+
 ## Siren entities
 
 If the camera supports a siren, a siren entity will be created.
 When using the siren turn-on service, the siren will continue to sound until the siren turn-off service is called.
 
 In some camera models, there is a delay of up to 5 seconds between the turn-off command and the sound stopping. The siren turn-on service supports setting a volume and a duration (no turn-off service call is needed in that case).
+
+## Switch entities
+
+Depending on the supported features of the camera switch entities are added for:
+
+- Record audio
+- Siren on event
+- Auto tracking
+- Auto focus
+- Guard return
+
+Depending on the supported features of the NVR/host, global switch entities are added for:
+
+- Record
+- Push notifications
+- Buzzer on event
+- Email on event
+- FTP upload
 
 ## Update entity
 
@@ -74,6 +105,7 @@ The latest firmware can be downloaded from the [Reolink download center](https:/
 The following models have been tested and confirmed to work:
 
 - C1 Pro
+- C2 Pro
 - E1 Zoom
 - E1 Outdoor
 - RLC-410W
