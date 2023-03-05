@@ -71,6 +71,13 @@ Depending on the supported features of the camera button entities are added for:
 - Guard go to
 - Guard set current position
 
+## Siren entities
+
+If the camera supports a siren, a siren entity will be created.
+When using the siren turn-on service, the siren will continue to sound until the siren turn-off service is called.
+
+In some camera models, there is a delay of up to 5 seconds between the turn-off command and the sound stopping. The siren turn-on service supports setting a volume and a duration (no turn-off service call is needed in that case).
+
 ## Switch entities
 
 Depending on the supported features of the camera switch entities are added for:
@@ -143,3 +150,4 @@ The following models are lacking the HTTP webserver API and can therfore not wor
 
 - The Reolink NVR only sends event-notifications if motion happens on the camera connected to the first (index "0") channel, therefore the binary sensors of all channels will only be updated when the first channel sees motion. Beta NVR firmware v3.0.0.211_23011204 fixes this issue, you can request beta firmware from reolink support, release firmware is expected in a few weeks.
 - Reolink doorbell presses only generate ONVIF event notifications when the doorbell is directly connected to your network. The doorbell visitor binary sensor will not work when connecting the Reolink doorbell to an NVR. Beta NVR firmware v3.0.0.211_23011204 fixes this issue, you can request beta firmware from reolink support, release firmware is expected in a few weeks.
+- The siren turn-off service does not work on the Reolink NVR, you need to power cycle the NVR/camera to stop the siren. Reolink is aware of this firmware bug and is working on a solution.
