@@ -54,7 +54,7 @@ Depending on the supported features of the camera number entities are added for:
 
 - Optical zoom control
 - Focus control
-- Floodlight brightness
+- Floodlight turn on brightness
 - Volume
 - Guard return time
 - Motion sensitivity
@@ -62,6 +62,10 @@ Depending on the supported features of the camera number entities are added for:
 - AI people sensitivity
 - AI vehicle sensitivity
 - AI pet sensitivity
+
+`Floodlight turn on brightness` controlles the brightness of the floodlight when it is turned on internally by the camera (see `select.floodlight_mode` entity) or when using the `light.floodlight` entity.
+
+When the camera is not moved and no person/pet/vehicle is detected for the `Guard return time` in seconds, and the `switch.guard_return` is ON, the camera will move back to the guard position.
 
 ## Button entities
 
@@ -75,6 +79,10 @@ Depending on the supported features of the camera button entities are added for:
 - PTZ calibrate
 - Guard go to
 - Guard set current position
+
+PTZ left, right, up and down will continually move the camera in the respective position untill the PTZ stop is called or the hardware limit is reached.
+
+`Guard set current position` will set the current postion as the new guard position.
 
 ## Select entities
 
@@ -119,9 +127,9 @@ Depending on the supported features of the camera light entities are added for:
 - Infra red lights in night mode
 - Status LED
 
-When the floodlight entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule)
+When the floodlight entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule), see `select.floodlight_mode` entity.
 
-When IR light entity is OFF always OFF, when ON IR LEDs will be on when camera is in night vision mode, see "Day night mode"
+When IR light entity is OFF always OFF, when ON IR LEDs will be on when camera is in night vision mode, see `select.day_night_mode" entity.
 
 ## Update entity
 
