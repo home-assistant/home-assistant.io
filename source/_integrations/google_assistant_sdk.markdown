@@ -87,13 +87,13 @@ The integration setup will next give you instructions to enter the [Application 
 
 {% enddetails %}
 
-## Enable personal results
+## Enable personal results (for advanced users)
 
 If you want to enable personal commands (e.g. "remind me tomorrow at 9 pm to take out the trash") follow the steps below after successfully installing the integration. This is for advanced users since it requires creating an OAuth client ID of Desktop app, running a Python program on your desktop (or laptop), and copying the resulting credentials to your Home Assistant config directory.
 
 {% details "Create credentials file" %}
 
-1. Navigate to https://console.cloud.google.com/apis/credentials
+1. Navigate to [Google Developers Console > Credentials](https://console.cloud.google.com/apis/credentials)
 2. Select the project you created earlier from the dropdown menu in the upper left corner.
 3. Click Create credentials (at the top of the screen), then select OAuth client ID.
 4. Set the Application type to "Desktop app" and give this credential set a name (like "Home Assistant Desktop Credentials").
@@ -133,16 +133,18 @@ If commands don't work try removing superfluous words such as "the". E.g. "play 
 
 If broadcasting doesn't work, make sure: the speakers aren't in do not disturb mode, the Home Assistant server is in the same network as the speakers, and IPv6 is disabled in the router.
 
+The easiest way to check if the integration is working is to check [My Google Activity](https://myactivity.google.com/myactivity) for the issued commands and their responses.
+
 ## Limitations/known issues
 
 - Multiple Google accounts are not supported.
-- If you see the issued commands in https://myactivity.google.com/myactivity the integration is working fine. If the commands don't have the expected outcome don't open an issue in Home Assistant Core project. Instead open an issue in https://github.com/googlesamples/assistant-sdk-python/issues. Examples of known Google Assistant API issues:
-  - Media playback commands (other than play news or play white noise or play rain sounds) don't work.
+- If you see the issued commands in [My Google Activity](https://myactivity.google.com/myactivity) the integration is working fine. If the commands don't have the expected outcome don't open an issue in Home Assistant Core project. Instead open an issue [here](https://github.com/googlesamples/assistant-sdk-python/issues). Examples of known Google Assistant API issues:
+  - Media playback commands (other than play news or play podcast or play white noise or play rain sounds) don't work.
   - Routines don't work.
 
 ## Configuration
 
-On the configure page, you can set the language code of the interactions with Google Assistant. If not configured, the integration picks one based on Home Assistant's configured language and country. Supported languages are listed [here](https://developers.google.com/assistant/sdk/reference/rpc/languages)
+On the configure page, you can set the language code of the interactions with Google Assistant. If not configured, the integration picks one based on Home Assistant's configured language and country. Supported languages are listed [here](https://developers.google.com/assistant/sdk/reference/rpc/languages).
 
 ## Services
 
