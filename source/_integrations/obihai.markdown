@@ -40,3 +40,5 @@ In addition to the above list the `admin` account can expect to see the followin
 - Obihai service status (`Normal`, `Down` or other states from Obihais network)
 - Sensors for each phone port in use (`On Hook`, `Off Hook` and `Ringing`)
 - Sensors for last caller name and number (this is also the current incoming call, will also show `--` if no data provided)
+
+You will also see a reboot button for each configured Obihai, this button will restart the Obihai when pressed.
