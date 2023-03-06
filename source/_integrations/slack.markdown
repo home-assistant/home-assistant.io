@@ -26,7 +26,7 @@ The `slack` platform allows you to deliver notifications from Home Assistant to 
 1. Create a [new app](https://api.slack.com/apps) under your Slack.com account.
 2. Click the `OAuth & Permissions` link in the sidebar, under the Features heading.
 
-Depending on whether you want the Bot user to post as you (the user that authenticated the slack app) or as on it's own, use the appropriate Section when adding Scopes and retrieving the API key
+Depending on whether you want the Bot user to post as you (the user that authenticated the Slack app) or as on it's own, use the appropriate Section when adding Scopes and retrieving the API key
 
 - To post as the user that authorized the app, take these actions under `Features/OAuth and Permissions/Scopes/Bot Token Scopes`
 <!-- (screenshot of example message?) -->
