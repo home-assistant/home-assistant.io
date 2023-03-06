@@ -89,7 +89,7 @@ The integration setup will next give you instructions to enter the [Application 
 
 ## Enable personal results
 
-If you want to enable personal commands (e.g. "remind me tomorrow at 9pm to take out trash") follow below steps after successfully installing the integration. This is for advanced users since it requires creating an OAuth client ID of Desktop app, running a Python program on your desktop (or laptop), and copying the resulting credentials to your Home Assistant config directory.
+If you want to enable personal commands (e.g. "remind me tomorrow at 9 pm to take out the trash") follow the steps below after successfully installing the integration. This is for advanced users since it requires creating an OAuth client ID of Desktop app, running a Python program on your desktop (or laptop), and copying the resulting credentials to your Home Assistant config directory.
 
 {% details "Create credentials file" %}
 
@@ -106,7 +106,7 @@ If you want to enable personal commands (e.g. "remind me tomorrow at 9pm to take
 11. `python -m pip install --upgrade google-auth-oauthlib[tool]`
 12. Under Windows: `google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype --scope https://www.googleapis.com/auth/gcm --save --client-secrets %userprofile%\Downloads\client_secret.json`
 13. Or under Linux: `google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype --scope https://www.googleapis.com/auth/gcm --save --client-secrets ~/Downloads/client_secret.json`
-14. A browser window will open asking you to select account to continue to the cloud project you created earlier.
+14. A browser window will open asking you to select the account to continue to the cloud project you created earlier.
 15. Once you select the correct account, add a tick to both: "Use your Google Assistant: broad access to your Google account."  and "Send information to your Android device.".
 16. Click continue.
 17. If everything was successful you will get "The authentication flow has completed. You may close this window." in your browser and in your terminal you will see the path where the credentials was saved. E.g. `credentials saved: C:\Users\user\AppData\Roaming\google-oauthlib-tool\credentials.json`
