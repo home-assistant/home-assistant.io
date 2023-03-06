@@ -73,6 +73,7 @@ The following models have been tested and confirmed to work:
 - C2 Pro
 - E1 Zoom
 - E1 Outdoor
+- RLC-410
 - RLC-410W
 - RLC-411
 - RLC-420
@@ -97,6 +98,7 @@ Battery-powered cameras are not yet supported.
 The following models are lacking the HTTP webserver API and can therfore not work with this integration:
 
 - E1 Pro
+- E1
 
 ## Troubleshooting
 
