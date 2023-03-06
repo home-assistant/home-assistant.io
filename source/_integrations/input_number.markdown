@@ -96,7 +96,7 @@ configuration without restarting Home Assistant itself.
 
 ### Restore State
 
-If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
+If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping. Note that this is only available if you added input number via `configuration.yaml`.
 
 ### Scenes
 
