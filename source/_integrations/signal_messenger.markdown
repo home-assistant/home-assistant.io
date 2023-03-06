@@ -91,12 +91,8 @@ trigger:
   - platform: state
     entity_id:
       - sensor.signal_message_received
-    to: "time"
-condition:
-  - condition: state
-    entity_id: sensor.signal_message_received
     attribute: source
-    state: "<yournumber>"
+    to: "<yournumber>"
 action:
   - service: notify.signal
     data:
