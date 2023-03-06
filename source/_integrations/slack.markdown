@@ -18,22 +18,6 @@ ha_integration_type: service
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
 
-<div class='note'>
-
-Note: (it appears that) only one Bot may be added to Home Assistant at any given time. However, one bot user can post to multiple different channels. 
-
-For example:
-You cannot have slack bots:
-@refrigerator-door
-@front-door
-@sprinkler-system
-
-Rather, create one bot user
-@home-notifications
-
-to use for all three of the above functions.
-
-</div>
 
 ## Setup
 
@@ -57,31 +41,37 @@ In `Features/OAuth and Permissions/OAuth Tokens for Your Workspace`:
 
 5. Copy the User (or Bot User) OAuth Token. Use this as 'API Key' when setting up in Home Assistant
 
-### HA Integration
-
 ## Usage
 
 
-One of the easiest ways to send a message, is to create a script. 
+One of the easiest ways to send a message, is to create a script. You can paste in YAML and make changes in the GUI
+
 Change `[YOUR-SLACK-TEAM]` to the team name `(*.slack.com)`.
 
-```
-service: notify.[YOUR-SLACK-TEAM]
-data:
-  message: Fallback Text >
-  title: Title
-  blocks: [
-		{
-			"type": "section",
-			"text": {
-				"type": "mrkdwn",
-				"text": "This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>"
-			}
-		}
-	]
+Note: Fallback text will be used if blocks cannot be displayed
+
+```yaml
+alias: "Notify: Slack Notification Template"
+sequence:
+  - service: notify.[YOUR-SLACK-TEAM]
+    data:
+      message: Fallback text
+      title: Fallback text
+      data:
+        blocks:
+          - type: section
+            text:
+              type: mrkdwn
+              text: >-
+                This is a mrkdwn section block *this is bold*, and ~this is
+                crossed out~, and <https://google.com|this is a link>
+mode: single
+
 ```
 
 Update the blocks array with valid Slack blocks. The easiest way to create this is using [Slack Block Kit Builder](https://app.slack.com/block-kit-builder)
+
+Create a duplicate of this script to use for different messages (the door was opened, the light was left on, etc).
 
 ### Icons
 
