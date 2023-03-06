@@ -21,7 +21,9 @@ The LIVISI Smart Home integration allows you to connect your LIVISI Smart Home C
 The following devices are currently supported by this integration:
  
 - Indoor Smart Plug (PSS)
-- Room Heating Control (VRCC) that includes support for physical heating devices such as RSTx, WRT, FSC8
+- Inwall Switch (ISSx)
+- Outdoor Smart Plug (PSSO)
+- Room Heating Control (VRCC) that includes support for physical heating devices such as Radiator Thermostat (RSTx), Room Thermostat (WRT) or Floor Heating Control (FSC8)
  
 ## Prequisites
  
