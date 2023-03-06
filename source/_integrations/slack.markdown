@@ -18,27 +18,70 @@ ha_integration_type: service
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
 
-## Setup
-
-### Bot posting as you
-
-1. Create a [new app](https://api.slack.com/apps) under your Slack.com account.
-2. Click the `OAuth & Permissions` link in the sidebar, under the Features heading.
-3. In the Scopes section, add the `chat:write` and `dnd:read` scopes and select `Send messages as user`. Many errors can occur if these options are not set correctly.
-4. Scroll up to `OAuth Tokens & Redirect URLs` and click `Install to Workspace`.
-5. Copy your `OAuth Access Token` and put that key into the config flow.
-
 <div class='note'>
 
-There is an app credential Verification Token on the Basic Settings of your app. This is **not** the API key you want.
+Note: (it appears that) only one Bot may be added to Home Assistant at any given time. However, one bot user can post to multiple different channels. 
+
+For example:
+You cannot have slack bots:
+@refrigerator-door
+@front-door
+@sprinkler-system
+
+Rather, create one bot user
+@home-notifications
+
+to use for all three of the above functions.
 
 </div>
 
-### Bot posting as its own user
+## Setup
 
-It is also possible to use Slack bots as users. Just create a new bot at https://[YOUR_TEAM].slack.com/apps/build/custom-integration and use the provided token for that. You can add an icon from the frontend for Home Assistant and give the bot a meaningful name.
+### Slack App
 
-Don't forget to invite the bot to the room where you want to get the notifications.
+1. Create a [new app](https://api.slack.com/apps) under your Slack.com account.
+2. Click the `OAuth & Permissions` link in the sidebar, under the Features heading.
+
+Depending on whether you want the Bot user to post as you (the user that authenticated the slack app) or as on it's own, use the appropriate Section when adding Scopes and retrieving the API key
+
+- To post as the user that authorized the app, take these actions under `Features/OAuth and Permissions/Scopes/Bot Token Scopes`
+<!-- (screenshot of example message?) -->
+- To post as the user that authorized as the app, take these actions under `Features/OAuth and Permissions/Scopes/User Token Scopes`
+<!-- (screenshot of example message?) -->
+
+3. In the correct Scopes section, add the `chat:write` and `dnd:read` scopes
+
+4. Scroll up to `OAuth Tokens & Redirect URLs` and click `Install to Workspace`.
+
+In `Features/OAuth and Permissions/OAuth Tokens for Your Workspace`:
+
+5. Copy the User (or Bot User) OAuth Token. Use this as 'API Key' when setting up in Home Assistant
+
+### HA Integration
+
+## Usage
+
+
+One of the easiest ways to send a message, is to create a script. 
+Change `[YOUR-SLACK-TEAM]` to the team name `(*.slack.com)`.
+
+```
+service: notify.[YOUR-SLACK-TEAM]
+data:
+  message: Fallback Text >
+  title: Title
+  blocks: [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>"
+			}
+		}
+	]
+```
+
+Update the blocks array with valid Slack blocks. The easiest way to create this is using [Slack Block Kit Builder](https://app.slack.com/block-kit-builder)
 
 ### Icons
 
