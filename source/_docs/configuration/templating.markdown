@@ -57,6 +57,14 @@ There are a few very important rules to remember when adding templates to YAML:
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
+### Enabled Jinja Extensions
+
+Jinja supports a set of language extensions that add new functionality to the language.
+To improve the experience of writing Jinja templates, we have enabled the following
+extensions:
+
+* [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
+
 ## Home Assistant template extensions
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
