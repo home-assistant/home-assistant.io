@@ -861,6 +861,9 @@ Some examples:
 
 </div>
 
+- Filter `value | base64_decode` will base64 decode a string to bytes and decode it back to a string using `utf-8` by default. [Other encodings](https://docs.python.org/3/library/codecs.html#standard-encodings) can be used to decode back to string by passing the encoding to the filter: `value | base64_decode(ascii)`. The filter can also be used to decode the base64 encoded string to `bytes`, by passing `raw` for the encoding `value | base64_decode(raw)`
+- Filter `value | base64_encode` will encode a string to a base64 string. 
+
 ### String filters
 
 - Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
