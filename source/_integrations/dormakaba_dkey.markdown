@@ -11,7 +11,9 @@ ha_codeowners:
 ha_domain: dormakaba_dkey
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - lock
+  - sensor
 ha_integration_type: device
 ---
 
@@ -19,4 +21,7 @@ Integrates Dormakaba dKey Bluetooth Low Energy connected locks into Home Assista
 
 {% include integrations/config_flow.md %}
 
-In addition to a lock entity, each added dKey lock will also have a battery sensor.
+In addition to a lock entity, each added dKey lock will also have:
+- A battery sensor
+- A binary_sensor which shows if the door is open or not
+- A binary_sensor which shows the position of the lock's dead bolt

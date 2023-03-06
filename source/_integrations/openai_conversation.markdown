@@ -1,5 +1,5 @@
 ---
-title: OpenAI conversation agent
+title: OpenAI Conversation
 description: Instructions on how to integrate OpenAI as a conversation agent
 ha_category:
   - Voice
