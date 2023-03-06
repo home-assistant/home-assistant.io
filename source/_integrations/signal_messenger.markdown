@@ -91,7 +91,7 @@ trigger:
   - platform: state
     entity_id:
       - sensor.signal_message_received
-    to: time
+    to: "time"
 condition:
   - condition: state
     entity_id: sensor.signal_message_received
