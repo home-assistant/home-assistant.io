@@ -63,7 +63,7 @@ Depending on the supported features of the camera number entities are added for:
 - AI vehicle sensitivity
 - AI pet sensitivity
 
-`Floodlight turn on brightness` controlles the brightness of the floodlight when it is turned on internally by the camera (see `select.floodlight_mode` entity) or when using the `light.floodlight` entity.
+"Floodlight turn on brightness" controls the brightness of the floodlight when it is turned on internally by the camera (see "Floodlight mode" select entity) or when using the "Floodlight" light entity.
 
 When the camera is not moved and no person/pet/vehicle is detected for the `Guard return time` in seconds, and the `switch.guard_return` is ON, the camera will move back to the guard position.
 
