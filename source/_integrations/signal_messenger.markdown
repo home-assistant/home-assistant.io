@@ -81,7 +81,7 @@ To accomplish this, edit the configuration of Home Assistant, adding a [RESTful 
       value_template: "{{ value_json[0].envelope.dataMessage.message }}" #this will fetch the message
       json_attributes_path: $[0].envelope
       json_attributes:
-       - source #using attributes you can get additional information, in this case the phone number.
+        - source #using attributes you can get additional information, in this case, the phone number.
   ```
 You can create an automation as follows:
 
