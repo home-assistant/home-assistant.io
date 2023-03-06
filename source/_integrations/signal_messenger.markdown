@@ -100,7 +100,7 @@ condition:
 action:
   - service: notify.signal
     data:
-      message: "{{ now() }}"
+      message: "{{ now() }}" #sends now() as a message in the real world
 ```
 
 ## Examples
