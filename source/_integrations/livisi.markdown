@@ -22,6 +22,7 @@ The following devices are currently supported by this integration:
  
 - Indoor Smart Plug (PSS)
 - Room Heating Control (VRCC) that includes support for physical heating devices such as RSTx, WRT, FSC8
+- Remotes and wall buttons
  
 ## Prequisites
  
@@ -40,3 +41,7 @@ The current integration will not find your SHC automatically and needs to be con
 ## Device Discovery
 
 All devices are automatically discovered and included by the integration. If you include a new device in LIVISI SmartHome, the device will automatically appear in Home Assistant after a few minutes.
+
+## Remotes and wall buttons
+
+Livisi remotes such as the 8 Button remote (BRC8) and wall buttons (WSC2) are stateless devices, meaning that they do not have a on/off state like regular entities in Home Assistant. Instead, such devices emit the event `livisi_event` when a button is pressed. You can test what events come in using the event {% my developer_events title="developer tools in Home Assistant" %} and subscribe to the `livisi_event`. Once you know what the event data looks like, you can use this to create automations.
