@@ -6,8 +6,6 @@ ha_category:
   - Notifications
 ha_iot_class: Cloud Push
 ha_release: 0.69
-ha_codeowners:
-  - '@tinloaf'
 ha_domain: matrix
 ha_platforms:
   - notify

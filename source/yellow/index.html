@@ -1,0 +1,350 @@
+---
+layout: landingpage
+title: "Home Assistant Yellow"
+description: "The easiest way to run Home Assistant. Now available for pre-order."
+date: 2022-10-05
+tagline: Home Assistant Yellow
+tagline_wide: false
+og_image: /images/yellow/yellow_hero.jpg
+hero_image: /images/yellow/yellow_hero.jpg
+frontpage: true
+frontpage_image: /images/frontpage/yellow-frontpage.jpg
+---
+
+<style>
+  #landingpage .banner .title {
+    text-shadow: 0px 0px 10px rgba(0, 0, 0), 0px 0px 10px rgba(0, 0, 0);
+  }
+  #landingpage .content .bullet-points,
+  #landingpage .sub-title {
+    margin-top: 100px;
+  }
+  #landingpage #buy-dialog {
+    overflow-y: auto;
+  }
+  .spaced-card {
+    max-width: 750px;
+    margin: 100px auto;
+  }
+  #landingpage .content .bullet-points .item.rpi span:nth-of-type(2) {
+    font-size: 39px;
+  }
+  #landingpage .yellow-variant {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 16px;
+  }
+  #landingpage .yellow-variant:last-child {
+    margin-bottom: 0;
+  }
+  #landingpage .yellow-variant div:first-child {
+    width: 100px;
+    margin-right: 16px;
+  }
+  #landingpage .yellow-variant img {
+    height: auto;
+    box-shadow: none;
+    border: none;
+    max-width: initial;
+    width: 100px;
+  }
+  .banner-overlay-button, #landingpage .fab {
+    background-color: #ffc900 !important;
+    color: black !important;
+  }
+  @media only screen and (max-width: 480px) {
+    #landingpage .content .bullet-points .item.rpi span:nth-of-type(2) {
+      font-size: 32px;
+    }
+    #landingpage .yellow-variant {
+      flex-direction: column;
+    }
+  }
+
+</style>
+
+<div class="content">
+  <div class="material-card text banner-overlay with-box">
+    <div>
+      <div class="banner-overlay-header">Our take on Home Automation</div>
+      <div class="banner-overlay-content">
+        The foundation of your smart home needs to be local and private. Home Assistant Yellow is that foundation.
+        <br><br>
+        On top of that, it's Matter-ready, upgradable and extendable. You won't need anything else.
+      </div>
+    </div>
+    <div class="material-card text box">
+      <div class="banner-overlay-images">
+        <a
+          href="/images/yellow/yellow-pcb-preview.jpg"
+          target="_blank" class="img-container">
+          <img src="/images/yellow/yellow-pcb-preview.jpg" />
+        </a>
+        <a
+          href="/images/yellow/yellow-poe-box-preview.jpg"
+          target="_blank" class="img-container">
+          <img src="/images/yellow/yellow-poe-box-preview.jpg" />
+        </a>
+        <a
+          href="/images/yellow/yellow-preview.jpg"
+          target="_blank" class="img-container">
+          <img src="/images/yellow/yellow-preview.jpg" />
+        </a>
+      </div>
+      <div class="banner-overlay-button" onclick="showBuyDialog()">
+        <div>Order now</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bullet-points">
+    <div class="item rpi">
+      <span>Fast</span>
+      <span>Compute Module 4</span>
+      <span>Powered by the powerful Raspberry Pi Compute Module 4. Swap it out for a better one if you need more power in the future.</span>
+    </div>
+    <div class="item">
+      <span>Expandable</span>
+      <span>M.2 Slot</span>
+      <span>Add a hard drive with terabytes of extra space</span>
+    </div>
+    <div class="item">
+      <span>Connected</span>
+      <span>Zigbee & Thread</span>
+      <span>Comes with Zigbee out of the box. Thread to power your Matter network is coming soon</span>
+    </div>
+    <div class="item">
+      <span>Ready</span>
+      <span>Zero Setup</span>
+      <span>Comes with Home Assistant</span>
+    </div>
+  </div>
+</div>
+
+<div class="material-card spaced-card">
+  <img src="/images/yellow/home-assistant-yellow-exploded-and-labeled.png">
+</div>
+
+<div class="material-card text spaced-card">
+  <h1>Pick your flavor</h1>
+  <div class="yellow-variant">
+    <div><img src="/images/yellow/yellow-2d.jpg" alt="2D overview of the content of the Home Assistant Yellow"></div>
+    <div>
+      <b>Home Assistant Yellow</b><br>
+      This flagship version of Home Assistant Yellow is ready to go out of the box.
+      <br><br>
+      It comes pre-assembled in a custom enclosure with a Raspberry Pi Compute Module 4 (CM4) and a custom heat sink for fanless, silent operation. The CM4 is a version without wireless and has 2 GB RAM and 16 GB eMMC storage, pre-installed with Home Assistant.
+      <br><br>
+      All you need to get started is to plug in the power supply and the Ethernet cable, both of which are included. This variant does not have Power-over-Ethernet.
+    </div>
+  </div>
+  <div class="yellow-variant">
+    <div><img src="/images/yellow/yellow-2d.jpg" alt="2D overview of the content of the Home Assistant Yellow Kit Power-over-Ethernet variant"></div>
+    <div>
+      <b>Yellow Kit with Power-over-Ethernet</b><br>
+      <a href="https://yellow.home-assistant.io/poe/">Some assembly required!</a> This kit supports Power-over-Ethernet (PoE) and includes everything in the flagship version except the Raspberry Pi Compute Module 4.
+      <br><br>
+      Custom enclosure, custom heat sink, and Ethernet cable included. You must provide your own Raspberry Pi Compute Module 4 and install Home Assistant on it. The kit does not include a power supply (because power comes from PoE).
+    </div>
+  </div>
+  <div class="yellow-variant">
+    <div><img src="/images/yellow/yellow-2d.jpg" alt="2D overview of the content of the Home Assistant Yellow Kit"></div>
+    <div>
+      <b>Yellow Kit with Power Supply</b><br>
+      <a href="https://yellow.home-assistant.io/power-supply/">Some assembly required!</a> This kit includes everything in the flagship version except the Raspberry Pi Compute Module 4.
+      <br><br>
+      This option allows you to pick the compute module with the memory and eMMC storage to fit your needs. You will need to install Home Assistant on the compute module you provide. Custom enclosure, custom heat sink, and Ethernet cable included. This version comes with a power supply, but does not support Power-over-Ethernet.
+    </div>
+  </div>
+</div>
+
+
+<div class="material-card text spaced-card">
+  <h1>Open Hardware</h1>
+  <p>
+    We spend a lot of time and resources on getting our products to work great. We want to make it possible for other people to study our work and be able to learn how to make great products for the smart home, so we've released the schematics of Yellow as open-source.
+    <a href="https://yellow.home-assistant.io/yellow-v1.2-standard/">Explore the board</a> and <a href="https://github.com/NabuCasa/yellow/">view the source.</a>
+  </p>
+</div>
+
+<div class="sub-title">Features & Specifications</div>
+<div class="flex">
+  <ul>
+    <li>
+      Carrier board for Raspberry Pi Compute Module 4 (CM4)
+      <ul>
+        <li>CM4 board-to-board connector</li>
+        <li>Supports direct boot from NVMe devices (e.g., for CM4 Lite)</li>
+        <li>12 cm x 12 cm</li>
+        <li>Compatible with all 32 variants of CM4
+          <ul>
+            <li>Quad-core Cortex-A72 (ARMv8) 64-bit / 1.5 GHz</li>
+            <li>Up to 8 GB RAM</li>
+            <li>Up to 32 GB eMMC</li>
+            <li>Regulatory approval does not cover wireless variants</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      Integrated smart-home wireless (<a href="https://www.mouser.com/new/silicon-labs/silicon-labs-mgm210p-mighty-gecko-lighting-module/">Silicon Labs MGM210P Mighty Gecko Module</a>)
+      <ul>
+        <li>Supports Zigbee 3.0, OpenThread, and Matter</li>
+        <li>2.4 GHz radio with TX power up to +20 dBm</li>
+        <li>1024 KB flash program memory, 96 KB RAM data memory</li>
+        <li>Pre-installed with Zigbee 3.0 firmware (EZSP), can be upgraded</li>
+      </ul>
+    </li>
+    <li>Expansion slot
+      <ul>
+        <li>For NVMe SSDs (M-Key)</li>
+        <li>M.2 socket M-Key</li>
+        <li>Supports 2230, 2242, 2260, and 2280 modules</li>
+        <li>PCIe x1</li>
+        <li>Note: Google Coral AI Accelerator not working, details in this <a href="https://github.com/google-coral/edgetpu/issues/280#issuecomment-818202094">issue</a></li>
+      </ul>
+    </li>
+    <li>Gigabit Ethernet</li>
+    <li>2 x USB 2.0 Type-A host port</li>
+    <li>1 x USB-C 2.0 device port (<a href="https://www.mouser.com/new/silicon-labs/silabs-cp2102n-usbxpress-usb-uart-bridge-controllers/">Silicon Labs CP2102N USBXpress USB bridge</a>)
+      <ul>
+        <li>UART mode (default): debug USB-to-serial adapter</li>
+        <li>USB mode: CM4 USB 2.0 interface for USB recovery</li>
+      </ul>
+    </li>
+  </ul>
+  <ul>
+    <li>High-quality stereo audio DAC
+      <ul>
+        <li>2 V RMS line-out on 3.5 mm audio jack</li>
+        <li>SNR 106 dB</li>
+      </ul>
+    </li>
+    <li>2 x Push button
+      <ul>
+        <li>Red: Factory reset</li>
+        <li>Blue: To be determined</li>
+      </ul>
+    </li>
+    <li>RTC backed by CR2032 battery</li>
+    <li>Status LEDs (can be powered off during regular operation)
+      <ul>
+        <li>Green: Power</li>
+        <li>Red: Disk usage</li>
+        <li>Yellow: Home Assistant system state</li>
+      </ul>
+    </li>
+    <li>Power
+      <ul>
+        <li>12 V / 2 A through barrel DC power jack (5.5 mm x 2.1 mm)</li>
+        <li>Ethernet: PoE+ IEEE 802.3at-2009 Class 3 or 4 (selectable via jumper)</li>
+        <li>Typical power usage
+          <ul>
+            <li>Idle ~1.5 W</li>
+            <li>Idle with NVMe ~2.5 W</li>
+            <li>Load ~5-9 W</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Enclosure
+      <ul>
+        <li>123 mm x 123 mm x 36 mm</li>
+        <li>Translucent injection-molded polycarbonate plastic</li>
+        <li>Tool-free assembly</li>
+        <li>Accommodates custom heat sink (included)</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div id="buy-dialog" class="dialog">
+  <div class="material-card text dialog-content">
+    <div class="close-container"></div>
+    <div class="dialog-header">
+      <span>Home Assistant Yellow</span>
+      <span class="dialog-close" onclick="closeDialog()" title="close">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div class="distributors">
+
+      <a href="https://www.crowdsupply.com/nabu-casa/home-assistant-yellow#products" target="_blank">
+        <div class="distributor">
+          <div>
+            <div>🇺🇸</div>
+            <div>Crowd Supply</div>
+            <div>Located in USA</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
+
+      <a
+        href="https://raspberrypi.dk/en?s=home+assistant+yellow&post_type=product"
+        target="_blank"
+      >
+        <div class="distributor">
+          <div>
+            <div>🇩🇰</div>
+            <div>RaspberryPi.dk</div>
+            <div>Located in Denmark</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<div
+  class="fab"
+  onclick="showBuyDialog()"
+  title="pre-order Home Assistant Yellow"
+>
+  <svg style="width: 32px; height: 32px" viewBox="0 0 32 32">
+    <path
+      fill="currentColor"
+      d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z"
+    />
+  </svg>
+  ORDER
+</div>
+
+<script>
+  const buyDialog = document.getElementById("buy-dialog");
+  const buyFab = document.querySelector(".fab");
+
+  function showBuyDialog() {
+    buyDialog.style.display = "flex";
+    buyFab.style.display = "none";
+  }
+
+  function closeDialog() {
+    buyDialog.style.display = "none";
+    buyFab.style.display = "flex";
+  }
+
+  window.onclick = function (event) {
+    if (event.target === buyDialog) {
+      closeDialog();
+    }
+  };
+
+  if (document.location.search === "?order") {
+    showBuyDialog();
+  }
+</script>
