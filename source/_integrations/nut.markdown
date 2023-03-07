@@ -75,4 +75,4 @@ human-readable version.
 
 ## Device Actions
 
-A device action is available for each of the parameterless NUT [commands](https://networkupstools.org/docs/user-manual.chunked/apcs03.html) supported by the device.
+A device action is available for each parameterless NUT [command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html) supported by the device.
