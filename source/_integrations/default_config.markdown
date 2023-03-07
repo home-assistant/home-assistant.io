@@ -39,6 +39,7 @@ This integration is a meta-component and configures a default set of integration
 - [Media Source](/integrations/media_source/) (`media_source`)
 - [Mobile App Support](/integrations/mobile_app/) (`mobile_app`)
 - [My Home Assistant](/integrations/my/) (`my`)
+- [Network](/integrations/network/) (`network`)
 - [Person](/integrations/person/) (`person`)
 - [Schedule](/integrations/schedule/) (`schedule`)
 - [Scene](/integrations/scene/) (`scene`)
