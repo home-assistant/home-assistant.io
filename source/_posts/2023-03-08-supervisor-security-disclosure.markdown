@@ -41,7 +41,7 @@ Home Assistant Core (own Python environment), have not been affected.
 
 The security issue was found by [Joseph Surin] from [elttam]. Many thanks for bringing this to our attention.
 
-[Joseph Surin]: https://www.linkedin.com/in/joseph-surin/
+[Joseph Surin]: https://jsur.in
 [elttam]: https://www.elttam.com/
 
 ## About the issue
