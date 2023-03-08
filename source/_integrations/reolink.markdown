@@ -57,6 +57,82 @@ Depending on the supported features of the camera number entities are added for:
 
 - Optical zoom control
 - Focus control
+- Floodlight turn on brightness
+- Volume
+- Guard return time
+- Motion sensitivity
+- AI face sensitivity
+- AI people sensitivity
+- AI vehicle sensitivity
+- AI pet sensitivity
+
+"Floodlight turn on brightness" controls the brightness of the floodlight when it is turned on internally by the camera (see "Floodlight mode" select entity) or when using the "Floodlight" light entity.
+
+When the camera is not moved and no person/pet/vehicle is detected for the "Guard return time" in seconds, and the "Guard return" switch is ON, the camera will move back to the guard position.
+
+## Button entities
+
+Depending on the supported features of the camera button entities are added for:
+
+- PTZ stop
+- PTZ left
+- PTZ right
+- PTZ up
+- PTZ down
+- PTZ calibrate
+- Guard go to
+- Guard set current position
+
+PTZ left, right, up and down will continually move the camera in the respective position until the PTZ stop is called or the hardware limit is reached.
+
+"Guard set current position" will set the current position as the new guard position.
+
+## Select entities
+
+Depending on the supported features of the camera select entities are added for:
+
+- Floodlight mode (Off, Auto, Schedule)
+- Day night mode (Auto, Color, Black&White)
+- PTZ preset
+
+PTZ preset positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
+
+## Siren entities
+
+If the camera supports a siren, a siren entity will be created.
+When using the siren turn-on service, the siren will continue to sound until the siren turn-off service is called.
+
+In some camera models, there is a delay of up to 5 seconds between the turn-off command and the sound stopping. The siren turn-on service supports setting a volume and a duration (no turn-off service call is needed in that case).
+
+## Switch entities
+
+Depending on the supported features of the camera switch entities are added for:
+
+- Record audio
+- Siren on event
+- Auto tracking
+- Auto focus
+- Guard return
+
+Depending on the supported features of the NVR/host, global switch entities are added for:
+
+- Record
+- Push notifications
+- Buzzer on event
+- Email on event
+- FTP upload
+
+## Light entities
+
+Depending on the supported features of the camera light entities are added for:
+
+- Floodlight
+- Infra red lights in night mode
+- Status LED
+
+When the floodlight entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule), see the "Floodlight mode" select entity.
+
+When IR light entity is OFF always OFF, when ON IR LEDs will be on when the camera is in night vision mode, see the "Day night mode" select entity.
 
 ## Update entity
 
@@ -109,3 +185,4 @@ The following models are lacking the HTTP webserver API and can therfore not wor
 
 - The Reolink NVR only sends event-notifications if motion happens on the camera connected to the first (index "0") channel, therefore the binary sensors of all channels will only be updated when the first channel sees motion. Beta NVR firmware v3.0.0.211_23011204 fixes this issue, you can request beta firmware from reolink support, release firmware is expected in a few weeks.
 - Reolink doorbell presses only generate ONVIF event notifications when the doorbell is directly connected to your network. The doorbell visitor binary sensor will not work when connecting the Reolink doorbell to an NVR. Beta NVR firmware v3.0.0.211_23011204 fixes this issue, you can request beta firmware from reolink support, release firmware is expected in a few weeks.
+- The siren turn-off service does not work on the Reolink NVR, you need to power cycle the NVR/camera to stop the siren. Reolink is aware of this firmware bug and is working on a solution.
