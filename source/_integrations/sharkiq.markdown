@@ -1,6 +1,6 @@
 ---
 title: Shark IQ
-description: Instructions on how to integrate your Shark IQ vacuum robot with Home Assistant.
+description: Integrate your Shark IQ robot vacuum with Home Assistant.
 ha_category:
   - Vacuum
 ha_iot_class: Cloud Polling
@@ -9,7 +9,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@JeffResc'
   - '@funkybunch'
-  - '@AritroSaha10'
 ha_domain: sharkiq
 ha_platforms:
   - vacuum
@@ -18,23 +17,41 @@ ha_integration_type: integration
 
 The `sharkiq` integration allows you to control your [Shark IQ](https://www.sharkclean.com/vacuums/robot-vacuums/) vacuum.
 
-<p class='img'>
-<img src='/images/screenshots/more-info-dialog-sharkiq.png' />
-</p>
-
-This platform has been tested and is confirmed to be working with the Shark IQ R101AE robot vacuum with self-empty base but should also work with the R100.
-
 {% include integrations/config_flow.md %}
 
 ## Services
 
-Currently supported services are:
+Currently supported [`vacuum`](/integrations/vacuum/) services are:
 
 - `start`
 - `pause`
 - `stop`
 - `return_to_base`
 - `locate`
+
+If `pause` does not work for you, then it is not supported by your vacuum. The `stop` service will provide similar functionality.
+
+### Room Targeting
+In addition to the [`vacuum`](/integrations/vacuum/) services, this integration supports room targeting.
+This allows you to select specific rooms that you want cleaned, instead of doing a whole-home clean.
+
+```yaml
+service: sharkiq.clean_room
+data:
+  rooms:
+    - "Entry"
+    - "Living Room"
+target:
+  entity_id: vacuum.my_vacuum
+```
+**Important Note:** The list of rooms must be written _exactly_ as they appear in the Shark Clean app. If you want exact names that the service will understand,
+look for the `Rooms` attribute of your Shark Robot Vacuum in Home Assistant.  This will be populated with the rooms that the robot has configured, as they will be
+understood by the service.
+
+If you want to use the area selector in service's the UI, you need to format the area's name exactly as they appear in the vacuum's `Rooms` attribute.  You may also check the attribute using Home Assistant's [Developer Tools](https://www.home-assistant.io/docs/tools/dev-tools/).
+<p class='img'>
+<img src='/images/integrations/sharkiq/sharkiq-room-service-attributes.png' />
+</p>
 
 ## Troubleshooting
 
