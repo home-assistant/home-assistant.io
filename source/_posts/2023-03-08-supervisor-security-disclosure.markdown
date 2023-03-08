@@ -65,3 +65,9 @@ We have published [security advisory CVE-2023-27482 on GitHub][advisory].
 ### Has this vulnerability been abused?
 
 We don’t know. We have not heard any reports of people being hacked.
+
+### Is there a workaround?
+
+In case one is not able to upgrade the Home Assistant Supervisor or the
+Home Assistant Core application at this time, it is advised to not expose
+your Home Assistant instance to the internet.
