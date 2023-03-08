@@ -1,0 +1,31 @@
+---
+title: "Vermont Castings"
+description: Connect and control your Vermont Casings fireplace using the IntelliFire integration
+ha_category:
+
+- Binary Sensor
+- Climate
+- Fan
+- Light
+- Number
+- Sensor
+- Switch
+ha_codeowners:
+  - '@jeeftor'
+ha_config_flow: true
+ha_release: 2022.3
+ha_domain: vermont_castings
+ha_integration_type: virtual
+ha_supporting_domain: intellifire:
+ha_supporting_integration: IntelliFire
+ha_platforms:
+
+- binary_sensor
+- climate
+- fan
+- light
+- number
+- sensor
+- switch
+ha_dhcp: true
+ha_integration_type: integration
