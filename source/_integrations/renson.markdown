@@ -17,6 +17,8 @@ ha_platforms:
   - sensor
   - number
 ha_integration_type: integration
+  - Binary Sensor
+  - Fan
 ---
 
 The Renson integration pulls in data from the Renson Endura delta device. Most of the sensors that can be monitored from inside the Android/iOS application can be monitored with this integration.
