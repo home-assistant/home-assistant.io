@@ -29,7 +29,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Mazda Connected Services integration allows you to control and retrieve data from a Mazda vehicle. In order to use this integration, you must first register your vehicle using the MyMazda app ([iOS](https://apps.apple.com/us/app/mymazda/id451886367)/[Android](https://play.google.com/store/apps/details?id=com.interrait.mymazda)).
+The Mazda Connected Services integration allows you to control and retrieve data from a Mazda vehicle. In order to use this integration, you must first register your vehicle using the MyMazda app ([iOS](https://apps.apple.com/app/mymazda/id451886367)/[Android](https://play.google.com/store/apps/details?id=com.interrait.mymazda)).
 
 This integration requires an active Mazda Connected Services subscription and a compatible vehicle. The following Mazda vehicles are Mazda Connected Services capable:
 
