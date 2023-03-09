@@ -86,6 +86,7 @@ The following models have been tested and confirmed to work:
 - RLC-810A
 - RLC-811A
 - RLC-820A
+- RLC-822A
 - RLC-823A
 - RLN8-410 NVR
 - RLN16-410 NVR
