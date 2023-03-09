@@ -52,7 +52,7 @@ counter:
       type: integer
       default: 0
     restore:
-      description: Try to restore the last known value when Home Assistant starts.
+      description: Try to restore the last known value when Home Assistant starts. If this is true, future changes to `maximum`, `minimum`, `initial` and `step` can only be made using the `counter.configure` service.
       required: false
       type: boolean
       default: true
