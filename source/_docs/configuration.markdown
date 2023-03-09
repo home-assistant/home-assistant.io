@@ -40,6 +40,7 @@ If you can't see your integration listed there, you will need to restart Home As
 
 ## Migrating to a new system
 
-The preferred way of migrating to a new system is by {% my supervisor_backups title="making a backup" %}.
+The preferred way of migrating to a new system is by backup using {% my supervisor_backups title="supervisor backup" %}. Then install new system (HAOS or Supervisor), and restore backup at first logon.
 
-If you run the container or core installation methods, you will need to manually make a backup of your configuration folder. Be aware that some of the files you need start with `.`, which is hidden by default from both `ls` (in SSH), in Windows Explorer, and macOS Finder. You'll need to ensure that you're viewing all files before you copy them.
+If you run the container or core installation method you don't have supervisor-backup and will need to use the {% my backup title="backup-integration" %} to make a backup.
+Restore are either a tool to migrate to HAOS or a completely manual restore of the backup to new container- or core-install.
