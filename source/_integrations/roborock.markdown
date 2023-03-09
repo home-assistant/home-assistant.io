@@ -15,6 +15,6 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `roborock` integration allows you to control your Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) vacuum.
+The Roborock integration allows you to control your Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) vacuum.
 
 {% include integrations/config_flow.md %}
