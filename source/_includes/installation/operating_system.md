@@ -53,11 +53,11 @@ We will need a few things to get started with installing Home Assistant. Links b
 <div class='note'>
 <b>Prerequisites</b>
 
-This guide assumes that you have a dedicated {{site.installation.types[page.installation_type].board}} PC (typically an Intel or AMD-based system) available to exclusively run Home Assistant Operating System. The system must be 64-bit capable and able to boot using UEFI. Pretty much all systems produced in the last 10 years support the UEFI boot mode.
+This guide assumes that you have a dedicated {{ site.installation.types[page.installation_type].board }} PC (typically an Intel or AMD-based system) available to exclusively run Home Assistant Operating System. The system must be 64-bit capable and able to boot using UEFI. Pretty much all systems produced in the last 10 years support the UEFI boot mode.
 
 <b>Summary</b>
 
-You will need to configure your {{site.installation.types[page.installation_type].board}} PC to use UEFI boot mode, then write the HAOS (Home Assistant OS) disk image to your boot medium. There are two ways to do this listed below.
+You will need to configure your {{ site.installation.types[page.installation_type].board }} PC to use UEFI boot mode, then write the HAOS (Home Assistant OS) disk image to your boot medium. There are two ways to do this listed below.
 </div>
 
 ### Configure the BIOS on your x86-64 hardware
@@ -77,13 +77,13 @@ To boot Home Assistant OS, the BIOS needs to have UEFI boot mode enabled and Sec
 
 The BIOS configuration is now complete.
 
-Next we need to write the Home Assistant Operating System image to the "boot medium", which is the medium your x86-64 hardware will boot from when it is running Home Assistant.
+Next, we need to write the Home Assistant Operating System image to the "boot medium", which is the medium your x86-64 hardware will boot from when it is running Home Assistant.
 
 <div class='note'>
 HAOS has no integrated installer that writes the image automatically, you must write it manually using e.g. Etcher.
 </div>
 
-Typically an internal medium like S-ATA hard disk, S-ATA SSD, M.2 SSD, or a non-removable eMMC is used for the x86-64 boot medium. Alternatively an external medium can be used such as a USB SDD, though this is not recommended.
+Typically an internal medium like S-ATA hard disk, S-ATA SSD, M.2 SSD, or a non-removable eMMC is used for the x86-64 boot medium. Alternatively, an external medium can be used such as a USB SDD, though this is not recommended.
 
 To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 different methods:
 
@@ -109,12 +109,12 @@ sudo apt install libfuse2
 
 ### Write the image to your boot medium
 
-1. Attach the Home Assistant boot medium ({{site.installation.types[page.installation_type].installation_media}}) to your computer
+1. Attach the Home Assistant boot medium ({{site.installation.types[page.installation_type].installation_media}}) to your computer.
 {% if page.installation_type == 'odroid' %}
    If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
 {% endif %}
-2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. (You may need to run it with administrator privileges on Windows)
-3. Select "Flash from URL"
+2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
+3. Select "Flash from URL".
 ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
 
 4. Copy the URL for the {{site.installation.types[page.installation_type].board}} image which is:
@@ -163,7 +163,7 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 
 {% if page.installation_type == 'generic-x86-64' %}
 
-- If you used your desktop system to write the HAOS image directly to a boot medium like a S-ATA SSD, connect this back to your {{site.installation.types[page.installation_type].board}} system.
+- If you used your desktop system to write the HAOS image directly to a boot medium like an S-ATA SSD, connect this back to your {{ site.installation.types[page.installation_type].board }} system.
 
 - If you used a live operating system (e.g. Ubuntu), shut it down and remove the live operating system USB device.
 
@@ -193,7 +193,7 @@ Or else, the BIOS might provide you with a tool to add boot options, there you c
 
 {% else %}
 
-1. Insert the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you just created.
+1. Insert the boot medium ({{ site.installation.types[page.installation_type].installation_media }}) you just created.
 2. Plug in an Ethernet cable that is connected to the network and power the system on.
 
 {% endif %}
