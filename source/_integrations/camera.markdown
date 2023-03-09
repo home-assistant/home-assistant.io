@@ -3,9 +3,15 @@ title: Camera
 description: Instructions on how to integrate cameras within Home Assistant.
 ha_category:
   - Camera
+  - Media Source
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: camera
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: entity
+ha_platforms:
+  - diagnostics
 ---
 
 The camera integration allows you to use IP cameras with Home Assistant.
@@ -20,7 +26,6 @@ The `Preload stream` option will start the camera feed on Home Assistant startup
   <img src='/images/integrations/camera/preload-stream.png' alt='Screenshot showing Preload Stream option in Home Assistant front end.'>
   Example showing the Preload Stream option in the camera dialog.
 </p>
-
 
 ### Services
 

@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.18
 ha_iot_class: Cloud Polling
 ha_domain: feedreader
+ha_integration_type: integration
 ---
 
 Add an RSS/Atom feed reader that polls feeds every hour and sends new entries into the event bus.
@@ -74,6 +75,8 @@ automation:
     trigger:
       platform: event
       event_type: feedreader
+      event_data:
+        feed_url: "https://hasspodcast.io/feed/podcast"
     action:
       service: persistent_notification.create
       data:

@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: cover
+ha_integration_type: entity
 ---
 
 Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.
@@ -28,6 +29,10 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **shutter**: Control of shutters, which are linked slats that swing out/in to covering an opening or may be tilted to partially cover an opening, such as indoor or exterior window shutters.
 - **window**: Control of a physical window that opens and closes or may tilt.
 
+Here are a few examples of this representation in the UI:
+
+<p class='img'><img src='/images/screenshots/cover_classes_icons.png' />Example of various device classes icons in `open` and `closed` state. The open image in this example has `state_color: true` specified in the Entities card configuration to receive the icon coloring.</p>
+
 ## Services
 
 ### Cover control services
@@ -47,7 +52,7 @@ Set cover position of one or multiple covers.
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all.
 | `position` | no | Integer between 0 and 100.
 
-#### Automation example 
+#### Automation example
 
 ```yaml
 automation:
@@ -71,7 +76,7 @@ Set cover tilt position of one or multiple covers.
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all.
 | `tilt_position` | no | Integer between 0 and 100.
 
-#### Automation example 
+#### Automation example
 
 ```yaml
 automation:

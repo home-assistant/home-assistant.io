@@ -2,8 +2,8 @@
 title: Rachio
 description: Instructions on how to use Rachio with Home Assistant.
 ha_category:
-  - Irrigation
   - Binary Sensor
+  - Irrigation
   - Switch
 ha_iot_class: Cloud Push
 ha_release: 0.73
@@ -17,6 +17,7 @@ ha_platforms:
   - binary_sensor
   - switch
 ha_zeroconf: true
+ha_integration_type: integration
 ---
 
 The `rachio` platform allows you to control your [Rachio irrigation system](https://rachio.com/).
@@ -57,7 +58,7 @@ panel_iframe:
   rachio:
     title: Rachio
     url: "https://app.rach.io"
-    icon: mdi:water-pump
+    icon: mdi:sprinkler-variant
 ```
 
 ## Switch

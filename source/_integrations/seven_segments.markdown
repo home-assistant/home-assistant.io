@@ -9,6 +9,7 @@ ha_iot_class: Local Polling
 ha_domain: seven_segments
 ha_codeowners:
   - '@fabaff'
+ha_integration_type: integration
 ---
 
 The `seven_segments` image processing platform allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/integrations/camera/).

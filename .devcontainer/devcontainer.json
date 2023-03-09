@@ -4,27 +4,29 @@
     "dockerfile": "../Dockerfile",
     "context": "..",
     "args": {
-      "VARIANT": "2.6",
-      "NODE_VERSION": "12.1",
+      "VARIANT": "2.7",
+      "NODE_VERSION": "14"
     }
   },
   "appPort": [4000],
-  "postCreateCommand": "bundle install && npm install",
-  "containerEnv": {"DEVCONTAINER": "true"},
+  "onCreateCommand": "bundle install && npm install",
+  "containerEnv": { "DEVCONTAINER": "true" },
   "extensions": [
     "davidanson.vscode-markdownlint",
     "editorconfig.editorconfig",
+    "GitHub.vscode-pull-request-github",
     "mrmlnc.vscode-scss",
     "rebornix.Ruby",
     "streetsidesoftware.code-spell-checker",
+    "taichi.vscode-textlint",
     "yzhang.markdown-all-in-one"
   ],
   "settings": {
-    "editor.rulers": [80, 100, 120],
     "editor.renderWhitespace": "boundary",
-    "errorLens.gutterIconsEnabled": true,
-    "errorLens.addAnnotationTextPrefixes": false,
-    "errorLens.enabledDiagnosticLevels": ["error", "warning"],
+    "editor.rulers": [80, 100, 120],
+    "gitlens.showWelcomeOnInstall": false,
+    "gitlens.showWhatsNewAfterUpgrades": false,
     "terminal.integrated.shell.linux": "/usr/bin/zsh",
+    "workbench.startupEditor": "none"
   }
 }

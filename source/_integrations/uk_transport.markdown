@@ -8,13 +8,14 @@ ha_release: '0.50'
 ha_domain: uk_transport
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
-The `uk_transport` sensor will display the time in minutes until the next departure in a specified direction from of a configured train station or bus stop. The sensor uses [transportAPI](https://www.transportapi.com/) to query live departure data and requires a developer application ID and key which can be obtained [here](https://developer.transportapi.com/). The [free tier](https://www.transportapi.com/benefits/) allows 30,000 requests a month, which is sufficient for a single sensor refreshing every 87 seconds.
+The `uk_transport` sensor will display the time in minutes until the next departure in a specified direction from of a configured train station or bus stop. The sensor uses [transportAPI](https://www.transportapi.com/) to query live departure data and requires a developer application ID and key which can be obtained [here](https://developer.transportapi.com/). The [free tier](https://www.transportapi.com/blog/2022/08/introducing-the-home-use-plan-for-transportapi/) allows 30 requests a day, which is sufficient for a single sensor refreshing every 48 minutes.
 
 <div class='note warning'>
 
-Additional sensors can be added but at the expense of a reduced refresh rate. 2 sensors can be updated every 2*87 = 174 seconds, and so on. Calculating and setting this rate is automatically handles by the integration.
+Additional sensors can be added but at the expense of a reduced refresh rate. 2 sensors can be updated every 2*48 = 96 minutes, and so on. Calculating and setting this rate is automatically handles by the integration.
 
 </div>
 
@@ -84,27 +85,22 @@ Attributes can be accessed using the [template sensor](/integrations/template) a
 
 ```yaml
 # Example configuration.yaml entry for a template sensor to access the attributes of the next departing train.
-- platform: template
-  sensors:
-    next_train_status:
-      friendly_name: "Next train status"
-      value_template: >- 
+template:
+  - sensor:
+    - name: Next train status
+      state: >- 
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].status}}
-    next_trains_origin:
-      friendly_name: "Next train origin"
-      value_template: >-
+    - name: Next train origin
+      state: >-
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].origin_name}}
-    next_trains_estimated:
-      friendly_name: "Next train estimated"
-      value_template: >- 
+    - name: Next train estimated
+      state: >- 
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].estimated}}
-    next_trains_scheduled:
-      friendly_name: "Next train scheduled"
-      value_template: >-
+    - name: Next train scheduled
+      state: >-
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].scheduled}}
-    next_trains_platform:
-      friendly_name: "Next train platform"
-      value_template: >-
+    - name: Next train platform
+      state: >-
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].platform}}
 ```
 
@@ -141,20 +137,16 @@ And the template sensor for viewing the next bus attributes.
 
 ```yaml
 # Example configuration.yaml entry for a template sensor to access the attributes of the next departing bus.
-- platform: template
-  sensors:
-    next_bus_route:
-      friendly_name: "Next bus route"
-      value_template: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].route}}"
-    next_bus_direction:
-      friendly_name: "Next bus direction"
-      value_template: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].direction}}"
-    next_bus_scheduled:
-      friendly_name: "Next bus scheduled"
-      value_template: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].scheduled}}"
-    next_bus_estimated:
-      friendly_name: "Next bus estimated"
-      value_template: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].estimated}}"
+template:
+  - sensor:
+    - name: Next bus route
+      state: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].route}}"
+    - name: Next bus direction
+      state: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].direction}}"
+    - name: Next bus scheduled
+      state: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].scheduled}}"
+    - name: Next bus estimated
+      state: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].estimated}}"
 ```
 
 {% endraw %}

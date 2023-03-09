@@ -2,8 +2,8 @@
 title: Wireless Sensor Tags
 description: Instructions on how to integrate your Wireless Tags sensors within Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
+  - Hub
   - Sensor
   - Switch
 ha_iot_class: Cloud Push
@@ -15,6 +15,7 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@sergeymaysak'
+ha_integration_type: integration
 ---
 
 The `wirelesstag` implementation allows you to integrate your [wirelesstag.net](https://wirelesstag.net/) sensors tags in Home Assistant.
@@ -116,6 +117,8 @@ monitored_conditions:
       description: "Water level/soil moisture in % (applicable for Water Tag only)."
     light:
       description: Brightness in lux (if supported by tag).
+    ambient_temperature:
+      description: If your device is Outdoor Probe with ambient temperature - use this sensor.
 {% endconfiguration %}
 
 ## Switch

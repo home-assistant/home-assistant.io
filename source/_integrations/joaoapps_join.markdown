@@ -9,6 +9,7 @@ ha_release: 0.24
 ha_domain: joaoapps_join
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The `joaoapps_join` integration exposes services from
@@ -76,7 +77,7 @@ notify:
     name: NAME2
 ```
 
-The notify service has several optional parameters: `icon`, `smallicon`, `image`, `sound`, `url`, `notification_id`, `tts`, `tts_language` and `vibration`.
+The notify service has several optional parameters: `icon`, `smallicon`, `image`, `sound`, `url`, `notification_id`, `category`, `tts`, `tts_language` and `vibration`.
 You can use them like so:
 
 ```yaml
@@ -90,6 +91,7 @@ data:
   sound: https://goo.gl/asasde.mp3
   url: https://home-assistant.io
   notification_id: hass-notification
+  category: Custom Notification Category
   tts: Notification from Home Assistant
   tts_language: english
   actions:

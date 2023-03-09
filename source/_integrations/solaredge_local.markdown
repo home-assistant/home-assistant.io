@@ -2,8 +2,8 @@
 title: SolarEdge Local
 description: Instructions on how to integrate SolarEdge sensor within Home Assistant via Local API.
 ha_category:
-  - Sensor
   - Energy
+  - Sensor
 ha_release: 0.95
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: solaredge_local
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `solaredge_local` platform uses the local API available on some SolarEdge Inverters to allow you to get details from your SolarEdge solar power setup and integrate these into your Home Assistant installation.
@@ -69,13 +70,12 @@ In case you would like to convert the values for example to kWh instead of the d
 
 ```yaml
 # Example configuration.yaml entry for sensor template platform
-sensor:
-  - platform: template
-    sensors:
-      solaredge_energy_this_year_template:
-        value_template: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
-        unit_of_measurement: "KWh"
-        icon_template: "mdi:solar-power"
+template:
+  - sensor:
+    - name: solaredge_energy_this_year_template
+      state: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
+      unit_of_measurement: "KWh"
+      icon: "mdi:solar-power"
 ```
 
 {% endraw %}

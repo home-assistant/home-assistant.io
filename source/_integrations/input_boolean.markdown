@@ -3,23 +3,25 @@ title: Input Boolean
 description: Instructions on how to use the Input Boolean helper with Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 0.11
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: input_boolean
+ha_integration_type: helper
 ---
 
 The Input Boolean helper integration allows you to define boolean values that
 can be controlled via the user interface and can be used within conditions of
-automation. This can for example be used to disable or enable certain
+an automation. This can for example be used to disable or enable certain
 automations by using them in their conditions.
 
 ## Configuration
 
 The preferred way to configure input boolean helpers is via the user interface,
 in which they are known as Toggle Helpers. To add one, go to
-**{% my helpers title="Configuration -> Helpers" %}** and click the add button;
+**{% my helpers title="Settings -> Devices & Services -> Helpers" %}** and click the add button;
 next choose the "**Toggle**" option.
 
 To be able to add **Helpers** via the user interface you should have
@@ -74,14 +76,14 @@ Home Assistant itself.
 
 ### Restore State
 
-If you set a valid value for `initial` this integration will start with state
+If you set a valid value for `initial` this integration will start with the state
 set to that value. Otherwise, it will restore the state it had prior to
 Home Assistant stopping.
 
 ## Automation Examples
 
 Here's an example of an automation using the above `input_boolean`. This action
-will only occur if the switch is on.
+will only occur if the `input_boolean` is on.
 
 ```yaml
 automation:

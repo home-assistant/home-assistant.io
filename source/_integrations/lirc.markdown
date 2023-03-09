@@ -1,12 +1,12 @@
 ---
 title: LIRC
 description: Instructions on how to integrate IR remotes with LIRC into Home Assistant.
-logo: lirc.gif
 ha_category:
   - Automation
 ha_release: 0.21
 ha_iot_class: Local Push
 ha_domain: lirc
+ha_integration_type: integration
 ---
 
 [LIRC](http://www.lirc.org/) integration for Home Assistant allows you to receive signals from an infrared remote control and control actions based on the buttons you press. You can use them to set scenes or trigger any other [automation](/integrations/automation/).

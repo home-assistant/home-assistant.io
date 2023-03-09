@@ -9,9 +9,11 @@ This can happen when there was a network issue during the startup of the Supervi
 
 ## The solution
 
-Manually update the Supervisor. This can be done from the "System" tab in the Supervisor panel. On the card for "Supervisor", there is a button to update the Supervisor.
+Manually update the Supervisor. This can be done from the {% my configuration title="Configuration" %} panel. On the card for "Supervisor", there is a button to update the Supervisor.
 
 This can also be done with the CLI, by running the following command:
 ```bash
 ha supervisor update
 ```
+
+In case this doesn't work. Check the logs, if there's an error where a host can't be resolved (eg: lookup ghcr.io: no such host) there might be a problem with your network settings (eg: dns server that can't be reached).

@@ -50,7 +50,7 @@ alarm_control_panel:
           - condition: state
             entity_id: device_tracker.paulus
             state: "home"
-          - service: alarm_control_panel.alarm_arm_home
+          - service: alarm_control_panel.alarm_disarm
             target:
               entity_id: alarm_control_panel.real_alarm
             data:
@@ -80,7 +80,7 @@ panels:
           required: false
           type: string
         value_template:
-          description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `arming`, `disarmed`, `pending`, `triggered` and `unavailable` are used."
+          description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `pending`, `triggered` and `unavailable` are used."
           required: false
           type: template
         disarm:
@@ -99,12 +99,33 @@ panels:
           description: Defines an action to run when the alarm is armed to night mode.
           required: false
           type: action
+        arm_vacation:
+          description: Defines an action to run when the alarm is armed to vacation mode.
+          required: false
+          type: action
+        arm_custom_bypass:
+          description: Defines an action to run when the alarm is armed to custom bypass mode.
+          required: false
+          type: action
+        trigger:
+          description: Defines an action to run when the alarm is triggered.
+          required: false
+          type: action
         code_arm_required:
           description: If true, the code is required to arm the alarm.
           required: false
           type: boolean
-          default: false
+          default: true
+        code_format:
+          description: One of `number`, `text` or `no_code`. Format for the code used to arm/disarm the alarm.
+          required: false
+          type: string
+          default: number
 {% endconfiguration %}
+
+### Template and action variables
+
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates and actions.
 
 ## Considerations
 

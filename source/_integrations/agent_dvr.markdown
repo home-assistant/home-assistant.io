@@ -2,8 +2,8 @@
 title: Agent DVR
 description: Access and control Agent DVR from Home Assistant.
 ha_category:
-  - Camera
   - Alarm
+  - Camera
 ha_config_flow: true
 ha_release: '0.110'
 ha_iot_class: Local Polling
@@ -13,6 +13,7 @@ ha_domain: agent_dvr
 ha_platforms:
   - alarm_control_panel
   - camera
+ha_integration_type: integration
 ---
 
 [Agent DVR](https://www.ispyconnect.com/download.aspx/) is a free* software DVR solution for windows 10, Mac and Linux. Agent DVR runs as a service or console application and can access and control a huge range of third party cameras with advanced motion detection, including DeepStack integration for object recognition. The iSpyConnect website provides secured (SSL) remote access without port forwarding needed.
@@ -38,7 +39,7 @@ Available services:
 `start_recording`, `stop_recording`,
 `turn_on`, `turn_off`, `toggle`, `enable_motion_detection`,`disable_motion_detection`
 
-#### Service `enable_alerts`/`disable_alerts`
+### Service `enable_alerts`/`disable_alerts`
 
 These services enable or disable the device's alert events within Agent DVR.
 
@@ -46,7 +47,7 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
-#### Service `start_recording`/`stop_recording`
+### Service `start_recording`/`stop_recording`
 
 These services start or stop the device recording.
 
@@ -54,7 +55,7 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
-#### Service `turn_on`/`turn_off`/`toggle`
+### Service `turn_on`/`turn_off`/`toggle`
 
 These services turn on, off or toggle the device enabled state within Agent DVR
 
@@ -62,9 +63,9 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
-
 ## IFrame
- - Using the Webpage Card you can embed the Agent DVR viewer directly in Home Assistant. Just point it to https://www.ispyconnect.com/app/
+
+- Using the Webpage Card you can embed the Agent DVR viewer directly in Home Assistant. Just point it to <https://www.ispyconnect.com/app/>
 
 <p class='img'>
 <img src='/images/screenshots/agent_dvr.jpg' />

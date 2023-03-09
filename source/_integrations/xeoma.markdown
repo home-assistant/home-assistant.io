@@ -8,6 +8,7 @@ ha_release: 0.62
 ha_domain: xeoma
 ha_platforms:
   - camera
+ha_integration_type: integration
 ---
 
 The `Xeoma` camera platform allows you to view the video feeds from a [Xeoma](https://felenasoft.com/xeoma) video surveillance server.

@@ -3,26 +3,30 @@ title: Elk-M1 Control
 description: Instructions to setup the Elk-M1 controller.
 ha_release: 0.81
 ha_category:
-  - Hub
   - Alarm
+  - Binary Sensor
   - Climate
+  - Hub
   - Light
   - Scene
   - Sensor
   - Switch
 ha_iot_class: Local Push
 ha_domain: elkm1
+ha_dhcp: true
 ha_config_flow: true
 ha_codeowners:
   - '@gwww'
   - '@bdraco'
 ha_platforms:
   - alarm_control_panel
+  - binary_sensor
   - climate
   - light
   - scene
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Elk-M1 is a home security and automation controller that is capable of alarm control panel functions and automation.
@@ -31,12 +35,13 @@ The Elk-M1 controller is manufactured by [Elk Products](https://www.elkproducts.
 
 There is currently support for the following device types within Home Assistant:
 
-- **Alarm** - An Elk-M1 area (also known as partition) is represented as an `alarm_control_panel`.
-- **Climate** - An Elk-M1 thermostat is represented as a `climate` entity.
-- **Light** - An Elk-M1 light (which can be X10, Insteon, UPB) is represented as a `light`.
-- **Scene** - Elk-M1 tasks are represented as `scene` entities.
-- **Sensor** - Elk-M1 counters, keypads, panel, settings, and zones are represented as `sensor` entities.
-- **Switch** - Elk-M1 outputs are represented as `switch` entities.
+- **Alarm** - An ElkM1 area (also known as partition) is represented as an `alarm_control_panel`.
+- **Binary Sensor** - ElkM1 zones that have 4 states (i.e.: are not analog zones) are represented as `binary_sensor` entities. `Normal` is `off` and any of the other values is `on`.
+- **Climate** - An ElkM1 thermostat is represented as a `climate` entity.
+- **Light** - An ElkM1 light (which can be X10, Insteon, UPB) is represented as a `light`.
+- **Scene** - ElkM1 tasks are represented as `scene` entities.
+- **Sensor** - ElkM1 counters, keypads, panel, settings, and zones are represented as `sensor` entities.
+- **Switch** - ElkM1 outputs are represented as `switch` entities.
 
 The implementation follows the Elk Products ElkM1 "ASCII Protocol & Interface 
 Specification, Revision 1.84" document. This document can be found on the Internet.
@@ -57,6 +62,15 @@ ElkM1 should be running:
 Force arm away and stay are available in 5.3.0 or higher.
 
 Many features will work with lower versions of the ElkM1. Check the "ElkM1 RS232 Protocol" manual for details.
+
+### ELK-M1XEP Version
+
+The ELK-M1XEP is the Ethernet controller board for the ElkM1. If connecting the integration
+in secure mode the version of the ELK-M1XEP determines which secure protocol is supported.
+ELK-M1XEP versions less than 2.0.46 support TLS 1.0, while version 2.0.46 and above support
+TLS 1.2. When adding the ElkM1 integration in the user interface use `secure` for TLS 1.0 and
+use `TLS 1.2` for TLS 1.2. Note that ELK-M1XEP does not support auto-negotiation of the 
+version of the TLS protocol, the user must specify the TLS version to connect.
 
 ### Global Setting 35
 
@@ -150,26 +164,21 @@ elkm1:
 
 {% configuration %}
 host:
-  description: Connection string to Elk of the form `<method>://<address>[:port]`. `<method>` is `elk` for non-secure connection, `elks` for secure connection, and `serial` for serial port connection. `<address>` is IP address or domain or for `serial` the serial port that the Elk is connected to. Optional `<port>` is the port to connect to on the Elk, defaulting to 2101 for `elk` and 2601 for `elks`. For `serial` method, _address_ is the path to the tty _/dev/ttyS1_ for example and `[:baud]` is the baud rate to connect with (Elk systems default to 115200 baud, but this can be changed during Elk system configuration).  You may have multiple host sections for connecting multiple controllers.
+  description: Connection string to Elk of the form `<method>://<address>[:port]`. `<method>` is `elk` for non-secure connection, `elks` for secure TLS 1.0 connection, `elksv1_2` for secure TLS 1.2 connection, and `serial` for serial port connection. `<address>` is IP address or domain or for `serial` the serial port that the Elk is connected to. Optional `<port>` is the port to connect to on the Elk, defaulting to 2101 for `elk` and 2601 for `elks` and `elksv1_2`. For `serial` method, _address_ is the path to the tty _/dev/ttyS1_ for example and `[:baud]` is the baud rate to connect with (Elk systems default to 115200 baud, but this can be changed during Elk system configuration). See ELK-M1XEP section above for information on selecting the appropriate secure version. You may have multiple host sections for connecting multiple controllers.
   required: true
   type: string
 username:
-  description: Username to login to Elk. Only required if using `elks` connection method.
+  description: Username to login to Elk. Required if using a secure connection method.
   required: false
   type: string
 password:
-  description: Password to login to Elk. Only required if using `elks` connection method.
+  description: Password to login to Elk. Required if using a secure connection method.
   required: false
   type: string
 prefix:
   description: The prefix to use, if any, for all the devices created for this controller. At most one host can omit the prefix, all others must have a unique prefix within the Home Assistant instance.
   require: false
   type: string
-temperature_unit:
-  description: The temperature unit that the Elk panel uses. Valid values are `C` and `F`.
-  required: false
-  type: string
-  default: F
 auto_configure:
   description: Auto configure `area`, `counter`, `keypad`, `output`, `setting`, `task`, `thermostat`, `plc`, and `zone` by only adding elements that ElkM1 reports on the initial sync.
   required: false

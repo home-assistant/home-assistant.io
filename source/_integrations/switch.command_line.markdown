@@ -56,11 +56,19 @@ switches:
           description: The name used to display the switch in the frontend.
           required: false
           type: string
+        icon_template:
+          description: Defines a template for the icon of the entity.
+          required: false
+          type: template
         command_timeout:
           description: Defines number of seconds for command timeout.
           required: false
           type: integer
           default: 15
+        unique_id:
+          description: An ID that uniquely identifies this switch. Set this to a unique value to allow customization through the UI.
+          required: false
+          type: string
 {% endconfiguration %}
 
 A note on `friendly_name`:
@@ -80,6 +88,34 @@ See aREST device below for an example.
 ## Examples
 
 In this section you find some real-life examples of how to use this switch.
+
+### Change the icon when a state changes
+
+This example demonstrates how to use template to change the icon as its state changes. This icon is referencing its own state.
+
+{% raw %}
+
+```yaml
+switch:
+  - platform: command_line
+    switches:
+
+      driveway_sensor_motion:
+        friendly_name: Driveway buiten sensor
+        command_on: >
+          curl -X PUT -d '{"on":true}' "http://ip_address/api/sensors/27/config/"
+        command_off: >
+          curl -X PUT -d '{"on":false}' "http://ip_address/api/sensors/27/config/"
+        command_state: curl http://ip_address/api/sensors/27/
+        value_template: >
+          {{value_json.config.on}}
+        icon_template: >
+          {% if value_json.config.on == true %} mdi:toggle-switch
+          {% else %} mdi:toggle-switch-off
+          {% endif %}
+```
+
+{% endraw %}
 
 ### aREST device
 

@@ -8,11 +8,14 @@ ha_iot_class: Local Polling
 ha_domain: channels
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The Channels platform allows you to control [Channels](https://getchannels.com/) from Home Assistant. Play, pause, seek, or skip commercials on an instance of Channels that is running on your network.
 
 Your favorite channels will appear as sources in the Source List in Home Assistant.
+
+## Configuration
 
 To add Channels to your installation, add the following to your `configuration.yaml` file:
 
@@ -48,7 +51,6 @@ Seek forward by the number of seconds currently set in settings on the instance 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String that points at `entity_id` of Channels app.
-
 
 ### Service `seek_backward`
 

@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: config
 ha_platforms:
   - scene
+ha_integration_type: system
 ---
 
 The `config` integration is designed to display panels in the frontend to configure and manage parts of Home Assistant.
@@ -60,10 +61,6 @@ This section enables you to create and modify automations from within Home Assis
 ### Script
 
 Similar to the automation editor, this section enables you to create and modify scripts from within Home Assistant, without needing to write out the YAML code.
-
-### Z-Wave
-
-This section enables you to control your Z-Wave network and devices from within Home Assistant. You can add and remove devices, as well as change device specific configuration variables.
 
 ### Customizations
 

@@ -9,13 +9,14 @@ ha_iot_class: Calculated
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_domain: device_sun_light_trigger
+ha_integration_type: integration
 ---
 
 Home Assistant has a built-in integration called `device_sun_light_trigger` to help you automate your lights. The integration will:
 
- * Fade in the lights when the sun is setting and there are people home
- * Turn on the lights when people get home after the sun has set
- * Turn off the lights when all people leave the house
+* Fade in the lights when the sun is setting and there are people home
+* Turn on the lights when people get home after the sun has set
+* Turn off the lights when all people leave the house
 
 This integration requires the integrations [sun](/integrations/sun/), [device_tracker](/integrations/device_tracker/), [person](/integrations/person/) and [light](/integrations/light/) to be enabled.
 

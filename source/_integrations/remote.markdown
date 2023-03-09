@@ -6,6 +6,9 @@ ha_domain: remote
 ha_category:
   - Remote
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: entity
 ---
 
 Keeps track which remotes are in your environment, their state and allows you to control them.

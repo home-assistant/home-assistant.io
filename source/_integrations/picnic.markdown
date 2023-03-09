@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: picnic
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The Picnic integration allows one to get information from [Picnic](https://picnic.app) about orders, deliveries and cart content.
@@ -25,14 +26,40 @@ This integration provides the following sensors. Some sensors are disabled by de
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Cart items count               | The amount of different products currently in the cart.                                                                                             |
 | Cart total price               | The total price for products currently in the cart.                                                                                                 |
-| Selected slot start            | Start of the selected delivery slot, `unavailable` if none is selected.                                                                             |
-| Selected slot end              | End of the selected delivery slot, `unavailable` if none is selected.                                                                               |
-| Selected slot max order time   | Maximum time it's still possible to place an order for the selected delivery slot, `unavailable` if none is selected.                               |
-| Selected slot min order value  | The minimum order value needed to be able to place an order for the selected delivery window slot, `unavailable` if none is selected.               |
+| Selected slot start            | Start of the selected delivery slot, `unknown` if none is selected.                                                                             |
+| Selected slot end              | End of the selected delivery slot, `unknown` if none is selected.                                                                               |
+| Selected slot max order time   | Maximum time it's still possible to place an order for the selected delivery slot, `unknown` if none is selected.                               |
+| Selected slot min order value  | The minimum order value needed to be able to place an order for the selected delivery window slot, `unknown` if none is selected.               |
 | Last order slot start          | Start of the last placed order's delivery slot                                                                                                      |
 | Last order slot end            | End of the last placed order's delivery slot                                                                                                        |
 | Last order status              | Status of the last order, either `CURRENT`, `CANCELLED` or `COMPLETED`. Will only transition to `COMPLETED` after the invoice email has been sent.  |
-| Last order ETA start           | Start of the ETA window of the last order, will get more precise if the driver is underway.                                                         |
-| Last order ETA end             | End of the ETA window of the last order.                                                                                                            |
-| Last order delivery time       | The delivery time of the last order, `unavailable` if not yet delivered.                                                                            |
-| Last order total price         | The total price of the last order.                                                                                                                  |
+| Last order max order time      | Maximum time it is/was still possible to add products to the last order. |
+| Last order delivery time       | The delivery time of the last order, `unavailable` if not yet delivered. |
+| Last order total price         | The total price of the last order. |
+| Next delivery ETA start        | Start of the ETA window of the next delivery, will get more precise if the driver is underway. |
+| Next delivery ETA end          | End of the ETA window of the next delivery. |
+| Next delivery slot start       | Start of the next delivery's delivery slot. |
+| Next delivery slot end         | End of the next delivery's delivery slot. |
+
+## Services
+
+### Service `picnic.add_product`
+
+Add a product to your cart using the `picnic.add_product` service, either using a product ID or a product name.
+A search will be done and the first result will be added to the cart when one adds a product using a product name.
+The service call will fail when no product can be found, or when no `product_id` or `product_name` is specified. 
+
+| Service data attribute | Optional | Description                                                                      |
+|------------------------|----------|----------------------------------------------------------------------------------|
+| `config_entry_id`      | No       | The Id of the Picnic service config entry.                                       |
+| `product_id`           | yes      | The Picnic product ID.                                                           |
+| `product_name`         | yes      | A product name to search for, the first search result will be added to the cart. |
+| `amount`               | yes      | The amount to add, defaults to 1.                                                |
+
+```yaml
+# Example automation action to add a product to the cart by name.
+- service: picnic.add_product
+  data:
+    config_entry_id: 6b4be47a1fa7c3764f14cf756dc9899d
+    product_name: "Picnic cola zero"
+```

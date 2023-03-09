@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: watson_tts
 ha_platforms:
   - tts
+ha_integration_type: integration
 ---
 
 The `watson_tts` text-to-speech platform that works with [IBM Watson Cloud](https://www.ibm.com/watson/services/text-to-speech/) to create the spoken output.
@@ -105,4 +106,14 @@ Say with break:
           <break time=".9s" />
           Watson
       </speak>
+```
+
+Optionally, specify a voice for the message:
+
+```yaml
+- service: tts.watson_tts_say
+  data:
+    message: "Hello from Watson"
+  options:
+    voice: en-US_EmilyV3Voice
 ```

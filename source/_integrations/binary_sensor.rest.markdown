@@ -58,7 +58,7 @@ or a template based request:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+binary_sensor:
   - platform: rest
     resource_template: "http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}"
 ```
@@ -86,7 +86,7 @@ name:
   type: string
   default: REST Binary Sensor
 device_class:
-  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 value_template:
@@ -97,6 +97,10 @@ value_template:
   type: template
 payload:
   description: The payload to send with a POST request. Usually formed as a dictionary.
+  required: false
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this entity. This allows changing the `name`, `icon` and `entity_id` from the web interface.
   required: false
   type: string
 verify_ssl:
@@ -124,7 +128,11 @@ password:
 headers:
   description: The headers for the requests.
   required: false
-  type: [list, string]
+  type: [list, template]
+params:
+  description: The query params for the requests.
+  required: false
+  type: [list, template]
 {% endconfiguration %}
 
 ## Examples
@@ -153,7 +161,9 @@ binary_sensor:
 
 ### Accessing an HTTP authentication protected endpoint
 
-The REST sensor supports HTTP authentication and customized headers.
+The REST sensor supports HTTP authentication and template-enabled customized headers.
+
+{% raw %}
 
 ```yaml
 binary_sensor:
@@ -165,7 +175,11 @@ binary_sensor:
     headers:
       User-Agent: Home Assistant
       Content-Type: application/json
+      X-Custom-Header: '{{ states("input_text.the_custom_header") }}'
 ```
+
+{% endraw %}
+
 
 The headers will contain all relevant details. This will also give
 you the ability to access endpoints that are protected by tokens.

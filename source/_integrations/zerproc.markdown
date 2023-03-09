@@ -11,6 +11,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 This integration discovers nearby Zerproc lights and adds them to Home Assistant.

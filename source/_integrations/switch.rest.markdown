@@ -40,18 +40,22 @@ name:
   required: false
   type: string
   default: REST Switch
+device_class:
+  description: Sets the [class of the device](/integrations/switch/#device-class), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 timeout:
   description: Timeout for the request.
   required: false
   type: integer
   default: 10
 body_on:
-  description: "The body of the POST request that commands the switch to become enabled. This value can be a [template](/topics/templating/)."
+  description: "The body of the POST request that commands the switch to become enabled. This value can be a [template](/docs/configuration/templating/)."
   required: false
   type: string
   default: "ON"
 body_off:
-  description: "The body of the POST request that commands the switch to become disabled. This value can also be a [template](/topics/templating/)."
+  description: "The body of the POST request that commands the switch to become disabled. This value can also be a [template](/docs/configuration/templating/)."
   required: false
   type: string
   default: "OFF"
@@ -70,7 +74,11 @@ password:
 headers:
   description: The headers for the request.
   required: false
-  type: [string, list]
+  type: [list, template]
+params:
+  description: The query params for the requests.
+  required: false
+  type: [list, template]
 verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
@@ -86,13 +94,14 @@ Make sure that the URL matches exactly your endpoint or resource.
 
 ### Switch with templated value
 
-This example shows a switch that uses a [template](/topics/templating/) to allow Home Assistant to determine its state. In this example, the REST endpoint returns this JSON response with true indicating the switch is on.
+This example shows a switch that uses a [template](/docs/configuration/templating/) to allow Home Assistant to determine its state. In this example, the REST endpoint returns this JSON response with true indicating the switch is on.
 
 ```json
 {"is_active": "true"}
 ```
 
 {% raw %}
+
 ```yaml
 switch:
   - platform: rest
@@ -102,8 +111,10 @@ switch:
     is_on_template: "{{ value_json.is_active }}"
     headers:
       Content-Type: application/json
+      X-Custom-Header: '{{ states("input_text.the_custom_header") }}'
     verify_ssl: true
 ```
+
 {% endraw %}
 
 `body_on` and `body_off` can also depend on the state of the system. For example, to enable a remote temperature sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. This can be achieved by using the template `{% raw %}'{"rem_temp":{{states('sensor.bedroom_temp')}}}'{% endraw %}`.

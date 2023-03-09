@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: clementine
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `clementine` platform allows you to control a [Clementine Music Player](https://www.clementine-player.org).

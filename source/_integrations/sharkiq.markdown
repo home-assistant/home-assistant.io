@@ -7,10 +7,13 @@ ha_iot_class: Cloud Polling
 ha_release: 0.115
 ha_config_flow: true
 ha_codeowners:
-  - '@ajmarks'
+  - '@JeffResc'
+  - '@funkybunch'
+  - '@AritroSaha10'
 ha_domain: sharkiq
 ha_platforms:
   - vacuum
+ha_integration_type: integration
 ---
 
 The `sharkiq` integration allows you to control your [Shark IQ](https://www.sharkclean.com/vacuums/robot-vacuums/) vacuum.

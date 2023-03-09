@@ -123,7 +123,6 @@ header .grid {
 
 .menu li a {
   @include box-sizing(border-box);
-  @include transition(all 0.25s linear);
   display: block;
   padding: 32px 12px;
   text-decoration: none;
@@ -137,8 +136,7 @@ header .grid {
   background: $site-background;
   box-shadow: inset 0px 5px $navigation-color;
   color: $navigation-color;
-  padding-top: 40px;
-  padding-bottom: 24px;
+  padding-bottom: 22px;
 }
 
 .toggle {

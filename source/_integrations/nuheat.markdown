@@ -10,6 +10,9 @@ ha_config_flow: true
 ha_dhcp: true
 ha_platforms:
   - climate
+ha_integration_type: integration
+ha_codeowners:
+  - '@tstabrawa'
 ---
 
 The `nuheat` integration lets control your connected [NuHeat Signature](https://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](https://www.nuheat.com/).

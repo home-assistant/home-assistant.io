@@ -25,37 +25,41 @@ If you want to stay on the bleeding-edge Home Assistant Core development branch,
 3. Update Home Assistant core to the latest dev version
 
     ```bash
-    ha core update
+    ha core update --backup
     ```
+
+    _The_ `--backup` _flag here ensures that you have a partial backup of your current setup incase you need to downgrade._
 
 {% elsif page.installation == "container" %}
 
 ```bash
-docker pull {{ site.installation.container.base }}:dev
+docker pull {{ site.installation.container }}:dev
 ```
 
 **[You then need to recreate the container with the new image.](/installation/linux#install-home-assistant-container)**
 
 {% elsif page.installation == "core" %}
 
-1. Switch to the user that is running Home Assistant
+1. Stop the Home Assistant service.
+
+2. Switch to the user that is running Home Assistant
 
     ```bash
     sudo -u homeassistant -H -s
     ```
 
-2. Activate the virtual environment that Home Assistant is running in
+3. Activate the virtual environment that Home Assistant is running in
 
     ```bash
     source /srv/homeassistant/bin/activate
     ```
 
-3. Download and install the version you want
+4. Download and install the version you want
 
     ```bash
-    pip3 install --upgrade git+git://github.com/home-assistant/core.git@dev
+    pip3 install --upgrade git+https://github.com/home-assistant/core.git@dev
     ```
 
-4. When that is complete restart the service for it to use the new files.
+5. When that is complete start the service again for it to use the new files.
 
 {% endif %}

@@ -67,6 +67,10 @@ covers:
           required: false
           type: integer
           default: 15
+        unique_id:
+          description: An ID that uniquely identifies this cover. Set this to a unique value to allow customization through the UI.
+          required: false
+          type: string
 {% endconfiguration %}
 
 ## Examples
@@ -74,7 +78,6 @@ covers:
 In this section you find some real-life examples of how to use this sensor.
 
 ### Full configuration
-
 
 {% raw %}
 

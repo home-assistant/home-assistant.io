@@ -9,14 +9,17 @@ need to add media to your media folder.
 If you haven't set up a local media folder yet, check out this page on
 [setting up the local media source][setup-media]
 
+
+You can access your (automatically) created media folder using the dashboard.
+Navigate to the {% my media_browser title="Media > Local Media" %}, and in the 
+top right corner, click manage. Here you can add and delete your media. 
+
 ## Home Assistant OS & Supervised
 
-If you are running Home Assistant OS or Supervised, you can access your
-(automatically) created media folder using the Samba add-on.
-
-If you haven't installed the Samba add-on yet, you can do so by browsing to
-the Supervisor panel by clicking "Supervisor" in the sidebar. Next, click on
-the "Add-on store" tab and search for "Samba" and click on it.
+If you are running Home Assistant OS or Supervised, you can also use the 
+Samba add-on. If you haven't installed the Samba add-on yet, you can do 
+so by browsing to the {% my supervisor title="Settings > Add-ons" %} panel. 
+Next, click on the "Add-on store" tab and search for "Samba" and click on it.
 
 On the Samba add-on page, you can find a tab called "Documentation" with
 the add-on installation and usage instructions. After that, you can copy/move

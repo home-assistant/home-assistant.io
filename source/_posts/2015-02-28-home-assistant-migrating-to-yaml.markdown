@@ -9,7 +9,7 @@ categories:
 - Core
 ---
 
-Home Assistant is now using [YAML](http://yaml.org/) for it's configuration file. YAML allows the use of lists, which should make the configuration file a bit more flexible and useful. The new configuration file format is backwards compatible with existing components. Because of this, there is no need for component developers to update their components.
+Home Assistant is now using [YAML](http://yaml.org/) for its configuration file. YAML allows the use of lists, which should make the configuration file a bit more flexible and useful. The new configuration file format is backwards compatible with existing components. Because of this, there is no need for component developers to update their components.
 
 The new file is named configuration.yaml and if it can't be found in your config directory, Home Assistant will instead try to find the old configuration file, home-assistant.conf.
 

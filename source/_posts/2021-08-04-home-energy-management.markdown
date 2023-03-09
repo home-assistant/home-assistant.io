@@ -10,7 +10,6 @@ comments: true
 categories:
 - Announcements
 og_image: /images/blog/2021-08-energy/social.png
-feedback: true
 ---
 
 _TL; DR: We're adding energy management and [it's awesome](https://demo.home-assistant.io/#/energy). Created two products to read out electricity meters: [SlimmeLezer](https://www.slimmelezer.nl) for P1 ports & [Home Assistant Glow](https://github.com/klaasnicolaas/home-assistant-glow) for activity LEDs. Upgraded most of the [existing energy integrations](/integrations/#energy) to be compatible._
@@ -111,9 +110,9 @@ If you're interested in helping out, don't hesitate to stop by the new #devs_ene
 
 ### New possibilities for advanced users
 
-Every home is different and so are the needs of individual users. The energy management feature in Home Assistant is created with existing Home Assistant building blocks: Lovelace & Data storage. This means that our advanced users can choose to build up their own dashboards and use [the pieces from the energy dashboard](/lovelace/energy/) that they like.
+Every home is different and so are the needs of individual users. The energy management feature in Home Assistant is created with existing Home Assistant building blocks: Lovelace & Data storage. This means that our advanced users can choose to build up their own dashboards and use [the pieces from the energy dashboard](/dashboards/energy/) that they like.
 
-On top of that, advanced users will have access to the new [long-term statistics](/lovelace/statistics-graph/) that have been added to Home Assistant. This data allows you to easily monitor most sensor data over long periods of time, not just energy data.
+On top of that, advanced users will have access to the new [long-term statistics](/dashboards/statistics-graph/) that have been added to Home Assistant. This data allows you to easily monitor most sensor data over long periods of time, not just energy data.
 
 ### Thank you community
 

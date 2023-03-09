@@ -19,7 +19,8 @@ Type these from anywhere in the application to launch the dialog.
 | Mode  | Hotkey | Switch Modes
 | ------------- | ------------- | ------------- |
 | Entity Filter | `e` | Type `>` at start of input to switch to command palette.
-| Command Palette| `c` | Remove `>` from start of input to switch to entity filter.
+| Command Palette | `c` | Remove `>` from start of input to switch to entity filter.
+| Create [`my`](/integrations/my) link | `m` | Open a new tab to create a my link to the page you are on.
 
 <div class='note'>
   The application must have focus for the hotkey to register. If the dialog doesn't launch, try clicking into an empty part of the main content area of Home Assistant and type it again.
@@ -29,14 +30,14 @@ Type these from anywhere in the application to launch the dialog.
 
 *Hotkey: `e`*
 
-Similar to {% my entities title="Configuration -> Entities" %}, but more lightweight and accessible from anywhere in the frontend.
+Similar to {% my entities title="Settings -> Devices & Services -> Entities" %}, but more lightweight and accessible from anywhere in the frontend.
 
 <p class='img'>
   <img src='/images/docs/quick-bar/quick-bar-entity-filter.gif' alt='Quick Bar'>
   Filter for entities in Quick Bar's entity filter mode
 </p>
 
-Once launched, start typing your entity id (or ["bits and pieces" of your entity id](#search-by-bits-and-pieces-rather-than-complete-substring)) to get back a filtered list of entities. Clicking on an entity (or hitting `enter` when the desired entity is highlighted) will open the "More Info" dialog for that entity.
+Once launched, start typing your entity id (or ["bits and pieces" of your entity id](#search-by-bits-and-pieces-rather-than-an-exact-substring)) to get back a filtered list of entities. Clicking on an entity (or hitting `enter` when the desired entity is highlighted) will open the "More Info" dialog for that entity.
 
 This is helpful when, say, you are in the middle of writing an automation and need some quick insight about an entity but don't want to navigate away to Developer Tools.
 
@@ -55,8 +56,15 @@ Run various commands from anywhere without having to navigate to another view.
 
 Type | Available |
 | ------------- | ------------- |
+| Navigate | All entries in the sidebar and settings |
 | Reload | All currently-supported "Reload {domain}" services.<br />*(E.g., "Reload Scripts")* |
 | Server | Restart/Stop |
+
+## My links
+
+*Hotkey: `m`*
+
+Create [`my`](/integrations/my) links from any supported page in the user interface, when invoked on a supported page it will open a new tab that will allow you to share the link in different formats.
 
 ## Disabling Shortcuts
 

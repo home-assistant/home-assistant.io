@@ -7,9 +7,12 @@ ha_release: 2021.6
 ha_domain: network
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: system
 ---
 
-This integration provides network configuration for integrations such as [Zeroconf](/integrations/zeroconf/). It is managed by going to **{% my general title="Configuration >> General" %}** and is only available to users that have "Advanced Mode" enabled on their {% my profile title="user profile" %}.
+This integration provides network configuration for integrations such as [Zeroconf](/integrations/zeroconf/). It is managed by going to **{% my network title="Settings >> System >> Network" %}** and is only available to users that have "Advanced Mode" enabled on their {% my profile title="user profile" %}.
 
 **{% my general badge %}**
 
