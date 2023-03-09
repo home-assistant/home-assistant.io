@@ -34,14 +34,14 @@ To add this integration to your installation, You will need your Southern Compan
 
 ## Sensors
 
-- Monthly cost: The most recent update of your current bill total
-- Monthly consumption: The most recent update of your current energy usage
-- Average daily usage: How much energy you have used on average in this billing cycle
-- Average daily cost: How much it cost on average to run your electricity in this billing cycle
-- Lower Projected monthly Usage: The lower bounds of how much energy Southern Company projects you will use
-- Higher projected monthly usage: The upper bounds of how much energy Southern Company projects you will use
-- Lower projected monthly cost: The lower bounds of how much energy Southern Company projects your bill will cost
-- Higher projected monthly cost: The upper bounds of how much energy southern company projects your bill will cost
+- Monthly cost: The most recent update of your current bill total.
+- Monthly consumption: The most recent update of your current energy usage.
+- Average daily usage: How much energy you have used on average in this billing cycle.
+- Average daily cost: How much it costs on average to run your electricity in this billing cycle.
+- Lower Projected monthly Usage: The lower bounds of how much energy Southern Company projects you will use.
+- Higher projected monthly usage: The upper bounds of how much energy Southern Company projects you will use.
+- Lower projected monthly cost: The lower bounds of how much energy Southern Company projects your bill will cost.
+- Higher projected monthly cost: The upper bounds of how much energy southern company projects your bill will cost.
 
 ## Energy
 
