@@ -117,7 +117,7 @@ device:
     When device options are provided, the list of areas is filtered by areas
     that at least provide one device that matches the given conditions. Can be
     either a object or a list of object.
-  type: map
+  type: list
   keys:
     integration:
       description: >
@@ -143,7 +143,7 @@ entity:
     When entity options are provided, the list of areas is filtered by areas
     that at least provide one entity that matches the given conditions. Can be
     either a object or a list of object.
-  type: map
+  type: list
   required: false
   keys:
     integration:
@@ -212,10 +212,9 @@ integration. Multiple areas can be selected.
 area:
   multiple: true
   device:
-    multiple: true
-    integration: deconz
-    manufacturer: IKEA of Sweden
-    model: TRADFRI remote control
+    - integration: deconz
+      manufacturer: IKEA of Sweden
+      model: TRADFRI remote control
 ```
 
 ## Attribute selector
@@ -363,7 +362,7 @@ entity:
     When entity options are provided, the list of devices is filtered by devices
     that at least provide one entity that matches the given conditions. Can be
     either a object or a list of object.
-  type: map
+  type: list
   required: false
   keys:
     integration:
@@ -395,7 +394,7 @@ filter:
     When filter options are provided, the list of devices is filtered by devices
     that at least provide one entity that matches the given conditions. Can be either
     a object or a list of object.
-  type: map
+  type: list
   required: false
   keys:
     integration:
@@ -449,12 +448,12 @@ And this is what is looks like in YAML:
 ```yaml
 device:
   filter:
-    integration: deconz
-    manufacturer: Philips
-    model: RWL021
+    - integration: deconz
+      manufacturer: Philips
+      model: RWL021  
   entity:
-    domain: sensor
-    device_class: battery
+    - domain: sensor
+      device_class: battery
 ```
 
 ## Duration selector
@@ -520,7 +519,7 @@ filter:
     When filter options are provided, the entities are limited by entities
     that at least match the given conditions. Can be either a object or a list of object.
     Can be either a object or a list of object.
-  type: map
+  type: list
   required: false
   keys:
     integration:
@@ -582,9 +581,9 @@ And this is what it looks like in YAML:
 entity:
   multiple: true
   filter:
-    integration: zha
-    domain: binary_sensor
-    device_class: motion
+    - integration: zha
+      domain: binary_sensor
+      device_class: motion
 ```
 
 ## Icon selector
@@ -923,7 +922,7 @@ device:
     When device options are provided, the targets are limited by devices
     that at least match the given conditions. Can be either a object or a list
     of object.
-  type: map
+  type: list
   keys:
     integration:
       description: >
@@ -947,7 +946,7 @@ entity:
     When entity options are provided, the targets are limited by entities
     that at least match the given conditions. Can be either a object or a list
     of object.
-  type: map
+  type: list
   required: false
   keys:
     integration:
@@ -996,8 +995,8 @@ or more lights, provided by the [ZHA](/integrations/zha) integration.
 ```yaml
 target:
   entity:
-    integration: zha
-    domain: light
+    - integration: zha
+      domain: light
 ```
 
 Another example using the target selector, which only shows targets that
@@ -1007,9 +1006,9 @@ provide one or more remote controls, provided by the
 ```yaml
 target:
   device:
-    integration: deconz
-    manufacturer: IKEA of Sweden
-    model: TRADFRI remote control
+    - integration: deconz
+      manufacturer: IKEA of Sweden
+      model: TRADFRI remote control
 ```
 
 ## Template selector
