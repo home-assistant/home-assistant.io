@@ -13,6 +13,7 @@ ha_domain: integration
 ha_platforms:
   - sensor
   - Binary Sensor
+  - Fan
 ---
 
 The Reason integration pulls in data from the Renson Endura delta application for Android en iOS. It also provides some services to control the ventilation unit.
