@@ -15,28 +15,6 @@ ha_platforms:
   - Binary Sensor
 ---
 
-The `integration` platform provides the data from the Renson Endura delta application for Android en iOS. Also the integration provides some services to control the ventilation unit.
+The Reason integration pulls in data from the Renson Endura delta application for Android en iOS. It also provides some services to control the ventilation unit.
 
-## Configuration
-
-### Using UI
-
-The integration can be configured using the UI and this is the required method to configure the integration.
-
-### Manual
-
-To enable Integration Sensor in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: renson
-    host: HOST
-```
-
-{% configuration %}
-host:
-  description: The hostname or IP address of the Renson endura delta.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include includes/config_flow.md %}
