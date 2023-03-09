@@ -50,6 +50,7 @@ Enjoy the release!
 - [New Integrations](#new-integrations)
 - [Release 2023.3.1 - March 2](#release-202331---march-2)
 - [Release 2023.3.2 - March 8](#release-202332---march-8)
+- [Release 2023.3.3 - March 9](#release-202333---march-9)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -459,6 +460,45 @@ We welcome the following new integrations in this release:
 [tuya docs]: /integrations/tuya/
 [websocket_api docs]: /integrations/websocket_api/
 [zha docs]: /integrations/zha/
+
+## Release 2023.3.3 - March 9
+
+- Fix MQTT rgb light brightness scaling ([@jbouwh] - [#89264]) ([mqtt docs])
+- Bump roombapy to 1.6.6 ([@Dilski] - [#89366]) ([roomba docs])
+- Bump pymazda to 0.3.8 ([@bdr99] - [#89387]) ([mazda docs])
+- Allow enum as MQTT sensor device_class ([@jbouwh] - [#89391]) ([mqtt docs])
+- Add paths for add-on changelog and documentation ([@ludeeus] - [#89411]) ([hassio docs])
+- Update frontend to 20230309.0 ([@piitaya] - [#89446]) ([frontend docs])
+- Fix Dormakaba dKey deadbolt binary sensor ([@emontnemery] - [#89447]) ([dormakaba_dkey docs])
+
+[#88979]: https://github.com/home-assistant/core/pull/88979
+[#89059]: https://github.com/home-assistant/core/pull/89059
+[#89264]: https://github.com/home-assistant/core/pull/89264
+[#89366]: https://github.com/home-assistant/core/pull/89366
+[#89381]: https://github.com/home-assistant/core/pull/89381
+[#89387]: https://github.com/home-assistant/core/pull/89387
+[#89391]: https://github.com/home-assistant/core/pull/89391
+[#89411]: https://github.com/home-assistant/core/pull/89411
+[#89446]: https://github.com/home-assistant/core/pull/89446
+[#89447]: https://github.com/home-assistant/core/pull/89447
+[@Dilski]: https://github.com/Dilski
+[@balloob]: https://github.com/balloob
+[@bdr99]: https://github.com/bdr99
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@ludeeus]: https://github.com/ludeeus
+[@piitaya]: https://github.com/piitaya
+[abode docs]: /integrations/abode/
+[dormakaba_dkey docs]: /integrations/dormakaba_dkey/
+[frontend docs]: /integrations/frontend/
+[hassio docs]: /integrations/hassio/
+[knx docs]: /integrations/knx/
+[mazda docs]: /integrations/mazda/
+[mqtt docs]: /integrations/mqtt/
+[roomba docs]: /integrations/roomba/
+[sensor docs]: /integrations/sensor/
+[tibber docs]: /integrations/tibber/
 
 ## Need help? Join the community!
 
