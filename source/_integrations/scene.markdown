@@ -211,7 +211,6 @@ automation:
     - service: scene.delete
       data:
         entity_id: scene.my_scene
-
 ```
 
 The following example turns off some entities as soon as a window opens. The states of the entities are restored after the window is closed again.
