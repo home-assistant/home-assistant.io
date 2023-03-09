@@ -371,13 +371,13 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 
 ### 0.77
 
-- Added support for momentary and beep/blink switches. [[#15973](https://github.com/home-assistant/home-assistant/pull/15973)]
-- Decouple entity initialization from discovery, enabling devices to recover faster after a Home Assistant reboot. [[#16146](https://github.com/home-assistant/home-assistant/pull/16146)]
+- Added support for momentary and beep/blink switches. [[#15973](https://github.com/home-assistant/core/pull/15973)]
+- Decouple entity initialization from discovery, enabling devices to recover faster after a Home Assistant reboot. [[#16146](https://github.com/home-assistant/core/pull/16146)]
 - **Breaking change:** Device `id` in `configuration.yaml` must now be the full 12-character device MAC address. Previously, omitting the first 6 characters was allowed.
 
 ### 0.72
 
-- Adds `api_host` configuration option [[#14896](https://github.com/home-assistant/home-assistant/pull/14896)]
+- Adds `api_host` configuration option [[#14896](https://github.com/home-assistant/core/pull/14896)]
 
 ### 0.70
 
