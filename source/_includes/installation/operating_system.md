@@ -181,6 +181,9 @@ This can be accomplished either by using a live operating system (e.g. Ubuntu) a
      --loader '\EFI\BOOT\bootx64.efi'
   ```
 
+The efibootmgr command will only work if you booted the live operating system in UEFI mode, so be sure to boot from your USB flash drive in this mode.
+Depending on your privileges on the prompt, you may need to run efibootmgr using sudo.
+
 Or else, the BIOS might provide you with a tool to add boot options, there you can specify the path to the EFI file:
 
   ```text
