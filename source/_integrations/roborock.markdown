@@ -1,43 +1,20 @@
 ---
 title: Roborock
-description: Connect and control your Roborock devices using the Xiaomi Miio integration
+description: Instructions on how to integrate your Roborock vacuum with home assistant
 ha_category:
-  - Alarm
-  - Fan
-  - Health
-  - Hub
-  - Light
-  - Presence Detection
-  - Remote
   - Vacuum
-ha_domain: roborock
-ha_integration_type: virtual
-ha_supporting_domain: xiaomi_miio
-ha_supporting_integration: Xiaomi Miio
-ha_release: 0.51
-ha_codeowners:
-  - '@rytilahti'
-  - '@syssi'
-  - '@starkillerOG'
+ha_iot_class: Cloud Polling
+ha_release: 2023.4
 ha_config_flow: true
+ha_codeowners:
+  - '@humbertogontijo'
+  - '@Lash-L'
+ha_domain: roborock
 ha_platforms:
-  - air_quality
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - device_tracker
-  - diagnostics
-  - fan
-  - humidifier
-  - light
-  - number
-  - remote
-  - select
-  - sensor
-  - switch
   - vacuum
-ha_iot_class: Local Polling
-ha_zeroconf: true
+ha_integration_type: integration
 ---
 
-{% include integrations/supported_brand.md %}
+The `roborock` integration allows you to control your Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) vacuum.
+
+{% include integrations/config_flow.md %}
