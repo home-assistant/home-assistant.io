@@ -21,4 +21,4 @@ Finally, click Finish. Now you're brought to the Home Assistant web interface. T
 
 ![The Home Assistant user interface.](/images/getting-started/lovelace.png)
 
-{% include getting-started/next_step.html step="Home Assistant Overview" link="/getting-started/overview/" %}
+{% include getting-started/next_step.html step="Home Assistant Integerations" link="/getting-started/integration/" %}
