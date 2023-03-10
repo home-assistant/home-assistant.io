@@ -24,7 +24,7 @@ This integration is installed automatically if you run Home Assistant OS or Supe
 
 ## Sensor entities
 
-For each installed add-on Supervisor provides following sensors:
+For each installed add-on, the following sensors are available:
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
@@ -33,12 +33,26 @@ For each installed add-on Supervisor provides following sensors:
 | CPU Percent| no | The CPU Percent usage of the add-on
 | Memory Percent| no | The Memory (RAM) Percent usage of the add-on
 
-For Home Assistant OS Supervisor provides following sensors:
+For Home Assistant OS, the following sensors are available:
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
 | Version | no | Current version of the Home Assistant OS
 | Newest Version | no | Latest version of the Home Assistant OS currently available
+
+For Home Assistant Core, the following sensors are available:
+
+| Sensor | Enabled by default | Description |
+| ------- | ------------------ | ----------- |
+| CPU Percent| no | The CPU Percent usage of the core
+| Memory Percent| no | The Memory (RAM) Percent usage of the core
+
+For Home Assistant Supervisor, the following sensors are available:
+
+| Sensor | Enabled by default | Description |
+| ------- | ------------------ | ----------- |
+| CPU Percent| no | The CPU Percent usage of the supervisor
+| Memory Percent| no | The Memory (RAM) Percent usage of the supervisor
 
 ## Binary Sensor entities
 
