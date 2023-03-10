@@ -1,11 +1,11 @@
 ## Glossary
 #
 # Format is a list of terms, each term is a dictionary with the following keys:
-# - term: The term to define (required)
-# - definition: The definition of the term (required)
-# - excerpt: Short excerpt of the definition, overrides definition for tooltips (optional)
-# - url: A URL to link to for more information (optional)
-# - aliases: A list of aliases for the term (optional)
+# - `term`: The term to define (required)
+# - `definition`: The definition of the term (required)
+# - `excerpt`: Short excerpt of the definition, overrides definition for tooltips (optional)
+# - `url`: A URL to link to for more information (optional)
+# - `aliases`: A list of aliases for the term (optional)
 #
 
 - term: Action
