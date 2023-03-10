@@ -438,7 +438,55 @@ Home Assistant's ZHA integration already supports most standard device types out
 
 The few devices that will, for example, not join/pair properly or, while joined/paired, do not present all attributes in the ZHA integration likely deviate from the Zigbee specifications set by the [CSA (Connectivity Standards Alliance)](https://csa-iot.org/all-solutions/zigbee/). These devices may therefore require the creation of a bug report by a device owner, supplying debug logs. The device owner may need to actively assist in troubleshooting by providing the information developers need to create custom ZHA Device Handlers.
 
+### Zigbee interference avoidance and network range/coverage optimization
 
+Sources of interference for radios can lead to transmission/reception loss or connection problems and show symptoms such as errors/failures when sending and receiving Zigbee messages/signals that can cause significant degradation in performance or even prevent devices from communicating at all. Below are some basic but essential tips for getting a good setup starting point to achieve better signal quality, improved coverage, and extended range.
+
+Following all these optimization tips below should significantly improve the reception of your Zigbee radio adapter. The below insights describe working around the well-known limitations of low-power/low-bandwidth 2.4 GHz digital radios. It can that way resolve or avoid many known issues caused by interference or poor placement of your Zigbee radio adapter or devices.
+
+All electric devices/appliances, especially computers and computer peripherals, generate [EMI/EMF/RMI (electromagnetic fields that cause electromagnetic interference (often called radio-frequency interference, also commonly called signal noise in layman's terms)](https://en.wikipedia.org/wiki/Electromagnetic_interference), which can interfere with signals transmissions on the 2.4 GHz radio band frequency, and in practice partially degrade or even fully jam the wireless communication messages between your Zigbee adapter/devices.
+
+For example, interference from USB 3.x ports, unshielded USB 3.x devices, and non-shielded USB 3.x peripheral cables are especially infamously known to affect 2.4 GHz radio reception for low-power/low-bandwidth devices. Therefore you should always place your Zigbee adapter far away as possible from any potential sources of EMI/EMI/RMI, preferably by using an adequately long shielded USB extension cable connected to a USB 2.0 port.
+
+Zigbee also uses [mesh networking topology](https://en.wikipedia.org/wiki/Mesh_networking), which means that most mains-powered devices are a "Zigbee Router" that can act as a signal repeater and range extended by transmitting data over long distances by passing data messages through the Zigbee network mesh of intermediate devices to reach more distant Zigbee devices. Thus to have a healthy Zigbee network, you need many Zigbee Router devices relatively close to each other in order to achieve good coverage and range.
+
+##### Actions to optimize Zigbee Coordinator radio hardware
+
+Common root causes of unreliable performance are often seen with outdated Zigbee Coordinator radio adapter hardware, limited by obsolete chips, bad antenna designs, or old/buggy firmware. You can improve most Zigbee setups by using a good Zigbee Coordinator radio adapter and maintaining it.
+
+- Buy and use a supported Zigbee Coordinator USB adapter based on newer/modern chip hardware.
+  - Consider a Zigbee Coordinator USB adapter with an external antenna for more flexibility.
+
+- Update to a later version of Zigbee Coordinator firmware on the existing radio adapter.
+  - Most manufacturers usually provide straightforward guides for updating the firmware.
+  
+- Try different physical placement and orientations of the Zigbee Coordinator and its antenna.
+  - Optimal placement of the Zigbee adapter is close to the middle of the house as possible.
+  - Try placing Zigbee Coordinator at some distance away from walls, ceilings, and floors.
+  - Try different orientations of the Zigbee Coordinator adapter or its antenna.
+
+While using an older Zigbee Coordinator radio adapter hardware might work, using obsolete hardware and/or old firmware can prevent reliable operation. It is also generally a good idea to upgrade Zigbee Coordinator firmware before troubleshooting any further if and when run into problems with devices. 
+
+##### Actions to avoid or workaround EMI/EMF/RMI interference
+
+Since all Zigbee Coordinator radio adapters are very sensitive/susceptible to all types of EMI/EMF/RMI you should always try to optimize the placement of the Zigbee Coordinator and avoid known sources of interference.
+
+- Use a long USB extension cable and place Zigbee Coordinator away from interference and obstacles.
+  - Ensure the USB extension cable is adequately shielded (thicker cables usually have better shielding).
+  - Place Zigbee Coordinator away from electrical wires/cables, power supplies, and household appliances.
+  - Extension cables also makes it easier to try different orientations of the adapter/antenna.
+
+- Avoid USB 3.0 ports/computers/peripherals as they are known culprits of RFI/EMI/EMF disruption. (See Ref. [1](https://www.usb.org/sites/default/files/327216.pdf) and [2](https://www.unit3compliance.co.uk/2-4ghz-intra-system-or-self-platform-interference-demonstration/)).
+  - Make sure to only connect the Zigbee USB adapter to a USB 2.0 port (and not to a USB 3.x port). 
+  - If a computer only has USB 3.x ports then buy and connect Zigbee Coordinator via a powered USB 2.0 hub.
+
+- Shield any unshielded computers/peripherals/devices by adding all-metal enclosures/chassis/casings.
+  - Use shielded USB cables for all external peripherals/devices, especially USB 3.x peripherals.
+  - Be aware that metal casings can decrease the performance of an internal/built-in Zigbee Coordinator.
+
+- Avoid Wi-Fi Routers and Wi-Fi Access Points, alternatively change the Wi-Fi channel or Zigbee channel.
+  - Place your Zigbee Coordinator away from any Wi-Fi access points and all other sources of WiFi.
+  - Wi-Fi frequency ranges can overlap with Zigbee, see the section above on defining Zigbee channel use.
 
 ### Reporting issues
 
