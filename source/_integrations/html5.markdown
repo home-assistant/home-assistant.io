@@ -148,8 +148,7 @@ Example of adding a tag to your notification. This won't create new notification
       data:
         message: "Last known sensor state is {{ states('sensor.sensor') }}."
       data:
-        data:
-          tag: "notification-about-sensor"
+        tag: "notification-about-sensor"
 ```
 
 {% endraw %}
