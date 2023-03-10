@@ -56,7 +56,7 @@ Currently, the integration supports the following sensors:
 | Propane              | %                   |
 | SO2                  | µg/m³               |
 | Noise                | dBa                 |
-| Noise (Maxumum)      | dBa                 |
+| Noise (Maximum)      | dBa                 |
 | Radon                | Bq/m³               |
 | Temperature          | °C                  |
 | VOC                  | ppb                 |
