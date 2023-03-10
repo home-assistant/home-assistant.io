@@ -20,6 +20,7 @@ The SMA Solar integration will poll a [SMA](http://www.sma-solar.com/) [(US)](ht
 The integration uses the web interface of the device. Before you start, make sure you are able to connect to the solar inverter from your favorite web browser.
 
 {% include integrations/config_flow.md %}
+{% include integrations/option_flow.md %}
 
 ## Sensors
 
