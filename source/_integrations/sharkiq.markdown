@@ -28,13 +28,35 @@ This platform has been tested and is confirmed to be working with the Shark IQ R
 
 ## Services
 
-Currently supported services are:
+Currently supported [`vacuum`](/integrations/vacuum/) services are:
 
 - `start`
 - `pause`
 - `stop`
 - `return_to_base`
 - `locate`
+
+### Room Targeting
+In addition to the [`vacuum`](/integrations/vacuum/) services, this integration supports room targeting.
+This allows you to select specific rooms that you want cleaned, instead of doing a whole-home clean.
+
+```yaml
+service: sharkiq.clean_room
+data:
+  rooms:
+    - "Entry"
+    - "Living Room"
+target:
+  entity_id: vacuum.my_vacuum
+```
+**Important Note:** The list of rooms must be written _exactly_ as they appear in the Shark Clean app. If you want exact names that the service will understand,
+look for the `Rooms` attribute of your Shark Robot Vacuum in Home Assistant.  This will be populated with the rooms that the robot has configured, as they will be
+understood by the service.
+
+If you want to use the area selector in service's the UI, you need to format the area's name exactly as they appear in the vacuum's `Rooms` attribute.  You may also check the attribute using Home Assistant's [Developer Tools](https://www.home-assistant.io/docs/tools/dev-tools/).
+<p class='img'>
+<img src='/images/integrations/sharkiq/sharkiq-room-service-attributes.png' />
+</p>
 
 ## Troubleshooting
 
