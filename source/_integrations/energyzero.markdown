@@ -10,6 +10,7 @@ ha_codeowners:
   - '@klaasnicolaas'
 ha_domain: energyzero
 ha_platforms:
+  - diagnostics
   - sensor
 ha_quality_scale: platinum
 ha_integration_type: integration
