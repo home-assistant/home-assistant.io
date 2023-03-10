@@ -477,7 +477,7 @@ Since all Zigbee Coordinator radio adapters are very sensitive/susceptible to al
 
 - Avoid USB 3.0 ports/computers/peripherals as they are known culprits of RFI/EMI/EMF disruption. (See Ref. [1](https://www.usb.org/sites/default/files/327216.pdf) and [2](https://www.unit3compliance.co.uk/2-4ghz-intra-system-or-self-platform-interference-demonstration/)).
   - Make sure to only connect the Zigbee USB adapter to a USB 2.0 port (and not to a USB 3.x port). 
-  - If computer only has USB 3.x ports then buy and connect Zigbee Coordinator via a powered USB 2.0 hub.
+  - If a computer only has USB 3.x ports then buy and connect Zigbee Coordinator via a powered USB 2.0 hub.
 
 - Shield any unshielded computers/peripherals/devices by adding all-metal enclosures/chassis/casings.
   - Use shielded USB cables for all external peripherals/devices, especially USB 3.x peripherals.
