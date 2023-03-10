@@ -471,7 +471,7 @@ While using an older Zigbee Coordinator radio adapter hardware might work, using
 Since all Zigbee Coordinator radio adapters are very sensitive/susceptible to all types of EMI/EMF/RMI you should always try to optimize the placement of the Zigbee Coordinator and avoid known sources of interference.
 
 - Use a long USB extension cable and place Zigbee Coordinator away from interference and obstacles.
-  - Ensure USB extension cable is adequately shielded (thicker cables usually have better shielding).
+  - Ensure the USB extension cable is adequately shielded (thicker cables usually have better shielding).
   - Place Zigbee Coordinator away from electrical wires/cables, power supplies, and household appliances.
   - Extension cables also makes it easier to try different orientations of the adapter/antenna.
 
