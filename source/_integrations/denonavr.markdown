@@ -62,6 +62,7 @@ Known supported devices:
 - Denon AVR-S650H
 - Denon AVR-S710W
 - Denon AVR-S720W
+- Denon AVR-S740H
 - Denon AVR-S750H
 - Denon AVR-S760H
 - Denon AVR-S940H
