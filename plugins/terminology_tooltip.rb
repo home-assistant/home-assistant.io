@@ -33,7 +33,7 @@ module Jekyll
         
         if glossary.key?("link")
           rendered_link = Liquid::Template.parse(glossary["link"]).render(context).strip
-          link = "<br><a class='terminology-link' href='#{rendered_link}' target='_blank'></a>"
+          link = "<br><a class='terminology-link' href='#{rendered_link}' target='_blank'>[Learn more]</a>"
         end
 
         tooltip = "<span class='terminology-tooltip'>#{definition}#{link || ""}</span>"
