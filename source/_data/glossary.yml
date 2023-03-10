@@ -1,11 +1,11 @@
 ## Glossary
 #
 # Format is a list of terms, each term is a dictionary with the following keys:
-# - `term`: The term to define (required)
-# - `definition`: The definition of the term (required)
-# - `excerpt`: Short excerpt of the definition, overrides definition for tooltips (optional)
-# - `url`: A URL to link to for more information (optional)
-# - `aliases`: A list of aliases for the term (optional)
+# - term: The term to define (required)
+# - definition: The definition of the term (required)
+# - excerpt: Short excerpt of the definition, overrides definition for tooltips (optional)
+# - link: A URL to link to for more information (optional)
+# - aliases: A list of aliases for the term (optional)
 #
 
 - term: Action
@@ -14,7 +14,7 @@
     Actions used in many places, most notably in automations and scripts.
   aliases:
     - actions
-  url: /docs/automation/action/
+  link: /docs/automation/action/
 
 - term: Add-on
   definition: >
@@ -37,7 +37,7 @@
   excerpt: >
     Automations in Home Assistant allow you to automatically respond to things
     that happen in and around your home.
-  url: /docs/automation/
+  link: /docs/automation/
   aliases:
     - automations
 
@@ -45,7 +45,7 @@
   definition: >
     A binary sensor returns information about things that only have two states -
     such as on or off.
-  url: /integrations/binary_sensor
+  link: /integrations/binary_sensor
 
 - term: Component
   definition: >
@@ -55,13 +55,13 @@
   definition: >
     Conditions are an optional part of an automation that will prevent an
     action from firing if they are not met.
-  url: /docs/scripts/conditions/
+  link: /docs/scripts/conditions/
 
 - term: Cover
   definition: >
     Covers are devices such as blinds, garage doors, etc that can be opened
     and closed and optionally set to a specific position.
-  url: /integrations/cover
+  link: /integrations/cover
 
 - term: Customize
   definition: >
@@ -82,7 +82,7 @@
 - term: Device tracker
   definition: >
     Device trackers are used to track the presence, or location, of a device.
-  url: /integrations/device_tracker
+  link: /integrations/device_tracker
 
 - term: Discovery
   definition: >
@@ -120,18 +120,18 @@
 - term: Event
   definition: >
     An event is when something happens.
-  url: /docs/configuration/events/
+  link: /docs/configuration/events/
 
 - term: Frontend
   definition: >
     The frontend is a necessary component for the UI, it is also where you
     can define your themes.
-  url: /integrations/frontend/
+  link: /integrations/frontend/
 
 - term: Group
   definition: >
     Groups are a way to organize your entities into a single unit.
-  url: /integrations/group/
+  link: /integrations/group/
 
 - term: HASS
   definition: >
@@ -141,7 +141,7 @@
 - term: HassOS
   definition: >
     Another name for Home Assistant Operating System
-  url: /hassio/installation/
+  link: /hassio/installation/
 
 - term: Home Assistant Core
   definition: >
@@ -193,7 +193,7 @@
   excerpt: >
     Integrations connect and integrates Home Assistant with your devices,
     services, and more.
-  url: /integrations/
+  link: /integrations/
 
 - term: Lovelace
   definition: >
@@ -204,17 +204,17 @@
   definition: >
     A light has a brightness you can control, and optionally color temperature
     or RGB color control.
-  url: /integrations/light
+  link: /integrations/light
 
 - term: Notification
   definition: >
     You can use notifications to send messages, pictures, and more, to devices.
-  url: /integrations/#notifications
+  link: /integrations/#notifications
 
 - term: Packages
   definition: >
     Packages allow you to bundle different component configurations together.
-  url: /docs/configuration/packages/
+  link: /docs/configuration/packages/
 
 - term: Platform
   definition: >
@@ -226,26 +226,26 @@
   excerpt: >
     Platforms are building blocks provided by some integrations to be used by
     other integrations.
-  url: /docs/configuration/platform_options/
+  link: /docs/configuration/platform_options/
 
 - term: Scene
   definition: >
     Scenes capture the states you want certain entities to be. For example,
     a scene can specify that light A should be turned on and light B should
     be bright red.
-  url: /integrations/scene/
+  link: /integrations/scene/
 
 - term: Script
   definition: >
     Scripts are components that allow users to specify a sequence of actions
     to be executed by Home Assistant when turned on.
-  url: /docs/scripts/
+  link: /docs/scripts/
 
 - term: Sensor
   definition: >
     Sensors return information about a thing, for instance the level of water
     in a tank.
-  url: /integrations/sensor/
+  link: /integrations/sensor/
 
 - term: Selectors
   definition: >
@@ -256,44 +256,44 @@
   excerpt: >
     Selectors are components for the user interface. Like toggle, dropdown,
     and more.
-  url: /docs/blueprint/selectors/
+  link: /docs/blueprint/selectors/
 
 - term: Service
   definition: >
     Services are called to perform actions.
-  url: /docs/scripts/service-calls/
+  link: /docs/scripts/service-calls/
 
 - term: Switch
   definition: >
     Switches are things that have two states you can select between, such as
     turning on or off a socket.
-  url: /integrations/switch/
+  link: /integrations/switch/
 
 - term: Template
   definition: >
     A template is an automation definition that can include variables for the
     service or data from the trigger values. This allows automations to generate
     dynamic actions.
-  url: /docs/automation/templating/
+  link: /docs/automation/templating/
 
 - term: Trigger
   definition: >
     A trigger is a set of values or conditions of a platform that are defined
     to cause an automation to run.
-  url: /docs/automation/trigger/
+  link: /docs/automation/trigger/
 
 - term: TTS
   definition: >
     TTS (text to speech) allows Home Assistant to talk to you.
-  url: /integrations/tts/
+  link: /integrations/tts/
 
 - term: Variables
   definition: >
     Variables are used to store values in memory that can be processed
     e.g. in a script.
-  url: /docs/scripts/#variables
+  link: /docs/scripts/#variables
 
 - term: Zone
   definition: >
     Zones are areas that can be used for presence detection.
-  url: /integrations/zone/
+  link: /integrations/zone/

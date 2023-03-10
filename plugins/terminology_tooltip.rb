@@ -31,13 +31,13 @@ module Jekyll
 
         definition = glossary["excerpt"] || glossary["definition"]
         
-        if glossary.key?("url")
-          rendered_url = Liquid::Template.parse(glossary["url"]).render(context).strip
-          url = "<br><a class='terminology-link' href='#{rendered_url}' target='_blank'></a>"
+        if glossary.key?("link")
+          rendered_link = Liquid::Template.parse(glossary["link"]).render(context).strip
+          link = "<br><a class='terminology-link' href='#{rendered_link}' target='_blank'></a>"
         end
 
-        tooltip = "<span class='terminology-tooltip'>#{definition}#{url || ""}</span>"
-        
+        tooltip = "<span class='terminology-tooltip'>#{definition}#{link || ""}</span>"
+
         "<span class='terminology'>#{@text || @term}#{tooltip}</span>"
       end
 
