@@ -19,7 +19,7 @@
 - topic: Device tracker
   description: "[Device trackers](/integrations/device_tracker) are used to track the presence, or location, of a device."
 - topic: Discovery
-  description: "[Discovery](/integrations/discovery/) is the automatic setup of zeroconf/mDNS and uPnP devices after they are discovered."
+  description: "Discovery is the automatic setup of zeroconf/mDNS and uPnP devices after they are discovered."
 - topic: Domain
   description: "Each integration in Home Assistant has a unique identifier: a domain. All of the entities and services available in Home Assistant are provided by integrations and thus belong to such a domain. The first part of the entity or service, before the `.` shows the domain they belong to. For example `light.kitchen` is an entity in the `light` domain from the [light integration](/integrations/light), while `hue.activate_scene` is the `activate_scene` service for the `hue` domain which belongs to the [Hue integration](/integrations/hue)."
 - topic: Entity
@@ -33,7 +33,7 @@
 - topic: HASS
   description: "HASS or [hass](/docs/tools/hass/) is often used as an abbreviation for Home Assistant. It is also the command-line tool."
 - topic: HassOS
-  description: "Another name for Home Assistant Operating System"  
+  description: "Another name for Home Assistant Operating System"
 - topic: Home Assistant Core
   description: Home Assistant Core is a Python program. It can be run on various operating systems and is the basis for Home Assistant. When people are talking about Home Assistant Core they usually refer to a standalone installation method that can be installed using a Virtual Environment or Docker. Home Assistant Core does not use the Home Assistant Supervisor.
 - topic: Home Assistant Supervised (Previously Hass.io)
