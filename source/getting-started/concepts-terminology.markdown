@@ -29,7 +29,12 @@ Devices and entities can be used in dashboards to [automations](#automations).
 
 ## Automations
 
-A set of repeatable actions that can be set up to run automatically. More details can be found [here](/getting-started/automation).
+A set of repeatable actions that can be set up to run automatically. Automations are made of three key components:
+1. Triggers - event(s) that start an automation like when the sun sets.
+2. Conditions - optional tests that must be met before continuing to running actions. For example, if someone is home.
+3. Actions - interact with devices such as turn on a light.
+
+More details can be found [here](/docs/automation/basics/) or try creating an [automation](/getting-started/automation).
 
 ![Automations](/images/getting-started/automation-editor.png)
 
@@ -39,7 +44,7 @@ Similar to automations, repeatable actions that can be run. The difference betwe
 
 ## Scenes
 
-Scenes are saved states of entities that can be recalled using scripts or automations. For example, a light can be set to a particular brightness, color, etc. More details can be found [here](/integrations/scene/).
+Scenes are saved states of certain entities that can be recalled using scripts or automations. For example, a light can be set to a particular brightness, color, etc. Scenes cannot have conditions are actions like scripts and automations. More details can be found [here](/integrations/scene/).
 
 ## Add-ons
 
