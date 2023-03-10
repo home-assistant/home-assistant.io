@@ -110,8 +110,13 @@ social:
 # Home Assistant release details
 current_major_version: 2023
 current_minor_version: 3
+<<<<<<< HEAD
 current_patch_version: 1
 date_released: 2023-03-02
+=======
+current_patch_version: 3
+date_released: 2023-03-09
+>>>>>>> upstream/current
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
