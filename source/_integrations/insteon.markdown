@@ -27,9 +27,9 @@ ha_integration_type: integration
 ha_dhcp: true
 ---
 
-<p class='note warning'>The Insteon company has shut down and turned off its cloud as of April 2022. Recently the service has been restarted but as a paid offering. Time will tell how successful this new model will be.</p>
+<p class='note warning'>The Insteon apps (Director or Insteon for Hub) are a paid service utilizing the Insteon cloud to control an Insteon Hub. Home Assistant does not require the use of the Insteon app but can operate in conjunction with the app if desired.</p>
 
-This integration adds support for integrating your INSTEON network with Home Assistant. It is known to work with the [2413U] USB and [2412S] RS242 flavors of PLM and the [2448A7] USB stick. It has also been tested to work with the [2242] and [2245] Hubs. Device support is provided by the underlying [pyinsteon] package.
+This integration adds support for integrating your INSTEON network with Home Assistant. It has been tested with all USB and serial PowerLinc Modems (PLM) including [2413U], [2448A7], [2413S] and [2412S] models. It has also been tested to work with the [2242] and [2245] Hubs.
 
 _If you have factory reset your device please see the instructions <a href="#recovering-after-factory-resetting-the-hub">Recovering After Factory Resetting The Hub</a> for how to proceed._
 
@@ -40,8 +40,8 @@ _If you have factory reset your device please see the instructions <a href="#rec
 Overview of supported Insteon modems & hubs
 </p>
 
-[pyinsteon]: https://github.com/pyinsteon/pyinsteon
 [2413U]: https://www.insteon.com/powerlinc-modem-usb
+[2413S]: https://www.insteon.com/support-knowledgebase/get-started-2413s
 [2412S]: https://www.insteon.com/powerlinc-modem-serial
 [2448A7]: https://www.insteon.com/support-knowledgebase/2014/12/10/usb-wireless-adapter-quick-start-guide
 [2245]: https://www.insteon.com/insteon-hub/
@@ -49,27 +49,42 @@ Overview of supported Insteon modems & hubs
 
 ## Autodiscovery
 
-The first time autodiscovery runs, the duration may require up to 60 seconds per device. Subsequent startups will occur much quicker using cached device information. If a device is not recognized during autodiscovery, trigger the device, such as toggling a button, to force the device to send a message to the modem. The device will then be discovered. You may need to trigger the device a few times.
+The first time autodiscovery runs, any device that is already linked to the modem will be identified. This process may require up to 60 seconds per device. Subsequent startups will occur much quicker using cached device information. If a device is not recognized during autodiscovery, trigger the device, such as toggling a button, to force the device to send a message to the modem. The device will then be discovered. You may need to trigger the device a few times. If the device is still not identified, relink the device to the modem following the linking instructions using the [Insteon Panel](#insteon-panel).
 
-## Adding Devices to the INSTEON Integration
+## Insteon Panel
 
-In order for any two Insteon devices to talk with one another, they must be linked. For an overview of device linking, please read the Insteon page on [understanding linking]. The Insteon Modem module supports All-Linking through [Developer Tools] service calls. The following services are available:
+<p class='img>
+<img src='/images/integrations/insteon/insteon-panel.png' alt='Insteon panel'>
+The Insteon panel allows for product specific configuration of Insteon devices and Insteon scenes.
+</p>
 
-- **insteon.add_all_link**: Puts the Insteon Modem (IM) into All-Linking mode. The IM can be set as a controller or a responder. If the IM is a controller, put the IM into linking mode then press the SET button on the device. If the IM is a responder, press the SET button on the device then put the IM into linking mode.
+The following capabilities are available in the Insteon panel:
 
-Other services that support the management of the All-Link Database are:
-- **insteon.delete_all_link**: Tells the Insteon Modem (IM) to remove an All-Link record from the All-Link Database of the IM and a device. Once the IM is set to delete the link, press the SET button on the corresponding device to complete the process.
-- **insteon.load_all_link_database**: Load the All-Link Database for a device. WARNING - Loading a device All-Link database may take a LONG time and may need to be repeated to obtain all records.
-- **insteon.print_all_link_database**: Print the All-Link Database for a device. Requires that the All-Link Database is loaded first.
-- **insteon.print_im_all_link_database**: Print the All-Link Database for the INSTEON Modem (IM).
-- **insteon.add_default_links**: Add a set of default links between the modem and the device to facilitate proper communication between them.
+- **Add device**: In order for any two Insteon devices to talk with one another, they must be linked. For an overview of device linking, please read the Insteon page on [understanding linking]. To link a device to the modem open the Insteon panel from the left side bar and select the **Add device** button. The following options are available during the linking process:
+  - **Device address**: Enter the address of the device, such as `1A.2B.3C`, to link a specific device remotely. Not all devices support remote linking. If a device does not support remote linking, press the `Set` button on the device to put the device in linking mode.
+  - **Link multiple**: To add multiple devices in a single session, select the **Add multiple** checkbox.
+- **Scenes**: Insteon scenes can be created, changed or deleted using the **Scenes** tab of the Insteon panel.
+- **Device Properties**: Insteon device properties, such as the LED brightness, can be managed using the Insteon panel. To see the available properties of a device, select the device from the list of devices in the Insteon panel. This will display the list of available properties for the specific device on the **Properties** tab. Each device type will have a different set of properties and not all devices have properties.
+  - **Read device properties**:  Use the **Load from device** button to read the properties from the device.
+  - **Change device properties**: Select the specific property from the list of properties. Use the dialog box to edit the property value. This does not write the change to the device.
+  - **Write property changes**: Use the **Write to device** button to save the property changes to the device.
+  - **Undo changes**: Property changes can be undone before they are written to the device by selecting the **Undo changes** button.
+- **Device All-Link Database**: The Insteon All-Link Database (ALDB) contains the list of links to other devices in the Insteon network. The All-Link Database can be managed using the Insteon Panel. To see the All-Link Database of a device, select the device from the list of devices in the Insteon panel and select the **All-Link Database** tab.
+  - **Read the ALDB**: Use the **Load from device** button to read the current ALDB records from the device.
+  - **Add a record**: Use the **Create ALDB record** button to add a record to the All-Link Database. This does not write to the device.
+  - **Modify a record**: To modify an existing record, select the record and use the dialog box to change the record as needed. This does not write to the device.
+  - **Add default links**: There are a set of default records that need to exist in the ALDB in order for a device to communicate correctly to the modem. Use the **Add default links** button to add these links to the device. This **does** write to the device.
+  - **Write changes to the device**: Use the **Write changes** button to write added or changed records to the device.
+  - **Undo changes**: ALDB record changes can be undone prior to being written to the device using the **Undo changes** button.
+
+<p class='note warning'>If you choose to use the Insteon app, it is recommended to add devices and scenes using the Insteon app. Home Assistant will see the devices and scenes as well.</p>
+<p class='note warning'>Editing a device's All-Link Database can cause the device to become unresponsive. If this occurs, simply relink the device to the modem using the **Add device** directions in the [Insteon Panel](#insteon-panel).</p>
 
 [understanding linking]: https://www.insteon.com/support-knowledgebase/2015/1/28/understanding-linking
-[Developer Tools]: /docs/tools/dev-tools/
 
 ## INSTEON Scenes
 
-Trigger an INSTEON scene on or off, is done via automations. Two services are provided to support this feature:
+Triggering an INSTEON scene on or off is done via automations. Two services are provided to support this feature:
 
 - **insteon.scene_on**
   - **group**: (required) The INSTEON scene number to trigger.
@@ -137,6 +152,17 @@ automation:
           entity_id: light.some_light
 ```
 
+## Services
+
+The following services are available:
+
+- **insteon.add_all_link**: Puts the Insteon Modem (IM) into All-Linking mode. The IM can be set as a controller or a responder. If the IM is a controller, put the IM into linking mode then press the SET button on the device. If the IM is a responder, press the SET button on the device then put the IM into linking mode.
+- **insteon.delete_all_link**: Tells the Insteon Modem (IM) to remove an All-Link record from the All-Link Database of the IM and a device. Once the IM is set to delete the link, press the SET button on the corresponding device to complete the process.
+- **insteon.load_all_link_database**: Load the All-Link Database for a device. WARNING - Loading a device All-Link database may take a LONG time and may need to be repeated to obtain all records.
+- **insteon.print_all_link_database**: Print the All-Link Database for a device. Requires that the All-Link Database is loaded first.
+- **insteon.print_im_all_link_database**: Print the All-Link Database for the INSTEON Modem (IM).
+- **insteon.add_default_links**: Add a set of default links between the modem and the device to facilitate proper communication between them.
+
 ## Device Overrides
 
 <p class='note warning'>Device overrides are not used to add a device to the Insteon integration. They are only used if a device that was linked correctly to the Insteon Modem but is not appearing in Home Assistant.
@@ -160,6 +186,6 @@ Many users tried to factory reset their Insteon Hub when the Insteon app stopped
 
     - If you have a Hub v2 you will need the default username and password which are printed on the bottom of the Hub
 
-3. Add devices to the Hub using the instructions for [Adding Devices to the INSTEON Integration](#adding-devices-to-the-insteon-integration)
+3. Add devices to the Hub using the instructions for adding devices to the INSTEON integration using the [Insteon Panel]](#insteon-panel)
 
 Once your devices are linked to the Hub again they will appear in Home Assistant automatically.

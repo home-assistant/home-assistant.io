@@ -170,6 +170,10 @@ payload_not_available:
   required: false
   type: string
   default: offline
+suggested_display_precision:
+  description: The number of decimals which should be used in the sensor's state after rounding.
+  required: false
+  type: integer
 qos:
   description: The maximum QoS level of the state topic.
   required: false
@@ -181,7 +185,7 @@ state_class:
   type: string
   default: None
 state_topic:
-  description: The MQTT topic subscribed to receive sensor values.
+  description: The MQTT topic subscribed to receive sensor values. If `device_class`, `state_class`, `unit_of_measurement` or `suggested_display_precision` is set, and a numeric value is expected, an empty value `''` will be ignored and will not update the state, a `'None'` value will set the sensor to an `unknown` state.
   required: true
   type: string
 unique_id:
@@ -323,6 +327,7 @@ mqtt:
   sensor:
     - name: "Temperature"
       state_topic: "office/sensor1"
+      suggested_display_precision: 1
       unit_of_measurement: "°C"
       value_template: "{{ value_json.temperature }}"
     - name: "Humidity"
