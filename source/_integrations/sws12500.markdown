@@ -20,22 +20,21 @@ Also you are able to push data to Windy API.
 
 - [Sencor SWS 12500 Weather Station](https://www.sencor.cz/profesionalni-meteorologicka-stanice/sws-12500)
 - Station set to send data directly to Home Assistant
-- Open communication between station and HA
-- If you want to push data do Windy, you have to create account at [Windy](https://stations.windy.com)
+- Open communication between station and Home Assistant
+- If you want to push data to Windy, you have to create account at [Windy](https://stations.windy.com)
 
 ## Configure your station in AP mode
 
-You need to configure your station in AP mode to send data to your local HA installation.
+You need to configure your station in AP mode to send data to your local Home Assistant installation.
 
 - hold WiFi button on the back of station for 6 seconds until AP will flash on display.
 - select your station from available APs on your computer
 - connect to station's setup page: `http://192.168.1.1` from your browser
-- in the third URL section fill in address to your local HA installation
+- in the third URL section fill in address to your local Home Assistant installation
 - fill in `ID` and `KEY`. You can use [online tool](https://www.allkeysgenerator.com/Random/Security-Encryption-Key-Generator.aspx) to generate random keys.
 
-  ![station_setup](/images/integrations/sws12500/station_hint.png)
-
-Now *Let's add the integration to HA*
+![station_setup](/images/integrations/sws12500/station_hint.png)
+Now *Let's add the integration to Home Assistant*
 
 {% include integrations/config_flow.md %}
 
@@ -48,11 +47,11 @@ API_KEY: PASSWORD in station's config
 
 If your security data is changed for some reason, you need to reconfigure the platform.
 
-As soon as the integration is added into HA it will listen for incoming data from station and starts to fill sensors as soon as data will first arrive.
+As soon as the integration is added into Home Assistant it will listen for incoming data from station and starts to fill sensors as soon as data will first arrive.
 
 ## Resending data to Windy API
 
-- First of all you need to create account at [Windy stations](https://stations.windy.com). Once you have an account, copy Windy API Key
+- first of all you need to create account at [Windy stations](https://stations.windy.com). Once you have an account, copy Windy API Key
 - provide Windy API key to SWS 12500 integration
-- tick `Enable` chcekbox
+- tick `Enable` checkbox
 - you are done.
