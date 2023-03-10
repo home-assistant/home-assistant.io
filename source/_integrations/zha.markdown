@@ -481,7 +481,7 @@ Since all Zigbee Coordinator radio adapters are very sensitive/susceptible to al
 
 - Shield any unshielded computers/peripherals/devices by adding all-metal enclosures/chassis/casings.
   - Use shielded USB cables for all external peripherals/devices, especially USB 3.x peripherals.
-  - Be aware that metal casings can decrease performance of an internal/built-in Zigbee Coordinator.
+  - Be aware that metal casings can decrease the performance of an internal/built-in Zigbee Coordinator.
 
 - Avoid Wi-Fi Routers and Wi-Fi Access Points, alternatively change the Wi-Fi channel or Zigbee channel.
   - Place your Zigbee Coordinator away from any Wi-Fi access points and all other sources of WiFi.
