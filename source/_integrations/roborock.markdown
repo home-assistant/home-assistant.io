@@ -1,6 +1,6 @@
 ---
 title: Roborock
-description: Instructions on how to integrate your Roborock vacuum with home assistant
+description: Instructions on how to integrate Roborock vacuums into Home Assistant
 ha_category:
   - Vacuum
 ha_iot_class: Cloud Polling
