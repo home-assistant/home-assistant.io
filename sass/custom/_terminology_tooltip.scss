@@ -1,6 +1,6 @@
 .terminology {
   position: relative;
-  border-bottom: 2px dotted #049cdb;
+  border-bottom: 2px dotted $primary-color;
   cursor: help;
 
   &:hover .terminology-tooltip {
@@ -11,7 +11,7 @@
   .terminology-tooltip {
     visibility: hidden;
     width: 250px;
-    background-color: #049cdb;
+    background-color: $primary-color;
     color: #fff;
     font-size: 0.8em;
     padding: 8px;
@@ -40,7 +40,7 @@
       margin-left: -5px;
       border-width: 5px;
       border-style: solid;
-      border-color: #049cdb transparent transparent transparent;
+      border-color: $primary-color transparent transparent transparent;
     }
   }
 }
