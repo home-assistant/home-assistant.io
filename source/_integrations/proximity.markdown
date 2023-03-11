@@ -22,7 +22,7 @@ Some examples of its use include:
 
 The Proximity entity which is created has the following values:
 
-- `state`: Distance from the monitored zone (in km)
+- `state`: Distance from the monitored zone (in `unit_of_measurement`)
 - `dir_of_travel`: Direction of the closest device or person to the monitored zone. Values are:
   - `not set`
   - `arrived`
