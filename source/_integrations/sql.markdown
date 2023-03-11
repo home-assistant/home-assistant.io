@@ -79,6 +79,14 @@ sql:
       description: Provide a unique id for this sensor.
       required: false
       type: string
+    device_class:
+      description: "Provide [device class](/integrations/sensor#device-class) for this sensor."
+      required: false
+      type: string
+    state_class:
+      description: "Provide [state class](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes) for this sensor."
+      required: false
+      type: string
 {% endconfiguration %}
 
 ## Information
