@@ -88,6 +88,8 @@ The following models have been tested and confirmed to work:
 - RLC-820A
 - RLC-822A
 - RLC-823A
+- RLC-833A
+- RLC-1224A
 - RLN8-410 NVR
 - RLN16-410 NVR
 - Reolink Duo Floodlight PoE
