@@ -147,8 +147,8 @@ Example of adding a tag to your notification. This won't create new notification
       service: notify.html5
       data:
         message: "Last known sensor state is {{ states('sensor.sensor') }}."
-      data:
-        tag: "notification-about-sensor"
+        data:
+          tag: "notification-about-sensor"
 ```
 
 {% endraw %}
