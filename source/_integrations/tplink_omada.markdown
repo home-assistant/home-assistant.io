@@ -20,7 +20,7 @@ The integration provides basic configuration and status of Omada devices control
 
 {% include integrations/config_flow.md %}
 
-- Host: Enter the URL, DNS Name or IP Address of the TP-Link Omada Controller. Https will be used be default, if not specified.
+- Host: Enter the URL, DNS Name or IP Address of the TP-Link Omada Controller. HTTPS will be used be default, if not specified.
 - Verify SSL Certificates: Enable to check the validity of the certificate presented by the Omada controller.
 - Username/Password: A user account with permissions to view & configure the site is required.
 
