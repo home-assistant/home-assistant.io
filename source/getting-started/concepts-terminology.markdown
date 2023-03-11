@@ -44,11 +44,11 @@ Similar to automations, repeatable actions that can be run. The difference betwe
 
 ## Scenes
 
-Scenes are saved states of certain entities that can be recalled using scripts or automations. For example, a light can be set to a particular brightness, color, etc. Scenes cannot have conditions are actions like scripts and automations. More details can be found [here](/integrations/scene/).
+Scenes are saved states of certain entities that can be recalled using scripts or automations. For example, a light can be set to a particular brightness, color, etc. Scenes cannot have conditions or actions like scripts and automations. More details can be found [here](/integrations/scene/).
 
 ## Add-ons
 
-Depending on your [installation type](/installation), you may have the ability to install third party add-ons. Add-ons are usually apps that can be run with Home Assistant but provide a quick and easy way to install, configure, and run within Home Assistant. Add-ons provide additional functionality where as integrations connect Home Assistant to other apps.
+Depending on your [installation type](/installation), you may have the ability to install third party add-ons. Add-ons are usually apps that can be run with Home Assistant but provide a quick and easy way to install, configure, and run within Home Assistant. Add-ons provide additional functionality whereas integrations connect Home Assistant to other apps.
 
 ![Add-ons](/images/getting-started/add-ons.png)
 
