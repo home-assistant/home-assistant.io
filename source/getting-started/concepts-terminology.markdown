@@ -23,7 +23,10 @@ Once an integration has been added, the hardware and/or data are represented in 
 
 Devices are a logical grouping for one or more entities. A device may represent a physical device and the device may have one or more sensors which appear as entities associated to the device. For example, a motion sensor is represented as a device and the motion may provide motion detection, temperature and light levels as entities. Entities have states such as on when motion is detected and off when there is no motion.
 
-Devices and entities can be used in dashboards to [automations](#automations).
+Devices and entities are used throughout Home Assistant. To name a few examples:
+* [Dashboards](#dashboards) can show a state of an entity like if a light bulb is on or off as well as buttons that interact with devices like turning a light bulb on or off.
+* An [automation](automations) can be triggered from a state change on an entity e.g. a light turning on and control another device or entity.
+* A pre defined setting for light device saved as a [scene](scenes).
 
 ![Home Assistant Device](/images/getting-started/home-assistant-device.png)
 
@@ -44,7 +47,9 @@ Similar to automations, repeatable actions that can be run. The difference betwe
 
 ## Scenes
 
-Scenes are saved states of certain entities that can be recalled using scripts or automations. For example, a light can be set to a particular brightness, color, etc. Scenes cannot have conditions or actions like scripts and automations. More details can be found [here](/integrations/scene/).
+Scenes allow you to create predefined settings for your devices. Likened to driving mode on phones, driver profiles in cars, it can change an environment to suite you. For example, your environment for watching films may have dimmer lighting, TV is switched on and higher volume. This can be saved as a scene and used without having to set individual devices everytime.
+
+Further details can be found [here](/integrations/scene/).
 
 ## Add-ons
 
