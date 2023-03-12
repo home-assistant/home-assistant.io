@@ -1,6 +1,6 @@
 ---
 title: Fibaro
-description: Instructions on how to setup Fibaro Z-Wave hubs (HCL and HC2) and configure devices within Home Assistant.
+description: Instructions on how to setup Fibaro Home Center and Yubii Home within Home Assistant.
 ha_category:
   - Binary Sensor
   - Climate
@@ -29,29 +29,29 @@ ha_config_flow: true
 ha_integration_type: hub
 ---
 
-The [Fibaro](https://fibaro.com/) hub is a controller mainly connecting to Z-Wave devices.
+The Fibaro integration allows you to connect Home Assistant to a Fibaro Home Center or a Yubii Home hub so that you can control and monitor the connected devices and run scenes. Home Assistant uses a local connection to connect to the Fibaro hub.
 
-There is currently support for the following device types within Home Assistant:
+# Supported hub models
+Fibaro Home Center 2, Home Center Lite, Home Center 3, Home Center 3 Lite and Yubii Home.
 
-- Binary Sensor
-- Cover
-- Climate
-- Light
-- Lock
-- Sensor
-- Scene
-- Switch
+# Features
+1. Control devices connected to the hub and synchronize the state of the devices (see platforms for supported devices and capabilities).
+2. Entities are automatically added when configuring the Fibaro integration and upon restart of Home Assistant when changed in Fibaro hub.
+3. Support for multiple hubs.
+4. Activate scenes defined in the Fibaro hub.
 
-They will be automatically added when the `fibaro` hub is connected to Home Assistant.
-
-{% include integrations/config_flow.md %}
+{% include integrations/config_flow.md %} 
 
 <div class='note'>
-
-  It is recommended to assign a static IP address to your Fibaro controller. This ensures that it won't change its IP address, so you won't have to change the `url` if the controller reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Fibaro, check the label on the bottom.
-
+It is recommended to assign a static IP address to your Fibaro controller. This ensures that it won't change its IP address, so you won't have to change the `url` if the controller reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Fibaro, check the label on the bottom.
 </div>
 
-### Using Z-Wave devices in automation
-
-If you want to use a Z-Wave device from the Fibaro controller in Home Assistant automation, you'll need the entity id. In the Home Assistant UI you'll find all entities listed under **Developer Tools** -> **States**. Look for entities that contain 'fibaro_id' in their attributes, and you'll find the entity id on the left.
+# Supported platforms
+- Binary Sensor
+- Climate
+- Cover
+- Light
+- Lock
+- Scene
+- Sensor
+- Switch
