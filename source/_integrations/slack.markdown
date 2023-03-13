@@ -34,6 +34,7 @@ Depending on whether you want the Bot user to post as you (the user that authent
 <!-- (screenshot of example message?) -->
 
 3. In the correct Scopes section, add the `chat:write` and `dnd:read` scopes
+  - To modify your Slack bot's username and icon, additionally add the `chat:write.customize` OAuth scope
 
 4. Scroll up to `OAuth Tokens & Redirect URLs` and click `Install to Workspace`.
 
@@ -41,22 +42,27 @@ In `Features/OAuth and Permissions/OAuth Tokens for Your Workspace`:
 
 5. Copy the User (or Bot User) OAuth Token. Use this as 'API Key' when setting up in Home Assistant
 
+
 ## Usage
 
+### Sending Messages
 
-One of the easiest ways to send a message, is to create a script. You can paste in YAML and make changes in the GUI
+One of the easiest ways to send a message, is to create a script. You can paste in YAML and make changes in the GUI.
 
-Change `[YOUR-SLACK-TEAM]` to the team name `(*.slack.com)`.
+You can call this script as a service. 
 
-Note: Fallback text will be used if blocks cannot be displayed
+1. Go to Home Assistant Settings -> Automations and Scenes -> Scripts -> Add Script
+2. Click the three dots in the top right, and pick 'Edit in YAML'. Paste in the contents below.
+3. Change `YOUR_SLACK_TEAM` to the team name `(*.slack.com)`
 
 ```yaml
 alias: "Notify: Slack Notification Template"
 sequence:
-  - service: notify.[YOUR-SLACK-TEAM]
+  - service: notify.YOUR_SLACK_TEAM
     data:
-      message: Fallback text
-      title: Fallback text
+      message: Fallback Text
+      target: "#test-channel"
+      title: Reminder
       data:
         blocks:
           - type: section
@@ -66,24 +72,15 @@ sequence:
                 This is a mrkdwn section block *this is bold*, and ~this is
                 crossed out~, and <https://google.com|this is a link>
 mode: single
-
 ```
 
 Update the blocks array with valid Slack blocks. The easiest way to create this is using [Slack Block Kit Builder](https://app.slack.com/block-kit-builder)
 
-Create a duplicate of this script to use for different messages (the door was opened, the light was left on, etc).
+Create a duplicate of this script to use for different messages, and different channels (the door was opened in #security, the light was left on on #lights, etc).
 
 ### Icons
 
 Slack uses the standard emoji sets used [here](https://www.webpagefx.com/tools/emoji-cheat-sheet/). Alternatively a publicly accessible URL may be used.
-
-<div class='note'>
-
-In order to modify your Slack bot's username and icon, you must ensure your Slack app has the `chat:write.customize` OAuth scope. See [the Slack API documentation](https://api.slack.com/methods/chat.postMessage#authorship) for more information.
-
-The added `notify` service will be named after the chat server the app is installed on. For example, a server named "Slack Chat" wil display as `notify.slack_chat`.
-
-</div>
 
 {% include integrations/config_flow.md %}
 
