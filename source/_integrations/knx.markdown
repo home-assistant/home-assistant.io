@@ -171,7 +171,7 @@ type:
 Every telegram that matches an address pattern with its destination field will be announced on the event bus as a `knx_event` event containing data attributes
 
 - `data` contains the raw payload data (e.g., 1 or "[12, 55]").
-- `destination` the KNX group address the telegram is sent to as string (e.g., "1/2/3).
+- `destination` the KNX group address the telegram is sent to as string (e.g., "1/2/3").
 - `direction` the direction of the telegram as string ("Incoming" / "Outgoing").
 - `source` the KNX individual address of the sender as string (e.g., "1.2.3").
 - `telegramtype` the APCI service of the telegram. "GroupValueWrite", "GroupValueRead" or "GroupValueResponse" generate a knx_event.

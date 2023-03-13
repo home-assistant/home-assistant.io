@@ -3,6 +3,7 @@ title: Reolink IP NVR/camera
 description: Instructions on how to integrate Reolink devices (NVR/cameras) into Home Assistant.
 ha_category:
   - Camera
+  - Update
 ha_iot_class: Local Push
 ha_release: 2023.1
 ha_domain: reolink
@@ -12,6 +13,8 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - camera
+  - number
+  - update
 ha_integration_type: integration
 ha_dhcp: true
 ---
@@ -146,6 +149,7 @@ The following models have been tested and confirmed to work:
 - C2 Pro
 - E1 Zoom
 - E1 Outdoor
+- RLC-410
 - RLC-410W
 - RLC-411
 - RLC-420
@@ -158,7 +162,10 @@ The following models have been tested and confirmed to work:
 - RLC-810A
 - RLC-811A
 - RLC-820A
+- RLC-822A
 - RLC-823A
+- RLC-833A
+- RLC-1224A
 - RLN8-410 NVR
 - RLN16-410 NVR
 - Reolink Duo Floodlight PoE
@@ -170,6 +177,7 @@ Battery-powered cameras are not yet supported.
 The following models are lacking the HTTP webserver API and can therfore not work with this integration:
 
 - E1 Pro
+- E1
 
 ## Troubleshooting
 
