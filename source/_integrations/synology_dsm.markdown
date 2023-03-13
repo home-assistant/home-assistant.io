@@ -23,9 +23,10 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
-The Synology DSM integration provides access to various statistics from your [Synology NAS](https://www.synology.com) (_DSM 5.x and higher_) as well as cameras from the [Surveillance Station](https://www.synology.com/en-us/surveillance).
+The Synology DSM integration provides access to various statistics from your [Synology NAS](https://www.synology.com) (_DSM 5.x and higher_) as well as cameras from the [Surveillance Station](https://www.synology.com/surveillance).
 
 {% include integrations/config_flow.md %}
 
@@ -52,7 +53,7 @@ Due to the nature of the Synology DSM API, it is required to grant the user admi
 
 When creating the user, it is possible to deny access to all locations and applications. By doing this, the user will not be able to login to the web interface or view any of the files on the Synology NAS. It is still able to read the utilization and storage information using the API.
 
-If you want to add cameras from [Surveillance Station](https://www.synology.com/en-us/surveillance), the user needs application permission for [Surveillance Station](https://www.synology.com/en-us/surveillance).
+If you want to add cameras from [Surveillance Station](https://www.synology.com/surveillance), the user needs application permission for [Surveillance Station](https://www.synology.com/surveillance).
 
 ### If you utilize 2-Step Verification or Two Factor Authentication (2FA) with your Synology NAS
 
@@ -110,11 +111,11 @@ Similar to the [normal disk sensors](#disk-sensors), there are binary sensors re
 
 ## Switch
 
-A switch is available to enable/disable the [Surveillance Station](https://www.synology.com/en-us/surveillance) Home mode.
+A switch is available to enable/disable the [Surveillance Station](https://www.synology.com/surveillance) Home mode.
 
 ## Cameras
 
-For each camera added in [Surveillance Station](https://www.synology.com/en-us/surveillance), a camera will be created in Home Assistant.
+For each camera added in [Surveillance Station](https://www.synology.com/surveillance), a camera will be created in Home Assistant.
 
 ## Buttons
 

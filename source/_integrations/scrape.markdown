@@ -145,15 +145,6 @@ sensor:
       description: Defines a template for the entity picture of the sensor.
       required: false
       type: template
-    attributes:
-      description: Defines templates for attributes of the sensor.
-      required: false
-      type: map
-      keys:
-        "attribute: template":
-          description: The attribute and corresponding template.
-          required: true
-          type: template
     device_class:
       description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
       required: false
@@ -253,10 +244,10 @@ This example tries to retrieve the price for electricity.
 ```yaml
 # Example configuration.yaml entry
 scrape:
-  - resource: https://elen.nu/timpriser-pa-el-for-elomrade-se3-stockholm/
+  - resource: https://elen.nu/dagens-spotpris/se3-stockholm/
     sensor:
       - name: Electricity price
-        select: ".text-lg:is(span)"
+        select: ".text-lg.font-bold"
         index: 1
         value_template: '{{ value | replace (",", ".") | float }}'
         unit_of_measurement: "öre/kWh"

@@ -13,7 +13,6 @@ ha_codeowners:
   - '@balloob'
   - '@marcelveldt'
 ha_domain: hue
-ha_ssdp: true
 ha_homekit: true
 ha_platforms:
   - binary_sensor
