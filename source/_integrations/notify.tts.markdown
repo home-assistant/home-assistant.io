@@ -20,12 +20,12 @@ In your `configuration.yaml` file type:
 ```yaml
 tts:
   - platform: google_translate
-    service_name: google_say
+    service_name: google_translate_say
 
 notify:
   - platform: tts
     name: in_the_living_room
-    tts_service: tts.google_say
+    tts_service: tts.google_translate_say
     media_player: media_player.living_room
 ```
 
