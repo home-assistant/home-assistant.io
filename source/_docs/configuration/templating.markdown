@@ -331,7 +331,7 @@ The same thing can also be expressed as a test:
 
 ### Entities
 
-- `is_hidden(entity_id)` returns whether an entity has been hidden. Can also be used as a test.
+- `is_hidden_entity(entity_id)` returns whether an entity has been hidden. Can also be used as a test.
 
 ### Entities examples
 
