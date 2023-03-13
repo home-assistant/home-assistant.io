@@ -107,7 +107,6 @@ Time for `min_cycle_duration` and `keep_alive` must be set as "hh:mm:ss" or it m
 generic_hygrostat:
   - name: Bedroom
     humidifier: switch.humidifier_plug
-	unique_id: 0123456
     target_sensor: sensor.outside_humidity
     min_humidity: 30
     max_humidity: 70
@@ -123,4 +122,5 @@ generic_hygrostat:
     away_humidity: 35
     away_fixed: True
     sensor_stale_duration: 00:15:00
+	unique_id: 0123456
 ```
