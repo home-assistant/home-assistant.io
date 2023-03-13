@@ -49,6 +49,8 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Release 2023.3.1 - March 2](#release-202331---march-2)
+- [Release 2023.3.2 - March 8](#release-202332---march-8)
+- [Release 2023.3.3 - March 9](#release-202333---march-9)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -363,6 +365,138 @@ We welcome the following new integrations in this release:
 [dormakaba_dkey docs]: /integrations/dormakaba_dkey/
 [frontend docs]: /integrations/frontend/
 [knx docs]: /integrations/knx/
+[sensor docs]: /integrations/sensor/
+[tibber docs]: /integrations/tibber/
+
+## Release 2023.3.2 - March 8
+
+- Check type key of zone exists in geniushub ([@warksit] - [#86798]) ([geniushub docs])
+- Cache transient templates compiles provided via api ([@bdraco] - [#89065]) ([websocket_api docs]) ([api docs]) ([mobile_app docs])
+- Handle InnoDB deadlocks during migration ([@bdraco] - [#89073]) ([recorder docs])
+- Bump pyfibaro version to 0.6.9 ([@rappenze] - [#89120]) ([fibaro docs]) (dependency)
+- Fix host IP and scheme entry issues in TP-Link Omada ([@MarkGodwin] - [#89130]) ([tplink_omada docs])
+- Fix Tuya Python 3.11 compatibility issue ([@frenck] - [#89189]) ([tuya docs])
+- Bump aioesphomeapi to 13.4.2 ([@bdraco] - [#89210]) ([esphome docs]) (dependency)
+- Update frontend to 20230306.0 ([@bramkragten] - [#89227]) ([frontend docs])
+- Fix conditional check ([@cdce8p] - [#89231]) ([konnected docs])
+- Bump sqlalchemy to 2.0.5post1 ([@bdraco] - [#89253]) ([recorder docs]) ([sql docs]) (dependency)
+- Make sql subqueries threadsafe ([@bdraco] - [#89254]) ([recorder docs])
+- Bump python-snapcast to 2.3.2 ([@luar123] - [#89259]) ([snapcast docs]) (dependency)
+- Ignore DSL entities if SFR box is not adsl ([@epenet] - [#89291]) ([sfr_box docs])
+- Clean ZHA radio path with trailing whitespace ([@puddly] - [#89299]) ([zha docs])
+- Fix Insteon open issues with adding devices by address and missing events ([@teharris1] - [#89305]) ([insteon docs])
+- Fix thread diagnostics loading blocking the event loop ([@bdraco] - [#89307]) ([thread docs])
+- Remove invalid device class in air-Q integration ([@Sibgatulin] - [#89329]) ([airq docs])
+- Recreate iaqualink httpx client upon service exception ([@flz] - [#89341]) ([iaqualink docs])
+- Fix bluetooth history and device expire running in the executor ([@bdraco] - [#89342]) ([bluetooth docs])
+- Fix setting Reolink focus ([@starkillerOG] - [#89374]) ([reolink docs])
+- Improve Supervisor API handling ([@frenck] - [#89379]) ([hassio docs])
+- Fix invalid state class in litterrobot ([@epenet] - [#89380]) ([litterrobot docs])
+
+[#86798]: https://github.com/home-assistant/core/pull/86798
+[#88979]: https://github.com/home-assistant/core/pull/88979
+[#89059]: https://github.com/home-assistant/core/pull/89059
+[#89065]: https://github.com/home-assistant/core/pull/89065
+[#89073]: https://github.com/home-assistant/core/pull/89073
+[#89120]: https://github.com/home-assistant/core/pull/89120
+[#89130]: https://github.com/home-assistant/core/pull/89130
+[#89189]: https://github.com/home-assistant/core/pull/89189
+[#89210]: https://github.com/home-assistant/core/pull/89210
+[#89227]: https://github.com/home-assistant/core/pull/89227
+[#89231]: https://github.com/home-assistant/core/pull/89231
+[#89253]: https://github.com/home-assistant/core/pull/89253
+[#89254]: https://github.com/home-assistant/core/pull/89254
+[#89259]: https://github.com/home-assistant/core/pull/89259
+[#89291]: https://github.com/home-assistant/core/pull/89291
+[#89299]: https://github.com/home-assistant/core/pull/89299
+[#89305]: https://github.com/home-assistant/core/pull/89305
+[#89307]: https://github.com/home-assistant/core/pull/89307
+[#89329]: https://github.com/home-assistant/core/pull/89329
+[#89341]: https://github.com/home-assistant/core/pull/89341
+[#89342]: https://github.com/home-assistant/core/pull/89342
+[#89374]: https://github.com/home-assistant/core/pull/89374
+[#89379]: https://github.com/home-assistant/core/pull/89379
+[#89380]: https://github.com/home-assistant/core/pull/89380
+[@MarkGodwin]: https://github.com/MarkGodwin
+[@Sibgatulin]: https://github.com/Sibgatulin
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cdce8p]: https://github.com/cdce8p
+[@epenet]: https://github.com/epenet
+[@flz]: https://github.com/flz
+[@frenck]: https://github.com/frenck
+[@luar123]: https://github.com/luar123
+[@puddly]: https://github.com/puddly
+[@rappenze]: https://github.com/rappenze
+[@starkillerOG]: https://github.com/starkillerOG
+[@teharris1]: https://github.com/teharris1
+[@warksit]: https://github.com/warksit
+[abode docs]: /integrations/abode/
+[airq docs]: /integrations/airq/
+[api docs]: /integrations/api/
+[bluetooth docs]: /integrations/bluetooth/
+[dormakaba_dkey docs]: /integrations/dormakaba_dkey/
+[esphome docs]: /integrations/esphome/
+[fibaro docs]: /integrations/fibaro/
+[frontend docs]: /integrations/frontend/
+[geniushub docs]: /integrations/geniushub/
+[hassio docs]: /integrations/hassio/
+[iaqualink docs]: /integrations/iaqualink/
+[insteon docs]: /integrations/insteon/
+[knx docs]: /integrations/knx/
+[konnected docs]: /integrations/konnected/
+[litterrobot docs]: /integrations/litterrobot/
+[mobile_app docs]: /integrations/mobile_app/
+[recorder docs]: /integrations/recorder/
+[reolink docs]: /integrations/reolink/
+[sensor docs]: /integrations/sensor/
+[sfr_box docs]: /integrations/sfr_box/
+[snapcast docs]: /integrations/snapcast/
+[sql docs]: /integrations/sql/
+[thread docs]: /integrations/thread/
+[tibber docs]: /integrations/tibber/
+[tplink_omada docs]: /integrations/tplink_omada/
+[tuya docs]: /integrations/tuya/
+[websocket_api docs]: /integrations/websocket_api/
+[zha docs]: /integrations/zha/
+
+## Release 2023.3.3 - March 9
+
+- Fix MQTT rgb light brightness scaling ([@jbouwh] - [#89264]) ([mqtt docs])
+- Bump roombapy to 1.6.6 ([@Dilski] - [#89366]) ([roomba docs])
+- Bump pymazda to 0.3.8 ([@bdr99] - [#89387]) ([mazda docs])
+- Allow enum as MQTT sensor device_class ([@jbouwh] - [#89391]) ([mqtt docs])
+- Add paths for add-on changelog and documentation ([@ludeeus] - [#89411]) ([hassio docs])
+- Update frontend to 20230309.0 ([@piitaya] - [#89446]) ([frontend docs])
+- Fix Dormakaba dKey deadbolt binary sensor ([@emontnemery] - [#89447]) ([dormakaba_dkey docs])
+
+[#88979]: https://github.com/home-assistant/core/pull/88979
+[#89059]: https://github.com/home-assistant/core/pull/89059
+[#89264]: https://github.com/home-assistant/core/pull/89264
+[#89366]: https://github.com/home-assistant/core/pull/89366
+[#89381]: https://github.com/home-assistant/core/pull/89381
+[#89387]: https://github.com/home-assistant/core/pull/89387
+[#89391]: https://github.com/home-assistant/core/pull/89391
+[#89411]: https://github.com/home-assistant/core/pull/89411
+[#89446]: https://github.com/home-assistant/core/pull/89446
+[#89447]: https://github.com/home-assistant/core/pull/89447
+[@Dilski]: https://github.com/Dilski
+[@balloob]: https://github.com/balloob
+[@bdr99]: https://github.com/bdr99
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@ludeeus]: https://github.com/ludeeus
+[@piitaya]: https://github.com/piitaya
+[abode docs]: /integrations/abode/
+[dormakaba_dkey docs]: /integrations/dormakaba_dkey/
+[frontend docs]: /integrations/frontend/
+[hassio docs]: /integrations/hassio/
+[knx docs]: /integrations/knx/
+[mazda docs]: /integrations/mazda/
+[mqtt docs]: /integrations/mqtt/
+[roomba docs]: /integrations/roomba/
 [sensor docs]: /integrations/sensor/
 [tibber docs]: /integrations/tibber/
 
