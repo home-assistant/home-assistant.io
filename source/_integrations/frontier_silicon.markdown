@@ -8,13 +8,14 @@ ha_release: '0.40'
 ha_domain: frontier_silicon
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ha_codeowners:
   - '@wlcrs'
 ha_ssdp: true
 ha_config_flow: true
 ---
 
-This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will usually be controllable by the [UNDOK] app.
+This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the UNDOK app.
 
 ## Supported Models
 Frontier Silicon is used by many different brands of radio manufacturers.
@@ -24,7 +25,7 @@ Supported devices include, but are not limited to:
 * Hama: [IR50], [IR110], [DIR3110]
 * Medion: [Medion Radios]
 * Silvercrest: [SIRD 14 C2 (archived website)]
-* Teufel: [Radio 3sixty(2019)]
+* Teufel: [Radio 3sixty (2019)]
 * Roberts: [Roberts Stream 94i]
 * Some models from: Auna, Technisat, Revo, Pinell, Como Audio
 
@@ -80,17 +81,17 @@ is based on [tiwillam]'s fsapi project. Special thanks to both developers, this 
 
 Some older devices may require setting up a session to process requests. This is automatically detected by the underlying library. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. 
 
-This renders the usage of [UNDOK] almost impossible for these older devices, as the Home Assistant integration polls the device state every 30 seconds or issues a command by creating a new session. In that case, you have to disable the integration if you want to use [UNDOK].
+This renders the usage of [UNDOK] almost impossible for these older devices, as the Home Assistant integration polls the device state every 30 seconds or issues a command by creating a new session. In that case, you have to disable the integration if you want to use UNDOK.
 
 </div>
 
-[Frontier Silicon chipset]: https://www.frontier-silicon.com/digital-radio-solutions
-[Medion Radios]: http://internetradio.medion.com/
+[Frontier Silicon chipset]: https://www.frontiersmart.com/solution/solutions-for-digital-radio/
+[Medion Radios]: https://www.medion.com/de/shop/internetradios
 [IR50]: https://support.hama.com/00054840/hama-internetradio-ir50-wifi
-[IR110]: https://www.hama.com/00054823/hama-ir110-internet-radio-internet-radio-multi-room-app-control
-[DIR3110]: https://www.hama.com/00054824/hama-digitalradio-dir3110-internetradio-dab+-fm-multiroom-app-steuerung
-[MD 87466]: https://www.medion.com/gb/service/start/_product.php?msn=50051273&gid=14
-[Radio 3sixty(2019)]: https://teufel.de/radio-3sixty-2019-105437000
+[IR110]: https://www.hama.com/00054823/hama-ir110ms-internet-radio-multiroom-app-control-black
+[DIR3110]: https://www.hama.com/00054824/hama-dir3110ms-digital-radio-fm-dab-dab+-internet-radio-app-multiroom-white
+[MD 87466]: https://www.conrad.com/p/medion-p83302-md-87466-internet-kitchen-radio-dab-fm-aux-internet-radio-dlna-compatible-white-1434428
+[Radio 3sixty (2019)]: https://teufel.de/radio-3sixty-2019-105437000
 [SIRD 14 C2 (archived website)]: https://web.archive.org/web/20191011141311/https://www.silvercrest-multiroom.de/produkte/stereo-internet-radio/
 [Roberts Stream 94i]: https://www.robertsradio.com/en-gb/stream-94i
 [afsapi]: https://github.com/zhelev/python-afsapi
