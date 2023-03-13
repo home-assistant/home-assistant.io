@@ -121,6 +121,6 @@ generic_hygrostat:
     initial_state: true
     away_humidity: 35
     away_fixed: True
-    sensor_stale_duration: 00:15:00
 	unique_id: 0123456
+    sensor_stale_duration: 00:15:00
 ```
