@@ -93,6 +93,10 @@ sensor_stale_duration:
   description: If the *target_sensor* does not update its value within this period, it is considered unavailable until the next update. When the sensor is unavailable, the *humidifier* is turned off for safety reasons.
   required: false
   type: [time, integer]
+unique_id:
+  description: An ID that uniquely identifies this sensor. This allows changing the name, icon, and entity_id from the web interface.
+  type: string
+  required: false
 {% endconfiguration %}
 
 Time for `min_cycle_duration` and `keep_alive` must be set as "hh:mm:ss" or it must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`. Alternatively, it can be an integer that represents time in seconds.
@@ -118,4 +122,5 @@ generic_hygrostat:
     away_humidity: 35
     away_fixed: True
     sensor_stale_duration: 00:15:00
+	unique_id: 0123456
 ```
