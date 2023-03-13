@@ -35,7 +35,8 @@ The Fibaro integration allows you to connect Home Assistant to a Fibaro Home Cen
 
 Fibaro Home Center 2, Home Center Lite, Home Center 3, Home Center 3 Lite, and Yubii Home.
 
-# Features
+## Features
+
 1. Control devices connected to the hub and synchronize the state of the devices (see platforms for supported devices and capabilities).
 2. Entities are automatically added when configuring the Fibaro integration and upon restart of Home Assistant when changed in Fibaro hub.
 3. Support for multiple hubs.
