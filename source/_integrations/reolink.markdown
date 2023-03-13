@@ -65,10 +65,13 @@ Depending on the supported features of the camera number entities are added for:
 - AI people sensitivity
 - AI vehicle sensitivity
 - AI pet sensitivity
+- Auto quick reply time
 
 "Floodlight turn on brightness" controls the brightness of the floodlight when it is turned on internally by the camera (see "Floodlight mode" select entity) or when using the "Floodlight" light entity.
 
 When the camera is not moved and no person/pet/vehicle is detected for the "Guard return time" in seconds, and the "Guard return" switch is ON, the camera will move back to the guard position.
+
+When a reolink doorbell is pressed the quick reply message from the "Auto quick reply message" select entity will be played after "Auto quick reply time" seconds, unless the "Auto quick reply message" is set to off.
 
 ## Button entities
 
@@ -94,8 +97,11 @@ Depending on the supported features of the camera select entities are added for:
 - Floodlight mode (Off, Auto, Schedule)
 - Day night mode (Auto, Color, Black&White)
 - PTZ preset
+- Auto quick reply message
 
 PTZ preset positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
+
+Auto quick reply messages can be recorded in the Reolink app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
 
 ## Siren entities
 
