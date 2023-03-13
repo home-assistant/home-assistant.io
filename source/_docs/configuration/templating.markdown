@@ -119,7 +119,7 @@ Not supported in [limited templates](#limited-templates).
 - `is_state` compares an entity's state with a specified state or list of states and returns `True` or `False`. `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state. `is_state('device_tracker.paulus', ['home', 'work'])` will test if the given entity is any of the states in the list.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') is none` or `state_attr('sensor.my_sensor', 'attr') == None` (note the difference in the capitalization of none in both versions).
-- `has_value('sensor.my_sensor')` will test if the given entity exist and is not unknown or unavailable. A list of entities can be provided instead of a string. If a list is provided then the test will return false if any entity in the list does not exist, is unknown or is unavailable. Can be used as a filter or a test.
+- `has_value('sensor.my_sensor')` will test if the given entity is not unknown or unavailable. Can be used as a filter or a test.
 
 <div class='note warning'>
 
@@ -181,17 +181,6 @@ Other state examples:
 
 {% if sensor.train_departure_time is has_value %}
   {{ ... }}
-
-
-#check that both sensor.train_departure_time and sensor.train_arrival_time are known and not unavailable or unknown.
-{% if has_value(['sensor.train_departure_time', 'sensor.train_arrival_time']) %}
-  {{ ... }}
-
-{% if ['sensor.train_departure_time', 'sensor.train_arrival_time'] | has_value() %}
-  {{ ... }}
-
-#Get state for sensor.train_departure_time if exist, not unknown and available otherwise for sensor.train_arrival_time
-{{ states(['sensor.train_departure_time', 'sensor.train_arrival_time'] | select('has_value') | first | default) }}
 
 
 {% set state = states('sensor.temperature') %}{{ state | float + 1 if is_number(state) else "invalid temperature" }}
