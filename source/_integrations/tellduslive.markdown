@@ -2,9 +2,9 @@
 title: Telldus Live
 description: Instructions on how to integrate Telldus Live into Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
   - Cover
+  - Hub
   - Light
   - Sensor
   - Switch
@@ -21,6 +21,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `tellduslive` integration let you connect to [Telldus Live](https://live.telldus.com). It's cloud platform that connects to your Tellstick Net or Tellstick ZNet connected gear at home.
@@ -47,11 +48,5 @@ scan_interval:
   type: integer
   default: 60
 {% endconfiguration %}
-
-<div class='note'>
-
-It is only possible to configure the `scan_interval` when setting up the device. If the polling interval needs to be changed after the device is configured it must be changed manually by changing `"scan_interval": 60,` for the device in the file `.storage/core.config_entries`.
-
-</div>
 
 The integration will offer configuration through the Home Assistant user interface where it will let you associate it with your Telldus Live account.

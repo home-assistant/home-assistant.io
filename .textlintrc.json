@@ -1,5 +1,7 @@
 {
-  "filters": {},
+  "filters": {
+    "comments": true
+  },
   "rules": {
     "common-misspellings": {
       "ignore": ["Proove", "Alot"]
@@ -26,7 +28,6 @@
         "Alarm.com",
         "AlarmDecoder",
         "Alexa",
-        "Almond",
         "Alpha Vantage",
         "Amazon Alexa",
         "Amazon Polly",
@@ -140,6 +141,7 @@
         "IP",
         "iPad",
         "iPhone",
+        "ISY",
         "ISY994",
         "iTunes",
         "JSON-RPC",

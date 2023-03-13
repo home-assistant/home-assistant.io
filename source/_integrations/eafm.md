@@ -1,7 +1,6 @@
 ---
 title: UK Environment Agency Flood Monitoring
 description: Monitor nearby water levels and be prepared for flooding with the UK Environment Agency API integration.
-logo: environment_agency.jpg
 ha_category:
   - Sensor
 ha_release: 0.115
@@ -21,7 +20,7 @@ The UK Environment Agency Flood Monitoring only provides data for England - Nort
 
 ## Configuration
 
-Home Assistant offers the flood monitoring integration through **Configuration** -> **Devices & Services** -> **Environment Agency Flood Gauges**.
+Home Assistant offers the flood monitoring integration through **Settings** -> **Devices & Services** -> **Environment Agency Flood Gauges**.
 
 You will be prompted to select a monitoring station. You can find the name of nearby monitoring stations on the Flood information service [website](https://flood-warning-information.service.gov.uk/river-and-sea-levels).
 

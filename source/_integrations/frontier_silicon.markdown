@@ -3,7 +3,7 @@ title: Frontier Silicon
 description: Instructions on how to integrate Frontier Silicon Internet Radios into Home Assistant.
 ha_category:
   - Media Player
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_release: '0.40'
 ha_domain: frontier_silicon
 ha_platforms:
@@ -17,21 +17,20 @@ ha_config_flow: true
 This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will usually be controllable by the [UNDOK] app.
 
 ## Supported Models
-
 Frontier Silicon is used by many different brands of radio manufacturers.
 
 Supported devices include, but are not limited to:
 
-* Hama: [IR110], [DIR3110]
+* Hama: [IR50], [IR110], [DIR3110]
 * Medion: [Medion Radios]
-* Silvercrest: [SIRD 14 C2]
+* Silvercrest: [SIRD 14 C2 (archived website)]
 * Teufel: [Radio 3sixty(2019)]
 * Roberts: [Roberts Stream 94i]
 * Some models from: Auna, Technisat, Revo, Pinell, Como Audio
 
 This integration was developed and tested with a [Roberts Stream 94i].
 
-If your device is supported by the [UNDOK] app, then it is also supported by this integration.
+If your device is supported by the UNDOK app, then it is also supported by this integration.
 
 ## Prerequisites
 
@@ -87,13 +86,13 @@ This renders the usage of [UNDOK] almost impossible for these older devices, as 
 
 [Frontier Silicon chipset]: https://www.frontier-silicon.com/digital-radio-solutions
 [Medion Radios]: http://internetradio.medion.com/
+[IR50]: https://support.hama.com/00054840/hama-internetradio-ir50-wifi
 [IR110]: https://www.hama.com/00054823/hama-ir110-internet-radio-internet-radio-multi-room-app-control
 [DIR3110]: https://www.hama.com/00054824/hama-digitalradio-dir3110-internetradio-dab+-fm-multiroom-app-steuerung
 [MD 87466]: https://www.medion.com/gb/service/start/_product.php?msn=50051273&gid=14
 [Radio 3sixty(2019)]: https://teufel.de/radio-3sixty-2019-105437000
-[SIRD 14 C2]: https://www.silvercrest-multiroom.de/fileadmin/user_upload/pdf/handbucher/Bedienungsanleitungen/IR/279398_SIRD_14_C2_ML4_V1.1_GB_CZ_SK_DE.
+[SIRD 14 C2 (archived website)]: https://web.archive.org/web/20191011141311/https://www.silvercrest-multiroom.de/produkte/stereo-internet-radio/
 [Roberts Stream 94i]: https://www.robertsradio.com/en-gb/stream-94i
 [afsapi]: https://github.com/zhelev/python-afsapi
-[UNDOK]: https://www.frontier-silicon.com/undok
 [flammy]: https://github.com/flammy/fsapi/
 [tiwillam]: https://github.com/tiwilliam/fsapi

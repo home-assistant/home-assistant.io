@@ -2,10 +2,11 @@
 title: Roku
 description: Instructions how to integrate Roku devices into Home Assistant.
 ha_category:
-  - Hub
   - Binary Sensor
+  - Hub
   - Media Player
   - Remote
+  - Select
   - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.86
@@ -18,9 +19,12 @@ ha_ssdp: true
 ha_homekit: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - media_player
   - remote
+  - select
   - sensor
+ha_integration_type: device
 ---
 
 The Roku integration allows you to control a [Roku](https://www.roku.com/) device.
@@ -100,7 +104,7 @@ The `media_player.select_source` service may be used to launch specific applicat
 action:
 - service: media_player.select_source
   target:
-    entity_id: media_player.
+    entity_id: media_player.roku
   data:
     source: "Prime Video"
 ```
@@ -128,7 +132,7 @@ The `media_player.play_media` service may be used to tune to specific channels o
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
-| `entity_id` | no | Target a specivic media player. | 
+| `entity_id` | no | Target a specific media player. | 
 | `media_content_id` | no | A channel number. | 5.1
 | `media_content_type` | no | A media type. | `channel`
 
@@ -150,11 +154,13 @@ The `media_player.play_media` service may be used to send media URLs (primarily 
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
-| `entity_id` | no | Target a specific media player. To target all media players, use `all`. |                                                                                                                    |
+| `entity_id` | no | Target a specific media player. | 
 | `media_content_id` | no | A media URL. | http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
 | `media_content_type` | no | A media type. | `url`
-| `extra.format` | no | A media format. Should be one of `mp4` (supports mov and m4v), `wma`, `mp3`, `hls`, `ism` (smooth streaming), `dash` (MPEG-DASH), `mkv`, `mka`, `mks` | `mp4`
+| `extra.format` | no | A media format. Should be one of `mp4` (supports mov and m4v), `mp3`, `hls`, `ism` (smooth streaming), `dash` (MPEG-DASH), `mkv`, `mka`, `mks` | `mp4`
 | `extra.name` | yes | A name for the media. | Big Buck Bunny
+| `extra.thumbnail` | yes | A thumbnail URL for the media. | 
+| `extra.artist_name` | yes | The name of the media artist. | Blender
 
 ### Example
 
@@ -171,13 +177,27 @@ action:
         name: Big Buck Bunny
 ```
 
+## Camera Stream Integration
+
+The `camera.play_stream` service may be used to send camera streams (HLS) directly to your device. This feature requires the `stream` integration and makes use of the built-in PlayOnRoku application.
+
+### Example
+```yaml
+action:
+  service: camera.play_stream
+    target:
+      entity_id: camera.camera
+    data:
+      media_player: media_player.roku
+```
+
 ## Content Deeplinking
 
 The `media_player.play_media` service may be used to deep link to content within an application.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
-| `entity_id` | no | Target a specific media player. To target all media players, use `all`. |                                                                                                                    |
+| `entity_id` | no | Target a specific media player. | 
 | `media_content_id` | no | A media identifier. | 291097
 | `media_content_type` | no | A media type. | `app`
 | `extra.content_id` | no | A unique content identifier passed to app. | 8e06a8b7-d667-4e31-939d-f40a6dd78a88

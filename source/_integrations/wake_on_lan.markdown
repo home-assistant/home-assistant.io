@@ -11,6 +11,7 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@ntilley905'
+ha_integration_type: integration
 ---
 
 The `wake_on_lan` integration enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices to turn them on.

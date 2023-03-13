@@ -8,6 +8,7 @@ ha_release: '0.60'
 ha_domain: meraki
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 Use your Meraki AP as device tracker. Note that Meraki will see all devices, not only connected to the network.

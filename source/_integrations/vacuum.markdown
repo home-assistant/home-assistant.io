@@ -4,6 +4,10 @@ description: Instructions on how to setup and use vacuum's in Home Assistant.
 ha_release: 0.51
 ha_domain: vacuum
 ha_quality_scale: internal
+ha_category: []
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: entity
 ---
 
 The `vacuum` integration enables the ability to control home cleaning robots within Home Assistant.
@@ -22,7 +26,7 @@ vacuum:
 
 ### Component services
 
-Available services: `turn_on`, `turn_off`, `start_pause`, `start`, `pause`, `stop`, `return_to_base`, `locate`, `clean_spot`, `set_fanspeed` and `send_command`.
+Available services: `turn_on`, `turn_off`, `start_pause`, `start`, `pause`, `stop`, `return_to_base`, `locate`, `clean_spot`, `set_fan_speed` and `send_command`.
 
 Before calling one of these services, make sure your vacuum platform supports it.
 

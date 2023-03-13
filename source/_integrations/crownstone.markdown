@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: crownstone
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 The Crownstone integration allows you to control your Crownstones either via the cloud or using a [Crownstone USB](#crownstone-usb) dongle.

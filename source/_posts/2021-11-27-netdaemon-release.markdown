@@ -7,7 +7,7 @@ date_formatted: "November 27, 2021"
 author: Frank Bakker
 comments: true
 categories:
-- Announcement
+- Release-Notes
 og_image: /images/blog/2021-11-NetDaemon/NetDaemonLogo.png
 ---
 

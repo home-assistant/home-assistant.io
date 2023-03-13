@@ -9,6 +9,7 @@ ha_domain: recorder
 ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
+ha_integration_type: system
 ---
 
 The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history`](/integrations/history/) integration.
@@ -27,7 +28,7 @@ The supported database solutions are:
 - [PostgreSQL](https://www.postgresql.org/) ≥ 12
 - [SQLite](https://www.sqlite.org/) ≥ 3.31.0
 
-Although SQLAlchemy supports additional database solutions, it will behave differently on different databases, and features relied on by the recorder may work differently, or not at all, in different databases.
+Although SQLAlchemy supports database solutions in addition to the ones supported by Home Assistant, it will behave differently on different databases, and features relied on by the recorder may work differently, or not at all, in different databases.
 
 The default, and recommended, database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`.
 
@@ -63,15 +64,20 @@ recorder:
       required: false
       default: true
       type: boolean
+    auto_repack:
+      description: Automatically repack the database every second sunday after the auto purge. Without a repack, the database may not decrease in size even after purging, which takes up disk space and can make Home Assistant slow. If you disable `auto_repack` it is recommended that you create an automation to call the [`recorder.purge`](#service-purge) periodically. This flag has no effect if `auto_purge` is disabled.
+      required: false
+      default: true
+      type: boolean
     purge_keep_days:
       description: Specify the number of history days to keep in recorder database after a purge.
       required: false
       default: 10
       type: integer
     commit_interval:
-      description: How often (in seconds) the events and state changes are committed to the database. The default of `1` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the logbook and history will lag. If this is set to `0` (zero), commit are made as soon as possible after an event is processed.
+      description: How often (in seconds) the events and state changes are committed to the database. The default of `5` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the logbook and history will lag. If this is set to `0` (zero), commit are made as soon as possible after an event is processed.
       required: false
-      default: 1
+      default: 5
       type: integer
     exclude:
       description: Configure which integrations should be excluded from recordings. ([Configure Filter](#configure-filter))
@@ -131,23 +137,7 @@ recorder:
       - light.kitchen_light
 ```
 
-Filters are applied as follows:
-
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes:
-   - Include domain and/or glob patterns specified
-      - If domain is included, and entity not excluded or match exclude glob pattern, pass
-      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
-      - If domain is not included, glob pattern does not match, and entity not included, fail
-   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - If domain is excluded and entity not included, fail
-      - If entity matches exclude glob pattern and entity not included, fail
-      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
-   - Neither include or exclude specifies domains or glob patterns
-      - If entity is included, pass (as #2 above)
-      - If entity include and exclude, the entity exclude is ignored
+{% include common-tasks/filters.md %}
 
 If you only want to hide events from your history, take a look at the [`history` integration](/integrations/history/). The same goes for the [logbook](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
@@ -219,13 +209,15 @@ Note that purging will not immediately decrease disk space usage but it will sig
 
 ### Service `purge_entities`
 
-Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains` and `entity_globs` fields. Note: leaving all three parameters empty will result in all entities being selected for purging.
+Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains` and `entity_globs` fields. Leaving all three parameters empty will result in all entities being selected for purging.
 
 | Service data attribute | Optional | Description                                                                                                                                                                                              |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | A list of entity_ids that should be purged from the recorder database. |
+| `entity_id`            | yes<sup>*</sup>      | A list of entity_ids that should be purged from the recorder database. |
 | `domains`               | yes      | A list of domains that should be purged from the recorder database. |
 | `entity_globs`         | yes      | A list of regular expressions that identify entities to purge from the recorder database. |
+
+Note: The `entity_id` is only optional when used in `automations.yaml` or `scripts.yaml`. When using the UI to call this service then it is mandatory to specify at least one `entity_id` using the Target Picker or via YAML mode.
 
 ### Service `disable`
 
@@ -234,15 +226,6 @@ Call the service `recorder.disable` to stop saving events and states to the data
 ### Service `enable`
 
 Call the service `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
-
-## Recommended engines and minimum versions
-
-The following database engines are tested when major changes are made to the recorder. Other database engines do not have an active core maintainer at this time and may require additional work to maintain.
-
-- SQLite ≥ 3.32.1
-- MariaDB ≥ 10.3
-- MySQL ≥ 8.0
-- PostgreSQL ≥ 12
 
 ## Custom database engines
 
@@ -343,6 +326,10 @@ Not all Python bindings for the chosen database engine can be installed directly
 
 ### MariaDB and MySQL
 
+<div class='note warning'>
+MariaDB versions before 10.5.17, 10.6.9, 10.7.5, and 10.8.4 suffer from a performance regression which can result in the system becoming overloaded while querying history data or purging the database.
+</div>
+
 Make sure the default character set of your database server is set to `utf8mb4` (see [MariaDB documentation](https://mariadb.com/kb/en/setting-character-sets-and-collations/#example-changing-the-default-character-set-to-utf-8)).
 If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package described below.
 
@@ -352,7 +339,7 @@ homeassistant@homeassistant:~$ source /srv/homeassistant/bin/activate
 (homeassistant) homeassistant@homeassistant:~$ pip3 install mysqlclient
 ```
 
-For MariaDB you may have to install a few dependencies. If you're using MariaDB version 10.2, `libmariadbclient-dev` was renamed to `libmariadb-dev`. If you're using MariaDB 10.3, the package `libmariadb-dev-compat` must also be installed. For MariaDB v10.0.34 only `libmariadb-dev-compat` is needed. Please install the correct packages based on your MariaDB version.
+For MariaDB you may have to install a few dependencies. If you're using MariaDB 10.3, the package `libmariadb-dev-compat` must also be installed. Please install the correct packages based on your MariaDB version.
 
 On the Python side we use the `mysqlclient`:
 
@@ -369,6 +356,14 @@ pip3 install mysqlclient
 ```
 
 After installing the dependencies, it is required to create the database manually. During the startup, Home Assistant will look for the database specified in the `db_url`. If the database doesn't exist, it will not automatically create it for you.
+
+The database engine must be `InnoDB` as `MyIASM` is not supported.
+
+```bash
+SET GLOBAL default_storage_engine = 'InnoDB';
+CREATE DATABASE DB_NAME CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+Where `DB_NAME` is the name of your database
 
 Once Home Assistant finds the database, with the right level of permissions, all the required tables will then be automatically created and the data will be populated accordingly.
 

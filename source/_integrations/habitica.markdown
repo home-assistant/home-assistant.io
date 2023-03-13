@@ -13,6 +13,7 @@ ha_codeowners:
   - '@ASMfreaK'
   - '@leikoilja'
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
 This integration allows you to monitor and manage your Habitica profile. This integration exposes the [Habitica's API](https://habitica.com/apidoc/) as a Home Assistant service. It supports multiple users and allows you to automate checking out your habits and daily tasks or casting magics using Home Assistant.

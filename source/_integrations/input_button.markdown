@@ -3,11 +3,13 @@ title: Input Button
 description: Instructions on how to use the Input Button helper with Home Assistant.
 ha_category:
   - Automation
+  - Helper
 ha_release: 2022.2
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: input_button
+ha_integration_type: helper
 ---
 
 The Input Button helper integration allows you to define buttons that
@@ -17,7 +19,7 @@ like an automation.
 ## Configuration
 
 The preferred way to configure button helpers is via the user interface.
-To add one, go to **{% my helpers title="Configuration -> Helpers" %}**
+To add one, go to **{% my helpers title="Settings -> Devices & Services -> Helpers" %}**
 and click the add button; next choose the "**Button**" option.
 
 To be able to add **Helpers** via the user interface you should have
@@ -67,7 +69,7 @@ means we can use it in our automations. For example:
 ```yaml
 trigger:
   - platform: state
-    entity_id: button.my_button
+    entity_id: input_button.my_button
 action:
   - service: notify.frenck
     data:

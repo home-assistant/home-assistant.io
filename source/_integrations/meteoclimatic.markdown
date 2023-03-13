@@ -13,6 +13,7 @@ ha_domain: meteoclimatic
 ha_platforms:
   - sensor
   - weather
+ha_integration_type: integration
 ---
 
 The Meteoclimatic integration uses the [Meteoclimatic](https://www.meteoclimatic.net/) web service as a source for meteorological data for your location. The location is based on the Meteoclimatic station code (e.g., `ESCAT4300000043206B`) and the weather data reported is based on the capabilities of each station.
