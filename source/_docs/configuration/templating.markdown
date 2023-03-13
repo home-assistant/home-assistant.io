@@ -338,7 +338,7 @@ The same thing can also be expressed as a test:
 {% raw %}
 
 ```text
-{{ area_entities('kitchen') | reject('is_hidden') }} # Gets a list of visible entities in the kitchen area
+{{ area_entities('kitchen') | reject('is_hidden_entity') }} # Gets a list of visible entities in the kitchen area
 ```
 
 {% endraw %}
