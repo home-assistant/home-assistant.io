@@ -231,7 +231,7 @@ Call the service `recorder.enable` to start again saving events and states to th
 
 <div class='note'>
 
-SQLite is the most tested, and Home Assistant is highly optimized to perform well when using SQLite.
+SQLite is the most tested, and newer version of Home Assistant are highly optimized to perform well when using SQLite.
 
 When choosing another option, you should be comfortable in the role of the database administrator, including making backups of the external database.
 
