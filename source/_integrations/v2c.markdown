@@ -94,7 +94,6 @@ The sensor adds the following entities :
 
 You need to be connected to the same wifi.
 
-The `
-` you need to write is not the `wifi IP`, is the one the charging station has, the `trydan IP`.
+The `IP` you need to write is not the `wifi IP`, is the one the charging station has, the `trydan IP`.
 
 For now, you will only be able to see the values of the Trydan, in the future we will add a function for also send values to the device.
