@@ -18,6 +18,7 @@ ha_config_flow: true
 This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the UNDOK app.
 
 ## Supported Models
+
 Frontier Silicon is used by many different brands of radio manufacturers.
 
 Supported devices include, but are not limited to:
@@ -40,6 +41,8 @@ The integration supports automatic discovery of your Internet Radio. If you need
 The default PIN for Frontier Silicon-based devices is 1234. You can set the PIN code of your device (depending on manufacturer) under:
 *MENU button > Main Menu > System setting > Network > NetRemote PIN setup*
 
+{% include integrations/config_flow.md %}
+
 In case your device (friendly name) is called *badezimmer*, an example automation can look something like this:
 
 ```yaml
@@ -56,8 +59,6 @@ action:
     entity_id: "media_player.badezimmer"
 ```
 
-{% include integrations/config_flow.md %}
-
 ## Screenshots:
 
 Overview DAB+ (Badezimmer) and Spotify (Küche):
@@ -70,14 +71,9 @@ Overview of the info dialog:
 <img src='/images/screenshots/frontier_silicon_info_dialog.png' />
 </p>
 
-## Development
-
-Support is provided through the Python [afsapi] module. The Python module was developed by using the documentation provided by [flammy] and
-is based on [tiwillam]'s fsapi project. Special thanks to both developers, this integration would have not been possible without their work.
-
 ## Notes and Limitations
 
-<div class='note warning' name="fsapi-session-note">
+<div class='note warning'>
 
 Some older devices may require setting up a session to process requests. This is automatically detected by the underlying library. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. 
 
@@ -94,6 +90,3 @@ This renders the usage of [UNDOK] almost impossible for these older devices, as 
 [Radio 3sixty (2019)]: https://teufel.de/radio-3sixty-2019-105437000
 [SIRD 14 C2 (archived website)]: https://web.archive.org/web/20191011141311/https://www.silvercrest-multiroom.de/produkte/stereo-internet-radio/
 [Roberts Stream 94i]: https://www.robertsradio.com/en-gb/stream-94i
-[afsapi]: https://github.com/zhelev/python-afsapi
-[flammy]: https://github.com/flammy/fsapi/
-[tiwillam]: https://github.com/tiwilliam/fsapi
