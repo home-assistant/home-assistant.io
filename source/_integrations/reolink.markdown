@@ -29,6 +29,10 @@ A Reolink user account with admin privileges is needed for the proper operation 
 {% configuration_basic %}
 Protocol:
   description: Switch between RTSP, RTMP or FLV streaming protocol.
+Home Assistant URL (Advanced network configuration only):
+  description: HTTP URL on which Home Assistant is reachable for the reolink NVR/camera. For regular users this option will not be used but the [globally configured HA URL](https://my.home-assistant.io/redirect/network/) will be used.
+When changing this URL, that URL will always be used, even when chaning the [global HA URL](https://my.home-assistant.io/redirect/network/).
+To reset to following the [global HA URL](https://my.home-assistant.io/redirect/network/), leave the URL in the configuration options empty or set it identicall to the [global HA URL](https://my.home-assistant.io/redirect/network/). This option schould only be used for advanced network configurations such as having the reolink camera in a different house (network) as the Home Assistant device and therefore needing SSL encryption to safely pass the information to Home Assistant while Reolink devices do not accept HTTPS addresses. In this example the network configuration looks like: Reolink camera -> Local HTTP -> reverse proxy (re-encrypts with SSL ) -> internet HTTPS -> Home Assistant webhook (SSL).
 {% endconfiguration_basic %}
 
 ## Camera streams
