@@ -11,7 +11,7 @@ This is an advanced feature of Home Assistant. You'll need a basic understanding
 Templating is a powerful feature that allows you to control information going into and out of the system. It is used for:
 
 - Formatting outgoing messages in, for example, the [notify](/integrations/notify/) platforms and [Alexa](/integrations/alexa/) component.
-- Process incoming data from sources that provide raw data, like [MQTT](/integrations/mqtt/), [`rest` sensor](/integrations/rest/) or the [`command_line` sensor](/integrations/sensor.command_line/).
+- Process incoming data from sources that provide raw data, like [MQTT](/docs/configuration/templating/#using-templates-with-the-mqtt-integration), [`rest` sensor](/integrations/rest/) or the [`command_line` sensor](/integrations/sensor.command_line/).
 - [Automation Templating](/docs/automation/templating/).
 
 ## Building templates
@@ -57,6 +57,47 @@ There are a few very important rules to remember when adding templates to YAML:
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
+### Enabled Jinja Extensions
+
+Jinja supports a set of language extensions that add new functionality to the language.
+To improve the experience of writing Jinja templates, we have enabled the following
+extensions:
+
+* [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
+
+### Reusing Templates
+
+You can write reusable Jinja templates by adding them to a `custom_jinja` folder under your
+configuration directory. All template files must have the `.jinja` extension and be less than 5MiB.
+Templates in this folder will be loaded at startup. To reload the templates without
+restarting Home Assistant, invoke the `homeassistant.reload_custom_jinja` service.
+
+Once the templates are loaded, Jinja [includes](https://jinja.palletsprojects.com/en/3.0.x/templates/#include) and [imports](https://jinja.palletsprojects.com/en/3.0.x/templates/#import) will work
+using `config/custom_jinja` as the base directory.
+
+For example, you might define a macro in a template in `config/custom_jinja/formatter.jinja`:
+
+{% raw %}
+
+```text
+{% macro format_entity(entity_id) %}
+{{ state_attr(entity_id, 'friendly_name') }} - {{ states(entity_id) }}
+{% endmacro %}
+```
+
+{% endraw %}
+
+In your automations, you could then reuse this macro by importing it:
+
+{% raw %}
+
+```text
+{% from 'formatter.jinja' import format_entity %}
+{{ format_entity('sensor.temperature') }}
+```
+
+{% endraw %}
+
 ## Home Assistant template extensions
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
@@ -72,7 +113,9 @@ Not supported in [limited templates](#limited-templates).
 - Iterating `states` will yield each state sorted alphabetically by entity ID.
 - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
-- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity, `unknown` if it doesn't exist, `unavailable` if the object exists but is not yet available.
+- `states` can also be used as a function, `states(entity_id, rounded=False, with_unit=False)`, which returns the state string (not the state object) of the given entity, `unknown` if it doesn't exist, and `unavailable` if the object exists but is not available.
+  - The optional arguments `rounded` and `with_unit` control the formatting of sensor state strings, please see the [examples](#formatting-sensor-states) below.
+- `states.sensor.temperature.state_with_unit` formats the state string in the same was is if calling `states('sensor.temperature', rounded=True, with_unit=True)`.
 - `is_state` compares an entity's state with a specified state or list of states and returns `True` or `False`. `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state. `is_state('device_tracker.paulus', ['home', 'work'])` will test if the given entity is any of the states in the list.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') is none` or `state_attr('sensor.my_sensor', 'attr') == None` (note the difference in the capitalization of none in both versions).
@@ -82,8 +125,6 @@ Not supported in [limited templates](#limited-templates).
   Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
 
 </div>
-
-Besides the normal [state object methods and properties](/topics/state_object/), `states.sensor.temperature.state_with_unit` will print the state of the entity and, if available, the unit.
 
 #### States examples
 
@@ -154,9 +195,61 @@ Other state examples:
 {{ states('sensor.expires') | as_datetime }}
 
 # Make a list of states
-{{ ['light.kitchen', 'light.dinig_room'] | map('states') | list }}
+{{ ['light.kitchen', 'light.dining_room'] | map('states') | list }}
 ```
 
+{% endraw %}
+
+#### Formatting sensor states
+
+The examples below show the output of a temperature sensor with state `20.001`, unit `°C` and user configured presentation rounding set to 1 decimal.
+
+The following example results in the number `20.001`:
+
+{% raw %}
+```text
+{{ states('sensor.temperature') }}
+```
+{% endraw %}
+
+The following example results in the string `"20.0 °C"`:
+
+{% raw %}
+```text
+{{ states('sensor.temperature', with_unit=True) }}
+```
+{% endraw %}
+
+The following example result in the string `"20.001 °C"`:
+
+{% raw %}
+```text
+{{ states('sensor.temperature', with_unit=True, rounded=False) }}
+```
+{% endraw %}
+
+The following example results in the number `20.0`:
+
+{% raw %}
+```text
+{{ states('sensor.temperature', rounded=True) }}
+```
+{% endraw %}
+
+The following example results in the number `20.001`:
+
+{% raw %}
+```text
+{{ states.sensor.temperature.state }}
+```
+{% endraw %}
+
+The following example results in the string `"20.0 °C"`:
+
+{% raw %}
+```text
+{{ states.sensor.temperature.state_with_unit }}
+```
 {% endraw %}
 
 ### Attributes
@@ -239,7 +332,7 @@ The same thing can also be expressed as a filter:
 {% raw %}
 
 ```text
-{{ expand(['device_tracker.paulus', 'group.child_trackers']) 
+{{ expand(['device_tracker.paulus', 'group.child_trackers'])
   | selectattr("attributes.battery", 'defined')
   | join(', ', attribute="attributes.battery") }}
 ```
@@ -262,8 +355,23 @@ The same thing can also be expressed as a test:
 {% raw %}
 
 ```text
-{{ expand('group.energy_sensors') 
+{{ expand('group.energy_sensors')
   | selectattr("state", 'is_number') | join(', ') }}
+```
+
+{% endraw %}
+
+
+### Entities
+
+- `is_hidden_entity(entity_id)` returns whether an entity has been hidden. Can also be used as a test.
+
+### Entities examples
+
+{% raw %}
+
+```text
+{{ area_entities('kitchen') | reject('is_hidden_entity') }} # Gets a list of visible entities in the kitchen area
 ```
 
 {% endraw %}
@@ -309,6 +417,7 @@ The same thing can also be expressed as a test:
 
 ### Areas
 
+- `areas()` returns the full list of area IDs
 - `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
 - `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
 - `area_entities(area_name_or_id)` returns the list of entity IDs tied to a given area ID or name. Can also be used as a filter.
@@ -317,6 +426,10 @@ The same thing can also be expressed as a test:
 #### Areas examples
 
 {% raw %}
+
+```text
+{{ areas() }}  # ['area_id']
+```
 
 ```text
 {{ area_id('Living Room') }}  # 'deadbeefdeadbeefdeadbeefdeadbeef'
@@ -450,7 +563,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
    ```yaml
    # Is the current time past 10:15?
-   {{ now() > today_at("10:15") }} 
+   {{ now() > today_at("10:15") }}
    ```
 
    {% endraw %}
@@ -465,8 +578,8 @@ For example, if you wanted to select a field from `trigger` in an automation bas
    {% raw %}
 
    ```yaml
-   # 77 minutes before current time. 
-   {{ now() - timedelta( hours = 1, minutes = 17 ) }} 
+   # 77 minutes before current time.
+   {{ now() - timedelta( hours = 1, minutes = 17 ) }}
    ```
 
    {% endraw %}
@@ -476,15 +589,15 @@ For example, if you wanted to select a field from `trigger` in an automation bas
    {% raw %}
 
    ```yaml
-   # Renders to "00:10:00" 
-   {{ as_timedelta("PT10M") }} 
+   # Renders to "00:10:00"
+   {{ as_timedelta("PT10M") }}
    ```
 
    {% endraw %}
 
 - Filter `timestamp_local(default)` converts a UNIX timestamp to the ISO format string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
 - Filter `timestamp_utc(default)` converts a UNIX timestamp to the ISO format string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
-- Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
+- Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
 
 <div class='note'>
 
@@ -681,11 +794,11 @@ The last argument of the closest function has an implicit `expand`, and can take
 {% raw %}
 
 ```text
-Closest out of given entities: 
+Closest out of given entities:
     {{ closest(['group.children', states.device_tracker]) }}
-Closest to a coordinate:  
+Closest to a coordinate:
     {{ closest(23.456, 23.456, ['group.children', states.device_tracker]) }}
-Closest to some entity: 
+Closest to some entity:
     {{ closest(states.zone.school, ['group.children', states.device_tracker]) }}
 ```
 
@@ -696,15 +809,41 @@ It will also work as a filter over an iterable group of entities or groups:
 {% raw %}
 
 ```text
-Closest out of given entities: 
+Closest out of given entities:
     {{ ['group.children', states.device_tracker] | closest }}
-Closest to a coordinate:  
+Closest to a coordinate:
     {{ ['group.children', states.device_tracker] | closest(23.456, 23.456) }}
-Closest to some entity: 
+Closest to some entity:
     {{ ['group.children', states.device_tracker] | closest(states.zone.school) }}
 ```
 
 {% endraw %}
+
+### Contains
+
+Jinja provides by default a [`in` operator](https://jinja.palletsprojects.com/en/latest/templates/#other-operators) how return `True` when one element is `in` a provided list.
+The `contains` test and filter allow you to do the exact opposite and test for a list containing an element. This is particularly useful in `select` or `selectattr` filter, as well as to check if a device has a specific attribute, a `supported_color_modes`, a specific light effect.
+
+Some examples:
+{% raw %}
+
+- `{{ state_attr('light.dining_room', 'effect_list') | contains('rainbow') }}` will return `true` if the light has a `rainbow` effect.
+- `{{ expand('light.office') | selectattr("attributes.supported_color_modes", 'contains', 'color_temp') | list }}` will return all light that support color_temp in the office group.
+- ```text
+    {% set current_month = now().month %}
+    {% set extra_ambiance = [
+      {'name':'Halloween', 'month': [10,11]},
+      {'name':'Noel', 'month': [1,11,12]}
+    ]%}
+    {% set to_add = extra_ambiance | selectattr('month', 'contains', current_month ) | map(attribute='name') | list  %}
+    {% set to_remove = extra_ambiance | map(attribute='name') | reject('in', to_add) | list %}
+    {{ (state_attr('input_select.light_theme', 'options') + to_add ) | unique | reject('in', to_remove) | list }}
+  ```
+  This more complex example uses the `contains` filter to match the current month with a list. In this case, it's used to generate a list of light theme to give to the `Input select: Set options` service.
+
+
+{% endraw %}
+
 
 ### Numeric functions and filters
 
@@ -863,7 +1002,7 @@ The following overview contains a couple of options to get the needed values:
 # Incoming value:
 {"primes": [2, 3, 5, 7, 11, 13]}
 
-# Extract first prime number 
+# Extract first prime number
 {{ value_json.primes[0] }}
 
 # Format output

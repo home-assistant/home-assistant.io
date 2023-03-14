@@ -23,7 +23,7 @@ This release also includes a UI to manage the entity registry. The entity regist
 
 We didn't forget about the frontend in this release. In the last release we introduced Lovelace, so for this release we focused on bug squashing, performance improvements and usability. The YAML editor is now rendered using a full editor including line numbers thanks to [@bramkragten]. There is also a new system health component that will help users diagnose problems from the "info" developer tool. [See changelog for the frontend.](https://github.com/home-assistant/home-assistant-polymer/releases/tag/20190130.1)
 
-In this release we have also upgraded the Material Design Icons to 3.3.92, which renames some icons. Make sure to check [their changelog](https://dev.materialdesignicons.com/upgrade).
+In this release we have also upgraded the Material Design Icons to 3.3.92, which renames some icons. Make sure to check [their changelog](https://pictogrammers.com/docs/library/mdi/releases/changelog/).
 
 If you prefer a podcast over release notes, check out [the Hass Podcast](https://hasspodcast.io/ha043/) in which Phil and Rohan discuss each new Home Assistant release and keep a tap on what's happening in the home automation space.
 

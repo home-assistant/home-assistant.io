@@ -5,7 +5,7 @@ toc: true
 no_toc: true
 ---
 
-Scripts are a sequence of actions that Home Assistant will execute. Scripts are available as an entity through the standalone [Script component] but can also be embedded in [automations] and [Alexa/Amazon Echo] configurations.
+Scripts are a sequence of {% term actions %} that Home Assistant will execute. Scripts are available as an entity through the standalone [Script component] but can also be embedded in {% term automations %} and [Alexa/Amazon Echo] configurations.
 
 When the script is executed within an automation the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
 

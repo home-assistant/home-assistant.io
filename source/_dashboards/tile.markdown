@@ -41,6 +41,11 @@ show_entity_picture:
   description: If your entity has a picture, it will replace the icon.
   type: boolean
   default: false
+vertical:
+  required: false
+  description: Displays the icon above the name and state.
+  type: boolean
+  default: false
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
@@ -75,6 +80,12 @@ color: yellow
 type: tile
 entity: person.anne_therese
 show_entity_picture: true
+```
+
+```yaml
+type: tile
+entity: person.anne_therese
+vertical: true
 ```
 
 ```yaml

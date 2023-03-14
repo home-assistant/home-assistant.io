@@ -22,7 +22,7 @@ Some examples of its use include:
 
 The Proximity entity which is created has the following values:
 
-- `state`: Distance from the monitored zone (in km)
+- `state`: Distance from the monitored zone (in `unit_of_measurement`)
 - `dir_of_travel`: Direction of the closest device or person to the monitored zone. Values are:
   - `not set`
   - `arrived`
@@ -77,7 +77,7 @@ zone:
       default: km
 {% endconfiguration %}
 
-To add multiple proximity components, simply use a list in your `configuration.yaml` file:
+To add multiple proximity components, add a mapping to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

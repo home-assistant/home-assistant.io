@@ -79,6 +79,14 @@ sql:
       description: Provide a unique id for this sensor.
       required: false
       type: string
+    device_class:
+      description: "Provide [device class](/integrations/sensor#device-class) for this sensor."
+      required: false
+      type: string
+    state_class:
+      description: "Provide [state class](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes) for this sensor."
+      required: false
+      type: string
 {% endconfiguration %}
 
 ## Information
@@ -136,7 +144,7 @@ Use `db_size` as column for value.
 Change `table_schema="homeassistant"` to the name that you use as the database name, to ensure that your sensor will work properly.
 
 ```sql
-SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;
+SELECT table_schema "database", Round(Sum(data_length + index_length) / POWER(1024,2), 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;
 ```
 Use `value` as column for value.
 

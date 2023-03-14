@@ -23,6 +23,7 @@ ha_platforms:
   - diagnostics
   - fan
   - humidifier
+  - light
   - lock
   - number
   - scene
@@ -31,7 +32,9 @@ ha_platforms:
   - siren
   - switch
   - text
+  - tag
   - update
+  - vacuum
 ha_integration_type: integration
 ha_quality_scale: gold
 ---
@@ -426,18 +429,22 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'stat_cla':            'state_class',
     'stat_clsd':           'state_closed',
     'stat_closing':        'state_closing',
+    'stat_jam':            'state_jammed',
     'stat_off':            'state_off',
     'stat_on':             'state_on',
     'stat_open':           'state_open',
     'stat_opening':        'state_opening',
     'stat_stopped':        'state_stopped',
     'stat_locked':         'state_locked',
+    'stat_locking':         'state_locking',
     'stat_unlocked':       'state_unlocked',
+    'stat_unlocking':       'state_unlocking',
     'stat_t':              'state_topic',
     'stat_tpl':            'state_template',
     'stat_val_tpl':        'state_value_template',
     'step':                'step',
     'stype':               'subtype',
+    'sug_dsp_prc':         'suggested_display_precision',
     'sup_clrm':            'supported_color_modes',
     'sup_dur':             'support_duration',
     'sup_vol':             'support_volume_set',
@@ -506,9 +513,11 @@ Configuration variable names in the discovery payload may be abbreviated to cons
 
 The following software has built-in support for MQTT discovery:
 
+- [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
 - [ebusd](https://github.com/john30/ebusd)
 - [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
+- [EMS-ESP32 (and EMS-ESP)](https://github.com/emsesp/EMS-ESP32)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
 - [HASS.Agent](https://github.com/LAB02-Research/HASS.Agent)
@@ -517,15 +526,17 @@ The following software has built-in support for MQTT discovery:
 - [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [SmartHome](https://github.com/roncoa/SmartHome)
+- [SpeedTest-CLI MQTT](https://github.com/adorobis/speedtest-CLI2mqtt)
+- [SwitchBot-MQTT-BLE-ESP32](https://github.com/devWaves/SwitchBot-MQTT-BLE-ESP32)
 - [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
 - [Teleinfo MQTT](https://fmartinou.github.io/teleinfo2mqtt) (starting with 3.0.0)
 - [Tydom2MQTT](https://fmartinou.github.io/tydom2mqtt/)
 - [What's up Docker?](https://fmartinou.github.io/whats-up-docker/) (starting with 3.5.0)
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
-- [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
+- [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
+- [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
 - [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
-- [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
 
 ### Discovery examples
 
@@ -556,7 +567,7 @@ Delete the sensor by sending an empty message.
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m ''
 ```
 
-For more details please refer to the [MQTT testing section](/docs/mqtt/testing/).
+For more details please refer to the [MQTT testing section](/integrations/mqtt/#testing-your-setup).
 
 #### Sensors
 
@@ -741,7 +752,7 @@ script:
 
 ## Publish & Dump services
 
-The MQTT integration will register the service `mqtt.publish` which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/topics/templating/) that will be rendered to generate the payload.
+The MQTT integration will register the service `mqtt.publish` which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that will be rendered to generate the payload.
 
 ### Service `mqtt.publish`
 

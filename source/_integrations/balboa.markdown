@@ -12,6 +12,7 @@ ha_platforms:
   - climate
 ha_codeowners:
   - '@garbled1'
+  - '@natekspencer'
 ha_config_flow: true
 ha_integration_type: integration
 ---

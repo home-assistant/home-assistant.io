@@ -10,6 +10,7 @@ ha_release: 0.32
 ha_domain: litejet
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - light
   - scene
   - switch
