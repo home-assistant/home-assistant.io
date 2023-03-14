@@ -16,4 +16,4 @@ ha_platforms:
 
 The Reason integration pulls in data from the Renson Endura delta application for Android en iOS.
 
-{% include includes/config_flow.md %}
+{% include integrations/config_flow.md %}
