@@ -494,6 +494,7 @@ climates:
           description: if true use write_registers
           required: false
           type: boolean
+          default: false
         values:
           description: A mapping between the register values and HVAC modes
           required: true
@@ -539,6 +540,7 @@ climates:
       description: if true use write_registers for hvac_onoff.
       required: false
       type: boolean
+      default: false
     unique_id:
       description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
       required: false
