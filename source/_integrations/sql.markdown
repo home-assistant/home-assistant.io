@@ -43,7 +43,7 @@ sql:
           states.attributes_id = state_attributes.attributes_id
         )
       WHERE
-        metadata_id == (
+        metadata_id = (
           SELECT
             metadata_id
           FROM
@@ -137,7 +137,7 @@ SELECT
 FROM
   states
 WHERE
-  metadata_id == (
+  metadata_id = (
     SELECT
       metadata_id
     FROM
@@ -168,7 +168,7 @@ WHERE
     FROM
       states
     WHERE
-      metadata_id == (
+      metadata_id = (
         SELECT
           metadata_id
         FROM
