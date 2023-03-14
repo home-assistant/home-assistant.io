@@ -179,9 +179,6 @@ Other state examples:
 {% if has_value('sensor.train_departure_time') %}
   {{ ... }}
 
-{% if states.sensor.train_departure_time is has_value %}
-  {{ ... }}
-
 
 {% set state = states('sensor.temperature') %}{{ state | float + 1 if is_number(state) else "invalid temperature" }}
 
