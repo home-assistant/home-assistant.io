@@ -178,7 +178,7 @@ WHERE
       )
       AND old_state_id IS NOT NULL
     ORDER BY
-      state_id DESC
+      last_updated_ts DESC
     LIMIT
       1
   );
