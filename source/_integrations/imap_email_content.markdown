@@ -13,101 +13,39 @@ ha_integration_type: integration
 
 The `imap_email_content` integration will read emails from an IMAP email server and report them as a state change within Home Assistant. This is useful if you have a device that only reports its state via email.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+## IMAP server setup
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: imap_email_content
-    server: imap.gmail.com
-    port: 993
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-    folder: YOUR_FOLDER
-    senders:
-      - example@gmail.com
-```
+For the configuration of the IMAP email content sensor The server hostname or IP address of the IMAP server together with username and password are required.
+Further it is required to supply a list of allowed senders. Use a `;` as separator if there is more than one sender. One sensor is set up for every entry that is set up.
 
-{% configuration %}
-server:
-  description: The IP address or hostname of the IMAP server.
-  required: true
-  type: string
-port:
-  description: The port where the server is accessible.
-  required: false
-  default: 993
-  type: integer
-name:
-  description: Name of the IMAP sensor.
-  required: false
-  type: string
-username:
-  description: Username for the IMAP server.
-  required: true
-  type: string
-password:
-  description: Password for the IMAP server.
-  required: true
-  type: string
-folder:
-  description: Folder to get mails from.
-  required: false
-  default: INBOX
-  type: string
-senders:
-  description: A list of sender email addresses that are allowed to report state via email. Only emails received from these addresses will be processed.
-  required: true
-  type: string
-value_template:
-  description: If specified this template will be used to render the state of the sensor. If a template is not supplied the message subject will be used for the sensor value. The following attributes will be supplied to the template.
-  required: false
-  type: template
-  keys:
-    from:
-      description: The from address of the email.
-    body:
-      description: The body of the email.
-    subject:
-      description: The subject of the email.
-    date:
-      description: The date and time the email was sent.
-verify_ssl:
-  description: If the SSL certificate of the server needs to be verified.
-  required: false
-  type: boolean
-  default: true
-{% endconfiguration %}
+You can specify a different folder at the IMAP server (default = `INBOX`). If for example you want to select the subfolder `Notifications` under `INBOX`, you should specify `INBOX.Notifications` as folder.
+
+## Using the value template
+
+By default the state will be the `subject` of the first email that matches, or `unknown` if there is no valid email received.
+You can also use the `value_template` setting to render the state. Extra variables are `from` (The from address or sender of the email), `body` (The body of the email), `subject` (The subject of the email) or `date` (The date and time the email was sent).
+
+The integration is searching for email that were sent today or yesterday when it is loaded.
 
 ## Example - keyword spotting
 
-The following example shows the usage of the IMAP email content sensor to scan the subject of an email for text, in this case, an email from the APC SmartConnect service which tells whether the UPS is running on battery or not.
+The following example shows how to use the `value_template` setting with the IMAP email content sensor to scan the subject of an email for text, in this case, an email from the APC SmartConnect service which tells whether the UPS is running on battery or not.
 
 {% raw %}
 
-```yaml
-sensor:
-  - platform: imap_email_content
-    server: imap.gmail.com
-    name: house_electricity
-    port: 993
-    username: MY_EMAIL_USERNAME
-    password: MY_EMAIL_PASSWORD
-    senders:
-      - no-reply@smartconnect.apc.com
-    value_template: >-
-      {% if 'UPS On Battery' in subject %}
-        power_out
-      {% elif 'Power Restored' in subject %}
-        power_on
-      {% endif %}
+```jinja
+{% if 'UPS On Battery' in subject %}
+  power_out
+{% elif 'Power Restored' in subject %}
+  power_on
+{% endif %}
 ```
 
 {% endraw %}
 
-The same template structure can scan the date, body or sender for matching text before setting the state of the sensor.
+The same template structure can scan the `date`, `body` or sender (`from`) for matching text before setting the state of the sensor.
 
 ## Example - extracting formatted text from an email using template sensors
 
@@ -122,7 +60,7 @@ Monthly estimated energy cost-to-date for 23 days:  $198
 To view your account for details about your energy use, please click here.
 ```
 
-Below is the template sensor which extracts the information from the body of the email in our IMAP email sensor (named sensor.energy_email) into 3 sensors for the energy use, daily cost, and billing cycle total.
+Below are template sensors which extract the information from the body of the email in our IMAP email sensor (named sensor.energy_email) into 3 sensors for the energy use, daily cost, and billing cycle total.
 
 {% raw %}
 
