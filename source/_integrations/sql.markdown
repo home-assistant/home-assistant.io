@@ -162,7 +162,7 @@ SELECT
 FROM
   states
 WHERE
-  state_id == (
+  state_id = (
     SELECT
       states.old_state_id
     FROM
