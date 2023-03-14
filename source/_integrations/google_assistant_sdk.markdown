@@ -2,7 +2,7 @@
 title: Google Assistant SDK
 description: Instructions on how to use Google Assistant SDK in Home Assistant.
 ha_category:
-  - Utility
+  - Voice
 ha_iot_class: Cloud Polling
 ha_release: 2023.1
 ha_config_flow: true
@@ -12,6 +12,7 @@ ha_codeowners:
 ha_integration_type: service
 ha_platforms:
   - notify
+ha_quality_scale: platinum
 ---
 
 The Google Assistant SDK integration allows Home Assistant to interact with Google Assistant. If you want to use Google Assistant (for example, from your phone or Google Home device) to interact with your Home Assistant managed devices, then you want the [Google Assistant](/integrations/google_assistant) integration.
@@ -130,6 +131,7 @@ service: google_assistant_sdk.send_text_command
 data:
   command: "tell me a joke"
   media_player: media_player.living_room_speaker
+```
 
 You can also send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
 
@@ -171,7 +173,7 @@ data:
 
 ## Conversation agent
 
-In the configure options of the integration, enable the conversation agent and then you can converse with Google Assistant by pressing the microphone in the frontend (supported browsers only):
+In the configure options of the integration, enable the conversation agent and then you can converse with Google Assistant by tapping the Assist icon at the top right of your dashboard:
 
 ![Screenshot Conversation](/images/integrations/google_assistant_sdk/conversation.png)
 

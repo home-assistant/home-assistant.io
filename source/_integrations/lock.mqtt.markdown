@@ -193,7 +193,7 @@ payload_open:
   type: string
   default: OPEN
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level of the state topic. It will also be used for messages published to command topic.
   required: false
   type: integer
   default: 0

@@ -11,8 +11,8 @@ Assist is our feature to allow you to control Home Assistant using natural langu
 Assist is available to use on most platforms that can interface with Home Assistant. Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'>:
 
 - Inside the Home Assistant app in the top-right corner
-- On Android Watch using [Assist tile](/docs/assist/android)
 - On Apple devices via [Siri and Assist shortcuts](/docs/assist/apple)
+- On Wear OS watches using [Assist tile](/docs/assist/android)
 
 Did Assist not understand your sentence? [Contribute them.](https://developers.home-assistant.io/docs/voice/intent-recognition/)
 

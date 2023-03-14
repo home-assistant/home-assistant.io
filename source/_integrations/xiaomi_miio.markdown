@@ -1615,7 +1615,7 @@ Sensor Dirty Left*:
 Current Clean Time:
   description: The current cleaning time of the vacuum. If the vacuum is not cleaning, this sensor will have the same value as the "Last Clean Duration" sensor.
 Current Clean Area:
-  description: The current area that has been cleaned. If the vacuum is not cealning, this sensor will have the same value as the "Last Clean Area" sensor.
+  description: The current area that has been cleaned. If the vacuum is not cleaning, this sensor will have the same value as the "Last Clean Area" sensor.
 Last Clean Area*:
   description: The last cleaned area in square meters
 Last Clean Duration*:

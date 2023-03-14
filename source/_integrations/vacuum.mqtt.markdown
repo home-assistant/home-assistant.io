@@ -86,7 +86,7 @@ charging_topic:
   required: false
   type: string
 cleaning_template:
-  description: Defines a [template](/topics/templating/) to define the cleaning state of the vacuum. This is required if `cleaning_topic` is set.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define the cleaning state of the vacuum. This is required if `cleaning_topic` is set.
   required: false
   type: string
 cleaning_topic:
@@ -98,7 +98,7 @@ command_topic:
   required: false
   type: string
 docked_template:
-  description: Defines a [template](/topics/templating/) to define the docked state of the vacuum. This is required if `docked_topic` is set.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define the docked state of the vacuum. This is required if `docked_topic` is set.
   required: false
   type: string
 docked_topic:
@@ -121,7 +121,7 @@ entity_category:
   type: string
   default: None
 error_template:
-  description: Defines a [template](/topics/templating/) to define potential error messages emitted by the vacuum. This is required if `error_topic` is set.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define potential error messages emitted by the vacuum. This is required if `error_topic` is set.
   required: false
   type: string
 error_topic:
@@ -133,7 +133,7 @@ fan_speed_list:
   required: false
   type: [string, list]
 fan_speed_template:
-  description: Defines a [template](/topics/templating/) to define the fan speed of the vacuum. This is required if `fan_speed_topic` is set.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to define the fan speed of the vacuum. This is required if `fan_speed_topic` is set.
   required: false
   type: string
 fan_speed_topic:
