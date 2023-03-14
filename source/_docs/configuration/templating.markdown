@@ -179,7 +179,7 @@ Other state examples:
 {% if has_value('sensor.train_departure_time') %}
   {{ ... }}
 
-{% if sensor.train_departure_time is has_value %}
+{% if states.sensor.train_departure_time is has_value %}
   {{ ... }}
 
 
