@@ -35,11 +35,26 @@ To enable it, add the following lines to your `configuration.yaml` file (example
 sql:
   - name: Sun state
     query: >
-      SELECT *
-      FROM states
-      WHERE entity_id = 'sun.sun'
-      ORDER BY state_id
-      DESC LIMIT 1;
+      SELECT
+        states.state
+      FROM
+        states
+        LEFT JOIN state_attributes ON (
+          states.attributes_id = state_attributes.attributes_id
+        )
+      WHERE
+        metadata_id == (
+          SELECT
+            metadata_id
+          FROM
+            states_meta
+          where
+            entity_id = 'sun.sun'
+        )
+      ORDER BY
+        state_id DESC
+      LIMIT
+        1;
     column: "state"
 ```
 {% endraw %}
@@ -117,7 +132,23 @@ sensor:
 The query will look like this:
 
 ```sql
-SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 1;
+SELECT
+  states.state
+FROM
+  states
+WHERE
+  metadata_id == (
+    SELECT
+      metadata_id
+    FROM
+      states_meta
+    WHERE
+      entity_id = 'sensor.temperature_in'
+  )
+ORDER BY
+  state_id DESC
+LIMIT
+  1;
 ```
 
 Use `state` as column for value.
@@ -126,7 +157,31 @@ Use `state` as column for value.
 
 Based on previous example with temperature, the query to get the former state is :
 ```sql
-SELECT * FROM (SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 2) two_entity ORDER BY state_id ASC LIMIT 1;
+SELECT
+  states.state
+FROM
+  states
+WHERE
+  state_id == (
+    SELECT
+      states.old_state_id
+    FROM
+      states
+    WHERE
+      metadata_id == (
+        SELECT
+          metadata_id
+        FROM
+          states_meta
+        WHERE
+          entity_id = 'sensor.temperature_in'
+      )
+      AND old_state_id IS NOT NULL
+    ORDER BY
+      state_id DESC
+    LIMIT
+      1
+  );
 ```
 Use `state` as column for value.
 
