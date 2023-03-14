@@ -515,7 +515,11 @@ We welcome the following new integrations in this release:
 - Rename modules named repairs.py which are not repairs platforms ([@emontnemery] - [#89618]) ([hassio docs]) ([bayesian docs])
 - Improved "ON" state check for `Use room sensor for cooling` ([@tomrennen] - [#89634]) ([nibe_heatpump docs])
 - Bump SQLAlchemy to 2.0.6 ([@balloob] - [#89650]) ([recorder docs]) ([sql docs])
+- Bump ZHA dependencies ([@puddly] - [#89667]) ([zha docs])
 
+[@puddly]: https://github.com/puddly
+[#89667]: https://github.com/home-assistant/core/pull/89667
+[zha docs]: /integrations/zha/
 [#89650]: https://github.com/home-assistant/core/pull/89650
 [sql docs]: /integrations/sql/
 [recorder docs]: /integrations/recorder/
