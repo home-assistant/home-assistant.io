@@ -33,8 +33,8 @@ Not all fan services may be available for your platform. You can check which ser
 
 Sets the speed percentage for fan device.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
+| Service data attribute | Mandatory | Description |
+| ---------------------- | --------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
 | `percentage` | no | Percentage speed setting
 
@@ -57,8 +57,8 @@ automation:
 
 Sets a preset mode for the fan device. Available preset modes are defined by the integration that supplies the fan entity to Home Assistant. For example, the ESPHome [Speed Fan](https://esphome.io/components/fan/speed.html) component provides by default three available presets: `Low`, `Medium` and `High`.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
+| Service data attribute | Mandatory | Description |
+| ---------------------- | --------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
 | `preset_mode` | no | The preset mode
 
@@ -81,8 +81,8 @@ automation:
 
 Sets the rotation for fan device.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
+| Service data attribute | Mandatory | Description |
+| ---------------------- | --------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
 | `direction` | no | The direction to rotate. Either `forward` or `reverse`
 
@@ -105,8 +105,8 @@ automation:
 
 Sets the oscillation for fan device.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
+| Service data attribute | Mandatory | Description |
+| ---------------------- | --------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
 | `oscillating` | no | Flag to turn on/off oscillation. Either `True` or `False`.
 
@@ -129,8 +129,8 @@ automation:
 
 Turn fan device on. This is only supported if the fan device supports being turned off.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
+| Service data attribute | Mandatory | Description |
+| ---------------------- | --------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
 | `percentage` | yes | Percentage speed setting
 | `preset_mode` | yes | The preset mode
@@ -139,8 +139,8 @@ Turn fan device on. This is only supported if the fan device supports being turn
 
 Turn fan device off. This is only supported if the fan device supports being turned on.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
+| Service data attribute | Mandatory | Description |
+| ---------------------- | --------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
 
 
@@ -148,8 +148,8 @@ Turn fan device off. This is only supported if the fan device supports being tur
 
 Sets the speed for fan device.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
+| Service data attribute | Mandatory | Description |
+| ---------------------- | --------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
 | `speed` | no | Speed setting
 
@@ -172,8 +172,8 @@ automation:
 
 Increases the speed of the fan device.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
+| Service data attribute | Mandatory | Description |
+| ---------------------- | --------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
 | `percentage_step` | yes | Increase speed by a percentage. Should be between 0..100.
 
@@ -197,8 +197,8 @@ automation:
 
 Decreases the speed of the fan device.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
+| Service data attribute | Mandatory | Description |
+| ---------------------- | --------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
 | `percentage_step` | yes | Decrease speed by a percentage. Should be between 0..100.
 
