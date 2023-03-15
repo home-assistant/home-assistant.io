@@ -67,7 +67,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 3. Select the `Develop` tab at the top of the page, then in the upper right hand corner select the `Test` button to generate the draft version Test App. If you don't see this option, go to the `Test` tab instead, click on the `Settings` button in the top right below the header, and ensure `On device testing` is enabled (if it isn't, enable it).
 
 4. Go to [Google Cloud Platform](https://console.cloud.google.com/).
-    1. Go to `Select a project`
+    1. Go to `Select a project`.
     2. In the window that popped up, select your newly created project from step 1
     3. Go to the menu and select `APIs and Services`and next `Credentials`.
     4. In the Credentials view, select `Create credentials` and next `Service account`
