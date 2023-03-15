@@ -54,7 +54,7 @@ After saving the YAML configuration, the TV must be turned on _before_ launching
 
 ### Turn on action
 
-Home Assistant is able to turn on a Samsung Smart TV if you specify an action, provided by an integration like [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/).
+If the integration knows the MAC address of the TV from discovery, it will attempt to wake it using wake on LAN when calling turn on. Wake on LAN must be enabled on the TV for this to work. If the TV is connected to a smart strip or requires a more complex turn-on process, a `turn_on` action can be provided that will take precedence over the built-in wake on LAN functionality.
 
 You can create an automation from the user interface, from the device create a new automation and select the  **Device is requested to turn on** automation.
 Automations can also be created using an automation action:
