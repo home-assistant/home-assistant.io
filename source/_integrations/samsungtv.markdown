@@ -52,7 +52,7 @@ name:
 
 After saving the YAML configuration, the TV must be turned on _before_ launching Home Assistant in order for the TV to be registered the first time.
 
-## Turn on action
+### Turn on action
 
 Home Assistant is able to turn on a Samsung Smart TV if you specify an action, provided by an integration like [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/).
 
