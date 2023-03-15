@@ -16,7 +16,7 @@ Assist is available to use on most platforms that can interface with Home Assist
 
 Did Assist not understand your sentence? [Contribute them.](https://developers.home-assistant.io/docs/voice/intent-recognition/)
 
-The Assist icon doesn't show up? Make sure the [conversation](https://www.home-assistant.io/integrations/conversation/) integration is enabled. If you use YAML for configuration and have removed `default_config:`, the conversation integration may not be included in the config file.
+The Assist icon doesn't show up? Make sure the [conversation](/integrations/conversation/) integration is enabled. If you use YAML for configuration and have removed `default_config:`, the conversation integration may not be included in the config file.
  
 _Assist was introduced in Home Assistant 2023.2._
 
