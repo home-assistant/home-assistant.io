@@ -436,15 +436,13 @@ Within ZHA is possible to use this backup and restore feature to migrate between
 
 ### Zigbee Coordinator adapter migration inside ZHA
 
-To easily migrate from a Zigbee Coordinator radio adapter to another Zigbee Coordinator adapter you can use the "migrate radio" config flow that is built into the Zigbee Home Automation (ZHA) integration UI. 
-
-This migration feature is meant to make it easy to seamlessly migrate from the old Zigbee Coordinator radio adapter hardware that you are already using in the ZHA integration to a newer or other type of Zigbee Coordinator radio adapter inside the ZHA integration.
+To easily migrate from a Zigbee Coordinator radio adapter to another Zigbee Coordinator adapter you can use the config flow for radio migration that is built into the Zigbee Home Automation (ZHA) integration UI. That is, you want to seamlessly migrate from the old Zigbee Coordinator radio adapter that you are already using in the ZHA integration to a new Zigbee Coordinator radio adapter.
 
 Prerequisites:
-- Your old Zigbee Coordinator radio adapter used in the ZHA integration needs to be of radio type "ezsp" (Silicon Labs EmberZnet), "znp" (Texas Instruments Z-Stack ZNP), or "deconz" (ConBee/RaspBee from dresden elektronik).
-  - If your old Zigbee Coordinator is a ConBee/RaspBee radio adapter (e.i. of "deconz" radio type) then you first need to make sure that is already been upgraded to [firmware 0x26700700 (from 2021-08-18)](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Firmware-Changelog) or later before migrating (or else the ZHA integration will not be able to perform the backup needed for migration).
+- Your old Zigbee Coordinator radio adapter used in the ZHA integration need to be of radio type ezsp (Silicon Labs EmberZnet), znp (Texas Instruments Z-Stack ZNP), or deCONZ (ConBee/RaspBee from dresden elektronik).
+  - If your old Zigbee Coordinator is a deCONZ (ConBee/RaspBee) radio adapter then you also need to make sure that is already running [firmware 0x26700700 (from 2021-08-18)](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Firmware-Changelog) or later before migrating.
 
-The "migrate radio" config flow can be found in the Home Assistant's UI under "Settings" -> "Devices & Services", select "CONFIGURE" on the Zigbee Home Assistant (ZHA) integration.
+The radio migration flow can be found in the Home Assistant's UI under "Settings" -> "Devices & Services", select "CONFIGURE" on the Zigbee Home Assistant (ZHA) integration.
 
 1. Inside the ZHA integration, under "Network Settings", select "MIGRATE RADIO".
 2. "Reconfigure ZHA" will start, informing that ZHA will start and asking if you want to continue, select "SUBMIT".
@@ -454,10 +452,10 @@ The "migrate radio" config flow can be found in the Home Assistant's UI under "S
 6.  You now need to start the backup restore process. If your new Zigbee Coordinator radio adapter was automatically discovered by the Zigbee Home Automation (ZHA) integration then select "CONFIGURE", if not then you may first have to restart the radio migration flow under "Network Settings" by selecting "MIGRATE RADIO" -> "Reconfigure ZHA" -> "Migrate to a new radio".
 7. Among the options for "Network Formation" select "Restore and automatic backup".
 8. Choose the latest automatic backup under "Restore Automation Backup" and select "SUBMIT".
-9. Overwrite Radio IEEE Address. Tick the box for "Permanently replace the radio IEEE address" and select "SUBMIT". This may take some time as wverwriting the IEEE address may take a while so simply wait. Note that this means that your old Zigbee Coordinator radio and your new stick will have the same Zigbee IEEE address (unique MAC address for the Zigbee device). Selecting this option is required for the migration process to complete successfully. From this point onwards you should not operate the old stick in the same area unless you change the Zigbee IEEE address on it. If you do not migrate the Zigbee IEEE address from your old Zigbee Coordinator radio then you will have to re-join/re-pair many of your devices in order to keep them working. 
+9. Overwrite Radio IEEE Address. Tick the box for "Permanently replace the radio IEEE address" and select "SUBMIT". This may take some time as overwriting the IEEE address may take a while so simply wait. Note that this means that your old Zigbee Coordinator radio and your new stick will have the same Zigbee IEEE address (unique MAC address for the Zigbee device). Selecting this option is required for the migration process to complete successfully. From this point onwards you should not operate the old stick in the same area unless you change the Zigbee IEEE address on it. If you do not migrate the Zigbee IEEE address from your old Zigbee Coordinator radio then you will have to re-join/re-pair many of your devices in order to keep them working. 
 10. Final message of "Success!" should pop up with information that all options were successfully saved. Select "FINISH" to confirm. 
 
-The migration process is complete, however be aware that you now need to a little patient you will not be able to control all your existing Zigbee devices until they rejoined the Zigbee network again. Normally, they will usually rejoin within a couple of hours, but you be able to manually accelerate the rejoin process by power-cycling your Zigbee devices that do not connect fast enough on their own.
+The migration process is complete, however, be aware that you now need to be a little patient you will not be able to control all your existing Zigbee devices until they rejoined the Zigbee network again. Normally, they will usually rejoin within a couple of hours, but you be able to manually accelerate the rejoin process by power-cycling your Zigbee devices that do not connect fast enough on their own.
 
 ## Troubleshooting
 
