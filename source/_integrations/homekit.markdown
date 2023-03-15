@@ -396,6 +396,7 @@ The following integrations are currently supported:
 | climate | Thermostat | All climate devices. |
 | cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` or `gate` as their `device_class`. |
 | cover | WindowCovering | All covers that support `set_cover_position`. |
+| cover | Door | All covers that support `set_cover_position` and have `door` as their `device_class`. |
 | cover | WindowCovering | All covers that support `open_cover` and `close_cover` through value mapping. (`open` -> `>=50`; `close` -> `<50`) |
 | cover | WindowCovering | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between) |
 | device_tracker / person | Sensor | Support for `occupancy` device class. |
