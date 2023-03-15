@@ -13,6 +13,7 @@ ha_domain: nuki
 ha_platforms:
   - binary_sensor
   - lock
+  - sensor
 ha_config_flow: true
 ha_dhcp: true
 ha_integration_type: integration

@@ -44,6 +44,52 @@ If you have previously set up your TV with any Home Assistant instances via PIN 
 - On your TV, go to: **Settings** -> **Network** -> **Remote device settings** -> **Deregister remote device**. Disable and re-enable the **Control remotely** after. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidance.
 - Reset your TV to factory condition.
 
+## Media Browser
+
+Using the Media Browser, you can view a list of all installed applications and TV channels and launch them.
+
+## Play Media service
+
+The `play_media` service can be used in a automation or script to switch to a specified application or TV channel. It selects the best matching application or channel according to the `media_content_id`:
+
+ 1. Channel number *(i.e., '1' or '6')*
+ 2. Exact app or channel name *(i.e., 'Google Play' or 'CNN')*
+ 3. Substring in app or channel name *(i.e., 'BFM' in 'BFM TV')*
+ 4. URI-string of app or channel *(i.e., 'tv:dvbt?trip=9999.441.41104&srvName=BBC HD')*
+
+**Example to open YouTube app:**
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.bravia_tv
+data:
+  media_content_id: "YouTube"
+  media_content_type: "app"
+```
+
+**Example to switch to channel number 11:**
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.bravia_tv
+data:
+  media_content_id: 11
+  media_content_type: "channel"
+```
+
+**Example to switch to channel including 'news' in its name:**
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.bravia_tv
+data:
+  media_content_id: "news"
+  media_content_type: "channel"
+```
+
 ## Remote
 
 The integration supports `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` service.
@@ -77,13 +123,19 @@ The commands that can be sent to the TV depends on the model of your TV. To disp
 
 {% enddetails %}
 
+**Example to send `Down` key command:**
+
+```yaml
+service: remote.send_command
+target:
+  entity_id: media_player.bravia_tv
+data:
+  command: "Down"
+```
+
 ## Buttons
 
 The integration supports `button` platform and allows you to reboot the device or terminate all running applications.
-
-{% include integrations/option_flow.md %}
-
-The integration allows you to customize the list of ignored sources.
 
 ## For TVs older than 2013
 

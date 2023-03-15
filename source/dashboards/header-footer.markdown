@@ -28,6 +28,10 @@ image:
   required: true
   description: The URL of an image.
   type: string
+alt_text:
+  required: false
+  description: Alternative text for the image. This is necessary for users of assistive technology. The [W3C images tutorial](https://www.w3.org/WAI/tutorials/images/) provides simple guidance for writing alternative text.
+  type: string  
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).

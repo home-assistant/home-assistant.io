@@ -122,6 +122,8 @@ automation:
 
 {% endraw %}
 
+You can find the `event_data` `id` by going to "Developer Tools" -> "Events" and listening to “button_pressed” events. Then hit a button on the device and you should see an event.
+
 ## Light
 
 An EnOcean light can take many forms. Currently only one type has been tested: Eltako FUD61 dimmer.

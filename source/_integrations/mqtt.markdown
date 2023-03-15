@@ -23,6 +23,7 @@ ha_platforms:
   - diagnostics
   - fan
   - humidifier
+  - light
   - lock
   - number
   - scene
@@ -31,7 +32,9 @@ ha_platforms:
   - siren
   - switch
   - text
+  - tag
   - update
+  - vacuum
 ha_integration_type: integration
 ha_quality_scale: gold
 ---
@@ -308,6 +311,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'hold_stat_tpl':       'hold_state_template',
     'hold_stat_t':         'hold_state_topic',
     'hs_cmd_t':            'hs_command_topic',
+    'hs_cmd_tpl':          'hs_command_template',
     'hs_stat_t':           'hs_state_topic',
     'hs_val_tpl':          'hs_value_template',
     'ic':                  'icon',
@@ -391,9 +395,6 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'pl_unlk':             'payload_unlock',
     'pos_clsd':            'position_closed',
     'pos_open':            'position_open',
-    'pow_cmd_t':           'power_command_topic',
-    'pow_stat_t':          'power_state_topic',
-    'pow_stat_tpl':        'power_state_template',
     'pr_mode_cmd_t':       'preset_mode_command_topic',
     'pr_mode_cmd_tpl':     'preset_mode_command_template',
     'pr_mode_stat_t':      'preset_mode_state_topic',
@@ -428,18 +429,22 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'stat_cla':            'state_class',
     'stat_clsd':           'state_closed',
     'stat_closing':        'state_closing',
+    'stat_jam':            'state_jammed',
     'stat_off':            'state_off',
     'stat_on':             'state_on',
     'stat_open':           'state_open',
     'stat_opening':        'state_opening',
     'stat_stopped':        'state_stopped',
     'stat_locked':         'state_locked',
+    'stat_locking':         'state_locking',
     'stat_unlocked':       'state_unlocked',
+    'stat_unlocking':       'state_unlocking',
     'stat_t':              'state_topic',
     'stat_tpl':            'state_template',
     'stat_val_tpl':        'state_value_template',
     'step':                'step',
     'stype':               'subtype',
+    'sug_dsp_prc':         'suggested_display_precision',
     'sup_clrm':            'supported_color_modes',
     'sup_dur':             'support_duration',
     'sup_vol':             'support_volume_set',
@@ -483,6 +488,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'whit_val_stat_t':     'white_value_state_topic',
     'whit_val_tpl':        'white_value_template',
     'xy_cmd_t':            'xy_command_topic',
+    'xy_cmd_tpl':          'xy_command_template',
     'xy_stat_t':           'xy_state_topic',
     'xy_val_tpl':          'xy_value_template',
 ```
@@ -511,6 +517,7 @@ The following software has built-in support for MQTT discovery:
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
 - [ebusd](https://github.com/john30/ebusd)
 - [ecowitt2mqtt](https://github.com/bachya/ecowitt2mqtt)
+- [EMS-ESP32 (and EMS-ESP)](https://github.com/emsesp/EMS-ESP32)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
 - [HASS.Agent](https://github.com/LAB02-Research/HASS.Agent)
@@ -520,6 +527,7 @@ The following software has built-in support for MQTT discovery:
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [SmartHome](https://github.com/roncoa/SmartHome)
 - [SpeedTest-CLI MQTT](https://github.com/adorobis/speedtest-CLI2mqtt)
+- [SwitchBot-MQTT-BLE-ESP32](https://github.com/devWaves/SwitchBot-MQTT-BLE-ESP32)
 - [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
 - [Teleinfo MQTT](https://fmartinou.github.io/teleinfo2mqtt) (starting with 3.0.0)
 - [Tydom2MQTT](https://fmartinou.github.io/tydom2mqtt/)
@@ -527,7 +535,7 @@ The following software has built-in support for MQTT discovery:
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
-- [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
+- [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
 - [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
 
 ### Discovery examples
@@ -559,7 +567,7 @@ Delete the sensor by sending an empty message.
 mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m ''
 ```
 
-For more details please refer to the [MQTT testing section](/docs/mqtt/testing/).
+For more details please refer to the [MQTT testing section](/integrations/mqtt/#testing-your-setup).
 
 #### Sensors
 
@@ -744,7 +752,7 @@ script:
 
 ## Publish & Dump services
 
-The MQTT integration will register the service `mqtt.publish` which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/topics/templating/) that will be rendered to generate the payload.
+The MQTT integration will register the service `mqtt.publish` which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that will be rendered to generate the payload.
 
 ### Service `mqtt.publish`
 

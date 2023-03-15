@@ -6,6 +6,7 @@ ha_category:
   - Climate
   - Humidifier
   - Notifications
+  - Number
   - Sensor
   - Weather
 featured: true
@@ -14,12 +15,14 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@marthoc'
+  - '@marcolivierarsenault'
 ha_domain: ecobee
 ha_platforms:
   - binary_sensor
   - climate
   - humidifier
   - notify
+  - number
   - sensor
   - weather
 ha_zeroconf: true
@@ -56,7 +59,7 @@ Your new application will now appear on the left. Upon clicking on the applicati
 1. In the **Settings** -> **Devices & Services** menu, click **+** and then select "ecobee" from the pop-up menu.
 2. In the pop-up box, enter the API key you obtained from ecobee's [developer portal](https://ecobee.com/developers).
 3. In the next pop-up box, you will be presented with a unique four-character PIN code which you will need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by logging in, selecting **My Apps** from the hamburger menu, clicking **Add Application** on the left, entering the PIN code from Home Assistant, clicking **Validate** and then **Add Application** in the bottom right.
-4. After authorizing the app with ecobee, return to Home Assistant and click **Submit**. If the authorization was successful, a configuration entry will be created and your thermostats and sensors will be available in Home Assistant.
+4. After authorizing the app with ecobee, return to Home Assistant and click **Submit**. If the authorization was successful, a configuration entry will be created and your thermostats, ventilators and sensors will be available in Home Assistant.
 
 ## Manual Configuration
 
@@ -113,11 +116,13 @@ defined vacation period and expires when the vacation period ends.
 
 When in _away preset_, the target temperature is permanently overridden by the target temperature defined for the away climate. The away preset is a simple way to emulate a vacation mode.
 
-The _HVAC mode_ of the device is the currently active operational modes that the ecobee thermostat provides: heat, auxHeatOnly, cool, auto, and off.
+The _HVAC mode_ of the device is the currently active operational modes that the ecobee thermostat provides: heat, cool, auto, and off.
 
 The _target humidity_ is the humidity set point of the thermostat when a humidifier is connected and in manual control or "On" mode.
 
-## Attributes
+When enabling the auxiliary heat toggle, the ecobee thermostat HVAC mode will be changed to "Aux". However, Home Assistant will reflect that the thermostat is in "heat" mode. Disabling auxiliary heat will change the thermostat back to last active HVAC mode (heat, auto, etc).
+
+### Attributes
 
 The ecobee climate entity has some extra attributes to represent the state of the thermostat.
 
@@ -127,6 +132,19 @@ The ecobee climate entity has some extra attributes to represent the state of th
 | `climate_mode` | This is the climate mode that is active, or would be active if no override is active.
 | `equipment_running` | This is a comma-separated list of equipment that is currently running.
 | `fan_min_on_time` | The minimum amount of time (in minutes) that the fan will run per hour. This is determined by the minimum fan runtime setting which can be changed in the ecobee app or on the thermostat itself.
+
+## Ventilator
+
+### Concepts
+
+The ecobee thermostat supports the addition of an accessory. If you have an air exchanger (ventilator, HRV, or ERV), you can control it via the min time home and min time away numbers.
+
+### Number
+
+| Name | Description |
+| ---- | ----------- |
+| `ventilator_min_on_time_home` | The minimum amount of time (in minutes) that the ventilator will run per hour, when you are home. This is determined by the minimum ventilator runtime setting which can be changed in the ecobee app or on the thermostat itself.
+| `ventilator_min_on_time_away` | The minimum amount of time (in minutes) that the ventilator will run per hour, when you are away. This is determined by the minimum ventilator runtime setting which can be changed in the ecobee app or on the thermostat itself.
 
 ## Services
 
