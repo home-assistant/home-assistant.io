@@ -68,7 +68,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 
 4. Go to [Google Cloud Platform](https://console.cloud.google.com/).
     1. Go to `Select a project`.
-    2. In the window that popped up, select your newly created project from step 1
+    2. In the window that popped up, select your newly created project from step 1.
     3. Go to the menu and select `APIs and Services`and next `Credentials`.
     4. In the Credentials view, select `Create credentials` and next `Service account`
         1. `Service account name`: Give your account a self-selected name.
