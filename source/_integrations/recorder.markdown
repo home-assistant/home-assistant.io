@@ -216,16 +216,16 @@ Call the service `recorder.purge_entities` to start a task that purges events an
 | `entity_id`            | yes<sup>*</sup>      | A list of entity_ids that should be purged from the recorder database. |
 | `domains`               | yes      | A list of domains that should be purged from the recorder database. |
 | `entity_globs`         | yes      | A list of regular expressions that identify entities to purge from the recorder database. |
-| `keep_days`            | yes      | Number of history days to keep in database of matching rows. The default of 0 days will remove all matching rows. |
+| `keep_days`            | yes      | Number of history days to keep in the database of matching rows. The default of 0 days will remove all matching rows. |
 
 Note: The `entity_id` is only optional when used in `automations.yaml` or `scripts.yaml`. When using the UI to call this service then it is mandatory to specify at least one `entity_id` using the Target Picker or via YAML mode.
 
 #### Example automation to remove data rows for specific entities
 
-The below automation will remove history for `sensor.power_sensor_0` older than 5 days at `04:15:00` in every day.
+The below automation will remove history for `sensor.power_sensor_0` older than 5 days at `04:15:00` every day.
 
 ```yaml
-alias: Purge noisy power sensors
+alias: "Purge noisy power sensors"
 trigger:
   - platform: time
     at: "04:15:00"
