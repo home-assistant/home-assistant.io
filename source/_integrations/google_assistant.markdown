@@ -72,7 +72,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     3. Go to the menu and select `APIs and Services`and next `Credentials`.
     4. In the Credentials view, select `Create credentials` and next `Service account`.
         1. `Service account name`: Give your account a self-selected name.
-        2. Click `Create`
+        2. Click `Create`.
         3. `Select a role`: `Service Accounts` and `Service Account Token Creator`
         4. Click `Continue`
         5. Click on `Done`
