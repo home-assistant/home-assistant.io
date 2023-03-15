@@ -8,7 +8,6 @@ ha_iot_class: Local Polling
 ha_release: '0.30'
 ha_quality_scale: internal
 ha_codeowners:
-  - '@fabaff'
   - '@ThomDietrich'
 ha_domain: statistics
 ha_platforms:
