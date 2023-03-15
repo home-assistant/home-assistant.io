@@ -89,7 +89,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     15. Enable the HomeGraph API
 
 5. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
-6. Add services in the Google Home App (Note that app versions may be slightly different.)
+6. Add services in the Google Home App (note that app versions may be slightly different).
     1. Open the Google Home app.
     2. Click the `+` button on the top left corner, click `Set up device`, in the "Set up a device" screen click "Works with Google". You should have `[test] <Action Name>` listed under 'Add new'. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
 
