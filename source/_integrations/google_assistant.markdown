@@ -82,7 +82,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     8. Create a private key, make sure it is in JSON format.
     9. This will start a download of a JSON file. 
         1. Rename the file to `SERVICE_ACCOUNT.JSON`.
-        2. Add this file to your config-folder. This will be the same folder as your `configuration.yaml`
+        2. Add this file to your config-folder. This will be the same folder as your `configuration.yaml`.
     12. Go back to [Google Cloud Platform](https://console.cloud.google.com/) and click `Close`
     13. Then click `SAVE`
     14. Go to the `Search products and resources` and search for `Homegraph API` and select it.
