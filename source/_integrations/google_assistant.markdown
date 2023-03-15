@@ -86,7 +86,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     12. Go back to [Google Cloud Platform](https://console.cloud.google.com/) and click `Close`.
     13. Then click `SAVE`.
     14. Go to the `Search products and resources` and search for `Homegraph API` and select it.
-    15. Enable the HomeGraph API
+    15. Enable the HomeGraph API.
 
 5. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
 6. Add services in the Google Home App (note that app versions may be slightly different).
