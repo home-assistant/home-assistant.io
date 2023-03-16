@@ -158,6 +158,20 @@ The carbon consumed gauge card represents how much of the energy consumed by you
 type: energy-carbon-consumed-gauge
 ```
 
+## Self-sufficiency gauge
+
+<p class='img'>
+  <img src='/images/dashboards/energy/self-sufficiency-gauge.png' alt='Screenshot of the self-sufficiency gauge card'>
+  Screenshot of the self-sufficiency gauge card.
+</p>
+
+The self-sufficiency gauge represents how self-sufficient your home is. If you rely on grid imports, this value decreases. You can increase this value by adding more solar capacity or battery storage.
+
+#### Example
+```yaml
+type: energy-self-sufficiency-gauge
+```
+
 ## Devices energy graph
 
 <p class='img'>
