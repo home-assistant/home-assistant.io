@@ -13,8 +13,4 @@ ha_domain: voice_assistant
 ha_integration_type: integration
 ---
 
-The Voice Assistant integration contains logic for running *pipelines*, which perform the common steps of a voice assistant like [Assist](/docs/assist/):
-
-1. [Speech to text](/integrations/stt/)
-2. [Intent recognition](/integrations/conversation/)
-3. [Text to speech](/integrations/tts/)
+The Voice Assistant integration contains logic for running *pipelines*, which perform the common steps of a voice assistant like [Assist](/docs/assist/).
