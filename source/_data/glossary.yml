@@ -70,18 +70,14 @@
 
 - term: Device
   definition: >    
-    A device is a model representing a physical or logical unit that contains entities and has its own control unit. 
-
-    <b>Example for a physical unit</b>
-    A smart plug named 'Coffee machine' which provides 2 entities: a `switch` entity to turn power on or off ('Coffee machine power switch') and a `sensor` entity for power monitoring ('Coffee machine power sensor').
+    A device is a model representing a physical or logical unit that contains entities and has its own control unit.</br>
+    <b>Example for a physical unit</b></br>
+    A smart plug named 'Coffee machine' which provides 2 entities: a `switch` entity to turn power on or off ('Coffee machine power switch') and a `sensor` entity for power monitoring ('Coffee machine power sensor').</br>
     
-    <b>Example for a logical unit</b>
-    An Ecobee thermostat with 4 room sensors. This thermostat is seen as 5 devices in Home Assistant: 1 device for the thermostat with 4 sensors, and 1 device for each room sensor. Each device can be in a different area, and may have more than one input or output within that area.
-
+    <b>Example for a logical unit</b></br>
+    An Ecobee thermostat with 4 room sensors. This thermostat is seen as 5 devices in Home Assistant: 1 device for the thermostat with 4 sensors, and 1 device for each room sensor. Each device can be in a different area, and may have more than one input or output within that area.</br>
     Devices have properties such as ID, manufacturer, name, model, hardware version, firmware version, connections, etc.
-  link: developers.home-assistant.io/docs/device_registry_index    
-
-
+  link: https://developers.home-assistant.io/docs/device_registry_index
   excerpt: >
     A device is a model representing a physical or logical unit that contains entities and has its own control unit.
 
