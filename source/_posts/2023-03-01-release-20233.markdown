@@ -52,6 +52,7 @@ Enjoy the release!
 - [Release 2023.3.2 - March 8](#release-202332---march-8)
 - [Release 2023.3.3 - March 9](#release-202333---march-9)
 - [Release 2023.3.4 - March 13](#release-202334---march-13)
+- [Release 2023.3.5 - March 16](#release-202335---march-16)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -565,6 +566,56 @@ We welcome the following new integrations in this release:
 [screenlogic docs]: /integrations/screenlogic/
 [sensor docs]: /integrations/sensor/
 [tibber docs]: /integrations/tibber/
+
+## Release 2023.3.5 - March 16
+
+- ArestData does not have available ([@zhangsheng377] - [#88631]) ([arest docs])
+- Bump aioesphomeapi to 13.5.0 ([@bdraco] - [#89262]) ([esphome docs]) (dependency)
+- Handle int or mapping for off case in nibe cooling ([@elupus] - [#89680]) ([nibe_heatpump docs])
+- Secure modbus hub_collect remains valid ([@janiversen] - [#89684]) ([modbus docs])
+- Update to nibe 2.1.4 ([@elupus] - [#89686]) ([nibe_heatpump docs]) (dependency)
+- Bump bond-async to 0.1.23 ([@marciogranzotto] - [#89697]) ([bond docs]) (dependency)
+- Correct modbus serial method parameter ([@janiversen] - [#89738]) ([modbus docs])
+- Fix imap server push holding HA startup ([@jbouwh] - [#89750]) ([imap docs])
+- Bump aioesphomeapi to 13.5.1 ([@bdraco] - [#89777]) ([esphome docs]) (dependency)
+- Update frontend to 20230309.1 ([@bramkragten] - [#89802]) ([frontend docs])
+
+[#88631]: https://github.com/home-assistant/core/pull/88631
+[#88979]: https://github.com/home-assistant/core/pull/88979
+[#89059]: https://github.com/home-assistant/core/pull/89059
+[#89262]: https://github.com/home-assistant/core/pull/89262
+[#89381]: https://github.com/home-assistant/core/pull/89381
+[#89459]: https://github.com/home-assistant/core/pull/89459
+[#89647]: https://github.com/home-assistant/core/pull/89647
+[#89680]: https://github.com/home-assistant/core/pull/89680
+[#89684]: https://github.com/home-assistant/core/pull/89684
+[#89686]: https://github.com/home-assistant/core/pull/89686
+[#89697]: https://github.com/home-assistant/core/pull/89697
+[#89738]: https://github.com/home-assistant/core/pull/89738
+[#89750]: https://github.com/home-assistant/core/pull/89750
+[#89777]: https://github.com/home-assistant/core/pull/89777
+[#89802]: https://github.com/home-assistant/core/pull/89802
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@jbouwh]: https://github.com/jbouwh
+[@marciogranzotto]: https://github.com/marciogranzotto
+[@zhangsheng377]: https://github.com/zhangsheng377
+[abode docs]: /integrations/abode/
+[arest docs]: /integrations/arest/
+[bond docs]: /integrations/bond/
+[dormakaba_dkey docs]: /integrations/dormakaba_dkey/
+[esphome docs]: /integrations/esphome/
+[frontend docs]: /integrations/frontend/
+[imap docs]: /integrations/imap/
+[knx docs]: /integrations/knx/
+[modbus docs]: /integrations/modbus/
+[nibe_heatpump docs]: /integrations/nibe_heatpump/
+[sensor docs]: /integrations/sensor/
+[tibber docs]: /integrations/tibber
 
 ## Need help? Join the community!
 
