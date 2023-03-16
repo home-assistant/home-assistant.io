@@ -80,7 +80,7 @@
 
     Devices have properties such as ID, manufacturer, name, model, hardware version, firmware version, connections, etc.
   excerpt: >
-    A device is a model representing a physical or logical unit that contains entities and has its own control unit.
+    A device is a model representing a physical or logical unit that contains entities.
 
 - term: Device tracker
   definition: >-
