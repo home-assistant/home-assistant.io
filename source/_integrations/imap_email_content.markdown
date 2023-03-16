@@ -17,7 +17,7 @@ The `imap_email_content` integration will read emails from an IMAP email server 
 
 ## IMAP server setup
 
-For the configuration of the IMAP email content sensor The server hostname or IP address of the IMAP server together with username and password are required.
+To configure the IMAP email content sensor, the hostname or IP address of the IMAP server is required, along with a username and password.
 Further it is required to supply a list of allowed senders. Use a `;` as separator if there is more than one sender. One sensor is set up for every entry that is set up.
 
 You can specify a different folder at the IMAP server (default = `INBOX`). If for example you want to select the subfolder `Notifications` under `INBOX`, you should specify `INBOX.Notifications` as folder.
