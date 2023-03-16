@@ -69,7 +69,7 @@
     devices in the configuration.
 
 - term: Device
-  definition: >    
+  definition: >
     A device is a model representing a physical or logical unit that contains entities and has its own control unit.
     <b>Example for a device as a physical unit</b>
     A smart plug named 'Coffee machine' which provides 2 entities: a `switch` entity to turn power on or off ('Coffee machine power switch') and a `sensor` entity for power monitoring ('Coffee machine power sensor').
