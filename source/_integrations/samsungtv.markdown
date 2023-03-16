@@ -48,30 +48,33 @@ name:
   description: The name you would like to give to the Samsung Smart TV.
   required: false
   type: string
-turn_on_action:
-  description: "Defines an [action](/docs/automation/action/) to turn the TV on."
-  required: false
-  type: list
 {% endconfiguration %}
 
 After saving the YAML configuration, the TV must be turned on _before_ launching Home Assistant in order for the TV to be registered the first time.
 
-#### Wake up TV / TV does not turn on
+### Turn on action
 
-If the integration knows the MAC address of the TV from discovery, it will attempt to wake it using wake on LAN when calling turn on. Wake on LAN must be enabled on the TV for this to work. If the TV is connected to a smart strip or requires a more complex turn-on process, a `turn_on_action` can be provided that will take precedence over the built-in wake on LAN functionality.
+If the integration knows the MAC address of the TV from discovery, it will attempt to wake it using wake on LAN when calling turn on. Wake on LAN must be enabled on the TV for this to work. If the TV is connected to a smart strip or requires a more complex turn-on process, a `turn_on` action can be provided that will take precedence over the built-in wake on LAN functionality.
 
-To wake up the TV when switched off you can use the [wake-on-lan](/integrations/wake_on_lan/) integration and call a service.
+You can create an automation from the user interface, from the device create a new automation and select the  **Device is requested to turn on** automation.
+Automations can also be created using an automation action:
 
 ```yaml
-wake_on_lan:
+# Example configuration.yaml entry
+wake_on_lan: # enables `wake_on_lan` integration
 
-samsungtv:
-  - host: IP_ADDRESS
-    turn_on_action:
+automation:
+  - alias: "Turn On Living Room TV with WakeOnLan"
+    trigger:
+      - platform: samsungtv.turn_on
+        entity_id: media_player.samsung_smart_tv
+    action:
       - service: wake_on_lan.send_magic_packet
         data:
-          mac: MAC_ADDRESS
+          mac: aa:bb:cc:dd:ee:ff
 ```
+
+Any other [actions](/docs/automation/action/) to power on the device can be configured.
 
 ### Usage
 
