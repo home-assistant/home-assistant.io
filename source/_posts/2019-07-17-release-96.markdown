@@ -36,9 +36,9 @@ Screenshot of the demo with the new sidebar. Click to open.
 
 ## Climate
 
-This release includes a major clean up of our climate integration, correcting some architectural flaws from the past. The goal of this clean up was to a better job at providing an abstraction layer that fits many devices. This will improve compatibility with services that interact with Home Assistant (like Alexa/Google) and will allow us to make sure the UI works for everyone. We've done a lot of testing during the beta, but there might still be things that don't work as expected. If you notice anything, please report by [**opening a bug report**](https://github.com/home-assistant/core/issues).
+This release includes a major clean up of our climate integration, correcting some architectural flaws from the past. The goal of this clean up was to a better job at providing an abstraction layer that fits many devices. This will improve compatibility with services that interact with Home Assistant (like Alexa/Google) and will allow us to make sure the UI works for everyone. We've done a lot of testing during the beta, but there might still be things that don't work as expected. If you notice anything, please report by [**opening a bug report**](https://github.com/home-assistant/home-assistant/issues).
 
-For a breakdown of what was driving the change, [check our blog post on the dev blog](https://developers.home-assistant.io/blog/2019/07/03/climate-cleanup/).
+For a breakdown of what was driving the change, [check our blog post on the dev blog](https://developers.home-assistant.io/blog/2019/07/03/climate-cleanup.html).
 
 The following things have been changed:
 
@@ -79,13 +79,13 @@ Advanced mode is only available to admin users and is a per-user setting. Enabli
 
 ## In other news…
 
-Raspberry Pi 4 support has arrived in beta. [@pvizeli] has been hard at work and the first beta release [is available](https://github.com/home-assistant/operating-system/releases/tag/3.3). If you flash this image, you will be able to update to a stable release later from within the UI.
+Raspberry Pi 4 support has arrived in beta. [@pvizeli] has been hard at work and the first beta release [is available](https://github.com/home-assistant/hassos/releases/tag/3.3). If you flash this image, you will be able to update to a stable release later from within the UI.
 
 Big shout out to [@frenck] who has been doing a lot of clean up on the website. Like, a lot lot. He has removed over 20.000 unused lines of code, and has simplified how we render code blocks, pages and headers. It takes Jekyll now a mere 14 seconds to generate the whole website! It used to be 6 minutes! 😲
 
 Last week [@balloob] showed a preview of the upcoming [Home Assistant Cast](/blog/2019/07/09/home-assistant-cast-preview/), a new interface for Home Assistant that runs on Chromecasts and Google Assistant devices with screens.
 
-The [Home Assistant code repository on GitHub](https://github.com/home-assistant/core) has hit 25.000 stars! 🤩
+The [Home Assistant code repository on GitHub](https://github.com/home-assistant/home-assistant) has hit 25.000 stars! 🤩
 
 The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha053/) to discuss all the ins and outs of this new release.
 
@@ -124,15 +124,15 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 - Add hvac modes back to opentherm ([@balloob] - [#25268]) ([opentherm_gw docs])
 - Added states and modes for zwave climate ([@stboch] - [#25274]) ([zwave docs])
 
-[#25236]: https://github.com/home-assistant/core/pull/25236
-[#25238]: https://github.com/home-assistant/core/pull/25238
-[#25245]: https://github.com/home-assistant/core/pull/25245
-[#25246]: https://github.com/home-assistant/core/pull/25246
-[#25256]: https://github.com/home-assistant/core/pull/25256
-[#25258]: https://github.com/home-assistant/core/pull/25258
-[#25259]: https://github.com/home-assistant/core/pull/25259
-[#25268]: https://github.com/home-assistant/core/pull/25268
-[#25274]: https://github.com/home-assistant/core/pull/25274
+[#25236]: https://github.com/home-assistant/home-assistant/pull/25236
+[#25238]: https://github.com/home-assistant/home-assistant/pull/25238
+[#25245]: https://github.com/home-assistant/home-assistant/pull/25245
+[#25246]: https://github.com/home-assistant/home-assistant/pull/25246
+[#25256]: https://github.com/home-assistant/home-assistant/pull/25256
+[#25258]: https://github.com/home-assistant/home-assistant/pull/25258
+[#25259]: https://github.com/home-assistant/home-assistant/pull/25259
+[#25268]: https://github.com/home-assistant/home-assistant/pull/25268
+[#25274]: https://github.com/home-assistant/home-assistant/pull/25274
 [@andrewsayre]: https://github.com/andrewsayre
 [@balloob]: https://github.com/balloob
 [@cgtobi]: https://github.com/cgtobi
@@ -156,11 +156,11 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 - Fix HM with use wrong datapoint for off ([@pvizeli] - [#25298]) ([homematic docs])
 - Fix plant error when adding new value ([@cgtobi] - [#25302]) ([plant docs])
 
-[#25275]: https://github.com/home-assistant/core/pull/25275
-[#25285]: https://github.com/home-assistant/core/pull/25285
-[#25292]: https://github.com/home-assistant/core/pull/25292
-[#25298]: https://github.com/home-assistant/core/pull/25298
-[#25302]: https://github.com/home-assistant/core/pull/25302
+[#25275]: https://github.com/home-assistant/home-assistant/pull/25275
+[#25285]: https://github.com/home-assistant/home-assistant/pull/25285
+[#25292]: https://github.com/home-assistant/home-assistant/pull/25292
+[#25298]: https://github.com/home-assistant/home-assistant/pull/25298
+[#25302]: https://github.com/home-assistant/home-assistant/pull/25302
 [@cgtobi]: https://github.com/cgtobi
 [@pvizeli]: https://github.com/pvizeli
 [@w1ll1am23]: https://github.com/w1ll1am23
@@ -188,20 +188,20 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 - change and condition to or condition ([@dmulcahey] - [#25374])
 - Add Netatmo climate battery level ([@cgtobi] - [#25143]) ([netatmo docs])
 
-[#25321]: https://github.com/home-assistant/core/pull/25321
-[#25143]: https://github.com/home-assistant/core/pull/25143
-[#25327]: https://github.com/home-assistant/core/pull/25327
-[#25332]: https://github.com/home-assistant/core/pull/25332
-[#25347]: https://github.com/home-assistant/core/pull/25347
-[#25349]: https://github.com/home-assistant/core/pull/25349
-[#25356]: https://github.com/home-assistant/core/pull/25356
-[#25358]: https://github.com/home-assistant/core/pull/25358
-[#25359]: https://github.com/home-assistant/core/pull/25359
-[#25360]: https://github.com/home-assistant/core/pull/25360
-[#25362]: https://github.com/home-assistant/core/pull/25362
-[#25366]: https://github.com/home-assistant/core/pull/25366
-[#25370]: https://github.com/home-assistant/core/pull/25370
-[#25374]: https://github.com/home-assistant/core/pull/25374
+[#25321]: https://github.com/home-assistant/home-assistant/pull/25321
+[#25143]: https://github.com/home-assistant/home-assistant/pull/25143
+[#25327]: https://github.com/home-assistant/home-assistant/pull/25327
+[#25332]: https://github.com/home-assistant/home-assistant/pull/25332
+[#25347]: https://github.com/home-assistant/home-assistant/pull/25347
+[#25349]: https://github.com/home-assistant/home-assistant/pull/25349
+[#25356]: https://github.com/home-assistant/home-assistant/pull/25356
+[#25358]: https://github.com/home-assistant/home-assistant/pull/25358
+[#25359]: https://github.com/home-assistant/home-assistant/pull/25359
+[#25360]: https://github.com/home-assistant/home-assistant/pull/25360
+[#25362]: https://github.com/home-assistant/home-assistant/pull/25362
+[#25366]: https://github.com/home-assistant/home-assistant/pull/25366
+[#25370]: https://github.com/home-assistant/home-assistant/pull/25370
+[#25374]: https://github.com/home-assistant/home-assistant/pull/25374
 [@OttoWinter]: https://github.com/OttoWinter
 [@balloob]: https://github.com/balloob
 [@cgtobi]: https://github.com/cgtobi
@@ -230,13 +230,13 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 - Update pysonos to 0.0.22 ([@amelchio] - [#25399]) ([sonos docs])
 - [climate] Correct evohome hvac_action ([@zxdavb] - [#25407]) ([evohome docs])
 
-[#25165]: https://github.com/home-assistant/core/pull/25165
-[#25281]: https://github.com/home-assistant/core/pull/25281
-[#25296]: https://github.com/home-assistant/core/pull/25296
-[#25369]: https://github.com/home-assistant/core/pull/25369
-[#25395]: https://github.com/home-assistant/core/pull/25395
-[#25399]: https://github.com/home-assistant/core/pull/25399
-[#25407]: https://github.com/home-assistant/core/pull/25407
+[#25165]: https://github.com/home-assistant/home-assistant/pull/25165
+[#25281]: https://github.com/home-assistant/home-assistant/pull/25281
+[#25296]: https://github.com/home-assistant/home-assistant/pull/25296
+[#25369]: https://github.com/home-assistant/home-assistant/pull/25369
+[#25395]: https://github.com/home-assistant/home-assistant/pull/25395
+[#25399]: https://github.com/home-assistant/home-assistant/pull/25399
+[#25407]: https://github.com/home-assistant/home-assistant/pull/25407
 [@amelchio]: https://github.com/amelchio
 [@cgtobi]: https://github.com/cgtobi
 [@fredrike]: https://github.com/fredrike
@@ -253,9 +253,9 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 - Allow cors for static files ([@balloob] - [#25468]) ([http docs])
 - Fix Nest turning off eco ([@balloob] - [#25472]) ([nest docs])
 
-[#25458]: https://github.com/home-assistant/core/pull/25458
-[#25468]: https://github.com/home-assistant/core/pull/25468
-[#25472]: https://github.com/home-assistant/core/pull/25472
+[#25458]: https://github.com/home-assistant/home-assistant/pull/25458
+[#25468]: https://github.com/home-assistant/home-assistant/pull/25468
+[#25472]: https://github.com/home-assistant/home-assistant/pull/25472
 [@balloob]: https://github.com/balloob
 [@zxdavb]: https://github.com/zxdavb
 [geniushub docs]: /integrations/geniushub/
@@ -268,7 +268,7 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 
 ## Reporting Issues
 
-Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/core/issues). Make sure to fill in all fields of the issue template.
+Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
@@ -533,191 +533,191 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - [climate] Tweak evohome migration ([@zxdavb] - [#25187]) ([evohome docs]) (beta fix)
 - Only include target temp if has right support flag ([@balloob] - [#25193]) ([climate docs]) (beta fix)
 
-[#22316]: https://github.com/home-assistant/core/pull/22316
-[#22904]: https://github.com/home-assistant/core/pull/22904
-[#22932]: https://github.com/home-assistant/core/pull/22932
-[#23470]: https://github.com/home-assistant/core/pull/23470
-[#23691]: https://github.com/home-assistant/core/pull/23691
-[#23737]: https://github.com/home-assistant/core/pull/23737
-[#23838]: https://github.com/home-assistant/core/pull/23838
-[#23899]: https://github.com/home-assistant/core/pull/23899
-[#23941]: https://github.com/home-assistant/core/pull/23941
-[#23988]: https://github.com/home-assistant/core/pull/23988
-[#24369]: https://github.com/home-assistant/core/pull/24369
-[#24389]: https://github.com/home-assistant/core/pull/24389
-[#24445]: https://github.com/home-assistant/core/pull/24445
-[#24557]: https://github.com/home-assistant/core/pull/24557
-[#24584]: https://github.com/home-assistant/core/pull/24584
-[#24600]: https://github.com/home-assistant/core/pull/24600
-[#24621]: https://github.com/home-assistant/core/pull/24621
-[#24628]: https://github.com/home-assistant/core/pull/24628
-[#24634]: https://github.com/home-assistant/core/pull/24634
-[#24640]: https://github.com/home-assistant/core/pull/24640
-[#24641]: https://github.com/home-assistant/core/pull/24641
-[#24642]: https://github.com/home-assistant/core/pull/24642
-[#24646]: https://github.com/home-assistant/core/pull/24646
-[#24652]: https://github.com/home-assistant/core/pull/24652
-[#24660]: https://github.com/home-assistant/core/pull/24660
-[#24665]: https://github.com/home-assistant/core/pull/24665
-[#24666]: https://github.com/home-assistant/core/pull/24666
-[#24677]: https://github.com/home-assistant/core/pull/24677
-[#24678]: https://github.com/home-assistant/core/pull/24678
-[#24681]: https://github.com/home-assistant/core/pull/24681
-[#24682]: https://github.com/home-assistant/core/pull/24682
-[#24685]: https://github.com/home-assistant/core/pull/24685
-[#24690]: https://github.com/home-assistant/core/pull/24690
-[#24692]: https://github.com/home-assistant/core/pull/24692
-[#24693]: https://github.com/home-assistant/core/pull/24693
-[#24695]: https://github.com/home-assistant/core/pull/24695
-[#24707]: https://github.com/home-assistant/core/pull/24707
-[#24708]: https://github.com/home-assistant/core/pull/24708
-[#24733]: https://github.com/home-assistant/core/pull/24733
-[#24735]: https://github.com/home-assistant/core/pull/24735
-[#24748]: https://github.com/home-assistant/core/pull/24748
-[#24753]: https://github.com/home-assistant/core/pull/24753
-[#24756]: https://github.com/home-assistant/core/pull/24756
-[#24765]: https://github.com/home-assistant/core/pull/24765
-[#24771]: https://github.com/home-assistant/core/pull/24771
-[#24774]: https://github.com/home-assistant/core/pull/24774
-[#24782]: https://github.com/home-assistant/core/pull/24782
-[#24798]: https://github.com/home-assistant/core/pull/24798
-[#24804]: https://github.com/home-assistant/core/pull/24804
-[#24806]: https://github.com/home-assistant/core/pull/24806
-[#24807]: https://github.com/home-assistant/core/pull/24807
-[#24808]: https://github.com/home-assistant/core/pull/24808
-[#24809]: https://github.com/home-assistant/core/pull/24809
-[#24810]: https://github.com/home-assistant/core/pull/24810
-[#24812]: https://github.com/home-assistant/core/pull/24812
-[#24821]: https://github.com/home-assistant/core/pull/24821
-[#24829]: https://github.com/home-assistant/core/pull/24829
-[#24830]: https://github.com/home-assistant/core/pull/24830
-[#24833]: https://github.com/home-assistant/core/pull/24833
-[#24837]: https://github.com/home-assistant/core/pull/24837
-[#24840]: https://github.com/home-assistant/core/pull/24840
-[#24842]: https://github.com/home-assistant/core/pull/24842
-[#24844]: https://github.com/home-assistant/core/pull/24844
-[#24845]: https://github.com/home-assistant/core/pull/24845
-[#24846]: https://github.com/home-assistant/core/pull/24846
-[#24847]: https://github.com/home-assistant/core/pull/24847
-[#24848]: https://github.com/home-assistant/core/pull/24848
-[#24850]: https://github.com/home-assistant/core/pull/24850
-[#24851]: https://github.com/home-assistant/core/pull/24851
-[#24852]: https://github.com/home-assistant/core/pull/24852
-[#24854]: https://github.com/home-assistant/core/pull/24854
-[#24861]: https://github.com/home-assistant/core/pull/24861
-[#24871]: https://github.com/home-assistant/core/pull/24871
-[#24875]: https://github.com/home-assistant/core/pull/24875
-[#24877]: https://github.com/home-assistant/core/pull/24877
-[#24878]: https://github.com/home-assistant/core/pull/24878
-[#24879]: https://github.com/home-assistant/core/pull/24879
-[#24880]: https://github.com/home-assistant/core/pull/24880
-[#24881]: https://github.com/home-assistant/core/pull/24881
-[#24882]: https://github.com/home-assistant/core/pull/24882
-[#24885]: https://github.com/home-assistant/core/pull/24885
-[#24886]: https://github.com/home-assistant/core/pull/24886
-[#24892]: https://github.com/home-assistant/core/pull/24892
-[#24893]: https://github.com/home-assistant/core/pull/24893
-[#24894]: https://github.com/home-assistant/core/pull/24894
-[#24902]: https://github.com/home-assistant/core/pull/24902
-[#24904]: https://github.com/home-assistant/core/pull/24904
-[#24905]: https://github.com/home-assistant/core/pull/24905
-[#24909]: https://github.com/home-assistant/core/pull/24909
-[#24910]: https://github.com/home-assistant/core/pull/24910
-[#24912]: https://github.com/home-assistant/core/pull/24912
-[#24917]: https://github.com/home-assistant/core/pull/24917
-[#24921]: https://github.com/home-assistant/core/pull/24921
-[#24927]: https://github.com/home-assistant/core/pull/24927
-[#24928]: https://github.com/home-assistant/core/pull/24928
-[#24930]: https://github.com/home-assistant/core/pull/24930
-[#24932]: https://github.com/home-assistant/core/pull/24932
-[#24941]: https://github.com/home-assistant/core/pull/24941
-[#24944]: https://github.com/home-assistant/core/pull/24944
-[#24946]: https://github.com/home-assistant/core/pull/24946
-[#24951]: https://github.com/home-assistant/core/pull/24951
-[#24955]: https://github.com/home-assistant/core/pull/24955
-[#24957]: https://github.com/home-assistant/core/pull/24957
-[#24958]: https://github.com/home-assistant/core/pull/24958
-[#24961]: https://github.com/home-assistant/core/pull/24961
-[#24963]: https://github.com/home-assistant/core/pull/24963
-[#24971]: https://github.com/home-assistant/core/pull/24971
-[#24972]: https://github.com/home-assistant/core/pull/24972
-[#24974]: https://github.com/home-assistant/core/pull/24974
-[#24975]: https://github.com/home-assistant/core/pull/24975
-[#24984]: https://github.com/home-assistant/core/pull/24984
-[#24985]: https://github.com/home-assistant/core/pull/24985
-[#24986]: https://github.com/home-assistant/core/pull/24986
-[#24990]: https://github.com/home-assistant/core/pull/24990
-[#24998]: https://github.com/home-assistant/core/pull/24998
-[#25001]: https://github.com/home-assistant/core/pull/25001
-[#25004]: https://github.com/home-assistant/core/pull/25004
-[#25005]: https://github.com/home-assistant/core/pull/25005
-[#25006]: https://github.com/home-assistant/core/pull/25006
-[#25008]: https://github.com/home-assistant/core/pull/25008
-[#25011]: https://github.com/home-assistant/core/pull/25011
-[#25015]: https://github.com/home-assistant/core/pull/25015
-[#25016]: https://github.com/home-assistant/core/pull/25016
-[#25017]: https://github.com/home-assistant/core/pull/25017
-[#25018]: https://github.com/home-assistant/core/pull/25018
-[#25019]: https://github.com/home-assistant/core/pull/25019
-[#25023]: https://github.com/home-assistant/core/pull/25023
-[#25024]: https://github.com/home-assistant/core/pull/25024
-[#25026]: https://github.com/home-assistant/core/pull/25026
-[#25027]: https://github.com/home-assistant/core/pull/25027
-[#25028]: https://github.com/home-assistant/core/pull/25028
-[#25029]: https://github.com/home-assistant/core/pull/25029
-[#25030]: https://github.com/home-assistant/core/pull/25030
-[#25035]: https://github.com/home-assistant/core/pull/25035
-[#25036]: https://github.com/home-assistant/core/pull/25036
-[#25037]: https://github.com/home-assistant/core/pull/25037
-[#25039]: https://github.com/home-assistant/core/pull/25039
-[#25040]: https://github.com/home-assistant/core/pull/25040
-[#25041]: https://github.com/home-assistant/core/pull/25041
-[#25043]: https://github.com/home-assistant/core/pull/25043
-[#25045]: https://github.com/home-assistant/core/pull/25045
-[#25046]: https://github.com/home-assistant/core/pull/25046
-[#25048]: https://github.com/home-assistant/core/pull/25048
-[#25050]: https://github.com/home-assistant/core/pull/25050
-[#25053]: https://github.com/home-assistant/core/pull/25053
-[#25059]: https://github.com/home-assistant/core/pull/25059
-[#25061]: https://github.com/home-assistant/core/pull/25061
-[#25062]: https://github.com/home-assistant/core/pull/25062
-[#25063]: https://github.com/home-assistant/core/pull/25063
-[#25064]: https://github.com/home-assistant/core/pull/25064
-[#25066]: https://github.com/home-assistant/core/pull/25066
-[#25067]: https://github.com/home-assistant/core/pull/25067
-[#25069]: https://github.com/home-assistant/core/pull/25069
-[#25073]: https://github.com/home-assistant/core/pull/25073
-[#25076]: https://github.com/home-assistant/core/pull/25076
-[#25077]: https://github.com/home-assistant/core/pull/25077
-[#25079]: https://github.com/home-assistant/core/pull/25079
-[#25080]: https://github.com/home-assistant/core/pull/25080
-[#25087]: https://github.com/home-assistant/core/pull/25087
-[#25090]: https://github.com/home-assistant/core/pull/25090
-[#25096]: https://github.com/home-assistant/core/pull/25096
-[#25097]: https://github.com/home-assistant/core/pull/25097
-[#25100]: https://github.com/home-assistant/core/pull/25100
-[#25101]: https://github.com/home-assistant/core/pull/25101
-[#25115]: https://github.com/home-assistant/core/pull/25115
-[#25119]: https://github.com/home-assistant/core/pull/25119
-[#25121]: https://github.com/home-assistant/core/pull/25121
-[#25133]: https://github.com/home-assistant/core/pull/25133
-[#25135]: https://github.com/home-assistant/core/pull/25135
-[#25139]: https://github.com/home-assistant/core/pull/25139
-[#25140]: https://github.com/home-assistant/core/pull/25140
-[#25141]: https://github.com/home-assistant/core/pull/25141
-[#25148]: https://github.com/home-assistant/core/pull/25148
-[#25149]: https://github.com/home-assistant/core/pull/25149
-[#25151]: https://github.com/home-assistant/core/pull/25151
-[#25152]: https://github.com/home-assistant/core/pull/25152
-[#25162]: https://github.com/home-assistant/core/pull/25162
-[#25166]: https://github.com/home-assistant/core/pull/25166
-[#25167]: https://github.com/home-assistant/core/pull/25167
-[#25168]: https://github.com/home-assistant/core/pull/25168
-[#25170]: https://github.com/home-assistant/core/pull/25170
-[#25177]: https://github.com/home-assistant/core/pull/25177
-[#25180]: https://github.com/home-assistant/core/pull/25180
-[#25187]: https://github.com/home-assistant/core/pull/25187
-[#25193]: https://github.com/home-assistant/core/pull/25193
+[#22316]: https://github.com/home-assistant/home-assistant/pull/22316
+[#22904]: https://github.com/home-assistant/home-assistant/pull/22904
+[#22932]: https://github.com/home-assistant/home-assistant/pull/22932
+[#23470]: https://github.com/home-assistant/home-assistant/pull/23470
+[#23691]: https://github.com/home-assistant/home-assistant/pull/23691
+[#23737]: https://github.com/home-assistant/home-assistant/pull/23737
+[#23838]: https://github.com/home-assistant/home-assistant/pull/23838
+[#23899]: https://github.com/home-assistant/home-assistant/pull/23899
+[#23941]: https://github.com/home-assistant/home-assistant/pull/23941
+[#23988]: https://github.com/home-assistant/home-assistant/pull/23988
+[#24369]: https://github.com/home-assistant/home-assistant/pull/24369
+[#24389]: https://github.com/home-assistant/home-assistant/pull/24389
+[#24445]: https://github.com/home-assistant/home-assistant/pull/24445
+[#24557]: https://github.com/home-assistant/home-assistant/pull/24557
+[#24584]: https://github.com/home-assistant/home-assistant/pull/24584
+[#24600]: https://github.com/home-assistant/home-assistant/pull/24600
+[#24621]: https://github.com/home-assistant/home-assistant/pull/24621
+[#24628]: https://github.com/home-assistant/home-assistant/pull/24628
+[#24634]: https://github.com/home-assistant/home-assistant/pull/24634
+[#24640]: https://github.com/home-assistant/home-assistant/pull/24640
+[#24641]: https://github.com/home-assistant/home-assistant/pull/24641
+[#24642]: https://github.com/home-assistant/home-assistant/pull/24642
+[#24646]: https://github.com/home-assistant/home-assistant/pull/24646
+[#24652]: https://github.com/home-assistant/home-assistant/pull/24652
+[#24660]: https://github.com/home-assistant/home-assistant/pull/24660
+[#24665]: https://github.com/home-assistant/home-assistant/pull/24665
+[#24666]: https://github.com/home-assistant/home-assistant/pull/24666
+[#24677]: https://github.com/home-assistant/home-assistant/pull/24677
+[#24678]: https://github.com/home-assistant/home-assistant/pull/24678
+[#24681]: https://github.com/home-assistant/home-assistant/pull/24681
+[#24682]: https://github.com/home-assistant/home-assistant/pull/24682
+[#24685]: https://github.com/home-assistant/home-assistant/pull/24685
+[#24690]: https://github.com/home-assistant/home-assistant/pull/24690
+[#24692]: https://github.com/home-assistant/home-assistant/pull/24692
+[#24693]: https://github.com/home-assistant/home-assistant/pull/24693
+[#24695]: https://github.com/home-assistant/home-assistant/pull/24695
+[#24707]: https://github.com/home-assistant/home-assistant/pull/24707
+[#24708]: https://github.com/home-assistant/home-assistant/pull/24708
+[#24733]: https://github.com/home-assistant/home-assistant/pull/24733
+[#24735]: https://github.com/home-assistant/home-assistant/pull/24735
+[#24748]: https://github.com/home-assistant/home-assistant/pull/24748
+[#24753]: https://github.com/home-assistant/home-assistant/pull/24753
+[#24756]: https://github.com/home-assistant/home-assistant/pull/24756
+[#24765]: https://github.com/home-assistant/home-assistant/pull/24765
+[#24771]: https://github.com/home-assistant/home-assistant/pull/24771
+[#24774]: https://github.com/home-assistant/home-assistant/pull/24774
+[#24782]: https://github.com/home-assistant/home-assistant/pull/24782
+[#24798]: https://github.com/home-assistant/home-assistant/pull/24798
+[#24804]: https://github.com/home-assistant/home-assistant/pull/24804
+[#24806]: https://github.com/home-assistant/home-assistant/pull/24806
+[#24807]: https://github.com/home-assistant/home-assistant/pull/24807
+[#24808]: https://github.com/home-assistant/home-assistant/pull/24808
+[#24809]: https://github.com/home-assistant/home-assistant/pull/24809
+[#24810]: https://github.com/home-assistant/home-assistant/pull/24810
+[#24812]: https://github.com/home-assistant/home-assistant/pull/24812
+[#24821]: https://github.com/home-assistant/home-assistant/pull/24821
+[#24829]: https://github.com/home-assistant/home-assistant/pull/24829
+[#24830]: https://github.com/home-assistant/home-assistant/pull/24830
+[#24833]: https://github.com/home-assistant/home-assistant/pull/24833
+[#24837]: https://github.com/home-assistant/home-assistant/pull/24837
+[#24840]: https://github.com/home-assistant/home-assistant/pull/24840
+[#24842]: https://github.com/home-assistant/home-assistant/pull/24842
+[#24844]: https://github.com/home-assistant/home-assistant/pull/24844
+[#24845]: https://github.com/home-assistant/home-assistant/pull/24845
+[#24846]: https://github.com/home-assistant/home-assistant/pull/24846
+[#24847]: https://github.com/home-assistant/home-assistant/pull/24847
+[#24848]: https://github.com/home-assistant/home-assistant/pull/24848
+[#24850]: https://github.com/home-assistant/home-assistant/pull/24850
+[#24851]: https://github.com/home-assistant/home-assistant/pull/24851
+[#24852]: https://github.com/home-assistant/home-assistant/pull/24852
+[#24854]: https://github.com/home-assistant/home-assistant/pull/24854
+[#24861]: https://github.com/home-assistant/home-assistant/pull/24861
+[#24871]: https://github.com/home-assistant/home-assistant/pull/24871
+[#24875]: https://github.com/home-assistant/home-assistant/pull/24875
+[#24877]: https://github.com/home-assistant/home-assistant/pull/24877
+[#24878]: https://github.com/home-assistant/home-assistant/pull/24878
+[#24879]: https://github.com/home-assistant/home-assistant/pull/24879
+[#24880]: https://github.com/home-assistant/home-assistant/pull/24880
+[#24881]: https://github.com/home-assistant/home-assistant/pull/24881
+[#24882]: https://github.com/home-assistant/home-assistant/pull/24882
+[#24885]: https://github.com/home-assistant/home-assistant/pull/24885
+[#24886]: https://github.com/home-assistant/home-assistant/pull/24886
+[#24892]: https://github.com/home-assistant/home-assistant/pull/24892
+[#24893]: https://github.com/home-assistant/home-assistant/pull/24893
+[#24894]: https://github.com/home-assistant/home-assistant/pull/24894
+[#24902]: https://github.com/home-assistant/home-assistant/pull/24902
+[#24904]: https://github.com/home-assistant/home-assistant/pull/24904
+[#24905]: https://github.com/home-assistant/home-assistant/pull/24905
+[#24909]: https://github.com/home-assistant/home-assistant/pull/24909
+[#24910]: https://github.com/home-assistant/home-assistant/pull/24910
+[#24912]: https://github.com/home-assistant/home-assistant/pull/24912
+[#24917]: https://github.com/home-assistant/home-assistant/pull/24917
+[#24921]: https://github.com/home-assistant/home-assistant/pull/24921
+[#24927]: https://github.com/home-assistant/home-assistant/pull/24927
+[#24928]: https://github.com/home-assistant/home-assistant/pull/24928
+[#24930]: https://github.com/home-assistant/home-assistant/pull/24930
+[#24932]: https://github.com/home-assistant/home-assistant/pull/24932
+[#24941]: https://github.com/home-assistant/home-assistant/pull/24941
+[#24944]: https://github.com/home-assistant/home-assistant/pull/24944
+[#24946]: https://github.com/home-assistant/home-assistant/pull/24946
+[#24951]: https://github.com/home-assistant/home-assistant/pull/24951
+[#24955]: https://github.com/home-assistant/home-assistant/pull/24955
+[#24957]: https://github.com/home-assistant/home-assistant/pull/24957
+[#24958]: https://github.com/home-assistant/home-assistant/pull/24958
+[#24961]: https://github.com/home-assistant/home-assistant/pull/24961
+[#24963]: https://github.com/home-assistant/home-assistant/pull/24963
+[#24971]: https://github.com/home-assistant/home-assistant/pull/24971
+[#24972]: https://github.com/home-assistant/home-assistant/pull/24972
+[#24974]: https://github.com/home-assistant/home-assistant/pull/24974
+[#24975]: https://github.com/home-assistant/home-assistant/pull/24975
+[#24984]: https://github.com/home-assistant/home-assistant/pull/24984
+[#24985]: https://github.com/home-assistant/home-assistant/pull/24985
+[#24986]: https://github.com/home-assistant/home-assistant/pull/24986
+[#24990]: https://github.com/home-assistant/home-assistant/pull/24990
+[#24998]: https://github.com/home-assistant/home-assistant/pull/24998
+[#25001]: https://github.com/home-assistant/home-assistant/pull/25001
+[#25004]: https://github.com/home-assistant/home-assistant/pull/25004
+[#25005]: https://github.com/home-assistant/home-assistant/pull/25005
+[#25006]: https://github.com/home-assistant/home-assistant/pull/25006
+[#25008]: https://github.com/home-assistant/home-assistant/pull/25008
+[#25011]: https://github.com/home-assistant/home-assistant/pull/25011
+[#25015]: https://github.com/home-assistant/home-assistant/pull/25015
+[#25016]: https://github.com/home-assistant/home-assistant/pull/25016
+[#25017]: https://github.com/home-assistant/home-assistant/pull/25017
+[#25018]: https://github.com/home-assistant/home-assistant/pull/25018
+[#25019]: https://github.com/home-assistant/home-assistant/pull/25019
+[#25023]: https://github.com/home-assistant/home-assistant/pull/25023
+[#25024]: https://github.com/home-assistant/home-assistant/pull/25024
+[#25026]: https://github.com/home-assistant/home-assistant/pull/25026
+[#25027]: https://github.com/home-assistant/home-assistant/pull/25027
+[#25028]: https://github.com/home-assistant/home-assistant/pull/25028
+[#25029]: https://github.com/home-assistant/home-assistant/pull/25029
+[#25030]: https://github.com/home-assistant/home-assistant/pull/25030
+[#25035]: https://github.com/home-assistant/home-assistant/pull/25035
+[#25036]: https://github.com/home-assistant/home-assistant/pull/25036
+[#25037]: https://github.com/home-assistant/home-assistant/pull/25037
+[#25039]: https://github.com/home-assistant/home-assistant/pull/25039
+[#25040]: https://github.com/home-assistant/home-assistant/pull/25040
+[#25041]: https://github.com/home-assistant/home-assistant/pull/25041
+[#25043]: https://github.com/home-assistant/home-assistant/pull/25043
+[#25045]: https://github.com/home-assistant/home-assistant/pull/25045
+[#25046]: https://github.com/home-assistant/home-assistant/pull/25046
+[#25048]: https://github.com/home-assistant/home-assistant/pull/25048
+[#25050]: https://github.com/home-assistant/home-assistant/pull/25050
+[#25053]: https://github.com/home-assistant/home-assistant/pull/25053
+[#25059]: https://github.com/home-assistant/home-assistant/pull/25059
+[#25061]: https://github.com/home-assistant/home-assistant/pull/25061
+[#25062]: https://github.com/home-assistant/home-assistant/pull/25062
+[#25063]: https://github.com/home-assistant/home-assistant/pull/25063
+[#25064]: https://github.com/home-assistant/home-assistant/pull/25064
+[#25066]: https://github.com/home-assistant/home-assistant/pull/25066
+[#25067]: https://github.com/home-assistant/home-assistant/pull/25067
+[#25069]: https://github.com/home-assistant/home-assistant/pull/25069
+[#25073]: https://github.com/home-assistant/home-assistant/pull/25073
+[#25076]: https://github.com/home-assistant/home-assistant/pull/25076
+[#25077]: https://github.com/home-assistant/home-assistant/pull/25077
+[#25079]: https://github.com/home-assistant/home-assistant/pull/25079
+[#25080]: https://github.com/home-assistant/home-assistant/pull/25080
+[#25087]: https://github.com/home-assistant/home-assistant/pull/25087
+[#25090]: https://github.com/home-assistant/home-assistant/pull/25090
+[#25096]: https://github.com/home-assistant/home-assistant/pull/25096
+[#25097]: https://github.com/home-assistant/home-assistant/pull/25097
+[#25100]: https://github.com/home-assistant/home-assistant/pull/25100
+[#25101]: https://github.com/home-assistant/home-assistant/pull/25101
+[#25115]: https://github.com/home-assistant/home-assistant/pull/25115
+[#25119]: https://github.com/home-assistant/home-assistant/pull/25119
+[#25121]: https://github.com/home-assistant/home-assistant/pull/25121
+[#25133]: https://github.com/home-assistant/home-assistant/pull/25133
+[#25135]: https://github.com/home-assistant/home-assistant/pull/25135
+[#25139]: https://github.com/home-assistant/home-assistant/pull/25139
+[#25140]: https://github.com/home-assistant/home-assistant/pull/25140
+[#25141]: https://github.com/home-assistant/home-assistant/pull/25141
+[#25148]: https://github.com/home-assistant/home-assistant/pull/25148
+[#25149]: https://github.com/home-assistant/home-assistant/pull/25149
+[#25151]: https://github.com/home-assistant/home-assistant/pull/25151
+[#25152]: https://github.com/home-assistant/home-assistant/pull/25152
+[#25162]: https://github.com/home-assistant/home-assistant/pull/25162
+[#25166]: https://github.com/home-assistant/home-assistant/pull/25166
+[#25167]: https://github.com/home-assistant/home-assistant/pull/25167
+[#25168]: https://github.com/home-assistant/home-assistant/pull/25168
+[#25170]: https://github.com/home-assistant/home-assistant/pull/25170
+[#25177]: https://github.com/home-assistant/home-assistant/pull/25177
+[#25180]: https://github.com/home-assistant/home-assistant/pull/25180
+[#25187]: https://github.com/home-assistant/home-assistant/pull/25187
+[#25193]: https://github.com/home-assistant/home-assistant/pull/25193
 [@Adminiuga]: https://github.com/Adminiuga
 [@Cereal2nd]: https://github.com/Cereal2nd
 [@Chris-Johnston]: https://github.com/Chris-Johnston
