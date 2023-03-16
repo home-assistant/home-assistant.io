@@ -69,15 +69,21 @@
     devices in the configuration.
 
 - term: Device
-  definition: >
-    A device is a named collection of entities that all represent the same
-    physical/logical unit, which can do or observe something. An example,
-    for a device would be a smart plug named 'Coffee Machine' which provides
-    a `switch` entity plus one or more `sensor` entities for power monitoring
-    or similar.
+  definition: >    
+    A device is a model representing a physical or logical unit that contains entities and has its own control unit. 
+
+    <b>Example for a physical unit</b>
+    A smart plug named 'Coffee machine' which provides 2 entities: a `switch` entity to turn power on or off ('Coffee machine power switch') and a `sensor` entity for power monitoring ('Coffee machine power sensor').
+    
+    <b>Example for a logical unit</b>
+    An Ecobee thermostat with 4 room sensors. This thermostat is seen as 5 devices in Home Assistant: 1 device for the thermostat with 4 sensors, and 1 device for each room sensor. Each device can be in a different area, and may have more than one input or output within that area.
+
+    Devices have properties such as ID, manufacturer, name, model, hardware version, firmware version, connections, etc.
+  link: developers.home-assistant.io/docs/device_registry_index    
+
+
   excerpt: >
-    A device is a named collection of entities that all represent the same
-    physical/logical unit, which can do or observe something.
+    A device is a model representing a physical or logical unit that contains entities and has its own control unit.
 
 - term: Device tracker
   definition: >
