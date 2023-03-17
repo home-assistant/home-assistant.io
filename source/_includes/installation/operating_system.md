@@ -278,8 +278,30 @@ _All these can be extended if your usage calls for more resources._
 
 - title: KVM (virt-install)
   content: |
+    General command to install the VM is:
+    
     ```bash
     virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --graphics none --boot uefi
+    ```
+       
+    If you have an USB dongle to attach, you need to add the option `--hostdev busID.deviceId`. You can discover these IDs via the `lsusb` command.
+       
+    As example, if `lsusb` output is:
+       
+    ```bash
+       Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+       Bus 003 Device 004: ID 30c9:0052 Luxvisions Innotech Limited Integrated RGB Camera
+       Bus 003 Device 003: ID 1a86:55d4 QinHeng Electronics SONOFF Zigbee 3.0 USB Dongle Plus V2
+       Bus 003 Device 002: ID 06cb:00fc Synaptics, Inc. 
+       Bus 003 Device 005: ID 8087:0033 Intel Corp. 
+       Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+       Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+       Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+    ```
+    the command to install the VM will become:
+       
+    ```bash
+    virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --graphics none --boot uefi --hostdev 003.003
     ```
 
 {% if page.installation_type == 'windows' or page.installation_type == 'linux' %}
