@@ -278,6 +278,7 @@ _All these can be extended if your usage calls for more resources._
 
 - title: KVM (virt-install)
   content: |
+       
     General command to install the VM is:
     
     ```bash
