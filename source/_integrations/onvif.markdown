@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/) Profile S conformant device in Home Assistant. This requires the [`ffmpeg` component](/integrations/ffmpeg/) to be already configured.
+The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/) Profile S conformant device in Home Assistant. This requires the [`ffmpeg` integration](/integrations/ffmpeg/) to be already configured.
 
 {% include integrations/config_flow.md %}
 
@@ -42,14 +42,14 @@ You can configure specific FFmpeg options through the integration options flow b
 | Option | Description |
 | -------| ----------- |
 | RTSP transport mechanism | RTSP transport protocols. The possible options are: `tcp`, `udp`, `udp_multicast`, `http`. |
-| Extra FFmpeg arguments | Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [`ffmpeg` component](/integrations/ffmpeg). |
+| Extra FFmpeg arguments | Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [`ffmpeg` integration](/integrations/ffmpeg). |
 | Use wallclock as timestamps | ([Advanced Mode](/blog/2019/07/17/release-96/#advanced-mode) only) Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (e.g., EZVIZ). |
 
 ### Supported Sensors
 
 This integration uses the ONVIF pullpoint subscription API to process events into sensors that will be automatically added to Home Assistant.  Below is a list of currently supported event topics along with the entities they create.
 
-To help with development of this component, enable `info` level logging for `homeassistant.components.onvif` and create an issue on GitHub for any messages that show _"No registered handler for event"_.
+To help with development of this integration, enable `info` level logging for `homeassistant.components.onvif` and create an issue on GitHub for any messages that show _"No registered handler for event"_.
 
 | Topic(s) | Entity Type | Device Class | Description |
 |----------|-------------|--------------|-------------|
