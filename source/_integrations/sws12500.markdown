@@ -11,47 +11,60 @@ ha_domain: sws12500
 ha_platforms:
   - sensor
 ---
-*Integrates your weather station seamlessly into Home Assistant.*
 
-This integration will listen for data from your station and passes them into respective sensors.
-Also you are able to push data to Windy API.
+Integrates your weather station seamlessly into Home Assistant.
+
+This integration will listen for data from your station and passes them to respective sensors. It also provides the ability to push data to Windy API.
 
 ## Requirements
 
-- [Sencor SWS 12500 Weather Station](https://www.sencor.cz/profesionalni-meteorologicka-stanice/sws-12500)
-- Station set to send data directly to Home Assistant
-- Open communication between station and Home Assistant
-- If you want to push data to Windy, you have to create account at [Windy](https://stations.windy.com)
+- [Sencor SWS 12500 Weather Station](https://www.sencor.cz/profesionalni-meteorologicka-stanice/sws-12500).
+- Configure station to send data directly to Home Assistant.
+- If you want to push data to Windy, you have to create an account at [Windy](https://stations.windy.com).
 
 ## Configure your station in AP mode
 
-You need to configure your station in AP mode to send data to your local Home Assistant installation.
-
-- hold WiFi button on the back of station for 6 seconds until AP will flash on display.
-- select your station from available APs on your computer
-- connect to station's setup page: `http://192.168.1.1` from your browser
-- in the third URL section fill in address to your local Home Assistant installation
-- fill in `ID` and `KEY`. You can use [online tool](https://www.allkeysgenerator.com/Random/Security-Encryption-Key-Generator.aspx) to generate random keys.
-
+1. Hold the Wi-Fi button on the back of the station for 6 seconds until the AP will flash on the display.
+2. Select your station from available APs on your computer.
+3. Connect to the station's setup page: `http://192.168.1.1` from your browser.
+4. In the third URL section fill in the address to your local Home Assistant installation.
+5. Create new `ID` and `KEY`. You can use [online tool](https://www.allkeysgenerator.com/Random/Security-Encryption-Key-Generator.aspx) to generate random keys. _(you will need them to configure integation to Home Assistatnt)_
+6. Save your configuration.
 ![station_setup](/images/integrations/sws12500/station_hint.png)
-Now *Let's add the integration to Home Assistant*
 
+Now _Let's add the integration to Home Assistant_
 {% include integrations/config_flow.md %}
 
-Once integration is installed to Home Assistant, you need to provide set of `API_ID` and `API_KEY` as you defined them in your station:
+Once integration is added to Home Assistant, configuration dialog will ask you for `API_ID` and `API_KEY` as you set them in your station:
 
 ```plain
 API_ID: ID in station's config
 API_KEY: PASSWORD in station's config
 ```
 
-If your security data is changed for some reason, you need to reconfigure the platform.
+![config dialog](/images/integrations/sws12500/cfg_dialog.png)
+
+If you chanage `API ID` or `API KEY` in the station, you have to reconfigure integration to accept data from your station.
+
+- In `Settings` -> `Devices & services` find SWS12500 and click `Configure`.
+- In dialog box choose `Basic - Configure credentials`
+
+![reconfigure dialog](/images/integrations/sws12500/reconfigure.png)
 
 As soon as the integration is added into Home Assistant it will listen for incoming data from station and starts to fill sensors as soon as data will first arrive.
 
 ## Resending data to Windy API
 
-- first of all you need to create account at [Windy stations](https://stations.windy.com). Once you have an account, copy Windy API Key
-- provide Windy API key to SWS 12500 integration
-- tick `Enable` checkbox
-- you are done.
+- First of all you need to create account at [Windy stations](https://stations.windy.com).
+- Once you have an account created, copy your Windy API Key.
+![windy api key](/images/integrations/sws12500/windy_key.png)
+
+- In `Settings` -> `Devices & services` find SWS12500 and click `Configure`.
+- In dialog box choose `Windy configuration`.
+![config dialog](/images/integrations/sws12500/cfg.png)
+
+- Fill in `Key` you were provided at `Windy stations`.
+- Tick `Enable` checkbox.
+![enable windy](/images/integrations/sws12500/windy_cfg.png)
+
+- You are done.
