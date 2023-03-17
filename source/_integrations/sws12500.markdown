@@ -51,7 +51,7 @@ If you chanage `API ID` or `API KEY` in the station, you have to reconfigure int
 
 ![reconfigure dialog](/images/integrations/sws12500/reconfigure.png)
 
-As soon as the integration is added into Home Assistant it will listen for incoming data from station and starts to fill sensors as soon as data will first arrive.
+As soon as the integration is added into Home Assistant it will listen for incoming data from the station and starts to fill sensors as soon as data will first arrive.
 
 ## Resending data to Windy API
 
