@@ -301,6 +301,10 @@ _All these can be extended if your usage calls for more resources._
     ```bash
     virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --graphics none --boot uefi --hostdev 003.003
     ```
+      <div class="note warning">
+      Note that this configuration (bus 003, device 003) is just an example, your dongle could be on another bus, with another device ID. 
+-     Please check the IDs of your dongle with `lsusb`.
+      </div>
     </div>
 
 {% if page.installation_type == 'windows' or page.installation_type == 'linux' %}
