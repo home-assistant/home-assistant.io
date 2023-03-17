@@ -275,6 +275,13 @@
     Services are called to perform actions.
   link: /docs/scripts/service-calls/
 
+- term: State
+  definition: |-
+    The state is the core element of an entity. It holds the information of interest: the current state of an entity. E.g. if a light is on or off, the current temperature, or the RGB value of a light. The data type of state is String. States have an entity id, a state value, and 2 timestamps: last updated and last changed. Apart from the actual state value, a state can have attributes and context. 
+  link: /docs/scripts/configuration/state_object/
+  excerpt: >
+    State is the core element of an entity. It holds the information of interest: the current state of an entity. E.g. if a light is on or off, the current temperature, or the RGB value of a light.
+
 - term: Switch
   definition: >-
     Switches are things that have two states you can select between, such as
