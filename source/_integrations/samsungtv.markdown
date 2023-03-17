@@ -54,7 +54,7 @@ After saving the YAML configuration, the TV must be turned on _before_ launching
 
 ### Turn on action
 
-If Wake on LAN is enabled on the TV, or if the TV is connected to a smart strip or requires a more complex turn-on process, a `turn_on` automation can be created from the user interface. From the device create a new automation and select the **Device is requested to turn on** automation.
+If Wake on LAN is enabled on the TV, or if the TV is connected to a smart strip or requires a more complex turn-on process, a `turn_on` automation can be created from the user interface. From the device create a new automation and select the **Device is requested to turn on** automation. For newer models, the MAC address should be available in the integration diagnostics.
 
 Automations can also be created using an automation action:
 
