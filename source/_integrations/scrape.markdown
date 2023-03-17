@@ -145,15 +145,6 @@ sensor:
       description: Defines a template for the entity picture of the sensor.
       required: false
       type: template
-    attributes:
-      description: Defines templates for attributes of the sensor.
-      required: false
-      type: map
-      keys:
-        "attribute: template":
-          description: The attribute and corresponding template.
-          required: true
-          type: template
     device_class:
       description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
       required: false

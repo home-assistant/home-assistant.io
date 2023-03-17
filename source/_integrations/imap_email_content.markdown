@@ -71,7 +71,7 @@ value_template:
     body:
       description: The body of the email.
     subject:
-      description: The subject of the email.git.
+      description: The subject of the email.
     date:
       description: The date and time the email was sent.
 verify_ssl:

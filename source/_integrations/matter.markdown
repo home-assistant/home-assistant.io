@@ -1,5 +1,5 @@
 ---
-title: Matter
+title: Matter (BETA)
 description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary Sensor
@@ -10,11 +10,11 @@ ha_release: '2022.12'
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - '@marcelveldt'
-  - '@MartinHjelmare'
+  - '@home-assistant/matter'
 ha_domain: matter
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - light
   - sensor
   - switch
@@ -200,4 +200,3 @@ _This option is only available for Home Assistant OS (the recommended installati
 This option is considered a very advanced setup and only for experienced users. You can find instructions on how to run the Matter Server in the [project repository](https://github.com/home-assistant-libs/python-matter-server).
 
 _Disclaimer: Some links on this page are affiliate links._
-

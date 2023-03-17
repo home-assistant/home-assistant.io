@@ -261,14 +261,14 @@ scan_interval:
   description: Defines the update interval of the entity in seconds, if scan_interval = 0 polling is stopped. Entities are unavailable until the first response is received, except for entities with scan_interval = 0, these entities are available from startup.
   required: false
   type: integer
-  default: 10
+  default: 15
 slave:
   description: The number of the slave.
   required: false
   type: integer
   default: 0
 unique_id:
-  description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this sensor. Slaves will be given a unique_id of <<unique_id>>_<<slave_index>>. If two sensors have the same unique ID, Home Assistant will raise an exception.
   required: false
   type: string
 {% endconfiguration %}
@@ -375,7 +375,7 @@ binary_sensors:
       default: coil
       type: string
     unique_id:
-      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      description: An ID that uniquely identifies this sensor. Slaves will be given a unique_id of <<unique_id>>_<<slave_index>>.  If two sensors have the same unique ID, Home Assistant will raise an exception.
       required: false
       type: string
     slave_count:
@@ -993,12 +993,24 @@ sensors:
       description: Unit to attach to value.
       required: false
       type: string
+    min_value:
+      description: The minimum allowed value of a sensor. If value < min_value --> min_value. Can be float or integer
+      required: false
+      type: float
+    max_value:
+      description: The maximum allowed value of a sensor. If value > max_value --> max_value. Can be float or integer
+      required: false
+      type: float
+    zero_suppress:
+      description: Suppress values close to zero. If -zero_suppress <= value <= +zero_suppress --> 0. Can be float or integer
+      required: false
+      type: float
     state_class:
       description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
       required: false
       type: string
     unique_id:
-      description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      description: An ID that uniquely identifies this sensor. Slaves will be given a unique_id of <<unique_id>>_<<slave_index>>. If two sensors have the same unique ID, Home Assistant will raise an exception.
       required: false
       type: string
     slave_count:

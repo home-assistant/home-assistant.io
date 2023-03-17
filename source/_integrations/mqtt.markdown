@@ -444,6 +444,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'stat_val_tpl':        'state_value_template',
     'step':                'step',
     'stype':               'subtype',
+    'sug_dsp_prc':         'suggested_display_precision',
     'sup_clrm':            'supported_color_modes',
     'sup_dur':             'support_duration',
     'sup_vol':             'support_volume_set',
@@ -534,7 +535,7 @@ The following software has built-in support for MQTT discovery:
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
-- [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
+- [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
 - [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
 
 ### Discovery examples
