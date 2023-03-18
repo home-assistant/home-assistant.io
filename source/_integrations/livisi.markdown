@@ -2,6 +2,7 @@
 title: LIVISI Smart Home
 description: Access and control your LIVISI Smart Home Controller (SHC) and its connected RWE/innogy devices.
 ha_category:
+  - Climate
   - Switch
 ha_iot_class: Local Polling
 ha_release: 2022.12
@@ -10,6 +11,7 @@ ha_codeowners:
   - '@StefanIacobLivisi'
 ha_domain: livisi
 ha_platforms:
+  - climate
   - switch
 ha_integration_type: integration
 ---
@@ -18,7 +20,10 @@ The LIVISI Smart Home integration allows you to connect your LIVISI Smart Home C
  
 The following devices are currently supported by this integration:
  
-- RWE/innogy Smart Plug (PSS)
+- Indoor Smart Plug (PSS)
+- Outdoor Smart Plug (PSSO)
+- Wall Switches (ISS, ISS2)
+- Room Heating Control (VRCC) that includes support for physical heating devices such as RSTx, WRT, FSC8
  
 ## Prequisites
  

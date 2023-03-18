@@ -3,7 +3,7 @@ title: Denon AVR Network Receivers
 description: Instructions on how to integrate Denon AVR Network Receivers into Home Assistant.
 ha_category:
   - Media Player
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_release: 0.7.2
 ha_domain: denonavr
 ha_codeowners:
@@ -62,6 +62,7 @@ Known supported devices:
 - Denon AVR-S650H
 - Denon AVR-S710W
 - Denon AVR-S720W
+- Denon AVR-S740H
 - Denon AVR-S750H
 - Denon AVR-S760H
 - Denon AVR-S940H

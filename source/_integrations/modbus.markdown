@@ -426,7 +426,9 @@ modbus:
             state_fan_only: 3
             state_dry: 4
             state_off: 5
+          write_registers: true
         hvac_onoff_register: 11
+        write_registers: true
 ```
 
 {% details "Previous configuration format" %}
@@ -488,6 +490,11 @@ climates:
           description: The address of the HVAC mode register.
           required: true
           type: integer
+        write_registers:
+          description: if true use write_registers
+          required: false
+          type: boolean
+          default: false
         values:
           description: A mapping between the register values and HVAC modes
           required: true
@@ -529,6 +536,11 @@ climates:
         value 1 is written.
       required: false
       type: integer
+    write_registers:
+      description: if true use write_registers for hvac_onoff.
+      required: false
+      type: boolean
+      default: false
     unique_id:
       description: An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception.
       required: false

@@ -68,11 +68,11 @@ To explore the data available within the `data` attribute of a sensor use the `d
 template:
   - sensor:
     - name: "Updated"
-      state: '{{ state_attr('sensor.merton', 'updated') }}'
+      state: "{{ state_attr('sensor.merton', 'updated') }}"
     - name: "Merton PM10"
-      state: '{{ state_attr('sensor.merton', 'data')[0].pollutants[0].summary }}'
+      state: "{{ state_attr('sensor.merton', 'data')[0].pollutants[0].summary }}"
     - name: "Westminster S02"
-      state: '{{ state_attr('sensor.westminster', 'data')[0].pollutants[3].summary }}'
+      state: "{{ state_attr('sensor.westminster', 'data')[0].pollutants[3].summary }}"
 ```
 
 {% endraw %}

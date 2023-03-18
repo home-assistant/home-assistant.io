@@ -8,7 +8,7 @@ ha_category:
   - Hub
   - Sensor
   - Switch
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_dhcp: true
 ha_codeowners:
