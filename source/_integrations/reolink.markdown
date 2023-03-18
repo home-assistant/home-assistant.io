@@ -50,6 +50,7 @@ Depending on the supported features of the camera binary sensors are added for:
 
 These sensors are polled every 60 seconds and receive ONVIF push events for immediate updates.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
+For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
 
 ## Number entities
 
@@ -86,7 +87,10 @@ The following models have been tested and confirmed to work:
 - RLC-810A
 - RLC-811A
 - RLC-820A
+- RLC-822A
 - RLC-823A
+- RLC-833A
+- RLC-1224A
 - RLN8-410 NVR
 - RLN16-410 NVR
 - Reolink Duo Floodlight PoE
