@@ -102,7 +102,7 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 
 ### Sensor groups
 
-- The group state is combined / calculated based on `type` selected to determine the minimum, maximum, latest (last), mean, median, range or sum of the collected states.
+- The group state is combined / calculated based on `type` selected to determine the minimum, maximum, latest (last), mean, median, range, product or sum of the collected states.
 - Members can be any `sensor`, `number` or `input_number` holding numeric states.
 - The group state is `unavailable` if all group members are `unavailable`.
 - If `ignore_non_numeric` is `false` then group state will be `unavailable` if one member is `unavailable` or does not have a numeric state.
@@ -241,7 +241,7 @@ all:
   type: boolean
   default: false
 type:
-  description: "Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range`, or `sum`."
+  description: "Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range`, `product` or `sum`."
   type: string
   required: true
 ignore_non_numeric:
