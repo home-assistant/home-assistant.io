@@ -1,17 +1,22 @@
 ---
 title: UniFi Protect
-description: Instructions on how to configure UniFi Protect integration by Ubiquiti.
+description: Instructions on how to configure the Ubiquiti UniFi Protect integration.
 ha_category:
-  - Hub
   - Binary Sensor
   - Button
   - Camera
+  - Doorbell
+  - Hub
   - Light
+  - Lock
   - Media Player
+  - Media Source
   - Number
   - Select
   - Sensor
   - Switch
+ha_dhcp: true
+ha_ssdp: true
 ha_release: 2022.2
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -25,15 +30,19 @@ ha_platforms:
   - binary_sensor
   - button
   - camera
+  - diagnostics
   - light
+  - lock
   - media_player
   - number
   - select
   - sensor
   - switch
+  - text
+ha_integration_type: hub
 ---
 
-The UniFi Protect integration, adds support for retrieving Camera feeds and Sensor data from an [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on an UniFi OS Console.
+The UniFi Protect integration adds support for retrieving Camera feeds and Sensor data from a [UniFi Protect application](https://ui.com/camera-security) by [Ubiquiti Networks, inc.](https://www.ui.com/) that is running on a UniFi OS Console.
 
 ## Prerequisites
 
@@ -41,115 +50,171 @@ The UniFi Protect integration, adds support for retrieving Camera feeds and Sens
 
 This Integration supports all UniFi OS Consoles that can run UniFi Protect. Currently, this includes:
 
-* UniFi Protect Network Video Recorder (**UNVR**)
-* UniFi Protect Network Video Recorder Pro (**UNVRPRO**)
-* UniFi Dream Machine Pro (**UDMP**)
-* UniFi Cloud Key Gen2 Plus (**CKGP**) firmware version v2.0.24+
+* Any UniFi Protect Network Video Recorder (**UNVR** or **UNVRPRO**)
+* Any UniFi "Dream" device (**UDMPRO**, **UDR**, or **UDMSE**), _except the base UniFi Dream Machine/UDM_
+* UniFi Cloud Key Gen2 Plus (**UCKP**) firmware version v2.0.24+
 
-CKGP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware v2.0.24 or newer.
+UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware `v2.0.24` or newer.
 
 ### Software Support
 
-The absolute **minimal** software version is `1.20.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported. Since UniFi Protect has its own release cycle, you should only upgrade UniFi Protect _after_ the next Home Assistant release comes out to ensure the new version is fully supported.
+The absolute **minimal** software version is `v1.20.0` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
 
-Example: as of `2022.2.0` of Home Assistant, UniFi Protect `1.21.0-beta.2` is the newest UniFi Protect version. So the recommended versions of UniFi Protect to run for a `2022.2.0` version of Home Assistant are `1.20.0`, `1.20.1`, `1.20.2`, `1.20.3`, `1.21.0-beta.1`, or `1.21.0-beta.2`.
+#### About UniFi Early Access
+
+<div class='note warning'>
+
+**Early Access releases are not supported by Home Assistant.**
+
+Using Early Access versions will likely cause your UniFi Protect integration to break unexpectedly.
+</div>
+
+#### Downgrading UniFi Protect
+
+In the event you accidentally upgrade to an Early Access version of UniFi Protect you can downgrade to a stable version by either [restoring a backup](https://help.ui.com/hc/en-us/articles/360008976393-UniFi-Backups-and-Migration) or by manually downgrading your UniFi Protect.
+
+##### Manually Downgrade
+
+Manually downgrading comes with its own risks and it is not recommended unless you do not have a backup available. Some Protect versions cannot be downgraded from (like `v2.0` to `v1.21`). To downgrade, you can access your [UniFi OS Console via SSH](https://help.ui.com/hc/en-us/articles/204909374#h_01F8G1NSFWE9GWXMT977VQEP8V) and then do the following:
+
+```bash
+# run this command first _only_ if you are on a 1.x firmware of the UDM Pro
+# it is not needed for the UDM SE, UNVR, etc.
+unifi-os shell
+
+# downgrade UniFi Protect
+apt-get update
+apt-get install --reinstall --allow-downgrades unifi-protect=2.0.0~beta.5 -y
+```
+
+You can replace `2.0.0~beta.5` with whatever version of UniFi Protect you want to downgrade to. Any dashes in the version (`-`), replace with tilde (`~`).
+
+<div class='note'>
+
+If you want to downgrade to another Early Access version, you must have [Remote Access enabled](https://help.ui.com/hc/en-us/articles/115012240067-UniFi-How-to-enable-remote-access) and have the Early Access release channel enabled.
+
+</div>
 
 ### Local User
 
-You will need a local user created in your UniFi OS Console to log in with. Ubiquiti Cloud Users will **not** work.
+You will need a local user created in your UniFi OS Console to log in with. Ubiquiti SSO Cloud Users will **not** work.
+It is recommended you use the Administrator or a user with full read/write access to get the most out of the integration,
+but it is not required. The entities that are created will automatically adjust based on the permissions of the user you
+use has.
 
-1. Login to your *Local Portal* on your UniFi OS device, and click on *Users*
-1. In the upper right corner, click on *Add User*
-1. Click *Add Admin*, and fill out the form. Specific Fields to pay attention to:
-    * Role: Must be *Limited Admin*
-    * Account Type: *Local Access Only*
-    * CONTROLLER PERMISSIONS - Under UniFi Protect, select Administrators. **NOTE**: Other roles may work, but only the default Administrators rule is fully tested.
-1. Click *Add* in at the bottom Right.
+1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_. **Note**: This **must** be done from
+    the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the
+    UniFi Protect app.
+2. In the upper right corner, click on _Add User_.
+3. Fill out the fields for your user. Be sure the role you assign to the user grants them access to at least one or
+    more UniFi Protect devices.
+4. Click _Add_ in the bottom Right.
 
-**HINT**: A few users have reported that they had to restart their UDMP device after creating the local user for it to work. So if you get some kind of *Error 500* when setting up the Integration, try restart the UDMP.
-
-![ADMIN_UNIFIOS](/images/integrations/unifiprotect/unifi_os_admin.png)
+![UniFi OS User Creation](/images/integrations/unifiprotect/user.png)
 
 ### Camera Streams
 
-The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure you can stream your camera in Home Assistant. This may already be enabled by default, but it is recommended to just check that this is done. To check and enable the feature:
+The Integration uses the RTSP(S) Streams as the Live Feed source, so this needs to be enabled on each camera to ensure
+you can stream your camera in Home Assistant. This may already be enabled by default, but it is recommended to just
+check that this is done. To check and enable the feature:
 
-1. Open UniFi Protect and click on *Devices*
-1. Select *Manage* in the Menu bar at the top
-1. Click on the + sign next to RTSP
+1. Open UniFi Protect and click on _Devices_.
+1. Select the camera you want to ensure can stream in UniFi Protect.
+1. Click the _Settings_ tab in the top right.
+1. Expand the _Advanced_ section at the bottom.
 1. Enable a minimum 1 stream out of the 3 available. The Stream with the Highest resolution is the default enabled one.
 
 {% include integrations/config_flow.md %}
 
-## Features
+## Device Support
 
-All known UniFi Protect devices are should be supported. Each UniFi Protect device will get a variety of entities added for each of the different entity platforms.
+All known UniFi Protect devices should be supported. Each UniFi Protect device will get a variety of entities added for
+each of the different entity platforms.
 
-### Cameras
+<div class='note'>
 
-#### Smart Detections
+**Permissions**: The below sections on the features available to your Home Assistant instance assume you have full
+write access to each device. If the user you are using has limited access to some devices, you will get fewer entities
+and in many cases, get a read-only sensor instead of an editable switch/select/number entity.
 
-A clarification about "Smart Detections" below and which cameras have them. The following cameras have Smart Detections:
+</div>
+
+### UniFi Protect Cameras
+
+<div class='note'>
+
+**Smart Detections**: The following cameras have Smart Detections:
 
 * All "AI" series cameras. This includes the AI 360 and the AI Bullet.
-* All "G4" series cameras _except_ the G4 Instant. This includes the G4 Doorbell, G4 Bullet and G4 Pro.
+* All "G4" series cameras. This includes the G4 Doorbell, G4 Bullet, G4 Pro and G4 Instant.
 
 G3 Series cameras do _not_ have Smart detections.
 
-#### Entities
+</div>
 
-Each UniFi Protect camera will get the following entities added:
+Each UniFi Protect camera will get a device in Home Assistant with the following:
 
-* **Camera** - A camera entity for each camera channel and RTSP(S) combination found for each camera (up to 6). Only the highest resolution RTSPS camera entity will be enabled by default.
-* **Media Player** - If your camera has a speaker, you will get a media player entity that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say Service](https://www.home-assistant.io/integrations/tts/#service-say).
-* **Number** - The following number entities will be added for each camera:
-  * **Chime Duration** - If your camera has a chime (doorbell), a configuration number entity will be added to adjust the chime duration of your doorbell chime.
-  * **Zoom Level** - If your camera has optical zoom, a configuration number entity will be added to adjust the zoom level.
-  * **Microphone Level** - If your camera has a microphone, a configuration number entity will be added to adjust the camera's microphone sensitivity.
-  * **WDR Level** - If your camera does not have HDR, a configuration number entity will be added to adjust the WDR level.
-* **Switch** - The following switch entities will be added for each camera:
-  * **Overlay (Show Name, Show Date, Show Logo, Show Bitrate)** - 4 configuration switches will be added to configuration the Overlay Information on your camera's video feed.
-  * **Smart Detections (Person, Vehicle)** - If your camera has smart detections, there will be a switch added for each smart detection type to enable or disable that type.
-  * **Status Light** - If your camera has a status light, there will be a configuration switch to turn it on and off.
-  * **HDR Mode** - If your camera has HDR, there will be a configuration switch to turn it on and off.
-  * **High FPS** - If your camera has a "High FPS" mode, there will be a configuration switch to toggle between Default and High FPS mode.
-  * **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
-  * **System Sounds** - If your camera has a speaker, there will be a configuration switch to toggle system sounds.
-  * **SSH Enabled** - A disabled by default switch entity will be added to let you toggle on and off SSH for your camera. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
-* **Sensors** - Sensors include "Is Dark", "Motion Detected", "Detected Object" (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
-  * Motion and Detected Object sensors will also contain an `event_thumbnail` attribute that can be used to get the event thumbnail directly from UniFi Protect for that motion or smart detection.
-  * The Detected Object sensor will have the values of "none", "person", or "vehicle" based on object UniFi Protect detected.
-* **Button** - A disabled by default button entity is added for each camera device. The button will let you reboot your camera device.
+* **Camera** - A camera for each camera channel and RTSP(S) combination found for each camera (up to 7). Only the highest resolution RTSPS camera entity will be enabled by default.
+  * If your camera is a G4 Doorbell Pro, an additional camera entity will be added for the Package Camera. The Package Camera entity will _not_ have streaming capabilities regardless of whether RTSPS is enabled on the channel or not. This is due to the Package Camera having a very low FPS that does not make it compatible with HLS streaming.
+* **Media Player** - If your camera has a speaker, you will get a media player entity that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say Service](/integrations/tts/#service-say).
+* **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
+* **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
+  * There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected.
+* **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
+  * configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
+  * configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
+  * configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
+* **Button** - A disabled by default button is added for each camera device. The button will let you reboot your camera device.
 
-### Floodlights
+### UniFi Protect Floodlights
 
-Each UniFi Protect floodlight will get the following entities added:
+Each UniFi Protect floodlight will get a device in Home Assistant with the following:
 
 * **Light** - A light entity will be added for each floodlight device. The light entity will let you control turning on or off your light as well as adjust the brightness of your floodlight.
-* **Number** - The following number entities will be added for each floodlight:
-  * **Motion Sensitivity** - A configuration number entity to adjust the sensitivity of the PIR sensor for your floodlight.
-  * **Auto-shutoff Duration** - A configuration number entity to adjust the the auto-shutoff timer after motion is detected.
-* **Switch** - The following switch entities will be added for each floodlight:
-  * **Status Light** - A configuration switch to turn it on and off to turn on and off the status light for your floodlight.
-  * **SSH Enabled** - A disabled by default switch entity will be added to let you toggle on and off SSH for your floodlight. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
 * **Sensors** - Sensors are provided for data provided from floodlight devices. Sensors include "Is Dark" and "Motion Detected".
-* **Button** - A disabled by default button entity is added for each floodlight device. The button will let you reboot your floodlight device.
+* **Device Configuration** - Floodlights will get configuration controls for the PIR Motion Sensitivity, the Auto-shutoff Duration after detected motion, and Status Light switch
+* **Button** - A disabled by default button is added for each floodlight device. The button will let you reboot your floodlight device.
 
-### Sensors
+### UniFi Protect Smart Sensors
 
-Each UniFi Protect smart sensor will get the following entities added:
+UniFi Protect smart sensors are a bit different than normal sensors. They are a multi-sensor that can act as a contact sensor (door/window), a motion detector, a light level detector, a humidity sensor, a temperature level sensor, an alarm sound sensor, and/or a leak detector. Each sensor function can be enabled or disabled dynamically. Disabled sensors will be marked as "unavailable".
 
-* **Sensors** - Sensors are provided for data provided from smart sensor devices. Sensors include "Door", "Motion Detected" and "Battery Low".
-* **Button** - A disabled by default button entity is added for each sensor device. The button will let you reboot your sensor device.
-* **Switch** - A disabled by default switch entity will be added to let you toggle on and off SSH for your sensor. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
+* **Sensors** - A sensor is provided for each major function of the smart sensor device:
+  * **Contact** - A contact sensor will be available if the mount type is set as "Door", "Window" or "Garage".
+  * **Motion Detection** - A motion detection sensor will be available if the mount type is not set to "Leak" and motion detection is enabled.
+  * **Light Level** - A light level sensor will be available if the mount type is not set to "Leak" and the light sensor is enabled.
+  * **Humidity** - A humidity sensor will be available if the mount type is not set to "Leak" and the humidity sensor is enabled.
+  * **Temperature** - A temperature sensor will be available if the mount type is not set to "Leak" and the temperature sensor is enabled.
+  * **Alarm Sound** - An alarm sensor will be available if the mount type is not set to "Leak" and the alarm sound sensor is enabled. The Alarm Sound sensor can have the values "none", "smoke" and "co". More values may be added over time automatically as UniFi Protect adds support for detecting more alarms.
+  * **Tamper** - A binary sensor to detect tampering.
+* **Device Configuration** - Smart sensors will get configuration controls for the Status Light, enabling/disabling all of the main sensors, selecting the Paired Camera, and changing the Mount Type of the sensor.
+* **Button** - A button to clear the tampered state as well as a disabled by default button to restart the device.
 
-### Viewports
+#### Tamper Sensor
 
-Each UniFi Protect viewport will get the following entities added:
+Once the tamper sensor is triggered, it stays active until manually cleared. A button entity is available to clear the tampered state.
 
-* **Liveview Select** - A select control will be added for each viewport device that will allow you to select which liveview is being displayed on the viewport.
-* **Button** - A disabled by default button entity is added for each viewport device. The button will let you reboot your viewport device.
-* **Switch** - A disabled by default switch entity will be added to let you toggle on and off SSH for your viewport. Username is `ubnt` and password is your Device Password as configured in UniFi Protect.
+### UniFi Protect Viewers
+
+Each UniFi Protect viewer will get a device in Home Assistant with the following:
+
+* **Liveview Select** - A select control will be added for each viewer device that will allow you to select which liveview is being displayed on the viewer.
+* **Button** - A disabled by default button is added for each viewer device. The button will let you reboot your viewer device.
+
+### UniFi Protect DoorLock
+
+Each UniFi Protect door lock will get a device in Home Assistant with the following:
+
+* **Lock** - A lock control will be added to lock and unlock your door lock device.
+* **Device Configuration** - Door locks will get configuration controls for the Auto-Lock Timeout, selecting the Paired Camera, and Status Light switch
+* **Button** - A disabled by default button is added for each door lock device. The button will let you reboot your door lock device.
+
+### UniFi Protect Smart Chime
+
+Each UniFi Protect smart chime will get a device in Home Assistant with the following:
+
+* **Button** - A button to trigger the chime manually for each smart chime device. Also, a disabled by default button is added to let you reboot your smart chime device.
+* **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness and a sensor for the last time the chime rang.
 
 ### NVR
 
@@ -158,48 +223,107 @@ Your main UniFi Protect NVR device also gets a number of diagnostics sensors tha
 * **Disk Health**: Each disk installed in your NVR will have a disk health sensor. These are simple good/bad sensors and the order is not promised to match the order in UniFi OS. Disk model number is provided as a state attribute though to help map sensor to disk.
 * **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
 
+## Media Source
+
+A media source is provided for your UniFi Protect cameras so you can fetch video clips and event thumbnails.
+
+### Media Browser
+
+The media source is split into 5 folders/levels:
+
+1. NVR Console Selector - only appears if you have more then one Protect NVR Console. Allows you to select your NVR Console you want to view events for.
+2. Camera Selector - either lets you select all cameras or a specific camera to view events for.
+3. Event Selector - either lets you select all events or a specific event type to view events for.
+4. Time Selector - filters events for a given time range:
+   * Last 24 Hours
+   * Last 7 Days
+   * Last 30 Days
+   * By Month since start of recording - selecting a month lets you either view the whole month or a specific date
+5. Event Selector - lets you select the specific event for playback
+
+Since the media browser does not have any pagination or filtering, all of the events must be loaded into memory. As a result, the number of events loaded at once is truncated to 10,000 by default. The number of events will be listed at "10000 (TRUNCATED)" if the event count was truncated. You can raise or lower the limit of the number of events that can be loaded using the Config Entry Options.
+
+### Media Identifiers
+
+Below are the accepted identifiers to resolve media. Since events do not necessarily map to any Home Assistant entity, all IDs are in reference to the UniFi Protect IDs, not Home Assistant ones.
+
+| Identifier Format                | Description                        |
+| -------------------------------- | ---------------------------------- |
+| `{nvr_id}:event:{event_id}`      | MP4 video clip for specific event. |
+| `{nvr_id}:eventthumb:{event_id}` | JPEG thumbnail for specific event. |
+
 ## Services
 
-### Service unifiprotect.set_doorbell_message
+### Service unifiprotect.set_default_doorbell_text
 
-Use to dynamically set the message on a Doorbell LCD screen. This service should only be used to set dynamic messages (i.e. setting the current outdoor temperature on your Doorbell).
+Sets the default doorbell message. This will be the message that is automatically selected when a message "expires".
 
 | Service data attribute | Optional | Description                                                                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | No       | The Doorbell Text select entity for your Doorbell                                                            |
-| `message`              | No       | The message you would like to display on the LCD screen of your Doorbell. Must be less than 30 characters    |
-| `duration`             | Yes      | Number of minutes to display the message for before returning to the default message                         |
+| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances.  |
+| `message`              | No       | The default message for your Doorbell. Must be less than 30 characters.                                      |
+
+### Service unifiprotect.add_doorbell_text
+
+Adds a new custom message for Doorbells.
+
+| Service data attribute | Optional | Description                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances.  |
+| `message`              | No       | New custom message to add for Doorbells. Must be less than 30 characters.                                    |
+
+### Service unifiprotect.remove_doorbell_text
+
+Removes an existing message for Doorbells.
+
+| Service data attribute | Optional | Description                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances.  |
+| `message`              | No       | Existing custom message to remove for Doorbells.                                                             |
+
+### Service unifiprotect.set_chime_paired_doorbells
+
+Use to set the paired doorbell(s) with a smart chime.
+
+| Service data attribute | Optional | Description                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to.                                          |
+| `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime. No value means unpair all.      |
+
+## Views
+
+The integration provides two proxy views to proxy media content from your Home Assistant instance so you can access thumbnails and video clips from within the context of Home Assistant without having to expose your UniFi Protect NVR Console. As with the media identifiers, all IDs are UniFi Protect IDs as they may not map to specific Home Assistant entities depending on how you have configured your integration.
+
+These URLs work great when trying to send notifications. Home Assistant will automatically sign the URLs and make them safe for external consumption if used in an automation or [notify service](/integrations/notify/).
+
+| View URL                                                     | Description                                        |
+| ------------------------------------------------------------ | -------------------------------------------------- |
+| `/api/unifiprotect/thumbnail/{nvr_id}/{event_id}`            | Proxies a JPEG event thumbnail from UniFi Protect. |
+| `/api/unifiprotect/video/{nvr_id}/{camera_id}/{start}/{end}` | Proxies a MP4 video clip from UniFi Protect for a specific camera. Start and end must be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html). |
+
+`nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect integration. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any entity provided by the UniFi Protect integration that can be reversed to a UniFi Protect camera (i.e., an entity ID of a detected object sensor).
 
 ## Troubleshooting
-
-### Enabling Debug Logging
-
-Both the UniFi Protect integration and the Python library it uses provide a ton of debug logging that can help you with troubleshooting connectivity issues. To enable debug logging for both, add the following to your `configuration.yaml` file:
-
-```yaml
-logger:
-  logs:
-    pyunifiprotect: debug
-    homeassistant.components.unifiprotect: debug
-```
 
 ### Delay in Video Feed
 
 The default settings on the stream integration will give you a 5-15+ second delay. You can reduce this delay to 1-3 seconds, by enabling [LL-HLS in the stream integration](/integrations/stream/#ll-hls). You will also want to put an HTTP/2 reserve proxy in front of Home Assistant so you can have connection pooling. If you do not add a reverse proxy, you may start to get "Waiting for Websocket..." messages while trying to view too many camera streams at once. One way to do this is using the official NGINX Proxy Add-on:
 
-[![NGINX Proxy Add-on](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_nginx_proxy)
+{% my supervisor_addon addon="core_nginx_proxy" badge %}
 
 ### Cannot Play Audio to Speakers
 
 Unlike with many other things, playing audio to your speakers requires your Home Assistant to be able to reach your camera directly. Specifically via port `tcp/7004`. You can [enable debug logging](#enabling-debug-logging) and it will output the full FFmpeg command that will be run and the output from FFmpeg to help you troubleshoot why audio is not playing to the device.
 
-### Liveview Options for Viewport Missing Options or Out of Date
+### Liveview Options for Viewer Missing Options or Out of Date
 
-Main control selects currently cannot have dynamic options since the options are exported out to voice assistants. After you add/remove/change a Liveview in UniFi Protect, you must restart Home Assistant to get the new options for your Viewport.
+Main control selects currently cannot have dynamic options since the options are exported out to voice assistants. After you add/remove/change a Liveview in UniFi Protect, you must restart Home Assistant to get the new options for your Viewer.
 
-### NvrErrors with "404 - Reason: Not Found"
+### NvrErrors with "404 - Reason: Not Found" or "502 - Reason: Bad Gateway"
 
 If you get errors while authenticating or fetching data for `NvrError... 404 - Reason: Not Found`, there is a good chance that your UniFi Protect application has crashed. UniFi Protect runs in a supervised way on UniFi OS (similar to Home Assistant OS + Home Assistant Core). Getting a 404 for a URL that should not produce a 404 means UniFi Protect is probably not running. You may want to check the health of your disks or look into debugging UniFi Protect to see why it is crashing.
+
+Similarly, a `502 Bad Gateway` also means that your UniFi Protect application may not be running.
 
 ```log
 pyunifiprotect.NvrError: Fetching Camera List failed: 404 - Reason: Not Found

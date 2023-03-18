@@ -814,7 +814,7 @@ Drag and and drop the entities in the order you want.
 
 - The [Met.no](/integrations/met) now supports hourly forecasts, very nice [@bruxy70]!
 
-- The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55),
+- The MDI icons are updated to version [5.5.55](https://pictogrammers.com/docs/library/mdi/releases/changelog/#version-5555),
   this adds another 100 icons you can use!
 
 - The Google Assistant integration got some updates:
@@ -1309,7 +1309,7 @@ corner of the Lovelace screen.
   <summary><b>MDI Icons</b></summary>
   <p>
 
-The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55),
+The MDI icons are updated to version [5.5.55](https://pictogrammers.com/docs/library/mdi/releases/changelog/#version-5555),
 this adds another 100 icons you can use!
 
 In 5.5.55 there was 1 breaking change, if you used the icon `mdi:scooter` this
@@ -1318,7 +1318,7 @@ configuration.
 
 All icons that were deprecated in [0.113.0](/blog/2020/07/22/release-113/#mdi-icons-updated)
 have now been removed. Icons that were renamed or deleted in
-version [5.0.45](https://dev.materialdesignicons.com/upgrade#4.9.95-to-5.0.45)
+version [5.0.45](https://pictogrammers.com/docs/library/mdi/releases/upgrade/#4995-to-5045)
 will no longer work.
 
   </p>

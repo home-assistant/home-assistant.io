@@ -4,17 +4,19 @@ description: Instructions on how to integrate a Samsung Smart TV into Home Assis
 ha_category:
   - Media Player
 ha_release: 0.13
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - '@escoand'
   - '@chemelli74'
+  - '@epenet'
 ha_domain: samsungtv
 ha_ssdp: true
 ha_platforms:
+  - diagnostics
   - media_player
 ha_zeroconf: true
 ha_dhcp: true
+ha_integration_type: device
 ---
 
 The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).
@@ -46,30 +48,33 @@ name:
   description: The name you would like to give to the Samsung Smart TV.
   required: false
   type: string
-turn_on_action:
-  description: "Defines an [action](/docs/automation/action/) to turn the TV on."
-  required: false
-  type: list
 {% endconfiguration %}
 
 After saving the YAML configuration, the TV must be turned on _before_ launching Home Assistant in order for the TV to be registered the first time.
 
-#### Wake up TV / TV does not turn on
+### Turn on action
 
-If the integration knows the MAC address of the TV from discovery, it will attempt to wake it using wake on LAN when calling turn on. Wake on LAN must be enabled on the TV for this to work. If the TV is connected to a smart strip or requires a more complex turn-on process, a `turn_on_action` can be provided that will take precedence over the built-in wake on LAN functionality.
+If the integration knows the MAC address of the TV from discovery, it will attempt to wake it using wake on LAN when calling turn on. Wake on LAN must be enabled on the TV for this to work. If the TV is connected to a smart strip or requires a more complex turn-on process, a `turn_on` action can be provided that will take precedence over the built-in wake on LAN functionality.
 
-To wake up the TV when switched off you can use the [wake-on-lan](/integrations/wake_on_lan/) integration and call a service.
+You can create an automation from the user interface, from the device create a new automation and select the  **Device is requested to turn on** automation.
+Automations can also be created using an automation action:
 
 ```yaml
-wake_on_lan:
+# Example configuration.yaml entry
+wake_on_lan: # enables `wake_on_lan` integration
 
-samsungtv:
-  - host: IP_ADDRESS
-    turn_on_action:
+automation:
+  - alias: "Turn On Living Room TV with WakeOnLan"
+    trigger:
+      - platform: samsungtv.turn_on
+        entity_id: media_player.samsung_smart_tv
+    action:
       - service: wake_on_lan.send_magic_packet
         data:
-          mac: MAC_ADDRESS
+          mac: aa:bb:cc:dd:ee:ff
 ```
+
+Any other [actions](/docs/automation/action/) to power on the device can be configured.
 
 ### Usage
 
@@ -87,13 +92,21 @@ media_content_type: channel
 #### Selecting a source
 
 It's possible to switch between the 2 sources `TV` and `HDMI`.
+Some older models also expose the installed applications through the WebSocket, in which case the source list is adjusted accordingly.
 
-### Home Assistant Core additional requirements
+### Known issues and restrictions
 
-You will need to install the `websocket-client` Python package in your Home Assistant install. This will probably be done with:
+#### Subnet/VLAN
 
-```bash
-pip3 install websocket-client
-```
+Samsung SmartTV does not allow WebSocket connections across different subnets or VLANs. If your TV is not on the same subnet as Home Assistant this will fail.
+It may be possible to bypass this issue by using IP masquerading or a proxy.
 
-Remembering to activate your venv if you're using a venv install.
+#### H and J models
+
+Some televisions from the H and J series use an encrypted protocol and require manual pairing with the TV. This should be detected automatically when attempting to send commands using the WebSocket connection, and trigger the corresponding authentication flow.
+
+#### Samsung TV keeps asking for permission
+
+The default setting on newer televisions is to ask for permission on ever connection attempt.
+To avoid this behavior, please ensure that you adjust this to `First time only` in the `Device connection manager > Access notification` settings of your television.
+It is also recommended to cleanup the previous attempts in `Device connection manager > Device list`

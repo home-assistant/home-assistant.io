@@ -8,6 +8,7 @@ ha_release: 0.39
 ha_domain: pushsafer
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
 The [Pushsafer service](https://www.pushsafer.com/) is a platform for the notify component. This allows you to send messages to the user using Pushsafer.
@@ -96,7 +97,10 @@ action:
       priority: "2"
       retry: "60"
       expire: "600"
+      confirm: "10"
       answer: "1"
+      answeroptions: "yes|no|maybe"
+      answerforce: "1"
       picture1: {
         path: "C:\\Users\\Kevin\\AppData\\Roaming\\.homeassistant\\image-760-testimage.jpg"
 ```

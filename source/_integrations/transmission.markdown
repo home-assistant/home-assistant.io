@@ -3,8 +3,8 @@ title: Transmission
 description: Instructions on how to integrate Transmission within Home Assistant.
 ha_category:
   - Downloading
-  - Switch
   - Sensor
+  - Switch
 ha_release: 0.87
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -15,6 +15,7 @@ ha_domain: transmission
 ha_platforms:
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The Transmission integration allows you to monitor your [Transmission](https://www.transmissionbt.com/) BitTorrent downloads from within Home Assistant and set up automations based on that information.
@@ -85,7 +86,7 @@ Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), mag
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `name`    | yes | Name of the configured instance (Default: "Transmission")
+| `entry_id`    | no | The integration entry_id
 | `torrent` | no | Torrent to download
 
 ### Service `remove_torrent`
@@ -94,7 +95,7 @@ Removes a torrent from the client.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `name`    | no | Name of the configured instance (Default: "Transmission")
+| `entry_id`    | no | The integration entry_id
 | `id` | no | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors
 | `delete_data` | yes | Delete torrent data (Default: false)
 
@@ -104,7 +105,7 @@ Starts a torrent.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `name`    | no | Name of the configured instance (Default: "Transmission")
+| `entry_id`    | no | The integration entry_id
 | `id` | no | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors
 
 ### Service `stop_torrent`
@@ -113,14 +114,14 @@ Stops a torrent.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `name`    | no | Name of the configured instance (Default: "Transmission")
+| `entry_id`    | no | The integration entry_id
 | `id` | no | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors
 
 ## Templating
 
 ### Attribute `torrent_info`
 
-All `*_torrents` sensors e.g. `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents` have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in **Developer Tools** -> **States** -> `sensor.transmission_total_torrents` -> **Attributes**, or by adding a [Markdown card](/lovelace/markdown/) to Lovelace with the following code:
+All `*_torrents` sensors e.g. `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents` have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in **Developer Tools** -> **States** -> `sensor.transmission_total_torrents` -> **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
 
 {% raw %}
 

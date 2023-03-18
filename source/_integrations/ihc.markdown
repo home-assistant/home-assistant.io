@@ -2,10 +2,10 @@
 title: IHC Controller
 description: Instructions on how to integrate the IHC integrations with Home Assistant
 ha_category:
-  - Hub
   - Binary Sensor
-  - Sensor
+  - Hub
   - Light
+  - Sensor
   - Switch
 ha_release: 0.62
 ha_iot_class: Local Push
@@ -15,6 +15,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 IHC Controller integration for Home Assistant allows you to connect the LK IHC controller to Home Assistant. The controller is sold under other names in different countries - "ELKO Living system" in Sweden and Norway.
@@ -218,8 +219,11 @@ When auto setup is enabled the following products will be found in the IHC proje
 - Wireless lamp outlet dimmer
 - Wireless dimmer
 - Wireless combi dimmer 4 buttons
+- Wireless combi dimmer 4 buttons touch
+- Wireless combi dimmer 2 buttons touch
 - Wireless lamp outlet relay
 - Wireless combi relay 4 buttons
+- Wireless combi relay 2 buttons
 - Wireless mobile dimmer
 - Dataline lamp outlet
 

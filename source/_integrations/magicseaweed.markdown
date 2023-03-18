@@ -8,7 +8,12 @@ ha_iot_class: Cloud Polling
 ha_domain: magicseaweed
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
+
+<div class='note warning'>
+  This integration is pending removal from Home Assistant and will be no longer available as of Home Assistant 2023.2.
+</div>
 
 The `magicseaweed` platform uses the [Magicseaweed Forecast API](https://magicseaweed.com/docs/developers/59/) as a source for surf forecasting data for the surf spots of your choice.
 

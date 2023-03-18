@@ -15,10 +15,11 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `flo` integration integrates
-[Flo by Moen smart water shutoff valves](https://meetflo.com/product/smart-water-shutoff) into Home Assistant.
+[Flo by Moen smart water shutoff valves](https://www.moen.com/flo) into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

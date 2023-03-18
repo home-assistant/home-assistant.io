@@ -6,6 +6,7 @@ ha_category:
 ha_release: '0.50'
 ha_quality_scale: internal
 ha_domain: intent_script
+ha_integration_type: integration
 ---
 
 The `intent_script` integration allows users to configure actions and responses to intents. Intents can be fired by any integration that supports it. Examples are [Alexa](/integrations/alexa/) (Amazon Echo), [Dialogflow](/integrations/dialogflow/) (Google Assistant) and [Snips](/integrations/snips/).

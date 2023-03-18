@@ -10,7 +10,7 @@ og_image: /images/blog/2017-11-hassio-virtual/social.png
 ---
 
 
-The images for the Raspberry Pi family and the Intel NUC are an easy way to get started with [Hass.io](/hassio/). For a test or if you have a system which is already hosting virtual machines then the [**Hass.io installer**](/hassio/installation/#alternative-install-on-generic-linux-server) is an option to use Hass.io in a virtualized environment. In this guide the host is a Fedora 27 system with [libvirt](https://libvirt.org/) support and the guest will be running Debian 9. Hass.io will be installed on the guest.
+The images for the Raspberry Pi family and the Intel NUC are an easy way to get started with [Hass.io](/getting-started). For a test or if you have a system which is already hosting virtual machines then the [**Hass.io installer**](/installation/) is an option to use Hass.io in a virtualized environment. In this guide the host is a Fedora 27 system with [libvirt](https://libvirt.org/) support and the guest will be running Debian 9. Hass.io will be installed on the guest.
 
 <!--more-->
 

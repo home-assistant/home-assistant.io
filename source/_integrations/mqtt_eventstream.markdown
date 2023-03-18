@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.11
 ha_iot_class: Local Polling
 ha_domain: mqtt_eventstream
+ha_integration_type: integration
 ---
 
 The `mqtt_eventstream` integration connects two Home Assistant instances via MQTT.
@@ -38,30 +39,30 @@ ignore_event:
 
 ## Multiple Instances
 
-Events from multiple instances can be aggregated to a single master instance by subscribing to a wildcard topic from the master instance.
+Events from multiple instances can be aggregated to a single parent instance by subscribing to a wildcard topic from the parent instance.
 
 ```yaml
-# Example master instance configuration.yaml entry
+# Example parent instance configuration.yaml entry
 mqtt_eventstream:
-  publish_topic: master/topic
-  subscribe_topic: slaves/#
+  publish_topic: parent/topic
+  subscribe_topic: child/#
   ignore_event:
     - call_service
     - state_changed
 ```
 
-For a multiple instance setup, each slave would publish to their own topic.
+For a multiple instance setup, each child instance would publish to their own topic.
 
 ```yaml
-# Example slave instance configuration.yaml entry
+# Example child instance configuration.yaml entry
 mqtt_eventstream:
-  publish_topic: slaves/upstairs
-  subscribe_topic: master/topic
+  publish_topic: child/upstairs
+  subscribe_topic: parent/topic
 ```
 
 ```yaml
-# Example slave instance configuration.yaml entry
+# Example child instance configuration.yaml entry
 mqtt_eventstream:
-  publish_topic: slaves/downstairs
-  subscribe_topic: master/topic
+  publish_topic: child/downstairs
+  subscribe_topic: parent/topic
 ```

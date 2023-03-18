@@ -3,7 +3,7 @@ title: "Service Calls"
 description: "Instructions on how to call services in Home Assistant."
 ---
 
-Various integrations allow calling services when a certain event occurs. The most common one is calling a service when an automation trigger happens. But a service can also be called from a script, a Lovelace dashboard or via voice command devices such as Amazon Echo.
+Various integrations allow calling services when a certain event occurs. The most common one is calling a service when an automation trigger happens. But a service can also be called from a script, a dashboard or via voice command devices such as Amazon Echo.
 
 The configuration options to call a configuration are the same between all integrations and are described on this page.
 
@@ -136,7 +136,7 @@ There are four `homeassistant` services that aren't tied to any single domain, t
 
 Complete service details and examples can be found on the [Home Assistant integration][homeassistant-integration-services] page.
 
-[templating]: /topics/templating/
+[templating]: /docs/configuration/templating/
 [google travel time]: /integrations/google_travel_time/
 [template sensor]: /integrations/template/
 [light]: /integrations/light/

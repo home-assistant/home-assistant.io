@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: history
+ha_integration_type: system
 ---
 
 The `history` integration will track everything that is going on within Home
@@ -132,38 +133,14 @@ history:
      - sensor.date
 ```
 
-If you'd like the order of display of the sensors to follow the way they are
-listed in the included entity list,
-you can set the flag `use_include_order` to true.
-
-```yaml
-# Example configuration.yaml entry using specified entity display order
-history:
-  use_include_order: true
-  include:
-    entities:
-      - sun.sun
-      - light.front_porch
-```
-
-Filters are applied as follows:
-
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes - include specified entities and exclude specified entities from the remaining.
-
-The following characters can be used in entity globs:
-
-`*` - The asterisk represents zero, one, or multiple characters
-`.` - The period represents a single character
+{% include common-tasks/filters.md %}
 
 #### Implementation details
 
 The history is stored in a SQLite database `home-assistant_v2.db` within your
 configuration directory unless the `recorder` integration is set up differently.
 
-- events table is all events except `time_changed` that happened while recorder integration was running.
+- events table is all that happened while recorder integration was running.
 - states table contains all the `new_state` values of `state_changed` events.
 - Inside the states table you have:
   - `entity_id`: the entity_id of the entity

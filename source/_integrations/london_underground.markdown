@@ -8,9 +8,10 @@ ha_release: 0.49
 ha_domain: london_underground
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
-The `london_underground` sensor will display the status of London underground lines, as well as the Overground, DLR and Tfl rail.
+The `london_underground` sensor will display the status of London underground lines, as well as the Overground and DLR.
 
 ```yaml
 # Example configuration.yaml entry
@@ -22,13 +23,13 @@ sensor:
       - Circle
       - District
       - DLR
+      - Elizabeth line
       - Hammersmith & City
       - Jubilee
       - London Overground
       - Metropolitan
       - Northern
       - Piccadilly
-      - TfL Rail
       - Victoria
       - Waterloo & City
 ```

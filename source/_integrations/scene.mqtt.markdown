@@ -12,13 +12,15 @@ The `mqtt` scene platform lets you control your MQTT enabled scenes.
 
 ## Configuration
 
+<a id='new_format'></a>
+
 To enable a MQTT scene in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-scene:
-  - platform: mqtt
-    command_topic: zigbee2mqtt/living_room_group/set
+mqtt:
+  scene:
+    - command_topic: zigbee2mqtt/living_room_group/set
 ```
 
 {% configuration %}
@@ -42,7 +44,7 @@ availability:
       required: true
       type: string
     value_template:
-      description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+      description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
       required: false
       type: template
 availability_mode:
@@ -51,7 +53,7 @@ availability_mode:
   type: string
   default: latest
 availability_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's availability from the `availability_topic`. To determine the devices's availability result of this template will be compared to `payload_available` and `payload_not_available`."
   required: false
   type: template
 availability_topic:
@@ -59,7 +61,7 @@ availability_topic:
   required: false
   type: string
 command_topic:
-  description: The MQTT topic to publish commands to change the scene state.
+  description: The MQTT topic to publish `payload_on` to activate the scene.
   required: false
   type: string
 enabled_by_default:
@@ -96,7 +98,7 @@ payload_not_available:
   type: string
   default: offline
 payload_on:
-  description: The payload that represents `on` state. If specified, will be used for both comparing to the value in the `state_topic` (see `value_template` and `state_on`  for details) and sending as `on` command to the `command_topic`.
+  description: The payload that will be sent to `command_topic` when activating the MQTT scene.
   required: false
   type: string
   default: "ON"
@@ -132,16 +134,16 @@ The example below shows a full configuration for a scene.
 
 ```yaml
 # Example configuration.yaml entry
-scene:
-  - platform: mqtt
-    unique_id: living_room_party_scene
-    name: "Living Room Party Scene"
-    command_topic: "home/living_room/party_scene/set"
-    availability:
-      - topic: "home/living_room/party_scene/available"
-    payload_on: "ON"
-    qos: 0
-    retain: true
+mqtt:
+  scene:
+    - unique_id: living_room_party_scene
+      name: "Living Room Party Scene"
+      command_topic: "home/living_room/party_scene/set"
+      availability:
+        - topic: "home/living_room/party_scene/available"
+      payload_on: "ON"
+      qos: 0
+      retain: true
 ```
 
 ### Use with a JSON Payload
@@ -150,10 +152,10 @@ The example below shows a configuration using a JSON payload.
 
 ```yaml
 # Example configuration.yaml entry
-scene:
-  - platform: mqtt
-    name: Living Room Blue Scene
-    unique_id: living_room_blue_scene
-    command_topic: "home/living_room/set"
-    payload_on: '{"activate_scene": "Blue Scene"}'
+mqtt:
+  scene:
+    - name: Living Room Blue Scene
+      unique_id: living_room_blue_scene
+      command_topic: "home/living_room/set"
+      payload_on: '{"activate_scene": "Blue Scene"}'
 ```

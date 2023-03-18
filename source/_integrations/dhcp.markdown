@@ -9,6 +9,7 @@ ha_domain: dhcp
 ha_quality_scale: internal
 ha_codeowners:
   - '@bdraco'
+ha_integration_type: system
 ---
 
 The `dhcp` "DHCP Discovery" integration will watch the network for DHCP requests for supported devices and services. Discovered integrations will show up in the discovered section on the integrations page in the configuration panel.

@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: hisense_aehw4a1
 ha_platforms:
   - climate
+ha_integration_type: integration
 ---
 
 The Hisense AEH-W4A1 is a Wi-Fi module used to give Wi-Fi connectivity to some Hisense ACs and rebranded models (Smart Cool, Beko and others).

@@ -8,6 +8,7 @@ ha_domain: my
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_integration_type: system
 ---
 
 This integration handles redirects from the [My Home Assistant](https://my.home-assistant.io) service.

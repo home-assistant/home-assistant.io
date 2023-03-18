@@ -8,6 +8,7 @@ ha_release: 0.13
 ha_quality_scale: internal
 ha_domain: proximity
 ha_iot_class: Calculated
+ha_integration_type: integration
 ---
 
 The `proximity` integration allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.
@@ -21,7 +22,7 @@ Some examples of its use include:
 
 The Proximity entity which is created has the following values:
 
-- `state`: Distance from the monitored zone (in km)
+- `state`: Distance from the monitored zone (in `unit_of_measurement`)
 - `dir_of_travel`: Direction of the closest device or person to the monitored zone. Values are:
   - `not set`
   - `arrived`
@@ -29,7 +30,6 @@ The Proximity entity which is created has the following values:
   - `away_from`
   - `unknown`
   - `stationary`
-- `dist_to_zone`: Distance from the monitored zone (in km)
 - `unit_of_measurement`: Measurement of distance. Values are:
   - `km`
   - `m`
@@ -77,7 +77,7 @@ zone:
       default: km
 {% endconfiguration %}
 
-To add multiple proximity components, simply use a list in your `configuration.yaml` file:
+To add multiple proximity components, add a mapping to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -8,6 +8,7 @@ ha_release: 0.52
 ha_domain: london_air
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `london_air` integration [queries](https://api.erg.kcl.ac.uk/AirQuality/Hourly/MonitoringIndex/GroupName=London/Json) the London air quality [data feed](https://www.londonair.org.uk/LondonAir/API/) provided by Kings College London. A single sensor will be added for each `location` ([local authority district or borough](https://en.wikipedia.org/wiki/List_of_London_boroughs)) specified in the configuration file. The state of each sensor is the overall air quality in that borough. Note that only 28 of the 32 boroughs have data available.
@@ -67,11 +68,11 @@ To explore the data available within the `data` attribute of a sensor use the `d
 template:
   - sensor:
     - name: "Updated"
-      state: '{{ state_attr('sensor.merton', 'updated') }}'
+      state: "{{ state_attr('sensor.merton', 'updated') }}"
     - name: "Merton PM10"
-      state: '{{ state_attr('sensor.merton', 'data')[0].pollutants[0].summary }}'
+      state: "{{ state_attr('sensor.merton', 'data')[0].pollutants[0].summary }}"
     - name: "Westminster S02"
-      state: '{{ state_attr('sensor.westminster', 'data')[0].pollutants[3].summary }}'
+      state: "{{ state_attr('sensor.westminster', 'data')[0].pollutants[3].summary }}"
 ```
 
 {% endraw %}

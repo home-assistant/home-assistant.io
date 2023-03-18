@@ -8,11 +8,15 @@ ha_iot_class: Cloud Polling
 ha_domain: blockchain
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `Blockchain` sensor platform displays Bitcoin wallet balances from [blockchain.com](https://blockchain.com).
 
 To add the Blockchain sensor to your installation, specify a list of bitcoin addresses to watch in the `configuration.yaml` file. The sensor state will be the sum of the balances of all addresses listed.
+
+Currently, the original Bitcoin address format is supported.
+For example, the newer Segwit and Taproot format are not supported.
 
 ```yaml
 # Example configuration.yaml entry

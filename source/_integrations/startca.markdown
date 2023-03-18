@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: startca
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 Integrate your [Start.ca](https://www.start.ca/) account information into Home Assistant.
