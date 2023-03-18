@@ -26,9 +26,7 @@ Supported devices (untested):
 
 The 'nano' versions of the sous vide are not supported, but as long as your app is connected to the sous vide, the data should update. They would be better served using BLE instead of API calls.
 
-To add this platform to your installation, You will need your device id.
-
-You can find the Device id by connecting your sous vide to the app, Then going Profile -> Settings(Gear Icon) -> Connection -> Cooker Details.
+To add this platform to your installation, You will need your Anova username and password, and you need to have at least one sous vide connected to your account.
 
 {% include integrations/config_flow.md %}
 
