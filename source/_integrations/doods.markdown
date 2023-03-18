@@ -101,6 +101,11 @@ file_out:
     description: A [template](/docs/configuration/templating/#processing-incoming-data) for the integration to save processed images including bounding boxes. `camera_entity` is available as the `entity_id` string of the triggered source camera.
     required: false
     type: list
+save_original:
+    description: If true the unmodified original copy of the picture is also saved. It is saved even if nothing is detected.
+    required: false
+    type: boolean
+    default: false
 labels:
     description: Information about the selected labels model.
     required: false
