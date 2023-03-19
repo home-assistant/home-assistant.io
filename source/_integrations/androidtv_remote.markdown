@@ -46,12 +46,13 @@ Turn on the Android TV. If `activity` is specified it will open the specified UR
 | `activity`             |      yes | URL to open.
 
 Examples of URLs:
-```
-https://www.youtube.com
-https://www.netflix.com/title
-https://app.primevideo.com
-https://www.disneyplus.com
-```
+
+| App | URL |
+| --- | --- |
+| YouTube | https://www.youtube.com
+| Netflix | https://www.netflix.com/title
+| Prime Video | https://app.primevideo.com
+| Disney+ | https://www.disneyplus.com
 
 Example for launching YouTube:
 
@@ -114,7 +115,7 @@ target:
 
 ## Dashboard
 
-You have to manually create buttons in lovelace to send commands to the Android TV device or launch apps on it.
+You have to manually create buttons in Lovelace to send commands to the Android TV device or launch apps on it.
 
 Here is an example for you to start with (replace all instances of `living_room_tv` with your entity ID):
 
