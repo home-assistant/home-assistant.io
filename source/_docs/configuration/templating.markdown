@@ -379,6 +379,7 @@ The same thing can also be expressed as a test:
 ### Devices
 
 - `device_entities(device_id)` returns a list of entities that are associated with a given device ID. Can also be used as a filter.
+- `device_entities(device_id, domain)` returns a list of entities that are associated with a given device ID filtered by `domain`. Can also be used as a filter (e.g. `{{ 'deadbeefdeadbeefdeadbeefdeadbeef' | device_entities('light') }}`).
 - `device_attr(device_or_entity_id, attr_name)` returns the value of `attr_name` for the given device or entity ID. Can also be used as a filter. Not supported in [limited templates](#limited-templates).
 - `is_device_attr(device_or_entity_id, attr_name, attr_value)` returns whether the value of `attr_name` for the given device or entity ID matches `attr_value`. Can also be used as a test. Not supported in [limited templates](#limited-templates).
 - `device_id(entity_id)` returns the device ID for a given entity ID or device name. Can also be used as a filter.
@@ -420,7 +421,8 @@ The same thing can also be expressed as a test:
 - `areas()` returns the full list of area IDs
 - `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
 - `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
-- `area_entities(area_name_or_id)` returns the list of entity IDs tied to a given area ID or name. Can also be used as a filter.
+- `area_entities(area_name_or_id)` returns the list of entity IDs tied to a given area ID or name. Can also be used as a filter. `domain` can optionally be used to filter the list of entity IDs returned.
+- `area_entities(area_name_or_id, domain)` returns the list of entity IDs tied to a given area ID or name filtered by `domain`. Can also be used as a filter (e.g. `{{ 'blah' | area_entities('sensor') }}`).
 - `area_devices(area_name_or_id)` returns the list of device IDs tied to a given area ID or name. Can also be used as a filter.
 
 #### Areas examples
@@ -456,7 +458,11 @@ The same thing can also be expressed as a test:
 ```
 
 ```text
-{{ area_entities('deadbeefdeadbeefdeadbeefdeadbeef') }}  # ['sensor.sony']
+{{ area_entities('deadbeefdeadbeefdeadbeefdeadbeef') }}  # ['sensor.sony', 'light.sony']
+```
+
+```text
+{{ area_entities('deadbeefdeadbeefdeadbeefdeadbeef', 'sensor') }}  # ['sensor.sony']
 ```
 
 ```text
@@ -469,17 +475,22 @@ The same thing can also be expressed as a test:
 
 - `integration_entities(integration)` returns a list of entities that are associated with a given integration, such as `hue` or `zwave_js`.
 - `integration_entities(title)` if you have multiple instances set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific device bridge.
+- `integration_entities(integration_or_title, domain)` will filter the returned entity ID list by `domain`.
 
 #### Integrations examples
 
 {% raw %}
 
 ```text
-{{ integration_entities('hue') }}  # ['light.hue_light_upstairs', 'light.hue_light_downstairs']
+{{ integration_entities('hue') }}  # ['light.hue_light_upstairs', 'light.hue_light_downstairs', 'sensor.hue_battery_level_upstairs']
 ```
 
 ```text
 {{ integration_entities('Hue bridge downstairs') }}  # ['light.hue_light_downstairs']
+```
+
+```text
+{{ integration_entities('hue', 'sensor') }}  # ['sensor.hue_battery_level_upstairs']
 ```
 
 {% endraw %}
