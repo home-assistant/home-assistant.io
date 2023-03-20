@@ -13,7 +13,8 @@ ha_domain: incharge
 ha_platforms:
   - sensor
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
+
 ---
 
 This integration provides sensors to collect information from your charging station managed by Vattenfall InCharge using [Vattenfall InCharge](https://myincharge.vattenfall.com/).
