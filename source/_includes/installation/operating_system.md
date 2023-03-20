@@ -296,7 +296,7 @@ _All these can be extended if your usage calls for more resources._
        Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
     ```
 
-    you can recognize the Sonoff dongle at Bus 003 Device 003. So the command to install the VM will become:
+    You can recognize the Sonoff dongle at `Bus 003 Device 003`. So the command to install the VM will become:
 
     ```bash
     virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --graphics none --boot uefi --hostdev 003.003
