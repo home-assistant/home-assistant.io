@@ -379,7 +379,7 @@ The same thing can also be expressed as a test:
 ### Devices
 
 - `device_entities(device_id)` returns a list of entities that are associated with a given device ID. Can also be used as a filter.
-- `device_entities(device_id, domain)` returns a list of entities that are associated with a given device ID filtered by `domain`. Can also be used as a filter (e.g. `{{ 'deadbeefdeadbeefdeadbeefdeadbeef' | device_entities('light') }}`).
+- `device_entities(device_id, domain)` returns a list of entities that are associated with a given device ID filtered by `domain`. Can also be used as a filter (e.g. `'deadbeefdeadbeefdeadbeefdeadbeef' | device_entities('light')`).
 - `device_attr(device_or_entity_id, attr_name)` returns the value of `attr_name` for the given device or entity ID. Can also be used as a filter. Not supported in [limited templates](#limited-templates).
 - `is_device_attr(device_or_entity_id, attr_name, attr_value)` returns whether the value of `attr_name` for the given device or entity ID matches `attr_value`. Can also be used as a test. Not supported in [limited templates](#limited-templates).
 - `device_id(entity_id)` returns the device ID for a given entity ID or device name. Can also be used as a filter.
@@ -422,7 +422,7 @@ The same thing can also be expressed as a test:
 - `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
 - `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
 - `area_entities(area_name_or_id)` returns the list of entity IDs tied to a given area ID or name. Can also be used as a filter. `domain` can optionally be used to filter the list of entity IDs returned.
-- `area_entities(area_name_or_id, domain)` returns the list of entity IDs tied to a given area ID or name filtered by `domain`. Can also be used as a filter (e.g. `{{ 'blah' | area_entities('sensor') }}`).
+- `area_entities(area_name_or_id, domain)` returns the list of entity IDs tied to a given area ID or name filtered by `domain`. Can also be used as a filter (e.g. `'blah' | area_entities('sensor')`).
 - `area_devices(area_name_or_id)` returns the list of device IDs tied to a given area ID or name. Can also be used as a filter.
 
 #### Areas examples
