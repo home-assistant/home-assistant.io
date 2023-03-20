@@ -109,14 +109,14 @@
 - term: Entity
   definition: |-
     An entity represents a sensor, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An entity is usually part of a device or a service. Entities have states.
-    
+
     **Example for entities as part of a device**
     A combined temperature and humidity sensor device provides two sensor entities. One for temperature (e.g. `sensor.temperature` with state `21.0` and unit `°C`) and one for humidity
     (e.g. `sensor.humidity` with state `65.4` and unit `%`).
 
     **Example for entities as part of a service**
     A weather service that provides 3 entities: wind speed, air pressure, and ozon level.
-    
+
     **Example of an entity used for control**
     A fan that is turned on when the temperature exceeds 30&nbsp;°C.
 
@@ -271,8 +271,25 @@
   link: /docs/blueprint/selectors/
 
 - term: Service
-  definition: >-
-    Services are called to perform actions.
+  definition: |-
+    The term service has 2 meanings in Home Assistant:
+
+    **The information service**
+    E.g. the municipal waste management service that provides entities for organic, paper, and packaging waste. In terms of functionality, the information service is like a device. It is called *service* to avoid confusion, as it does not come with a piece of hardware.
+
+    **The software function that interacts with targets to make something happen**
+    A service carries out one specific task: e.g. turning on the light in the living room or sending a notification to a mobile phone. 
+
+    A service has targets and data. Service targets are: areas, devices, and entities. Service data carries the information required to define the desired state change in the target. E.g. the target, together with brightness 150 and RGB color `[255,0,0]`, or the message “Your coffee is ready”. 
+
+    Services can be used in, for example, automation, scripts, dashboards, or voice commands to control your home.
+
+    Home Assistant provides a series of predefined services, such as `homeassistant.turn_on`, `homeassistant.toggle`, or `homeassistant.reload`.
+  excerpt: >
+    A service carries out one specific task: e.g. turn on the light in the 
+    living room. A service has targets and data and can be called by actions, a 
+    dashboard, or via voice command.
+
   link: /docs/scripts/service-calls/
 
 - term: Switch
