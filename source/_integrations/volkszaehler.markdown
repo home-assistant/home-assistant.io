@@ -58,6 +58,8 @@ monitored_conditions:
       description: The maximum power.
     min:
       description: The minimum power.
+    last:
+      description: The last seen/current consumption.
 {% endconfiguration %}
 
 ## Full examples
