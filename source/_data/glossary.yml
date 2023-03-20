@@ -109,14 +109,14 @@
 - term: Entity
   definition: |-
     An entity represents a sensor, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An entity is usually part of a device or a service. Entities have states.
-    
+
     **Example for entities as part of a device**
     A combined temperature and humidity sensor device provides two sensor entities. One for temperature (e.g. `sensor.temperature` with state `21.0` and unit `°C`) and one for humidity
     (e.g. `sensor.humidity` with state `65.4` and unit `%`).
 
     **Example for entities as part of a service**
     A weather service that provides 3 entities: wind speed, air pressure, and ozon level.
-    
+
     **Example of an entity used for control**
     A fan that is turned on when the temperature exceeds 30&nbsp;°C.
 
@@ -283,7 +283,7 @@
     A service has targets and data. Service targets are: area, device, and entity. Service data carries the information required to define the desired state change in the target. E.g. the target ID, together with brightness 150 and rgb color [255,0,0], or the message “Your coffee is ready”. 
 
     Services can be called by actions, a dashboard, or via voice command. 
-    
+
     Home Assistant provides a series of predefined services, such as `homeassistant.turn_on`, `homeassistant.toggle`, or `homeassistant.reload`. You can also create your own services.
   excerpt: >
     A service carries out one specific task: e.g. turn on the light in the living room. A service has targets and data and can be called by actions, a dashboard, or via voice command.
