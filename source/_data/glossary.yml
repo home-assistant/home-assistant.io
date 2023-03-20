@@ -282,7 +282,7 @@
 
     A service has targets and data. Service targets are: areas, devices, and entities. Service data carries the information required to define the desired state change in the target. E.g. the target, together with brightness 150 and RGB color `[255,0,0]`, or the message “Your coffee is ready”. 
 
-    Services can be called by actions, a dashboard, or via voice command. 
+    Services can be used in, for example, automation, scripts, dashboards, or voice commands to control your home.
 
     Home Assistant provides a series of predefined services, such as `homeassistant.turn_on`, `homeassistant.toggle`, or `homeassistant.reload`. You can also create your own services.
   excerpt: >
