@@ -15,7 +15,8 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-This is a sensor to collect information from your charging station managed by Vattenfall InCharge using [Vattenfall InCharge](https://myincharge.vattenfall.com/).
+This integration provides sensors to collect information from your charging station managed by Vattenfall InCharge using [Vattenfall InCharge](https://myincharge.vattenfall.com/).
+
 The total energy consumption for all charging stations in your account is fetched every 5 minutes and usable in the energy dashboard.
 
 {% include integrations/config_flow.md %}
