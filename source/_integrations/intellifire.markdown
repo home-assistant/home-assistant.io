@@ -31,6 +31,10 @@ IntelliFire Wi-Fi fireplace modules provide app-based and Alexa control to vario
 
 {% include integrations/config_flow.md %}
 
+## Cloud vs Local
+
+By default when the integration is installed it will be configured to both read data and send control packets on the **Local** network.  If you wish to switch to **cloud** mode for any reason you are able to configure the integration both to **READ** and **CONTROL** an IntelliFire device via the cloud.
+
 ## API Credentials
 
 To fully configure the IntelliFire integration you will need to enter your IntelliFire credentials which are the same ones you would use with the mobile app.
