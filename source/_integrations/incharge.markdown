@@ -4,7 +4,8 @@ description: Instructions on how to integrate your Vattenfall InCharge managed c
 ha_category:
   - Energy
   - Sensor
-ha_release: 2023.3.4
+ha_release: 2023.4.0
+
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@tgriek'
