@@ -284,7 +284,7 @@
 
     Services can be used in, for example, automation, scripts, dashboards, or voice commands to control your home.
 
-    Home Assistant provides a series of predefined services, such as `homeassistant.turn_on`, `homeassistant.toggle`, or `homeassistant.reload`. You can also create your own services.
+    Home Assistant provides a series of predefined services, such as `homeassistant.turn_on`, `homeassistant.toggle`, or `homeassistant.reload`.
   excerpt: >
     A service carries out one specific task: e.g. turn on the light in the 
     living room. A service has targets and data and can be called by actions, a 
