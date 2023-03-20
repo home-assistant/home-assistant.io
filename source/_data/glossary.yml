@@ -280,7 +280,7 @@
     **The software function that interacts with targets to make something happen**
     A service carries out one specific task: e.g. turn on the light in the living room or send a notification to a mobile phone. 
 
-    A service has targets and data. Service targets are: area, device, and entity. Service data carries the information required to define the desired state change in the target. E.g. the target ID, together with brightness 150 and rgb color [255,0,0], or the message “Your coffee is ready”. 
+    A service has targets and data. Service targets are: areas, devices, and entities. Service data carries the information required to define the desired state change in the target. E.g. the target, together with brightness 150 and RGB color `[255,0,0]`, or the message “Your coffee is ready”. 
 
     Services can be called by actions, a dashboard, or via voice command. 
 
