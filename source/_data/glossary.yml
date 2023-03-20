@@ -275,7 +275,7 @@
     The term service has 2 meanings in Home Assistant:
 
     **The information service**
-    E.g. the municipal waste management service that provides entities for organic, paper, and packaging waste. In terms of functionality, the information service is like a {% term device %}. It is called *service* to avoid confusion, as it does not come with a piece of hardware.
+    E.g. the municipal waste management service that provides entities for organic, paper, and packaging waste. In terms of functionality, the information service is like a device. It is called *service* to avoid confusion, as it does not come with a piece of hardware.
 
     **The software function that interacts with targets to make something happen**
     A service carries out one specific task: e.g. turning on the light in the living room or sending a notification to a mobile phone. 
