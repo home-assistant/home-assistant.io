@@ -277,12 +277,11 @@
 
 - term: State
   definition: |-
-    State is a data container holding the current state of an entity. E.g. if a light is on or off, the current temperature, or the RGB value of a light. The data type of state is `String`. States have an entity id, a state value, and 2 timestamps: `last_updated` and `last_changed`. Apart from the actual state value, a state can have attributes and context. 
-
-    State only holds one value at a time. To keep track of the history, states are stored in a database in a table named `states`. By default, the data is purged after 10 days.
+    State holds the information of interest of an entity. E.g. if a light is on or off, the current temperature, or the amount of energy used. The data type of state is `String`. Entities store 2 timestamps related to state: `last_updated` and `last_changed`. Each entity has exactly one state and state only holds one value at a time. But entities can store attributes related to that state. E.g. the state of a light is _on_, and the related attributes are `brightness: 102`, `friendly name: Coffee light`.
+    
   link: /docs/scripts/configuration/state_object/
   excerpt: >
-    State is a data container holding the current state of an entity. E.g. if a light is on or off, the current temperature, or the RGB value of a light. The data type of state is `String`.
+    State holds the information of interest of an entity. E.g. if a light is on or off. Each entity has exactly one state and state only holds one value at a time. But entities can store attributes related to that state. E.g. friendly name, unit of measurement, etc.
 
 - term: Switch
   definition: >-
