@@ -108,6 +108,7 @@ The following models are lacking the HTTP webserver API and can therfore not wor
 
 - Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) prior to setting up the integration. Note that Reolink auto update and check for update functions in the app/windows/web client often do not show the latest available firmware version. Therefore check the version in the [Reolink download center](https://reolink.com/download-center/) online.
 - Ensure at least one of the HTTP/HTTPS ports is enabled in the [windows](https://reolink.com/software-and-manual/)/web client under `Settings`->`Network`->`Advanced`->`Port Settings`, see [additional instructions](https://support.reolink.com/hc/en-us/articles/900004435763-How-to-Set-up-Reolink-Ports-Settings-via-Reolink-Client-New-Client-) on the Reolink site.
+- On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly, make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
 
 ## Reolink firmware limitations
 
