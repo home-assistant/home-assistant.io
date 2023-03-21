@@ -27,7 +27,7 @@ ha_dhcp: true
 ha_integration_type: integration
 ---
 
-IntelliFire Wi-Fi fireplace modules provide app-based and Alexa control to various fireplaces. The modules do expose an unencrypted HTTP endpoint on the local network that provides status & control endpoints. Additionally IntelliFire offers cloud (HTTPS) endpoints for both control and read information. This integration allows you to control your fireplace either via your local network or via the cloud.
+IntelliFire Wi-Fi fireplace modules provide app-based and Alexa control to various fireplaces. The modules expose an unencrypted HTTP endpoint on the local network that provides status & control endpoints. Additionally, IntelliFire offers cloud (HTTPS) endpoints for both control and read information. This integration allows you to control your fireplace either via your local network or via the cloud.
 
 {% include integrations/config_flow.md %}
 
