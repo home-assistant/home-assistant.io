@@ -6,6 +6,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Lock
 ha_release: '2022.12'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -18,6 +19,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - lock
 ha_integration_type: integration
 ---
 
