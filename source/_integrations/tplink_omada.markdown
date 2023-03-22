@@ -25,6 +25,7 @@ The integration provides basic configuration and status of Omada devices control
 - Username/Password: A user account with permissions to view & configure the site is required.
 
 ### Multiple Sites
+
 If you have multiple sites managed by your controller, you will be prompted to choose which site to manage.
 
 ## Supported Controllers
@@ -42,14 +43,15 @@ Controller versions 5.0.0 and later are supported.
 ### Network Switches
 
 - Support for enabling/disabling Power over Ethernet on a per-port basis.
+- Firmware Update entities.
 
 ### Access Points
 
-- Not currently supported.
+- Firmware Update entities.
 
 ### Internet Gateways
 
-- Not currently supported.
+- Firmware Update entities.
 
 ## Device Trackers
 
