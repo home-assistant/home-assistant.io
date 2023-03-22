@@ -176,7 +176,7 @@ For a list of possible modes with explanation, see [LED modes](#led-modes)
 
 ### Service `opentherm_gw.set_max_ch_setpoint`
 
-Set the maximum central heating setpoint override on the OpenTherm Gateway. Return control of the central heating setpoint to the thermostat by specifying a temperature of 0. This command is only effective with boilers that support this function.
+Set the maximum central heating setpoint override on the OpenTherm Gateway. This command is only effective with boilers that support this function.
 In a normal situation, the thermostat will calculate and control the maximum central heating setpoint on the boiler. Setting this to any value other than 0 will enable the override and allow the OpenTherm Gateway to control this setting. For your boiler's actual maximum and minimum supported setpoint value, please see the `slave_ch_max_setp` and `slave_ch_min_setp` [sensors](#sensors). Due to the potential consequences of leaving this setting enabled for prolonged periods, the override will be disabled when Home Assistant is shut down or restarted.
 **You will only need this if you are writing your own software thermostat.**
 
