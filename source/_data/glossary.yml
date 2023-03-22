@@ -329,7 +329,7 @@
 - term: Variables
   definition: >-
     Variables are used to store values in memory that can be processed
-    for example in a script.
+    for example, in a script.
   link: /docs/scripts/#variables
 
 - term: Zone
