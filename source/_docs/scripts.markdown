@@ -5,7 +5,7 @@ toc: true
 no_toc: true
 ---
 
-Scripts are a sequence of {% term actions %} that Home Assistant will execute. Scripts are available as an entity through the standalone [Script component] but can also be embedded in {% term automations %} and [Alexa/Amazon Echo] configurations.
+Scripts are a sequence of {% term actions %} that Home Assistant will execute. Scripts are available as an entity through the standalone [Script integration] but can also be embedded in {% term automations %} and [Alexa/Amazon Echo] configurations.
 
 When the script is executed within an automation the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
 
@@ -210,7 +210,7 @@ These actions allow a script to wait for entities in the system to be in a certa
 
 This action evaluates the template, and if true, the script will continue. If not, then it will wait until it is true.
 
-The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the [Time and Date](/integrations/time_date/) component that will update minutely or daily.
+The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the [Time and Date](/integrations/time_date/) integration that will update minutely or daily.
 
 {% raw %}
 ```yaml
@@ -904,7 +904,7 @@ script:
           entity_id: light.ceiling
 ```
 
-[Script component]: /integrations/script/
+[Script integration]: /integrations/script/
 [automations]: /getting-started/automation-action/
 [Alexa/Amazon Echo]: /integrations/alexa/
 [service calls page]: /getting-started/scripts-service-calls/
