@@ -18,8 +18,8 @@ Android Companion app: you can now configure multiple Home Assistant servers. Th
 app can send sensor updates to all servers and easily mix and match widgets, tiles
 and controls for different servers 🎉
 
-Plus, a preview of the app is now available on the Amazon Appstore on Windows 11,
-which allows you to quickly connect your computer to Home Assistant.
+Plus, a preview of the Home Assistant app is now available on the Amazon Appstore
+on Windows 11, which allows you to quickly connect your computer to Home Assistant.
 
 There are also other changes that add some polish to the app and improve support
 for features in the latest Home Assistant releases, so let's dig in to the update!
