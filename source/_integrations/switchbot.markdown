@@ -50,7 +50,7 @@ Please note, device names configured in the SwitchBot app are not transferred in
 
 ## Supported Devices
 
-- Color Bulb (WoBulb)
+- [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
 - [Bot (WoHand)](https://switch-bot.com/pages/switchbot-bot)
 - [Contact Sensor (WoContact)](https://switch-bot.com/pages/switchbot-contact-sensor)
 - [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain)
