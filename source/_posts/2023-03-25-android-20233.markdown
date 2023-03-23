@@ -14,17 +14,17 @@ og_image: /images/blog/2023-03-25-android/social.png
 ![Home Assistant logo with 'Android 2023.3' text](/images/blog/2023-03-25-android/social.png)
 
 It's finally here, one of the most common feature requests for the Home Assistant
-Android Companion app: you can now add multiple servers to your app, send sensor
-updates to all connected servers and easily mix and match widgets, tiles and
-controls. 🎉
+Android Companion app: you can now configure multiple Home Assistant servers. The
+app can send sensor updates to all servers and easily mix and match widgets, tiles
+and controls for different servers 🎉
 
-Plus, a preview of the app is now available on the Amazon Appstore on Windows 11
-devices, which allows you to quickly connect your computer to Home Assistant.
+Plus, a preview of the app is now available on the Amazon Appstore on Windows 11,
+which allows you to quickly connect your computer to Home Assistant.
 
 There are also other changes that add some polish to the app and improve support
 for features in the latest Home Assistant releases, so let's dig in to the update!
 
-## Connect multiple servers to the app
+## Configure multiple Home Assistant servers
 
 Sometimes, one Home Assistant instance is not enough. You like Home Assistant so
 much that you decide to help someone else get started, there's a second home in
@@ -36,7 +36,7 @@ connecting your Android device to multiple servers for features like sensors
 and notifications.
 
 This issue now belongs to the past, as there's a new option in [Settings] >
-Companion app to add a second server, and another one after that, and another...
+Companion app to configure  a second server, and another one after that, and another...
 They will all show up in the app, and you can use all features you've come to
 expect like lots of sensors for your device and support for push notifications.
 Each one gets individual settings, so if you don't want to share your step count
