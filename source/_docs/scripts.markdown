@@ -892,22 +892,22 @@ script:
       # This action will not run, as it is disabled.
       # The message will not be sent.
       - enabled: false
-        alias: "Notify that ceiling light is being turned on"
+        alias: "Notify that the ceiling light is being turned on"
         service: notify.notify
         data:
           message: "Turning on the ceiling light!"
 
       # This action will run, as it is not disabled
-      - alias: "Turn on ceiling light"
+      - alias: "Turn on the ceiling light"
         service: light.turn_on
         target:
           entity_id: light.ceiling
 ```
 
 [Script integration]: /integrations/script/
-[automations]: /getting-started/automation-action/
+[automations]: /docs/automation/action/
 [Alexa/Amazon Echo]: /integrations/alexa/
-[service calls page]: /getting-started/scripts-service-calls/
-[conditions page]: /getting-started/scripts-conditions/
+[service calls page]: /docs/scripts/service-calls/
+[conditions page]: /docs/scripts/conditions/
 [shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
 [script variables]: /integrations/script/#configuration-variables
