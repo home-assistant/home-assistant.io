@@ -109,8 +109,6 @@ There's more in this update, here are some highlights:
 - Got a notification that should only show up on your watch? In the previous update, support
   was added for notifications to the Wear OS app, and in this update work continues by
   [@dshokouhi], with the app now supporting TTS notifications.
-- Assist is now only a tap away on Wear OS watches, by using the new watchface complication
-  added by [@dshokouhi].
 
 Even more people worked on fixing bugs in this update, like [@Suxsem] and [@JBassett]. Thanks
 to all of those who contributed. If you have a good idea to improve the app or found a bug to
