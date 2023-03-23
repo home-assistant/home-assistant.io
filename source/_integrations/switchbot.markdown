@@ -35,7 +35,7 @@ The SwitchBot integration allows you to control SwitchBot [devices](https://www.
 
 ## Prerequisites
 
-In order to use this integration, it is required to have working Bluetooth set up on the device running Home Assistant. A [SwitchBot Hub](https://switch-bot.com/pages/switchbot-hub-mini) is not required for this integration.
+In order to use this integration, it is required to have working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant. A [SwitchBot Hub](https://switch-bot.com/pages/switchbot-hub-mini) is not required for this integration.
 
 If you have multiple devices of the same type, you need to get the BTLE MAC address of your device to tell your devices apart. You can find the address for your device using the following steps:
 
@@ -50,17 +50,17 @@ Please note, device names configured in the SwitchBot app are not transferred in
 
 ## Supported Devices
 
-- Color Bulb (WoBulb)
-- Bot (WoHand)
-- Contact Sensor (WoContact)
-- Curtain (WoCurtain)
-- Humidifier (WoHumi)
+- [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
+- [Bot (WoHand)](https://switch-bot.com/pages/switchbot-bot)
+- [Contact Sensor (WoContact)](https://switch-bot.com/pages/switchbot-contact-sensor)
+- [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain)
+- [Humidifier (WoHumi)](https://eu.switch-bot.com/products/switchbot-smart-humidifier)
 - Light Strip (WoStrip)
-- Meter/Meter Plus 70BB (WoSensorTH)
-- Motion Sensor (WoPresence)
+- [Meter](https://switch-bot.com/pages/switchbot-meter)/[Meter Plus 70BB](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH)
+- [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
 - Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
-- Lock (WoLock)
-- Blind Tilt (WoBlindTilt)
+- [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
+- [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
 
 ## SwitchBot Entity
 
