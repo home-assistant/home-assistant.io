@@ -54,7 +54,7 @@ Please note, device names configured in the SwitchBot app are not transferred in
 - [Bot (WoHand)](https://switch-bot.com/pages/switchbot-bot)
 - [Contact Sensor (WoContact)](https://switch-bot.com/pages/switchbot-contact-sensor)
 - [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain)
-- [Humidifier (WoHumi)](https://switch-bot.com/products/switchbot-smart-humidifier)
+- [Humidifier (WoHumi)](https://eu.switch-bot.com/products/switchbot-smart-humidifier)
 - Light Strip (WoStrip)
 - [Meter](https://switch-bot.com/pages/switchbot-meter)/[Meter Plus 70BB](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH)
 - [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
