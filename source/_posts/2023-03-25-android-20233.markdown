@@ -92,6 +92,8 @@ fit in better with other modern Wear apps.
 [@SkechyWolf]: https://github.com/SkechyWolf
 [@dshokouhi]: https://github.com/dshokouhi
 
+<!--more-->
+
 ## Other noteworthy changes
 
 There's more in this update, here are some highlights:
