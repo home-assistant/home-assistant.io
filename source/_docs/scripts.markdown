@@ -210,7 +210,7 @@ These actions allow a script to wait for entities in the system to be in a certa
 
 This action evaluates the template, and if true, the script will continue. If not, then it will wait until it is true.
 
-The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the [Time and Date](/integrations/time_date/) integration that will update minutely or daily.
+The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template, it will not be continuously re-evaluated - rather it will only be evaluated when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the [Time and Date](/integrations/time_date/) integration that will update minutely or daily.
 
 {% raw %}
 ```yaml
