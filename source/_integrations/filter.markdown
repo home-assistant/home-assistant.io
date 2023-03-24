@@ -56,7 +56,6 @@ sensor:
 
 Filters can be chained and are applied according to the order present in the configuration file.
 
-
 {% configuration %}
 entity_id:
   description: The entity ID of the sensor to be filtered.
