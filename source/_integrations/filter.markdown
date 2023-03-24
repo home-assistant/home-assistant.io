@@ -117,7 +117,7 @@ filters:
 
 <div class="note warning">
 
-When configuring a `window_size` that is not a time and with a value larger than the default of `1`, the database must examine nearly every stored state for that entity each time your filter updates. If you have modified the [Recorder `keep_days`](/integrations/recorder/#keep-days) value or have many states stored in the database for the filtered entity, this can cause your Home Assistant instance can to respond poorly during startup.
+When configuring a `window_size` that is not a time and with a value larger than the default of `1`, the database must examine nearly every stored state for that entity during Home Assistant startup. If you have modified the [Recorder `keep_days`](/integrations/recorder/#keep-days) value or have many states stored in the database for the filtered entity, this can cause your Home Assistant instance can to respond poorly during startup.
 
 </div>
 
