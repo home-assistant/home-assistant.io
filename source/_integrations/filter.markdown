@@ -56,6 +56,7 @@ sensor:
 
 Filters can be chained and are applied according to the order present in the configuration file.
 
+
 {% configuration %}
 entity_id:
   description: The entity ID of the sensor to be filtered.
@@ -114,6 +115,12 @@ filters:
       type: float
       default: positive infinity
 {% endconfiguration %}
+
+<div class="note warning">
+
+Configuring a `window_size` larger than the default of `1` will require the database to examine every state for that entity each time your filter updates. If you have modified the [Recorder keep_days](/integrations/recorder/#keep-days) value or have many states stored in the database for the filtered entity, this can cause instability.
+  
+</div>
 
 ## Filters
 
