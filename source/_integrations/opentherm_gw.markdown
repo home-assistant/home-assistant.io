@@ -174,6 +174,23 @@ For a list of possible modes with explanation, see [LED modes](#led-modes)
 | `id` | no | The LED ID, accepted values are `A` through `F`.
 | `mode` | no | The LED mode to be set.
 
+### Service `opentherm_gw.set_max_ch_setpoint`
+
+ Set the maximum central heating setpoint override on the OpenTherm Gateway. This command is only effective with boilers that support this function.
+ In a normal situation, the thermostat will calculate and control the maximum central heating setpoint on the boiler. Setting this to any value other than 0 will enable the override and allow the OpenTherm Gateway to control this setting. For your boiler's actual maximum and minimum supported setpoint value, please see the `slave_ch_max_setp` and `slave_ch_min_setp` [sensors](#sensors).
+ **You will only need this if you are writing your own software thermostat.**
+
+ | Service data attribute | Optional | Description |
+ | ---------------------- | -------- | ----------- |
+ | `gateway_id` | no | The `gateway_id` as specified during configuration.
+ | `temperature` | no | The maximum central heating setpoint. Values between `0.0` and `90.0` are accepted, but your boiler may not support the full range. Set to `0` to disable the override.
+
+ <div class='note'>
+
+ Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering to write your own software thermostat.
+
+ </div>
+
 ### Service `opentherm_gw.set_max_modulation`
 
 <div class='note warning'>
