@@ -198,7 +198,7 @@ services:
       required: true
       type: string
     data:
-      description: A dictionary containing parameters to add to all notify payloads. This can be anything that is valid to use in a payload, such as `data`, `message`, `target` or `title`.
+      description: A dictionary containing parameters to add to all notify payloads. This can be anything that is valid to use in a payload, such as `data`, `message`, `target` or `title`. Parameters specified by the action will override the values configured here.
       required: false
       type: string
 {% endconfiguration %}
