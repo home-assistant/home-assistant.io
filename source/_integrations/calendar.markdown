@@ -160,6 +160,7 @@ Add a new calendar event. A calendar `target` is selected with a [Target Selecto
 | `start_date` | yes | The date the whole day event should start. | 2019-03-10
 | `end_date` | yes | The date the whole day event should end (exclusive). | 2019-03-11
 | `in` | yes | Days or weeks that you want to create the event in. | "days": 2
+| `location` | yes | The location of the event. | Bowling center
 
 
 <div class='note'>
