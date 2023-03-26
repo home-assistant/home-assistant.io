@@ -117,7 +117,8 @@ target:
 
 You have to manually create buttons in Lovelace to send commands to the Android TV device or launch apps on it.
 
-Here is an example for you to start with (replace all instances of `living_room_tv` with your entity ID):
+Below is an example for you to start with. Many of the buttons support long press.
+Replace all instances of `living_room_tv` with your entity ID.
 
 ![Screenshot Android TV Remote example](/images/integrations/androidtv_remote/lovelace_example.png)
 
