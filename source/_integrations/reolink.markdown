@@ -77,7 +77,7 @@ When the camera is not moved and no person/pet/vehicle is detected for the "Guar
 
 When a Reolink doorbell is pressed the quick reply message from the "Auto quick reply message" select entity will be played after "Auto quick reply time" seconds, unless the "Auto quick reply message" is set to off.
 
-If the "Auto tracking" switch entity is enabled and a object disapears from view/stops moving for the "Auto track disappear time"/"Auto track stop time" in seconds, the camera goes back to its original position.
+If the "Auto tracking" switch entity is enabled, and a object disappears from view OR stops moving for the "Auto track disappear time"/"Auto track stop time", the camera goes back to its original position.
 
 ## Button entities
 
