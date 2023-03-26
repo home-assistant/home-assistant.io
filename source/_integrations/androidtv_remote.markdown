@@ -23,7 +23,7 @@ The `androidtv_remote` platform allows you to control an Android TV device by se
 
 ## Entity
 
-This integration adds a `remote` entity that if you toggle it, it turns on/off the Android TV device.
+This integration adds a `remote` entity which turns on/off the Android TV device.
 The entity has the `current_activity` attribute that shows the current foreground app on the Android TV.
 
 ## Services
