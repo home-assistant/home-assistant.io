@@ -54,7 +54,7 @@ All Home Assistant platforms are supported by the Tuya integration, except the l
 
 ### Prerequisites
 
-- Your devices need first to be added in the [Tuya Smart or Smart Life app](https://developer.tuya.com/en/docs/iot/tuya-smart-app-smart-life-app-advantages?id=K989rqa49rluq#title-1-Download).
+- Your devices need first to be added in the [Tuya Smart or Smart Life app](https://developer.tuya.com/docs/iot/tuya-smart-app-smart-life-app-advantages?id=K989rqa49rluq#title-1-Download).
 - You will also need to create an account in the [Tuya IoT Platform](https://iot.tuya.com/).
 This is a separate account from the one you made for the app. You cannot log in with your app's credentials.
 
@@ -130,7 +130,7 @@ If no devices show up in Home Assistant:
 
 "1106: permission deny":
   description: >
-    - App account not linked with cloud project: On the [Tuya IoT Platform](https://iot.tuya.com/cloud/), you have linked devices by using Tuya Smart or Smart Life app in your cloud project. For more information, see [Link devices by app account](https://developer.tuya.com/en/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx&_source=7a356dd493196a01bb9021b7680a2a45#title-3-Link%20devices%20by%20app%20account).
+    - App account not linked with cloud project: On the [Tuya IoT Platform](https://iot.tuya.com/cloud/), you have linked devices by using Tuya Smart or Smart Life app in your cloud project. For more information, see [Link devices by app account](https://developer.tuya.com/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx#title-3-Link%20devices%20by%20app%20account).
 
     - Incorrect username or password: Enter the correct account and password of the Tuya Smart or Smart Life app in the **Account** and **Password** fields (social login, which the Tuya Smart app allows, may not work, and thus should be avoided for use with the Home Assistant integration). Note that the app account depends on which app (Tuya Smart or Smart Life) you used to link devices on the [Tuya IoT Platform](https://iot.tuya.com/cloud/).
 
@@ -149,7 +149,7 @@ If no devices show up in Home Assistant:
 
 "28841105: No permissions. This project is not authorized to call this API":
   description: >
-    Some APIs are not authorized, please [Subscribe](https://developer.tuya.com/en/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-2-Subscribe%20to%20cloud%20products) then [Authorize](https://developer.tuya.com/en/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-3-Authorize%20projects%20to%20call%20the%20cloud%20product). The following APIs must be subscribed for this tutorial:
+    Some APIs are not authorized, please [Subscribe](https://developer.tuya.com/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-2-Subscribe%20to%20APIs) then [Authorize](https://developer.tuya.com/docs/iot/applying-for-api-group-permissions?id=Ka6vf012u6q76#title-3-Grant%20a%20project%20access%20to%20API%20calls). The following APIs must be subscribed for this tutorial:
 
     - Device Status Notification
     
