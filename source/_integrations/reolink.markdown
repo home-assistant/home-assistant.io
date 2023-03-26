@@ -81,7 +81,7 @@ If the "Auto tracking" switch entity is enabled, and a object disappears from vi
 
 ## Button entities
 
-Depending on the supported features of the camera button entities are added for:
+Depending on the supported features of the camera, button entities are added for:
 
 - PTZ stop
 - PTZ left
