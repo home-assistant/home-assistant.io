@@ -39,7 +39,7 @@ The Images stream provides a sequence of image snapshots giving very low latency
 
 ## Binary sensors
 
-Depending on the supported features of the camera binary sensors are added for:
+Depending on the supported features of the camera, binary sensors are added for:
 
 - Motion detection
 - Doorbell presses
@@ -53,7 +53,7 @@ Not all camera models generate ONVIF push events for all event types, some binar
 
 ## Number entities
 
-Depending on the supported features of the camera number entities are added for:
+Depending on the supported features of the camera, number entities are added for:
 
 - Optical zoom control
 - Focus control
@@ -98,7 +98,7 @@ PTZ left, right, up and down will continually move the camera in the respective 
 
 ## Select entities
 
-Depending on the supported features of the camera select entities are added for:
+Depending on the supported features of the camera, select entities are added for:
 
 - Floodlight mode (Off, Auto, Schedule)
 - Day night mode (Auto, Color, Black&White)
@@ -119,7 +119,7 @@ In some camera models, there is a delay of up to 5 seconds between the turn-off 
 
 ## Switch entities
 
-Depending on the supported features of the camera switch entities are added for:
+Depending on the supported features of the camera, switch entities are added for:
 
 - Record audio
 - Siren on event
@@ -137,7 +137,7 @@ Depending on the supported features of the NVR/host, global switch entities are 
 
 ## Light entities
 
-Depending on the supported features of the camera light entities are added for:
+Depending on the supported features of the camera, light entities are added for:
 
 - Floodlight
 - Infra red lights in night mode
