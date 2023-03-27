@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@200;300;400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "./custom/utilities.css";
+@import "./custom/content.css";
+@import "./custom/gallery.css";
+@import "./custom/guide.css";
+@import "./custom/topic.css";
+@import "./custom/integrations.css";
+
+@import 'home.css';
+@import 'post.css';
+@import 'prism.css';
+
+

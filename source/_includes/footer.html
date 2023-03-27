@@ -1,1 +1,99 @@
-{% include custom/footer.html %}
+<footer class="bg-white" aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="sr-only">Footer</h2>
+    <div class="container mx-auto py-12 lg:py-16">
+        <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+            <div class="space-y-4 md:space-y-8 xl:col-span-1">
+                <img class="hidden md:block" height="65" width="65" src="{{ site.baseurl }}images/home-assistant-logo.svg" alt="Company name" loading="lazy">
+                <img class="md:hidden" height="38" width="38" src="{{ site.baseurl }}images/home-assistant-logo.svg"
+                    alt="Company name" loading="lazy">
+                <p class="font-semibold text-xl md:text-[30px] leading-7 text-black">Home Assistant</p>
+                <div class="flex md:hidden space-x-6 social-link">
+                    {% for social in site.data.socials %}
+                    <a href="{{social.url}}" class="text-gray-400 hover:text-gray-500">
+                        <span class="sr-only">{{social.name}}</span>
+                        <img src="{{ site.baseurl }}{{social.icon}}" alt="{{social.name}}" loading="lazy" />
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="mt-12 md:grid grid-cols-2 gap-16 xl:mt-0 xl:col-span-2 footer-nav">
+                <div class="grid grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-semibold text-[14px] text-black opacity-[.66] leading-3">ABOUT</h3>
+                        <ul role="list" class="mt-4 space-y-4">
+                            {% for about in site.data.footer.about %}
+                            <li class="w-fit">
+                                <a href="{{ site.baseurl }}{{about.slug}}" class="font-semibold text-xl text-black"> {{about.menu}} </a>
+                            </li>
+                            {% endfor %}
+                            
+                        </ul>
+                    </div>
+                    <div class="mt-0">
+                        <h3 class="font-semibold text-[14px] text-black opacity-[.66] leading-3">SYSTEM</h3>
+                        <ul role="list" class="mt-4 space-y-4">
+                            {% for system in site.data.footer.system %}
+                                {% if system.newtab %}
+                                <li class="w-fit">
+                                    <a href="{{system.slug}}" target="_blank" class="font-semibold text-xl text-black"> {{system.menu}} </a>
+                                </li>
+                                {% else %}
+                                <li class="w-fit">
+                                    <a href="{{ site.baseurl }}{{system.slug}}" class="font-semibold text-xl text-black"> {{system.menu}} </a>
+                                </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-8 mt-12 md:mt-0">
+                    <div>
+                        <h3 class="font-semibold text-[14px] text-black opacity-[.66] leading-3">COMMUNITY</h3>
+                        <ul role="list" class="mt-4 space-y-4">
+                            {% for community in site.data.footer.community %}
+                                {% if community.newtab %}
+                                <li class="w-fit">
+                                    <a href="{{community.slug}}" target="_blank" class="font-semibold text-xl text-black"> {{community.menu}} </a>
+                                </li>
+                                {% else %}
+                                <li class="w-fit">
+                                    <a href="{{ site.baseurl }}{{community.slug}}" class="font-semibold text-xl text-black"> {{community.menu}} </a>
+                                </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="mt-0">
+                        <h3 class="font-semibold text-[14px] text-black opacity-[.66] leading-3">SUPPORT</h3>
+                        <ul role="list" class="mt-4 space-y-4">
+                            {% for support in site.data.footer.support %}
+                                {% if support.newtab %}
+                                <li class="w-fit">
+                                    <a href="{{support.slug}}" target="_blank" class="font-semibold text-xl text-black"> {{support.menu}} </a>
+                                </li>
+                                {% else %}
+                                <li class="w-fit">
+                                    <a href="{{ site.baseurl }}{{support.slug}}" class="font-semibold text-xl text-black"> {{support.menu}} </a>
+                                </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-[35px] md:mt-[47px] border-t border-grey-secondary py-[21px] md:py-[26px] px-[40px] md:px-0">
+            <span class="text-xs text-black opacity-[.66] inline-block text-center md:text-left"><span
+                    class="underline-offset-1">Copyright © Home Assistant. <a href="/privacy" class="underline underline-offset-1">Privacy</a></span>
+                and <a href="/term" class="underline underline-offset-1">Terms & Conditions</a></span>
+            <div class="hidden md:flex space-x-6 float-right social-link">
+                {% for social in site.data.socials %}
+                <a href="{{social.url}}" class="text-gray-400 hover:text-gray-500">
+                    <span class="sr-only">{{social.name}}</span>
+                    <img src="{{ site.baseurl }}{{social.icon}}" alt="{{social.name}}" loading="lazy" />
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</footer>

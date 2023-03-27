@@ -1,0 +1,16 @@
+.topic a {
+    color: #575757;
+    line-height: 24px;
+    padding: 8px 0 8px 60px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 20px;
+    border-left: 5px solid transparent;
+}
+
+.topic-active {
+    font-weight: 700 !important;
+    color: black !important;
+    border-left: 5px solid #02B0FF !important;
+}
+

@@ -1,22 +1,7 @@
 ---
-layout: default
-regenerate: true
-blog_index: true
+layout: blog
+featuredArticles:
+ - 2022-09-07-release-20229
+ - 2022-08-03-release-20228
+ - 2022-07-06-release-20227
 ---
-  {% assign index = true %}
-  {% for post in paginator.posts %}
-  <article class="listing">
-    {% include blog/post/article.html %}
-  </article>
-  <hr>
-  {% endfor %}
-
-  <div class="pagination">
-    {% if paginator.next_page %}
-      <a class="btn pull-left" href="{{paginator.next_page_path}}">&larr; Older</a>
-    {% endif %}
-
-    {% if paginator.previous_page %}
-    <a class="btn pull-right" href="{{paginator.previous_page_path}}">Newer &rarr;</a>
-    {% endif %}
-  </div>

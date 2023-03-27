@@ -1,0 +1,78 @@
+---
+layout: default
+---
+<div class="container relative mx-auto h-[30px] md:h-[150px]">
+    <div
+        class="hidden md:block bg-white absolute w-[110%] top-0 left-1/2 translate-x-[-50%] h-[0] md:h-[170%] rounded-b-3xl">
+    </div>
+</div>
+<section class="container mx-auto relative pt-[80px] md:pt-0">
+    {% assign sortedPosts = site.posts | sort: 'date' | reverse  %}
+    {% for post in sortedPosts limit:1 %}
+    <a class="rounded-3xl md:flex shadow-[2px_-2px_10px_#3333]" href="{{post.url}}">
+        <div class="md:w-[50%] rounded-l-3xl">
+            <img src="{% if post.image %}{{post.image}}{% else %}{{post.og_image}}{% endif %}" class="rounded-l-3xl" style="object-fit: cover; width: 100%; height: 100%" loading="lazy" >
+        </div>
+        <div class="bg-white h-full md:w-[50%] md:float-right p-10 rounded-3xl md:rounded-r-3xl md:rounded-l-none ">
+            <div class="flex justify-between text-sm text-grey-text opacity-60 font-semibold">
+                <p class="">{{post.date_formatted}}</p>
+                <p class=" float-right">{{post.author}}</p>
+            </div>
+            <h1 class="text-black text-[24px] md:text-[44px] font-extrabold tracking-[-0.02em] leading-[53px]">
+                {{post.title}}
+            </h1>
+            <div class="flex text-grey-text opacity-60 text-[14px] md:text-[16px] my-5">
+                {% for category in post.categories %}
+                    <p class="font-extrabold mr-5">#{{category}}</p>
+                {% endfor %}
+            </div>
+            <p class="text-sm md:text-xl font-semibold text-grey-text pb-10">👋 {{post.description}}</p>
+        </div>
+    </a>
+    {% endfor %}
+    
+    <h3 class="text-md md:text-2xl font-extrabold pt-[50px]">Featured articles</h3>
+    <div class="md:grid md:grid-cols-2 gallery-2  md:mx-0 md:p-0 mt-5">
+        {% for featured in page.featuredArticles %}
+            {% for post in site.posts %}
+                {% if post.url contains featured %}
+                <a class="rounded-3xl md:h-[500px] mb-5 bg-white shadow-[2px_-2px_10px_#3333]" href="{{post.url}}">
+                    <div class="h-[250px] rounded-t-3xl">
+                        <img src="{% if post.image %}{{post.image}}{% else %}{{post.og_image}}{% endif %}" class="rounded-t-3xl" style="object-fit: cover; width: 100%; height: 100%" loading="lazy" >
+                    </div>
+                    <div class="md:h-1/2 rounded-b-3xl p-10 relative">
+                        <div class="flex text-grey-text opacity-60 text-[14px] md:text-[16px]">
+                            {% for category in post.categories %}
+                                <p class="font-extrabold mr-5">#{{category}}</p>
+                            {% endfor %}
+                        </div>
+                        <h1 class="text-[20px] md:text-[32px] text-black font-extrabold pt-5 leading-[38px]">{{post.title}}</h1>
+                        <p class="font-extrabold mr-5 text-grey-text opacity-50 mt-5 absolute left-[40px] bottom-[20px] text-[14px] md:text-[16px]">{{post.date_formatted}}</p>
+                    </div>
+                </a>
+                {% endif %}
+            {% endfor %}    
+        {% endfor %}
+    </div>
+    <h3 class="text-md md:text-2xl font-extrabold pt-[50px]">Lastest articles</h3>
+    <div class="md:grid md:grid-cols-3 gallery-3 mt-5  md:mx-0 md:p-0">
+        {% for post in sortedPosts %}
+            {% if post.name != page.highLightBlog %}
+            <a class="rounded-3xl md:h-[500px] mb-5 bg-white shadow-[2px_-2px_10px_#3333]" href="{{post.url}}">
+                <div class="h-[250px] rounded-t-3xl">
+                    <img src="{% if post.image %}{{post.image}}{% else %}{{post.og_image}}{% endif %}" class="rounded-t-3xl" style="object-fit: cover; width: 100%; height: 100%" loading="lazy">
+                </div>
+                <div class="md:h-1/2 rounded-b-3xl p-5 tracking-[-0.02em]">
+                    <h1 class="text-[20px] md:text-[28px] text-black font-extrabold md:pt-10">{{post.title}}</h1>
+                </div>
+            </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="w-full flex my-20">
+        <button
+            class="w-[80%] md:w-1/3 font-extrabold m-auto text-[20px] tracking-[-0.02em] py-4 text-black bg-grey-primary  border border-grey-text rounded-lg">Load
+            More</button>
+    </div>
+
+</section>

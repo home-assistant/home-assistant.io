@@ -1,0 +1,196 @@
+nav span {
+    border-bottom: 2px solid transparent !important;
+}
+.active span {
+    border-bottom: 2px solid black !important;
+}
+nav a span:hover {
+    border-bottom: 2px solid black !important;
+
+}
+.footer-nav ul li {
+    border-bottom: 2px solid transparent !important;
+}
+.footer-nav ul li:hover a {
+    border-bottom: 2px solid black !important;
+}
+.footer-nav ul li.active a {
+    border-bottom: 2px solid black !important;
+}
+.social-link a:hover {
+    cursor: pointer;
+    background-color: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+}
+.social-link a {
+    padding: 8px;
+
+}
+.search-result {
+    transition: all 0.3s linear;
+}
+#algolia-search-box {
+    display: none;
+}
+.scroll-x::-webkit-scrollbar {
+    width: 6px
+}
+.scroll-x::-webkit-scrollbar:horizontal {
+    height: 6px;
+}
+.scroll-x::-webkit-scrollbar-track {
+    background-color: transparent;
+    width: 3px
+}
+.scroll-x::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: transparent;
+}
+#search-box div:hover {
+    cursor: pointer;
+    background-color: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: -8px;
+
+}
+#search-box div {
+    padding: 8px;
+    margin-right: -8px;
+}
+button:hover {
+    transform: scale(1.05)
+}
+button {
+    transition: all 0.15s linear;
+
+}
+.ml-0 {
+    margin-left: 0px !important;
+}
+.popular-category .flex {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (min-width:768px) and (max-width:820px) {
+   header .container>div {
+    padding-top: 30px !important;
+   }
+   .value-section {
+    overflow: scroll !important;
+    display: flex !important;
+    gap: 50px !important;
+   }
+   .value-section .col-span-1 {
+    min-width: 400px !important
+   }
+   .app-download>div {
+       z-index: 20;
+   }
+   .app-download>div>div {
+       /* margin-left: 0!important; */
+       padding-right: 0 !important;
+   }
+   .app-download>div>div {
+       /* margin-left: 0!important; */
+       padding-right: 0 !important;
+   }
+   .app-download-btn {
+   margin-left: 0px !important;
+   }
+   .app-download>div {
+    padding:60px !important;
+   }
+   .app-download .mobile2 {
+    top: -155px !important;
+   }
+   .app-download>img:first-child {
+    top: -115px !important;
+   }
+   .app-download>div>div {
+        width: 100% !important;
+   }
+   
+   .popular-brands .col-span-1 {
+    width: 98px !important;
+    height: 98px !important;
+   }
+   .inte-button-group button.bg-transaprent{
+        padding: 15px 20px !important;
+        margin-left:0 !important;
+   }
+   .inte-button-group button img{
+        margin-right: 3px !important;
+   }
+   #search-box div {
+       padding-right: 8px;
+   }
+   #algolia-search-box>div {
+    width: 70% !important;
+   }
+   .story-back h2{
+        width: 100%;
+   }
+   .story-back>div>div{
+        padding: 10px !important;
+   }
+   .learn-grid a{
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+   }
+   .possibliy>div {
+        width: 80% !important;
+   }
+   #cover .w-\[70\%\]{
+    width: 100% !important;
+  }
+  #learn>div>h1 {
+    padding-top: 100px !important;
+  }
+  .discover-img {
+    max-width: 100% !important
+  }
+  #discover{
+    margin-top: 65px !important;
+  }
+}
+.search-result div {
+    border-radius: 0 !important;
+}
+.search-result div:first-child {
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+}
+.search-result :last-child {
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+}
+
+.details-block {
+    width: 100%;
+    display: block;
+    margin: 15px 0;
+}
+
+.details-block-item {
+    background-color: white;
+    padding: 4px 16px;
+    margin: 8px;
+    box-shadow: 0px 4px 20px rgb(0 0 0 / 10%);
+    border-radius: 16px;
+}
+.details-block .details-block-item .details-block-title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    cursor: pointer;
+    height: 54px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 0px;
+    width: 100%;
+}

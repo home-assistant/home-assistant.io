@@ -7,7 +7,6 @@ require 'json'
 ## -- Misc Configs -- ##
 public_dir      = "public/"   # compiled site directory
 source_dir      = "source"    # source file directory
-server_port     = "4000"      # port for preview server eg. localhost:4000
 
 if (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
   puts '## Set the codepage to 65001 for Windows machines'
@@ -20,67 +19,69 @@ end
 
 desc "Generate jekyll site"
 task :generate do
-  raise "### You haven't set anything up yet. First run `rake install`." unless File.directory?(source_dir)
-  puts "## Generating Site with Jekyll"
-  success = system "compass compile --css-dir #{source_dir}/stylesheets"
-  abort("Generating CSS failed") unless success
-  success = system "rake analytics_data"
-  abort("Generating analytics data failed") unless success
-  success = system "rake alerts_data"
-  abort("Generating alerts data failed") unless success
-  success = system "rake version_data"
-  abort("Generating version data failed") unless success
-  success = system "rake blueprint_exchange_data"
-  abort("Generating blueprint exchange data failed") unless success
-  success = system "jekyll build"
+  # Hand off this rake task to NPM.
+  # This rake tasks is here as a backward compatible command and still
+  # used by Netlify as long as the old branches are still there.
+  # IT also helps with the muscle memory of developers :)
+  success = system "npm run build"
   abort("Generating site failed") unless success
+
+  # TODO: Needs to move? Maybe generate it dynamically from the source?
   if ENV["CONTEXT"] != 'production'
     File.open("#{public_dir}robots.txt", 'w') do |f|
       f.write "User-agent: *\n"
       f.write "Disallow: /\n"
     end
   end
+
   public_dir
 end
 
 desc "Watch the site and regenerate when it changes"
 task :watch do
-  raise "### You haven't set anything up yet. First run `rake install`." unless File.directory?(source_dir)
-  puts "Starting to watch source with Jekyll and Compass."
-  system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
-  jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build --watch --incremental")
-  compassPid = Process.spawn("compass watch")
-
-  trap("INT") {
-    [jekyllPid, compassPid].each { |pid| Process.kill(9, pid) rescue Errno::ESRCH }
-    exit 0
-  }
-
-  [jekyllPid, compassPid].each { |pid| Process.wait(pid) }
+  # Hand off this rake task to NPM.
+  # This rake tasks is here as a backward compatible command and still
+  # used by Netlify as long as the old branches are still there.
+  # IT also helps with the muscle memory of developers :)
+  jekyllPid = Process.spawn("npm run dev")
+  Process.wait(jekyllPid)
 end
 
 desc "preview the site in a web browser"
 task :preview, :listen do |t, args|
-  listen_addr = args[:listen] || '127.0.0.1'
-  listen_addr = '0.0.0.0' unless ENV['DEVCONTAINER'].nil?
-  raise "### You haven't set anything up yet. First run `rake install`." unless File.directory?(source_dir)
-  puts "Starting to watch source with Jekyll and Compass."
-  puts "Now listening on http://localhost:#{server_port}"
-  system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
-  system "rake analytics_data"
-  system "rake version_data"
-  system "rake alerts_data"
-  system "rake blueprint_exchange_data"
-  jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
-  compassPid = Process.spawn("compass watch")
-  rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
+  # Hand off this rake task to NPM.
+  # This rake tasks is here as a backward compatible command and still
+  # used by Netlify as long as the old branches are still there.
+  # IT also helps with the muscle memory of developers :)
 
-  trap("INT") {
-    [jekyllPid, compassPid, rackupPid].each { |pid| Process.kill(9, pid) rescue Errno::ESRCH }
-    exit 0
-  }
+  # We used to listen/bind to an host address selectively, this might need
+  # to return in the future.
+  # listen_addr = args[:listen] || '127.0.0.1'
+  # listen_addr = '0.0.0.0' unless ENV['DEVCONTAINER'].nil?
+  jekyllPid = Process.spawn("npm run dev")
+  Process.wait(jekyllPid)
+end
 
-  [jekyllPid, compassPid, rackupPid].each { |pid| Process.wait(pid) }
+desc "Fetch meta data"
+task :fetch_meta_data do
+  puts "## Fetching external meta data..."
+
+  puts "Download data from analytics.home-assistant.io..."
+  success = system "rake analytics_data"
+  abort("Generating analytics data failed") unless success
+
+  puts "Download data from alerts.home-assistant.io..."
+  success = system "rake alerts_data"
+  abort("Generating alerts data failed") unless success
+
+  puts "Download data from version.home-assistant.io..."
+  success = system "rake version_data"
+  abort("Generating version data failed") unless success
+
+  puts "Download data from the blueprint exchange @ community.home-assistant.io..."
+  success = system "rake blueprint_exchange_data"
+  abort("Generating blueprint exchange data failed") unless success
+  puts "Done."
 end
 
 desc "Download data from analytics.home-assistant.io"

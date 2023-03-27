@@ -1,0 +1,42 @@
+.post-content {
+    margin-top: 1rem;
+    margin-bottom: 6rem;
+}
+
+.post-content a {
+    color: #049cdb;
+    text-decoration: underline;
+}
+
+.post-content p{
+    font-size: 14px;
+    margin-bottom: 2rem;
+    color: #575757;
+}
+
+.post-content ul {
+    list-style: disc;
+    margin-left: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.post-content ul li {
+    font-size: 14px;
+    color: #575757;
+}
+
+.opacity-80 {
+    opacity: 0.8;
+}
+
+@media(min-width: 768px) {
+    .post-content h2{
+        font-size: 32px;
+    }
+    .post-content p{
+        font-size: 18px;
+    }
+    .post-content ul li {
+        font-size: 18px;
+    }
+}

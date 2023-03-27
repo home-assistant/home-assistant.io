@@ -1,26 +1,99 @@
 ---
 layout: default
-is_post: true
 ---
 
-<article class="post">
-  {% assign post = page %}
-  {% include blog/post/article.html %}
-</article>
+<div class="container relative mx-auto h-[100px] md:h-[150px]">
+    <div
+        class="hidden md:block bg-white absolute w-[110%] top-0 left-1/2 translate-x-[-50%] h-[0] md:h-[170%] rounded-b-3xl">
+    </div>
+</div>
+<section class="container mx-auto relative z-20">
+    <p class="text-grey-text opacity-70 text-[14px] font-semibold pb-8">Blog / {{page.title}}</p>
+    {% if page.image %}
+    <img src="{{page.image}}{% else %}{{page.og_image}}" alt="{{page.title}}" class="w-full rounded-3xl relative z-20" />
+    {% endif %}
+    <article class="relative ">
+        <div class="absolute w-[110%] left-1/2 translate-x-[-50%] top-[-60px] rounded-3xl h-[100%] bg-white"></div>
+        <div class="md:px-20 py-[30px] relative z-20">
+            <p class="font-extrabold text-grey-text opacity-60 text-[12px] md:text-[18px]">
+            {% for category in page.categories %}
+            <a href="{{site.baseurl}}blog/categories/{{category | downcase}}" class="mr-[10px]">#{{category}}</a>
+            {% endfor %}
+            </p>
+            <h1 class="text-black text-[24px] md:text-[44px] font-extrabold tracking-[-0.02em] md:leading-[53px] pt-5 md:py-5">
+                {{ page.title }}
+            </h1>
+            <p class="text-sm text-grey-text opacity-60 font-semibold">{{ page.date_formatted }}<span class="ml-5">{{ page.author }}</span></p>
+            <div class="content post-content">
+                {{ page.content | output_modder }}
+            </div>
+        </div>
+    </article>
 
-<div id='post-comments'></div>
+    <div id='post-comments'></div>
 
-{% if page.comments == true %}
-<div id='discourse-comments'></div>
+    {% if page.comments == true %}
+    <div id='discourse-comments'></div>
 
-<script type="text/javascript">
-  DiscourseEmbed = { discourseUrl: 'https://community.home-assistant.io/',
-                     discourseEmbedUrl: '{{ page.url | canonical_url }}' };
+    <script type="text/javascript">
+    DiscourseEmbed = { discourseUrl: 'https://community.home-assistant.io/',
+                        discourseEmbedUrl: '{{ page.url | canonical_url }}' };
 
-  (function() {
-    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
-  })();
-</script>
-{% endif %}
+    (function() {
+        var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+        d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+    })();
+    </script>
+    {% endif %}
+    
+    <h3 class="font-extrabold pt-[50px] text-md md:text-2xl">Related articles</h3>
+    <div class="md:grid md:grid-cols-3 gallery-3 mt-5  md:mx-0 md:p-0">
+        {% assign sortedPosts = site.posts | sort: 'date' | reverse  %}
+        {% assign relativePosts = "" | split: ',' %}
+        {% assign currentCategories = page.categories  %}
+        {% for post in sortedPosts %}
+            {% assign flag = 0  %}
+            {% for category in post.categories %}
+                {% if currentCategories contains category %}
+                    {% assign flag = flag | plus:1  %}
+                {% endif %}
+            {% endfor %}
+            
+            {% if flag > 0 and page.title != post.title %}
+                {% assign relativePosts = relativePosts | push: post  %}
+            {% endif %}
+        {% endfor %}
+        {% for relative in relativePosts limit:3 %}
+            <a class="rounded-3xl md:h-[500px] mb-5 shadow-[2px_-2px_10px_#3333] bg-white" href="{{relative.url}}">
+                <div class="h-[250px] rounded-t-3xl">
+                    <img src="{% if relative.image %}{{relative.image}}{% else %}{{relative.og_image}}{% endif %}" class="rounded-t-3xl" style="object-fit: cover; width: 100%; height: 100%" loading="lazy">
+                </div>
+                <div class="md:h-1/2 rounded-b-3xl p-5 tracking-[-0.02em]">
+                    <h2 class="text-[20px] md:text-[28px] text-black font-extrabold md:pt-10">{{relative.title}}</h2>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+    <div class="w-full flex mt-5 mb-[200px]">
+        <div
+            class="w-full font-extrabold m-auto text-[20px] tracking-[-0.02em] py-7 text-black bg-grey-primary border border-border-line rounded-lg flex justify-between px-10">
+            <div class="flex ">
+                <svg width="30" height="30" class="cursor-pointer" viewBox="0 0 20 17" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M17.8906 4.34359C17.7969 4.67172 17.4001 5.50532 16.7219 6.29653C16.2698 14.9715 7.84908 17.7972 2.08457 14.8867C1.29336 13.8412 4.93857 14.2651 6.26667 12.2588C1.23685 9.68744 1.63245 2.82087 2.64972 3.10344C5.02334 6.29653 8.83811 6.5791 9.45971 6.29653C9.45971 5.56184 9.14891 3.97942 10.8726 2.65132C11.8616 1.94489 13.9297 1.31234 15.8047 3.34359C16.125 3.55453 16.5859 3.64828 17.2734 3.49203C17.6797 3.28109 18.2262 3.42684 17.9453 4.15609"
+                        stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg width="30" height="30" class="ml-8 cursor-pointer" viewBox="0 0 12 18" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M11 4.25016H8.49458C8.04208 4.25016 7.675 4.61683 7.675 5.06975V7.94475H11L10.5129 11.1102H7.67542V16.9168H4.01875V11.1102H1V7.94475H3.97958L4.01875 4.94058L4.01333 4.39475C4.00898 3.9615 4.09055 3.53169 4.25333 3.13017C4.41611 2.72864 4.65686 2.36337 4.96167 2.05545C5.26648 1.74754 5.62931 1.50311 6.02916 1.33628C6.42902 1.16944 6.85798 1.08353 7.29125 1.0835H11V4.25016Z"
+                        stroke="black" stroke-width="1.58333" stroke-linejoin="round" />
+                </svg>
+            </div>
+            <p class="cursor-pointer hover:border-b-2 hover:border-black border-b-2 border-transparent">Share this post</p>
+        </div>
+    </div>
+
+</section>

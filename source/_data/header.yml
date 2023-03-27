@@ -1,0 +1,8 @@
+- menu: Discover
+  slug: discover
+- menu: Learn 
+  slug: learn
+- menu: Integrate
+  slug: integrate
+- menu: Blog
+  slug: blog

@@ -1,0 +1,29 @@
+---
+layout: default 
+---
+<section class="container mx-auto relative pt-20 md:pt-[180px]" id="learn">
+    <img src="{{ site.baseurl }}images/learn-bg.png" class="absolute min-w-[107%] h-auto left-[50%] translate-x-[-50%]" alt="learn-bg" loading="lazy">
+    <div class="relative z-20">
+        <h1 class="pt-[80px] sm:pt-[200px] pb-[55px] md:pb-[120px] text-white text-[32px] md:text-[68px] text-center font-bold">{{page.title}}</h1>
+        <div class="learn-grid grid md:grid-cols-2 lg:grid-cols-3 tracking-[-0.02em] text-black">
+            {% assign sortedGuides = site.guides | sort: 'order' %}
+            {% for guide in sortedGuides %}
+            <div class="border-border-line border rounded-[40px] mb-10 p-7 md:py-14 md:px-2 bg-white text-center mx-2 md:mx-5">
+                <div class="h-[34px] md:h-[70px] mb-10 text-center"><a href="{{guide.url}}"><img src="{{ site.baseurl }}{{guide.icon}}" class="m-auto h-full" alt="{{guide.title}}" loading="lazy"></a></div>
+                <a href="{{guide.url}}" class="text-lg md:text-4xl font-bold">{{guide.title}}</a>
+                <div class="hidden md:block mt-8">
+                    {% assign guideContent = guide.content | markdownify %}
+                    {% assign headers = guideContent | split: '<h2' %}
+                    {% for header in headers %}
+                        {% assign _string = header | split: '</h2' %}
+                        {% capture _hAttrToStrip %}{{ _string[0] | split: '>' | first }}>{% endcapture %}
+                        {% assign title = _string[0] | replace: _hAttrToStrip, '' %}
+                        {% assign href = title | replace: ' ', '-' | downcase %}
+                        <a href="{{guide.url}}#{{href}}" class="text-lg font-medium mb-5 block">{{title}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

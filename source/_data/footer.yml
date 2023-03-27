@@ -1,0 +1,40 @@
+about: 
+  - menu: Discover
+    slug: discover
+  - menu: Our Story
+    slug: story
+  - menu: Blog
+    slug: blog
+system:
+  - menu: Alerts
+    slug: https://www.home-assistant.io/
+    newtab: true
+  - menu: Status
+    slug: https://www.home-assistant.io/
+    newtab: true
+  - menu: Security
+    slug: https://www.home-assistant.io/
+    newtab: true
+  - menu: Data
+    slug: https://www.home-assistant.io/
+    newtab: true
+community:
+  - menu: Explore
+    slug: https://www.home-assistant.io/
+    newtab: true
+  - menu: Discord
+    slug: https://www.home-assistant.io/
+    newtab: true
+  - menu: Github
+    slug: https://github.com/home-assistant/website-redesign-2022
+    newtab: true
+support:
+  - menu: Learn
+    slug: learn
+    newtab: false
+  - menu: Developer Docs
+    slug: https://developers.home-assistant.io/
+    newtab: true
+  - menu: Contact
+    slug: #
+    newtab: false

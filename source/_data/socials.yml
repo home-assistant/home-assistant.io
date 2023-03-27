@@ -1,0 +1,15 @@
+- name: Instagram
+  icon: images/icon/instagram.svg
+  url: https://www.instagram.com/homeassistant/
+- name: GitHub
+  icon: images/icon/github.svg
+  url: https://github.com/home-assistant
+- name: Twitter
+  icon: images/icon/twitter.svg
+  url: https://twitter.com/home_assistant
+- name: Facebook
+  icon: images/icon/facebook.svg
+  url: https://www.facebook.com/groups/HomeAssistant/
+- name: reddit
+  icon: images/icon/reddit.svg
+  url: https://www.reddit.com/r/homeassistant/

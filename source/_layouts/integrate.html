@@ -1,0 +1,150 @@
+---
+layout: default
+---
+
+<div class="container mx-auto text-center pt-20 md:pt-[180px] md:mt-11">
+    <span class="font-extrabold text-[32px] md:text-[68px] leading-[38px] md:leading-[80px]">{{page.title}}<br></span>
+    <span class="font-normal text-[22px] md:text-[44px] leading-[26px] md:leading-[52px]">{{page.subTitle}}</span>
+</div>
+
+<div class="bg-[#C4C4C4] bg-opacity-10 relative mt-[80px] md:mt-[160px] py-[60px]">
+    <div class="text-center w-[348px] md:w-[615px] absolute top-[-30px] left-[50%] translate-x-[-50%]">
+        <label for="search" class="sr-only">Search</label>
+        <div class="relative text-white focus-within:text-gray-400 cursor-pointer search-input">
+            <div>
+                <input id="integration-search" name="search" class="w-full relative max-h-[56px] md:max-h-[83px] rounded-[60px] py-[20px] md:py-[30px] pl-[69px] md:pl-[126px] pr-[46px] bg-white md:pr-[66px] text-sm md:text-xl placeholder-black placeholder-opacity-[.33] font-semibold text-black shadow-[0_4px_24px_rgba(0,0,0,0.3)]"
+                        style="-webkit-appearance: none" type="search" placeholder="Search within 10.000+integrations" role="search">
+                <div class="absolute z-50 inset-y-0 left-0 pl-5 md:pl-[40px] flex items-center search-done">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.75 17.5833L14.1665 11.9998C15.1987 10.4311 15.6122 8.53508 15.3267 6.67898C15.0413 4.82288 14.0774 3.1387 12.6215 1.95252C11.1657 0.76633 9.32149 0.162516 7.446 0.257981C5.57052 0.353446 3.79717 1.1414 2.46928 2.46928C1.1414 3.79717 0.353446 5.57052 0.257981 7.446C0.162516 9.32149 0.76633 11.1657 1.95252 12.6215C3.1387 14.0774 4.82288 15.0413 6.67898 15.3267C8.53508 15.6122 10.4311 15.1987 11.9998 14.1665L17.5833 19.75L19.75 17.5833ZM2.41666 7.83333C2.41666 4.84658 4.84658 2.41666 7.83333 2.41666C10.8201 2.41666 13.25 4.84658 13.25 7.83333C13.25 10.8201 10.8201 13.25 7.83333 13.25C4.84658 13.25 2.41666 10.8201 2.41666 7.83333Z" fill="#00000066" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pt-0 md:pt-[57px] text-center">
+        <span class="font-extrabold text-2xl leading-7">{{page.categorySectionTitle}}</span>
+    </div>
+    <div class="popular-category">
+        <div class="container mx-auto px-4 w-max mt-8 flex">
+            {% for category in page.categories %}
+                <a href="{{category.link}}" class="mx-2 my-2 w-[100px] border-2 border-black border-opacity-10 pt-[16px] pb-[13px] rounded-xl md:rounded-none">
+                    <img class="mx-auto" src="{{category.icon}}" alt="{{category.category}}" loading="lazy">
+                    <p class="mt-[6px] font-extrabold text-sm text-black leading-4 text-center">{{category.category}}</p>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="py-[50px]">
+    <div class="text-center mx-auto ">
+        <span class="font-extrabold text-[24px] leading-7">
+            {{page.brandSectionTitle}}
+        </span>
+    </div>
+    <div class="popular-brands overflow-x-auto px-6 md:px-0 container mx-auto scroll-x">
+        <div class="mt-8 flex md:grid gap-x-6 grid-cols-5 grid-rows-2 mx-auto  gap-y-7 space-x-4 md:space-x-0 w-max md:w-[80%]">
+            {% for integration in site.integrations %}
+            {% if integration.featured %}
+            {% if integration.logo and integration.logo != "" and integration.logo != nil %}
+            <a href="{{site.baseurl}}integrations/{{integration.ha_domain}}" class="col-span-1 w-[98px] h-[98px] md:w-auto md:h-[141px] flex justify-center items-center border-2 border-black border-opacity-10 rounded-xl md:rounded-none px-2">
+                <img class="card-logo" src="/images/supported_brands/{{integration.logo}}">
+            </a>
+            {% else %}
+            <a href="{{site.baseurl}}integrations/{{integration.ha_domain}}" class="col-span-1 w-[98px] h-[98px] md:w-auto md:h-[141px] flex justify-center items-center border-2 border-black border-opacity-10 rounded-xl md:rounded-none px-2">
+                <img class="card-logo" src="https://brands.home-assistant.io/_/{{integration.ha_domain}}/logo.png" srcset="https://brands.home-assistant.io/_/{{integration.ha_domain}}/logo@2x.png 2x">
+            </a>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="py-[20px]">
+    <div class="text-center mx-auto ">
+        <span class="font-extrabold text-[24px] leading-7">
+            {{page.themeSectionTitle}}
+        </span>
+    </div>
+    <div class="overflow-x-auto px-6 md:px-0  container mx-auto scroll-x">
+        <div class="mt-8 flex md:grid gap-10 grid-cols-3 grid-rows-2 mx-auto  gap-y-7 space-x-4 md:space-x-0 w-max md:w-[80%]">
+            {% for theme in page.themes %}
+            <div class=" w-[178px] md:w-auto border-2 border-black border-opacity-10 pt-[9px] pb-[17px] md:pt-[12px] md:pb-[20px] rounded-lg">
+                <img class="mx-auto px-[12px] md:px-[18px]" src="{{theme.image}}" loading="lazy">
+                <p class="mt-[14px] md:mt-[22px] font-extrabold text-lg text-black leading-4 text-center">{{theme.title}}</p>
+            </div>
+            {% endfor %}
+            <div
+                class=" w-[178px] md:w-auto border-2 border-black border-opacity-10 pt-[9px] pb-[17px] md:pt-[12px] md:pb-[20px] rounded-lg">
+                <img class="mx-auto px-[12px] md:px-[18px]" src="{{ site.baseurl }}images/integrate/dashboard6.png" alt="build-own" loading="lazy">
+                <p class="mt-[14px] md:mt-[22px] font-extrabold text-lg text-black leading-4 text-center">Build your own -></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-[20px]">
+    <div class="text-center mx-auto">
+        <span class="font-extrabold text-[24px] leading-7">
+            {{page.automationSectionTitle}}
+        </span>
+    </div>
+    <div class="mx-auto mt-10 space-y-4 px-4">
+        <div
+            class="w-full md:w-[500px] py-[25px] border border-black border-opacity-10 rounded-lg text-center mx-auto">
+            <span
+                class="px-1 font-semibold text-base leading-5 rounded-[4px] border-black border-opacity-10 border">Door
+                Bell</span>
+            <span
+                class="px-1 font-semibold text-base leading-5 rounded-[4px] bg-blue-btn focus:bg-blue-text hover:bg-blue-secondary text-white">Sends</span>
+            <span
+                class="px-1 font-semibold text-base leading-5 rounded-[4px] border-black border-opacity-10 border border-dotted">Notification</span>
+        </div>
+        <div
+            class="w-full md:w-[500px] py-[25px] border border-black border-opacity-10 rounded-lg text-center mx-auto">
+            <span
+                class="px-1 font-semibold text-base leading-5 rounded-[4px] border-black border-opacity-10 border border-dotted">Motion</span>
+            <span
+                class="px-1 font-semibold text-base leading-5 rounded-[4px] bg-blue-btn focus:bg-blue-text hover:bg-blue-secondary text-white">Activated</span>
+            <span
+                class="px-1 font-semibold text-base leading-5 rounded-[4px] border-black border-opacity-10">Turn-on</span>
+            <span
+                class="px-1 font-semibold text-base leading-5 rounded-[4px] border-black border-opacity-10 border">Lights</span>
+        </div>
+        <div
+            class="w-full md:w-[500px] py-[25px] border border-black border-opacity-10 rounded-lg text-center mx-auto">
+            <span
+                class="px-1 font-semibold text-base leading-5 rounded-[4px] border-black border-opacity-10 border">Thermostat</span>
+            <span
+                class="px-1 font-semibold text-base leading-5 rounded-[4px] bg-blue-btn focus:bg-blue-text hover:bg-blue-secondary text-white">based</span>
+            <span
+                class="px-1 font-semibold text-base leading-5 rounded-[4px] border-black border-opacity-10">on</span>
+            <span
+                class="px-1 font-semibold text-base leading-5 rounded-[4px] border-black border-opacity-10 border border-dotted">Outdoor
+                Temperature</span>
+        </div>
+        <div
+            class="w-full md:w-[500px] py-[25px] border border-black border-opacity-10 rounded-lg text-center mx-auto">
+            <span
+                class="px-1 font-semibold text-base leading-5 rounded-[4px] border-black border-opacity-10 border border-dotted">Phillips
+                Hue Smart Button</span>
+            <span
+                class="px-1 font-semibold text-base leading-5 rounded-[4px] bg-blue-btn focus:bg-blue-text hover:bg-blue-secondary text-white">5
+                presses</span>
+        </div>
+        <div
+            class="w-full md:w-[500px] py-[25px] border border-black border-opacity-10 rounded-lg text-center mx-auto">
+            <span
+                class="px-1 font-semibold text-base leading-5 rounded-[4px] border-black border-opacity-10 border">Detect</span>
+            <span class="px-1 font-semibold text-base leading-5 rounded-[4px] border-black border-opacity-10">Power
+                Consumption and</span>
+            <span
+                class="px-1 font-semibold text-base leading-5 rounded-[4px] bg-blue-btn focus:bg-blue-text hover:bg-blue-secondary text-white">make</span>
+            <span
+                class="px-1 font-semibold text-base leading-5 rounded-[4px] border-black border-opacity-10">decisions
+                based</span>
+        </div>
+    </div>
+</div>
+{% include integration-search.html %}

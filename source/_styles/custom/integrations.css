@@ -1,0 +1,51 @@
+.integrations .filter-items a.active label {
+    font-weight: 700;
+}
+
+.integrations .filter-items a label:hover {
+    cursor: pointer;
+}
+
+.integrations .grid img.card-logo {
+    max-width: 80%;
+    max-height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.integrations .option-card p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.integration-content {
+    scroll-padding-top: 80px;
+    margin-bottom: 60px;
+}
+
+.integration-toc {
+    scroll-margin-top: 100px;
+    scroll-padding-top: 80px;
+}
+.integrations .filter-items {
+    position: relative;
+}
+
+.integrations .filter-items .filter-button-group input {
+    pointer-events: none;
+}
+
+@media(max-width: 767px) {
+    .integrations .filter-items {
+        position: absolute;
+        top: 40px;
+        left: -350px;
+        background: #fff;
+        z-index: 2;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+    }
+}

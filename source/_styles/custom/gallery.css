@@ -1,0 +1,19 @@
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 7px;
+}
+
+.gallery div {
+    aspect-ratio: 1;
+}
+
+.gallery-2 {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 42px;
+}
+
+.gallery-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 35px;
+}

@@ -1,0 +1,343 @@
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6,
+.content dt {
+  position: relative;
+  padding-left: 20px;
+  margin-left: -20px;
+}
+
+
+.content h1:hover a.title-link,
+.content h2:hover a.title-link,
+.content h3:hover a.title-link,
+.content h4:hover a.title-link,
+.content h5:hover a.title-link,
+.content h6:hover a.title-link,
+.content dt:hover a.title-link {
+  position: relative;
+}
+
+.content h1:hover a.title-link::before,
+.content h2:hover a.title-link::before,
+.content h3:hover a.title-link::before,
+.content h4:hover a.title-link::before,
+.content h5:hover a.title-link::before,
+.content h6:hover a.title-link::before,
+.content dt:hover a.title-link::before {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -25px;
+    padding-right: 10px;
+    padding-left: 5px;
+    font-size: 15px;
+    color: #999;
+    content: "";
+    background-image: url('/images/icon/link-variant.svg');
+    background-size: 15px 15px;
+    height: 15px;
+    width: 15px;
+}
+
+.content h2 {
+    color: #000;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    scroll-margin-top: 100px;
+}
+
+.content h3 {
+    color: #000;
+    font-weight: 600;
+    letter-spacing: 0.125rem;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.content h2 a,
+.content h3 a,
+.content h4 a,
+.content h5 a,
+.content h6 a {
+    scroll-margin-top: 140px;
+}
+
+.content a {
+    color: #049cdb;
+    text-decoration: underline;
+}
+.content p {
+    color: rgb(87 87 87);
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+.content p.note,
+.content div.note {
+  position: relative;
+
+  background: #e7f2fa;
+
+  padding: 40px 12px 6px 12px;
+  margin-bottom: 24px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 0 10px;
+}
+
+.content p.note  p {
+    margin-bottom: 0px;
+}
+
+.content div.note  p {
+    margin-bottom: 0px;
+}
+
+.content p.note::before,
+.content div.note::before {
+    content: " "" Note " attr(data-title);
+    background-image: url('/images/icon/information.svg');
+    background-size: 20px 20px;
+    background-color: #6ab0de;
+    background-repeat: no-repeat;
+    background-position: 5px;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 6px 14px 6px 30px;
+
+    line-height: 1.5em;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.content p.note.warning,
+.content div.note.warning {
+    background-color: #f7f9e1;
+}
+.content p.note.warning::before,
+.content div.note.warning::before {
+    background-color: rgb(187, 185, 13);
+    content: " ""  Warning " attr(data-title);
+    background-image: url('/images/icon/alert.svg');
+    background-size: 20px 20px;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
+.content code {
+    color: #1990b8;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: break-word;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    background-color: #fdfdfd;
+    background-image: linear-gradient(transparent 50%, rgba(69,142,209,0.04) 50%);
+    background-size: 3em 3em;
+    background-origin: content-box;
+    background-attachment: local;
+    border: 1px solid #ddd;
+    border-radius: 0.4em;
+    padding: 0.1em 0.4em;
+    font-size: 0.8em;
+}
+
+.content pre.highlight {
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    font-family: "Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+    color: #000;
+    padding: 1em 0px 1em 1em;
+    font-size: 15px;
+}
+
+.content table {
+    background: #f3fcf5;
+    box-shadow: rgb(0 0 0 / 6%) 0 0 10px;
+    border-radius: 3px;
+    table-layout: fixed;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.content table th,
+.content table td {
+    text-align: left;
+    padding: 12px;
+    word-wrap: break-word;
+}
+
+.content a.integration-alert {
+    margin: 1em 0;
+    background-color: wheat;
+    padding: 8px;
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.content a.integration-alert svg {
+    width: 24px;
+    margin-right: 8px;
+}
+
+.content a.integration-alert .content {
+    flex: 1;
+}
+
+.content a.integration-alert .learn-more {
+    padding: 4px 6px;
+    border-radius: 2px;
+    font-size: .8em;
+}
+
+.content .config-vars {
+    padding-bottom: 16px;
+}
+
+.content .config-vars h3 {
+    margin-bottom: 0;
+}
+
+.content .config-vars .configuration-link {
+    font-size: 13px;
+}
+
+.content .config-vars .configuration-link a {
+    color: #8792a2;
+    text-decoration: none;
+    border-bottom: #8792a2 dotted 0.5px;
+}
+
+.content .config-vars .config-vars-item {
+    border-bottom: 1px solid #d9dbde;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.content .config-vars .config-vars-label {
+    padding-bottom: 4px;
+    position: relative;
+}
+.content .config-vars .config-vars-label-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: #222222bd;
+}
+
+.content .config-vars .config-vars-type {
+    color: #8792a2;
+    font-size: 13px;
+}
+
+.content .config-vars .config-vars-required {
+    color: #8792a2;
+    font-size: 13px;
+    text-transform: lowercase;
+}
+
+.content .config-vars .config-vars-required .true {
+    color: #e56f4a;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.content .config-vars .config-vars-description-and-children {
+    font-size: 14px;
+    color: #4f566b;
+}
+.content .config-vars .config-vars-description p {
+    margin: 0;
+}
+
+.content .config-vars .nested  {
+    margin-left: 48px;
+}
+
+.content .config-vars .nested .config-vars-item:last-child {
+    border: none;
+}
+
+.content .config-vars  .config-vars-label:hover a.title-link {
+    padding-left: 20px;
+    margin-left: -20px;
+    scroll-margin-top: 100px;
+}
+  
+.content .config-vars  .config-vars-label:hover a.title-link::before {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -25px;
+    padding-right: 10px;
+    padding-left: 5px;
+    font-size: 15px;
+    color: #999;
+    content: "";
+    background-image: url('/images/icon/link-variant.svg');
+    background-size: 15px 15px;
+    height: 15px;
+    width: 15px;
+}
+  
+.content .config-vars .config-vars-default {
+    padding-top: 8px;
+}
+
+.content .config-vars .config-vars-default p {
+    margin: 0;
+    display: inline;
+}
+  
+.content .config-vars .config-vars-default .nested {
+    margin-left: 48px;
+}
+
+.content ul,
+.content ol,
+.content dd {
+    margin-left: 1.5rem;
+}
+
+.content ol {
+    list-style: decimal;
+}
+
+.content ol ul {
+    list-style: circle;
+}
+
+.content ul {
+    list-style: disc;
+}
+
+.content li {
+    margin-bottom: 10px;
+}
+
+@media(max-width: 480px) {
+    .content table th,
+    .content table td {
+        padding: 6px;
+    } 
+}

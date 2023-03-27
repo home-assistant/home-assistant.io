@@ -1,0 +1,11 @@
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+  crossorigin="anonymous"></script>
+<script>
+    jQuery('#integration-search').keypress(function(e) {
+        var searchValue = jQuery('#integration-search').val();
+        if(e.keyCode === 13) {
+            window.open("{{site.url}}{{site.baseurl}}integrations/#search/"+searchValue, "_self")
+        } 
+    })
+</script>

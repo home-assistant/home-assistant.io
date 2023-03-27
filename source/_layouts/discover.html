@@ -1,0 +1,88 @@
+---
+layout: default
+---
+
+<div class="bg-blue-btn mt-[65px] md:mt-[150px]" id="discover">
+    <div class="container relative mx-auto md:pl-20 py-[50px] md:py-[120px]">
+        <h1 class="text-left text-white font-extrabold text-[32px] md:text-[68px] md:leading-[81.6px] pt-[50px] mx-auto">What <p>Home Assistant</p> stands for</h1>
+        <div class="w-full pt-[52px]">
+            <button
+                class=" bg-transparent border border-white text-white focus:bg-blue-text text-[18px] md:text-[28px] leadnig-[33.6px] font-extrabold py-[16px] px-[43px] md:px-[56px] rounded-[10px]">Ready
+                to install?</button>
+        </div>
+        <img src="{{ site.baseurl }}images/icon/transaparent-home.svg" class="absolute right-0 md:right-20 bottom-0 opacity-10" alt="transaparent-home" loading="lazy">
+    </div>
+</div>
+<div class="container mx-auto w-full grid md:grid-cols-2 text-[black] items-center">
+    <img src="{{ site.baseurl }}images/discover/private.png"
+        class="discover-img hidden md:block top-[-10px] ml-auto max-w-[80%] h-full object-cover" alt="private" loading="lazy">
+    <div class="px-[10px] md:pl-[15%] py-[100px]">
+        <img class="py-[10px]" src="{{ site.baseurl }}images/discover/lock1.png" alt="lock" loading="lazy">
+        <p class="font-extrabold text-[24px] md:text-[44px] leading-[53px] py-[16px]">Private</p>
+        <p class="font-medium text-[16px] md:text-[24px] leading-[29px] md:w-[70%] opacity-[.66]">
+            Track and control your life without sharing your data with anyone else.</p>
+    </div>
+</div>
+<div class="relative w-full bg-black-primary overflow-clip">
+    <div class="  container md:w-[70%] mx-auto py-[100px] md:py-[200px]">
+        <div class="text-white ">
+            <img class="py-[20px] mx-auto" src="{{ site.baseurl }}images/discover/glass.png" alt="glass" loading="lazy">
+            <p class="font-extrabold text-[24px] md:text-[44px] leading-[53px] py-[16px] text-center">Local
+            </p>
+            <p
+                class="font-medium text-[16px] md:text-[24px] leading-[29px] md:w-[60%] opacity-[.66] mx-auto text-center">
+                Smart home at the speed of light by running fully local. Internet connection optional.
+            </p>
+        </div>
+    </div>
+    <img src="{{ site.baseurl }}images/discover/glass-back.svg" class="absolute right-[-20px] top-[-150px] opacity-5" alt="glass-back" loading="lazy">
+</div>
+<div class="relative z-10 container mx-auto w-full grid md:grid-cols-2  text-[black] items-center">
+    <img src="{{ site.baseurl }}images/discover/discover3.png"
+        class="discover-img hidden md:block ml-auto max-w-[80%] h-[110%] object-cover rounded-3xl"
+        alt="discover" loading="lazy">
+    <div class="px-[10px] md:pl-[15%] py-[100px]">
+        <img class="py-[20px]" src="{{ site.baseurl }}images/hand.png" alt="hand" loading="lazy">
+        <p class="font-extrabold text-[24px] md:text-[44px] leading-[53px] py-[16px]">People first
+        </p>
+        <p class="font-medium text-[16px] md:text-[24px] leading-[29px] opacity-[.66]">
+            Home
+            Assistant is one of the world’s most active open source projects. It puts users first
+            and
+            has no investors to please.
+        </p>
+    </div>
+</div>
+<div class=" w-full bg-green-third text-white">
+    <div class=" container md:w-[70%] mx-auto py-[100px] md:py-[210px]">
+        <div class="">
+            <img class="py-[20px] mx-auto" src="{{ site.baseurl }}images/discover/braille.png" alt="braille" loading="lazy">
+            <p class="font-extrabold text-center text-[24px] md:text-[44px] leading-[52.8px] py-[32px]">Your
+                Choice
+            </p>
+            <p
+                class="font-medium text-[16px] md:text-[24px] leading-[28.8px] md:w-[70%] opacity-[.66] text-center mx-auto">
+                Integrate products from different brands instead of locking yourself to a single vendor.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="h-[45px] bg-green-third opacity-50">
+</div>
+<div class="h-[45px] bg-green-third opacity-20">
+</div>
+<p class="text-center font-extrabold text-[32px] leading-[38.4px] pt-[109px] w-[60%] m-auto  md:pt-20">
+    Want to know more?</p>
+<p class="text-center font-medium text-[18] leading-[21.6px] pt-[12px] px-5 w-[80%] m-auto">Home Assistant
+    is
+    huge, but here are some of our basic concepts.</p>
+<div class="mx-auto container pt-[63px] pb-[50px] ">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {% for concept in page.conceptList %}
+        <div class=" bg-[#F8F8F8] rounded-[20px] py-[39px] px-[36px]">
+            <p class="font-medium text-[18px] leading-[21.6px] opacity-[.3]">{{concept.title}}</p>
+            <p class="font-semibold text-[18px] leading-[21.6px] pt-[12px]">{{concept.description}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>

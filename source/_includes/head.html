@@ -1,0 +1,35 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{% if page.metaTitle %}{{ page.metaTitle }} - {% endif %}{{ site.title }}</title>
+    <meta name="author" content="{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}">
+    <meta name="description" content="{{ page.metaDescription | default: site.description | strip_html | truncate: 160 }}">
+    {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="{{ page.url | canonical_url }}">
+
+    <meta property="fb:app_id" content="{{ site.social.facebook.app_id }}">
+    <meta property="og:title" content="{% if post.metaTitle %}{{ post.metaTitle }}{% elsif page.metaTitle %}{{ page.metaTitle }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:url" content="{{ page.url | canonical_url }}">
+    <meta property="og:type" content="{% if page.categories %}article{% else %}website{% endif %}">
+    <meta property="og:description" content="{{ page.metaDescription | default: site.description | strip_html | truncate: 200 }}">
+    <meta property="og:image" content="{{ page.og_image | default: "/images/default-social.png" | prepend: site.url }}">
+    {% comment %}{% if page.og_image %}summary_large_image{% else %}summary{% endif %}{% endcomment %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@{{ site.social.twitter.account }}">
+    {% if page.author_twitter %}<meta name="twitter:creator" content="@{{ page.author_twitter }}">{% endif %}
+    <meta name="twitter:title" content="{% if post.metaTitle %}{{ post.metaTitle }}{% elsif page.metaTitle %}{{ page.metaTitle }}{% else %}{{ site.title }}{% endif %}">
+    <meta name="twitter:description" content="{{ page.metaDescription | default: site.description | strip_html | truncate: 200 }}">
+    <meta name="twitter:image" content="{{ page.og_image | default: "/images/default-social.png" | prepend: site.url }}">
+
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/css/style.css" />
+    <link rel='shortcut icon' href='{{ site.baseurl }}images/favicon.ico' />
+    <link rel='icon' type='image/png' href='{{ site.baseurl }}images/favicon-192x192.png' sizes='192x192' />
+    <script defer src="{{ site.baseurl }}assets/js/jquery.min.js"></script>
+  </head>

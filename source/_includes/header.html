@@ -1,1 +1,118 @@
-{% include custom/header.html %}
+<!-- header -->
+<header id="header" class="{% if page.layout == 'blog' or page.layout == 'post' %}md:bg-grey-primary{% endif %} top-0 fixed w-full z-30 bg-white">
+    <div class="container relative mx-auto">
+        <div class="hidden md:block bg-white absolute w-[110%] top-0 left-1/2 translate-x-[-50%] h-[100%]">
+        </div>
+        <div class="relative z-30 flex justify-between items-center py-[15px] md:pt-[61px] space-x-10">
+            <div class=" md:w-0 md:flex-1">
+                <a href="{{ site.baseurl}}" class="flex justify-start relative z-20">
+                    <img src="{{ site.baseurl }}images/home-assistant-logo.svg" class="w-[48px] h-[48px] display: flex; align-items: center;" alt="Page Logo" loading="lazy" />
+                    <span class="md:flex hidden font-semibold items-center text-xl pl-[11px]">Home Assistant</span>
+                </a>
+            </div>
+
+            <div class="flex items-center ml-0">
+                <nav class="hidden md:flex ">
+                    {% for nav in site.data.header %}
+                    <div class="px-3 xl:px-5 {% if page.url contains nav.slug %} active {% endif %}">
+                        <a href="{{ site.baseurl}}{{nav.slug}}" class="text-black text-[18px] group rounded-md inline-flex items-center text-base font-semibold hover:text-gray-900">
+                            <span class="uppercase">{{nav.menu}}</span>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </nav>
+                <div class="ml-0 lg:ml-5">
+                    <div class="flex items-center">
+                        <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
+                        <div class="relative" id="search-box">
+                            <div class="flex items-center">
+                                <p class="text-black text-[18px] group rounded-md inline-flex items-center text-base font-semibold hover:text-gray-900 cursor-pointer search-open">
+                                    <img width="19.19" src="{{ site.baseurl }}images/icon/search.svg" loading="lazy" />
+                                </p>
+                            </div>
+                            <!-- <div class="search-result absolute right-[-13px] z-30 w-[300px] md:w-[500px] hidden bg-white h-fit rounded-3xl p-4 shadow-xl shadow-gray-900">
+                            <div class="  shadow-md shadow-gray-600 absolute right-0 top-[-36px]   w-full bg-white p-3 rounded-full flex">
+                                <input  class="w-[80%] pl-3 text-lg  font-semibold text-black focus:outline-none"  placeholder="alright">
+                                <p
+                                class="ml-auto float-right text-black text-[18px] group rounded-md inline-flex items-center text-base font-semibold hover:text-gray-900 ">
+                                <img width="19.19" src="{{ site.baseurl }}images/search.png" />
+                                </p>
+                               
+                            </div>
+                            <div class="">
+                                <div class="bg-[#F8F8F8] rounded-sm p-3 mb-3">
+                                    <div class="flex justify-between font-semibold text-[16px]">
+                                        <p class="">Onboarding Home Assistant</p>
+                                        <p class="opacity-40">Getting Started</p>
+                                    </div>
+                                    <div class="bg-white rounded-sm p-1 mt-2">
+                                        <p class="text-[#41BDF5] text-[14px]">Alright<span class="text-black opacity-40">, you made it here. The tough part is done.</span></p>
+                                    </div>
+
+                                </div>
+                                <div class="bg-[#F8F8F8] rounded-sm p-3 mb-3">
+                                    <div class="flex justify-between font-semibold text-[16px]">
+                                        <p class="">Splitting up the configuration</p>
+                                        <p class="opacity-40">Docs / Configuration</p>
+                                    </div>
+                                    <div class="bg-white rounded-sm p-1 mt-2">
+                                        <p class="text-[#41BDF5] text-[14px]">Alright<span class="text-black opacity-40">, so we’ve got the single integrations and the include statements in the base ...</span></p>
+                                    </div>
+
+                                </div>
+                                <div class="bg-[#F8F8F8] rounded-sm p-3 mb-3">
+                                    <div class="flex justify-between font-semibold text-[16px]">
+                                        <p class="">Template Light</p>
+                                        <p class="opacity-40">Integration</p>
+                                    </div>
+                                    <div class="bg-white rounded-sm p-1 mt-2">
+                                        <p class="text-[#41BDF5] text-[14px]">Template Light<span class="text-black opacity-40"></span></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> -->
+
+                        </div>
+                    </div>
+                </div>
+                <div class="md:hidden ml-3">
+                    <button id="open-btn" type="button" onclick="menuopen()"
+                        class="relative rounded-md p-2 inline-flex items-center justify-center w-[34px]">
+                        <span class="sr-only">Open menu</span>
+                        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0H18V2H0V0ZM0 5H18V7H0V5ZM0 10H18V12H0V10Z" fill="black" />
+                        </svg>
+                    </button>
+                    <button id="close-btn" type="button" onclick="menuclose()"
+                        class="hidden rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 w-[34px]">
+                        <span class="sr-only">Close menu</span>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="black" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="absolute top-[65px] inset-x-0 transition transform origin-top-right z-[100] hidden  h-screen overflow-y-scroll"
+        id="mobile-menu" style="border-top: 1px solid #049cdb">
+        <div class="shadow-lg ring-1 ring-black ring-opacity-5 bg-white">
+            <div class="pt-[10px] pb-6 container mx-auto">
+                <div class="mt-5 mb-10">
+                    <nav class="grid gap-y-5 px-3">
+                        {% for nav in site.data.header %}
+                        <a href="{{ site.baseurl }}{{nav.slug}}" class="-m-3 py-3 flex items-center border-opacity-20"
+                            >
+                            <span class="ml-3 text-[16px] font-semibold text-blue-light">{{nav.menu}}
+                            </span>
+                        </a>
+                        {% endfor %}
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

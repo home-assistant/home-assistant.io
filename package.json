@@ -3,6 +3,13 @@
   "description": "Home Assistant Website & Documentation",
   "version": "1.0.0",
   "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "concurrently": "^7.6.0",
+    "cssnano": "^5.1.15",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "tailwindcss": "^3.2.7",
     "remark-cli": "^11.0.0",
     "remark-frontmatter": "^4.0.1",
     "remark-lint": "^9.1.1",
@@ -14,12 +21,15 @@
     "textlint-rule-common-misspellings": "^1.0.1",
     "textlint-rule-terminology": "^3.0.4"
   },
-  "resolutions": {
-    "minimist": ">=1.2.5"
-  },
   "scripts": {
     "markdown:lint": "remark --quiet --frail .",
     "textlint:all": "textlint source",
-    "textlint": "textlint source/_examples source/_docs source/_faq source/_integrations source/_dashboards source/cloud source/getting-started source/hassio source/dashboards"
+    "textlint": "textlint source/_examples source/_docs source/_faq source/_integrations source/_dashboards source/cloud source/getting-started source/hassio source/dashboards",
+    "jekyll:dev": "bundle exec jekyll serve --host 0.0.0.0 --incremental --watch --trace",
+    "jekyll:build": "JEKYLL_ENV=production bundle exec jekyll build",
+    "css:dev": "postcss source/_styles/main.css --output source/assets/css/style.css --watch",
+    "css:build": "NODE_ENV=production postcss source/_styles/main.css --output source/assets/css/style.css",
+    "dev": "rake fetch_meta_data && concurrently --kill-others \"npm run jekyll:dev\" \"npm run css:dev\" \"npm run css:dev\"",
+    "build": "rake fetch_meta_data && npm run css:build && npm run jekyll:build"
   }
 }

@@ -1,0 +1,87 @@
+.guide-sidebar {
+    height: auto;
+    position: sticky;
+    top: 150px;
+}
+.guide .section-nav a {
+    display: block;
+    color: #575757;
+    line-height: 24px;
+    padding: 8px 60px 8px 0;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 20px;
+    border-left: 5px solid transparent;
+}
+
+.guide-active {
+    font-weight: 700 !important;
+    border-right: 5px solid #02B0FF !important;
+}
+
+.guide-active a {
+    color: black !important;
+}
+
+
+.top-rect {
+    background-color: #e6e6e663;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    border-radius: 30px;
+    height: 650px;
+    width: 107%;
+}
+
+.top-rect:after {
+    content: "";
+    display: block;
+    background: white;
+    height: 450px;
+    width: 8000px;
+    position: absolute;
+    z-index: 1;
+    bottom: -40%;
+    left: 50%;
+    margin-left: -4000px;
+    -webkit-transform: rotate(-8deg);
+    transform: rotate(-8deg);
+}
+
+.guide-content {
+    scroll-padding-top: 80px;
+}
+
+.guide-content h2 {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    scroll-margin-top: 100px;
+}
+
+.guide-content p {
+    --tw-text-opacity: 1;
+    color: rgb(87 87 87 / var(--tw-text-opacity));
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px){
+    .guide-content h2 {
+        font-size: 32px;
+    }
+
+    .guide-content p {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+}

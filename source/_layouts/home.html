@@ -1,0 +1,375 @@
+---
+layout: default
+---
+
+<div class="pt-20 md:pt-[180px] relative">
+    <img class="absolute hidden md:block" src="{{site.baseurl}}images/background.png" loading="lazy">
+    <img class="absolute md:hidden right-0" src="{{site.baseurl}}images/backyard.png" loading="lazy"> {% if page.notify.show %} <div class="container relative mx-auto px-4 md:px-6 lg:px-8 text-center hidden md:block">
+      <a href="{{page.notify.link}}"> {% include notify.html %} </a>
+    </div> {% endif %} <div class="max-w-[90%] md:max-w-[970px] md:mx-auto px-7 md:px-6 lg:px-8 md:text-center mt-[42px] md:mt-9">
+      <h1 class="text-[32px] md:text-[68px] font-extrabold leading-[38px] md:leading-[81px] mx-auto">{{page.hero.title}}</h1>
+    </div>
+    <div class="max-w-[80%] md:max-w-[970px] md:mx-auto px-7 md:px-6 lg:px-8 md:text-center mt-4 md:mt-6">
+      <span class="text-base md:text-[28px] font-semibold leading-[19px] md:leading-8 text-grey-text opacity-[.66]">{{page.hero.description}}</span>
+    </div>
+    <div class="max-w-[300px] relative md:max-w-[970px] md:mx-auto px-7 md:px-6 lg:px-8 md:text-center mt-11">
+      <button type="button" class="md:inline-flex font-extrabold items-center px-[44px] py-[14px] md:px-[57px] md:py-[19px] border border-transparent text-[18px] md:text-[24px] rounded-[10px] text-white bg-blue-btn focus:bg-blue-text leading-5 md:leading-[26px]">Get Started</button>
+      <button type="button" class="mt-2 md:mt-0 inline-flex font-extrabold items-center px-[32px] py-[14px] md:px-[57px] md:py-[19px] border border-black border-opacity-10  text-[18px] md:text-[24px] rounded-[10px] text-black-text  leading-5 md:leading-[26px] bg-white  md:ml-6"> Learn More <svg class="ml-3 hidden md:block" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="black" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M14.625 12L10.875 9.375V14.625L14.625 12Z" fill="black" stroke="black" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <svg class="ml-2 md:hidden" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.5 16.625C13.435 16.625 16.625 13.435 16.625 9.5C16.625 5.56497 13.435 2.375 9.5 2.375C5.56497 2.375 2.375 5.56497 2.375 9.5C2.375 13.435 5.56497 16.625 9.5 16.625Z" stroke="black" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M11.5781 9.5L8.60938 7.42188V11.5781L11.5781 9.5Z" fill="black" stroke="black" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+    <div class="hidden md:block max-w-[1170px] min-h-[619px] mx-auto px-4 md:px-6 lg:px-8 text-center mt-11">
+      <div class="relative">
+        <div class="relative max-w-[420px] rounded-[30px] p-3 bg-[#FAFBFA] z-10 shadow-[0_4px_24px_rgba(0,0,0,0.3)]" style="-webkit-appearance: none">
+          <img src="{{site.baseurl}}images/card-1.png" loading="lazy" />
+          <img src="{{site.baseurl}}images/card-2.png" loading="lazy" />
+          <img src="{{site.baseurl}}images/card-3.png" loading="lazy" />
+        </div>
+        <img class="absolute top-0 right-0" src="{{site.baseurl}}images/bed_flat.png" loading="lazy" />
+        <span class="text-black-text px-[19px] py-[10px] font-medium text-[14px] rounded-full border-black border-[1.24px] absolute top-[62px] right-[62px]">3 bed flat</span>
+      </div>
+    </div>
+    <div class="max-w-[1170px] mx-auto px-4 md:px-6 lg:px-8 text-center mt-[135px] md:mt-9">
+      <img class="absolute right-0 z-10 hidden md:block" src="{{site.baseurl}}images/background2.png" loading="lazy" />
+      <img class="absolute left-0 top-[1600px] z-10 hidden md:block" src="{{site.baseurl}}images/background3.png" loading="lazy" />
+      <!-- <img class="absolute left-0 top-[2800px] z-10 hidden md:block" src="{{site.baseurl}}images/background4.png" /> -->
+      <div class="mt-10 pb-12 bg-white">
+        <div class="relative">
+          <div class="absolute"></div>
+          <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+              <div class="rounded-lg bg-white grid grid-cols-4"> {% for item in page.achive %} <div class="flex flex-col py-[24px] md:p-6 text-center col-span-2 md:col-span-1">
+                  <dt class="order-2 text-sm md:text-xl leading-5 md:leading-8 font-semibold text-black">{{item.label}}</dt>
+                  <dd class="order-1 text-[32px] md:text-5xl tracking-tight font-extrabold text-black leading-10 md:leading-[82px]">{{item.value}}</dd>
+                </div> {% endfor %} </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img class="mx-auto relative z-20" src="{{site.baseurl}}images/heroes.png" loading="lazy" />
+      <dd class="order-1 text-[32px] md:text-5xl tracking-tight font-extrabold leading-[25px] md:leading-0 text-black  ">Join the <br />community </dd>
+    </div>
+    <div class="max-w-[970px] mx-auto px-4 md:px-6 lg:px-8 text-center mt-11 relative z-20"> {% for item in page.communityList %} <a href="{{item.link}}">
+        <button type="button" class="inline-flex font-bold items-center px-[18px] py-[13px] md:px-[26px] md:py-[21px] border-2 border-black border-opacity-10 text-[14px] md:text-[18px] leading-[17px] md:leading-[20px] rounded-[10px] text-black bg-white ">{{item.community}}</button>
+      </a> {% endfor %} </div>
+    <!-- <div class="container mx-auto mt-11 hidden md:block relative z-10"><div class="xl:grid xl:grid-cols-9 gap-20"><div class="col-span-4"><div><span class="font-extrabold text-black text-[44px]">Beyond the ordinary</span></div><div class="mt-9"><span class="font-extrabold text-black opacity-[.66] text-[28px] leading-[33px]">People do more with their devices. With the power of Home Assistant use blueprints, custom automation flows or even Node-Red to empower any project you can imagine.</span></div><div class="mt-11"><button type="button" class="inline-flex leading-[20px] font-bold items-center px-[26px] bg-white  py-[21px] border-2 border-grey-secondary text-[24px] rounded-[10px] text-black">
+                      See what people make
+                      <svg class="ml-[25px]" width="20" height="15" viewBox="0 0 20 15" fill="none"
+              xmlns="http://www.w3.org/2000/svg"><path d="M12.7625 0.00166702L12.7625 5.66833L0.125828 5.66833L0.0833263 8.51583L12.7625 8.51583V14.1683L19.8458 7.085L12.7625 0.00166702Z" fill="black"/></svg></button></div></div><div class="col-span-5 relative z-10"><img src="{{site.baseurl}}images/beyond_ordinary.png"/></div></div></div> -->
+    <div class="container mx-auto mt-[65px] md:mt-[150px]">
+      <div class="md:flex">
+        <div class="md:px-10 md:w-3/5">
+          <div class="flex items-center mb-[36px]">
+            <img class="px-2" src="{{site.baseurl}}images/icon/image54.png" alt="" loading="lazy">
+            <img class="px-2" src="{{site.baseurl}}images/icon/rounded-small.png" alt="" loading="lazy">
+            <img class="h-[35px] px-2" src="{{site.baseurl}}images/icon/logo-3.png" alt="" loading="lazy">
+          </div>
+          <h2 class="font-extrabold text-[22px] md:text-[44px] text-black leading-6 md:leading-[53px]">You can do so much more...</h2>
+          <p class="text-base md:text-[28px] font-semibold leading-[150%] tracking-[-0.02em] text-black opacity-80 mt-[36px]"> Coming from Google Home, Alexa or Apple HomeKit? <br />
+            <br /> Explore a new universe of possibilities with Home Assistant. Extend and Empower your home automations with no limitations.
+          </p>
+          <div class="mt-11">
+            <button type="button" class="inline-flex leading-[20px] font-bold items-center px-[26px] bg-white  py-[21px] border-2 border-grey-secondary text-[16px] md:text-[24px] rounded-[10px] text-black"> See what you get more <svg class="ml-[25px]" width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.7625 0.00166702L12.7625 5.66833L0.125828 5.66833L0.0833263 8.51583L12.7625 8.51583V14.1683L19.8458 7.085L12.7625 0.00166702Z" fill="black" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="md:w-2/5 flex items-center justify-center">
+          <svg width="479" height="468" viewBox="0 0 479 468" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle opacity="0.1" cx="189" cy="240" r="188.5" fill="#00AEF8" stroke="#00AEF8" />
+            <circle opacity="0.1" cx="268" cy="189" r="188.5" fill="#00AEF8" stroke="#00AEF8" />
+            <circle opacity="0.1" cx="290" cy="279" r="188.5" fill="#00AEF8" stroke="#00AEF8" />
+            <path d="M257.226 255.617C261.86 255.617 265.617 251.86 265.617 247.226C265.617 242.592 261.86 238.835 257.226 238.835C252.592 238.835 248.835 242.592 248.835 247.226C248.835 251.86 252.592 255.617 257.226 255.617Z" fill="#00AEF8" />
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M223.302 246.69C225.511 246.69 227.302 248.481 227.302 250.69V270.725C227.302 271.096 227.456 271.452 227.731 271.714C228.005 271.976 228.378 272.124 228.766 272.124H283.795C284.184 272.124 284.556 271.976 284.831 271.714C285.106 271.452 285.26 271.096 285.26 270.725V250.69C285.26 248.481 287.051 246.69 289.26 246.69H291.829C292.175 246.69 292.513 246.593 292.801 246.41C293.089 246.228 293.315 245.968 293.449 245.664C293.583 245.359 293.621 245.024 293.556 244.7C293.492 244.375 293.329 244.076 293.088 243.84L286.462 237.351C285.693 236.599 285.26 235.569 285.26 234.493V224.101C285.26 223.917 285.222 223.735 285.148 223.565C285.075 223.395 284.967 223.241 284.831 223.111C284.695 222.981 284.533 222.878 284.356 222.808C284.178 222.738 283.988 222.702 283.795 222.702H277.692C277.5 222.702 277.309 222.738 277.132 222.808C276.954 222.878 276.792 222.982 276.656 223.111C276.52 223.241 276.413 223.395 276.339 223.565C276.265 223.735 276.227 223.917 276.227 224.101V224.101C276.227 225.333 274.747 225.96 273.862 225.104L257.848 209.624L257.826 209.602C256.96 208.79 255.57 208.801 254.719 209.627L219.504 243.835C219.261 244.071 219.097 244.37 219.032 244.695C218.966 245.02 219.003 245.356 219.137 245.661C219.271 245.966 219.496 246.226 219.784 246.409C220.072 246.592 220.411 246.69 220.757 246.69H223.302ZM273.076 247.226C273.076 255.979 265.979 263.076 257.226 263.076C248.472 263.076 241.376 255.979 241.376 247.226C241.376 238.472 248.472 231.376 257.226 231.376C265.979 231.376 273.076 238.472 273.076 247.226Z" fill="#00AEF8" />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="container relative mx-auto mt-[65px] md:mt-[150px] text-center md:px-20">
+      <svg class="mx-auto" width="77" height="66" viewBox="0 0 77 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M39.1182 48.6568C43.8606 48.6568 47.7051 44.8123 47.7051 40.0699C47.7051 35.3274 43.8606 31.4829 39.1182 31.4829C34.3758 31.4829 30.5313 35.3274 30.5313 40.0699C30.5313 44.8123 34.3758 48.6568 39.1182 48.6568Z" fill="#00AEF8" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.49549 39.5216C6.70463 39.5216 8.49549 41.3125 8.49549 43.5216V64.1176C8.49549 64.4972 8.65342 64.8613 8.93452 65.1298C9.21561 65.3982 9.59681 65.5491 9.99431 65.5491H66.3079C66.7055 65.5491 67.0866 65.3982 67.3677 65.1298C67.6488 64.8613 67.8068 64.4972 67.8068 64.1176V43.5216C67.8068 41.3125 69.5976 39.5216 71.8068 39.5216H74.5294C74.8833 39.5217 75.2292 39.4221 75.5241 39.2352C75.8189 39.0484 76.0495 38.7826 76.1869 38.4712C76.3244 38.1598 76.3626 37.8167 76.2968 37.4846C76.231 37.1526 76.0641 36.8465 75.8171 36.6046L69.0082 29.9375C68.2398 29.185 67.8068 28.1549 67.8068 27.0794V16.4047C67.8068 16.2167 67.768 16.0305 67.6926 15.8568C67.6173 15.6832 67.5069 15.5253 67.3677 15.3924C67.2285 15.2595 67.0632 15.154 66.8814 15.0821C66.6995 15.0102 66.5045 14.9732 66.3077 14.9732H60.0621C59.8653 14.9732 59.6704 15.0102 59.4886 15.0822C59.3067 15.1541 59.1415 15.2595 59.0023 15.3925C58.8632 15.5254 58.7528 15.6832 58.6774 15.8569C58.6021 16.0306 58.5633 16.2167 58.5633 16.4047C58.5633 17.6656 57.0488 18.308 56.1422 17.4316L39.7552 1.58975L39.7321 1.56766C38.8466 0.736339 37.4233 0.747935 36.5528 1.59342L0.516009 36.5998C0.267526 36.8411 0.0992883 37.1472 0.0323777 37.4796C-0.0345911 37.812 0.00285317 38.1559 0.139819 38.468C0.276843 38.7802 0.507391 39.0467 0.802461 39.2342C1.09753 39.4216 1.44402 39.5216 1.79843 39.5216H4.49549ZM55.3379 40.0699C55.3379 49.0278 48.0761 56.2896 39.1182 56.2896C30.1603 56.2896 22.8985 49.0278 22.8985 40.0699C22.8985 31.1119 30.1603 23.8501 39.1182 23.8501C48.0761 23.8501 55.3379 31.1119 55.3379 40.0699Z" fill="#00AEF8" />
+      </svg>
+      <h2 class="font-extrabold text-[22px] md:text-[44px] text-black leading-6 md:leading-[53px] mt-[36px]">You could do so much more...</h2>
+      <p class="text-base md:text-[28px] font-semibold leading-[150%] tracking-[-0.02em] text-black opacity-80 mt-[36px] mb-[56px]"> Explore a new universe of possibilities with Home Assistant. Extend and Empower your home automations with no limitations. </p>
+      <div class="border border-[#15151529] text-center p-[30px] md:p-[40px] mx-10 rounded-lg">
+        <div class="flex items-center justify-center mb-[36px]">
+          <img class="px-2" src="{{site.baseurl}}images/icon/image54.png" alt="" loading="lazy">
+          <img class="px-2" src="{{site.baseurl}}images/icon/rounded-small.png" alt="" loading="lazy">
+          <img class="h-[35px] px-2" src="{{site.baseurl}}images/icon/logo-3.png" alt="" loading="lazy">
+        </div>
+        <p class="text-base mx-auto md:text-[28px] font-semibold leading-[150%] tracking-[-0.02em] text-black opacity-80 mt-[14px] md:w-[60%] mb-[38px]"> Coming from Google Home, Alexa or Apple HomeKit? </p>
+        <div class="inline-flex leading-[20px] font-bold items-center bg-white text-[16px] md:text-[24px] rounded-[10px] text-black"> See what you get more <svg class="ml-[8px] md:ml-[25px]" width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.7625 0.00166702L12.7625 5.66833L0.125828 5.66833L0.0833263 8.51583L12.7625 8.51583V14.1683L19.8458 7.085L12.7625 0.00166702Z" fill="black" />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="container relative mx-auto mt-[65px] md:mt-[150px] text-center md:px-20  md:py-[50px]">
+      <div class="rounded-2xl shadow-[0_4px_24px_5px_rgba(0,0,0,0.1)] px-5 py-[38px] md:px-[75px]">
+        <table class="w-full">
+          <tbody>
+            <tr class="text-center border-b-[1px] border-[#43434326] table-header">
+              <th></th>
+              <th class="w-[15%]">
+                <img class="mx-auto" src="{{site.baseurl}}images/icon/image54.png" alt="" loading="lazy">
+              </th>
+              <th class="w-[15%]">
+                <img class="mx-auto" src="{{site.baseurl}}images/icon/rounded-small.png" alt="" loading="lazy">
+              </th>
+              <th class="w-[15%]">
+                <img class="mx-auto h-[35px]" src="{{site.baseurl}}images/icon/logo-3.png" alt="" loading="lazy">
+              </th>
+              <th class="w-[20%]">
+                <img class="mx-auto h-[35px]" src="{{site.baseurl}}images/icon/blue-home.png" alt="" loading="lazy">
+              </th>
+            </tr>
+            {% for item in page.featuresTable %}
+            <tr class="text-center table-body">
+              <td class="text-left pt-[40px]">
+                <h3 class="text-black font-semibold text-[14px] md:text-[18px]">{{item.feature}}</h3>
+                <p class="text-gray-text font-medium text-[12px] md:text-[14px] opacity-50">{{item.description}}</p>
+              </td>
+              <td>
+                <p class="text-[50px] opacity-60 font-light">-</p>
+              </td>
+              <td>
+                <p class="text-[50px] opacity-60 font-light">-</p>
+              </td>
+              <td>
+                <p class="text-[50px] opacity-60 font-light">-</p>
+              </td>
+              <td>
+                <img class="mx-auto" src="{{site.baseurl}}images/icon/green-check.svg" alt="" loading="lazy">
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="container mx-auto mt-[65px] md:mt-[250px]">
+      <div class="mx-auto">
+        <h2 class="font-extrabold text-[22px] md:text-[44px] text-black leading-6 md:leading-[52px]">Our Values</h2>
+      </div>
+      <div class="value-section flex md:grid md:grid-cols-2 space-x-4 md:space-x-0 md:gap-[85px] mt-4  md:mt-[59px] relative z-10 overflow-x-auto md:overflow-auto scroll-x">
+        <div class="col-span-1 h-[344px] md:h-[447px] min-w-[300px] md:min-w-0 max-w-[480px] rounded-[20px] bg-black-primary pl-[46.5px] pt-[75px] pb-[75px] pr-[54px] md:pt-[41px] md:pl-[42px] md:pr-[42px] md:pb-[64px]">
+          <img class="w-[42px] md:w-[84px]" src="{{site.baseurl}}images/glass.png" loading="lazy" />
+          <div class="mt-[37px] md:mt-[75px]">
+            <span class=" text-white font-extrabold text-[24px] md:text-[32px]">Private</span>
+          </div>
+          <div class="pt-4 md:pt-8">
+            <span class="text-white opacity-[.66] font-medium text-base md:text-2xl leading-[28px]">On the other hand, we denounce with righteous indignation and dislike men.</span>
+          </div>
+        </div>
+        <div class="col-span-1 h-[344px] md:h-[447px] min-w-[300px] md:min-w-0 max-w-[480px] rounded-[20px] bg-green-secondary pl-[46.5px] pt-[75px] pb-[75px] pr-[54px] md:pt-[41px] md:pl-[42px] md:pr-[42px] md:pb-[64px]">
+          <img class="w-[42px] md:w-[84px]" src="{{site.baseurl}}images/lock.png" loading="lazy" />
+          <div class="mt-[37px] md:mt-[75px]">
+            <span class=" text-black font-extrabold text-[24px] md:text-[32px]">Secure</span>
+          </div>
+          <div class="pt-4 md:pt-8">
+            <span class="text-black opacity-[.66] font-medium text-base md:text-2xl leading-[28px]">That they cannot foresee the pain and trouble that are bound to ensue.</span>
+          </div>
+        </div>
+        <div class="col-span-1 h-[344px] md:h-[447px] min-w-[300px] md:min-w-0 max-w-[480px] rounded-[20px] bg-blue-btn pl-[46.5px] pt-[75px] pb-[75px] pr-[54px] md:pt-[41px] md:pl-[42px] md:pr-[42px] md:pb-[64px]">
+          <img class="w-[42px] md:w-[84px]" src="{{site.baseurl}}images/hand.png" loading="lazy" />
+          <div class="mt-[37px] md:mt-[75px]">
+            <span class=" text-black font-extrabold text-[24px] md:text-[32px]">People first</span>
+          </div>
+          <div class="pt-4 md:pt-8">
+            <span class="text-black opacity-[.66] font-medium text-base md:text-2xl leading-[28px]">On the other hand, we denounce with righteous indignation and dislike.</span>
+          </div>
+        </div>
+        <div class="col-span-1 h-[344px] md:h-[447px] min-w-[300px] md:min-w-0 max-w-[480px] rounded-[20px] bg-grey-third pl-[46.5px] pt-[75px] pb-[75px] pr-[54px] md:pt-[41px] md:pl-[42px] md:pr-[42px] md:pb-[64px]">
+          <img class="w-[42px] md:w-[84px]" src="{{site.baseurl}}images/battery.png" loading="lazy" />
+          <div class="mt-[37px] md:mt-[75px]">
+            <span class=" text-white font-extrabold text-[24px] md:text-[32px]">Local</span>
+          </div>
+          <div class="pt-4 md:pt-8">
+            <span class="text-white opacity-[.66] font-medium text-base md:text-2xl leading-[28px]">That they cannot foresee the pain and trouble that are bound to ensue.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mx-auto mt-[138px]">
+      <div>
+        <span class="font-extrabold text-[44px] text-black-secondary">Let’s get started!</span>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between mt-[57px] relative z-10 space-y-4 md:space-y-0">
+        {% for option in page.startOptions %}
+        <div class="get-started-card flex flex-row md:flex-col w-[100%] md:w-[31%] started-item rounded-[20px] pl-[31px] pb-0 md:pb-[35px] pr-[22px] md:pr-5 relative" style="box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);">
+          <span class="absolute hidden md:block top-[25px] right-[25px] font-semibold text-[17px] opacity-30 text-black tracking-[.25em] uppercase">{{option.label}}</span>
+          <div class="h-[150px] flex flex-col justify-center">
+            <img class="pt-0 md:pt-[40px] w-[120px]" src="{{site.baseurl}}{{option.image}}" loading="lazy" />
+          </div>
+          <div class="text-wrap flex md:w-[100%] md:block flex-col justify-center md:pt-0 pl-[20px] md:pl-0">
+            <div>
+              <span class="font-bold text-black-secondary text-[22px] md:text-4xl leading-[22px] md:leading-[37px]">{{option.title}}</span>
+            </div>
+            <div class="mt-3 md:mt-6 pr-0 pb-0">
+              <span class="font-medium text-black-secondary text-opacity-[.66] text-sm md:text-base leading-[19px] md:leading-6">{{option.description}}</span>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="container mx-auto px-4 md:px-6 lg:px-8 mt-[131px] text-center">
+      <div class="relative text-center md:max-w-[343px] md:max-w-full mx-auto">
+        <img class="absolute top-[70px]  hidden md:block" src="{{site.baseurl}}images/dot_group.png" loading="lazy" />
+        <img class="absolute top-[25px] left-[15px] md:hidden" src="{{site.baseurl}}images/dot_mobile.png" loading="lazy" />
+        <span class="font-extrabold text-[22px] md:text-[44px] text-black-secondary laading-7 md:leading-[49.63px]">Make 39.542 devices <br> work together </span>
+      </div>
+      <div class="mt-[33px] md:mt-[43px] w-full">
+        <div class="mx-auto w-full md:max-w-xs">
+          <label for="search" class="sr-only">Search</label>
+          <div class="relative text-white focus-within:text-gray-400">
+            <div class="mx-auto max-w-full md:max-w-fit relative">
+              <input id="integration-search" name="search" class="w-full md:max-w-[343px] md:max-w-[316px] max-h-[61px] md:w-full rounded-[40px] py-[22px] pl-[68px] pr-[39px] text-base placeholder-black-secondary placeholder-opacity-30 font-semibold text-black-secondary bg-white shadow-[0_4px_24px_rgba(0,0,0,0.3)]" style="-webkit-appearance: none" type="search" placeholder="Search for Xiaomi Mi Rob.." role="search">
+              <div class="absolute inset-y-0 left-0 pl-[26px] flex items-center pointer-events-none">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.75 17.5833L14.1665 11.9998C15.1987 10.4311 15.6122 8.53508 15.3267 6.67898C15.0413 4.82288 14.0774 3.1387 12.6215 1.95252C11.1657 0.76633 9.32149 0.162516 7.446 0.257981C5.57052 0.353446 3.79717 1.1414 2.46928 2.46928C1.1414 3.79717 0.353446 5.57052 0.257981 7.446C0.162516 9.32149 0.76633 11.1657 1.95252 12.6215C3.1387 14.0774 4.82288 15.0413 6.67898 15.3267C8.53508 15.6122 10.4311 15.1987 11.9998 14.1665L17.5833 19.75L19.75 17.5833ZM2.41666 7.83333C2.41666 4.84658 4.84658 2.41666 7.83333 2.41666C10.8201 2.41666 13.25 4.84658 13.25 7.83333C13.25 10.8201 10.8201 13.25 7.83333 13.25C4.84658 13.25 2.41666 10.8201 2.41666 7.83333Z" fill="#00000066" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="mt-[19px] md:mt-[37px]"><span class="font-medium text-sm text-black-secondary opacity-[.66]">* 39.542 devices as of August 2022</span></div> -->
+    </div>
+    <div class="possibliy mx-auto mt-[50px] md:mt-[110px] pb-[60px] md:pb-[180px] text-center relative z-10" style="background: linear-gradient(180deg, #01002C -3.36%, #020054 104.31%);">
+      <div class="relative pt-[44px] md:pt-[142px] px-9 md:w-[60%] mx-auto">
+        <span class="font-bold text-[22px] md:text-[44px] text-white leading-[27px] md:leading-[54.03px]">We possibly don’t work with all the brands <br>
+        </span>
+        <span class="font-bold text-[22px] md:text-[44px] text-blue-btn leading-[27px] md:leading-[54.03px]">in this universe.</span>
+      </div>
+      <div class="min-h-[58px] mt-[40px] md:mt-[100px] ml-[-180px]" style="background-image: url({{site.baseurl}}images/logo3.png);"></div>
+      <div class="min-h-[38px] mt-[25px] md:mt-[20px] ml-[20px]" style="background-image: url({{site.baseurl}}images/logo2.png);"></div>
+      <div class="min-h-[58px] mt-[25px] md:mt-[20px] ml-[100px]" style="background-image: url({{site.baseurl}}images/logo1.png);"></div>
+    </div>
+    <div class="container mx-auto px-4 md:px-0 lg:px-8 mt-[148px] text-center">
+      <div class="relative">
+        <span class="font-extrabold text-[44px] text-black-secondary leading-[49.63px]">Said about us </span>
+      </div>
+      <div class="mt-10 pb-12 bg-white sm:pb-16">
+        <div class="relative">
+          <div class="absolute inset-0 h-1/2 bg-gray-50"></div>
+          <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto">
+              <dl class="rounded-lg bg-white md:grid md:grid-cols-3 space-y-[60px] md:space-y-0">
+                {% for feedback in page.saidAboutUs %}
+                <div class="flex flex-col  border-black border-opacity-10 md:px-[42px] text-center md:border-0 md:border-r">
+                  <dt class="order-2 mt-[21px] text-lg leading-6 font-medium text-gray-500">
+                    <img class="mx-auto" src="{{site.baseurl}}{{feedback.logo}}" loading="lazy" />
+                  </dt>
+                  <dd class="max-h-fit order-1 text-sm tracking-tight font-medium text-black-secondary text-opacity-[.66] ">“{{feedback.description}}”</dd>
+                </div>
+                {% endfor %}
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-[212px] mx-auto text-center hidden md:block">
+      <div>
+        <span class="font-extrabold text-[44px] text-black-secondary leading-[49.63px]">Popular videos</span>
+      </div>
+      <div class="mt-[21px]">
+        <span class="font-semibold text-2xl text-blue-btn leading-6">#madewithHA</span>
+      </div>
+      <div class="wrap mt-[77px]">
+        <div class="frame main-news__items-wrapp" id="cycleitems" style="overflow: hidden;">
+          <ul class="clearfix main-news__items-wrapp" id="itemScroll">
+            {% for video in site.data.videos %} 
+            <li>
+              <lite-youtube id="item" videoid="{{video.videoID}}" videotitle="{{video.videoTitle}}" title="{{video.videoTitle}}"></lite-youtube>
+            </li> 
+            {% endfor %} 
+          </ul>
+        </div>
+        <div class="max-w-[1010px] mt-10 mx-auto relative scrollbar">
+          <div class="handle" style="transform: translateZ(0px) translateX(0px); width: 90px !important; height: 9px !important; top: -2px; position: absolute; border-radius: 30px;">
+            <div class="mousearea"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mx-auto px-4 md:px-6 lg:px-8 mt-[148px]">
+      <div class="xl:grid xl:grid-cols-2 mt-[57px] relative z-10">
+        <div class="col-span-1 pr-[160px] mb-[80px]">
+          <div>
+            <span class="font-semibold text-black-secondary text-4xl leading-11">Our founder’s <br>
+            </span>
+            <span class="font-semibold text-brand-primary text-4xl">vision</span>
+          </div>
+          <div class="mt-8">
+            <span class="font-medium text-black-secondary leading-6 text-[18px]">“Home automation should blend with your current workflow, not replace it. For most devices, there is no faster way to control most devices than how you are already doing it today.” <br>
+              <br>”With every automation, you always have to think: what will be the impact if it doesn’t work? Home automation is composed of many different systems by many different vendors that speak many different protocols: things will go wrong.” </span>
+          </div>
+          <div class="mt-7">
+            <button type="button" class="inline-flex font-semibold items-center px-[17px] rounded-md py-[10px] border-2 border-[#41BDF5] text-lg leading-[22px] text-[#41BDF5] ">Read more...</button>
+          </div>
+        </div>
+        <div class="col-span-1 pl-[30px] relative">
+          <div class="absolute min-h-[210px] top-[70px] left-0 border border-black border-opacity-10"></div>
+          <div>
+            <span class="font-semibold text-black-secondary text-4xl leading-11">Latest blog <br>
+            </span>
+            <span class="font-semibold text-brand-primary text-4xl">posts</span>
+          </div>
+          <div> 
+            {% assign sortedPosts = site.posts | sort: 'date' | reverse  %}
+            {% for post in sortedPosts limit:4%} 
+            <div class="mt-8">
+              <a href="{{post.url}}" >
+                <span class="font-medium text-black-secondary text-base leading-5 text-opacity-30">
+                  {{post.date_formatted}}
+                </span>
+                <p class="font-medium text-black-secondary text-base leading-5"> {{post.title}}</p>
+              </a> 
+            </div>
+            {% endfor %} 
+            <div class="mt-7">
+              <a href="/blog" class="inline-flex font-semibold items-center px-[17px] py-[10px] border-2 border-[#41BDF5] text-lg leading-[22px] text-[#41BDF5] rounded-md">All the posts</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="app-download container relative mx-auto mb-[86px] ">
+      <!-- <div class="absolute"> -->
+      <img class="mobile1 absolute translate-x-[-50%] md:translate-x-0 right-[-10%] md:right-[39px] top-[-115px] md:top-[-24px] -z-20 md:z-10 w-[179px] md:w-[248px]" src="{{site.baseurl}}images/mobile2.png" loading="lazy" />
+      <img class="mobile2 absolute translate-x-[-50%] md:translate-x-0 right-[8%] md:right-[178px] top-[-155px] md:top-[-81px] -z-10 md:z-20 w-[181px] md:w-[286px]" src="{{site.baseurl}}images/mobile1.png" loading="lazy" />
+      <!-- </div> -->
+      <div class=" mx-auto pl-[32px] py-[42px] md:pl-[62px] mt-[207px] rounded-[20px] bg-black relative">
+        <div class="md:w-1/2 pr-5">
+          <span class="font-bold text-2xl md:text-4xl text-white leading-7 md:leading-[58px]">Control Home Assistant with your phone</span>
+          <div class="mt-7 md:mt-8">
+            <span class="font-semibold text-sm md:text-2xl text-opacity-[.66] leading-7 text-white">Download now for iOS and Android</span>
+          </div>
+          <div class="mt-[26px]  items-center items-center  app-download-btn md:mx-auto w-fit md:space-x-4 md:flex md:justify-around md:backdrop:mt-[38px]">
+            <div>
+              <img class="inline-block h-[60px] cursor-pointer" src="{{site.baseurl}}images/google-play.svg" loading="lazy" />
+            </div>
+            <div>
+              <img class="md:ml-[13px] mt-3 md:mt-0 md:ml-0  h-[60px] cursor-pointer inline-block" src="{{site.baseurl}}images/app-store.svg" loading="lazy" />
+            </div>
+          </div>
+          <div class="mt-12 hidden md:block">
+            <span class="font-semibold text-white underline underline-offset-1 text-base leading-5">More platforms</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script defer src="{{ site.baseurl }}assets/js/sly.min.js"></script>
+  <script defer src="{{ site.baseurl }}assets/js/home.js"></script>
+  {% include integration-search.html %}

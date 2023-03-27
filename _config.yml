@@ -4,6 +4,7 @@
 # ----------------------- #
 
 url: https://www.home-assistant.io
+baseurl: "/"
 title: Home Assistant
 subtitle: Open source home automation that puts local control and privacy first.
 author: Home Assistant
@@ -48,7 +49,11 @@ commonmark:
 highlighter: none
 
 plugins:
+  - jekyll-postcss
   - jekyll-toc
+
+postcss:
+  cache: false
 
 paginate: 10 # Posts per page on the blog index
 paginate_path: "blog/posts/:num" # Directory base for pagination URLs eg. /posts/2/
@@ -67,6 +72,7 @@ titlecase: true # Converts page and post titles to titlecase
 collections:
   integrations:
     output: true
+    permalink: /integrations/:path/
   examples:
     output: true
   docs:
@@ -77,6 +83,12 @@ collections:
     output: true
   dashboards:
     output: true
+  guides:
+    output: true
+    permalink: /learn/:name
+  posts:
+    output: true
+    permalink: /blog/:name
 
 # ----------------------- #
 #   3rd Party Settings    #
@@ -125,7 +137,6 @@ defaults:
   - scope:
       path: ""
     values:
-      layout: page
       comments: false
       footer: true
       sharing: true
@@ -148,9 +159,9 @@ defaults:
   # https://github.com/toshimaru/jekyll-toc/issues/116#issuecomment-644205770
   #
   - scope:
-      path: ""
       type: integrations
     values:
+      layout: integration
       toc: true
   - scope:
       path: "installation/*"
@@ -176,7 +187,10 @@ include:
 # https://github.com/toshimaru/jekyll-toc
 toc:
   min_level: 2 # default: 1
-  max_level: 3 # default: 6
+  max_level: 2 # default: 6
+
+postcss:
+  cache: false
 
 # Configuration for installation pages
 installation:
