@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
+  - '@synesthesiam'
 ha_domain: conversation
 ha_integration_type: system
 ---

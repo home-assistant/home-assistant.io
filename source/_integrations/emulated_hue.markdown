@@ -10,6 +10,7 @@ ha_domain: emulated_hue
 ha_integration_type: integration
 ha_codeowners:
   - '@bdraco'
+  - '@Tho85'
 ---
 
 <div class='note warning'>

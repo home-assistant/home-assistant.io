@@ -9,6 +9,7 @@ ha_category:
   - Cover
   - Hub
   - Light
+  - Lock
   - Sensor
   - Switch
 ha_iot_class: Cloud Push
@@ -23,6 +24,7 @@ ha_platforms:
   - climate
   - cover
   - light
+  - lock
   - sensor
   - switch
   - weather
@@ -39,6 +41,7 @@ There is currently support for the following device types within Home Assistant:
 * Climate
 * Cover
 * Light
+* Lock
 * Sensor
 * Switch
 * Weather
@@ -152,6 +155,9 @@ Within this delay the device registration should be completed in the App, otherw
   * Pluggable Dimmer – trailing edge (*HmIP-PDT*)
   * Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
   * Wired Dimmer module – 3x channels (*HMIPW-DRD3*)
+
+* homematicip_cloud.lock
+  * Door Lock Drive - currently, usage just without a pin is possible (*HmIP-DLD*)
 
 * homematicip_cloud.sensor
   * Access Point Duty Cycle (*HmIP-HAP, HmIP-HAP-B1*)

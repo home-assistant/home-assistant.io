@@ -8,7 +8,6 @@ ha_iot_class: Local Polling
 ha_release: '0.30'
 ha_quality_scale: internal
 ha_codeowners:
-  - '@fabaff'
   - '@ThomDietrich'
 ha_domain: statistics
 ha_platforms:
@@ -30,11 +29,11 @@ The `statistics` integration is different to [Long-term Statistics](https://deve
 
 ## Characteristics
 
-The following statistical characteristics are available. Pay close attention to the right configuration of `sampling_size` and/or `max_age`, as most characteristics are directly influenced by these settings.
+The following options for the configuration parameter `state_characteristic` are available as staticical characteristics. Pay close attention to the correct configuration of `sampling_size` and/or `max_age`, as most characteristics are directly influenced by these settings.
 
 ### Numeric Source Sensor
 
-The following characteristics are supported for `sensor` source sensors:
+The following are supported for `sensor` source sensors `state_characteristic`:
 
 | State Characteristic | Description |
 | -------------------- | ----------- |
@@ -67,7 +66,7 @@ The following characteristics are supported for `sensor` source sensors:
 
 ### Binary Source Sensor
 
-The following characteristic are supported for `binary_sensor` source sensors:
+The following are supported for `binary_sensor` source sensors `state_characteristic`:
 
 | State Characteristic | Description |
 | -------------------- | ----------- |
@@ -129,7 +128,7 @@ name:
   default: Stats
   type: string
 state_characteristic:
-  description: The characteristic that should be used as the state of the statistics sensor (see table above).
+  description: The characteristic that should be used as the state of the statistics sensor (see tables above).
   required: true
   type: string
 sampling_size:

@@ -57,7 +57,7 @@ data:
   rgb_color: [255, 0, 0]
 ```
 
-A full list of the parameters for a service can be found on the documentation page of each component, in the same way as it's done for the `light.turn_on` [service](/integrations/light/#service-lightturn_on).
+A full list of the parameters for a service can be found on the documentation page of each integration, in the same way as it's done for the `light.turn_on` [service](/integrations/light/#service-lightturn_on).
 
 ### Use templates to decide which service to call
 

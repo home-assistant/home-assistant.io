@@ -3,6 +3,7 @@ title: Reolink IP NVR/camera
 description: Instructions on how to integrate Reolink devices (NVR/cameras) into Home Assistant.
 ha_category:
   - Camera
+  - Update
 ha_iot_class: Local Push
 ha_release: 2023.1
 ha_domain: reolink
@@ -12,6 +13,8 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - camera
+  - number
+  - update
 ha_integration_type: integration
 ha_dhcp: true
 ---
@@ -36,7 +39,7 @@ The Images stream provides a sequence of image snapshots giving very low latency
 
 ## Binary sensors
 
-Depending on the supported features of the camera binary sensors are added for:
+Depending on the supported features of the camera, binary sensors are added for:
 
 - Motion detection
 - Doorbell presses
@@ -47,14 +50,15 @@ Depending on the supported features of the camera binary sensors are added for:
 
 These sensors are polled every 60 seconds and receive ONVIF push events for immediate updates.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
+For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
 
 ## Number entities
 
-Depending on the supported features of the camera number entities are added for:
+Depending on the supported features of the camera, number entities are added for:
 
 - Optical zoom control
 - Focus control
-- Floodlight brightness
+- Floodlight turn on brightness
 - Volume
 - Guard return time
 - Motion sensitivity
@@ -62,10 +66,23 @@ Depending on the supported features of the camera number entities are added for:
 - AI people sensitivity
 - AI vehicle sensitivity
 - AI pet sensitivity
+- Auto quick reply time
+- Auto track limit left
+- Auto track limit right
+- Auto track disappear time
+- Auto track stop time
+
+"Floodlight turn on brightness" controls the brightness of the floodlight when it is turned on internally by the camera (see "Floodlight mode" select entity) or when using the "Floodlight" light entity.
+
+When the camera is not moved and no person/pet/vehicle is detected for the "Guard return time" in seconds, and the "Guard return" switch is ON, the camera will move back to the guard position.
+
+When a Reolink doorbell is pressed the quick reply message from the "Auto quick reply message" select entity will be played after "Auto quick reply time" seconds, unless the "Auto quick reply message" is set to off.
+
+If the "Auto tracking" switch entity is enabled, and a object disappears from view OR stops moving for the "Auto track disappear time"/"Auto track stop time", the camera goes back to its original position.
 
 ## Button entities
 
-Depending on the supported features of the camera button entities are added for:
+Depending on the supported features of the camera, button entities are added for:
 
 - PTZ stop
 - PTZ left
@@ -76,15 +93,23 @@ Depending on the supported features of the camera button entities are added for:
 - Guard go to
 - Guard set current position
 
+PTZ left, right, up and down will continually move the camera in the respective position until the PTZ stop is called or the hardware limit is reached.
+
+"Guard set current position" will set the current position as the new guard position.
+
 ## Select entities
 
-Depending on the supported features of the camera select entities are added for:
+Depending on the supported features of the camera, select entities are added for:
 
 - Floodlight mode (Off, Auto, Schedule)
 - Day night mode (Auto, Color, Black&White)
 - PTZ preset
+- Auto quick reply message
+- Auto track method (Digital, Digital first, Pan/Tilt first)
 
 PTZ preset positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
+
+Auto quick reply messages can be recorded in the Reolink app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
 
 ## Siren entities
 
@@ -95,7 +120,7 @@ In some camera models, there is a delay of up to 5 seconds between the turn-off 
 
 ## Switch entities
 
-Depending on the supported features of the camera switch entities are added for:
+Depending on the supported features of the camera, switch entities are added for:
 
 - Record audio
 - Siren on event
@@ -113,15 +138,15 @@ Depending on the supported features of the NVR/host, global switch entities are 
 
 ## Light entities
 
-Depending on the supported features of the camera light entities are added for:
+Depending on the supported features of the camera, light entities are added for:
 
 - Floodlight
 - Infra red lights in night mode
 - Status LED
 
-When the floodlight entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule)
+When the floodlight entity is ON always ON, when OFF controlled based on the internal camera floodlight mode (Off, Auto, Schedule), see the "Floodlight mode" select entity.
 
-When IR light entity is OFF always OFF, when ON IR LEDs will be on when camera is in night vision mode, see "Day night mode"
+When IR light entity is OFF always OFF, when ON IR LEDs will be on when the camera is in night vision mode, see the "Day night mode" select entity.
 
 ## Update entity
 
@@ -138,6 +163,7 @@ The following models have been tested and confirmed to work:
 - C2 Pro
 - E1 Zoom
 - E1 Outdoor
+- RLC-410
 - RLC-410W
 - RLC-411
 - RLC-420
@@ -150,7 +176,10 @@ The following models have been tested and confirmed to work:
 - RLC-810A
 - RLC-811A
 - RLC-820A
+- RLC-822A
 - RLC-823A
+- RLC-833A
+- RLC-1224A
 - RLN8-410 NVR
 - RLN16-410 NVR
 - Reolink Duo Floodlight PoE
@@ -162,6 +191,7 @@ Battery-powered cameras are not yet supported.
 The following models are lacking the HTTP webserver API and can therfore not work with this integration:
 
 - E1 Pro
+- E1
 
 ## Troubleshooting
 

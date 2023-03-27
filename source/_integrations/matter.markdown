@@ -1,23 +1,25 @@
 ---
-title: Matter
+title: Matter (BETA)
 description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary Sensor
   - Light
   - Sensor
   - Switch
+  - Lock
 ha_release: '2022.12'
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - '@marcelveldt'
-  - '@MartinHjelmare'
+  - '@home-assistant/matter'
 ha_domain: matter
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - light
   - sensor
   - switch
+  - lock
 ha_integration_type: integration
 ---
 
@@ -37,7 +39,7 @@ Both the Matter standard itself and its implementation within Home Assistant are
 
 One of the great features of Matter is the so called _Multi Fabric_ feature: you can join the same device to multiple controllers. For example: add it to Google Home, Apple Home, and Home Assistant at the same time.
 
-For devices where Home Assistant provides an native integration (with local API), Matter may not be the best option. Matter, being a universal standard, might not have the nitty-gritty features that come with a product specific protocol. A good example is Philips Hue:  the communication over Matter only provides the basic controls over lights, the official integration brings all Hue unique features like (dynamic) scenes, entertainment mode, etc.
+For devices where Home Assistant provides a native integration (with local API), Matter may not be the best option. Matter, being a universal standard, might not have the nitty-gritty features that come with a product specific protocol. A good example is Philips Hue:  the communication over Matter only provides the basic controls over lights, the official integration brings all Hue unique features like (dynamic) scenes, entertainment mode, etc.
 
 <p class='note'>
 The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices (and any Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Implementations like mDNS reflectors usually do more harm than good.
@@ -200,4 +202,3 @@ _This option is only available for Home Assistant OS (the recommended installati
 This option is considered a very advanced setup and only for experienced users. You can find instructions on how to run the Matter Server in the [project repository](https://github.com/home-assistant-libs/python-matter-server).
 
 _Disclaimer: Some links on this page are affiliate links._
-

@@ -47,8 +47,8 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **nitrous_oxide**: Concentration of Nitrous Oxide in µg/m³
 - **ozone**: Concentration of Ozone in µg/m³
 - **pm1**: Concentration of particulate matter less than 1 micrometer in µg/m³
-- **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
+- **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
 - **power_factor**: Power factor (unitless), unit may be `None` or %
 - **power**: Power in W or kW
 - **precipitation**: Accumulated precipitation in cm, in or mm

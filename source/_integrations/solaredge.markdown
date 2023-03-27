@@ -26,19 +26,3 @@ The SolarEdge Monitoring API has a daily rate limit of 300 requests. In order to
 
 {% include integrations/config_flow.md %}
 
-## Additional template sensor
-
-In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform](/integrations/template).
-
-{% raw %}
-
-```yaml
-# Example configuration.yaml entry for template platform
-template:
-  - sensor:
-    - name: solaredge_energy_this_year_template
-      unit_of_measurement: kWh
-      state: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
-```
-
-{% endraw %}
