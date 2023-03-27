@@ -5,7 +5,6 @@ ha_category:
   - Sensor
 ha_release: 0.31
 ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_codeowners:
   - '@fabaff'
   - '@gjohansson-ST'
@@ -14,6 +13,7 @@ ha_domain: scrape
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The `scrape` sensor platform is scraping information from websites. The sensor loads an HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/), it will most likely only work with simple web pages and it can be time-consuming to get the right section.
@@ -91,7 +91,7 @@ scan_interval:
   description: Define the refrequency to call the REST endpoint in seconds.
   required: false
   type: integer
-  default: 30
+  default: 600
 sensor:
   description: A list of sensors to create from the shared data. All configuration settings that are supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
   required: true
@@ -145,15 +145,6 @@ sensor:
       description: Defines a template for the entity picture of the sensor.
       required: false
       type: template
-    attributes:
-      description: Defines templates for attributes of the sensor.
-      required: false
-      type: map
-      keys:
-        "attribute: template":
-          description: The attribute and corresponding template.
-          required: true
-          type: template
     device_class:
       description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
       required: false
@@ -253,10 +244,10 @@ This example tries to retrieve the price for electricity.
 ```yaml
 # Example configuration.yaml entry
 scrape:
-  - resource: https://elen.nu/timpriser-pa-el-for-elomrade-se3-stockholm/
+  - resource: https://elen.nu/dagens-spotpris/se3-stockholm/
     sensor:
       - name: Electricity price
-        select: ".text-lg:is(span)"
+        select: ".text-lg.font-bold"
         index: 1
         value_template: '{{ value | replace (",", ".") | float }}'
         unit_of_measurement: "öre/kWh"

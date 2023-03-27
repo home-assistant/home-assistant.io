@@ -5,6 +5,7 @@ ha_release: 2022.4
 ha_category:
   - Binary Sensor
   - Climate
+  - Select
   - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -13,10 +14,12 @@ ha_platforms:
   - binary_sensor
   - climate
   - diagnostics
+  - select
   - sensor
 ha_codeowners:
   - '@Noltari'
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 This integration interacts with the Local API of [Airzone HVAC zoning systems](https://www.airzone.es/en/).
@@ -59,7 +62,17 @@ For each Airzone zone (Thermostat) a *climate entity* is created.
 
 **HVAC mode can only be changed on a *parent zone*.**
 
-*Slave zones* can only enable/disable the current HVAC mode selected on the corresponding *parent zone*. Attempting to change the HVAC mode on a *child zone* will result on a Home Assistant error.
+*Child zones* can only enable/disable the current HVAC mode selected on the corresponding *parent zone*. Attempting to change the HVAC mode on a *child zone* will result on a Home Assistant error.
+
+## Select
+
+For each Airzone zone (Thermostat), the following *selects* are created:
+
+| Condition           | Description                        |
+| :------------------ | :--------------------------------- |
+| Cold Angle          | Grille angle for cooling.          |
+| Heat Angle          | Grille angle for heating.          |
+| Sleep               | Minutes for auto sleep.            |
 
 ## Sensors
 

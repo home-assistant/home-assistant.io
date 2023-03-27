@@ -35,3 +35,5 @@ name:
   required: false
   type: string
 {% endconfiguration %}
+
+You may need to enable/start the PJ Talk service under your projector's web interface Advanced Settings.

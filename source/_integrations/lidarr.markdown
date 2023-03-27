@@ -11,7 +11,7 @@ ha_codeowners:
   - '@tkdrob'
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The Lidarr integration pulls data from a specified [Lidarr](https://lidarr.audio/) instance.

@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Climate
   - Fan
+  - Light
   - Number
   - Sensor
   - Switch
@@ -18,6 +19,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - fan
+  - light
   - number
   - sensor
   - switch
@@ -45,11 +47,22 @@ The following controllable entities are available:
 
 ### Fan
 
-- **Fan** - If your unit is equipped with a fan - this entry will be present. There are 4 fan speeds (1-4), with 0 being off.
+If your unit is equipped with a fan - this entry will be present. There are 5 possible fan control values:
+
+- `0%` - Off
+- `25%` - Quiet
+- `50%` - Low
+- `75%` - Medium
+- `100%` - High
 
 ### Climate
 
 - **Thermostat** - This entity will be present if your unit has thermostatic control.
+
+
+### Light
+
+The integration provides a light entity if the unit is equipped with lights.
 
 ### Number
 

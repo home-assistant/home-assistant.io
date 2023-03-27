@@ -70,7 +70,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Humidifier Mode](#humidifier-mode)
   - [Image Processing](#image-processing)
     - [Presence Detection Notification](#presence-detection-notification)
-  - [Input Number](#input-number)
+  - [Input Number and Number](#input-number-and-number)
   - [Light](#light)
     - [Brightness](#brightness)
     - [Color Temperature](#color-temperature)
@@ -83,7 +83,6 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Equalizer Mode](#equalizer-mode)
     - [Inputs](#inputs)
     - [Playback State](#playback-state)
-    - [Seek](#seek)
   - [Scene](#scene)
   - [Script](#script)
   - [Sensor](#sensor)
@@ -118,16 +117,6 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 ## Create an AWS Lambda Function
 
 We will write a small piece of code hosted as an AWS Lambda function that will redirect requests from the Alexa Smart Home skill to your Home Assistant instance, then the Alexa integration in Home Assistant will process the request and send back the response. The Lambda function will then deliver the response back to the Alexa Smart Home skill.
-
-<div class='info'>
-
-There already are some great alternative tutorials and solutions to ours in our community to achieve the same goal of creating your Alexa Smart Home Skill and its connection to Home Assistant, for example: [haaska](https://github.com/mike-grant/haaska/wiki).
-
-Amazon also has provided a [step-by-step guide](https://developer.amazon.com/docs/smarthome/steps-to-build-a-smart-home-skill.html) to create a Smart Home Skill, however you have to adapt its sample code to match the Home Assistant API.
-  
-You can follow this document or others, but you cannot mix and match different solutions since they may have different designs.
-
-</div>
 
 OK, let's go. You first need to sign in to your [AWS console](https://console.aws.amazon.com/), if you don't have an AWS account yet, you can create a new user [here](https://aws.amazon.com/free/) with 12-month free tier benefit. You don't need to worry about the cost if your account has already passed the first 12 months, as AWS provides up to 1 million Lambda requests, 1GB of outbound data and all inbound data for free, every month, for all users. See [Lambda pricing](https://aws.amazon.com/lambda/pricing/) for more details.
 
@@ -412,7 +401,7 @@ See [List of Capability Interfaces and Supported Locales][alexa-supported-locale
 
 The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (i.e., "Send Alexa Events" enabled). Please note the following if you want to enable proactive mode:
 
-- There are different endpoint URLs, depending on the region of your skill. Please check the available endpoints at <https://developer.amazon.com/docs/smarthome/send-events-to-the-alexa-event-gateway.html#endpoints>
+- There are different endpoint URLs, depending on the region of your skill. Please check the available endpoints at <https://developer.amazon.com/docs/smarthome/send-events.html#endpoints>
 - The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the [Alexa Developer Console][amazon-dev-console]: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
 - If the "Send Alexa Events" permission was not enabled previously, you need to unlink and relink the skill using the Alexa App, or else Home Assistant will show the following error: "Token invalid and no refresh token available. Also, you need to restart your Home Assistant after each disabling/enabling the skill in Alexa."
 
@@ -498,7 +487,7 @@ The following integrations are currently supported:
     - [Humidifier Mode](#humidifier-mode)
   - [Image Processing](#image-processing)
     - [Presence Detection Notification](#presence-detection-notification)
-  - [Input Number](#input-number)
+  - [Input Number and Number](#input-number-and-number)
   - [Light](#light)
     - [Brightness](#brightness)
     - [Color Temperature](#color-temperature)
@@ -511,7 +500,6 @@ The following integrations are currently supported:
     - [Equalizer Mode](#equalizer-mode)
     - [Inputs](#inputs)
     - [Playback State](#playback-state)
-    - [Seek](#seek)
   - [Scene](#scene)
   - [Script](#script)
   - [Sensor](#sensor)
@@ -554,7 +542,7 @@ Users must opt-in to the disarm by voice feature in the Alexa App. Alexa will re
   <img height='460' src='/images/integrations/alexa/alexa_app_security_system_pin.png' alt='Screenshot: Alexa App Security System PIN'/></a>
 </p>
 
-To use the exiting code configured for the Alarm Control Panel the `code` must be 4 digits and the `code_format` attribute must be `FORMAT_NUMBER`. After discovery, the Alexa app will offer the ability to use the existing `code`, or create an additional 4 digit PIN to use with Alexa.
+To use the existing code configured for the Alarm Control Panel the `code` must be 4 digits and the `code_format` attribute must be `number`. After discovery, the Alexa app will offer the ability to use the existing `code`, or create an additional 4 digit PIN to use with Alexa.
 
 The existing code is never communicated to Alexa from Home Assistant. During disarming, Alexa will ask for a PIN. The PIN spoken to Alexa is relayed to Home Assistant and passed to the `alarm_control_panel.alarm_disarm` service. If the `alarm_control_panel.alarm_disarm` service fails for any reason, it is assumed the PIN was incorrect and reported to Alexa as an invalid PIN.
 
@@ -862,15 +850,15 @@ Display category will default to `CAMERA` to enable presence detected notificati
 
 </div>
 
-### Input Number
+### Input Number and Number
 
-Control an `input_number` entity with Alexa. Configures Alexa with the `min`, `max`, `step`, and `unit_of_measurement` attributes for the entity.
+Control an `input_number` or `number` entity with Alexa. Configures Alexa with the `min`, `max`, `step`, and `unit_of_measurement` attributes for the entity.
 
 - _"Alexa, set [entity name] to forty five [unit of measurement]."_
 - _"Alexa, increase the [entity name] by two."_
 - _"Alexa, set the [entity name] to maximum."_
 
-The following table lists the possible friendly name synonyms available for a Input Number with `min: -90, max: 90, step: 45, unit_of_measurement: degrees`.
+The following table lists the possible friendly name synonyms available for a Input Number or Number with `min: -90, max: 90, step: 45, unit_of_measurement: degrees`.
 
 | Fan Range | Friendly Name Synonyms                    |
 | --------- | ----------------------------------------- |
@@ -879,6 +867,10 @@ The following table lists the possible friendly name synonyms available for a In
 | 0         | _"zero"_                                  |
 | 45        | _"forty five"_                            |
 | 90        | _"ninety"_, _"maximum"_, _"max"_          |
+
+The `unit_of_measurement` will be used to select a supported unit label from the [Global Alexa catalog](https://developer.amazon.com/en-US/docs/alexa/device-apis/resources-and-assets.html#global-alexa-catalog). If there is no match it will be assigned a preset controller.
+
+The following units are supported: °C, °F, K, m, km, mi, yd, in, kg, g, oz, lb, L, ft³, m³, gal and %
 
 ### Light
 
@@ -985,10 +977,9 @@ Home Assistant will attempt to translate the `media_player` `source_list` into a
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-#### Seek
-
-- _"Alexa, skip 30 seconds on device."_
-- _"Alexa, go back 10 seconds on device."_
+<div class='note info'>
+Intents to seek forwards (skip) or to rewind (go back) are not supported at the moment.
+</div>
 
 ### Scene
 

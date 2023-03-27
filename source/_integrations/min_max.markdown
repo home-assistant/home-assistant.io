@@ -5,11 +5,11 @@ ha_category:
   - Helper
   - Sensor
   - Utility
-ha_iot_class: Local Push
+ha_iot_class: Calculated
 ha_release: 0.31
 ha_quality_scale: internal
 ha_codeowners:
-  - '@fabaff'
+  - '@gjohansson-ST'
 ha_domain: min_max
 ha_config_flow: true
 ha_platforms:
@@ -37,7 +37,7 @@ Precision:
 
 ## YAML Configuration
 
-Alternatlively, this integration can be configured and set up manually via YAML
+Alternatively, this integration can be configured and set up manually via YAML
 instead. To enable the Integration sensor in your installation, add the
 following to your `configuration.yaml` file:
 

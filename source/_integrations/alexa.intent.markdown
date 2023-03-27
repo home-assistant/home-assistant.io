@@ -70,7 +70,7 @@ Next you need to create a Lambda function.
 - Click your Lambda Function icon in the middle of the diagram and scroll down, you will see a `Function code` window.
 - Clear the example code and copy the Python script from this [GitHub Gist](https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da).
 - Click the `Deploy` button of the `Function code` window.
-- Scroll down again and you will find `Environment variables`, click on `Edit` button and add the following environment variables as needed:
+- Scroll down again and pick the `Configuration' tab, select it and on the left you will now find `Environment variables`, click on `Edit` button and add the following environment variables as needed:
   - BASE_URL *(required)*: your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
   - NOT_VERIFY_SSL *(optional)*: set to *True* to ignore the SSL issue, if you don't have a valid SSL certificate or you are using self-signed certificate.
   - DEBUG *(optional)*: set to *True* to log debugging messages.
@@ -394,5 +394,5 @@ Alexa will now respond with a random phrase each time. You can use the include f
 [amazon-dev-console]: https://developer.amazon.com
 [large-icon]: /images/integrations/alexa/alexa-512x512.png
 [small-icon]: /images/integrations/alexa/alexa-108x108.png
-[templates]: /topics/templating/
+[templates]: /docs/configuration/templating/
 [generate-long-lived-access-token]: https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token

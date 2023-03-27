@@ -28,7 +28,7 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The Netatmo integration platform is the main integration to integrate all Netatmo related platforms.

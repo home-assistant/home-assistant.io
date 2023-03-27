@@ -11,7 +11,7 @@ ha_codeowners:
   - '@tkdrob'
 ha_platforms:
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows integrations to send messages to the user using Discord.

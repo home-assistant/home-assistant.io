@@ -8,7 +8,6 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_domain: homeassistant_hardware
 ha_integration_type: system
-ha_quality_scale: internal
 ---
 
 The Home Assistant Hardware integration provides functionality

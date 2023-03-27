@@ -7,12 +7,18 @@ description: "The Picture Elements card is one of the most versatile types of ca
 
 The Picture Elements card is one of the most versatile types of cards.
 
-The cards allow you to position icons or text and even services on an image based on coordinates. Imagine floor plan, imagine [picture-glance](/dashboards/picture-glance/) with no restrictions!
-
 <p class='img'>
   <img src='/images/dashboards/picture_elements.gif' alt='A functional floorplan powered by picture elements'>
   A functional floorplan powered by picture elements.
 </p>
+
+The cards allow you to position icons or text and even services on an image based on coordinates. Imagine floor plan, imagine [picture-glance](/dashboards/picture-glance/) with no restrictions!
+
+To add the Picture Elements card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+## YAML Configuration
+
+This card can only be configured in YAML.
 
 {% configuration %}
 type:
@@ -407,8 +413,6 @@ style:
   # Positioning of the element
   left: 50%
   top: 50%
-  # Overwrite color for icons
-  "--paper-item-icon-color": pink
 ```
 
 ### How to use state_image

@@ -7,7 +7,7 @@ tagline: Home Assistant SkyConnect
 tagline_wide: false
 og_image: /images/skyconnect/skyconnect-cover.png
 hero_image: /images/skyconnect/skyconnect_horizontal.png
-frontpage: false
+frontpage: true
 frontpage_image: /images/skyconnect/skyconnect-cover.png
 ---
 
@@ -19,6 +19,9 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
   #landingpage .sub-title {
     margin-top: 100px;
   }
+  #landingpage #buy-dialog {
+    overflow-y: auto;
+  }
   .multi-pan {
     max-width: 750px;
     margin: 100px auto;
@@ -28,7 +31,7 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
 <div class="content">
   <div class="material-card text banner-overlay with-box">
     <div>
-      <div class="banner-overlay-header">Available soon</div>
+      <div class="banner-overlay-header">Available now</div>
       <div class="banner-overlay-content">
         The Home Assistant SkyConnect is the easiest way to add Zigbee support
         to your Home Assistant instance and make it Matter-ready.
@@ -50,7 +53,7 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
         </div>
       </div>
       <div class="banner-overlay-button" onclick="showBuyDialog()">
-        <div>Pre-order</div>
+        <div>Order now</div>
       </div>
     </div>
   </div>
@@ -59,7 +62,7 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
     <div class="item">
       <span>Compatible</span>
       <span>Zigbee</span>
-      <span>Works with Home Assistant and Zigbee2MQTT</span>
+      <span>Works with Home Assistant and Zigbee2MQTT<sup>1</sup></span>
     </div>
     <div class="item">
       <span>Reliable</span>
@@ -164,7 +167,13 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
   wireless devices. This includes Zigbee and Thread. If you do not use the
   extension cable, it may not work at all, and if it does, it could be flaky at
   best with intermittent problems (issues with pairing, device dropouts, unreachable
-  devices, timeout errors, etc). {% enddetails %}
+  devices, timeout errors, etc).
+  <br><br>
+  <a href="https://www.youtube.com/watch?v=tHqZhNcFEvA">See demo on YouTube.</a> {% enddetails %}
+</div>
+
+<div style="margin-top: 24px; text-align: center; font-size: .8rem;">
+  1: Relies on the experimental EmberZNet support in Zigbee2MQTT.
 </div>
 
 <div id="buy-dialog" class="dialog">
@@ -310,6 +319,60 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
           </svg>
         </div>
       </a>
+
+      <a
+        href="https://smartguys.com.au/home-assistant-skyconnect.html"
+        target="_blank"
+      >
+        <div class="distributor">
+          <div>
+            <div>🇦🇺</div>
+            <div>Smart Guys</div>
+            <div>Located in Australia</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
+
+      <a
+        href="https://www.hashop.nl/Home-Assistant-SkyConnect"
+        target="_blank"
+      >
+        <div class="distributor">
+          <div>
+            <div>🇳🇱</div>
+            <div>HAshop</div>
+            <div>Located in the Netherlands</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
+
+      <a
+        href="https://shop.swiss-domotique.ch/de/smarthome-zentrale/2118-nabu-casa-home-assistant-skyconnect.html"
+        target="_blank"
+      >
+        <div class="distributor">
+          <div>
+            <div>🇨🇭</div>
+            <div>Swiss-Domotique</div>
+            <div>Located in Switzerland</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
     </div>
   </div>
 </div>
@@ -325,7 +388,7 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
       d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z"
     />
   </svg>
-  PRE-ORDER SKYCONNECT
+  ORDER
 </div>
 
 <script>
@@ -347,4 +410,8 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
       closeDialog();
     }
   };
+
+  if (document.location.search === "?order") {
+    showBuyDialog();
+  }
 </script>

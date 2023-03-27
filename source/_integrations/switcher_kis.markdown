@@ -13,6 +13,7 @@ ha_codeowners:
   - '@thecode'
 ha_domain: switcher_kis
 ha_platforms:
+  - button
   - climate
   - cover
   - diagnostics

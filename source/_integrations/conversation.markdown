@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
+  - '@synesthesiam'
 ha_domain: conversation
 ha_integration_type: system
 ---
@@ -24,79 +25,146 @@ The conversation integration allows you to converse with Home Assistant. You can
 conversation:
 ```
 
-{% configuration %}
-intents:
-  description: Intents that the conversation integration should understand.
-  required: false
-  type: map
-  keys:
-    '`<INTENT NAME>`':
-      description: Sentences that should trigger this intent.
-      required: true
-      type: list
-{% endconfiguration %}
+## Default sentences
+
+By default, a collection of [community contributed sentences](https://github.com/home-assistant/intents/) are supported in a growing [list of languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages).
+
+In English, you can say things like "turn on kitchen lights" or "turn off lights in the bedroom" if you have an area named "bedroom".
 
 ## Adding custom sentences
 
-By default, it will support turning devices on and off. You can say things like "turn on kitchen lights" or "turn the living room lights off". You can also configure your own sentences to be processed. This works by mapping sentences to intents and then configure the [intent script integration](/integrations/intent_script/) to handle these intents.
+You can add your own [sentence templates](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax) to teach Home Assistant about new sentences. These sentences can work with the [built-in intents](https://developers.home-assistant.io/docs/intent_builtin/) or trigger a custom action by defining custom intents with the [intent script integration](/integrations/intent_script/).
 
-Here is a simple example to be able to ask what the temperature in the living room is.
+To get started, create a `custom_sentences/<language>` directory in your Home Assistant `config` directory where `<language>` is the [language code](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages) of your language, such as `en` for English. These YAML files are automatically merged, and may contain intents, lists, or expansion rules.
+
+For an English example, create the file `config/custom_sentences/en/temperature.yaml` and add:
+
+{% raw %}
+
+```yaml
+# Example temperature.yaml entry
+language: "en"
+intents:
+  CustomOutsideHumidity:
+    data:
+      - sentences:
+          - "What is the humidity outside"
+```
+
+{% endraw %}
+
+To teach Home Assistant how to handle the custom `CustomOutsideHumidity` intent, create an `intent_script` entry in your `configuration.yaml` file:
 
 {% raw %}
 
 ```yaml
 # Example configuration.yaml entry
-conversation:
-  intents:
-    LivingRoomTemperature:
-     - What is the temperature in the living room
-
 intent_script:
-  LivingRoomTemperature:
+  CustomOutsideHumidity:
     speech:
-      text: It is currently {{ states.sensor.temperature }} degrees in the living room.
+      text: "It is currently {{ states("sensor.outside_humidity") }} percent humidity outside."
 ```
 
 {% endraw %}
 
-## Adding advanced custom sentences
+More complex [actions](/docs/scripts/) can be done in `intent_script`, such as calling services and firing events.
 
-Sentences can contain slots (marked with curly braces: `{name}`) and optional words (marked with square brackets: `[the]`). The values of slots will be passed on to the intent and are available inside the templates.
 
-The following configuration can handle the following sentences:
+## Extending built-in intents
 
-- Change the lights to red
-- Change the lights to green
-- Change the lights to blue
-- Change the lights to the color red
-- Change the lights to the color green
-- Change the lights to the color blue
+Extending the built-in intents, such as `HassTurnOn` and `HassTurnOff`, can be done as well.
+
+For example, create the file `config/custom_sentences/en/on_off.yaml` and add:
 
 {% raw %}
 
 ```yaml
-# Example configuration.yaml entry
-conversation:
-  intents:
-    ColorLight:
-     - Change the lights to [the color] {color}
-intent_script:
-  ColorLight:
-    speech:
-      text: Changed the lights to {{ color }}.
-    action:
-      service: light.turn_on
-      data:
-        rgb_color:
-          - "{% if color == 'red' %}255{% else %}0{% endif %}"
-          - "{% if color == 'green' %}255{% else %}0{% endif %}"
-          - "{% if color == 'blue' %}255{% else %}0{% endif %}"
+# Example on_off.yaml entry
+language: "en"
+intents:
+  HassTurnOn:
+    data:
+      - sentences:
+          - "engage [the] kitchen lights"
+        slots:
+          name: "kitchen lights"
+  HassTurnOff:
+    data:
+      - sentences:
+          - "disengage [the] kitchen lights"
+        slots:
+          name: "kitchen lights"
 ```
 
 {% endraw %}
+
+Now when you say "engage the kitchen lights", it will turn on a light named "kitchen lights". Saying "disengage kitchen lights" will turn it off.
+
+Let's generalize this to other entities. The built-in `{name}` and `{area}` lists contain the names of your Home Assistant entities and areas.
+
+Adding `{name}` to `config/custom_sentences/en/on_off.yaml`:
+
+{% raw %}
+
+```yaml
+# Example on_off.yaml entry
+language: "en"
+intents:
+  HassTurnOn:
+    data:
+      - sentences:
+          - "engage [the] {name}"
+  HassTurnOff:
+    data:
+      - sentences:
+          - "disengage [the] {name}"
+```
+
+{% endraw %}
+
+You can now "engage" or "disengage" any entity.
+
+Lastly, let's add sentences for turning lights on and off in specific areas:
+
+{% raw %}
+
+```yaml
+# Example on_off.yaml entry
+language: "en"
+intents:
+  HassTurnOn:
+    data:
+      - sentences:
+          - "engage [the] {name}"
+      - sentences:
+          - "engage [all] lights in [the] {area}"
+        slots:
+          name: "all"
+          domain: "light"
+  HassTurnOff:
+    data:
+      - sentences:
+          - "disengage [the] {name}"
+      - sentences:
+          - "disengage [all] lights in [the] {area}"
+        slots:
+          name: "all"
+          domain: "light"
+```
+
+{% endraw %}
+
+It's now possible to say "engage all lights in the bedroom", which will turn on every light in the area named "bedroom".
+
 
 ## Service `conversation.process`
 
-| Service data attribute | Optional | Description                                      |
-|------------------------|----------|--------------------------------------------------|
-| `text`                 |      yes | Transcribed text                                 |
+| Service data attribute | Optional | Description      |
+|------------------------|----------|------------------|
+| `text`                 | yes      | Transcribed text |
+
+## Service `conversation.reload`
+
+| Service data attribute | Optional | Description                                                              |
+|------------------------|----------|--------------------------------------------------------------------------|
+| `language`             | yes      | Language to clear intent cache for. Defaults to Home Assistant language. |

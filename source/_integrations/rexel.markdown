@@ -16,6 +16,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+  - Water Heater
 ha_domain: rexel
 ha_integration_type: virtual
 ha_supporting_domain: overkiz
@@ -25,6 +26,7 @@ ha_codeowners:
   - '@imicknl'
   - '@vlebourl'
   - '@tetienne'
+  - '@nyroDev'
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
@@ -41,6 +43,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - water_heater
 ha_iot_class: Cloud Polling
 ha_dhcp: true
 ha_zeroconf: true

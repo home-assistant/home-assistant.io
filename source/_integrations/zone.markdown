@@ -86,7 +86,7 @@ Devices that are in the zone **'Home'** will not appear on the map in the Home A
 
 ## Icons
 
-It is recommended that you pick an icon to use for your zone. Pick any icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) and prefix the name with `mdi:`. For example `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
+It is recommended that you pick an icon to use for your zone. Pick any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) and prefix the name with `mdi:`. For example `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
 
 ## State
 

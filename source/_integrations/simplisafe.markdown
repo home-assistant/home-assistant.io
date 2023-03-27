@@ -41,7 +41,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## SimpliSafe Plans
 
-SimpliSafe offers several [monitoring plans](https://support.simplisafe.com/hc/en-us/articles/360023809972-What-are-the-service-plan-options-). Currently, only the Standard and Interactive Monitoring are known to work with this integration; if you find otherwise, please consider updating this documentation.
+SimpliSafe offers several [monitoring plans](https://support.simplisafe.com/articles/alarm-events-monitoring/what-are-the-service-plan-options/6344794a013ba90af0bce6a4). Currently, only the Standard and Interactive Monitoring are known to work with this integration; if you find otherwise, please consider updating this documentation.
 
 {% include integrations/config_flow.md %}
 
@@ -166,4 +166,4 @@ event data that contains the following keys:
 Note that when Home Assistant restarts, `SIMPLISAFE_NOTIFICATION` events will fire once
 again for any notifications still active in the SimpliSafe web and mobile apps. To
 prevent this, either (a) clear them in the web/mobile app or (b) utilize the 
-`simplisafe.clear_notifications` service described above.
+`clear_notifications` button provided by the alarm control panel.

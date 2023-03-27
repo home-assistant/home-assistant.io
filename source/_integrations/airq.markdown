@@ -1,20 +1,20 @@
 ---
-title: "air-Q"
-description: "Instructions on how to integrate air-Q into Home Assistant"
+title: air-Q
+description: Instructions on how to integrate air-Q into Home Assistant
 ha_category:
   - Environment
   - Health
   - Sensor
 ha_release: '2022.12'
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_codeowners:
-  - "@dl2080"
-  - "@Sibgatulin"
+  - '@Sibgatulin'
+  - '@dl2080'
 ha_domain: airq
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 This integration allows integrating the sensors, provided by your [air-Q](https://www.air-q.com/) device, into Home Assistant.
@@ -56,7 +56,7 @@ Currently, the integration supports the following sensors:
 | Propane              | %                   |
 | SO2                  | µg/m³               |
 | Noise                | dBa                 |
-| Noise (Maxumum)      | dBa                 |
+| Noise (Maximum)      | dBa                 |
 | Radon                | Bq/m³               |
 | Temperature          | °C                  |
 | VOC                  | ppb                 |

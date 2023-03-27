@@ -42,7 +42,9 @@ The `august` integration allows you to integrate your [August](https://august.co
 | Yale Assure Lock | yes |
 | Yale Assure Lock 2 | yes |
 | Yale Conexis L1 | yes |
+| Yale Conexis L2 | yes |
 | Yale Linus | yes |
+| Yale Smart Safe | yes |
 
 There is currently support for the following device types within Home Assistant:
 
