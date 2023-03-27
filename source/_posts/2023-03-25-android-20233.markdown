@@ -11,18 +11,18 @@ categories:
 og_image: /images/blog/2023-03-25-android/social.png
 ---
 
-![Home Assistant logo with 'Android 2023.3' text](/images/blog/2023-03-25-android/social.png)
+![Home Assistant logo with 'Android Companion 2023.3' text](/images/blog/2023-03-25-android/social.png)
 
 It's finally here, one of the most common feature requests for the Home Assistant
 Android Companion app: you can now configure multiple Home Assistant servers. The
-app can send sensor updates to all servers and easily mix and match widgets, tiles
+app can send sensor updates to all servers and easily mix and match widgets, tiles,
 and controls for different servers 🎉
 
-Plus, a preview of the Home Assistant app is now available on the Amazon Appstore
+Plus, a preview of the Home Assistant app is now available via the Amazon Appstore
 on Windows 11, which allows you to quickly connect your computer to Home Assistant.
 
 There are also other changes that add some polish to the app and improve support
-for features in the latest Home Assistant releases, so let's dig in to the update!
+for features in the latest Home Assistant releases, so let's dig into the update!
 
 ## Configure multiple Home Assistant servers
 
@@ -31,32 +31,30 @@ much that you decide to help someone else get started, there's a second home in
 your life, or you regularly visit someplace else where they're using Home Assistant.
 
 Before this update, if you wanted to access more than one server it was a bit of a
-hassle. Switching apps, creating bookmarks, using different profiles. Let alone
+hassle. Switching apps, creating bookmarks, and using different profiles. Let alone
 connecting your Android device to multiple servers for features like sensors
 and notifications.
 
-This issue now belongs to the past, as there's a new option in [Settings] >
-Companion app to configure  a second server, and another one after that, and another...
+This issue now belongs to the past, as there's a new option in **{% my config title="Settings" %}** >
+**Companion app** to configure a second server, and another one after that, and another...
 They will all show up in the app, and you can use all features you've come to
-expect like lots of sensors for your device and support for push notifications.
+expect, like lots of sensors for your device and support for push notifications.
 Each one gets individual settings, so if you don't want to share your step count
 and enable location tracking everywhere, that's OK.
 
 ![Screenshots of a phone showing different dashboards in the app, one of them showing a pop-up titled 'Choose server'](/images/blog/2023-03-25-android/multiserver.png)
 
-That's not all - you can use all servers _outside_ the app as well, mixing and
+That's not all - you can also use all servers _outside_ the app, mixing and
 matching servers when using shortcuts, notifications, widgets, tiles and controls.
 Toggling lights from three different homes side-by-side? No problem!
 
 Note: the Wear OS app does not yet support multiple servers.
 
-[Settings]: https://my.home-assistant.io/redirect/config/
-
 ## Now available on Windows 11 (preview)
 
-The Home Assistant Android Companion app is now available on [supported Windows 11 devices]
-via the Amazon Appstore. While there are already great options to integrate your
-computer out there from the community, the Companion app makes it easy to start
+The Home Assistant Android Companion app is now available via the Amazon Appstore
+on [supported Windows 11 devices]. While there are already great options to integrate your
+computer from the community out there, the Companion app makes it easy to start
 and benefits from all the work on the Android app, frequently adding new features.
 
 ![Screenshot of the Home Assistant Android app on a Windows 11 device](/images/blog/2023-03-25-android/windows.png)
@@ -73,9 +71,9 @@ TODO: link to Microsoft Store
 
 ## Refining Wear OS
 
-The Home Assistant app has been available for a bit over a year now on Wear OS
-watches, and continues to improve. Earlier this year initial support for Assist was
-added, and in this update [@dshokouhi] made it easier to access using a watchface
+The Home Assistant app has been available for over a year now on Wear OS watches
+and continues to improve. Earlier this year, initial support for Assist was added,
+and in this update [@dshokouhi] made it easier to access using a watchface
 complication. Now Assist is only a tap away!
 
 Got a lot of entities and want to hide the clutter on your watch? You could already
