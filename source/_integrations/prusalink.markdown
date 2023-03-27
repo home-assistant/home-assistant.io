@@ -21,4 +21,6 @@ The PrusaLink integration allows you to monitor your [Prusa 3D printer](https://
 
 {% include integrations/config_flow.md %}
 
+To obtain the API key, on your printer navigate to Settings -> Network -> PrusaLink. It will then be shown at the bottom of the screen.
+
 This integration requires PrusaLink v2. If you have the Prusa MINI, you need to run firmware 4.4.0 or later.
