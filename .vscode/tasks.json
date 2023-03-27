@@ -4,7 +4,7 @@
         {
             "label": "Generate",
             "type": "shell",
-            "command": "bundle exec rake generate",
+            "command": "npm run build",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -13,7 +13,7 @@
         {
             "label": "Preview",
             "type": "shell",
-            "command": "bundle exec rake preview",
+            "command": "npm run dev",
             "group": {
                 "kind": "test",
                 "isDefault": true,
