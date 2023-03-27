@@ -261,7 +261,7 @@ scan_interval:
   description: Defines the update interval of the entity in seconds, if scan_interval = 0 polling is stopped. Entities are unavailable until the first response is received, except for entities with scan_interval = 0, these entities are available from startup.
   required: false
   type: integer
-  default: 10
+  default: 15
 slave:
   description: The number of the slave.
   required: false

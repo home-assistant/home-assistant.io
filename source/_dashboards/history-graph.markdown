@@ -39,11 +39,6 @@ hours_to_show:
   description: Hours to show in graph. Minimum is 1 hour. Big values can result in delayed rendering, especially if the selected entities have a lot of state changes.
   type: integer
   default: 24
-refresh_interval:
-  required: false
-  description: Refresh interval in seconds.
-  type: integer
-  default: 0
 title:
   required: false
   description: The card title.

@@ -39,7 +39,7 @@ The Images stream provides a sequence of image snapshots giving very low latency
 
 ## Binary sensors
 
-Depending on the supported features of the camera binary sensors are added for:
+Depending on the supported features of the camera, binary sensors are added for:
 
 - Motion detection
 - Doorbell presses
@@ -50,10 +50,11 @@ Depending on the supported features of the camera binary sensors are added for:
 
 These sensors are polled every 60 seconds and receive ONVIF push events for immediate updates.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
+For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
 
 ## Number entities
 
-Depending on the supported features of the camera number entities are added for:
+Depending on the supported features of the camera, number entities are added for:
 
 - Optical zoom control
 - Focus control
@@ -66,6 +67,10 @@ Depending on the supported features of the camera number entities are added for:
 - AI vehicle sensitivity
 - AI pet sensitivity
 - Auto quick reply time
+- Auto track limit left
+- Auto track limit right
+- Auto track disappear time
+- Auto track stop time
 
 "Floodlight turn on brightness" controls the brightness of the floodlight when it is turned on internally by the camera (see "Floodlight mode" select entity) or when using the "Floodlight" light entity.
 
@@ -73,9 +78,11 @@ When the camera is not moved and no person/pet/vehicle is detected for the "Guar
 
 When a Reolink doorbell is pressed the quick reply message from the "Auto quick reply message" select entity will be played after "Auto quick reply time" seconds, unless the "Auto quick reply message" is set to off.
 
+If the "Auto tracking" switch entity is enabled, and a object disappears from view OR stops moving for the "Auto track disappear time"/"Auto track stop time", the camera goes back to its original position.
+
 ## Button entities
 
-Depending on the supported features of the camera button entities are added for:
+Depending on the supported features of the camera, button entities are added for:
 
 - PTZ stop
 - PTZ left
@@ -92,12 +99,13 @@ PTZ left, right, up and down will continually move the camera in the respective 
 
 ## Select entities
 
-Depending on the supported features of the camera select entities are added for:
+Depending on the supported features of the camera, select entities are added for:
 
 - Floodlight mode (Off, Auto, Schedule)
 - Day night mode (Auto, Color, Black&White)
 - PTZ preset
 - Auto quick reply message
+- Auto track method (Digital, Digital first, Pan/Tilt first)
 
 PTZ preset positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
@@ -112,7 +120,7 @@ In some camera models, there is a delay of up to 5 seconds between the turn-off 
 
 ## Switch entities
 
-Depending on the supported features of the camera switch entities are added for:
+Depending on the supported features of the camera, switch entities are added for:
 
 - Record audio
 - Siren on event
@@ -130,7 +138,7 @@ Depending on the supported features of the NVR/host, global switch entities are 
 
 ## Light entities
 
-Depending on the supported features of the camera light entities are added for:
+Depending on the supported features of the camera, light entities are added for:
 
 - Floodlight
 - Infra red lights in night mode
@@ -189,6 +197,7 @@ The following models are lacking the HTTP webserver API and can therfore not wor
 
 - Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) prior to setting up the integration. Note that Reolink auto update and check for update functions in the app/windows/web client often do not show the latest available firmware version. Therefore check the version in the [Reolink download center](https://reolink.com/download-center/) online.
 - Ensure at least one of the HTTP/HTTPS ports is enabled in the [windows](https://reolink.com/software-and-manual/)/web client under `Settings`->`Network`->`Advanced`->`Port Settings`, see [additional instructions](https://support.reolink.com/hc/en-us/articles/900004435763-How-to-Set-up-Reolink-Ports-Settings-via-Reolink-Client-New-Client-) on the Reolink site.
+- On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
 
 ## Reolink firmware limitations
 

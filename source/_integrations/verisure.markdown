@@ -34,7 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - Alarm
 - Camera
 - Switch (Smartplug)
-- Sensor (Thermometers, Hygrometers and Mouse detectors)
+- Sensor (Thermometers and Hygrometers)
 - Lock
 - Binary Sensor (Door & Window)
 
