@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The `androidtv_remote` platform allows you to control an Android TV device by sending [commands](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt) and launching apps.
+The Android TV Remote integration allows you to control an Android TV device by sending [commands](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt) and launching apps.
 
 {% include integrations/config_flow.md %}
 
