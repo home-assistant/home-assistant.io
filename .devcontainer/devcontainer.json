@@ -8,7 +8,16 @@
       "NODE_VERSION": "14"
     }
   },
-  "appPort": [4000],
+  "forwardPorts": [4000],
+  "portsAttributes": {
+    "4000": {
+      "label": "Documentation preview"
+    },
+    "8124": {
+      "label": "PostCSS",
+      "onAutoForward": "ignore"
+    }
+  },
   "onCreateCommand": "bundle install && npm install",
   "containerEnv": { "DEVCONTAINER": "true" },
   "extensions": [
