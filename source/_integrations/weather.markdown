@@ -34,3 +34,45 @@ The `weather` platform only knows the below listed conditions. The reason for th
 - 'windy'
 - 'windy-variant'
 - 'exceptional'
+
+### Forecast Information
+
+Periodic forecast information is stored in the `forecast` attribute on the entity. To access and use the information should be reserved for advanced users using [Templates](/docs/configuration/templating/).
+
+```yaml
+temperature: 14.2
+temperature_unit: °C
+humidity: 76
+pressure: 1019
+pressure_unit: hPa
+wind_bearing: 260
+wind_speed: 35.17
+wind_speed_unit: km/h
+visibility_unit: km
+precipitation_unit: mm
+forecast:
+  - condition: cloudy
+    precipitation_probability: 0
+    datetime: '2023-02-17T14:00:00+00:00'
+    wind_bearing: 268
+    temperature: 14.2
+    pressure: 1019
+    wind_speed: 24.41
+    precipitation: 0
+  - condition: cloudy
+    precipitation_probability: 0
+    datetime: '2023-02-17T15:00:00+00:00'
+    wind_bearing: 268
+    temperature: 13.8
+    pressure: 1019
+    wind_speed: 22.61
+    precipitation: 0
+  - condition: cloudy
+    precipitation_probability: 0
+    datetime: '2023-02-17T16:00:00+00:00'
+    wind_bearing: 265
+    temperature: 13.2
+    pressure: 1020
+    wind_speed: 20.27
+    precipitation: 0
+```
