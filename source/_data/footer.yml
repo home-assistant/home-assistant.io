@@ -7,26 +7,24 @@ about:
     slug: blog
 system:
   - menu: Alerts
-    slug: https://www.home-assistant.io/
+    slug: https://alerts.home-assistant.io/
     newtab: true
   - menu: Status
-    slug: https://www.home-assistant.io/
+    slug: https://status.home-assistant.io/
     newtab: true
   - menu: Security
-    slug: https://www.home-assistant.io/
-    newtab: true
+    slug: security
   - menu: Data
-    slug: https://www.home-assistant.io/
+    slug: https://data.home-assistant.io/
     newtab: true
 community:
-  - menu: Explore
-    slug: https://www.home-assistant.io/
+  - menu: Forums
+    slug: https://community.home-assistant.io/
     newtab: true
   - menu: Discord
-    slug: https://www.home-assistant.io/
-    newtab: true
+    slug: join-chat
   - menu: Github
-    slug: https://github.com/home-assistant/website-redesign-2022
+    slug: https://github.com/home-assistant
     newtab: true
 support:
   - menu: Learn
@@ -36,5 +34,5 @@ support:
     slug: https://developers.home-assistant.io/
     newtab: true
   - menu: Contact
-    slug: #
-    newtab: false
+    slug: "mailto:hello@home-assistant.io"
+    newtab: true
