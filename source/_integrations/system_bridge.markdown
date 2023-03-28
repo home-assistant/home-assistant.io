@@ -137,3 +137,23 @@ data:
   bridge: "deviceid"
   text: "Hello"
 ```
+
+### Service `system_bridge.power_command`
+
+Sends power command to system.
+
+```yaml
+service: system_bridge.power_command
+data:
+  bridge: "device"
+  command: "sleep"
+```
+
+Supported commands are:
+
+- `hibernate`
+- `lock`
+- `logout`
+- `restart`
+- `shutdown`
+- `sleep`
