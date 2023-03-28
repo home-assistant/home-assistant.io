@@ -57,8 +57,8 @@ Delta values:
     Enable this if the source values are delta values since the last reading instead of absolute values. When this option is enabled, each new value received will be added as-is to the utility meter instead of adding the _difference_ between the new value and previous value.
 Periodically resetting:
   description: >
-    Enable this if the source sensor state is expected to reset to 0, for example a smart plug that resets on boot.
-    When this options is disabled (for example if the source sensor is a domestic utility meter that never resets during the device's lifetime), the _difference_ between the new value and last valid value is added to the utility meter, which avoids the loss of a meter reading after the source sensor becomes available after being unavailable.
+    Enable this if the source sensor state is expected to reset to 0, for example, a smart plug that resets on boot.
+    When this option is disabled (for example, if the source sensor is a domestic utility meter that never resets during the device's lifetime), the _difference_ between the new value and the last valid value is added to the utility meter, which avoids the loss of a meter reading after the source sensor becomes available after being unavailable.
 {% endconfiguration_basic %}
 
 If the meter reset cycle and reset offsets are to limited for your use case,
@@ -122,7 +122,7 @@ tariffs:
   default: []
   type: list
 periodically_resetting:
-  description: Enable this if the source sensor state is expected to reset to 0, for example a smart plug that resets on boot. When this options is disabled (for example if the source sensor is a domestic utility meter that never resets during the device's lifetime), the _difference_ between the new value and last valid value is added to the utility meter, which avoids the loss of a meter reading after the source sensor becomes available after being unavailable.
+  description: Enable this if the source sensor state is expected to reset to 0, for example, a smart plug that resets on boot. When this option is disabled (for example, if the source sensor is a domestic utility meter that never resets during the device's lifetime), the _difference_ between the new value and the last valid value is added to the utility meter, which avoids the loss of a meter reading after the source sensor becomes available after being unavailable.
   required: false
   default: true
   type: boolean
