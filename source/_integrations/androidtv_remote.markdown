@@ -92,10 +92,10 @@ You can optionally specify the number of times you wish to repeat the command(s)
 For a list of the most common commands you can send to the Android TV see: [TvKeys](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt).
 For a full list see [here](https://github.com/tronikos/androidtvremote2/blob/main/src/androidtvremote2/remotemessage.proto#L90).
 
-Example for opening the currently selected item on the Android TV:
+Examples:
 
 ```yaml
-action: call-service
+# Open the currently selected item on the Android TV
 service: remote.send_command
 data:
   command: DPAD_CENTER
@@ -103,10 +103,8 @@ target:
   entity_id: remote.living_room_tv
 ```
 
-Example for long pressing on the currently selected item on the Android TV:
-
 ```yaml
-action: call-service
+# Long press on the currently selected item on the Android TV
 service: remote.send_command
 data:
   command: DPAD_CENTER
