@@ -44,9 +44,15 @@ layout: default
                 <p class="ml-3.5">Since {{page.ha_release}}</p>
             </div>
         </div>
-        <div class="inte-button-group flex justify-between text-2xl mt-12 font-semibold">
-            <button
-                class=" text-white  bg-brand-primary hover:bg-blue-light px-[60px] md:px-[62px] md:py-[15px] rounded-lg ">Install</button>
+        <div class="inte-button-group flex justify-{% if page.ha_config_flow %}between{% else %}end{% endif %} text-2xl mt-12 font-semibold">
+            {% if page.ha_config_flow %}
+             <a href="https://my.home-assistant.io/redirect/config_flow_start/?domain={{ page.ha_domain }}" target="_blank">
+                <button
+                    class="text-white  bg-brand-primary hover:bg-blue-light px-[60px] md:px-[62px] md:py-[15px] rounded-lg ">
+                        Install
+                </button>
+             </a>
+            {% endif %}
             <div class="flex text-black font-semibold">
                 <button
                     class="flex items-center bg-transaprent  border border-border-line hover:bg-grey-secondary p-4 md:p-6 md:px-10 md:py-[15px] rounded-lg mx-2 md:mx-5 ">
