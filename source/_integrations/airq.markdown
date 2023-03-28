@@ -31,34 +31,51 @@ Currently, the integration supports the following sensors:
 
 | Sensor name          | Unit of measurement |
 |----------------------|---------------------|
+| Acetaldehyde         | µg/m³               |
 | Ammonia              | µg/m³               |
+| Arsine               | µg/m³               |
+| Bromine              | µg/m³               |
+| CH4S                 | µg/m³               |
 | Chlorine             | µg/m³               |
+| ClO2                 | µg/m³               |
 | CO                   | mg/m³               |
 | CO2                  | ppm                 |
+| CS2                  | µg/m³               |
 | Dew Point            | °C                  |
 | Ethanol              | µg/m³               |
+| Ethylene             | µg/m³               |
 | Formaldehyde         | µg/m³               |
+| F2                   | µg/m³               |
 | H2S                  | µg/m³               |
+| HCl                  | µg/m³               |
+| HCN                  | µg/m³               |
+| HF                   | µg/m³               |
 | Health Index         | %                   |
 | Humidity (relative)  | %                   |
 | Absolute Humidity    | g/m³                |
 | Hydrogen             | µg/m³               |
+| Hydrogen Peroxide    | µg/m³               |
 | Methane              | %                   |
 | N2O                  | µg/m³               |
 | NO                   | µg/m³               |
 | NO2                  | µg/m³               |
-| Ozone                | µg/m³               |
+| Organic Acid         | ppb                 |
 | Oxygen               | µg/m³               |
+| Ozone                | µg/m³               |
 | Performance Index    | %                   |
+| PH3                  | µg/m³               |
 | PM1, PM25, PM10[^pm] | µg/m³               |
 | Pressure             | hPa                 |
 | Relative Pressure    | hPa                 |
 | Propane              | %                   |
+| Refrigerant          | µg/m³               |
+| SiH4                 | µg/m³               |
 | SO2                  | µg/m³               |
 | Noise                | dBa                 |
 | Noise (Maximum)      | dBa                 |
 | Radon                | Bq/m³               |
 | Temperature          | °C                  |
+| Virus Index          | %                   |
 | VOC                  | ppb                 |
 | VOC (Industrial)     | ppb                 |
 
