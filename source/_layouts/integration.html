@@ -44,7 +44,7 @@ layout: default
                 <p class="ml-3.5">Since {{page.ha_release}}</p>
             </div>
         </div>
-        <div class="inte-button-group flex justify-{% if page.ha_config_flow %}between{% else %}end{% endif %} text-2xl mt-12 font-semibold">
+        <div class="inte-button-group flex {% if page.ha_config_flow %}justify-between{% else %}justify-end{% endif %} text-2xl mt-12 font-semibold">
             {% if page.ha_config_flow %}
              <a href="https://my.home-assistant.io/redirect/config_flow_start/?domain={{ page.ha_domain }}" target="_blank">
                 <button
