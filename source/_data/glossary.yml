@@ -220,7 +220,7 @@
 
 - term: Matter
   definition: >-
-    Matter is an open-source standard that defines how to control smart home devices on a WiFi or Thread network. The aim of the standard is to improve security and to make devices interoperable across vendors, replacing proprietary protocols for smart home ecosystems. Unlike other standards, Matter allows joining the same device to multiple controllers. For example, you can add a light to Google Home, Apple Home, and Home Assistant at the same time. A bridge device can be used to connect devices running on other smart home technologies such as Zigbee or Z-Wave.
+    Matter is an open-source standard that defines how to control smart home devices on a Wi-Fi or Thread network. The aim of the standard is to improve security and to make devices interoperable across vendors, replacing proprietary protocols for smart home ecosystems. Unlike other standards, Matter allows joining the same device to multiple controllers. For example, you can add a light to Google Home, Apple Home, and Home Assistant at the same time. A bridge device can be used to connect devices running on other smart home technologies such as Zigbee or Z-Wave.
   excerpt: >
     Matter is an open-source standard that defines how to control smart home devices on a WiFi or Thread network.
   link: /integrations/matter
