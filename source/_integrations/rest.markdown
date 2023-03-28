@@ -162,7 +162,7 @@ scan_interval:
   required: false
   type: integer
   default: 30
-character_encoding:
+encoding:
   description: The character encoding to use if none provided in the header of the shared data.
   required: false
   type: string
