@@ -2,38 +2,24 @@
 layout: default
 ---
 
-<article class="page">
-  {% if page.title and page.show_title != false and page.layout != "landingpage"  %}
-  <header>
-    <h1 class="title indent">
-      {% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title
-      }}{% endif %}
-    </h1>
-  </header>
-  {% if page.collection == "integrations" %}
-    {% assign active_alert = "" %}
-    {% for alert in site.data.alerts_data %}
-      {% for integration in alert.integrations %}
-        {% if integration.package == page.ha_domain %}
-          {% assign active_alert = alert.alert_url %}
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-    {% if active_alert != "" %}
-      <div class="integration-alert-container">
-        <a class="integration-alert" href="{{active_alert}}" target="_blank">
-          <svg preserveAspectRatio="xMidYMid meet" focusable="false" role="img" aria-hidden="true" viewBox="0 0 24 24" color="currentColor">
-            <g><path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path></g>
-          </svg>
-          <div class="content">There is an active alert for this integration!</div>
-          <div class="learn-more">LEARN MORE</div>
-        </a>
-      </div>
+<div class="container relative mx-auto h-[100px] md:h-[150px]">
+    <div
+        class="hidden md:block bg-white absolute w-[110%] top-0 left-1/2 translate-x-[-50%] h-[0] md:h-[170%] rounded-b-3xl">
+    </div>
+</div>
+<section class="container mx-auto relative z-20">
+    {% if page.image %}
+    <img src="{{page.image}}{% else %}{{page.og_image}}" alt="{{page.title}}" class="w-full rounded-3xl relative z-20" />
     {% endif %}
-  {% endif %}
-  <hr class="divider" />
-  {% endif %}
-  {{ content }}
-
-  {% include feedback.html %}
-</article>
+    <article class="relative ">
+        <div class="absolute w-[110%] left-1/2 translate-x-[-50%] top-[-60px] rounded-3xl h-[100%] bg-white"></div>
+        <div class="md:px-20 py-[30px] relative z-20">
+            <h1 class="text-black text-[24px] md:text-[44px] font-extrabold tracking-[-0.02em] md:leading-[53px] pt-5 md:py-5">
+                {{ page.title }}
+            </h1>
+            <div class="content post-content">
+                {{ page.content | markdownify | output_modder }}
+            </div>
+        </div>
+    </article>
+</section>
