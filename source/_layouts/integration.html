@@ -97,15 +97,35 @@ layout: default
                         <div class="bg-[#C4C4C4] opacity-45"></div>
                         <div class="bg-[#C4C4C4] opacity-20"></div>
                     </div>
-                    <p class="text-base text-grey-text mt-10">Help us improve</p>
-                    <h1 class="text-xl py-4 border-b-[1px] border-border-line flex font-semibold cursor-pointer">
-                        <img src="{{ site.baseurl }}images/icon/edit-icon.svg" class="mr-4" alt="" loading="lazy">Edit
-                    </h1>
-                    <h1 class="text-xl py-4 border-b-[1px] border-border-line flex font-semibold cursor-pointer">
-                        <img src="{{ site.baseurl }}images/icon/feedback-icon.svg" class="mr-4" alt="" loading="lazy">Feedback
-                    </h1>
-                    <h1 class="text-xl py-4 flex font-semibold cursor-pointer"><img
-                            src="{{ site.baseurl }}images/icon/pending-icon.svg" class="mr-4" alt="" loading="lazy">View Pending</h1>
+                    
+                        <p class="text-base text-grey-text mt-10">Help us improve</p>
+                        <a href="{{ site.netlify.repository_url }}/tree/{{ site.netlify.head }}/source/{{ page.path }}"
+                            target="_blank"
+                            >
+                            <h1 class="text-xl py-4 border-b-[1px] border-border-line flex font-semibold">
+                                <img src="{{ site.baseurl }}images/icon/edit-icon.svg" class="mr-4" alt="" loading="lazy">Edit
+                            </h1>
+                        </a>
+
+                        {% if page.ha_domain %}
+                        <a href="{{ site.netlify.repository_url }}/issues/new?template=feedback.yml&url={{ site.netlify.url | url_encode }}{{ page.url | url_encode }}&version={{ site.current_major_version }}.{{
+                            site.current_minor_version }}.{{ site.current_patch_version }}&labels={{ site.netlify.branch }},integration%3A%20{{ page.ha_domain }}"
+                        target="_blank"
+                        >
+                            <h1 class="text-xl py-4 border-b-[1px] border-border-line flex font-semibold">
+                                <img src="{{ site.baseurl }}images/icon/feedback-icon.svg" class="mr-4" alt="" loading="lazy">Feedback
+                            </h1>
+                        </a>
+
+                        <a href="{{ site.netlify.repository_url }}/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3A%22integration%3A+{{ page.ha_domain }}%22"
+                        target="_blank"
+                        >
+                            <h1 class="text-xl py-4 flex font-semibold"><img
+                                src="{{ site.baseurl }}images/icon/pending-icon.svg" class="mr-4" alt="" loading="lazy">View Pending</h1>
+                        </a>
+
+
+                    {% endif %}
                 </div>
             </div>
         </div>
