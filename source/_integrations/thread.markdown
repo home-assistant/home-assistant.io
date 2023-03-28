@@ -17,7 +17,7 @@ ha_zeroconf: true
 The Thread integration helps you track the different Thread networks in your home and helps you manage their credentials. It is currently a work in progress.
 
 ##### A networking standard and communication protocol - not a device control standard
-Thread is a low-power mesh networking standard which allows users to connect their devices within a home network. Thread allows devices to communicate with each other without the need for a central controller. This makes it ideal for home automation, where a large number of devices may need to be connected. Thread uses the same RF technology as Zigbee, but provides IP connectivity similar to Wi-Fi. Unlike Zigbee, Thread does not allow to control devices directly: It is just a communication protocol. A higher level protocol such as Matter or HomeKit is required to control Thread enabled devices. To see which home automation standard is supported by your device, check the icon on the packaging:
+Thread is a low-power mesh networking standard that allows users to connect their devices within a home network. Thread allows devices to communicate with each other without the need for a central controller. This makes it ideal for home automation, where a large number of devices may need to be connected. Thread uses the same RF technology as Zigbee but provides IP connectivity similar to Wi-Fi. Unlike Zigbee, Thread does not allow to control devices directly: It is just a communication protocol. A higher-level protocol, such as Matter or HomeKit, is required to control Thread-enabled devices. To see which home automation standard is supported by your device, check the icon on the packaging:
 
 <table>
   <tr>
