@@ -71,6 +71,8 @@ sender:
   description: The `sender` of the message
 subject:
   description: The `subject` of the message
+date:
+  description: A `datetime` object of the `date` sent
 headers:
   description: The `headers` of the message in the for of a dictionary. The values are iterable as headers can occur more than once.
 
@@ -96,6 +98,7 @@ template:
           Search: "{{ trigger.event.data['search'] }}"
           Folder: "{{ trigger.event.data['folder'] }}"
           Sender: "{{ trigger.event.data['sender'] }}"
+          Date: "{{ trigger.event.data['date'] }}"
           Subject: "{{ trigger.event.data['subject'] }}"
           To: "{{ trigger.event.data['headers']['Delivered-To'][0] }}"
           Subject: "{{ trigger.event.data['headers']['Subject'][0] }}"
@@ -108,7 +111,7 @@ template:
 
 ## Example - keyword spotting
 
-The following example shows the usage of the IMAP email content sensor to scan the subject of an email for text, in this case, an email from the APC SmartConnect service which tells whether the UPS is running on battery or not.
+The following example shows the usage of the IMAP email content sensor to scan the subject of an email for text, in this case, an email from the APC SmartConnect service, which tells whether the UPS is running on battery or not.
 
 {% raw %}
 
