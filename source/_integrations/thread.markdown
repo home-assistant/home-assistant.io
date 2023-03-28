@@ -36,7 +36,7 @@ Home Assistant communicates with TBRs over the local network. This means that TB
 
 ### Vendor specific Thread networks
 
-Each vendor forms their own network when you start using their products, so you can end up having a Home Assistant, an Apple, and a Google Thread network in your home. These are all separate networks using different credentials, which prevents devices to roam between TBRs.
+Each vendor forms their own network when you start using their products, so you can end up having a Home Assistant, an Apple, and a Google Thread network in your home. These are all separate networks using different credentials, which prevents devices from roaming between TBRs.
 
 It is possible to align credentials for TBRs from different vendors and have them form a single network together. This allows you to freely move devices between rooms without losing connectivity. To do this, you need to make sure that all TBRs use the same credentials. Currently, this works differently for each TBR vendor.
 
