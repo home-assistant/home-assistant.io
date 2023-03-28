@@ -54,7 +54,7 @@ Below is an example for setting up the integration to connect to your Microsoft 
 When a new message arrives that meets the search criteria the `imap` integration will send a custom [event](/docs/automation/trigger/#event-trigger) that can be used to trigger an automation.
 It is also possible to use to create a template [`binary_sensor` or `sensor`](/integrations/template/#trigger-based-template-binary-sensors-buttons-numbers-selects-and-sensors) based the [event data](/docs/automation/templating/#event).
 
-The table below shows what attributes that come with `trigger.event.data`. The data is dictionary that has the keys that are shown below:
+The table below shows what attributes come with `trigger.event.data`. The data is a dictionary that has the keys that are shown below:
 
 {% configuration_basic %}
 server:
@@ -88,20 +88,20 @@ template:
         id: "custom_event"
     sensor:
       - name: imap_content
-        state: '{{ trigger.event.data["subject"] }}'
+        state: "{{ trigger.event.data['subject'] }}"
         attributes:
-          Message: '{{ trigger.event.data["text"] }}'
-          Server: '{{ trigger.event.data["server"] }}'
-          Username: '{{ trigger.event.data["username"] }}'
-          Search: '{{ trigger.event.data["search"] }}'
-          Folder: '{{ trigger.event.data["folder"] }}'
-          Sender: '{{ trigger.event.data["sender"] }}'
-          Subject: '{{ trigger.event.data["subject"] }}'
-          To: '{{ trigger.event.data["headers"]["Delivered-To"][0] }}'
-          Subject: '{{ trigger.event.data["headers"]["Subject"][0] }}'
-          Return_Path: '{{ trigger.event.data["headers"]["Return-Path"][0] }}'
-          Received-first: '{{ trigger.event.data["headers"]["Received"][0] }}'
-          Received-last: '{{ trigger.event.data["headers"]["Received"][-1] }}'
+          Message: "{{ trigger.event.data['text'] }}"
+          Server: "{{ trigger.event.data['server'] }}"
+          Username: "{{ trigger.event.data['username'] }}"
+          Search: "{{ trigger.event.data['search'] }}"
+          Folder: "{{ trigger.event.data['folder'] }}"
+          Sender: "{{ trigger.event.data['sender'] }}"
+          Subject: "{{ trigger.event.data['subject'] }}"
+          To: "{{ trigger.event.data['headers']['Delivered-To'][0] }}"
+          Subject: "{{ trigger.event.data['headers']['Subject'][0] }}"
+          Return_Path: "{{ trigger.event.data['headers']['Return-Path'][0] }}"
+          Received-first: "{{ trigger.event.data['headers']['Received'][0] }}"
+          Received-last: "{{ trigger.event.data['headers']['Received'][-1] }}"
 ```
 
 {% endraw %}
