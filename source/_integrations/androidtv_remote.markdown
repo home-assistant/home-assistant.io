@@ -28,24 +28,53 @@ The entity has the `current_activity` attribute that shows the current foregroun
 
 ## Services
 
+You can use the `remote.turn_off`, `remote.turn_on`, `remote.toggle`,  and `remote.send_command` services from the [remote](/integrations/remote/) platform.
+
 ### Service `remote.turn_off`
 
 Turn off the Android TV.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |       no | Entity ID to target.
+Example:
+
+```yaml
+# Turn off Living Room TV
+service: remote.turn_off
+target:
+  entity_id: remote.living_room_tv
+```
 
 ### Service `remote.turn_on`
 
 Turn on the Android TV. If `activity` is specified it will open the specified URL in the associated app.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |       no | Entity ID to target.
-| `activity`             |      yes | URL to open.
+Examples:
 
-Examples of URLs:
+```yaml
+# Turn on Living Room TV
+service: remote.turn_on
+target:
+  entity_id: remote.living_room_tv
+```
+
+```yaml
+# Launch YouTube
+service: remote.turn_on
+data:
+  activity: https://www.youtube.com
+target:
+  entity_id: remote.living_room_tv
+```
+
+```yaml
+# Open a specific YouTube video:
+service: remote.turn_on
+data:
+  activity: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+target:
+  entity_id: remote.living_room_tv
+```
+
+Examples of URLs to pass as activity for some popular apps:
 
 | App | URL |
 | --- | --- |
@@ -54,25 +83,6 @@ Examples of URLs:
 | Prime Video | https://app.primevideo.com
 | Disney+ | https://www.disneyplus.com
 
-Example for launching YouTube:
-
-```yaml
-service: remote.turn_on
-data:
-  activity: https://www.youtube.com
-target:
-  entity_id: remote.living_room_tv
-```
-
-Example for opening a specific YouTube video:
-
-```yaml
-service: remote.turn_on
-data:
-  activity: https://www.youtube.com/watch?v=dQw4w9WgXcQ
-target:
-  entity_id: remote.living_room_tv
-```
 
 ### Service `remote.send_command`
 
@@ -81,14 +91,6 @@ You can optionally specify the number of times you wish to repeat the command(s)
 
 For a list of the most common commands you can send to the Android TV see: [TvKeys](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt).
 For a full list see [here](https://github.com/tronikos/androidtvremote2/blob/main/src/androidtvremote2/remotemessage.proto#L90).
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |       no | Entity ID to target.
-| `command`              |       no | A single command or a list of commands to send.
-| `num_repeats`          |      yes | The number of times you want to repeat the command(s).
-| `delay_secs`           |      yes | The time you want to wait in between repeated commands.
-| `hold_secs`            |      yes | The time you want to have it held before the release is send.
 
 Example for opening the currently selected item on the Android TV:
 
@@ -121,6 +123,8 @@ Below is an example for you to start with. Many of the buttons support long pres
 Replace all instances of `living_room_tv` with your entity ID.
 
 ![Screenshot Android TV Remote example](/images/integrations/androidtv_remote/lovelace_example.png)
+
+{% details "Lovelace example" %}
 
 ```yaml
 type: vertical-stack
@@ -380,3 +384,5 @@ cards:
   - type: media-control
     entity: media_player.living_room_tv
 ```
+
+{% enddetails %}
