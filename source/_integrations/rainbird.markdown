@@ -2,8 +2,8 @@
 title: Rain Bird
 description: Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant.
 ha_category:
-  - Irrigation
   - Binary Sensor
+  - Irrigation
   - Sensor
   - Switch
 ha_config_flow: true
@@ -15,6 +15,7 @@ ha_codeowners:
 ha_domain: rainbird
 ha_platforms:
   - binary_sensor
+  - number
   - sensor
   - switch
 ha_integration_type: integration
@@ -25,7 +26,7 @@ This `rainbird` integration allows interacting with [LNK WiFi](https://www.rainb
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
-- [Sensor](#sensor)
+- [Number](#number)
 - [Switch](#switch)
 
 {% include integrations/config_flow.md %}
@@ -39,10 +40,9 @@ will run when turning on a zone switch (default is 6 minutes). This can be overr
 
 The `rainsensor` sensor will tell if you if the device has detected rain.
 
-## Sensor
+## Number
 
-The `raindelay` sensor reports the number of days, if any, the automatic irrigation schedule
-has been delayed.
+The Rain Delay Number Entity lets you set and view  the number of days, if any, the automatic irrigation schedule has been delayed.
 
 ## Switch
 
@@ -76,13 +76,3 @@ automation:
           entity_id: switch.rain_bird_sprinkler_1
           duration: 5
 ```
-
-### `rainbird.set_rain_delay`
-
-Sets the number of days to disable automatic irrigation. This service accepts a target of
-a Rain Bird config entry.
-
-| Service Data Attribute | Optional | Description                                            |
-| ---------------------- | -------- | ------------------------------------------------------ |
-| `config_entry`         | no       | The configuration entry id for the rainbird controller |
-| `duration`             | no       | Number of days for the device to be turned off.        |

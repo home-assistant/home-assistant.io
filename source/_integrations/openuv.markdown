@@ -174,3 +174,22 @@ automation:
           - sensor.LATITUDE_LONGITUDE_current_uv_index
 ```
 {% endraw %}
+
+## Expired API Keys and Re-authentication
+
+In OpenUV, an `HTTP 403` response indicates one of two conditions:
+
+1. An invalid API key
+2. An API key whose daily/monthly limit is reached
+
+Unfortunately, the integration is unable to determine which is which from the API data
+provided by OpenUV. So, this strategy is followed:
+
+1. Any `HTTP 403` response will create a persistent notification asking you to
+   re-authenticate the OpenUV integration.
+2. In the case of an overrun API call limit, once the `homeassistant.update_entity`
+   service call is again successful, existing re-authentication notifications will
+   automatically be removed.
+
+If you receive a re-authentication notification and are certain that your key has merely
+reached its daily call limit, you can safely ignore it.

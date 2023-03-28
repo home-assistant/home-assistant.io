@@ -29,7 +29,7 @@ One of the most common problems with Home Assistant is an invalid `configuration
 - You can verify your configuration's YAML structure using [this online YAML parser](https://yaml-online-parser.appspot.com/) or [YAML Validator](https://codebeautify.org/yaml-validator/).
 - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltproject.io/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
 
-`configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiple platforms for one component, you can append a [number or string](/docs/configuration/devices/#style-2-list-each-entity-separately) to the name or nest them using [this style](/docs/configuration/devices/#style-1-collect-every-entity-under-the-parent):
+`configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiple platforms for one component, you can append a number or string to the name or nest them:
 
 ```yaml
 sensor:

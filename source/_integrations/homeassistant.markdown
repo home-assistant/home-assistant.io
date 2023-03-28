@@ -23,6 +23,22 @@ The `homeassistant` integration provides services for controlling Home Assistant
 
 Reads the configuration files and checks them for correctness, but **does not** load them into Home Assistant. Creates a persistent notification and log entry if errors are found.
 
+### Service `homeassistant.reload_all`
+
+Reload all YAML configuration that can be reloaded without restarting Home Assistant.
+
+It calls the `reload` service on all domains that have it available. Additionally,
+it reloads the core configuration (equivalent to calling
+`homeassistant.reload_core_config`), themes (`frontend.reload_themes`), and custom Jinja (`homeassistant.reload_custom_jinja`).
+
+Prior to reloading, a basic configuration check is performed. If that fails, the reload
+will not be performed and will raise an error.
+
+### Service `homeassistant.reload_custom_jinja`
+
+Reload all Jinja templates in the `config/custom_jinja` directory. Changes to these templates
+will take effect the next time an importing template is rendered.
+
 ### Service `homeassistant.reload_config_entry`
 
 Reloads an integration config entry.

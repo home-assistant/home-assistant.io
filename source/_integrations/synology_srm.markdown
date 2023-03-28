@@ -13,7 +13,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This platform allows you to detect presence by looking at connected devices to a [Synology SRM](https://www.synology.com/en-us/srm) router.
+This platform allows you to detect presence by looking at connected devices to a [Synology SRM](https://www.synology.com/srm) router.
 
 ## Configuration
 

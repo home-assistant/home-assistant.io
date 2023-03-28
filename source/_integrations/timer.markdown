@@ -14,6 +14,13 @@ The `timer` integration aims to simplify automations based on (dynamic) duration
 
 When a timer finishes or gets canceled the corresponding events are fired. This allows you to differentiate if a timer has switched from `active` to `idle` because the given duration has elapsed or it has been canceled. To control timers in your automations you can use the services mentioned below. When calling the `start` service on a timer that is already running, it resets the duration it will need to finish and restarts the timer without triggering a canceled or finished event. This, for example, makes it easy to create timed lights that get triggered by motion. Starting a timer triggers a started event unless the timer is paused, in that case, it triggers a restarted event.
 
+<div class='note'>
+  
+Timers will be restored to their correct state and time on Home Assistant startup and restarts when configured with the `restore` option.
+
+However, automations using the `timer.finished` event **will not** trigger if the timer expires when Home Assistant is not running.
+
+</div>
 
 ## Configuration
 The preferred way to configure timer helpers is via the user interface at **Settings** -> **Devices & Services** -> **Helpers** and click the add button; next choose the **Timer** option.
@@ -54,13 +61,13 @@ timer:
       required: false
       type: icon
     restore:
-      description: When true, active and paused timers will be restored to the right state on startup. If an active timer was supposed to end while Home Assistant is stopped, the `timer.finished` event will fire on startup for that timer. The `finished_at` property in the event data will provide you with the time that the timer was actually supposed to fire which you can use in automation conditions to decide whether or not to act on it.
+      description: When true, active and paused timers will be restored to the correct state and time on Home Assistant startup and restarts. If an active timer was supposed to end while Home Assistant is stopped, the `timer.finished` event will fire on startup for that timer. The `finished_at` property in the event data will provide you with the time that the timer was actually supposed to fire which you can use in automation conditions to decide whether or not to act on it.
       required: false
       type: boolean
       default: false
 {% endconfiguration %}
 
-Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your timer and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
+Pick an icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) to use for your timer and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
 
 ## Possible States
 
@@ -90,7 +97,7 @@ You can also use `entity_id: all` and all active timers will be started.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
-| `duration`             |      yes | Duration in seconds or `00:00:00` until the timer finishes. |
+| `duration`             |      yes | Duration in seconds or `01:23:45` format until the timer finishes. |
 
 ### Service `timer.pause`
 

@@ -8,7 +8,7 @@ ha_release: 2022.11
 ha_iot_class: Local Push
 ha_codeowners:
   - '@bdraco'
-  - '@conway220'
+  - '@Lash-L'
 ha_domain: oralb
 ha_config_flow: true
 ha_platforms:
@@ -20,7 +20,9 @@ Integrates [Oral-B](https://oralb.com/) devices into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-The Oral-B integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
+The Oral-B integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. 
+
+The integration can discover most Bluetooth-enabled Oral-B toothbrushes. Brushes not listed as supported below may not be correctly identified or have some modes missing.
 
 ## Supported devices
 
@@ -34,7 +36,9 @@ The Oral-B integration will automatically discover devices once the [Bluetooth](
 - [Smart Series 7000](https://oralb.com/en-us/products/electric-toothbrushes/smart-7000-rechargeable-electric-toothbrush/)
 - Smart Series 8000
 - [Genius Series 9000](https://oralb.com/en-us/products/electric-toothbrushes/genius-9600-rechargeable-electric-toothbrush-white/)
+- Genius Series 10000
 - Triumph V2
+- [Genius X](https://www.service.oralb.com/us/en/products/3771/)
 
 ## Sensor
 
