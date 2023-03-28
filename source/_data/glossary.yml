@@ -315,6 +315,14 @@
     dynamic actions.
   link: /docs/automation/templating/
 
+- term: Thread
+  definition: >-
+    Thread is a low-power mesh networking standard that is specifically designed for smart home applications. It is a protocol that defines how devices communicate. *Mesh* topology means that the devices can communicate with each other directly, without going through a central controller first. Thread uses the same radio frequency (RF) technology as Zigbee, but provides IP connectivity similar to Wi-Fi. Unlike Zigbee, Thread does not specify how to control devices. How Thread-enabled devices are controlled is specified in a higher level protocol such as HomeKit or Matter. 
+
+  link: /integrations/thread/
+  excerpt: >
+    Thread is a low-power mesh networking standard that is specifically designed for smart home applications. It is a protocol that defines how devices communicate.
+
 - term: Trigger
   definition: >-
     A trigger is a set of values or conditions of a platform that are defined
