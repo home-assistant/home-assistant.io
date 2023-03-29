@@ -19,9 +19,9 @@ achive:
     value: 50k
 communityList:
   - community: Forum
-    link: https://www.home-assistant.io/
+    link: https://community.home-assistant.io/
   - community: Discord
-    link: https://www.home-assistant.io/
+    link: https://discord.com/invite/home-assistant
   - community: Github
     link: https://github.com/home-assistant
 featuresTable:
