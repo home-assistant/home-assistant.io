@@ -21,7 +21,7 @@ communityList:
   - community: Forum
     link: https://community.home-assistant.io/
   - community: Discord
-    link: https://discord.com/invite/home-assistant
+    link: /join-chat
   - community: Github
     link: https://github.com/home-assistant
 featuresTable:
