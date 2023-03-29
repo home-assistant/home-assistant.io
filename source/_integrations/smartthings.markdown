@@ -70,7 +70,8 @@ This integration requires an internet accessible incoming webhook to receive pus
 
 After completing the prerequisite steps above you are ready to setup the integration! See [troubleshooting](#troubleshooting) if you are having issues setting up the integration.
 
-1. From Home Assistant, navigate to 'Configuration' then 'Integrations'. Click the plus icon and type/select 'SmartThings'.
+{% include integrations/config_flow.md %}
+
 1. Confirm the callback URL is correct. If using Home Assistant Cloud it will start with `https://hooks.nabuca.casa`. If the URL is not correct, update your Home Assistant configuration, restart, and try again.
 1. Enter your Personal Access Token.
 1. Select the SmartThings Location to add to Home Assistant.
