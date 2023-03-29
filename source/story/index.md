@@ -20,7 +20,7 @@ layout: default
                 <h1 class="text-[32px] md:text-[68px] font-bold leading-[38px] md:leading-[60px]">The Home Assistant
                     story</h1>
                 <h2 class="text-[16px] md:text-[32px] md:w-[63%] mt-[28px] m-auto">In September 2013, Paulus has an
-                    idea for a way to control his Philips Hue Lights...</h2>
+                    idea for a way to control his Philips Hue lights...</h2>
             </div>
             <div class="h-[100px] relative p-10">
                 <div
@@ -33,7 +33,7 @@ layout: default
                     </h1>
                     <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5">First UI -
                         Device
-                        Trackers tracking if he is home or not</h1>
+                        trackers check if Paulus is home</h1>
                 </div>
                 <div class="hidden md:block md:ml-[70px]">
                     <img src="{{ site.baseurl }}images/story/ui-device.png" class="rounded-lg w-full" alt="" loading="lazy">
@@ -54,9 +54,8 @@ layout: default
                     <h1 class="text-grey-text text-xl md:text-[32px] opacity-40 font-medium leading-[38px]">Just two
                         months later
                     </h1>
-                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5">First UI -
-                        Device
-                        The UI was getting better</h1>
+                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5">
+                        The UI is becoming more graphic</h1>
                 </div>
                 <div
                     class="absolute h-full left-[19%] md:left-[49.5%] top-[30px] md:translate-x-[-50%] border-l-[4px] w-[4px]  border-border-line">
@@ -72,8 +71,8 @@ layout: default
                         later
                     </h1>
                     <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5"> First
-                        Contributors
-                        to Core start popping up
+                        contributors
+                        to Home Assistant Core start popping up
                     </h1>
                 </div>
                 <div class="hidden md:block md:ml-[70px]">
@@ -94,9 +93,8 @@ layout: default
                 <div class="text-left md:w-[80%] md:ml-[70px] ml-[37%] ">
                     <h1 class="text-grey-text text-xl md:text-[32px] opacity-40 font-medium leading-[38px]">FEB 2015
                     </h1>
-                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5">First UI -
-                        Device
-                        YAML Files are born!</h1>
+                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5">
+                        YAML files!</h1>
                 </div>
                 <div
                     class="absolute h-full left-[19%] md:left-[49.5%] top-[30px] md:translate-x-[-50%] border-l-[4px] w-[4px]  border-border-line">
@@ -110,9 +108,7 @@ layout: default
                 <div class="text-left md:text-right md:w-[80%] md:pr-[70px] ml-[37%] md:ml-auto">
                     <h1 class="text-grey-text text-xl md:text-[32px] opacity-40 font-medium leading-[38px]">In 2016
                     </h1>
-                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5"> First
-                        Conference
-                        was spoken about HA
+                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5"> First conference: Home Assistant is presenting at the Embedded Linux Conference
                     </h1>
                 </div>
                 <div class="hidden md:block md:ml-[70px]">
@@ -132,7 +128,7 @@ layout: default
                 <div class="text-left md:w-[80%] md:ml-[70px] ml-[37%] ">
                     <h1 class="text-grey-text text-xl md:text-[32px] opacity-40 font-medium leading-[38px]">FEB 2017
                     </h1>
-                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5">Pascal Starts
+                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5">Pascal starts
                         Hass.io (Supervisor)</h1>
                 </div>
                 <div
@@ -148,9 +144,8 @@ layout: default
                     <div>
                         <h1 class="text-[#97d2f7] text-xl md:text-[32px] font-medium leading-[38px]">JAN 2018
                         </h1>
-                        <h1 class="text-white text-lg md:text-[32px] font-bold   leading-[38px] mr-5"> HassOS was
-                            born by
-                            Pascal - June the 1st release
+                        <h1 class="text-white text-lg md:text-[32px] font-bold   leading-[38px] mr-5"> 
+                            Pascal starts HassOS - 1st release in June 2018
                         </h1>
                         <button class="text-white uppercase mt-5 px-5 py-2 rounded-md border border-white">Read
                             more</button>
@@ -165,26 +160,6 @@ layout: default
                     class="border-l-[4px]  h-full border-border-line absolute left-[19%] md:left-[49.5%] md:translate-x-[-50%]">
                 </div>
             </div>
-            <div class="md:grid md:grid-cols-2 relative py-10">
-                <div class="text-left md:text-right md:w-[80%] md:pr-[70px] ml-[37%] md:ml-auto">
-                    <h1 class="text-grey-text text-xl md:text-[32px] opacity-40 font-medium leading-[38px]">In 2016
-                    </h1>
-                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5"> First
-                        Conference
-                        was spoken about HA
-                    </h1>
-                </div>
-                <div class="hidden md:block md:ml-[70px]">
-                    <!-- <img src="{{ site.baseurl }}images/story/ha.png" class="rounded-lg w-full" alt=""> -->
-                </div>
-                <div
-                    class="absolute h-full left-[19%] md:left-[49.5%] top-0 md:translate-x-[-50%] border-l-[4px] w-[4px]  border-border-line">
-                </div>
-                <div
-                    class="p-3 border-[5px] rounded-full top-[30px] left-[19%] md:left-[49.5%] translate-x-[-32px] md:translate-x-[-50%] bg-white absolute  border-border-line">
-                    <img src="{{ site.baseurl }}images/story/bottle-png.png" class="w-[37px] h-[37px]" alt="" loading="lazy">
-                </div>
-            </div>
             <div class="md:grid md:grid-cols-2 relative pt-5 pb-10">
                 <div class="hidden md:block md:pr-[70px]">
                     <img src="{{ site.baseurl }}images/story/hired.png" class="rounded-lg w-full" alt="" loading="lazy">
@@ -193,7 +168,7 @@ layout: default
                     <h1 class="text-grey-text text-xl md:text-[32px] opacity-40 font-medium leading-[38px]">SEP 2019
                     </h1>
                     <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5"> Bram, 1st
-                        employee, was hired to work on Frontend</h1>
+                        employee, hired to work on Frontend</h1>
                 </div>
                 <div
                     class="absolute h-full left-[19%] md:left-[49.5%] top-0 md:translate-x-[-50%] border-l-[4px] w-[4px]  border-border-line">
@@ -207,8 +182,7 @@ layout: default
                 <div class="text-left md:text-right md:w-[80%] md:pr-[70px] ml-[37%] md:ml-auto">
                     <h1 class="text-grey-text text-xl md:text-[32px] opacity-40 font-medium leading-[38px]">SEP 2020
                     </h1>
-                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5"> ESPhome was
-                        Acquired by Nabu Casa
+                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5"> ESPHome acquired by Nabu&nbsp;Casa
                     </h1>
                 </div>
                 <div class="hidden md:block md:ml-[70px]">
@@ -228,10 +202,7 @@ layout: default
                 <div class="text-left md:w-[80%] md:ml-[70px] ml-[37%] ">
                     <h1 class="text-grey-text text-xl md:text-[32px] opacity-40 font-medium leading-[38px]">DEC 2021
                     </h1>
-                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5 mb-5"> The Open
-                        Home
-                        idea was launched from the idea of Home Assistant and Nabu Casa and Esphome with the State
-                        of the Open Home</h1>
+                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5 mb-5"> Idea of The&nbsp;Open&nbsp;Home takes root</h1>
                     <a href="" class="text-[24px] text-grey-text font-bold">Read more...</a>
                 </div>
                 <div
@@ -246,9 +217,8 @@ layout: default
                 <div class="text-left md:text-right md:w-[80%] md:pr-[70px] ml-[37%] md:ml-auto">
                     <h1 class="text-grey-text text-xl md:text-[32px] opacity-40 font-medium leading-[38px]">2022
                     </h1>
-                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5"> Hired the
-                        creator
-                        of Zwave JS to work full time on zwave JS
+                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5"> Creator
+                        of Z-Wave&nbsp;JS hired to work full-time on Z-Wave&nbsp;JS
                     </h1>
                     <h1 class="text-blue-text text-lg md:text-[32px] font-bold leading-[38px] mt-10"> 16 full-time
                         employees
@@ -280,7 +250,7 @@ layout: default
         class="order-1 text-[32px] md:text-5xl tracking-tight text-center font-extrabold leading-[25px] md:leading-0 text-black  ">
         Join the <br />community</dd>
     <div class="max-w-[970px] mx-auto px-4 md:px-6 lg:px-8 text-center mt-11">
-        <button type="button"
+        <a href="https://community.home-assistant.io/"><button type="button"
             class="inline-flex font-bold items-center px-[18px] py-[13px] md:px-[26px] md:py-[21px] border-2 border-black border-opacity-10 text-sm md:text-lg rounded-[10px] text-black">FORUM</button>
         <button type="button"
             class="inline-flex font-bold items-center px-[18px] py-[13px] md:px-[26px] md:py-[21px] border-2 border-black border-opacity-10 text-sm md:text-lg rounded-[10px] text-black ml-[15px] md:ml-[21px]">DISCORD</button>
@@ -290,9 +260,9 @@ layout: default
     <div class="rounded-3xl p-[60px] text-center bg-black text-white my-20">
         <img src="{{ site.baseurl }}images/story/footer-png.png" class="m-auto" alt="" loading="lazy">
         <h1 class="text-[44px] font-bold tracking-[-0.04em] mt-5">Paulus for Nabu Casa</h1>
-        <p class="text-lg md:w-[75%] m-auto pb-10 border-b-[1px] border-gray-200">“ Nabu Casa, Inc. commits time and
+        <p class="text-lg md:w-[75%] m-auto pb-10 border-b-[1px] border-gray-200">“ Nabu&nbsp;Casa commits time and
             resources into Home Assistant so this will be a shared success story. We want to improve Home Assistant,
-            also for the people that are not customers of Nabu Casa, Inc. ”</p>
+            also for the people that are not customers of Nabu&nbsp;Casa”</p>
         <div class="flex mt-10">
             <div class="flex items-center m-auto">
                 <img src="{{ site.baseurl }}images/story/footer-client.png" class="w-[66px] h-[66px]" alt="" loading="lazy">
