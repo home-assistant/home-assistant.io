@@ -1,6 +1,6 @@
 ---
 title: ESERA 1-Wire
-description: Instructions on how to integrate ESERA 1-Wire sensors into Home Assistant.
+description: Connect and control your ESERA 1-Wire devices using the 1-Wire integration
 ha_category:
   - DIY
 ha_domain: esera_onewire

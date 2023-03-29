@@ -1,0 +1,1071 @@
+---
+layout: post
+title: "2023.4: Beta release notes"
+description: "Beta release notes for Home Assistant Core 2023.4."
+date: 2023-03-29 00:00:00
+date_formatted: "April 5, 2023"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2023-04/social.png
+---
+
+<a href='/integrations/#version/2023.4'><img src='/images/blog/2023-04/social.png' style='border: 0;box-shadow: none;'></a>
+
+<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+These are the beta release notes for Home Assistant Core 2023.4 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/UI/dashboards:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+version field (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+---
+
+<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+Home Assistant Core 2023.4! 🎉
+
+Thanks for helping out testing the beta! ❤️
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [New dialogs for alarms, covers and fans](#new-dialogs-for-alarms-covers-and-fans)
+  - [Alarm control panel](#alarm-control-panel)
+  - [Covers](#covers)
+  - [Fans](#fans)
+- [New features for the Tile card](#new-features-for-the-tile-card)
+- [Macros for your templates](#macros-for-your-templates)
+- [Even more templating!](#even-more-templating)
+- [Database](#database)
+- [New selector capabilities](#new-selector-capabilities)
+- [More translations!](#more-translations)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New Integrations](#new-integrations)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Breaking Changes](#breaking-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=IGnCGDaXR0M)  
+5 April 2023, at 12:00 PDT / 21:00 CEST!
+
+<lite-youtube videoid="IGnCGDaXR0M" videotitle="Home Assistant 2023.4 Release Party"></lite-youtube>
+
+## New dialogs for alarms, covers, and fans
+
+{% details "TODO" %}
+
+- Improve/extend story
+- Proof read/spelling/grammar
+- Replace screenshots/clips
+
+* Add more info alarm control panel (#15893) @piitaya
+  https://github.com/home-assistant/frontend/pull/15893
+* Add cover new more info (#15694) @piitaya
+  https://github.com/home-assistant/frontend/pull/15694
+* Add fan new more info (#15843) @piitaya
+  https://github.com/home-assistant/frontend/pull/15843
+
+{% enddetails %}
+
+[The previous release](/blog/2023/03/01/release-20233/) brought in new entity
+dialogs for lights, switches and sirens; and is seems like you really liked it!
+
+So, this release [@piitaya] kept on trucking, implementing the designs
+by [@matthiasdebaat], bringing in new entity dialogs for alarm control panels,
+covers, and fans!
+
+### Alarm control panel
+
+Temporary recording by [@piitaya] from the pull request.
+
+<video width="400px" controls="controls"><source src="https://user-images.githubusercontent.com/5878303/227973602-70577cea-6466-47a7-a7b4-2f0e2e3bc2e8.mp4" type="video/mp4"></video>
+
+### Covers
+
+Covers have many variants. Here are a couple.
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/5878303/227286096-f73a9775-3471-4876-ab4c-46517cc0228d.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
+Note: This is a temporary placeholder screenshot. Needs replacement.
+</p>
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/5878303/227308680-1a954351-cd92-49ae-8f97-d67f8c55d538.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
+Note: This is a temporary placeholder screenshot. Needs replacement.
+</p>
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/5878303/227286543-50f8005e-b137-4ceb-a23d-9a288b98f090.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
+Note: This is a temporary placeholder screenshot. Needs replacement.
+</p>
+
+### Fans
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/5878303/226401428-25593d58-660d-46b6-a1f6-487838b79eae.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
+Note: This is a temporary placeholder screenshot. Needs replacement.
+</p>
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/5878303/226401452-f24dea08-e07f-4992-94a0-b9e3319312a8.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
+Note: This is a temporary placeholder screenshot. Needs replacement.
+</p>
+
+[@matthiasdebaat]: https://github.com/matthiasdebaat
+[@piitaya]: https://github.com/piitaya
+
+## New features for the Tile card
+
+{% details "TODO" %}
+
+- Proof read/spelling/grammar
+- Replace screenshots/cips
+- Improve/extend story
+
+* Alarm mode tile feature (#15967) @piitaya
+  https://github.com/home-assistant/frontend/pull/15967
+* Fan speed tile feature (#15958) @piitaya
+  https://github.com/home-assistant/frontend/pull/15958
+
+{% enddetails %}
+
+The [Tile card][tile] got two new features for you to use: Fan speed & Alarm mode.
+
+Both look and feel similar to the new entity dialogs from above, making the look
+and feel, nice and consistent. Take a look, aren't they beautiful?
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/5878303/228200489-efa472e5-98dd-49a9-ba83-4a5b9e227194.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
+Note: This is a temporary placeholder screenshot. Needs replacement.
+</p>
+
+The fan speed feature, will show buttons if there are 4 speeds or less,
+in all other cases, it will use the slider.
+
+The alarm mode feature, allows for quickly setting your alarm in a different
+state. The feature has options for you to decide which modes are shown as
+buttons.
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/5878303/228499635-8f7997c1-026c-4841-bfcb-823d2c895660.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
+Note: This is a temporary placeholder screenshot. Needs replacement.
+</p>
+
+<video width="400px" controls="controls"><source src="https://user-images.githubusercontent.com/5878303/228500436-a6bd091e-46dd-4500-9193-51a0afffef9a.mp4" type="video/mp4"></video>
+
+[tile]: https://www.home-assistant.io/dashboards/tile/
+
+## Macros for your templates
+
+{% details "TODO" %}
+
+- Improve/extend story
+- Proof read/spelling/grammar
+- Replace macro with something more useful?
+- Link to docs
+
+{% enddetails %}
+
+If you are into writing templates, you will be very familiar with the templating
+language Home Assistant uses: Jinja. It allows you to do amazing powerful things
+in your templates. However, if you have lots of templates, you often end
+up repeating similar logic everywhere!
+
+[@depoll] to the rescue! He found a way to add the ability to centrally define
+your Jinja macros and import and use them anywhere in Home Assistant! 🤯
+
+To support this, Home Assistant now has a new `custom_templates` folder, where
+you can store your macros. For example, assume this file
+`/config/custom_templates/tools.jinja`:
+
+{% raw %}
+
+```jinja
+{% macro is_on(entity_id) %}
+Is the {{ state_attr(entity_id, 'friendly_name') }} on?
+{{ (states(entity_id) == 'on') | iif('Yes', 'No') }}!
+{% endmacro %}
+```
+
+{% endraw %}
+
+This macro `is_on` will ask and answer a question based on a given entity ID.
+You can now import and use this macro anywhere in Home Assistant. For example:
+
+{% raw %}
+
+```jinja
+{% from 'tools.jinja' import is_on %}
+{{ is_on('light.kitch') }}
+```
+
+{% endraw %}
+
+Which will output:
+
+```text
+Is the kitchen light on?
+Yes!
+```
+
+An amazing contribution, thank you [@depoll]!
+
+[@depoll]: https://github.com/depoll
+
+## Even more templating!
+
+{% details "TODO" %}
+
+- Improve/extend story
+- Proof read/spelling/grammar
+- Improve/better examples?
+- Link to docs
+
+- Enable jinja loop controls (break/continue) ([@depoll] - [#88625]) (noteworthy)
+- Add is_hidden_entity test for Jinja templates ([@depoll] - [#89011]) (noteworthy)
+- Add minutely updates to relative_time and today_at template functions ([@Petro31] - [#86815]) (breaking-change) (noteworthy)
+- Add list areas function to template ([@rokam] - [#88441]) (noteworthy)
+- Add has_value function/test to Jinja2 template ([@ehendrix23] - [#79550])
+
+{% enddetails %}
+
+As if the reusability of your Jinja macros wasn't good enough already, there
+is much more templating goodness in this release!
+
+**Adjusted behavior of `relative_time` and `today_at`**
+
+[@Petro31] adjust the behavior for template entities using the `relative_time`
+and `today_at` template function, to now update their state once a minute. Nice!
+
+**New `is_hidden_entity` function**
+
+The brand new `is_hidden_entity` function was added by [@depoll], which can tell
+if a given entity has been marked "hidden" or not. This function also works
+as a test. Cool!
+
+This example returns a list of all entities in the kitchen area,
+that are not hidden.
+
+{% raw %}
+
+```jinja
+{{ area_entities('kitchen') | reject('is_hidden_entity') }}
+```
+
+{% endraw %}
+
+**New `areas` function**
+
+Talking about areas, [@rokam] added an `areas` function, which returns a list
+of all areas you have!
+
+**Added `break` and `continue` for for loops**
+
+[@depoll] added support for `break` and `continue` in for loops, which allows
+short-circuiting those loops, allowing you to make them more efficient.
+
+{% raw %}
+
+```jinja
+{%- for v in range(10) %}
+    {%- if v == 1 -%}
+        {%- continue -%}
+    {%- elif v == 3 -%}
+        {%- break -%}
+    {%- endif -%}
+    {{ v }}
+{%- endfor -%}
+```
+
+{% endraw %}
+
+**New `has_value` function**
+
+Lastly, [@ehendrix23] added a requested template function from the Month of
+"What the Heck?!": `has_value`. The `has_value` function can also be used as
+test, and is able to filter out entities that are currently in an `unavailable`
+or `unknown` state.
+
+{% raw %}
+
+```jinja
+{% if has_value('sensor.train_departure_time') %}
+  {{ ... }}
+```
+
+{% endraw %}
+
+Thanks, [@depoll], [@ehendrix23], [@petro31], and [@rokam] for these amazing
+additions! ❤️
+
+[@depoll]: https://github.com/depoll
+[@ehendrix23]: https://github.com/ehendrix23
+[@petro31]: https://github.com/Petro31
+[@rokam]: https://github.com/rokam
+
+## Database
+
+{% details "TODO" %}
+
+- Add an actual story to it... ask bdraco? :D
+- Proof read/spelling/grammar
+- Improve/better examples?
+- Link to docs
+
+- Drop duplicated indices from recorder database schema ([@bdraco] - [#89613]) ([recorder docs])
+- Reduce size of load query to prime event_types and states_meta at startup ([@bdraco] - [#89677]) ([recorder docs])
+- Add keep_days to recorder.purge_entities ([@bdraco] - [#89726]) ([recorder docs])
+- Execute sql queries in the database executor when using the recorder database ([@bdraco] - [#89673]) ([sql docs])
+- Migrate EventData management to a table manager ([@bdraco] - [#89716]) ([recorder docs])
+- Fix cpu thrashing during purge after all legacy events were removed ([@bdraco] - [#89923]) ([recorder docs])
+- Fix generating statistics for time periods smaller than we can measure ([@bdraco] - [#90069]) ([sensor docs])
+- Remove legacy event lookups from logbook ([@bdraco] - [#89945]) ([logbook docs]) (breaking-change)
+- Rename recorder run_history to table_managers.recorder_runs_manager ([@bdraco] - [#90070]) ([recorder docs])
+- Subclass aiohttp requests to use json helper ([@bdraco] - [#90214]) ([http docs])
+- Use an event filter for event triggers ([@bdraco] - [#89339]) ([homeassistant docs])
+- Add schema auto repairs for states tables ([@bdraco] - [#90083]) ([recorder docs])
+- Add auto repairs for events schema ([@bdraco] - [#90136]) ([recorder docs])
+- Remove unneeded lambda_stmt in place add in statistics ([@bdraco] - [#89943]) ([recorder docs])
+- Set unique on StatesMeta and EventTypes database tables ([@bdraco] - [#89971]) ([recorder docs])
+- Avoid joining states_meta for statistics queries ([@bdraco] - [#89941]) ([recorder docs]) ([logbook docs])
+- Migrate StateAttributes to use a table manager ([@bdraco] - [#89760]) ([recorder docs])
+- Migrate States to use a table manager ([@bdraco] - [#89769]) ([recorder docs])
+- Retain history when renaming an entity_id ([@bdraco] - [#89963]) ([recorder docs])
+- Fix statistics schema auto repair when there is bad data ([@bdraco] - [#89903]) ([recorder docs])
+- Fix statistics schema µs precision auto repair being ineffective ([@bdraco] - [#89902]) ([recorder docs])
+- Add index to event_type and entity_id ([@bdraco] - [#89676]) ([recorder docs])
+- Improve event filters to reject earlier ([@bdraco] - [#89337])
+- Reduce overhead to store context ids in the database ([@bdraco] - [#88942]) ([recorder docs]) ([logbook docs]) (breaking-change)
+- Deduplicate event_types in the events table ([@bdraco] - [#89465]) ([recorder docs]) ([logbook docs]) (breaking-change)
+- Move legacy database queries and models to prepare for schema v38 ([@bdraco] - [#89532]) ([recorder docs])
+- Deduplicate entity_id in the states table ([@bdraco] - [#89557]) ([recorder docs]) ([history docs]) ([logbook docs])
+
+{% enddetails %}
+
+Some takeaways:
+
+- Faster 🚀
+- Smaller (deduplication), less disk usage.
+- Reduced disk IO (SD-card lifetime improvements)
+- Reduced CPU-usage
+- Quicker startup
+- Quicker response times everywhere
+- Retains history when renaming entities
+
+## New selector capabilities
+
+{% details "TODO" %}
+
+- Keep or move to other noteworthy?
+- Proof read/spelling/grammar
+- Improve/better examples?
+- Docs missing?
+
+- Add filter options to entity and device selectors ([@piitaya] - [#87536]) (noteworthy)
+- Add support for constant selector ([@emontnemery] - [#89573]) (noteworthy)
+
+{% enddetails %}
+
+A new selector for use in your Blueprints has been added by [@emontnemery]
+and [@piitaya]: The constant selector.
+
+The constant select provides an optional input, that provides a fixed value
+(the constant) or doesn't provide anything at all.
+
+<video width="620px" controls="controls"><source src="https://user-images.githubusercontent.com/5878303/224061490-358c6dc8-587a-4c54-8ed0-2358a764b226.mp4" type="video/mp4"></video>
+
+```yaml
+white:
+  name: White
+  description: Set the light to white mode
+  advanced: true
+  selector:
+    constant:
+      value: true
+      label: Enabled
+```
+
+Also improved this release, are the device and entity filters on the Area,
+Entity, Device, and Target selectors. Previously, you could filter with a
+single set of conditions, now you can pass in a list of filters.
+
+If you are building Blueprints, this can be really helpful, if a user should
+be able to select, for example, one of multiple different devices.
+
+An example, this selector allows you to select the batter sensor of
+either an Philips Hue RWL020 (US) or RWL021 (EU) remote in your Blueprint.
+
+```yaml
+device:
+  filter:
+    - integration: deconz
+      manufacturer: Philips
+      model: RWL020
+    - integration: deconz
+      manufacturer: Philips
+      model: RWL021
+  entity:
+    - domain: sensor
+      device_class: battery
+```
+
+## More translations!
+
+{% details "TODO" %}
+
+- Move to other noteworthy?
+- Extend story
+- Proof read/spelling/grammar
+- Link to dev blog?
+- Screenshot of translated Calendar attributes?
+
+- Support translating entity names ([@emontnemery] - [#88242]) ([demo docs]) (noteworthy)
+
+* Improve/extend description of conditions (#15943) @frenck
+* Compute (attribute) states in automation trigger descriptions (#15848) @frenck
+* Show unknown attribute state as Unknown instead of a dash (#15846) @frenck
+* Extend attribute to hide from (numeric) state triggers (#15836) @frenck
+* Translate entity attribute names & attribute states (#15822) @frenck
+
+{% enddetails %}
+
+Over the past releases, we've been slowly extending support for translations
+in more places in Home Assistant. This release completes support for
+translating entities!
+
+This includes the names of entities, the names of their attributes, and
+translations for those attributes. These translations will be visible on your
+dashboards, dialogs, automation editors, etc. Pretty much all places displaying
+them.
+
+There are not many integration that support this as of yet, but in the upcoming
+releases, we expect alot more to join in.
+
+## Other noteworthy changes
+
+{% details "TODO" %}
+
+- Proof read/spelling/grammar
+- Last minute ones added?
+- Go over list again, might have missed something
+- Ability to hide the legend of history graphs
+
+To consider:
+
+**Note**: Changes processed up to PR 86815
+
+{% enddetails %}
+
+There are much more easter bunnies in this release; here are some of the other
+noteworthy changes this release:
+
+- [@ArturoGuerra] added support for lock to [Matter]! Nice!
+- The new light entity dialog (introduced last release), now better supports
+  white mode. Thanks, [@piitaya]!
+- [@emontnemery] added energy storage and volume storage device classes; these
+  allow to differentiate between, for example, consumed energy versus stored
+  energy in a battery.
+- [@starkillerOG] is rocking the [Reolink] integration. It now provides button,
+  switch, siren, select, number and light entities for all kinds of things you
+  Reolink cameras and doorbells can do. Awesome!
+- The [Universal Media Player], now supports browsing media! Thanks, [@Drafteed]!
+- The [Supervisor] integration now provides sensors containing stats of the
+  Home Assistant Core and Supervisor itself. Thanks, [@ludeeus]!
+- The [Spotify] integration, now supports podcasts! Nice [@BTMorton]!
+- [LIVISI Smart Home] now supports climate devices, switches (PSSO, ISS and ISS2),
+  and window sensors (WDS). Thanks [@StefanIacobLivisi] & [@planbnet]!
+- [ESPHome] now supports pairing Bluetooth devices. Nice work [@bdraco] & [@jagheterfredrik]!
+- [@MarkGodwin] extended the [TP-Link Omada] integration to support update entities, awesome!
+- All attributes of the `sun.sun` entity are now also available as sensors, much
+  easier to use, thanks [@gjohansson-ST]!
+- Covers with the door device class, now appear as actual doors in [HomeKit], nice [@Dexwell]!
+- [@loongyh] did something similar for [Google Assistant], covers with the window
+  device class now show up as actual windows. Thanks!
+- The [SQL] integration now supports settings device and state classes, thanks [@gjohansson-ST]!
+- [@teharris1] added support for the new [Insteon] i3 device, cool!
+
+[@arturoguerra]: https://github.com/ArturoGuerra
+[@bdraco]: https://github.com/bdraco
+[@btmorton]: https://github.com/BTMorton
+[@dexwell]: https://github.com/Dexwell
+[@drafteed]: https://github.com/Drafteed
+[@emontnemery]: https://github.com/emontnemery
+[@gjohansson-st]: https://github.com/gjohansson-ST
+[@jagheterfredrik]: https://github.com/jagheterfredrik
+[@loongyh]: https://github.com/loongyh
+[@ludeeus]: https://github.com/ludeeus
+[@markgodwin]: https://github.com/MarkGodwin
+[@piitaya]: https://github.com/piitaya
+[@planbnet]: https://github.com/planbnet
+[@starkillerog]: https://github.com/starkillerOG
+[@stefaniacoblivisi]: https://github.com/StefanIacobLivisi
+[@teharris1]: https://github.com/teharris1
+[esphome]: /integrations/esphome
+[google assistant]: /integrations/google_assistant
+[insteon]: /integrations/insteon
+[livisi smart home]: /integrations/livisi
+[matter]: /integrations/matter
+[reolink]: /integrations/reolink
+[spotify]: /integrations/spotify
+[sql]: /integrations/sql
+[supervisor]: /integrations/hassio
+[tp-link omada]: /integrations/tplink_omada
+[universal media player]: /integrations/universal
+
+## New Integrations
+
+This release has no new integrations, but does provide a couple of new virtual
+integrations. Virtual integrations are stubs that are handled by other
+(existing) integrations to help with findability. These are new:
+
+- **[ESERA 1-Wire]** provided by [1-Wire], added by [@jrieger]
+- **[HomeSeer]** works with [Z-Wave], added by [@b-uwe]
+- **[Quadra-Fire]** provided by [IntelliFire], added by [@jeeftor]
+- **[Vermont Castings]** provided by [IntelliFire], added by [@jeeftor]
+
+[@b-uwe]: https://github.com/b-uwe
+[@jeeftor]: https://github.com/jeeftor
+[@jrieger]: https://github.com/jrieger
+[1-wire]: /integrations/one
+[esera 1-wire]: /integrations/esera_onewire
+[homeseer]: /integrations/homeseer
+[intellifire]: /integrations/intellifire
+[quadra-fire]: /integrations/quadrafire
+[vermont castings]: /integrations/vermont_castings
+[z-wave]: /integrations/zwave_js
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Breaking Changes
+
+{% details "TODO" %}
+
+- Proof read/spelling/grammar
+
+**Note**: Breaking changes processed up to PR 90423
+
+{% enddetails %}
+
+{% details "Aladdin Connect" %}
+
+The previously deprecated YAML configuration of the Aladdin Connect integration
+has been removed.
+
+Aladdin Connect is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from
+your YAML configuration files.
+
+([@epenet] - [#88694]) ([documentation](/integrations/aladdin_connect))
+
+[@epenet]: https://github.com/epenet
+[#88694]: https://github.com/home-assistant/core/pull/88694
+
+{% enddetails %}
+
+{% details "AVM FRITZ!Box Tools" %}
+
+The binary sensor providing available firmware updates has been deprecated
+since 2022.5 and is now removed. Use the new `update` entity instead.
+
+([@mib1185] - [#89940]) ([documentation](/integrations/fritz))
+
+[@mib1185]: https://github.com/mib1185
+[#89940]: https://github.com/home-assistant/core/pull/89940
+
+{% enddetails %}
+
+{% details "Bluetooth" %}
+
+This change only affects Home Assistant instances running directly on
+MacOS (not inside a virtual machine).
+
+Any integration or device that was previously set up using a UUID
+bluetooth address will need to be deleted and recreated.
+
+([@bdraco] - [#89926]) ([documentation](/integrations/bluetooth))
+
+[@bdraco]: https://github.com/bdraco
+[#89926]: https://github.com/home-assistant/core/pull/89926
+
+{% enddetails %}
+
+{% details "Calendar" %}
+
+The `calendar.create_event` service now enforces that start and end dates are
+exclusive. This has always been part of the specification, but was not clearly
+documented and enforced.
+
+([@allenporter] - [#89533]) ([documentation](/integrations/calendar))
+
+[@allenporter]: https://github.com/allenporter
+[#89533]: https://github.com/home-assistant/core/pull/89533
+
+{% enddetails %}
+
+{% details "DSMR Reader" %}
+
+The previously deprecated YAML configuration of the DSMR Reader integration
+has been removed.
+
+DSMR Reader is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from
+your YAML configuration files.
+
+([@frenck] - [#89239]) ([documentation](/integrations/dsmr_reader))
+
+[@frenck]: https://github.com/frenck
+[#89239]: https://github.com/home-assistant/core/pull/89239
+
+{% enddetails %}
+
+{% details "GIOŚ" %}
+
+AQI sensor state values are now in English, and the user interface will
+display their translation for the selected language. If you have been using
+this sensor in your automations and scripts, you'll need to adjust these for
+this change.
+
+([@bieniu] - [#89044]) ([documentation](/integrations/gios))
+
+[@bieniu]: https://github.com/bieniu
+[#89044]: https://github.com/home-assistant/core/pull/89044
+
+---
+
+The `name` and `station` sensor state attributes have been removed due
+to the fact that they are static data that do not describe the state of
+the entity.
+
+The `index` sensor state attribute has been migrated to a separate entity,
+e.g. `sensor.home_no2_index`.
+
+([@bieniu] - [#89389]) ([documentation](/integrations/gios))
+
+[@bieniu]: https://github.com/bieniu
+[#89389]: https://github.com/home-assistant/core/pull/89389
+
+{% enddetails %}
+
+{% details "Groups - Notify" %}
+
+The behavior of passing parameters to service calls targeting notification
+groups has changed.
+
+**Current behaviour**: `data` mappings configured in the **service** override
+mappings configured in the **action**.
+
+**New behaviour**: `data` mappings configured in the **action** override
+mappings configured in the **service**.
+
+([@arychj] - [#90253]) ([documentation](/integrations/group))
+
+[@arychj]: https://github.com/arychj
+[#90253]: https://github.com/home-assistant/core/pull/90253
+
+{% enddetails %}
+
+{% details "Home Connect" %}
+
+Not really a breaking change, but as of now, only programs entities are
+created for the programs your device supports. You might need to manually remove
+old/existing entities that are no longer provided.
+
+([@stickpin] - [#88801]) ([documentation](/integrations/home_connect))
+
+[@stickpin]: https://github.com/stickpin
+[#88801]: https://github.com/home-assistant/core/pull/88801
+
+{% enddetails %}
+
+{% details "IMAP" %}
+
+The previously deprecated YAML configuration of the IMAP integration
+has been removed.
+
+IMAP is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from
+your YAML configuration files.
+
+([@jbouwh] - [#89981]) ([documentation](/integrations/imap))
+
+[@jbouwh]: https://github.com/jbouwh
+[#89981]: https://github.com/home-assistant/core/pull/89981
+
+{% enddetails %}
+
+{% details "Landis+Gyr Heat Meter" %}
+
+The conversion to MWh and the corresponding MWh-entities have been removed.
+
+To resolve the breaking change :
+
+- If you make use of any of `sensor.heat_meter_heat_usage` or
+  `sensor.heat_meter_heat_previous_year` for automations, scripts, etc.,
+  you can replace these with the GJ-entities `sensor.heat_meter_heat_usage_gj`
+  and `sensor.heat_meter_heat_previous_year_gj`.
+- If applicable, in the energy dashboard replace `sensor.heat_meter_heat_usage`
+  with `sensor.heat_meter_heat_usage_gj`. Note that the energy dashboard will
+  still convert to MWh or kWh, therefore resulting in the same values as before.
+
+([@vpathuis] - [#89522]) ([documentation](/integrations/landisgyr_heat_meter))
+
+[@vpathuis]: https://github.com/vpathuis
+[#89522]: https://github.com/home-assistant/core/pull/89522
+
+{% enddetails %}
+
+{% details "Logbook" %}
+
+Logbook will be unavailable until the database schema migration completes.
+Logbook script and automation traces from previous runs of Home Assistant
+will be unavailable until background data is migration is completed following
+the schema migration.
+
+([@bdraco] - [#88942] [#89465]) ([documentation](/integrations/logbook))
+
+[@bdraco]: https://github.com/bdraco
+[#88942]: https://github.com/home-assistant/core/pull/88942
+[#89465]: https://github.com/home-assistant/core/pull/89465
+
+---
+
+Automation and script traces that include state change events recorded with
+Home Assistant 2022.5.x or older will no longer display context information
+for these events in the logbook tab.
+
+([@bdraco] - [#89945]) ([documentation](/integrations/logbook))
+
+[@bdraco]: https://github.com/bdraco
+[#89945]: https://github.com/home-assistant/core/pull/89945
+
+{% enddetails %}
+
+{% details "MySensors" %}
+
+- The MySensors notify platform has been removed. It's been deprecated since
+  2023.2.0. It's been replaced by a text entity platform.
+- You should update any automations or scripts that use the `notify.mysensors*`
+  service to instead use the `text.set_value` service and the corresponding
+  text entity as a target.
+- The MySensors IR `switch` entity, corresponding to an `S_IR` child with
+  `V_SEND` value, has been removed. This entity been deprecated since 2023.2.0.
+  It's been replaced by a `remote` entity.
+- You should update any automations or scripts that use the `mysensors.send_ir_code`
+  service to instead use the `remote.send_command` service and the corresponding
+  `remote` entity as a target. Similar changes should be made for actions using
+  the `switch.turn_on` and `switch_turn_off` services targeting the removed
+  IR `switch` entities. Replace these with `remote.turn_on` and `remote.turn_off`
+  services and `remote` entity targets.
+
+([@MartinHjelmare] - [#90402] [#90403]) ([documentation](/integrations/mysensors))
+
+[@martinhjelmare]: https://github.com/MartinHjelmare
+[#90402]: https://github.com/home-assistant/core/pull/90402
+[#90403]: https://github.com/home-assistant/core/pull/90403
+
+{% enddetails %}
+
+{% details "Moon" %}
+
+The previously deprecated YAML configuration of the Moon integration
+has been removed.
+
+Moon is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from
+your YAML configuration files.
+
+([@frenck] - [#89161]) ([documentation](/integrations/moon))
+
+[@frenck]: https://github.com/frenck
+[#89161]: https://github.com/home-assistant/core/pull/89161
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+The `tls_version` configuration parameter (deprecated June 2020) has been
+removed. All other MQTT broker settings have been moved to the UI before.
+
+When the `tls_version` setting is still in your YAML configuration, MQTT will
+not start up.
+
+[@jbouwh]: https://github.com/jbouwh
+[#88674]: https://github.com/home-assistant/core/pull/88674
+
+---
+
+The previously deprecated MQTT broker YAML configuration, has been removed.
+
+The MQTT broker is now configured via the UI, any existing MQTT broker YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@jbouwh] - [#87987]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#87987]: https://github.com/home-assistant/core/pull/87987
+
+{% enddetails %}
+
+{% details "Nextcloud" %}
+
+The option to define an own scan interval has been removed, data is now updated
+every 60 seconds.
+
+([@mib1185] - [#89396]) ([documentation](/integrations/nextcloud))
+
+[@mib1185]: https://github.com/mib1185
+[#89396]: https://github.com/home-assistant/core/pull/89396
+
+{% enddetails %}
+
+{% details "OpenAI Conversation" %}
+
+Your previously selected model has been reset to the new
+and cheaper GPT 3.5 model.
+
+([@balloob] - [#90423]) ([documentation](/integrations/openai_conversation))
+
+[@balloob]: https://github.com/balloob
+[#90423]: https://github.com/home-assistant/core/pull/90423
+
+{% enddetails %}
+
+{% details "Overkiz" %}
+
+The `open` and `close` commands for the` io:CyclicGarageOpenerIOComponent device`
+Have been removed, see [this issue](https://github.com/iMicknl/ha-tahoma/issues/146)
+for more details on this device.
+
+To sum up, this device is a garage door but cannot be exposed as such within
+Home Assistant. There is no state returned, and no clear open and close command.
+
+Only one command is available: `cycle`. A `button` is a perfect fit for this
+use case, and remove all confusion; and this button entity has been added this
+release.
+
+([@tetienne] - [#89043]) ([documentation](/integrations/overkiz))
+
+[@tetienne]: https://github.com/tetienne
+[#89043]: https://github.com/home-assistant/core/pull/89043
+
+{% enddetails %}
+
+{% details "Pushbullet" %}
+
+The previously deprecated YAML configuration of the Pushbullet integration
+has been removed.
+
+Pushbullet is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from
+your YAML configuration files.
+
+([@gjohansson-ST] - [#90285]) ([documentation](/integrations/pushbullet))
+
+[@gjohansson-st]: https://github.com/gjohansson-ST
+[#90285]: https://github.com/home-assistant/core/pull/90285
+
+{% enddetails %}
+
+{% details "Radio Thermostat" %}
+
+The previously deprecated YAML configuration of the Radio Thermostat integration
+has been removed.
+
+Radio Thermostat is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from
+your YAML configuration files.
+
+([@gjohansson-ST] - [#90284]) ([documentation](/integrations/radiotherm))
+
+[@gjohansson-st]: https://github.com/gjohansson-ST
+[#90284]: https://github.com/home-assistant/core/pull/90284
+
+{% enddetails %}
+
+{% details "Scrape" %}
+
+The previously deprecated YAML configuration of the Scrape integration
+has been removed.
+
+Scrape is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from
+your YAML configuration files.
+
+([@gjohansson-ST] - [#90272]) ([documentation](/integrations/scrape))
+
+[@gjohansson-st]: https://github.com/gjohansson-ST
+[#90272]: https://github.com/home-assistant/core/pull/90272
+
+{% enddetails %}
+
+{% details "Season" %}
+
+The previously deprecated YAML configuration of the Season integration
+has been removed.
+
+Season is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from
+your YAML configuration files.
+
+([@frenck] - [#89166]) ([documentation](/integrations/season))
+
+[@frenck]: https://github.com/frenck
+[#89166]: https://github.com/home-assistant/core/pull/89166
+
+{% enddetails %}
+
+{% details "Tasmota" %}
+
+Tasmota `sensor` no longer sets the `force_update` flag to True.
+
+Tasmota `binary_sensor` no longer sets the `force_update` flag to True, with
+the exception of `binary_sensor` mapped to a Tasmota switch with switchmode
+set to 13 or 14.
+
+([@DerEnderKeks] - [#85943]) ([documentation](/integrations/tasmota))
+
+[@derenderkeks]: https://github.com/DerEnderKeks
+[#85943]: https://github.com/home-assistant/core/pull/85943
+
+{% enddetails %}
+
+{% details "Templates" %}
+
+The `relative_time` and `today_at` template functions and filters are no
+longer supported in limited templates.
+
+([@Petro31] - [#86815])
+
+[@petro31]: https://github.com/Petro31
+[#86815]: https://github.com/home-assistant/core/pull/86815
+
+{% enddetails %}
+
+{% details "Threshold" %}
+
+The behavior of threshold binary sensor has changed:
+
+- The threshold binary sensor's state is reset to `unknown` when the monitored
+  sensor's state is unknown, unavailable or not a valid float.
+- When the monitored sensor's state is first valid, or when it's valid
+  after being `unknown`, `unavailable` or not a valid float:
+  - Initialize a threshold sensor with only a lower threshold to state `off`,
+    with the `position` attribute set to `above`.
+  - Initialize a threshold sensor with only an upperthreshold to state `off`,
+    with the `position` attribute set to `below`.
+  - Initialize a threshold sensor with only both an upper and a lower threshold
+    to state `on`, with the `position` attribute set to `in_range`.
+
+([@emontnemery] - [#88978]) ([documentation](/integrations/threshold))
+
+[@emontnemery]: https://github.com/emontnemery
+[#88978]: https://github.com/home-assistant/core/pull/88978
+
+{% enddetails %}
+
+{% details "Twente Milieu" %}
+
+The end-date for garbage collection events on the calendar entity, will now
+be one day later compared to the start date. This is because in calendaring,
+the end-date is exclusive.
+
+([@bobvandevijver] - [#89028]) ([documentation](/integrations/twentemilieu))
+
+[@bobvandevijver]: https://github.com/bobvandevijver
+[#89028]: https://github.com/home-assistant/core/pull/89028
+
+{% enddetails %}
+
+{% details "Volvo On Call" %}
+
+The previously deprecated YAML configuration of the Volvo On Call integration
+has been removed.
+
+Volvo On Call is now configured via the UI, any existing YAML configuration
+has been imported in previous releases and can now be safely removed from
+your YAML configuration files.
+
+([@gjohansson-ST] - [#90288]) ([documentation](/integrations/volvooncall))
+
+[@gjohansson-st]: https://github.com/gjohansson-ST
+[#90288]: https://github.com/home-assistant/core/pull/90288
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+With this release, you will need to update your `zwave-js-server` instance.
+You must use `zwave-js-server` 1.27.0 or greater (schema 27).
+
+- If you use the `Z-Wave JS` add-on, you need at least version `0.1.77`.
+- If you use the `Z-Wave JS UI` add-on, you need at least version `1.8.1`.
+- If you use the `Z-Wave JS UI` Docker container, you need at least version `8.11.1`.
+- If you run your own Docker container or some other installation method, you
+  will need to update your `zwave-js-server` instance to at least `1.27.0`.
+
+([@raman325] - [#90212]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#90212]: https://github.com/home-assistant/core/pull/90212
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Calendar best practices](https://developers.home-assistant.io/blog/2023/03/28/calendar_best_practices)
+- [Translating the name and attributes of entities](https://developers.home-assistant.io/blog/2023/03/27/entity_name_translations)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## Farewell to the following
+
+The following integrations are also no longer available as of this release:
+
+- **Magicseaweed** has been removed. Magicseedweed no longer provides API keys
+  to users. Additionally, the integration is no longer in a functional state.
+  ([@gjohansson-ST] - [#90277])
+
+[@gjohansson-st]: https://github.com/gjohansson-ST
+[#90277]: https://github.com/home-assistant/core/pull/90277
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2023.4](/changelogs/core-2023.4)

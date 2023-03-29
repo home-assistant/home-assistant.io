@@ -10,6 +10,7 @@ ha_release: 2022.12
 ha_config_flow: true
 ha_codeowners:
   - '@StefanIacobLivisi'
+  - '@planbnet'
 ha_domain: livisi
 ha_platforms:
   - binary_sensor

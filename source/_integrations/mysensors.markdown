@@ -15,7 +15,6 @@ ha_platforms:
   - cover
   - device_tracker
   - light
-  - notify
   - remote
   - sensor
   - switch

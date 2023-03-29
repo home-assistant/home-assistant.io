@@ -4,7 +4,7 @@ description: Instructions on how to integrate a Nuki Smart Lock devices.
 ha_category:
   - Lock
 ha_release: 0.38
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@pschmitt'
   - '@pvizeli'

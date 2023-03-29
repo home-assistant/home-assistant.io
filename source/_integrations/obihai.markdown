@@ -11,6 +11,7 @@ ha_codeowners:
   - '@ejpenney'
 ha_domain: obihai
 ha_platforms:
+  - button
   - sensor
 ha_integration_type: integration
 ---

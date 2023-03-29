@@ -25,4 +25,3 @@ The SolarEdge Monitoring API has a daily rate limit of 300 requests. In order to
 </div>
 
 {% include integrations/config_flow.md %}
-

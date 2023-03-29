@@ -12,8 +12,13 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - button
   - camera
+  - light
   - number
+  - select
+  - siren
+  - switch
   - update
 ha_integration_type: integration
 ha_dhcp: true

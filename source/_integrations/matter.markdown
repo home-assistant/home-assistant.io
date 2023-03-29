@@ -4,9 +4,9 @@ description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary Sensor
   - Light
+  - Lock
   - Sensor
   - Switch
-  - Lock
 ha_release: '2022.12'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -17,9 +17,9 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - light
+  - lock
   - sensor
   - switch
-  - lock
 ha_integration_type: integration
 ---
 
