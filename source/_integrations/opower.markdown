@@ -1,9 +1,10 @@
+---
 title: Opower
 description: Instructions on how to integrate Opower within Home Assistant.
 ha_category:
   - Energy
   - Sensor
-ha_release: 2023.4
+ha_release: 2023.5
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@tronikos'
