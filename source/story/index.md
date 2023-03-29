@@ -168,7 +168,7 @@ layout: default
                     <h1 class="text-grey-text text-xl md:text-[32px] opacity-40 font-medium leading-[38px]">SEP 2019
                     </h1>
                     <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5"> Bram, 1st
-                        employee, hired to work on Frontend</h1>
+                        employee, hired to work on frontend</h1>
                 </div>
                 <div
                     class="absolute h-full left-[19%] md:left-[49.5%] top-0 md:translate-x-[-50%] border-l-[4px] w-[4px]  border-border-line">
