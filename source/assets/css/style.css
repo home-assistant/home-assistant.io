@@ -1184,6 +1184,10 @@ video {
   margin-top: 80px;
 }
 
+.mb-\[5px\]{
+  margin-bottom: 5px;
+}
+
 .block{
   display: block;
 }
@@ -4816,6 +4820,10 @@ div.code-toolbar > .toolbar span:focus {
 
   .md\:mt-\[75px\]{
     margin-top: 75px;
+  }
+
+  .md\:mt-\[1px\]{
+    margin-top: 1px;
   }
 
   .md\:block{
