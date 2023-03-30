@@ -48,7 +48,7 @@ This integration adds BleBox device as a binary_sensor in Home Assistant.
 Currently, this includes support for the following product classes:
 
 - BleBox rainSensor
-- BleBox wind&rainSensor (rain only)
+- BleBox wind&rainSensor 
 
 ## Sensors
 
