@@ -68,7 +68,7 @@ This integration requires an internet accessible incoming webhook to receive pus
 
 ## Setup instructions
 
-After completing the prerequisite steps above you are ready to setup the integration! See [troubleshooting](#troubleshooting) if you are having issues setting up the integration.
+After completing the prerequisite steps above, you are ready to setup the integration! See [troubleshooting](#troubleshooting) if you are having issues setting up the integration.
 
 {% include integrations/config_flow.md %}
 
