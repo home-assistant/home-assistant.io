@@ -54,7 +54,7 @@ The following sensors are available in the data:
 | temperature_solar_flow       | °C     | current flow temperature of solar heating  |
 | temperature_solar_panel      | °C     | current temperature on the solar panel(s)  |
 | temperature_solar_return     | °C     | current return temperature of solar heating  |
-| volume_solar_pump            | l/min  | current volume of fluid stream in solar heating  |
+| volume_solar_pump            | l/h    | current volume of fluid stream in solar heating  |
 | volume_warm_water            | l/min  | current volume of fluid stream in warm water station  |
 
 ## Binary Sensors
