@@ -17,7 +17,7 @@ ha_integration_type: integration
 
 The Opower integration allows you to get energy information from utilities that use [Opower](https://www.oracle.com/industries/utilities/opower-energy-efficiency/).
 
-More than 175 utilities use Opower but currently only the following ones are supported:
+More than 175 utilities use Opower. Currently only the following ones are supported:
 
 - [Pacific Gas and Electric Company (PG&E)](https://www.pge.com/)
 
@@ -49,7 +49,7 @@ For gas:
 
 ## Energy
 
-Because utilities only release usage/cost data with a 48 hour delay, data is inserted into statistic objects. At the initial setup the integration pulls historical monthly usage/cost since the account activation, daily usage/cost for the past 3 years and for electricity hourly usage/cost for the past 2 months.
+Because utilities only release usage/cost data with a 48 hour delay, the integration inserts data into statistic objects. At the initial setup the integration pulls historical monthly usage/cost since the account activation, daily usage/cost for the past 3 years and for electricity hourly usage/cost for the past 2 months. After the initial setup the integration keeps pulling hourly data for electricity and daily data for gas for the past 30 days to allow for any corrections in the data from the utilities.
 
 In the configuration of the energy dashboard (Settings > Dashboards > Energy):
 
