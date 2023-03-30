@@ -57,6 +57,47 @@ There are a few very important rules to remember when adding templates to YAML:
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
+### Enabled Jinja Extensions
+
+Jinja supports a set of language extensions that add new functionality to the language.
+To improve the experience of writing Jinja templates, we have enabled the following
+extensions:
+
+* [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
+
+### Reusing Templates
+
+You can write reusable Jinja templates by adding them to a `custom_jinja` folder under your
+configuration directory. All template files must have the `.jinja` extension and be less than 5MiB.
+Templates in this folder will be loaded at startup. To reload the templates without
+restarting Home Assistant, invoke the `homeassistant.reload_custom_jinja` service.
+
+Once the templates are loaded, Jinja [includes](https://jinja.palletsprojects.com/en/3.0.x/templates/#include) and [imports](https://jinja.palletsprojects.com/en/3.0.x/templates/#import) will work
+using `config/custom_jinja` as the base directory.
+
+For example, you might define a macro in a template in `config/custom_jinja/formatter.jinja`:
+
+{% raw %}
+
+```text
+{% macro format_entity(entity_id) %}
+{{ state_attr(entity_id, 'friendly_name') }} - {{ states(entity_id) }}
+{% endmacro %}
+```
+
+{% endraw %}
+
+In your automations, you could then reuse this macro by importing it:
+
+{% raw %}
+
+```text
+{% from 'formatter.jinja' import format_entity %}
+{{ format_entity('sensor.temperature') }}
+```
+
+{% endraw %}
+
 ## Home Assistant template extensions
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
@@ -78,6 +119,7 @@ Not supported in [limited templates](#limited-templates).
 - `is_state` compares an entity's state with a specified state or list of states and returns `True` or `False`. `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state. `is_state('device_tracker.paulus', ['home', 'work'])` will test if the given entity is any of the states in the list.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') is none` or `state_attr('sensor.my_sensor', 'attr') == None` (note the difference in the capitalization of none in both versions).
+- `has_value('sensor.my_sensor')` will test if the given entity is not unknown or unavailable. Can be used as a filter or a test.
 
 <div class='note warning'>
 
@@ -133,6 +175,10 @@ Other state examples:
 #check sensor.train_departure_time state
 {% if states('sensor.train_departure_time') in ("unavailable", "unknown") %}
   {{ ... }}
+
+{% if has_value('sensor.train_departure_time') %}
+  {{ ... }}
+
 
 {% set state = states('sensor.temperature') %}{{ state | float + 1 if is_number(state) else "invalid temperature" }}
 
@@ -320,6 +366,21 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
+
+### Entities
+
+- `is_hidden_entity(entity_id)` returns whether an entity has been hidden. Can also be used as a test.
+
+### Entities examples
+
+{% raw %}
+
+```text
+{{ area_entities('kitchen') | reject('is_hidden_entity') }} # Gets a list of visible entities in the kitchen area
+```
+
+{% endraw %}
+
 ### Devices
 
 - `device_entities(device_id)` returns a list of entities that are associated with a given device ID. Can also be used as a filter.
@@ -361,6 +422,7 @@ The same thing can also be expressed as a test:
 
 ### Areas
 
+- `areas()` returns the full list of area IDs
 - `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
 - `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
 - `area_entities(area_name_or_id)` returns the list of entity IDs tied to a given area ID or name. Can also be used as a filter.
@@ -369,6 +431,10 @@ The same thing can also be expressed as a test:
 #### Areas examples
 
 {% raw %}
+
+```text
+{{ areas() }}  # ['area_id']
+```
 
 ```text
 {{ area_id('Living Room') }}  # 'deadbeefdeadbeefdeadbeefdeadbeef'
