@@ -74,15 +74,7 @@ Components inside packages can only specify platform entries using configuration
 
 ## Create a packages folder
 
-One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory you can store any number of packages in YAML files. 
-See the documentation about [splitting the configuration](/docs/configuration/splitting_configuration/) for more information about `!include_dir_named`/`!include_dir_merge_named` and other include statements that might be helpful. The benefit of this approach is to pull all configurations required to integrate a system, into one file, rather than across several.
-
-The following examples allows to have subfolders in the `packages` folder
-
-### opt1: Merge files/folders
-This uses the concept splitting the configuration and will include all files in a directory and it's subdirectories; 'as if the content was written in configuration.yaml'
-
-This entry in your `configuration.yaml` will load all files in folder packages and subfolders:
+One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory you can store any number of packages in YAML files. This entry in your `configuration.yaml` will load all files in folder "packages" and its subfolders:
 
 ```yaml
 homeassistant:
@@ -109,25 +101,10 @@ binary_sensor:
 automation:
 ```
 
+The benefit of this approach is to pull all configurations required to integrate a system, into one file, rather than across several.
 
-### opt2: Merge files/folders "named"
-This option uses the concept splitting the configuration and will include according to 'dir_merge_named'.
+You can use other !include-methods for packages folder, but with this one you get yaml-indentation 'as if the content was written in configuration.yaml'.
 
-```yaml
-homeassistant:
-  packages: !include_dir_merge_named packages/
-```
-
-and in `packages/subsystem1/functionality1.yaml`:
-
-```yaml
-subsystem1_functionality1:
-  input_boolean:
-  ...
-  binary_sensor:
-  ...
-  automation:
-```
 
 ## Customizing entities with packages
 
