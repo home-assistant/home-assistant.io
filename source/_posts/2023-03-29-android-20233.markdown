@@ -52,7 +52,7 @@ Note: the Wear OS app does not yet support multiple servers.
 
 ## Now available on Windows 11 (preview)
 
-The Home Assistant Android Companion app is now available via the Amazon Appstore
+The Home Assistant Android Companion app is now available [via the Amazon Appstore]
 on [supported Windows 11 devices]. While there are already great options to integrate your
 computer from the community out there, the Companion app makes it easy to start
 and benefits from all the work on the Android app, frequently adding new features.
@@ -65,6 +65,7 @@ releasing Windows 11 support for the app as a preview. Android support in Window
 11 continues to get better and we intend to make adjustments to improve the
 experience in the future.
 
+[via the Amazon Appstore]: amzn://apps/android?asin=B09RP3DM5T
 [supported Windows 11 devices]: https://support.microsoft.com/windows/f8d0abb5-44ad-47d8-b9fb-ad6b1459ff6c
 
 ## Refining Wear OS
