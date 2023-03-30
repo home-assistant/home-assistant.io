@@ -10,7 +10,6 @@ ha_codeowners:
   - '@Lurchi70'
 ha_domain: solvis_heating
 ha_platforms:
-  - binary_sensor
   - sensor
 ha_integration_type: integration
 ---
