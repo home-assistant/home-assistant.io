@@ -182,8 +182,9 @@ layout: default
                 <div class="text-left md:text-right md:w-[80%] md:pr-[70px] ml-[37%] md:ml-auto">
                     <h1 class="text-grey-text text-xl md:text-[32px] opacity-40 font-medium leading-[38px]">SEP 2020
                     </h1>
-                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5"> ESPHome acquired by Nabu&nbsp;Casa
+                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5"> <a href="https://esphome.io/" >ESPHome</a> acquired by <a href="https://www.nabucasa.com/" >Nabu&nbsp;Casa</a>
                     </h1>
+                    <a href="/blog/2021-03-18-nabu-casa-has-acquired-esphome" class="text-[24px] text-grey-text font-bold">Read more...</a>
                 </div>
                 <div class="hidden md:block md:ml-[70px]">
                 </div>
@@ -202,8 +203,8 @@ layout: default
                 <div class="text-left md:w-[80%] md:ml-[70px] ml-[37%] ">
                     <h1 class="text-grey-text text-xl md:text-[32px] opacity-40 font-medium leading-[38px]">DEC 2021
                     </h1>
-                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5 mb-5"> Idea of The&nbsp;Open&nbsp;Home takes root</h1>
-                    <a href="" class="text-[24px] text-grey-text font-bold">Read more...</a>
+                    <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5 mb-5"> Idea of the&nbsp;Open&nbsp;Home takes root</h1>
+                    <a href="https://building.open-home.io/" class="text-[24px] text-grey-text font-bold">Read more...</a>
                 </div>
                 <div
                     class="absolute h-full left-[19%] md:left-[49.5%] top-0 md:translate-x-[-50%] border-l-[4px] w-[4px]  border-border-line">
@@ -218,7 +219,7 @@ layout: default
                     <h1 class="text-grey-text text-xl md:text-[32px] opacity-40 font-medium leading-[38px]">2022
                     </h1>
                     <h1 class="text-blue-text text-lg md:text-[32px] font-bold   leading-[38px] mr-5"> Creator
-                        of Z-Wave&nbsp;JS hired to work full-time on Z-Wave&nbsp;JS
+                        of <a href="https://zwave-js.github.io/node-zwave-js/#/" >Z-Wave&nbsp;JS</a> hired to work full-time on Z-Wave&nbsp;JS
                     </h1>
                     <h1 class="text-blue-text text-lg md:text-[32px] font-bold leading-[38px] mt-10"> 16 full-time
                         employees
@@ -252,12 +253,12 @@ layout: default
     <div class="max-w-[970px] mx-auto px-4 md:px-6 lg:px-8 text-center mt-11">
         <a href="https://community.home-assistant.io/"><button type="button"
             class="inline-flex font-bold items-center px-[18px] py-[13px] md:px-[26px] md:py-[21px] border-2 border-black border-opacity-10 text-sm md:text-lg rounded-[10px] text-black">FORUM</button>
-        <button type="button"
+        <a href="/join-chat/"><button type="button"
             class="inline-flex font-bold items-center px-[18px] py-[13px] md:px-[26px] md:py-[21px] border-2 border-black border-opacity-10 text-sm md:text-lg rounded-[10px] text-black ml-[15px] md:ml-[21px]">DISCORD</button>
-        <button type="button"
+        <a href="https://github.com/home-assistant"><button type="button"
             class="inline-flex font-bold items-center px-[18px] py-[13px] md:px-[26px] md:py-[21px] border-2 border-black border-opacity-10 text-sm md:text-lg rounded-[10px] text-black ml-[15px] md:ml-[21px]">GITHUB</button>
     </div>
-    <div class="rounded-3xl p-[60px] text-center bg-black text-white my-20">
+    <a href="https://www.nabucasa.com/"><div class="rounded-3xl p-[60px] text-center bg-black text-white my-20">
         <img src="{{ site.baseurl }}images/story/footer-png.png" class="m-auto" alt="" loading="lazy">
         <h1 class="text-[44px] font-bold tracking-[-0.04em] mt-5">Paulus for Nabu Casa</h1>
         <p class="text-lg md:w-[75%] m-auto pb-10 border-b-[1px] border-gray-200">“ Nabu&nbsp;Casa commits time and
