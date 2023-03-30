@@ -25,8 +25,8 @@ Devices are a logical grouping for one or more entities. A device may represent 
 
 Devices and entities are used throughout Home Assistant. To name a few examples:
 * [Dashboards](#dashboards) can show a state of an entity like if a light bulb is on or off as well as buttons that interact with devices like turning a light bulb on or off.
-* An [automation](automations) can be triggered from a state change on an entity e.g. a light turning on and control another device or entity.
-* A predefined setting for light device saved as a [scene](scenes).
+* An [automation](#automations) can be triggered from a state change on an entity e.g. a light turning on and control another device or entity.
+* A predefined setting for light device saved as a [scene](#scenes).
 
 ![Home Assistant Device](/images/getting-started/home-assistant-device.png)
 
