@@ -20,14 +20,14 @@ This allows you to get details from your Solvis Heating device and integrate the
 Before being able to use the integration, you have to own a solvis remote device and have it attached, configured and available in your network. 
 The xml-file is public and can be retrieved via http://<your-device-ip>/sc2_val.xml
 
-When quering this interface your will retrieve something like: 
+When quering this interface your will retrieve a coded string like: 
 <xml>
   <data>
     AA5555AA056B0C31350600120076028A013A018[...]0000000000
   </data>
 </xml>
-the returned payload data has a length of 439 Bytes in an undocumented format. At this point, many thanks to all the other persons that have 
-decoded this format in the past.
+the returned payload data has a length of 439 Bytes in an undocumented format. This data will be decoded and depending on the configuration option 
+made available. 
   
 <div class='note warning'>
 To retrieve the xml interface, a username and password must provided.   
