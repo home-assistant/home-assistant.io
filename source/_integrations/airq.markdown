@@ -25,6 +25,8 @@ During the configuration, the user is prompted for the IP address of the device 
 
 For this integration to communicate with the device, both must be connected to the same Wi-Fi network.
 
+After the setup, separate entities will be created for each of the sensors, found in your device.
+
 ## Sensors
 
 Currently, the integration supports the following sensors:
@@ -64,7 +66,7 @@ Currently, the integration supports the following sensors:
 | Ozone                | µg/m³               |
 | Performance Index    | %                   |
 | PH3                  | µg/m³               |
-| PM1, PM25, PM10[^pm] | µg/m³               |
+| PM1, PM25, PM10      | µg/m³               |
 | Pressure             | hPa                 |
 | Relative Pressure    | hPa                 |
 | Propane              | %                   |
@@ -81,4 +83,6 @@ Currently, the integration supports the following sensors:
 
 PM1, PM25, and PM10 correspond to concentrations of particulates with diameter less than 1µm, 2.5µm, and 10µm respectively
 
-After the setup, separate entities will be created for each of the aforementioned sensors, found in your device.
+Virus Index uses CO2 as a proxy for potential aerosol load and can be seen as an indicator of ventilation sufficiency (0 %: insufficient ventilation, 100 %: all fine).
+
+Virtual sensors "Relative Pressure" and "Virus Index" are introduced in firmware v1.80.0 but deactivated by default. Users can activate them in the air-Q mobile application under "Advanced settings".
