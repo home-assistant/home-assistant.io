@@ -198,7 +198,12 @@ automation:
 
 ## Numeric state trigger
 
-Fires when the numeric value of an entity's state (or attribute's value if using the `attribute` property, or the calculated value if using the `value_template` property) **crosses** (and only when crossing) a given threshold. On state change of a specified entity, attempts to parse the state as a number and fires if the value is changing from above to below or from below to above the given threshold.
+Fires when the numeric value of an entity's state (or attribute's value if using the `attribute` property, or the calculated value if using the `value_template` property) **crosses** a given threshold. On state change of a specified entity, attempts to parse the state as a number and fires if the value is changing from above to below or from below to above the given threshold.
+
+<div class='note'>
+Crossing the threshold means that the trigger only fires if the state wasn't previously within the threshold.
+If the current state of your entity is `50` and you set the threshold to `below: 75`, the trigger would not fire if the state changed to e.g. `49` or `72` because the threshold was never crossed. The state would first have to change to e.g. `76` and then to e.g. `74` for the trigger to fire.
+</div>
 
 {% raw %}
 
@@ -783,10 +788,10 @@ automation:
       webhook_id: "some_hook_id"
 ```
 
-You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an example data payload:
+You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an example form data payload:
 
 ```shell
-curl -X POST -d '{ "key": "value" }' https://your-home-assistant:8123/api/webhook/some_hook_id
+curl -X POST -d 'key=value&key2=value2' https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
 Webhooks support HTTP POST, PUT, and HEAD requests; POST requests are recommended. HTTP GET requests are not supported.
@@ -797,12 +802,12 @@ Note that a given webhook can only be used in one automation at a time. That is,
 
 ### Webhook data
 
-You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`.
+Payloads may either be encoded as form data or JSON. Depending on that, its data will be available in an automation template as either `trigger.data` or `trigger.json`. URL query parameters are also available in the template as `trigger.query`.
 
-In order to reference `trigger.json`, the `Content-Type` header must be specified with a value of `application/json`, e.g.:
+Note that to use JSON encoded payloads, the `Content-Type` header must be set to `application/json`, e.g.:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" https://your-home-assistant:8123/api/webhook/some_hook_id
+curl -X POST -H "Content-Type: application/json" -d '{ "key": "value" }' https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
 ### Webhook security

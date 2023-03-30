@@ -18,9 +18,8 @@ ha_platforms:
 ha_integration_type: helper
 ---
 
-The derivative ([Wikipedia](https://en.wikipedia.org/wiki/Derivative)) integration creates a sensor that "smooths-out" another sensor (the **source sensor**). 
-Derivatives of the specified sensor will be averaged in a given time window with a Simple Moving Average algorithm weighted by time. This is, for instance, useful for a sensor that outputs discrete values or to filter out short-duration noise. 
-Derivative sensors are updated upon changes of the **source sensor**.
+The derivative ([Wikipedia](https://en.wikipedia.org/wiki/Derivative)) integration creates a sensor that estimates the derivative of the
+values provided by another sensor (the **source sensor**). Derivative sensors are updated upon changes of the **source sensor**.
 
 For sensors that reset to zero after a power interruption and need a "non-negative derivative", such as bandwidth counters in routers, or rain gauges, consider using the [Utility Meter](/integrations/utility_meter/) integration instead. Otherwise, each reset will register a significant change in the derivative sensor.
 
@@ -83,7 +82,7 @@ unit:
   required: false
   type: string
 time_window:
-  description: The time window in which to calculate the derivative. By default the derivative is calculated between two consecutive updates without any smoothing.
+  description: The time window in which to calculate the derivative. Derivatives in this window will be averaged with a Simple Moving Average algorithm weighted by time. This is for instance useful for a sensor that outputs discrete values, or to filter out short duration noise. By default the derivative is calculated between two consecutive updates without any smoothing.
   default: 0
   required: false
   type: time

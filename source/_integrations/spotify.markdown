@@ -37,7 +37,7 @@ provide you with the Spotify application credentials Home Assistant needs
 to allow you to log in with your Spotify account.
 
 1. If Spotify was previously integrated with your Home Assistant with _outdated_ credentials, it might be required to remove these old Spotify account credentials using the {% my application_credentials title="Home Assistant Application Credentials dashboard" %}.
-2. Log in to the [Spotify Developer](https://developer.spotify.com) Dashboard.
+2. Log in to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard).
 3. Visit the [My Applications](https://developer.spotify.com/my-applications/#!/applications) page.
 4. Click the **CREATE AN APP** button in the top right. Enter a name and
    description; feel free to use any name and description you like.

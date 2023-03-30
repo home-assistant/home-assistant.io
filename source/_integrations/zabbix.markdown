@@ -141,7 +141,7 @@ zabbix:
 The `zabbix` sensor platform let you monitor the current count of active triggers for your [Zabbix](https://www.zabbix.com/) monitoring instance.
 
 <div class='note'>
-You must have the <a href="#configuration">Zabbix component</a> configured to use those sensors.
+You must have the <a href="#configuration">Zabbix integration</a> configured to use those sensors.
 </div>
 
 To set it up, add the following information to your `configuration.yaml` file:
