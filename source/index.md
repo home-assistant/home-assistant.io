@@ -12,7 +12,7 @@ achive:
   - label: Open Homes
     value: 500k
   - label: Integrations
-    value: 1000+
+    value: 2000+
   - label: Devices
     value: 100k+
   - label: Github Stars
