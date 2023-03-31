@@ -1,17 +1,17 @@
 ---
 layout: post
-title: "Android 2023.3: Multiple servers, Windows 11"
+title: "Android 2023.3: Multiple servers & Windows 11 app"
 description: "It's finally here: add multiple servers to the Home Assistant Android app, install the app on Windows 11 devices and more!"
-date: 2023-03-31 00:00:00
-date_formatted: "March 31, 2023"
+date: 2023-03-30 00:00:00
+date_formatted: "March 30, 2023"
 author: Joris Pelgröm
 comments: true
 categories:
  - Release-Notes
-og_image: /images/blog/2023-03-31-android/social.png
+og_image: /images/blog/2023-03-30-android/social.png
 ---
 
-![Home Assistant logo with 'Android Companion 2023.3' text](/images/blog/2023-03-31-android/social.png)
+![Home Assistant logo with 'Android Companion 2023.3' text](/images/blog/2023-03-30-android/social.png)
 
 It's finally here, one of the most common feature requests for the Home Assistant
 Android Companion app: you can now configure multiple Home Assistant servers. The
@@ -42,7 +42,7 @@ expect, like lots of sensors for your device and support for push notifications.
 Each one gets individual settings, so if you don't want to share your step count
 and enable location tracking everywhere, that's OK.
 
-![Screenshots of a phone showing different dashboards in the app, one of them showing a pop-up titled 'Choose server'](/images/blog/2023-03-31-android/multiserver.png)
+![Screenshots of a phone showing different dashboards in the app, one of them showing a pop-up titled 'Choose server'](/images/blog/2023-03-30-android/multiserver.png)
 
 That's not all - you can also use all servers _outside_ the app, mixing and
 matching servers when using shortcuts, notifications, widgets, tiles and controls.
@@ -57,7 +57,7 @@ on [supported Windows 11 devices]. While there are already great options to inte
 computer from the community out there, the Companion app makes it easy to start
 and benefits from all the work on the Android app, frequently adding new features.
 
-![Screenshot of the Home Assistant Android app on a Windows 11 device](/images/blog/2023-03-31-android/windows.png)
+![Screenshot of the Home Assistant Android app on a Windows 11 device](/images/blog/2023-03-30-android/windows.png)
 
 Windows does not always provide correct information to the app and may shut down
 background work, including sensors, after several minutes, which is why we are
@@ -81,7 +81,7 @@ all entities below them. Now, there is an option to only show favorites to reduc
 what gets loaded and prevent accidental changes. Try it out and let us know if you
 prefer this more focused experience!
 
-![Screenshots of a Wear OS device, showing an Assist complication a watchface, updated launch screen, and favorites only home screen](/images/blog/2023-03-31-android/wear.png)
+![Screenshots of a Wear OS device, showing an Assist complication a watchface, updated launch screen, and favorites only home screen](/images/blog/2023-03-30-android/wear.png)
 
 [@SkechyWolf] and [@dshokouhi] also worked on the look and feel of the app to make it
 fit in better with other modern Wear apps.
