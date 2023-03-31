@@ -8,7 +8,6 @@ ha_category:
   - Light
   - Sensor
   - Switch
-  - Update
 ha_domain: homeseer
 ha_integration_type: brand
 works_with:
