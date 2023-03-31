@@ -51,6 +51,9 @@ Enjoy the release!
 - [Release 2023.3.1 - March 2](#release-202331---march-2)
 - [Release 2023.3.2 - March 8](#release-202332---march-8)
 - [Release 2023.3.3 - March 9](#release-202333---march-9)
+- [Release 2023.3.4 - March 13](#release-202334---march-13)
+- [Release 2023.3.5 - March 16](#release-202335---march-16)
+- [Release 2023.3.6 - March 22](#release-202336---march-22)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -499,6 +502,186 @@ We welcome the following new integrations in this release:
 [roomba docs]: /integrations/roomba/
 [sensor docs]: /integrations/sensor/
 [tibber docs]: /integrations/tibber/
+
+## Release 2023.3.4 - March 13
+
+- Recode Home Assistant instance name to ascii for Jellyfin ([@j-stienstra] - [#87368]) ([jellyfin docs])
+- Fix gtfs with 2023.3 (sqlachemy update) ([@vingerha] - [#89175]) ([gtfs docs])
+- Reconnect on any ScreenLogic exception ([@dieselrabbit] - [#89269]) ([screenlogic docs])
+- Fix data migration never finishing when database has invalid datetimes ([@bdraco] - [#89474]) ([recorder docs])
+- Fix bug in fibaro cover ([@rappenze] - [#89502]) ([fibaro docs])
+- Bump pydeconz to v110 ([@Kane610] - [#89527]) ([deconz docs])
+- Fix get_significant_states_with_session query looking at legacy columns ([@bdraco] - [#89558]) ([recorder docs])
+- Bump aiopvpc to 4.1.0 ([@azogue] - [#89593]) ([pvpc_hourly_pricing docs])
+- Increase maximum aiohttp connections to 4096 ([@bdraco] - [#89611])
+- Rename modules named repairs.py which are not repairs platforms ([@emontnemery] - [#89618]) ([hassio docs]) ([bayesian docs])
+- Improved "ON" state check for `Use room sensor for cooling` ([@tomrennen] - [#89634]) ([nibe_heatpump docs])
+- Bump SQLAlchemy to 2.0.6 ([@balloob] - [#89650]) ([recorder docs]) ([sql docs])
+- Bump ZHA dependencies ([@puddly] - [#89667]) ([zha docs])
+
+[@puddly]: https://github.com/puddly
+[#89667]: https://github.com/home-assistant/core/pull/89667
+[zha docs]: /integrations/zha/
+[#89650]: https://github.com/home-assistant/core/pull/89650
+[sql docs]: /integrations/sql/
+[recorder docs]: /integrations/recorder/
+[#87368]: https://github.com/home-assistant/core/pull/87368
+[#88979]: https://github.com/home-assistant/core/pull/88979
+[#89059]: https://github.com/home-assistant/core/pull/89059
+[#89175]: https://github.com/home-assistant/core/pull/89175
+[#89269]: https://github.com/home-assistant/core/pull/89269
+[#89381]: https://github.com/home-assistant/core/pull/89381
+[#89459]: https://github.com/home-assistant/core/pull/89459
+[#89474]: https://github.com/home-assistant/core/pull/89474
+[#89502]: https://github.com/home-assistant/core/pull/89502
+[#89527]: https://github.com/home-assistant/core/pull/89527
+[#89558]: https://github.com/home-assistant/core/pull/89558
+[#89593]: https://github.com/home-assistant/core/pull/89593
+[#89611]: https://github.com/home-assistant/core/pull/89611
+[#89618]: https://github.com/home-assistant/core/pull/89618
+[#89634]: https://github.com/home-assistant/core/pull/89634
+[@Kane610]: https://github.com/Kane610
+[@azogue]: https://github.com/azogue
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@dieselrabbit]: https://github.com/dieselrabbit
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@j-stienstra]: https://github.com/j-stienstra
+[@rappenze]: https://github.com/rappenze
+[@tomrennen]: https://github.com/tomrennen
+[@vingerha]: https://github.com/vingerha
+[abode docs]: /integrations/abode/
+[bayesian docs]: /integrations/bayesian/
+[deconz docs]: /integrations/deconz/
+[dormakaba_dkey docs]: /integrations/dormakaba_dkey/
+[fibaro docs]: /integrations/fibaro/
+[frontend docs]: /integrations/frontend/
+[gtfs docs]: /integrations/gtfs/
+[hassio docs]: /integrations/hassio/
+[jellyfin docs]: /integrations/jellyfin/
+[knx docs]: /integrations/knx/
+[nibe_heatpump docs]: /integrations/nibe_heatpump/
+[pvpc_hourly_pricing docs]: /integrations/pvpc_hourly_pricing/
+[recorder docs]: /integrations/recorder/
+[screenlogic docs]: /integrations/screenlogic/
+[sensor docs]: /integrations/sensor/
+[tibber docs]: /integrations/tibber/
+
+## Release 2023.3.5 - March 16
+
+- ArestData does not have available ([@zhangsheng377] - [#88631]) ([arest docs])
+- Bump aioesphomeapi to 13.5.0 ([@bdraco] - [#89262]) ([esphome docs]) (dependency)
+- Handle int or mapping for off case in nibe cooling ([@elupus] - [#89680]) ([nibe_heatpump docs])
+- Secure modbus hub_collect remains valid ([@janiversen] - [#89684]) ([modbus docs])
+- Update to nibe 2.1.4 ([@elupus] - [#89686]) ([nibe_heatpump docs]) (dependency)
+- Bump bond-async to 0.1.23 ([@marciogranzotto] - [#89697]) ([bond docs]) (dependency)
+- Correct modbus serial method parameter ([@janiversen] - [#89738]) ([modbus docs])
+- Fix imap server push holding HA startup ([@jbouwh] - [#89750]) ([imap docs])
+- Bump aioesphomeapi to 13.5.1 ([@bdraco] - [#89777]) ([esphome docs]) (dependency)
+- Update frontend to 20230309.1 ([@bramkragten] - [#89802]) ([frontend docs])
+
+[#88631]: https://github.com/home-assistant/core/pull/88631
+[#88979]: https://github.com/home-assistant/core/pull/88979
+[#89059]: https://github.com/home-assistant/core/pull/89059
+[#89262]: https://github.com/home-assistant/core/pull/89262
+[#89381]: https://github.com/home-assistant/core/pull/89381
+[#89459]: https://github.com/home-assistant/core/pull/89459
+[#89647]: https://github.com/home-assistant/core/pull/89647
+[#89680]: https://github.com/home-assistant/core/pull/89680
+[#89684]: https://github.com/home-assistant/core/pull/89684
+[#89686]: https://github.com/home-assistant/core/pull/89686
+[#89697]: https://github.com/home-assistant/core/pull/89697
+[#89738]: https://github.com/home-assistant/core/pull/89738
+[#89750]: https://github.com/home-assistant/core/pull/89750
+[#89777]: https://github.com/home-assistant/core/pull/89777
+[#89802]: https://github.com/home-assistant/core/pull/89802
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@jbouwh]: https://github.com/jbouwh
+[@marciogranzotto]: https://github.com/marciogranzotto
+[@zhangsheng377]: https://github.com/zhangsheng377
+[abode docs]: /integrations/abode/
+[arest docs]: /integrations/arest/
+[bond docs]: /integrations/bond/
+[dormakaba_dkey docs]: /integrations/dormakaba_dkey/
+[esphome docs]: /integrations/esphome/
+[frontend docs]: /integrations/frontend/
+[imap docs]: /integrations/imap/
+[knx docs]: /integrations/knx/
+[modbus docs]: /integrations/modbus/
+[nibe_heatpump docs]: /integrations/nibe_heatpump/
+[sensor docs]: /integrations/sensor/
+[tibber docs]: /integrations/tibber
+
+## Release 2023.3.6 - March 22
+
+- Fix imap_email_content unknown status and replaying stale states ([@jbouwh] - [#89563]) ([imap_email_content docs])
+- Bump aioharmony to 0.2.10 ([@bdraco] - [#89831]) ([harmony docs])
+- Correct missing wordswap for S series nibe ([@elupus] - [#89866]) ([nibe_heatpump docs])
+- Fix blocking MQTT entry unload ([@jbouwh] - [#89922]) ([mqtt docs])
+- Remove async_block_till_done in freebox ([@bdraco] - [#89928]) ([freebox docs])
+- Bump aiomusiccast to 0.14.8 ([@micha91] - [#89978]) ([yamaha_musiccast docs])
+- Handle cancelation of wait_for_ble_connections_free in esphome bluetooth ([@bdraco] - [#90014]) ([esphome docs])
+- Bump yalexs_ble to 2.1.0 ([@bdraco] - [#89772]) ([august docs]) ([yalexs_ble docs])
+- Bump yalexs-ble to 2.1.1 ([@bdraco] - [#90015]) ([yalexs_ble docs])
+- Bump easyEnergy to v0.2.1 ([@klaasnicolaas] - [#89630]) ([easyenergy docs])
+- Bump easyEnergy to v0.2.2 ([@klaasnicolaas] - [#90080]) ([easyenergy docs])
+- Bump to oralb-ble 0.17.6 ([@Lash-L] - [#90081]) ([oralb docs])
+- Bump PySwitchbot to 0.37.4 ([@bdraco] - [#90146]) ([switchbot docs])
+- Always enforce URL param ordering for signed URLs ([@balloob] - [#90148]) ([http docs])
+
+[#88979]: https://github.com/home-assistant/core/pull/88979
+[#89059]: https://github.com/home-assistant/core/pull/89059
+[#89381]: https://github.com/home-assistant/core/pull/89381
+[#89459]: https://github.com/home-assistant/core/pull/89459
+[#89563]: https://github.com/home-assistant/core/pull/89563
+[#89630]: https://github.com/home-assistant/core/pull/89630
+[#89647]: https://github.com/home-assistant/core/pull/89647
+[#89772]: https://github.com/home-assistant/core/pull/89772
+[#89814]: https://github.com/home-assistant/core/pull/89814
+[#89831]: https://github.com/home-assistant/core/pull/89831
+[#89866]: https://github.com/home-assistant/core/pull/89866
+[#89922]: https://github.com/home-assistant/core/pull/89922
+[#89928]: https://github.com/home-assistant/core/pull/89928
+[#89978]: https://github.com/home-assistant/core/pull/89978
+[#90014]: https://github.com/home-assistant/core/pull/90014
+[#90015]: https://github.com/home-assistant/core/pull/90015
+[#90080]: https://github.com/home-assistant/core/pull/90080
+[#90081]: https://github.com/home-assistant/core/pull/90081
+[#90146]: https://github.com/home-assistant/core/pull/90146
+[#90148]: https://github.com/home-assistant/core/pull/90148
+[@Lash-L]: https://github.com/Lash-L
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@micha91]: https://github.com/micha91
+[abode docs]: /integrations/abode/
+[august docs]: /integrations/august/
+[dormakaba_dkey docs]: /integrations/dormakaba_dkey/
+[easyenergy docs]: /integrations/easyenergy/
+[esphome docs]: /integrations/esphome/
+[freebox docs]: /integrations/freebox/
+[frontend docs]: /integrations/frontend/
+[harmony docs]: /integrations/harmony/
+[http docs]: /integrations/http/
+[imap_email_content docs]: /integrations/imap_email_content/
+[knx docs]: /integrations/knx/
+[mqtt docs]: /integrations/mqtt/
+[nibe_heatpump docs]: /integrations/nibe_heatpump/
+[oralb docs]: /integrations/oralb/
+[sensor docs]: /integrations/sensor/
+[switchbot docs]: /integrations/switchbot/
+[tibber docs]: /integrations/tibber/
+[yalexs_ble docs]: /integrations/yalexs_ble/
+[yamaha_musiccast docs]: /integrations/yamaha_musiccast/
 
 ## Need help? Join the community!
 
