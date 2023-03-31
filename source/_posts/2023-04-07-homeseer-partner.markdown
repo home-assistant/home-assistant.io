@@ -2,7 +2,7 @@
 layout: post
 title: "HomeSeer joins Works with Home Assistant"
 description: "HomeSeer join the Works with Home Assistant partner program as a Z-Wave partner."
-date: 2023-03-07 00:00:00
+date: 2023-04-07 00:00:00
 date_formatted: "April 7th, 2023"
 author: Uwe Bernitt
 comments: true
