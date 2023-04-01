@@ -1,5 +1,6 @@
 {% include head.html %}
-<body class="{% if page.layout == 'blog' or page.layout == 'post' %}bg-grey-primary{% endif %} relative">
+<body {% if page.body_id %} id="{{ page.body_id }}"{% elsif page.layout == "landingpage" %} id="landingpage"{% endif %} 
+  class="{% if page.layout == 'blog' or page.layout == 'post' %}bg-grey-primary{% endif %} relative">
     <!-- header -->
     {% include header.html %}
     <!-- searchBox -->
