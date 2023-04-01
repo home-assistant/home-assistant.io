@@ -17,6 +17,7 @@ ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - diagnostics
   - sensor
   - switch
 ha_zeroconf: true

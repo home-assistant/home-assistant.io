@@ -53,6 +53,10 @@ gprof2dot -f pstats profile.1234567890123456.cprof | dot -Tsvg -o profile.svg
 
 ### Service `profiler.memory`
 
+<div class='note warning'>
+This service is unavailable when using Python 3.11 as the underlying guppy3 library does not yet support Python 3.11.
+</div>
+
 Start the memory profiler for the specified number of seconds.
 
 | Service data attribute | Optional | Description |
@@ -133,3 +137,7 @@ Log what is scheduled in the event loop. This can be helpful in tracking down in
 Each upcoming scheduled item is logged similar to the below example:
 
 `[homeassistant.components.profiler] Scheduled: <TimerHandle when=1528307.1818668307 async_track_point_in_utc_time.<locals>.run_action(<Job HassJobType.Coroutinefunction <bound method DataUpdateCoordinator._handle_refresh_interval of <homeassistant.components.screenlogic.ScreenlogicDataUpdateCoordinator object at 0x7f985d896d30>>>) at /usr/src/homeassistant/homeassistant/helpers/event.py:1175>`
+
+### Service `profiler.lru_stats`
+
+Logs statistics from [lru_cache](https://docs.python.org/3/library/functools.html#functools.lru_cache) and [lru-dict](https://pypi.org/project/lru-dict/) to help tune Home Assistant and locate memory leaks.

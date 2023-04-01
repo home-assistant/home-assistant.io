@@ -82,7 +82,7 @@ command_topic:
   required: true
   type: string
 device:
-  description: 'Information about the device this lock is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
+  description: 'Information about the device this lock is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
   required: false
   type: map
   keys:
@@ -193,7 +193,7 @@ payload_open:
   type: string
   default: OPEN
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level of the state topic. It will also be used for messages published to command topic.
   required: false
   type: integer
   default: 0
