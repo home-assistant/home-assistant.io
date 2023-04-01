@@ -6,6 +6,27 @@ layout: default
     <div class="relative z-20">
         <h1 class="pt-[80px] sm:pt-[200px] pb-[55px] md:pb-[120px] text-white text-[32px] md:text-[68px] text-center font-bold">{{page.title}}</h1>
         <div class="learn-grid grid md:grid-cols-2 lg:grid-cols-3 tracking-[-0.02em] text-black">
+            <div class="border-border-line border rounded-[40px] mb-10 p-7 md:py-14 md:px-2 bg-white text-center mx-2 md:mx-5">
+                <div class="h-[34px] md:h-[70px] mb-10 text-center"><a href="{{guide.url}}"><img src="{{ site.baseurl }}images/icon/get-started.svg" class="m-auto h-full" alt="Get started" loading="lazy"></a></div>
+                <a href="{{guide.url}}" class="text-lg md:text-4xl font-bold">Get started</a>
+                <div class="hidden md:block mt-8">
+                    <a href="/installation/" class="text-lg font-medium mb-5 block">Installation</a>
+                    <a href="/getting-started/onboarding/" class="text-lg font-medium mb-5 block">Onboarding</a>
+                    {% active_link /getting-started/concepts-terminology/ Concepts and terminology %}
+                    {% active_link /getting-started/automation/ Automation %}
+                    <li>
+                      {% active_link /getting-started/presence-detection/ Presence detection
+                      %}
+                    </li>
+                    <li>
+                      {% active_link /getting-started/join-the-community/ Join the community
+                      %}
+                    </li>
+                    <li>
+                      {% active_link /getting-started/configuration/ Advanced Configuration %}
+                    </li>
+                </div>
+            </div>
             {% assign sortedGuides = site.guides | sort: 'order' %}
             {% for guide in sortedGuides %}
             <div class="border-border-line border rounded-[40px] mb-10 p-7 md:py-14 md:px-2 bg-white text-center mx-2 md:mx-5">
