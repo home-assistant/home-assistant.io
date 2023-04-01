@@ -26,6 +26,10 @@ resource:
   description: The resource or endpoint used to control the REST switch.
   required: true
   type: string
+resource_template:
+  description: The resource or endpoint that contains the value with template support.
+  required: false
+  type: template    
 state_resource:
   description: "The resource or endpoint that reports the state if different from `resource`. Used by `is_on_template`. Defaults to `resource`."
   required: false
@@ -90,7 +94,7 @@ verify_ssl:
 Make sure that the URL matches exactly your endpoint or resource.
 </div>
 
-## Example
+## Examples
 
 ### Switch with templated value
 
@@ -118,3 +122,26 @@ switch:
 {% endraw %}
 
 `body_on` and `body_off` can also depend on the state of the system. For example, to enable a remote temperature sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. This can be achieved by using the template `{% raw %}'{"rem_temp":{{states('sensor.bedroom_temp')}}}'{% endraw %}`.
+
+
+### Switch with a templated resource :
+This example shows a switch that uses a resource [template](/docs/configuration/templating/) to allow Home Assistant to determine its endpoint.
+It connects to a 3D printer using "fluid" gui, with a (almost) "rest" swith setup, named "LEDs", to switch power on lights. But endpoint varies based on the current light's state.
+
+The enpoint returns this JSON response :
+```json
+{"result":{"LEDs": "on"}}
+```
+
+```yaml
+switch:
+  - platform: rest
+    name: "ngen Leds"
+    is_on_template: '{{ value_json is not none and value_json.result["LEDs"] == "on" }}'
+    state_resource: http://IP:7125/machine/device_power/status?LEDs
+    resource_template: >
+      {% if is_state('switch.ngen_Leds', 'on') %}
+        http://IP:7125/machine/device_power/off?LEDs
+      {% else %}
+        http://IP:7125/machine/device_power/on?LEDs
+```
