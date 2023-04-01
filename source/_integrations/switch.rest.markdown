@@ -133,6 +133,8 @@ The enpoint returns this JSON response :
 {"result":{"LEDs": "on"}}
 ```
 
+{% raw %}
+
 ```yaml
 switch:
   - platform: rest
@@ -145,3 +147,5 @@ switch:
       {% else %}
         http://IP:7125/machine/device_power/on?LEDs
 ```
+
+{% endraw %}
