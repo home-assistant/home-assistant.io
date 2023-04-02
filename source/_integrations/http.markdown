@@ -71,8 +71,12 @@ ip_ban_enabled:
   required: false
   type: boolean
   default: false
+ip_ban_allowlist:
+  description: List of IP addresses or networks that will not cause a ban on a failed login. Instead of a ban an informational message is written to the log indicating the matched allowlist entry and the number of failed logins from this IP.
+  required: false
+  type: [string, list]
 login_attempts_threshold:
-  description: "Number of failed login attempt from single IP after which it will be automatically banned if `ip_ban_enabled` is `true`. When set to -1 no new automatic bans will be added."
+  description: "Number of failed login attempt from single IP after which it will be automatically banned if `ip_ban_enabled` is `true` and the IP does not match any entries under `ip_ban_allowlist`. When set to -1 no new automatic bans will be added."
   required: false
   type: integer
   default: -1
@@ -99,6 +103,9 @@ http:
     - 10.0.0.200
     - 172.30.33.0/24
   ip_ban_enabled: true
+  ip_ban_allowlist:
+    - 192.168.50.0/24
+    - 192.168.1.1
   login_attempts_threshold: 5
 ```
 
@@ -138,6 +145,8 @@ If you want to apply additional IP filtering, and automatically ban brute force 
 127.0.0.1:
   banned_at: "2016-11-16T19:20:03"
 ```
+
+To exclude specific IP addresses or networks from being banned, you can add them to the `ip_ban_allowlist` list.
 
 After a ban is added a Persistent Notification is populated to the Home Assistant frontend.
 
