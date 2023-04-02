@@ -65,6 +65,14 @@ Mark all items as incomplete in the shopping list.
 
 Clear completed items from the shopping list.
 
+### Service `shopping_list.sort_list`
+
+Sort all items by name in the shopping list.
+
+| Service data attribute | Optional | Description                                                         |
+|------------------------|----------|---------------------------------------------------------------------|
+| `sort_reverse`         |      yes | Whether to sort in reverse (_descending_) order. (default: `False`) |
+
 ## Using in Automations
 
 A `shopping_list_updated` event is triggered when items in the list are modified, with the following data payload attached to it. This can be used to trigger automations such as sending a push notification when someone adds an item to the shopping list, which when clicked, will open the list.
