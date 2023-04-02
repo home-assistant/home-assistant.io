@@ -1,5 +1,5 @@
 ---
-title: Android debug bridge
+title: Android Debug Bridge
 description: Instructions on how to integrate Android and Fire TV devices into Home Assistant.
 ha_category:
   - Media Player
@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The `androidtv` integration allows you to control an Android device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
+The Android Debug Bridge integration allows you to control an Android device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
 
 <div class='note'>
 
@@ -229,7 +229,7 @@ Similarly, you can use the `androidtv.upload` service to upload a file from Home
 
 ## Custom State Detection
 
-The Android debug bridge integration works by polling the Android / Fire TV device at a regular interval and collecting a handful of properties. Unfortunately, there is no standard API for determining the state of the device to which all apps adhere. Instead, the backend `androidtv` package uses three of the properties that it collects to determine the state: `audio_state`, `media_session_state`, and `wake_lock_size`. The correct logic for determining the state differs depending on the current app, and the backend `androidtv` package implements app-specific state detection logic for a handful of apps. Of course, it is not feasible to implement custom logic for each and every app in the `androidtv` package. Moreover, the correct state detection logic may differ across devices and device configurations.
+The Android Debug Bridge integration works by polling the Android / Fire TV device at a regular interval and collecting a handful of properties. Unfortunately, there is no standard API for determining the state of the device to which all apps adhere. Instead, the backend `androidtv` package uses three of the properties that it collects to determine the state: `audio_state`, `media_session_state`, and `wake_lock_size`. The correct logic for determining the state differs depending on the current app, and the backend `androidtv` package implements app-specific state detection logic for a handful of apps. Of course, it is not feasible to implement custom logic for each and every app in the `androidtv` package. Moreover, the correct state detection logic may differ across devices and device configurations.
 
 The solution to this problem is the `state_detection_rules` configuration parameter, which allows you to provide your own rules for state detection.  The keys are app IDs, and the values are lists of rules that are evaluated in order.  Valid rules are:
 
