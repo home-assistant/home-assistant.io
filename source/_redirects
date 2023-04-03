@@ -263,6 +263,7 @@
 /integrations/trace /docs/automation/troubleshooting
 /integrations/hassio /hassio
 /integrations/cloud.alexa /cloud/alexa
+/integrations/imap_email_content /integrations/imap/#using-events
 /getting-started/automation-create-first /getting-started/automation
 /getting-started/automation-2 /getting-started/automation
 /getting-started/automation-action /docs/automation/action
