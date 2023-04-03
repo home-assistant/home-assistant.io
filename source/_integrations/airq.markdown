@@ -85,4 +85,4 @@ PM1, PM25, and PM10 correspond to concentrations of particulates with diameter l
 
 Virus Index uses CO2 as a proxy for potential aerosol load and can be seen as an indicator of ventilation sufficiency (0 %: insufficient ventilation, 100 %: all fine).
 
-Virtual sensors "Relative Pressure" and "Virus Index" are introduced in firmware v1.80.0 but deactivated by default. Users can activate them in the air-Q mobile application under "Advanced settings".
+Virtual sensors "Relative Pressure" and "Virus Index" are introduced in firmware v1.80.0 but deactivated by default. You can activate them in the air-Q mobile application under "Advanced settings".
