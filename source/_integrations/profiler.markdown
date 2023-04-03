@@ -81,11 +81,28 @@ Start logging the growth of objects in memory.
 | ---------------------- | -------- | ----------- |
 | `scan_interval` | yes | The the frequency between logging objects. Defaults to 30.0
 
-Periodically log the growth of new objects in memory. This service's primary use case is finding memory leaks.
+Periodically log the growth of new objects in memory. This service's primary use case is finding memory leaks. This service can be run for long periods to find slow leaks. For finding fast leaks, `profiler.start_log_object_sources` is preferred; however, it is much more CPU intensive.
 
 ### Service `profiler.stop_log_objects`
 
 Stop logging the growth of objects in memory.
+
+### Service `profiler.start_log_object_sources`
+
+Start logging the growth of objects in memory and attempt to find the source of the new objects.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `scan_interval` | yes | The the frequency between logging objects. Defaults to 30.0
+| `max_objects` | yes | The number of new objects to examine for source information. Defaults to 5
+
+Periodically log the growth of new objects in memory. This service's primary use case is finding memory leaks.
+
+This service is similar to `start_log_objects` except that it is much more CPU intensive since it will attempt to locate the source of each new object up to `max_objects` each time it logs.
+
+### Service `profiler.stop_log_object_sources`
+
+Stop logging the growth of objects with sources in memory.
 
 ### Service `profiler.dump_log_objects`
 
