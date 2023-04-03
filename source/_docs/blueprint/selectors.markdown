@@ -22,6 +22,7 @@ The following selectors are currently available:
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
 - [Config entry selector](#config-entry-selector)
+- [Constant selector](#constant-selector)
 - [Date selector](#date-selector)
 - [Date & time selector](#date--time-selector)
 - [Device selector](#device-selector)
@@ -241,12 +242,11 @@ For example: `next_dawn`.
 ## Boolean selector
 
 The boolean selector shows a toggle that allows the user to turn on or off
-the selected option. The input's value will contain the boolean value of that
-toggle as a boolean value, being `true` or `false`.
+the selected option.
 
 ![Screenshot of a boolean selector](/images/blueprints/selector-boolean.png)
 
-The boolean selector can be incredibly useful for adding feature switches
+The boolean selector is suitable for adding feature switches
 to, for example, blueprints.
 
 This selector does not have any other options; therefore, it only has its key.
@@ -255,7 +255,7 @@ This selector does not have any other options; therefore, it only has its key.
 boolean:
 ```
 
-The output of this selector is `true` when the toggle was on, `false` otherwise.
+The output of this selector is `true` when the toggle is on, `false` otherwise.
 
 ## Color temperature selector
 
@@ -304,6 +304,24 @@ integration:
 {% endconfiguration %}
 
 The output of this selector is the entry ID of the config entry, for example, `6b68b250388cbe0d620c92dd3acc93ec`.
+
+## Constant selector
+
+The constant selector shows a toggle that allows the user to enable the selected option.
+This is similar to the [boolean selector](#boolean-selector), the difference
+is that the constant selector has no value when it's not enabled.
+
+![Screenshot of a constant selector](/images/blueprints/selector-constant.png)
+
+The selector's value must be configured, and optionally, a label.
+
+```yaml
+boolean:
+  value: true
+  label: Enabled
+```
+
+The output of this selector is the configured value when the toggle is on, it has not output otherwise.
 
 ## Date selector
 
