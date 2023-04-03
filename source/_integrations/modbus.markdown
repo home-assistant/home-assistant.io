@@ -1013,6 +1013,10 @@ sensors:
       description: The maximum allowed value of a sensor. If value > max_value --> max_value. Can be float or integer
       required: false
       type: float
+    nan_value:
+      description: The NaN value if the sensor has an explicit NaN return. Can be float, integer or in hex notation
+      required: false
+      type: int
     zero_suppress:
       description: Suppress values close to zero. If -zero_suppress <= value <= +zero_suppress --> 0. Can be float or integer
       required: false
