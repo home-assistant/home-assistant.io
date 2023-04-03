@@ -65,13 +65,13 @@ Mark all items as incomplete in the shopping list.
 
 Clear completed items from the shopping list.
 
-### Service `shopping_list.sort_list`
+### Service `shopping_list.sort`
 
 Sort all items by name in the shopping list.
 
 | Service data attribute | Optional | Description                                                         |
 |------------------------|----------|---------------------------------------------------------------------|
-| `sort_reverse`         |      yes | Whether to sort in reverse (_descending_) order. (default: `False`) |
+| `reverse`              |      yes | Whether to sort in reverse (_descending_) order. (default: `False`) |
 
 ## Using in Automations
 
