@@ -150,6 +150,16 @@ Print out a list of all the sensor states:
 {% endfor %}
 ```
 
+Print out a list of all the sensor states sorted by `entity_id`:
+
+{% raw %}
+
+```text
+{% for state in states.sensor | sort(attribute='entity_id') %}
+  {{ state.entity_id }}={{ state.state }},
+{% endfor %}
+```
+
 {% endraw %}
 
 Entities that are on:
