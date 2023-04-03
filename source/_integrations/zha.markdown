@@ -510,6 +510,16 @@ Since all Zigbee Coordinator radio adapters are very sensitive/susceptible to al
   - Place your Zigbee Coordinator away from any Wi-Fi access points and all other sources of WiFi.
   - Wi-Fi frequency ranges can overlap with Zigbee, see the section above on defining Zigbee channel use.
 
+### Zigbee network visualization in ZHA UI
+
+ZHA configuration UI has a window/tab for "Visualization" that provides a visual representation of device links in your Zigbee network topology.
+
+This network visualization can sometimes be of help to get a quick overview in identifying devices that are reporting links with poor connection (e.i. low values), however, be aware that for deeper troubleshooting you will need to look at the ZHA logs instead.
+
+The visualization tried to show multi-hop connections between your paired devices and their reported cumulative values of RSSI (“Received Signal Strength Indicator") and LQI ("Link Quality Indication").
+
+Note that the exact method in which these values are reported depends on the Zigbee network stack being used on each device, and LQI values can be modified at each step as the massage propagates through the mesh networking matrix.
+
 ### Reporting issues
 
 When reporting issues, please provide the following information in addition to information requested by issue template:
