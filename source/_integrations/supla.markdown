@@ -18,6 +18,7 @@ ha_integration_type: integration
 The [Supla](https://supla.org/) is an Open Source home automation system for ESP8266 based devices. It has its own set of protocols, its own firmware and commercially available devices (produced for example by [Zamel](https://zamel.pl/pl-PL/produkty/supla-sterowanie-wi-fi))
 
 Currently supported channel types are:
+
 - covers (shutters in Supla's lingo)
 - gates and garage doors
 - switches
