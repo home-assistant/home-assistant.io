@@ -12,19 +12,11 @@ layout: default
                 <div class="hidden md:block mt-8">
                     <a href="/installation/" class="text-lg font-medium mb-5 block">Installation</a>
                     <a href="/getting-started/onboarding/" class="text-lg font-medium mb-5 block">Onboarding</a>
-                    {% active_link /getting-started/concepts-terminology/ Concepts and terminology %}
-                    {% active_link /getting-started/automation/ Automation %}
-                    <li>
-                      {% active_link /getting-started/presence-detection/ Presence detection
-                      %}
-                    </li>
-                    <li>
-                      {% active_link /getting-started/join-the-community/ Join the community
-                      %}
-                    </li>
-                    <li>
-                      {% active_link /getting-started/configuration/ Advanced Configuration %}
-                    </li>
+                    <a href="/getting-started/concepts-terminology/" class="text-lg font-medium mb-5 block">Concepts and terminology</a>
+                    <a href="/getting-started/automation/" class="text-lg font-medium mb-5 block">Automation</a>
+                    <a href="/getting-started/presence-detection/" class="text-lg font-medium mb-5 block">Presence detection</a>
+                    <a href="/getting-started/join-the-community/" class="text-lg font-medium mb-5 block">Join the community</a>
+                    <a href="/getting-started/configuration/" class="text-lg font-medium mb-5 block">Advanced configuration</a>
                 </div>
             </div>
             {% assign sortedGuides = site.guides | sort: 'order' %}
