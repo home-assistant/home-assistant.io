@@ -3,10 +3,11 @@ title: Matter (BETA)
 description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary Sensor
+  - Cover
   - Light
+  - Lock
   - Sensor
   - Switch
-  - Lock
 ha_release: '2022.12'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -15,11 +16,12 @@ ha_codeowners:
 ha_domain: matter
 ha_platforms:
   - binary_sensor
+  - cover
   - diagnostics
   - light
+  - lock
   - sensor
   - switch
-  - lock
 ha_integration_type: integration
 ---
 
@@ -28,8 +30,6 @@ The Matter integration allows you to control Matter devices on your local WiFi o
 Matter is [the new standard for home automation](https://en.wikipedia.org/wiki/Matter_(standard)) which has just been released. It is in the process of being adopted by the tech industry. Matter is a local protocol, device control is done without the need of any cloud. You can use a Matter compatible device with Home Assistant without having to connect to a vendor specific cloud.
 
 Matter devices are available using either WiFi based communication or [Thread](/integrations/thread/), both are supported by Home Assistant. Bluetooth is used for adding new devices to your Matter network.
-
-Home Assistant only supports control of Matter devices. Home Assistant is not a bridge itself and it cannot turn devices within Home Assistant into Matter compatible devices.
 
 At this time there are only a few devices available that are compatible with the standard and some of them require you to join a beta/developer program. It is to be expected that more devices will hit the market during the 2nd quarter of 2023 and beyond.
 
@@ -53,7 +53,7 @@ _If you run Home Assistant Container, Home Assistant Core, or you don’t want t
 
 While the support for Matter is evolving, we will regularly update the Matter integration with new features or device support. Because it might be hard to track what's supported and what not, we list the current state here and try to update this information as often as possible.
 
-Platform support in Home Assistant is currently limited to switches, lights, and (binary) sensors. The light platform is limited to _on/off_ and _brightness_ control only, support for _color_ and _color temperature_ control will be added soon.
+Platform support in Home Assistant is currently limited to switches, lights, locks, covers and (binary) sensors.
 
 ### Known issues
 
@@ -166,6 +166,11 @@ Once the initial firmware upgrade to Matter is complete, the device can also be 
 - [Eve Energy on Amazon](https://amzn.to/3YuO62P)
 - [Eve Door & Window on Amazon](https://amzn.to/3RIU6ml)
 - [Eve Motion on Amazon](https://amzn.to/3jDujiP)
+
+### Zemismart Roller Shade Motor (cover)
+This cover is supported by [Longan.Link](https://longan.link/), a professional matter module provider, and will be on sale soon. It runs Matter out of the box, so you can directly add it to the controller(s) of your choice!
+
+- [Zemismart Roller Shade Motor Pre-Sale](https://www.zemismart.com/products/zm25m)
 
 ## Troubleshooting
 
