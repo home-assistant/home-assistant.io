@@ -48,7 +48,7 @@ The Z-Wave integration allows you to control a Z-Wave network via the [Node Z-Wa
 
 ## Overview
 
-The Z-Wave integration in Home Assistant talks to one of two possible add-ons: the official Z-Wave JS add-on, or the community add-on Z-WAVE JS UI. Both add-ons include the Node Z-Wave JS driver. This driver talks to a controller device (Z-Wave dongle or GPIO (general purpose input/output) board) 
+The Z-Wave integration in Home Assistant talks to one of two possible add-ons: the official Z-Wave JS add-on, or the community add-on Z-Wave JS UI. Both add-ons include the Node Z-Wave JS driver. This driver talks to a controller device (Z-Wave dongle or GPIO (general purpose input/output) board) 
 via USB or TCP.
 
 <figure>
