@@ -1,18 +1,6 @@
 {% capture name %}{{ include.name | default: page.title }}{% endcapture %}
 {% capture domain %}{{ include.domain | default: page.ha_domain }}{% endcapture %}
 
-## Configuration
-
-Adding {{ name }} to your Home Assistant instance can be done via the user
-interface, by using this My button:
-
-{% my config_flow_start badge domain=domain %}
-
-{% if include.discovery or page.ha_dhcp or page.ha_homekit or page.ha_ssdp or page.ha_zeroconf or page.ha_mqtt %}
-{{ name }} can be auto-discovered by Home Assistant. If an instance was found,
-it will be shown as _"Discovered"_, which you can select to set it up right
-away.
-{% endif %}
 
 {% details "Manual configuration steps" %}
 {% if include.discovery or page.ha_dhcp or page.ha_homekit or page.ha_ssdp or page.ha_zeroconf or page.ha_mqtt %}
@@ -23,6 +11,9 @@ If the above My button doesn't work, you can also perform the following steps
 manually:
 {% endif %}
 
+Use this My button:
+
+{% my config_flow_start badge domain=domain %}, or follow these steps:
 - Browse to your Home Assistant instance.
 - In the sidebar click on _**{% my config icon %}**_.
 - From the configuration menu select: _**{% my integrations %}**_.
@@ -35,6 +26,6 @@ manually:
   _**{% my config_flow_start icon domain=domain %}**_ button.
 {% endif %}
 - From the list, search and select _**"{{ name }}"**_.
-- Follow the instruction on screen to complete the set up.
+- Follow the instructions on screen to complete the set up.
 
 {% enddetails %}

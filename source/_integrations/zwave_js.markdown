@@ -44,19 +44,52 @@ ha_integration_type: hub
 ha_zeroconf: true
 ---
 
-This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
+The Z-Wave integration allows you to control a Z-Wave network via the [Node Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
 
-To Run Z-Wave you will need a [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules), a running Z-Wave JS server (using only **one** of the add-ons or installation methods described below), and the Z-Wave integration.
+## Overview
 
-{% include integrations/config_flow.md %}
+The Z-Wave integration in Home Assistant talks to one of two possible add-ons: the official Z-Wave JS add-on, or the community add-on Z-WAVE JS UI. Both add-ons include the Node Z-Wave JS driver. This driver talks to a controller device (Z-Wave dongle or GPIO (general purpose input/output) board) 
+via USB or TCP.
 
-If you run Home Assistant Container, Home Assistant Core, or you don't want to use the built-in Z-Wave JS Server add-on, please see the [advanced installation instructions](#advanced-installation-instructions).
+<figure>
+  <img src="/images/integrations/z-wave/z-wave-terminology.png" alt="Z-Wave terminology overview" style="width:100%">
+  <figcaption>Z-Wave terminology overview</figcaption>
+</figure>
 
-For new installations, network security keys will be automatically generated for you. If this Z-Wave stick has already been paired with secure devices, you need to enter the previously used network key as the S0 network key. S2 security keys will be automatically generated for you. Make sure that you keep a backup of these keys in a safe place in case you need to move your Z-Wave stick to another device.
+To run a Z-Wave network, you need the following elements:
+
+* A [supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). First time user? For recommendations on what to buy, go [here](integrations/zwave_js/#which-z-wave-controller-should-i-buy).
+* A running Z-Wave JS server (using only **one** of the add-ons described here)
+* An installed Z-Wave integration in Home Assistant.
+
+## Setting up a Z-Wave JS server
+
+The easiest way to get started is by using the built-in Z-Wave JS add-on in Home Assistant. 
+
+If you run Home Assistant Container, Home Assistant Core, or you don't want to use the built-in Z-Wave JS Server add-on, refer to the [advanced installation instructions](#advanced-installation-instructions). 
+
+Everyone else, follow these steps:
+
+1. Open the Home Assistant user interface.
+1. Plug the Z-Wave dongle into the device running Home Assistant.
+   - Most likely, your dongle will be recognized automatically. On the user interface, you will be asked if you want to set up this device with the Z-Wave JS add-on. Select **Submit**.
+   - If your dongle is not recognized, follow these steps: {% include integrations/manual_config_steps.md %}
+3. Wait for the installation to complete.
+1. You are prompted for network security keys. 
+   - If you are using Z-Wave for the first time, leave all the fields empty and select **Submit**. The system will generate network security keys for you.
+   - If this Z-Wave dongle has already been paired with secure devices, you need to enter the previously used network key as the S0 network key. S2 security keys will be automatically generated for you. 
+   - Make sure that you keep a backup of these keys in a safe place in case you need to move your Z-Wave dongle to another device. Copy and paste them somewhere safe.
+1. Wait for the Z-Wave JS add-on to start up.
+1. Once the installation is complete, the **Device info** of the Z-Wave controller is shown.
+   - You successfully installed the Z-Wave JS add-on and the Z-Wave integration.
+   - You can now add devices to the Z-Wave network.
 
 <p class='note'>
-While your Z-Wave mesh is permanently stored on your stick, the additional metadata is not. When the Z-Wave integration starts up the first time, it will interview your entire Z-Wave network. Depending on the number of devices paired with the Z-Wave stick, this can take a while. You can speed up this process by manually waking up your battery-powered devices. Most of the time this is a press on the button on those devices (see their manual). It is not necessary to exclude/re-include devices from the mesh.
+While your Z-Wave mesh is permanently stored on your dongle, the additional metadata is not. When the Z-Wave integration starts up the first time, it will interview your entire Z-Wave network. Depending on the number of devices paired with the Z-Wave dongle, this can take a while. You can speed up this process by manually waking up your battery-powered devices. Most of the time, this is a press on the button on those devices (see their manual). It is not necessary to exclude and re-include devices from the mesh.
 </p>
+
+
+
 
 ## Services
 
