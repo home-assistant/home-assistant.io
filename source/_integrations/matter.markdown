@@ -31,6 +31,8 @@ Matter is [the new standard for home automation](https://en.wikipedia.org/wiki/M
 
 Matter devices are available using either WiFi based communication or [Thread](/integrations/thread/), both are supported by Home Assistant. Bluetooth is used for adding new devices to your Matter network.
 
+Home Assistant only supports control of Matter devices. Home Assistant is not a bridge itself and it cannot turn devices within Home Assistant into Matter compatible devices.
+
 At this time there are only a few devices available that are compatible with the standard and some of them require you to join a beta/developer program. It is to be expected that more devices will hit the market during the 2nd quarter of 2023 and beyond.
 
 <p class='note'>
@@ -166,11 +168,6 @@ Once the initial firmware upgrade to Matter is complete, the device can also be 
 - [Eve Energy on Amazon](https://amzn.to/3YuO62P)
 - [Eve Door & Window on Amazon](https://amzn.to/3RIU6ml)
 - [Eve Motion on Amazon](https://amzn.to/3jDujiP)
-
-### Zemismart Roller Shade Motor (cover)
-This cover is supported by [Longan.Link](https://longan.link/), a professional matter module provider, and will be on sale soon. It runs Matter out of the box, so you can directly add it to the controller(s) of your choice!
-
-- [Zemismart Roller Shade Motor Pre-Sale](https://www.zemismart.com/products/zm25m)
 
 ## Troubleshooting
 
