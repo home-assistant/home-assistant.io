@@ -24,78 +24,85 @@ regenerate: false
 {%- assign components_by_version = site.integrations | group_components_by_release -%}
 {%- assign categories = components | map: 'ha_category' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
 {%- assign iot_classes = components | map: 'ha_iot_class' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
-{%- assign quality_scales = components | map: 'ha_quality_scale' | join: ',' | join: ',' | split: ',' | uniq  -%}
+{%- assign quality_scales = components | map: 'ha_quality_scale' | join: ',' | join: ',' | split: ',' | uniq | sort  -%}
 
 <p class='note'>
   Support for these integrations is provided by the Home Assistant community.
 </p>
 <div class="grid">
+  <div class="grid-filters">
+    <div class="grid__item one-quarter lap-one-whole palm-one-whole">
+        <div class="integration_filter">
+          <h3 class="filter-title">Category</h3>
+          <select class="ha_category" name="category" data-id="cat">
+            <option value="#">All</option>
+            <option value="featured">Featured</option>
+      
+            {%- for category in categories -%}
+            {%- assign components_count = components | where: 'ha_category', category | size -%}
+            {%- if category and category != 'Other' and components_count != 0 -%}
+            <option value='{{ category | slugify }}'>{{ category }}</option>
+            {%- endif -%}
+            {%- endfor -%}
+      
+            <option value='other'>Other</option>
+      
+          </select>
+        </div>
+    </div>
+
+    <div class="grid__item one-quarter lap-one-whole palm-one-whole">
+      <div class="integration_filter">
+        <h3 class="filter-title">Version</h3>
+        <select class="ha_category" name="versions" data-id="version">
+          <option value="#">All</option>
+          {%- for group in components_by_version -%}
+          <optgroup label="{{ group.label }} ({{group.new_components_count}})">
+            {%- for version in group.versions -%}
+            <option value="{{ version.label }}">{{ version.label }}</option>
+            {%- endfor -%}
+          </optgroup>
+          {%- endfor -%}
+        </select>
+      </div>
+    </div>
+
+    <div class="grid__item one-quarter lap-one-whole palm-one-whole">
+      <div class="integration_filter">
+        <h3 class="filter-title">IoT Class</h3>
+        <select class="ha_category" name="iot_classes" data-id="iot_class">
+          <option value="#">All</option>
+          {%- for iot_class in iot_classes -%}
+            {%- assign iot_class_count = components | where: 'ha_iot_class', iot_class | size -%}
+            {%- if iot_class_count != 0 -%}
+            <option value="{{ iot_class | slugify }}">{{ iot_class }}</option>
+            {%- endif -%}
+          {%- endfor -%}
+        </select>
+      </div>
+    </div>
+
+    <div class="grid__item one-quarter lap-one-whole palm-one-whole">
+      <div class="integration_filter">
+        <h3 class="filter-title">Quality Scale</h3>
+        <select class="ha_category" name="quality_scales" data-id="quality_scale">
+          <option value="#">All</option>
+          {%- for quality_scale in quality_scales -%}
+            {%- assign quality_scale_count = components | where: 'ha_quality_scale', quality_scale | size -%}
+            {%- if quality_scale_count != 0 -%}
+            <option value="{{ quality_scale | slugify }}">{{ quality_scale | capitalize }}</option>
+            {%- endif -%}
+          {%- endfor -%}
+        </select>
+      </div>
+    </div>
+  </div>
+
   <div class="grid__item six-sixths lap-one-whole palm-one-whole">
     <div class="component-search">
       <form onsubmit="event.preventDefault(); return false">
         <input type="text" name="search" id="search" data-id="search" class="search" placeholder="Search integrations..." autofocus />
       </form>
-    </div>
-  </div>
-  <div class="grid__item one-quarter lap-one-whole palm-one-whole">
-      <div class="integration_filter">
-        <select class="ha_category" name="category" data-id="cat">
-          <option value="#">Category</option>
-          <option value="featured">Featured</option>
-          <option value="all">All</option>
-    
-          {%- for category in categories -%}
-          {%- assign components_count = components | where: 'ha_category', category | size -%}
-          {%- if category and category != 'Other' and components_count != 0 -%}
-          <option value='{{ category | slugify }}'>{{ category }}</option>
-          {%- endif -%}
-          {%- endfor -%}
-    
-          <option value='other'>Other</option>
-    
-        </select>
-      </div>
-  </div>
-  <div class="grid__item one-quarter lap-one-whole palm-one-whole">
-    <div class="integration_filter">
-      <select class="ha_category" name="versions" data-id="version">
-        <option value="#">Version</option>
-        {%- for group in components_by_version -%}
-        <optgroup label="{{ group.label }} ({{group.new_components_count}})">
-          {%- for version in group.versions -%}
-          <option value="{{ version.label }}">{{ version.label }}</option>
-          {%- endfor -%}
-        </optgroup>
-        {%- endfor -%}
-      </select>
-    </div>
-  </div>
-
-  <div class="grid__item one-quarter lap-one-whole palm-one-whole">
-    <div class="integration_filter">
-      <select class="ha_category" name="iot_classes" data-id="iot_class">
-        <option value="#">IoT Class</option>
-        {%- for iot_class in iot_classes -%}
-          {%- assign iot_class_count = components | where: 'ha_iot_class', iot_class | size -%}
-          {%- if iot_class_count != 0 -%}
-          <option value="{{ iot_class | slugify }}">{{ iot_class }}</option>
-          {%- endif -%}
-        {%- endfor -%}
-      </select>
-    </div>
-  </div>
-
-  <div class="grid__item one-quarter lap-one-whole palm-one-whole">
-    <div class="integration_filter">
-      <select class="ha_category" name="quality_scales" data-id="quality_scale">
-        <option value="#">Quality Scale</option>
-        {%- for quality_scale in quality_scales -%}
-          {%- assign quality_scale_count = components | where: 'ha_quality_scale', quality_scale | size -%}
-          {%- if quality_scale_count != 0 -%}
-          <option value="{{ quality_scale | slugify }}">{{ quality_scale | capitalize }}</option>
-          {%- endif -%}
-        {%- endfor -%}
-      </select>
     </div>
   </div>
 
@@ -297,7 +304,7 @@ integrations.pop(); // remove placeholder element at the end
     }
 
     // filter all components, based on the locations hash/search and render them into the component box
-    function applyFilter(queryFilter) {
+    function applyFilter() {
       var logoLazyLoad = new LazyLoad({
         elements_selector: ".option-card img"
       });
@@ -426,10 +433,17 @@ integrations.pop(); // remove placeholder element at the end
     function matchFilterToURL(id, query) {
       //dynamically grab select variables
       let $filterElement = window[`$${id}Filter`];
+      let options = [...$filterElement[0].querySelectorAll('option')]
 
       //set the value of select dropdown if it doesn't currently match the query in the url
       if ($filterElement.val() !== query) {
-        $filterElement.val(query);
+
+        // only change the select dropdown if it matches an available dropdown value
+        options.forEach(option => {
+          if (option.value === query) {
+            $filterElement.val(query);
+          }
+        })
       }
     }
 

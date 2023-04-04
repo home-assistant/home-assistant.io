@@ -13,15 +13,69 @@
     }
   }
 
-  .integration_filter .ha_category {
-    width: 100%;
-    margin-bottom: 15px;
-    text-align: center;
+  .grid-filters {
+    @media only screen and (min-width: $desk-start) {
+      display: flex;
+    }
+  }
+
+  .integration_filter {
+    position: relative;
+
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 50%;
+      margin-top: 2px;
+      right: 8px;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid black;
+    }
+
+    .ha_category {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 100%;
+      margin-bottom: 15px;
+      text-align: center;
+      border: 2px solid #6ab0de;
+      border-top-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-top: 0;
+      position: relative;
+      top: -2px;
+      padding: 5px 5px 2px;
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+
+  .filter-title {
+      background: #6ab0de;
+      color: white;
+      text-align: center;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      padding: 5px;
+      margin-top: 0;
+      margin-bottom: -2px;
+      text-transform: capitalize;
+      font-size: 18px;
+      position: relative;
+      z-index: 1;
   }
   
   .active-filter {
     margin: 10px 5px 0px 0px;
-    padding: 5px;
+    padding: 5px 10px;
     min-width: 100px;
     background-color: #6ab0de;
     border-radius: 28px;
