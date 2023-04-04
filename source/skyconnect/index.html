@@ -26,6 +26,48 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
     max-width: 750px;
     margin: 100px auto;
   }
+
+  .material-card .documentation-card svg {
+      height: 42px;
+      max-width: 42px;
+      min-width: 42px;
+      align-self: center;
+  }
+
+  .material-card .documentation-card {
+    text-decoration: none !important;
+    color: black !important;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 8px 0;
+  }
+  
+  .material-card .documentation-card .content-container {
+    display: flex;
+  }
+
+  .material-card .documentation-card .content-container div:first-of-type {
+    margin-right: 24px;
+  }
+
+  .material-card .documentation-card .content-container div:first-of-type img, .material-card .documentation-card .content-container div:first-of-type svg {
+    max-width: 170px;
+    max-height: 170px;
+    min-width: 170px;
+    min-height: 170px;
+    padding: 32px;
+    border-radius: 3px;
+    box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+    vertical-align: middle;
+    border: 5px solid #fff;
+  }
+
+  .material-card .documentation-card div {
+    display: flex;
+    align-items: center;
+  }
 </style>
 
 <div class="content">
@@ -174,6 +216,25 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
 
 <div style="margin-top: 24px; text-align: center; font-size: .8rem;">
   1: Relies on the experimental EmberZNet support in Zigbee2MQTT.
+</div>
+<div class="material-card text spaced-card" style="margin-top: 72px;">
+  <a href="https://skyconnect.home-assistant.io/" target="_blank"
+  class="documentation-card">
+    <div class="content-container">
+        <div>
+            
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6m0 2h7v5h5v11H6V4m2 8v2h8v-2H8m0 4v2h5v-2H8Z"
+            />
+          </svg>
+        </div>
+        <div>
+            <h1>View documentation</h1>
+        </div>
+    </div>
+    {% include assets/chevron_right.html %}
+  </a>
 </div>
 
 <div id="buy-dialog" class="dialog">
