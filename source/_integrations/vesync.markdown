@@ -15,6 +15,7 @@ ha_codeowners:
 ha_domain: vesync
 ha_platforms:
   - fan
+  - humidifier
   - light
   - sensor
   - switch
@@ -30,6 +31,7 @@ The following platforms are supported:
 - **light**
 - **switch**
 - **fan**
+- **humidifier**
 - **sensor**
 
 ## Supported Devices
@@ -61,6 +63,10 @@ This integration supports devices controllable by the VeSync App.  The following
 - Core 400S: Smart True HEPA Air Purifier
 - Core 600S: Smart True HEPA Air Purifier
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
+
+## Humidifiers
+
+- LEVOIT LV600S: Smart Hybrid Ultrasonic Humidifier
 
 ## Prerequisite
 
@@ -98,6 +104,14 @@ All VeSync air purifiers expose the remaining filter life, and some also expose 
 | `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, Core200S/300s/400s/600s)         | 142       |
 | `air_quality`           | The current air quality reading. (LV-PUR131S, Core300s/400s/600s)                      | excellent |
 | `pm2_5`                 | The current air quality reading. (Core300s/400s/600s)                                  | 8         |
+
+## Humidifier Exposed Sensors
+
+VeSync humidifiers will expose the following details:
+
+| Sensor                                  | Description    | Example |
+| --------------------------------------- | -------------- | ------- |
+| `humidity`           | Measured Humidity.                | 45      |
 
 ## Fan Exposed Attributes
 
