@@ -15,14 +15,10 @@ ha_integration_type: integration
 The Anova sensor platform allows you to control [Anova](https://anovaculinary.com/pages/find-your-anova-precision-cooker) sous vides with Wi-Fi capability.
 
 Supported devices (tested):
+- AN500-10 (Anova Precision Cooker)
+- AN500-US00 (Anova Precision Cooker)
+- AN600-10 (Anova Precision Cooker Pro)
 
-- [Anova Precision Cooker](https://anovaculinary.com/products/anova-precision-cooker)
-
-Supported devices (untested):
-
-- [Anova Precision Cooker Pro](https://anovaculinary.com/products/anova-precision-cooker-pro)
-- [(Anova)RED Precision Cooker](https://anovaculinary.com/products/anova-red-precision-cooker)
-- [(Anova)RED Precision Cooker Pro](https://anovaculinary.com/products/anova-red-precision-cooker)
 
 The 'nano' versions of the sous vide are not supported, but as long as your app is connected to the sous vide, the data should update. They would be better served using BLE instead of API calls.
 
