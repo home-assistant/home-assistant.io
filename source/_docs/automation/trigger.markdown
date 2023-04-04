@@ -5,7 +5,7 @@ description: "All the different ways how automations can be triggered."
 
 Triggers are what starts the processing of an automation rule. When _any_ of the automation's triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](/docs/automation/condition/), if any, and call the [action](/docs/automation/action/).
 
-An automation can be triggered by an event, with a certain entity state, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
+An automation can be triggered by an event, a certain entity state, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
 
 - [Trigger ID](#trigger-id)
 - [Trigger variables](#trigger-variables)
