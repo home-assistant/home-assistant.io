@@ -72,7 +72,9 @@ Not supported in [limited templates](#limited-templates).
 - Iterating `states` will yield each state sorted alphabetically by entity ID.
 - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
-- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity, `unknown` if it doesn't exist, `unavailable` if the object exists but is not yet available.
+- `states` can also be used as a function, `states(entity_id, rounded=False, with_unit=False)`, which returns the state string (not the state object) of the given entity, `unknown` if it doesn't exist, and `unavailable` if the object exists but is not available.
+  - The optional arguments `rounded` and `with_unit` control the formatting of sensor state strings, please see the [examples](#formatting-sensor-states) below.
+- `states.sensor.temperature.state_with_unit` formats the state string in the same was is if calling `states('sensor.temperature', rounded=True, with_unit=True)`.
 - `is_state` compares an entity's state with a specified state or list of states and returns `True` or `False`. `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state. `is_state('device_tracker.paulus', ['home', 'work'])` will test if the given entity is any of the states in the list.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') is none` or `state_attr('sensor.my_sensor', 'attr') == None` (note the difference in the capitalization of none in both versions).
@@ -82,8 +84,6 @@ Not supported in [limited templates](#limited-templates).
   Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
 
 </div>
-
-Besides the normal [state object methods and properties](/topics/state_object/), `states.sensor.temperature.state_with_unit` will print the state of the entity and, if available, the unit.
 
 #### States examples
 
@@ -154,9 +154,61 @@ Other state examples:
 {{ states('sensor.expires') | as_datetime }}
 
 # Make a list of states
-{{ ['light.kitchen', 'light.dinig_room'] | map('states') | list }}
+{{ ['light.kitchen', 'light.dining_room'] | map('states') | list }}
 ```
 
+{% endraw %}
+
+#### Formatting sensor states
+
+The examples below show the output of a temperature sensor with state `20.001`, unit `°C` and user configured presentation rounding set to 1 decimal.
+
+The following example results in the number `20.001`:
+
+{% raw %}
+```text
+{{ states('sensor.temperature') }}
+```
+{% endraw %}
+
+The following example results in the string `"20.0 °C"`:
+
+{% raw %}
+```text
+{{ states('sensor.temperature', with_unit=True) }}
+```
+{% endraw %}
+
+The following example result in the string `"20.001 °C"`:
+
+{% raw %}
+```text
+{{ states('sensor.temperature', with_unit=True, rounded=False) }}
+```
+{% endraw %}
+
+The following example results in the number `20.0`:
+
+{% raw %}
+```text
+{{ states('sensor.temperature', rounded=True) }}
+```
+{% endraw %}
+
+The following example results in the number `20.001`:
+
+{% raw %}
+```text
+{{ states.sensor.temperature.state }}
+```
+{% endraw %}
+
+The following example results in the string `"20.0 °C"`:
+
+{% raw %}
+```text
+{{ states.sensor.temperature.state_with_unit }}
+```
 {% endraw %}
 
 ### Attributes
@@ -458,7 +510,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 - `as_datetime()` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object.
 - `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts datetime object to local time. This function can also be used as a filter.
-- `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, returns the `default` value, or if omitted raises an error.
+- `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3.10/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
 - `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g.,  if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
 - `timedelta` returns a timedelta object and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
 
