@@ -1061,7 +1061,3 @@ The following integrations are also no longer available as of this release:
 
 Of course, there is a lot more in this release. You can find a list of
 all changes made here: [Full changelog for Home Assistant Core 2023.4](/changelogs/core-2023.4)
-
-```
-
-```
