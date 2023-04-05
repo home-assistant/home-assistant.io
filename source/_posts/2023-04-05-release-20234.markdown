@@ -572,14 +572,6 @@ other news about building an Open Home; straight into your inbox.
 
 ## Breaking Changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-
-**Note**: Breaking changes processed up to PR 90423
-
-{% enddetails %}
-
 {% details "Aladdin Connect" %}
 
 The previously deprecated YAML configuration of the Aladdin Connect integration
@@ -613,8 +605,8 @@ since 2022.5 and is now removed. Use the new `update` entity instead.
 This change only affects Home Assistant instances running directly on
 MacOS (not inside a virtual machine).
 
-Any integration or device that was previously set up using a UUID
-bluetooth address will need to be deleted and recreated.
+Any integration or device previously set up using a UUID Bluetooth
+address will need to be deleted and recreated.
 
 ([@bdraco] - [#89926]) ([documentation](/integrations/bluetooth))
 
@@ -626,7 +618,7 @@ bluetooth address will need to be deleted and recreated.
 {% details "Calendar" %}
 
 The `calendar.create_event` service now enforces that start and end dates are
-exclusive. This has always been part of the specification, but was not clearly
+exclusive. This has always been part of the specification but was not clearly
 documented and enforced.
 
 ([@allenporter] - [#89533]) ([documentation](/integrations/calendar))
@@ -666,12 +658,11 @@ this change.
 
 ---
 
-The `name` and `station` sensor state attributes have been removed due
-to the fact that they are static data that do not describe the state of
-the entity.
+The `name` and `station` sensor state attributes have been removed because
+they are static data that do not describe the state of the entity.
 
 The `index` sensor state attribute has been migrated to a separate entity,
-e.g. `sensor.home_no2_index`.
+for example, `sensor.home_no2_index`.
 
 ([@bieniu] - [#89389]) ([documentation](/integrations/gios))
 
@@ -685,10 +676,10 @@ e.g. `sensor.home_no2_index`.
 The behavior of passing parameters to service calls targeting notification
 groups has changed.
 
-**Current behaviour**: `data` mappings configured in the **service** override
+**Current behavior**: `data` mappings configured in the **service** override
 mappings configured in the **action**.
 
-**New behaviour**: `data` mappings configured in the **action** override
+**New behavior**: `data` mappings configured in the **action** override
 mappings configured in the **service**.
 
 ([@arychj] - [#90253]) ([documentation](/integrations/group))
@@ -700,7 +691,7 @@ mappings configured in the **service**.
 
 {% details "Home Connect" %}
 
-Not really a breaking change, but as of now, only programs entities are
+Not really a breaking change, but as of now, only program entities are
 created for the programs your device supports. You might need to manually remove
 old/existing entities that are no longer provided.
 
@@ -737,7 +728,7 @@ To resolve the breaking change :
   `sensor.heat_meter_heat_previous_year` for automations, scripts, etc.,
   you can replace these with the GJ-entities `sensor.heat_meter_heat_usage_gj`
   and `sensor.heat_meter_heat_previous_year_gj`.
-- If applicable, in the energy dashboard replace `sensor.heat_meter_heat_usage`
+- If applicable, in the energy dashboard, replace `sensor.heat_meter_heat_usage`
   with `sensor.heat_meter_heat_usage_gj`. Note that the energy dashboard will
   still convert to MWh or kWh, therefore resulting in the same values as before.
 
@@ -752,7 +743,7 @@ To resolve the breaking change :
 
 Logbook will be unavailable until the database schema migration completes.
 Logbook script and automation traces from previous runs of Home Assistant
-will be unavailable until background data is migration is completed following
+will be unavailable until background data migration is completed following
 the schema migration.
 
 ([@bdraco] - [#88942] [#89465]) ([documentation](/integrations/logbook))
@@ -782,8 +773,8 @@ for these events in the logbook tab.
   service to instead use the `text.set_value` service and the corresponding
   text entity as a target.
 - The MySensors IR `switch` entity, corresponding to an `S_IR` child with
-  `V_SEND` value, has been removed. This entity been deprecated since 2023.2.0.
-  It's been replaced by a `remote` entity.
+  `V_SEND` value, has been removed. This entity hasb been deprecated since
+  2023.2.0. It's been replaced by a `remote` entity.
 - You should update any automations or scripts that use the `mysensors.send_ir_code`
   service to instead use the `remote.send_command` service and the corresponding
   `remote` entity as a target. Similar changes should be made for actions using
@@ -828,7 +819,7 @@ not start up.
 
 ---
 
-The previously deprecated MQTT broker YAML configuration, has been removed.
+The previously deprecated MQTT broker YAML configuration has been removed.
 
 The MQTT broker is now configured via the UI, any existing MQTT broker YAML
 configuration has been imported in previous releases and can now be safely
@@ -843,8 +834,8 @@ removed from your YAML configuration files.
 
 {% details "Nextcloud" %}
 
-The option to define an own scan interval has been removed, data is now updated
-every 60 seconds.
+The option to define your own scan interval has been removed, data is now
+updated every 60 seconds.
 
 ([@mib1185] - [#89396]) ([documentation](/integrations/nextcloud))
 
@@ -863,6 +854,43 @@ and cheaper GPT 3.5 model.
 [@balloob]: https://github.com/balloob
 [#90423]: https://github.com/home-assistant/core/pull/90423
 
+---
+
+The built-in `areas` variable is no longer overwritten and is now the same as
+`areas` in every template. The new default template is now:
+
+{% raw %}
+
+```jinja
+This smart home is controlled by Home Assistant.
+
+An overview of the areas and the devices in this smart home:
+{%- for area in areas() %}
+  {%- set area_info = namespace(printed=false) %}
+  {%- for device in area_devices(area) -%}
+    {%- if not device_attr(device, "disabled_by") and not device_attr(device, "entry_type") and device_attr(device, "name") %}
+      {%- if not area_info.printed %}
+
+{{ area_name(area) }}:
+        {%- set area_info.printed = true %}
+      {%- endif %}
+- {{ device_attr(device, "name") }}{% if device_attr(device, "model") and (device_attr(device, "model") | string) not in (device_attr(device, "name") | string) %} ({{ device_attr(device, "model") }}){% endif %}
+    {%- endif %}
+  {%- endfor %}
+{%- endfor %}
+
+Answer the user's questions about the world truthfully.
+
+If the user wants to control a device, reject the request and suggest using the Home Assistant app.
+```
+
+{% endraw %}
+
+([@balloob] - [#90481]) ([documentation](/integrations/openai_conversation))
+
+[@balloob]: https://github.com/balloob
+[#90481]: https://github.com/home-assistant/core/pull/90481
+
 {% enddetails %}
 
 {% details "Overkiz" %}
@@ -872,10 +900,10 @@ Have been removed, see [this issue](https://github.com/iMicknl/ha-tahoma/issues/
 for more details on this device.
 
 To sum up, this device is a garage door but cannot be exposed as such within
-Home Assistant. There is no state returned, and no clear open and close command.
+Home Assistant. There is no state returned and no clear open and close command.
 
 Only one command is available: `cycle`. A `button` is a perfect fit for this
-use case, and remove all confusion; and this button entity has been added this
+use case and remove all confusion; this button entity has been added this
 release.
 
 ([@tetienne] - [#89043]) ([documentation](/integrations/overkiz))
@@ -917,6 +945,18 @@ your YAML configuration files.
 
 {% enddetails %}
 
+{% details "Recorder" %}
+
+Oversized events with data larger than 32KiB are no longer recorded
+to avoid overloading the database and polluting the memory cache.
+
+([@bdraco] - [#90747]) ([documentation](/integrations/recorder))
+
+[@bdraco]: https://github.com/bdraco
+[#90747]: https://github.com/home-assistant/core/pull/90747
+
+{% enddetails %}
+
 {% details "Scrape" %}
 
 The previously deprecated YAML configuration of the Scrape integration
@@ -953,9 +993,8 @@ your YAML configuration files.
 
 Tasmota `sensor` no longer sets the `force_update` flag to True.
 
-Tasmota `binary_sensor` no longer sets the `force_update` flag to True, with
-the exception of `binary_sensor` mapped to a Tasmota switch with switchmode
-set to 13 or 14.
+Tasmota `binary_sensor` no longer sets the `force_update` flag to True, except
+for `binary_sensor` mapped to a Tasmota switch with switchmode set to 13 or 14.
 
 ([@DerEnderKeks] - [#85943]) ([documentation](/integrations/tasmota))
 
@@ -974,21 +1013,40 @@ longer supported in limited templates.
 [@petro31]: https://github.com/Petro31
 [#86815]: https://github.com/home-assistant/core/pull/86815
 
+---
+
+Enumerating states using templates are no longer sorted by
+`entity_id` by default, as it was computationally expensive.
+
+To restore the original behavior, a `sort` filter can be added to any
+existing template using the below example:
+
+{% raw %}
+
+```jinja
+{% for state in states | sort(attribute='entity_id') %}
+```
+
+{% endraw %}
+
+[@bdraco]: https://github.com/bdraco
+[#90608]: https://github.com/home-assistant/core/pull/90608
+
 {% enddetails %}
 
 {% details "Threshold" %}
 
-The behavior of threshold binary sensor has changed:
+The behavior of the threshold binary sensor has changed:
 
 - The threshold binary sensor's state is reset to `unknown` when the monitored
-  sensor's state is unknown, unavailable or not a valid float.
+  sensor's state is unknown, unavailable, or not a valid float.
 - When the monitored sensor's state is first valid, or when it's valid
-  after being `unknown`, `unavailable` or not a valid float:
+  after being `unknown`, `unavailable`, or not a valid float:
   - Initialize a threshold sensor with only a lower threshold to state `off`,
     with the `position` attribute set to `above`.
-  - Initialize a threshold sensor with only an upperthreshold to state `off`,
+  - Initialize a threshold sensor with only a upperthreshold to state `off`,
     with the `position` attribute set to `below`.
-  - Initialize a threshold sensor with only both an upper and a lower threshold
+  - Initialize a threshold sensor with only an upper and a lower threshold
     to state `on`, with the `position` attribute set to `in_range`.
 
 ([@emontnemery] - [#88978]) ([documentation](/integrations/threshold))
