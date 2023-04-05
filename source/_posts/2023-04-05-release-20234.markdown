@@ -350,46 +350,40 @@ entity, wait 24 hours after upgrading before renaming.
 
 ## New selector capabilities
 
-{% details "TODO" %}
+[Selectors](/docs/blueprint/selectors) are user inputs for the user interface
+that drive things like [Blueprints](/get-blueprints). A new selector for use
+in Blueprints has been added by [@emontnemery] and [@piitaya]: The constant selector.
 
-- Keep or move to other noteworthy?
-- Proof read/spelling/grammar
-- Improve/better examples?
-- Docs missing?
+The constant selector provides an optional input, which returns a fixed value
+(the constant) when enabled, otherwise doesn't provide any value at all.
 
-- Add filter options to entity and device selectors ([@piitaya] - [#87536]) (noteworthy)
-- Add support for constant selector ([@emontnemery] - [#89573]) (noteworthy)
-
-{% enddetails %}
-
-A new selector for use in your Blueprints has been added by [@emontnemery]
-and [@piitaya]: The constant selector.
-
-The constant select provides an optional input, that provides a fixed value
-(the constant) or doesn't provide anything at all.
-
-<video width="620px" controls="controls"><source src="https://user-images.githubusercontent.com/5878303/224061490-358c6dc8-587a-4c54-8ed0-2358a764b226.mp4" type="video/mp4"></video>
+Example use in a Blueprint:
 
 ```yaml
-white:
-  name: White
-  description: Set the light to white mode
-  advanced: true
+example:
+  name: Constant selector example
   selector:
     constant:
-      value: true
       label: Enabled
+      value: true
 ```
 
-Also improved this release, are the device and entity filters on the Area,
-Entity, Device, and Target selectors. Previously, you could filter with a
-single set of conditions, now you can pass in a list of filters.
+Which results in the following:
 
-If you are building Blueprints, this can be really helpful, if a user should
-be able to select, for example, one of multiple different devices.
+<p class='img'>
+<img src='/images/blueprints/selector-constant.png' alt='A screenshot showing the new constant selector.'></a>
+When checked, the selector returns the set value.
+</p>
+
+Also improved are the device and entity filters on the [Area],
+[Entity], [Device], and [Target] selectors. Previously, you could filter with a
+single set of conditions; now, you can pass in a list of filters.
+
+If you are building Blueprints, this can be really helpful if a user should
+be able to select one of multiple different devices.
 
 An example, this selector allows you to select the batter sensor of
-either an Philips Hue RWL020 (US) or RWL021 (EU) remote in your Blueprint.
+either a Philips Hue RWL020 (US) or RWL021 (EU) remote in your Blueprint.
 
 ```yaml
 device:
@@ -404,6 +398,13 @@ device:
     - domain: sensor
       device_class: battery
 ```
+
+[@emontnemery]: https://github.com/emontnemery
+[@piitaya]: https://github.com/piitaya
+[area]: /docs/blueprint/selectors/#area-selector
+[device]: /docs/blueprint/selectors/#device-selector
+[entity]: /docs/blueprint/selectors/#entity-selector
+[target]: /docs/blueprint/selectors/#target-selector
 
 ## Translating entities
 
