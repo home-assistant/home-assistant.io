@@ -177,22 +177,13 @@ Note: This is a temporary placeholder screenshot. Needs replacement.
 
 ## Macros for your templates
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace macro with something more useful?
-- Link to docs
-
-{% enddetails %}
-
-If you are into writing templates, you will be very familiar with the templating
-language Home Assistant uses: Jinja. It allows you to do amazing powerful things
-in your templates. However, if you have lots of templates, you often end
-up repeating similar logic everywhere!
+If you are an advanced Home Assistant user, you most likely will be familiar
+with Home Assistant's templating language: Jinja2. It allows you to do amazing
+powerful things in your templates. However, if you have lots of them, you
+often end up repeating similar logic everywhere!
 
 [@depoll] to the rescue! He found a way to add the ability to centrally define
-your Jinja macros and import and use them anywhere in Home Assistant! 🤯
+your own Jinja2 macros and import and use them anywhere in Home Assistant! 🤯
 
 To support this, Home Assistant now has a new `custom_templates` folder, where
 you can store your macros. For example, assume this file
@@ -201,22 +192,25 @@ you can store your macros. For example, assume this file
 {% raw %}
 
 ```jinja
-{% macro is_on(entity_id) %}
+{% macro answer_question(entity_id) %}
+
 Is the {{ state_attr(entity_id, 'friendly_name') }} on?
 {{ (states(entity_id) == 'on') | iif('Yes', 'No') }}!
+
 {% endmacro %}
 ```
 
 {% endraw %}
 
-This macro `is_on` will ask and answer a question based on a given entity ID.
-You can now import and use this macro anywhere in Home Assistant. For example:
+This macro `answer_question` will ask and answer a question based on a given
+entity ID. You can now import and use this macro anywhere in Home Assistant.
+For example:
 
 {% raw %}
 
 ```jinja
-{% from 'tools.jinja' import is_on %}
-{{ is_on('light.kitch') }}
+{% from 'tools.jinja' import answer_question %}
+{{ answer_question('light.kitchen') }}
 ```
 
 {% endraw %}
@@ -228,7 +222,9 @@ Is the kitchen light on?
 Yes!
 ```
 
-An amazing contribution, thank you [@depoll]!
+An fantastic contribution! Thank you, [@depoll]!
+
+[Reusing templates documentation](/docs/configuration/templating/#reusing-templates)
 
 [@depoll]: https://github.com/depoll
 
