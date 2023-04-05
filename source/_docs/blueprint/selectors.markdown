@@ -174,7 +174,7 @@ entity:
       description: >
         Limits the list of areas to areas that have entities with a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
-      type: [supported_feature]
+      type: list
       required: false
 multiple:
   description: >
@@ -417,7 +417,7 @@ entity:
       description: >
         Limits the list of devices to devices that have entities with a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
-      type: [supported_feature]
+      type: list
       required: false
 filter:
   description: >
@@ -579,7 +579,7 @@ filter:
       description: >
         Limits the list of entities to entities that have a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
-      type: [supported_feature]
+      type: list
       required: false
 multiple:
   description: >
