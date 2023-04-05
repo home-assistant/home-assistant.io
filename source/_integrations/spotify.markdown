@@ -67,17 +67,17 @@ to allow you to log in with your Spotify account.
 7. Before we can start configuring Home Assistant, we need to grab the application
    credentials Home Assistant needs.
 
-  Click on the **SHOW CLIENT SECRET** button to reveal the client secret.
+  Click on the **View client secret** button to reveal the client secret.
 
   ![Show the client secret of the Spotify Application](/images/integrations/spotify/show-client-secret.png)
 
-8. The _"Client ID"_ and _"Client Secret"_ are the two pieces of information
+8. The _"Client ID"_ and _"Client secret"_ are the two pieces of information
    that Home Assistant needs to communicate with Spotify and is what we
    call: Application credentials.
 
   ![Get the application credentials from the Spotify Application](/images/integrations/spotify/application-credentials.png)
 
-   You will need the _"Client ID"_ and _"Client Secret"_ during the Spotify
+   You will need the _"Client ID"_ and _"Client secret"_ during the Spotify
    integration setup process in Home Assistant.
 
 You can now continue with the next chapter to configure the Spotify integration
