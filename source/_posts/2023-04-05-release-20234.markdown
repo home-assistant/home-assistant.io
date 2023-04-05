@@ -1050,6 +1050,7 @@ changes and new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following are the most notable for this release:
 
 - [Calendar best practices](https://developers.home-assistant.io/blog/2023/03/28/calendar_best_practices)
+- [Deprecating Polymer](https://developers.home-assistant.io/blog/2023/04/04/deprecating_polymer)
 - [Translating the name and attributes of entities](https://developers.home-assistant.io/blog/2023/03/27/entity_name_translations)
 
 [devblog]: https://developers.home-assistant.io/blog/
