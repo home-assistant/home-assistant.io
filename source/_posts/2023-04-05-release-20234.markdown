@@ -15,34 +15,20 @@ og_image: /images/blog/2023-04/social.png
 
 <a href='/integrations/#version/2023.4'><img src='/images/blog/2023-04/social.png' style='border: 0;box-shadow: none;'></a>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
-These are the beta release notes for Home Assistant Core 2023.4 (and is thus a
-work in progress).
-
-If you encounter any issues with the beta release, please report them on GitHub:
-
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/UI/dashboards:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
-
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
-
-Issues introduced in the beta are processed with priority.
-
----
-
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
 Home Assistant Core 2023.4! 🎉
 
-Thanks for helping out testing the beta! ❤️
+The spring (release) is here! And do we have some fine new features for you
+to play with this upcoming easter weekend! 🐰
 
-Enjoy the (beta) release!
+I'm thrilled to see more of those new entity dialogs coming in this release.
+They look beautiful and work exceptionally well from the mobile app. There is
+even an added bonus of new Tile card features! But...
+
+Oh boy, do I love the new ability to make your own Jinja2 template macros in
+this release. It is mind-blowing! The best thing about them, it makes them
+easily shareable as well! Can't wait to see what you all come up with!
+
+Happy Easter! 🐣 and enjoy the release!
 
 ../Frenck
 
@@ -1061,11 +1047,10 @@ changes and new features available for your integration: Be sure to follow our
 
 The following integrations are also no longer available as of this release:
 
-- **Dark Sky** has been removed. DApple acquired Dark Sky, and the API has now
-  been shut down.  
-  ([@gjohansson-ST] - [#90322])
+- **Dark Sky** has been removed. Apple acquired Dark Sky, and the API has now
+  been shut down. ([@gjohansson-ST] - [#90322])
 - **Magicseaweed** has been removed. Magicseedweed no longer provides API keys
-  to users. Additionally, the integration is no longer in a functional state.  
+  to users. Additionally, the integration is no longer in a functional state.
   ([@gjohansson-ST] - [#90277])
 
 [@gjohansson-st]: https://github.com/gjohansson-ST
@@ -1076,3 +1061,7 @@ The following integrations are also no longer available as of this release:
 
 Of course, there is a lot more in this release. You can find a list of
 all changes made here: [Full changelog for Home Assistant Core 2023.4](/changelogs/core-2023.4)
+
+```
+
+```
