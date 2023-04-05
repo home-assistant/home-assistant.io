@@ -3,6 +3,7 @@ title: Matter (BETA)
 description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary Sensor
+  - Cover
   - Light
   - Lock
   - Sensor
@@ -15,6 +16,7 @@ ha_codeowners:
 ha_domain: matter
 ha_platforms:
   - binary_sensor
+  - cover
   - diagnostics
   - light
   - lock
@@ -53,7 +55,7 @@ _If you run Home Assistant Container, Home Assistant Core, or you don’t want t
 
 While the support for Matter is evolving, we will regularly update the Matter integration with new features or device support. Because it might be hard to track what's supported and what not, we list the current state here and try to update this information as often as possible.
 
-Platform support in Home Assistant is currently limited to switches, lights, and (binary) sensors. The light platform is limited to _on/off_ and _brightness_ control only, support for _color_ and _color temperature_ control will be added soon.
+Platform support in Home Assistant is currently limited to switches, lights, locks, covers and (binary) sensors.
 
 ### Known issues
 

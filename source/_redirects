@@ -263,6 +263,7 @@
 /integrations/trace /docs/automation/troubleshooting
 /integrations/hassio /hassio
 /integrations/cloud.alexa /cloud/alexa
+/integrations/imap_email_content /integrations/imap/#using-events
 /getting-started/automation-create-first /getting-started/automation
 /getting-started/automation-2 /getting-started/automation
 /getting-started/automation-action /docs/automation/action
@@ -525,6 +526,7 @@
 /integrations/wink /more-info/removed-integration 301
 /integrations/wunderground /more-info/removed-integration 301
 /integrations/xbee /more-info/removed-integration 301
+/integrations/xbox_live /more-info/removed-integration 301
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
