@@ -55,7 +55,7 @@ Enjoy the (beta) release!
 - [New features for the Tile card](#new-features-for-the-tile-card)
 - [Macros for your templates](#macros-for-your-templates)
 - [Even more templating!](#even-more-templating)
-- [Database](#database)
+- [Database scalability](#database-scalability)
 - [New selector capabilities](#new-selector-capabilities)
 - [More translations!](#more-translations)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -323,54 +323,30 @@ additions! ❤️
 [@petro31]: https://github.com/Petro31
 [@rokam]: https://github.com/rokam
 
-## Database
+## Database scalability
 
-{% details "TODO" %}
+As your smart home grows and you add more devices, this means more data to keep
+track of. This release includes significant advancements to the recorder
+database design to help Home Assistant scale.
 
-- Add an actual story to it... ask bdraco? :D
-- Proof read/spelling/grammar
-- Improve/better examples?
-- Link to docs
+This version has a new database format that reduces the space needed to store
+history for your devices. This change comes with a few benefits:
 
-- Drop duplicated indices from recorder database schema ([@bdraco] - [#89613]) ([recorder docs])
-- Reduce size of load query to prime event_types and states_meta at startup ([@bdraco] - [#89677]) ([recorder docs])
-- Add keep_days to recorder.purge_entities ([@bdraco] - [#89726]) ([recorder docs])
-- Execute sql queries in the database executor when using the recorder database ([@bdraco] - [#89673]) ([sql docs])
-- Migrate EventData management to a table manager ([@bdraco] - [#89716]) ([recorder docs])
-- Fix cpu thrashing during purge after all legacy events were removed ([@bdraco] - [#89923]) ([recorder docs])
-- Fix generating statistics for time periods smaller than we can measure ([@bdraco] - [#90069]) ([sensor docs])
-- Remove legacy event lookups from logbook ([@bdraco] - [#89945]) ([logbook docs]) (breaking-change)
-- Rename recorder run_history to table_managers.recorder_runs_manager ([@bdraco] - [#90070]) ([recorder docs])
-- Subclass aiohttp requests to use json helper ([@bdraco] - [#90214]) ([http docs])
-- Use an event filter for event triggers ([@bdraco] - [#89339]) ([homeassistant docs])
-- Add schema auto repairs for states tables ([@bdraco] - [#90083]) ([recorder docs])
-- Add auto repairs for events schema ([@bdraco] - [#90136]) ([recorder docs])
-- Remove unneeded lambda_stmt in place add in statistics ([@bdraco] - [#89943]) ([recorder docs])
-- Set unique on StatesMeta and EventTypes database tables ([@bdraco] - [#89971]) ([recorder docs])
-- Avoid joining states_meta for statistics queries ([@bdraco] - [#89941]) ([recorder docs]) ([logbook docs])
-- Migrate StateAttributes to use a table manager ([@bdraco] - [#89760]) ([recorder docs])
-- Migrate States to use a table manager ([@bdraco] - [#89769]) ([recorder docs])
-- Retain history when renaming an entity_id ([@bdraco] - [#89963]) ([recorder docs])
-- Fix statistics schema auto repair when there is bad data ([@bdraco] - [#89903]) ([recorder docs])
-- Fix statistics schema µs precision auto repair being ineffective ([@bdraco] - [#89902]) ([recorder docs])
-- Add index to event_type and entity_id ([@bdraco] - [#89676]) ([recorder docs])
-- Improve event filters to reject earlier ([@bdraco] - [#89337])
-- Reduce overhead to store context ids in the database ([@bdraco] - [#88942]) ([recorder docs]) ([logbook docs]) (breaking-change)
-- Deduplicate event_types in the events table ([@bdraco] - [#89465]) ([recorder docs]) ([logbook docs]) (breaking-change)
-- Move legacy database queries and models to prepare for schema v38 ([@bdraco] - [#89532]) ([recorder docs])
-- Deduplicate entity_id in the states table ([@bdraco] - [#89557]) ([recorder docs]) ([history docs]) ([logbook docs])
-
-{% enddetails %}
-
-Some takeaways:
-
-- Faster 🚀
-- Smaller (deduplication), less disk usage.
+- Smaller (deduplication), less disk usage
 - Reduced disk IO (SD-card lifetime improvements)
-- Reduced CPU-usage
-- Quicker startup
-- Quicker response times everywhere
-- Retains history when renaming entities
+- Reduced CPU-usage 📉
+- Quicker startup 🏎️
+- Faster history graphs and logbook
+- Reduced latency in the entire system which means less waiting from the time
+  you hit a button until an action completes 🚀
+- Home Assistant now keeps history when renaming entities 🤘
+
+If you are accessing the database directly, check out the [Data Science Portal](https://data.home-assistant.io/)
+and the [SQL Integration](/integrations/sql/) for updated example queries.
+
+It may take a while to complete background data migration, depending on the size
+of your stored data. To ensure Home Assistant keeps history when renaming an
+entity, wait 24 hours after upgrading before renaming.
 
 ## New selector capabilities
 
