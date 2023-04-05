@@ -170,6 +170,12 @@ entity:
         the selection to.
       type: [device_class, list]
       required: false
+    supported_features:
+      description: >
+        Limits the list of areas to areas that have entities with a certain
+        supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
+      type: [supported_feature]
+      required: false
 multiple:
   description: >
     Allows selecting multiple areas. If set to `true`, the resulting value of
@@ -401,11 +407,17 @@ entity:
       required: false
     device_class:
       description: >
-        Limits the list of entities to entities that have a certain device
+        Limits the list of devices to devices that have entities with a certain device
         class(es), for example, `motion` or `window`. Can be either a string
         with a single device_class, or a list of string device_class to limit
         the selection to.
       type: [device_class, list]
+      required: false
+    supported_features:
+      description: >
+        Limits the list of devices to devices that have entities with a certain
+        supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
+      type: [supported_feature]
       required: false
 filter:
   description: >
@@ -562,6 +574,12 @@ filter:
         for example, `motion` or `window`. Can be either a string with a single device_class,
         or a list of string device_class to limit the selection to.
       type: [device_class, list]
+      required: false
+    supported_features:
+      description: >
+        Limits the list of entities to entities that have a certain
+        supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
+      type: [supported_feature]
       required: false
 multiple:
   description: >
