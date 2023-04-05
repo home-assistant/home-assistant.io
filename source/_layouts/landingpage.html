@@ -81,17 +81,10 @@ layout: page
       "scroll",
       function (e) {
         const header = document.querySelector(".site-header");
-        const fab = document.querySelector(".fab");
         if (e.currentTarget.scrollTop > 180) {
           header.style.backgroundColor = "#ffffff";
-          if (fab) {
-            fab.style.display = "flex";
-          }
         } else {
           header.style.backgroundColor = "#ffffff66";
-          if (fab) {
-            fab.style.display = "none";
-          }
         }
       },
       { passive: true, capture: true }
