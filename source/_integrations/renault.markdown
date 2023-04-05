@@ -30,6 +30,7 @@ This integration provides the following platforms:
 
 - Binary sensors - such as plug and charge status.
 - Device tracker - to track location of your car.
+- Buttons - to start air conditioning or start/stop the charge. Please note that although available these actions do not work on all vehicles.
 - Selectors - to change the charge mode.
 - Sensors - such as battery level, outside temperature, odometer, estimated range, and charging rate.
 

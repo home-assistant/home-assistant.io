@@ -193,4 +193,3 @@ provided by OpenUV. So, this strategy is followed:
 
 If you receive a re-authentication notification and are certain that your key has merely
 reached its daily call limit, you can safely ignore it.
-

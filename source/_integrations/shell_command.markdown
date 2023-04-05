@@ -15,6 +15,8 @@ ha_integration_type: integration
 This integration can expose regular shell commands as services. Services can be called from a [script] or in [automation].
 Shell commands aren't allowed for a camel-case naming, please use lowercase naming only and separate the names with underscores.
 
+Note that the shell command process will be terminated after 60 seconds, full stop. There is no option to alter this behavior, this is by design because Home Assistant is not intended to manage long-running external processes.
+
 [script]: /integrations/script/
 [automation]: /getting-started/automation/
 

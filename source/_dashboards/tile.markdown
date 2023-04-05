@@ -41,6 +41,11 @@ show_entity_picture:
   description: If your entity has a picture, it will replace the icon.
   type: boolean
   default: false
+vertical:
+  required: false
+  description: Displays the icon above the name and state.
+  type: boolean
+  default: false
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
@@ -79,6 +84,12 @@ show_entity_picture: true
 
 ```yaml
 type: tile
+entity: person.anne_therese
+vertical: true
+```
+
+```yaml
+type: tile
 entity: vacuum.ground_floor
 features:
   - type: vacuum-commands
@@ -94,6 +105,38 @@ Some color tokens are available to colorize the tile card : `primary`, `accent`,
 ## Tile features
 
 Some entities have support for "features". These widgets add quick controls to the tile card.
+
+### Alarm modes
+
+Widget that display buttons to arm and disarm an [alarm](/integrations/alarm_control_panel).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-features/alarm_modes.png' alt='Screenshot of the tile card with alarm modes feature'>
+  Screenshot of the tile card with alarm modes feature
+</p>
+
+```yaml
+features:
+  - type: "alarm-modes"
+    modes:
+      - armed_home
+      - armed_away
+      - armed_night
+      - armed_vacation
+      - armed_custom_bypass
+      - disarmed
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`alarm-modes`"
+  type: string
+modes:
+  required: true
+  description: List of modes to show on the card. The list can contain `armed_home`, `armed_away`, `armed_night`, `armed_vacation`, `armed_custom_bypass` and `disarmed`.
+  type: list
+{% endconfiguration %}
 
 ### Cover open/close
 
@@ -134,6 +177,27 @@ features:
 type:
   required: true
   description: "`cover-tilt`"
+  type: string
+{% endconfiguration %}
+
+### Fan speed
+
+Widget that display speed controls for a [fan](/integrations/fan).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-features/fan_speed.png' alt='Screenshot of the tile card with fan speed feature'>
+  Screenshot of the tile card with fan speed feature
+</p>
+
+```yaml
+features:
+  - type: "fan-speed"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`fan-speed`"
   type: string
 {% endconfiguration %}
 

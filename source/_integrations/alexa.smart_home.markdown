@@ -83,7 +83,6 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Equalizer Mode](#equalizer-mode)
     - [Inputs](#inputs)
     - [Playback State](#playback-state)
-    - [Seek](#seek)
   - [Scene](#scene)
   - [Script](#script)
   - [Sensor](#sensor)
@@ -402,7 +401,7 @@ See [List of Capability Interfaces and Supported Locales][alexa-supported-locale
 
 The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (i.e., "Send Alexa Events" enabled). Please note the following if you want to enable proactive mode:
 
-- There are different endpoint URLs, depending on the region of your skill. Please check the available endpoints at <https://developer.amazon.com/docs/smarthome/send-events-to-the-alexa-event-gateway.html#endpoints>
+- There are different endpoint URLs, depending on the region of your skill. Please check the available endpoints at <https://developer.amazon.com/docs/smarthome/send-events.html#endpoints>
 - The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the [Alexa Developer Console][amazon-dev-console]: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
 - If the "Send Alexa Events" permission was not enabled previously, you need to unlink and relink the skill using the Alexa App, or else Home Assistant will show the following error: "Token invalid and no refresh token available. Also, you need to restart your Home Assistant after each disabling/enabling the skill in Alexa."
 
@@ -501,7 +500,6 @@ The following integrations are currently supported:
     - [Equalizer Mode](#equalizer-mode)
     - [Inputs](#inputs)
     - [Playback State](#playback-state)
-    - [Seek](#seek)
   - [Scene](#scene)
   - [Script](#script)
   - [Sensor](#sensor)
@@ -979,10 +977,9 @@ Home Assistant will attempt to translate the `media_player` `source_list` into a
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-#### Seek
-
-- _"Alexa, skip 30 seconds on device."_
-- _"Alexa, go back 10 seconds on device."_
+<div class='note info'>
+Intents to seek forwards (skip) or to rewind (go back) are not supported at the moment.
+</div>
 
 ### Scene
 

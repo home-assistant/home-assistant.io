@@ -11,11 +11,13 @@ Assist is our feature to allow you to control Home Assistant using natural langu
 Assist is available to use on most platforms that can interface with Home Assistant. Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'>:
 
 - Inside the Home Assistant app in the top-right corner
-- On Android Watch using [Assist tile](/docs/assist/android)
 - On Apple devices via [Siri and Assist shortcuts](/docs/assist/apple)
+- On Wear OS watches using [Assist tile](/docs/assist/android)
 
 Did Assist not understand your sentence? [Contribute them.](https://developers.home-assistant.io/docs/voice/intent-recognition/)
 
+The Assist icon doesn't show up? Make sure the [conversation](/integrations/conversation/) integration is enabled. If you use YAML for configuration and have removed `default_config:`, the conversation integration may not be included in the config file.
+ 
 _Assist was introduced in Home Assistant 2023.2._
 
 <lite-youtube videoid="sQ7X7jz1SrA" videotitle="Assist on Apple HomePod"></lite-youtube>

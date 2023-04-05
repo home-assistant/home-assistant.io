@@ -11,7 +11,7 @@ This is an advanced feature of Home Assistant. You'll need a basic understanding
 Templating is a powerful feature that allows you to control information going into and out of the system. It is used for:
 
 - Formatting outgoing messages in, for example, the [notify](/integrations/notify/) platforms and [Alexa](/integrations/alexa/) component.
-- Process incoming data from sources that provide raw data, like [MQTT](/integrations/mqtt/), [`rest` sensor](/integrations/rest/) or the [`command_line` sensor](/integrations/sensor.command_line/).
+- Process incoming data from sources that provide raw data, like [MQTT](/docs/configuration/templating/#using-templates-with-the-mqtt-integration), [`rest` sensor](/integrations/rest/) or the [`command_line` sensor](/integrations/sensor.command_line/).
 - [Automation Templating](/docs/automation/templating/).
 
 ## Building templates
@@ -57,6 +57,47 @@ There are a few very important rules to remember when adding templates to YAML:
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
+### Enabled Jinja Extensions
+
+Jinja supports a set of language extensions that add new functionality to the language.
+To improve the experience of writing Jinja templates, we have enabled the following
+extensions:
+
+* [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
+
+### Reusing Templates
+
+You can write reusable Jinja templates by adding them to a `custom_jinja` folder under your
+configuration directory. All template files must have the `.jinja` extension and be less than 5MiB.
+Templates in this folder will be loaded at startup. To reload the templates without
+restarting Home Assistant, invoke the `homeassistant.reload_custom_jinja` service.
+
+Once the templates are loaded, Jinja [includes](https://jinja.palletsprojects.com/en/3.0.x/templates/#include) and [imports](https://jinja.palletsprojects.com/en/3.0.x/templates/#import) will work
+using `config/custom_jinja` as the base directory.
+
+For example, you might define a macro in a template in `config/custom_jinja/formatter.jinja`:
+
+{% raw %}
+
+```text
+{% macro format_entity(entity_id) %}
+{{ state_attr(entity_id, 'friendly_name') }} - {{ states(entity_id) }}
+{% endmacro %}
+```
+
+{% endraw %}
+
+In your automations, you could then reuse this macro by importing it:
+
+{% raw %}
+
+```text
+{% from 'formatter.jinja' import format_entity %}
+{{ format_entity('sensor.temperature') }}
+```
+
+{% endraw %}
+
 ## Home Assistant template extensions
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
@@ -72,18 +113,19 @@ Not supported in [limited templates](#limited-templates).
 - Iterating `states` will yield each state sorted alphabetically by entity ID.
 - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
-- `states('device_tracker.paulus')` will return the state string (not the object) of the given entity, `unknown` if it doesn't exist, `unavailable` if the object exists but is not yet available.
+- `states` can also be used as a function, `states(entity_id, rounded=False, with_unit=False)`, which returns the state string (not the state object) of the given entity, `unknown` if it doesn't exist, and `unavailable` if the object exists but is not available.
+  - The optional arguments `rounded` and `with_unit` control the formatting of sensor state strings, please see the [examples](#formatting-sensor-states) below.
+- `states.sensor.temperature.state_with_unit` formats the state string in the same was is if calling `states('sensor.temperature', rounded=True, with_unit=True)`.
 - `is_state` compares an entity's state with a specified state or list of states and returns `True` or `False`. `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state. `is_state('device_tracker.paulus', ['home', 'work'])` will test if the given entity is any of the states in the list.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') is none` or `state_attr('sensor.my_sensor', 'attr') == None` (note the difference in the capitalization of none in both versions).
+- `has_value('sensor.my_sensor')` will test if the given entity is not unknown or unavailable. Can be used as a filter or a test.
 
 <div class='note warning'>
 
 Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
 
 </div>
-
-Besides the normal [state object methods and properties](/topics/state_object/), `states.sensor.temperature.state_with_unit` will print the state of the entity and, if available, the unit.
 
 #### States examples
 
@@ -104,6 +146,16 @@ Print out a list of all the sensor states:
 
 ```text
 {% for state in states.sensor %}
+  {{ state.entity_id }}={{ state.state }},
+{% endfor %}
+```
+
+Print out a list of all the sensor states sorted by `entity_id`:
+
+{% raw %}
+
+```text
+{% for state in states.sensor | sort(attribute='entity_id') %}
   {{ state.entity_id }}={{ state.state }},
 {% endfor %}
 ```
@@ -134,6 +186,10 @@ Other state examples:
 {% if states('sensor.train_departure_time') in ("unavailable", "unknown") %}
   {{ ... }}
 
+{% if has_value('sensor.train_departure_time') %}
+  {{ ... }}
+
+
 {% set state = states('sensor.temperature') %}{{ state | float + 1 if is_number(state) else "invalid temperature" }}
 
 {% set state = states('sensor.temperature') %}{{ (state | float * 10) | round(2) if is_number(state)}}
@@ -154,9 +210,61 @@ Other state examples:
 {{ states('sensor.expires') | as_datetime }}
 
 # Make a list of states
-{{ ['light.kitchen', 'light.dinig_room'] | map('states') | list }}
+{{ ['light.kitchen', 'light.dining_room'] | map('states') | list }}
 ```
 
+{% endraw %}
+
+#### Formatting sensor states
+
+The examples below show the output of a temperature sensor with state `20.001`, unit `°C` and user configured presentation rounding set to 1 decimal.
+
+The following example results in the number `20.001`:
+
+{% raw %}
+```text
+{{ states('sensor.temperature') }}
+```
+{% endraw %}
+
+The following example results in the string `"20.0 °C"`:
+
+{% raw %}
+```text
+{{ states('sensor.temperature', with_unit=True) }}
+```
+{% endraw %}
+
+The following example result in the string `"20.001 °C"`:
+
+{% raw %}
+```text
+{{ states('sensor.temperature', with_unit=True, rounded=False) }}
+```
+{% endraw %}
+
+The following example results in the number `20.0`:
+
+{% raw %}
+```text
+{{ states('sensor.temperature', rounded=True) }}
+```
+{% endraw %}
+
+The following example results in the number `20.001`:
+
+{% raw %}
+```text
+{{ states.sensor.temperature.state }}
+```
+{% endraw %}
+
+The following example results in the string `"20.0 °C"`:
+
+{% raw %}
+```text
+{{ states.sensor.temperature.state_with_unit }}
+```
 {% endraw %}
 
 ### Attributes
@@ -268,6 +376,21 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
+
+### Entities
+
+- `is_hidden_entity(entity_id)` returns whether an entity has been hidden. Can also be used as a test.
+
+### Entities examples
+
+{% raw %}
+
+```text
+{{ area_entities('kitchen') | reject('is_hidden_entity') }} # Gets a list of visible entities in the kitchen area
+```
+
+{% endraw %}
+
 ### Devices
 
 - `device_entities(device_id)` returns a list of entities that are associated with a given device ID. Can also be used as a filter.
@@ -309,6 +432,7 @@ The same thing can also be expressed as a test:
 
 ### Areas
 
+- `areas()` returns the full list of area IDs
 - `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
 - `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
 - `area_entities(area_name_or_id)` returns the list of entity IDs tied to a given area ID or name. Can also be used as a filter.
@@ -317,6 +441,10 @@ The same thing can also be expressed as a test:
 #### Areas examples
 
 {% raw %}
+
+```text
+{{ areas() }}  # ['area_id']
+```
 
 ```text
 {{ area_id('Living Room') }}  # 'deadbeefdeadbeefdeadbeefdeadbeef'
@@ -460,7 +588,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 - `as_datetime()` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object.
 - `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts datetime object to local time. This function can also be used as a filter.
-- `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, returns the `default` value, or if omitted raises an error.
+- `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3.10/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
 - `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g., if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
   - Using `relative_time()` will cause templates to be refreshed at the start of every new minute.
 - `timedelta` returns a timedelta object and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.

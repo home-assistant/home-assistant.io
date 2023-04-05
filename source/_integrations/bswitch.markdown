@@ -21,7 +21,7 @@ ha_platforms:
   - cover
   - light
   - switch
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ---
 
 {% include integrations/supported_brand.md %}

@@ -2,9 +2,7 @@
 title: "Assist on Apple devices"
 ---
 
-_The Assist shortcut will be available in the Mac and iOS beta channel today and will be part of the next release for iOS and Mac._
-
-Assist is integrated into Apple devices using the [Shortcuts app](https://support.apple.com/guide/shortcuts/welcome/ios) that is available on all Apple devices. Assist can be used in the following ways on Apple devices:
+Assist is integrated via [Home Assistant Companion](https://apps.apple.com/us/app/home-assistant/id1099568401) into Apple devices using the [Shortcuts app](https://support.apple.com/guide/shortcuts/welcome/ios). Assist can be used in the following ways on Apple devices:
 
 - Activated by Siri by saying the shortcut name "Hey Siri, Assist"
 - Added to your iPhone home screen
@@ -57,6 +55,10 @@ It is possible to change the text that Siri says when activating the Assist shor
 - Find _"Ask for `Text`"_ and tap on _`How can I assist?`_ and change it to your desired prompt.
 
 You can also use the share action to [add a Shortcut to your Home Screen](https://support.apple.com/guide/shortcuts/apd735880972/ios) or set an [Accessibility Shortcut](https://support.apple.com/en-gb/HT204390) to run this Shortcut when you triple-click the Side button.
+
+## Troubleshooting
+
+The latest version of Siri on the Apple Watch contains an annoying bug where it will not remember that the shortcut is allowed to talk to Home Assistant. This requires the user to tap or say "Allow" for every invocation of the Assist shortcut. The workaround is to remove the Home Assistant application from your watch, which will have the shortcut execute on your phone which does not have this problem. Removing the app prevents you from triggering actions via the Home Assistant interface for Apple Watch. It does not prevent you from adding shortcuts to trigger assist from a complication.
 
 ## Changelog
 
