@@ -259,34 +259,6 @@ Call this service to use the Command Class API directly. In most cases, the `zwa
 | `method_name`       	| yes       	| The name of the method that is being called from the CC API. 	                                                                                            |
 | `parameters`       	| yes       	| A list of parameters to pass to the CC API method. 	                                                                                            |
 
-### Service `zwave_js.ping`
-
-> NOTE: This service has been deprecated and replaced with a new button entity. The service will still work for now but will be removed in a future release. Users are advised to move their automations to use the `button.press` service with the new entity which is a like for like replacement.
-
-Calling this service forces Z-Wave JS to try to reach a node. This can be used to update the status of the node in the Z-Wave network when you think it doesn't accurately reflect reality, e.g. reviving a failed/dead node or marking the node as asleep.
-
-| Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
-|------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| no        	| Entity (or list of entities) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided.                       	|
-| `device_id`            	| no        	| Device ID (or list of device IDs) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
-| `area_id`            	  | no        	| Area ID (or list of area IDs) for devices/entities to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                	|
-
-This service can be used in tandem with the node status sensor to track the node's status and fire the command when needed. Here's an example automation that would ping a node when the node status sensor state has changed to dead and remained dead for 30 minutes. Note that this may be useful for some devices but will definitely not be useful for all. In cases where it is not useful, all you will be doing is generating additional traffic on your Z-Wave network which could slow down communication.
-
-```yaml
-trigger:
-  platform: state
-  entity_id:
-    - sensor.z_wave_thermostat_node_status
-    - sensor.z_wave_lock_node_status
-  to: "dead"
-  for: "00:30:00"
-action:
-  - service: zwave_js.ping
-    target:
-      entity_id: "{{ trigger.entity_id }}"
-```
-
 ### Service `zwave_js.reset_meter`
 
 This service will reset the meters on a device that supports the Meter Command Class.
