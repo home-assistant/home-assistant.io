@@ -67,9 +67,6 @@ Follow these steps:
    * Most likely, your dongle will be recognized automatically. On the user interface, you will be asked if you want to set up this device with the Z-Wave JS add-on. Select **Submit**.
    * If your dongle is not recognized, follow these steps:
 
-{% capture name %}{{ include.name | default: page.title }}{% endcapture %}
-{% capture domain %}{{ include.domain | default: page.ha_domain }}{% endcapture %}
-
 {% details "Manual setup steps" %}
 Use this My button:
 
