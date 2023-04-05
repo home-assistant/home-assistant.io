@@ -463,44 +463,33 @@ releases, we expect alot more to join in.
 
 ## Other noteworthy changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-- Last minute ones added?
-- Go over list again, might have missed something
-- Ability to hide the legend of history graphs
-
-To consider:
-
-**Note**: Changes processed up to PR 86815
-
-{% enddetails %}
-
 There are much more easter bunnies in this release; here are some of the other
 noteworthy changes this release:
 
-- [@ArturoGuerra] added support for lock to [Matter]! Nice!
-- The new light entity dialog (introduced last release), now better supports
+- [@ArturoGuerra] added support for locks to [Matter]! Nice!
+- The new light entity dialog (introduced last release) now better supports
   white mode. Thanks, [@piitaya]!
 - [@emontnemery] added energy storage and volume storage device classes; these
-  allow to differentiate between, for example, consumed energy versus stored
+  will allow differentiating between, for example, consumed energy versus stored
   energy in a battery.
 - [@starkillerOG] is rocking the [Reolink] integration. It now provides button,
-  switch, siren, select, number and light entities for all kinds of things you
+  switch, siren, select, number, and light entities for all kinds of things you
   Reolink cameras and doorbells can do. Awesome!
-- The [Universal Media Player], now supports browsing media! Thanks, [@Drafteed]!
-- The [Supervisor] integration now provides sensors containing stats of the
-  Home Assistant Core and Supervisor itself. Thanks, [@ludeeus]!
-- The [Spotify] integration, now supports podcasts! Nice [@BTMorton]!
-- [LIVISI Smart Home] now supports climate devices, switches (PSSO, ISS and ISS2),
-  and window sensors (WDS). Thanks [@StefanIacobLivisi] & [@planbnet]!
+- The [Universal Media Player] now supports browsing media! Thanks, [@Drafteed]!
+- The [Supervisor] integration now provides sensors containing the
+  Home Assistant Core and Supervisor's stats. Thanks, [@ludeeus]!
+- The [Spotify] integration now supports podcasts! Nice [@BTMorton]!
+- [LIVISI Smart Home] now supports climate devices, switches (PSSO, ISS,
+  and ISS2), and window sensors (WDS). Thanks [@StefanIacobLivisi] & [@planbnet]!
 - [ESPHome] now supports pairing Bluetooth devices. Nice work [@bdraco] & [@jagheterfredrik]!
-- [@MarkGodwin] extended the [TP-Link Omada] integration to support update entities, awesome!
-- All attributes of the `sun.sun` entity are now also available as sensors, much
+- [@MarkGodwin] extended the [TP-Link Omada] integration to support update
+  entities; awesome!
+- All `sun.sun` entity attributes are now also available as sensors, much
   easier to use, thanks [@gjohansson-ST]!
-- Covers with the door device class, now appear as actual doors in [HomeKit], nice [@Dexwell]!
-- [@loongyh] did something similar for [Google Assistant], covers with the window
-  device class now show up as actual windows. Thanks!
+- Covers with the door device class, now appear as actual doors in [HomeKit],
+  nice [@Dexwell]!
+- [@loongyh] did something similar for [Google Assistant]. Covers with the
+  window device class now show up as actual windows. Thanks!
 - The [SQL] integration now supports settings device and state classes, thanks [@gjohansson-ST]!
 - [@teharris1] added support for the new [Insteon] i3 device, cool!
 
