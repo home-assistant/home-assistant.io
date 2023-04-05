@@ -60,6 +60,47 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
       flex-direction: column;
     }
   }
+  .material-card .documentation-card svg {
+      height: 42px;
+      max-width: 42px;
+      min-width: 42px;
+      align-self: center;
+  }
+
+  .material-card .documentation-card {
+    text-decoration: none !important;
+    color: black !important;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 8px 0;
+  }
+  
+  .material-card .documentation-card .content-container {
+    display: flex;
+  }
+
+  .material-card .documentation-card .content-container div:first-of-type {
+    margin-right: 24px;
+  }
+
+  .material-card .documentation-card .content-container div:first-of-type img, .material-card .documentation-card .content-container div:first-of-type svg {
+    max-width: 170px;
+    max-height: 170px;
+    min-width: 170px;
+    min-height: 170px;
+    padding: 32px;
+    border-radius: 3px;
+    box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+    vertical-align: middle;
+    border: 5px solid #fff;
+  }
+
+  .material-card .documentation-card div {
+    display: flex;
+    align-items: center;
+  }
 
 </style>
 
@@ -122,7 +163,7 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
 </div>
 
 <div class="material-card spaced-card">
-  <img src="/images/yellow/home-assistant-yellow-exploded-and-labeled.png">
+  <a href="https://yellow.home-assistant.io/yellow-v1.2-standard/" target="_blank"><img src="/images/yellow/home-assistant-yellow-exploded-and-labeled.png"></a>
 </div>
 
 <div class="material-card text spaced-card">
@@ -150,7 +191,7 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
   <div class="yellow-variant">
     <div><img src="/images/yellow/yellow-2d.jpg" alt="2D overview of the content of the Home Assistant Yellow Kit"></div>
     <div>
-      <b>Yellow Kit with Power Supply</b><br>
+      <b>Yellow Kit with power supply</b><br>
       <a href="https://yellow.home-assistant.io/power-supply/">Some assembly required!</a> This kit includes everything in the flagship version except the Raspberry Pi Compute Module 4.
       <br><br>
       This option allows you to pick the compute module with the memory and eMMC storage to fit your needs. You will need to install Home Assistant on the compute module you provide. Custom enclosure, custom heat sink, and Ethernet cable included. This version comes with a power supply, but does not support Power-over-Ethernet.
@@ -160,14 +201,14 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
 
 
 <div class="material-card text spaced-card">
-  <h1>Open Hardware</h1>
+  <h1>Open hardware</h1>
   <p>
     We spend a lot of time and resources on getting our products to work great. We want to make it possible for other people to study our work and be able to learn how to make great products for the smart home, so we've released the schematics of Yellow as open-source.
     <a href="https://yellow.home-assistant.io/yellow-v1.2-standard/">Explore the board</a> and <a href="https://github.com/NabuCasa/yellow/">view the source.</a>
   </p>
 </div>
 
-<div class="sub-title">Features & Specifications</div>
+<div class="sub-title">Features & specifications</div>
 <div class="flex">
   <ul>
     <li>
@@ -256,6 +297,26 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
       </ul>
     </li>
   </ul>
+</div>
+
+<div class="material-card text spaced-card">
+  <a href="https://yellow.home-assistant.io/" target="_blank"
+  class="documentation-card">
+    <div class="content-container">
+        <div>
+            
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6m0 2h7v5h5v11H6V4m2 8v2h8v-2H8m0 4v2h5v-2H8Z"
+            />
+          </svg>
+        </div>
+        <div>
+            <h1>View documentation</h1>
+        </div>
+    </div>
+    {% include assets/chevron_right.html %}
+  </a>
 </div>
 
 <div id="buy-dialog" class="dialog">

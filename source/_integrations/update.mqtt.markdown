@@ -153,7 +153,7 @@ latest_version_topic:
   required: false
   type: string
 name:
-  description: The name of the Select.
+  description: The name of the Update.
   required: false
   type: string
 object_id:
@@ -191,7 +191,7 @@ title:
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this Select. If two Selects have the same unique ID Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this Update. If two Updates have the same unique ID Home Assistant will raise an exception.
   required: false
   type: string
 value_template:
