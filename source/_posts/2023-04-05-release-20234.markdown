@@ -535,8 +535,8 @@ noteworthy changes this release:
 ## New Integrations
 
 This release has no new integrations, but does provide a couple of new virtual
-integrations. Virtual integrations are stubs that are handled by other
-(existing) integrations to help with findability. These are new:
+integrations. Virtual integrations are stubs handled by other (existing)
+integrations to help with findability. These are new:
 
 - **[ESERA 1-Wire]** provided by [1-Wire], added by [@jrieger]
 - **[HomeSeer]** works with [Z-Wave], added by [@b-uwe]
