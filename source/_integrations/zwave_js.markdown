@@ -73,7 +73,7 @@ Follow these steps:
 {% details "Manual setup steps" %}
 Use this My button:
 
-{% my config_flow_start badge domain=domain %}, or follow these steps:
+{% my config_flow_start badge domain="zwave_js" %}, or follow these steps:
 
 * Browse to your Home Assistant instance.
 * In the sidebar click on _**{% my config icon %}**_.
