@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2023.4: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2023.4."
-date: 2023-03-29 00:00:00
+title: "2023.4: Custom template macros, and many more new entity dialogs!"
+description: "New tile card features for alarms & fans. Create your own reusable Jinja2 template macros. Brand new entity information dialogs for covers, fans, and alarms. And even more database scalability improvements!"
+date: 2023-04-05 00:00:00
 date_formatted: "April 5, 2023"
 author: Franck Nijhof
 author_twitter: frenck
