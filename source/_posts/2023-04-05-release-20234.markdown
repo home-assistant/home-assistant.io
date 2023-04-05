@@ -48,10 +48,7 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [New dialogs for alarms, covers and fans](#new-dialogs-for-alarms-covers-and-fans)
-  - [Alarm control panel](#alarm-control-panel)
-  - [Covers](#covers)
-  - [Fans](#fans)
+- [New dialogs for alarm, cover, and fan entities](#new-dialogs-for-alarm-cover-and-fan-entities)
 - [New features for the Tile card](#new-features-for-the-tile-card)
 - [Macros for your templates](#macros-for-your-templates)
 - [More new templating features](#more-new-templating-features)
@@ -70,66 +67,57 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 <lite-youtube videoid="IGnCGDaXR0M" videotitle="Home Assistant 2023.4 Release Party"></lite-youtube>
 
-## New dialogs for alarms, covers, and fans
+## New dialogs for alarm, cover, and fan entities
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshots/clips
-
-* Add more info alarm control panel (#15893) @piitaya
-  https://github.com/home-assistant/frontend/pull/15893
-* Add cover new more info (#15694) @piitaya
-  https://github.com/home-assistant/frontend/pull/15694
-* Add fan new more info (#15843) @piitaya
-  https://github.com/home-assistant/frontend/pull/15843
-
-{% enddetails %}
-
-[The previous release](/blog/2023/03/01/release-20233/) brought in new entity
-dialogs for lights, switches and sirens; and is seems like you really liked it!
+[The previous release](/blog/2023/03/01/release-20233/#new-dialogs-for-lights-switches-and-siren-entities)
+brought in new entity dialogs for lights, switches, and sirens; it seems
+many of you really liked it!
 
 So, this release [@piitaya] kept on trucking, implementing the designs
-by [@matthiasdebaat], bringing in new entity dialogs for alarm control panels,
-covers, and fans!
+by [@matthiasdebaat], bringing the same new clean and neat UI in entity dialogs
+for alarm control panels, covers, and fans!
 
-### Alarm control panel
+### Covers <!-- omit in toc -->
 
-Temporary recording by [@piitaya] from the pull request.
+First up, covers! For covers, there are many variants, doors, windows, curtains,
+blinds, shutters, etc. Not just that, some can be controlled by how far they
+are open/closed, and others can only be opened and closed.
 
-<video width="400px" controls="controls"><source src="https://user-images.githubusercontent.com/5878303/227973602-70577cea-6466-47a7-a7b4-2f0e2e3bc2e8.mp4" type="video/mp4"></video>
+This is no problem for the new dialogs. They will adjust to the capabilities
+your cover has:
 
-### Covers
+<img class="no-shadow" src='/images/blog/2023-04/entity-dialog-covers.png' alt='Screenshots showing the new cover entity information dialogs.'>
 
-Covers have many variants. Here are a couple.
+The one on the left is interesting, as the first slider controls how far down
+the blinds are. Notice how it slides in from the top! The slider directly next
+to it controls the tilt. Nice!
+
+### Fans <!-- omit in toc -->
+
+Next up, the fan entities. The UI experience shown in the dialog will
+automatically adjust to the capabilities of the fan you are controlling, just
+like with covers.
+
+<img class="no-shadow" src='/images/blog/2023-04/entity-dialog-fans.png' alt='Screenshots showing the new fan entity information dialogs.'>
+
+Depending on the number of speed steps your fan has, the dialog will
+automatically adjust the UI. In case it has four speed steps or less, it will
+show the speed buttons as on the left screenshot. Otherwise, it will use the
+slider shown on the most right screenshot.
+
+### Alarm control panels <!-- omit in toc -->
+
+Lastly, the alarm control panel entities. They are a bit different compared
+to others as, more often, these require one to input a code to arm or disarm
+the alarm.
 
 <p class='img'>
-<img src='https://user-images.githubusercontent.com/5878303/227286096-f73a9775-3471-4876-ab4c-46517cc0228d.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
-Note: This is a temporary placeholder screenshot. Needs replacement.
-</p>
+<img src='/images/blog/2023-04/entity-dialog-alarms.gif' alt='Screenrecording showing the new alarm control panel entity information dialogs work with the pin-input.'></a>
+This is how arming and disarming an alarm now looks like.
+</p><br />
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5878303/227308680-1a954351-cd92-49ae-8f97-d67f8c55d538.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
-Note: This is a temporary placeholder screenshot. Needs replacement.
-</p>
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5878303/227286543-50f8005e-b137-4ceb-a23d-9a288b98f090.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
-Note: This is a temporary placeholder screenshot. Needs replacement.
-</p>
-
-### Fans
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5878303/226401428-25593d58-660d-46b6-a1f6-487838b79eae.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
-Note: This is a temporary placeholder screenshot. Needs replacement.
-</p>
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5878303/226401452-f24dea08-e07f-4992-94a0-b9e3319312a8.png' alt='Temporary placeholder screenshot. Needs replacement.'></a>
-Note: This is a temporary placeholder screenshot. Needs replacement.
-</p>
+When needed, the pin-pad will pop up! A nice finishing touch is the neat little
+animation is shown during the process of arming and disarming the alarm.
 
 [@matthiasdebaat]: https://github.com/matthiasdebaat
 [@piitaya]: https://github.com/piitaya
