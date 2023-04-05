@@ -33,8 +33,8 @@ For electricity:
 
 - Current bill electric usage to date
 - Current bill electric cost to date
-- Current bill electric forecasted usage
-- Current bill electric forecasted cost
+- Current bill electric forecasted usage (for the first few days of the bill this is 0)
+- Current bill electric forecasted cost (for the first few days of the bill this is 0)
 - Typical monthly electric usage
 - Typical monthly electric cost
 
@@ -42,8 +42,8 @@ For gas:
 
 - Current bill gas usage to date
 - Current bill gas cost to date
-- Current bill gas forecasted usage
-- Current bill gas forecasted cost
+- Current bill gas forecasted usage (for the first few days of the bill this is 0)
+- Current bill gas forecasted cost (for the first few days of the bill this is 0)
 - Typical monthly gas usage
 - Typical monthly gas cost
 
