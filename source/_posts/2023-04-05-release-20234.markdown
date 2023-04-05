@@ -554,6 +554,24 @@ integrations. Virtual integrations are stubs that are handled by other
 [vermont castings]: /integrations/vermont_castings
 [z-wave]: /integrations/zwave_js
 
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[EDL21]**, done by [@StephanU]
+- **[Frontier Silicon]**, done by [@wlcrs]
+- **[Nextcloud]**, done by [@mib1185]
+- **[Obihai]**, done by [@ejpenney]
+
+[@ejpenney]: https://github.com/allenejpenneyorter
+[@mib1185]: https://github.com/mib1185
+[@stephanu]: https://github.com/StephanU
+[@wlcrs]: https://github.com/wlcrs
+[edl21]: /integrations/edl21
+[frontier silicon]: /integrations/frontier_silicon
+[nextcloud]: /integrations/nextcloud
+[obihai]: /integrations/obihai
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
