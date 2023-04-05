@@ -346,7 +346,7 @@ single set of conditions; now, you can pass in a list of filters.
 If you are building Blueprints, this can be really helpful if a user should
 be able to select one of multiple different devices.
 
-An example, this selector allows you to select the batter sensor of
+An example, this selector allows you to select the battery sensor of
 either a Philips Hue RWL020 (US) or RWL021 (EU) remote in your Blueprint.
 
 ```yaml
@@ -381,7 +381,7 @@ the attribute values. These translations will be visible on your dashboards,
 dialogs, automation editors, etc. Pretty much all places displaying them.
 
 Integrations have to explicitly add support for these. Quite a few integrations
-have done so int this release, but we expect many to follow in the upcoming
+have done so in this release, but we expect many to follow in the upcoming
 releases.
 
 ## Other noteworthy changes
@@ -434,6 +434,7 @@ noteworthy changes this release:
 [@teharris1]: https://github.com/teharris1
 [esphome]: /integrations/esphome
 [google assistant]: /integrations/google_assistant
+[homekit]: /integrations/homekit
 [insteon]: /integrations/insteon
 [livisi smart home]: /integrations/livisi
 [matter]: /integrations/matter
