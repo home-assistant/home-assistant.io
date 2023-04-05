@@ -60,7 +60,7 @@ The easiest way to get started is by using the built-in Z-Wave JS add-on in Home
 
 For other ways to setup a Z-Wave server, refer to the [advanced installation instructions](#advanced-installation-instructions).
 
-Everyone else, follow these steps:
+Follow these steps:
 
 1. Open the Home Assistant user interface.
 1. Plug the Z-Wave dongle into the device running Home Assistant.
