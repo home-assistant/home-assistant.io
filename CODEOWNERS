@@ -132,7 +132,6 @@ source/_integrations/crownstone.markdown @Crownstone @RicArch97
 source/_integrations/cups.markdown @fabaff
 source/_integrations/dacia.markdown @epenet
 source/_integrations/daikin.markdown @fredrike
-source/_integrations/darksky.markdown @fabaff
 source/_integrations/debugpy.markdown @frenck
 source/_integrations/deconz.markdown @Kane610
 source/_integrations/default_config.markdown @home-assistant/core
