@@ -1058,12 +1058,16 @@ changes and new features available for your integration: Be sure to follow our
 
 The following integrations are also no longer available as of this release:
 
+- **Dark Sky** has been removed. DApple acquired Dark Sky, and the API has now
+  been shut down.  
+  ([@gjohansson-ST] - [#90322])
 - **Magicseaweed** has been removed. Magicseedweed no longer provides API keys
-  to users. Additionally, the integration is no longer in a functional state.
+  to users. Additionally, the integration is no longer in a functional state.  
   ([@gjohansson-ST] - [#90277])
 
 [@gjohansson-st]: https://github.com/gjohansson-ST
 [#90277]: https://github.com/home-assistant/core/pull/90277
+[#90322]: https://github.com/home-assistant/core/pull/90322
 
 ## All changes
 
