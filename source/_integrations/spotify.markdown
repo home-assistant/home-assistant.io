@@ -50,9 +50,7 @@ to allow you to log in with your Spotify account.
 
    Set the _"Redirect URI"_ to the following:
    
-   ```
-   https://my.home-assistant.io/redirect/oauth
-   ```
+   `https://my.home-assistant.io/redirect/oauth`
 
    Please copy and paste the exact URL above. You **do not** have to change it.
 
