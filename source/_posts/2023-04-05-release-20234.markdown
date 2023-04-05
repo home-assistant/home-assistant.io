@@ -54,7 +54,7 @@ Enjoy the (beta) release!
   - [Fans](#fans)
 - [New features for the Tile card](#new-features-for-the-tile-card)
 - [Macros for your templates](#macros-for-your-templates)
-- [Even more templating!](#even-more-templating)
+- [More new templating features](#more-new-templating-features)
 - [Database scalability](#database-scalability)
 - [New selector capabilities](#new-selector-capabilities)
 - [Translating entities](#translating-entities)
@@ -232,54 +232,52 @@ An amazing contribution, thank you [@depoll]!
 
 [@depoll]: https://github.com/depoll
 
-## Even more templating!
+## More new templating features
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Improve/better examples?
-- Link to docs
-
-- Enable jinja loop controls (break/continue) ([@depoll] - [#88625]) (noteworthy)
-- Add is_hidden_entity test for Jinja templates ([@depoll] - [#89011]) (noteworthy)
-- Add minutely updates to relative_time and today_at template functions ([@Petro31] - [#86815]) (breaking-change) (noteworthy)
-- Add list areas function to template ([@rokam] - [#88441]) (noteworthy)
-- Add has_value function/test to Jinja2 template ([@ehendrix23] - [#79550])
-
-{% enddetails %}
-
-As if the reusability of your Jinja macros wasn't good enough already, there
+As if the reusability of your macros wasn't good enough already, there
 is much more templating goodness in this release!
 
-**Adjusted behavior of `relative_time` and `today_at`**
+Thanks, [@depoll], [@ehendrix23], [@petro31], and [@rokam], for these amazing
+additions down below! ❤️
+
+### Adjusted behavior of `relative_time` and `today_at` <!-- omit in toc -->
 
 [@Petro31] adjust the behavior for template entities using the `relative_time`
-and `today_at` template function, to now update their state once a minute. Nice!
+and `today_at` template functions to update their state once a minute. Nice!
 
-**New `is_hidden_entity` function**
+### New `is_hidden_entity` function <!-- omit in toc -->
 
 The brand new `is_hidden_entity` function was added by [@depoll], which can tell
 if a given entity has been marked "hidden" or not. This function also works
 as a test. Cool!
 
-This example returns a list of all entities in the kitchen area,
-that are not hidden.
+This example returns a list of all entities in the kitchen area that are not
+hidden.
 
 {% raw %}
 
 ```jinja
-{{ area_entities('kitchen') | reject('is_hidden_entity') }}
+{{ area_entities('kitchen') | reject('is_hidden_entity') | list }}
 ```
 
 {% endraw %}
 
-**New `areas` function**
+### New `areas` function <!-- omit in toc -->
 
 Talking about areas, [@rokam] added an `areas` function, which returns a list
 of all areas you have!
 
-**Added `break` and `continue` for for loops**
+A simplistic example:
+
+{% raw %}
+
+```jinja
+{{ areas() }}
+```
+
+{% endraw %}
+
+### Added `break` and `continue` for use in for loops <!-- omit in toc -->
 
 [@depoll] added support for `break` and `continue` in for loops, which allows
 short-circuiting those loops, allowing you to make them more efficient.
@@ -287,36 +285,47 @@ short-circuiting those loops, allowing you to make them more efficient.
 {% raw %}
 
 ```jinja
-{%- for v in range(10) %}
-    {%- if v == 1 -%}
+{%- for value in range(10) %}
+    {%- if value == 1 -%}
         {%- continue -%}
-    {%- elif v == 3 -%}
+    {%- elif value == 3 -%}
         {%- break -%}
     {%- endif -%}
-    {{ v }}
+    {{ value }}
 {%- endfor -%}
 ```
 
 {% endraw %}
 
-**New `has_value` function**
+## New `has_value` function <!-- omit in toc -->
 
 Lastly, [@ehendrix23] added a requested template function from the Month of
 "What the Heck?!": `has_value`. The `has_value` function can also be used as
-test, and is able to filter out entities that are currently in an `unavailable`
-or `unknown` state.
+test and can filter out entities currently in an `unavailable` or `unknown`
+state.
+
+You could use this conditionally, like so:
 
 {% raw %}
 
 ```jinja
 {% if has_value('sensor.train_departure_time') %}
-  {{ ... }}
+  The train leaves at {{ states('sensor.train_departure_time') }}
+{% endif %}
 ```
 
 {% endraw %}
 
-Thanks, [@depoll], [@ehendrix23], [@petro31], and [@rokam] for these amazing
-additions! ❤️
+Or, maybe list all entities from the living room that currently have no state
+value:
+
+{% raw %}
+
+```jinja
+{{ area_entities('living_room') | reject('has_value') | list }}
+```
+
+{% endraw %}
 
 [@depoll]: https://github.com/depoll
 [@ehendrix23]: https://github.com/ehendrix23
