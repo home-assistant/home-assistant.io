@@ -105,7 +105,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 1. Put the device you want to add in inclusion mode. Refer to the device manual to see how this is done.
    * The UI should confirm that the node was added. The device will be immediately visible in Home Assistant. After a short while (seconds to minutes) the entities should also be created.
    * If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
-1. If the controller fails to add/find your device, cancel the inclusion process (to unblock your network again). 
+1. If the controller fails to add/find your device, cancel the inclusion process.
    * In some cases, it might help to first [remove](/integrations/zwave_js/#removing-a-device-from-the-z-wave-network) a node (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet.
    * Another approach would be to factory reset the device. Refer to the device manual to see how this is done.
 
