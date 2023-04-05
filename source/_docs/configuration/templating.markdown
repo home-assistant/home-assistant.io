@@ -578,9 +578,9 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
   {% raw %}
 
-  ```yaml
+  ```text
   # Is the current time past 10:15?
-  { { now() > today_at("10:15") } }
+  {{ now() > today_at("10:15") }}
   ```
 
   {% endraw %}
@@ -595,9 +595,9 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
   {% raw %}
 
-  ```yaml
+  ```text
   # 77 minutes before current time.
-  { { now() - timedelta( hours = 1, minutes = 17 ) } }
+  {{ now() - timedelta( hours = 1, minutes = 17 ) }}
   ```
 
   {% endraw %}
@@ -606,9 +606,9 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
   {% raw %}
 
-  ```yaml
+  ```text
   # Renders to "00:10:00"
-  { { as_timedelta("PT10M") } }
+  {{ as_timedelta("PT10M") }}
   ```
 
   {% endraw %}
@@ -645,8 +645,8 @@ To fix it, enforce the ISO conversion via `isoformat()`:
 
 {% raw %}
 
-```yaml
-{ { 120 | timestamp_local } }
+```text
+{{ 120 | timestamp_local }}
 ```
 
 {% endraw %}
@@ -1117,8 +1117,8 @@ The default priority of operators is that the filter (`|`) has priority over eve
 
 {% raw %}
 
-```yaml
-{ { states('sensor.temperature') | float / 10 | round(2) } }
+```text
+{{ states('sensor.temperature') | float / 10 | round(2) }}
 ```
 
 {% endraw %}
