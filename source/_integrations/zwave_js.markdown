@@ -48,32 +48,49 @@ The Z-Wave integration allows you to control a Z-Wave network via the [Z-Wave JS
 
 ## Overview
 
-The Z-Wave integration in Home Assistant talks to one of two possible add-ons: the official Z-Wave JS add-on, or the community add-on Z-Wave JS UI. Both add-ons include the Node Z-Wave JS driver. This driver talks to a controller device (Z-Wave dongle or GPIO (general purpose input/output) board)
-via USB or TCP.
-
-<figure>
-  <img src="/images/integrations/z-wave/z-wave-terminology.png" alt="Z-Wave terminology overview" style="width:100%">
-  <figcaption>Z-Wave terminology overview</figcaption>
-</figure>
-
 To run a Z-Wave network, you need the following elements:
 
-* A [supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). First time user? For recommendations on what to buy, go [here](integrations/zwave_js/#which-z-wave-controller-should-i-buy).
-* A running Z-Wave JS server (using only **one** of the add-ons described here).
+* A [supported Z-Wave controller](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). First time user? For recommendations on what to buy, go [here](integrations/zwave_js/#which-z-wave-controller-should-i-buy).
+* A running Z-Wave JS server.
 * An installed Z-Wave integration in Home Assistant.
 
 ## Setting up a Z-Wave JS server
 
 The easiest way to get started is by using the built-in Z-Wave JS add-on in Home Assistant.
 
-If you run Home Assistant Container, Home Assistant Core, or you don't want to use the built-in Z-Wave JS Server add-on, refer to the [advanced installation instructions](#advanced-installation-instructions).
+For other ways to setup a Z-Wave server, refer to the [advanced installation instructions](#advanced-installation-instructions).
 
 Everyone else, follow these steps:
 
 1. Open the Home Assistant user interface.
 1. Plug the Z-Wave dongle into the device running Home Assistant.
    * Most likely, your dongle will be recognized automatically. On the user interface, you will be asked if you want to set up this device with the Z-Wave JS add-on. Select **Submit**.
-   * If your dongle is not recognized, follow these steps: {% include integrations/manual_config_steps.md %}
+   * If your dongle is not recognized, follow these steps:
+
+{% capture name %}{{ include.name | default: page.title }}{% endcapture %}
+{% capture domain %}{{ include.domain | default: page.ha_domain }}{% endcapture %}
+
+{% details "Manual setup steps" %}
+Use this My button:
+
+{% my config_flow_start badge domain=domain %}, or follow these steps:
+
+* Browse to your Home Assistant instance.
+* In the sidebar click on _**{% my config icon %}**_.
+* From the configuration menu select: _**{% my integrations %}**_.
+{% if page.ha_integration_type == 'helper' %}
+* In top of the screen click the tab: _**{% my helpers %}**_.
+* In the bottom right, click on the
+  _**{% my config_flow_start icon domain=domain title="Create helper" %}**_ button.
+{% else %}
+* In the bottom right, click on the
+  _**{% my config_flow_start icon domain=domain %}**_ button.
+{% endif %}
+* From the list, search and select _**"{{ name }}"**_.
+* Follow the instructions on screen to complete the set up.
+
+{% enddetails %}
+
 3. Wait for the installation to complete.
 1. You are prompted for network security keys.
    * If you are using Z-Wave for the first time, leave all the fields empty and select **Submit**. The system will generate network security keys for you.
@@ -81,7 +98,7 @@ Everyone else, follow these steps:
    * Make sure that you keep a backup of these keys in a safe place in case you need to move your Z-Wave dongle to another device. Copy and paste them somewhere safe.
 1. Wait for the Z-Wave JS add-on to start up.
 1. Once the installation is complete, the **Device info** of the Z-Wave controller is shown.
-   * You successfully installed the Z-Wave JS add-on and the Z-Wave integration.
+   * You successfully installed the Z-Wave integration and the Z-Wave JS add-on.
    * You can now add devices to the Z-Wave network.
 
 <p class='note'>
