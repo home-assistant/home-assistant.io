@@ -80,7 +80,7 @@ Use this My button:
 * From the configuration menu select: _**{% my integrations %}**_.
 * In the bottom right, click on the
   _**{% my config_flow_start icon domain=domain %}**_ button.
-* From the list, search and select _**"{{ name }}"**_.
+* From the list, search and select _**"Z-Wave"**_.
 * Follow the instructions on screen to complete the set up.
 
 {% enddetails %}
