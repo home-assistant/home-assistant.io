@@ -57,7 +57,7 @@ Enjoy the (beta) release!
 - [Even more templating!](#even-more-templating)
 - [Database scalability](#database-scalability)
 - [New selector capabilities](#new-selector-capabilities)
-- [More translations!](#more-translations)
+- [Translating entities](#translating-entities)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Need help? Join the community!](#need-help-join-the-community)
@@ -405,37 +405,19 @@ device:
       device_class: battery
 ```
 
-## More translations!
+## Translating entities
 
-{% details "TODO" %}
+Over the past releases, we’ve been slowly extending translation support in more
+places in Home Assistant. This release completes support for translating
+entities!
 
-- Move to other noteworthy?
-- Extend story
-- Proof read/spelling/grammar
-- Link to dev blog?
-- Screenshot of translated Calendar attributes?
+This includes the entities' names, their attributes, and translations of
+the attribute values. These translations will be visible on your dashboards,
+dialogs, automation editors, etc. Pretty much all places displaying them.
 
-- Support translating entity names ([@emontnemery] - [#88242]) ([demo docs]) (noteworthy)
-
-* Improve/extend description of conditions (#15943) @frenck
-* Compute (attribute) states in automation trigger descriptions (#15848) @frenck
-* Show unknown attribute state as Unknown instead of a dash (#15846) @frenck
-* Extend attribute to hide from (numeric) state triggers (#15836) @frenck
-* Translate entity attribute names & attribute states (#15822) @frenck
-
-{% enddetails %}
-
-Over the past releases, we've been slowly extending support for translations
-in more places in Home Assistant. This release completes support for
-translating entities!
-
-This includes the names of entities, the names of their attributes, and
-translations for those attributes. These translations will be visible on your
-dashboards, dialogs, automation editors, etc. Pretty much all places displaying
-them.
-
-There are not many integration that support this as of yet, but in the upcoming
-releases, we expect alot more to join in.
+Integrations have to explicitly add support for these. Quite a few integrations
+have done so int this release, but we expect many to follow in the upcoming
+releases.
 
 ## Other noteworthy changes
 
