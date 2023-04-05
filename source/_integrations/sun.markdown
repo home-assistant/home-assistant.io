@@ -11,6 +11,8 @@ ha_iot_class: Calculated
 ha_domain: sun
 ha_config_flow: true
 ha_integration_type: integration
+ha_platforms:
+  - sensor
 ---
 
 The sun integration will use the location as

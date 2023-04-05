@@ -63,19 +63,19 @@ Jinja supports a set of language extensions that add new functionality to the la
 To improve the experience of writing Jinja templates, we have enabled the following
 extensions:
 
-* [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
+- [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
 
 ### Reusing Templates
 
-You can write reusable Jinja templates by adding them to a `custom_jinja` folder under your
+You can write reusable Jinja templates by adding them to a `custom_templates` folder under your
 configuration directory. All template files must have the `.jinja` extension and be less than 5MiB.
 Templates in this folder will be loaded at startup. To reload the templates without
-restarting Home Assistant, invoke the `homeassistant.reload_custom_jinja` service.
+restarting Home Assistant, invoke the `homeassistant.reload_custom_templates` service.
 
 Once the templates are loaded, Jinja [includes](https://jinja.palletsprojects.com/en/3.0.x/templates/#include) and [imports](https://jinja.palletsprojects.com/en/3.0.x/templates/#import) will work
-using `config/custom_jinja` as the base directory.
+using `config/custom_templates` as the base directory.
 
-For example, you might define a macro in a template in `config/custom_jinja/formatter.jinja`:
+For example, you might define a macro in a template in `config/custom_templates/formatter.jinja`:
 
 {% raw %}
 
