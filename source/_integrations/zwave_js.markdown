@@ -101,7 +101,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 1. In Home Assistant, go to <a class="my" href="https://my.home-assistant.io/redirect/integrations/" target="_blank"><b>Settings</b> > <b>Devices & Services</b></a>.
 1. In the Z-Wave integration, select **Configure**.
 1. Select **Add device**.
-   * The Z-Wave controller is now in inclusion mode and will not respond to other commands.
+   * The Z-Wave controller is now in inclusion mode.
 1. Put the device you want to add in inclusion mode. Refer to the device manual to see how this is done.
    * The UI should confirm that the node was added. The device will be immediately visible in Home Assistant. After a short while (seconds to minutes) the entities should also be created.
    * If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
