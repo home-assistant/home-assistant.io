@@ -32,5 +32,20 @@ sudo apt-get install --reinstall systemd-journal-remote
 
 and reboot your system
 
+## Alternative solution
+
+There is another solution you can verify when the `systemd-journal-gatewayd` service does not run.
+Verify whether the service is running with:
+
+```sh
+sudo systemctl status systemd-journal-gatewayd.service
+```
+
+If it is not started then start it with:
+
+```sh
+sudo systemctl start systemd-journal-gatewayd.service
+```
+
 If you still see this issue then run the [supervised installer](https://github.com/home-assistant/supervised-installer)
 on the host as the supervisor service may need an update as well.
