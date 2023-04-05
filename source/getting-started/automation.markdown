@@ -3,19 +3,19 @@ title: "Automating Home Assistant"
 description: "A quick intro on getting your first automation going."
 ---
 
-Once your devices are set up, it's time to put the cherry on the pie: automation. In this guide we're going to create a simple automation rule to turn on the lights when the sun sets. Of course, this assumes that you have set up an integration that provides a light at this point.
+Once your {% term devices %} are set up, it's time to put the cherry on the pie: {% term automation %}. In this guide we're going to create a simple automation rule to turn on the lights when the sun sets. Of course, this assumes that you have set up an integration that provides a light at this point.
 
-In the user interface, click **Settings** in the sidebar, then click **Automations & Scenes**. You will now see the automation screen from which you can manage all the automations in Home Assistant.
+In the user interface in the side bar, click **{% my automations title="Settings -> Automations & Scenes" %}**. You will now see the automation screen from which you can manage all the automations in Home Assistant.
 
 ![The automation editor.](/images/getting-started/automation-editor.png)
 
-Click the blue button at the bottom right to create a new automation. A dialog will appear. Choose **Start with an empty automation**. You are presented with a blank automation screen.
+Click the blue button at the bottom right to create a new automation. A dialog will appear. Choose **Create new automation**. You are presented with a blank automation screen.
 
 ![The start of a new automation.](/images/getting-started/new-automation.png)
 
 The first thing we will do is set a name. Enter "Turn Lights On at Sunset".
 
-The second step is defining what should trigger our automation to run. In this case, we want to use the event of the sun setting to trigger our automation. However, if we would turn on the lights when the sun actually sets, it would be too late as it already gets quite dark while it's setting. So we're going to add an offset.
+The second step is defining what should {% term trigger %} our automation to run. In this case, we want to use the event of the sun setting to trigger our automation. However, if we would turn on the lights when the sun actually sets, it would be too late as it already gets quite dark while it's setting. So we're going to add an offset.
 
 In the trigger section, click on the dropdown menu and change the trigger type to **Sun**. It allows us to choose sunrise or sunset, so go ahead and pick **Sunset**. As we discussed, we want our automation to be triggered a little before the sun actually sets, so let's add `-00:30` as the offset. This indicates that the automation will be triggered 30 minutes before the sun actually sets. Neat!
 
