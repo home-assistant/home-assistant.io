@@ -773,7 +773,7 @@ S2 security does not impose additional network traffic and provides additional b
 
 #### Where can I see the security keys in the Z-Wave JS add-on?
 
-After initial setup of the Z-Wave controller, you can view the security keys in the Z&#8209;Wave&nbsp;JS add-on. Go to <a class="my" href=" https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_zwave_js" target="_blank"><b>Settings</b> > <b>Add-ons</b> > <b>Z-Wave JS</b></a> and open the <b>Configuration</b> tab. You can now see nee the network security key as well as the S0 and S2 security keys.
+After the initial setup of the Z-Wave controller, you can view the security keys in the Z-Wave JS add-on. Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings > **Add-ons** > **Z-Wave JS**" %} and open the <b>Configuration</b> tab. You can now see the network security key and the S0 and S2 security keys.
 
 #### How do I remove (exclude) a device from my Z-Wave network?
 
