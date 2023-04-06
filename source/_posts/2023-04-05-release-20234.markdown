@@ -504,7 +504,16 @@ The following integrations are now available via the Home Assistant UI:
 - Return empty available programs list if an appliance is off during initial configuration ([@stickpin] - [#90905]) ([home_connect docs])
 - Handle NoURLAvailableError in Nuki component ([@pree] - [#90927]) ([nuki docs])
 - Update frontend to 20230406.1 ([@bramkragten] - [#90951]) ([frontend docs])
+- Fix flaky test in vesync ([@epenet] - [#90921]) ([vesync docs])
+- Bump `aioambient` to 2022.10.0 ([@bachya] - [#90940]) ([ambient_station docs])
+- Bump reolink-aio to 0.5.10 ([@starkillerOG] - [#90963]) ([reolink docs])
 
+[#90921]: https://github.com/home-assistant/core/pull/90921
+[@epenet]: https://github.com/epenet
+[ambient_station docs]: /integrations/ambient_station/
+[reolink docs]: /integrations/reolink/
+[@bachya]: https://github.com/bachya
+[@starkillerOG]: https://github.com/starkillerOG
 [#90746]: https://github.com/home-assistant/core/pull/90746
 [#90799]: https://github.com/home-assistant/core/pull/90799
 [#90855]: https://github.com/home-assistant/core/pull/90855
