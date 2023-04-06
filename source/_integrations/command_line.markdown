@@ -71,6 +71,11 @@ payload_off:
   required: false
   type: string
   default: 'OFF'
+scan_interval:
+  description: Defines number of seconds for polling interval.  
+  required: false
+  type: integer
+  default: 60
 value_template:
   description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
   required: false
@@ -133,6 +138,11 @@ covers:
           description: The name used to display the cover in the frontend.
           required: false
           type: string
+        scan_interval:
+          description: Defines number of seconds for polling interval.  
+          required: false
+          type: integer
+          default: 60
         unique_id:
           description: An ID that uniquely identifies this cover. Set this to a unique value to allow customization through the UI.
           required: false
@@ -210,6 +220,11 @@ unique_id:
   description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
   required: false
   type: string
+scan_interval:
+  description: Defines number of seconds for polling interval.  
+  required: false
+  type: integer
+  default: 60
 unit_of_measurement:
   description: Defines the unit of measurement of the sensor, if any.
   required: false
@@ -275,6 +290,11 @@ switches:
           description: Defines a template for the icon of the entity.
           required: false
           type: template
+        scan_interval:
+          description: Defines number of seconds for polling interval.  
+          required: false
+          type: integer
+          default: 60
         unique_id:
           description: An ID that uniquely identifies this switch. Set this to a unique value to allow customization through the UI.
           required: false
@@ -301,7 +321,7 @@ See aREST device below for an example.
 
 ## Execution
 
-The `command` is executed within the [configuration directory](/docs/configuration/). The polling interval is 60 seconds and not configurable.
+The `command` is executed within the [configuration directory](/docs/configuration/).
 
 <div class='note'>
 
