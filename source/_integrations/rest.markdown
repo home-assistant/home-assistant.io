@@ -1,6 +1,6 @@
 ---
-title: "RESTful"
-description: "Instructions on how to integrate REST sensors and binary sensors into Home Assistant."
+title: RESTful
+description: Instructions on how to integrate REST sensors and binary sensors into Home Assistant.
 ha_category:
   - Binary Sensor
   - Sensor
@@ -162,6 +162,11 @@ scan_interval:
   required: false
   type: integer
   default: 30
+encoding:
+  description: The character encoding to use if none provided in the header of the shared data.
+  required: false
+  type: string
+  default: UTF-8
 sensor:
   description: A list of sensors to create from the shared data. All configuration settings that are supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
   required: false
@@ -171,3 +176,9 @@ binary_sensor:
   required: false
   type: list
 {% endconfiguration %}
+
+<div class='note'>
+
+Use either `resource` or `resource_template`.
+
+</div>

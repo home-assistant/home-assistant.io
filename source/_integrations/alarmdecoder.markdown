@@ -130,17 +130,25 @@ Using a combination of the available services and attributes, you can create swi
       friendly_name: Chime
       value_template: "{{ is_state_attr('alarm_control_panel.alarm_panel', 'chime', true) }}"
       turn_on:
-        service: alarmdecoder.alarm_toggle_chime
-        target:
+        - condition: state
           entity_id: alarm_control_panel.alarm_panel
-        data:
-          code: !secret alarm_code
+          attribute: chime
+          state: False
+        - service: alarmdecoder.alarm_toggle_chime
+          target:
+            entity_id: alarm_control_panel.alarm_panel
+          data:
+            code: !secret alarm_code
       turn_off:
-        service: alarmdecoder.alarm_toggle_chime
-        target:
+        - condition: state
           entity_id: alarm_control_panel.alarm_panel
-        data:
-          code: !secret alarm_code
+          attribute: chime
+          state: True
+        - service: alarmdecoder.alarm_toggle_chime
+          target:
+            entity_id: alarm_control_panel.alarm_panel
+          data:
+            code: !secret alarm_code
       icon_template: >-
         {% if is_state_attr('alarm_control_panel.alarm_panel', 'chime', true) %}
           mdi:bell-ring
@@ -190,7 +198,7 @@ The tables below show the key press sequences used for arming for the different 
 
 <div class='note'>
 
-The `chr(4)` and `chr(5)` sequences below are equivalent to pressing the <em>Stay</em> and <em>Away</em> keypad keys respectively (as outlined in the <a href='http://www.alarmdecoder.com/wiki/index.php/Protocol#Special_Keys'>AlarmDecoder documentation</a>).
+The `chr(4)` and `chr(5)` sequences below are equivalent to pressing the <em>Stay</em> and <em>Away</em> keypad keys respectively (as outlined in the <a href='https://www.alarmdecoder.com/wiki/index.php/Protocol#Special_Keys'>AlarmDecoder documentation</a>).
 
 </div>
 

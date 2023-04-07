@@ -32,4 +32,3 @@ To accomplish such, you can use [the utility_meter integration](/integrations/ut
 ## The Energy panel is not visible
 
 If you do not see the Energy panel in the sidebar, make sure you have not removed [`default_config:`](/integrations/default_config/) from your `configuration.yaml`. If you have, you will need to add the `energy:` integration manually.
-

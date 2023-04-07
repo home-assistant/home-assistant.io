@@ -43,6 +43,11 @@ Note that it depends on the appliance and on API permissions which of the featur
 - OAuth Flow: Authorization Code Grant Flow
 - Redirect URI: `https://my.home-assistant.io/redirect/oauth`
 
+*Important*: 
+ - After performing the steps above **log out** of your Home Connect Developer account. If you don't do this, the configuration steps below will fail during OAuth authentication with the message `“error”: “unauthorized_client”`.
+ - The provided Home Connect User Account email address **must** be all lowercase otherwise it will result in authentication failures.
+ - All changes in the developer portal take 15 minutes before the change is implemented.
+
 {% details "I have manually disabled My Home Assistant" %}
 
 If you don't have [My Home Assistant](/integrations/my) on your installation,

@@ -15,7 +15,9 @@ ha_platforms:
   - diagnostics
 ---
 
-The `google_assistant` integration allows you to control things via Google Assistant on your mobile, tablet or Google Home device.
+The `google_assistant` integration allows you to control your Home Assistant devices via Google Assistant on your mobile, tablet or Google Home device.
+
+If you want to send commands to Google Assistant to control devices supported by Google Assistant but not by Home Assistant, or broadcast messages to Google Assistant speakers and displays without interrupting music/video playback, take a look at the [Google Assistant SDK](/integrations/google_assistant_sdk) integration.
 
 ## Automatic setup via Home Assistant Cloud
 
@@ -63,8 +65,31 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     <img src='/images/integrations/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
 
 3. Select the `Develop` tab at the top of the page, then in the upper right hand corner select the `Test` button to generate the draft version Test App. If you don't see this option, go to the `Test` tab instead, click on the `Settings` button in the top right below the header, and ensure `On device testing` is enabled (if it isn't, enable it).
-4. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
-5. Add services in the Google Home App (Note that app versions may be slightly different.)
+
+4. Go to [Google Cloud Platform](https://console.cloud.google.com/).
+    1. Go to `Select a project`.
+    2. In the window that popped up, select your newly created project from step 1.
+    3. Go to the menu and select `APIs and Services`and next `Credentials`.
+    4. In the Credentials view, select `Create credentials` and next `Service account`.
+        1. `Service account name`: Give your account a self-selected name.
+        2. Click `Create`.
+        3. `Select a role`: `Service Accounts` and `Service Account Token Creator`.
+        4. Click `Continue`.
+        5. Click on `Done`.
+    5. Under `Service Accounts` there should now be an account called [name from 4.1]@[projectname].iam.gserviceaccount.com.
+    6. Click on the pencil button of that service account.
+    7. Go to `Keys` and `ADD KEY`.
+    8. Create a private key, make sure it is in JSON format.
+    9. This will start a download of a JSON file. 
+        1. Rename the file to `SERVICE_ACCOUNT.JSON`.
+        2. Add this file to your config-folder. This will be the same folder as your `configuration.yaml`.
+    12. Go back to [Google Cloud Platform](https://console.cloud.google.com/) and click `Close`.
+    13. Then click `SAVE`.
+    14. Go to the `Search products and resources` and search for `Homegraph API` and select it.
+    15. Enable the HomeGraph API.
+
+5. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
+6. Add services in the Google Home App (note that app versions may be slightly different).
     1. Open the Google Home app.
     2. Click the `+` button on the top left corner, click `Set up device`, in the "Set up a device" screen click "Works with Google". You should have `[test] <Action Name>` listed under 'Add new'. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
 
@@ -119,7 +144,7 @@ Your Home Assistant instance needs to be connected to the same network as the Go
 
 Your Google Assistant devices will still communicate via the internet to:
 - Get credentials to establish a local connection.
-- Send commands that involve a [secure device](#secure-device).
+- Send commands that involve a [secure device](#secure-devices).
 - Send commands if local fulfillment fails.
 
 <div class='note'>
@@ -134,7 +159,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
 2. Click `Develop` on the top of the page, then click `Actions` located in the hamburger menu on the top left.
-3. Upload `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest) for both Node and Chrome by clicking the `Upload Javascript files` button.
+3. Upload `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest) for both Node and Chrome by clicking the `Upload JavaScript files` button.
 4. Add device scan configuration:
    1. Click `+ New scan config` if no configuration exists
    2. Select `MDNS`
@@ -147,7 +172,7 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
 8. Restart Home Assistant Core.
 9. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Assistant support.
 
-You can debug the setup by following [these instructions](https://developers.google.com/assistant/smarthome/develop/local#debugging_from_chrome).
+You can debug the setup by following [these instructions](https://developers.home.google.com/local-home/test#debugging_from_chrome).
 
 ### YAML Configuration
 
@@ -282,6 +307,8 @@ Entities that have not been explicitly assigned to rooms but have been placed in
 <div class='note'>
 
 Some devices, such as `scene` or `script`, must be assigned to an `area` before other members of a shared Google Home Household can use them. This is because household members in a shared Google Home will not be able to view devices that are not assigned to a room _unless_ they were the user who linked the service to Google Home. This issue isn't immediately apparent because `script` and `scene` devices aren't visible in the main Google Home dashboard.
+  
+The automatic room assignment will not work when multiple homes are set up in your Google account.
 
 </div>
 
@@ -333,6 +360,10 @@ If you receive 404 errors linked to reporting state in your log, Home Assistant 
 #### Error during linking: "Could not update the setting. Please check your connection"
 
 Your fulfillment URL may be invalid or unreachable. Recheck the `Fulfillment URL` as specified in [Manual Setup](#manual-setup) and verify that it's publicly reachable.
+
+#### 500 / 429 error on request sync
+
+This error may occur if the service key is invalid. Try deleting and creating a new service account and key.
 
 #### NGINX
 

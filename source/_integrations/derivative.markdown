@@ -30,7 +30,7 @@ Name:
 Input sensor:
   description: The entity providing numeric readings to create the derivative of.
 Precision:
-  description: Round the calculated integration value to at most N decimal places.
+  description: Round the calculated derivative value to at most N decimal places.
 Time window:
   description: The time window in which to calculate the derivative. Derivatives in this window will be averaged with a simple moving average algorithm (SMA) weighted by time. This is for instance useful for a sensor that outputs discrete values, or to filter out short duration noise. By default the derivative is calculated between two consecutive updates without any smoothing.
 Metric Prefix:
@@ -41,8 +41,8 @@ Time unit:
 
 ## YAML Configuration
 
-Alternatlively, this integration can be configured and set up manually via YAML
-instead. To enable the Integration sensor in your installation, add the
+Alternatively, this integration can be configured and set up manually via YAML
+instead. To enable the Derivative sensor in your installation, add the
 following to your `configuration.yaml` file:
 
 ```yaml

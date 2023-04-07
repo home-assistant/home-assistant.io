@@ -12,6 +12,8 @@ This `mqtt` sensor platform uses the MQTT message payload as the sensor value. I
 
 ## Configuration
 
+<a id='new_format'></a>
+
 To use your MQTT sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -20,25 +22,6 @@ mqtt:
   sensor:
     - state_topic: "home/bedroom/temperature"
 ```
-
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `sensor` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-sensor:
-  - platform: mqtt
-    state_topic: "home/bedroom/temperature"
-```
-
-{% enddetails %}
 
 {% configuration %}
 availability:
@@ -78,7 +61,7 @@ availability_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -187,6 +170,10 @@ payload_not_available:
   required: false
   type: string
   default: offline
+suggested_display_precision:
+  description: The number of decimals which should be used in the sensor's state after rounding.
+  required: false
+  type: integer
 qos:
   description: The maximum QoS level of the state topic.
   required: false
@@ -198,7 +185,7 @@ state_class:
   type: string
   default: None
 state_topic:
-  description: The MQTT topic subscribed to receive sensor values.
+  description: The MQTT topic subscribed to receive sensor values. If `device_class`, `state_class`, `unit_of_measurement` or `suggested_display_precision` is set, and a numeric value is expected, an empty value `''` will be ignored and will not update the state, a `'None'` value will set the sensor to an `unknown` state.
   required: true
   type: string
 unique_id:
@@ -210,7 +197,7 @@ unit_of_measurement:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the value. Available variables: `entity_id`. The `entity_id` can be used to reference the entity's attributes. If the template throws an error, the current state will be used instead."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the value. If the template throws an error, the current state will be used instead."
   required: false
   type: template
 {% endconfiguration %}
@@ -340,6 +327,7 @@ mqtt:
   sensor:
     - name: "Temperature"
       state_topic: "office/sensor1"
+      suggested_display_precision: 1
       unit_of_measurement: "°C"
       value_template: "{{ value_json.temperature }}"
     - name: "Humidity"

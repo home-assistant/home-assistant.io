@@ -34,6 +34,7 @@ ha_platforms:
   - siren
   - stt
   - switch
+  - text
   - tts
   - update
   - vacuum
@@ -49,9 +50,12 @@ Available demo platforms:
 - [Air Quality](/integrations/air_quality/) (`air_quality`)
 - [Alarm control panel](/integrations/alarm_control_panel/) (`alarm_control_panel`)
 - [Binary sensor](/integrations/binary_sensor/) (`binary_sensor`)
+- [Button](/integrations/button/) (`button`)
+- [Calendar](/integrations/calendar/) (`calendar`)
 - [Camera](/integrations/camera/) (`camera`)
 - [Climate](/integrations/climate/) (`climate`)
 - [Cover](/integrations/cover/) (`cover`)
+- [Device Tracker](/integrations/device_tracker/) (`device_tracker`)
 - [Fan](/integrations/fan/) (`fan`)
 - [Geolocation](/integrations/geo_location/) (`geo_location`)
 - [Humidifier](/integrations/humidifier/) (`humidifier`)
@@ -63,9 +67,15 @@ Available demo platforms:
 - [Notification](/integrations/notify/) (`notify`)
 - [Number](/integrations/number/) (`number`)
 - [Remote](/integrations/remote/) (`remote`)
+- [Select](/integrations/select/) (`select`)
 - [Sensor](/integrations/sensor/) (`sensor`)
+- [Siren](/integrations/siren/) (`siren`)
 - [Switch](/integrations/switch/) (`switch`)
+- [Text](/integrations/text/) (`text`)
 - [Text-to-speech](/integrations/tts/) (`tts`)
+- [Update](/integrations/update/) (`update`)
+- [Vacuum](/integrations/vacuum/) (`vacuum`)
+- [Water Heater](/integrations/water_heater/) (`water_heater`)
 - [Weather](/integrations/weather/) (`weather`)
 
 To integrate a demo platform in Home Assistant, add the following section to your `configuration.yaml` file:

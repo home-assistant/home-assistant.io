@@ -13,7 +13,6 @@ ha_release: 0.41
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@michaelarnauts'
-  - '@north3221'
 ha_domain: tado
 ha_config_flow: true
 ha_homekit: true

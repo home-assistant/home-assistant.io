@@ -12,7 +12,13 @@ The Entity card gives you a quick overview of your entity's state.
   Screenshot of the Entity card.
 </p>
 
-To add the Entity card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Entity** from the card picker.
+To add the Entity card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+All options for this card can be configured via the user interface.
+
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -56,9 +62,7 @@ footer:
   type: map
 {% endconfiguration %}
 
-## Example
-
-Alternatively, the card can be configured using YAML:
+### Example
 
 ```yaml
 - type: entity

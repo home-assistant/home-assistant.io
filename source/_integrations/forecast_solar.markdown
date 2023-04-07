@@ -14,7 +14,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_quality_scale: platinum
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The [Forecast.Solar](https://forecast.solar/) service provides solar production
@@ -23,7 +23,7 @@ with weather forecasting.
 
 This integration provides an estimated forecast on how much energy your solar
 panels are going to produce, allowing you to plan ahead on how you spend your
-produced energy in most efficiently.
+produced energy most efficiently.
 
 As an example automation idea, you could determine if:
 
@@ -63,6 +63,8 @@ value.
 
 {% include integrations/config_flow.md %}
 
+If you have more than one plane of solar modules with different properties (e.g. several sides of the roof on different strings or on different buildings, with different directions or declinations) you can add the integration multiple times setting parameters accordingly. You can then use [template sensors](/integrations/template/) to combine the data, e.g. adding up production on different planes into one value to base your planning on.
+
 ## Sensors
 
 The Forecast.Solar integration mainly provides sensors that you can use in your
@@ -87,9 +89,9 @@ default. Enable those entities in the user interface if you like to use these:
 - Estimated Power Production - Next 12 Hours (in Watt)
 - Estimated Power Production - Next 24 Hours (in Watt)
 
-## Using your Solar.Forecast account
+## Using your Forecast.Solar account
 
-The [Forecast.Solar](https://forecast.solar/) can be used for free, but
+The [Forecast.Solar](https://forecast.solar/) public plan can be used for free, but
 the resolution of the data used is more limited and thus, there are less
 details for this integration to work with.
 
@@ -97,18 +99,18 @@ If you like the Forecast.Solar service, or are interested in more frequent data
 updates (based on a higher data resolution), you could [sign up for one
 of their plans](https://doc.forecast.solar/doku.php?id=account_models#compare_plans).
 
-To enable the use of the API key with this integration, to {% my integrations %}
-and click "Configure" on the Forecast.Solar integration instance and enter the
+To enable the use of the API key with this integration, go to {% my integrations %}, 
+click "Configure" on the Forecast.Solar integration instance and enter the
 API key for your account.
 
 ## Tweaking the estimations
 
 The estimation can be tweaked and tuned to match your solar setup better.
-Many factors that can cause the estimations to be slightly off
+There are many factors that can cause the estimations to be slightly off
 (but don't forget, it will always remain a forecast based on, e.g., weather
-and historical data).
+and historical data - not actual power produced).
 
-Luckily there are controls to make them more accurate for your situation,
+Luckily, there are controls to make them more accurate for your situation,
 for example, by slightly adjusting the azimuth or declination. If your panels
 catch a bit of shadow in the morning/evening, you could consider damping
 the results a bit.
@@ -125,7 +127,7 @@ a more realistic forecast graph.
 
 [Read more about the damping factor in the Forecast.Solar documentation](https://doc.forecast.solar/doku.php?id=damping&s[]=damping).
 
-To adjust the configuration settings for your Solar.Forecast integration
+To adjust the configuration settings for your Forecast.Solar integration
 instance:
 
 - Browse to your Home Assistant instance.

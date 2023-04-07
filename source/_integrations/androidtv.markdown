@@ -13,7 +13,7 @@ ha_domain: androidtv
 ha_platforms:
   - diagnostics
   - media_player
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The `androidtv` platform allows you to control an Android TV device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
@@ -38,7 +38,7 @@ For Fire TV devices, the instructions are as follows:
   - From the main (Launcher) screen, select Settings.
   - Select My Fire TV > About > Network.
 
-If Develper Options is missing from Settings then select My Fire TV and press the button seven times on About.
+If Developer Options is missing from Settings then select My Fire TV and press the button seven times on About.
 
 {% include integrations/config_flow.md %}
 

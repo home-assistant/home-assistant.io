@@ -7,7 +7,7 @@ ha_quality_scale: internal
 ha_category: []
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 The `water_heater` integration is built for the controlling and monitoring of hot water heaters.

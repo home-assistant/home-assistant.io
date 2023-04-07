@@ -103,7 +103,7 @@ var allComponents = [
         {% capture category %}"{{ ha_category | slugify | downcase }}"{% endcapture %}
         {% assign categories = categories | push: category %}
       {%- endfor -%}
-      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}"},
+      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}", ha_brand: "{{component.ha_brand}}"},
     {% endif -%}
   {%- endfor -%}
   false
@@ -161,9 +161,9 @@ allComponents.pop(); // remove placeholder element at the end
         components: [],
         image: function () {
           if (this.logo === '') {
-            return '<img src="https://brands.home-assistant.io/_/' + this.domain + '/logo.png" srcset="https://brands.home-assistant.io/_/' + this.domain + '/logo@2x.png 2x">';
+            return `<img src="https://brands.home-assistant.io/${this.ha_brand ? "brands": "_"}/${this.domain}/logo.png" srcset="https://brands.home-assistant.io/${this.ha_brand ? "brands ": "_"}/${this.domain}/logo@2x.png 2x" loading="lazy">`;
           } else {
-            return '<img data-src="/images/supported_brands/' + this.logo + '">';
+            return '<img data-src="/images/supported_brands/' + this.logo + '" loading="lazy">';
           }
         }
       };

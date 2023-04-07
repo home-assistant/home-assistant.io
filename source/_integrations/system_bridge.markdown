@@ -15,7 +15,7 @@ ha_platforms:
   - binary_sensor
   - sensor
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 [System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API/WebSocket. You can also send commands to the device such as opening a URL or sending keyboard keypresses.
