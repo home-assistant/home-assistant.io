@@ -194,7 +194,7 @@ The following models have been tested and confirmed to work:
 Battery-powered cameras are not yet supported.
 
 The following models are lacking the HTTP webserver API and can therfore not work directly with this integration.
-However these cameras can work with this integration through a NVR, in which the NVR is connected to HomeAssistant.
+However these cameras can work with this integration through a NVR, in which the NVR is connected to Home Assistant.
 
 - E1 Pro
 - E1
