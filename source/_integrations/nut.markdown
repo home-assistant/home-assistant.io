@@ -76,8 +76,11 @@ human-readable version.
 
 ## Device Actions
 
-A device action is available for each parameterless NUT [command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html) supported by the device. To find the list of supported commands for your specific 
-UPS device, you can use the upscmd -l command followed by the UPS name:
+A device action is available for each parameterless NUT 
+[command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html) 
+supported by the device. To find the list of supported commands for 
+your specific UPS device, you can use the `upscmd -l` command followed 
+by the UPS name:
 
 ```yaml
 $ upscmd -l my_ups
