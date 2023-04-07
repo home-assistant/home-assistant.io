@@ -132,14 +132,13 @@ Depending on the supported features of the camera, switch entities are added for
 - Auto tracking
 - Auto focus
 - Guard return
-
-Depending on the supported features of the NVR/host, global switch entities are added for:
-
 - Record
 - Push notifications
 - Buzzer on event
 - Email on event
 - FTP upload
+
+For NVRs, a global switch for Record, Push, Buzzer, Email, and FTP will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch is enabled (as is also the case in the Reolink app/client).
 
 ## Light entities
 
