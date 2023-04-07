@@ -507,7 +507,39 @@ The following integrations are now available via the Home Assistant UI:
 - Fix flaky test in vesync ([@epenet] - [#90921]) ([vesync docs])
 - Bump `aioambient` to 2022.10.0 ([@bachya] - [#90940]) ([ambient_station docs])
 - Bump reolink-aio to 0.5.10 ([@starkillerOG] - [#90963]) ([reolink docs])
+- Avoid writing state to all esphome entities at shutdown ([@bdraco] - [#90555]) ([esphome docs])
+- Fix state being cleared on disconnect with deep sleep esphome devices ([@bdraco] - [#90925]) ([esphome docs])
+- Coerce previously persisted local calendars to have valid durations ([@allenporter] - [#90970]) ([local_calendar docs])
+- Bump gcal_sync to 4.1.3 ([@allenporter] - [#90968]) ([google docs])
+- Fix error after losing an imap connection ([@jbouwh] - [#90966]) ([imap docs])
+- Fix command_template sensor value_template not being used if json_attributes set ([@gadgetchnnel] - [#90603]) ([command_line docs])
+- Fix verisure autolock ([@heiparta] - [#90960]) ([verisure docs])
 
+[#90555]: https://github.com/home-assistant/core/pull/90555
+[#90603]: https://github.com/home-assistant/core/pull/90603
+[#90855]: https://github.com/home-assistant/core/pull/90855
+[#90925]: https://github.com/home-assistant/core/pull/90925
+[#90956]: https://github.com/home-assistant/core/pull/90956
+[#90960]: https://github.com/home-assistant/core/pull/90960
+[#90966]: https://github.com/home-assistant/core/pull/90966
+[#90968]: https://github.com/home-assistant/core/pull/90968
+[#90970]: https://github.com/home-assistant/core/pull/90970
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@frenck]: https://github.com/frenck
+[@gadgetchnnel]: https://github.com/gadgetchnnel
+[@heiparta]: https://github.com/heiparta
+[@jbouwh]: https://github.com/jbouwh
+[actiontec docs]: /integrations/actiontec/
+[advantage_air docs]: /integrations/advantage_air/
+[airly docs]: /integrations/airly/
+[command_line docs]: /integrations/command_line/
+[esphome docs]: /integrations/esphome/
+[google docs]: /integrations/google/
+[imap docs]: /integrations/imap/
+[local_calendar docs]: /integrations/local_calendar/
+[verisure docs]: /integrations/verisure/
 [#90921]: https://github.com/home-assistant/core/pull/90921
 [@epenet]: https://github.com/epenet
 [ambient_station docs]: /integrations/ambient_station/
