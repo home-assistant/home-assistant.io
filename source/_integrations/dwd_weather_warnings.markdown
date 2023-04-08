@@ -22,12 +22,8 @@ The `dwd_weather_warnings` integration uses the [Deutscher Wetterdienst (DWD)](h
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Name of the sensor:
-  description: Name that will be part of the sensor's `entity_id`. This is a required field.
 Warncell ID or name:
   description: Identifier of the region. It can either be a so called `warncell ID` (integer) or a `warncell name` (string). It is heavily advised to use `warncell ID` because `warncell name` is not unique in some cases. A list of valid warncell IDs and names can be found [here](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html). Some of the warncells are outdated but still listed. If the setup fails, search the list for a similar sounding warncell. In case the `warncell name` is not unique, `" (not unique used ID)!"` will be added to the reported `region_name`. Setting this field is required.
-Monitored conditions:
-  description: The conditions to observe. Can be either current warning level, advance warning level, or both. If not otherwise configured, it selects both conditions.
 {% endconfiguration_basic %}
 
 ### Attributes
