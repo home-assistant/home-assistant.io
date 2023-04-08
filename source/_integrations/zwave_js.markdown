@@ -773,7 +773,7 @@ S2 security does not impose additional network traffic and provides additional b
 
 #### Where can I see the security keys in the Z-Wave JS add-on?
 
-After the initial setup of the Z-Wave controller, you can view the security keys in the Z-Wave JS add-on. Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings > **Add-ons** > **Z-Wave JS**" %} and open the **Configuration** tab. You can now see the network security key and the S0 and S2 security keys.
+After the initial setup of the Z-Wave controller, you can view the security keys in the Z-Wave JS add-on. Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %} and open the **Configuration** tab. You can now see the three S2 keys and the S0 key. The network security key is a legacy configuration setting, identical to the S0 key.
 
 #### How do I remove (exclude) a device from my Z-Wave network?
 
