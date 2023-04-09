@@ -93,7 +93,7 @@ brightness_command_topic:
   required: false
   type: string
 brightness_command_template:
-  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `brightness_command_topic`. Available variables: `value`."
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `brightness_command_topic`. Available variables: `value` and `brightness_provided`. Value of `brightness_provided` is a boolean indicating if the brightness was provided by the action (e.g. brightness change action)."
   required: false
   type: string
 brightness_scale:
