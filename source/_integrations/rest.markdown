@@ -132,6 +132,11 @@ verify_ssl:
   required: false
   type: boolean
   default: True
+ssl_cipher_list:
+  description: Define the list of SSL ciphers to be accepted from this endpoint. `default` (_system default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_).
+  required: false
+  type: string
+  default: default
 timeout:
   description: Defines max time to wait data from the endpoint.
   required: false
