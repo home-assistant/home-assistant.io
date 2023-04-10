@@ -259,7 +259,7 @@ This feature is enabled by the following permissions:
 
 </div>
 <div class='note'>
-Additional Nest Temperature Sensors are not supported by the SDM API.
+Additional Nest Temperature Sensors are not supported by the SDM API.  The Temperature reported by the API will be pulled from whichever device is currently configured as the Active Sensor, which can be adjusted via manual selection or the schedule offered in the Nest App.
 </div>
 
 
