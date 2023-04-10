@@ -33,6 +33,10 @@ ha_integration_type: integration
 
 The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/).
 
+<div class='note warning'>
+Many SwitchBot products supported by this integration do not require a pairing step and can be controlled by anyone within Bluetooth range. Use caution and research these products before installing them in places where security/privacy are a concern.
+</div>
+
 ## Prerequisites
 
 In order to use this integration, it is required to have working [Bluetooth](/integrations/bluetooth) set up on the device running Home Assistant. A [SwitchBot Hub](https://switch-bot.com/pages/switchbot-hub-mini) is not required for this integration.
