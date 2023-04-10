@@ -21,11 +21,15 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 sensor:
   - platform: opensky
     radius: 10
+    username: opensky-username
+    password: abc123
 ```
 
 Configuration options for the OpenSky Network sensor:
 
 - **radius** (*Required*): Radius of region to monitor, in kilometers.
+- **username** (*Required*): Your Opensky-Network username.
+- **password** (*Required*): Your Opensky-Network password.
 - **latitude** (*Optional*): Region latitude. Defaults to home zone latitude.
 - **longitude** (*Optional*): Region longitude. Defaults to home zone longitude.
 - **altitude** (*Optional*): The maximum altitude (in meters) for planes to be detected in, 0 sets it to unlimited. Defaults to 0).
