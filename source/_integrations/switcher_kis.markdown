@@ -88,5 +88,5 @@ Note: This does not affect the auto off timer.
 
 ## Notes
 
-Make sure that Home Assistant host's firewall allows incoming traffic on UDP ports 10002 & 20002 & 20003 and outgoing connections to Switcher device(s) on TCP ports 9957 & 10000.
+Make sure that Home Assistant host's firewall allows incoming traffic on UDP ports 10002, 20002 & 20003 and outgoing connections to Switcher device(s) on TCP ports 9957 & 10000.
 If Home Assistant and the Switcher device(s) are not on the same network, you will also need to have their traffic properly forwarded between the two networks.
