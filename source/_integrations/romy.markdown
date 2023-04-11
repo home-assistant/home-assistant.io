@@ -56,7 +56,7 @@ name:
   required: true
   type: string
 password:
-  description: "The password required to unlock the local http interface (Is labled inside your robot under the dustbin)."
+  description: "The password required to unlock the local HTTP interface (Is labelled inside your robot under the dustbin)."
   required: false
   type: string
 {% endconfiguration %}
@@ -86,7 +86,7 @@ Currently supported sensors are:
 
 ## Troubleshooting
 
-### local http interface password
+### local HTTP interface password
 
 You have to enable the local interface first with a password, this is printend as QR Code on a label directly under the dustbin inside the robot.
 
