@@ -9,6 +9,7 @@ ha_release: 0.41
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
+  - '@gjohansson-ST'
 ha_domain: workday
 ha_platforms:
   - binary_sensor
