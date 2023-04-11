@@ -2,6 +2,7 @@
 title: Broadlink
 description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
+  - Climate
   - Light
   - Remote
   - Sensor
@@ -9,9 +10,10 @@ ha_category:
 ha_release: 0.35
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@danielhiversen'
-  - '@felipediel'
-  - '@L-I-Am'
+  - "@danielhiversen"
+  - "@felipediel"
+  - "@L-I-Am"
+  - "@eifinger"
 ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:
@@ -25,6 +27,7 @@ ha_integration_type: integration
 
 The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
 
+- Thermostats: `Hysen HY02B05H`, `Floureon HY03WE`
 - Power Strips: `MP1-1K3S2U` and `MP1-1K4S`
 - Sensors: `e-Sensor`
 - Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU`, `SP3S-US`, `SP4L-EU` and `SP4M-US`
@@ -42,10 +45,15 @@ The entities have the same name as the device by default. To change the name, ic
 
 The entities are divided into four subdomains:
 
+- [Climate](#climate)
 - [Remote](#remote)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Light](#light)
+
+## Climate
+
+The `climate` entities allow you to monitor and control Broadlink thermostats.
 
 ## Remote
 
@@ -358,26 +366,26 @@ The above example creates `switch.philips_tv`, which sends IR/RF codes using the
 
 {% configuration %}
 mac:
-  description: The MAC address of the universal remote.
-  required: true
-  type: string
+description: The MAC address of the universal remote.
+required: true
+type: string
 switches:
-  description: The list that contains all custom switches.
-  required: true
-  type: list
-  keys:
-    name:
-      description: The name of the switch.
-      required: true
-      type: string
-    command_on:
-      description: A base64 code to be sent as "turn on" command.
-      required: false
-      type: string
-    command_off:
-      description: A base64 code to be sent as "turn off" command.
-      required: false
-      type: string
+description: The list that contains all custom switches.
+required: true
+type: list
+keys:
+name:
+description: The name of the switch.
+required: true
+type: string
+command_on:
+description: A base64 code to be sent as "turn on" command.
+required: false
+type: string
+command_off:
+description: A base64 code to be sent as "turn off" command.
+required: false
+type: string
 {% endconfiguration %}
 
 You can configure multiple switches for the same remote:
@@ -398,7 +406,7 @@ switch:
 
 The above example creates `switch.philips_tv` and `switch.lg_tv`, which are related to the same universal remote.
 
-__IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, e.g. Bedroom TV.
+**IMPORTANT**: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, e.g. Bedroom TV.
 
 ### Using e-Control remotes
 
@@ -408,45 +416,45 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
 
 1. Download
 
-    Get the script from [here](https://github.com/clach04/Broadlink-e-control-db-dump).
+   Get the script from [here](https://github.com/clach04/Broadlink-e-control-db-dump).
 
 2. Dump the data from the app
 
-    Open the e-Control app on your mobile device. On the left side menu choose "Share" and then "Share to other phones in WLAN". It will generate the files you will need for the script.
+   Open the e-Control app on your mobile device. On the left side menu choose "Share" and then "Share to other phones in WLAN". It will generate the files you will need for the script.
 
 3. Get data from your Android device
 
-    Connect your Android device to your computer and browse the SD card/External Storage folder "/broadlink/newremote/SharedData/". You need to get the following files and put them in the same folder as this script:
+   Connect your Android device to your computer and browse the SD card/External Storage folder "/broadlink/newremote/SharedData/". You need to get the following files and put them in the same folder as this script:
 
-    jsonSubIr
-    jsonButton
-    jsonIrCode
+   jsonSubIr
+   jsonButton
+   jsonIrCode
 
 4. Install Requirements
 
-    Run `pip install simplejson`. You must install `simplejson` in the same Python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
+   Run `pip install simplejson`. You must install `simplejson` in the same Python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
 
 5. Get the data from the device
 
-    Navigate to the folder you downloaded and run `python getBroadlinkSharedData.py`. Follow the steps on screen. NOTE: These scripts were only tested with Python 2.7.
+   Navigate to the folder you downloaded and run `python getBroadlinkSharedData.py`. Follow the steps on screen. NOTE: These scripts were only tested with Python 2.7.
 
 6. Install python-broadlink library:
 
-    ```bash
-    git clone https://github.com/mjg59/python-broadlink.git
-    cd python-broadlink
-    sudo python setup.py install
-    ```
+   ```bash
+   git clone https://github.com/mjg59/python-broadlink.git
+   cd python-broadlink
+   sudo python setup.py install
+   ```
 
 7. Test the codes
-    Use the `sendcode` script you have already downloaded to test the codes you got from the device.
-    You need to edit the script with your RM Pro IP Address and MAC Address and with the code in HEX format.
-    When run the script, you know the code works when get message.
-    Code sent...
-    Not every code works.
+   Use the `sendcode` script you have already downloaded to test the codes you got from the device.
+   You need to edit the script with your RM Pro IP Address and MAC Address and with the code in HEX format.
+   When run the script, you know the code works when get message.
+   Code sent...
+   Not every code works.
 
 8. Convert the HEX codes to base64.
-    Use [this](https://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
+   Use [this](https://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
 
 ### Using iOS and Windows to obtain codes
 
@@ -465,34 +473,34 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
 
 5. Now open a Command Prompt and navigate to the directory where the aforementioned files are located e.g., `C:\Python27`. Now run the command `python getBroadlinkSharedData.py`, you should see something like this:
 
-    ```bash
-    C:\Python27>python getBroadlinkSharedData.py
-    ID: 1 | Name: TV
-    ID: 2 | Name: Upstairs
-    ID: 3 | Name: Sort in order
-    ID: 4 | Name: Soundbar
-    ID: 5 | Name: TV
-    ID: 6 | Name: Xbox One
-    ID: 7 | Name: User-Defined Aircon
-    ID: 8 | Name: Sort in order
-    ID: 9 | Name: User-Defined Aircon
-    ID: 10 | Name: Kids Fan
-    ID: 11 | Name: Downstairs
-    ID: 12 | Name: Ceiling Fan
-    ID: 13 | Name: Samsung TV
-    ID: 14 | Name: Xbox One
-    ID: 15 | Name: SONY SoundBar
-    ID: 16 | Name: Fire TV
-    ID: 17 | Name: New RF Remote
-    ```
+   ```bash
+   C:\Python27>python getBroadlinkSharedData.py
+   ID: 1 | Name: TV
+   ID: 2 | Name: Upstairs
+   ID: 3 | Name: Sort in order
+   ID: 4 | Name: Soundbar
+   ID: 5 | Name: TV
+   ID: 6 | Name: Xbox One
+   ID: 7 | Name: User-Defined Aircon
+   ID: 8 | Name: Sort in order
+   ID: 9 | Name: User-Defined Aircon
+   ID: 10 | Name: Kids Fan
+   ID: 11 | Name: Downstairs
+   ID: 12 | Name: Ceiling Fan
+   ID: 13 | Name: Samsung TV
+   ID: 14 | Name: Xbox One
+   ID: 15 | Name: SONY SoundBar
+   ID: 16 | Name: Fire TV
+   ID: 17 | Name: New RF Remote
+   ```
 
    Select the remote ID you would like to extract:
 
-    ```bash
-    Select accessory ID: 5
-    [+] You selected:  TV
-    [+] Dumping codes to TV.txt
-    ```
+   ```bash
+   Select accessory ID: 5
+   [+] You selected:  TV
+   [+] Dumping codes to TV.txt
+   ```
 
 6. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your `configuration.yaml` file (or wherever you have your switches).
 
