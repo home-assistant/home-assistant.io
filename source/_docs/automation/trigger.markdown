@@ -810,6 +810,22 @@ Note that to use JSON encoded payloads, the `Content-Type` header must be set to
 curl -X POST -H "Content-Type: application/json" -d '{ "key": "value" }' https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
+### Webhooks for Desktop PC's
+
+To create clickable shortcuts on a Desktop PC to trigger Webhooks, right click in folder or space you want to show the Webhook, create a shortcut. you will then be presented with a pop up with a box stating "Type the Location of the item" here you want to add the line 
+
+```C:\Windows\System32\cmd.exe /k start /b curl -d -X https://your-home-assistant:8123/api/webhook/some_hook_id & exit```
+
+Then Click next, you will be asked What would you like to name the shortcut, in the box "Type a name for this shortcut" (example officelights.exe if it controls office lights/Preheat Car.exe. The idea behind this is so that you can use shortcuts on your computer to run quick actions you would normally open your browser to go to in office.
+
+These shortcuts can also be used for creating batch files to autorun on the PC, so for example, lets say I created the officelights.exe from above, I could but this in a folder on A drive on the Desktop PC, lets say for example you create a folder in C called Webhooks. Create a shortcut to the officelights.exe you just created, Place this in the folder you created on C so C:/Webhooks
+
+Then Create a text file, in the text file copy 
+
+```start /MIN	C:\Webhooks\officelights``` as a example or ```start /MIN	C:\Webhooks\name_of_your_shortcut_you_placed_in_folder```
+
+Then goto file, Save as, in the save as type box (lower one) select all files, then under file name pu (example officelights.bat if it controls office lights or Preheatcar.bat, these are just examples.
+
 ### Webhook security
 
 Webhook endpoints don't require authentication, other than knowing a valid webhook ID. Security best practices for webhooks include:
