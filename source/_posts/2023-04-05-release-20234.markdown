@@ -44,12 +44,14 @@ Happy Easter! 🐣 and enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2023.4.1 - April 6](#release-202341---april-6)
+- [Release 2023.4.2 - April 8](#release-202342---april-8)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=IGnCGDaXR0M)  
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=IGnCGDaXR0M)
 5 April 2023, at 12:00 PDT / 21:00 CEST!
 
 <lite-youtube videoid="IGnCGDaXR0M" videotitle="Home Assistant 2023.4 Release Party"></lite-youtube>
@@ -484,6 +486,186 @@ The following integrations are now available via the Home Assistant UI:
 [frontier silicon]: /integrations/frontier_silicon
 [nextcloud]: /integrations/nextcloud
 [obihai]: /integrations/obihai
+
+## Release 2023.4.1 - April 6
+
+- Handle Uncaught exceptions in async_update Honeywell ([@mkmer] - [#90746]) ([honeywell docs])
+- Bump fritzconnection to 1.12.0 ([@saschaabraham] - [#90799]) ([fritz docs]) ([fritzbox_callmonitor docs])
+- Fix issue with Insteon All-Link Database loading ([@teharris1] - [#90858]) ([insteon docs])
+- Generate a seperate log message per dumped object for profiler.dump_log_objects ([@bdraco] - [#90867]) ([profiler docs])
+- Add constraint for websockets to <11.0 ([@bdraco] - [#90868])
+- Add MariaDB deadlock retry wrapper to database timestamp column migrations ([@bdraco] - [#90880]) ([recorder docs])
+- Migrate entity unique ids in PI-Hole ([@mib1185] - [#90883]) ([pi_hole docs])
+- Fix missing bluetooth client wrapper in bleak_retry_connector ([@bdraco] - [#90885]) ([bluetooth docs])
+- Bump ulid-transform 0.6.0 ([@bdraco] - [#90888])
+- Guard against invalid ULIDs in contexts while recording events ([@bdraco] - [#90889]) ([recorder docs])
+- Fix entity_id migration query failing with MySQL 8.0.30 ([@bdraco] - [#90895]) ([recorder docs])
+- Bump `simplisafe-python` to 2023.04.0 ([@bachya] - [#90896]) ([simplisafe docs])
+- Bump aiodiscover to 1.4.16 ([@bdraco] - [#90903]) ([dhcp docs])
+- Return empty available programs list if an appliance is off during initial configuration ([@stickpin] - [#90905]) ([home_connect docs])
+- Handle NoURLAvailableError in Nuki component ([@pree] - [#90927]) ([nuki docs])
+- Update frontend to 20230406.1 ([@bramkragten] - [#90951]) ([frontend docs])
+- Fix flaky test in vesync ([@epenet] - [#90921]) ([vesync docs])
+- Bump `aioambient` to 2022.10.0 ([@bachya] - [#90940]) ([ambient_station docs])
+- Bump reolink-aio to 0.5.10 ([@starkillerOG] - [#90963]) ([reolink docs])
+- Avoid writing state to all esphome entities at shutdown ([@bdraco] - [#90555]) ([esphome docs])
+- Fix state being cleared on disconnect with deep sleep esphome devices ([@bdraco] - [#90925]) ([esphome docs])
+- Coerce previously persisted local calendars to have valid durations ([@allenporter] - [#90970]) ([local_calendar docs])
+- Bump gcal_sync to 4.1.3 ([@allenporter] - [#90968]) ([google docs])
+- Fix error after losing an imap connection ([@jbouwh] - [#90966]) ([imap docs])
+- Fix command_template sensor value_template not being used if json_attributes set ([@gadgetchnnel] - [#90603]) ([command_line docs])
+- Fix verisure autolock ([@heiparta] - [#90960]) ([verisure docs])
+
+[#90555]: https://github.com/home-assistant/core/pull/90555
+[#90603]: https://github.com/home-assistant/core/pull/90603
+[#90855]: https://github.com/home-assistant/core/pull/90855
+[#90925]: https://github.com/home-assistant/core/pull/90925
+[#90956]: https://github.com/home-assistant/core/pull/90956
+[#90960]: https://github.com/home-assistant/core/pull/90960
+[#90966]: https://github.com/home-assistant/core/pull/90966
+[#90968]: https://github.com/home-assistant/core/pull/90968
+[#90970]: https://github.com/home-assistant/core/pull/90970
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@frenck]: https://github.com/frenck
+[@gadgetchnnel]: https://github.com/gadgetchnnel
+[@heiparta]: https://github.com/heiparta
+[@jbouwh]: https://github.com/jbouwh
+[actiontec docs]: /integrations/actiontec/
+[advantage_air docs]: /integrations/advantage_air/
+[airly docs]: /integrations/airly/
+[command_line docs]: /integrations/command_line/
+[esphome docs]: /integrations/esphome/
+[google docs]: /integrations/google/
+[imap docs]: /integrations/imap/
+[local_calendar docs]: /integrations/local_calendar/
+[verisure docs]: /integrations/verisure/
+[#90921]: https://github.com/home-assistant/core/pull/90921
+[@epenet]: https://github.com/epenet
+[ambient_station docs]: /integrations/ambient_station/
+[reolink docs]: /integrations/reolink/
+[@bachya]: https://github.com/bachya
+[@starkillerOG]: https://github.com/starkillerOG
+[#90746]: https://github.com/home-assistant/core/pull/90746
+[#90799]: https://github.com/home-assistant/core/pull/90799
+[#90855]: https://github.com/home-assistant/core/pull/90855
+[#90858]: https://github.com/home-assistant/core/pull/90858
+[#90867]: https://github.com/home-assistant/core/pull/90867
+[#90868]: https://github.com/home-assistant/core/pull/90868
+[#90880]: https://github.com/home-assistant/core/pull/90880
+[#90883]: https://github.com/home-assistant/core/pull/90883
+[#90885]: https://github.com/home-assistant/core/pull/90885
+[#90888]: https://github.com/home-assistant/core/pull/90888
+[#90889]: https://github.com/home-assistant/core/pull/90889
+[#90895]: https://github.com/home-assistant/core/pull/90895
+[#90896]: https://github.com/home-assistant/core/pull/90896
+[#90903]: https://github.com/home-assistant/core/pull/90903
+[#90905]: https://github.com/home-assistant/core/pull/90905
+[#90927]: https://github.com/home-assistant/core/pull/90927
+[#90951]: https://github.com/home-assistant/core/pull/90951
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@frenck]: https://github.com/frenck
+[@mib1185]: https://github.com/mib1185
+[@mkmer]: https://github.com/mkmer
+[@pree]: https://github.com/pree
+[@saschaabraham]: https://github.com/saschaabraham
+[@stickpin]: https://github.com/stickpin
+[@teharris1]: https://github.com/teharris1
+[actiontec docs]: /integrations/actiontec/
+[advantage_air docs]: /integrations/advantage_air/
+[airly docs]: /integrations/airly/
+[bluetooth docs]: /integrations/bluetooth/
+[dhcp docs]: /integrations/dhcp/
+[fritz docs]: /integrations/fritz/
+[fritzbox_callmonitor docs]: /integrations/fritzbox_callmonitor/
+[frontend docs]: /integrations/frontend/
+[home_connect docs]: /integrations/home_connect/
+[honeywell docs]: /integrations/honeywell/
+[insteon docs]: /integrations/insteon/
+[nuki docs]: /integrations/nuki/
+[pi_hole docs]: /integrations/pi_hole/
+[profiler docs]: /integrations/profiler/
+[recorder docs]: /integrations/recorder/
+[simplisafe docs]: /integrations/simplisafe/
+
+## Release 2023.4.2 - April 8
+
+- Fix NMBS AttributeError ([@PatrickGlesner] - [#90525]) ([nmbs docs])
+- Bump websockets constraint to 11.0.1+ ([@bdraco] - [#90901]) ([ambient_station docs]) ([vallox docs])
+- Raise an issue for legacy SQL queries that will cause full table scans ([@bdraco] - [#90971]) ([sql docs])
+- Resume entity id post migration after a restart ([@bdraco] - [#90973]) ([recorder docs])
+- Bump vallox-websocket-api to 3.2.1 ([@bdraco] - [#90980]) ([vallox docs])
+- Bump `aioambient` to 2023.04.0 ([@bachya] - [#90991]) ([ambient_station docs])
+- Bump roombapy to 1.6.8 ([@joostlek] - [#91012]) ([roomba docs])
+- Delay utility_meter until HA has started ([@dgomes] - [#91017]) ([utility_meter docs])
+- Make sure upnp-router is also initialized when first seen through an advertisement ([@StevenLooman] - [#91037]) ([upnp docs])
+- Bump ZHA quirks lib ([@dmulcahey] - [#91054]) ([zha docs])
+- Fix Smartthings acceleration sensor in ZHA ([@dmulcahey] - [#91056]) ([zha docs])
+- Bump zeroconf to 0.55.0 ([@bdraco] - [#90987]) ([zeroconf docs])
+- Bump zeroconf to 0.56.0 ([@bdraco] - [#91060]) ([zeroconf docs])
+- Make location optional in google calendar create service ([@allenporter] - [#91061]) ([google docs])
+- Bump gcal_sync to 4.1.4 ([@allenporter] - [#91062]) ([google docs])
+- Bump subarulink to 0.7.6 ([@G-Two] - [#91064]) ([subaru docs])
+- Bump env_canada to v0.5.31 ([@michaeldavie] - [#91094]) ([environment_canada docs])
+- Fix context_user_id round trip when calling to_native ([@bdraco] - [#91098]) ([recorder docs])
+- Bump flux_led to 0.28.37 ([@bdraco] - [#91099]) ([flux_led docs])
+- Make the device_tracker more forgiving when passed an empty ip address string ([@bdraco] - [#91101]) ([device_tracker docs])
+
+[#90525]: https://github.com/home-assistant/core/pull/90525
+[#90855]: https://github.com/home-assistant/core/pull/90855
+[#90901]: https://github.com/home-assistant/core/pull/90901
+[#90956]: https://github.com/home-assistant/core/pull/90956
+[#90971]: https://github.com/home-assistant/core/pull/90971
+[#90973]: https://github.com/home-assistant/core/pull/90973
+[#90980]: https://github.com/home-assistant/core/pull/90980
+[#90987]: https://github.com/home-assistant/core/pull/90987
+[#90991]: https://github.com/home-assistant/core/pull/90991
+[#91012]: https://github.com/home-assistant/core/pull/91012
+[#91017]: https://github.com/home-assistant/core/pull/91017
+[#91037]: https://github.com/home-assistant/core/pull/91037
+[#91054]: https://github.com/home-assistant/core/pull/91054
+[#91056]: https://github.com/home-assistant/core/pull/91056
+[#91060]: https://github.com/home-assistant/core/pull/91060
+[#91061]: https://github.com/home-assistant/core/pull/91061
+[#91062]: https://github.com/home-assistant/core/pull/91062
+[#91064]: https://github.com/home-assistant/core/pull/91064
+[#91094]: https://github.com/home-assistant/core/pull/91094
+[#91098]: https://github.com/home-assistant/core/pull/91098
+[#91099]: https://github.com/home-assistant/core/pull/91099
+[#91101]: https://github.com/home-assistant/core/pull/91101
+[@G-Two]: https://github.com/G-Two
+[@PatrickGlesner]: https://github.com/PatrickGlesner
+[@StevenLooman]: https://github.com/StevenLooman
+[@allenporter]: https://github.com/allenporter
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@dgomes]: https://github.com/dgomes
+[@dmulcahey]: https://github.com/dmulcahey
+[@frenck]: https://github.com/frenck
+[@joostlek]: https://github.com/joostlek
+[@michaeldavie]: https://github.com/michaeldavie
+[actiontec docs]: /integrations/actiontec/
+[advantage_air docs]: /integrations/advantage_air/
+[airly docs]: /integrations/airly/
+[ambient_station docs]: /integrations/ambient_station/
+[device_tracker docs]: /integrations/device_tracker/
+[environment_canada docs]: /integrations/environment_canada/
+[flux_led docs]: /integrations/flux_led/
+[google docs]: /integrations/google/
+[nmbs docs]: /integrations/nmbs/
+[recorder docs]: /integrations/recorder/
+[roomba docs]: /integrations/roomba/
+[sql docs]: /integrations/sql/
+[subaru docs]: /integrations/subaru/
+[upnp docs]: /integrations/upnp/
+[utility_meter docs]: /integrations/utility_meter/
+[vallox docs]: /integrations/vallox/
+[zeroconf docs]: /integrations/zeroconf/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
