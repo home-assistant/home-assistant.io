@@ -58,18 +58,17 @@ an offset.
 
 The sun trigger need to have the type 'sun', which event (sunset or sunrise) and an optional offset.
 
-```json
-{
-    "platform": "sun",
-    "event": "sunset",
-    "offset": "-01:00:00"
-}
+```yaml
+trigger:
+  - platform: sun
+    event: sunrise
+    offset: "-01:00:01"
 ```
 
 | Key name | Description |
 | --------- | ----------- |
-| `event` | Possible values  `sunset`,  `sunrise `
-| `offset` | An optional offset specified in HH:MM:SS from event trigger. <br> Positive after event is triggered. <br> Negative before event is triggered
+| `event` | Possible values: `sunset` or `sunrise`
+| `offset` | An optional offset for the sun event trigger, in a positive or negative number of seconds, or specified in `HH:MM:SS` (after sun event trigger) or `-HH:MM:SS` (before sun event trigger).
 
 ### Maintains entity `sun.sun`
 
