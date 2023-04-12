@@ -30,11 +30,40 @@ The entity has the `current_activity` attribute that shows the current foregroun
 
 You can use the `remote.turn_off`, `remote.turn_on`, `remote.toggle`,  and `remote.send_command` services from the [remote](/integrations/remote/) platform.
 
-### Service `remote.turn_off`
+For a list of the most common commands you can send to the Android TV via `remote.send_command` see: [TvKeys](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt).
+For a full list see [here](https://github.com/tronikos/androidtvremote2/blob/main/src/androidtvremote2/remotemessage.proto#L90).
 
-Turn off the Android TV.
+If `activity` is specified in `remote.turn_on` it will open the specified URL in the associated app.
 
-Example:
+Examples of URLs to pass as activity for some popular apps:
+
+| App | URL |
+| --- | --- |
+| YouTube | https://www.youtube.com
+| Netflix | https://www.netflix.com/title
+| Prime Video | https://app.primevideo.com
+| Disney+ | https://www.disneyplus.com
+
+Examples of service calls:
+
+```yaml
+# Open the currently selected item on the Android TV
+service: remote.send_command
+data:
+  command: DPAD_CENTER
+target:
+  entity_id: remote.living_room_tv
+```
+
+```yaml
+# Long press on the currently selected item on the Android TV
+service: remote.send_command
+data:
+  command: DPAD_CENTER
+  hold_secs: 0.5
+target:
+  entity_id: remote.living_room_tv
+```
 
 ```yaml
 # Turn off Living Room TV
@@ -42,12 +71,6 @@ service: remote.turn_off
 target:
   entity_id: remote.living_room_tv
 ```
-
-### Service `remote.turn_on`
-
-Turn on the Android TV. If `activity` is specified it will open the specified URL in the associated app.
-
-Examples:
 
 ```yaml
 # Turn on Living Room TV
@@ -70,45 +93,6 @@ target:
 service: remote.turn_on
 data:
   activity: https://www.youtube.com/watch?v=dQw4w9WgXcQ
-target:
-  entity_id: remote.living_room_tv
-```
-
-Examples of URLs to pass as activity for some popular apps:
-
-| App | URL |
-| --- | --- |
-| YouTube | https://www.youtube.com
-| Netflix | https://www.netflix.com/title
-| Prime Video | https://app.primevideo.com
-| Disney+ | https://www.disneyplus.com
-
-
-### Service `remote.send_command`
-
-Send a single command or a set of commands to the Android TV.
-You can optionally specify the number of times you wish to repeat the command(s), delay you want between repeated command(s), and hold.
-
-For a list of the most common commands you can send to the Android TV see: [TvKeys](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt).
-For a full list see [here](https://github.com/tronikos/androidtvremote2/blob/main/src/androidtvremote2/remotemessage.proto#L90).
-
-Examples:
-
-```yaml
-# Open the currently selected item on the Android TV
-service: remote.send_command
-data:
-  command: DPAD_CENTER
-target:
-  entity_id: remote.living_room_tv
-```
-
-```yaml
-# Long press on the currently selected item on the Android TV
-service: remote.send_command
-data:
-  command: DPAD_CENTER
-  hold_secs: 0.5
 target:
   entity_id: remote.living_room_tv
 ```
