@@ -16,7 +16,7 @@ ha_integration_type: integration
 
 The `kaiterra` integration allows you to view the readings from your Laser Egg or Sensedge device using the [Kaiterra REST API](https://www.kaiterra.com/dev/).
 
-To use the integration, you need to get the API key by signing up at [Kaiterra dashboard](https://dashboard.kaiterra.cn/), registering the device and create the key under `Settings -> Profile -> Developer`.
+To use the integration, you need to get the API key by signing up at [Kaiterra dashboard](https://dashboard.kaiterra.com/), registering the device and create the key under `Settings -> Profile -> Developer`.
 
 ## Configuration
 
@@ -28,7 +28,6 @@ kaiterra:
   api_key: YOUR_API_KEY
   devices:
     - device_id: YOUR_DEVICE_ID
-      type: YOUR_DEVICE_TYPE
 ```
 
 {% configuration %}
@@ -61,7 +60,7 @@ devices:
       type: string
     type:
       description: The device type. Available values `laseregg` and `sensedge`.
-      required: true
+      required: false
       type: string
     name:
       description: The custom name of your device.
