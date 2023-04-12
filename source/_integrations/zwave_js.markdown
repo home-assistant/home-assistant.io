@@ -154,7 +154,7 @@ The following features can be accessed from the device panel of a Z-Wave device:
 * **Remove failed:** Forces the controller to remove the device from the controller. Can be used when a device has failed and it can't go through the normal exclusion process.
 * **[Statistics](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot):** Provides statistics about communication between this device and the controller, allowing you to troubleshoot RF issues with the device.
 * **Update:** Updates a device's firmware using a manually uploaded firmware file. Only some devices support this feature (controllers and devices with the Firmware Update Metadata Command Class).
-* **[Download diagnostics](https://www.home-assistant.io/docs/configuration/troubleshooting/#download-diagnostics):** Exports a JSON file describing all the entities and their properties.
+* **[Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics):** Exports a JSON file describing all the entities and their properties.
 
 ## Services
 
