@@ -844,3 +844,24 @@ Z-Wave JS writes details to its logs. To access these logs go to the following.
    **Settings** -> **Devices & Services** -> **Integrations(tab)** -> **Z-Wave (CONFIGURE)** -> **Logs(tab)**
 
 You need to keep this browser tab open for logging to be active.
+
+## Overview of command class specific functionalities
+
+This section provides an overview of device specific functions that are provided in the Home Assistant user interface.
+
+### Cover
+Covers (called *barrier operator* in Z-Wave terminology) can be opened, closed, and stopped via the corresponding buttons.
+
+![Cover controls](/images/integrations/z-wave/cmd-class-cover.png)
+
+### Binary switch
+Devices can be turned on or off via toggle buttons.
+![Cover controls](/images/integrations/z-wave/cmd-class-binary-switch.png)
+
+### Color switch
+Colors can be dimmed using a slider and defined using a color picker.
+![Color controls: Set color](/images/integrations/z-wave/cmd-class-color.png)
+
+### Door lock
+Locks can be opened and closed from the dashboard using the lock/unlock button.
+![Cover controls](/images/integrations/z-wave/cmd-class-lock.png)
