@@ -66,20 +66,6 @@ target:
 ```
 
 ```yaml
-# Turn off Living Room TV
-service: remote.turn_off
-target:
-  entity_id: remote.living_room_tv
-```
-
-```yaml
-# Turn on Living Room TV
-service: remote.turn_on
-target:
-  entity_id: remote.living_room_tv
-```
-
-```yaml
 # Launch YouTube
 service: remote.turn_on
 data:
