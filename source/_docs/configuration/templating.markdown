@@ -657,7 +657,7 @@ The `to_json` filter serializes an object to a JSON string. In some cases, it ma
 
 `to_json` also accepts boolean arguments for `pretty_print`, which will pretty print the JSON with a 2-space indent to make it more human-readable, and `sort_keys`, which will sort the keys of the JSON object, ensuring that the resulting string is consistent for the same input.
 
-If you need to generate JSON that will be used by a parser that lacks support for unicode characters, you can add  `ensure_ascii=True` to have `to_json` generate unicode escape sequences in strings.
+If you need to generate JSON that will be used by a parser that lacks support for Unicode characters, you can add  `ensure_ascii=True` to have `to_json` generate Unicode escape sequences in strings.
 
 The `from_json` filter operates similarly, but in the other direction, de-serializing a JSON string back into an object.
 
