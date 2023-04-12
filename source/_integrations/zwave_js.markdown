@@ -142,6 +142,13 @@ The following features can be accessed from the integration configuration panel:
 * **[Controller statistics](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot):** Provides statistics about communication between the controller and other devices, allowing you to troubleshoot your network's RF quality.
 * **Third-party data opt-in/out:** Allows you to opt-in or out of telemetry that the Z-Wave JS project collects to help inform development decisions, influence manufacturers, etc. This telemetry is disabled by default and has to be opted in to be activated.
 
+### Integration menu
+
+Some features can be accessed from the menu of integration itself. As they are not specific to Z-Wave, they are not described here in detail.
+![Z-Wave integration configuration panel](/images/integrations/z-wave/z-wave-integration-menu.png)
+
+* **[Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics):** Exports a JSON file describing the entities of all devices registered with this integration.
+
 ### Device panel
 
 The following features can be accessed from the device panel of a Z-Wave device:
@@ -154,7 +161,7 @@ The following features can be accessed from the device panel of a Z-Wave device:
 * **Remove failed:** Forces the controller to remove the device from the controller. Can be used when a device has failed and it can't go through the normal exclusion process.
 * **[Statistics](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot):** Provides statistics about communication between this device and the controller, allowing you to troubleshoot RF issues with the device.
 * **Update:** Updates a device's firmware using a manually uploaded firmware file. Only some devices support this feature (controllers and devices with the Firmware Update Metadata Command Class).
-* **[Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics):** Exports a JSON file describing all the entities and their properties.
+* **Download diagnostics:** Exports a JSON file describing the entities of this specific device.
 
 ## Services
 
