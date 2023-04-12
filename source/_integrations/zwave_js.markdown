@@ -46,7 +46,7 @@ ha_zeroconf: true
 
 The Z-Wave integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
 
-## Overview
+## Getting started
 
 To run a Z-Wave network, you need the following elements:
 
@@ -54,7 +54,7 @@ To run a Z-Wave network, you need the following elements:
 * A running Z-Wave JS server.
 * An installed Z-Wave integration in Home Assistant.
 
-## Setting up a Z-Wave JS server
+### Setting up a Z-Wave JS server
 
 The easiest way to get started is by using the built-in Z-Wave JS add-on in Home Assistant.
 
@@ -90,11 +90,39 @@ Use this My button:
 1. Wait for the Z-Wave JS add-on to start up.
 1. Once the installation is complete, the **Device info** of the Z-Wave controller is shown.
    * You successfully installed the Z-Wave integration and the Z-Wave JS add-on.
-   * You can now add devices to the Z-Wave network.
+   * You can now [add](/integrations/zwave_js/#adding-a-new-device-to-the-z-wave-network) devices to the Z-Wave network.
 
 <p class='note'>
 While your Z-Wave mesh is permanently stored on your dongle, the additional metadata is not. When the Z-Wave integration starts up the first time, it will interview your entire Z-Wave network. Depending on the number of devices paired with the Z-Wave dongle, this can take a while. You can speed up this process by manually waking up your battery-powered devices. Most of the time, this is a button press on those devices (see their manual). It is not necessary to exclude and re-include devices from the mesh.
 </p>
+
+### Adding a new device to the Z-Wave network
+
+1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+1. In the Z-Wave integration, select **Configure**.
+1. Select **Add device**.
+   * The Z-Wave controller is now in inclusion mode.
+1. If your device supports SmartStart, select **Scan QR code** and scan the QR code on your device.
+1. If your device does not support SmartStart, set the device in inclusion mode. Refer to the device manual to see how this is done.
+   * If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
+1. The UI should confirm that the device was added. After a short while (seconds to minutes), the entities should also be created.
+1. If the controller fails to add/find your device, cancel the inclusion process.
+   * In some cases, it might help to first [remove](/integrations/zwave_js/#removing-a-device-from-the-z-wave-network) a device (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet.
+   * Another approach would be to factory reset the device. Refer to the device manual to see how this is done.
+
+**Important:**
+
+1. **Do not move your Z-Wave stick to include devices.** This is no longer necessary and leads to broken routes.
+1. **Do not initiate device inclusion from the Z-Wave stick itself.** This is no longer supported.
+
+### Removing a device from the Z-Wave network
+
+1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+1. In the Z-Wave integration, select **Configure**.
+1. Select **Remove device**, then **Start exclusion**.
+   * The Z-Wave controller is now in exclusion mode.
+1. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
+1. The UI should confirm that the device was removed and the device and entities will be removed from Home Assistant.
 
 ## Services
 
@@ -678,7 +706,7 @@ See the [Z-Wave JS device database](https://devices.zwave-js.io/).
 
 While there is support for the most common devices, some command classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6).
 
-You can also keep track of the roadmap for the Z-Wave integration [here](https://github.com/home-assistant-libs/zwave-js-server-python/issues/56).
+You can also keep track of the road map for the Z-Wave integration [here](https://github.com/home-assistant-libs/zwave-js-server-python/issues/56).
 
 ### Installation and Configuration
 
@@ -745,24 +773,6 @@ Ultimately, this is a personal decision. If you provide a name or location for a
 
 Names set in Home Assistant will not import into Z-Wave JS UI.
 
-### Using Z-Wave
-
-#### How can I add (include) a new device to my Z-Wave network?
-
-1. In Home Assistant: open Settings -> Devices & Services -> Z-Wave -> Configure.
-2. Press `+ ADD DEVICE`.
-3. The Z-Wave controller is now in inclusion mode and will not respond to other commands.
-4. Put the device you want to add in inclusion mode. Refer to its manual how this is done.
-5. The UI should confirm that the node was added and it will be immediately visible in Home Assistant. After a short while (seconds to minutes) the entities should also be created.
-6. If the controller fails to add/find your device, cancel the inclusion process (to unblock your network again). In some cases it might help to first remove a node (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet. Another approach would be to factory reset the device. Info about that is in the manual of your device.
-
-If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself.
-
-**Warning:**
-
-1. **Do not move your Z-Wave stick to include devices.** This is no longer necessary and leads to broken routes.
-2. **Do not initiate device inclusion from the Z-Wave stick itself.** This is no longer supported.
-
 #### Should I use `Secure Inclusion`?
 
 That depends. There are two generations of Z-Wave security, S0, and S2.
@@ -774,14 +784,6 @@ S2 security does not impose additional network traffic and provides additional b
 #### Where can I see the security keys in the Z-Wave JS add-on?
 
 After the initial setup of the Z-Wave controller, you can view the security keys in the Z-Wave JS add-on. Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %} and open the **Configuration** tab. You can now see the three S2 keys and the S0 key. The network security key is a legacy configuration setting, identical to the S0 key.
-
-#### How do I remove (exclude) a device from my Z-Wave network?
-
-1. In Home Assistant: open Settings -> Devices & Services -> Z-Wave -> Configure.
-2. Press `REMOVE DEVICE`.
-3. Press `START EXCLUSION`. The Z-Wave controller is now in exclusion mode and will not respond to other commands.
-4. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
-5. The UI should confirm that the node was removed and the device and entities will be removed from Home Assistant.
 
 ### Troubleshooting
 
