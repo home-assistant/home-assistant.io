@@ -26,6 +26,16 @@
     Add-ons are additional standalone third-party software packages that can be
     installed on Home Assistant OS.
 
+- term: Area
+  definition: >-
+    Locations within your home such as living room, dance floor, etc.
+    Devices can be associated to an area for easier sorting and automatically
+    generated cards, such as the [Area card](/dashboards/area/).
+  excerpt: >-
+    Places within your home such as rooms, spaces, etc.
+  aliases:
+    - areas
+
 - term: Automation
   definition: >-
     Automations connect one or more triggers to one or more actions in a
