@@ -781,6 +781,10 @@ S0 security imposes significant additional traffic on your mesh and is recommend
 
 S2 security does not impose additional network traffic and provides additional benefits, such as detecting packet corruption. By default, Z-Wave attempts S2 security during inclusion if supported, falling back to S0 security only when necessary.
 
+#### Where can I see the security keys in the Z-Wave JS add-on?
+
+After the initial setup of the Z-Wave controller, you can view the security keys in the Z-Wave JS add-on. Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %} and open the **Configuration** tab. You can now see the three S2 keys and the S0 key. The network security key is a legacy configuration setting, identical to the S0 key.
+
 ### Troubleshooting
 
 #### I'm having a problem, what should I do first?
