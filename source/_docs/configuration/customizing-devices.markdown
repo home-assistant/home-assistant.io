@@ -18,9 +18,13 @@ If your entity is not supported, or you cannot customize what you need via this 
 
 ## Customizing entities
 
-By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
+Devices can also be configured using configuration yaml files. By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by overriding attributes of specific entities.
+
+You can also use `customize` to associate arbitrary additional data with an entity. This can be referenced later in automations, scripts, etc.
 
 #### Possible values
+
+Below are some suggested values and an explanation of how they will be interpreted by the UI.
 
 {% configuration customize %}
 friendly_name:
@@ -100,6 +104,8 @@ homeassistant:
     media_player.my_media_player:
       source_list:
         - Channel/input from my available sources
+      # Arbitrary keys and values are supported here
+      additional_metadata: 42
   # Customize all entities in a domain
   customize_domain:
     light:
@@ -126,4 +132,8 @@ Alternatively, you can reload via service call. Navigate to Developer Tools > Se
 
 <div class='note warning'>
 New customize information will be applied the next time the state of the entity gets updated.
+</div>
+
+<div class='note warning'>
+If adding the `homeassistant:` section to the configuration file for the first time, a restart will be required. After which, reloading while running will function as described above.
 </div>
