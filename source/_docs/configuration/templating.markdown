@@ -659,8 +659,6 @@ The `as_json` filter serializes an object to a JSON string. In some cases, it ma
 
 The `from_json` filter operates similarly, but in the other direction, de-serializing a JSON string back into an object.
 
-The `to_json` filter has been deprecated and will be removed in Home Assistant 2023.8.  `as_json` is more performant and more consistent with use across Home Assistant.
-
 
 ### As/From JSON examples
 
