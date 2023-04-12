@@ -27,7 +27,7 @@ ha_integration_type: integration
 
 The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
 
-- Thermostats: `Hysen HY02B05H`, `Floureon HY03WE`
+- Thermostats: `Hysen HY02B05H` and `Floureon HY03WE`
 - Power Strips: `MP1-1K3S2U` and `MP1-1K4S`
 - Sensors: `e-Sensor`
 - Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU`, `SP3S-US`, `SP4L-EU` and `SP4M-US`
@@ -290,11 +290,11 @@ script:
 
 You can use `remote.delete_command` to remove commands that you've learned with the `remote.learn_command` service.
 
-| Service data attribute | Optional | Description                           |
-| ---------------------- | -------- | ------------------------------------- |
-| `entity_id`            | no       | ID of the remote.                     |
-| `device`               | no       | Name of the device.                   |
-| `command`              | no       | Names of the commands to be deleted.  |
+| Service data attribute | Optional | Description                          |
+| ---------------------- | -------- | ------------------------------------ |
+| `entity_id`            | no       | ID of the remote.                    |
+| `device`               | no       | Name of the device.                  |
+| `command`              | no       | Names of the commands to be deleted. |
 
 #### Deleting a command
 
