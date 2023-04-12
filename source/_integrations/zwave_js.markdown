@@ -120,7 +120,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
 1. In the Z-Wave integration, select **Configure**.
 1. Select **Remove device**, then **Start exclusion**.
-   * The Z-Wave controller is now in exclusion mode and will not respond to other commands.
+   * The Z-Wave controller is now in exclusion mode.
 1. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
 1. The UI should confirm that the node was removed and the device and entities will be removed from Home Assistant.
 
