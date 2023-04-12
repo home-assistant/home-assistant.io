@@ -822,7 +822,7 @@ These shortcuts can also be used for creating batch files to autorun on the PC, 
 
 Then Create a text file, in the text file copy 
 
-```start /MIN	C:\Webhooks\officelights``` as a example or ```start /MIN	C:\Webhooks\name_of_your_shortcut_you_placed_in_folder```
+```start /MIN	C:\Webhooks\officelights``` as a example or ```start /MIN	C:\Webhooks\name_of_your_shortcut_you_placed_in_folder exit```
 
 Then goto file, Save as, in the save as type box (lower one) select all files, then under file name pu (example officelights.bat if it controls office lights or Preheatcar.bat, these are just examples. You now have a executable batch file that can be run on start up and shut down of pc.  (warning if you delete the shortcut or the original exe created you will break the batch file)
 
