@@ -63,19 +63,19 @@ Jinja supports a set of language extensions that add new functionality to the la
 To improve the experience of writing Jinja templates, we have enabled the following
 extensions:
 
-* [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
+- [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
 
 ### Reusing Templates
 
-You can write reusable Jinja templates by adding them to a `custom_jinja` folder under your
+You can write reusable Jinja templates by adding them to a `custom_templates` folder under your
 configuration directory. All template files must have the `.jinja` extension and be less than 5MiB.
 Templates in this folder will be loaded at startup. To reload the templates without
-restarting Home Assistant, invoke the `homeassistant.reload_custom_jinja` service.
+restarting Home Assistant, invoke the `homeassistant.reload_custom_templates` service.
 
 Once the templates are loaded, Jinja [includes](https://jinja.palletsprojects.com/en/3.0.x/templates/#include) and [imports](https://jinja.palletsprojects.com/en/3.0.x/templates/#import) will work
-using `config/custom_jinja` as the base directory.
+using `config/custom_templates` as the base directory.
 
-For example, you might define a macro in a template in `config/custom_jinja/formatter.jinja`:
+For example, you might define a macro in a template in `config/custom_templates/formatter.jinja`:
 
 {% raw %}
 
@@ -123,7 +123,7 @@ Not supported in [limited templates](#limited-templates).
 
 <div class='note warning'>
 
-  Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
+Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
 
 </div>
 
@@ -564,7 +564,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
 ### Time
 
-`now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
+`now()`, `relative_time()`, `today_at()`, and `utcnow()` are not supported in [limited templates](#limited-templates).
 
 - `now()` returns a datetime object that represents the current time in your time zone.
   - You can also use: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()` and other [`datetime`](https://docs.python.org/3.8/library/datetime.html#datetime.datetime) attributes and functions.
@@ -574,41 +574,44 @@ For example, if you wanted to select a field from `trigger` in an automation bas
   - Using `utcnow()` will cause templates to be refreshed at the start of every new minute.
 - `today_at(value)` converts a string containing a military time format to a datetime object with today's date in your time zone.
 
-   {% raw %}
+  - Using `today_at()` will cause templates to be refreshed at the start of every new minute.
 
-   ```yaml
-   # Is the current time past 10:15?
-   {{ now() > today_at("10:15") }}
-   ```
+  {% raw %}
 
-   {% endraw %}
+  ```text
+  # Is the current time past 10:15?
+  {{ now() > today_at("10:15") }}
+  ```
+
+  {% endraw %}
 
 - `as_datetime()` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object.
 - `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts datetime object to local time. This function can also be used as a filter.
 - `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3.10/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
-- `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g.,  if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
+- `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g., if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
+  - Using `relative_time()` will cause templates to be refreshed at the start of every new minute.
 - `timedelta` returns a timedelta object and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
 
-   {% raw %}
+  {% raw %}
 
-   ```yaml
-   # 77 minutes before current time.
-   {{ now() - timedelta( hours = 1, minutes = 17 ) }}
-   ```
+  ```text
+  # 77 minutes before current time.
+  {{ now() - timedelta( hours = 1, minutes = 17 ) }}
+  ```
 
-   {% endraw %}
+  {% endraw %}
 
 - `as_timedelta(string)` converts a string to a timedelta object. Expects data in the format `DD HH:MM:SS.uuuuuu`, `DD HH:MM:SS,uuuuuu`, or as specified by ISO 8601 (e.g. `P4DT1H15M20S` which is equivalent to `4 1:15:20`) or PostgreSQL’s day-time interval format (e.g. `3 days 04:05:06`) This function can also be used as a filter.
 
-   {% raw %}
+  {% raw %}
 
-   ```yaml
-   # Renders to "00:10:00"
-   {{ as_timedelta("PT10M") }}
-   ```
+  ```text
+  # Renders to "00:10:00"
+  {{ as_timedelta("PT10M") }}
+  ```
 
-   {% endraw %}
+  {% endraw %}
 
 - Filter `timestamp_local(default)` converts a UNIX timestamp to the ISO format string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
 - Filter `timestamp_utc(default)` converts a UNIX timestamp to the ISO format string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
@@ -642,7 +645,7 @@ To fix it, enforce the ISO conversion via `isoformat()`:
 
 {% raw %}
 
-```yaml
+```text
 {{ 120 | timestamp_local }}
 ```
 
@@ -856,9 +859,7 @@ Some examples:
   ```
   This more complex example uses the `contains` filter to match the current month with a list. In this case, it's used to generate a list of light theme to give to the `Input select: Set options` service.
 
-
 {% endraw %}
-
 
 ### Numeric functions and filters
 
@@ -880,14 +881,14 @@ The numeric functions and filters raise an error if the input is not a valid num
 </div>
 
 - `float(value, default)` function will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted raises an error.
-- `float(default)` filter will attempt to convert the input to a `float`.  If that fails, returns the `default` value, or if omitted raises an error.
+- `float(default)` filter will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted raises an error.
 - `is_number` will return `True` if the input can be parsed by Python's `float` function and the parsed input is not `inf` or `nan`, in all other cases returns `False`. Note that a Python `bool` will return `True` but the strings `"True"` and `"False"` will both return `False`. Can be used as a filter.
 - `int(value, default)` function is similar to `float`, but converts to an `int` instead. Like `float`, it has a filter form, and an error is raised if the `default` value is omitted. Fractional part is discarded: `int("1.5")` is `1`.
 - `bool(value, default)` function converts the value to either `true` or `false`.
-The following values are considered to be `true`: boolean `true`, non-zero `int`s and `float`s, and the strings `"true"`, `"yes"`, `"on"`, `"enable"`, and `"1"` (case-insensitive). `false` is returned for the opposite values: boolean `false`, integer or floating-point `0`, and the strings `"false"`, `"no"`, `"off"`, `"disable"`, and `"0"` (also case-insensitive).
-If the value is not listed here, the function returns the `default` value, or if omitted raises an error.
-This function is intended to be used on states of [binary sensors](/integrations/binary_sensor/), [switches](/integrations/switch/), or similar entities, so its behavior is different from Python's built-in `bool` conversion, which would consider e.g. `"on"`, `"off"`, and `"unknown"` all to be `true`, but `""` to be `false`; if that is desired, use `not not value` or a similar construct instead.
-Like `float` and `int`, `bool` has a filter form. Using `none` as the default value is particularly useful in combination with the [immediate if filter](#immediate-if-iif): it can handle all three possible cases in a single line.
+  The following values are considered to be `true`: boolean `true`, non-zero `int`s and `float`s, and the strings `"true"`, `"yes"`, `"on"`, `"enable"`, and `"1"` (case-insensitive). `false` is returned for the opposite values: boolean `false`, integer or floating-point `0`, and the strings `"false"`, `"no"`, `"off"`, `"disable"`, and `"0"` (also case-insensitive).
+  If the value is not listed here, the function returns the `default` value, or if omitted raises an error.
+  This function is intended to be used on states of [binary sensors](/integrations/binary_sensor/), [switches](/integrations/switch/), or similar entities, so its behavior is different from Python's built-in `bool` conversion, which would consider e.g. `"on"`, `"off"`, and `"unknown"` all to be `true`, but `""` to be `false`; if that is desired, use `not not value` or a similar construct instead.
+  Like `float` and `int`, `bool` has a filter form. Using `none` as the default value is particularly useful in combination with the [immediate if filter](#immediate-if-iif): it can handle all three possible cases in a single line.
 
 - `log(value, base, default)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. If `value` or `base` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can also be used as a filter.
 - `sin(value, default)` will return the sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
@@ -961,7 +962,7 @@ The other part of templating is processing incoming data. It allows you to modif
 It depends per integration or platform, but it is common to be able to define a template using the `value_template` configuration key. When a new value arrives, your template will be rendered while having access to the following values on top of the usual Home Assistant extensions:
 
 | Variable     | Description                        |
-|--------------|------------------------------------|
+| ------------ | ---------------------------------- |
 | `value`      | The incoming value.                |
 | `value_json` | The incoming value parsed as JSON. |
 
@@ -979,7 +980,7 @@ The template for `on` would be:
 {% raw %}
 
 ```yaml
-'{{value_json.on}}'
+"{{value_json.on}}"
 ```
 
 {% endraw %}
@@ -1078,7 +1079,7 @@ With given payload:
 { "state": "ON", "temperature": 21.902 }
 ```
 
-Template {% raw %}```{{ value_json.temperature | round(1) }}```{% endraw %} renders to `21.9`.
+Template {% raw %}`{{ value_json.temperature | round(1) }}`{% endraw %} renders to `21.9`.
 
 Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
@@ -1092,7 +1093,7 @@ For service calls command templates are defined to format the outgoing MQTT payl
 
 Example command template:
 
-With given value `21.9` template {% raw %}```{"temperature": {{ value }} }```{% endraw %} renders to:
+With given value `21.9` template {% raw %}`{"temperature": {{ value }} }`{% endraw %} renders to:
 
 ```json
 {
@@ -1116,7 +1117,7 @@ The default priority of operators is that the filter (`|`) has priority over eve
 
 {% raw %}
 
-```yaml
+```text
 {{ states('sensor.temperature') | float / 10 | round(2) }}
 ```
 

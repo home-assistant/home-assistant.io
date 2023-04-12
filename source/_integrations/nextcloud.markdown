@@ -9,7 +9,7 @@ ha_release: 0.108
 ha_domain: nextcloud
 ha_config_flow: true
 ha_codeowners:
-  - '@meichthys'
+  - '@mib1185'
 ha_platforms:
   - binary_sensor
   - sensor

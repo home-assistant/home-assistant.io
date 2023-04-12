@@ -10,6 +10,8 @@ ha_config_flow: true
 ha_platforms:
   - media_player
 ha_integration_type: integration
+ha_codeowners:
+  - '@luar123'
 ---
 
 The Snapcast integration allows you to control [Snapcast](https://github.com/badaix/snapcast) from Home Assistant.
