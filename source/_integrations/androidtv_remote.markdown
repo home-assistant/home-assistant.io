@@ -113,7 +113,7 @@ target:
   entity_id: remote.living_room_tv
 ```
 
-## Dashboard
+## Dashboard example
 
 You have to manually create buttons in Lovelace to send commands to the Android TV device or launch apps on it.
 
