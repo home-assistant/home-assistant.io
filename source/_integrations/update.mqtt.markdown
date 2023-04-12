@@ -109,7 +109,8 @@ device:
       required: false
       type: string
 device_class:
-  description: The [type/class](/integrations/update/#device-classes) of the update to set the icon in the frontend.
+  description: The [type/class](/integrations/update/#device-classes) of the update to set the icon in the frontend. The `device_class` can be `None`.
+  default: None
   required: false
   type: device_class
   default: None
