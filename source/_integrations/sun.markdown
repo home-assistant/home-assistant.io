@@ -68,7 +68,7 @@ The sun trigger need to have the type 'sun', which event (sunset or sunrise) and
 
 | Key name | Description |
 | --------- | ----------- |
-| `event` | Possible values  `sunset`,  `sunrise `
+| `event` | Possible values: `sunset` or `sunrise`
 | `offset` | An optional offset specified in HH:MM:SS from event trigger. <br> Positive after event is triggered. <br> Negative before event is triggered
 
 ### Maintains entity `sun.sun`
