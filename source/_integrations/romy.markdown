@@ -27,40 +27,6 @@ This integration supports currently following models:
 
 {% include integrations/config_flow.md %}
 
-## YAML Configuration
-
-YAML configuration is around for people that prefer YAML.
-To use this integration, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-myROMY:
-  - host: IP_ADDRESS
-  - port: 8080
-  - host: Agon
-  - host: 12345678
-```
-
-{% configuration %}
-host:
-  description: "The hostname or IP of your ROMY, e.g., `192.168.0.10`."
-  required: true
-  type: string
-port:
-  description: "The port where your robot interface is reachable (default: 8080)."
-  required: true
-  default: 8080
-  type: string
-name:
-  description: "The name you would like to give to your ROMY vacuum cleaner robot."
-  required: true
-  type: string
-password:
-  description: "The password required to unlock the local HTTP interface (Is labelled inside your robot under the dustbin)."
-  required: false
-  type: string
-{% endconfiguration %}
-
 ## Services
 
 Currently supported services are:
