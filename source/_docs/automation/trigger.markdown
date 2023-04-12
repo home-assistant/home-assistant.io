@@ -816,7 +816,7 @@ To create clickable shortcuts on a Desktop PC to trigger Webhooks, right click i
 
 ```C:\Windows\System32\cmd.exe /k start /b curl -d -X https://your-home-assistant:8123/api/webhook/some_hook_id & exit```
 
-Then Click next, you will be asked What would you like to name the shortcut, in the box "Type a name for this shortcut" (example officelights.exe if it controls office lights/Preheat Car.exe. The idea behind this is so that you can use shortcuts on your computer to run quick actions you would normally open your browser to go to in office.
+Then Click next, you will be asked What would you like to name the shortcut, in the box "Type a name for this shortcut" (example officelights.exe if it controls office lights/Preheat Car.exe. The idea behind this is so that you can use shortcuts on your computer to run quick actions you would normally open your browser to go to.
 
 These shortcuts can also be used for creating batch files to autorun on the PC, so for example, lets say I created the officelights.exe from above, I could but this in a folder on A drive on the Desktop PC, lets say for example you create a folder in C called Webhooks. Create a shortcut to the officelights.exe you just created, Place this in the folder you created on C so C:/Webhooks
 
@@ -824,7 +824,7 @@ Then Create a text file, in the text file copy
 
 ```start /MIN	C:\Webhooks\officelights``` as a example or ```start /MIN	C:\Webhooks\name_of_your_shortcut_you_placed_in_folder```
 
-Then goto file, Save as, in the save as type box (lower one) select all files, then under file name pu (example officelights.bat if it controls office lights or Preheatcar.bat, these are just examples.
+Then goto file, Save as, in the save as type box (lower one) select all files, then under file name pu (example officelights.bat if it controls office lights or Preheatcar.bat, these are just examples. You now have a executable batch file that can be run on start up and shut down of pc.  (warning if you delete the shortcut or the original exe created you will break the batch file)
 
 ### Webhook security
 
