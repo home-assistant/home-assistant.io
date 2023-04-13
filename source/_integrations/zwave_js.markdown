@@ -50,7 +50,7 @@ The Z-Wave integration allows you to control a Z-Wave network via the [Z-Wave JS
 
 To run a Z-Wave network, you need the following elements:
 
-* A [supported Z-Wave controller](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). First-time user? For recommendations on what to buy, go [here](integrations/zwave_js/#which-z-wave-controller-should-i-buy).
+* A [supported Z-Wave controller](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). First-time user? For recommendations on what to buy, go [here](/integrations/zwave_js/#which-z-wave-controller-should-i-buy).
 * A running Z-Wave JS server.
 * An installed Z-Wave integration in Home Assistant.
 
