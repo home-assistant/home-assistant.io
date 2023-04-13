@@ -145,3 +145,10 @@ Also an event `habitica_api_call_success` will be fired with the following data:
     "id": "NEW_TASK_UUID"}
 }
 ```
+
+This Markdown will list the tasks saved in the `sensor.habitica_USER_todos.attributes.items` in a card.
+
+```
+{% for key, value in states.sensor.habitica_USER_todos.attributes.items() %}{% if 'text' in value | string %}{{ value.text }}{% endif %}
+{% endfor %}
+```
