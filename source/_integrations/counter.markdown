@@ -18,7 +18,7 @@ The `counter` integration allows one to count occurrences fired by automations.
 
 The preferred way to configure counter helpers is via the user interface. To add one, go to
 **{% my helpers title="Settings -> Devices & Services -> Helpers" %}** and click the add button;
-next choose the "**Counter**" option.
+next choose the "[**Counter**](https://my.home-assistant.io/redirect/config_flow_start/?domain=counter)" option.
 
 To be able to add **Helpers** via the user interface you should have
 `default_config:` in your `configuration.yaml`, it should already be there by
