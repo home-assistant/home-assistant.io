@@ -689,7 +689,14 @@ The following integrations are now available via the Home Assistant UI:
 - Update Inovelli Blue Series switch support in ZHA ([@codyhackw] - [#91254]) ([zha docs])
 - Bump ZHA dependencies ([@puddly] - [#91291]) ([zha docs])
 - Restore use of local timezone for MariaDB/MySQL in SQL integration ([@bdraco] - [#91313]) ([recorder docs]) ([sql docs])
+- Google Assistant SDK: Fix broadcast command for Portuguese ([@tronikos] - [#91293]) ([google_assistant_sdk docs])
+- Remove codecov from Python test requirements ([@frenck] - [#91295])
 
+[#91293]: https://github.com/home-assistant/core/pull/91293
+[#91295]: https://github.com/home-assistant/core/pull/91295
+[@frenck]: https://github.com/frenck
+[@tronikos]: https://github.com/tronikos
+[google_assistant_sdk docs]: /integrations/google_assistant_sdk/
 [#90855]: https://github.com/home-assistant/core/pull/90855
 [#90956]: https://github.com/home-assistant/core/pull/90956
 [#90990]: https://github.com/home-assistant/core/pull/90990
