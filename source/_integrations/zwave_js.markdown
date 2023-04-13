@@ -768,7 +768,7 @@ Switching does not require renaming your devices.
 
 6. Enable the Z-Wave integration.
 
-#### What's the benefit of using Z-Wave JS UI add-on over the official Add-On?
+#### What's the benefit of using Z-Wave JS UI add-on over the official add-on?
 
 The official add-on provides the Z-Wave Server in its bare minimum variant, just enough to serve the Home Assistant integration.
 
