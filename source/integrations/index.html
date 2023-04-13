@@ -224,7 +224,7 @@ allComponents.pop(); // remove placeholder element at the end
 
       // set active class on active menu item
       jQuery('.filter-button-group a.active').removeClass('active');
-      jQuery(`.filter-button-group a[href*="${hash}"]`).addClass('active');
+      jQuery(`.filter-button-group a[href="#${hash}"]`).addClass('active');
       if (hash === "") {
         jQuery('.filter-button-group a[href*="#featured"]').addClass('active');
       }
