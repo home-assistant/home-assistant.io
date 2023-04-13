@@ -663,12 +663,15 @@ If you are using Home Assistant Container, Home Assistant Core, or you don't wan
 This application provides the connection between your Z-Wave USB stick and Home Assistant. The Home Assistant Z-Wave integration connects to this server via a websocket connection. You need to run this Z-Wave JS server before you can use the integration.
 
 There are multiple ways to run this server:
+The chart below illustrates Options 1 and 2, which are available for Home Assistant OS only.
+
+![Overview of installation options 1 and 2](/images/integrations/z-wave/z-wave-server-install-options-1-2.png)
 
 **Option 1: The official Z-Wave JS add-on, as described above**
 
 _This option is only available for Home Assistant OS (the recommended installation type) and Home Assistant Supervised installations._
 
-This add-on can only be configured via the built-in Z-Wave control panel in Home Assistant.
+This add-on can only be configured via the built-in Z-Wave control panel in Home Assistant. If you followed the standard [installation procedure](#setting-up-a-z-wave-js-server), this is how you are running the Z-Wave JS server.
 
 **Option 2: The Z-Wave JS UI add-on installed from the community add-on store**
 
