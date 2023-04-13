@@ -23,7 +23,7 @@ However, automations using the `timer.finished` event **will not** trigger if th
 </div>
 
 ## Configuration
-The preferred way to configure timer helpers is via the user interface at [**Settings** -> **Devices & Services** -> **Helpers**](https://my.home-assistant.io/redirect/helpers/) and click the add button; next choose the [**Timer**](https://my.home-assistant.io/redirect/config_flow_start/?domain=timer) option.
+The preferred way to configure timer helpers is via the user interface at {% my helpers title="Settings -> Devices & Services -> Helpers" %} and click the add button; next choose the [**Timer**](https://my.home-assistant.io/redirect/config_flow_start/?domain=timer) option.
 
 You can also click the following button to be redirected to the Helpers page of your Home Assistant instance.
 
