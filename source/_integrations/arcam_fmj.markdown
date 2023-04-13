@@ -43,8 +43,6 @@ Supported devices:
 
 This integration may also work with JBL and AudioControl receivers and processors as they share the same firmware as Arcam.
 
-JBL:
-
 - SDP-55/58
 
 {% include integrations/config_flow.md %}
