@@ -41,6 +41,12 @@ Supported devices:
 - SA 30
 - SR 250
 
+This integration may also work with JBL and AudioControl receivers and processors as they share the same firmware as Arcam. Please add models as support is confirmed:
+
+JBL:
+
+- SDP-55/58
+
 {% include integrations/config_flow.md %}
 
 ## Power state
