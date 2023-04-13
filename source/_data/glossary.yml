@@ -9,12 +9,16 @@
 #
 
 - term: Action
-  definition: >-
-    An action is an command that can be fired. For example, turning on a light.
-    Actions used in many places, most notably in automations and scripts.
+  definition: |-
+    An action is a part of a script or automation that defines what is going to happen once a trigger is activated. In scripts, an action is called *sequence*.
+
+    Actions use service calls and/or scenes to interact with entities and cause these entities to do something. Actions can also include conditions and a delay. An action can call multiple services at the same time. For example, if your presence is detected in a room, an action may call one service to turn on a light and call another service to start playing music after a delay.
+
   aliases:
     - actions
   link: /docs/automation/action/
+  excerpt: >
+    An action is a part of a script or automation that defines what is going to happen once a trigger is activated. In scripts, an action is called *sequence*.
 
 - term: Add-on
   definition: >-
