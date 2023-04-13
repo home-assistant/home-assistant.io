@@ -47,6 +47,7 @@ Happy Easter! 🐣 and enjoy the release!
 - [Release 2023.4.1 - April 6](#release-202341---april-6)
 - [Release 2023.4.2 - April 8](#release-202342---april-8)
 - [Release 2023.4.3 - April 12](#release-202343---april-12)
+- [Release 2023.4.4 - April 13](#release-202344---april-13)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -759,6 +760,31 @@ The following integrations are now available via the Home Assistant UI:
 [tile docs]: /integrations/tile/
 [utility_meter docs]: /integrations/utility_meter/
 [zha docs]: /integrations/zha/
+
+## Release 2023.4.4 - April 13
+
+- Bump python-homewizard-energy to 2.0.1 ([@DCSBL] - [#91097]) ([homewizard docs]) (dependency)
+- Bump aiolifx to 0.8.10 ([@bdraco] - [#91324]) ([lifx docs]) (dependency)
+- Update frontend to 20230411.1 ([@bramkragten] - [#91344]) ([frontend docs])
+
+[#90855]: https://github.com/home-assistant/core/pull/90855
+[#90956]: https://github.com/home-assistant/core/pull/90956
+[#91097]: https://github.com/home-assistant/core/pull/91097
+[#91111]: https://github.com/home-assistant/core/pull/91111
+[#91316]: https://github.com/home-assistant/core/pull/91316
+[#91324]: https://github.com/home-assistant/core/pull/91324
+[#91344]: https://github.com/home-assistant/core/pull/91344
+[@DCSBL]: https://github.com/DCSBL
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@frenck]: https://github.com/frenck
+[actiontec docs]: /integrations/actiontec/
+[advantage_air docs]: /integrations/advantage_air/
+[airly docs]: /integrations/airly/
+[frontend docs]: /integrations/frontend/
+[homewizard docs]: /integrations/homewizard/
+[lifx docs]: /integrations/lifx/
 
 ## Need help? Join the community!
 
