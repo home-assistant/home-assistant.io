@@ -150,6 +150,8 @@ Print out a list of all the sensor states:
 {% endfor %}
 ```
 
+{% endraw %}
+
 Print out a list of all the sensor states sorted by `entity_id`:
 
 {% raw %}
