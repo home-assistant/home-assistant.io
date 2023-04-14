@@ -68,7 +68,7 @@ sql:
     db_url:
       description: The URL which points to your database. See [supported engines](/integrations/recorder/#custom-database-engines).
       required: false
-      default: "Defaults to the default recorder `db_url` (not the current `db_url` of recorder)."
+      default: "Defaults to the recorder `db_url`."
       type: string
     name:
       description: The name of the sensor.

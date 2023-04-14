@@ -46,6 +46,8 @@ Happy Easter! 🐣 and enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2023.4.1 - April 6](#release-202341---april-6)
 - [Release 2023.4.2 - April 8](#release-202342---april-8)
+- [Release 2023.4.3 - April 12](#release-202343---april-12)
+- [Release 2023.4.4 - April 13](#release-202344---april-13)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -666,6 +668,123 @@ The following integrations are now available via the Home Assistant UI:
 [vallox docs]: /integrations/vallox/
 [zeroconf docs]: /integrations/zeroconf/
 [zha docs]: /integrations/zha/
+
+## Release 2023.4.3 - April 12
+
+- Fix configuring Flo instances ([@amattas] - [#90990]) ([flo docs])
+- Fall back to polling if webhook cannot be registered on Nuki ([@pree] - [#91013]) ([nuki docs])
+- Track availability of source sensor in utility meter ([@dgomes] - [#91035]) ([utility_meter docs])
+- Bump aiopyarr to 23.4.0 ([@tkdrob] - [#91110]) ([sonarr docs]) ([radarr docs]) ([lidarr docs])
+- Bump env_canada to 0.5.32 ([@michaeldavie] - [#91126]) ([environment_canada docs])
+- Relax calendar event validation to allow existing zero duration events ([@allenporter] - [#91129]) ([google docs]) ([calendar docs]) ([caldav docs])
+- Bump ulid-transform to 0.6.3 ([@bdraco] - [#91133])
+- Fix false positive in SQL sensor full table scan check ([@bdraco] - [#91134]) ([sql docs])
+- Reolink config flow fix custom port when USE_HTTPS not selected ([@starkillerOG] - [#91137]) ([reolink docs])
+- Fix all day event coercion logic ([@allenporter] - [#91169]) ([calendar docs]) ([local_calendar docs])
+- Reduce startup time for System Bridge integration ([@timmo001] - [#91171]) ([system_bridge docs])
+- Cleanup ZHA from Zigpy deprecated property removal ([@dmulcahey] - [#91180]) ([zha docs])
+- Bump `pytile` to 2023.04.0 ([@bachya] - [#91191]) ([tile docs])
+- Flush conversation name cache when an entity is renamed ([@emontnemery] - [#91214]) ([conversation docs])
+- Update frontend to 20230411.0 ([@bramkragten] - [#91219]) ([frontend docs])
+- Fix switch_as_x name ([@emontnemery] - [#91232]) ([switch_as_x docs])
+- Update Inovelli Blue Series switch support in ZHA ([@codyhackw] - [#91254]) ([zha docs])
+- Bump ZHA dependencies ([@puddly] - [#91291]) ([zha docs])
+- Restore use of local timezone for MariaDB/MySQL in SQL integration ([@bdraco] - [#91313]) ([recorder docs]) ([sql docs])
+- Google Assistant SDK: Fix broadcast command for Portuguese ([@tronikos] - [#91293]) ([google_assistant_sdk docs])
+- Remove codecov from Python test requirements ([@frenck] - [#91295])
+
+[#91293]: https://github.com/home-assistant/core/pull/91293
+[#91295]: https://github.com/home-assistant/core/pull/91295
+[@frenck]: https://github.com/frenck
+[@tronikos]: https://github.com/tronikos
+[google_assistant_sdk docs]: /integrations/google_assistant_sdk/
+[#90855]: https://github.com/home-assistant/core/pull/90855
+[#90956]: https://github.com/home-assistant/core/pull/90956
+[#90990]: https://github.com/home-assistant/core/pull/90990
+[#91013]: https://github.com/home-assistant/core/pull/91013
+[#91035]: https://github.com/home-assistant/core/pull/91035
+[#91110]: https://github.com/home-assistant/core/pull/91110
+[#91111]: https://github.com/home-assistant/core/pull/91111
+[#91126]: https://github.com/home-assistant/core/pull/91126
+[#91129]: https://github.com/home-assistant/core/pull/91129
+[#91133]: https://github.com/home-assistant/core/pull/91133
+[#91134]: https://github.com/home-assistant/core/pull/91134
+[#91137]: https://github.com/home-assistant/core/pull/91137
+[#91169]: https://github.com/home-assistant/core/pull/91169
+[#91171]: https://github.com/home-assistant/core/pull/91171
+[#91180]: https://github.com/home-assistant/core/pull/91180
+[#91191]: https://github.com/home-assistant/core/pull/91191
+[#91214]: https://github.com/home-assistant/core/pull/91214
+[#91219]: https://github.com/home-assistant/core/pull/91219
+[#91232]: https://github.com/home-assistant/core/pull/91232
+[#91254]: https://github.com/home-assistant/core/pull/91254
+[#91291]: https://github.com/home-assistant/core/pull/91291
+[#91313]: https://github.com/home-assistant/core/pull/91313
+[@allenporter]: https://github.com/allenporter
+[@amattas]: https://github.com/amattas
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@codyhackw]: https://github.com/codyhackw
+[@dgomes]: https://github.com/dgomes
+[@dmulcahey]: https://github.com/dmulcahey
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@michaeldavie]: https://github.com/michaeldavie
+[@pree]: https://github.com/pree
+[@puddly]: https://github.com/puddly
+[@starkillerOG]: https://github.com/starkillerOG
+[@timmo001]: https://github.com/timmo001
+[@tkdrob]: https://github.com/tkdrob
+[actiontec docs]: /integrations/actiontec/
+[advantage_air docs]: /integrations/advantage_air/
+[airly docs]: /integrations/airly/
+[caldav docs]: /integrations/caldav/
+[calendar docs]: /integrations/calendar/
+[conversation docs]: /integrations/conversation/
+[environment_canada docs]: /integrations/environment_canada/
+[flo docs]: /integrations/flo/
+[frontend docs]: /integrations/frontend/
+[google docs]: /integrations/google/
+[lidarr docs]: /integrations/lidarr/
+[local_calendar docs]: /integrations/local_calendar/
+[nuki docs]: /integrations/nuki/
+[radarr docs]: /integrations/radarr/
+[recorder docs]: /integrations/recorder/
+[reolink docs]: /integrations/reolink/
+[sonarr docs]: /integrations/sonarr/
+[sql docs]: /integrations/sql/
+[switch_as_x docs]: /integrations/switch_as_x/
+[system_bridge docs]: /integrations/system_bridge/
+[tile docs]: /integrations/tile/
+[utility_meter docs]: /integrations/utility_meter/
+[zha docs]: /integrations/zha/
+
+## Release 2023.4.4 - April 13
+
+- Bump python-homewizard-energy to 2.0.1 ([@DCSBL] - [#91097]) ([homewizard docs]) (dependency)
+- Bump aiolifx to 0.8.10 ([@bdraco] - [#91324]) ([lifx docs]) (dependency)
+- Update frontend to 20230411.1 ([@bramkragten] - [#91344]) ([frontend docs])
+
+[#90855]: https://github.com/home-assistant/core/pull/90855
+[#90956]: https://github.com/home-assistant/core/pull/90956
+[#91097]: https://github.com/home-assistant/core/pull/91097
+[#91111]: https://github.com/home-assistant/core/pull/91111
+[#91316]: https://github.com/home-assistant/core/pull/91316
+[#91324]: https://github.com/home-assistant/core/pull/91324
+[#91344]: https://github.com/home-assistant/core/pull/91344
+[@DCSBL]: https://github.com/DCSBL
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@frenck]: https://github.com/frenck
+[actiontec docs]: /integrations/actiontec/
+[advantage_air docs]: /integrations/advantage_air/
+[airly docs]: /integrations/airly/
+[frontend docs]: /integrations/frontend/
+[homewizard docs]: /integrations/homewizard/
+[lifx docs]: /integrations/lifx/
 
 ## Need help? Join the community!
 
