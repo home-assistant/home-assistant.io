@@ -117,13 +117,13 @@ Sonos accepts a variety of `media_content_id` formats in the `media_player.play_
 
 Music services which require an account (e.g., Spotify) must first be configured using the Sonos app.
 
-Playing TTS (text to speech) or audio files as alerts (e.g., a doorbell or alarm) is possible by setting the `announce` argument to `true`. This will play the provided media URL as an overlay, gently lowering the volume of currently playing music and automatically restoring the original volume when finished. Additionally, an optional `volume` argument can be provided in the `extra` dictionary to play the alert at a specific volume level. Note that these features may not be fully supported by older Sonos hardware or with devices on the legacy ("S1") firmware.
+Playing TTS (text to speech) or audio files as alerts (e.g., a doorbell or alarm) is possible by setting the `announce` argument to `true`. Using `announce` will play the provided media URL as an overlay, gently lowering the current music volume and automatically restoring the original volume when finished. An optional `volume` argument can also be provided in the `extra` dictionary to play the alert at a specific volume level. Note that older Sonos hardware may not fully support these features or with devices on the legacy ("S1") firmware.
 
 An optional `enqueue` argument can be added to the service call. If `true`, the media will be appended to the end of the playback queue. If not provided or `false` then the queue will be replaced.
 
 ### Examples:
 
-This is an example service call that plays an audio file from a web server on the local network (like the Home Assistant built-in webserver) using the `announce` feature and its associated (optional) `volume` parameter:
+Below is an example service call that plays an audio file from a web server on the local network (like the Home Assistant built-in webserver) using the `announce` feature and its associated (optional) `volume` parameter:
 
 ```yaml
 service: media_player.play_media
