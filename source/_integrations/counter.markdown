@@ -18,7 +18,7 @@ The `counter` integration allows one to count occurrences fired by automations.
 
 The preferred way to configure counter helpers is via the user interface. To add one, go to
 **{% my helpers title="Settings -> Devices & Services -> Helpers" %}** and click the add button;
-next choose the "**{% my config_flow_start domain=counter title="Counter" %}**" option.
+next choose the **{% my config_flow_start domain=counter title="Counter" %}** option.
 
 To be able to add **Helpers** via the user interface you should have
 `default_config:` in your `configuration.yaml`, it should already be there by
