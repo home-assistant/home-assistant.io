@@ -17,7 +17,7 @@ Home Assistant that can be used to trigger or make decisions in your
 automations and scripts.
 
 The preferred way to configure a schedule is via the user interface at
-**{% my helpers title="Settings -> Devices & Services -> Helpers." %}** Click the add button
+**{% my helpers title="Settings > Devices & Services > Helpers." %}** Click the add button
 and then choose the **{% my config_flow_start domain=schedule title="Schedule" %}** option, or click the My button below.
 
 {% include integrations/config_flow.md %}
