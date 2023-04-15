@@ -663,12 +663,15 @@ If you are using Home Assistant Container, Home Assistant Core, or you don't wan
 This application provides the connection between your Z-Wave USB stick and Home Assistant. The Home Assistant Z-Wave integration connects to this server via a websocket connection. You need to run this Z-Wave JS server before you can use the integration.
 
 There are multiple ways to run this server:
+The chart below illustrates Options 1 and 2, which are available for Home Assistant OS only.
+
+![Overview of installation options 1 and 2](/images/integrations/z-wave/z-wave-server-install-options-1-2.png)
 
 **Option 1: The official Z-Wave JS add-on, as described above**
 
 _This option is only available for Home Assistant OS (the recommended installation type) and Home Assistant Supervised installations._
 
-This add-on can only be configured via the built-in Z-Wave control panel in Home Assistant.
+This add-on can only be configured via the built-in Z-Wave control panel in Home Assistant. If you followed the standard [installation procedure](#setting-up-a-z-wave-js-server), this is how you are running the Z-Wave JS server.
 
 **Option 2: The Z-Wave JS UI add-on installed from the community add-on store**
 
@@ -765,7 +768,7 @@ Switching does not require renaming your devices.
 
 6. Enable the Z-Wave integration.
 
-#### What's the benefit of using Z-Wave JS UI add-on over the official Add-On?
+#### What's the benefit of using Z-Wave JS UI add-on over the official add-on?
 
 The official add-on provides the Z-Wave Server in its bare minimum variant, just enough to serve the Home Assistant integration.
 
@@ -856,3 +859,16 @@ Z-Wave JS writes details to its logs. To access these logs go to the following.
    **Settings** -> **Devices & Services** -> **Integrations(tab)** -> **Z-Wave (CONFIGURE)** -> **Logs(tab)**
 
 You need to keep this browser tab open for logging to be active.
+
+## Z-Wave terminology
+
+For some of the concepts, you may come across different terminology in Z-Wave than in Home Assistant.
+The table below provides equivalents for some of those terms.
+
+| Z-Wave functionality                   | Home Assistant                                                          |
+| -------------------------------------- | ------------------------------------------------------------------------|
+| inclusion                              | add                                                                     |
+| exclusion                              | remove                                                                  |
+| barrier operator                       | cover                                                                   |
+| window covering                        | cover                                                                   |
+| multilevel switch                      | represented by different entity types: cover, fan, dimmer, etc.         |
