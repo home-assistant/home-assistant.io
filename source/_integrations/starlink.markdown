@@ -32,20 +32,23 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 ### Sensor
 
 - Ping - The ping that Starlink has measured, in ms
+- Ping drop rate - The percentage of ping requests that failed (aka "dropped"). This is the inverse of "Uptime" in the Starlink app
 - Azimuth - The direction Dishy is facing in degrees
 - Elevation - Dishy's current elevation in degrees
-- Uplink throughput - The amount of data being uploaded through Starlink in Bit/s
-- Downlink throughput - The amount of data being downloaded through Starlink in Bit/s
+- Uplink throughput - The amount of data being uploaded through Starlink
+- Downlink throughput - The amount of data being downloaded through Starlink
 - Last boot time - The time Starlink was last turned on
 
 ### Binary Sensor
 
+- Update available - Whether there is an update pending install
 - Obstructed - Whether Dishy is currently obstructed
-- Roaming - Whether Starlink is "roaming". Roaming is an optional upgrade that allows you to use your Starlink outside of your home address. It is also known as "portability"
+- Roaming mode - Whether Starlink is "roaming". Roaming is an optional upgrade that allows you to use your Starlink outside of your home address. It is also known as "portability mode"
 - Heating - Whether Dishy is currently heating. This may be due to cold temperatures, or an attempt to thaw snow and ice
-- Idle - Whether Starlink is in an "idle" state to save power
+- Idle - Whether Starlink is "sleeping", as per the schedule defined in the Starlink app
 - Mast near vertical - Whether Dishy is mounted straight
 - Motors stuck - Whether Dishy is unable to move
+- Slow ethernet - Whether the Ethernet link is at max (gigabit) speed
 - Thermal throttle - Whether Starlink has reduced performance to avoid overheating
 - Unexpected location - Whether Starlink has detected operation outside of its designated area
 
