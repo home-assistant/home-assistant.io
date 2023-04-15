@@ -17,7 +17,7 @@ The `input_text` integration allows the user to define values that can be contro
 The preferred way to configure an input text is via the user interface at **{% my helpers title="Settings -> Devices & Services -> Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain=input_text title="Text" %}** option.
 
 To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
-If you removed `default_config:` from you configuration, you must add `input_text:` to your `configuration.yaml` first, then you can use the UI.
+If you removed `default_config:` from your configuration, you must add `input_text:` to your `configuration.yaml` first, then you can use the UI.
 
 It can also be configured via `configuration.yaml`:
 
