@@ -42,14 +42,14 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
     ![Choose the operating system](/images/installation/rpi-select-os.png)
    1. Select **Choose OS**.
    1. Select **Home assistants and home automation**.
-   1. Choose the Raspberry Pi OS that matches your hardware (RPi 3 or RPi 4).
+   1. Choose the Home Assistant OS that matches your hardware (RPi&nbsp;3 or RPi&nbsp;4).
 1. Choose the storage:
    1. Insert the SD card into the computer. Note: the contents of the card will be overwritten.
    1. Select your SD card.
     ![Select the storage](/images/installation/rpi-select-sd-card.png)
 1. Write the installer onto the SD card:
    1. To start the process, select **Write**.
-   1. Wait for the Home Assistant OS Installer to be written to the SD card.
+   1. Wait for the Home Assistant OS to be written to the SD card.
     ![Select write](/images/installation/rpi-select-write.png)
 1. Eject the SD card.
 
@@ -65,7 +65,8 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
 If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your Raspberry Pi’s IP address).
 </div>
 
-Congratulations! Your Raspberry Pi is ready to go. 
+Congratulations! You finished the Raspberry Pi setup!
+
 With the Home Assistant Operating System installed and accessible, you can now continue with onboarding.
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
