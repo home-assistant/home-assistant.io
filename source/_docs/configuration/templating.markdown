@@ -98,6 +98,8 @@ In your automations, you could then reuse this macro by importing it:
 
 {% endraw %}
 
+Important Note: The return value from a macro will always be converted to a string - when being used in a YAML template
+
 ## Home Assistant template extensions
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
