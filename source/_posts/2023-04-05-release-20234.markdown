@@ -923,9 +923,11 @@ mappings configured in the **service**.
 
 {% details "Home Connect" %}
 
-Not really a breaking change, but as of now, only program entities are
-created for the programs your device supports. You might need to manually remove
-old/existing entities that are no longer provided.
+You might need to reconfigure the integration to fetch the valid programs list.
+
+Due to the limitation on the Home Connect side, the appliances should be **Turned On** during the integration reconfiguration.
+
+This action is required only once.
 
 ([@stickpin] - [#88801]) ([documentation](/integrations/home_connect))
 
