@@ -42,7 +42,7 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
     ![Choose the operating system](/images/installation/rpi-select-os.png)
    1. Select **Choose OS**.
    1. Select **Home assistants and home automation**.
-   1. Choose the Home Assistant OS that matches your hardware (RPi&nbsp;3 or RPi&nbsp;4).
+   1. Choose the Home Assistant OS that matches your hardware (RPi 3 or RPi 4).
 1. Choose the storage:
    1. Insert the SD card into the computer. Note: the contents of the card will be overwritten.
    1. Select your SD card.
