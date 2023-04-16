@@ -32,7 +32,7 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 ### Sensor
 
 - Ping - The ping that Starlink has measured, in ms
-- Ping drop rate - The percentage of ping requests that failed (aka "dropped"). This is the inverse of "Uptime" in the Starlink app
+- Ping drop rate - The percentage of failed ping requests (aka "dropped"). This is the inverse of "Uptime" in the Starlink app.
 - Azimuth - The direction Dishy is facing in degrees
 - Elevation - Dishy's current elevation in degrees
 - Uplink throughput - The amount of data being uploaded through Starlink
