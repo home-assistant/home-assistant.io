@@ -86,7 +86,7 @@ name:
   default: Wake on LAN
   type: string
 host:
-  description: The IP address or hostname to check the state of the device (on/off). If this is not provided, the state of the switch will be assumed based on the last action that was taken.
+  description: The IP address or hostname to check the state of the device (on/off). If this is not provided, the state of the switch will be assumed based on the last action that was taken. You have to allow (Echo Request - ICMPv4-In) in Windows firewall inbound rules to allow the integration ping your computer and read the switch status.
   required: false
   type: string
 turn_off:
