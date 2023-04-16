@@ -923,11 +923,11 @@ mappings configured in the **service**.
 
 {% details "Home Connect" %}
 
-You might need to reconfigure the integration to fetch the valid programs list.
+In order to obtain an up-to-date list of compatible programs for your appliances, it will be necessary to reconfigure the integration.
 
-Due to the limitation on the Home Connect side, the appliances should be **Turned On** during the integration reconfiguration.
+Please note that due to limitations on the Home Connect side, it is important to have your appliances **Turned on** during the reconfiguration process.
 
-This action is required only once.
+This action is a one-time requirement.
 
 ([@stickpin] - [#88801]) ([documentation](/integrations/home_connect))
 
