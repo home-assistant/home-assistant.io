@@ -18,14 +18,6 @@ conversation:
       - "activate [the] {name}"
 ```
 
-```yaml
-# Example configuration.yaml
-conversation:
-  intents:
-    HassTurnOn:
-      - "activate [the] {name}"
-```
-
 {% endraw %}
 
 This extends the default English sentences for the `HassTurnOn` intent, allowing you to say "activate the kitchen lights" as well as "turn on the kitchen lights".

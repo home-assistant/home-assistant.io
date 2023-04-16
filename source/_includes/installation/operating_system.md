@@ -53,16 +53,16 @@ We will need a few things to get started with installing Home Assistant. Links b
 <div class='note'>
 <b>Prerequisites</b>
 
-This guide assumes that you have a dedicated generic x86 PC (typically an Intel or AMD-based system) available to exclusively run Home Assistant Operating System. The system must be 64-bit capable and able to boot using UEFI. Pretty much all systems produced in the last 10 years support the UEFI boot mode.
+This guide assumes that you have a dedicated {{ site.installation.types[page.installation_type].board }} PC (typically an Intel or AMD-based system) available to exclusively run Home Assistant Operating System. The system must be 64-bit capable and able to boot using UEFI. Pretty much all systems produced in the last 10 years support the UEFI boot mode.
 
 <b>Summary</b>
 
-You will need to write the HAOS (Home Assistant OS) disk image directly to your boot media, and configure your x86 to use UEFI boot mode when booting from this media.
+You will need to configure your {{ site.installation.types[page.installation_type].board }} PC to use UEFI boot mode, then write the HAOS (Home Assistant OS) disk image to your boot medium. There are two ways to do this listed below.
 </div>
 
 ### Configure the BIOS on your x86-64 hardware
 
-To boot Home Assistant OS, the BIOS needs to have UEFI boot mode enabled and Secure Boot disabled. The following screenshots are from a 7th generation Intel NUC system. The BIOS menu will likely look different on your systems. However, the options should still be present and named similarly.
+To boot Home Assistant OS, the BIOS needs to have UEFI boot mode enabled and Secure Boot disabled. The following screenshots are from a 7th generation Intel NUC system. The BIOS menu will likely look different on your system. However, the options should still be present and named similarly.
 
 1. To enter the BIOS, start up your x86-64 hardware and repeatedly press the `F2` key (on some systems this might be `Del`, `F1` or `F10`).
 ![Enter BIOS using F2, Del, F1 or F10 key](/images/installation/intel-nuc-enter-bios.jpg)
@@ -73,28 +73,29 @@ To boot Home Assistant OS, the BIOS needs to have UEFI boot mode enabled and Sec
 1. Disable Secure Boot.
 ![Disable Secure Boot mode](/images/installation/intel-nuc-disable-secure-boot.jpg)
 
-1. Save the changes and exit.
+1. Save your changes and exit.
 
-- The BIOS configuration is complete.
+The BIOS configuration is now complete.
 
-As a next step, we need to write the Home Assistant Operating System image to the target boot medium. The HAOS has no integrated installer. This means the Operating System is not copied automatically to the internal disk.
+Next, we need to write the Home Assistant Operating System image to the "boot medium", which is the medium your x86-64 hardware will boot from when it is running Home Assistant.
 
-- The "boot medium" is the medium your x86-64 hardware will boot from when it is running Home Assistant.
-- Typically, an internal medium is used for the x86-64 hardware. Examples of internal media are S-ATA hard disk, S-ATA SSD, M.2 SSD, or a non-removable eMMC.
-- Alternatively, an external medium can be used to boot HAOS such as a USB SDD (not recommended).
+<div class='note'>
+HAOS has no integrated installer that writes the image automatically, you must write it manually using e.g. Etcher.
+</div>
 
-To install the HAOS internally on your x86-64 hardware, there are 2 methods:
+Typically an internal medium like S-ATA hard disk, S-ATA SSD, M.2 SSD, or a non-removable eMMC is used for the x86-64 boot medium. Alternatively, an external medium can be used such as a USB SDD, though this is not recommended.
 
-1. Copying the HAOS disk image from your Desktop computer onto your boot medium (e.g. by using a USB to S-ATA adapter). This is not an option for a non-removable eMMC on your x86-64 hardware, of course.
-To use this method, follow the steps described in the procedure below: [Write the image to your boot media](#write-the-image-to-your-boot-media).
-2. Copying a live operating system (e.g. Ubuntu) onto a USB device. Then, insert this USB device into your x86-64 hardware and start the Ubuntu.
+To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 different methods:
 
-- To use this method, follow the instructions of your Live distribution (e.g., [this Ubuntu guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). Once you booted the live operating system, follow the steps described in the procedure below: [Write the image to your boot media](#write-the-image-to-your-boot-media).
+1. Write the HAOS disk image from your desktop computer directly to the boot medium (e.g. using a USB to S-ATA adapter).
+If you can use this method, proceed to "[Write the image to your boot medium](#write-the-image-to-your-boot-medium)" and follow all steps. If you have non-removable internal mediums or don't have the necessary adapter, try the next method instead.
 
-{% details "Ubuntu dependency's for Etcher" %}
+1. Create a "live operating system" on a USB device running e.g. Ubuntu ([how-to guide](https://ubuntu.com/tutorials/try-ubuntu-before-you-install)). Insert it into your system and boot the live operating system. Then follow from step 2 in "[Write the image to your boot medium](#write-the-image-to-your-boot-medium)".
 
-When installing Etcher on an Ubuntu system you may need to install the fuse
-dependency, you can do so with the following commands:
+{% details "Ubuntu dependencies for Etcher" %}
+
+When installing Etcher on Ubuntu you may need to install the fuse dependency first,
+to do this run the following commands in the terminal:
 
 ```bash
 sudo add-apt-repository universe
@@ -106,17 +107,17 @@ sudo apt install libfuse2
 
 {% endif %}
 
-### Write the image to your boot media
+### Write the image to your boot medium
 
-1. Attach the Home Assistant boot media ({{site.installation.types[page.installation_type].installation_media}}) to your computer
+1. Attach the Home Assistant boot medium ({{site.installation.types[page.installation_type].installation_media}}) to your computer.
 {% if page.installation_type == 'odroid' %}
    If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
 {% endif %}
-2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. (You may need to run it with administrator privileges on Windows).
-3. Select "Flash from URL"
+2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
+3. Select "Flash from URL".
 ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
 
-4. Get the URL for your {{site.installation.types[page.installation_type].board}}:
+4. Copy the URL for the {{site.installation.types[page.installation_type].board}} image which is:
 {% if site.installation.types[page.installation_type].variants.size > 1 %}
 {% tabbed_block %}
 {% for variant in site.installation.types[page.installation_type].variants %}
@@ -147,29 +148,27 @@ sudo apt install libfuse2
 
 _Select and copy the URL or use the "copy" button that appear when you hover it._
 
-1. Paste the URL for your {{site.installation.types[page.installation_type].board}} into Balena Etcher and click "OK"
+1. Paste the URL for the {{site.installation.types[page.installation_type].board}} image into Balena Etcher and click "OK"
 ![Screenshot of the Etcher software showing the URL bar with a URL pasted in.](/images/installation/etcher2.png)
-6. Balena Etcher will now download the image, when that is done click "Select target"
+1. When Balena Etcher has downloaded the image, click "Select target"
 ![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
-7. Select the {{site.installation.types[page.installation_type].installation_media}} you want to use for your {{site.installation.types[page.installation_type].board}}
+1. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation
 ![Screenshot of the Etcher software showing teh targets available.](/images/installation/etcher4.png)
-8. Click on "Flash!" to start writing the image
+1. Click on "Flash!" to start writing the image
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
-9. When Balena Etcher is finished writing the image you will get this confirmation
+1. When Balena Etcher has finished writing the image you will see a confirmation
 ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
 
 {% if page.installation_type == 'generic-x86-64' %}
 
-1. If you used your desktop system to write the HAOS your boot media, install the boot media ({{site.installation.types[page.installation_type].installation_media}}) in the generic-x86-64 system.
+- If you used your desktop system to write the HAOS image directly to a boot medium like an S-ATA SSD, connect this back to your {{ site.installation.types[page.installation_type].board }} system.
 
-- If you used a live operating system (e.g. Ubuntu), shut down the live operating system and make sure to remove the USB flash drive you used for the live system.
+- If you used a live operating system (e.g. Ubuntu), shut it down and remove the live operating system USB device.
 
-2. Make sure an Ethernet cable is plugged in for network.
-3. Power the system on.
-
-   - Wait for the Home Assistant welcome banner to show up in the console of the generic-x86-64 system.
+1. Plug in an Ethernet cable that is connected to the network.
+2. Power the system on. If you have a screen connected to the {{site.installation.types[page.installation_type].board}} system, after a minute or so the Home Assistant welcome banner will appear in the console.
 
 <div class="note">
 
@@ -181,6 +180,9 @@ This can be accomplished either by using a live operating system (e.g. Ubuntu) a
      --loader '\EFI\BOOT\bootx64.efi'
   ```
 
+The efibootmgr command will only work if you booted the live operating system in UEFI mode, so be sure to boot from your USB flash drive in this mode.
+Depending on your privileges on the prompt, you may need to run efibootmgr using sudo.
+
 Or else, the BIOS might provide you with a tool to add boot options, there you can specify the path to the EFI file:
 
   ```text
@@ -191,13 +193,16 @@ Or else, the BIOS might provide you with a tool to add boot options, there you c
 
 {% else %}
 
-1. Insert the boot media ({{site.installation.types[page.installation_type].installation_media}}) you just created.
-2. Attach an Ethernet cable for network.
-3. Attach the power cable.
-{% endif %}
-4. In the browser of your Desktop system, within a few minutes you will be able to reach your new Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>.
+1. Insert the boot medium ({{ site.installation.types[page.installation_type].installation_media }}) you just created.
+2. Plug in an Ethernet cable that is connected to the network and power the system on.
 
-- If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
+{% endif %}
+
+3. In the browser of your desktop system, within a few minutes you will be able to reach your new Home Assistant at <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>.
+
+<div class="note">
+If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
+</div>
 
 {% else %}
 
@@ -244,7 +249,7 @@ _All these can be extended if your usage calls for more resources._
     4. Edit the "Settings" of the VM and go "System" then "Motherboard" and select "Enable EFI"
     5. Then go to "Network" "Adapter 1" choose "Bridged Adapter" and choose your Network adapter
     <div class="note warning">
-    Please keep in mind that the bridged adapter only functions over a hardwired ethernet connection. 
+    Please keep in mind that the bridged adapter only functions over a hardwired Ethernet connection.
     Using Wi-Fi on your VirtualBox host is unsupported.
     </div>
     6. Then go to "Audio" and choose "Intel HD Audio" as Audio Controller.
@@ -276,6 +281,29 @@ _All these can be extended if your usage calls for more resources._
     ```bash
     virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --graphics none --boot uefi
     ```
+    <div class="note info">
+    If you have a USB dongle to attach, you need to add the option `--hostdev busID.deviceId`. You can discover these IDs via the `lsusb` command.
+    As example, if `lsusb` output is:
+
+    ```bash
+       Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+       Bus 003 Device 004: ID 30c9:0052 Luxvisions Innotech Limited Integrated RGB Camera
+       Bus 003 Device 003: ID 1a86:55d4 QinHeng Electronics SONOFF Zigbee 3.0 USB Dongle Plus V2
+       Bus 003 Device 002: ID 06cb:00fc Synaptics, Inc. 
+       Bus 003 Device 005: ID 8087:0033 Intel Corp. 
+       Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+       Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+       Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+    ```
+
+    You can recognize the Sonoff dongle at `Bus 003 Device 003`. So the command to install the VM will become:
+
+    ```bash
+    virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --graphics none --boot uefi --hostdev 003.003
+    ```
+    Note that this configuration (bus 003, device 003) is just an example, your dongle could be on another bus and/or with another device ID. 
+    Please check the correct IDs of your USB dongle with `lsusb`.
+    </div>
 
 {% if page.installation_type == 'windows' or page.installation_type == 'linux' %}
 

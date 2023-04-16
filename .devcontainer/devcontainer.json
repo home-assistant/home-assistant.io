@@ -5,7 +5,7 @@
     "context": "..",
     "args": {
       "VARIANT": "2.7",
-      "NODE_VERSION": "14"
+      "NODE_VERSION": "18"
     }
   },
   "appPort": [4000],

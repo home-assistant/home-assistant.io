@@ -12,6 +12,7 @@ ha_domain: sfr_box
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - sensor
 ha_integration_type: device
 ---
