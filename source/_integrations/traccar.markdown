@@ -80,7 +80,7 @@ monitored_conditions:
   required: false
   type: list
 event:
-  description: "Traccar events to include in the scan and fire within Home Assistant. *NOTE* For more info regarding Traccar events please refer to Traccar's documentation: https://www.traccar.org/documentation/events/."
+  description: "Traccar events to include in the scan and fire within Home Assistant. *NOTE* For more info regarding Traccar events please refer to [Traccar's documentation](https://www.traccar.org/events/)."
   required: false
   type: list
   keys:
@@ -163,7 +163,7 @@ device_tracker:
     monitored_conditions: ['alarm', 'mycomputedattribute']
 ```
 
-The parameter `event` allows you to import events from the traccar platform (https://www.traccar.org/documentation/events/) and fire them in your Home Assistant. It accepts a list of events to be monitored and imported and each event must be listed in lowercase snakecase. The events will be fired with the same event name defined in the aforementioned list preceded by the prefix `traccar_`. For example if you need to import the Traccar events `deviceOverspeed` and `deviceFuelDrop` in Home Assistant, you need to fill the `event` parameter with:
+The parameter `event` allows you to import [events](https://www.traccar.org/events/) from the traccar platform and fire them in your Home Assistant. It accepts a list of events to be monitored and imported and each event must be listed in lowercase snakecase. The events will be fired with the same event name defined in the aforementioned list preceded by the prefix `traccar_`. For example if you need to import the Traccar events `deviceOverspeed` and `deviceFuelDrop` in Home Assistant, you need to fill the `event` parameter with:
 
 ```yaml
 device_tracker:
