@@ -1444,6 +1444,7 @@ In addition to all of the services provided by the `vacuum` integration (`start`
 - `xiaomi_miio.vacuum_remote_control_move_step`
 - `xiaomi_miio.vacuum_clean_zone`
 - `xiaomi_miio.vacuum_clean_segment`
+- `xiaomi_miio.vacuum_reset_consumable`
 
 ### Service `xiaomi_miio.vacuum_remote_control_start`
 
@@ -1634,6 +1635,22 @@ automation:
         data:
           segments: [1, 1]
 ```
+
+### Service `xiaomi_miio.vacuum_reset_consumable`
+
+Reset a consumable status.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific robot                          |
+| `consumable`              |       no | The consumable to reset, string value. See list below for available types |
+
+Available consumables (name and value to use):
+
+- Main brush: `main_brush_work_time`
+- Side brush: `side_brush_work_time`
+- Filter: `filter_work_time`
+- Sensor dirty: `sensor_dirty_time`
 
 ### Sensors
 
