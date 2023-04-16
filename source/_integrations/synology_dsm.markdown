@@ -5,6 +5,7 @@ ha_category:
   - Camera
   - System Monitor
   - Update
+  - Media Source
 ha_release: 0.32
 ha_iot_class: Local Polling
 ha_domain: synology_dsm
@@ -22,6 +23,7 @@ ha_platforms:
   - sensor
   - switch
   - update
+  - media_source
 ha_integration_type: integration
 ha_zeroconf: true
 ---
@@ -126,3 +128,15 @@ Reboot the NAS.
 ### Button `shutdown`
 
 Shutdown the NAS.
+
+## Media Source
+
+A media source is provided for your [Synology Photos](https://www.synology.com/en-global/dsm/feature/photos).
+
+The media source URIs will look like `media-source://synology_dsm/<unique_id>/<album_id>/<image>`.
+
+This media browser supports multiple Synology Photos instances. `<unique_id>` is the Home Assistant ID for the NAS (_usually the serial number of the NAS_). You can find this id when using the media browser, when you hover over the NAS name, you get shown the simple name followed by the unique id ex: `192.168.0.100:5001 - 18C0PEN253705`. 
+
+To find the `<album_id>` you need to go to the album in your photos instance, and the id will be in the URL ex: `https://192.168.0.100:5001/#/album/19`, where 19 is the album id. An `<album_id>` of 0 will contain all images.
+
+For performance reasons, a maximum of 1000 images will be shown in the Media Browser.
