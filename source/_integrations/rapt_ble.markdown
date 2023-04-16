@@ -4,7 +4,7 @@ description: Instructions on how to integrate RAPT Pill Hydrometers configured i
 ha_category:
   - Sensor
 ha_bluetooth: true
-ha_release: '2023.03'
+ha_release: 2023.5
 ha_iot_class: Local Push
 ha_codeowners:
   - '@sairon'
