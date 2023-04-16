@@ -133,7 +133,7 @@ verify_ssl:
   type: boolean
   default: True
 ssl_cipher_list:
-  description: Define the list of SSL ciphers to be accepted from this endpoint. `default` (_system default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_).
+  description: Define the list of SSL ciphers to be accepted from this endpoint. `python_default` (_default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_).
   required: false
   type: string
   default: default
