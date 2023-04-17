@@ -61,7 +61,7 @@ The integration will create a binary sensor for each zone that has a motion sens
 
 The integration will create a switch entity to toggle air conditioning fresh air mode, if it is supported.
 
-With MyPlace, any relays will be created as switch entities
+With MyPlace, any relays will be created as switch entities.
 
 ### Select
 
