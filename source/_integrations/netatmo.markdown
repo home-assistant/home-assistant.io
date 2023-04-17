@@ -95,6 +95,14 @@ Set the outdoor camera light mode. This requires an entity id and a valid state.
 
 Set the heating schedule. This requires an entity id and a schedule name.
 
+### Set Preset Mode with End Datetime
+
+`set_preset_mode_with_end_datetime`
+
+Like the default `climate.set_preset_mode` service but with the possibility to specify an automatic end date for the preset.
+This requires an entity id, a valid preset mode (only allow away, Frost Guard and Schedule) and an end datetime in the format `%Y-%m-%d %H:%M:%S`.
+End datetime must be in the future.
+
 ### Set Person Home
 
 `set_persons_home`
