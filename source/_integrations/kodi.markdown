@@ -5,6 +5,7 @@ ha_category:
   - Media Player
   - Media Source
   - Notifications
+  - Binary Sensor
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:
@@ -16,6 +17,7 @@ ha_zeroconf: true
 ha_platforms:
   - media_player
   - notify
+  - binary_sensor
 ha_integration_type: integration
 ---
 
@@ -27,6 +29,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Media Player](#configuration)
 - [Notifications](#notifications)
+- [Binary Sensor](#binary-sensors)
 
 {% include integrations/config_flow.md %}
 
@@ -390,3 +393,9 @@ data:
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+## Binary Sensors
+
+Binary sensors are added to show the state of the following internal `kodi` information:
+- Screensaver
+- Energy saving/DPMS
