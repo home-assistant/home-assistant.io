@@ -40,7 +40,9 @@ The integration will create a climate entity for each air conditioning system fo
 
 ### Cover
 
-The integration will create a cover entity for each zone that is not temperature controlled, allowing you to adjust the opening level manually from 0% to 100% in 5% increments.
+The integration will create a cover entity for each air conditioning zone that is not temperature controlled, allowing you to adjust the opening level manually from 0% to 100% in 5% increments.
+
+With MyPlace, any blinds and/or garage doors will be created as cover entities.
 
 ### Sensor
 
@@ -53,23 +55,25 @@ The integration will create sensor entities for a variety of aspects:
 
 ### Binary Sensor
 
-The `advantage_air` binary sensor platform will create a binary sensor for each zone that has a motion sensor.
+The integration will create a binary sensor for each zone that has a motion sensor.
 
 ### Switch
 
-The `advantage_air` switch platform will create a switch entity to toggle fresh air mode, if it is supported.
+The integration will create a switch entity to toggle air conditioning fresh air mode, if it is supported.
+
+With MyPlace, any relays will be created as switch entities.
 
 ### Select
 
-The `advantage_air` select platform allows you to change the zone used for the "MyZone" feature.
+The MyZone select entity that allows you to change the zone used for the "MyZone" feature. Set this to "Inactive" to use the return air vent temperature.
 
 ### Update
 
-The `advantage_air` update platform shows if the controller app requires an update.
+The update platform shows if the controller app requires an update.
 
 ### Light
 
-The `advantage_air` light platform will create a light entity for each light in MyLights tab of the MyPlace app.
+With MyLights or MyPlace, light entities will be created for each light.
 
 ## Services
 
