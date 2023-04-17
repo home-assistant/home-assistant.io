@@ -11,6 +11,8 @@ ha_iot_class: Calculated
 ha_domain: sun
 ha_config_flow: true
 ha_integration_type: integration
+ha_platforms:
+  - sensor
 ---
 
 The sun integration will use the location as
@@ -73,14 +75,18 @@ which event (sunset or sunrise) and the offset.
 | `above_horizon` | When the sun is above the horizon.
 | `below_horizon` | When the sun is below the horizon.
 
-| State Attributes | Description |
+## Sensors
+
+The sensors are also available as attributes on the `sun.sun` entity for backwards compatibility reasons.
+
+| Sensors | Description |
 | --------- | ----------- |
-| `next_rising` | Date and time of the next sun rising (in UTC).
-| `next_setting` | Date and time of the next sun setting (in UTC).
-| `next_dawn` | Date and time of the next dawn (in UTC).
-| `next_dusk` | Date and time of the next dusk (in UTC).
-| `next_noon` | Date and time of the next solar noon (in UTC).
-| `next_midnight` | Date and time of the next solar midnight (in UTC).
-| `elevation` |  Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon.
-| `azimuth` | Solar azimuth. The angle is shown clockwise from north.
+| Next rising | Date and time of the next sun rising (in UTC).
+| Next setting | Date and time of the next sun setting (in UTC).
+| Next dawn | Date and time of the next dawn (in UTC).
+| Next dusk | Date and time of the next dusk (in UTC).
+| Next noon | Date and time of the next solar noon (in UTC).
+| Next midnight | Date and time of the next solar midnight (in UTC).
+| Elevation |  Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon.
+| Azimuth | Solar azimuth. The angle is shown clockwise from north.
 | `rising` | True if the Sun is currently rising, after solar midnight and before solar noon.
