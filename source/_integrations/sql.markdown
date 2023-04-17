@@ -187,7 +187,8 @@ Use `state` as column for value.
 
 ### State of an entity x time ago
 
-If you want to extract the state of entity from a day, hour or minute ago, the query is:
+If you want to extract the state of an entity from a day, hour, or minute ago, the query is:
+
 ```sql
 SELECT state 
 FROM states 
