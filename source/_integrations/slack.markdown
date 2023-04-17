@@ -58,7 +58,15 @@ One sensor entity will be created:
 
 - **Do Not Disturb Timer**: The amount of time left for Do Not Disturb status.
 
-### Slack Service Data
+### Set Do Not Disturb Service Data
+
+The following attribute can be used for the service call:
+
+| Attribute              | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `duration`               |      no | The number of minutes to pause notifications. Set this to 0 to stop pausing notifications.
+
+### Slack Notify Service Data
 
 The following attributes can be placed inside the `data` key of the service call for extended functionality:
 
