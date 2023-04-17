@@ -19,7 +19,7 @@ Integrates [RAPT Pill](https://www.kegland.com.au/rapt-pill-hydrometer-thermomet
 
 {% include integrations/config_flow.md %}
 
-The RAPT Pill BLE integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. RAPT Pill must be switched to the Bluetooth mode in Settings - Telemetry method. See the [user manual](https://www.kegland.com.au/media/pdf/KL20596%20-%20RAPT%20Pill%20Hydrometer%20and%20Thermometer%20Quick%20Start%20Guide.pdf) for detailed instructions.
+The RAPT Pill BLE integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. RAPT Pill must be switched to the Bluetooth mode in Settings - Telemetry method. See the [user manual](https://cdn.shopify.com/s/files/1/0667/3019/7248/files/KL20596_-_RAPT_Pill_Hydrometer_and_Thermometer_Quick_Start_Guide.pdf) for detailed instructions.
 
 ## Supported devices
 
