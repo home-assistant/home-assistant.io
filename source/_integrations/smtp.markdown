@@ -205,6 +205,6 @@ notify:
     sender_name: "SENDER_NAME"
 ```
 
-Keep in mind that Google has some extra layers of protection that need special attention. By default, the usage by external applications is limited so you will need to visit the [less secure apps](https://www.google.com/settings/security/lesssecureapps) page and enable it to be able to send e-mails. Be aware that Google will periodically turn it off if it is not used (no e-mail is sent).
+Keep in mind that Google has some extra layers of protection that need special attention. By default, the usage by external applications is limited so you will need to visit the [less secure apps](https://myaccount.google.com/lesssecureapps) page and enable it to be able to send e-mails. Be aware that Google will periodically turn it off if it is not used (no e-mail is sent).
 
-To avoid having your e-mail notifications broken due to the less secure app's behavior, it is recommended that you enable 2-step verification on your Google account, and use [an application-specific password](https://support.google.com/mail/answer/185833?hl=en) in your notification configuration.
+To avoid having your e-mail notifications broken due to the less secure app's behavior, it is recommended that you enable 2-step verification on your Google account, and use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
