@@ -56,7 +56,7 @@ host:
   default: localhost
 port:
   type: integer
-  description: Port to use. 2.xx - No default port for 2.xx, otherwise 8086.
+  description: Port to use. 2.xx - Must specify port for 2.xx, otherwise 8086.
   required: false
   default: 8086
 path:
@@ -168,7 +168,7 @@ tags_attributes:
   default: 0
 ignore_attributes:
   type: [string, list]
-  description: The list of attribute names to ignore when reporting to InfluxDB. This can be used to filter out attributes that either don't change or don't matter to you in order to reduce the amount of data stored in InfluxDB.
+  description: The list of attribute names to ignore when reporting to InfluxDB. This can be used to filter out attributes that either don't change or don't matter to you in order to reduce the amount of data stored in InfluxDB. Please be aware of the underlying InfluxDB mechanism that converts non-string attributes to strings and adds a `_str` suffix to the attribute name in this case. It means that when you want to ignore, for example, the `icon_str` attribute that shows in your InfluxDB instance, you need to provide `icon` to `ignore_attributes`.
   required: false
 component_config:
   type: string
@@ -229,23 +229,7 @@ influxdb:
       - light.kitchen_light
 ```
 
-Filters are applied as follows:
-
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes:
-   - Include domain and/or glob patterns specified
-      - If domain is included, and entity not excluded or match exclude glob pattern, pass
-      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
-      - If domain is not included, glob pattern does not match, and entity not included, fail
-   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - If domain is excluded and entity not included, fail
-      - If entity matches exclude glob pattern and entity not included, fail
-      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
-   - Neither include or exclude specifies domains or glob patterns
-      - If entity is included, pass (as #2 above)
-      - If entity include and exclude, the entity exclude is ignored
+{% include common-tasks/filters.md %}
 
 ## Examples
 
@@ -522,27 +506,27 @@ The example configuration entry below create two request to your local InfluxDB 
 
 ```yaml
 sensor:
-  platform: influxdb
-  host: localhost
-  username: home-assistant
-  password: password
-  queries:
-    - name: last value of foo
-      unit_of_measurement: °C
-      value_template: '{{ value | round(1) }}'
-      group_function: last
-      where: '"name" = ''foo'''
-      measurement: '"°C"'
-      field: value
-      database: db1
-    - name: Min for last hour
-      unit_of_measurement: "%"
-      value_template: '{{ value | round(1) }}'
-      group_function: min
-      where: '"entity_id" = ''salon'' and time > now() - 1h'
-      measurement: '"%"'
-      field: tmp
-      database: db2
+  - platform: influxdb
+    host: localhost
+    username: home-assistant
+    password: password
+    queries:
+      - name: last value of foo
+        unit_of_measurement: °C
+        value_template: '{{ value | round(1) }}'
+        group_function: last
+        where: '"name" = ''foo'''
+        measurement: '"°C"'
+        field: value
+        database: db1
+      - name: Min for last hour
+        unit_of_measurement: "%"
+        value_template: '{{ value | round(1) }}'
+        group_function: min
+        where: '"entity_id" = ''salon'' and time > now() - 1h'
+        measurement: '"%"'
+        field: tmp
+        database: db2
 ```
 
 {% endraw %}

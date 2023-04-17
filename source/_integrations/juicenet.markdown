@@ -4,9 +4,9 @@ description: Instructions on how to setup WiFi-equipped JuiceNet/JuiceBox chargi
 ha_category:
   - Car
   - Energy
+  - Number
   - Sensor
   - Switch
-  - Number
 ha_iot_class: Cloud Polling
 ha_release: 0.47
 ha_codeowners:
@@ -14,9 +14,9 @@ ha_codeowners:
 ha_domain: juicenet
 ha_config_flow: true
 ha_platforms:
+  - number
   - sensor
   - switch
-  - number
 ha_integration_type: integration
 ---
 

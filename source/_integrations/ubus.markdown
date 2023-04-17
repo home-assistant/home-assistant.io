@@ -85,7 +85,7 @@ See the [device tracker integration page](/integrations/device_tracker/) for ins
 
 ## Troubleshooting
 
-If you find that this never creates `known_devices.yaml`, or if you need more information on the communication chain between Home Assistant and OpenWRT, follow these steps to grab the packet stream and gain insight into what's happening.
+If you find that this never creates `known_devices.yaml`, or if you need more information on the communication chain between Home Assistant and OpenWrt, follow these steps to grab the packet stream and gain insight into what's happening.
 
 ### Increase Log Level
 

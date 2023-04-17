@@ -63,19 +63,3 @@ sensor:
     name: SolarEdge
     ip_address: 192.168.1.123
 ```
-
-In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform](/integrations/template).
-
-{% raw %}
-
-```yaml
-# Example configuration.yaml entry for sensor template platform
-template:
-  - sensor:
-    - name: solaredge_energy_this_year_template:
-      state: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
-      unit_of_measurement: "KWh"
-      icon: "mdi:solar-power"
-```
-
-{% endraw %}

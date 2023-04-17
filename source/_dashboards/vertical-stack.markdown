@@ -7,7 +7,11 @@ description: "The Vertical Stack card allows you to group multiple cards so they
 
 The Vertical Stack card allows you to group multiple cards so they always sit in the same column.
 
-To add the Vertical Stack card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Vertical Stack** from the card picker. All options for this card can be configured via the user interface.
+To add the Vertical Stack card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -24,9 +28,7 @@ cards:
   type: list
 {% endconfiguration %}
 
-## Examples
-
-Alternatively, the card can be configured using YAML:
+### Examples
 
 Basic example:
 
@@ -43,7 +45,7 @@ cards:
 ```
 
 <p class="img">
-  <img src="/images/dashboards/lovelace_vertical-stack.png" alt="Picture- and entities-card in a stack">
+  <img src="/images/dashboards/vertical-stack.png" alt="Picture- and entities-card in a stack">
   Picture and entities-card in a stack.
 </p>
 
@@ -66,6 +68,6 @@ cards:
 ```
 
 <p class="img">
-  <img src="/images/dashboards/lovelace_vertical-horizontal-stack.png" alt="Create a grid layout using vertical and horizontal stack">
+  <img src="/images/dashboards/vertical-horizontal-stack.png" alt="Create a grid layout using vertical and horizontal stack">
   Create a grid layout using vertical and horizontal stack.
 </p>

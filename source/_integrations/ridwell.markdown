@@ -10,10 +10,11 @@ ha_codeowners:
   - '@bachya'
 ha_config_flow: true
 ha_platforms:
+  - calendar
   - diagnostics
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The Ridwell integration allows users to track waste recycling pickups scheduled with [Ridwell](https://www.ridwell.com).

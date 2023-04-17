@@ -7,6 +7,7 @@ ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@MrHarcombe'
+  - '@avee87'
 ha_domain: metoffice
 ha_config_flow: true
 ha_platforms:

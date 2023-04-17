@@ -8,11 +8,17 @@ description: "The Map card that allows you to display entities on a map"
 The Map card that allows you to display entities on a map
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_map_card.png' alt='Screenshot of the map card'>
+<img src='/images/dashboards/map_card.png' alt='Screenshot of the map card'>
 Screenshot of the map card.
 </p>
 
-To add the Map card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Map** from the card picker. All options for this card can be configured via the user interface.
+To add the Map card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+All options for this card can be configured via the user interface.
+
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -27,6 +33,11 @@ geo_location_sources:
   required: true
   description: List of geolocation sources. All current entities with that source will be displayed on the map. See [Geolocation](/integrations/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this or the `entities` configuration option is required.
   type: list
+auto_fit:
+  required: false
+  description: The map will follow moving `entities` by adjusting the viewport of the map each time an entity is updated. 
+  type: boolean
+  default: false
 title:
   required: false
   description: The card title.
@@ -66,12 +77,11 @@ hours_to_show:
 
 ## Examples
 
-The card can also be configured using YAML, some examples below:
-
 ```yaml
 type: map
 aspect_ratio: 16:9
 default_zoom: 8
+auto_fit: true
 entities:
   - device_tracker.demo_paulus
   - zone.home

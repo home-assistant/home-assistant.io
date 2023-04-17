@@ -324,15 +324,15 @@ The search will attempt to guess the type of media based on the search parameter
 
 ### Compatibility
 
-| Client                           | Limitations                                                                                                                                                     |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Any (when all controls disabled) | A stop button will appear but is not functional.                                                                                                                |
-| Any (when casting)               | Controlling playback will work but with error logging.                                                                                                          |
-| Any (remote client)              | Controls disabled.                                                                                                                                              |
-| Apple TV                         | None                                                                                                                                                            |
-| iOS                              | None                                                                                                                                                            |
-| NVidia Shield                    | Controlling playback when the Shield is both a client and a server will work but with error logging                                                             |
-| Plex Web                         | None                                                                                                                                                            |
+| Client | Limitations |
+| --- | --- |
+| Remote clients     | Controls are unavailable |
+| Apple TV           | None |
+| iOS                | None |
+| NVidia Shield      | None |
+| Plexamp            | None (music playback only) |
+| Plex Desktop & Web | Controls are unavailable (as of June 2022) |
+| Plex HTPC          | None |
 
 ## Sonos Playback
 

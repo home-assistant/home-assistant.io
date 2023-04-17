@@ -6,8 +6,6 @@ ha_category:
   - Notifications
 ha_iot_class: Cloud Push
 ha_release: 0.69
-ha_codeowners:
-  - '@tinloaf'
 ha_domain: matrix
 ha_platforms:
   - notify
@@ -182,6 +180,24 @@ default_room:
 The target room has to be precreated, the room id can be obtained from the rooms settings dialog. Rooms by default have a canonical id of the form `"!<randomid>:homeserver.tld"`, but can also be allocated aliases like `"#roomname:homeserver.tld"`. Make sure to use quotes around the room id or alias to escape special characters (`!`, and `#`) in YAML. The notifying account may need to be invited to the room, depending on the individual rooms policies.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+
+### Message formats
+
+Matrix supports sending messages using a [limited HTML subset](https://spec.matrix.org/v1.2/client-server-api/#mroommessage-msgtypes). To specify the message format, add it in the notification `data`.
+
+Supported formats are: `text` (default), and `html`.
+
+```yaml
+# Example of notification as HTML
+action:
+  service: notify.matrix_notify
+  data:
+    message: >-
+      <h1>Hello, world!</h1>
+    data:
+      format: "html"
+```
 
 ### Images in notification
 

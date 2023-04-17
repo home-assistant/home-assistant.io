@@ -11,7 +11,7 @@ The steps below do not apply to Home Assistant Core & Container installations, f
 
 </div>
 
-We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Home Assistant add-on store: the File editor. To get to the add-on store, click on the menu icon in the top left, then open {% my supervisor title="Settings > Add-ons" %}. On the new page, open the add-on store tab.
+We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Home Assistant add-on store: the File editor. To get to the add-on store, go to {% my supervisor title="Settings > Add-ons" %}. On the new page, open the add-on store tab.
 
 ![Add-on store.](/images/hassio/screenshots/dashboard.png)
 
@@ -31,18 +31,18 @@ Now let's make a change using the file editor: we are going to change the name, 
        name: Home
        latitude: xx.xxxx
        longitude: xx.xxxx
-       unit_system: imperial
+       unit_system: us_customary
        time_zone: America/Chicago
   ```
 <div class='note'>
  
-  Valid options for `unit_system` are `imperial` or `metric`. See [here](https://timezonedb.com/time-zones) for a list of valid time zones. Enter the appropriate option found under the Time Zone column at that page.
+  Valid options for `unit_system` are `us_customary` or `metric`. See [here](https://timezonedb.com/time-zones) for a list of valid time zones. Enter the appropriate option found under the Time Zone column at that page.
 
 </div>
 
  - Click the save icon in the top right to commit changes.
- - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a configuration check. Do this by clicking on Configuration in the sidebar, click on `Developer-Tools -> YAML` and click on the **Check configuration** button. When it's valid, it will show the text "Configuration valid!". In order for the **Check Configuration**" button to be visible, you must enable "Advanced Mode" on your user profile.
- - Now Restart Home Assistant using the **Restart** button in the Server management section on the same page.
+ - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a configuration check. Do this by navigating to {% my server_controls title="Developer Tools -> YAML" %} and and then clicking on the **Check configuration** button. When it's valid, it will show the text "Configuration valid!". In order for the **Check Configuration**" button to be visible, you must enable "Advanced Mode" on your user profile.
+ - Now Restart Home Assistant. You can do so by either using the **Restart** option in the ⚙ menu of the File Editor UI or by navigating to {% my system_dashboard title="Settings -> System" %} and then clicking on the **Restart** button on the top right of the page.
 
 ![Screenshot of the "General" page in the configuration panel.](/images/screenshots/configuration-validation.png)
 

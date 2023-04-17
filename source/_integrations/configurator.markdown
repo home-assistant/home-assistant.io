@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: configurator
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 <div class='note'>

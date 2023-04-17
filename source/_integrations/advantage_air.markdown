@@ -3,6 +3,7 @@ title: Advantage Air
 description: Instructions on how to integrate Advantage Air A/C controller into Home Assistant.
 ha_category:
   - Climate
+  - Update
 ha_release: 0.117
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -15,9 +16,11 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - light
   - select
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 ---
 
@@ -25,7 +28,7 @@ The Advantage Air integration allows you to control [Advantage Air](https://www.
 
 ## Prerequisites
 
-The wall-mounted Android table running the [MyPlace](https://play.google.com/store/apps/details?id=com.air.advantage.myair5), [e-zone](https://play.google.com/store/apps/details?id=com.air.advantage.ezone), or [zone10e](https://play.google.com/store/apps/details?id=com.air.advantage.zone10) must have a static IP, which you will enter on the integrations page in Home Assistant.
+The wall-mounted Android tablet running the [MyPlace](https://play.google.com/store/apps/details?id=com.air.advantage.myair5), [e-zone](https://play.google.com/store/apps/details?id=com.air.advantage.ezone), or [zone10e](https://play.google.com/store/apps/details?id=com.air.advantage.zone10) must have a static IP, which you will enter on the integrations page in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -37,7 +40,9 @@ The integration will create a climate entity for each air conditioning system fo
 
 ### Cover
 
-The integration will create a cover entity for each zone that is not temperature controlled, allowing you to adjust the opening level manually from 0% to 100% in 5% increments.
+The integration will create a cover entity for each air conditioning zone that is not temperature controlled, allowing you to adjust the opening level manually from 0% to 100% in 5% increments.
+
+With MyPlace, any blinds and/or garage doors will be created as cover entities.
 
 ### Sensor
 
@@ -50,15 +55,25 @@ The integration will create sensor entities for a variety of aspects:
 
 ### Binary Sensor
 
-The `advantage_air` binary sensor platform will create a binary sensor for each zone that has a motion sensor.
+The integration will create a binary sensor for each zone that has a motion sensor.
 
 ### Switch
 
-The `advantage_air` switch platform will create a switch entity to toggle fresh air mode, if it is supported.
+The integration will create a switch entity to toggle air conditioning fresh air mode, if it is supported.
+
+With MyPlace, any relays will be created as switch entities.
 
 ### Select
 
-The `advantage_air` select platform allows you to change the zone used for the "MyZone" feature.
+The MyZone select entity that allows you to change the zone used for the "MyZone" feature. Set this to "Inactive" to use the return air vent temperature.
+
+### Update
+
+The update platform shows if the controller app requires an update.
+
+### Light
+
+With MyLights or MyPlace, light entities will be created for each light.
 
 ## Services
 
@@ -70,11 +85,3 @@ Set the On/Off Timer using the relevant sensor entity.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | `sensor.[name]_time_to_on` or `sensor.[name]_time_to_off`
 | `minutes` | no | Number of minutes between `0` and `720`.
-
-### Service `advantage_air.set_myzone`
-
-Change the MyZone setting to the provided zone climate entity.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | `climate.[zone name]`

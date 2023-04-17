@@ -5,7 +5,7 @@ description: "All the different ways how automations can be triggered."
 
 Triggers are what starts the processing of an automation rule. When _any_ of the automation's triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](/docs/automation/condition/), if any, and call the [action](/docs/automation/action/).
 
-An automation can be triggered by an event, with a certain entity state, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
+An automation can be triggered by an event, a certain entity state, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
 
 - [Trigger ID](#trigger-id)
 - [Trigger variables](#trigger-variables)
@@ -198,7 +198,12 @@ automation:
 
 ## Numeric state trigger
 
-Fires when the numeric value of an entity's state (or attribute's value if using the `attribute` property, or the calculated value if using the `value_template` property) **crosses** (and only when crossing) a given threshold. On state change of a specified entity, attempts to parse the state as a number and fires if the value is changing from above to below or from below to above the given threshold.
+Fires when the numeric value of an entity's state (or attribute's value if using the `attribute` property, or the calculated value if using the `value_template` property) **crosses** a given threshold. On state change of a specified entity, attempts to parse the state as a number and fires if the value is changing from above to below or from below to above the given threshold.
+
+<div class='note'>
+Crossing the threshold means that the trigger only fires if the state wasn't previously within the threshold.
+If the current state of your entity is `50` and you set the threshold to `below: 75`, the trigger would not fire if the state changed to e.g. `49` or `72` because the threshold was never crossed. The state would first have to change to e.g. `76` and then to e.g. `74` for the trigger to fire.
+</div>
 
 {% raw %}
 
@@ -346,6 +351,11 @@ automation:
       from: "not_home"
       # Optional
       to: "home"
+      # If given, will trigger when the condition has been true for X time; you can also use days and milliseconds.
+      for:
+        hours: 0
+        minutes: 1
+        seconds: 0
 ```
 
 It's possible to give a list of `from` states or `to` states:
@@ -510,7 +520,7 @@ If for your use case this is undesired, you could consider using the automation 
 
 Fires when the sun is setting or rising, i.e., when the sun elevation reaches 0°.
 
-An optional time offset can be given to have it fire a set time before or after the sun event (e.g.,  45 minutes before sunset).
+An optional time offset can be given to have it fire a set time before or after the sun event (e.g.,  45 minutes before sunset). A negative value makes it fire before sunrise or sunset, a positive value afterwards. The offset needs to be specified in a hh:mm:ss format.
 
 <div class='note'>
 
@@ -553,7 +563,7 @@ automation:
 
 {% endraw %}
 
-If you want to get more precise, you can use this [solar calculator](https://www.esrl.noaa.gov/gmd/grad/solcalc/), which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
+If you want to get more precise, you can use this [solar calculator](https://gml.noaa.gov/grad/solcalc/), which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
 
 Although the actual amount of light depends on weather, topography and land cover, they are defined as:
 
@@ -776,15 +786,21 @@ automation:
   trigger:
     - platform: webhook
       webhook_id: "some_hook_id"
+      allowed_methods:
+        - POST
+        - PUT
+      local_only: true
 ```
 
-You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an example data payload:
+You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an example form data payload:
 
 ```shell
-curl -X POST -d '{ "key": "value" }' https://your-home-assistant:8123/api/webhook/some_hook_id
+curl -X POST -d 'key=value&key2=value2' https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
-Webhooks support HTTP POST, PUT, and HEAD requests; POST requests are recommended. HTTP GET requests are not supported.
+Webhooks support HTTP POST, PUT, HEAD, and GET requests; PUT requests are recommended. HTTP GET and HEAD requests are not enabled by default but can be enabled by adding them to the `allowed_methods` option. The request methods can also be configured in the UI by clicking the settings gear menu button beside the Webhook ID.
+
+By default, webhook triggers can only be accessed from devices on the same network as Home Assistant or via [Nabu Casa Cloud webhooks](https://www.nabucasa.com/config/webhooks/). The `local_only` option should be set to `false` to allow webhooks to be triggered directly via the internet. This option can also be configured in the UI by clicking the settings gear menu button beside the Webhook ID.
 
 Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
 
@@ -792,12 +808,12 @@ Note that a given webhook can only be used in one automation at a time. That is,
 
 ### Webhook data
 
-You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`.
+Payloads may either be encoded as form data or JSON. Depending on that, its data will be available in an automation template as either `trigger.data` or `trigger.json`. URL query parameters are also available in the template as `trigger.query`.
 
-In order to reference `trigger.json`, the `Content-Type` header must be specified with a value of `application/json`, e.g.:
+Note that to use JSON encoded payloads, the `Content-Type` header must be set to `application/json`, e.g.:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" https://your-home-assistant:8123/api/webhook/some_hook_id
+curl -X POST -H "Content-Type: application/json" -d '{ "key": "value" }' https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
 ### Webhook security
@@ -807,6 +823,7 @@ Webhook endpoints don't require authentication, other than knowing a valid webho
 - Do not use webhooks to trigger automations that are destructive, or that can create safety issues. For example, do not use a webhook to unlock a lock, or open a garage door.
 - Treat a webhook ID like a password: use a unique, non-guessable value, and keep it secret.
 - Do not copy-and-paste webhook IDs from public sources, including blueprints. Always create your own.
+- Keep the `local_only` option enabled for webhooks if access from the internet is not required.
 
 ## Zone trigger
 

@@ -10,6 +10,7 @@ ha_codeowners:
   - '@klaasnicolaas'
 ha_domain: pure_energie
 ha_platforms:
+  - diagnostics
   - sensor
 ha_quality_scale: platinum
 ha_zeroconf: true

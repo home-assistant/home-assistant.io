@@ -34,8 +34,8 @@ Speaker-level controls are exposed as `number` or `switch` entities. Additionall
 
 ### Controllable features
 
-- **All devices**: Alarms, Bass, Treble, Crossfade, Status Light, Touch Controls
-- **Home theater devices**: Audio Delay (aka "Lip Sync"), Night Sound, Speech Enhancement, Surround Enabled
+- **All devices**: Alarms, Bass, Treble, Loudness, Crossfade, Status Light, Touch Controls
+- **Home theater devices**: Audio Delay ("Lip Sync"), Night Sound, Speech Enhancement, Surround Enabled, Surround Music Full Volume ("Full/Ambient"), Surround Level ("TV Level"), Music Surround Level
 - **When paired with a sub**: Subwoofer Enabled, Subwoofer Gain
 
 ### Sensors
@@ -69,7 +69,18 @@ The microphone can only be enabled/disabled from physical buttons on the Sonos d
 
 The favorites sensor provides the names and `media_content_id` values for each of the favorites saved to My Sonos in the native Sonos app. This sensor is intended for users that need to access the favorites in a custom template. For most users, accessing favorites by using the Media Browser functionality and "Play media" script/automation action is recommended.
 
-If using the provided `media_content_id` with the `media_player.play_media` service, the `media_content_type` must be set to "favorite_item_id".
+When calling the `media_player.play_media` service, the `media_content_type` must be set to "favorite_item_id" and the `media_content_id` must be set to just the key portion of the favorite item. 
+
+Example service call:
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos_speaker1
+data:
+  media_content_type: "favorite_item_id"
+  media_content_id: "FV:2/31"
+```
 
 Example templates:
 
@@ -106,19 +117,24 @@ Sonos accepts a variety of `media_content_id` formats in the `media_player.play_
 
 Music services which require an account (e.g., Spotify) must first be configured using the Sonos app.
 
+Playing TTS (text to speech) or audio files as alerts (e.g., a doorbell or alarm) is possible by setting the `announce` argument to `true`. Using `announce` will play the provided media URL as an overlay, gently lowering the current music volume and automatically restoring to the original level when finished. An optional `volume` argument can also be provided in the `extra` dictionary to play the alert at a specific volume level. Note that older Sonos hardware or legacy firmware versions ("S1") may not fully support these features.
+
 An optional `enqueue` argument can be added to the service call. If `true`, the media will be appended to the end of the playback queue. If not provided or `false` then the queue will be replaced.
 
 ### Examples:
 
-This is an example service call that plays an audio file from a web server on the local network (like the Home Assistant built-in webserver):
+Below is an example service call that plays an audio file from a web server on the local network (like the Home Assistant built-in webserver) using the `announce` feature and its associated (optional) `volume` parameter:
 
 ```yaml
 service: media_player.play_media
 target:
   entity_id: media_player.sonos
 data:
+  announce: true
   media_content_type: "music"
   media_content_id: "http://192.168.1.50:8123/local/sound_files/doorbell-front.mp3"
+  extra:
+    volume: 20
 ```
 
 Sonos can also play music or playlists from Spotify. Both Spotify URIs and URLs can be used directly. An example service call using a playlist URI:

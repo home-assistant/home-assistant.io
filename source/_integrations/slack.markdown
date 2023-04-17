@@ -12,7 +12,7 @@ ha_codeowners:
   - '@tkdrob'
 ha_platforms:
   - notify
-  - number
+  - sensor
 ha_integration_type: integration
 ---
 
@@ -24,8 +24,8 @@ The `slack` platform allows you to deliver notifications from Home Assistant to 
 
 1. Create a [new app](https://api.slack.com/apps) under your Slack.com account.
 2. Click the `OAuth & Permissions` link in the sidebar, under the Features heading.
-3. In the Scopes section, add the `chat:write` scope, `Send messages as user`. If you get a `missing_scope` error when trying to send a message, check these permissions.
-4. Scroll up to `OAuth Tokens & Redirect URLs` and click `Add to Workspace`.
+3. In the Scopes section, add the `chat:write` and `dnd:read` scopes and select `Send messages as user`. Many errors can occur if these options are not set correctly.
+4. Scroll up to `OAuth Tokens & Redirect URLs` and click `Install to Workspace`.
 5. Copy your `OAuth Access Token` and put that key into the config flow.
 
 <div class='note'>
@@ -54,11 +54,9 @@ The added `notify` service will be named after the chat server the app is instal
 
 {% include integrations/config_flow.md %}
 
-## Integration Entities
+One sensor entity will be created:
 
-One number entity will be created:
-
-- **Do Not Disturb Period**: Set Do Not Disturb period in minutes. This starts immediately when set.
+- **Do Not Disturb Timer**: The amount of time left for Do Not Disturb status.
 
 ### Slack Service Data
 

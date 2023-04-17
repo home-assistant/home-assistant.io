@@ -39,7 +39,7 @@ host:
   required: true
   type: string
 count:
-  description: Number of packages to be sent up to a maximum of 100.
+  description: Number of packets to be sent up to a maximum of 100.
   required: false
   type: integer
   default: 5

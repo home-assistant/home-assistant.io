@@ -20,6 +20,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@lawfulchaos'
   - '@Z-Wave-Me'
+  - '@PoltoS'
 ha_domain: zwave_me
 ha_platforms:
   - binary_sensor
@@ -86,6 +87,8 @@ Example of connecting to Z-Way via remote access find.z-wave.me:
 
 Z-Wave.Me Z-Way requires Z-Wave.Me hardware:
  - [RaZberry 7](https://z-wave.me/products/razberry/) and [RaZberry 7 Pro](https://z-wave.me/products/razberry/)
+ - [Z-Station](https://z-wave.me/products/z-station/)
+ - [Z-Wave & Zigbee mPCIe](https://z-wave.me/products/mpcie/)
  - [RaZberry](https://z-wave.me/products/razberry-old/)
  - [UZB1](https://z-wave.me/products/uzb/ )
  - [Hub1](https://z-wave.me/products/hub/)

@@ -8,11 +8,17 @@ description: "The Sensor card gives you a quick overview of your sensors state w
 The Sensor card gives you a quick overview of your sensors state with an optional graph to visualize change over time.
 
 <p class='img'>
-  <img src='/images/dashboards/lovelace_sensor.png' alt='Screenshot of the sensor card'>
+  <img src='/images/dashboards/sensor.png' alt='Screenshot of the sensor card'>
   Screenshot of the sensor card.
 </p>
 
-To add the Sensor card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Sensor** from the card picker. All options for this card can be configured via the user interface.
+To add the Sensor card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+All options for this card can be configured via the user interface.
+
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -70,9 +76,7 @@ theme:
   type: string
 {% endconfiguration %}
 
-## Example
-
-Alternatively, the card can be configured using YAML:
+### Example
 
 ```yaml
 type: sensor

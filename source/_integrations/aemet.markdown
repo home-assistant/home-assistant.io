@@ -12,6 +12,8 @@ ha_platforms:
   - sensor
   - weather
 ha_integration_type: integration
+ha_codeowners:
+  - '@Noltari'
 ---
 
 The AEMET weather platform uses [AEMET OpenData](https://opendata.aemet.es/) as a source for current meteorological data for your location. AEMET stands for "Agencia Estatal de Meteorología", which is the Spanish Meteorological Agency.

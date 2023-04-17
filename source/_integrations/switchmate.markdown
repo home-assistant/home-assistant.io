@@ -7,6 +7,7 @@ ha_release: 0.78
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
+  - '@qiz-li'
 ha_domain: switchmate
 ha_platforms:
   - switch

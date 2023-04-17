@@ -17,7 +17,7 @@ ha_platforms:
   - diagnostics
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 [Tractive](https://tractive.com/en/) is an Austrian company that develops real-time location trackers for pets and other animals using GPS and GSM technology.

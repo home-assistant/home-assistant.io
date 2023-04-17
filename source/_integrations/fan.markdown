@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: fan
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 The Fan integration allows you to control and monitor Fan devices.
