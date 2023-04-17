@@ -119,7 +119,7 @@ sensor:
 
 {% configuration %}
 entity_id:
-  description: The source sensor to observe and compute statistical characteristics for. Only [sensors](/integrations/sensor/) and [binary sensor](/integrations/binary_sensor/) are supported.
+  description: The source sensor to observe and compute statistical characteristics for. Only [sensors](/integrations/sensor/) and [binary sensors](/integrations/binary_sensor/) are supported.
   required: true
   type: string
 name:
