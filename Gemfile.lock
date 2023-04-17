@@ -28,6 +28,7 @@ GEM
     ffi (1.15.5-x64-mingw32)
     forwardable-extended (2.6.0)
     google-protobuf (3.22.3)
+    google-protobuf (3.22.3-x64-mingw32)
     http_parser.rb (0.8.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
@@ -75,6 +76,8 @@ GEM
     nokogiri (1.14.3)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    nokogiri (1.14.3-x64-mingw32)
+      racc (~> 1.4)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (5.0.1)
@@ -116,6 +119,7 @@ GEM
     tzinfo-data (1.2023.3)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.4.2)
+    wdm (0.1.1)
     webrick (1.8.1)
 
 PLATFORMS
@@ -137,6 +141,7 @@ DEPENDENCIES
   stringex (= 2.8.5)
   tzinfo (~> 2.0)
   tzinfo-data
+  wdm (~> 0.1.0)
 
 RUBY VERSION
    ruby 2.6.2p47
