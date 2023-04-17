@@ -112,7 +112,7 @@ device:
       required: false
       type: string
 device_class:
-  description: The [type/class](/integrations/button/#device-class) of the button to set the icon in the frontend. The `device_class` can be `None`.
+  description: The [type/class](/integrations/button/#device-class) of the button to set the icon in the frontend. The `device_class` can be `null`.
   required: false
   default: None
   type: device_class

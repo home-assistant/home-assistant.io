@@ -106,7 +106,7 @@ device:
       required: false
       type: string
 device_class:
-  description: The [type/class](/integrations/number/#device-class) of the number. The `device_class` can be `None`.
+  description: The [type/class](/integrations/number/#device-class) of the number. The `device_class` can be `null`.
   default: None
   required: false
   type: device_class
@@ -195,7 +195,7 @@ unique_id:
   required: false
   type: string
 unit_of_measurement:
-  description: Defines the unit of measurement of the sensor, if any. The `unit_of_measurement` can be `None`.
+  description: Defines the unit of measurement of the sensor, if any. The `unit_of_measurement` can be `null`.
   Default: None
   required: false
   type: string
