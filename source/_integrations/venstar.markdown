@@ -68,7 +68,7 @@ Local API mode needs to be enabled on the thermostat itself. It cannot be enable
   - Press MODE + FAN together to exit
 
 If the local API is successfully enabled on the thermostat, you should see some basic API info when you navigate to its IP address in a web browser:
-```
+```json
 {"api_ver":7,"type":"commercial","model":"VYG-4800","firmware":"2.22.19"}
 ```
 
