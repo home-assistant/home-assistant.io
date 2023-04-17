@@ -121,7 +121,13 @@ You should also check the README for details on the overlays. You might find it 
 
 </div>
 
-#### Aeotec Z-Pi 7 Raspberry Pi HAT/Shield on Home Assistant Yellow
+#### Setting up a Raspberry Pi Z-Wave module on Home Assistant Yellow
+
+This procedure has been tested with the following modules:
+
+  * Aeotec Z-Pi 7 Raspberry Pi HAT/Shield
+  * Z-Wave.Me RaZberry 7
+  * Z-Wave.Me RaZberry 7 Pro
 
 1. Make sure the Aeotec Z-Pi 7 is properly seated on the Home Assistant Yellow. 
    ![Aeotex Z-Pi 7 on Home Assistant Yellow](/images/docs/z-wave/zpi-7-yellow.jpg).
