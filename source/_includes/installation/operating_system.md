@@ -8,9 +8,9 @@ Follow this guide if you want to get started with Home Assistant easily or if yo
 
 {% if page.installation_type == 'odroid' %}
 
-### Suggested Hardware
+### Suggested hardware
 
-We will need a few things to get started with installing Home Assistant. Links below lead to Ameridroid. If you’re not in the US, you should be able to find these items in web stores in your country.
+We will need a few things to get started with installing Home Assistant. The links below lead to Ameridroid. If you’re not in the US, you should be able to find these items in web stores in your country.
 
 To get started we suggest the ODROID N2+, it's the most powerful ODROID. It's fast and with built-in eMMC one of the best boards to run Home Assistant. It's also the board that powers our [Home Assistant Blue](/blue/).
 
@@ -20,15 +20,15 @@ To get started we suggest the ODROID N2+, it's the most powerful ODROID. It's fa
 - [eMMC Module](https://ameridroid.com/products/emmc-module-n2-linux-red-dot?ref=eeb6nfw07e)
 - [Case](https://ameridroid.com/products/odroid-n2-case?ref=eeb6nfw07e)
 
-If unavailable, we also recommend the [ODROID C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e) or [ODROID XU4](https://ameridroid.com/products/odroid-xu4?ref=eeb6nfw07e).
+If unavailable, we also recommend the [ODROID C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e) or [ODROID M1](https://ameridroid.com/products/odroid-M1?ref=eeb6nfw07e).
 
 {% endif %}
 
 {% if page.installation_type == 'tinkerboard' %}
 
-### Suggested Hardware
+### Suggested hardware
 
-We will need a few things to get started with installing Home Assistant. Links below lead to Amazon US. If you’re not in the US, you should be able to find it in web stores in your country.
+We will need a few things to get started with installing Home Assistant. The links below lead to Amazon US. If you’re not in the US, you should be able to find it in web stores in your country.
 
 - [Asus Tinkerboard S](https://amzn.to/3fFIcbI)
 
@@ -97,13 +97,15 @@ sudo apt install libfuse2
 
 1. Attach the Home Assistant boot medium ({{site.installation.types[page.installation_type].installation_media}}) to your computer.
 {% if page.installation_type == 'odroid' %}
+   If you are using ODROID M1, note that booting from NVMe is not supported. If you want to boot from eMMC, [update the firmware](https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/hardkernel/odroid-m1.md) before installing the image.
+
    If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
 {% endif %}
-2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
-3. Select "Flash from URL".
+1. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
+1. Select **Flash from URL**.
 ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
 
-4. Copy the URL for the {{site.installation.types[page.installation_type].board}} image which is:
+1. Copy the URL for the image. Make sure to select the correct link for your version of {{site.installation.types[page.installation_type].board}}:
 {% if site.installation.types[page.installation_type].variants.size > 1 %}
 {% tabbed_block %}
 {% for variant in site.installation.types[page.installation_type].variants %}
@@ -134,15 +136,15 @@ sudo apt install libfuse2
 
 _Select and copy the URL or use the "copy" button that appear when you hover it._
 
-1. Paste the URL for the {{site.installation.types[page.installation_type].board}} image into Balena Etcher and click "OK"
+5. Paste the URL for the {{site.installation.types[page.installation_type].board}} image into Balena Etcher and select **OK**.
 ![Screenshot of the Etcher software showing the URL bar with a URL pasted in.](/images/installation/etcher2.png)
-1. When Balena Etcher has downloaded the image, click "Select target"
+1. When Balena Etcher has downloaded the image, click **Select target**.
 ![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
-1. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation
+1. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation.
 ![Screenshot of the Etcher software showing teh targets available.](/images/installation/etcher4.png)
-1. Click on "Flash!" to start writing the image
+1. Select **Flash!** to start writing the image.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
-1. When Balena Etcher has finished writing the image you will see a confirmation
+1. When Balena Etcher has finished writing the image, you will see a confirmation.
 ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
@@ -154,7 +156,7 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 - If you used a live operating system (e.g. Ubuntu), shut it down and remove the live operating system USB device.
 
 1. Plug in an Ethernet cable that is connected to the network.
-2. Power the system on. If you have a screen connected to the {{site.installation.types[page.installation_type].board}} system, after a minute or so the Home Assistant welcome banner will appear in the console.
+1. Power the system on. If you have a screen connected to the {{site.installation.types[page.installation_type].board}} system, after a minute or so the Home Assistant welcome banner will appear in the console.
 
 <div class="note">
 
@@ -229,16 +231,16 @@ _All these can be extended if your usage calls for more resources._
 
 - title: VirtualBox
   content: |
-    1. Create a new virtual machine
-    2. Select Type "Linux" and Version "Linux 2.6 / 3.x / 4.x (64-bit)"
-    3. Select "Use an existing virtual hard disk file", select the unzipped VDI file from above
-    4. Edit the "Settings" of the VM and go "System" then "Motherboard" and select "Enable EFI"
-    5. Then go to "Network" "Adapter 1" choose "Bridged Adapter" and choose your Network adapter
+    1. Create a new virtual machine.
+    1. Select type **Linux** and version **Linux 2.6 / 3.x / 4.x (64-bit)**.
+    1. Select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
+    1. Edit the **Settings** of the VM and go **System** > **Motherboard** and select **Enable EFI**.
+    1. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter.
     <div class="note warning">
     Please keep in mind that the bridged adapter only functions over a hardwired Ethernet connection.
     Using Wi-Fi on your VirtualBox host is unsupported.
     </div>
-    6. Then go to "Audio" and choose "Intel HD Audio" as Audio Controller.
+    6. Then go to **Audio** and choose **Intel HD Audio** as audio controller.
     <div class="note info">
 
     By default VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
@@ -251,16 +253,16 @@ _All these can be extended if your usage calls for more resources._
 
 - title: KVM (virt-manager)
   content: |
-    1. Create a new virtual machine in `virt-manager`
-    2. Select "Import existing disk image", provide the path to the QCOW2 image above
-    3. Choose "Generic Default" for the operating system
-    4. Check the box for "Customize configuration before install"
-    5. Select your bridge under "Network Selection"
-    6. Under customization select "Overview" -> "Firmware" -> "UEFI x86_64: ...". Make sure to select a non-secureboot version of OVMF (does not contain the word `secure`, `secboot`, etc.), e.g., `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
-    7. Click "Add Hardware" (bottom left), and select "Channel"
-    8. Select device type: "unix"
-    9. Select name: "org.qemu.guest_agent.0"
-    10. Finally select "Begin Installation" (upper left corner)
+    1. Create a new virtual machine in `virt-manager`.
+    1 Select **Import existing disk image**, provide the path to the QCOW2 image above.
+    1. Choose **Generic Default** for the operating system.
+    1. Check the box for **Customize configuration before install**.
+    1. Under **Network Selection**, select your bridge.
+    6. Under customization select **Overview** > **Firmware** > **UEFI x86_64: ...**. Make sure to select a non-secureboot version of OVMF (does not contain the word `secure`, `secboot`, etc.), e.g., `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
+    1. Click **Add Hardware** (bottom left), and select **Channel**.
+    1. Select device type: **unix**.
+    1. Select name: **org.qemu.guest_agent.0**.
+    1. Finally, select **Begin Installation** (upper left corner).
 
 - title: KVM (virt-install)
   content: |
@@ -295,13 +297,13 @@ _All these can be extended if your usage calls for more resources._
 
 - title: Vmware Workstation
   content: |
-    1. Create a new virtual machine
-    2. Select “Custom”, make it compatible with the default of Workstation and ESX
-    3. Choose “I will install the operating system later”, select “Linux” -> “Other Linux 5.x or later kernel 64-bit”
-    4. Select “Use Bridged Networking”
-    5. Select “Use an existing virtual disk” and select the VMDK file above,
+    1. Create a new virtual machine.
+    1. Select **Custom**, make it compatible with the default of Workstation and ESX.
+    1. Choose **I will install the operating system later**, select **Linux** > **Other Linux 5.x or later kernel 64-bit**.
+    1. Select **Use Bridged Networking**.
+    1. Select **Use an existing virtual disk** and select the VMDK file above.
 
-    After creation of VM go to “Settings” and “Options” then “Advanced” and select “Firmware type” to “UEFI”.
+    After the VM has been created, go to **Settings** > **Options** > **Advanced**. Under **Firmware type** select **UEFI**.
 
 {% elsif page.installation_type == 'alternative' %}
 
@@ -316,25 +318,25 @@ _All these can be extended if your usage calls for more resources._
         Hyper-V does not have USB support
     </div>
 
-    1. Create a new virtual machine
-    2. Select “Generation 2”
-    3. Select “Connection -> “Your Virtual Switch that is bridged”
-    4. Select “Use an existing virtual hard disk” and select the VHDX file from above
+    1. Create a new virtual machine.
+    1. Select **Generation 2**.
+    1. Select **Connection** > **Your Virtual Switch that is bridged**.
+    1. Select **Use an existing virtual hard disk** and select the VHDX file from above.
 
-    After creation go to “Settings” -> “Security” and deselect “Enable Secure Boot”.
+    After creation go to **Settings** > **Security** and deselect **Enable Secure Boot**.
 {% endif %}
 
 {% endtabbed_block %}
 
 ### Start up your Virtual Machine
 
-1. Start the Virtual Machine
-2. Observe the boot process of Home Assistant Operating System
-3. Once completed you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
+1. Start the Virtual Machine.
+1. Observe the boot process of the Home Assistant Operating System.
+1. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
 
 {% endif %}
 
-With the Home Assistant Operating System installed and accessible you can continue with onboarding.
+With the Home Assistant Operating System installed and accessible, you can continue with onboarding.
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
 

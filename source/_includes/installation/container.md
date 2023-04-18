@@ -11,7 +11,7 @@ This guide assumes that you already have an operating system setup and a contain
 If you are using Docker then you need to be on at least version 19.03.9, ideally an even higher version, and `libseccomp` 2.4.2 or newer.
 </div>
 
-### Platform Installation
+### Platform installation
 
 Installation with Docker is straightforward. Adjust the following command so that:
 
@@ -34,8 +34,8 @@ Once the Home Assistant Container is running Home Assistant should be accessible
 
 If you change the configuration you have to restart the server. To do that you have 3 options.
 
-1. In your Home Assistant UI go to the **Settings** -> **System** and click the "Restart" button.
-2. You can go to the **Developer Tools** -> **Services**, select the service `homeassistant.restart` and click "Call Service".
+1. In your Home Assistant UI go to the **Settings** > **System** and click the **Restart** button.
+2. You can go to the **Developer Tools** > **Services**, select the service `homeassistant.restart` and select **Call Service**.
 3. Restart it from a terminal.
 
 {% tabbed_block %}
@@ -56,7 +56,7 @@ If you change the configuration you have to restart the server. To do that you h
 
 {% endtabbed_block %}
 
-### Docker Compose
+### Docker compose
 
 <div class="note tip">
    
@@ -78,7 +78,7 @@ Once the Home Assistant Container is running Home Assistant should be accessible
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
 
-### Exposing Devices
+### Exposing devices
 
 In order to use Zigbee or other integrations that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your container instructions:
 

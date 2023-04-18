@@ -199,7 +199,7 @@ installation:
   types:
     odroid:
       board: ODROID
-      installation_media: "eMMC module/SD card"
+      installation_media: "eMMC module or SD card"
       variants:
         - name: "ODROID-N2"
           key: "odroid-n2"
@@ -209,8 +209,8 @@ installation:
           key: "odroid-c2"
         - name: "ODROID-C4"
           key: "odroid-c4"
-        - name: "ODROID-XU4"
-          key: "odroid-xu4"
+        - name: "ODROID-M1"
+          key: "odroid-m1"
 
     raspberrypi:
       board: Raspberry Pi
@@ -223,7 +223,7 @@ installation:
 
     tinkerboard:
       board: ASUS Tinkerboard
-      installation_media: "eMMC module/SD card"
+      installation_media: "eMMC module or SD card"
       variants:
         - name: "ASUS Tinkerboard"
           key: "tinker"
