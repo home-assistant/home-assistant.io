@@ -15,6 +15,7 @@ og_image: /images/blog/2022-05-16-os8/social.png
 <img title='Home Assistant OS Release 10' alt='Home Assistant OS Release 10 Logo'
      src='/images/blog/2022-05-16-os8/social.png' style='border: 0;box-shadow: none;'>
 </a>
+<br><br>
 
 **Highlights**:
 
