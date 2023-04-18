@@ -47,9 +47,11 @@ Assistant installations.
 
 Currently, Home Assistant can be booted off an SD-card or an eMMC. Note however
 that a new boot firmware (Petitboot) is required to boot from eMMC (see
-the board-specific documentation). NVMe SSD boot is currently not supported
+the [board-specific documentation](https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/hardkernel/odroid-m1.md)). NVMe SSD boot is currently not supported
 by the boot firmware. However, an NVMe SSD can be used through the data disk
 feature.
+
+Buy ODROID-M1 at [Ameridroid](https://ameridroid.com/products/odroid-m1?ref=eeb6nfw07e) or directly at [Hardkernel](https://www.hardkernel.com/shop/odroid-m1-with-4gbyte-ram/)
 
 <img src='/images/blog/2023-04-18-os10/hardkernel-odroid-m1.jpg' alt='Hardkernel ODROID-M1 single board computer with NVMe SSD plugged in'>
 
@@ -63,14 +65,11 @@ OS partitions are only written to when updating the operating system. This makes
 sure that there is minimal wear on the existing storage.
 
 In this OS release, together with the latest version of the Supervisor, the
-data disk feature got more user-friendly: The data disk choice lists the actual
-model of available data disks. In situations where previously an attached disk
-would not show up, the disk will now be reliably detected and available as the
-new data disk. Now it is also possible to move from one data disk to another:
-Simply connect another disk, and go to the **Move data disk** dialog again. On
-reboot, the data will be moved and the old data disk can be detached.
+data disk feature gets more user-friendly: The data disk choice now lists the model of available data disks. Disk will now be reliably detected and available as the new data disk in certain edge cases were they previously weren't.
 
-You can find the move data disk feature under **Settings** > **System** > **Storage** in
+It is also possible to move from one data disk to another:
+Simply connect another disk, and go to the **Move data disk** dialog again. On
+reboot, the data will be moved and the old data disk can be detached. You can find the move data disk feature under **Settings** > **System** > **Storage** in
 the top right overflow menu.
 
 <img src='/images/blog/2023-04-18-os10/datadisk-new.png' alt='Screenshot showing the new data disk selection dialog'>
@@ -108,3 +107,5 @@ use alternative border routers, if available.
 
 We hope you enjoy Home Assistant OS 10.0! If you have any questions or feedback,
 please let us know.
+
+_Some product links are affiliate links and we earn a small commission when products are bought._
