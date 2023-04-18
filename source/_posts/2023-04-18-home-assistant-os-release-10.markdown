@@ -8,12 +8,12 @@ author: Stefan Agner
 comments: true
 categories:
   - Announcements
-og_image: /images/blog/2022-05-16-os8/social.png
+og_image: /images/blog/2023-04-18-os10/social.png
 ---
 
 <a href='https://github.com/home-assistant/operating-system/releases/tag/10.0'>
 <img title='Home Assistant OS Release 10' alt='Home Assistant OS Release 10 Logo'
-     src='/images/blog/2022-05-16-os8/social.png' style='border: 0;box-shadow: none;'>
+     src='/images/blog/2023-04-18-os10/social.png' style='border: 0;box-shadow: none;'>
 </a>
 <br><br>
 
