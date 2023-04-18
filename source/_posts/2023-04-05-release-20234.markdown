@@ -846,23 +846,23 @@ The following integrations are now available via the Home Assistant UI:
 [@rich-kettlewell]: https://github.com/rich-kettlewell
 [@starkillerOG]: https://github.com/starkillerOG
 [@timmo001]: https://github.com/timmo001
-[actiontec docs]: https://www.home-assistant.io/integrations/actiontec/
-[advantage_air docs]: https://www.home-assistant.io/integrations/advantage_air/
-[airly docs]: https://www.home-assistant.io/integrations/airly/
-[environment_canada docs]: https://www.home-assistant.io/integrations/environment_canada/
-[fibaro docs]: https://www.home-assistant.io/integrations/fibaro/
-[frontend docs]: https://www.home-assistant.io/integrations/frontend/
-[homewizard docs]: https://www.home-assistant.io/integrations/homewizard/
-[lifx docs]: https://www.home-assistant.io/integrations/lifx/
-[onvif docs]: https://www.home-assistant.io/integrations/onvif/
-[reolink docs]: https://www.home-assistant.io/integrations/reolink/
-[sharkiq docs]: https://www.home-assistant.io/integrations/sharkiq/
-[switchbot docs]: https://www.home-assistant.io/integrations/switchbot/
-[system_bridge docs]: https://www.home-assistant.io/integrations/system_bridge/
-[tado docs]: https://www.home-assistant.io/integrations/tado/
-[thread docs]: https://www.home-assistant.io/integrations/thread/
-[unifiprotect docs]: https://www.home-assistant.io/integrations/unifiprotect/
-[zha docs]: https://www.home-assistant.io/integrations/zha/
+[actiontec docs]: /integrations/actiontec/
+[advantage_air docs]: /integrations/advantage_air/
+[airly docs]: /integrations/airly/
+[environment_canada docs]: /integrations/environment_canada/
+[fibaro docs]: /integrations/fibaro/
+[frontend docs]: /integrations/frontend/
+[homewizard docs]: /integrations/homewizard/
+[lifx docs]: /integrations/lifx/
+[onvif docs]: /integrations/onvif/
+[reolink docs]: /integrations/reolink/
+[sharkiq docs]: /integrations/sharkiq/
+[switchbot docs]: /integrations/switchbot/
+[system_bridge docs]: /integrations/system_bridge/
+[tado docs]: /integrations/tado/
+[thread docs]: /integrations/thread/
+[unifiprotect docs]: /integrations/unifiprotect/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
