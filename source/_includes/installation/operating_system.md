@@ -105,7 +105,7 @@ sudo apt install libfuse2
 1. Select **Flash from URL**.
 ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1.png)
 
-1. Copy the URL for the image. Make sure to select the correct link for your version of {{site.installation.types[page.installation_type].board}}:
+1. Copy the URL for the image. If there are multiple links below, make sure to select the correct link for your version of {{site.installation.types[page.installation_type].board}}:
 {% if site.installation.types[page.installation_type].variants.size > 1 %}
 {% tabbed_block %}
 {% for variant in site.installation.types[page.installation_type].variants %}
@@ -211,9 +211,9 @@ If you are running an older Windows version or have a stricter network configura
 - [Hyper-V][vhdx] (.vhdx)
 {% endif %}
 
-Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines we recommend installation Home Assistant OS directly on a [Raspberry Pi](/installation/raspberrypi) or an [ODROID](/installation/odroid).
+Follow this guide if you already are running a supported virtual machine hypervisor. If you are not familiar with virtual machines, we recommend installing Home Assistant OS directly on a [Home Assistant Yellow](/installation/yellow), a [Raspberry Pi](/installation/raspberrypi), or an [ODROID](/installation/odroid).
 
-### Create the Virtual Machine
+### Create the virtual machine
 
 Load the appliance image into your virtual machine hypervisor. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs).
 
@@ -234,7 +234,7 @@ _All these can be extended if your usage calls for more resources._
     1. Create a new virtual machine.
     1. Select type **Linux** and version **Linux 2.6 / 3.x / 4.x (64-bit)**.
     1. Select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
-    1. Edit the **Settings** of the VM and go **System** > **Motherboard** and select **Enable EFI**.
+    1. Edit the **Settings** of the VM and go to **System** > **Motherboard**. Select **Enable EFI**.
     1. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter.
     <div class="note warning">
     Please keep in mind that the bridged adapter only functions over a hardwired Ethernet connection.
@@ -243,7 +243,7 @@ _All these can be extended if your usage calls for more resources._
     6. Then go to **Audio** and choose **Intel HD Audio** as audio controller.
     <div class="note info">
 
-    By default VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
+    By default, VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
     the `discard` option must be enabled:
     ```bash
     VBoxManage storageattach <VM name> --storagectl "SATA" --port 0 --device 0 --nonrotational on --discard on
@@ -323,14 +323,14 @@ _All these can be extended if your usage calls for more resources._
     1. Select **Connection** > **Your Virtual Switch that is bridged**.
     1. Select **Use an existing virtual hard disk** and select the VHDX file from above.
 
-    After creation go to **Settings** > **Security** and deselect **Enable Secure Boot**.
+    After creation, go to **Settings** > **Security** and deselect **Enable Secure Boot**.
 {% endif %}
 
 {% endtabbed_block %}
 
-### Start up your Virtual Machine
+### Start up your virtual machine
 
-1. Start the Virtual Machine.
+1. Start the virtual machine.
 1. Observe the boot process of the Home Assistant Operating System.
 1. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
 

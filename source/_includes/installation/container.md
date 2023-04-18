@@ -32,9 +32,9 @@ Once the Home Assistant Container is running Home Assistant should be accessible
 
 ### Restart Home Assistant
 
-If you change the configuration you have to restart the server. To do that you have 3 options.
+If you change the configuration, you have to restart the server. To do that you have 3 options.
 
-1. In your Home Assistant UI go to the **Settings** > **System** and click the **Restart** button.
+1. In your Home Assistant UI, go to the **Settings** > **System** and click the **Restart** button.
 2. You can go to the **Developer Tools** > **Services**, select the service `homeassistant.restart` and select **Call Service**.
 3. Restart it from a terminal.
 
@@ -74,7 +74,7 @@ Start it by running:
 docker compose up -d
 ```
 
-Once the Home Assistant Container is running Home Assistant should be accessible using `http://<host>:8123` (replace <host> with the hostname or IP of the system). You can continue with onboarding.
+Once the Home Assistant Container is running, Home Assistant should be accessible using `http://<host>:8123` (replace <host> with the hostname or IP of the system). You can continue with onboarding.
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
 
