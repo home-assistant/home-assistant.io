@@ -48,6 +48,7 @@ Happy Easter! 🐣 and enjoy the release!
 - [Release 2023.4.2 - April 8](#release-202342---april-8)
 - [Release 2023.4.3 - April 12](#release-202343---april-12)
 - [Release 2023.4.4 - April 13](#release-202344---april-13)
+- [Release 2023.4.5 - April 17](#release-202345---april-17)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -785,6 +786,83 @@ The following integrations are now available via the Home Assistant UI:
 [frontend docs]: /integrations/frontend/
 [homewizard docs]: /integrations/homewizard/
 [lifx docs]: /integrations/lifx/
+
+## Release 2023.4.5 - April 17
+
+- Add SetSynchronizationPoint fallback to onvif ([@GrumpyMeow] - [#86400]) ([onvif docs])
+- Fix SharkIQ token expiration ([@funkybunch] - [#89357]) ([sharkiq docs])
+- Reolink prevent ONVIF push being lost due to ConnectionResetError ([@starkillerOG] - [#91070]) ([reolink docs])
+- Add missing mock in sharkiq tests ([@epenet] - [#91325]) ([sharkiq docs])
+- Tado set_water_heater_timer should use water_heater domain ([@rich-kettlewell] - [#91364]) ([tado docs])
+- Fix listener running in foreground for System Bridge integration ([@timmo001] - [#91391]) ([system_bridge docs])
+- Bump onvif-zeep-async to 1.2.5 ([@bdraco] - [#91399]) ([onvif docs])
+- Fix attribute reporting config failures in ZHA ([@puddly] - [#91403]) ([zha docs])
+- Save Thread dataset store when changing preferred dataset ([@emontnemery] - [#91411]) ([thread docs])
+- Bump env_canada to v0.5.33 ([@michaeldavie] - [#91468]) ([environment_canada docs])
+- Fix creating onvif pull point subscriptions when InitialTerminationTime is required ([@bdraco] - [#91470]) ([onvif docs]) (dependency)
+- Bump onvif-zeep-async to 1.2.11 ([@bdraco] - [#91472]) ([onvif docs]) (dependency)
+- Handle a few more transient onvif errors ([@bdraco] - [#91473]) ([onvif docs])
+- Reolink ONVIF move read to primary callback ([@starkillerOG] - [#91478]) ([reolink docs])
+- Fix onvif failing to reload ([@bdraco] - [#91482]) ([onvif docs])
+- Resolve issue with switchbot blind tilt devices getting stuck in opening/closing state ([@BTMorton] - [#91495]) ([switchbot docs]) (dependency)
+- Fix state mapping in fibaro climate ([@rappenze] - [#91505]) ([fibaro docs])
+- Bump unifiprotect to 4.8.1 ([@AngellusMortis] - [#91522]) ([unifiprotect docs]) (dependency)
+
+[#86400]: https://github.com/home-assistant/core/pull/86400
+[#89357]: https://github.com/home-assistant/core/pull/89357
+[#90855]: https://github.com/home-assistant/core/pull/90855
+[#90956]: https://github.com/home-assistant/core/pull/90956
+[#91070]: https://github.com/home-assistant/core/pull/91070
+[#91111]: https://github.com/home-assistant/core/pull/91111
+[#91316]: https://github.com/home-assistant/core/pull/91316
+[#91325]: https://github.com/home-assistant/core/pull/91325
+[#91356]: https://github.com/home-assistant/core/pull/91356
+[#91364]: https://github.com/home-assistant/core/pull/91364
+[#91391]: https://github.com/home-assistant/core/pull/91391
+[#91399]: https://github.com/home-assistant/core/pull/91399
+[#91403]: https://github.com/home-assistant/core/pull/91403
+[#91411]: https://github.com/home-assistant/core/pull/91411
+[#91468]: https://github.com/home-assistant/core/pull/91468
+[#91470]: https://github.com/home-assistant/core/pull/91470
+[#91472]: https://github.com/home-assistant/core/pull/91472
+[#91473]: https://github.com/home-assistant/core/pull/91473
+[#91478]: https://github.com/home-assistant/core/pull/91478
+[#91482]: https://github.com/home-assistant/core/pull/91482
+[#91495]: https://github.com/home-assistant/core/pull/91495
+[#91505]: https://github.com/home-assistant/core/pull/91505
+[#91522]: https://github.com/home-assistant/core/pull/91522
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@BTMorton]: https://github.com/BTMorton
+[@GrumpyMeow]: https://github.com/GrumpyMeow
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@funkybunch]: https://github.com/funkybunch
+[@michaeldavie]: https://github.com/michaeldavie
+[@puddly]: https://github.com/puddly
+[@rappenze]: https://github.com/rappenze
+[@rich-kettlewell]: https://github.com/rich-kettlewell
+[@starkillerOG]: https://github.com/starkillerOG
+[@timmo001]: https://github.com/timmo001
+[actiontec docs]: /integrations/actiontec/
+[advantage_air docs]: /integrations/advantage_air/
+[airly docs]: /integrations/airly/
+[environment_canada docs]: /integrations/environment_canada/
+[fibaro docs]: /integrations/fibaro/
+[frontend docs]: /integrations/frontend/
+[homewizard docs]: /integrations/homewizard/
+[lifx docs]: /integrations/lifx/
+[onvif docs]: /integrations/onvif/
+[reolink docs]: /integrations/reolink/
+[sharkiq docs]: /integrations/sharkiq/
+[switchbot docs]: /integrations/switchbot/
+[system_bridge docs]: /integrations/system_bridge/
+[tado docs]: /integrations/tado/
+[thread docs]: /integrations/thread/
+[unifiprotect docs]: /integrations/unifiprotect/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
