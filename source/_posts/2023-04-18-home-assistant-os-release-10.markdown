@@ -58,7 +58,7 @@ feature.
 The data disk feature allows extending storage by adding an external disk.
 When using the data disk feature, all commonly read and written data is moved
 to that storage, just Home Assistant OS itself remains on the existing storage
-(e.g. SD-card or eMMC). Home Assistant OS is a read-only operating system &mdash; the
+(for example, SD-card or eMMC). Home Assistant OS is a read-only operating system &mdash; the
 OS partitions are only written to when updating the operating system. This makes
 sure that there is minimal wear on the existing storage.
 
@@ -79,16 +79,16 @@ the top right overflow menu.
 
 With Home Assistant OS 10 low memory, devices will generally perform better.
 Firstly, we moved from zram to zswap, which allows us to use the storage as an
-actual swap space. We’ve tuned the memory management to minimize the amount of
+actual swap space. We’ve tuned the memory management to minimize the number of
 writes to storage (to prevent unnecessary wear on SD-cards and other flash
-memory based storage).
+memory-based storage).
 
 We’ve also improved reliability and responsiveness in low-memory situations:
 Home Assistant OS uses a new memory management mechanism named Multi-Gen LRU
 along with thrashing prevention. This makes Home Assistant OS recover quickly
 from a low-memory situation and remain responsive.
 
-In general, we recommend to use a board with at least 1&nbsp;GB of memory and make
+In general, we recommend using a board with at least 1&nbsp;GB of memory and make
 sure to stay well below 80% memory utilization. You can monitor the overall
 memory utilization under **Settings** > **System** > **Hardware**.
 
