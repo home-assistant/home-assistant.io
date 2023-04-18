@@ -82,7 +82,7 @@ Manually downgrading comes with its own risks and it is not recommended unless y
 # It is not needed for the UDM SE, UNVR, etc.
 unifi-os shell
 
-# Dwngrade UniFi Protect.
+# Downgrade UniFi Protect.
 apt-get update
 apt-get install --reinstall --allow-downgrades unifi-protect=2.0.0~beta.5 -y
 ```
