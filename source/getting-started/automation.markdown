@@ -5,7 +5,7 @@ description: "A quick intro on getting your first automation going."
 
 Once your {% term devices %} are set up, it's time to put the cherry on the pie: {% term automation %}. In this guide we're going to create a simple automation rule to turn on the lights when the sun sets. Of course, this assumes that you have set up an integration that provides a light at this point.
 
-In the user interface in the side bar, click **{% my automations title="Settings -> Automations & Scenes" %}**. You will now see the automation screen from which you can manage all the automations in Home Assistant.
+In the user interface in the sidebar, click **{% my automations title="Settings > Automations & Scenes" %}**. You will now see the automation screen from which you can manage all the automations in Home Assistant.
 
 ![The automation editor.](/images/getting-started/automation-editor.png)
 
