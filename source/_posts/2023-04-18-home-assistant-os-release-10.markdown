@@ -22,8 +22,8 @@ og_image: /images/blog/2022-05-16-os8/social.png
 - Support for Hardkernel ODROID-M1
 - Improved datadisk feature:
   - Improved reliability
-  - Move from one datadisk to a new datadisk is now supported
-- Improved memory management to improve overall device performance, especially under low memory situations
+  - Move from one data disk to a new data disk is now supported
+- Improved memory management to improve overall device performance, especially in low memory situations
 - Updated software packages: Linux, Docker, BlueZ, NetworkManager
 
 For existing installations, no manual intervention is needed! You can safely
@@ -40,9 +40,9 @@ update without reading these rather technical release notes.
 ## New board support: Hardkernel ODROID-M1
 
 Home Assistant OS 10 supports the Hardkernel ODROID-M1 single board computer!
-Most notably the ODROID-M1 supports NVMe SSD storage natively, which makes it
+Most notably, the ODROID-M1 supports NVMe SSD storage natively, which makes it
 another great choice to run Home Assistant on. With its quad-core CPU with up
-to 2 GHz and up to 8 GB of memory it is suitable even for demanding Home
+to 2&nbsp;GHz and up to 8&nbsp;GB of memory it is suitable even for demanding Home
 Assistant installations.
 
 Currently, Home Assistant can be booted off an SD-card or an eMMC. Note however
@@ -58,7 +58,7 @@ feature.
 The datadisk feature allows extending storage by adding an external disk.
 When using the datadisk feature, all commonly read and written data is moved
 to that storage, just Home Assistant OS itself remains on the existing storage
-(e.g. SD-card or eMMC). Home Assistant OS is a read-only operating system - the
+(e.g. SD-card or eMMC). Home Assistant OS is a read-only operating system &mdash; the
 OS partitions are only written to when updating the operating system. This makes
 sure that there is minimal wear on the existing storage.
 
@@ -67,10 +67,10 @@ datadisk feature got more user-friendly: The datadisk choice lists the actual
 model of available data disks. In situations where previously an attached disk
 would not show up, the disk will now be reliably detected and available as the
 new datadisk. Now it is also possible to move from one data disk to another:
-Simply connect another disk, and go to the Move datadisk dialog again. On
+Simply connect another disk, and go to the **Move datadisk** dialog again. On
 reboot the data will be moved, and the old data disk can be detached.
 
-You can find the move datadisk feature under Settings > System > Storage in
+You can find the move datadisk feature under **Settings** > **System** > **Storage** in
 the top right overflow menu.
 
 <img src='/images/blog/2023-04-18-os10/datadisk-new.png' alt='Screenshot showing the new datadisk selection dialog'>
@@ -88,9 +88,9 @@ Home Assistant OS uses a new memory management mechanism named Multi-Gen LRU
 along with thrashing prevention. This makes Home Assistant OS recover quickly
 from a low-memory situation and remain responsive.
 
-In general, we recommend to use a board with at least 1 GB of memory and make
+In general, we recommend to use a board with at least 1&nbsp;GB of memory and make
 sure to stay well below 80% memory utilization. You can monitor the overall
-memory utilization under Settings > System > Hardware.
+memory utilization under **Settings** > **System** > **Hardware**.
 
 ## Updated software packages
 
