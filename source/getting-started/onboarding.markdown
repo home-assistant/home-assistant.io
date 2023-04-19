@@ -21,7 +21,7 @@ Finally, click Finish. Now you're brought to the Home Assistant web interface. T
 
 ![The Home Assistant user interface.](/images/getting-started/lovelace.png)
 
-From the side bar, click on {% my integrations title="Settings -> Devices & Services" %}. At this screen you will be able to set up {% term integrations %} with Home Assistant. You might notice a "discovered" section. This section contains integrations that were found on your network and can easily be added with a few clicks. If your integrations are not discovered, click the **Add integration** button in the lower right and search for your integration in that list.
+From the side bar, click on {% my integrations title="Settings > Devices & Services" %}. At this screen you will be able to set up {% term integrations %} with Home Assistant. You might notice a "discovered" section. This section contains integrations that were found on your network and can easily be added with a few clicks. If your integrations are not discovered, click the **Add integration** button in the lower right and search for your integration in that list.
 
 ![The integrations page in the configurations panel shows you all your configured integrations.](/images/getting-started/integrations.png)
 
