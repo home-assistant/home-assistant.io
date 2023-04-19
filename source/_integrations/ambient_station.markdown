@@ -56,3 +56,5 @@ Cloud. Users desiring a local option are encouraged to explore the
 directly from the PWS and transmit them to a variety of other applications, including
 [`ecowitt2mqtt`](https://github.com/bachya/ecowitt2mqtt) (which supports
 [MQTT Discovery](/docs/mqtt/discovery)), or the built-in [Ecowitt](/integrations/ecowitt/) integration.
+
+Another local option for weather stations that utilze an ObserverIP box, the [HASS_pws_scraper custom component](https://github.com/Condorello/HASS_pws_scraper) can be used to scrape the local webpage that the box hosts.
