@@ -18,7 +18,7 @@ ha_dhcp: true
 
 The integration allows you to control [Reolink](https://reolink.com/) NVRs or cameras.
 
-If you appreciate the reolink integration and want to support its development, please consider becoming a [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/starkillerOG) of the upstream library.
+If you appreciate the reolink integration and want to support its development, please consider becoming a [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/starkillerOG) of the upstream library, or purchase Reolink products through [this affiliate link](https://reolink.pxf.io/q44QWq). 
 
 {% include integrations/config_flow.md %}
 
