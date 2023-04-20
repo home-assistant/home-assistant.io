@@ -35,9 +35,9 @@ During the setup, it will ask for the following:
 | `Name` | Name to for this Pi-Hole. | Pi-Hole |
 | `Location` | the path to the admin page. | /admin |
 
-The combined host, port and location should take you to the login page of Pi-Hole. Using the example above, it would be [http://192.168.1.1:80/admin](http://192.168.1.1:80/admin)
+The combined host, port and location should take you to the login page of Pi-Hole. Using the example above, it would be `http://192.168.1.1:80/admin`.
 
-If your Pi-hole web interface is password protected, an API key will be requested by Home Assistant after submitting the initial details above. You can get the API key by logging into your Pi-Hole and going to _from Settings > API_ and then **Show API token** button.
+If your Pi-hole web interface is password protected, an API key will be requested by Home Assistant after submitting the initial details above. You can get the API key by logging into your Pi-Hole and going to _from Settings > API_ and then the **Show API token** button.
 
 ## Services
 
