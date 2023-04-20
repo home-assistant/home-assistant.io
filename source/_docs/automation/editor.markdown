@@ -9,7 +9,7 @@ From the UI, choose **{% my config %}** which is located in the sidebar, then cl
 
 ![Create automation dialogue box](/images/docs/automation-editor/create-automation.png)
 
-Click on **Add Trigger** button and select **Nurmeric state**.
+Click on the **Add Trigger** button and select **Nurmeric state**.
 
 ![Add trigger](/images/docs/automation-editor/add-trigger-to-automation.png)
 
@@ -17,7 +17,7 @@ If the value of the sensor is greater than 10, then the automation should trigge
 
 ![Automation trigger](/images/docs/automation-editor/new-trigger.png)
 
-Click on **Add Action** button and select **Call service**.
+Click on the **Add Action** button and select **Call service**.
 
 ![Add trigger](/images/docs/automation-editor/new-action.png)
 
@@ -31,7 +31,7 @@ As the message we want a simple text that is shown as part of the notification.
 message: Sensor value greater than 10
 ```
 
- Press the **Save** button and the save dialogue will appear. Give your automation a meaningful name and press **Save** button again.
+ Press the **Save** button, and the save dialogue will appear. Give your automation a meaningful name and press the **Save** button again.
 
 ![New automation editor](/images/docs/automation-editor/new-automation.png)
 
