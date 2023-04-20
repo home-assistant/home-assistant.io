@@ -143,3 +143,13 @@ Changes a setting.
 | `device_id` | no | Id of a device associated with the home appliance. |
 | `key` | no | Key of the setting. |
 | `value` | no | Value of the setting. |
+
+### Service `home_connect.change_setting`
+
+Changes a setting.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `device_id` | no | Id of a device associated with the home appliance. |
+| `key` | no | Key of the setting. |
+| `value` | no | Value of the setting. |
