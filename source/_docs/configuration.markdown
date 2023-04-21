@@ -26,6 +26,8 @@ _If you use Home Assistant Operating System, you can find `configuration.yaml` i
 
 _If you use Home Assistant Core, you can find `configuration.yaml` in the config folder passed to the `hass` command (default is `~/.homeassistant`)._
 
+_If you mount the Home Assistant Operating System SD Card on your computer, you can find `/supervisor/homeassistant/configuration.yaml` in the `hassos-data` partition._
+
 ## Reloading changes
 
 Most integrations in Home Assistant that do not interact with devices or services can reload changes made to their configuration in `configuration.yaml`. To do this, go to {% my server_controls title="Developer Tools > YAML" %} and scroll down to the YAML configuration reloading section (alternatively, hit "c" anywhere in the UI and search for it).
