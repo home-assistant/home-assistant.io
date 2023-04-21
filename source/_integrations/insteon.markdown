@@ -79,6 +79,7 @@ The following capabilities are available in the Insteon panel:
 
 <p class='note warning'>If you choose to use the Insteon app, it is recommended to add devices and scenes using the Insteon app. Home Assistant will see the devices and scenes as well.</p>
 <p class='note warning'>Editing a device's All-Link Database can cause the device to become unresponsive. If this occurs, simply relink the device to the modem using the **Add device** directions in the [Insteon Panel](#insteon-panel).</p>
+<p class='note'>Configuration entities were added to Home Assistant in release 2023.5. In the future configuring an Insteon device will move from the Insteon Panel to the standard configuration entities in Home Assistant.</p>
 
 [understanding linking]: https://www.insteon.com/support-knowledgebase/2015/1/28/understanding-linking
 
