@@ -536,6 +536,7 @@ integrations.pop(); // remove placeholder element at the end
              if (button.dataset.id === key) {
               // check for mismatched filter value
                if (button.dataset.filter !== queryFilter[key]) {
+                 button.dataset.filter = queryFilter[key];
                  button.innerHTML = `<span>${getButtonText(key)}: ${removeHyphens(queryFilter[key])} <i class="icon-plus-sign"></i></span>`;
                }
              }
