@@ -3,7 +3,9 @@ title: Matter (BETA)
 description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary Sensor
+  - Cover
   - Light
+  - Lock
   - Sensor
   - Switch
 ha_release: '2022.12'
@@ -14,8 +16,10 @@ ha_codeowners:
 ha_domain: matter
 ha_platforms:
   - binary_sensor
+  - cover
   - diagnostics
   - light
+  - lock
   - sensor
   - switch
 ha_integration_type: integration
@@ -37,7 +41,7 @@ Both the Matter standard itself and its implementation within Home Assistant are
 
 One of the great features of Matter is the so called _Multi Fabric_ feature: you can join the same device to multiple controllers. For example: add it to Google Home, Apple Home, and Home Assistant at the same time.
 
-For devices where Home Assistant provides an native integration (with local API), Matter may not be the best option. Matter, being a universal standard, might not have the nitty-gritty features that come with a product specific protocol. A good example is Philips Hue:  the communication over Matter only provides the basic controls over lights, the official integration brings all Hue unique features like (dynamic) scenes, entertainment mode, etc.
+For devices where Home Assistant provides a native integration (with local API), Matter may not be the best option. Matter, being a universal standard, might not have the nitty-gritty features that come with a product specific protocol. A good example is Philips Hue:  the communication over Matter only provides the basic controls over lights, the official integration brings all Hue unique features like (dynamic) scenes, entertainment mode, etc.
 
 <p class='note'>
 The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices (and any Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Implementations like mDNS reflectors usually do more harm than good.
@@ -51,7 +55,7 @@ _If you run Home Assistant Container, Home Assistant Core, or you don’t want t
 
 While the support for Matter is evolving, we will regularly update the Matter integration with new features or device support. Because it might be hard to track what's supported and what not, we list the current state here and try to update this information as often as possible.
 
-Platform support in Home Assistant is currently limited to switches, lights, and (binary) sensors. The light platform is limited to _on/off_ and _brightness_ control only, support for _color_ and _color temperature_ control will be added soon.
+Platform support in Home Assistant is currently limited to switches, lights, locks, covers and (binary) sensors.
 
 ### Known issues
 

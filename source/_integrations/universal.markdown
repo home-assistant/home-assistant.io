@@ -57,6 +57,7 @@ media_player:
     attributes:
       is_volume_muted: ENTITY_ID|ATTRIBUTE
       state: ENTITY_ID|ATTRIBUTE
+    browse_media_entity: media_player.CHILD_2_ID
     device_class: tv
     unique_id: a_unique_string
 ```
@@ -82,6 +83,10 @@ attributes:
   description: "Attributes that can be overridden. Most, if not all, media player attributes can be overridden. Example entries are `is_volume_muted`, `state`, `source`, `source_list` and `volume_level`. The values should be an entity ID and state attribute separated by a pipe character (|). If the entity ID's state should be used, then only the entity id needs to be provided."
   required: false
   type: string
+browse_media_entity:
+  description: Allows override the browse media entity to desired media player.
+  required: false
+  type: string
 device_class:
   description: The device class that this entity represents. Can be `tv`, `speaker`, or `receiver`.
   required: false
@@ -101,6 +106,8 @@ It is also recommended that the command `volume_up`, the command `volume_down`, 
 When providing `select_source` as a command, it is recommended to also provide the attributes `source`, and `source_list`. The `source` attribute is the currently select source, while the `source_list` attribute is a list of all available sources.
 
 When using `state_template`, if you use a template that depends on the current time it is recommended to use `now()`. Using `now()` will cause templates to be refreshed at the start of every new minute. For more information see the [time](/docs/configuration/templating/#time) section in the template documentation.
+
+The `browse_media_entity` parameter allows you to specify which media player will be used in media browser.
 
 ## Usage examples
 

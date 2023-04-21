@@ -22,6 +22,7 @@ The following selectors are currently available:
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
 - [Config entry selector](#config-entry-selector)
+- [Constant selector](#constant-selector)
 - [Date selector](#date-selector)
 - [Date & time selector](#date--time-selector)
 - [Device selector](#device-selector)
@@ -115,8 +116,9 @@ area:
 device:
   description: >
     When device options are provided, the list of areas is filtered by areas
-    that at least provide one device that matches the given conditions.
-  type: map
+    that at least provide one device that matches the given conditions. Can be
+    either a object or a list of object.
+  type: list
   keys:
     integration:
       description: >
@@ -140,8 +142,9 @@ device:
 entity:
   description: >
     When entity options are provided, the list of areas is filtered by areas
-    that at least provide one entity that matches the given conditions.
-  type: map
+    that at least provide one entity that matches the given conditions. Can be
+    either a object or a list of object.
+  type: list
   required: false
   keys:
     integration:
@@ -162,8 +165,16 @@ entity:
     device_class:
       description: >
         Limits the list of areas to areas that have entities with a certain
-        device class, for example, `motion` or `window`.
-      type: device_class
+        device class(es), for example, `motion` or `window`. Can be either a string
+        with a single device_class, or a list of string device_class to limit
+        the selection to.
+      type: [device_class, list]
+      required: false
+    supported_features:
+      description: >
+        Limits the list of areas to areas that have entities with a certain
+        supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
+      type: list
       required: false
 multiple:
   description: >
@@ -208,10 +219,9 @@ integration. Multiple areas can be selected.
 area:
   multiple: true
   device:
-    multiple: true
-    integration: deconz
-    manufacturer: IKEA of Sweden
-    model: TRADFRI remote control
+    - integration: deconz
+      manufacturer: IKEA of Sweden
+      model: TRADFRI remote control
 ```
 
 ## Attribute selector
@@ -238,12 +248,11 @@ For example: `next_dawn`.
 ## Boolean selector
 
 The boolean selector shows a toggle that allows the user to turn on or off
-the selected option. The input's value will contain the boolean value of that
-toggle as a boolean value, being `true` or `false`.
+the selected option.
 
 ![Screenshot of a boolean selector](/images/blueprints/selector-boolean.png)
 
-The boolean selector can be incredibly useful for adding feature switches
+The boolean selector is suitable for adding feature switches
 to, for example, blueprints.
 
 This selector does not have any other options; therefore, it only has its key.
@@ -252,7 +261,7 @@ This selector does not have any other options; therefore, it only has its key.
 boolean:
 ```
 
-The output of this selector is `true` when the toggle was on, `false` otherwise.
+The output of this selector is `true` when the toggle is on, `false` otherwise.
 
 ## Color temperature selector
 
@@ -301,6 +310,24 @@ integration:
 {% endconfiguration %}
 
 The output of this selector is the entry ID of the config entry, for example, `6b68b250388cbe0d620c92dd3acc93ec`.
+
+## Constant selector
+
+The constant selector shows a toggle that allows the user to enable the selected option.
+This is similar to the [boolean selector](#boolean-selector), the difference
+is that the constant selector has no value when it's not enabled.
+
+![Screenshot of a constant selector](/images/blueprints/selector-constant.png)
+
+The selector's value must be configured, and optionally, a label.
+
+```yaml
+boolean:
+  value: true
+  label: Enabled
+```
+
+The output of this selector is the configured value when the toggle is on, it has not output otherwise.
 
 ## Date selector
 
@@ -354,28 +381,12 @@ device:
 ```
 
 {% configuration device %}
-integration:
-  description: >
-    Can be set to an integration domain. Limits the list of devices to devices
-    provided by the set integration domain.
-  type: string
-  required: false
-manufacturer:
-  description: >
-    When set, it limits the list of devices to devices provided by the set
-    manufacturer name.
-  type: string
-  required: false
-model:
-  description: >
-    When set, it limits the list of devices to devices that have the set model.
-  type: string
-  required: false
 entity:
   description: >
     When entity options are provided, the list of devices is filtered by devices
-    that at least provide one entity that matches the given conditions.
-  type: map
+    that at least provide one entity that matches the given conditions. Can be
+    either a object or a list of object.
+  type: list
   required: false
   keys:
     integration:
@@ -396,9 +407,42 @@ entity:
       required: false
     device_class:
       description: >
-        Limits the list of entities to entities that have a certain device
-        class, for example, `motion` or `window`.
-      type: device_class
+        Limits the list of devices to devices that have entities with a certain device
+        class(es), for example, `motion` or `window`. Can be either a string
+        with a single device_class, or a list of string device_class to limit
+        the selection to.
+      type: [device_class, list]
+      required: false
+    supported_features:
+      description: >
+        Limits the list of devices to devices that have entities with a certain
+        supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
+      type: list
+      required: false
+filter:
+  description: >
+    When filter options are provided, the list of devices is filtered by devices
+    that at least provide one entity that matches the given conditions. Can be either
+    a object or a list of object.
+  type: list
+  required: false
+  keys:
+    integration:
+      description: >
+        Can be set to an integration domain. Limits the list of devices to devices
+        provided by the set integration domain.
+      type: string
+      required: false
+    manufacturer:
+      description: >
+        When set, it limits the list of devices to devices provided by the set
+        manufacturer name.
+      type: string
+      required: false
+    model:
+      description: >
+        When set, it limits the list of devices to devices that have the set model.
+      type: string
       required: false
 multiple:
   description: >
@@ -433,12 +477,13 @@ And this is what is looks like in YAML:
 
 ```yaml
 device:
-  integration: deconz
-  manufacturer: Philips
-  model: RWL021
+  filter:
+    - integration: deconz
+      manufacturer: Philips
+      model: RWL021  
   entity:
-    domain: sensor
-    device_class: battery
+    - domain: sensor
+      device_class: battery
 ```
 
 ## Duration selector
@@ -499,28 +544,43 @@ include_entities:
   description: List of entity IDs to limit the selectable list to.
   type: list
   required: false
-integration:
+filter:
   description: >
-    Can be set to an integration domain. Limits the list of entities to entities
-    provided by the set integration domain, for example,
-    [`zha`](/integrations/zha).
-  type: string
+    When filter options are provided, the entities are limited by entities
+    that at least match the given conditions. Can be either a object or a list of object.
+    Can be either a object or a list of object.
+  type: list
   required: false
-domain:
-  description: >
-    Limits the list of entities to entities of a certain domain(s), for example,
-    [`light`](/integrations/light) or
-    [`binary_sensor`](/integrations/binary_sensor). Can be either a string
-    with a single domain, or a list of string domains to limit the selection
-    to.
-  type: [string, list]
-  required: false
-device_class:
-  description: >
-    Limits the list of entities to entities that have a certain device class,
-    for example, `motion` or `window`.
-  type: device_class
-  required: false
+  keys:
+    integration:
+      description: >
+        Can be set to an integration domain. Limits the list of entities to entities
+        provided by the set integration domain, for example,
+        [`zha`](/integrations/zha).
+      type: string
+      required: false
+    domain:
+      description: >
+        Limits the list of entities to entities of a certain domain(s), for example,
+        [`light`](/integrations/light) or
+        [`binary_sensor`](/integrations/binary_sensor). Can be either a string
+        with a single domain, or a list of string domains to limit the selection
+        to.
+      type: [string, list]
+      required: false
+    device_class:
+      description: >
+        Limits the list of entities to entities that have a certain device class(es),
+        for example, `motion` or `window`. Can be either a string with a single device_class,
+        or a list of string device_class to limit the selection to.
+      type: [device_class, list]
+      required: false
+    supported_features:
+      description: >
+        Limits the list of entities to entities that have a certain
+        supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
+      type: list
+      required: false
 multiple:
   description: >
     Allows selecting multiple entities. If set to `true`, the resulting value of
@@ -556,9 +616,10 @@ And this is what it looks like in YAML:
 ```yaml
 entity:
   multiple: true
-  integration: zha
-  domain: binary_sensor
-  device_class: motion
+  filter:
+    - integration: zha
+      domain: binary_sensor
+      device_class: motion
 ```
 
 ## Icon selector
@@ -895,8 +956,9 @@ target:
 device:
   description: >
     When device options are provided, the targets are limited by devices
-    that at least match the given conditions.
-  type: map
+    that at least match the given conditions. Can be either a object or a list
+    of object.
+  type: list
   keys:
     integration:
       description: >
@@ -918,8 +980,9 @@ device:
 entity:
   description: >
     When entity options are provided, the targets are limited by entities
-    that at least match the given conditions.
-  type: map
+    that at least match the given conditions. Can be either a object or a list
+    of object.
+  type: list
   required: false
   keys:
     integration:
@@ -940,9 +1003,10 @@ entity:
       required: false
     device_class:
       description: >
-        Limits the targets to entities with a certain
-        device class, for example, `motion` or `window`.
-      type: device_class
+        Limits the targets to entities with a certain device class(es), for example,
+        `motion` or `window`. Can be either a string with a single device_class,
+        or a list of string device_class to limit the selection to.
+      type: [device_class, list]
       required: false
 {% endconfiguration %}
 
@@ -967,8 +1031,8 @@ or more lights, provided by the [ZHA](/integrations/zha) integration.
 ```yaml
 target:
   entity:
-    integration: zha
-    domain: light
+    - integration: zha
+      domain: light
 ```
 
 Another example using the target selector, which only shows targets that
@@ -978,9 +1042,9 @@ provide one or more remote controls, provided by the
 ```yaml
 target:
   device:
-    integration: deconz
-    manufacturer: IKEA of Sweden
-    model: TRADFRI remote control
+    - integration: deconz
+      manufacturer: IKEA of Sweden
+      model: TRADFRI remote control
 ```
 
 ## Template selector

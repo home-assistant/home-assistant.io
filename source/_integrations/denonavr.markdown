@@ -62,6 +62,7 @@ Known supported devices:
 - Denon AVR-S650H
 - Denon AVR-S710W
 - Denon AVR-S720W
+- Denon AVR-S740H
 - Denon AVR-S750H
 - Denon AVR-S760H
 - Denon AVR-S940H
@@ -71,6 +72,7 @@ Known supported devices:
 - Marantz AV7702
 - Marantz AV7703
 - Marantz AV7704
+- Marantz CINEMA 50
 - Marantz M-CR510
 - Marantz M-CR511
 - Marantz M-CR603
@@ -79,8 +81,10 @@ Known supported devices:
 - Marantz SR5006
 - Marantz SR5008
 - Marantz SR5011
+- Marantz SR5015
 - Marantz SR6007 - SR6012
 - Marantz SR7007
+- Marantz SR7010
 - Marantz SR7012
 - Marantz SR8015
 - Marantz NR1504

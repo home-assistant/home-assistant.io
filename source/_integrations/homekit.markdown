@@ -253,13 +253,18 @@ homekit:
               type: integer
               default: 1316
             video_codec:
-              description: Only for `camera` entities. FFmpeg video codec for transcoding. `copy` option reduces CPU load when video source already encoded with `H264` (MPEG4). `h264_omx` option is only available with custom FFmpeg builds and enables GPU Hardware acceleration on Raspberry Pi.
+              description: Only for `camera` entities. FFmpeg video codec for transcoding. `copy` option reduces CPU load when video source is already encoded with `H264` (MPEG4). `h264_v4l2m2m` can be used with supported hardware, e.g., the Raspberry Pi, to offload encoding to hardware. The `h264_omx` option is only available with custom FFmpeg builds and enables GPU Hardware acceleration on Raspberry Pi.
               required: false
               type: string
               default: libx264
-              available options: copy, libx264, h264_omx
+              available options: copy, libx264, h264_v4l2m2m, h264_omx
+            video_profile_names:
+              description: Only for `camera` entities. FFmpeg video profile names for transcoding, only relevant if `video_codec` isn't `copy`. Some encoders, e.g., the Raspberry Pi's `h264_v4l2m2m`, don't use the standard `["baseline", "main", "high"]` profile names but expects `["0", "2", "4"]` instead. Use this option to override the default names, if needed.
+              required: false
+              type: list
+              default: ["baseline", "main", "high"]
             audio_codec:
-              description: Only for `camera` entities. FFmpeg audio codec for transcoding. `copy` option reduces CPU load when audio source already encoded with `libopus`.
+              description: Only for `camera` entities. FFmpeg audio codec for transcoding. `copy` option reduces CPU load when audio source is already encoded with `libopus`.
               required: false
               type: string
               default: libopus
@@ -396,6 +401,7 @@ The following integrations are currently supported:
 | climate | Thermostat | All climate devices. |
 | cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` or `gate` as their `device_class`. |
 | cover | WindowCovering | All covers that support `set_cover_position`. |
+| cover | Door | All covers that support `set_cover_position` and have `door` as their `device_class`. |
 | cover | WindowCovering | All covers that support `open_cover` and `close_cover` through value mapping. (`open` -> `>=50`; `close` -> `<50`) |
 | cover | WindowCovering | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between) |
 | device_tracker / person | Sensor | Support for `occupancy` device class. |

@@ -109,9 +109,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 2023
-current_minor_version: 3
-current_patch_version: 1
-date_released: 2023-03-02
+current_minor_version: 4
+current_patch_version: 4
+date_released: 2023-04-13
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -165,6 +165,19 @@ defaults:
       path: "hassio/*"
     values:
       toc: true
+  # Remove some resources from sitemap
+  - scope:
+      path: "google*.html"
+    values:
+      sitemap: false
+  - scope:
+      path: "static/fonts/**/*.html"
+    values:
+      sitemap: false
+  - scope:
+      path: "static/mdi-demo.html"
+    values:
+      sitemap: false
 
 # Support for files Jekyll will normally exclude
 include:

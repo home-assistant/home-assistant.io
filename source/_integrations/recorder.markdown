@@ -75,7 +75,7 @@ recorder:
       default: 10
       type: integer
     commit_interval:
-      description: How often (in seconds) the events and state changes are committed to the database. The default of `5` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the logbook and history will lag. If this is set to `0` (zero), commit are made as soon as possible after an event is processed.
+      description: How often (in seconds) the events and state changes are committed to the database. The default of `5` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the database will lag (the logbook and history will not lag, because the changes are streamed to them immediatelly). If this is set to `0` (zero), commit are made as soon as possible after an event is processed.
       required: false
       default: 5
       type: integer
@@ -216,8 +216,27 @@ Call the service `recorder.purge_entities` to start a task that purges events an
 | `entity_id`            | yes<sup>*</sup>      | A list of entity_ids that should be purged from the recorder database. |
 | `domains`               | yes      | A list of domains that should be purged from the recorder database. |
 | `entity_globs`         | yes      | A list of regular expressions that identify entities to purge from the recorder database. |
+| `keep_days`            | yes      | Number of history days to keep in the database of matching rows. The default of 0 days will remove all matching rows. |
 
 Note: The `entity_id` is only optional when used in `automations.yaml` or `scripts.yaml`. When using the UI to call this service then it is mandatory to specify at least one `entity_id` using the Target Picker or via YAML mode.
+
+#### Example automation to remove data rows for specific entities
+
+The below automation will remove history for `sensor.power_sensor_0` older than 5 days at `04:15:00` every day.
+
+```yaml
+alias: "Purge noisy power sensors"
+trigger:
+  - platform: time
+    at: "04:15:00"
+action:
+  - service: recorder.purge_entities
+    data:
+      keep_days: 5
+    target:
+      entity_id: sensor.power_sensor_0
+mode: single
+```
 
 ### Service `disable`
 
@@ -228,6 +247,14 @@ Call the service `recorder.disable` to stop saving events and states to the data
 Call the service `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
 
 ## Custom database engines
+
+<div class='note'>
+
+SQLite is the most tested, and newer version of Home Assistant are highly optimized to perform well when using SQLite.
+
+When choosing another option, you should be comfortable in the role of the database administrator, including making backups of the external database.
+
+</div>
 
 Here are examples to use with the [`db_url`](#db_url) configuration option.
 
