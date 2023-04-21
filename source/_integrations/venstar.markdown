@@ -53,21 +53,22 @@ Note - Please ensure that you update your thermostat to the latest firmware. Ini
 Local API mode needs to be enabled on the thermostat itself. It cannot be enabled using the Venstar mobile apps or Skyport cloud service. Exact steps vary across different [series](https://venstar.com/thermostats/) of thermostats:
 
 - [ColorTouch](https://venstar.com/thermostats/colortouch/)
-  - *Menu > WiFi > Local API Option > [Local API - ON](https://www.youtube.com/watch?v=kB_HcJ3kqCg&t=51s)*
+  - **Menu** > **WiFi** > **Local API Option** > **[Local API - ON](https://www.youtube.com/watch?v=kB_HcJ3kqCg&t=51s)**.
 
 - [EXPLORER](https://venstar.com/thermostats/explorer/) / [EXPLORER IAQ](https://venstar.com/thermostats/explorer-iaq/)
-  - Press SETUP
-  - Press MODE repeatedly until you see [LOCAL API](https://www.youtube.com/watch?v=HRmWFwfQAhU&t=276s)
-  - Press WARMER to toggle ON
-  - Press SETUP to exit
+  - Press **SETUP**.
+  - Press **MODE** repeatedly until you see [LOCAL API](https://www.youtube.com/watch?v=HRmWFwfQAhU&t=276s).
+  - Press **WARMER** to toggle "ON".
+  - Press **SETUP** to exit.
 
 - [EXPLORER Mini](https://venstar.com/thermostats/explorermini/)
-  - Press and hold MODE + FAN together for 5 seconds
-  - Press MODE repeatedly until you see "API"
-  - Press WARMER to toggle ON
-  - Press MODE + FAN together to exit
+  - Press and hold **MODE** + **FAN** together for 5 seconds.
+  - Press **MODE** repeatedly until you see "API".
+  - Press **WARMER** to toggle "ON".
+  - Press **MODE** + **FAN** together to exit.
 
 If the local API is successfully enabled on the thermostat, you should see some basic API info when you navigate to its IP address in a web browser:
+
 ```json
 {"api_ver":7,"type":"commercial","model":"VYG-4800","firmware":"2.22.19"}
 ```
