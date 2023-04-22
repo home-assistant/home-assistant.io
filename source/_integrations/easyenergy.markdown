@@ -49,10 +49,10 @@ prices for electricity that you use (buy) or return (sell). Every day around
 - Percentage of the current price compared to the maximum price
 - Number of hours with the current price higher or lower
 
-Entities with the number of hours, indicates how many hours there are with a price
+Entities with the number of hours indicate how many hours there are with a price
 **above** or **below** the current hourly price. If we take the graph below as an example
 and it is 00:30, then there are 8 hours below the current price and 4 hours above the
-current price. With this information you could switch a device at the X cheapest number
+current price. With this information, you could switch devices at the X cheapest number
 of hours during the day.
 
 <p class='img'>
