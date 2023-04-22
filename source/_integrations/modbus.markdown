@@ -1014,9 +1014,9 @@ sensors:
       required: false
       type: float
     nan_value:
-      description: The NaN value if the sensor has an explicit NaN return. Can be float, integer or in hex notation
+      description: If a modbus sensor has a vendor defined NaN value, this value can be set here as hex string (e.g. `0xFFFFFFFF`) and, if triggered, the sensor becomes `unavailable`.
       required: false
-      type: int
+      type: string
     zero_suppress:
       description: Suppress values close to zero. If -zero_suppress <= value <= +zero_suppress --> 0. Can be float or integer
       required: false
@@ -1030,7 +1030,7 @@ sensors:
       required: false
       type: string
     slave_count:
-      description: Generates x-1 slave sensors, allowing read of multiple registers with a single read messsage.
+      description: Generates x-1 slave sensors, allowing read of multiple registers with a single read message.
       required: false
       type: integer
 {% endconfiguration %}
