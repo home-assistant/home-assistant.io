@@ -779,7 +779,7 @@ automation:
               message: "These messages are sent at the same time!"
 ```
 
-It is also possible to run a group of actions sequantially inside the parallel
+It is also possible to run a group of actions sequentially inside the parallel
 actions. The example below demonstrates that:
 
 ```yaml
