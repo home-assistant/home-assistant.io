@@ -95,7 +95,7 @@ No actions will be available if no user credentials are specified for a given de
 
 Ensure the user you specify has the required permissions to execute the desired commands. Here's an example of a user with command permissions in the `upsd.users` file:
 
-```css
+```text
 [my_user]
     password = my_password
     actions = SET
