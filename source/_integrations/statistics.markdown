@@ -157,4 +157,6 @@ unique_id:
 
 ### An important note on `max_age` and `sampling_size`
 
-The `max_age` option is only valid within the measured samples specified by `sampling_size` (default 20). Specify a wide-enough `sampling_size` if using an extended max-age (e.g., when looking for `max_age` 1 hour, a sensor that produces one measurement a minute should have at least a `sampling_size` of 60.
+If both `max_age` and `sampling_size` are given, the considered samples are those within the `max_age` time window but limited to the number of `sample_size` newest samples.  Specify a wide-enough `sampling_size` if using an extended `max_age` (e.g., when looking for `max_age` 1 hour, a sensor that produces one measurement per minute should have at least a `sampling_size` of 60 to use all samples within the `max_age` timeframe.)
+
+If only `sample_size` is given there is no time limit. If only `max_age` is given the considered number of samples is unlimited.
