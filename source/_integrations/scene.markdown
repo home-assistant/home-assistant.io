@@ -205,3 +205,5 @@ The following example turns off some entities as soon as a window opens. The sta
     target:
       entity_id: scene.before
 ```
+
+<lite-youtube videoid="JW9PC6ptXcM" videotitle="Scenes on Steroids in Home Assistant - How To - Tutorial" posterquality="maxresdefault"></lite-youtube>
