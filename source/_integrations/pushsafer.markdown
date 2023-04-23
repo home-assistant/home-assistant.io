@@ -97,7 +97,10 @@ action:
       priority: "2"
       retry: "60"
       expire: "600"
+      confirm: "10"
       answer: "1"
+      answeroptions: "yes|no|maybe"
+      answerforce: "1"
       picture1: {
         path: "C:\\Users\\Kevin\\AppData\\Roaming\\.homeassistant\\image-760-testimage.jpg"
 ```

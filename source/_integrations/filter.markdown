@@ -115,6 +115,12 @@ filters:
       default: positive infinity
 {% endconfiguration %}
 
+<div class="note warning">
+
+When configuring a `window_size` that is not a time and with a value larger than the default of `1`, the database must examine nearly every stored state for that entity during Home Assistant startup. If you have modified the [Recorder `purge_keep_days`](/integrations/recorder/#purge_keep_days) value or have many states stored in the database for the filtered entity, this can cause your Home Assistant instance can to respond poorly during startup.
+
+</div>
+
 ## Filters
 
 ### Low-pass
