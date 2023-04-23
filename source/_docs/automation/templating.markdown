@@ -41,7 +41,7 @@ Triggers from all platform will include the following data.
 | `trigger.calendar_event.location`    | Location information for the calendar event, if available.                                                                      |
 | `trigger.offset`                     | Timedelta object with offset to the event, if any |
 
-### [Device](/docs/automation/trigger/#device-trigger]
+### [Device](/docs/automation/trigger/#device-trigger)
 
 Inherites template variables from [event](#event) or [state](#state) template based on the type of trigger selected for the device.
 
@@ -49,7 +49,7 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `device`.
 
-### Event
+### [Event](/docs/automation/trigger/#event-trigger)
 
 | Template variable | Data |
 | ---- | ---- |
@@ -58,7 +58,7 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.event.event_type` | Event type.
 | `trigger.event.data` | Optional event data.
 
-### MQTT
+### [MQTT](/docs/automation/trigger/#mqtt-trigger)
 
 | Template variable | Data |
 | ---- | ---- |
@@ -68,7 +68,7 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.payload_json` | Dictionary of the JSON parsed payload.
 | `trigger.qos` | QOS of payload.
 
-### Numeric State
+### [Numeric State](/docs/automation/trigger/#numeric-state-trigger)
 
 | Template variable | Data |
 | ---- | ---- |
@@ -80,7 +80,7 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has met above/below criteria, if any.
 
-### State
+### [State](/docs/automation/trigger/#state-trigger)
 
 | Template variable | Data |
 | ---- | ---- |
@@ -90,7 +90,7 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has been to state, if any.
 
-### Sun
+### [Sun](/docs/automation/trigger/#sun-trigger)
 
 | Template variable | Data |
 | ---- | ---- |
@@ -98,7 +98,7 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.event` | The event that just happened: `sunset` or `sunrise`.
 | `trigger.offset` | Timedelta object with offset to the event, if any.
 
-### Template
+### [Template](/docs/automation/trigger/#template-trigger)
 
 | Template variable | Data |
 | ---- | ---- |
@@ -108,21 +108,21 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.to_state` | New [state object] of entity that caused template to change.
 | `trigger.for` | Timedelta object how long state has been to state, if any.
 
-### Time
+### [Time](/docs/automation/trigger/#time-trigger)
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time`
 | `trigger.now` | DateTime object that triggered the time trigger.
 
-### Time Pattern
+### [Time Pattern](/docs/automation/trigger/#time-pattern-trigger)
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time_pattern`
 | `trigger.now` | DateTime object that triggered the time_pattern trigger.
 
-### Webhook
+### [Webhook](/docs/automation/trigger/#webhook-trigger)
 
 | Template variable | Data |
 | ---- | ---- |
@@ -132,7 +132,7 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.data` | The form data of the request (if it had a form data content type).
 | `trigger.query` | The URL query parameters of the request (if provided).
 
-### Zone
+### [Zone](/docs/automation/trigger/#zone-trigger)
 
 | Template variable | Data |
 | ---- | ---- |
