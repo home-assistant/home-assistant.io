@@ -17,10 +17,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The Network UPS Tools (NUT) integration allows you to monitor and manage a UPS
-(battery backup) using a [NUT](https://networkupstools.org/)
-server. It enables you to view their status, receive notifications about important 
-events, and execute commands as device actions.
+The Network UPS Tools (NUT) integration allows you to monitor and manage a UPS (battery backup) using a [NUT] https://networkupstools.org/) server. It lets you view their status, receives notifications about important events, and execute commands as device actions.
 
 {% include integrations/config_flow.md %}
 
@@ -76,13 +73,10 @@ human-readable version.
 
 ## Device Actions
 
-A device action is available for each parameterless NUT 
-[command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html) 
-supported by the device. To find the list of supported commands for 
-your specific UPS device, you can use the `upscmd -l` command followed 
-by the UPS name:
+A device action is available for each parameterless NUT [command](https://networkupstools.org/docs/user-manual.chunked/apcs03.html) supported by the device. To find the list of supported commands for 
+your specific UPS device, you can use the `upscmd -l` command followed by the UPS name:
 
-```yaml
+```bash
 $ upscmd -l my_ups
 Instant commands supported on UPS [my_ups]:
 beeper.disable - Disable the UPS beeper
@@ -91,23 +85,15 @@ test.battery.start.quick - Start a quick battery test
 test.battery.stop - Stop the battery test
 ```
 
-These commands will be available as device actions in Home Assistant,
-allowing you to interact with your UPS.
+These commands will be available as device actions in Home Assistant, allowing you to interact with your UPS.
 
 ### User Credentials and Permissions
 
-To execute device actions through the NUT integration, you need to 
-specify user credentials in the configuration. These credentials are 
-based on the `upsd.users` file, which is part of the NUT server 
-configuration. This file defines the usernames, passwords, and 
-permissions for users accessing the UPS devices.
+To execute device actions through the NUT integration, you must specify user credentials in the configuration. These credentials are stored in the `upsd.users` file, part of the NUT server configuration. This file defines the usernames, passwords, and permissions for users accessing the UPS devices.
 
-If no user credentials are specified for a given device, then no 
-actions will be available for it.
+No actions will be available if no user credentials are specified for a given device.
 
-Make sure that the user you specify has the required permissions to 
-execute the desired commands. Here's an example of a user with 
-command permissions in the `upsd.users` file:
+Ensure the user you specify has the required permissions to execute the desired commands. Here's an example of a user with command permissions in the `upsd.users` file:
 
 ```css
 [my_user]
@@ -116,10 +102,6 @@ command permissions in the `upsd.users` file:
     instcmds = ALL
 ```
 
-In this example, the user my_user has the permissions to execute all 
-commands (instcmds = ALL).
+In this example, the user `my_user` has permission to execute all commands (`instcmds = ALL`).
 
-Please note that Home Assistant cannot determine whether a given user 
-has access to a specific action without executing it. If you attempt 
-to execute an action for which the user does not have permissions, 
-an exception will be thrown at runtime.
+Please note that Home Assistant cannot determine whether a user can access a specific action without executing it. If you attempt to perform an action for which the user does not have permission, an exception will be thrown at runtime.
