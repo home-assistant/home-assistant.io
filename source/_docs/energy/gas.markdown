@@ -32,5 +32,3 @@ We have worked with creator [Marcel Zuidwijk](https://www.zuidwijk.com) to devel
 #### Read the Gas Meter using a magnetometer
 
 [Diaphragm gas meters](https://en.wikipedia.org/wiki/Gas_meter#Diaphragm/bellows_meters) are the most common type of gas meter, and their movement can frequently be observed with a magnetometer. The [QMC5883L](https://esphome.io/components/sensor/qmc5883l.html) is a common and inexpensive option that ESPHome supports. Many posts on the forums of users having luck with this method, such as [this one](https://community.home-assistant.io/t/water-gas-meter-monitoring-via-magnetometer-sine-wave-to-pulse-issue/245904).
-
-![Photo of a typical diaphragm gas meter](https://en.wikipedia.org/wiki/File:Gas_meter.JPG)
