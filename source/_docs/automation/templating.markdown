@@ -13,18 +13,20 @@ The variable `this` is the [state object](/docs/configuration/state_object) of t
 
 ## Available Trigger Data
 
-The following tables show the available trigger data per platform.
+The variable `trigger` is an object that contains details about which trigger activated the automation.  The data can be used by templates to modify the actions that are performed by the automation or displayed in a message.  For example, you could create an automation that that can be triggered by multiple sensors and then use the location of the sensor to specify a light to activate; or you could send a notification that contains the friendly name of the sensor that triggered it.
+
+Each [trigger platform](/docs/automation/trigger/#event-trigger) can include additional data specific to that platform.
 
 ### All
 
-The following describes trigger data associated with all platforms.
+Triggers from all platform will include the following data.
 
 | Template variable | Data |
 | ---- | ---- |
-| `trigger.id` | Optional trigger `id`, or index of the trigger.
+| `trigger.id` | The [`id` of the trigger](/docs/automation/trigger/#trigger-id).  If `id` is omitted, this will be set to the trigger index.
 | `trigger.idx` | Index of the trigger. (The first trigger idx is `0`.)
 
-### Calendar
+### [Calendar](/docs/automation/trigger/#calendar-trigger)
 
 | Template variable                    | Data                                                                                                                            |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -39,7 +41,7 @@ The following describes trigger data associated with all platforms.
 | `trigger.calendar_event.location`    | Location information for the calendar event, if available.                                                                      |
 | `trigger.offset`                     | Timedelta object with offset to the event, if any |
 
-### Device
+### [Device](/docs/automation/trigger/#device-trigger]
 
 Inherites template variables from [event](#event) or [state](#state) template based on the type of trigger selected for the device.
 
