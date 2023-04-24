@@ -1,5 +1,10 @@
+---
+layout: null
+---
+
 # These redirects are handled by Netlify
 #
+{% assign recent_release_post = site.categories['Core'].first %}
 
 # General use redirects
 /join-chat https://discord.gg/home-assistant
@@ -11,6 +16,9 @@
 /feature-requests https://community.home-assistant.io/c/feature-requests
 /issues https://github.com/home-assistant/core/issues
 /community https://community.home-assistant.io/
+
+# Link to latest release note
+/latest-release-notes/ {{ recent_release_post.url }}{{ site.patch_version_notes }} 302!
 
 
 # Matter workshop June 2022
