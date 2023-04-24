@@ -97,6 +97,8 @@
     Devices have properties such as ID, manufacturer, name, model, hardware version, firmware version, connections, etc.
   excerpt: >
     A device is a model representing a physical or logical unit that contains entities.
+  aliases:
+    - devices
 
 - term: Device tracker
   definition: >-
@@ -222,6 +224,8 @@
     Integrations connect and integrates Home Assistant with your devices,
     services, and more.
   link: /integrations/
+  aliases:
+    - integrations
 
 - term: Lovelace
   definition: >-
@@ -367,3 +371,5 @@
   definition: >-
     Zones are areas that can be used for presence detection.
   link: /integrations/zone/
+  aliases:
+    - zones

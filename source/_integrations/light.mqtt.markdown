@@ -95,7 +95,7 @@ brightness_command_topic:
 brightness_command_template:
   description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `brightness_command_topic`. Available variables: `value`."
   required: false
-  type: string
+  type: template
 brightness_scale:
   description: "Defines the maximum brightness value (i.e., 100%) of the MQTT device."
   required: false
@@ -108,7 +108,7 @@ brightness_state_topic:
 brightness_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the brightness value."
   required: false
-  type: string
+  type: template
 color_mode_state_topic:
   description: "The MQTT topic subscribed to receive color mode updates. If this is not configured, `color_mode` will be automatically set according to the last received valid color or color temperature"
   required: false
@@ -116,11 +116,11 @@ color_mode_state_topic:
 color_mode_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the color mode."
   required: false
-  type: string
+  type: template
 color_temp_command_template:
   description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `color_temp_command_topic`. Available variables: `value`."
   required: false
-  type: string
+  type: template
 color_temp_command_topic:
   description: The MQTT topic to publish commands to change the light’s color temperature state. The color temperature command slider has a range of 153 to 500 mireds (micro reciprocal degrees).
   required: false
@@ -132,7 +132,7 @@ color_temp_state_topic:
 color_temp_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the color temperature value."
   required: false
-  type: string
+  type: template
 command_topic:
   description: The MQTT topic to publish commands to change the switch state.
   required: true
@@ -204,7 +204,7 @@ effect_command_topic:
 effect_command_template:
   description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `effect_command_topic`. Available variables: `value`."
   required: false
-  type: string
+  type: template
 effect_list:
   description: The list of effects the light supports.
   required: false
@@ -216,11 +216,11 @@ effect_state_topic:
 effect_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the effect value."
   required: false
-  type: string
+  type: template
 hs_command_template:
   description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `hs_command_topic`. Available variables: `hue` and `sat`."
   required: false
-  type: string
+  type: template
 hs_command_topic:
   description: "The MQTT topic to publish commands to change the light's color state in HS format (Hue Saturation).
   Range for Hue: 0° .. 360°, Range of Saturation: 0..100.
@@ -235,7 +235,7 @@ hs_state_topic:
 hs_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the HS value."
   required: false
-  type: string
+  type: template
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -307,7 +307,7 @@ retain:
 rgb_command_template:
   description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `rgb_command_topic`. Available variables: `red`, `green` and `blue`."
   required: false
-  type: string
+  type: template
 rgb_command_topic:
   description: "The MQTT topic to publish commands to change the light's RGB state."
   required: false
@@ -319,11 +319,11 @@ rgb_state_topic:
 rgb_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the RGB value."
   required: false
-  type: string
+  type: template
 rgbw_command_template:
   description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `rgbw_command_topic`. Available variables: `red`, `green`, `blue` and `white`."
   required: false
-  type: string
+  type: template
 rgbw_command_topic:
   description: "The MQTT topic to publish commands to change the light's RGBW state."
   required: false
@@ -335,11 +335,11 @@ rgbw_state_topic:
 rgbw_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the RGBW value."
   required: false
-  type: string
+  type: template
 rgbww_command_template:
   description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `rgbww_command_topic`. Available variables: `red`, `green`, `blue`, `cold_white` and `warm_white`."
   required: false
-  type: string
+  type: template
 rgbww_command_topic:
   description: "The MQTT topic to publish commands to change the light's RGBWW state."
   required: false
@@ -351,7 +351,7 @@ rgbww_state_topic:
 rgbww_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the RGBWW value."
   required: false
-  type: string
+  type: template
 schema:
   description: The schema to use. Must be `default` or omitted to select the default schema.
   required: false
@@ -364,7 +364,7 @@ state_topic:
 state_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the state value. The template should match the payload `on` and `off` values, so if your light uses `power on` to turn on, your `state_value_template` string should return `power on` when the switch is on. For example if the message is just `on`, your `state_value_template` should be `power {{ value }}`."
   required: false
-  type: string
+  type: template
 unique_id:
   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
   required: false
@@ -381,7 +381,7 @@ white_scale:
 xy_command_template:
   description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `xy_command_topic`. Available variables: `x` and `y`."
   required: false
-  type: string
+  type: template
 xy_command_topic:
   description: "The MQTT topic to publish commands to change the light's XY state."
   required: false
@@ -393,7 +393,7 @@ xy_state_topic:
 xy_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the XY value."
   required: false
-  type: string
+  type: template
 {% endconfiguration %}
 
 <div class='note warning'>
@@ -928,23 +928,23 @@ availability_topic:
 blue_template:
   description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract blue color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
-  type: string
+  type: template
 brightness_template:
   description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract brightness from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
-  type: string
+  type: template
 color_temp_template:
   description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract color temperature from the state payload value. Expected result of the template is an integer representing mired units."
   required: false
-  type: string
+  type: template
 command_off_template:
   description: "The [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) for *off* state changes. Available variables: `state` and `transition`."
   required: true
-  type: string
+  type: template
 command_on_template:
   description: "The [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) for *on* state changes. Available variables: `state`, `brightness`, `color_temp`, `red`, `green`, `blue`, `flash`, `transition` and `effect`. Values `red`, `green`, `blue`, `brightness` are provided as integers from range 0-255. Value of `color_temp` is provided as integer representing mired units."
   required: true
-  type: string
+  type: template
 command_topic:
   description: The MQTT topic to publish commands to change the light’s state.
   required: true
@@ -1004,11 +1004,11 @@ effect_list:
 effect_template:
   description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract effect from the state payload value."
   required: false
-  type: string
+  type: template
 green_template:
   description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract green color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
-  type: string
+  type: template
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -1061,7 +1061,7 @@ qos:
 red_template:
   description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract red color from the state payload value. Expected result of the template is an integer from 0-255 range."
   required: false
-  type: string
+  type: template
 schema:
   description: The schema to use. Must be `template` to select the template schema.
   required: false
@@ -1070,7 +1070,7 @@ schema:
 state_template:
   description: "[Template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract state from the state payload value."
   required: false
-  type: string
+  type: template
 state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
