@@ -2,7 +2,7 @@
 title: "Setting up an analog phone to control Home Assistant"
 ---
 
-This tutorial shows how to setup an analog phone to control Home Assistant with your voice.
+This tutorial shows how to set up an analog phone to control Home Assistant with your voice.
 The phone is used to implement a push-to-talk mechanism. 
 In this way, the beginning and end of a voice stream are clearly defined.
 This reduces the complexity of voice processing. 
@@ -60,11 +60,11 @@ It also means that Home Assistant only listens when you want it to.
    * In the **Voice over IP** integration, select the **device** link.
    * To allow this phone to control your smart home, under **Configuration**, enable **Allow calls**.   
    ![Voice over IP integration - allow calls](/images/assist/voip_configuration.png) 
-1. Your phone is setup in Home Assistant. The next step is to setup a voice assistant.
+1. Your phone is set up in Home Assistant. The next step is to set up a voice assistant.
 
 ## Setting up a Home Assistant voice assistant
 
-1. Setup text-to-speech in Home Assistant Cloud.
+1. Set up text-to-speech in Home Assistant Cloud.
    * Once the pipeline is further developed, the cloud won't be necessary. It will be possible to process speech locally. 
    * Go to {% my cloud title="**Settings** > **Home Assistant Cloud**" %}.
    * If you have multiple Home Assistance instances running, make sure you are not logged in to Home Assistance Cloud on another instance. 
