@@ -15,4 +15,4 @@ ha_quality_scale: internal
 
 The Assist pipeline integration provides the foundation for the [Assist](/docs/assist/) voice assistant in Home Assistant. 
 
-There is no need to manually install this integration. The Assist pipeline integration is part of the default configuration and setup automatically if needed by other integrations.
+There is no need to manually install this integration. The Assist pipeline integration is part of the default configuration and set up automatically if needed by other integrations.
