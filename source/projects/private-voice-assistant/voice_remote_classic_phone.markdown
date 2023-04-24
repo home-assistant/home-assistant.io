@@ -2,14 +2,11 @@
 title: "Setting up an analog phone to control Home Assistant"
 ---
 
-This tutorial shows how to set up an analog phone to control Home Assistant with your voice.
-The phone is used to implement a push-to-talk mechanism. 
-In this way, the beginning and end of a voice stream are clearly defined.
-This reduces the complexity of voice processing. 
+This tutorial will guide you to turn your old landline phone into the
+world's most private voice assistant. Pick up the phone to talk to
+your smart home and issue commands and get responses.
 
-It also means that Home Assistant only listens when you want it to.
-
-<lite-youtube videoid="bPDyDFUHDCk" videotitle="Using an analog phone to control Home Assistant"></lite-youtube>
+<lite-youtube videoid="0YJzLIMrnGk" videotitle="Using an analog phone to control Home Assistant"></lite-youtube>
 
 ## Required material
 
@@ -19,7 +16,8 @@ It also means that Home Assistant only listens when you want it to.
   [Grandstream HT801](https://www.grandstream.com/products/gateways-and-atas/analog-telephone-adaptors/product/ht801) or 
   [HT802](https://www.grandstream.com/products/gateways-and-atas/analog-telephone-adaptors/product/ht802)
   * includes a 5&nbsp;V power adapter and an Ethernet cable
-* RJ11 cable to connect the phone to the Grandstream
+* RJ11 phone cable to connect the phone to the Grandstream
+* [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/integrations/assist_pipeline)
 
 ## Setting up Grandstream
 
@@ -95,12 +93,12 @@ It also means that Home Assistant only listens when you want it to.
    * Say a [supported voice command](/docs/assist/builtin_sentences/). For example, *Turn off the light in the kitchen*.
    * You can also ask a question, such as
      *  *Is the front door locked?*
-     *  *Which lights are on in the living room?*.
+     *  *Which lights are on in the living room?*
 
 
 ## Troubleshooting
 
-Things are not working as expected? This section lists a few steps that may help you troubleshoot issues.
+Are things not working as expected? This section lists a few steps that may help you troubleshoot issues.
 
 ### Troubleshoot Grandstream
 
@@ -144,11 +142,11 @@ Use this procedure to test if the phrase itself works, without using the voice.
 ## About the analog phone
 
 You can use any analog landline phone, ideally one that already has an RJ11 socket.
-During creation of this tutorial this classic phone from 1953 was used:
+During the creation of this tutorial, this classic phone from 1953 was used:
 [*Tischstation Mod.29 HF-TR* by Autophon AG](https://www.radiomuseum.org/r/autophon_tischstation_mod29_hf_tr.html).
 ![Analog phone Tischstation Mod.29 by Autophon AG](/images/assist/autophon-mod-29.jpg)
 
 ## FAQ
 
 **Which languages are supported?**
-[These](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages/) are the languages supported by Home Assistant.
+[These are the languages supported by Home Assistant](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages/).
