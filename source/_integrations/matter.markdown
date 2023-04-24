@@ -53,14 +53,6 @@ _If you run Home Assistant Container, Home Assistant Core, or you don’t want t
 
 While the support for Matter is evolving, we will regularly update the Matter integration with new features or device support. Because it might be hard to track what's supported and what not, we list the current state here and try to update this information as often as possible.
 
-Platform support in Home Assistant is currently limited to switches, lights, and (binary) sensors. The light platform is limited to _on/off_ and _brightness_ control only, support for _color_ and _color temperature_ control will be added soon.
-
-### Known issues
-
-- Support for bridges (e.g. Hue bridge) is NOT working yet. Please do not try to add a bridge as it will break the integration.
-- Door/window sensors show up reversed (closed instead of open)
-
-_Both issues will be fixed in Home Assistant 2023.3._
 
 ## Adding Matter devices to Home Assistant
 
