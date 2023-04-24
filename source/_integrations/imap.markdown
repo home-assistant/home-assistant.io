@@ -49,6 +49,17 @@ Below is an example for setting up the integration to connect to your Microsoft 
   - Password: Your password
   - Charset: `US-ASCII`
 
+### Selecting an alternate SSL cipher list (advanced mode)
+
+If the default IMAP server settings do not work, you might try to set an alternate SLL cipher list.
+The SSL cipher list option allows to select the list of SSL ciphers to be accepted from this endpoint. `default` (_system default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_)
+
+<div class='note info'>
+
+The SSL cipher list is an advanced setting. The option is available only when advanced mode is enabled (see user settings).
+
+</div>
+
 ### Using events
 
 When a new message arrives that meets the search criteria the `imap` integration will send a custom [event](/docs/automation/trigger/#event-trigger) that can be used to trigger an automation.
