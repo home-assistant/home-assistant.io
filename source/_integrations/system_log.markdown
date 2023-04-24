@@ -9,7 +9,7 @@ ha_domain: system_log
 ha_integration_type: system
 ---
 
-The `system_log` {% term integration %} stores information about all logged errors and warnings in Home Assistant. To view your logs, navigate to {% my logs title="Settings > System > Logs" %}. In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored. Older entries are automatically discarded from the log. It is possible to change the number of stored log entries using the parameter `max_entries`.
+The `system_log` integration stores information about all logged errors and warnings in Home Assistant. To view your logs, navigate to **Settings** -> **System** -> **Logs**. In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored. Older entries are automatically discarded from the log. It is possible to change the number of stored log entries using the parameter `max_entries`.
 
 ## Configuration
 
@@ -37,7 +37,7 @@ fire_event:
 
 ### Service `clear`
 
-To manually clear the system log, call this {% term service %}.
+To manually clear the system log, call this service.
 
 ### Service `write`
 
@@ -51,7 +51,7 @@ Write a log entry
 
 ## Events
 
-Errors and warnings are posted as the {% term event %} `system_log_event`, so it is possible to write automations that {% term trigger %} whenever a warning or error occurs. The following information is included in each event:
+Errors and warnings are posted as the event `system_log_event`, so it is possible to write automations that trigger whenever a warning or error occurs. The following information is included in each event:
 
 | Field       | Description                                                                 |
 |-------------|-----------------------------------------------------------------------------|
@@ -103,7 +103,7 @@ automation:
 
 ### Conditional Messages
 
-This automation will create a persistent notification whenever an error or warning is logged that has the word *service* in the message:
+This automation will create a persistent notification whenever an error or warning is logged that has the word service in the message:
 
 {% raw %}
 
