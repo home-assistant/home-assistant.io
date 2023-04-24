@@ -9,7 +9,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: http
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 The `http` integration serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
@@ -42,7 +42,7 @@ server_port:
   type: integer
   default: 8123
 ssl_certificate:
-  description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/hassio-addons/tree/master/letsencrypt) this will be at `/ssl/fullchain.pem`.
+  description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/fullchain.pem`. We recommend to use the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) instead of using this option.
   required: false
   type: string
 ssl_peer_certificate:
@@ -50,7 +50,7 @@ ssl_peer_certificate:
   required: false
   type: string
 ssl_key:
-  description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/hassio-addons/tree/master/letsencrypt) this will be at `/ssl/privkey.pem`.
+  description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/privkey.pem`.
   required: false
   type: string
 cors_allowed_origins:
@@ -118,7 +118,7 @@ http:
 
 ## APIs
 
-On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest), [Python API](https://developers.home-assistant.io/docs/api_lib_index) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket) available.
+On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest/), [Python API](https://developers.home-assistant.io/docs/api_lib_index/) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket/) available.
 
 The `http` platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) sends and receives messages over HTTP.
 
@@ -153,7 +153,7 @@ If you want to use Home Assistant to host or serve static files then create a di
 
 <div class='note warning'>
 
-  Files served from the `www` folder (`/local/` url), aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
+  Files served from the `www` folder (`/local/` URL), aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
 
 </div>
 
@@ -188,7 +188,7 @@ $ curl -X POST -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
     http://localhost:8123/api/states/binary_sensor.radio
 ```
 
-To check if the sensor is working, use again `curl` to retrieve the [current state](/developers/rest_api/#get-apistatesltentity_id).
+To check if the sensor is working, use again `curl` to retrieve the [current state](https://developers.home-assistant.io/docs/api/rest/).
 
 ```bash
 $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
@@ -227,7 +227,7 @@ print(response.text)
 
 #### Using `httpie`
 
-[`httpie`](https://github.com/jkbrzt/httpie) is a user-friendly CLI HTTP client.
+[`httpie`](https://github.com/httpie/httpie) is a user-friendly CLI HTTP client.
 
 ```bash
 $ http -v POST http://localhost:8123/api/states/binary_sensor.radio \
@@ -266,7 +266,7 @@ $ curl -X POST -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
        http://localhost:8123/api/states/sensor.bathroom_temperature
 ```
 
-You can then use `curl` again to retrieve the [current sensor state](/developers/rest_api/#get-apistatesltentity_id) and verify the sensor is working.
+You can then use `curl` again to retrieve the [current sensor state](https://developers.home-assistant.io/docs/api/rest/) and verify the sensor is working.
 
 ```bash
 $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \

@@ -110,7 +110,7 @@ dashboards:
       type: string
     icon:
       required: false
-      description: The icon to show in the sidebar. You can use any icon from [MaterialDesignIcons.com](https://materialdesignicons.com). Prefix the icon name with `mdi:`, ie `mdi:home`.
+      description: The icon to show in the sidebar. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.
       type: string
     show_in_sidebar:
       required: false

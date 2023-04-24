@@ -18,7 +18,7 @@ ha_integration_type: integration
 ---
 
 The motionEye integration allows you to integrate your
-[motionEye](https://github.com/ccrisan/motioneye) server into Home Assistant. motionEye
+[motionEye](https://github.com/motioneye-project/motioneye) server into Home Assistant. motionEye
 is an open source web-frontend for the motion daemon, used to centralize the management
 and visualization of multiple types of cameras.
 

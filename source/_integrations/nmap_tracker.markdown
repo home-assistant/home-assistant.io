@@ -41,7 +41,7 @@ Minimum number of minutes between scans of active devices:
   required: true
   type: integer
 Network addresses to exclude from scanning:
-  description: A comma-separated list of IP addresses not to scan. The above example will skip `192.168.1.50`.
+  description: A comma-separated list of IP addresses not to scan. The above example will skip `192.168.1.8`.
   required: false
   type: string
 Raw configurable scan options for Nmap:
@@ -50,15 +50,5 @@ Raw configurable scan options for Nmap:
   type: string
   default: -F T4 --min-rate 10 --host-timeout 5s
 {% endconfiguration_basic %}
-
-### Linux capabilities
-
-On Linux systems (such as Hass.io) you can extend the functionality of Nmap, without having to run it as root, by using *Linux capabilities*. Be sure to specify the full path to wherever you installed Nmap:
-
-```bash
-sudo setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/bin/nmap
-```
-
-And you can set up the device tracker scan options with `--privileged -sn`
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.

@@ -14,7 +14,7 @@ An MQTT device trigger is a better option than a [binary sensor](/integrations/b
 
 ## Configuration
 
-MQTT device triggers are only supported through [MQTT discovery](/docs/mqtt/discovery/), manual setup through `configuration.yaml` is not supported.
+MQTT device triggers are only supported through [MQTT discovery](/integrations/mqtt/#mqtt-discovery), manual setup through `configuration.yaml` is not supported.
 The discovery topic needs to be: `<discovery_prefix>/device_automation/[<node_id>/]<object_id>/config`. Note that only one trigger may be defined per unique discovery topic. Also note that the combination of `type` and `subtype` should be unique for a device.
 
 {% configuration %}
@@ -85,7 +85,7 @@ device:
       required: false
       type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the value."
   required: false
   type: template
 {% endconfiguration %}
@@ -102,7 +102,7 @@ Note that it is not necessary to provide the full device information in each mes
 - Discovery payload:
 
   ```json
-  {"automation_type":"trigger","type":"action","subtype":"arrow_left_click","payload":"arrow_left_click","topic":"zigbee2mqtt/0x90fd9ffffedf1266/action","device":{"identifiers":["zigbee2mqtt_0x90fd9ffffedf1266"],"name":"0x90fd9ffffedf1266","sw_version":"Zigbee2mqtt 1.14.0","model":"TRADFRI remote control (E1524/E1810)","manufacturer":"IKEA"}}
+  {"automation_type":"trigger","type":"action","subtype":"arrow_left_click","payload":"arrow_left_click","topic":"zigbee2mqtt/0x90fd9ffffedf1266/action","device":{"identifiers":["zigbee2mqtt_0x90fd9ffffedf1266"],"name":"0x90fd9ffffedf1266","sw_version":"Zigbee2MQTT 1.14.0","model":"TRADFRI remote control (E1524/E1810)","manufacturer":"IKEA"}}
   ```
 
 - Trigger topic: `zigbee2mqtt/0x90fd9ffffedf1266/action`

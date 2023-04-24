@@ -78,16 +78,16 @@ filters:
       description: Algorithm to be used to filter data. Available filters are  `lowpass`, `outlier`, `range`, `throttle`, `time_throttle` and `time_simple_moving_average`.
       required: true
       type: string
+    precision:
+      description: Defines the precision of the filtered state, through the argument of round().
+      required: false
+      type: integer
+      default: 2
     window_size:
       description: Size of the window of previous states. Time based filters such as `time_simple_moving_average` will require a time period (size in time), while other filters such as `outlier` will require an integer (size in number of states). Time periods are in _hh:mm_ format and must be quoted.
       required: false
       type: [integer, time]
       default: 1
-    precision:
-      description: See [_lowpass_](#low-pass) filter. Defines the precision of the filtered state, through the argument of round().
-      required: false
-      type: integer
-      default: None
     time_constant:
       description: See [_lowpass_](#low-pass) filter. Loosely relates to the amount of time it takes for a state to influence the output.
       required: false
@@ -115,6 +115,12 @@ filters:
       default: positive infinity
 {% endconfiguration %}
 
+<div class="note warning">
+
+When configuring a `window_size` that is not a time and with a value larger than the default of `1`, the database must examine nearly every stored state for that entity during Home Assistant startup. If you have modified the [Recorder `purge_keep_days`](/integrations/recorder/#purge_keep_days) value or have many states stored in the database for the filtered entity, this can cause your Home Assistant instance can to respond poorly during startup.
+
+</div>
+
 ## Filters
 
 ### Low-pass
@@ -128,8 +134,6 @@ B = 1.0 / time_constant
 A = 1.0 - B
 LowPass(state) = A * previous_state + B * state
 ```
-
-The returned value is rounded to the number of decimals defined in (`precision`).
 
 ### Outlier
 

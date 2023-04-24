@@ -143,7 +143,7 @@ The tvOS apps themselves decide what commands they support and when they support
 them. Likely, the app you are using does not support the action you are trying
 to perform. Before writing an issue about this, verify if the same action is possible with the
 Remote app in iOS. If that is the case, please write a bug in
-[pyatv](https://github.com/postlund/pyatv/issues/new?assignees=&labels=bug&template=bug_report.md&title=)
+[pyatv](https://github.com/postlund/pyatv/issues/new?assignees=&labels=bug&template=bug_report.yml)
 and include logs (see Debugging below).
 
 ### I'm trying to play a stream via AirPlay, but it doesn't work

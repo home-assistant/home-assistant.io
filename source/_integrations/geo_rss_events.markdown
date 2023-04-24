@@ -83,7 +83,7 @@ unit_of_measurement:
 
 ## Example Feeds
 
-**Bush Fire Alerts**
+### Bush Fire Alerts
 
 ```yaml
 sensor:
@@ -92,8 +92,8 @@ sensor:
     url: https://www.qfes.qld.gov.au/data/alerts/bushfireAlert.xml
     unit_of_measurement: "Alerts"
   - platform: geo_rss_events
-    name: Tas Fire Service
-    url: http://www.fire.tas.gov.au/Show?pageId=colBushfireSummariesRss
+    name: TasALERT
+    url: https://alert.tas.gov.au/data/incidents-and-alerts.xml
     unit_of_measurement: "Alerts"
   - platform: geo_rss_events
     name: WA Department of Fire and Emergency Services
@@ -103,8 +103,7 @@ sensor:
     url: https://www.esa.act.gov.au/feeds/currentincidents.xml
 ```
 
-
-**Earthquake Alerts**
+### Earthquake Alerts
 
 ```yaml
 sensor:
@@ -115,13 +114,13 @@ sensor:
       - 'Past Hour'
       - 'Past Day'
   - platform: geo_rss_events
-    name: BGS Worlwide Earthquakes
-    url: https://www.bgs.ac.uk/feeds/worldSeismology.xml
+    name: BGS Worldwide Earthquakes
+    url: http://earthquakes.bgs.ac.uk/feeds/WorldSeismology.xml
     categories:
       - 'EQMH'
   - platform: geo_rss_events
     name: Recent significant earthquake reports (Canada)
-    url: http://www.earthquakescanada.nrcan.gc.ca/index-en.php?tpl_region=canada&tpl_output=rss
+    url: https://www.earthquakescanada.nrcan.gc.ca/cache/earthquakes/canada-en.atom
     categories:
       - 'Earthquake Report'
 ```

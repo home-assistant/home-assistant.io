@@ -8,18 +8,17 @@ description: "The Alarm Panel card allows you to arm and disarm your alarm contr
 The Alarm Panel card allows you to arm and disarm your [alarm control panel](/integrations/#alarm) integrations.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_alarm_panel_card.gif' alt='Screenshot of the alarm panel card'>
+<img src='/images/dashboards/alarm_panel_card.gif' alt='Screenshot of the alarm panel card'>
 Screenshot of the Alarm Panel card.
 </p>
 
-To add the Alarm Panel card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Alarm Panel** from the card picker. All options for this card can be configured via the user interface.
+To add the Alarm Panel card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
 
-Alternatively, the card can be configured using YAML:
+All options for this card can be configured via the user interface.
 
-```yaml
-type: alarm-panel
-entity: alarm_control_panel.alarm
-```
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -55,18 +54,18 @@ theme:
   type: string
 {% endconfiguration %}
 
-## Examples
+### Examples
 
 Title example:
 
 ```yaml
-- type: alarm-panel
-  name: House Alarm
-  entity: alarm_control_panel.alarm
+type: alarm-panel
+name: House Alarm
+entity: alarm_control_panel.alarm
 ```
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_alarm_panel_title_card.gif' alt='Screenshot of the alarm panel card'>
+<img src='/images/dashboards/alarm_panel_title_card.gif' alt='Screenshot of the alarm panel card'>
 Screenshot of the Alarm Panel card.
 </p>
 

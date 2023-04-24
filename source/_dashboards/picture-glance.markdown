@@ -8,9 +8,15 @@ description: "The Picture Glance card shows an image and corresponding entity st
 The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog.
 
 <p class='img'>
-  <img src='/images/dashboards/lovelace_picture_glance.gif' alt='Picture glance card for a living room'>
+  <img src='/images/dashboards/picture_glance.gif' alt='Picture glance card for a living room'>
   Picture glance card for a living room.
 </p>
+
+To add the Picture Glance card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -82,7 +88,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Options For Entities
+### Options For Entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
@@ -126,7 +132,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Options For Exemptions
+### Options For Exemptions
 
 {% configuration badges %}
 user:
@@ -135,7 +141,7 @@ user:
   type: string
 {% endconfiguration %}
 
-## How to use state_filter
+### How to use state_filter
 
 Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
 
@@ -146,7 +152,7 @@ state_filter:
 entity: switch.decorative_lights
 ```
 
-## Examples
+### Examples
 
 ```yaml
 type: picture-glance

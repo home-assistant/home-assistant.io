@@ -121,7 +121,7 @@ probability_threshold:
 
 ### Specifying the MQTT broker
 
-Messages between Snips and Home Assistant are passed via MQTT. We can either point Snips to the MQTT broker used by Home Assistant, as explained above, or tell Home Assistant which [MQTT broker](/docs/mqtt/) to use by adding the following entry to the `configuration.yaml` file:
+Messages between Snips and Home Assistant are passed via MQTT. We can either point Snips to the MQTT broker used by Home Assistant, as explained above, or tell Home Assistant which [MQTT broker](/integrations/mqtt) to use by adding the following entry to the `configuration.yaml` file:
 
 ```yaml
 mqtt:
@@ -275,7 +275,7 @@ intent_script:
 
 ##### Weather
 
-So now you can open and close your garage door, let's check the weather. Add the Weather by Snips Skill to your assistant. Create a weather sensor, in this example [Dark Sk](/integrations/darksky) and the `api_key` in the `secrets.yaml` file.
+So now you can open and close your garage door, let's check the weather. Add the Weather by Snips Skill to your assistant. Create a weather sensor, in this example [Dark Sky](/integrations/darksky) and the `api_key` in the `secrets.yaml` file.
 
 ```yaml
 - platform: darksky

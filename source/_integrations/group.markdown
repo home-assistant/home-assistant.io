@@ -11,6 +11,7 @@ ha_category:
   - Media Player
   - Notifications
   - Organization
+  - Sensor
   - Switch
 ha_release: pre 0.7
 ha_iot_class: Calculated
@@ -27,6 +28,7 @@ ha_platforms:
   - lock
   - media_player
   - notify
+  - sensor
   - switch
 ha_integration_type: helper
 ---
@@ -47,7 +49,7 @@ Home Assistant can group multiple binary sensors, covers, fans, lights, locks, m
 In short, when any group member entity is `on`, the group will also be `on`. A complete overview of how groups behave:
 
 - The group state is `unavailable` if all group members are `unavailable`.
-- Otherwise, the group state is `unknown` if all group members are `unknown`.
+- Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
 - Otherwise, the group state is `on` if at least one group member is `on`.
 - Otherwise, the group state is `off`.
 
@@ -61,23 +63,26 @@ Binary sensor, light, and switch groups allow you set the "All entities" option.
 ### Cover groups
 In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover groups behave:
 
-- The group state is `unknown` if all group members are `unknown` or `unavailable`.
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
 - Otherwise, the group state is `opening` if at least one group member is `opening`.
 - Otherwise, the group state is `closing` if at least one group member is `closing`.
 - Otherwise, the group state is `open` if at least one group member is `open`.
 - Otherwise, the group state is `closed`.
 
 ### Fan groups
-Fan groups don't support `unavailable` or `unknown` states.
+In short, when any group member entity is `on`, the group will also be `on`. A complete overview of how fan groups behave:
 
-- The group state is `on` if at least one group member is `on`.
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
+- Otherwise, The group state is `on` if at least one group member is `on`.
 - Otherwise, the group state is `off`.
 
 ### Lock groups
-In short, when any group member entity is `unlocked`, the group will also be `unlocked`. A complete overview of how fan groups behave:
+In short, when any group member entity is `unlocked`, the group will also be `unlocked`. A complete overview of how lock groups behave:
 
 - The group state is `unavailable` if all group members are `unavailable`.
-- Otherwise, the group state is `unknown` if at least one group member is `unknown` or `unavailable`.
+- Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
 - Otherwise, the group state is `jammed` if at least one group member is `jammed`.
 - Otherwise, the group state is `locking` if at least one group member is `locking`.
 - Otherwise, the group state is `unlocking` if at least one group member is `unlocking`.
@@ -87,13 +92,20 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 ### Media player groups
 
 - The group state is `unavailable` if all group members are `unavailable`.
-- Otherwise, the group state is `unknown` if all group members are `unknown`.
+- Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
 - Otherwise, the group state is `buffering` if all group members are `buffering`.
 - Otherwise, the group state is `idle` if all group members are `idle`.
 - Otherwise, the group state is `paused` if all group members are `paused`.
 - Otherwise, the group state is `playing` if all group members are `playing`.
 - Otherwise, the group state is `on` if at least one group member is not `off`, `unavailable` or `unknown`.
 - Otherwise, the group state is `off`.
+
+### Sensor groups
+
+- The group state is combined / calculated based on `type` selected to determine the minimum, maximum, latest (last), mean, median, range, product or sum of the collected states.
+- Members can be any `sensor`, `number` or `input_number` holding numeric states.
+- The group state is `unavailable` if all group members are `unavailable`.
+- If `ignore_non_numeric` is `false` then group state will be `unavailable` if one member is `unavailable` or does not have a numeric state.
 
 ## Managing groups
 
@@ -109,7 +121,7 @@ To add or remove entities from an existing group, click on `Group options`, all 
 
 ## YAML Configuration
 
-Alternatlively, this integration can be configured and set up manually via YAML
+Alternatively, this integration can be configured and set up manually via YAML
 instead. Here are example of how to configure groups when using the `configuration.yaml` file.
 
 Example YAML configuration of a binary sensor group:
@@ -187,6 +199,18 @@ media_player:
       - media_player.living_room_tv
 ```
 
+Example YAML configuration of a sensor group:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: group
+    type: mean
+    entities:
+      - sensor.temperature_kitchen
+      - sensor.temperature_hallway
+```
+
 Example YAML configuration of a switch group:
 
 ```yaml
@@ -216,6 +240,27 @@ all:
   required: false
   type: boolean
   default: false
+type:
+  description: "Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range`, `product` or `sum`."
+  type: string
+  required: true
+ignore_non_numeric:
+  description: Only available for `sensor` group. Set this to `true` if the group state should ignore sensors with non numeric values.
+  type: boolean
+  required: false
+  default: false
+unit_of_measurement:
+  description: Only available for `sensor` group. Set the unit of measurement for the sensor.
+  type: string
+  required: false
+device_class:
+  description: Only available for `sensor` group. Set the device class for the sensor according to [available options](/integrations/sensor/#device-class).
+  type: string
+  required: false
+state_class:
+  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes).
+  type: string
+  required: false
 {% endconfiguration %}
 
 ## Notify Groups
@@ -251,7 +296,7 @@ services:
       required: true
       type: string
     data:
-      description: A dictionary containing parameters to add to all notify payloads. This can be anything that is valid to use in a payload, such as `data`, `message`, `target` or `title`.
+      description: A dictionary containing parameters to add to all notify payloads. This can be anything that is valid to use in a payload, such as `data`, `message`, `target` or `title`. Parameters specified by the action will override the values configured here.
       required: false
       type: string
 {% endconfiguration %}
@@ -356,6 +401,7 @@ This integration provides the following services to modify groups and a service 
 | | `Icon` | Name of the icon for the group.
 | | `Entities` | List of all members in the group. Not compatible with **delta**.
 | | `Add Entities` | List of members that will change on group listening.
+| | `Remove Entities` | List of members that will be removed from group listening.
 | | `All` | Enable this option if the group should only turn on when all entities are on.
 | `remove` | `Object ID` | Group id and part of entity id.
 | `reload` | `Object ID` | Group id and part of entity id.

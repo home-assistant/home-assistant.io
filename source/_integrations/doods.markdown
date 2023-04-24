@@ -149,7 +149,7 @@ labels:
 
 ## Supported labels
 
-Both detectors "default" and "tensorflow" use the labels in [this file](https://raw.githubusercontent.com/amikelive/coco-labels/master/coco-labels-2014_2017.txt).
+Both detectors `default` and `tensorflow` use the labels in [this file](https://raw.githubusercontent.com/amikelive/coco-labels/master/coco-labels-2014_2017.txt).
 
 ## Sample configuration
 

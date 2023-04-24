@@ -4,6 +4,7 @@ description: Support for ESPHome devices using the native ESPHome API.
 featured: true
 ha_category:
   - DIY
+  - Update
 ha_release: 0.85
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -27,7 +28,11 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+  - update
+ha_integration_type: device
+ha_dhcp: true
+works_with:
+  - local
 ---
 
 This integration allows [ESPHome](https://esphome.io) devices to connect directly to Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).

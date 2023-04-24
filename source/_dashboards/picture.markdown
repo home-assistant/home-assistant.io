@@ -8,9 +8,15 @@ description: "The Picture card allows you to set an image to use for navigation 
 The Picture card allows you to set an image to use for navigation to various paths in your interface or to call a service.
 
 <p class='img'>
-<img src='/images/dashboards/lovelace_picture.png' alt='Screenshot of the picture card'>
+<img src='/images/dashboards/picture.png' alt='Screenshot of the picture card'>
 Screenshot of the picture card.
 </p>
+
+To add the Picture card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -20,6 +26,10 @@ type:
 image:
   required: true
   description: "The URL of an image. When you want to store images in your Home Assistant installation use the [hosting files documentation](/integrations/http/#hosting-files). After storing your files, use the `/local` path, for example, `/local/filename.jpg`."
+  type: string
+alt_text:
+  required: false
+  description: Alternative text for the image. This is necessary for users of assistive technology. The [W3C images tutorial](https://www.w3.org/WAI/tutorials/images/) provides simple guidance for writing alternative text.
   type: string
 theme:
   required: false
@@ -39,16 +49,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Options For Exemptions
-
-{% configuration badges %}
-user:
-  required: true
-  description: User ID that can see the view tab.
-  type: string
-{% endconfiguration %}
-
-## Examples
+### Examples
 
 Navigate to another view:
 
