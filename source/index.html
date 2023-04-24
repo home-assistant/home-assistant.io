@@ -17,7 +17,9 @@ feedback: false
           site.current_minor_version }}.{{ site.current_patch_version }}
         </h1>
         Released:
-        <span class="release-date">{{ site.date_released | date: "%B %e, %Y" }}</span>
+        <span class="release-date"
+          >{{ site.date_released | date: "%B %e, %Y" }}</span
+        >
 
         <div class="links">
           <a href="{{ recent_release_post.url }}{{ site.patch_version_notes }}">Release notes</a>
@@ -46,7 +48,10 @@ feedback: false
         </div>
       </div>
 
-      <a class="material-card highlight-blog-post" href="/blog/2016/01/19/perfect-home-automation/">
+      <a
+        class="material-card highlight-blog-post"
+        href="/blog/2016/01/19/perfect-home-automation/"
+      >
         Read our founder's vision for the perfect home automation
         <i class="icon-arrow-right"></i>
       </a>
