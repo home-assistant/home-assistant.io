@@ -267,7 +267,7 @@ state_class:
 
 This group is a special case of groups currently only available via YAML configuration.
 
-Notify groups are used to combine multiple notification services into a single service. This allows you to send notification to multiple devices with a single call.
+Notify groups are used to combine multiple notification services into a single service. This allows you to send notification to multiple devices with a single call. You can optionally attach conditions to each receiving service, so that it can be omitted based on context.
 
 ```yaml
 # Example configuration.yaml entry
@@ -279,6 +279,10 @@ notify:
         data:
           target: "macbook"
       - service: html5_nexus
+        condition:
+          - condition: state
+            entity: sun.sun
+            state: above_horizon
 ```
 
 {% configuration %}
@@ -295,6 +299,10 @@ services:
       description: The service part of an entity ID, e.g.,  if you use `notify.html5` normally, just put `html5`. Note that you must put everything in lower case here. Although you might have capitals written in the actual notification services!
       required: true
       type: string
+    condition:
+      description: A list of conditions to evaluate before sending the notification to that particular service. Use the same syntax as for [conditions in automations or services](/docs/scripts/conditions/).
+      required: false
+      type: list
     data:
       description: A dictionary containing parameters to add to all notify payloads. This can be anything that is valid to use in a payload, such as `data`, `message`, `target` or `title`. Parameters specified by the action will override the values configured here.
       required: false
