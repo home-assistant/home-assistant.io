@@ -5,7 +5,7 @@ sidebar_label: History Graph
 description: "The History Graph card allows you to display a graph for each of the entities listed."
 ---
 
-The History Graph card allows you to display a graph for each of upto eigth entities.
+The History Graph card allows you to display a graph for each of up to eight entities.
 
 <p class='img'>
 <img src='/images/dashboards/history_graph.png' alt='Screenshot of the history graph card for entities without a unit_of_measurement'>
