@@ -362,8 +362,8 @@ mqtt:
     - name: "Bedroom Fan"
       command_topic: "bedroom_fan/on/set"
       command_template: "{ state: '{{ value }}'}"
-      direction_command_template '{{ iif(value == 'forward', 'fwd', 'rev') }}'
-      direction_value_template -> '{{ iif(value == 'fwd', 'forward', 'reverse') }}'
+      direction_command_template: "{{ iif(value == 'forward', 'fwd', 'rev') }}"
+      direction_value_template: "{{ iif(value == 'fwd', 'forward', 'reverse') }}"```
       oscillation_command_topic: "bedroom_fan/oscillation/set"
       oscillation_command_template: "{ oscillation: '{{ value }}'}"
       percentage_command_topic: "bedroom_fan/speed/percentage"
