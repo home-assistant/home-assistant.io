@@ -21,7 +21,7 @@ Each [trigger platform](/docs/automation/trigger/#event-trigger) can include add
 
 ### All
 
-Triggers from all platform will include the following data.
+Triggers from all platforms will include the following data.
 
 | Template variable | Data |
 | ---- | ---- |
