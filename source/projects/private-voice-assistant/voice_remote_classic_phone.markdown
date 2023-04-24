@@ -87,6 +87,10 @@ It also means that Home Assistant only listens when you want it to.
    ![Expose entities tab](/images/assist/assistant-expose-01.png) 
    * Select **Expose entities**.
    * Select all entities you want to be able to control by voice.
+1. Activate your newly created assistant. 
+   * Go to {% my integrations title="**Settings** > **Devices & Services**" %} and in the **Voice over IP** integration, select **Devices**.
+   * Under **Configuration**, in the **Assist pipeline** menu, select your newly created assistant from the list.   
+      ![Activate your newly created assistant](/images/assist/voip-select-pipline.png)
 1. Congratulations! You set up your analog phone to work with Home Assistant. Now pick up the phone and control your device. 
    * Say a [supported voice command](/docs/assist/builtin_sentences/). For example, *Turn off the light in the kitchen*.
    * You can also ask a question, such as
