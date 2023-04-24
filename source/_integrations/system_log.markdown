@@ -103,7 +103,7 @@ automation:
 
 ### Conditional Messages
 
-This automation will create a persistent notification whenever an error or warning is logged that has the word service in the message:
+This automation will create a persistent notification whenever an error or warning is logged that has the word "service" in the message:
 
 {% raw %}
 
