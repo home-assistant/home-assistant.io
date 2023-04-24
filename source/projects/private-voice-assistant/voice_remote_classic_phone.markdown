@@ -141,7 +141,7 @@ Use this procedure to test if the phrase itself works, without using the voice.
 
 ## About the analog phone
 
-You can use any analog landline phone, ideally one that already has an RJ11 socket.
+You can use any analog landline phone with an RJ11 socket.
 During the creation of this tutorial, this classic phone from 1953 was used:
 [*Tischstation Mod.29 HF-TR* by Autophon AG](https://www.radiomuseum.org/r/autophon_tischstation_mod29_hf_tr.html).
 ![Analog phone Tischstation Mod.29 by Autophon AG](/images/assist/autophon-mod-29.jpg)
