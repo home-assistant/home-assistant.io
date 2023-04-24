@@ -25,7 +25,7 @@ Triggers from all platforms will include the following data.
 
 | Template variable | Data |
 | ---- | ---- |
-| `trigger.id` | The [`id` of the trigger](/docs/automation/trigger/#trigger-id).  If `id` is omitted, this will be set to the trigger index.
+| `trigger.id` | The [`id` of the trigger](/docs/automation/trigger/#trigger-id).
 | `trigger.idx` | Index of the trigger. (The first trigger idx is `0`.)
 
 ### [Calendar](/docs/automation/trigger/#calendar-trigger)
