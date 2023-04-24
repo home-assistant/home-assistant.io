@@ -130,12 +130,6 @@ Use this procedure to test if the phrase itself works, without using the voice.
 1. At the top of the screen, from the dropdown menu, select the run you are interested in.
 ![Debug speech-to-text](/images/assist/assistant-debug-02.png)
 
-### View the logs
-
-1. Go to {% my logs title="**Settings** > **System** > **Logs**" %}.
-![View system logs](/images/assist/assistant-view-system-logs-01.png)
-   * Click on the log entry to view a more detailed description.
-
 ## About the analog phone
 
 You can use any analog landline phone with an RJ11 socket.
