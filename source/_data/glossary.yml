@@ -285,6 +285,8 @@
     Sensors return information about a thing, for instance the level of water
     in a tank.
   link: /integrations/sensor/
+  aliases:
+    - sensors
 
 - term: Selectors
   definition: >-
