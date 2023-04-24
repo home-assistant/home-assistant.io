@@ -13,8 +13,7 @@ your smart home and issue commands and get responses.
 * Latest version of Home Assistant installed on your Home Assistant device
 * [Analog phone](#about-the-analog-phone)
 * Analog telephone adapter 
-  [Grandstream HT801](https://www.grandstream.com/products/gateways-and-atas/analog-telephone-adaptors/product/ht801) or 
-  [HT802](https://www.grandstream.com/products/gateways-and-atas/analog-telephone-adaptors/product/ht802)
+  [Grandstream HT801](https://amzn.to/40k7mRa)
   * includes a 5&nbsp;V power adapter and an Ethernet cable
 * RJ11 phone cable to connect the phone to the Grandstream
 * [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/integrations/assist_pipeline)
@@ -38,7 +37,6 @@ your smart home and issue commands and get responses.
    * \*47192\*168\*1\*100\*5060
    ![Define IP for autodial](/images/assist/grandstream_autodial.png)
    * Note: instead of 192\*168\*1\*100\*, enter the IP address of your Home Assistant instance.
-   * If you have a Grandstream HT802, there are two ports to configure. Repeat this step for the second port.
    * On the bottom of the page, select **Apply**. 
    ![Define IP for autodial](/images/assist/grandstream_apply.png)
    * *Offhook Auto-Dial* means that when you pick up the phone, it directly calls Home Assistant. No need to dial.
@@ -70,12 +68,11 @@ your smart home and issue commands and get responses.
    * Under **Text-to-speech**, select the default language and select whether you want the voice to sound more female or male.
    ![Home Assistant cloud language settings](/images/assist/ha-cloud-tts-01.png) 
 1. Go to **Settings** > **Voice assistants** and select **Add assistant**.
+   ![Enter a name for your voice assistant](/images/assist/assistant-give-name-01.png)
    * Enter a name. You can pick any name that is meaningful to you.
-   ![Enter a name for your voice assistant](/images/assist/assistant-give-name.png)
    * Select a **Conversation agent**. This is the software that processes your voice stream. 
    For this tutorial, select **Home Assistant**.
      * Select the **Language** that you want to speak.
-      ![Select the language you want to speak](/images/assist/assistant-conversation-agent.png)
    * In the **Speech-to-text** and **Text-to-speech** drop-down menus, select an assistant. For this tutorial, select **Home Assistant Cloud**.
    * Under **Text-to-speech**, select the **voice** of the assistant. For this tutorial, use the default voice.
    * Select **Save**.
