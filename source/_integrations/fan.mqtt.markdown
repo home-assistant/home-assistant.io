@@ -175,7 +175,7 @@ direction_state_topic:
 direction_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value from the direction."
   required: false
-  type: string
+  type: template
 oscillation_command_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `oscillation_command_topic`.
   required: false
