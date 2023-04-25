@@ -9,5 +9,6 @@
         - /etc/localtime:/etc/localtime:ro
       restart: unless-stopped
       privileged: true
-      network_mode: host
+      ports:
+        - "8123:8123"
 ```
