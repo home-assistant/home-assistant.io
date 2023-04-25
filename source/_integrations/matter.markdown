@@ -210,7 +210,7 @@ Did you test a device that is not listed below ? It would be greatly appreciated
 
 ### Nanoleaf Matter bulbs and Lightstrips
 
-- Altough the products work great once commissioned, multiple users have reported that commissioning them can be a bit difficult and requires some patience and multiple resets or optimizations to your home network.
+- Although the products work great once commissioned, multiple users have reported that commissioning them can be a bit difficult and requires some patience and multiple resets or optimizations to your home network.
 - Check the [Nanoleaf Matter infopage](https://nanoleaf.me/en-EU/integration/matter/) for all supported products and instructions.
 
 ### Philips Hue (V2) Bridge
