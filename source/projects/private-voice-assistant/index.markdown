@@ -59,43 +59,12 @@ your smart home and issue commands and get responses.
    * In the **Voice over IP** integration, select the **device** link.
    * To allow this phone to control your smart home, under **Configuration**, enable **Allow calls**.   
    ![Voice over IP integration - allow calls](/images/assist/voip_configuration.png) 
-1. Your phone is set up in Home Assistant. The next step is to set up a voice assistant.
-
-## Setting up a Home Assistant voice assistant
-
-1. Set up text-to-speech in Home Assistant Cloud.
-   * Once the pipeline is further developed, it will be possible to process speech locally, without Home Assistant Cloud. However, especially on less performant devices, the experience will be better when using Home Assistant Cloud. 
-   * Go to {% my cloud title="**Settings** > **Home Assistant Cloud**" %}.
-   * If you have multiple Home Assistance instances running, make sure you are not logged in to Home Assistance Cloud on another instance. 
-   * On your current instance, log in to your Home Assistant Cloud.
-   * Under **Text-to-speech**, select the default language and select whether you want the voice to sound more female or male.
-   ![Home Assistant cloud language settings](/images/assist/ha-cloud-tts-01.png) 
-1. Go to **Settings** > **Voice assistants** and select **Add assistant**.
-   ![Enter a name for your voice assistant](/images/assist/assistant-give-name-01.png)
-   * Enter a name. You can pick any name that is meaningful to you.
-   * Select a **Conversation agent**. This is the software that processes the voice commands. 
-   For this tutorial, select **Home Assistant**.
-     * Select the **Language** that you want to speak.
-   * In the **Speech-to-text** and **Text-to-speech** drop-down menus, select an assistant. For this tutorial, select **Home Assistant Cloud**.
-   * Under **Text-to-speech**, select the **voice** of the assistant. For this tutorial, use the default voice.
-   * Select **Create**.
-   ![Enter a name for your voice assistant](/images/assist/assistant-stt-tts-define.png)
-1. To be able to control your devices over a voice command, you must expose your entities to Assist:
-   * Open the **Expose** tab.
-   ![Expose entities tab](/images/assist/assistant-expose-01.png) 
-   * Select **Expose entities**.
-   * Select all entities you want to be able to control by voice.
-1. Activate your newly created assistant. 
-   * Go to {% my integrations title="**Settings** > **Devices & Services**" %} and in the **Voice over IP** integration, select **Devices**.
-   * Under **Configuration**, in the **Assist pipeline** menu, select your newly created assistant from the list.   
-      ![Activate your newly created assistant](/images/assist/voip-select-pipline.png)
 1. Congratulations! You set up your analog phone to work with Home Assistant. Now pick up the phone and control your device. 
    * Say a [supported voice command](/docs/assist/builtin_sentences/). For example, *Turn off the light in the kitchen*.
    * You can also ask a question, such as
      *  *Is the front door locked?*
      *  *Which lights are on in the living room?*
    * Make sure you're using the area name as you defined it in Home Assistant. If you have a room called *bathroom*, the phrase *Turn on the lights in the bath* won't work.
-
 
 ## Troubleshooting
 
