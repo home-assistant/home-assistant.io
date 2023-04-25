@@ -28,7 +28,9 @@ Triggers from all platforms will include the following data.
 | `trigger.id` | The [`id` of the trigger](/docs/automation/trigger/#trigger-id).
 | `trigger.idx` | Index of the trigger. (The first trigger idx is `0`.)
 
-### [Calendar](/docs/automation/trigger/#calendar-trigger)
+### Calendar
+
+These are the properties available for a [Calendar trigger](/docs/automation/trigger/#calendar-trigger).
 
 | Template variable                    | Data                                                                                                                            |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -43,7 +45,9 @@ Triggers from all platforms will include the following data.
 | `trigger.calendar_event.location`    | Location information for the calendar event, if available.                                                                      |
 | `trigger.offset`                     | Timedelta object with offset to the event, if any |
 
-### [Device](/docs/automation/trigger/#device-trigger)
+### Device
+
+These are the properties available for a [Device trigger](/docs/automation/trigger/#device-trigger).
 
 Inherites template variables from [event](#event) or [state](#state) template based on the type of trigger selected for the device.
 
@@ -51,7 +55,9 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `device`.
 
-### [Event](/docs/automation/trigger/#event-trigger)
+### Event
+
+These are the properties available for a [Event trigger](/docs/automation/trigger/#event-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -60,7 +66,9 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.event.event_type` | Event type.
 | `trigger.event.data` | Optional event data.
 
-### [MQTT](/docs/automation/trigger/#mqtt-trigger)
+### MQTT
+
+These are the properties available for a [MQTT trigger](/docs/automation/trigger/#mqtt-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -70,7 +78,9 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.payload_json` | Dictionary of the JSON parsed payload.
 | `trigger.qos` | QOS of payload.
 
-### [Numeric State](/docs/automation/trigger/#numeric-state-trigger)
+### Numeric State
+
+These are the properties available for a [Numeric State trigger](/docs/automation/trigger/#numeric-state-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -82,7 +92,9 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has met above/below criteria, if any.
 
-### [State](/docs/automation/trigger/#state-trigger)
+### State
+
+These are the properties available for a [State trigger](/docs/automation/trigger/#state-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -92,7 +104,9 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has been to state, if any.
 
-### [Sun](/docs/automation/trigger/#sun-trigger)
+### Sun
+
+These are the properties available for a [Sun trigger](/docs/automation/trigger/#sun-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -100,7 +114,9 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.event` | The event that just happened: `sunset` or `sunrise`.
 | `trigger.offset` | Timedelta object with offset to the event, if any.
 
-### [Template](/docs/automation/trigger/#template-trigger)
+### Template
+
+These are the properties available for a [Template trigger](/docs/automation/trigger/#template-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -110,21 +126,27 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.to_state` | New [state object] of entity that caused template to change.
 | `trigger.for` | Timedelta object how long state has been to state, if any.
 
-### [Time](/docs/automation/trigger/#time-trigger)
+### Time
+
+These are the properties available for a [Time trigger](/docs/automation/trigger/#time-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time`
 | `trigger.now` | DateTime object that triggered the time trigger.
 
-### [Time Pattern](/docs/automation/trigger/#time-pattern-trigger)
+### Time Pattern
+
+These are the properties available for a [Time Pattern trigger](/docs/automation/trigger/#time-pattern-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time_pattern`
 | `trigger.now` | DateTime object that triggered the time_pattern trigger.
 
-### [Webhook](/docs/automation/trigger/#webhook-trigger)
+### Webhook
+
+These are the properties available for a [Webhook trigger](/docs/automation/trigger/#webhook-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -134,7 +156,9 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.data` | The form data of the request (if it had a form data content type).
 | `trigger.query` | The URL query parameters of the request (if provided).
 
-### [Zone](/docs/automation/trigger/#zone-trigger)
+### Zone
+
+These are the properties available for a [Zone trigger](/docs/automation/trigger/#zone-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
