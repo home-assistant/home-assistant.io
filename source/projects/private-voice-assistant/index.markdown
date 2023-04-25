@@ -41,7 +41,7 @@ your smart home and issue commands and get responses.
    * \*47192\*168\*1\*100\*5060
    ![Define IP for autodial](/images/assist/grandstream_autodial.png)
    * Note: instead of 192\*168\*1\*100\*, enter the IP address of your Home Assistant instance.
-   * On the bottom of the page, select **Apply**. 
+   * At the bottom of the page, select **Apply**. 
    ![Define IP for autodial](/images/assist/grandstream_apply.png)
    * *Offhook Auto-Dial* means that when you pick up the phone, it directly calls Home Assistant. No need to dial.
 
@@ -53,7 +53,7 @@ your smart home and issue commands and get responses.
    * You should now hear the message *This is your smart home speaking. Your phone is connected, but you must configure it within Home Assistant.*
    * The integration should now include a device and entities.
     ![Voice over IP integration with device and entities](/images/assist/voip_device_available.png)
-   * Don't hear the voice? Try these [troubleshooting steps](projects/private-voice-assistant/voice_remote_classic_phone/#troubleshoot-grandstream).
+   * Don't hear the voice? Try these [troubleshooting steps](/projects/private-voice-assistant/#troubleshoot-grandstream).
 1. Allow calls.
    * Calls from new devices are blocked by default since voice commands could be used to control sensitive devices, such as locks and garage doors.
    * In the **Voice over IP** integration, select the **device** link.
@@ -66,11 +66,7 @@ your smart home and issue commands and get responses.
      *  *Which lights are on in the living room?*
    * Make sure you're using the area name as you defined it in Home Assistant. If you have a room called *bathroom*, the phrase *Turn on the lights in the bath* won't work.
 
-## Troubleshooting
-
-Are things not working as expected? This section lists a few steps that may help you troubleshoot issues.
-
-### Troubleshoot Grandstream
+## Troubleshoot Grandstream
 
 If you’re unable to call Home Assistant, confirm the following settings in your Grandstream device’s web interface.
 
@@ -78,33 +74,20 @@ If you’re unable to call Home Assistant, confirm the following settings in you
    * Make sure that **OPUS** is selected for one of the choices:
    ![Vocoder OPUS option](/images/assist/grandstream_vocoder.png) 
 1. Under **OPUS Payload type**, make sure the value is `123`. It's the default option.
-   ![Vocoder OPUS payload type](/images/assist/grandstream_opus_payload.png) 
+   ![Vocoder OPUS payload type](/images/assist/grandstream_opus_payload.png)
+1. At the bottom of the page, select **Apply**.
+1. Pick up the phone again and check if you hear the voice.
 
-### View debug information
+## Other troubleshooting steps
 
-1. Go to **Settings** > **Voice assistants**.
-1. From the list of assistants, select your assistant.
-   ![Select your assistant](/images/assist/assistant-select.png)
-1. In the dialog, select **Debug**.
-![Open the debug dialog](/images/assist/assistant-debug-03.png)
-1. At the top of the screen, from the dropdown menu, select the run you are interested in.
-![Debug speech-to-text](/images/assist/assistant-debug-02.png)
+Are things still not working as expected? 
 
-### Test if the phrase works without voice
+* Checkout the [general troubleshooting section for Assist](/projects/private-voice-assistant/troubleshooting-assist).
 
-1. [Open the debug view](#view-debug-information).
-1. In the top right corner, select the icon.
-![Open the pipeline debug dialog](/images/assist/assistant-debug-04.png)
-1. Select **Run text pipeline**.
-![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-01.png)
-1. Enter the phrase you want to test and select **Run**.
-![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-02.png)
-1. Check if it worked.
-![Open the pipeline debug dialog](/images/assist/assistant-debug-pipeline-03.png)
-   * If the phrase does not work, try a variant. For example, if *Turn off the light* doesn't work, try: *Turn off the lights in the kitchen*.
-   * Check if your phrase is [supported](/docs/assist/builtin_sentences/).
-   * Make sure you are using the name of the area as it is defined in Home Assistant. If you have a room called *bathroom*, the phrase *Turning on the lights in the bath* won’t work.
+## FAQ
 
+**Which languages are supported?**
+[These are the languages supported by Home Assistant](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages/).
 
 ## About the analog phone
 
@@ -112,8 +95,3 @@ You can use any analog landline phone with an RJ11 socket.
 During the creation of this tutorial, this classic phone from 1953 was used:
 [*Tischstation Mod.29 HF-TR* by Autophon AG](https://www.radiomuseum.org/r/autophon_tischstation_mod29_hf_tr.html).
 ![Analog phone Tischstation Mod.29 by Autophon AG](/images/assist/autophon-mod-29.jpg)
-
-## FAQ
-
-**Which languages are supported?**
-[These are the languages supported by Home Assistant](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages/).
