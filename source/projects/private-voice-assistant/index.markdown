@@ -27,7 +27,11 @@ your smart home and issue commands and get responses.
 1. Start up the Grandstream.
    * Connect the power supply.
    * Once the Grandstream has booted, the two LEDs for power and Ethernet light up solid blue. The phone LED won't light up.
-1. Log onto your router and identify the IP address of the Grandstream.
+1. Identify the IP address of the Grandstream.
+   * If your phone has a star * key, you can get your phone to tell you it's IP address:
+      *  Press *** (press the star key three times) and wait until you hear *Enter the menu option*.
+      *  Press 02 and the phone will tell you its IP address.
+   * If your phone does not have a star * key, log onto your router to find the IP address.
 1. Enter the IP address into a browser window and log onto the Grandstream *Device Configuration* software.
    * The default credentials are:
      * **Username**: `admin`
@@ -43,8 +47,7 @@ your smart home and issue commands and get responses.
 
 ## Setting up the phone in Home Assistant
 
-1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & Services**" %} and select **Add integration**.
-1. Add the **Voice over IP** integration.   
+1. In Home Assistant, go to {% my config_flow_start domain="voip" title="**Settings** > **Devices & Services** > **Add integration**" %} and add the **Voice over IP** integration.
     ![Voice over IP integration](/images/assist/voip_install.png)
 1. Once you see the integration, pick up the phone.
    * You should now hear the message *This is your smart home speaking. Your phone is connected, but you must configure it within Home Assistant.*
@@ -61,7 +64,7 @@ your smart home and issue commands and get responses.
 ## Setting up a Home Assistant voice assistant
 
 1. Set up text-to-speech in Home Assistant Cloud.
-   * Once the pipeline is further developed, the cloud won't be necessary. It will be possible to process speech locally. 
+   * Once the pipeline is further developed, it will be possible to process speech locally, without Home Assistant Cloud. However, especially on less performant devices, the experience will be better when using Home Assistant Cloud. 
    * Go to {% my cloud title="**Settings** > **Home Assistant Cloud**" %}.
    * If you have multiple Home Assistance instances running, make sure you are not logged in to Home Assistance Cloud on another instance. 
    * On your current instance, log in to your Home Assistant Cloud.
@@ -70,12 +73,12 @@ your smart home and issue commands and get responses.
 1. Go to **Settings** > **Voice assistants** and select **Add assistant**.
    ![Enter a name for your voice assistant](/images/assist/assistant-give-name-01.png)
    * Enter a name. You can pick any name that is meaningful to you.
-   * Select a **Conversation agent**. This is the software that processes your voice stream. 
+   * Select a **Conversation agent**. This is the software that processes the voice commands. 
    For this tutorial, select **Home Assistant**.
      * Select the **Language** that you want to speak.
    * In the **Speech-to-text** and **Text-to-speech** drop-down menus, select an assistant. For this tutorial, select **Home Assistant Cloud**.
    * Under **Text-to-speech**, select the **voice** of the assistant. For this tutorial, use the default voice.
-   * Select **Save**.
+   * Select **Create**.
    ![Enter a name for your voice assistant](/images/assist/assistant-stt-tts-define.png)
 1. To be able to control your devices over a voice command, you must expose your entities to Assist:
    * Open the **Expose** tab.
@@ -91,6 +94,7 @@ your smart home and issue commands and get responses.
    * You can also ask a question, such as
      *  *Is the front door locked?*
      *  *Which lights are on in the living room?*
+   * Make sure you're using the area name as you defined it in Home Assistant. If you have a room called *bathroom*, the phrase *Turn on the lights in the bath* won't work.
 
 
 ## Troubleshooting
@@ -121,6 +125,7 @@ Use this procedure to test if the phrase itself works, without using the voice.
 ![Call a conversation process from the services tab](/images/assist/conversation-service-01.png)
    * If the phrase does not work, try a variant. For example, if *Turn on the lights* doesn't work, try: *Turn on the lights in the kitchen*.
    * Check if your phrase is [supported](/docs/assist/builtin_sentences/).
+   * Make sure you are using the name of the area as it is defined in Home Assistant. If you have a room called *bathroom*, the phrase *Turning on the lights in the bath* won’t work.
 
 ### View debug information
 
