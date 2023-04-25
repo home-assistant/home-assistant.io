@@ -196,14 +196,6 @@ Did you test a device that is not listed below ? It would be greatly appreciated
 - Thermostat devices (climate platform) are not supported yet (but currently in development).
 - Device events for example for the wall rockers and Cube are not supported.
 
-
-### TP-Link Tapo P125M (power plug)
-
-- Look for the M addition in the model name, a device without the M (regular P125) is not Matter compliant.
-- This device is available in the US only.
-
-[TP-Link Tapo P125M on Amazon](https://amzn.to/3RILJah)
-
 ### Eve Energy (power plug), Eve Door & Window (contact sensor), Eve Motion (motion sensor)
 
 - If you see a Matter logo on the box, the device runs Matter already and you can add it to HA immediately.
@@ -215,6 +207,26 @@ Did you test a device that is not listed below ? It would be greatly appreciated
 [Eve Energy on Amazon](https://amzn.to/3YuO62P)
 [Eve Door & Window on Amazon](https://amzn.to/3RIU6ml)
 [Eve Motion on Amazon](https://amzn.to/3jDujiP)
+
+### Nanoleaf Matter bulbs and Lightstrips
+
+- Altough the products work great once commissioned, multiple users have reported that commissioning them can be a bit difficult and requires some patience and multiple resets or optimizations to your home network.
+- Check the [Nanoleaf Matter infopage](https://nanoleaf.me/en-EU/integration/matter/) for all supported products and instructions.
+
+### Philips Hue (V2) Bridge
+
+The Philips Hue V2 bridge supports Matter since a recent update (the beta program closed, it is now officially available). You can enable Matter support from the Hue app after which you can commission it to Home Assistant and other fabrics.
+
+- It does not make a lot of sense to bind the Hue bridge to Home Assistant because you will loose functionality over the default Hue integration in Home Assistant, such as button press events and (dynamic) scenes.
+- You will need to create a Hue/Signify (cloud) account and the app before you can use Matter.
+
+### TP-Link Tapo P125M (power plug)
+
+- Look for the M addition in the model name, a device without the M (regular P125) is not Matter compliant.
+- This device is available in the US only.
+
+[TP-Link Tapo P125M on Amazon](https://amzn.to/3RILJah)
+
 
 ## Troubleshooting
 
