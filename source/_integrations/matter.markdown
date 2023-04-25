@@ -191,7 +191,7 @@ Did you test a device that is not listed below ? It would be greatly appreciated
 - Bridges Aqara (Zigbee) devices connected to the hub to Matter.
 - You need to enable Matter support/firmware in the Aqara app.
 - You will need an Aqara (cloud) account and the app before you can use Matter.
-- See [this page](https://www.aqara.com/en/article-1583275073188196352.html) for more information including what devices are bridged.
+- See [this Aqara landingpage](https://www.aqara.com/en/article-1583275073188196352.html) for more information, including what devices are bridged.
 - Thermostat devices (climate platform) are not supported yet (but currently in development).
 - Device events for example for the wall rockers and Cube are not supported.
 
