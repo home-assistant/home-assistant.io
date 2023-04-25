@@ -33,7 +33,7 @@ Both the Matter standard itself and its implementation within Home Assistant are
 
 Matter is [the new standard for home automation](<https://en.wikipedia.org/wiki/Matter_(standard)>) which has been released recently. It is in the process of being adopted by the tech industry. Matter is a local protocol. Device control is done without the need of any cloud. From a technical perspective, you can use a Matter compatible device with Home Assistant without having to connect to a vendor specific cloud. However, some vendors may require you to set up an account before you can enable Matter.
 
-Unlike radio based protocols we're already familiar with in the IoT landscape, like Zigbee and Z-Wave, Matter makes use of standard IP-based communication so it runs on top of the existing network infrastructure (meaning: it uses your existing WiFi and ethernet routers) and Thread.
+Unlike the radio based protocols we're already familiar with in the IoT landscape, like Zigbee and Z-Wave, Matter makes use of standard IP-based communication. Matter is not a radio protocol, but a control protocol that runs on top of the existing network infrastructure, using your existing Wi-Fi/Ethernet routers and Thread.
 
 Home Assistant is a so called *controller*, it can control Matter based devices. Other examples of Matter controllers are the Google Nest speakers, Apple HomePods, and a SmartThings Station.
 
