@@ -190,7 +190,7 @@ Did you test a device that is not listed below ? It would be greatly appreciated
 
 - Bridges Aqara (Zigbee) devices connected to the hub to Matter.
 - You need to enable Matter support/firmware in the Aqara app.
-- You will need to create an Aqara (cloud) account and the app before you can use Matter.
+- You will need an Aqara (cloud) account and the app before you can use Matter.
 - See [this page](https://www.aqara.com/en/article-1583275073188196352.html) for more information including what devices are bridged.
 - Thermostat devices (climate platform) are not supported yet (but currently in development).
 - Device events for example for the wall rockers and Cube are not supported.
@@ -217,7 +217,7 @@ Did you test a device that is not listed below ? It would be greatly appreciated
 The Philips Hue V2 bridge supports Matter since a recent update (the beta program closed, it is now officially available). You can enable Matter support from the Hue app after which you can commission it to Home Assistant and other fabrics.
 
 - It does not make a lot of sense to bind the Hue bridge to Home Assistant because you will loose functionality over the default Hue integration in Home Assistant, such as button press events and (dynamic) scenes.
-- You will need to create a Hue/Signify (cloud) account and the app before you can use Matter.
+- You will need a Hue/Signify (cloud) account and the app before you can use Matter.
 
 ### TP-Link Tapo P125M (power plug)
 
