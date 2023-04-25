@@ -64,7 +64,7 @@ A lot of devices that (will) hit the market will use Thread for the radio commun
 Most (if not all) Matter compliant devices will also have a Bluetooth chip onboard, this is to ease commissioning (a somewhat technical term for adding a device to your controller). Bluetooth will not be used for controlling a device but only for pairing it after unboxing or factory reset. The Home Assistant controller uses the Home Assistant Companion app to do commissioning so you can bring your phone close to the device you want to commission. Your network credentials will then be sent by the controller to your device over Bluetooth in the commissioning process. If that succeeded, the device will furthermore communicate over its native interface, meaning WiFi, Ethernet or Thread.
 
 <p class='note'>
-Although your Home Assistant server might have a bluetooth adapter on board so the controller can use that for comissioning of devices, we choose not to utilize that adapter, mainly to prevent issues with the built-in Bluetooth integration but also because it makes more sense to just bring your mobile devices close to the Matter device you'd like to commission.
+Although your Home Assistant server might have a Bluetooth adapter on board that the controller can use for commissioning of devices, we choose not to utilize that adapter. Mainly to prevent issues with the built-in Bluetooth integration but also because it makes more sense to bring your mobile devices close to the Matter device you'd like to commission.
 </p>
 
 ## Multi fabric: join to multiple controllers
