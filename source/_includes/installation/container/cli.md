@@ -10,7 +10,7 @@
       --restart=unless-stopped \
       -e TZ=MY_TIME_ZONE \
       -v /PATH_TO_YOUR_CONFIG:/config \
-      --network=host \
+      -p 8123:8123 \
       {{ site.installation.container }}:{{ include.tag | default: 'stable' }}
     ```
 
