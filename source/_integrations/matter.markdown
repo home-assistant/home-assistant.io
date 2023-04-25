@@ -100,7 +100,7 @@ Supported platforms (device types)
 
 Note that a single Matter device can exist of multiple platform. For example a Motion sensor which also has a temperature sensor and Illuminance sensor on board.
 
-Do you own a (bridged) Matter device and you are missing controls for this device, create an issue on Github and make sure to post your Integration diagnostics there. In some cases we can easily extend the existing platform support based on your diagnostics dump.
+If you own a (bridged) Matter device and you are missing controls for this device, create an issue on [GitHub](https://github.com/home-assistant/home-assistant.io) and make sure to post your Integration diagnostics there. In some cases we can easily extend the existing platform support based on your diagnostics dump.
 
 ## Adding Matter devices to Home Assistant
 
