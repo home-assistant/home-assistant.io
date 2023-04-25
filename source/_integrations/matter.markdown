@@ -35,7 +35,7 @@ Matter is [the new standard for home automation](<https://en.wikipedia.org/wiki/
 
 Unlike the radio based protocols we're already familiar with in the IoT landscape, like Zigbee and Z-Wave, Matter makes use of standard IP-based communication. Matter is not a radio protocol, but a control protocol that runs on top of the existing network infrastructure, using your existing Wi-Fi/Ethernet routers and Thread.
 
-Home Assistant is a so called *controller*, it can control Matter based devices. Other examples of Matter controllers are the Google Nest speakers, Apple HomePods, and a SmartThings Station.
+Home Assistant is a so called _controller_, it can control Matter based devices. Other examples of Matter controllers are the Google Nest speakers, Apple HomePods, and a SmartThings Station.
 
 ## Bridge devices
 
@@ -50,7 +50,7 @@ Home Assistant, as a Matter controller, only supports **control** of Matter devi
 
 Matter goes hand-in-hand with (but is not the same as) [Thread](<https://en.wikipedia.org/wiki/Thread_(network_protocol)>), which is a low power Radio mesh networking techology. Much like Zigbee, but with the key difference that it is _IP-addressable_, making it the perfect companion transport for Matter.
 
-Thread devices become directly addressable by Matter controllers (such as Home Assistant) thanks to the use of so called Thread Border Routers, which are in fact just devices that are both within your network and have a Thread chip builtin and thus act as a "router"  between the Thread radio signal and your local network. These border routers (you will probably end up having multiple of them in your house) make sure that your Thread based devices are reachable on your regular network and thus can be controlled with Matter. Examples of Thread Borders routers are the Apple TV 4K, HomePod (gen 2 or Mini) and the Google Nest Hub V2, so devices that you may already own. Besides that, all kind of other border routers are available, built-in to hardware applicances or software solutions based on OpenThread Border Router, such as the add-on we provide to use with the built-in Zigbee/Thread chip of the [Home Assistant Yellow](/yellow/) or the [Home Assistant SkyConnect](/skyconnect/) dongle.
+Thread devices become directly addressable by Matter controllers (such as Home Assistant) thanks to the use of so called Thread Border Routers, which are in fact just devices that are both within your network and have a Thread chip builtin and thus act as a "router" between the Thread radio signal and your local network. These border routers (you will probably end up having multiple of them in your house) make sure that your Thread based devices are reachable on your regular network and thus can be controlled with Matter. Examples of Thread Borders routers are the Apple TV 4K, HomePod (gen 2 or Mini) and the Google Nest Hub V2, so devices that you may already own. Besides that, all kind of other border routers are available, built-in to hardware applicances or software solutions based on OpenThread Border Router, such as the add-on we provide to use with the built-in Zigbee/Thread chip of the [Home Assistant Yellow](/yellow/) or the [Home Assistant SkyConnect](/skyconnect/) dongle.
 
 In order to use any Thread based devices on a Matter controller you need to have at least one Thread Border router device within range of the device.
 More info about Thread and diagnosing Thread networks and Border routers, see the [Thread](/integrations/thread/) integration.
@@ -76,7 +76,6 @@ For devices where Home Assistant provides a native integration (with local API),
 ![image](/images/integrations/matter/matter_thread_infographic.webp)
 
 Image taken from [this excellent article by The Verge](https://www.theverge.com/23165855/thread-smart-home-protocol-matter-apple-google-interview) about Matter that shows the landcape of Matter, Thread, Border routers and bridges in a nice visualized way.
-
 
 {% include integrations/config_flow.md %}
 
@@ -227,9 +226,7 @@ The Philips Hue V2 bridge supports Matter since a recent update (the beta progra
 
 [TP-Link Tapo P125M on Amazon](https://amzn.to/3RILJah)
 
-
 ## Troubleshooting
-
 
 ### General recommendations
 
@@ -240,7 +237,6 @@ The Philips Hue V2 bridge supports Matter since a recent update (the beta progra
 - Start simple and work from there, keep your network easy and add for example an ESP32 test device. Does that work, move on to the next step or more devices.
 
 - Realize that you are an early adopter, both on the hardware side and on the software (controller) side so you may run into compatibility issues or features that are still missing. Report any issues you may find and help out pothers if you find a workaround or tested a device.
-
 
 ### I do not see the button "Commission using the Companion app"
 
@@ -261,5 +257,3 @@ Also see this [extended troubleshooting guide](https://developers.home.google.co
 The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices that use WiFi (including Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Matter devices that only use Thread must be joined to Thread networks for which there is at least one border router connected to the Home Assistant LAN.
 
 If you experience any issues with the discovery of devices (e.g. initial commission keeps failing) or devices become unavailable randomly, investigate your network topology. For instance a setting on your router or Wi-Fi access point to "optimize" multicast traffic can actually harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and do not play nice with enterprise networking solutions like VLAN's, Multicast filtering, and IGMP snooping. To avoid issues, try to keep your network as simple and flat as possible.
-
-
