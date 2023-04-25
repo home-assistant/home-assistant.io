@@ -218,6 +218,8 @@ The Philips Hue V2 bridge supports Matter since a recent update (the beta progra
 
 - It does not make a lot of sense to bind the Hue bridge to Home Assistant because you will loose functionality over the default Hue integration in Home Assistant, such as button press events and (dynamic) scenes.
 - You will need a Hue/Signify (cloud) account and the app before you can use Matter.
+- Device events for example for dimmer remotes are not supported.
+- Only basic control of lights is supported, no scenes, events, effects etc.
 
 ### TP-Link Tapo P125M (power plug)
 
