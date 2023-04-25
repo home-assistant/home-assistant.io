@@ -234,9 +234,6 @@ The Philips Hue V2 bridge supports Matter since a recent update (the beta progra
 The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices (and any Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Implementations like mDNS reflectors usually do more harm than good.
 </p>
 
-### I do not see the option to add a Matter device in the settings
-
-We've added the option to **Add a Matter device** from the **Settings**>**Devices** in a recent version of the Home Assistant frontend, available from version 2023.3 and upwards or if you're running the Home Assistant nightly channel. If you are on a previous version of Home Assistant, you should see a button **Configure** on the Matter integration card within **Settings**>**Devices & Services**>**Integrations**. Click that **Configure** button and you should be able to see the **Commission** button on the Companion app.
 
 ### I do not see the button "Commission using the Companion app"
 
@@ -248,6 +245,9 @@ This button will only be visible within the Home Assistant Companion App (so not
 ### When I'm trying to commission using the Android app, I get an error stating "Matter is currently unavailable"
 
 See above, make sure your device meets all requirements to support Matter. Update Android to the latest version and the Google Home and Home Assistant Companion app. To quickly verify if your device meets all requirements to support Matter, on your Android device go to **Settings**>**Google**>**Devices & Sharing**. There should be an entry there for **Matter devices**.
+
+Some users have reported that an uninstall and reinstall of the Google Home app fixed this issue for them.
+Also see this [extended troubleshooting guide](https://developers.home.google.com/matter/verify-services) from Google.
 
 ### Unable to commission devices, it keeps giving errors or stops working randomly
 
