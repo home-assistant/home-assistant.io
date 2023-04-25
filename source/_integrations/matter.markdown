@@ -69,7 +69,7 @@ Although your Home Assistant server might have a Bluetooth adapter on board that
 
 ## Multi fabric: join to multiple controllers
 
-One of the great features of Matter is the so called _Multi Fabric_ feature: you can join the same device to multiple controllers. For example: add it to Google Home, Apple Home, and Home Assistant all at the same time. The standard describes that each device should be able to (minimal) support 5 difference fabrics at the same time.
+One of the great features of Matter is the so called _Multi Fabric_ feature: you can join the same device to multiple controllers. For example: add it to Google Home, Apple Home, and Home Assistant all at the same time. The standard describes that each device should be able to at least support 5 difference fabrics at the same time.
 
 For devices where Home Assistant provides a native integration (with local API), Matter may not be the best option. Matter, being a universal standard, might not have the nitty-gritty features that come with a product specific protocol. A good example is Philips Hue: the communication over Matter only provides the basic controls over lights, the official integration brings all Hue unique features like (dynamic) scenes, entertainment mode, etc.
 
