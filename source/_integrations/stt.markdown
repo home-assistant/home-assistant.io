@@ -12,4 +12,4 @@ ha_integration_type: entity
 
 Speech-to-Text (STT) allows you to stream speech data to the STT API and get text back.
 
-This is an integration that is a building block for other integrations or apps building on top of Home Assistant, like [Ada](https://github.com/home-assistant/ada).
+This is an integration that is a building block for other integrations or apps building on top of Home Assistant, like [Assist](/docs/assist).
