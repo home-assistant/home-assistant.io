@@ -31,16 +31,16 @@ Both the Matter standard itself and its implementation within Home Assistant are
 
 # What is Matter ?
 
-Matter is [the new standard for home automation](<https://en.wikipedia.org/wiki/Matter_(standard)>) which has been released recently. It is in the process of being adopted by the tech industry. Matter is a local protocol, device control is done without the need of any cloud. You can use a Matter compatible device with Home Assistant without (the technical) need to connect to a vendor specific cloud.
+Matter is [the new standard for home automation](<https://en.wikipedia.org/wiki/Matter_(standard)>) which has been released recently. It is in the process of being adopted by the tech industry. Matter is a local protocol. Device control is done without the need of any cloud. From a technical perspective, you can use a Matter compatible device with Home Assistant without having to connect to a vendor specific cloud. However, some vendors may require you to set up an account before you can enable Matter.
 
-Unlike radio based protocols we're already familiar with in the IoT landscape, like Zigbee and Z-Wave, Matter makes use of standard IP-based communication so it runs on top of the existing network infrastructure (meaning: it uses your existing WiFi and ethernet routers) and Thread.
+Unlike the radio based protocols we're already familiar with in the IoT landscape, like Zigbee and Z-Wave, Matter makes use of standard IP-based communication. Matter is not a radio protocol, but a control protocol that runs on top of the existing network infrastructure, using your existing Wi-Fi/Ethernet routers and Thread.
 
-Home Assistant is a so called Controller, it can **control** Matter based devices. Other examples of Matter controllers are the Google Nest speakers, Apple Homepods and a SmartThings Station.
+Home Assistant is a so called *controller*, it can control Matter based devices. Other examples of Matter controllers are the Google Nest speakers, Apple HomePods, and a SmartThings Station.
 
 ## Bridge devices
 
-One of the great things about Matter is that you can have both WiFi and Thread based devices on the same controller.
-Next to actual devices (e.g. actors or sensors) you will also see Bridges (most likely connected over ethernet but can be WiFi too) which (as the name implies) bridges multiple devices into Matter. A great example of this is the Philips Hue V2 bridge which is a Zigbee hub but also a Matter bridge, so it exposes all Zigbee devices already connected to the bridge as Matter devices on the network. Also Aqara, SwitchBot and IKEA have launched such Hub devices.
+One of the great things about Matter is that you can have both Wi-Fi and Thread based devices on the same controller.
+Next to actual devices (e.g. actors or sensors), you will also see bridges. The bridge itself is connected to the network over Ethernet or Wi-Fi and bridges multiple devices into a Matter network. A great example of this is the Philips Hue V2 bridge which is a Zigbee hub but also a Matter bridge. This bridge exposes all Zigbee devices that are already connected to the bridge as Matter devices on the network. Also Aqara, SwitchBot, and IKEA have launched such Hub devices.
 
 <p class='note'>
 Home Assistant, as a Matter controller, only supports **control** of Matter devices. Home Assistant is not a bridge itself and it cannot turn existing devices within Home Assistant into Matter compatible devices.
@@ -50,7 +50,7 @@ Home Assistant, as a Matter controller, only supports **control** of Matter devi
 
 Matter goes hand-in-hand with (but is not the same as) [Thread](<https://en.wikipedia.org/wiki/Thread_(network_protocol)>), which is a low power Radio mesh networking techology. Much like Zigbee, but with the key difference that it is _IP-addresseable_, making it the perfect companion transport for Matter.
 
-Thread devices become directly addresseable by Matter controllers (such as Home Assistant) thanks to the use of so called Thread Border Routers, which are in fact just devices that are both within your network and have a Thread chip builtin and thus act as a "router"  between the Thread radio signal and your local network. These border routers (you will probably end up having multiple of them in your house) make sure that your Thread based devices are reachable on your regular network and thus can be controlled with Matter. Examples of Thread Borders routers are the Apple TV 4K, HomePod (gen 2 or Mini) and the Google Nest Hub V2, so devices that you may already own. Besides that, all kind of other border routers are available, built-in to hardware applicances or software solutions based on OpenThread Border Router, such as the addon we provide to use with the built-in Zigbee/Thread chip of the [Home Assistant Yellow](/yellow/) or the [Home Assistant SkyConnect](/skyconnect/) dongle.
+Thread devices become directly addresseable by Matter controllers (such as Home Assistant) thanks to the use of so called Thread Border Routers, which are in fact just devices that are both within your network and have a Thread chip builtin and thus act as a "router"  between the Thread radio signal and your local network. These border routers (you will probably end up having multiple of them in your house) make sure that your Thread based devices are reachable on your regular network and thus can be controlled with Matter. Examples of Thread Borders routers are the Apple TV 4K, HomePod (gen 2 or Mini) and the Google Nest Hub V2, so devices that you may already own. Besides that, all kind of other border routers are available, built-in to hardware applicances or software solutions based on OpenThread Border Router, such as the add-on we provide to use with the built-in Zigbee/Thread chip of the [Home Assistant Yellow](/yellow/) or the [Home Assistant SkyConnect](/skyconnect/) dongle.
 
 In order to use any Thread based devices on a Matter controller you need to have at least one Thread Border router device within range of the device.
 More info about Thread and diagnosing Thread networks and Border routers, see the [Thread](/integrations/thread/) integration.
@@ -61,10 +61,10 @@ A lot of devices that (will) hit the market will use Thread for the radio commun
 
 ## Bluetooth
 
-Most (if not all) Matter compliant devices will also have a Bluetooth chip onboard, this is to ease comissioning (a somewhat technical term for adding a device to your controller). Bluetooth will not be used for controlling a device but only for pairing it after unboxing or factory reset. The Home Assistant controller uses the Home Assistant Companion app to do comissioning so you can bring your phone close to the device you want to commission. Your network credentials will then be sent by the controller to your device over bluetooth in the commissioning process. If that succeeded, the device will furthermore communicate over its native interface, meaning WiFi, ethernet or Thread.
+Most (if not all) Matter compliant devices will also have a Bluetooth chip onboard, this is to ease commissioning (a somewhat technical term for adding a device to your controller). Bluetooth will not be used for controlling a device but only for pairing it after unboxing or factory reset. The Home Assistant controller uses the Home Assistant Companion app to do commissioning so you can bring your phone close to the device you want to commission. Your network credentials will then be sent by the controller to your device over Bluetooth in the commissioning process. If that succeeded, the device will furthermore communicate over its native interface, meaning WiFi, Ethernet or Thread.
 
 <p class='note'>
-Although your Home Assistant server might have a bluetooth adapter on board so the controller can use that for comissioning of devices, we choose not to utilize that adapter, mainly to prevent issues with the built-in Bluetooth integration but also because it makes more sense to just bring your mobile devices close to the Matter device you'd like to commission.
+Although your Home Assistant server might have a Bluetooth adapter on board that the controller can use for commissioning of devices, we choose not to utilize that adapter. Mainly to prevent issues with the built-in Bluetooth integration but also because it makes more sense to bring your mobile devices close to the Matter device you'd like to commission.
 </p>
 
 ## Multi fabric: join to multiple controllers
@@ -80,13 +80,13 @@ Image taken from [this excellent article by The Verge](https://www.theverge.com/
 
 {% include integrations/config_flow.md %}
 
-For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" in a seperate process which will be launched as add-on. This add-on runs the actual controller software and provides the connection between your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a websocket connection.
+For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" in a separate process which will be launched as add-on. This add-on runs the actual controller software and provides the connection between your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a websocket connection.
 
 The only supported configuration (for now) for the Matter integration is by running the officially provided Home Assistant Matter add-on. Running the [Matter server](https://github.com/home-assistant-libs/python-matter-server) by any other means is at your own risk and currently not officially supported.
 
 ## Current state of the integration
 
-While the support for Matter is evolving, we will regularly update the Matter integration with new features or device support. Because it might be hard to track what's supported and what not, we list the current state here and try to update this information on a regular base.
+While the support for Matter is evolving, we will regularly update the Matter integration with new features or device support. Because it might be hard to track what's supported and what's not, we list the current state here and try to update this information on a regular basis.
 
 Supported platforms (device types)
 
@@ -100,7 +100,7 @@ Supported platforms (device types)
 
 Note that a single Matter device can exist of multiple platform. For example a Motion sensor which also has a temperature sensor and Illuminance sensor on board.
 
-Do you own a (bridged) Matter device and you are missing controls for this device, create an issue on Github and make sure to post your Integration diagnostics there. In some cases we can easily extend the existing platform support based on your diagnostics dump.
+If you own a (bridged) Matter device and you are missing controls for this device, create an issue on [GitHub](https://github.com/home-assistant/home-assistant.io) and make sure to post your Integration diagnostics there. In some cases we can easily extend the existing platform support based on your diagnostics dump.
 
 ## Adding Matter devices to Home Assistant
 
@@ -112,7 +112,7 @@ This will use the Bluetooth connection of your phone to add the device.
 
 1. Open The Home Assistant app on your phone.
 2. Go to Settings, Devices & Services.
-3. On the Devices tab, press the `Add device` button.
+3. On the **Devices** tab, press the **Add device** button.
 4. Choose `Add Matter device` as the top of the list.
 5. Scan the QR-code of the Matter device with your phone camera or press `More options...` to manually enter the Commission code.
 6. Press the `Add to Home Assistant` button which will start the commissioning process which may take up to a few minutes.
@@ -185,7 +185,7 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 
 Because availability of actual Matter devices is sparse and proper HOWTO documentation even more, we provide a list of all known working devices that are tested by the Home Assistant Matter developers and/or the community. The list below is unordered and some of the links contain affiliate links.
 
-Did you test a device that is not listed below ? It would be greatly appreciated if you share your experience either on the Matter discord channel or contibute a PR (or suggestion) to this documentation page so you can help out others, thanks in advance!
+Did you test a device that is not listed below ? It would be greatly appreciated if you share your experience either on the Matter discord channel or contribute a PR (or suggestion) to this documentation page so you can help out others, thanks in advance!
 
 ### Aqara M2 Hub
 
