@@ -240,7 +240,7 @@ The Philips Hue V2 bridge supports Matter since a recent update (the beta progra
 
 - Realize that you are an early adopter, both on the hardware side and on the software (controller) side so you may run into compatibility issues or features that are still missing. Report any issues you may find and help out others if you find a workaround or tested a device.
 
-- Make sure that IPv6 (multicast) traffic can travel freely from your network to the Home Assistant host. There is no requirement to have an IPv6 enabled internet connection or DHCP server but at least do not disable the IPv6 interface on HAOS (it's enabled by default).
+- Make sure that IPv6 (multicast) traffic can travel freely from your network to the Home Assistant host. There is no requirement to have an IPv6 enabled internet connection or DHCPv6 server. However, IPv6 support has to be enabled (it's enabled by default on Home Assistant OS).
 
 ### I do not see the button "Commission using the Companion app"
 
