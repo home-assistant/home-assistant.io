@@ -40,7 +40,7 @@ Home Assistant is a so called *controller*, it can control Matter based devices.
 ## Bridge devices
 
 One of the great things about Matter is that you can have both Wi-Fi and Thread based devices on the same controller.
-Next to actual devices (e.g. actors or sensors) you will also see Bridges (most likely connected over ethernet but can be WiFi too) which (as the name implies) bridges multiple devices into Matter. A great example of this is the Philips Hue V2 bridge which is a Zigbee hub but also a Matter bridge, so it exposes all Zigbee devices already connected to the bridge as Matter devices on the network. Also Aqara, SwitchBot and IKEA have launched such Hub devices.
+Next to actual devices (e.g. actors or sensors), you will also see bridges. The bridge itself is connected to the network over Ethernet or Wi-Fi and bridges multiple devices into a Matter network. A great example of this is the Philips Hue V2 bridge which is a Zigbee hub but also a Matter bridge. This bridge exposes all Zigbee devices that are already connected to the bridge as Matter devices on the network. Also Aqara, SwitchBot, and IKEA have launched such Hub devices.
 
 <p class='note'>
 Home Assistant, as a Matter controller, only supports **control** of Matter devices. Home Assistant is not a bridge itself and it cannot turn existing devices within Home Assistant into Matter compatible devices.
