@@ -86,7 +86,7 @@ The only supported configuration (for now) for the Matter integration is by runn
 
 ## Current state of the integration
 
-While the support for Matter is evolving, we will regularly update the Matter integration with new features or device support. Because it might be hard to track what's supported and what not, we list the current state here and try to update this information on a regular base.
+While the support for Matter is evolving, we will regularly update the Matter integration with new features or device support. Because it might be hard to track what's supported and what's not, we list the current state here and try to update this information on a regular basis.
 
 Supported platforms (device types)
 
