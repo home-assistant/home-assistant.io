@@ -110,14 +110,14 @@ Each Matter network is called a fabric. Each home automation controller that con
 This will use the Bluetooth connection of your phone to add the device.
 
 1. Open The Home Assistant app on your phone.
-2. Go to Settings, Devices & Services.
+2. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
 3. On the **Devices** tab, press the **Add device** button.
 4. Choose **Add Matter device** at the top of the list.
-5. Scan the QR-code of the Matter device with your phone camera or press `More options...` to manually enter the Commission code.
-6. Press the `Add to Home Assistant` button which will start the commissioning process which may take up to a few minutes.
-7. If you're adding a test board or beta device you might get a prompt about an Uncertified Accessory". In this dialog press `Add Anyway`.
-8. Once prompted you can enter a custom Accessory Name, this is just an internal reference and not visible in Home Assistant so you can type whatever you like here.
-9. Once the process is complete and you pressed the `Done` button, you are redirected to the Device within Home Assistant and its ready for use.
+5. Scan the QR-code of the Matter device with your phone camera or press **More options...** to manually enter the Commission code.
+6. Select the **Add to Home Assistant** button which will start the commissioning process which may take up to a few minutes.
+7. If you're adding a test board or beta device, you might get a prompt about a "Uncertified Accessory". In this dialog, select **Add Anyway**.
+8. Once prompted, you can enter a custom **Accessory Name**, this is just an internal reference and not visible in Home Assistant. You can type whatever you like here.
+9. Once the process is complete and you pressed the **Done** button, you are redirected to the device within Home Assistant. It is ready for use.
 
 <lite-youtube videoid="8y79Kq3QfCQ" videotitle="Add Matter device via iOS app in Home Assistant"></lite-youtube>
 
@@ -126,13 +126,13 @@ This will use the Bluetooth connection of your phone to add the device.
 This will use the Bluetooth connection of your phone to add the device.
 
 1. Open The Home Assistant app on your phone.
-2. Go to Settings, Devices & Services.
-3. On the Devices tab, press the `Add device` button.
-4. Choose `Add Matter device` as the top of the list.
-5. Scan the QR-code of the Matter device with your phones camera or press the `Setup without QR-code` button to manually enter the Commission code.
+2. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+3. On the **Devices** tab, press the **Add device** button.
+4. Choose **Add Matter device** as the top of the list.
+5. Scan the QR-code of the Matter device with your phones camera or select the **Setup without QR-code** button to manually enter the commission code.
 6. The process will start adding the device which takes up to a few minutes.
 7. If you're adding a test board (e.g. ESP32 running the example apps) and commissioning fails, you might need to take some actions in the Google Developer console, have a look at any instructions for your test device.
-8. Once the process is complete and you pressed the `Done` button, you are redirected to the Device within Home Assistant and its ready for use.
+8. Once the process is complete and you pressed the **Done** button, you are redirected to the device within Home Assistant. It is ready for use.
 
 <lite-youtube videoid="Fk0n0r0eKcE" videotitle="Add Matter device via Android app in Home Assistant"></lite-youtube>
 
@@ -140,7 +140,7 @@ This will use the Bluetooth connection of your phone to add the device.
 
 This method will allow you to select a Matter device from Apple Home and share it to Home Assistant. The result is that the device can be controlled from both Apple Home and Home Assistant at the same time.
 
-1.  Find your device in Apple Home and press the jogwheel to edit it. In the page with detailed descriptions and settings for the device, scroll all the way down and press the button `Turn On Pairing Mode`.
+1.  Find your device in Apple Home and press the jogwheel to edit it. In the page with detailed descriptions and settings for the device, scroll all the way down and press the button **Turn On Pairing Mode**.
 2.  You are now given a Setup code, copy this to the clipboard.
 3.  Follow the [Add a device using the iOS Companion app](#add-a-device-using-the-ios-companion-app) directions above to add the device to Home Assistant where you paste the code you just received from Apple Home.
 
@@ -151,9 +151,9 @@ This method will allow you to select a Matter device from Apple Home and share i
 This method will allow you to share a device that was added to Google Home to Home Assistant. The result is that the device can be controlled from both Google Home and Home Assistant at the same time.
 
 1.  Open the device in Google Home and press the settings button (jog wheel) in the top right.
-2.  Click `Linked Matter apps and services`.
-3.  Press the button `Link apps and services` to link the device to Home Assistant.
-4.  Choose Home Assistant from the list, you are redirected to the Home Assistant Companion app now. Press `Add device`.
+2.  Click **Linked Matter apps and services**.
+3.  Press the button **Link apps and services** to link the device to Home Assistant.
+4.  Choose Home Assistant from the list, you are redirected to the Home Assistant Companion app now. Press **Add device**.
 5.  Your device will now be added to Home Assistant. When the process finishes, you're redirected to the device page in Home Assistant.
 
 <lite-youtube videoid="-B4WWevd2JI" videotitle="Share Matter device from Google Home to Home Assistant"></lite-youtube>
@@ -170,14 +170,14 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 
 1. Make sure you are using the Google Chrome or Microsoft Edge browser.
 2. Open https://nabucasa.github.io/matter-example-apps/
-3. Attach the ESP32 device using an USB cable.
-4. Click the radiobutton next to the example you like to setup, in case of an M5 Stamp, click `Lightning app for M5STAMP C3`.
-5. Press `Connect`.
-6. In the popup dialog that appears choose the correct serial device, in most cases this will be something like "cu-usbserial" or alike.
-7. Click `Install Matter Lightning app example` and let it install the firmware on the device, this will take a few minutes.
-8. Once the device is flashed with the Matter firmware, connect to the device again but this time choose `Logs & console`.
-9. You are presented with a console interface where you see live logging of events. This is actually an interactive shell where you can type commands. For a list of all commands, type `matter help` and press enter.
-10. To add the device, we need the QR code. In the console type in `matter onboardingcodes ble` and copy/paste the URL in your browser.
+3. Attach the ESP32 device using a USB cable.
+4. Select the radio button next to the example you like to setup, in case of an M5 Stamp, click **Lightning app for M5STAMP C3**.
+5. Select **Connect**.
+6. In the popup dialog that appears, choose the correct serial device, in most cases this will be something like "cu-usbserial" or alike.
+7. Click **Install Matter Lightning app example** and let it install the firmware on the device. This will take a few minutes.
+8. Once the device is flashed with the Matter firmware, connect to the device again but this time choose **Logs & console**.
+9. You are presented with a console interface where you see live logging of events. This is actually an interactive shell where you can type commands. For a list of all commands, type **matter help** and press enter.
+10. To add the device, we need the QR code. In the console type in **matter onboardingcodes ble** and copy/paste the URL in your browser.
 11. Use the QR code to add the device using one of the above instructions on your phone, e.g. using the Home Assistant Companion app.
 
 ## Known working devices
@@ -256,6 +256,6 @@ Also see this [extended troubleshooting guide](https://developers.home.google.co
 
 ### Unable to commission devices, it keeps giving errors or stops working randomly
 
-The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices that use WiFi (including Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Matter devices that only use Thread must be joined to Thread networks for which there is at least one border router connected to the Home Assistant LAN.
+The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices that use Wi-Fi (including Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Matter devices that only use Thread must be joined to Thread networks for which there is at least one border router connected to the Home Assistant LAN.
 
-If you experience any issues with the discovery of devices (e.g. initial commission keeps failing) or devices become unavailable randomly, investigate your network topology. For instance a setting on your router or Wi-Fi access point to "optimize" multicast traffic can actually harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and do not play nice with enterprise networking solutions like VLAN's, Multicast filtering, and IGMP snooping. To avoid issues, try to keep your network as simple and flat as possible.
+If you experience any issues with the discovery of devices (e.g. initial commission keeps failing) or devices become unavailable randomly, investigate your network topology. For instance, a setting on your router or Wi-Fi access point to "optimize" multicast traffic can actually harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and do not play nice with enterprise networking solutions like VLAN's, Multicast filtering, and IGMP snooping. To avoid issues, try to keep your network as simple and flat as possible.
