@@ -115,7 +115,7 @@ This will use the Bluetooth connection of your phone to add the device.
 4. Choose **Add Matter device** at the top of the list.
 5. Scan the QR-code of the Matter device with your phone camera or press **More options...** to manually enter the Commission code.
 6. Select the **Add to Home Assistant** button which will start the commissioning process which may take up to a few minutes.
-7. If you're adding a test board or beta device, you might get a prompt about a "Uncertified Accessory". In this dialog, select **Add Anyway**.
+7. If you're adding a test board or beta device, you might get a prompt about an "Uncertified Accessory". In this dialog, select **Add Anyway**.
 8. Once prompted, you can enter a custom **Accessory Name**, this is just an internal reference and not visible in Home Assistant. You can type whatever you like here.
 9. Once the process is complete and you pressed the **Done** button, you are redirected to the device within Home Assistant. It is ready for use.
 
