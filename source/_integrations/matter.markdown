@@ -56,7 +56,7 @@ In order to use any Thread based devices on a Matter controller you need to have
 More info about Thread and diagnosing Thread networks and Border routers, see the [Thread](/integrations/thread/) integration.
 
 <p class='note'>
-A lot of devices that (will) hit the market will use Thread for the radio communication and Matter as control protocol but this is not guaranteed. There are for example also Thread based devices available that only support Apple Homekit or some vendor specific communication protocol. There are also a few  cases where you meed to apply for a (beta) firmware update on the device to enable Matter as communication protocol. Therefore it is adviced that whenever you are looking for devices, do not assume Matter support when you see a Thread logo but look for the *Matter logo itself* (on either Wifi/ethernet based devices or Thread) or any other confirmation by the manufacturer that the device supports Matter.
+A lot of devices that (will) hit the market will use Thread for the radio communication and Matter as control protocol but this is not guaranteed. There are for example also Thread based devices available that only support Apple HomeKit or some vendor specific communication protocol. There are also a few  cases where you need to apply for a (beta) firmware update on the device to enable Matter as communication protocol. Therefore, whenever you are looking for devices, do not assume Matter support when you see a Thread logo. Look for the *Matter* logo itself (on either Wi-Fi/Ethernet based devices or Thread) or any other confirmation by the manufacturer that the device supports Matter.
 </p>
 
 ## Bluetooth
