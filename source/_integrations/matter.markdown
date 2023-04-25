@@ -35,7 +35,7 @@ Matter is [the new standard for home automation](<https://en.wikipedia.org/wiki/
 
 Unlike radio based protocols we're already familiar with in the IoT landscape, like Zigbee and Z-Wave, Matter makes use of standard IP-based communication so it runs on top of the existing network infrastructure (meaning: it uses your existing WiFi and ethernet routers) and Thread.
 
-Home Assistant is a so called Controller, it can **control** Matter based devices. Other examples of Matter controllers are the Google Nest speakers, Apple Homepods and a SmartThings Station.
+Home Assistant is a so called *controller*, it can control Matter based devices. Other examples of Matter controllers are the Google Nest speakers, Apple HomePods, and a SmartThings Station.
 
 ## Bridge devices
 
