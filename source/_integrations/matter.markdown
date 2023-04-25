@@ -182,7 +182,7 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 
 ## Known working devices
 
-Because availability of actual Matter devices (and their documentation) is sparse, we provide a list of all known working devices that are tested by the Home Assistant Matter developers and/or the community. The list below is ordered alphabetically and some of the links contain affiliate links.
+Because availability of actual Matter devices (and their documentation) is sparse, we provide a list of all known working devices that are tested by the Home Assistant Matter developers and/or the community to help you find the device you need. Note: The list below is ordered alphabetically and some of the links contain affiliate links.
 
 Did you test a device that is not listed below ? It would be greatly appreciated if you share your experience either on the Matter discord channel or contribute a PR (or suggestion) to this documentation page so you can help out others, thanks in advance!
 
