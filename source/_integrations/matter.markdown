@@ -80,7 +80,7 @@ Image taken from [this excellent article by The Verge](https://www.theverge.com/
 
 {% include integrations/config_flow.md %}
 
-For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" in a seperate process which will be launched as add-on. This add-on runs the actual controller software and provides the connection between your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a websocket connection.
+For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" in a separate process which will be launched as add-on. This add-on runs the actual controller software and provides the connection between your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a websocket connection.
 
 The only supported configuration (for now) for the Matter integration is by running the officially provided Home Assistant Matter add-on. Running the [Matter server](https://github.com/home-assistant-libs/python-matter-server) by any other means is at your own risk and currently not officially supported.
 
