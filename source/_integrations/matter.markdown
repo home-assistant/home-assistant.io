@@ -77,9 +77,6 @@ For devices where Home Assistant provides a native integration (with local API),
 
 Image taken from [this excellent article by The Verge](https://www.theverge.com/23165855/thread-smart-home-protocol-matter-apple-google-interview) about Matter that shows the landcape of Matter, Thread, Border routers and bridges in a nice visualized way.
 
-<p class='note'>
-The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices (and any Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Implementations like mDNS reflectors usually do more harm than good.
-</p>
 
 {% include integrations/config_flow.md %}
 
@@ -190,6 +187,16 @@ Because availability of actual Matter devices is sparse and proper HOWTO documen
 
 Did you test a device that is not listed below ? It would be greatly appreciated if you share your experience either on the Matter discord channel or contibute a PR (or suggestion) to this documentation page so you can help out others, thanks in advance!
 
+### Aqara M2 Hub
+
+- Bridges Aqara (Zigbee) devices connected to the hub to Matter.
+- You need to enable Matter support/firmware in the Aqara app.
+- You will need to create an Aqara (cloud) account and the app before you can use Matter.
+- See [this page](https://www.aqara.com/en/article-1583275073188196352.html) for more information including what devices are bridged.
+- Thermostat devices (climate platform) are not supported yet (but currently in development).
+- Device events for example for the wall rockers and Cube are not supported.
+
+
 ### TP-Link Tapo P125M (power plug)
 
 - Look for the M addition in the model name, a device without the M (regular P125) is not Matter compliant.
@@ -210,6 +217,10 @@ Did you test a device that is not listed below ? It would be greatly appreciated
 [Eve Motion on Amazon](https://amzn.to/3jDujiP)
 
 ## Troubleshooting
+
+<p class='note'>
+The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices (and any Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Implementations like mDNS reflectors usually do more harm than good.
+</p>
 
 ### I do not see the option to add a Matter device in the settings
 
