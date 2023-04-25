@@ -21,5 +21,3 @@ The VoIP integration enables users to talk to [Assist](/docs/assist) using an an
 </p>
 
 {% include integrations/config_flow.md %}
-
-Calls from new devices are blocked by default since voice commands could be used to control sensitive devices, such as locks and garage doors. Ensure that you've configured [Assist](/docs/assist/) to only expose the entities you want to be controllable via voice.
