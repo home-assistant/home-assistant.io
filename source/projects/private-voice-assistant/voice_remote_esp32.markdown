@@ -51,3 +51,8 @@ your smart home. Issue commands and get responses!
    ![atom echo discovered](/images/assist/assist-icon-01.png)
    * Enter your phrase to test if the setup works with your device.
    ![atom echo discovered](/images/assist/assist-test-sentence-01.png)
+
+## Troubleshooting
+
+Are things not working as expected?
+* Checkout the [general troubleshooting section for Assist](/projects/private-voice-assistant/troubleshooting-assist/).
