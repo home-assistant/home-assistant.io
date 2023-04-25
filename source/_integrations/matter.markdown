@@ -233,15 +233,13 @@ The Philips Hue V2 bridge supports Matter since a recent update (the beta progra
 
 ### General recommendations
 
-- Using Thread based Matter devices in Home Assistant requires Home Assistant OS (version 10 and above) because of kernel patches to solve routing issues, not using HAOS (and thus the official Matter add-on) is at your own risk.
+- Using Thread based Matter devices in Home Assistant requires Home Assistant OS (version 10 and above) because of kernel patches to solve routing issues. Not using HAOS (and thus the official Matter add-on) is at your own risk.
 
-- To use Thread devices you will need at least one Thread Border router in your network nearby the Thread device(s). Apple users need for example the Apple TV 4K or the HomePod Mini while Google users need a Nest Hub V2.
+- To use Thread devices you will need a Thread Network with at least one Thread Border Router in your network nearby the Thread device(s). Apple users need for example the Apple TV 4K or the HomePod Mini while Google users need a Nest Hub V2. Use the Thread integration in Home Assistant to diagnose your Thread network(s).
 
 - Start simple and work from there, keep your network easy and add for example an ESP32 test device. Does that work, move on to the next step or more devices.
 
 - Realize that you are an early adopter, both on the hardware side and on the software (controller) side so you may run into compatibility issues or features that are still missing. Report any issues you may find and help out pothers if you find a workaround or tested a device.
-
-- Use the Thread integration in Home Assistant to diagnose your Thread network.
 
 
 ### I do not see the button "Commission using the Companion app"
