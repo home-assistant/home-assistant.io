@@ -185,7 +185,7 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 
 Because availability of actual Matter devices is sparse and proper HOWTO documentation even more, we provide a list of all known working devices that are tested by the Home Assistant Matter developers and/or the community. The list below is unordered and some of the links contain affiliate links.
 
-Did you test a device that is not listed below ? It would be greatly appreciated if you share your experience either on the Matter discord channel or contibute a PR (or suggestion) to this documentation page so you can help out others, thanks in advance!
+Did you test a device that is not listed below ? It would be greatly appreciated if you share your experience either on the Matter discord channel or contribute a PR (or suggestion) to this documentation page so you can help out others, thanks in advance!
 
 ### Aqara M2 Hub
 
