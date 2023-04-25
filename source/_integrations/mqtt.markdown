@@ -80,6 +80,12 @@ If you experience an error message like `Failed to connect due to exception: [SS
 
 Advanced broker configuration options include setting a custom client ID, setting a client certificate and key for authentication and enabling TLS validation of the brokers certificate for. To access the advanced settings, open the MQTT broker settings, switch on `Advanced options` and click `Next`. The advanced options will be shown by default if there are advanced settings active already.
 
+<div class='note info'>
+
+Advanced broker options are accessible only when advanced mode is enabled (see user settings), or when advanced broker settings are configured already.
+
+</div>
+
 #### Alternative client ID
 
 You can set a custom MQTT client ID, this can help when debugging. Mind that the client ID must be unique. Leave this settings default if you want Home Assistant to generate a unique ID.
