@@ -84,11 +84,6 @@ Are things still not working as expected?
 
 * Checkout the [general troubleshooting section for Assist](/projects/private-voice-assistant/troubleshooting-assist).
 
-## FAQ
-
-**Which languages are supported?**
-[These are the languages supported by Home Assistant](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages/).
-
 ## About the analog phone
 
 You can use any analog landline phone with an RJ11 socket.
