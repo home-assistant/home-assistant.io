@@ -230,9 +230,18 @@ The Philips Hue V2 bridge supports Matter since a recent update (the beta progra
 
 ## Troubleshooting
 
-<p class='note'>
-The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices (and any Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Implementations like mDNS reflectors usually do more harm than good.
-</p>
+
+### General recommendations
+
+- Using Thread based Matter devices in Home Assistant requires Home Assistant OS (version 10 and above) because of kernel patches to solve routing issues, not using HAOS (and thus the official Matter add-on) is at your own risk.
+
+- To use Thread devices you will need at least one Thread Border router in your network nearby the Thread device(s). Apple users need for example the Apple TV 4K or the HomePod Mini while Google users need a Nest Hub V2.
+
+- Start simple and work from there, keep your network easy and add for example an ESP32 test device. Does that work, move on to the next step or more devices.
+
+- Realize that you are an early adopter, both on the hardware side and on the software (controller) side so you may run into compatibility issues or features that are still missing. Report any issues you may find and help out pothers if you find a workaround or tested a device.
+
+- Use the Thread integration in Home Assistant to diagnose your Thread network.
 
 
 ### I do not see the button "Commission using the Companion app"
@@ -251,4 +260,8 @@ Also see this [extended troubleshooting guide](https://developers.home.google.co
 
 ### Unable to commission devices, it keeps giving errors or stops working randomly
 
-We've seen cases (e.g. on UniFi hardware) where IPv6 derived from the Internet Provider causes issues with the discovery of Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and do not play nice with enterprise solutions like VLAN's, Multicast filtering, and IGMP snooping. To avoid issues, try to keep your network as simple and flat as possible.
+The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices that use WiFi (including Thread Border routers) must be on the same LAN/VLAN as Home Assistant. Matter devices that only use Thread must be joined to Thread networks for which there is at least one border router connected to the Home Assistant LAN.
+
+If you experience any issues with the discovery of devices (e.g. initial commission keeps failing) or devices become unavailable randomly, investigate your network topology. For instance a setting on your router or Wi-Fi access point to "optimize" multicast traffic can actually harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and do not play nice with enterprise networking solutions like VLAN's, Multicast filtering, and IGMP snooping. To avoid issues, try to keep your network as simple and flat as possible.
+
+
