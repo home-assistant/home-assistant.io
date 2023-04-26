@@ -1,5 +1,5 @@
 ---
-title: "Setting up an ESP32 to control Home Assistant"
+title: "$13 voice remote that controls Home Assistant"
 ---
 
 This tutorial will guide you to turn an ESP32 (ATOM Echo by M5) into the
@@ -9,11 +9,10 @@ your smart home. Issue commands and get responses!
 ## Required material
 
 * Latest version of Home Assistant installed on your Home Assistant device 
-* A controllable device in your Home Assistant network
 * [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/integrations/assist_pipeline)
 * The password to your 2.4&nbsp;GHz Wi-Fi network
 * Chrome (or a Chromium-based browser like Edge) on desktop (not Android/iOS) 
-* ESP32 board with a built-in speaker: [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
+* [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
 * USB-C cable to connect the ATOM Echo
 
 ## Flashing the firmware onto the ATOM Echo
@@ -33,7 +32,7 @@ your smart home. Issue commands and get responses!
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
    * You should now see a new **M5Stack Atom Echo** integration.
    * Select **Configure** and then **Submit**.
-   * The ESP32 integration should now show all the entities.
+   * The ESPHome config entry should now show all the entities.
    ![atom echo discovered](/images/assist/m5stack-atom-echo-discovered-03.png)
 1. Congratulations! You've setup your ATOM Echo device to voice control Home Assistant. Now give some commands.
    * Press the button on your ATOM Echo.
