@@ -91,7 +91,7 @@ Supported platforms (device types):
 
 - Binary sensor: We have so far tested door/window sensors and motion sensors, but others will probably work too.
 - Climate: Support for thermostat devices is in development now.
-- Cover: Basic cover control has been implemented, but not all devices are supported yet.
+- Cover: Has been implemented, but support for a tilt feature is still missing.
 - Lights: All features (in the Matter specification) should be supported, including color control, etc.
 - Locks: Basic lock control has been implemented, but not all devices and features are supported yet.
 - Sensor: We have tested Illuminance and temperature sensors, but others will probably work too.
