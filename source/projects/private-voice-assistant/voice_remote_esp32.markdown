@@ -30,25 +30,27 @@ Before you can use this device with Home Assistant, you need to install a bit of
    * Plug the USB-C cable into the ATOM Echo and connect it to your computer.
    * In the pop-up window, there should now appear a new entry. Select this USB serial port and select **Connect**.
    ![Select USB port](/images/assist/esp32-atom-flash-select-port.png)
-        * Select **Install Voice Assistant**, then **Install**.
-        * Follow the instructions provided by the installation wizard.
-        * Add the ATOM Echo to your Wi-Fi:
-          * When prompted, select your network from the list and enter the credentials to your 2.4&nbsp;GHz Wi-Fi network.
-          * Select **Connect**.
-          * The ATOM Echo now joined your network. Select **Add to Home Assistant**.
-1. This opens the **My** link to Home Assistant. 
+   * If no new port shows, your system may be missing a driver. Close the pop-up window.
+     * In the dialog, select the suggested driver and install it.
+2. Select **Install Voice Assistant**, then **Install**.
+     * Follow the instructions provided by the installation wizard.
+     * Add the ATOM Echo to your Wi-Fi:
+       * When prompted, select your network from the list and enter the credentials to your 2.4&nbsp;GHz Wi-Fi network.
+       * Select **Connect**.
+       * The ATOM Echo now joined your network. Select **Add to Home Assistant**.
+3. This opens the **My** link to Home Assistant. 
    * If you previously changed the hostname, in `http://homeassistant.local:8123` replace `homeassistant` with the hostname or IP address of your local Home Assistant instance.
    * Select **Save**, then **Open link**.
    ![Open My link](/images/assist/esp32-atom-flash-06.png)
-1. Select **OK**. 
+4. Select **OK**. 
    
    ![Set up ESPHome](/images/assist/esp32-atom-flash-07.png)
-1. To add the newly discovered device, select the ATOM Echo from the list.
+5. To add the newly discovered device, select the ATOM Echo from the list.
    * Add your ATOM Echo to a room and select **Finish**. 
-1. You should now see a new **M5Stack Atom Echo** integration.
+6. You should now see a new **M5Stack Atom Echo** integration.
    ![ATOM Echo discovered](/images/assist/m5stack-atom-echo-discovered-03.png)
    * Your ATOM Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply. 
-1. Congratulations! You can now voice control Home Assistant using a button with build-in microphone. Now give some commands.
+7. Congratulations! You can now voice control Home Assistant using a button with build-in microphone. Now give some commands.
 
 ## Controlling Home Assistant over the ATOM Echo
 
