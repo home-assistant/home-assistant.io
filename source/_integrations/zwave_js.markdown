@@ -130,12 +130,13 @@ The Z-Wave integration provides several special entities, some of which are avai
 
 ### Entities available for every Z-Wave device
 
-1. Node status sensor - This sensor, which is disabled by default, shows the node status for a given Z-Wave device. The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status) and can be used in state change automations to e.g. ping a device when it is dead, or refresh values when it wakes up.
-2. Ping button - This button can be pressed to ping a device and is an alternative to the `zwave_js.ping` service.
+1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device.  The sensor is disabled by default.  The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
+2. **Ping** button: This button can be pressed to ping a device. It is an alternative to the `zwave_js.ping` service.
+3. **Controller/node statistics** sensors: Z-Wave JS collects statistics about communications between [nodes](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot) and the [controller](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot) which can be used to troubleshoot RF issues in your environment. These statistics are available in the network configuration and device info panels. But they are also available as sensors which are disabled by default.
 
 ### Conditional entities
 
-1. Button to manually idle notifications - Any Notification CC values on a device that have an `idle` state will get a corresponding button entity. This button entity can be used to manually idle a notification when it doesn't automatically clear on its own.
+1. Button to **manually idle notifications**: Any Notification Command Class (CC) values on a device that have an idle state will get a corresponding button entity. This button entity can be used to manually idle a notification when it doesn't automatically clear on its own. A device can have multiple Notification CC values. For example one for detecting smoke and one for detecting carbon monoxide.
 
 ## Using advanced features (UI only)
 
