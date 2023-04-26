@@ -10,7 +10,6 @@ ha_codeowners:
   - '@synesthesiam'
 ha_domain: voip
 ha_integration_type: integration
-ha_quality_scale: internal
 ---
 
 The VoIP integration enables users to talk to [Assist](/docs/assist) using an analog phone and a VoIP adapter such as the [Grandstream HT801](https://amzn.to/40k7mRa). See [the tutorial](/projects/private-voice-assistant/voice_remote_classic_phone/) for detailed instructions.
