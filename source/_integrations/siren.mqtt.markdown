@@ -216,7 +216,7 @@ state_topic:
 state_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's state from the `state_topic`. To determine the siren's state result of this template will be compared to `state_on` and `state_off`. Alternatively `value_template` can be used to render to a valid JSON payload."
   required: false
-  type: string
+  type: template
 support_duration:
   description: Set to `true` if the MQTT siren supports the `duration` service turn on parameter and enables the `duration` state attribute.
   required: false

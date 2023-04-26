@@ -130,12 +130,12 @@ The Z-Wave integration provides several special entities, some of which are avai
 
 ### Entities available for every Z-Wave device
 
-1. Node status sensor - This sensor, which is disabled by default, shows the node status for a given Z-Wave device. The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status) and can be used in state change automations to e.g. ping a device when it is dead, or refresh values when it wakes up.
-2. Ping button - This button can be pressed to ping a device and is an alternative to the `zwave_js.ping` service.
+1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device.  The sensor is disabled by default.  The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
+2. **Ping** button: This button can be pressed to ping a device. It is an alternative to the `zwave_js.ping` service.
 
 ### Conditional entities
 
-1. Button to manually idle notifications - Any Notification CC values on a device that have an `idle` state will get a corresponding button entity. This button entity can be used to manually idle a notification when it doesn't automatically clear on its own.
+1. Button to **manually idle notifications**: Any Notification Command Class (CC) values on a device that have an idle state will get a corresponding button entity. This button entity can be used to manually idle a notification when it doesn't automatically clear on its own. A device can have multiple Notification CC values. For example one for detecting smoke and one for detecting carbon monoxide.
 
 ## Using advanced features (UI only)
 
@@ -872,3 +872,16 @@ Z-Wave JS writes details to its logs. To access these logs go to the following.
    **Settings** -> **Devices & Services** -> **Integrations(tab)** -> **Z-Wave (CONFIGURE)** -> **Logs(tab)**
 
 You need to keep this browser tab open for logging to be active.
+
+## Z-Wave terminology
+
+For some of the concepts, you may come across different terminology in Z-Wave than in Home Assistant.
+The table below provides equivalents for some of those terms.
+
+| Z-Wave functionality                   | Home Assistant                                                          |
+| -------------------------------------- | ------------------------------------------------------------------------|
+| inclusion                              | add                                                                     |
+| exclusion                              | remove                                                                  |
+| barrier operator                       | cover                                                                   |
+| window covering                        | cover                                                                   |
+| multilevel switch                      | represented by different entity types: cover, fan, dimmer, etc.         |
