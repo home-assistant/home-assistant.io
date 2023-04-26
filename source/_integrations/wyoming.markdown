@@ -15,7 +15,7 @@ ha_quality_scale: internal
 
 The Wyoming integration connects external voice services to Home Assistant using a [small protocol](https://github.com/rhasspy/rhasspy3/blob/master/docs/wyoming.md). This enables [Assist](/docs/assist) to use a variety of local [speech-to-text](/integrations/stt/) and [text-to-speech](/integrations/tts/) systems, such as:
 
-* [Whisper](/addons/whisper)
-* [Piper](/addons/piper)
+* Whisper {% my supervisor_addon badge addon="core_whisper" %}
+* Piper {% my supervisor_addon badge addon="core_piper" %}
 
 {% include integrations/config_flow.md %}

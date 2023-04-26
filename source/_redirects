@@ -382,8 +382,6 @@
 /addons/snips https://github.com/home-assistant/hassio-addons/blob/master/snips/README.md
 /addons/ssh https://github.com/home-assistant/hassio-addons/blob/master/ssh/README.md
 /addons/tellstick https://github.com/home-assistant/hassio-addons/blob/master/tellstick/README.md
-/addons/whisper https://github.com/home-assistant/hassio-addons/blob/master/whisper/README.md
-/addons/piper https://github.com/home-assistant/hassio-addons/blob/master/piper/README.md
 
 # Redirect old /demo to new demo page
 /demo https://demo.home-assistant.io
