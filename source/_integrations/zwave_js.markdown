@@ -136,7 +136,7 @@ The Z-Wave integration provides several special entities, some of which are avai
 
 ### Conditional entities
 
-1. Button to **manually idle notifications**: Any Notification CC values on a device that have an `idle` state will get a corresponding button entity. This button entity can be used to manually idle a notification when it doesn't automatically clear on its own.
+1. Button to **manually idle notifications**: Any Notification Command Class (CC) values on a device that have an idle state will get a corresponding button entity. This button entity can be used to manually idle a notification when it doesn't automatically clear on its own. A device can have multiple Notification CC values. For example one for detecting smoke and one for detecting carbon monoxide.
 
 ## Using advanced features (UI only)
 
