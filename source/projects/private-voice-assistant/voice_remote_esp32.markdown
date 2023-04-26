@@ -1,5 +1,5 @@
 ---
-title: "$13 voice remote that controls Home Assistant"
+title: "Setting up a $13 voice remote to control Home Assistant"
 ---
 
 This tutorial will guide you to turn an ESP32 (ATOM Echo by M5) into the
@@ -17,39 +17,51 @@ your smart home. Issue commands and get responses!
 
 ## Flashing the firmware onto the ATOM Echo
 
-1. Plug the USB-C cable into the M5Stack ATOM Echo Development Kit and connect it to your computer.
-1. Make sure this page is opened in a Chromium-based browser and select the **Connect** button below.
+1. Make sure this page is opened in a Chromium-based browser.
+   * Select the **Connect** button below.
 
    <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
    <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
 
-   * In the pop-up window, select the USB serial port and select **Connect**.
+1. Connect the device to your computer.
+   * In the popup window, view the available ports.
+   * Plug the USB-C cable into the M5Stack ATOM Echo Development Kit and connect it to your computer.
+   * In the pop-up window, there should now appear a new entry. Select this USB serial port and select **Connect**.
+   ![Select USB port](/images/assist/esp32-atom-flash-select-port.png)
         * Select **Install Voice Assistant**, then **Install**.
         * Follow the instructions provided by the installation wizard.
-        * When prompted, enter the credentials to your 2.4&nbsp;GHz Wi-Fi network.
-          * As the **Network name**, enter the SSID of your 2.4&nbsp;GHz Wi-Fi.
-          * The ATOM Echo now joined your network.
-1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-   * You should now see a new **M5Stack Atom Echo** integration.
-   * Select **Configure** and then **Submit**.
-   * The ESPHome config entry should now show all the entities.
+        * Add the ATOM Echo to your Wi-Fi:
+          * When prompted, select your network from the list and enter the credentials to your 2.4&nbsp;GHz Wi-Fi network.
+          * Select **Connect**.
+          * The ATOM Echo now joined your network. Select **Add to Home Assistant**.
+1. This opens the **My** link to Home Assistant. 
+   * If you previously changed the hostname, in `http://homeassistant.local:8123` replace `homeassistant` with the hostname or IP address of your local Home Assistant instance.
+   * Select **Save**, then **Open link**.
+   ![Open My link](/images/assist/esp32-atom-flash-06.png)
+1. Select **OK**. 
+   
+   ![Set up ESPHome](/images/assist/esp32-atom-flash-07.png)
+1. To add the newly discovered device, select the Atom Echo from the list.
+   * Add your Atom Echo to a room and select **Finish**. 
+1. You should now see a new **M5Stack Atom Echo** integration.
    ![atom echo discovered](/images/assist/m5stack-atom-echo-discovered-03.png)
-1. Congratulations! You've setup your ATOM Echo device to voice control Home Assistant. Now give some commands.
-   * Press the button on your ATOM Echo.
-     * The LED should light up in blue.
-     * Say a [supported voice command](/docs/assist/builtin_sentences/). For example, *Turn off the light in the kitchen*.
-     * You can also ask a question, such as
-        * *Is the front door locked?*
-        * *Which lights are on in the living room?*
-        * Make sure you’re using the area name as you defined it in Home Assistant. If you have a room called bathroom, the phrase *Turn on the lights in the bath* won’t work.
-   * Let go of the button.
-     * The LED should light up in green.
-     * Home Assistant will confirm the action.
-1. Your command was not recognized? Test if the command works:
-   * On the **Dashboard**, select the Assist icon in the top right corner.
-   ![atom echo discovered](/images/assist/assist-icon-01.png)
-   * Enter your phrase to test if the setup works with your device.
-   ![atom echo discovered](/images/assist/assist-test-sentence-01.png)
+   * Your Atom Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply. 
+1. Congratulations! You've set up your all-purpose button to voice control Home Assistant. Now give some commands.
+
+## Controlling Home Assistant over the Atom Echo
+
+1. Speak in the language that is defined for your profile.
+   ![Language setting](/images/assist/assist-default-language-setting-01.png)
+1. Press the button on your ATOM Echo.
+   * The LED should light up in blue.
+1. Say a [supported voice command](/docs/assist/builtin_sentences/). For example, *Turn off the light in the kitchen*.   
+      * Make sure you’re using the area name exactly as you defined it in Home Assistant.
+      * You can also ask a question, such as
+          * *Is the front door locked?*
+          * *Which lights are on in the living room?*
+1. Let go of the button.
+   * The LED should light up in green.
+   * Home Assistant will confirm the action.
 
 ## Troubleshooting
 
