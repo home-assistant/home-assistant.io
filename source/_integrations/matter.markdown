@@ -23,7 +23,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Matter integration allows you to control Matter devices on your local Wi-Fi or {% term thread %} network.
+The Matter integration allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
 
 <div class='note warning'>
 The integration is marked BETA: Both the Matter standard itself and its implementation within Home Assistant are in a early stage. You may run into compatibility issues and/or other bugs.
