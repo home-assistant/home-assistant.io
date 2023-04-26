@@ -1,0 +1,606 @@
+---
+layout: post
+title: "2023.5: Beta release notes"
+description: "Beta release notes for Home Assistant Core 2023.5."
+date: 2023-04-26 00:00:00
+date_formatted: "May 3, 2023"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2023-05/social.png
+---
+
+<a href='/integrations/#version/2023.5'><img src='/images/blog/2023-05/social.png' style='border: 0;box-shadow: none;'></a>
+
+<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+These are the beta release notes for Home Assistant Core 2023.5 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/UI/dashboards:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+version field (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+---
+
+<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+Home Assistant Core 2023.5! 🎉
+
+Thanks for helping out testing the beta! ❤️
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [Lorem](#lorem)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New Integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Breaking Changes](#breaking-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+<!-- Commented out, to point attention to the Year of the Voice livestream for now
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=lorem)
+3 May 2023, at 12:00 PDT / 21:00 CEST!
+
+<lite-youtube videoid="lopem" videotitle="Home Assistant 2023.5 Release Party"></lite-youtube>
+
+-->
+
+## Year of the voice - Chapter 2
+
+This release is almost fully dedicated to the Year of the voice: Chapter 2!
+
+The full reveal, explaintion, and live demos will be shown during the
+[our live stream on YouTube](https://www.youtube.com/watch?v=lorem)
+27 April 2023, at 12:00 PDT / 21:00 CEST!
+
+<lite-youtube videoid="Tk-pnm7FY7c" videotitle="Year of the Voice - Chapter 2"></lite-youtube>
+
+The release blog post will be updated later this beta week to better
+connect to all of this.
+
+**What to explore during beta already?**
+
+So, what to explore? There is a new menu to be found in the system settings:
+**Voice assistants**, which you should check out, [Assist](/docs/assist) is
+getting ears and a voice :)
+
+## Control what is exposed to your voice assistants
+
+{% details "TODO" %}
+
+- Improve/extend story
+- Proof read/spelling/grammar
+- Replace screenshots/clips
+
+{% enddetails %}
+
+There a whole new panel, where you can control which entities are exposed
+to your voice assistant. You can find it in
+**Settings** > **Voice assistants** > **Expose**-tab.
+
+<p class='img'>
+<img src='https://cdn.discordapp.com/attachments/427516175237382144/1100754453725978644/image.png'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+This currently supports our [Assist](/docs/assist), Amazon Alexa and
+Google Assistant. For the latter two, it is curently limited to
+the ones set up via Home Assistant Cloud.
+
+## Local TTS/SST options
+
+A new integration [Wyoming](/integrations/wyoming) provides a way
+for Home Assistant to integrate with voice Text-to-speech and
+Speech-to-text services that use the Wyoming protocol.
+
+This release introduces two new add-ons that support this and thus provide
+a fully local option (that can be used on, for example, a Raspberry Pi 4).
+
+- Speech-to-text using [OpenAI Whisper](https://my.home-assistant.io/redirect/supervisor_addon/?addon=whisper).
+- Text-to-speech using [Piper](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_piper).
+
+Piper is really amazing, it is small, sounds reasonably good and
+above all is fully local. [Checkout out some output examples here](https://rhasspy.github.io/piper-samples/).
+
+## New Assist Pipeline and Language selectors
+
+{% details "TODO" %}
+
+- Improve/extend story
+- Proof read/spelling/grammar
+- Add screenshot?
+- Link to docs (missing at this point)
+
+{% enddetails %}
+
+If you are building automation or scripts Blueprints, you can now leverage
+two new UI selectors for use with your Blueprints: an Assist pipeline selector
+and a language selectors.
+
+## Webhooks
+
+{% details "TODO" %}
+
+- Improve/extend story
+- Proof read/spelling/grammar
+- Replace screenshot
+
+{% enddetails %}
+
+Webhooks have been extended this release. We now have support for webhooks
+that use the `GET` HTTP method!
+
+But that is not all, thanks to [@esev], we also have some new security related
+features to our webhook triggers. You can now set which HTTP methods you
+webhook trigger work with, and the ability to limit webhooks to work only on
+your local network.
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/289218/154378138-6993664b-9bbf-4ec9-b62f-066300c01cb9.png'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+## Configure the LEDs of your Home Assistant Yellow
+
+{% details "TODO" %}
+
+- Improve/extend story
+- Proof read/spelling/grammar
+- Replace screenshot
+
+{% enddetails %}
+
+You can now configure (turn on/off) the disk, heartbeat and power LEDs of
+your [Home Assistant Yellow](/yellow) by using the **Configure\* button
+on the **Settings** > **Hardware\*\* page.
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/14281572/234582354-fc0fc892-8daa-440a-be5f-fc6e77ae2abf.png'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+## Other noteworthy changes
+
+{% details "TODO" %}
+
+- Proof read/spelling/grammar
+- Last minute ones added?
+- Go over list again, might have missed something
+
+To consider:
+
+- Add reauth to frontier_silicon config flow ([@wlcrs] - [#90443]) ([frontier_silicon docs])
+- Add dimmable lights support to niko home control ([@jellenijhof12] - [#90141]) ([niko_home_control docs])
+- Add preferred wind speed unit to unit systems ([@emontnemery] - [#90504])
+- Add attachments to simplepush ([@tymm] - [#81033]) ([simplepush docs])
+- Add support for Supla garage doors ([@alh84001] - [#90593]) ([supla docs])
+- Reolink doorbell extend features ([@starkillerOG] - [#90469]) ([reolink docs]) (breaking-change)
+- Add more PrusaLink sensors ([@5n8ke] - [#80424]) ([prusalink docs])
+- Add MQTT fan direction support ([@rubenbe] - [#91700]) ([mqtt docs])
+- Ensure onvif can still be unloaded if camera fails to unsubscribe ([@bdraco] - [#91887]) ([onvif docs])
+- Add guards to onvif for when the PullPoint to Webhook url changes ([@bdraco] - [#91886]) ([onvif docs])
+- Add fallback to device zone time or no timezone to onvif when setting time fails ([@bdraco] - [#91882]) ([onvif docs])
+- Improve error reporting in onvif in config flow ([@bdraco] - [#91876]) ([onvif docs])
+- Add rule parser for onvif LineDetector and CountAggregation ([@bdraco] - [#91885]) ([onvif docs])
+
+To consider:
+
+- **Note**: Changes processed up to PR 91312
+
+{% enddetails %}
+
+There are much more easter bunnies in this release; here are some of the other
+noteworthy changes this release:
+
+- [Matter] now has support for covers, thanks [@hidaris]!
+- The process of making backups is now faster 🚀, thanks [@bdraco]!
+- [@bdraco] also gave the [ONVIF] integration some love, which should improve
+  the stability of the integation. Nice!
+- You can now set up multiple instances of the [OpenAI Conversation] integration,
+  with for example, different prompts. Thanks, [@balloob]!
+- The [Supervisor] can now create repair issues for some of the issues
+  it detected on your system. Awesome [@mdegat01]!
+- [@mib1185] added service to allow sorting of the [Shopping list]. Thanks!
+- [@depoll] added an attribute to the [Person] entities that list the device
+  trackers for this person. Very useful for templates! Thanks!
+- The [NextDNS] integration added a whole bunch of new parental control
+  switches, thanks [@bieniu]!
+- [Synology DSM] can use browser they Synology Photos in the media browser. Cool
+  addition, [@lodesmets]!
+
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@depoll]: https://github.com/depoll
+[@hidaris]: https://github.com/hidaris
+[@lodesmets]: https://github.com/lodesmets
+[@mdegat01]: https://github.com/mdegat01
+[@mib1185]: https://github.com/mib1185
+[matter]: /integrations/matter
+[nextdns]: /integrations/nextdns
+[onvif]: /integrations/onvif
+[openai conversation]: /integrations/openai_conversation
+[person]: /integrations/person
+[shopping list]: /integrations/shopping_list
+[supervisor]: /integrations/hassio
+[synology dsm]: /integrations/synology_dsm
+
+## New Integrations
+
+We welcome the following new integrations in this release:
+
+- **[Android TV Remote]**, added by [@tronikos]<br />
+  Launch apps and control your Android TV device.
+- **[RAPT Bluetooth]**, added by [@sairon]<br />
+  Integrates RAPT Pill hydrometers into Home Assistant.
+- **[Voice over IP]**, added by [@synesthesiam]<br />
+  Talk to [Assist] using an analog phone and a VoIP adapter.
+- **[Wyoming]**, added by [@synesthesiam]<br />
+  Connect to voice services supporting the Wyoming protocol.
+- **[Roborock]**, added by [@Lash-L]<br />
+  Control your RoboRock vacuum maintaining Roborock app support.
+- **[Anova]**, added by [@Lash-L]<br />
+  Control Anova sous vides with Wi-Fi capabilities.
+
+This release also has a new virtual integration. Virtual integrations
+are stubs that are handled by other (existing) integrations to help with
+findability. This one is new:
+
+- **[Monessen]** provided by [Intellifire], added by [@jeeftor]
+
+[@jeeftor]: https://github.com/jeeftor
+[@Lash-L]: https://github.com/Lash-L
+[@sairon]: https://github.com/sairon
+[@synesthesiam]: https://github.com/synesthesiam
+[@synesthesiam]: https://github.com/synesthesiam
+[@tronikos]: https://github.com/tronikos
+[android tv remote]: /integrations/androidtv_remote
+[Anova]: /integration/anova
+[assist]: /docs/assist
+[Intellifire]: /integrations/intellifire
+[Monessen]: /integrations/monessen
+[RAPT Bluetooth]: /integrations/rapt_ble
+[Roborock]: /integrations/roborock
+[voice over ip]: /integrations/voip
+[Wyoming]: /integrations/wyoming
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[Brottsplatskartan]**, done by [@gjohansson-ST]
+- **[qBittorrent]**, done by [@chrisx8]
+- **[Snapcast]**, done by [@luar123]
+- **[Workday]**, done by [@gjohansson-ST]
+
+[@chrisx8]: https://github.com/chrisx8
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@luar123]: https://github.com/luar123
+[brottsplatskartan]: /integrations/brottsplatskartan
+[qbittorrent]: /integrations/qbittorrent
+[snapcast]: /integrations/snapcast
+[workday]: /integrations/workday
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Breaking Changes
+
+{% details "TODO" %}
+
+- Proof read/spelling/grammar
+
+**Note**: Breaking changes processed up to PR 92035
+
+{% enddetails %}
+
+{% details "Accuweather" %}
+
+The `ozone` sensors and the `ozone` state attribute of the weather entity showed
+incorrect values and are being removed. If you use these values in your
+automations or scripts, you need to update them.
+
+([@bieniu] - [#91492]) ([documentation](/integrations/accuweather))
+
+[@bieniu]: https://github.com/bieniu
+[#91492]: https://github.com/home-assistant/core/pull/91492
+
+{% enddetails %}
+
+{% details "Android TV" %}
+
+The "Android TV" integration has been renamed to "Android Debug Bridge".
+
+This rename, is because that is what it actually controlled/provided. With
+the addition of the Android TV Remote integration this release; we wanted to
+reduce possible confusion for the future.
+
+Not really a breaking change, but here for completeness.
+
+([@tronikos] - [#90657]) ([documentation](/integrations/androidtv))
+
+[@tronikos]: https://github.com/tronikos
+[#90657]: https://github.com/home-assistant/core/pull/90657
+
+{% enddetails %}
+
+{% details "History" %}
+
+YAML configuration for history has been removed as it was no longer being used
+since the frontend.
+
+([@bdraco] - [#90992]) ([documentation](/integrations/history))
+
+[@bdraco]: https://github.com/bdraco
+[#90992]: https://github.com/home-assistant/core/pull/90992
+
+{% enddetails %}
+
+{% details "HomeKit" %}
+
+The min/max target humidities for (de)humidifier device exposed over HomeKit
+has changed. The HomeKit UI will now show the real relative humidity, when
+the slider in HomeKit goes above or below the max/min set humidity, it will
+be set back to the max/min allowed humidity.
+
+([@stackia] - [#90854]) ([documentation](/integrations/homekit))
+
+[@stackia]: https://github.com/stackia
+[#90854]: https://github.com/home-assistant/core/pull/90854
+
+---
+
+Default HomeKit to listen on all interfaces to match Home Assistant behavior. To limit HomeKit to specific network interfaces, specify an `address` in `configuration.yaml`.
+
+([@bdraco] - [#91520]) ([documentation](/integrations/homekit))
+
+[@bdraco]: https://github.com/bdraco
+[#91520]: https://github.com/home-assistant/core/pull/91520
+
+{% enddetails %}
+
+{% details "Reolink" %}
+
+For Reolink doorbells, the "Status LED" light entity is replaced by a
+"Status LED" select entity. The switch `off` state corresponds to the select
+`Auto`, and the swith `on` state corresponds to the select
+`Auto & always on at night`. A additional `Stay off` state is now available.
+
+([@starkillerOG] - [#90469]) ([documentation](/integrations/reolink))
+
+[@starkillerOG]: https://github.com/starkillerOG
+[#90469]: https://github.com/home-assistant/core/pull/90469
+
+{% enddetails %}
+
+{% details "Snapcast" %}
+
+- Muted groups with playing stream will have state `idle` instead of `playing`.
+- Connected clients will not have state `on` anymore but use the same states as
+  groups: `idle` and `playing`.
+- Disconnected clients have state `standby` instead of `off` because the
+  Snapcast server still accepts commands.
+
+([@luar123] - [#77449]) ([documentation](/integrations/snapcast))
+
+[@luar123]: https://github.com/luar123
+[#77449]: https://github.com/home-assistant/core/pull/77449
+
+{% enddetails %}
+
+{% details "Synology DSM" %}
+
+The unit conversion for all memory, storage, and network utilization-related
+sensors was corrected from binary (_1024_) to decimal (_1000_) base to be in
+line with the used measurement units (_eq. MB = 1.000.000 bytes_).
+
+You may need to update the historically recorded units for these sensors via
+the statistics page under developer tools.
+
+([@mib1185] - [#90633]) ([documentation](/integrations/synology_dsm))
+
+[@mib1185]: https://github.com/mib1185
+[#90633]: https://github.com/home-assistant/core/pull/90633
+
+{% enddetails %}
+
+{% details "Templates" %}
+
+The `ensure_ascii` argument for `to_json` in Jinja templates now defaults to
+`False`, allowing us to use a faster JSON encoder by default.
+
+For most, this should not be an issue as JSON parsers broadly accept unicode
+input. If you still need to encode unicode characters inside of JSON strings,
+set `ensure_ascii` to `True` explicitly to restore the old behavior.
+
+([@depoll] - [#91253])
+
+[@depoll]: https://github.com/depoll
+[#91253]: https://github.com/home-assistant/core/pull/90863
+
+{% enddetails %}
+
+{% details "UniFi Network" %}
+
+UniFi integration no longer provides both `hostname` and `host_name` attributes
+for a client tracker entity, only `host_name` will be provided as an attribute.
+
+([@Kane610] - [#91188]) ([documentation](/integrations/unifi))
+
+[@Kane610]: https://github.com/Kane610
+[#91188]: https://github.com/home-assistant/core/pull/91188
+
+{% enddetails %}
+
+{% details "UniFi Protect" %}
+
+The previous deprecated `set_doorbell_message` service has been removed. Use
+the text entity for UniFi Protect LCD screen instead.
+
+([@AngellusMortis] - [#91523]) ([documentation](/integrations/unifiprotect))
+
+[@AngellusMortis]: https://github.com/AngellusMortis
+[#91523]: https://github.com/home-assistant/core/pull/91523
+
+{% enddetails %}
+
+{% details "Universal Devices ISY/IoX" %}
+
+The previously deprecated YAML configuration of the Universal Devices ISY/IoX
+integration has been removed.
+
+Universal Devices ISY/IoX is now configured via the UI. Any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@shbatm] - [#91575]) ([documentation](/integrations/isy994))
+
+[@shbatm]: https://github.com/shbatm
+[#91575]: https://github.com/home-assistant/core/pull/91575
+
+---
+
+The built-in percentage unit `%` is now used for relative humidity and absolute
+humidity instead of the custom units `%RH` and `%AH`, respectively.
+
+([@shbatm] - [#90863]) ([documentation](/integrations/isy994))
+
+[@shbatm]: https://github.com/shbatm
+[#90863]: https://github.com/home-assistant/core/pull/90863
+
+---
+
+The following custom ISY994 services have been removed:
+
+- `reload`
+- `cleanup_entities`
+- `system_query`
+- `set_ramp_rate`
+- `set_on_level`
+- `run_network_resource`
+- `set_variable`
+
+These services had been previously deprecated in favor of built-in services,
+and `number`, `select`, and `button` entities. If you have not already, please
+update your automations and dashboards to use the new entities and/or built-in
+services.
+
+([@shbatm] - [#91569]) ([documentation](/integrations/isy994))
+
+[@shbatm]: https://github.com/shbatm
+[#91569]: https://github.com/home-assistant/core/pull/91569
+
+---
+
+Dusk/Dawn nodes on Insteon Motion Sensors now have their states inverted to
+correctly show "Light detected" during daylight and "No light" when the dusk
+sensor is active.
+
+This is reversed from previous behavior and if you rely on this sensor in your
+automations, they will need to be updated.
+
+([@shbatm] - [#92035]) ([documentation](/integrations/isy994))
+
+[@shbatm]: https://github.com/shbatm
+[#92035]: https://github.com/home-assistant/core/pull/92035
+
+{% enddetails %}
+
+{% details "Webhooks" %}
+
+Two new Webhook trigger options have been added that limit how a webhook can
+trigger an automation. A new _allowed_methods_ option can be used to control
+which HTTP request methods can activate the trigger (`GET`, `HEAD`, `POST`, and
+`PUT`). And the `local_only` option is used to allow devices outside your local
+network to activate the trigger.
+
+Previously all webhook triggers could be activated by `HEAD`, `POST`, and `PUT`
+methods from any device (local or on the internet). With the new options, only
+`POST` and `PUT` are enabled by default.
+
+In Home Assistant Core 2023.7 any webhook trigger that does not set `local_only`
+to false can only be activated by devices on the same network as Home Assistant.
+
+Click the gear/cog icon beside the Webhook ID to update your webhook triggers.
+Then select an appropriate value for **Only accessible from the local network**.
+It is necessary to deselect the option for the **Save** button to appear. Then
+reselect the option if it should be enabled. This will make the repair warning
+go away.
+
+![Screenshot 2022-09-14 10 19 56 AM](https://user-images.githubusercontent.com/289218/190221194-c18f9ec8-5847-4358-aa69-eaf81f5518d1.png)
+
+See the [webhook trigger documentation](/docs/automation/trigger/#webhook-trigger)
+for a description of the new options. And please review the new the
+[Webhook Security](/docs/automation/trigger/#webhook-security) section for best
+practices when using webhook triggers.
+
+([@esev] - [#66494]) ([documentation](/integrations/webhook))
+
+[@esev]: https://github.com/esev
+[#66494]: https://github.com/home-assistant/core/pull/66494
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [New limits for Supervisor Add-ons](https://developers.home-assistant.io/blog/2023/04/13/new_limits_for_add_ons)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## Farewell to the following
+
+The following integrations are also no longer available as of this release:
+
+- **Coronavirus (COVID-19)** has been removed. The data is no longer provided
+  by the source provider.
+  ([@emontnemery] - [#90934])
+- **XBox Live** previously deprecated and has now been removed.
+  The [XBox integration] is still available.
+  ([@MartinHjelmare] - [#90592])
+
+[@emontnemery]: https://github.com/emontnemery
+[@martinhjelmare]: https://github.com/MartinHjelmare
+[#90592]: https://github.com/home-assistant/core/pull/90592
+[#90934]: https://github.com/home-assistant/core/pull/90934
+[xbox integration]: /integrations/xbox
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2023.5](/changelogs/core-2023.5)
