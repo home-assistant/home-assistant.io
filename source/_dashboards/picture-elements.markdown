@@ -370,7 +370,7 @@ conditions:
       type: string
 elements:
   required: true
-  description: One or more elements of any type to show when conditions are met. See below for an example.
+  description: One or more elements of any of the [listed types](#elements) to show when conditions are met. See below for an example.
   type: list
 {% endconfiguration %}
 

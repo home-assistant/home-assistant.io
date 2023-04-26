@@ -98,7 +98,7 @@ code_trigger_required:
 command_template:
   description: "The [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) used for the command payload. Available variables: `action` and `code`."
   required: false
-  type: string
+  type: template
   default: action
 command_topic:
   description: The MQTT topic to publish commands to change the alarm state.
