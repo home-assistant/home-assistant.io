@@ -2,7 +2,7 @@
 title: "Setting up a $13 voice remote to control Home Assistant"
 ---
 
-This tutorial will guide you to turn an ESP32 (ATOM Echo by M5) into the
+This tutorial will guide you to turn an ATOM Echo into the
 world's most private voice assistant. Pick up the tiny device to talk to
 your smart home. Issue commands and get responses!
 
@@ -15,7 +15,9 @@ your smart home. Issue commands and get responses!
 * [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
 * USB-C cable to connect the ATOM Echo
 
-## Flashing the firmware onto the ATOM Echo
+## Installing the software onto the ATOM Echo
+
+Before you can use this device with Home Assistant, you need to install a bit of software on it.
 
 1. Make sure this page is opened in a Chromium-based browser.
    * Select the **Connect** button below.
@@ -23,9 +25,9 @@ your smart home. Issue commands and get responses!
    <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
    <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
 
-1. Connect the device to your computer.
+1. Connect the ATOM Echo to your computer.
    * In the popup window, view the available ports.
-   * Plug the USB-C cable into the M5Stack ATOM Echo Development Kit and connect it to your computer.
+   * Plug the USB-C cable into the ATOM Echo and connect it to your computer.
    * In the pop-up window, there should now appear a new entry. Select this USB serial port and select **Connect**.
    ![Select USB port](/images/assist/esp32-atom-flash-select-port.png)
         * Select **Install Voice Assistant**, then **Install**.
@@ -41,14 +43,14 @@ your smart home. Issue commands and get responses!
 1. Select **OK**. 
    
    ![Set up ESPHome](/images/assist/esp32-atom-flash-07.png)
-1. To add the newly discovered device, select the Atom Echo from the list.
-   * Add your Atom Echo to a room and select **Finish**. 
+1. To add the newly discovered device, select the ATOM Echo from the list.
+   * Add your ATOM Echo to a room and select **Finish**. 
 1. You should now see a new **M5Stack Atom Echo** integration.
-   ![atom echo discovered](/images/assist/m5stack-atom-echo-discovered-03.png)
-   * Your Atom Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply. 
-1. Congratulations! You've set up your all-purpose button to voice control Home Assistant. Now give some commands.
+   ![ATOM Echo discovered](/images/assist/m5stack-atom-echo-discovered-03.png)
+   * Your ATOM Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply. 
+1. Congratulations! You can now voice control Home Assistant using a button with build-in microphone. Now give some commands.
 
-## Controlling Home Assistant over the Atom Echo
+## Controlling Home Assistant over the ATOM Echo
 
 1. Speak in the language that is defined for your profile.
    ![Language setting](/images/assist/assist-default-language-setting-01.png)
@@ -66,4 +68,5 @@ your smart home. Issue commands and get responses!
 ## Troubleshooting
 
 Are things not working as expected?
+
 * Checkout the [general troubleshooting section for Assist](/projects/private-voice-assistant/troubleshooting-assist/).
