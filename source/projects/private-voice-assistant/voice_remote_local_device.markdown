@@ -27,7 +27,9 @@ Currently, there are two version of voice remote devices supported to talk to Ho
    * Follow the steps described in this procedure: [Installing the software onto the ATOM Echo](/projects/private-voice-assistant/voice_remote_esp32/#installing-the-software-onto-the-atom-echo).
 1. [Set up a local voice assistant](/projects/private-voice-assistant/voice_remote_local_assistant/).
 1. [Expose your devices to Assist](/projects/private-voice-assistant/voice_remote_expose_devices/#exposing-your-devices)
-1. Go and do something awesome: [Control Home Assistant over the ATOM Echo](/projects/private-voice-assistant/voice_remote_esp32/#installing-the-software-onto-the-atom-echo).
+
+## Go and do something awesome
+1. [Control Home Assistant over the ATOM Echo](/projects/private-voice-assistant/voice_remote_esp32/#installing-the-software-onto-the-atom-echo).
  
 ## Troubleshooting
 
