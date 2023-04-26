@@ -13,18 +13,24 @@ The variable `this` is the [state object](/docs/configuration/state_object) of t
 
 ## Available Trigger Data
 
-The following tables show the available trigger data per platform.
+The variable `trigger` is an object that contains details about which trigger triggered the automation.
+
+Templates can use the data to modify the actions performed by the automation or displayed in a message. For example, you could create an automation that multiple sensors can trigger and then use the sensor's location to specify a light to activate; or you could send a notification containing the friendly name of the sensor that triggered it.
+
+Each [trigger platform](/docs/automation/trigger/#event-trigger) can include additional data specific to that platform.
 
 ### All
 
-The following describes trigger data associated with all platforms.
+Triggers from all platforms will include the following data.
 
 | Template variable | Data |
 | ---- | ---- |
-| `trigger.id` | Optional trigger `id`, or index of the trigger.
+| `trigger.id` | The [`id` of the trigger](/docs/automation/trigger/#trigger-id).
 | `trigger.idx` | Index of the trigger. (The first trigger idx is `0`.)
 
 ### Calendar
+
+These are the properties available for a [Calendar trigger](/docs/automation/trigger/#calendar-trigger).
 
 | Template variable                    | Data                                                                                                                            |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -41,6 +47,8 @@ The following describes trigger data associated with all platforms.
 
 ### Device
 
+These are the properties available for a [Device trigger](/docs/automation/trigger/#device-trigger).
+
 Inherites template variables from [event](#event) or [state](#state) template based on the type of trigger selected for the device.
 
 | Template variable | Data |
@@ -48,6 +56,8 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.platform` | Hardcoded: `device`.
 
 ### Event
+
+These are the properties available for a [Event trigger](/docs/automation/trigger/#event-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -58,6 +68,8 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 
 ### MQTT
 
+These are the properties available for a [MQTT trigger](/docs/automation/trigger/#mqtt-trigger).
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `mqtt`.
@@ -67,6 +79,8 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.qos` | QOS of payload.
 
 ### Numeric State
+
+These are the properties available for a [Numeric State trigger](/docs/automation/trigger/#numeric-state-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -80,6 +94,8 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 
 ### State
 
+These are the properties available for a [State trigger](/docs/automation/trigger/#state-trigger).
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `state`
@@ -90,6 +106,8 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 
 ### Sun
 
+These are the properties available for a [Sun trigger](/docs/automation/trigger/#sun-trigger).
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `sun`
@@ -97,6 +115,8 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.offset` | Timedelta object with offset to the event, if any.
 
 ### Template
+
+These are the properties available for a [Template trigger](/docs/automation/trigger/#template-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -108,6 +128,8 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 
 ### Time
 
+These are the properties available for a [Time trigger](/docs/automation/trigger/#time-trigger).
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time`
@@ -115,12 +137,16 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 
 ### Time Pattern
 
+These are the properties available for a [Time Pattern trigger](/docs/automation/trigger/#time-pattern-trigger).
+
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time_pattern`
 | `trigger.now` | DateTime object that triggered the time_pattern trigger.
 
 ### Webhook
+
+These are the properties available for a [Webhook trigger](/docs/automation/trigger/#webhook-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -131,6 +157,8 @@ Inherites template variables from [event](#event) or [state](#state) template ba
 | `trigger.query` | The URL query parameters of the request (if provided).
 
 ### Zone
+
+These are the properties available for a [Zone trigger](/docs/automation/trigger/#zone-trigger).
 
 | Template variable | Data |
 | ---- | ---- |

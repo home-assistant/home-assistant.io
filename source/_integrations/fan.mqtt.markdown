@@ -191,7 +191,7 @@ oscillation_state_topic:
 oscillation_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value from the oscillation."
   required: false
-  type: string
+  type: template
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -247,7 +247,7 @@ percentage_state_topic:
 percentage_value_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the `percentage` value from the payload received on `percentage_state_topic`.
   required: false
-  type: string
+  type: template
 preset_mode_command_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `preset_mode_command_topic`.
   required: false
@@ -263,7 +263,7 @@ preset_mode_state_topic:
 preset_mode_value_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the `preset_mode` value from the payload received on `preset_mode_state_topic`.
   required: false
-  type: string
+  type: template
 preset_modes:
   description: List of preset modes this fan is capable of running at. Common examples include `auto`, `smart`, `whoosh`, `eco` and `breeze`.
   required: false
@@ -296,7 +296,7 @@ state_topic:
 state_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value from the state."
   required: false
-  type: string
+  type: template
 unique_id:
   description: An ID that uniquely identifies this fan. If two fans have the same unique ID, Home Assistant will raise an exception.
   required: false
