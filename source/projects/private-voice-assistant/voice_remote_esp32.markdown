@@ -29,9 +29,11 @@ Before you can use this device with Home Assistant, you need to install a bit of
    * In the popup window, view the available ports.
    * Plug the USB-C cable into the ATOM Echo and connect it to your computer.
    * In the pop-up window, there should now appear a new entry. Select this USB serial port and select **Connect**.
+     * Depending on your computer, the entry might look different.
    ![Select USB port](/images/assist/esp32-atom-flash-select-port.png)
    * If no new port shows, your system may be missing a driver. Close the pop-up window.
-     * In the dialog, select the suggested driver and install it.
+     * In the dialog, select the CH342 driver, install it, then **Try again**.
+   ![Open My link](/images/assist/esp32-atom-flash-no-port.png)
 2. Select **Install Voice Assistant**, then **Install**.
      * Follow the instructions provided by the installation wizard.
      * Add the ATOM Echo to your Wi-Fi:
@@ -39,7 +41,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
        * Select **Connect**.
        * The ATOM Echo now joined your network. Select **Add to Home Assistant**.
 3. This opens the **My** link to Home Assistant. 
-   * If you previously changed the hostname, in `http://homeassistant.local:8123` replace `homeassistant` with the hostname or IP address of your local Home Assistant instance.
+   * If you haven't used My links before and previously changed the hostname, in `http://homeassistant.local:8123` replace `homeassistant` with the hostname or IP address of your local Home Assistant instance.
    * Select **Save**, then **Open link**.
    ![Open My link](/images/assist/esp32-atom-flash-06.png)
 4. Select **OK**. 
@@ -54,9 +56,9 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 ## Controlling Home Assistant over the ATOM Echo
 
-1. Speak in the language that is defined for your profile.
-   ![Language setting](/images/assist/assist-default-language-setting-01.png)
-1. Press the button on your ATOM Echo.
+1. Speak in the language that is defined for your settings (under **Settings** > **System** > **General**).
+   ![Language setting](/images/assist/server-language-01.png)
+1. Press and hold the button on your ATOM Echo.
    * The LED should light up in blue.
 1. Say a [supported voice command](/docs/assist/builtin_sentences/). For example, *Turn off the light in the kitchen*.   
       * Make sure you’re using the area name exactly as you defined it in Home Assistant.
