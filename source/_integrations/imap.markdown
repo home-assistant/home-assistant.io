@@ -44,7 +44,7 @@ If you run into an error saying the selected search is invalid, that could be th
 
 ### Selecting a charset supported by the imap server
 
-Below is an example for setting up the integration to connect to your Microsoft 365 account that requires `US_ASCII` as charset:
+Below is an example for setting up the integration to connect to your Microsoft 365 account that requires `US-ASCII` as charset:
   - Server: `outlook.office365.com`
   - Port: `993`
   - Username: Your full email address
