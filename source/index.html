@@ -6,6 +6,7 @@ is_homepage: true
 regenerate: true
 feedback: false
 ---
+{% assign recent_release_post = site.categories['Core'].first %}
 
 <div class="frontpage">
   <div class="grid">
@@ -21,7 +22,7 @@ feedback: false
         >
 
         <div class="links">
-          <a href="/latest-release-notes/">Release notes</a>
+          <a href="{{ recent_release_post.url }}{{ site.patch_version_notes }}">Release notes</a>
         </div>
       </div>
 
