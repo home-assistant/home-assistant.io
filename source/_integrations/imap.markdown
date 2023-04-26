@@ -40,6 +40,8 @@ By default, this integration will count unread emails. By configuring the search
 * `FROM`, `TO`, `SUBJECT` to find emails in a folder (see [IMAP RFC for all standard options](https://tools.ietf.org/html/rfc3501#section-6.4.4))
 * [Gmail's IMAP extensions](https://developers.google.com/gmail/imap/imap-extensions) allow raw Gmail searches, like `X-GM-RAW "in: inbox older_than:7d"` to show emails older than one week in your inbox. Note that raw Gmail searches will ignore your folder configuration and search all emails in your account!
 
+If you run into an error saying the selected search is invalid, that could be the case or you need to use a different character set.
+
 ### Selecting a charset supported by the imap server
 
 Below is an example for setting up the integration to connect to your Microsoft 365 account that requires `US_ASCII` as charset:
@@ -48,6 +50,8 @@ Below is an example for setting up the integration to connect to your Microsoft 
   - Username: Your full email address
   - Password: Your password
   - Charset: `US-ASCII`
+
+Note that Yahoo also requires the character set `US-ASCII`.
 
 ### Using events
 
