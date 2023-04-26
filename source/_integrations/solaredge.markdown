@@ -16,7 +16,7 @@ ha_codeowners:
 ha_integration_type: device
 ---
 
-The SolarEdgge integration allows you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
+The SolarEdge integration allows you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
 
 To integrate it, you need your installation ID and an API key. You can get these by logging in to your [SolarEdge web portal](https://www.solaredge.com). Note: if your portal is not in English, the labels will be different.
 
