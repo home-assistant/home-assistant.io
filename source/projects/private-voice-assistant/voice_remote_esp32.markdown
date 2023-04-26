@@ -64,6 +64,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 1. Let go of the button.
    * The LED should light up in green.
    * Home Assistant will confirm the action.
+1. Your command is not supported? [Add your own commands](/integrations/conversation/).
 
 ## Troubleshooting
 
