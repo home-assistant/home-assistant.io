@@ -872,3 +872,16 @@ Z-Wave JS writes details to its logs. To access these logs go to the following.
    **Settings** -> **Devices & Services** -> **Integrations(tab)** -> **Z-Wave (CONFIGURE)** -> **Logs(tab)**
 
 You need to keep this browser tab open for logging to be active.
+
+## Z-Wave terminology
+
+For some of the concepts, you may come across different terminology in Z-Wave than in Home Assistant.
+The table below provides equivalents for some of those terms.
+
+| Z-Wave functionality                   | Home Assistant                                                          |
+| -------------------------------------- | ------------------------------------------------------------------------|
+| inclusion                              | add                                                                     |
+| exclusion                              | remove                                                                  |
+| barrier operator                       | cover                                                                   |
+| window covering                        | cover                                                                   |
+| multilevel switch                      | represented by different entity types: cover, fan, dimmer, etc.         |

@@ -9,9 +9,9 @@ ha_domain: lirc
 ha_integration_type: integration
 ---
 
-[LIRC](http://www.lirc.org/) integration for Home Assistant allows you to receive signals from an infrared remote control and control actions based on the buttons you press. You can use them to set scenes or trigger any other [automation](/integrations/automation/).
+[LIRC](https://www.lirc.org/) integration for Home Assistant allows you to receive signals from an infrared remote control and control actions based on the buttons you press. You can use them to set scenes or trigger any other [automation](/docs/automation/).
 
-Sending IR commands is not supported in this integration (yet), but can be accomplished using the [shell_command component](/integrations/shell_command/) in conjunction with the `irsend` command.
+Sending IR commands is not supported in this integration (yet), but can be accomplished using the [shell_command integration](/integrations/shell_command/) in conjunction with the `irsend` command.
 
 ## Installation
 
@@ -36,9 +36,9 @@ For more information have a look at `/usr/share/doc/lirc/README.Debian.gz` where
 
 ## Configuring LIRC
 
-Now teach LIRC about your particular remote control by preparing a lircd configuration file (`/etc/lirc/lircd.conf`). Search the [LIRC remote database](http://lirc.sourceforge.net/remotes/) for your model. If you can't find it, then you can always use the `irrecord` program to learn your remote. This will create a valid configuration file. Add as many remotes as you want by pasting them into the file. If `irrecord` doesn't work (e.g., for some air conditioner remotes), then the `mode2` program is capable of reading the codes in raw mode, followed by `irrecord -a` to extract hex codes.
+Now teach LIRC about your particular remote control by preparing a lircd configuration file (`/etc/lirc/lircd.conf`). Search the [LIRC remote database](https://lirc.sourceforge.net/remotes/) for your model. If you can't find it, then you can always use the `irrecord` program to learn your remote. This will create a valid configuration file. Add as many remotes as you want by pasting them into the file. If `irrecord` doesn't work (e.g., for some air conditioner remotes), then the `mode2` program is capable of reading the codes in raw mode, followed by `irrecord -a` to extract hex codes.
 
-Next, you have to make a `~/.lircrc` file that maps keypresses to system actions. The file has to be in the home dir of the user running Home Assistant, e.g., in `/home/homeassistant/.lircrc` if you're running in a virtual env. [The configuration](http://www.lirc.org/html/configure.html) is a bit tedious but it must be done. Use the `prog = home-assistant` for all keys you want to be recognized by Home Assistant. The values you set for `button` must be the same as in the `lircd.conf` file and the values you put for `config` entry will be the sensor value in Home Assistant when you press the button. An example may look like this:
+Next, you have to make a `~/.lircrc` file that maps keypresses to system actions. The file has to be in the home dir of the user running Home Assistant, e.g., in `/home/homeassistant/.lircrc` if you're running in a virtual env. [The configuration](https://www.lirc.org/html/configure.html) is a bit tedious but it must be done. Use the `prog = home-assistant` for all keys you want to be recognized by Home Assistant. The values you set for `button` must be the same as in the `lircd.conf` file and the values you put for `config` entry will be the sensor value in Home Assistant when you press the button. An example may look like this:
 
 ```bash
 begin

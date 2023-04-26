@@ -9,12 +9,18 @@
 #
 
 - term: Action
-  definition: >-
-    An action is an command that can be fired. For example, turning on a light.
-    Actions used in many places, most notably in automations and scripts.
+  definition: |-
+    Actions are used in several places in Home Assistant. As part of a script or automation, actions define what is going to happen once a trigger is activated. In scripts, an action is called *sequence*.
+
+    Actions use service calls and/or scenes to interact with entities and cause these entities to do something. Actions can also include conditions and a delay. An action can call multiple services at the same time. For example, if your presence is detected in a room, an action may call one service to turn on a light and call another service to start playing music after a delay.
+
+    Actions are also used on the dashboard, for example as tap or hold action on a UI element. When triggered, the action calls a service.
+
   aliases:
     - actions
   link: /docs/automation/action/
+  excerpt: >
+    Actions are used in several places in Home Assistant. As part of a script or automation, actions define what is going to happen once a trigger is activated. In scripts, an action is called *sequence*.
 
 - term: Add-on
   definition: >-

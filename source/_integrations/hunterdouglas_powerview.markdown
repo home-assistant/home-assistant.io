@@ -178,7 +178,7 @@ Set the type for connected power source. Available options are Hardwired Power S
 ### Calling a Powerview Scene
 
 ``` yaml
-alias: "blinds closed at night"
+alias: "Blinds closed at night"
 trigger:
   platform: time
   at: "18:00:00"

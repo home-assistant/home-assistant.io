@@ -8,6 +8,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Button
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -20,6 +21,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - button
 ha_integration_type: integration
 ---
 
@@ -31,6 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Button](#button)
 
 <p class='note'>
 This component does NOT allow for live viewing of your Ring camera within Home Assistant.
@@ -40,7 +43,11 @@ This component does NOT allow for live viewing of your Ring camera within Home A
 
 ## Binary Sensor
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using a binary sensor. Currently, it supports doorbell, external chimes and stickup cameras.
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the binary sensors. Currently, it supports doorbell, external chimes, stickup cameras and intercom.
+
+## Button
+
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the button. Currently, it supports intercom.
 
 ## Camera
 
