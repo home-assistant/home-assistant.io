@@ -65,6 +65,8 @@ your smart home and issue commands and get responses.
      *  *Is the front door locked?*
      *  *Which lights are on in the living room?*
    * Make sure you're using the area name as you defined it in Home Assistant. If you have a room called *bathroom*, the phrase *Turn on the lights in the bath* won't work.
+   * Your command is not supported? [Add your own commands](/integrations/conversation/).
+
 
 ## Troubleshoot Grandstream
 
@@ -87,6 +89,6 @@ Are things still not working as expected?
 ## About the analog phone
 
 You can use any analog landline phone with an RJ11 socket.
-During the creation of this tutorial, this classic phone from 1953 was used:
-[*Tischstation Mod.29 HF-TR* by Autophon AG](https://www.radiomuseum.org/r/autophon_tischstation_mod29_hf_tr.html).
+The phone shown in the video by TheFes is a *Heemaf type 1955*, which was used by the Dutch telephony company PTT in that time.
+The phone used during creation of this tutorial is a 1953 [*Tischstation Mod.29 HF-TR* by Autophon AG](https://www.radiomuseum.org/r/autophon_tischstation_mod29_hf_tr.html).
 ![Analog phone Tischstation Mod.29 by Autophon AG](/images/assist/autophon-mod-29.jpg)
