@@ -10,7 +10,6 @@ ha_codeowners:
   - '@synesthesiam'
 ha_domain: wyoming
 ha_integration_type: integration
-ha_quality_scale: internal
 ---
 
 The Wyoming integration connects external voice services to Home Assistant using a [small protocol](https://github.com/rhasspy/rhasspy3/blob/master/docs/wyoming.md). This enables [Assist](/docs/assist) to use a variety of local [speech-to-text](/integrations/stt/) and [text-to-speech](/integrations/tts/) systems, such as:
