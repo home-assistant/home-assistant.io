@@ -139,12 +139,12 @@ The `button.<vehicle_model>_refresh_from_cloud` button fetches the last state of
 
 ## Selects
 
-If you have a (PH)EV, you can control the charging process through Home Assistant. The selects are created automatically depending on your vehicle's capabilities and can be pressed/executed from the UI or using the `select.select_option` service. Please see the [select documentation](/integrations/select/) for more information.
+If you have a (PH)EV, you can control the charging process through Home Assistant. The selects are created automatically depending on your vehicle's capabilities and can be pressed/executed from the UI or using the `select.select_option` service. For more information, please see the [select documentation](/integrations/select/).
 
-Using these selects will impact the state of your vehicle, use them with care!
+Using these selects will impact the state of your vehicle. Use them with care!
 
-- **Charging Mode**: Vehicle can be set to `IMMEDIATE_CHARGING` (charge as soon as plugged in) or `DELAYED_CHARGING` (charge only if within charging window). Can be used to start/stop charging if charging window is set accordingly.
-- **Target SoC**: Vehicle will charge until this battery level is reached. Not available on all EVs.
+- **Charging Mode**: Vehicle can be set to `IMMEDIATE_CHARGING` (charge as soon as plugged in) or `DELAYED_CHARGING` (charge only if within charging window). It can be used to start/stop charging if the charging window is set accordingly.
+- **Target SoC**: The vehicle will charge until this battery level is reached. Not available on all EVs.
 - **AC Charging Limit**: The maximum current a vehicle will charge with. Not available on all EVs.
 
 ## Disclaimer
