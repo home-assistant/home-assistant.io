@@ -147,7 +147,6 @@ If you have a (PH)EV, you can control the charging process through Home Assistan
 Using these selects will impact the state of your vehicle. Use them with care!
 
 - **Charging Mode**: Vehicle can be set to `IMMEDIATE_CHARGING` (charge as soon as plugged in) or `DELAYED_CHARGING` (charge only if within charging window). It can be used to start/stop charging if the charging window is set accordingly.
-- **Target SoC**: The vehicle will charge until this battery level is reached. Not available on all EVs.
 - **AC Charging Limit**: The maximum current a vehicle will charge with. Not available on all EVs.
 
 ## Numbers
