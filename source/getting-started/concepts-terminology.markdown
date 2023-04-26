@@ -47,7 +47,7 @@ Similar to automations, repeatable actions that can be run. The difference betwe
 
 ## Scenes
 
-Scenes allow you to create predefined settings for your devices. Likened to driving mode on phones, driver profiles in cars, it can change an environment to suite you. For example, your environment for watching films may have dimmer lighting, TV is switched on and higher volume. This can be saved as a scene and used without having to set individual devices every time.
+Scenes allow you to create predefined settings for your devices. Likened to driving mode on phones, driver profiles in cars, it can change an environment to suit you. For example, your environment for watching films may have dimmer lighting, TV is switched on and higher volume. This can be saved as a scene and used without having to set individual devices every time.
 
 Further details can be found [here](/integrations/scene/).
 
