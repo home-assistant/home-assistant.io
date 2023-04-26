@@ -48,7 +48,12 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Lorem](#lorem)
+- [Year of the voice - Chapter 2](#year-of-the-voice---chapter-2)
+- [Control what is exposed to your voice assistants](#control-what-is-exposed-to-your-voice-assistants)
+- [Local TTS/SST options](#local-ttssst-options)
+- [New Assist Pipeline and Language selectors](#new-assist-pipeline-and-language-selectors)
+- [Webhooks](#webhooks)
+- [Configure the LEDs of your Home Assistant Yellow](#configure-the-leds-of-your-home-assistant-yellow)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
