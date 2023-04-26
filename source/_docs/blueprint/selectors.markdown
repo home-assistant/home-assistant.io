@@ -349,11 +349,21 @@ The date selector shows a date input that allows the user to specify a date.
 
 ![Screenshot of the Date selector](/images/blueprints/selector-date.png)
 
-This selector does not have any other options; therefore, it only has its key.
+In its most basic form, this selector does not have any required options; therefore, it only has its key.
 
 ```yaml
 date:
 ```
+
+{% configuration date %}
+multiple:
+  description: >
+    Allows selecting multiple dates. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
 
 The output of this selector will contain the date in Year-Month-Day
 (`YYYY-MM-DD`) format, for example, `2022-02-22`.
@@ -365,11 +375,21 @@ date with a specific time.
 
 ![Screenshot of the Date & time selector](/images/blueprints/selector-datetime.png)
 
-This selector does not have any other options; therefore, it only has its key.
+In its most basic form, this selector does not have any required options; therefore, it only has its key.
 
 ```yaml
 datetime:
 ```
+
+{% configuration datetime %}
+multiple:
+  description: >
+    Allows selecting multiple datetime values. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
 
 The output of this selector will contain the date in Year-Month-Day
 (`YYYY-MM-DD`) format and the time in 24-hour format, for example:
@@ -1173,11 +1193,21 @@ of the day.
 
 ![Screenshot of a time selector](/images/blueprints/selector-time.png)
 
-This selector does not have any other options; therefore, it only has its key.
+In its most basic form, this selector does not have any required options; therefore, it only has its key.
 
 ```yaml
 time:
 ```
+
+{% configuration time %}
+multiple:
+  description: >
+    Allows selecting multiple times. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
 
 The output of this selector will contain the time in 24-hour format,
 for example, `23:59:59`.

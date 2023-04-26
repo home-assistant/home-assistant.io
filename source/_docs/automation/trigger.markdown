@@ -666,9 +666,15 @@ If for your use case this is undesired, you could consider using the automation 
 
 The time trigger is configured to fire once a day at a specific time, or at a specific time on a specific date. There are three allowed formats:
 
-### Time String
+### Date and Time String
 
-A string that represents a time to fire on each day. Can be specified as `HH:MM` or `HH:MM:SS`. If the seconds are not specified, `:00` will be used.
+A general date and time of the form `YYYY-MM-DD HH:MM:SS` The Date part is `YYYY-MM-DD` and the Time part is `HH:MM:SS` If the seconds are not specified, :00 will be used.
+
+Date Provide | Time Provided | Description
+-|-|-
+`true` | `true` | Will fire at specified date & time.
+`true` | `false` | Will fire at midnight on specified date.
+`false` | `true` | Will fire once a day at specified time.
 
 ```yaml
 automation:
