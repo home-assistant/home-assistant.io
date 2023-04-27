@@ -292,4 +292,18 @@ but you will still receive the done message.
         entity_id: alert.garage_door
 ```
 
+## Services
+
+This integration provides the following services to modify the state of the
+`alert` and a service to reload the configuration without restarting
+Home Assistant itself.
+
+| Service | Data | Description |
+| ------- | ---- | ----------- |
+| `turn_on` | `entity_id(s)` | Set the value of non-idle  `alert` entities to `Active (on)`
+| `turn_off` | `entity_id(s)` | Set the value of non-idle  `alert` entities to `Acknowledged (off)`
+| `toggle` | `entity_id(s)` | Toggle the value of non-idle `alert` entities between `Active (on)` and `Acknowledged (off)`
+| `reload` | | Reload `alert` configuration |
+
+
 [template]: /docs/configuration/templating/
