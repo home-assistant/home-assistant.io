@@ -10,7 +10,7 @@ your smart home and issue commands and get responses.
 
 ## Required material
 
-* Latest version of Home Assistant installed on your Home Assistant device
+* Home Assistant 2023.5 or later
 * An [analog phone](#about-the-analog-phone) with an RJ11 socket
 * An analog telephone adapter 
   [Grandstream HT801](https://amzn.to/40k7mRa)
