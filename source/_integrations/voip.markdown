@@ -12,7 +12,7 @@ ha_domain: voip
 ha_integration_type: integration
 ---
 
-The VoIP integration enables users to talk to [Assist](/docs/assist) using an analog phone and a VoIP adapter such as the [Grandstream HT801](https://amzn.to/40k7mRa). See [the tutorial](/projects/private-voice-assistant/voice_remote_classic_phone/) for detailed instructions.
+The VoIP integration enables users to talk to [Assist](/docs/assist) using an analog phone and a VoIP adapter such as the [Grandstream HT801](https://amzn.to/40k7mRa). See [the tutorial](/projects/worlds-most-private-voice-assistant/voice_remote_classic_phone/) for detailed instructions.
 
 <p class='img'>
   <img src="/images/integrations/voip/voip_adapter.png" />
