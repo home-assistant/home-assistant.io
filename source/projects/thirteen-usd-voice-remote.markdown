@@ -27,8 +27,8 @@ Before you can use this device with Home Assistant, you need to install a bit of
 1. Make sure this page is opened in a Chromium-based browser on a desktop. It does not work on a tablet or phone.
    * Select the **Connect** button below. If your browser does not support web serial, there is no button but a text.
 
-   <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
-   <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
+      <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
+      <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
 
 2. Connect the ATOM Echo to your computer.
    * In the popup window, view the available ports.
