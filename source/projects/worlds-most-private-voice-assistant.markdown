@@ -11,8 +11,8 @@ your smart home and issue commands and get responses.
 ## Required material
 
 * Latest version of Home Assistant installed on your Home Assistant device
-* [Analog phone](#about-the-analog-phone)
-* Analog telephone adapter 
+* An [analog phone](#about-the-analog-phone) with an RJ11 socket
+* An analog telephone adapter 
   [Grandstream HT801](https://amzn.to/40k7mRa)
   * includes a 5&nbsp;V power adapter and an Ethernet cable
 * RJ11 phone cable to connect the phone to the Grandstream
@@ -53,7 +53,7 @@ your smart home and issue commands and get responses.
    * You should now hear the message *This is your smart home speaking. Your phone is connected, but you must configure it within Home Assistant.*
    * The integration should now include a device and entities.
     ![Voice over IP integration with device and entities](/images/assist/voip_device_available.png)
-   * Don't hear the voice? Try these [troubleshooting steps](/projects/private-voice-assistant/#troubleshoot-grandstream).
+   * Don't hear the voice? Try these [troubleshooting steps](/projects/worlds-most-private-voice-assistant/#troubleshoot-grandstream).
 1. Allow calls.
    * Calls from new devices are blocked by default since voice commands could be used to control sensitive devices, such as locks and garage doors.
    * In the **Voice over IP** integration, select the **device** link.
@@ -84,11 +84,13 @@ If you’re unable to call Home Assistant, confirm the following settings in you
 
 Are things still not working as expected? 
 
-* Checkout the [general troubleshooting section for Assist](/projects/private-voice-assistant/troubleshooting-assist).
+* Checkout the [general troubleshooting section for Assist](/projects/troubleshooting-assist).
 
 ## About the analog phone
 
 You can use any analog landline phone with an RJ11 socket.
-The phone shown in the video by TheFes is a *Heemaf type 1955*, which was used by the Dutch telephony company PTT in that time.
+
+The phone shown in the video by TheFes is a *Heemaf type 1955*, which was used by the Dutch telephone company PTT at the time.
+
 The phone used during creation of this tutorial is a 1953 [*Tischstation Mod.29 HF-TR* by Autophon AG](https://www.radiomuseum.org/r/autophon_tischstation_mod29_hf_tr.html).
 ![Analog phone Tischstation Mod.29 by Autophon AG](/images/assist/autophon-mod-29.jpg)
