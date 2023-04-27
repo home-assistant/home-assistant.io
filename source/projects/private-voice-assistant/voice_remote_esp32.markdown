@@ -6,12 +6,13 @@ This tutorial will guide you to turn an ATOM Echo into the
 world's most private voice assistant. Pick up the tiny device to talk to
 your smart home. Issue commands and get responses!
 
-* Don't have Home Assistant Cloud? You just want fully local processing? Follow this procedure: [Setting up a fully local voice remote device](/projects/private-voice-assistant/voice_remote_local_device/)
+<lite-youtube videoid="w6QxGdxVMJs" videotitle="$13 voice remote for Home Assistant
+"></lite-youtube>
 
 ## Required material
 
-* Latest version of Home Assistant installed on your Home Assistant device 
-* [Home Assistant Cloud](https://www.nabucasa.com)
+* Home Assistant 2023.5 or later
+* [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/integrations/assist_pipeline)
 * The password to your 2.4&nbsp;GHz Wi-Fi network
 * Chrome (or a Chromium-based browser like Edge) on desktop (not Android/iOS) 
 * [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
