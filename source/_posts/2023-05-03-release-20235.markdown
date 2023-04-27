@@ -580,6 +580,22 @@ practices when using webhook triggers.
 
 {% enddetails %}
 
+{% details "Z-Wave JS" %}
+
+With this release, you will need to update your `zwave-js-server` instance. You must use `zwave-js-server` 1.28.0 or greater (schema 28).
+
+- If you use the `Z-Wave JS` add-on, you need at least version `0.1.79`.
+- If you use the `Z-Wave JS UI` add-on, you need at least version `1.11.2`.
+- If you use the `Z-Wave JS UI` Docker container, you need at least version `8.14.2`.
+- If you run your own Docker container or some other installation method, you will need to update your `zwave-js-server` instance to at least `1.28.0`.
+
+([@raman325] - [#91989]) ([documentation](/integrations/zwave_js))
+
+[@esev]: https://github.com/raman325
+[#66494]: https://github.com/home-assistant/core/pull/91989
+
+{% enddetails %}
+
 If you are a custom integration developer and want to learn about breaking
 changes and new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following are the most notable for this release:
