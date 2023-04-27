@@ -61,8 +61,6 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 ## Controlling Home Assistant over the ATOM Echo
 
-1. Speak in the language that is defined for your settings (under **Settings** > **System** > **General**).
-   ![Language setting](/images/assist/server-language-01.png)
 1. Press and hold the button on your ATOM Echo.
    * The LED should light up in blue.
 1. Say a [supported voice command](/docs/assist/builtin_sentences/). For example, *Turn off the light in the kitchen*.   
