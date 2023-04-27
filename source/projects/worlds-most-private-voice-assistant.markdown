@@ -84,7 +84,7 @@ If you’re unable to call Home Assistant, confirm the following settings in you
 
 Are things still not working as expected? 
 
-* Checkout the [general troubleshooting section for Assist](/projects/troubleshooting-assist).
+* Checkout the [general troubleshooting section for Assist](/projects/troubleshooting).
 
 ## About the analog phone
 
