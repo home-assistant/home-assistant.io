@@ -1,5 +1,5 @@
 ---
-title: "Setting up an analog phone to control Home Assistant"
+title: "World's Most Private Voice Assistant"
 ---
 
 This tutorial will guide you to turn your old landline phone into the
@@ -67,6 +67,9 @@ your smart home and issue commands and get responses.
    * Make sure you're using the area name as you defined it in Home Assistant. If you have a room called *bathroom*, the phrase *Turn on the lights in the bath* won't work.
    * Your command is not supported? [Add your own commands](/integrations/conversation/).
 
+## Give your voice assistant personality using the OpenAI integration
+
+<lite-youtube videoid="eLx8_NAqptk" videotitle="Give your voice assistant personality using the OpenAI integration"></lite-youtube>
 
 ## Troubleshoot Grandstream
 
