@@ -7,6 +7,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Button
 ha_iot_class: Cloud Push
 ha_release: '0.110'
 ha_domain: home_connect
@@ -18,6 +19,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - button
 ha_integration_type: integration
 ---
 
@@ -67,6 +69,11 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
+## Button
+
+The Home Connect integration makes various buttons available.
+Available Buttons for follow operation: `pause_program`, `resume_program` and `stop_program`.
+
 ## Services
 
 The Home Connect integration makes various services available.
@@ -96,6 +103,7 @@ Sets an option for the selected program.
 
 ### Service `home_connect.pause_program`
 
+This service is deprecated. Please use the button for this operation.
 Pauses the current running program.
 
 | Service data attribute    | Optional | Description                                      |
@@ -104,6 +112,7 @@ Pauses the current running program.
 
 ### Service `home_connect.resume_program`
 
+This service is deprecated. Please use the button for this operation.
 Resumes a paused program.
 
 | Service data attribute    | Optional | Description                                      |
