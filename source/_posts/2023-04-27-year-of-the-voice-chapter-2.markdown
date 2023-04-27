@@ -146,7 +146,7 @@ With Home Assistant’s new [Voice-over-IP integration][voip], you can now use a
 
 By configuring off-hook autodial, your phone will automatically call Home Assistant when you pick it up. Speak your voice command or question, and listen for the response. The conversation will continue as long as you please: speak more commands/questions, or simply hang up. Assign a unique voice assistant/pipeline to each VoIP adapter, enabling dedicated phones for specific languages.
 
-We’ve focused our initial efforts on supporting the Grandstream HT801 Voice-over-IP box. It works with any phone with an RJ11 connector, and connects directly to Home Assistant. There is no need for an extra server.
+We’ve focused our initial efforts on supporting [the Grandstream HT801 Voice-over-IP box][ht801]. It works with any phone with an RJ11 connector, and connects directly to Home Assistant. There is no need for an extra server.
 
 [Tutorial: create your own World’s Most Private Voice Assistant](https://next.home-assistant.io/projects/worlds-most-private-voice-assistant/)
 
@@ -157,3 +157,6 @@ Give your voice assistant personality using the OpenAI integration.
 </p>
 
 [voip]: https://next.home-assistant.io/integrations/voip/
+[ht801]: https://amzn.to/40k7mRa
+
+_Some links on this page are affiliate links and purchases using these links support the Home Assistant project._
