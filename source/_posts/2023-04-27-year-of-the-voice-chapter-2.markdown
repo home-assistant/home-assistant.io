@@ -19,7 +19,7 @@ For Chapter 2, we’ve expanded beyond text to now include audio; specifically, 
 
 A voice assistant also needs hardware, so today we’re launching ESPHome support for Assist and; to top it off: we’re launching the World’s Most Private Voice Assistant. Keep reading to see what that entails.
 
-To watch the video presentation of this blog post, including live demos, check [the recording of our live stream.][live-stream]
+_To watch the video presentation of this blog post, including live demos, check [the recording of our live stream.][live-stream]_
 
 <lite-youtube videoid="0YJzLIMrnGk" videotitle="World’s Most Private Voice Assistant"></lite-youtube>
 
