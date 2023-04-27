@@ -12,7 +12,7 @@ your smart home. Issue commands and get responses!
 ## Required material
 
 * Home Assistant 2023.5 or later
-* [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/integrations/voice_remote_local_assistant)
+* [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/docs/assist/voice_remote_local_assistant)
 * The password to your 2.4&nbsp;GHz Wi-Fi network
 * Chrome (or a Chromium-based browser like Edge) on desktop (not Android/iOS) 
 * [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
