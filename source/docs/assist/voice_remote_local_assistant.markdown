@@ -1,5 +1,5 @@
 ---
-title: "Configuring a local assist pipeline"
+title: "Configuring a local Assist pipeline"
 ---
 
 In Home Assistant, the Assist pipelines are made up of various components that together form a voice assistant.
@@ -10,7 +10,7 @@ The speech-to-text option is [Whisper](https://github.com/openai/whisper). It's 
 
 For text-to-speech we have developed [Piper](https://github.com/rhasspy/piper). Piper is a fast, local neural text to speech system that sounds great and is optimized for the Raspberry Pi 4. It supports [many languages](https://rhasspy.github.io/piper-samples/). On a Raspberry Pi, using medium quality models, it can generate 1.6s of voice in a second.
 
-## Setting up a local voice assistant
+## Setting up a local Assist pipeline
 
 1. Install the add-ons to convert text into speech and vice versa.
    * Install the {% my supervisor_addon addon="whisper" title="**Whisper**" %} and the {% my supervisor_addon addon="piper" title="**Piper**" %} add-ons.
