@@ -25,7 +25,7 @@ your smart home. Issue commands and get responses!
 Before you can use this device with Home Assistant, you need to install a bit of software on it.
 
 1. Make sure this page is opened in a Chromium-based browser.
-   * Select the **Connect** button below.
+   * Select the **Connect** button below. If your browser does not support web serial, there is no button but a text. Use the link in the text.
 
    <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
    <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
