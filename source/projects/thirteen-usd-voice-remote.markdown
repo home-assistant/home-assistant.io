@@ -77,4 +77,4 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 Are things not working as expected?
 
-* Checkout the [general troubleshooting section for Assist](/projects/private-voice-assistant/troubleshooting-assist/).
+* Checkout the [general troubleshooting section for Assist](/projects/private-voice-assistant/troubleshooting/).
