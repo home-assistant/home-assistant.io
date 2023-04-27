@@ -1,5 +1,5 @@
 ---
-title: "Setting up a $13 voice remote to control Home Assistant"
+title: "$13 voice remote to control Home Assistant"
 ---
 
 This tutorial will guide you to turn an ATOM Echo into the
@@ -47,7 +47,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
        * The ATOM Echo now joined your network. Select **Add to Home Assistant**.
 1. This opens the **My** link to Home Assistant. 
    * If you haven't used My links before and previously changed the hostname, in `http://homeassistant.local:8123` replace `homeassistant` with the hostname or IP address of your local Home Assistant instance.
-   * Select **Save**, then **Open link**.
+   * Open the link.
    ![Open My link](/images/assist/esp32-atom-flash-06.png)
 1. Select **OK**. 
    
