@@ -11,9 +11,9 @@ og_image: /images/blog/2023-04-27-year-of-the-voice-chapter-2/social.png
 ---
 
 
-This year is Home Assistant’s [Year of the Voice]. It is our goal for 2023 to let users control Home Assistant in their own language. Today we’re presenting Chapter 2, our second milestone building towards this goal.
+This year is Home Assistant’s [Year of the Voice]. It is our goal for 2023 to let users control Home Assistant in their own language. Today we’re presenting Chapter 2, our second milestone in building towards this goal.
 
-In [Chapter 1] we focused on intents – what the user wants to do. As of today, the Home Assistant community has translated common smart home commands and responses into [45 languages], closing in on the 62 languages supported by Home Assistant.
+In [Chapter 1], we focused on intents – what the user wants to do. Today, the Home Assistant community has translated common smart home commands and responses into [45 languages], closing in on the 62 languages that Home Assistant supports.
 
 For Chapter 2, we’ve expanded beyond text to now include audio; specifically, turning audio (speech) into text, and text back into speech. With this functionality, [Home Assistant’s Assist feature][assist] is now able to provide a full voice interface for users to interact with.
 
@@ -35,7 +35,7 @@ _To watch the video presentation of this blog post, including live demos, check 
 
 The new [Assist Pipeline integration] allows you to configure all components that make up a voice assistant in a single place.
 
-For voice commands, pipelines start with audio. A speech-to-text system determines the words that were spoken by the user, which is then forwarded to a conversation agent. The intent is extracted from the text by the agent and executed by Home Assistant. At this point, “turn on the light” would cause your light to turn on 💡. The last part of the pipeline is text to speech, where the agent’s response is spoken back to you. This may be a simple confirmation (“Turned on light”) or the answer to a question, such as “which lights are on?”
+For voice commands, pipelines start with audio. A speech-to-text system determines the words the user speaks, which are then forwarded to a conversation agent. The intent is extracted from the text by the agent and executed by Home Assistant. At this point, “turn on the light” would cause your light to turn on 💡. The last part of the pipeline is text-to-speech, where the agent’s response is spoken back to you. This may be a simple confirmation (“Turned on light”) or the answer to a question, such as “Which lights are on?”
 
 <p class='img'>
 <img src='/images/blog/2023-04-27-year-of-the-voice-chapter-2/assist-config.png'>
@@ -60,7 +60,7 @@ The [Home Assistant Cloud][nc] subscription, besides end-to-end encrypted remote
 
 <audio preload controls src="/images/assist/ha_cloud.mp3"></audio>
 
-As a subscriber, you will be able to directly start using voice in Home Assistant. You will not need any extra hardware or software to get started.
+As a subscriber, you can directly start using voice in Home Assistant. You will not need any extra hardware or software to get started.
 
 In addition to high quality speech-to-text and text-to-speech for your voice assistants, you will also be supporting the development of Home Assistant itself.
 
@@ -78,7 +78,7 @@ To make quality text-to-speech running locally possible, we’ve had to create o
 
 <img style='width: 100%' src='/images/assist/piper-logo.svg' alt='Piper logo' class='no-shadow'>
 
-Piper uses [modern machine learning algorithms][mm-algo] for realistic-sounding speech, but is still capable of generating audio quickly. On a Raspberry Pi 4, Piper can generate 2 seconds of audio with only 1 second of processing time. More powerful CPUs, such as the Intel Core i5 can generate 17 seconds of audio in the same amount of time. Sample:
+Piper uses [modern machine learning algorithms][mm-algo] for realistic-sounding speech but can still generate audio quickly. On a Raspberry Pi 4, Piper can generate 2 seconds of audio with only 1 second of processing time. More powerful CPUs, such as the Intel Core i5, can generate 17 seconds of audio in the same amount of time. Sample:
 
 <audio preload controls src="/images/assist/piper.wav"></audio>
 
@@ -107,11 +107,11 @@ An {% my supervisor_addon addon="core_whisper" title="add-on using faster-whispe
 
 Voice assistants share many common functions, such as speech-to-text, intent-recognition, and text-to-speech. We created the [Wyoming protocol][Wyoming] to provide a small set of standard messages for talking to voice assistant services, including the ability to stream audio.
 
-Wyoming allows developers to focus on the core of a voice service, without having to commit to a specific networking stack like HTTP or MQTT. This protocol is compatible with the upcoming [version 3.0 of Rhasspy][Rhasspy], so both projects will be able to share voice services.
+Wyoming allows developers to focus on the core of a voice service without having to commit to a specific networking stack like HTTP or MQTT. This protocol is compatible with the upcoming [version 3.0 of Rhasspy][Rhasspy], so both projects can share voice services.
 
-With Wyoming, we’re trying to kickstart a more interoperable open voice ecosystem that makes it easy to share components across projects and platforms. Developers and scientists wishing to experiment with new voice technologies need only implement a small set of messages to integrate with other voice assistant projects.
+With Wyoming, we’re trying to kickstart a more interoperable open voice ecosystem that makes sharing components across projects and platforms easy. Developers and scientists wishing to experiment with new voice technologies need only implement a small set of messages to integrate with other voice assistant projects.
 
-The Whisper and Piper add-ons mentioned above are integrated in Home Assistant via the new [Wyoming integration]. Wyoming services can also be run on other machines and still integrate into Home Assistant.
+The Whisper and Piper add-ons mentioned above are integrated into Home Assistant via the new [Wyoming integration]. Wyoming services can also be run on other machines and still integrate into Home Assistant.
 
 [Wyoming]: https://github.com/rhasspy/rhasspy3/blob/master/docs/wyoming.md
 [Rhasspy]: https://github.com/rhasspy/rhasspy3/
@@ -119,13 +119,13 @@ The Whisper and Piper add-ons mentioned above are integrated in Home Assistant v
 
 ## ESPHome powered voice assistants
 
-[ESPHome] is our software for microcontrollers. Instead of programming, users define in a YAML file how their sensors are connected. ESPHome will read this file and generate and install software on your microcontroller to make this data accessible in Home Assistant.
+[ESPHome] is our software for microcontrollers. Instead of programming, users define how their sensors are connected in a YAML file. ESPHome will read this file and generate and install software on your microcontroller to make this data accessible in Home Assistant.
 
 Today we’re launching support for building voice assistants using ESPHome. Connect a microphone to your ESPHome device, and you can control your smart home with your voice. Include a speaker and the smart home will speak back.
 
 <lite-youtube videoid="w6QxGdxVMJs" videotitle="$13 voice remote for Home Assistant"></lite-youtube>
 
-For testing and development we’ve been focusing on the [M5STACK ATOM Echo][atom-echo]. For $13 it comes with a microphone and a speaker in a nice little box. We’ve created a tutorial to turn this device into a voice remote directly from your browser!
+We’ve been focusing on the [M5STACK ATOM Echo][atom-echo] for testing and development. For $13 it comes with a microphone and a speaker in a nice little box. We’ve created a tutorial to turn this device into a voice remote directly from your browser!
 
 [Tutorial: create a $13 voice remote for Home Assistant.](https://next.home-assistant.io/projects/thirteen-usd-voice-remote/)
 
@@ -138,7 +138,7 @@ For testing and development we’ve been focusing on the [M5STACK ATOM Echo][ato
 
 If you were designing the world’s most private voice assistant, what features would it have? To start, it should only listen when you’re ready to talk, rather than all the time. And when it responds, you should be the only one to hear it. This sounds strangely familiar…🤔
 
-A phone! No, not the featureless rectangle you have in your pocket; an analog phone. These great creatures once ruled the Earth, with twisty cords and unique looks to match your style. Analog phones have a familiar interface that’s hard to beat: pick up the phone to listen/speak and put it down when done.
+A phone! No, not the featureless rectangle you have in your pocket; an analog phone. These great creatures once ruled the Earth with twisty cords and unique looks to match your style. Analog phones have a familiar interface that’s hard to beat: pick up the phone to listen/speak and put it down when done.
 
 With Home Assistant’s new [Voice-over-IP integration][voip], you can now use an “old school” phone to control your smart home!
 
