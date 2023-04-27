@@ -74,33 +74,16 @@ Components inside packages can only specify platform entries using configuration
 
 ## Create a packages folder
 
-One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory you can store any number of packages in a YAML file. This entry in your `configuration.yaml` will load all packages:
+One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory you can store any number of packages in a YAML files. This entry in your `configuration.yaml` will load all YAML-files in Packages-folder and subfolders:
 
 ```yaml
 homeassistant:
   packages: !include_dir_named packages
 ```
 
-This uses the concept splitting the configuration and will include all files in a directory with the keys representing the filenames.
-See the documentation about [splitting the configuration](/docs/configuration/splitting_configuration/) for more information about `!include_dir_named` and other include statements that might be helpful. The benefit of this approach is to pull all configurations required to integrate a system, into one file, rather than across several.
+The benefit of this approach is to pull all configurations required to integrate a system, into one file, rather than across several.
+You can use other !include-methods for packages folder, but with this one you get yaml-indentation 'as if the content was written in configuration.yaml'.
 
-The following example allows to have subfolders in the `packages` folder, which could make managing multiple packages easier by grouping:
-
-```yaml
-homeassistant:
-  packages: !include_dir_merge_named packages/
-```
-
-and in `packages/subsystem1/functionality1.yaml`:
-
-```yaml
-subsystem1_functionality1:
-  input_boolean:
-  ...
-  binary_sensor:
-  ...
-  automation:
-```
 
 ## Customizing entities with packages
 
