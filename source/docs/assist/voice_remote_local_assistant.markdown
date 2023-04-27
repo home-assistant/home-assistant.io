@@ -13,11 +13,11 @@ For text-to-speech we have developed [Piper](https://github.com/rhasspy/piper). 
 ## Setting up a local Assist pipeline
 
 1. Install the add-ons to convert text into speech and vice versa.
-   * Install the {% my supervisor_addon addon="whisper" title="**Whisper**" %} and the {% my supervisor_addon addon="piper" title="**Piper**" %} add-ons.
+   * Install the {% my supervisor_addon addon="core_whisper" title="**Whisper**" %} and the {% my supervisor_addon addon="core_piper" title="**Piper**" %} add-ons.
       ![Install the Whisper and Piper add-ons](/images/assist/piper-whisper-install-01.png)
    * Start both add-ons. This may take a while.
    * Once the add-ons are started, head over to the integrations under {% my integrations title="**Settings** > **Devices & Services**" %}.
-      * You should now see both being discovered by the [Wyoming integration](/integations/wyoming).
+      * You should now see both being discovered by the [Wyoming integration](/integrations/wyoming/).
       ![Whisper and Piper integrations](/images/assist/piper-whisper-install-02.png)
    * For both integrations, select **Configure**.
       * Once the setup is complete, you should see both Piper and Whisper in one integration.      
