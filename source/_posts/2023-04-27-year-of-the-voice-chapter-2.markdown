@@ -15,7 +15,7 @@ This year is Home Assistant’s [Year of the Voice]. It is our goal for 2023 to 
 
 In [Chapter 1] we focused on intents – what the user wants to do. As of today, the Home Assistant community has translated common smart home commands and responses into [45 languages], closing in on the 62 languages supported by Home Assistant.
 
-For Chapter 2, we’ve expanded beyond text to now include audio; specifically, turning audio (speech) into text, and text back into speech. With this functionality, Home Assistant’s Assist feature is now able to provide a full voice interface for users to interact with.
+For Chapter 2, we’ve expanded beyond text to now include audio; specifically, turning audio (speech) into text, and text back into speech. With this functionality, [Home Assistant’s Assist feature][assist] is now able to provide a full voice interface for users to interact with.
 
 A voice assistant also needs hardware, so today we’re launching ESPHome support for Assist and; to top it off: we’re launching the World’s Most Private Voice Assistant. Keep reading to see what that entails.
 
@@ -27,6 +27,7 @@ _To watch the video presentation of this blog post, including live demos, check 
 [Chapter 1]: https://www.home-assistant.io/blog/2023/01/26/year-of-the-voice-chapter-1/
 [45 languages]: https://home-assistant.github.io/intents/
 [live-stream]: https://youtube.com/live/Tk-pnm7FY7c?feature=share
+[assist]: /docs/assist/
 
 <!--more-->
 
