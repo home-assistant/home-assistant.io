@@ -153,7 +153,7 @@ recorder:
   exclude:
     domains:
       - automation
-      - updater
+      - update
     entity_globs:
       - sensor.weather_*
     entities:
