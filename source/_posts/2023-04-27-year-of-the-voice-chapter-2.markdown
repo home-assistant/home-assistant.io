@@ -86,6 +86,8 @@ _For more samples, see [the Piper website][piper-samples]_
 
 An {% my supervisor_addon addon="core_piper" title="add-on with Piper" %} is available now for Home Assistant with [over 40 voices across 18 languages][piper-samples], including: Catalan, Danish, German, English, Spanish, Finnish, French, Greek, Italian, Kazakh, Nepali, Dutch, Norwegian, Polish, Brazilian Portuguese, Ukrainian, Vietnamese, and Chinese. Voices for Piper are trained from [open audio datasets][open-audio], many of which come from [free audiobooks read by volunteers][audiobook]. If you’re interested in contributing your voice, [let us know!][contact]
 
+You can also [Piper as a standalone Docker container](https://hub.docker.com/r/rhasspy/wyoming-piper).
+
 [mm-algo]: https://github.com/jaywalnut310/vits/
 [piper-samples]: https://rhasspy.github.io/piper-samples
 [open-audio]: http://www.openslr.org/
@@ -97,6 +99,8 @@ An {% my supervisor_addon addon="core_piper" title="add-on with Piper" %} is ava
 [Whisper] is an open source speech-to-text model created by OpenAI that runs locally. Since its release in 2022, Whisper has been improved by the open source community to run on less powerful hardware by projects such as [whisper.cpp] and [faster-whisper]. In less than a year of progress, Whisper is now capable of providing speech-to-text for [dozens of languages][whisper-lang] on small servers and single-board computers!
 
 An {% my supervisor_addon addon="core_whisper" title="add-on using faster-whisper" %} is available now for Home Assistant. On a Raspberry Pi 4, voice commands can take around 7 seconds to process with about 200 MB of RAM used. An Intel Core i5 CPU or better is capable of sub-second response times and can run larger (and more accurate) versions of Whisper.
+
+You can also [Whisper as a standalone Docker container](https://hub.docker.com/r/rhasspy/wyoming-whisper).
 
 [Whisper]: https://github.com/openai/whisper
 [whisper-lang]: https://github.com/openai/whisper#available-models-and-languages
