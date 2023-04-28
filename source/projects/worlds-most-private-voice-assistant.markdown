@@ -73,6 +73,8 @@ your smart home and issue commands and get responses.
 
 ## Troubleshoot Grandstream
 
+### The test call does not work
+
 If you’re unable to call Home Assistant, confirm the following settings in your Grandstream device’s web interface.
 
 1. On the **FXS Port** tab, check the **Preferred Vocoder** list. 
@@ -82,6 +84,19 @@ If you’re unable to call Home Assistant, confirm the following settings in you
    ![Vocoder OPUS payload type](/images/assist/grandstream_opus_payload.png)
 1. At the bottom of the page, select **Apply**.
 1. Pick up the phone again and check if you hear the voice.
+
+### The Voice over IP integration no longer works
+
+**Symptom**
+You were able to control Home Assistant over the phone but it no longer works. When picking up the phone, no sound is played. 
+The [debug information](/docs/assist/troubleshooting#view-debug-information) shows no runs.
+
+**Potential remedy**
+1. Log onto the Grandstream *Device Configuration* software.
+1. On the **Status** page, check if the **Hook** status changes from **On Hook** to **In Use** after you picked up the phone.
+   ![Check the Grandstream status](/images/assist/grandstream-troubleshoot-10.png) 
+   * The software is quite slow. Refresh the page and wait for a while before hanging up again.
+1. If the status does not change, reboot the Grandstream and try calling Home Assistant again. 
 
 ## Other troubleshooting steps
 
