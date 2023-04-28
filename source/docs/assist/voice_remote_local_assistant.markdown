@@ -12,6 +12,8 @@ For text-to-speech we have developed [Piper](https://github.com/rhasspy/piper). 
 
 ## Installing a local Assist pipeline
 
+For the quickest way to get your local Assist pipeline started, follow these steps:
+
 1. Install the add-ons to convert text into speech and vice versa.
    * Install the {% my supervisor_addon addon="core_whisper" title="**Whisper**" %} and the {% my supervisor_addon addon="core_piper" title="**Piper**" %} add-ons.
       ![Install the Whisper and Piper add-ons](/images/assist/piper-whisper-install-01.png)
@@ -37,3 +39,11 @@ For text-to-speech we have developed [Piper](https://github.com/rhasspy/piper). 
 1. That's it. You ensured your voice commands can be processed locally on your device.
 1. If you haven't done so yet, [expose your devices to Assist](/projects/private-voice-assistant/voice_remote_expose_devices/#exposing-your-devices).
    * Otherwise you won't be able to control them by voice.
+
+
+## Fine-tuning Whisper and Piper for your setup
+
+You would like to tweak the configuration for better performance or accuracy?
+View some of the options in the video below. Explained by Mike Hansen, creator of Rhasspy, Piper, and Wyoming.
+
+<lite-youtube videoid="Tk-pnm7FY7c" videoStartAt="1589" videotitle="Configure your local Assist pipeline for your setup"></lite-youtube>
