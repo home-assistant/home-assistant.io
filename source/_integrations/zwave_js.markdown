@@ -41,6 +41,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: hub
+ha_quality_scale: platinum
 ha_zeroconf: true
 ---
 
