@@ -16,3 +16,5 @@ ha_integration_type: integration
 ---
 
 The `nextbus` sensor will give you the next departure time and associated data from your public transit station/stop. The data comes from [NextBus](https://www.nextbus.com), which provides real time transit data for a number of transit authorities.
+
+{% include integrations/config_flow.md %}
