@@ -151,6 +151,8 @@
   definition: >-
     An event is when something happens.
   link: /docs/configuration/events/
+  aliases:
+    - events
 
 - term: Frontend
   definition: >-
