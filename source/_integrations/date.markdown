@@ -3,7 +3,7 @@ title: Date
 description: Instructions on how to set up date entities within Home Assistant.
 ha_category:
   - Date
-ha_release: '2022.12'
+ha_release: '2023.6'
 ha_domain: date
 ha_quality_scale: internal
 ha_codeowners:
@@ -13,7 +13,7 @@ ha_integration_type: entity
 
 The Date integration is built for the controlling and monitoring of dates on devices.
 
-Date entities cannot be implemented manually, but can be provided by other integrations. If you are looking for a way to create a similar entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
+Date entities cannot be created manually, but can be provided by other integrations. If you are looking for a way to create a similar entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
 
 ## Services
 
