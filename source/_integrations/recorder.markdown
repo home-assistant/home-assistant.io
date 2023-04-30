@@ -153,13 +153,14 @@ recorder:
   exclude:
     domains:
       - automation
-      - updater
+      - update
     entity_globs:
-      - sensor.weather_*
+      - sensor.sun*
+      - weather.*
     entities:
-      - sun.sun # Don't record sun data
-      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sensor.date
+      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
+      - sun.sun # Don't record sun data
     event_types:
       - call_service # Don't record service calls
 ```

@@ -151,6 +151,8 @@
   definition: >-
     An event is when something happens.
   link: /docs/configuration/events/
+  aliases:
+    - events
 
 - term: Frontend
   definition: >-
@@ -285,6 +287,8 @@
     Sensors return information about a thing, for instance the level of water
     in a tank.
   link: /integrations/sensor/
+  aliases:
+    - sensors
 
 - term: Selectors
   definition: >-

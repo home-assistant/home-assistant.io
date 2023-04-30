@@ -11,7 +11,7 @@ Customizable pages to display information connected to and available in Home Ass
 ![Dashboard](/images/getting-started/lovelace.png)
 ## Integrations
 
-Software that allows Home Assistant to connect to other software and platforms. For example, the Philips Hue integration allows Home Assistant to talk to the Hue Bridge and read data such as the state of your lights through to controlling the lights themselves.
+Software that allows Home Assistant to connect to other software and platforms. For example, a product by Philips called Hue would use the Philips Hue integration and allow Home Assistant to talk to the hardware controller Hue Bridge. Any connected and Home Assistant compatible devices to the Hue Bridge would appear in Home Assistant as [devices](#devices--entities).
 
 ![Integrations](/images/getting-started/integrations.png)
 
