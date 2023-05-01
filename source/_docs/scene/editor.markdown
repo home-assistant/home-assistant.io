@@ -3,8 +3,6 @@ title: "Scenes Editor"
 description: "Instructions on how to use the scenes editor."
 ---
 
-In Home Assistant 0.102 we introduced the first version of our {% term scene %} editor. If you just created a new configuration with Home Assistant, then you're all set! Go to the UI and enjoy.
-
 From the UI choose **Settings** which is located in the sidebar, then click on **Automations & Scenes** to go to the scene editor. Press the **Add Scene** button in the lower right corner to get started.
 
 Choose a meaningful name for your scene.
@@ -22,7 +20,6 @@ A scene can be called in {% term automation %} action and {% term scripts %} usi
 
 ```yaml
 service: scene.turn_on
-data: {}
 target:
   entity_id: scene.my_unique_id
 ```
