@@ -6,6 +6,7 @@ is_homepage: true
 regenerate: true
 feedback: false
 ---
+{% assign recent_release_post = site.categories['Core'].first %}
 
 <div class="frontpage">
   <div class="grid">
@@ -21,7 +22,7 @@ feedback: false
         >
 
         <div class="links">
-          <a href="/latest-release-notes/">Release notes</a>
+          <a href="{{ recent_release_post.url }}{{ site.patch_version_notes }}">Release notes</a>
         </div>
       </div>
 
@@ -91,8 +92,7 @@ feedback: false
     <div class="grid__item two-thirds lap-two-thirds palm-one-whole">
       <!-- State of the Open Home 2022 -->
       <a
-        href="https://www.youtube.com/watch?v=Tk-pnm7FY7c"
-        target="_blank"
+        href="/blog/2023/04/27/year-of-the-voice-chapter-2/"
         class="material-card picture-promo"
         style="
           background-image: url(/images/frontpage/year-of-the-voice-chapter-2.png);
