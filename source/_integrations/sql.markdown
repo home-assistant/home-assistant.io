@@ -201,7 +201,8 @@ WHERE
   AND last_updated_ts <= strftime('%s', 'now', '-1 day')
 ORDER BY 
   last_updated_ts DESC 
-LIMIT 1;
+LIMIT
+  1;
 ```
 
 Replace `-1 day` with the target offset, for example, `-1 hour`.
