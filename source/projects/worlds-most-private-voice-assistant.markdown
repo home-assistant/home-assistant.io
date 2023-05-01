@@ -75,7 +75,7 @@ To reproduce this example, follow these steps:
 
 Note: this procedure requires an OpenAI account. To just run the example, the free trial option is sufficient. No need to leave your credit card information.
 
-1. [Setup an OpenAI account and install the OpenAI conversation](/integrations/openai_conversation/) integration.
+1. [Set up an OpenAI account and install the OpenAI conversation](/integrations/openai_conversation/) integration.
 1. Create a Mario personality.
    * Once you installed the OpenAI integration, select **Configure**.
   
