@@ -191,7 +191,7 @@ If you want to extract the state of an entity from a day, hour, or minute ago, t
 
 ```sql
 SELECT 
-  state 
+  states.state
 FROM 
   states 
   INNER JOIN states_meta ON 
