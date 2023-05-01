@@ -71,6 +71,31 @@ your smart home and issue commands and get responses.
 
 <lite-youtube videoid="eLx8_NAqptk" videotitle="Give your voice assistant personality using the OpenAI integration"></lite-youtube>
 
+To reproduce this example, follow these steps:
+
+Note: this procedure requires an OpenAI account. To just run the example, the free trial option is sufficient. No need to leave your credit card information.
+
+1. [Setup an OpenAI account and install the OpenAI conversation](/integrations/openai_conversation/) integration.
+1. Create a Mario personality.
+   * Once you installed the OpenAI integration, select **Configure**.
+  
+      ![Configure the OpenAI integration](/images/assist/assistant-openai-mario-config.png)
+   * In the **Prompt template** field, enter the following text: 
+  
+       `You are Super Mario from Mario Bros. Be funny.` and select **Submit**.
+  
+      ![Add prompt for Mario personality](/images/assist/assistant-openai-mario-02.png)
+1. Create a Mario assistant:
+   * Under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, select **Add assistant**.
+   * Give it a name, select a language and under **Conversation agent**, select the Mario OpenAI integration.
+   ![Add a new assistant](/images/assist/assistant-openai-mario-04.png)
+   * Leave the other settings unchanged and select **Create**.
+1. In the **Voice over IP** integration, under **Configuration**, select the Mario assistant you just created.
+
+      ![VoIP: select OpenAI](/images/assist/assistant-openai-mario-03.png) 
+1. That's it! Pick up your phone and ask Mario a question.
+1. You can repeat this with other characters. You can add as many OpenAI integrations as you would like.
+
 ## Troubleshoot Grandstream
 
 ### The test call does not work
