@@ -111,6 +111,7 @@ Depending on the supported features of the camera, select entities are added for
 - PTZ preset
 - Auto quick reply message
 - Auto track method (Digital, Digital first, Pan/Tilt first)
+- Status LED (Doorbell only: Stay off, Auto, Auto & always on at night)
 
 PTZ preset positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
@@ -132,6 +133,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Auto tracking
 - Auto focus
 - Guard return
+- Doorbell button sound
 - Record
 - Push notifications
 - Buzzer on event
@@ -192,7 +194,8 @@ The following models have been tested and confirmed to work:
 
 Battery-powered cameras are not yet supported.
 
-The following models are lacking the HTTP webserver API and can therfore not work with this integration:
+The following models are lacking the HTTP web server API and can, therefore, not work directly with this integration.
+However, these cameras can work with this integration through an NVR in which the NVR is connected to Home Assistant.
 
 - E1 Pro
 - E1

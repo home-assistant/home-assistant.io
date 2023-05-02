@@ -20,9 +20,6 @@ The Fan integration allows you to control and monitor Fan devices.
 Available services:
 `fan.set_percentage`, `fan.set_preset_mode`, `fan.set_direction`, `fan.oscillate`, `fan.turn_on`, `fan.turn_off`, `fan.toggle`, `fan.increase_speed`, `fan.decrease_speed`
 
-Deprecated services:
-`fan.set_speed`
-
 <div class='note'>
 
 Not all fan services may be available for your platform. You can check which services are available for your fan(s) under **Developer Tools** -> **Services**.
@@ -143,15 +140,6 @@ Turn fan device off. This is only supported if the fan device supports being tur
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
 
-
-### Deprecated Service `fan.set_speed`
-
-Sets the speed for fan device.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-| `speed` | no | Speed setting
 
 #### Automation example
 
