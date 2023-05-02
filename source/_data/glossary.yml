@@ -146,11 +146,15 @@
   link: /docs/configuration/state_object/
   excerpt: >
     An entity represents a sensor, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An entity is usually part of a device or a service.
+  aliases:
+    - entities
 
 - term: Event
   definition: >-
     An event is when something happens.
   link: /docs/configuration/events/
+  aliases:
+    - events
 
 - term: Frontend
   definition: >-
@@ -279,6 +283,8 @@
     Scripts are components that allow users to specify a sequence of actions
     to be executed by Home Assistant when turned on.
   link: /docs/scripts/
+  aliases:
+    - scripts
 
 - term: Sensor
   definition: >-
