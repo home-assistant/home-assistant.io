@@ -321,14 +321,6 @@ other news about building an Open Home; straight into your inbox.
 
 ## Breaking Changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-
-**Note**: Breaking changes processed up to PR 92035
-
-{% enddetails %}
-
 {% details "Accuweather" %}
 
 The `ozone` sensors and the `ozone` state attribute of the weather entity showed
@@ -346,11 +338,9 @@ automations or scripts, you need to update them.
 
 The "Android TV" integration has been renamed to "Android Debug Bridge".
 
-This rename, is because that is what it actually controlled/provided. With
-the addition of the Android TV Remote integration this release; we wanted to
-reduce possible confusion for the future.
-
-Not really a breaking change, but here for completeness.
+This rename is because that is what it actually controlled/provided. With
+the addition of the Android TV Remote integration in this release, we wanted
+to reduce possible confusion in the future.
 
 ([@tronikos] - [#90657]) ([documentation](/integrations/androidtv))
 
@@ -361,7 +351,7 @@ Not really a breaking change, but here for completeness.
 
 {% details "History" %}
 
-YAML configuration for history has been removed as it was no longer being used
+YAML configuration for history has been removed as it was no longer used
 since the frontend.
 
 ([@bdraco] - [#90992]) ([documentation](/integrations/history))
@@ -374,7 +364,7 @@ since the frontend.
 {% details "HomeKit" %}
 
 The min/max target humidities for (de)humidifier device exposed over HomeKit
-has changed. The HomeKit UI will now show the real relative humidity, when
+has changed. The HomeKit UI will now show the real relative humidity. When
 the slider in HomeKit goes above or below the max/min set humidity, it will
 be set back to the max/min allowed humidity.
 
@@ -385,7 +375,9 @@ be set back to the max/min allowed humidity.
 
 ---
 
-Default HomeKit to listen on all interfaces to match Home Assistant behavior. To limit HomeKit to specific network interfaces, specify an `address` in `configuration.yaml`.
+Default HomeKit to listen on all interfaces to match Home Assistant behavior.
+To limit HomeKit to specific network interfaces, specify an `address`
+in `configuration.yaml`.
 
 ([@bdraco] - [#91520]) ([documentation](/integrations/homekit))
 
@@ -394,12 +386,38 @@ Default HomeKit to listen on all interfaces to match Home Assistant behavior. To
 
 {% enddetails %}
 
+{% details "IMAP" %}
+
+The use of `imap_content` event could break for users that want to parse data
+from larger email messages from the truncated part. Only the first 2048
+bytes of the message body (2 KiB) will be available.
+
+([@jbouwh] - [#92066]) ([documentation](/integrations/imap))
+
+[@jbouwh]: https://github.com/jbouwh
+[#92066]: https://github.com/home-assistant/core/pull/92066
+
+{% enddetails %}
+
+{% details "Overkiz" %}
+
+The silence option for DynamicShutter has been removed because it caused the
+cover entity to be non-functional if it did not support silence. This
+functionality will be reintroduced in a future release.
+
+([@iMicknl] - [#91354]) ([documentation](/integrations/overkiz))
+
+[@iMicknl]: https://github.com/iMicknl
+[#91354]: https://github.com/home-assistant/core/pull/91354
+
+{% enddetails %}
+
 {% details "Reolink" %}
 
 For Reolink doorbells, the "Status LED" light entity is replaced by a
 "Status LED" select entity. The switch `off` state corresponds to the select
-`Auto`, and the swith `on` state corresponds to the select
-`Auto & always on at night`. A additional `Stay off` state is now available.
+`Auto`, and the switch `on` state corresponds to the select
+`Auto & always on at night`. An additional `Stay off` state is now available.
 
 ([@starkillerOG] - [#90469]) ([documentation](/integrations/reolink))
 
@@ -410,7 +428,7 @@ For Reolink doorbells, the "Status LED" light entity is replaced by a
 
 {% details "Snapcast" %}
 
-- Muted groups with playing stream will have state `idle` instead of `playing`.
+- Muted groups with stream playing will have state `idle` instead of `playing`.
 - Connected clients will not have state `on` anymore but use the same states as
   groups: `idle` and `playing`.
 - Disconnected clients have state `standby` instead of `off` because the
@@ -444,8 +462,8 @@ the statistics page under developer tools.
 The `ensure_ascii` argument for `to_json` in Jinja templates now defaults to
 `False`, allowing us to use a faster JSON encoder by default.
 
-For most, this should not be an issue as JSON parsers broadly accept unicode
-input. If you still need to encode unicode characters inside of JSON strings,
+This should not be an issue for most, as JSON parsers broadly accept Unicode
+input. If you still need to encode Unicode characters inside JSON strings,
 set `ensure_ascii` to `True` explicitly to restore the old behavior.
 
 ([@depoll] - [#91253])
@@ -458,7 +476,7 @@ set `ensure_ascii` to `True` explicitly to restore the old behavior.
 {% details "UniFi Network" %}
 
 UniFi integration no longer provides both `hostname` and `host_name` attributes
-for a client tracker entity, only `host_name` will be provided as an attribute.
+for a client tracker entity. Only `host_name` will be provided as an attribute.
 
 ([@Kane610] - [#91188]) ([documentation](/integrations/unifi))
 
@@ -470,7 +488,7 @@ for a client tracker entity, only `host_name` will be provided as an attribute.
 {% details "UniFi Protect" %}
 
 The previous deprecated `set_doorbell_message` service has been removed. Use
-the text entity for UniFi Protect LCD screen instead.
+the text entity for the UniFi Protect LCD screen instead.
 
 ([@AngellusMortis] - [#91523]) ([documentation](/integrations/unifiprotect))
 
@@ -515,10 +533,10 @@ The following custom ISY994 services have been removed:
 - `run_network_resource`
 - `set_variable`
 
-These services had been previously deprecated in favor of built-in services,
-and `number`, `select`, and `button` entities. If you have not already, please
-update your automations and dashboards to use the new entities and/or built-in
-services.
+These services had been previously deprecated in favor of built-in services
+and `number`, `select`, and `button` entities. Please update your automations
+and dashboards to use the new entities and/or built-in services if you have
+not already.
 
 ([@shbatm] - [#91569]) ([documentation](/integrations/isy994))
 
@@ -531,8 +549,8 @@ Dusk/Dawn nodes on Insteon Motion Sensors now have their states inverted to
 correctly show "Light detected" during daylight and "No light" when the dusk
 sensor is active.
 
-This is reversed from previous behavior and if you rely on this sensor in your
-automations, they will need to be updated.
+This is reversed from previous behavior. If you rely on this sensor in your
+automations, they must be updated.
 
 ([@shbatm] - [#92035]) ([documentation](/integrations/isy994))
 
@@ -553,7 +571,7 @@ Previously all webhook triggers could be activated by `HEAD`, `POST`, and `PUT`
 methods from any device (local or on the internet). With the new options, only
 `POST` and `PUT` are enabled by default.
 
-In Home Assistant Core 2023.7 any webhook trigger that does not set `local_only`
+In Home Assistant Core 2023.7, any webhook trigger that does not set `local_only`
 to false can only be activated by devices on the same network as Home Assistant.
 
 Click the gear/cog icon beside the Webhook ID to update your webhook triggers.
@@ -562,10 +580,10 @@ It is necessary to deselect the option for the **Save** button to appear. Then
 reselect the option if it should be enabled. This will make the repair warning
 go away.
 
-![Screenshot 2022-09-14 10 19 56 AM](https://user-images.githubusercontent.com/289218/190221194-c18f9ec8-5847-4358-aa69-eaf81f5518d1.png)
+![Screenshot shoting webhook trigger options](/images/blog/2023-05/breaking-change-webhook-triggers.png)
 
 See the [webhook trigger documentation](/docs/automation/trigger/#webhook-trigger)
-for a description of the new options. And please review the new the
+for a description of the new options. And please review the new
 [Webhook Security](/docs/automation/trigger/#webhook-security) section for best
 practices when using webhook triggers.
 
@@ -573,6 +591,24 @@ practices when using webhook triggers.
 
 [@esev]: https://github.com/esev
 [#66494]: https://github.com/home-assistant/core/pull/66494
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+With this release, you will need to update your `zwave-js-server` instance.
+You must use `zwave-js-server` 1.28.0 or greater (schema 28).
+
+- If you use the `Z-Wave JS` add-on, you need at least version `0.1.79`.
+- If you use the `Z-Wave JS UI` add-on, you need at least version `1.11.2`.
+- If you use the `Z-Wave JS UI` Docker container, you need at least version `8.14.2`.
+- If you run your own Docker container or some other installation method,
+  you will need to update your `zwave-js-server` instance to at least `1.28.0`.
+
+([@raman325] - [#91989]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#91989]: https://github.com/home-assistant/core/pull/91989
 
 {% enddetails %}
 
