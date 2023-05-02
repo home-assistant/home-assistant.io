@@ -62,14 +62,10 @@ Enjoy the (beta) release!
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-<!-- Commented out, to point attention to the Year of the Voice livestream for now
-
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=lorem)
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=ZPrlZxDE6Zk)
 3 May 2023, at 12:00 PDT / 21:00 CEST!
 
-<lite-youtube videoid="lopem" videotitle="Home Assistant 2023.5 Release Party"></lite-youtube>
-
--->
+<lite-youtube videoid="ZPrlZxDE6Zk" videotitle="Home Assistant 2023.5 Release Party"></lite-youtube>
 
 ## Year of the voice - Chapter 2
 
