@@ -194,6 +194,7 @@ setting a different language on a text-to-speech notification.
 There is much more juice in this release; here are some of the other noteworthy
 changes this release:
 
+- [Home Assistant Operating System v10 has been released!] The ODROID M-1 is now supported, improved data disk support and memory management. Bug fixes and reliability improvements for Bluetooth and Thread.
 - [Matter] now has support for covers, thanks [@hidaris]!
 - The process of making backups is now faster 🚀, thanks [@bdraco]!
 - [@bdraco] also gave the [ONVIF] integration some love, which should improve
@@ -214,6 +215,7 @@ changes this release:
   addition, [@lodesmets]!
 - [Simplepush] now supports attachments, thanks to [@tymm]!
 
+[Home Assistant Operating System v10 has been released!]: https://www.home-assistant.io/blog/2023/04/18/home-assistant-os-release-10/
 [@balloob]: https://github.com/balloob
 [@bdraco]: https://github.com/bdraco
 [@bieniu]: https://github.com/bieniu
