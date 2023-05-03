@@ -52,9 +52,9 @@ To get an idea of the specific sentences that are supported for your language, y
 
         ![Sentences definition for turning on the light](/images/assist/assist-sentence-definition-01.png) 
 
-        * () mean alternative elements
-        * [] mean optional elements
-        * <> mean an expansion rule. The view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml) .file
-        * The syntax is explained in detail in the [template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax)
+        * () mean alternative elements.
+        * [] mean optional elements.
+        * <> mean an expansion rule. The view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml)   file.
+        * The syntax is explained in detail in the [template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax).
 
 
