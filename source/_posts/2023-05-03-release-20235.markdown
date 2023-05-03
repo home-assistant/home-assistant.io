@@ -48,12 +48,12 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Year of the voice - Chapter 2](#year-of-the-voice---chapter-2)
-- [Control what is exposed to your voice assistants](#control-what-is-exposed-to-your-voice-assistants)
-- [Local TTS/SST options](#local-ttssst-options)
-- [New Assist Pipeline and Language selectors](#new-assist-pipeline-and-language-selectors)
-- [Webhooks](#webhooks)
-- [Configure the LEDs of your Home Assistant Yellow](#configure-the-leds-of-your-home-assistant-yellow)
+- [Let's talk!](#lets-talk)
+- [Manage what is exposed to your voice assistants](#manage-what-is-exposed-to-your-voice-assistants)
+- [Improved entity setting](#improved-entity-setting)
+- [Configuring the LEDs of your Home Assistant Yellow](#configuring-the-leds-of-your-home-assistant-yellow)
+- [Webhooks trigger options](#webhooks-trigger-options)
+- [New Assist pipeline and language selectors](#new-assist-pipeline-and-language-selectors)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -156,18 +156,6 @@ This allows you to quickly change the voice assistants the entity is exposed
 to, including its aliases, without having to navigate back to the voice
 assistants panel in the main settings screen.
 
-## Webhooks trigger options
-
-Webhooks have been extended this release. We now have support for webhooks
-that use the `GET` HTTP method!
-
-But that is not all. Thanks to [@esev], we also got some new security features
-for our webhook triggers. You can now set which HTTP methods your
-webhook trigger work with and the ability to limit webhooks to only work on
-your local network.
-
-<img class="no-shadow" src='/images/blog/2023-05/webhook-trigger-settings.png' alt='Screenshot showing the new options available on a Webhook automation trigger.'>
-
 ## Configuring the LEDs of your Home Assistant Yellow
 
 The enclosure of our amazing [Home Assistant Yellow](/yellow) allows you to
@@ -183,6 +171,18 @@ on the {% my hardware title="**Settings** > **Hardware**" %} page.
 
 <img class="no-shadow" src='/images/blog/2023-05/home-assistant-yellow-led-controls.png' alt='Screenshot that show the new LED settings for the Home Assistant Yellow.'>
 
+## Webhooks trigger options
+
+Webhooks have been extended this release. We now have support for webhooks
+that use the `GET` HTTP method!
+
+But that is not all. Thanks to [@esev], we also got some new security features
+for our webhook triggers. You can now set which HTTP methods your
+webhook trigger work with and the ability to limit webhooks to only work on
+your local network.
+
+<img class="no-shadow" src='/images/blog/2023-05/webhook-trigger-settings.png' alt='Screenshot showing the new options available on a Webhook automation trigger.'>
+
 ## New Assist pipeline and language selectors
 
 If you are building automation or scripts Blueprints, you can now leverage
@@ -195,7 +195,7 @@ The language selector let's a user choose from a list of languages.
 </p>
 
 You could, for example, leverage this in a notification Blueprint to allow
-setting a different language on a text-to-speed notification.
+setting a different language on a text-to-speech notification.
 
 [More information can be found in our selectors documentation](/docs/blueprint/selectors).
 
