@@ -270,7 +270,7 @@ findability. This one is new:
 [@synesthesiam]: https://github.com/synesthesiam
 [@tronikos]: https://github.com/tronikos
 [android tv remote]: /integrations/androidtv_remote
-[Anova]: /integration/anova
+[Anova]: /integrations/anova
 [assist]: /docs/assist
 [Intellifire]: /integrations/intellifire
 [Monessen]: /integrations/monessen
