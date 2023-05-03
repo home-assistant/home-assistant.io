@@ -124,28 +124,29 @@ a fully local option (that can be used on, for example, a Raspberry Pi 4).
 Piper is really amazing, it is small, sounds reasonably good and
 above all is fully local. [Checkout out some output examples here](https://rhasspy.github.io/piper-samples/).
 
-## New Assist Pipeline and Language selectors
+## Improved entity setting
 
-{% details "TODO" %}
+Some nice tweaks have been made to the entity settings dialog, making it
+easier to use and look cleaner.
 
-- Improve/extend story
-- Proof read/spelling/grammar
-- Add screenshot?
-- Link to docs (missing at this point)
+The entity settings dialog used to have an expandable advanced section,
+which you could expand to access features like showing/hiding/disabling
+entities, changing the area, etc.
 
-{% enddetails %}
+The advanced section has been removed, and all its features have been
+reorganized. So, no features were lost while providing a much nicer
+interface.
 
-If you are building automation or scripts Blueprints, you can now leverage
-two new UI selectors for use with your Blueprints: an Assist pipeline selector
-and a language selectors.
+<img class="no-shadow" src='/images/blog/2023-05/entity-settings.png' alt='Screenshot showing the new and improved entity settings dialog.'>
 
-## Webhooks
+And, since this is the year of the voice, you may notice the
+**"Voice assistants"** option in the above screenshot, which will bring up:
 
-{% details "TODO" %}
+<img class="no-shadow" src='/images/blog/2023-05/entity-settings-voice-assistants.png' alt='Screenshot showing the new voice assistant expose controls accessible directly from the entity settings dialog.'>
 
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
+This allows you to quickly change the voice assistants the entity is exposed
+to, including its aliases, without having to navigate back to the voice
+assistants panel in the main settings screen.
 
 ## Webhooks trigger options
 
