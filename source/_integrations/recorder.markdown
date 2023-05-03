@@ -12,7 +12,7 @@ ha_codeowners:
 ha_integration_type: system
 ---
 
-The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history`](/integrations/history/) integration.
+This integration is by default enabled as dependency of the [`history`](/integrations/history/) integration.
 
 <div class='note'>
 
@@ -153,13 +153,14 @@ recorder:
   exclude:
     domains:
       - automation
-      - updater
+      - update
     entity_globs:
-      - sensor.weather_*
+      - sensor.sun*
+      - weather.*
     entities:
-      - sun.sun # Don't record sun data
-      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sensor.date
+      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
+      - sun.sun # Don't record sun data
     event_types:
       - call_service # Don't record service calls
 ```

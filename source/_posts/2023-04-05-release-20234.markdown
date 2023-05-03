@@ -49,6 +49,7 @@ Happy Easter! 🐣 and enjoy the release!
 - [Release 2023.4.3 - April 12](#release-202343---april-12)
 - [Release 2023.4.4 - April 13](#release-202344---april-13)
 - [Release 2023.4.5 - April 17](#release-202345---april-17)
+- [Release 2023.4.6 - April 21](#release-202346---april-21)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -863,6 +864,75 @@ The following integrations are now available via the Home Assistant UI:
 [thread docs]: /integrations/thread/
 [unifiprotect docs]: /integrations/unifiprotect/
 [zha docs]: /integrations/zha/
+
+## Release 2023.4.6 - April 21
+
+- Add a guard against selecting all entities in `state_changes_during_period` ([@bdraco] - [#91585]) ([recorder docs])
+- Fix tasks with no due date from not triggering `on` calendar state. ([@boralyl] - [#91196]) ([todoist docs])
+- Fix Insteon thermostat issue ([@teharris1] - [#91568]) ([insteon docs])
+- Handle UnsupportedError in HomeWizard ([@DCSBL] - [#91608]) ([homewizard docs])
+- Bump renault-api to 0.1.13 ([@epenet] - [#91609]) ([renault docs])
+- Handle long format context UUIDs during migration ([@bdraco] - [#91657]) ([recorder docs])
+- Bump aioshelly to 5.3.2 ([@thecode] - [#91679]) ([shelly docs])
+- Fallback to generating a new ULID on migraiton if context is missing or invalid ([@bdraco] - [#91704]) ([recorder docs])
+- Bump python-songpal dependency ([@rytilahti] - [#91708]) ([songpal docs])
+- Do not wait for mqtt at startup mqtt_statestream ([@jbouwh] - [#91721]) ([mqtt_statestream docs])
+- Bump pylitterbot to 2023.4.0 ([@natekspencer] - [#91759]) ([litterrobot docs])
+- Bump pysml to 0.0.10 ([@StephanU] - [#91773]) ([edl21 docs])
+- Relax the constraint that events must have a consistent timezone for start/end ([@allenporter] - [#91788]) ([google docs]) ([calendar docs])
+- Disallow uploading files to bypass the media dirs ([@balloob] - [#91817]) ([media_source docs])
+
+[#90855]: https://github.com/home-assistant/core/pull/90855
+[#90956]: https://github.com/home-assistant/core/pull/90956
+[#91111]: https://github.com/home-assistant/core/pull/91111
+[#91196]: https://github.com/home-assistant/core/pull/91196
+[#91316]: https://github.com/home-assistant/core/pull/91316
+[#91356]: https://github.com/home-assistant/core/pull/91356
+[#91544]: https://github.com/home-assistant/core/pull/91544
+[#91568]: https://github.com/home-assistant/core/pull/91568
+[#91585]: https://github.com/home-assistant/core/pull/91585
+[#91608]: https://github.com/home-assistant/core/pull/91608
+[#91609]: https://github.com/home-assistant/core/pull/91609
+[#91657]: https://github.com/home-assistant/core/pull/91657
+[#91679]: https://github.com/home-assistant/core/pull/91679
+[#91704]: https://github.com/home-assistant/core/pull/91704
+[#91708]: https://github.com/home-assistant/core/pull/91708
+[#91721]: https://github.com/home-assistant/core/pull/91721
+[#91759]: https://github.com/home-assistant/core/pull/91759
+[#91773]: https://github.com/home-assistant/core/pull/91773
+[#91788]: https://github.com/home-assistant/core/pull/91788
+[#91817]: https://github.com/home-assistant/core/pull/91817
+[@DCSBL]: https://github.com/DCSBL
+[@StephanU]: https://github.com/StephanU
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@boralyl]: https://github.com/boralyl
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@natekspencer]: https://github.com/natekspencer
+[@rytilahti]: https://github.com/rytilahti
+[@teharris1]: https://github.com/teharris1
+[@thecode]: https://github.com/thecode
+[actiontec docs]: /integrations/actiontec/
+[advantage_air docs]: /integrations/advantage_air/
+[airly docs]: /integrations/airly/
+[calendar docs]: /integrations/calendar/
+[edl21 docs]: /integrations/edl21/
+[frontend docs]: /integrations/frontend/
+[google docs]: /integrations/google/
+[homewizard docs]: /integrations/homewizard/
+[insteon docs]: /integrations/insteon/
+[lifx docs]: /integrations/lifx/
+[litterrobot docs]: /integrations/litterrobot/
+[media_source docs]: /integrations/media_source/
+[mqtt_statestream docs]: /integrations/mqtt_statestream/
+[recorder docs]: /integrations/recorder/
+[renault docs]: /integrations/renault/
+[shelly docs]: /integrations/shelly/
+[songpal docs]: /integrations/songpal/
+[todoist docs]: /integrations/todoist/
 
 ## Need help? Join the community!
 

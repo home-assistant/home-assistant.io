@@ -97,6 +97,8 @@
     Devices have properties such as ID, manufacturer, name, model, hardware version, firmware version, connections, etc.
   excerpt: >
     A device is a model representing a physical or logical unit that contains entities.
+  aliases:
+    - devices
 
 - term: Device tracker
   definition: >-
@@ -144,11 +146,15 @@
   link: /docs/configuration/state_object/
   excerpt: >
     An entity represents a sensor, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An entity is usually part of a device or a service.
+  aliases:
+    - entities
 
 - term: Event
   definition: >-
     An event is when something happens.
   link: /docs/configuration/events/
+  aliases:
+    - events
 
 - term: Frontend
   definition: >-
@@ -222,6 +228,8 @@
     Integrations connect and integrates Home Assistant with your devices,
     services, and more.
   link: /integrations/
+  aliases:
+    - integrations
 
 - term: Lovelace
   definition: >-
@@ -275,12 +283,16 @@
     Scripts are components that allow users to specify a sequence of actions
     to be executed by Home Assistant when turned on.
   link: /docs/scripts/
+  aliases:
+    - scripts
 
 - term: Sensor
   definition: >-
     Sensors return information about a thing, for instance the level of water
     in a tank.
   link: /integrations/sensor/
+  aliases:
+    - sensors
 
 - term: Selectors
   definition: >-
@@ -367,3 +379,5 @@
   definition: >-
     Zones are areas that can be used for presence detection.
   link: /integrations/zone/
+  aliases:
+    - zones

@@ -290,7 +290,7 @@ preset_mode_state_topic:
 preset_mode_value_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the `preset_mode` value from the payload received on `preset_mode_state_topic`.
   required: false
-  type: string
+  type: template
 preset_modes:
   description: List of preset modes this climate is supporting. Common examples include `eco`, `away`, `boost`, `comfort`, `home`, `sleep` and `activity`.
   required: false
@@ -342,7 +342,7 @@ target_humidity_state_topic:
 target_humidity_state_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a value for the climate `target_humidity` state.
   required: false
-  type: string
+  type: template
 temperature_command_template:
   description: A template to render the value sent to the `temperature_command_topic` with.
   required: false

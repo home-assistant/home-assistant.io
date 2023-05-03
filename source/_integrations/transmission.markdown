@@ -72,13 +72,15 @@ Example of an automation that notifies on successful download and removes the to
         message: "{{trigger.event.data.name}}"
     - service: transmission.remove_torrent
       data:
-        name: "Transmission"
+        entry_id: eeb52bc78e11d813a1e6bc68c8ff93c8
         id: "{{trigger.event.data.id}}"
 ```
 
 {% endraw %}
 
 ## Services
+
+All Transmission services require integration `entry_id`. To find it, go to Developer Tools -> Services. Choose the desired service and select your integration from dropdown. Then switch to YAML mode to see `entry_id`.
 
 ### Service `add_torrent`
 
