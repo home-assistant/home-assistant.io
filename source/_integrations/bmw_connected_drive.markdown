@@ -151,7 +151,7 @@ Using these selects will impact the state of your vehicle. Use them with care!
 
 ## Numbers
 
-If you have a (PH)EV, you can control the charging process through Home Assistant. The number entities are created automatically depending on your vehicle's capabilities and can be changed from the UI or using the `number.set_value` service. Please see the [number documentation](/integrations/number/) for more information.
+If you have a (PH)EV, you can control the charging process through Home Assistant. The number entities are created automatically depending on your vehicle's capabilities and can be changed from the UI or using the `number.set_value` service. For more information, please see the [number documentation](/integrations/number/).
 
 Using these selects will impact the state of your vehicle, use them with care!
 
