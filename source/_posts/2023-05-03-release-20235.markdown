@@ -162,24 +162,20 @@ your local network.
 Temporary screenshot that needs to be replaced.
 </p>
 
-## Configure the LEDs of your Home Assistant Yellow
+## Configuring the LEDs of your Home Assistant Yellow
 
-{% details "TODO" %}
+The enclosure of our amazing [Home Assistant Yellow](/yellow) allows you to
+look at the beautiful board and parts inside of it.
 
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
+However, the LEDs on the board might light up your environment when
+it is dark in an unwanted way. For example, when you sleep in the same room
+as your Home Assistant Yellow is in.
 
-{% enddetails %}
+As of this release, you can configure (turn on/off) the disk, heartbeat,
+and power LEDs of your Home Assistant Yellow by using the **Configure** button
+on the {% my hardware title="**Settings** > **Hardware**" %} page.
 
-You can now configure (turn on/off) the disk, heartbeat and power LEDs of
-your [Home Assistant Yellow](/yellow) by using the **Configure\* button
-on the **Settings** > **Hardware\*\* page.
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/14281572/234582354-fc0fc892-8daa-440a-be5f-fc6e77ae2abf.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2023-05/home-assistant-yellow-led-controls.png' alt='Screenshot that show the new LED settings for the Home Assistant Yellow.'>
 
 ## Other noteworthy changes
 
