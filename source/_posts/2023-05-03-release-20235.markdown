@@ -627,8 +627,8 @@ The following integrations are also no longer available as of this release:
 - **Coronavirus (COVID-19)** has been removed. The data is no longer provided
   by the source provider.
   ([@emontnemery] - [#90934])
-- **XBox Live** previously deprecated and has now been removed.
-  The [XBox integration] is still available.
+- **Xbox Live** was previously deprecated and has now been removed.
+  The [Xbox integration] is still available.
   ([@MartinHjelmare] - [#90592])
 
 [@emontnemery]: https://github.com/emontnemery
