@@ -67,62 +67,70 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 <lite-youtube videoid="ZPrlZxDE6Zk" videotitle="Home Assistant 2023.5 Release Party"></lite-youtube>
 
-## Year of the voice - Chapter 2
+## Let's talk!
 
-This release is almost fully dedicated to the Year of the voice: Chapter 2!
+Our goal for 2023 is to let you control Home Assistant in your own language:
+It is [Home Assistant’s Year of the Voice][yotv]! After [chapter 1][chapter1] in
+January last week, [we announced chapter 2][chapter2] in this exciting journey!
 
-The full reveal, explaintion, and live demos will be shown during the
-[our live stream on YouTube](https://www.youtube.com/watch?v=lorem)
-27 April 2023, at 12:00 PDT / 21:00 CEST!
+This release ships everything (plus more) that was announced! This means, as
+of this release, you can actually start talking to Home Assistant! 🎙️
 
-<lite-youtube videoid="Tk-pnm7FY7c" videotitle="Year of the Voice - Chapter 2"></lite-youtube>
+<lite-youtube videoid="0YJzLIMrnGk" videotitle="World’s Most Private Voice Assistant"></lite-youtube>
 
-The release blog post will be updated later this beta week to better
-connect to all of this.
+Here is a quick summary of [all that has been announced][chapter2], linked to
+the place you can read more about each of them:
 
-**What to explore during beta already?**
+- [Compose your own voice assistant using the new assist pipelines](/blog/2023/04/27/year-of-the-voice-chapter-2/#composing-voice-assistants)
+- [Voice Assistant powered by Home Assistant Cloud](/blog/2023/04/27/year-of-the-voice-chapter-2/#voice-assistant-powered-by-home-assistant-cloud)
+- [Fully local text-to-speech using Piper](/blog/2023/04/27/year-of-the-voice-chapter-2/#piper-our-new-model-for-high-quality-local-text-to-speech)
+- [Fully local speech-to-text using OpenAI Wishper](/blog/2023/04/27/year-of-the-voice-chapter-2/#local-speech-to-text-with-openai-whisper)
+- [The Wyoming protocol and integration](/blog/2023/04/27/year-of-the-voice-chapter-2/#wyoming-the-voice-assistant-glue)
+- [Create your own ESPHome-powered voice assistant](/blog/2023/04/27/year-of-the-voice-chapter-2/#esphome-powered-voice-assistants)
+- [The Voice-over-IP integration, call Home Assistant ☎️](/blog/2023/04/27/year-of-the-voice-chapter-2/#worlds-most-private-voice-assistant)
 
-So, what to explore? There is a new menu to be found in the system settings:
-**Voice assistants**, which you should check out, [Assist](/docs/assist) is
-getting ears and a voice :)
+To help you get started, we made sure the documentation is perfect, including
+some cool project tutorials to jump-start your own private voice assistant
+journey:
 
-## Control what is exposed to your voice assistants
+- [The world's most private voice assistant](/projects/worlds-most-private-voice-assistant/)
+- [Giving your voice assistant a Super Mario personality using OpenAI](/projects/worlds-most-private-voice-assistant/#give-your-voice-assistant-personality-using-the-openai-integration)
+- [Installing a local Assist pipeline](/docs/assist/voice_remote_local_assistant/)
+- [The $13 tiny ESPHome-based voice assistant](/projects/thirteen-usd-voice-remote/)
 
-{% details "TODO" %}
+If you missed [last week's live stream](https://www.youtube.com/watch?v=Tk-pnm7FY7c),
+be sure to check it out. It is full of live demos and detailed explanations
+of everything packed into this release. The recording of the live stream:
 
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshots/clips
+<lite-youtube videoid="Tk-pnm7FY7c" videotitle="World’s Most Private Voice Assistant"></lite-youtube>
 
-{% enddetails %}
+[yotv]: /blog/2022/12/20/year-of-voice/
+[chapter2]: /blog/2023/04/27/year-of-the-voice-chapter-2/
+[chapter1]: /blog/2023/01/26/year-of-the-voice-chapter-1/
 
-There a whole new panel, where you can control which entities are exposed
-to your voice assistant. You can find it in
-**Settings** > **Voice assistants** > **Expose**-tab.
+## Manage what is exposed to your voice assistants
 
-<p class='img'>
-<img src='https://cdn.discordapp.com/attachments/427516175237382144/1100754453725978644/image.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+A brand new and exciting menu item can be found in your {% my config title="**Settings**" %}
+menu: {% my voice_assistants title="**Voice&nbsp;assistants**" %}!
 
-This currently supports our [Assist](/docs/assist), Amazon Alexa and
-Google Assistant. For the latter two, it is curently limited to
-the ones set up via Home Assistant Cloud.
+<img class="no-shadow" src='/images/blog/2023-05/voice-assistants.png' alt='Screenshot showing the brand new menu item in the settings menu: Voice assistants.'>
 
-## Local TTS/SST options
+This new settings item gives you access to many fantastic new voice features;
+it also provides a new **Expose** tab where you can manage which entities are
+exposed to your Assist, Alexa, and Google Assistant.
 
-A new integration [Wyoming](/integrations/wyoming) provides a way
-for Home Assistant to integrate with voice Text-to-speech and
-Speech-to-text services that use the Wyoming protocol.
+<img class="no-shadow" src='/images/blog/2023-05/voice-assistants-expose-entities.png' alt='Screenshot showing the new expose entities tab in the voice assistants menu.'>
 
-This release introduces two new add-ons that support this and thus provide
-a fully local option (that can be used on, for example, a Raspberry Pi 4).
+It gives an overview of what entities you have exposed to your voice assistants
+and easily remove or add new ones. Clicking on an entity in this screen will
+bring up the voice assistant setting for that entity, allowing you to turn
+on/off the entity's exposure to a specific voice assistant and
+manage the entity's aliases.
 
-- Speech-to-text using [OpenAI Whisper](https://my.home-assistant.io/redirect/supervisor_addon/?addon=whisper).
-- Text-to-speech using [Piper](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_piper).
+<img class="no-shadow" src='/images/blog/2023-05/voice-assistants-expose-entities-settings.png' alt='Screenshot showing the new expose entities tab in the voice assistants menu.'>
 
-Piper is really amazing, it is small, sounds reasonably good and
-above all is fully local. [Checkout out some output examples here](https://rhasspy.github.io/piper-samples/).
+This currently supports our [Assist](/docs/assist), and Amazon Alexa and
+Google Assistant via Home Assistant Cloud.
 
 ## Improved entity setting
 
