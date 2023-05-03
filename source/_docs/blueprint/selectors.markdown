@@ -667,7 +667,7 @@ language:
 {% configuration entity %}
 languages:
   description: A list of languages to pick from, this should be RFC 5646 languages codes.
-  type: string
+  type: list
   default: The available languages in the Home Assistant frontend
   required: false
 native_name:
