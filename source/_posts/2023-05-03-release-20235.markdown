@@ -351,8 +351,8 @@ to reduce possible confusion in the future.
 
 {% details "History" %}
 
-YAML configuration for history has been removed as it was no longer used
-since the frontend.
+All YAML configuration options for the history integration have been removed
+as they were no longer used by the frontend.
 
 ([@bdraco] - [#90992]) ([documentation](/integrations/history))
 
