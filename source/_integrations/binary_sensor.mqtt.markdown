@@ -114,7 +114,8 @@ device:
       required: false
       type: string
 device_class:
-  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend. The `device_class` can be `null`.
+  default: None
   required: false
   type: string
 enabled_by_default:

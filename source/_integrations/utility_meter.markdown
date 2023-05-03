@@ -243,7 +243,7 @@ utility_meter:
 
 ## Advanced Configuration for DSMR users
 
-When using the [DSMR component](/integrations/dsmr) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` component.
+When using the [DSMR integration](/integrations/dsmr) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` integration.
 
 If you want to create a daily and monthly sensor for each tariff, you have to track separate sensors:
 
@@ -251,7 +251,7 @@ If you want to create a daily and monthly sensor for each tariff, you have to tr
 - `sensor.energy_consumption_tarif_2` for tarif 2 power (for example peak)
 - `sensor.gas_consumption` for gas consumption
 
-So, tracking daily and monthly consumption for each sensor, will require setting up 6 entries under the `utility_meter` component.
+So, tracking daily and monthly consumption for each sensor, will require setting up 6 entries under the `utility_meter` integration.
 
 ```yaml
 utility_meter:
