@@ -24,6 +24,7 @@ ha_platforms:
   - diagnostics
   - lock
   - notify
+  - number
   - select
   - sensor
 ha_integration_type: integration

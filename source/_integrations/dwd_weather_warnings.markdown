@@ -10,6 +10,7 @@ ha_codeowners:
   - '@runningman84'
   - '@stephan192'
   - '@Hummel95'
+  - '@andarotajo'
 ha_platforms:
   - sensor
 ha_integration_type: integration

@@ -8,11 +8,11 @@ ha_category:
   - Lock
   - Sensor
   - Switch
-ha_release: "2022.12"
+ha_release: '2022.12'
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - "@home-assistant/matter"
+  - '@home-assistant/matter'
 ha_domain: matter
 ha_platforms:
   - binary_sensor

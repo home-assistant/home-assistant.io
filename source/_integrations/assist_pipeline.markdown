@@ -11,6 +11,8 @@ ha_codeowners:
 ha_domain: assist_pipeline
 ha_integration_type: integration
 ha_quality_scale: internal
+ha_platforms:
+  - select
 ---
 
 The Assist pipeline integration provides the foundation for the [Assist](/docs/assist/) voice assistant in Home Assistant. 

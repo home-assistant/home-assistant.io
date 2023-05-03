@@ -19,7 +19,6 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@bdraco'
-  - '@Djelibeybi'
 ha_quality_scale: platinum
 ha_dhcp: true
 ---

@@ -11,6 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@engrbm87'
+  - '@jbouwh'
 ha_config_flow: true
 ---
 

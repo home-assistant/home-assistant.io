@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
   - '@ollo69'
+  - '@pestevez'
 ha_zeroconf: true
 ha_platforms:
   - diagnostics
