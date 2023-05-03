@@ -61,7 +61,7 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 Our goal for 2023 is to let you control Home Assistant in your own language:
 It is [Home Assistant’s Year of the Voice][yotv]! After [chapter 1][chapter1] in
-January last week, [we announced chapter 2][chapter2] in this exciting journey!
+January, [we announced chapter 2][chapter2] in this exciting journey last week!
 
 This release ships everything (plus more) that was announced! This means, as
 of this release, you can actually start talking to Home Assistant! 🎙️
