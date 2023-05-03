@@ -214,6 +214,7 @@ changes this release:
 - [Synology DSM] can now browse your Synology Photos in the media browser. Cool
   addition, [@lodesmets]!
 - [Simplepush] now supports attachments, thanks to [@tymm]!
+- Some [Z-Wave] notification sensors won't clear to idle automatically. Now you can use the new notification idle buttons to idle them manually!
 
 [Home Assistant Operating System v10 has been released!]: https://www.home-assistant.io/blog/2023/04/18/home-assistant-os-release-10/
 [@balloob]: https://github.com/balloob
@@ -239,6 +240,7 @@ changes this release:
 [simplepush]: /integrations/simplepush
 [supervisor]: /integrations/hassio
 [synology dsm]: /integrations/synology_dsm
+[z-wave]: /integrations/zwave_js
 
 ## New Integrations
 
