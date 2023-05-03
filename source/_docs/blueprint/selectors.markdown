@@ -656,7 +656,7 @@ for example: `mdi:bell`.
 
 ## Language selector
 
-The language selector allow a user to pick a language from a list of languages.
+The language selector allows a user to pick a language from a list of languages.
 
 ![Screenshot of an language selector](/images/blueprints/selector-language.png)
 
