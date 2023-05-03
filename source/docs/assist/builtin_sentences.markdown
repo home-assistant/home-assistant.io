@@ -36,7 +36,7 @@ To get an idea of the specific sentences that are supported for your language, y
 1. Take a look at the test sentences:
     * On github, in the [tests](https://github.com/home-assistant/intents/tree/main/sentences) folder, open the subfolder for your language.
     * Look through the test files to see the example sentences that have been tested.
-    * The second part of the file name shows the intent, the first part shows the domain. For some domains, such as covers, fans, and light, there are specific sentences.
+    * The second part of the file name shows the {% term intent %}, the first part shows the domain. For some domains, such as covers, fans, and light, there are specific sentences.
         The other domains are covered by the generic *homeassistant_*.
 
         ![Example of a folder of assistant sentence test files](/images/assist/intents-test-files.png)
