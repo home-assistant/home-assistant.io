@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2023.5: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2023.5."
-date: 2023-04-26 00:00:00
+title: "2023.5: Let's talk!"
+description: "Have a talk with your Home Assistant! Shipping chapter 2 of our Year of the Voice! Easily manage your exposed entities to your voice assistants, configure your Home Assistant Yellow's LEDs, and new Webhook trigger options!"
+date: 2023-05-03 00:00:00
 date_formatted: "May 3, 2023"
 author: Franck Nijhof
 author_twitter: frenck
