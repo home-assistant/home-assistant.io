@@ -233,12 +233,7 @@
 
 - term: Intent
   definition: >-
-    Intent is a term used with voice assistants. The intent is what Home Assistant thinks you want it do when it extracts a command from your voice or text utterance. Currently, the following intents are supported out of the box: 
-
-      * HassTurnOn
-      * HassTurnOff
-      * HassGetState
-      * HassLightSet
+    Intent is a term used with voice assistants. The intent is what Home Assistant thinks you want it do when it extracts a command from your voice or text utterance. Currently, the following intents are supported out of the box: HassTurnOn, HassTurnOff, HassGetState, and HassLightSet.
 
     These intents allow you to turn things on or off, inquire about a state, or change the brightness or color of a light.
   excerpt: >
