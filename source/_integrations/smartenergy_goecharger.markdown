@@ -6,7 +6,7 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_quality_scale: silver
-ha_release: '2023.2'
+ha_release: '2023.5'
 ha_config_flow: true
 ha_codeowners:
   - '@openkfw'
