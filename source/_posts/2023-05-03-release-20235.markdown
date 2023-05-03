@@ -175,33 +175,21 @@ on the {% my hardware title="**Settings** > **Hardware**" %} page.
 
 <img class="no-shadow" src='/images/blog/2023-05/home-assistant-yellow-led-controls.png' alt='Screenshot that show the new LED settings for the Home Assistant Yellow.'>
 
-## Other noteworthy changes
+## New Assist pipeline and language selectors
 
-{% details "TODO" %}
+If you are building automation or scripts Blueprints, you can now leverage
+two new UI selectors for use with your Blueprints: an Assist pipeline selector
+and a language selector.
 
-- Proof read/spelling/grammar
-- Last minute ones added?
-- Go over list again, might have missed something
+<p class='img'>
+<img src='/images/blog/2023-05/blueprints-language-selector.png' alt='Screenshot showing the language selector.'></a>
+The language selector let's a user choose from a list of languages.
+</p>
 
-To consider:
+You could, for example, leverage this in a notification Blueprint to allow
+setting a different language on a text-to-speed notification.
 
-- Add reauth to frontier_silicon config flow ([@wlcrs] - [#90443]) ([frontier_silicon docs])
-- Add dimmable lights support to niko home control ([@jellenijhof12] - [#90141]) ([niko_home_control docs])
-- Add preferred wind speed unit to unit systems ([@emontnemery] - [#90504])
-- Add attachments to simplepush ([@tymm] - [#81033]) ([simplepush docs])
-- Add support for Supla garage doors ([@alh84001] - [#90593]) ([supla docs])
-- Reolink doorbell extend features ([@starkillerOG] - [#90469]) ([reolink docs]) (breaking-change)
-- Add more PrusaLink sensors ([@5n8ke] - [#80424]) ([prusalink docs])
-- Add MQTT fan direction support ([@rubenbe] - [#91700]) ([mqtt docs])
-- Ensure onvif can still be unloaded if camera fails to unsubscribe ([@bdraco] - [#91887]) ([onvif docs])
-- Add guards to onvif for when the PullPoint to Webhook url changes ([@bdraco] - [#91886]) ([onvif docs])
-- Add fallback to device zone time or no timezone to onvif when setting time fails ([@bdraco] - [#91882]) ([onvif docs])
-- Improve error reporting in onvif in config flow ([@bdraco] - [#91876]) ([onvif docs])
-- Add rule parser for onvif LineDetector and CountAggregation ([@bdraco] - [#91885]) ([onvif docs])
-
-To consider:
-
-- **Note**: Changes processed up to PR 91312
+[More information can be found in our selectors documentation](/docs/blueprint/selectors).
 
 ## Other noteworthy changes
 
