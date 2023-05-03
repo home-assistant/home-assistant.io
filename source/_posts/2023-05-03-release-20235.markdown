@@ -147,20 +147,17 @@ and a language selectors.
 - Proof read/spelling/grammar
 - Replace screenshot
 
-{% enddetails %}
+## Webhooks trigger options
 
 Webhooks have been extended this release. We now have support for webhooks
 that use the `GET` HTTP method!
 
-But that is not all, thanks to [@esev], we also have some new security related
-features to our webhook triggers. You can now set which HTTP methods you
-webhook trigger work with, and the ability to limit webhooks to work only on
+But that is not all. Thanks to [@esev], we also got some new security features
+for our webhook triggers. You can now set which HTTP methods your
+webhook trigger work with and the ability to limit webhooks to only work on
 your local network.
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/289218/154378138-6993664b-9bbf-4ec9-b62f-066300c01cb9.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2023-05/webhook-trigger-settings.png' alt='Screenshot showing the new options available on a Webhook automation trigger.'>
 
 ## Configuring the LEDs of your Home Assistant Yellow
 
