@@ -74,7 +74,7 @@ the place you can read more about each of them:
 - [Compose your own voice assistant using the new assist pipelines](/blog/2023/04/27/year-of-the-voice-chapter-2/#composing-voice-assistants)
 - [Voice Assistant powered by Home Assistant Cloud](/blog/2023/04/27/year-of-the-voice-chapter-2/#voice-assistant-powered-by-home-assistant-cloud)
 - [Fully local text-to-speech using Piper](/blog/2023/04/27/year-of-the-voice-chapter-2/#piper-our-new-model-for-high-quality-local-text-to-speech)
-- [Fully local speech-to-text using OpenAI Wishper](/blog/2023/04/27/year-of-the-voice-chapter-2/#local-speech-to-text-with-openai-whisper)
+- [Fully local speech-to-text using OpenAI Whisper](/blog/2023/04/27/year-of-the-voice-chapter-2/#local-speech-to-text-with-openai-whisper)
 - [The Wyoming protocol and integration](/blog/2023/04/27/year-of-the-voice-chapter-2/#wyoming-the-voice-assistant-glue)
 - [Create your own ESPHome-powered voice assistant](/blog/2023/04/27/year-of-the-voice-chapter-2/#esphome-powered-voice-assistants)
 - [The Voice-over-IP integration, call Home Assistant ☎️](/blog/2023/04/27/year-of-the-voice-chapter-2/#worlds-most-private-voice-assistant)
