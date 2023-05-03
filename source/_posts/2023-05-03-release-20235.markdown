@@ -209,41 +209,52 @@ To consider:
 
 - **Note**: Changes processed up to PR 91312
 
-{% enddetails %}
+## Other noteworthy changes
 
-There are much more easter bunnies in this release; here are some of the other
-noteworthy changes this release:
+There is much more juice in this release; here are some of the other noteworthy
+changes this release:
 
 - [Matter] now has support for covers, thanks [@hidaris]!
 - The process of making backups is now faster 🚀, thanks [@bdraco]!
 - [@bdraco] also gave the [ONVIF] integration some love, which should improve
-  the stability of the integation. Nice!
-- You can now set up multiple instances of the [OpenAI Conversation] integration,
-  with for example, different prompts. Thanks, [@balloob]!
+  the stability of the integration. Nice!
+- You can now set up multiple instances of the [OpenAI Conversation] integration
+  with, for example, different prompts. Thanks, [@balloob]!
+- [@rubenbe] added direction support to [MQTT] fans! Nice!
+- [BTHome] added support for button and dimmer events. This means it supports
+  the brand new [Shelly BLU Button1]! Thanks, [@Ernst79]!
 - The [Supervisor] can now create repair issues for some of the issues
   it detected on your system. Awesome [@mdegat01]!
-- [@mib1185] added service to allow sorting of the [Shopping list]. Thanks!
+- [@mib1185] added a service to allow sorting of the [Shopping list]. Thanks!
 - [@depoll] added an attribute to the [Person] entities that list the device
   trackers for this person. Very useful for templates! Thanks!
 - The [NextDNS] integration added a whole bunch of new parental control
   switches, thanks [@bieniu]!
-- [Synology DSM] can use browser they Synology Photos in the media browser. Cool
+- [Synology DSM] can now browse your Synology Photos in the media browser. Cool
   addition, [@lodesmets]!
+- [Simplepush] now supports attachments, thanks to [@tymm]!
 
 [@balloob]: https://github.com/balloob
 [@bdraco]: https://github.com/bdraco
 [@bieniu]: https://github.com/bieniu
 [@depoll]: https://github.com/depoll
+[@Ernst79]: https://github.com/Ernst79
 [@hidaris]: https://github.com/hidaris
 [@lodesmets]: https://github.com/lodesmets
 [@mdegat01]: https://github.com/mdegat01
 [@mib1185]: https://github.com/mib1185
+[@rubenbe]: https://github.com/rubenbe
+[@tymm]: https://github.com/tymm
+[bthome]: /integrations/bthome
 [matter]: /integrations/matter
+[mqtt]: /integrations/mqtt
 [nextdns]: /integrations/nextdns
 [onvif]: /integrations/onvif
 [openai conversation]: /integrations/openai_conversation
 [person]: /integrations/person
+[shelly blu button1]: https://www.shelly.cloud/en/products/shop/shelly-blu-button1?tracking=A7FsiPIfUWsFpnfKHa8SRyUYLXjr2hPq
 [shopping list]: /integrations/shopping_list
+[simplepush]: /integrations/simplepush
 [supervisor]: /integrations/hassio
 [synology dsm]: /integrations/synology_dsm
 
