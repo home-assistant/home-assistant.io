@@ -17,6 +17,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/) Profile S conformant device in Home Assistant. This requires the [`ffmpeg` integration](/integrations/ffmpeg/) to be already configured.

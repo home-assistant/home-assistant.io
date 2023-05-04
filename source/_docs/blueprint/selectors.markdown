@@ -19,6 +19,7 @@ The following selectors are currently available:
 - [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
 - [Attribute selector](#attribute-selector)
+- [Assist pipeline selector](#assist-pipeline-selector)
 - [Boolean selector](#boolean-selector)
 - [Color temperature selector](#color-temperature-selector)
 - [Config entry selector](#config-entry-selector)
@@ -29,6 +30,7 @@ The following selectors are currently available:
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
 - [Icon selector](#icon-selector)
+- [Language selector](#language-selector)
 - [Location selector](#location-selector)
 - [Media selector](#media-selector)
 - [Number selector](#number-selector)
@@ -244,6 +246,18 @@ entity_id:
 The output of this selector is the selected attribute key (not the translated or
 prettified name shown in the frontend).
 For example: `next_dawn`.
+
+## Assist pipeline selector
+
+The assist pipeline selector shows all available assist pipelines (assistants) of which one can be selected.
+
+![Screenshot of an assist pipeline selector](/images/blueprints/selector-assist-pipeline.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+assist_pipeline:
+```
 
 ## Boolean selector
 
@@ -639,6 +653,38 @@ placeholder:
 
 The output of this selector is a string containing the selected icon,
 for example: `mdi:bell`.
+
+## Language selector
+
+The language selector allows a user to pick a language from a list of languages.
+
+![Screenshot of an language selector](/images/blueprints/selector-language.png)
+
+```yaml
+language:
+```
+
+{% configuration entity %}
+languages:
+  description: A list of languages to pick from, this should be RFC 5646 languages codes.
+  type: list
+  default: The available languages in the Home Assistant frontend
+  required: false
+native_name:
+  description: >
+    Should the name of the languages be shown in the language of the user, or in the language itself.
+  type: boolean
+  default: false
+  required: false
+no_sort:
+  description: >
+    Should the options be sorted by name, if set to true, the order of the provided languages is kept.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is a RFC 5646 language code.
 
 ## Location selector
 
