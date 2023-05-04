@@ -47,6 +47,7 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2023.5.1 - May 4](#release-202351---may-4)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -297,6 +298,38 @@ The following integrations are now available via the Home Assistant UI:
 [qbittorrent]: /integrations/qbittorrent
 [snapcast]: /integrations/snapcast
 [workday]: /integrations/workday
+
+## Release 2023.5.1 - May 4
+
+- Fix onvif setup when time set service is not functional ([@bdraco] - [#92447]) ([onvif docs])
+- Fix onvif cameras with invalid encodings in device info ([@bdraco] - [#92450]) ([onvif docs])
+- Bump `aionotion` to 2023.05.0 ([@bachya] - [#92451]) ([notion docs])
+- Fix lifx light strips when color zones are not initially populated ([@bdraco] - [#92487]) ([lifx docs])
+- Bump bluetooth-auto-recovery 1.1.2 ([@bdraco] - [#92495]) ([bluetooth docs])
+- Force migration of cloud settings to exposed_entities ([@emontnemery] - [#92499]) ([cloud docs])
+- Update frontend to 20230503.2 ([@bramkragten] - [#92508]) ([frontend docs])
+
+[#92422]: https://github.com/home-assistant/core/pull/92422
+[#92447]: https://github.com/home-assistant/core/pull/92447
+[#92450]: https://github.com/home-assistant/core/pull/92450
+[#92451]: https://github.com/home-assistant/core/pull/92451
+[#92487]: https://github.com/home-assistant/core/pull/92487
+[#92495]: https://github.com/home-assistant/core/pull/92495
+[#92499]: https://github.com/home-assistant/core/pull/92499
+[#92508]: https://github.com/home-assistant/core/pull/92508
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[accuweather docs]: /integrations/accuweather/
+[advantage_air docs]: /integrations/advantage_air/
+[bluetooth docs]: /integrations/bluetooth/
+[cloud docs]: /integrations/cloud/
+[frontend docs]: /integrations/frontend/
+[lifx docs]: /integrations/lifx/
+[notion docs]: /integrations/notion/
+[onvif docs]: /integrations/onvif/
 
 ## Need help? Join the community!
 
