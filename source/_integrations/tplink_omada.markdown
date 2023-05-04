@@ -38,7 +38,7 @@ TP-Link Omada Controller:
 - OC300
 - Software Controller.
 
-Controller versions 5.0.0 and later are supported.
+Controller versions 5.1.0 and later are supported.
 
 ## Supported Omada devices
 

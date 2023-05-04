@@ -275,6 +275,7 @@ layout: null
 /integrations/trace /docs/automation/troubleshooting
 /integrations/hassio /hassio
 /integrations/cloud.alexa /cloud/alexa
+/integrations/imap_email_content /integrations/imap/#using-events
 /getting-started/automation-create-first /getting-started/automation
 /getting-started/automation-2 /getting-started/automation
 /getting-started/automation-action /docs/automation/action
@@ -445,6 +446,7 @@ layout: null
 /integrations/bom /more-info/removed-integration 301
 /integrations/ciscospark /more-info/removed-integration 301
 /integrations/coinmarketcap /more-info/removed-integration 301
+/integrations/coronavirus /more-info/removed-integration 301
 /integrations/crimereports /more-info/removed-integration 301
 /integrations/darksky /more-info/removed-integration 301
 /integrations/deutsche_bahn /more-info/removed-integration 301
@@ -537,6 +539,7 @@ layout: null
 /integrations/wink /more-info/removed-integration 301
 /integrations/wunderground /more-info/removed-integration 301
 /integrations/xbee /more-info/removed-integration 301
+/integrations/xbox_live /more-info/removed-integration 301
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301

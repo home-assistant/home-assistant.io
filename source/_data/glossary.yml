@@ -231,6 +231,17 @@
   aliases:
     - integrations
 
+- term: Intent
+  definition: >-
+    Intent is a term used with voice assistants. The intent is what Home Assistant thinks you want it to do when it extracts a command from your voice or text utterance. Currently, the following intents are supported out of the box: HassTurnOn, HassTurnOff, HassGetState, and HassLightSet.
+
+    These intents allow you to turn things on or off, inquire about a state, or change the brightness or color of a light.
+  excerpt: >
+    Intent is a term used with voice assistants. The intent is what Home Assistant thinks you want it to do when it extracts a command from your voice or text utterance.
+  link: https://developers.home-assistant.io/docs/intent_builtin
+  aliases:
+    - Intents
+
 - term: Lovelace
   definition: >-
     Lovelace is the original code name of the UI that is now known as

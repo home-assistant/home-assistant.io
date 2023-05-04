@@ -15,6 +15,7 @@ ha_codeowners:
 ha_domain: pi_hole
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
   - switch
   - update

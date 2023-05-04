@@ -111,6 +111,7 @@ Depending on the supported features of the camera, select entities are added for
 - PTZ preset
 - Auto quick reply message
 - Auto track method (Digital, Digital first, Pan/Tilt first)
+- Status LED (Doorbell only: Stay off, Auto, Auto & always on at night)
 
 PTZ preset positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
@@ -132,6 +133,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Auto tracking
 - Auto focus
 - Guard return
+- Doorbell button sound
 
 Depending on the supported features of the NVR/host, global switch entities are added for:
 
@@ -187,6 +189,7 @@ The following models have been tested and confirmed to work:
 - RLC-1224A
 - RLN8-410 NVR
 - RLN16-410 NVR
+- RLN36 NVR
 - Reolink Duo Floodlight PoE
 - Reolink TrackMix PoE
 - Reolink Video Doorbell (PoE and Wi-Fi)
