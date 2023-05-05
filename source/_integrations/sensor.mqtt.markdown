@@ -106,7 +106,8 @@ device:
       required: false
       type: string
 device_class:
-  description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend.
+  description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend. The `device_class` can be `null`.
+  default: None
   required: false
   type: device_class
   default: None
@@ -150,7 +151,7 @@ json_attributes_topic:
 last_reset_value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the last_reset. Available variables: `entity_id`. The `entity_id` can be used to reference the entity's attributes."
   required: false
-  type: string
+  type: template
 name:
   description: The name of the MQTT sensor.
   required: false
@@ -185,7 +186,8 @@ state_class:
   type: string
   default: None
 state_topic:
-  description: The MQTT topic subscribed to receive sensor values. If `device_class`, `state_class`, `unit_of_measurement` or `suggested_display_precision` is set, and a numeric value is expected, an empty value `''` will be ignored and will not update the state, a `'None'` value will set the sensor to an `unknown` state.
+  description: The MQTT topic subscribed to receive sensor values. If `device_class`, `state_class`, `unit_of_measurement` or `suggested_display_precision` is set, and a numeric value is expected, an empty value `''` will be ignored and will not update the state, a `'null'` value will set the sensor to an `unknown` state. The `device_class` can be `null`.
+  default: None
   required: true
   type: string
 unique_id:
@@ -193,7 +195,8 @@ unique_id:
   required: false
   type: string
 unit_of_measurement:
-  description: Defines the units of measurement of the sensor, if any.
+  description: Defines the units of measurement of the sensor, if any. The `unit_of_measurement` can be `null`.
+  default: None
   required: false
   type: string
 value_template:

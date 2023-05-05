@@ -134,7 +134,7 @@ You can use the service `tado.set_water_heater_timer` to set your water heater t
 
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
-| `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
+| `entity_id`            | yes      | String, Name of entity e.g., `water_heater.hot_water`                  |
 | `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
 | `temperature`          | yes      | String, The required target temperature e.g., `20.5`                   |
 

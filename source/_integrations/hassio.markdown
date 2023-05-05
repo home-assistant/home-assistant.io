@@ -20,7 +20,7 @@ ha_integration_type: integration
 ---
 
 Supervisor integration allows you to monitor and control Supervisor add-ons and operating system from Home Assistant.
-This integration is installed automatically if you run Home Assistant OS or Supervised.
+This integration is already installed if you run Home Assistant OS or Supervised.
 
 ## Sensor entities
 
@@ -67,6 +67,8 @@ For Home Assistant Host, the following sensors are available:
 ## Binary Sensor entities
 
 For each installed add-on Supervisor provides following binary sensors:
+
+(These entities are disabled by default and must be reenabled to appear)
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |

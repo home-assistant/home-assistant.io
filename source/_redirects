@@ -1,5 +1,10 @@
+---
+layout: null
+---
+
 # These redirects are handled by Netlify
 #
+{% assign recent_release_post = site.categories['Core'].first %}
 
 # General use redirects
 /join-chat https://discord.gg/home-assistant
@@ -11,6 +16,9 @@
 /feature-requests https://community.home-assistant.io/c/feature-requests
 /issues https://github.com/home-assistant/core/issues
 /community https://community.home-assistant.io/
+
+# Link to latest release note
+/latest-release-notes/ {{ recent_release_post.url }}{{ site.patch_version_notes }} 302!
 
 
 # Matter workshop June 2022
@@ -156,6 +164,10 @@
 /integrations/light.group /integrations/group
 /integrations/media_player.group /integrations/group
 /integrations/notify.group /integrations/group#notify-groups
+/integrations/cover.command_line /integrations/command_line#Cover
+/integrations/notify.command_line /integrations/command_line#Notify
+/integrations/sensor.command_line /integrations/command_line#Sensor
+/integrations/switch.command_line /integrations/command_line#Switch
 
 /components/air_pollutants.* /integrations/:splat
 /components/air_quality.* /integrations/:splat
@@ -263,6 +275,7 @@
 /integrations/trace /docs/automation/troubleshooting
 /integrations/hassio /hassio
 /integrations/cloud.alexa /cloud/alexa
+/integrations/imap_email_content /integrations/imap/#using-events
 /getting-started/automation-create-first /getting-started/automation
 /getting-started/automation-2 /getting-started/automation
 /getting-started/automation-action /docs/automation/action
@@ -433,7 +446,9 @@
 /integrations/bom /more-info/removed-integration 301
 /integrations/ciscospark /more-info/removed-integration 301
 /integrations/coinmarketcap /more-info/removed-integration 301
+/integrations/coronavirus /more-info/removed-integration 301
 /integrations/crimereports /more-info/removed-integration 301
+/integrations/darksky /more-info/removed-integration 301
 /integrations/deutsche_bahn /more-info/removed-integration 301
 /integrations/device_tracker.trackr /more-info/removed-integration 301
 /integrations/dht /more-info/removed-integration 301
@@ -519,10 +534,12 @@
 /integrations/ups /more-info/removed-integration 301
 /integrations/uscis /more-info/removed-integration 301
 /integrations/usps /more-info/removed-integration 301
+/integrations/weather.darksky /more-info/removed-integration 301
 /integrations/weblink /more-info/removed-integration 301
 /integrations/wink /more-info/removed-integration 301
 /integrations/wunderground /more-info/removed-integration 301
 /integrations/xbee /more-info/removed-integration 301
+/integrations/xbox_live /more-info/removed-integration 301
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301

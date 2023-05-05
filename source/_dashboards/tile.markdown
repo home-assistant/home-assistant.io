@@ -8,8 +8,8 @@ description: "The tile card gives you a quick overview of your entity. The card 
 The tile card gives you a quick overview of your entity. The card allows you to toggle the entity and show the more info dialog. A badge is shown for some entities like the [climate](/integrations/climate) or [person](/integrations/person) entities.
 
 <p class='img'>
-  <img src='/images/dashboards/tile_card.png' alt='Screenshot of the tile card'>
-  Screenshot of the Tile card.
+  <img src='/images/dashboards/tile_card.png' alt='Screenshot of tile cards'>
+  Screenshot of Tile cards.
 </p>
 
 To add the Tile card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Tile** from the card picker.
@@ -106,6 +106,38 @@ Some color tokens are available to colorize the tile card : `primary`, `accent`,
 
 Some entities have support for "features". These widgets add quick controls to the tile card.
 
+### Alarm modes
+
+Widget that display buttons to arm and disarm an [alarm](/integrations/alarm_control_panel).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-features/alarm_modes.png' alt='Screenshot of the tile card with alarm modes feature'>
+  Screenshot of the tile card with alarm modes feature
+</p>
+
+```yaml
+features:
+  - type: "alarm-modes"
+    modes:
+      - armed_home
+      - armed_away
+      - armed_night
+      - armed_vacation
+      - armed_custom_bypass
+      - disarmed
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`alarm-modes`"
+  type: string
+modes:
+  required: true
+  description: List of modes to show on the card. The list can contain `armed_home`, `armed_away`, `armed_night`, `armed_vacation`, `armed_custom_bypass` and `disarmed`.
+  type: list
+{% endconfiguration %}
+
 ### Cover open/close
 
 Widget that display buttons to open, close or stop a [cover](/integrations/cover).
@@ -145,6 +177,27 @@ features:
 type:
   required: true
   description: "`cover-tilt`"
+  type: string
+{% endconfiguration %}
+
+### Fan speed
+
+Widget that display speed controls for a [fan](/integrations/fan).
+
+<p class='img'>
+  <img src='/images/dashboards/tile-features/fan_speed.png' alt='Screenshot of the tile card with fan speed feature'>
+  Screenshot of the tile card with fan speed feature
+</p>
+
+```yaml
+features:
+  - type: "fan-speed"
+```
+
+{% configuration %}
+type:
+  required: true
+  description: "`fan-speed`"
   type: string
 {% endconfiguration %}
 

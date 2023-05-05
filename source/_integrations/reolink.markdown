@@ -12,8 +12,13 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - button
   - camera
+  - light
   - number
+  - select
+  - siren
+  - switch
   - update
 ha_integration_type: integration
 ha_dhcp: true
@@ -106,6 +111,7 @@ Depending on the supported features of the camera, select entities are added for
 - PTZ preset
 - Auto quick reply message
 - Auto track method (Digital, Digital first, Pan/Tilt first)
+- Status LED (Doorbell only: Stay off, Auto, Auto & always on at night)
 
 PTZ preset positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
@@ -127,6 +133,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Auto tracking
 - Auto focus
 - Guard return
+- Doorbell button sound
 
 Depending on the supported features of the NVR/host, global switch entities are added for:
 
@@ -182,13 +189,15 @@ The following models have been tested and confirmed to work:
 - RLC-1224A
 - RLN8-410 NVR
 - RLN16-410 NVR
+- RLN36 NVR
 - Reolink Duo Floodlight PoE
 - Reolink TrackMix PoE
 - Reolink Video Doorbell (PoE and Wi-Fi)
 
 Battery-powered cameras are not yet supported.
 
-The following models are lacking the HTTP webserver API and can therfore not work with this integration:
+The following models are lacking the HTTP web server API and can, therefore, not work directly with this integration.
+However, these cameras can work with this integration through an NVR in which the NVR is connected to Home Assistant.
 
 - E1 Pro
 - E1
@@ -198,9 +207,3 @@ The following models are lacking the HTTP webserver API and can therfore not wor
 - Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) prior to setting up the integration. Note that Reolink auto update and check for update functions in the app/windows/web client often do not show the latest available firmware version. Therefore check the version in the [Reolink download center](https://reolink.com/download-center/) online.
 - Ensure at least one of the HTTP/HTTPS ports is enabled in the [windows](https://reolink.com/software-and-manual/)/web client under `Settings`->`Network`->`Advanced`->`Port Settings`, see [additional instructions](https://support.reolink.com/hc/en-us/articles/900004435763-How-to-Set-up-Reolink-Ports-Settings-via-Reolink-Client-New-Client-) on the Reolink site.
 - On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
-
-## Reolink firmware limitations
-
-- The Reolink NVR only sends event-notifications if motion happens on the camera connected to the first (index "0") channel, therefore the binary sensors of all channels will only be updated when the first channel sees motion. Beta NVR firmware v3.0.0.211_23011204 fixes this issue, you can request beta firmware from reolink support, release firmware is expected in a few weeks.
-- Reolink doorbell presses only generate ONVIF event notifications when the doorbell is directly connected to your network. The doorbell visitor binary sensor will not work when connecting the Reolink doorbell to an NVR. Beta NVR firmware v3.0.0.211_23011204 fixes this issue, you can request beta firmware from reolink support, release firmware is expected in a few weeks.
-- The siren turn-off service does not work on the Reolink NVR, you need to power cycle the NVR/camera to stop the siren. Reolink is aware of this firmware bug and is working on a solution.
