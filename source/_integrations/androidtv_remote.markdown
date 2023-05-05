@@ -1,6 +1,6 @@
 ---
 title: Android TV Remote
-description: Instructions on how to integrate Android TV remotes into Home Assistant.
+description: Instructions on how to integrate Android TV Remote into Home Assistant.
 ha_category:
   - Remote
 ha_release: 2023.5
@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The Android TV Remote integration allows you to control an Android TV device by sending [commands](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt) and launching apps. For this to work the Android TV device needs to have [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service) which is pre-installed on most devices.
+The Android TV Remote integration allows you to control an Android TV device by sending [commands](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt) and launching apps. For this to work the Android TV device needs to have [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service) which is pre-installed on most devices except Fire TV devices.
 
 {% include integrations/config_flow.md %}
 
@@ -31,9 +31,9 @@ The entity has the `current_activity` attribute that shows the current foregroun
 You can use the `remote.turn_off`, `remote.turn_on`, `remote.toggle`,  and `remote.send_command` services from the [remote](/integrations/remote/) platform.
 
 For a list of the most common commands you can send to the Android TV via `remote.send_command` see: [TvKeys](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt).
-For a full list see [here](https://github.com/tronikos/androidtvremote2/blob/main/src/androidtvremote2/remotemessage.proto#L90).
+For a full list see [here](https://github.com/tronikos/androidtvremote2/blob/main/src/androidtvremote2/remotemessage.proto#L90) (note most of the keys in the full list typically don't work).
 
-If `activity` is specified in `remote.turn_on` it will open the specified URL in the associated app.
+If `activity` is specified in `remote.turn_on` it will open the specified URL in the associated app via [deep linking](https://developer.android.com/training/app-links/deep-linking).
 
 Examples of URLs to pass as activity for some popular apps:
 
@@ -43,6 +43,9 @@ Examples of URLs to pass as activity for some popular apps:
 | Netflix | https://www.netflix.com/title
 | Prime Video | https://app.primevideo.com
 | Disney+ | https://www.disneyplus.com
+| Plex | plex://
+
+See [this Guide/wiki](https://community.home-assistant.io/t/android-tv-remote-app-links-deep-linking-guide/567921) for how to find out what URL to use and a collection of more apps.
 
 Examples of service calls:
 
@@ -91,8 +94,9 @@ Below is an example for you to start with. Many of the buttons support long pres
 
 ![Screenshot Android TV Remote example](/images/integrations/androidtv_remote/lovelace_example.png)
 
-{% details "Lovelace example" %}
+{% details "YAML Lovelace example" %}
 
+Add a Vertical Stack card, click on show code editor, replace code with the following code. 
 Replace all instances of `living_room_tv` with your entity ID.
 
 ```yaml
