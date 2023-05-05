@@ -109,7 +109,8 @@ device:
       required: false
       type: string
 device_class:
-  description: The [type/class](/integrations/update/#device-classes) of the update to set the icon in the frontend.
+  description: The [type/class](/integrations/update/#device-classes) of the update to set the icon in the frontend. The `device_class` can be `null`.
+  default: None
   required: false
   type: device_class
   default: None
@@ -153,7 +154,7 @@ latest_version_topic:
   required: false
   type: string
 name:
-  description: The name of the Select.
+  description: The name of the Update.
   required: false
   type: string
 object_id:
@@ -191,7 +192,7 @@ title:
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this Select. If two Selects have the same unique ID Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this Update. If two Updates have the same unique ID Home Assistant will raise an exception.
   required: false
   type: string
 value_template:

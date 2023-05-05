@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
+  - '@synesthesiam'
 ha_domain: conversation
 ha_integration_type: system
 ---
@@ -32,7 +33,7 @@ In English, you can say things like "turn on kitchen lights" or "turn off lights
 
 ## Adding custom sentences
 
-You can add your own [sentence templates](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax) to teach Home Assistant about new sentences. These sentences can work with the [built-in intents](https://developers.home-assistant.io/docs/intent_builtin/) or trigger a custom action by defining custom intents with the [intent script integration](/integrations/intent_script/).
+You can add your own [sentence templates](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax) to teach Home Assistant about new sentences. These sentences can work with the [built-in intents](https://developers.home-assistant.io/docs/intent_builtin/) or trigger a custom action by defining custom {% term intents %} with the [intent script integration](/integrations/intent_script/).
 
 To get started, create a `custom_sentences/<language>` directory in your Home Assistant `config` directory where `<language>` is the [language code](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages) of your language, such as `en` for English. These YAML files are automatically merged, and may contain intents, lists, or expansion rules.
 
@@ -52,7 +53,7 @@ intents:
 
 {% endraw %}
 
-To teach Home Assistant how to handle the custom `CustomOutsideHumidity` intent, create an `intent_script` entry in your `configuration.yaml` file:
+To teach Home Assistant how to handle the custom `CustomOutsideHumidity` {% term intent %}, create an `intent_script` entry in your `configuration.yaml` file:
 
 {% raw %}
 
@@ -71,7 +72,7 @@ More complex [actions](/docs/scripts/) can be done in `intent_script`, such as c
 
 ## Extending built-in intents
 
-Extending the built-in intents, such as `HassTurnOn` and `HassTurnOff`, can be done as well.
+Extending the built-in {% term intents %}, such as `HassTurnOn` and `HassTurnOff`, can be done as well.
 
 For example, create the file `config/custom_sentences/en/on_off.yaml` and add:
 

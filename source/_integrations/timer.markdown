@@ -18,10 +18,12 @@ When a timer finishes or gets canceled the corresponding events are fired. This 
   
 Timers will be restored to their correct state and time on Home Assistant startup and restarts when configured with the `restore` option.
 
+However, automations using the `timer.finished` event **will not** trigger if the timer expires when Home Assistant is not running.
+
 </div>
 
 ## Configuration
-The preferred way to configure timer helpers is via the user interface at **Settings** -> **Devices & Services** -> **Helpers** and click the add button; next choose the **Timer** option.
+The preferred way to configure timer helpers is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button; next choose the {% my config_flow_start domain=timer title="Timer" %} option.
 
 You can also click the following button to be redirected to the Helpers page of your Home Assistant instance.
 

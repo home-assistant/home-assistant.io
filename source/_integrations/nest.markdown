@@ -26,15 +26,6 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-<a class="integration-alert" href="/more-info/nest-auth-deprecation">
-  <svg preserveAspectRatio="xMidYMid meet" focusable="false" role="img" aria-hidden="true" viewBox="0 0 24 24" color="currentColor">
-    <g><path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path></g>
-  </svg>
-  <div class="content">Existing users: Nest authentication is changing.</div>
-  <div class="learn-more">LEARN MORE</div>
-</a>
-
-
 The `nest` integration allows you to integrate a few [supported](https://developers.google.com/nest/device-access/supported-devices) Google [Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
 
 There is currently support for the following device types within Home Assistant:
@@ -259,7 +250,7 @@ This feature is enabled by the following permissions:
 
 </div>
 <div class='note'>
-Additional Nest Temperature Sensors are not supported by the SDM API.
+Additional Nest Temperature Sensors are not supported by the SDM API.  The Temperature reported by the API will be pulled from whichever device is currently configured as the Active Sensor, which can be adjusted via manual selection or the schedule offered in the Nest App.
 </div>
 
 

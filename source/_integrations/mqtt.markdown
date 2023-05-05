@@ -80,6 +80,12 @@ If you experience an error message like `Failed to connect due to exception: [SS
 
 Advanced broker configuration options include setting a custom client ID, setting a client certificate and key for authentication and enabling TLS validation of the brokers certificate for. To access the advanced settings, open the MQTT broker settings, switch on `Advanced options` and click `Next`. The advanced options will be shown by default if there are advanced settings active already.
 
+<div class='note info'>
+
+Advanced broker options are accessible only when advanced mode is enabled (see user settings), or when advanced broker settings are configured already.
+
+</div>
+
 #### Alternative client ID
 
 You can set a custom MQTT client ID, this can help when debugging. Mind that the client ID must be unique. Leave this settings default if you want Home Assistant to generate a unique ID.
@@ -280,6 +286,10 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'curr_temp_tpl':       'current_temperature_template',
     'dev':                 'device',
     'dev_cla':             'device_class',
+    'dir_cmd_t':           'direction_command_topic',
+    'dir_cmd_tpl':         'direction_command_template',
+    'dir_stat_t':          'direction_state_topic',
+    'dir_val_tpl':         'direction_value_template',
     'dock_t':              'docked_topic',
     'dock_tpl':            'docked_template',
     'e':                   'encoding',
@@ -369,6 +379,8 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'pl_cln_sp':           'payload_clean_spot',
     'pl_cls':              'payload_close',
     'pl_disarm':           'payload_disarm',
+    'pl_dir_fwd':          'payload_direction_forward',
+    'pl_dir_rev':          'payload_direction_reverse',
     'pl_home':             'payload_home',
     'pl_inst':             'payload_install',
     'pl_lock':             'payload_lock',
@@ -444,6 +456,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'stat_val_tpl':        'state_value_template',
     'step':                'step',
     'stype':               'subtype',
+    'sug_dsp_prc':         'suggested_display_precision',
     'sup_clrm':            'supported_color_modes',
     'sup_dur':             'support_duration',
     'sup_vol':             'support_volume_set',
@@ -522,6 +535,8 @@ The following software has built-in support for MQTT discovery:
 - [HASS.Agent](https://github.com/LAB02-Research/HASS.Agent)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
 - [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
+- [Nuki Hub](https://github.com/technyon/nuki_hub)
+- [Nuki Smart Lock 3.0 Pro](https://support.nuki.io/hc/en-us/articles/12947926779409-MQTT-support)
 - [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [SmartHome](https://github.com/roncoa/SmartHome)
@@ -534,7 +549,7 @@ The following software has built-in support for MQTT discovery:
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
-- [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
+- [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
 - [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
 
 ### Discovery examples

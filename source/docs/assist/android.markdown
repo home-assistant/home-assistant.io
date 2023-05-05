@@ -1,14 +1,14 @@
 ---
-title: "Assist on Android."
+title: "Assist on Android"
 ---
 
-Assist is available on WearOS using the [Home Assistant Companion App](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android) and "Assist" tile.
+Assist is available on Wear OS using the [Home Assistant Companion App](https://companion.home-assistant.io/) for Android and "Assist" tile.
 
-<lite-youtube videoid="Dr_ZCbt8w5k" videotitle="Assist on Android Wear"></lite-youtube>
+<lite-youtube videoid="Dr_ZCbt8w5k" videotitle="Assist on Wear OS"></lite-youtube>
 
 ## Installation
 
-After [installing the companion app](https://companion.home-assistant.io/docs/getting_started/) and connecting it to your Home Assistant, visit the Android WatchOS app and click "Add tile" inside the Tiles area. Select the "Assist" tile to add it to your watch:
+After [installing the companion app](https://companion.home-assistant.io/docs/getting_started/) and connecting it to your Home Assistant, visit your watch companion app or the Wear OS app and click "Add tile" inside the Tiles area. Select the "Assist" tile to add it to your watch:
 
 ![Conversation tile](/images/assist/android_tile.png)
 

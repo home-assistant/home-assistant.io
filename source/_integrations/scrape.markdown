@@ -92,6 +92,11 @@ scan_interval:
   required: false
   type: integer
   default: 600
+encoding:
+  description: The character encoding to use if none provided in the header of the shared data.
+  required: false
+  type: string
+  default: UTF-8
 sensor:
   description: A list of sensors to create from the shared data. All configuration settings that are supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
   required: true
@@ -145,15 +150,6 @@ sensor:
       description: Defines a template for the entity picture of the sensor.
       required: false
       type: template
-    attributes:
-      description: Defines templates for attributes of the sensor.
-      required: false
-      type: map
-      keys:
-        "attribute: template":
-          description: The attribute and corresponding template.
-          required: true
-          type: template
     device_class:
       description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
       required: false
