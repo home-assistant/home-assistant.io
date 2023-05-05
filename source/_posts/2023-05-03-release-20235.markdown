@@ -48,6 +48,7 @@ Enjoy the release!
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2023.5.1 - May 4](#release-202351---may-4)
+- [Release 2023.5.2 - May 5](#release-202352---may-5)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -330,6 +331,80 @@ The following integrations are now available via the Home Assistant UI:
 [lifx docs]: /integrations/lifx/
 [notion docs]: /integrations/notion/
 [onvif docs]: /integrations/onvif/
+
+## Release 2023.5.2 - May 5
+
+- Fix transmission error handling ([@DDanii] - [#91548]) ([transmission docs])
+- Fix power sensor state_class in Netatmo integration ([@hex7c0] - [#92468]) ([netatmo docs])
+- Fix for SIA Code not being handled well ([@eavanvalkenburg] - [#92469]) ([sia docs])
+- Fix scene service examples ([@karwosts] - [#92501]) ([scene docs])
+- Fix blocking I/O in the event loop when starting ONVIF ([@bdraco] - [#92518]) ([onvif docs])
+- Improve cloud migration ([@emontnemery] - [#92520]) ([cloud docs])
+- Bump aioesphomeapi to 13.7.3 to fix disconnecting while handshake is in progress ([@bdraco] - [#92537]) ([esphome docs])
+- Handle invalid ZHA cluster handlers ([@puddly] - [#92543]) ([zha docs])
+- Allow duplicate state updates when force_update is set on an esphome sensor ([@bdraco] - [#92553]) ([esphome docs])
+- Bump elkm1-lib to 2.2.2 ([@bdraco] - [#92560]) ([elkm1 docs])
+- Re-run expose entities migration if first time failed ([@balloob] - [#92564]) ([cloud docs])
+- Fix hassio get_os_info retry ([@epenet] - [#92569]) ([hassio docs])
+- Bump hatasmota to 0.6.5 ([@emontnemery] - [#92585]) ([tasmota docs])
+- Improve reliability of ONVIF subscription renewals ([@bdraco] - [#92551]) ([onvif docs])
+- Lower scan interval for OpenSky ([@joostlek] - [#92593]) ([opensky docs])
+- Update frontend to 20230503.3 ([@bramkragten] - [#92617]) ([frontend docs])
+- Fix missing ONVIF events when switching from PullPoint to webhooks ([@bdraco] - [#92627]) ([onvif docs])
+- Add support for visitor detections to onvif ([@bdraco] - [#92350]) ([onvif docs])
+- Fix duplicate ONVIF sensors ([@bdraco] - [#92629]) ([onvif docs])
+
+[#91548]: https://github.com/home-assistant/core/pull/91548
+[#92350]: https://github.com/home-assistant/core/pull/92350
+[#92422]: https://github.com/home-assistant/core/pull/92422
+[#92468]: https://github.com/home-assistant/core/pull/92468
+[#92469]: https://github.com/home-assistant/core/pull/92469
+[#92501]: https://github.com/home-assistant/core/pull/92501
+[#92513]: https://github.com/home-assistant/core/pull/92513
+[#92518]: https://github.com/home-assistant/core/pull/92518
+[#92520]: https://github.com/home-assistant/core/pull/92520
+[#92537]: https://github.com/home-assistant/core/pull/92537
+[#92543]: https://github.com/home-assistant/core/pull/92543
+[#92551]: https://github.com/home-assistant/core/pull/92551
+[#92553]: https://github.com/home-assistant/core/pull/92553
+[#92560]: https://github.com/home-assistant/core/pull/92560
+[#92564]: https://github.com/home-assistant/core/pull/92564
+[#92569]: https://github.com/home-assistant/core/pull/92569
+[#92585]: https://github.com/home-assistant/core/pull/92585
+[#92593]: https://github.com/home-assistant/core/pull/92593
+[#92617]: https://github.com/home-assistant/core/pull/92617
+[#92627]: https://github.com/home-assistant/core/pull/92627
+[#92629]: https://github.com/home-assistant/core/pull/92629
+[@DDanii]: https://github.com/DDanii
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@eavanvalkenburg]: https://github.com/eavanvalkenburg
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@hex7c0]: https://github.com/hex7c0
+[@joostlek]: https://github.com/joostlek
+[@karwosts]: https://github.com/karwosts
+[@puddly]: https://github.com/puddly
+[accuweather docs]: /integrations/accuweather/
+[advantage_air docs]: /integrations/advantage_air/
+[bluetooth docs]: /integrations/bluetooth/
+[cloud docs]: /integrations/cloud/
+[elkm1 docs]: /integrations/elkm1/
+[esphome docs]: /integrations/esphome/
+[frontend docs]: /integrations/frontend/
+[hassio docs]: /integrations/hassio/
+[lifx docs]: /integrations/lifx/
+[netatmo docs]: /integrations/netatmo/
+[notion docs]: /integrations/notion/
+[onvif docs]: /integrations/onvif/
+[opensky docs]: /integrations/opensky/
+[scene docs]: /integrations/scene/
+[sia docs]: /integrations/sia/
+[tasmota docs]: /integrations/tasmota/
+[transmission docs]: /integrations/transmission/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community!
 
