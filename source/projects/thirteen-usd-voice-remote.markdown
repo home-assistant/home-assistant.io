@@ -30,7 +30,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
       <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
       <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
 
-2. Connect the ATOM Echo to your computer.
+1. Connect the ATOM Echo to your computer.
    * In the popup window, view the available ports.
    * Plug the USB-C cable into the ATOM Echo and connect it to your computer.
    * In the pop-up window, there should now appear a new entry. Select this USB serial port and select **Connect**.
@@ -39,7 +39,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
    * If no new port shows, your system may be missing a driver. Close the pop-up window.
      * In the dialog, select the CH342 driver, install it, then **Try again**.
    ![Open My link](/images/assist/esp32-atom-flash-no-port.png)
-3. Select **Install Voice Assistant**, then **Install**.
+1. Select **Install Voice Assistant**, then **Install**.
      * Follow the instructions provided by the installation wizard.
      * Add the ATOM Echo to your Wi-Fi:
        * When prompted, select your network from the list and enter the credentials to your 2.4&nbsp;GHz Wi-Fi network.

@@ -71,7 +71,34 @@ your smart home and issue commands and get responses.
 
 <lite-youtube videoid="eLx8_NAqptk" videotitle="Give your voice assistant personality using the OpenAI integration"></lite-youtube>
 
+To reproduce this example, follow these steps:
+
+Note: this procedure requires an OpenAI account. To just run the example, the free trial option is sufficient. No need to leave your credit card information.
+
+1. [Set up an OpenAI account and install the OpenAI conversation](/integrations/openai_conversation/) integration.
+1. Create a Mario personality.
+   * Once you installed the OpenAI Conversation integration, go to {% my integrations title="**Settings** > **Devices & Services**" %} and in OpenAI Conversation integration, the select **Configure**.
+  
+      ![Configure the OpenAI integration](/images/assist/assistant-openai-mario-config.png)
+   * In the **Prompt template** field, enter the following text: 
+  
+       `You are Super Mario from Mario Bros. Be funny.` and select **Submit**.
+  
+      ![Add prompt for Mario personality](/images/assist/assistant-openai-mario-02.png)
+1. Create a Mario assistant:
+   * Under {% my voice_assistants title="**Settings** > **Voice assistants**" %}, select **Add assistant**.
+   * Give it a name, select a language and under **Conversation agent**, select the Mario OpenAI Conversation integration.
+   ![Add a new assistant](/images/assist/assistant-openai-mario-04.png)
+   * Leave the other settings unchanged and select **Create**.
+1. In the **Voice over IP** integration, under **Configuration**, select the Mario assistant you just created.
+
+      ![VoIP: select OpenAI](/images/assist/assistant-openai-mario-03.png) 
+1. That's it! Pick up your phone and ask Mario a question.
+1. You can repeat this with other characters. You can add as many OpenAI Conversation integrations as you would like.
+
 ## Troubleshoot Grandstream
+
+### The test call does not work
 
 If you’re unable to call Home Assistant, confirm the following settings in your Grandstream device’s web interface.
 
@@ -82,6 +109,19 @@ If you’re unable to call Home Assistant, confirm the following settings in you
    ![Vocoder OPUS payload type](/images/assist/grandstream_opus_payload.png)
 1. At the bottom of the page, select **Apply**.
 1. Pick up the phone again and check if you hear the voice.
+
+### The Voice over IP integration no longer works
+
+**Symptom**
+You were able to control Home Assistant over the phone but it no longer works. When picking up the phone, no sound is played. 
+The [debug information](/docs/assist/troubleshooting#view-debug-information) shows no runs.
+
+**Potential remedy**
+1. Log onto the Grandstream *Device Configuration* software.
+1. On the **Status** page, check if the **Hook** status changes from **On Hook** to **In Use** after you picked up the phone.
+   ![Check the Grandstream status](/images/assist/grandstream-troubleshoot-10.png) 
+   * The software is quite slow. Refresh the page and wait for a while before hanging up again.
+1. If the status does not change, reboot the Grandstream and try calling Home Assistant again. 
 
 ## Other troubleshooting steps
 
