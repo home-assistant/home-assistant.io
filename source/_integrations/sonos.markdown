@@ -302,7 +302,7 @@ action:
 
 To work optimally, the Sonos devices must be able to connect back to the Home Assistant host on TCP port 1400. This will allow the push-based updates to work properly. If this port is blocked or otherwise unreachable from the Sonos devices, the integration will fall back to a polling mode which is slower to update and much less efficient. The integration will alert the user if this problem is detected.
 
-As of 2023.5, playing audio using the `announce` option or TTS requires TCP port 1443 on each Sonos device to be reachable from the Home Assistant host.
+Playing audio using the `announce` option or TTS requires TCP port 1443 on each Sonos device to be reachable from the Home Assistant host.
 
 See [Advanced use](#advanced-use) below for additional configuration options which may be needed to address this issue in setups with more complex network topologies.
 
