@@ -101,23 +101,6 @@ Sets an option for the selected program.
 | `value` | no | Value of the option. |
 | `unit` | yes | Unit for the option. |
 
-### Service `home_connect.pause_program`
-
-This service is deprecated. Please use the button for this operation.
-Pauses the current running program.
-
-| Service data attribute    | Optional | Description                                      |
-|---------------------------|----------|--------------------------------------------------|
-| `device_id` | no | Id of a device associated with the home appliance. |
-
-### Service `home_connect.resume_program`
-
-This service is deprecated. Please use the button for this operation.
-Resumes a paused program.
-
-| Service data attribute    | Optional | Description                                      |
-|---------------------------|----------|--------------------------------------------------|
-| `device_id` | no | Id of a device associated with the home appliance. |
 
 ### Service `home_connect.select_program`
 
