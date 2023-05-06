@@ -157,7 +157,7 @@ If you have set [`login_attempts_threshold`](/integrations/http/) and forget to 
 
 ## Switch
 
-The `mystrom` switch platform allows you to control the state of your [myStrom](https://mystrom.ch/en/) switches.
+The `mystrom` switch platform allows you to control the state of your [myStrom](https://mystrom.ch/) switches.
 
 ### Setup
 

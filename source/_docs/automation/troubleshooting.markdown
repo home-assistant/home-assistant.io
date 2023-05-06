@@ -24,7 +24,7 @@ trace:
     stored_traces: 1
 ```
 
-[template]: /topics/templating/
+[template]: /docs/configuration/templating/
 
 ## Testing your automation
 

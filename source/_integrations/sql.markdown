@@ -19,13 +19,96 @@ ha_integration_type: integration
 The `sql` sensor platform enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
 This can be used to present statistics about Home Assistant sensors if used with the `recorder` integration database. It can also be used with an external data source.
 
+**This integration can be configured using both config flow and by YAML.**
+
 {% include integrations/config_flow.md %}
+
+## Configuration by YAML
+
+To configure this sensor, define the sensor connection variables and a list of queries to your `configuration.yaml` file. A sensor will be created for each query.
+
+To enable it, add the following lines to your `configuration.yaml` file (example by required fields):
+
+{% raw %}
+```yaml
+# Example configuration.yaml
+sql:
+  - name: Sun state
+    query: >
+      SELECT
+        states.state
+      FROM
+        states
+        LEFT JOIN state_attributes ON (
+          states.attributes_id = state_attributes.attributes_id
+        )
+      WHERE
+        metadata_id = (
+          SELECT
+            metadata_id
+          FROM
+            states_meta
+          where
+            entity_id = 'sun.sun'
+        )
+      ORDER BY
+        state_id DESC
+      LIMIT
+        1;
+    column: "state"
+```
+{% endraw %}
+
+{% configuration %}
+sql:
+  description: Integration.
+  required: true
+  type: map
+  keys:
+    db_url:
+      description: The URL which points to your database. See [supported engines](/integrations/recorder/#custom-database-engines).
+      required: false
+      default: "Defaults to the recorder `db_url`."
+      type: string
+    name:
+      description: The name of the sensor.
+      required: true
+      type: string
+    query:
+      description: An SQL QUERY string, should return 1 result at most.
+      required: true
+      type: string
+    column:
+      description: The field name to select.
+      required: true
+      type: string
+    unit_of_measurement:
+      description: Defines the units of measurement of the sensor, if any.
+      required: false
+      type: string
+    value_template:
+      description: Defines a template to extract a value from the payload.
+      required: false
+      type: template
+    unique_id:
+      description: Provide a unique id for this sensor.
+      required: false
+      type: string
+    device_class:
+      description: "Provide [device class](/integrations/sensor#device-class) for this sensor."
+      required: false
+      type: string
+    state_class:
+      description: "Provide [state class](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes) for this sensor."
+      required: false
+      type: string
+{% endconfiguration %}
 
 ## Information
 
 See [supported engines](/integrations/recorder/#custom-database-engines) for which you can connect with this integration.
 
-The SQL integration will connect to the default SQLite if "Database URL" has not been specified. If you use a different database recorder (eg MariaDB or others), you will have to specify the "Database URL" manually during integration setup.
+The SQL integration will connect to the Home Assistant Recorder database if "Database URL" has not been specified.
 
 There is no explicit configuration required for attributes. The integration will set all additional columns returned by the query as attributes. 
 
@@ -49,7 +132,23 @@ sensor:
 The query will look like this:
 
 ```sql
-SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 1;
+SELECT
+  states.state
+FROM
+  states
+WHERE
+  metadata_id = (
+    SELECT
+      metadata_id
+    FROM
+      states_meta
+    WHERE
+      entity_id = 'sensor.temperature_in'
+  )
+ORDER BY
+  state_id DESC
+LIMIT
+  1;
 ```
 
 Use `state` as column for value.
@@ -58,7 +157,31 @@ Use `state` as column for value.
 
 Based on previous example with temperature, the query to get the former state is :
 ```sql
-SELECT * FROM (SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 2) two_entity ORDER BY state_id ASC LIMIT 1;
+SELECT
+  states.state
+FROM
+  states
+WHERE
+  state_id = (
+    SELECT
+      states.old_state_id
+    FROM
+      states
+    WHERE
+      metadata_id = (
+        SELECT
+          metadata_id
+        FROM
+          states_meta
+        WHERE
+          entity_id = 'sensor.temperature_in'
+      )
+      AND old_state_id IS NOT NULL
+    ORDER BY
+      last_updated_ts DESC
+    LIMIT
+      1
+  );
 ```
 Use `state` as column for value.
 
@@ -76,7 +199,7 @@ Use `db_size` as column for value.
 Change `table_schema="homeassistant"` to the name that you use as the database name, to ensure that your sensor will work properly.
 
 ```sql
-SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;
+SELECT table_schema "database", Round(Sum(data_length + index_length) / POWER(1024,2), 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;
 ```
 Use `value` as column for value.
 

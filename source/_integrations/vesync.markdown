@@ -14,6 +14,7 @@ ha_codeowners:
   - '@thegardenmonkey'
 ha_domain: vesync
 ha_platforms:
+  - diagnostics
   - fan
   - light
   - sensor

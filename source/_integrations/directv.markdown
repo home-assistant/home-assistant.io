@@ -8,7 +8,7 @@ ha_release: 0.25
 ha_iot_class: Local Polling
 ha_domain: directv
 ha_config_flow: true
-ha_quality_scale: gold
+ha_quality_scale: silver
 ha_ssdp: true
 ha_platforms:
   - media_player

@@ -84,7 +84,7 @@ python3 -m pip install wheel
 Once you have installed the required Python package, it is now time to install Home Assistant Core!
 
 ```bash
-pip3 install homeassistant
+pip3 install homeassistant=={{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}
 ```
 
 Start Home Assistant Core for the first time. This will complete the installation for you, automatically creating the `.homeassistant` configuration directory in the `/home/homeassistant` directory, and installing any basic dependencies.
@@ -99,6 +99,6 @@ If this address doesn't work you may also try `http://localhost:8123` or `http:/
 
 <div class='note'>
 
-When you run the `hass` command for the first time, it will download, install and cache the necessary libraries/dependencies. This procedure may take anywhere between 5 to 10 minutes. During that time, you may get "site cannot be reached" error when accessing the web interface. This will only happen for the first time, and subsequent restarts will be much faster.
+When you run the `hass` command for the first time, it will download, install and cache the necessary libraries/dependencies. This procedure may take anywhere between 5 to 10 minutes. During that time, you may get a **site cannot be reached** error when accessing the web interface. This will only happen the first time. Subsequent restarts will be much faster.
 
 </div>

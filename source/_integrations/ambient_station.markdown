@@ -55,4 +55,4 @@ Cloud. Users desiring a local option are encouraged to explore the
 [Ecowitt](https://www.ecowitt.com) family of devices, which are able to read RF signals
 directly from the PWS and transmit them to a variety of other applications, including
 [`ecowitt2mqtt`](https://github.com/bachya/ecowitt2mqtt) (which supports
-[MQTT Discovery](/docs/mqtt/discovery)).
+[MQTT Discovery](/integrations/mqtt/#mqtt-discovery)), or the built-in [Ecowitt](/integrations/ecowitt/) integration.
