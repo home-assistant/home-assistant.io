@@ -16,7 +16,7 @@ Select **Google Cast** from the list. Because my Chromecast device was already d
 
 ![Google Cast discovered confirmation](/images/getting-started/google-cast-discovered.png)
 
-It now asks for the network IP address of the device. This is beyond the scope of this article because each network is different however the router is usually a good place to look. In this example, it's *192.168.1.99*.
+It now asks for the network IP address of the device. Describing how to identify a devices IP address is beyond the scope of this article because each network is different. However, the router is usually a good place to look. In this example, it's *192.168.1.99*.
 
 ![Manually setup Google Cast device](/images/getting-started/google-cast-manual-details.png)
 
@@ -26,6 +26,6 @@ If it was successful, it will show a message and allow you to set the {% term ar
 
 When you're done, navigate back to the web interface and voila, your devices are ready for you to control. You can always go back to add and remove integrations in the future.
 
-If you get stuck, need more information or want to see what the setup process is like, use the [integration documentation](/integrations).
+If you get stuck, need more information, or want to see what the setup process is like, use the [integration documentation](/integrations).
 
 {% include getting-started/next_step.html step="Automate Home Assistant" link="/getting-started/automation/" %}
