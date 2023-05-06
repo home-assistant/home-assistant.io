@@ -12,7 +12,7 @@ ha_codeowners:
 ha_integration_type: system
 ---
 
-The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history`](/integrations/history/) integration.
+This integration is by default enabled as dependency of the [`history`](/integrations/history/) integration.
 
 <div class='note'>
 

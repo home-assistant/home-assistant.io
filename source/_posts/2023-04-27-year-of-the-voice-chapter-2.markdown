@@ -51,7 +51,7 @@ Interacting with many different services means that many different things can go
 Screenshot of the new Assist debug tool.
 </p>
 
-[Assist Pipeline integration]: https://next.home-assistant.io/integrations/assist_pipeline/
+[Assist Pipeline integration]: https://www.home-assistant.io/integrations/assist_pipeline/
 [Assist dialog]: /docs/assist/
 
 ## Voice Assistant powered by Home Assistant Cloud
@@ -86,6 +86,8 @@ _For more samples, see [the Piper website][piper-samples]_
 
 An {% my supervisor_addon addon="core_piper" title="add-on with Piper" %} is available now for Home Assistant with [over 40 voices across 18 languages][piper-samples], including: Catalan, Danish, German, English, Spanish, Finnish, French, Greek, Italian, Kazakh, Nepali, Dutch, Norwegian, Polish, Brazilian Portuguese, Ukrainian, Vietnamese, and Chinese. Voices for Piper are trained from [open audio datasets][open-audio], many of which come from [free audiobooks read by volunteers][audiobook]. If you’re interested in contributing your voice, [let us know!][contact]
 
+You can also run [Piper as a standalone Docker container](https://hub.docker.com/r/rhasspy/wyoming-piper).
+
 [mm-algo]: https://github.com/jaywalnut310/vits/
 [piper-samples]: https://rhasspy.github.io/piper-samples
 [open-audio]: http://www.openslr.org/
@@ -97,6 +99,8 @@ An {% my supervisor_addon addon="core_piper" title="add-on with Piper" %} is ava
 [Whisper] is an open source speech-to-text model created by OpenAI that runs locally. Since its release in 2022, Whisper has been improved by the open source community to run on less powerful hardware by projects such as [whisper.cpp] and [faster-whisper]. In less than a year of progress, Whisper is now capable of providing speech-to-text for [dozens of languages][whisper-lang] on small servers and single-board computers!
 
 An {% my supervisor_addon addon="core_whisper" title="add-on using faster-whisper" %} is available now for Home Assistant. On a Raspberry Pi 4, voice commands can take around 7 seconds to process with about 200 MB of RAM used. An Intel Core i5 CPU or better is capable of sub-second response times and can run larger (and more accurate) versions of Whisper.
+
+You can also run [Whisper as a standalone Docker container](https://hub.docker.com/r/rhasspy/wyoming-whisper).
 
 [Whisper]: https://github.com/openai/whisper
 [whisper-lang]: https://github.com/openai/whisper#available-models-and-languages
@@ -115,7 +119,7 @@ The Whisper and Piper add-ons mentioned above are integrated into Home Assistant
 
 [Wyoming]: https://github.com/rhasspy/rhasspy3/blob/master/docs/wyoming.md
 [Rhasspy]: https://github.com/rhasspy/rhasspy3/
-[Wyoming integration]: https://next.home-assistant.io/integrations/wyoming/
+[Wyoming integration]: https://www.home-assistant.io/integrations/wyoming/
 
 ## ESPHome powered voice assistants
 
@@ -127,7 +131,7 @@ Today we’re launching support for building voice assistants using ESPHome. Con
 
 We’ve been focusing on the [M5STACK ATOM Echo][atom-echo] for testing and development. For $13 it comes with a microphone and a speaker in a nice little box. We’ve created a tutorial to turn this device into a voice remote directly from your browser!
 
-[Tutorial: create a $13 voice remote for Home Assistant.](https://next.home-assistant.io/projects/thirteen-usd-voice-remote/)
+[Tutorial: create a $13 voice remote for Home Assistant.](https://www.home-assistant.io/projects/thirteen-usd-voice-remote/)
 
 [ESPHome Voice Assistant documentation.](https://esphome.io/components/voice_assistant.html)
 
@@ -148,7 +152,7 @@ By configuring off-hook autodial, your phone will automatically call Home Assist
 
 We’ve focused our initial efforts on supporting [the Grandstream HT801 Voice-over-IP box][ht801]. It works with any phone with an RJ11 connector, and connects directly to Home Assistant. There is no need for an extra server.
 
-[Tutorial: create your own World’s Most Private Voice Assistant](https://next.home-assistant.io/projects/worlds-most-private-voice-assistant/)
+[Tutorial: create your own World’s Most Private Voice Assistant](https://www.home-assistant.io/projects/worlds-most-private-voice-assistant/)
 
 
 <p class='img'>
@@ -156,7 +160,7 @@ We’ve focused our initial efforts on supporting [the Grandstream HT801 Voice-o
 Give your voice assistant personality using the OpenAI integration.
 </p>
 
-[voip]: https://next.home-assistant.io/integrations/voip/
+[voip]: https://www.home-assistant.io/integrations/voip/
 [ht801]: https://amzn.to/40k7mRa
 
 _Some links on this page are affiliate links and purchases using these links support the Home Assistant project._

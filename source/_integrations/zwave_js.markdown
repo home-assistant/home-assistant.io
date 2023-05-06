@@ -124,6 +124,19 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 1. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
 1. The UI should confirm that the device was removed and the device and entities will be removed from Home Assistant.
 
+## Special Z-Wave entities
+
+The Z-Wave integration provides several special entities, some of which are available for every Z-Wave device, and some of which are conditional based on the device.
+
+### Entities available for every Z-Wave device
+
+1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device.  The sensor is disabled by default.  The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
+2. **Ping** button: This button can be pressed to ping a device. It is an alternative to the `zwave_js.ping` service.
+
+### Conditional entities
+
+1. Button to **manually idle notifications**: Any Notification Command Class (CC) values on a device that have an idle state will get a corresponding button entity. This button entity can be used to manually idle a notification when it doesn't automatically clear on its own. A device can have multiple Notification CC values. For example one for detecting smoke and one for detecting carbon monoxide.
+
 ## Using advanced features (UI only)
 
 While the integration aims to provide as much functionality as possible through existing Home Assistant constructs (entities, states, automations, services, etc.), there are some features that are only available through the UI.

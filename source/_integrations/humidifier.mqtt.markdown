@@ -121,7 +121,7 @@ device:
       required: false
       type: string
 device_class:
-  description: The device class of the MQTT device. Must be either `humidifier` or `dehumidifier`.
+  description: The device class of the MQTT device. Must be either `humidifier`, `dehumidifier` or `null`.
   required: false
   type: string
   default: humidifier
