@@ -761,7 +761,7 @@ on each other and order doesn't matter. For those cases, the `parallel` action
 can be used to run the actions in the sequence in parallel, meaning all
 the actions are started at the same time.
 
-The following example shows sending messages out at the time (in parallel):
+The following example shows sending messages out at the same time (in parallel):
 
 ```yaml
 automation:
@@ -779,7 +779,7 @@ automation:
               message: "These messages are sent at the same time!"
 ```
 
-It is also possible to run a group of actions sequantially inside the parallel
+It is also possible to run a group of actions sequentially inside the parallel
 actions. The example below demonstrates that:
 
 ```yaml

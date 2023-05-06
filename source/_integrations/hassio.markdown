@@ -68,6 +68,8 @@ For Home Assistant Host, the following sensors are available:
 
 For each installed add-on Supervisor provides following binary sensors:
 
+(These entities are disabled by default and must be reenabled to appear)
+
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
 | Update Available | no | Whether there is an update available for this add-on (This is deprecated, use the Update entities instead.)
