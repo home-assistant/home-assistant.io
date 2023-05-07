@@ -100,30 +100,30 @@ Some older models also expose the installed applications through the WebSocket, 
 
 The integration supports `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` service.
 
-The exact supported keys varies between TV models. See [this link](https://github.com/jaruba/ha-samsungtv-tizen/blob/master/Key_codes.md) for possible keys.
+The exact supported keys vary between TV models. See [this link](https://github.com/jaruba/ha-samsungtv-tizen/blob/master/Key_codes.md) for possible keys.
 
 {% details "Some commonly used commands" %}
 
-- KEY_UP
-- KEY_DOWN
-- KEY_LEFT
-- KEY_RIGHT
-- KEY_ENTER
-- KEY_RETURN
-- KEY_HOME
-- KEY_REWIND
-- KEY_FORWARD
-- KEY_ACTIONMENU
-- KEY_0
-- KEY_1
-- KEY_2
-- KEY_3
-- KEY_4
-- KEY_5
-- KEY_6
-- KEY_7
-- KEY_8
-- KEY_9
+- `KEY_UP`
+- `KEY_DOWN`
+- `KEY_LEFT`
+- `KEY_RIGHT`
+- `KEY_ENTER`
+- `KEY_RETURN`
+- `KEY_HOME`
+- `KEY_REWIND`
+- `KEY_FORWARD`
+- `KEY_ACTIONMENU`
+- `KEY_0`
+- `KEY_1`
+- `KEY_2`
+- `KEY_3`
+- `KEY_4`
+- `KEY_5`
+- `KEY_6`
+- `KEY_7`
+- `KEY_8`
+- `KEY_9`
 
 {% enddetails %}
 
