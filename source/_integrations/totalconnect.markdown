@@ -98,6 +98,6 @@ The Total Connect API has limited zone type information. Home Assistant device c
 
 The following diagnostic sensors are available:
 
-- Low Battery for Zones and Alarm Panels will be `On` if the battery is low
-- Tamper for Zones and Alarm Panels will be `On` if in a tamper state
-- Power for Alarm Panels will be `On` if main power is connected, or `Off` if running on backup battery.
+- Low Battery for Zones and Alarm Panels will be `On` if the battery is low.
+- Tamper for Zones and Alarm Panels will be `On` if in a tampered state.
+- Power for Alarm Panels will be `On` if main power is connected or `Off` if running on the backup battery.
