@@ -31,7 +31,6 @@ The entity has the `current_activity` attribute that shows the current foregroun
 You can use the `remote.turn_off`, `remote.turn_on`, `remote.toggle`,  and `remote.send_command` services from the [remote](/integrations/remote/) platform.
 
 For a list of the most common commands you can send to the Android TV via `remote.send_command` see: [TvKeys](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt).
-For a full list see [here](https://github.com/tronikos/androidtvremote2/blob/main/src/androidtvremote2/remotemessage.proto#L90) (note most of the keys in the full list typically don't work).
 
 If `activity` is specified in `remote.turn_on` it will open the specified URL in the associated app via [deep linking](https://developer.android.com/training/app-links/deep-linking).
 
@@ -91,7 +90,7 @@ target:
 - Doesn't work with Fire TV devices because they are missing the [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service).
 - If you cannot use the Google TV mobile app or the Google Home mobile app to send commands to the device, you cannot with this integration either.
 - Some devices, like Xiaomi, become unavailable after they are turned off and can't be turned on with this integration.
-- Some devices experience disconnects every 15 seconds. This is resolved with rebooting the device after the initial setup of the integration.
+- Some devices experience disconnects every 15 seconds. This is typically resolved by rebooting the Android TV device after the initial setup of the integration.
 
 ## Dashboard example
 
