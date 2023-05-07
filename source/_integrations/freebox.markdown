@@ -6,6 +6,7 @@ ha_category:
   - Presence Detection
   - Sensor
   - Switch
+  - Camera
 ha_release: 0.85
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -18,6 +19,7 @@ ha_platforms:
   - device_tracker
   - sensor
   - switch
+  - camera
 ha_zeroconf: true
 ha_integration_type: integration
 ---
@@ -29,6 +31,7 @@ There is currently support for the following device types within Home Assistant:
 * [Sensor](#sensor) with metrics for connection speed, internal temperature, free partition space and missed calls
 * [Device tracker](#presence-detection) for connected devices
 * [Switch](#switch) to control Wi-Fi
+* [Camera](#camera)
 
 {% include integrations/config_flow.md %}
 
@@ -79,6 +82,8 @@ The first time Home Assistant will connect to your Freebox, you will need to aut
 
 To make the Wi-Fi switch and the reboot service working you will have to add "Modification des réglages de la Freebox" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
+To use cameras from the Freebox Delta, you will have to add "Gestion de l'alarme et maison connectée" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+
 ### Supported routers
 
 Only the routers with Freebox OS are supported:
@@ -111,6 +116,9 @@ The monitored metrics are:
 * Upload and download rates (in KB/s)
 * Free partition space of used disks
 * Number of missed calls
+
+## Camera
+Cameras are only available in Freebox V7 (also known as Freebox Delta).
 
 ## Service
 

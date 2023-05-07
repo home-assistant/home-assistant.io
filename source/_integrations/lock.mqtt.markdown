@@ -238,7 +238,7 @@ unique_id:
 value_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract a state value from the payload.
   required: false
-  type: string
+  type: template
 {% endconfiguration %}
 
 <div class='note warning'>
