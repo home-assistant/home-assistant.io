@@ -17,13 +17,13 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `dwd_weather_warnings` integration uses the [Deutscher Wetterdienst (DWD)](https://www.dwd.de) as a source for current and advance weather warnings. The configured sensor checks for data every 15 minutes.
+The Deutscher Wetterdienst Weather Warnings integration uses the [Deutscher Wetterdienst (DWD)](https://www.dwd.de) as a source for current and advance weather warnings. The configured sensor checks for data every 15 minutes.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Warncell ID or name:
-  description: Identifier of the region. It can either be a so called `warncell ID` (integer) or a `warncell name` (string). It is heavily advised to use `warncell ID` because `warncell name` is not unique in some cases. A list of valid warncell IDs and names can be found [here](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html). Some of the warncells are outdated but still listed. If the setup fails, search the list for a similar sounding warncell. In case the `warncell name` is not unique, `" (not unique used ID)!"` will be added to the reported `region_name`. Setting this field is required.
+  description: Identifier of the region. It can be a warncell ID (integer) or a warncell name. It is heavily advised to use warncell ID because a warncell name is sometimes not unique. A list of valid warncell IDs and names can be found [here](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.html). Some of the warncells are outdated but still listed. If the setup fails, search the list for a similar sounding warncell. If the warncell name is not unique, `" (not unique used ID)!"` will be added to the reported `region_name`. Setting this field is required.
 {% endconfiguration_basic %}
 
 ### Attributes
