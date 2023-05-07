@@ -39,11 +39,11 @@ Examples of URLs to pass as activity for some popular apps:
 
 | App | URL |
 | --- | --- |
-| YouTube | https://www.youtube.com
-| Netflix | https://www.netflix.com/title
-| Prime Video | https://app.primevideo.com
-| Disney+ | https://www.disneyplus.com
-| Plex | plex://
+| YouTube | `https://www.youtube.com` or `vnd.youtube://` or `vnd.youtube.launch://`
+| Netflix | `https://www.netflix.com/title`
+| Prime Video | `https://app.primevideo.com`
+| Disney+ | `https://www.disneyplus.com`
+| Plex | `plex://`
 
 See [this Guide/wiki](https://community.home-assistant.io/t/android-tv-remote-app-links-deep-linking-guide/567921) for how to find out what URL to use and a collection of more apps.
 
