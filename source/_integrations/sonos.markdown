@@ -137,6 +137,20 @@ data:
     volume: 20
 ```
 
+The standard `tts.<source>_say` services do not accept the `volume` parameter directly. To set the `volume` for a TTS announcement, you can use a TTS Media Source URL with the standard `media_player.play_media` service:
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  announce: true
+  media_content_id: >
+    media-source://tts/cloud?message="I am very loud"
+  media_content_type: "music"
+  extra:
+    volume: 80
+```
+
 Sonos can also play music or playlists from Spotify. Both Spotify URIs and URLs can be used directly. An example service call using a playlist URI:
 
 ```yaml
@@ -168,7 +182,8 @@ target:
   entity_id: media_player.sonos
 data:
   media_content_type: "music"
-  media_content_id: 'plex://{ "library_name": "Music", "artist_name": "M83", "album_name": "Hurry Up, We're Dreaming" }'
+  media_content_id: >
+    plex://{ "library_name": "Music", "artist_name": "M83", "album_name": "Hurry Up, We're Dreaming" }
 ```
 
 ## Services
