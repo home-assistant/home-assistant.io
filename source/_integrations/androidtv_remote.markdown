@@ -35,7 +35,7 @@ For a full list see [here](https://github.com/tronikos/androidtvremote2/blob/mai
 
 If `activity` is specified in `remote.turn_on` it will open the specified URL in the associated app.
 
-Examples of URLs to pass as activity for some popular apps:
+Examples of URLs to pass as activity for some popular apps (see [this community guide](https://community.home-assistant.io/t/android-tv-remote-app-links-deep-linking-guide/567921/1) for more):
 
 | App | URL |
 | --- | --- |
