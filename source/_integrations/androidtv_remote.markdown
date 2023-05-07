@@ -88,8 +88,9 @@ target:
 
 ## Known issues
 
-- Doesn't work with Fire TV devices because they are missing the [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service)
-- Some devices, like Xiaomi, become unavailable after they are turned off and can't be turned on with this integration
+- Doesn't work with Fire TV devices because they are missing the [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service).
+- If you cannot use the Google TV mobile app or the Google Home mobile app to send commands to the device, you cannot with this integration either.
+- Some devices, like Xiaomi, become unavailable after they are turned off and can't be turned on with this integration.
 - Some devices experience disconnects every 15 seconds. This is resolved with rebooting the device after the initial setup of the integration.
 
 ## Dashboard example
