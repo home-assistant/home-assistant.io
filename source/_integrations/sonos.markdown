@@ -131,8 +131,8 @@ target:
   entity_id: media_player.sonos
 data:
   announce: true
-  media_content_type: music
-  media_content_id: http://192.168.1.50:8123/local/sound_files/doorbell-front.mp3
+  media_content_type: "music"
+  media_content_id: "http://192.168.1.50:8123/local/sound_files/doorbell-front.mp3"
   extra:
     volume: 20
 ```
@@ -144,8 +144,9 @@ target:
   entity_id: media_player.sonos
 data:
   announce: true
-  media_content_id: media-source://tts/cloud?message="I am very loud"
-  media_content_type: music
+  media_content_id: >
+    media-source://tts/cloud?message="I am very loud"
+  media_content_type: "music"
   extra:
     volume: 80
 ```
@@ -157,8 +158,8 @@ service: media_player.play_media
 target:
   entity_id: media_player.sonos
 data:
-  media_content_type: playlist
-  media_content_id: spotify:playlist:abcdefghij0123456789XY
+  media_content_type: "playlist"
+  media_content_id: "spotify:playlist:abcdefghij0123456789XY"
   enqueue: true
 ```
 
@@ -169,8 +170,8 @@ service: media_player.play_media
 target:
   entity_id: media_player.sonos
 data:
-  media_content_type: music
-  media_content_id: https://open.spotify.com/album/abcdefghij0123456789YZ
+  media_content_type: "music"
+  media_content_id: "https://open.spotify.com/album/abcdefghij0123456789YZ"
 ```
 
 Run a [Plex Media Server](/integrations/plex#sonos-playback) in your home? The Sonos integration can work with that as well. This example plays music directly from your Plex server:
@@ -180,8 +181,9 @@ service: media_player.play_media
 target:
   entity_id: media_player.sonos
 data:
-  media_content_type: music
-  media_content_id: 'plex://{ "library_name": "Music", "artist_name": "M83", "album_name": "Hurry Up, We're Dreaming" }'
+  media_content_type: "music"
+  media_content_id: >
+    plex://{ "library_name": "Music", "artist_name": "M83", "album_name": "Hurry Up, We're Dreaming" }
 ```
 
 ## Services
