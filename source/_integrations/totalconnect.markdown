@@ -96,7 +96,7 @@ The Total Connect API has limited zone type information. Home Assistant device c
 
 ### Diagnostic Sensors
 
-The following diagnostic sensors will be generated, but hidden by default:
+The following diagnostic sensors are available:
 
 - Low Battery for Zones and Alarm Panels will be `True` if the battery is low
 - Tamper for Zones and Alarm Panels will be `True` if in a tamper state
