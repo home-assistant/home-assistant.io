@@ -70,6 +70,7 @@ The integration setup will next give you instructions to enter the [Application 
 ## Troubleshooting
 
 If you have an error with your credentials you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
+The below services will only work with the Sheets document created at setup by default. If you wish to append to or edit other documents, configure it for read/write access from the integrations page.
 
 ### Service `google_sheets.append_sheet`
 
