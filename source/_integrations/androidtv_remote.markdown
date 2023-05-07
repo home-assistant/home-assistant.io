@@ -49,8 +49,8 @@ Examples:
 # Launch the Netflix app
 service: media_player.play_media
 data:
-  media_content_type: url
-  media_content_id: https://www.netflix.com/title
+  media_content_type: "url"
+  media_content_id: "https://www.netflix.com/title"
 target:
   entity_id: media_player.living_room_tv
 ```
@@ -59,8 +59,8 @@ target:
 # Open a specific YouTube video:
 service: media_player.play_media
 data:
-  media_content_type: url
-  media_content_id: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+  media_content_type: "url"
+  media_content_id: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 target:
   entity_id: media_player.living_room_tv
 ```
@@ -75,7 +75,7 @@ Example:
 # Change channel to number 15:
 service: media_player.play_media
 data:
-  media_content_type: channel
+  media_content_type: "channel"
   media_content_id: 15
 target:
   entity_id: media_player.living_room_tv
@@ -165,8 +165,6 @@ Other:
 
 {% enddetails %}
 
-For a full list see [here](https://github.com/tronikos/androidtvremote2/blob/main/src/androidtvremote2/remotemessage.proto#L90).
-
 If `activity` is specified in `remote.turn_on` it will open the specified URL in the associated app. See [Launching apps section](#launching-apps).
 
 Examples of service calls:
@@ -194,7 +192,7 @@ target:
 # Launch YouTube
 service: remote.turn_on
 data:
-  activity: https://www.youtube.com
+  activity: "https://www.youtube.com"
 target:
   entity_id: remote.living_room_tv
 ```
@@ -203,7 +201,7 @@ target:
 # Open a specific YouTube video:
 service: remote.turn_on
 data:
-  activity: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+  activity: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 target:
   entity_id: remote.living_room_tv
 ```
@@ -432,7 +430,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: https://www.youtube.com
+            activity: "https://www.youtube.com"
           target:
             entity_id: remote.living_room_tv
         hold_action:
@@ -443,7 +441,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: https://www.netflix.com/title
+            activity: "https://www.netflix.com/title"
           target:
             entity_id: remote.living_room_tv
         hold_action:
@@ -455,7 +453,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: https://app.primevideo.com
+            activity: "https://app.primevideo.com"
           target:
             entity_id: remote.living_room_tv
         hold_action:
@@ -467,7 +465,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: https://www.disneyplus.com
+            activity: "https://www.disneyplus.com"
           target:
             entity_id: remote.living_room_tv
         hold_action:
