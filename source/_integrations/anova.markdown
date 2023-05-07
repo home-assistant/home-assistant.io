@@ -2,6 +2,7 @@
 title: Anova
 description: Instructions on how to integrate Anova Wi-Fi Sous Vide into home assistant.
 ha_category:
+  - Climate
   - Sensor
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -25,6 +26,10 @@ The 'nano' versions of the sous vide are not supported, but as long as your app 
 To add this platform to your installation, You will need your Anova username and password, and you need to have at least one sous vide connected to your account.
 
 {% include integrations/config_flow.md %}
+
+## Climate
+- Current Temperature - The current temperature of the water.
+- Target Temperature - the temperature you want to heat the water to.
 
 ## Sensor
 
