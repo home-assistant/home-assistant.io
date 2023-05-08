@@ -3,6 +3,7 @@ title: Anova
 description: Instructions on how to integrate Anova Wi-Fi Sous Vide into home assistant.
 ha_category:
   - Sensor
+  - Switch
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_release: 2023.5
@@ -36,3 +37,7 @@ To add this platform to your installation, You will need your Anova username and
 - Heater Temperature - The current temperature of the heater.
 - Triac Temperature - The current temperature of the triac.
 - Water Temperature - The current temperature of the water.
+
+## Switch
+
+You can turn the Anova device on and off with the provided switch.
