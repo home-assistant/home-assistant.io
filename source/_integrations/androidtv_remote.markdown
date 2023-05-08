@@ -72,7 +72,7 @@ target:
   entity_id: media_player.living_room_tv
 ```
 
-## Remote entity
+## Entity
 
 This integration adds a `remote` entity which turns on/off the Android TV device.
 The entity has the `current_activity` attribute that shows the current foreground app on the Android TV.
