@@ -22,9 +22,11 @@ Currently known supported models:
 - DMP-BDT500
 - DMP-BBT01
 
-Models reported not working:
+The following newer models currently support a limited set of read only status commands:
 
 - DP-UB420
+- DP-UB820
+- DP-UB9000
 
 If your model is not on the list, then give it a try, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_bluray.markdown).
 
