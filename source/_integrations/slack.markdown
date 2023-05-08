@@ -18,6 +18,8 @@ ha_integration_type: service
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
 
+![](/images/integrations/slack/slack-message.png)
+
 
 ## Setup
 
@@ -26,22 +28,64 @@ The `slack` platform allows you to deliver notifications from Home Assistant to 
 1. Create a [new app](https://api.slack.com/apps) under your Slack.com account.
 2. Click the `OAuth & Permissions` link in the sidebar, under the Features heading.
 
-Depending on whether you want the Bot user to post as you (the user that authenticated the Slack app) or as on it's own, use the appropriate Section when adding Scopes and retrieving the API key
+Find `Features/OAuth and Permissions/Scopes/Bot Token Scopes`
 
-- To post as the user that authorized the app, take these actions under `Features/OAuth and Permissions/Scopes/Bot Token Scopes`
-<!-- (screenshot of example message?) -->
-- To post as the user that authorized as the app, take these actions under `Features/OAuth and Permissions/Scopes/User Token Scopes`
-<!-- (screenshot of example message?) -->
-
-3. In the correct Scopes section, add the `chat:write` and `dnd:read` scopes
+3. Add the `chat:write` and `dnd:read` scopes
   - To modify your Slack bot's username and icon, additionally add the `chat:write.customize` OAuth scope
+
+![](/images/integrations/slack/bot-token-scopes.png)
 
 4. Scroll up to `OAuth Tokens & Redirect URLs` and click `Install to Workspace`.
 
 In `Features/OAuth and Permissions/OAuth Tokens for Your Workspace`:
 
-5. Copy the User (or Bot User) OAuth Token. Use this as 'API Key' when setting up in Home Assistant
+5. Copy the Bot User OAuth Token. Use this as 'API Key' when setting up in Home Assistant
 
+![](/images/integrations/slack/oauth-tokens-for-workspace.png)
+
+
+Ensure that the bot user is added to the channel in which you want it to post. 
+In Slack, tag the bot user in a message, then add it to the channel. 
+
+
+#### Sample App Manifest
+
+You can easily create a bot with all the permissions needed from an App Manifest. 
+
+```yaml
+display_information:
+  name: Home Notifications
+features:
+  bot_user:
+    display_name: Home Notifications
+    always_online: false
+oauth_config:
+  scopes:
+    bot:
+      - incoming-webhook
+      - chat:write
+      - dnd:read
+      - chat:write.customize
+settings:
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false
+```
+
+### Integration Setup
+
+When installing the integration, use these settings:
+
+API Key: `xoxb-abc-def`
+- Bot User OAuth Token (from step 5 above)
+
+Default Channel: `#channel`
+- Channel name that bot will post to if a channel is not supplied when called
+
+Icon/Username:
+- optional - if you want to have a custom name/icon for the bot user not already set in Slack
+
+![](/images/integrations/slack/slack-integration-setup.png)
 
 ## Usage
 
@@ -51,7 +95,7 @@ One of the easiest ways to send a message, is to create a script. You can paste 
 
 You can call this script as a service. 
 
-1. Go to Home Assistant Settings -> Automations and Scenes -> Scripts -> Add Script
+1. Go to Home Assistant Settings > Automations and Scenes > Scripts > Add Script
 2. Click the three dots in the top right, and pick 'Edit in YAML'. Paste in the contents below.
 3. Change `YOUR_SLACK_TEAM` to the team name `(*.slack.com)`
 
@@ -80,7 +124,7 @@ Create a duplicate of this script to use for different messages, and different c
 
 ### Icons
 
-Slack uses the standard emoji sets used [here](https://www.webpagefx.com/tools/emoji-cheat-sheet/). Alternatively a publicly accessible URL may be used.
+Slack uses the standard emoji sets used [here](https://slack.com/intl/en-gb/help/articles/202931348-Use-emoji-and-reactions#add-emoji-to-your-messages). Alternatively a publicly accessible URL may be used.
 
 {% include integrations/config_flow.md %}
 
