@@ -278,6 +278,39 @@ intent_script:
 
 Now say `Alexa ask Home Assistant to run <some script>` and Alexa will run that script for you.
 
+
+### Template Variables
+
+All Intent Slots are resolved to Template Variables. There are a few special Variables which could help you to setup more advanced automations.
+
+Assuming that the Slot is called `SlotTest` - here are a few examples for each Slot Variable:
+
+- Get Slot Valuehab hier zu hause
+  ```yaml
+  {{ SlotTest }}
+  ```
+  This Variable will either have the `Slot Value` or `Spoken Text` if there are multiple possible Slot resolutions.
+
+- Get Slot ID
+  ```yaml
+  {{ SlotTest_ID }}
+  ```
+  This Variable will either have the `Slot Value ID` (You can set it optionally in the Slot Configuration) or an empty String if there are multiple possible Slot resolutions.
+
+- Get Slot Value of nearest Slot resolution
+  ```yaml
+  {{ SlotTest_NEAREST }}
+  ```
+  This Variable will have the `Slot Value` of the first Slot resolution. This resolution is usually the one that fits best to the spoken Text.
+  If there are no resolutions available, the `Spoken Text` is used as Value.
+
+- Get Slot Value ID of nearest Slot resolution
+  ```yaml
+  {{ SlotTest_NEAREST_ID }}
+  ```
+  This Variable will have the `Slot Value ID` of the first Slot resolution (You can set it optionally in the Slot Configuration). This resolution is usually the one that fits best to the spoken Text.
+
+
 ### Support for Launch Requests
 
 There may be times when you want to respond to a launch request initiated from a command such as "Alexa, Red Alert!".
