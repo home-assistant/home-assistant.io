@@ -17,16 +17,6 @@ Once you are done, click **Next**. In this screen, Home Assistant will show any 
 
 ![Discovery of devices on your network.](/images/getting-started/devices.png)
 
-Finally, click **Finish**. Now you're brought to the Home Assistant web interface. This screen will show all of your devices. So let's get that screen filled up!
-
-![The Home Assistant user interface.](/images/getting-started/lovelace.png)
-
-From the side bar, click on {% my integrations title="Settings > Devices & Services" %}. On this screen, you will be able to set up {% term integrations %} with Home Assistant. 
-
-![The integrations page in the configurations panel shows you all your configured integrations.](/images/getting-started/integrations.png)
-
-When each integration is done setting up, it will ask you to put the new devices in areas. Areas allow you to organize all the devices in your home.
-
-When you're done, navigate back to the web interface and voila, your devices are ready for you to control.
+Finally, click **Finish**. Now you're brought to the Home Assistant web interface. This screen will show all of your devices.
 
 {% include getting-started/next_step.html step="Concepts & Terminologies" link="/getting-started/concepts-terminology/" %}

@@ -55,13 +55,13 @@ To edit an existing area, enter its name and follow the dialog.
 
 ## Camera
 
-The `netatmo` camera platform is consuming the information provided by a [Netatmo Smart Indoor](https://www.netatmo.com/en-gb/security/cam-indoor), [Outdoor](https://www.netatmo.com/en-gb/security/cam-outdoor) and [Netatmo Smart Video Doorbell](https://www.netatmo.com/en-gb/security/doorbell) camera. This integration allows you to view the current live stream created by the camera (exception: video doorbell).
+The `netatmo` camera platform is consuming the information provided by a [Netatmo Smart Indoor](https://www.netatmo.com/smart-indoor-camera), [Outdoor](https://www.netatmo.com/smart-outdoor-camera) and [Netatmo Smart Video Doorbell](https://www.netatmo.com/smart-video-doorbell) camera. This integration allows you to view the current live stream created by the camera (exception: video doorbell).
 
 The doorbell is currently not supported with the Home Assistant Cloud link mode (configured in the integration). Please use a [Netatmo dev account](#development--testing-with-your-own-client-id). Note that: if you have already created the Netatmo integration, you must remove it and configure it with the Netatmo dev account as explained in the previous link. Then you will see a Smart Doorbell device with a camera sensor.
 
 ## Climate
 
-The `netatmo` thermostat platform is consuming the information provided by a [Netatmo Smart Thermostat](https://www.netatmo.com/product/energy/thermostat), [Smart Modulating Thermostat](https://www.netatmo.com/en-gb/energy/modulating-thermostat) and [Netatmo Smart Radiator Valve](https://www.netatmo.com/en-gb/energy/additional-valve). This integration allows you to view the current temperature and control the setpoint.
+The `netatmo` thermostat platform is consuming the information provided by a [Netatmo Smart Thermostat](https://www.netatmo.com/product/energy/thermostat), [Smart Modulating Thermostat](https://www.netatmo.com/smart-modulating-thermostat) and [Netatmo Smart Radiator Valve](https://www.netatmo.com/additional-smart-radiator-valve). This integration allows you to view the current temperature and control the setpoint.
 
 ## Cover
 
@@ -69,13 +69,13 @@ The `netatmo` cover platform provides support for Bubendorff shutters.
 
 ## Light
 
-The `netatmo` light platform is consuming information provided by a [Netatmo Smart Outdoor](https://www.netatmo.com/en-gb/security/cam-outdoor) camera and requires an active webhook. This integration allows you to turn on/off the flood lights.
+The `netatmo` light platform is consuming information provided by a [Netatmo Smart Outdoor](https://www.netatmo.com/smart-outdoor-camera) camera and requires an active webhook. This integration allows you to turn on/off the flood lights.
 It further provides support for Legrand/BTicino dimmers.
 
 ## Sensor
 
-The `netatmo` sensor platform is consuming the information provided by a [Netatmo Smart Home Weather Station](https://www.netatmo.com/en-us/weather/weatherstation) a
-[Netatmo Smart Indoor Air Quality Monitor](https://www.netatmo.com/en-us/aircare/homecoach) device or [Netatmo Public Weather Stations](https://weathermap.netatmo.com/).
+The `netatmo` sensor platform is consuming the information provided by a [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station) a
+[Netatmo Smart Indoor Air Quality Monitor](https://www.netatmo.com/smart-indoor-air-quality-monitor) device or [Netatmo Public Weather Stations](https://weathermap.netatmo.com/).
 
 ## Switch
 
@@ -115,8 +115,8 @@ Service to manually register and unregister the webhook.
 
 ## Webhook Events
 
-The Netatmo backend sends instant events to Home Assistant by using webhooks which unlocks improved responsiveness of most devices with the exception of [Netatmo Smart Home Weather Station](https://www.netatmo.com/en-us/weather/weatherstation),
-[Netatmo Smart Indoor Air Quality Monitor](https://www.netatmo.com/en-us/aircare/homecoach) or [Netatmo Public Weather Stations](https://weathermap.netatmo.com/).
+The Netatmo backend sends instant events to Home Assistant by using webhooks which unlocks improved responsiveness of most devices with the exception of [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station),
+[Netatmo Smart Indoor Air Quality Monitor](https://www.netatmo.com/smart-indoor-air-quality-monitor) or [Netatmo Public Weather Stations](https://weathermap.netatmo.com/).
 
 <div class='note warning'>
 
@@ -125,7 +125,7 @@ It is therefore recommended to use [an individual development account](#developm
 
 </div>
 
-To be able to receive events from [Netatmo](https://www.netatmo.com/en-gb/), your Home Assistant instance needs to be accessible from the web over port `443`. To achieve this you can either use your Nabu Casa account or for example Duck DNS ([Home Assistant instructions](/addons/duckdns/)). You also need to have the external URL configured in the Home Assistant [configuration](/docs/configuration/basic).
+To be able to receive events from [Netatmo](https://www.netatmo.com/), your Home Assistant instance needs to be accessible from the web over port `443`. To achieve this you can either use your Nabu Casa account or for example Duck DNS ([Home Assistant instructions](/addons/duckdns/)). You also need to have the external URL configured in the Home Assistant [configuration](/docs/configuration/basic).
 
 Events coming in from Netatmo will be available as an event in Home Assistant and are fired as `netatmo_event`, along with their data. You can use these events to trigger automations.
 
@@ -201,7 +201,7 @@ Example:
 
 ```yaml
 # Example automation
-- alias: "door or window open or movement"
+- alias: "Door or window open or movement"
   description: "Notifies which door or window is open or was moved"
   trigger:
     - event_type: netatmo_event
