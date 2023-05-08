@@ -1,6 +1,6 @@
 ---
 title: Android TV Remote
-description: Instructions on how to integrate Android TV Remote into Home Assistant.
+description: Instructions on how to integrate Android TV remotes into Home Assistant.
 ha_category:
   - Media Player
   - Remote
@@ -20,7 +20,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The Android TV Remote integration allows you to control an Android TV and launching apps. For this to work the Android TV device needs to have [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service) which is pre-installed on most devices.
+The Android TV Remote integration allows you to control an Android TV device by sending [commands](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt) and launching apps. For this to work the Android TV device needs to have [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service) which is pre-installed on most devices.
 
 {% include integrations/config_flow.md %}
 
@@ -33,15 +33,6 @@ Using the `media_player.play_media` service, you can launch applications via `De
 ### Launching apps
 
 You can pass any URL to the device to open it in the built-in browser. Using `Deep Links` you can launch some applications.
-
-Examples of some `Deep Links` for popular applications:
-
-| App | URL |
-| --- | --- |
-| YouTube | https://www.youtube.com
-| Netflix | https://www.netflix.com/title
-| Prime Video | https://app.primevideo.com
-| Disney+ | https://www.disneyplus.com
 
 Examples:
 
@@ -81,91 +72,28 @@ target:
   entity_id: media_player.living_room_tv
 ```
 
-## Remote
+## Remote entity
 
-The remote allows you to send key commands to your Android TV device with the `remote.send_command` service.
+This integration adds a `remote` entity which turns on/off the Android TV device.
 The entity has the `current_activity` attribute that shows the current foreground app on the Android TV.
 
-{% details "List of the most common commands" %}
+## Services
 
-Navigation:
-- DPAD_UP
-- DPAD_DOWN
-- DPAD_LEFT
-- DPAD_RIGHT
-- DPAD_CENTER
-- BUTTON_A
-- BUTTON_B
-- BUTTON_X
-- BUTTON_Y
+You can use the `remote.turn_off`, `remote.turn_on`, `remote.toggle`,  and `remote.send_command` services from the [remote](/integrations/remote/) platform.
 
-Volume Control:
-- VOLUME_DOWN
-- VOLUME_UP
-- VOLUME_MUTE
-- MUTE
+For a list of the most common commands you can send to the Android TV via `remote.send_command` see: [TvKeys](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt).
+For a full list see [here](https://github.com/tronikos/androidtvremote2/blob/main/src/androidtvremote2/remotemessage.proto#L90).
 
-Media Control:
-- MEDIA_PLAY_PAUSE
-- MEDIA_PLAY
-- MEDIA_PAUSE
-- MEDIA_NEXT
-- MEDIA_PREVIOUS
-- MEDIA_STOP
-- MEDIA_RECORD
-- MEDIA_REWIND
-- MEDIA_FAST_FORWARD
+If `activity` is specified in `remote.turn_on` it will open the specified URL in the associated app.
 
-TV Control:
-- 0
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
-- 7
-- 8
-- 9
-- DEL
-- ENTER
-- CHANNEL_UP
-- CHANNEL_DOWN
-- F1
-- F2
-- F3
-- F4
-- F5
-- F6
-- F7
-- F8
-- F9
-- F10
-- F11
-- F12
-- TV
-- PROG_RED
-- PROG_GREEN
-- PROG_YELLOW
-- PROG_BLUE
+Examples of URLs to pass as activity for some popular apps:
 
-Other:
-- BUTTON_MODE
-- EXPLORER
-- MENU
-- INFO
-- GUIDE
-- TV_TELETEXT
-- CAPTIONS
-- DVR
-- MEDIA_AUDIO_TRACK
-- SETTINGS
-- SEARCH
-- ASSIST
-
-{% enddetails %}
-
-If `activity` is specified in `remote.turn_on` it will open the specified URL in the associated app. See [Launching apps section](#launching-apps).
+| App | URL |
+| --- | --- |
+| YouTube | https://www.youtube.com
+| Netflix | https://www.netflix.com/title
+| Prime Video | https://app.primevideo.com
+| Disney+ | https://www.disneyplus.com
 
 Examples of service calls:
 
@@ -192,7 +120,7 @@ target:
 # Launch YouTube
 service: remote.turn_on
 data:
-  activity: "https://www.youtube.com"
+  activity: https://www.youtube.com
 target:
   entity_id: remote.living_room_tv
 ```
@@ -201,12 +129,12 @@ target:
 # Open a specific YouTube video:
 service: remote.turn_on
 data:
-  activity: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  activity: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 target:
   entity_id: remote.living_room_tv
 ```
 
-### Dashboard example
+## Dashboard example
 
 You have to manually create buttons in Lovelace to send commands to the Android TV device or launch apps on it.
 
@@ -430,7 +358,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: "https://www.youtube.com"
+            activity: https://www.youtube.com
           target:
             entity_id: remote.living_room_tv
         hold_action:
@@ -441,7 +369,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: "https://www.netflix.com/title"
+            activity: https://www.netflix.com/title
           target:
             entity_id: remote.living_room_tv
         hold_action:
@@ -453,7 +381,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: "https://app.primevideo.com"
+            activity: https://app.primevideo.com
           target:
             entity_id: remote.living_room_tv
         hold_action:
@@ -465,7 +393,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: "https://www.disneyplus.com"
+            activity: https://www.disneyplus.com
           target:
             entity_id: remote.living_room_tv
         hold_action:
