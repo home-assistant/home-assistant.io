@@ -12,7 +12,7 @@ Presence detection detects if people are home, which can be valuable input for a
 
 ### Adding presence detection
 
-There are different ways of setting up presence detection. Usually the easiest way to detect presence is by checking which devices are connected to the network. You can do that if you have one of our [supported routers][routers]. By leveraging what your router already knows, you can easily detect if people are at home.
+There are different ways of setting up presence detection. Usually the easiest way to detect presence is by checking which {% term devices %} are connected to the network. You can do that if you have one of our [supported routers][routers]. By leveraging what your router already knows, you can easily detect if people are at home.
 
 It's also possible to run an app on your phone to provide detailed location information to your Home Assistant instance. For iOS and Android, we suggest using the [Home Assistant Companion app][companion].
 
@@ -22,7 +22,7 @@ During the setup of Home Assistant Companion on your mobile device, the app will
 ### Zones
 ![Map with zones](/images/screenshots/badges-zone.png)
 
-Zones allow you to name areas on a map. These areas can then be used to name the location a tracked user is, or use entering/leaving a zone as an automation [trigger] or [condition]. See [Zones integration](/integrations/zone/) page for more details like creating zones.
+{% term Zones %} allow you to name areas on a map. These areas can then be used to name the location a tracked user is, or use entering/leaving a zone as an automation {% term trigger %} or {% term condition %}. See [Zones integration](/integrations/zone/) page for more details like creating zones.
 
 <div class='note'>
 The map view will hide all devices that are home.

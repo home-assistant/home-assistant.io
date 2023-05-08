@@ -14,6 +14,7 @@ ha_integration_type: system
 This integration is a meta-component and configures a default set of integrations for Home Assistant to load. The integrations that will be loaded are:
 
 - [Automation](/integrations/automation/) (`automation`)
+- [Assist pipeline](/integrations/assist_pipeline/) (`assist_pipeline`)
 - [Backup](/integrations/backup/) (`backup`)
 - [Bluetooth](/integrations/bluetooth/) (`bluetooth`)
 - [Configuration](/integrations/config/) (`config`)

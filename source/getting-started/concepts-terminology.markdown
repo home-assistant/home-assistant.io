@@ -11,7 +11,7 @@ Customizable pages to display information connected to and available in Home Ass
 ![Dashboard](/images/getting-started/lovelace.png)
 ## Integrations
 
-Software that allows Home Assistant to connect to other software and platforms. For example, the Philips Hue integration allows Home Assistant to talk to the Hue Bridge and read data such as the state of your lights through to controlling the lights themselves.
+Software that allows Home Assistant to connect to other software and platforms. For example, a product by Philips called Hue would use the Philips Hue integration and allow Home Assistant to talk to the hardware controller Hue Bridge. Any connected and Home Assistant compatible devices to the Hue Bridge would appear in Home Assistant as [devices](#devices--entities).
 
 ![Integrations](/images/getting-started/integrations.png)
 
@@ -25,8 +25,8 @@ Devices are a logical grouping for one or more entities. A device may represent 
 
 Devices and entities are used throughout Home Assistant. To name a few examples:
 * [Dashboards](#dashboards) can show a state of an entity like if a light bulb is on or off as well as buttons that interact with devices like turning a light bulb on or off.
-* An [automation](automations) can be triggered from a state change on an entity e.g. a light turning on and control another device or entity.
-* A predefined setting for light device saved as a [scene](scenes).
+* An [automation](#automations) can be triggered from a state change on an entity e.g. a light turning on and control another device or entity.
+* A predefined setting for light device saved as a [scene](#scenes).
 
 ![Home Assistant Device](/images/getting-started/home-assistant-device.png)
 
@@ -47,7 +47,7 @@ Similar to automations, repeatable actions that can be run. The difference betwe
 
 ## Scenes
 
-Scenes allow you to create predefined settings for your devices. Likened to driving mode on phones, driver profiles in cars, it can change an environment to suite you. For example, your environment for watching films may have dimmer lighting, TV is switched on and higher volume. This can be saved as a scene and used without having to set individual devices every time.
+Scenes allow you to create predefined settings for your devices. Likened to driving mode on phones, driver profiles in cars, it can change an environment to suit you. For example, your environment for watching films may have dimmer lighting, TV is switched on and higher volume. This can be saved as a scene and used without having to set individual devices every time.
 
 Further details can be found [here](/integrations/scene/).
 
@@ -57,4 +57,4 @@ Depending on your [installation type](/installation), you may have the ability t
 
 ![Add-ons](/images/getting-started/add-ons.png)
 
-{% include getting-started/next_step.html step="Automate Home Assistant" link="/getting-started/automation/" %}
+{% include getting-started/next_step.html step="Adding Integrations In Home Assistant" link="/getting-started/integration/" %}

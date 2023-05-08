@@ -83,7 +83,7 @@ These devices have been sold under at least the following brands:
 - [Diode Dynamics](https://www.diodedynamics.com/)
 - [Flux LED](https://www.fluxsmartlighting.com/)
 - [FVTLED](https://fvtled.com/)
-- [GEV LIG](https://www.gev.de/)
+- GEV LIG
 - GEYUEYA Home
 - GIDEALED
 - [GIDERWEL](https://giderwel.com/)
@@ -98,7 +98,7 @@ These devices have been sold under at least the following brands:
 - INDARUN
 - iNextStation
 - [Koopower](https://www.koopower.com/)
-- [Lallumer](https://www.lapuretes.cn/)
+- Lallumer
 - LEDENET
 - [LiteWRX](https://litewrx.com/)
 - Lytworx

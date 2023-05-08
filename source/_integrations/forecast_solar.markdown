@@ -71,6 +71,7 @@ The Forecast.Solar integration mainly provides sensors that you can use in your
 automations.
 
 - Estimated Energy Production - Today (in kWh)
+- Estimated Energy Production - Remaining Today (in kWh)
 - Estimated Energy Production - Tomorrow (in kWh)
 - Estimated Energy Production - This Hour (in kWh)
 - Estimated Energy Production - Next Hour (in kWh)

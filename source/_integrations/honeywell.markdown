@@ -33,11 +33,11 @@ Home Assistant is integrated with the following devices through [https://mytotal
 
 - Thermostats
   - Every thermostat is exposed as a climate entity
-  - Known working devices: TH6320R1004, RTH9585WF1004
+  - Known working devices: [TH6320R1004](https://customer.resideo.com/en-US/Pages/Product.aspx?cat=HonECC%2520Catalog&pid=TH6320R1004/U), [RTH9585WF1004](https://www.honeywellhome.com/us/en/products/air/thermostats/wifi-thermostats/wifi-color-touchscreen-thermostat-rth9585wf1004-u/)
 - Sensors
   - A Temperature sensor entity.
   - A Humidity sensor entity.
-  - Known working devices: C7089R1013
+  - Known working devices: [C7089R1013](https://customer.resideo.com/en-US/Pages/Product.aspx?cat=HonECC%20Catalog&pid=C7089R1013/U)
 
 Others devices like Security systems are not currently supported by this integration
 
@@ -45,7 +45,7 @@ Others devices like Security systems are not currently supported by this integra
 
 The climate platform integrates Honeywell US-based thermostats into Home Assistant, allowing control of the thermostat through the user interface. The current inside temperature, operating mode, and fan state are also displayed on the thermostat card.
 
-All [climate services](/integrations/climate) are supported except set_swing_mode
+All [climate services](/integrations/climate) are supported except set_swing_mode.
 
 ## Sensor
 

@@ -372,6 +372,51 @@ Child Lock              | Turn on/off the child lock
 Learn Mode              | Turn on/off the learn mode
 LED                     | Turn on/off the LED
 
+
+### Air Purifier MA2 (zhimi.airpurifier.ma2)
+
+- Power (on, off)
+- Operation modes (Auto, Silent, Favorite)
+- Attributes (fan platform)
+  - `extra_features`
+  - `turbo_mode_supported`
+  - `button_pressed`
+  - `preset_modes`
+  - `preset_mode`
+  - `sleep_time`
+  - `sleep_mode_learn_count`
+  - `use_time`
+  - `sleep_mode`
+  - `friendly_name`
+  - `supported_features`
+
+Number                  | Description
+----------------------- | -----------------------
+Favorite Level          | Set the favorite level
+
+- Sensor entities
+
+Sensor                  | Description                                                    | Enabled by default
+----------------------- | -----------------------                                        | -----------------------
+Filter Life Remaining   | The remaining life of the filter                               | True
+Filter Use              | Filter usage time in hours                                     | True
+Humidity                | The current humidity measured                                  | True
+Motor Speed             | The current motor speed measured in rpm                        | True
+PM2.5                   | The current particulate matter 2.5 measured                    | True
+Temperature             | The current temperature measured                               | True
+Illuminance             | The current illuminance meassured on top of the device 0-200lux| True
+Use Time                | The accumulative number of seconds the device has been in use  | False
+
+- Switch entities
+
+Switch                  | Description
+----------------------- | -----------------------
+Buzzer                  | Turn on/off the buzzer
+Child Lock              | Turn on/off the child lock
+Learn Mode              | Turn on/off the learn mode
+LED                     | Turn on/off the LED
+
+
 ### Air Purifier 2S (zhimi.airpurifier.mc1)
 
 - Power (on, off)

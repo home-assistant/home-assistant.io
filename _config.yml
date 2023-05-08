@@ -109,9 +109,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 2023
-current_minor_version: 3
-current_patch_version: 5
-date_released: 2023-03-16
+current_minor_version: 5
+current_patch_version: 2
+date_released: 2023-05-05
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -199,7 +199,7 @@ installation:
   types:
     odroid:
       board: ODROID
-      installation_media: "eMMC module/SD card"
+      installation_media: "eMMC module or SD card"
       variants:
         - name: "ODROID-N2"
           key: "odroid-n2"
@@ -209,8 +209,8 @@ installation:
           key: "odroid-c2"
         - name: "ODROID-C4"
           key: "odroid-c4"
-        - name: "ODROID-XU4"
-          key: "odroid-xu4"
+        - name: "ODROID-M1"
+          key: "odroid-m1"
 
     raspberrypi:
       board: Raspberry Pi
@@ -223,7 +223,7 @@ installation:
 
     tinkerboard:
       board: ASUS Tinkerboard
-      installation_media: "eMMC module/SD card"
+      installation_media: "eMMC module or SD card"
       variants:
         - name: "ASUS Tinkerboard"
           key: "tinker"
