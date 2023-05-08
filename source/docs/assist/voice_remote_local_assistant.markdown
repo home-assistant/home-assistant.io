@@ -28,8 +28,16 @@ For the quickest way to get your local Assist pipeline started, follow these ste
            * **Piper** converts text into speech. 
            * **Wyoming** is the protocol they are both using to communicate.
 1. Setup your assistant.
-   * Go to **Settings** > **Voice assistants** and select **Add assistant**.
+   * Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**.
    ![Enter a name for your voice assistant](/images/assist/piper-whisper-install-05.png)
+
+     * **Troubleshooting**: If you do not see any assistants here, you are not using the default configuration. In this case, you need to add the following to your `configuration.yaml` file:
+
+        ```yaml
+        # Example configuration.yaml entry
+        assist_pipeline:
+        ```
+        
    * Enter a name. You can pick any name that is meaningful to you.
    * Select the language that you want to speak.
    * Under **Conversation agent**, select **Home Assistant**.
