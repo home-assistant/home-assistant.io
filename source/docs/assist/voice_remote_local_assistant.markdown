@@ -44,8 +44,8 @@ For the quickest way to get your local Assist pipeline started, follow these ste
    * Under **Speech-to-text**, select **faster-whisper**.
    * Under **Text-to-speech**, select **piper**.
    * Depending on your language, you may be able to select different language variants.
-2. That's it. You ensured your voice commands can be processed locally on your device.
-3. If you haven't done so yet, [expose your devices to Assist](/docs/assist/voice_remote_expose_devices/#exposing-your-devices).
+1. That's it. You ensured your voice commands can be processed locally on your device.
+1. If you haven't done so yet, [expose your devices to Assist](/docs/assist/voice_remote_expose_devices/#exposing-your-devices).
    * Otherwise you won't be able to control them by voice.
 
 
