@@ -24,54 +24,6 @@ The Android TV Remote integration allows you to control an Android TV device by 
 
 {% include integrations/config_flow.md %}
 
-## Media player
-
-This integration adds a `media_player` with basic playback and volume controls. The media player provides volume information and display name of current active app on the Android TV. Due to API limitations, the integration will not display the playback status. It is recommended to use this integration together with [Google Cast integration](https://www.home-assistant.io/integrations/cast/). Two media players can be combined into one using the [Universal Media Player](https://www.home-assistant.io/integrations/universal/) integration.
-
-Using the `media_player.play_media` service, you can launch applications via `Deep Links` and switch channels.
-
-### Launching apps
-
-You can pass any URL to the device to open it in the built-in browser. Using `Deep Links` you can launch some applications.
-
-Examples:
-
-```yaml
-# Launch the Netflix app
-service: media_player.play_media
-data:
-  media_content_type: "url"
-  media_content_id: "https://www.netflix.com/title"
-target:
-  entity_id: media_player.living_room_tv
-```
-
-```yaml
-# Open a specific YouTube video:
-service: media_player.play_media
-data:
-  media_content_type: "url"
-  media_content_id: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-target:
-  entity_id: media_player.living_room_tv
-```
-
-### Switch channels
-
-You can pass the channel number to switch the channel. The channel number must be an integer.
-
-Example:
-
-```yaml
-# Change channel to number 15:
-service: media_player.play_media
-data:
-  media_content_type: "channel"
-  media_content_id: 15
-target:
-  entity_id: media_player.living_room_tv
-```
-
 ## Entity
 
 This integration adds a `remote` entity which turns on/off the Android TV device.
@@ -132,6 +84,54 @@ data:
   activity: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 target:
   entity_id: remote.living_room_tv
+```
+
+## Media player
+
+This integration adds a `media_player` with basic playback and volume controls. The media player provides volume information and display name of current active app on the Android TV. Due to API limitations, the integration will not display the playback status. It is recommended to use this integration together with [Google Cast integration](/integrations/cast/). Two media players can be combined into one using the [Universal Media Player](/integrations/universal/) integration.
+
+Using the `media_player.play_media` service, you can launch applications via `Deep Links` and switch channels.
+
+### Launching apps
+
+You can pass any URL to the device. Using `Deep Links` you can launch some applications.
+
+Examples:
+
+```yaml
+# Launch the Netflix app
+service: media_player.play_media
+data:
+  media_content_type: "url"
+  media_content_id: "https://www.netflix.com/title"
+target:
+  entity_id: media_player.living_room_tv
+```
+
+```yaml
+# Open a specific YouTube video:
+service: media_player.play_media
+data:
+  media_content_type: "url"
+  media_content_id: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+target:
+  entity_id: media_player.living_room_tv
+```
+
+### Switch channels
+
+You can pass the channel number to switch the channel. The channel number must be an integer.
+
+Example:
+
+```yaml
+# Change channel to number 15:
+service: media_player.play_media
+data:
+  media_content_type: "channel"
+  media_content_id: 15
+target:
+  entity_id: media_player.living_room_tv
 ```
 
 ## Dashboard example
