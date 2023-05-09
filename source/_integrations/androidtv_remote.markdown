@@ -24,12 +24,12 @@ The Android TV Remote integration allows you to control an Android TV device by 
 
 {% include integrations/config_flow.md %}
 
-## Entity
+## Remote
 
 This integration adds a `remote` entity which turns on/off the Android TV device.
 The entity has the `current_activity` attribute that shows the current foreground app on the Android TV.
 
-## Services
+### Services
 
 You can use the `remote.turn_off`, `remote.turn_on`, `remote.toggle`,  and `remote.send_command` services from the [remote](/integrations/remote/) platform.
 
@@ -86,55 +86,7 @@ target:
   entity_id: remote.living_room_tv
 ```
 
-## Media player
-
-This integration adds a `media_player` with basic playback and volume controls. The media player provides volume information and display name of current active app on the Android TV. Due to API limitations, the integration will not display the playback status. It is recommended to use this integration together with [Google Cast integration](/integrations/cast/). Two media players can be combined into one using the [Universal Media Player](/integrations/universal/) integration.
-
-Using the `media_player.play_media` service, you can launch applications via `Deep Links` and switch channels.
-
-### Launching apps
-
-You can pass any URL to the device. Using `Deep Links` you can launch some applications.
-
-Examples:
-
-```yaml
-# Launch the Netflix app
-service: media_player.play_media
-data:
-  media_content_type: "url"
-  media_content_id: "https://www.netflix.com/title"
-target:
-  entity_id: media_player.living_room_tv
-```
-
-```yaml
-# Open a specific YouTube video:
-service: media_player.play_media
-data:
-  media_content_type: "url"
-  media_content_id: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-target:
-  entity_id: media_player.living_room_tv
-```
-
-### Switch channels
-
-You can pass the channel number to switch the channel. The channel number must be an integer.
-
-Example:
-
-```yaml
-# Change channel to number 15:
-service: media_player.play_media
-data:
-  media_content_type: "channel"
-  media_content_id: 15
-target:
-  entity_id: media_player.living_room_tv
-```
-
-## Dashboard example
+### Dashboard example
 
 You have to manually create buttons in Lovelace to send commands to the Android TV device or launch apps on it.
 
@@ -406,3 +358,51 @@ cards:
 ```
 
 {% enddetails %}
+
+## Media player
+
+This integration adds a `media_player` with basic playback and volume controls. The media player provides volume information and display name of current active app on the Android TV. Due to API limitations, the integration will not display the playback status. It is recommended to use this integration together with [Google Cast integration](/integrations/cast/). Two media players can be combined into one using the [Universal Media Player](/integrations/universal/) integration.
+
+Using the `media_player.play_media` service, you can launch applications via `Deep Links` and switch channels.
+
+### Launching apps
+
+You can pass any URL to the device. Using `Deep Links` you can launch some applications.
+
+Examples:
+
+```yaml
+# Launch the Netflix app
+service: media_player.play_media
+data:
+  media_content_type: "url"
+  media_content_id: "https://www.netflix.com/title"
+target:
+  entity_id: media_player.living_room_tv
+```
+
+```yaml
+# Open a specific YouTube video:
+service: media_player.play_media
+data:
+  media_content_type: "url"
+  media_content_id: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+target:
+  entity_id: media_player.living_room_tv
+```
+
+### Switch channels
+
+You can pass the channel number to switch the channel. The channel number must be an integer.
+
+Example:
+
+```yaml
+# Change channel to number 15:
+service: media_player.play_media
+data:
+  media_content_type: "channel"
+  media_content_id: 15
+target:
+  entity_id: media_player.living_room_tv
+```
