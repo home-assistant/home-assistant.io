@@ -100,6 +100,8 @@ Bluetooth technology has a limited range. Home Assistant can expand the reach of
 
 Pick your product to turn it into a Bluetooth proxy for Home Assistant. No programming or other software required.
 
+If you're an **advanced user** who wants to install the configuration via ESPHome add-on: You can find the `configuration.yaml` on [github](https://github.com/esphome/bluetooth-proxies).
+
 To install the ESPHome software on the device, follow these steps:
 
 1. Open this page in a Chromium-based browser (for example Google Chrome or MS Edge) on a desktop. It does not work on a tablet or phone.

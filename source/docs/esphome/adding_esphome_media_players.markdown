@@ -102,10 +102,12 @@ Ready-made firmware to turn devices into ESPHome media players
 
 Pick your product and install [ESPHome](https://esphome.io) on it to use it directly as a media player inside Home Assistant. No programming required.
 
+If you're an **advanced user** who wants to install the configuration via ESPHome add-on: You can find the `configuration.yaml` on [github](https://github.com/esphome/media-players/blob/main).
+
 To install the ESPHome software on the device, follow these steps:
 
 1. Open this page in a Chromium-based browser (for example Google Chrome or MS Edge) on a desktop. It does not work on a tablet or phone.
-1. Pick your product.
+2. Pick your product.
 
 
 <div class="content">
