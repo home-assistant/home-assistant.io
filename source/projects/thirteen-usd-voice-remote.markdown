@@ -29,7 +29,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
       <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
       <esp-web-install-button manifest="https://firmware.esphome.io/voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
-   * **For advanced users**: The configuration file is stored on [github](https://github.com/esphome/media-players/blob/main/m5stack-atom-echo.yaml).
+   * **For advanced users**: The configuration file is available on [GitHub](https://github.com/esphome/media-players/blob/main/m5stack-atom-echo.yaml).
 
 1. Connect the ATOM Echo to your computer.
    * In the popup window, view the available ports.
