@@ -14,10 +14,16 @@
             "label": "Preview",
             "type": "shell",
             "command": "bundle exec rake preview",
+            "options": {
+                "env": {
+                    "NODE_OPTIONS": "--max-old-space-size=8192",
+                },
+            },
             "group": {
                 "kind": "test",
                 "isDefault": true,
             }
+            
         }
     ]
 }
