@@ -21,17 +21,6 @@ ha_integration_type: integration
 
 The `command_line` offers functionality that issues specific commands to get data or to control a device.
 
-## Binary sensor
-
-To use your Command binary sensor in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-binary_sensor:
-  - platform: command_line
-    command: "cat /proc/sys/net/ipv4/ip_forward"
-```
-
 <div class='note'>
 
 It's highly recommended to enclose the command in single quotes `'` as it ensures all characters can be used in the command and reduces the risk of unintentional escaping. To include a single quote in a command enclosed in single quotes, double it: `''`.
@@ -39,71 +28,61 @@ It's highly recommended to enclose the command in single quotes `'` as it ensure
 </div>
 
 {% configuration %}
-command:
-  description: The action to take to get the value.
+binary_sensors:
+  description: The array that contains all command switches.
   required: true
-  type: string
-command_timeout:
-  description: Defines number of seconds for command timeout.
-  required: false
-  type: integer
-  default: 15
-device_class:
-  description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
-  required: false
-  type: string
-name:
-  description: Let you overwrite the name of the device.
-  required: false
-  type: string
-  default: "*name* from the device"
-payload_on:
-  description: The payload that represents enabled state.
-  required: false
-  type: string
-  default: 'ON'
-unique_id:
-  description: An ID that uniquely identifies this binary sensor. Set this to a unique value to allow customization through the UI.
-  required: false
-  type: string
-payload_off:
-  description: The payload that represents disabled state.
-  required: false
-  type: string
-  default: 'OFF'
-scan_interval:
-  description: Defines number of seconds for polling interval.  
-  required: false
-  type: integer
-  default: 60
-value_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
-  required: false
-  type: string
-{% endconfiguration %}
-
-## Cover
-
-A `command_line`cover platform that issues specific commands when it is moved up, down and stopped. It allows anyone to integrate any type of cover into Home Assistant that can be controlled from the command line.
-
-To enable a command line cover in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-cover:
-  - platform: command_line
-    covers:
-      garage_door:
-        command_open: move_command up garage
-        command_close: move_command down garage
-        command_stop: move_command stop garage
-```
-
-{% configuration %}
+  type: map
+  keys:
+    identifier:
+      description: Identifier of binary sensor. Multiple entries are possible.
+      required: true
+      type: map
+      keys:
+        command:
+          description: The action to take to get the value.
+          required: true
+          type: string
+        command_timeout:
+          description: Defines number of seconds for command timeout.
+          required: false
+          type: integer
+          default: 15
+        device_class:
+          description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+          required: false
+          type: string
+        name:
+          description: Let you overwrite the name of the device.
+          required: false
+          type: string
+          default: "*name* from the device"
+        payload_on:
+          description: The payload that represents enabled state.
+          required: false
+          type: string
+          default: 'ON'
+        unique_id:
+          description: An ID that uniquely identifies this binary sensor. Set this to a unique value to allow customization through the UI.
+          required: false
+          type: string
+        payload_off:
+          description: The payload that represents disabled state.
+          required: false
+          type: string
+          default: 'OFF'
+        scan_interval:
+          description: Defines number of seconds for polling interval.  
+          required: false
+          type: integer
+          default: 60
+        value_template:
+          description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+          required: false
+          type: string
 covers:
   description: The array that contains all command line covers.
   required: true
-  type: list
+  type: map
   keys:
     identifier:
       description: Name of the command line cover as slug. Multiple entries are possible.
@@ -152,109 +131,74 @@ covers:
           required: false
           default: "'{% raw %}{{ value }}{% endraw%}'"
           type: template
-{% endconfiguration %}
-
-## Notify
-
-The `command_line` platform allows you to use external tools for notifications from Home Assistant. The message will be passed in as STDIN.
-
-To enable those notifications in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-notify:
-  - name: NOTIFIER_NAME
-    platform: command_line
-    command: "espeak -vmb/mb-us1"
-```
-
-{% configuration %}
-name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-  required: false
-  default: notify
-  type: string
-command:
-  description: The action to take.
+notifers:
+  description: The array that contains all command line notifiers.
   required: true
-  type: string
-command_timeout:
-  description: Defines number of seconds for command timeout.
-  required: false
-  type: integer
-  default: 15
-{% endconfiguration %}
-
-To use notifications, please see the [getting started with automation page](/getting-started/automation/).
-
-## Sensor
-
-To enable it, add the following lines to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: command_line
-    command: SENSOR_COMMAND
-```
-
-{% configuration %}
-command:
-  description: The action to take to get the value.
+  type: map
+  keys:
+    identifier:
+      description: Identifier of notify. Multiple entries are possible.
+      required: true
+      type: list
+      keys:
+        name:
+          description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+          required: false
+          default: notify
+          type: string
+        command:
+          description: The action to take.
+          required: true
+          type: string
+        command_timeout:
+          description: Defines number of seconds for command timeout.
+          required: false
+          type: integer
+          default: 15
+sensors:
+  description: The array that contains all command line sensors.
   required: true
-  type: string
-command_timeout:
-  description: Defines number of seconds for command timeout
-  required: false
-  type: integer
-  default: 15
-json_attributes:
-  description: Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
-  required: false
-  type: [string, list]
-name:
-  description: Name of the command sensor.
-  required: false
-  type: string
-unique_id:
-  description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
-  required: false
-  type: string
-scan_interval:
-  description: Defines number of seconds for polling interval.  
-  required: false
-  type: integer
-  default: 60
-unit_of_measurement:
-  description: Defines the unit of measurement of the sensor, if any.
-  required: false
-  type: string
-value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
-  required: false
-  type: string
-{% endconfiguration %}
-
-## Switch
-
-The `command_line` switch platform issues specific commands when it is turned on
-and off. This might very well become our most powerful platform as it allows
-anyone to integrate any type of switch into Home Assistant that can be
-controlled from the command line, including calling other scripts!
-
-To enable it, add the following lines to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: command_line
-    switches:
-      kitchen_light:
-        command_on: switch_command on kitchen
-        command_off: switch_command off kitchen
-```
-
-{% configuration %}
+  type: map
+  keys:
+    identifier:
+      description: Identifier of sensor. Multiple entries are possible.
+      required: true
+      type: list
+      keys:
+        command:
+          description: The action to take to get the value.
+          required: true
+          type: string
+        command_timeout:
+          description: Defines number of seconds for command timeout
+          required: false
+          type: integer
+          default: 15
+        json_attributes:
+          description: Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
+          required: false
+          type: [string, list]
+        name:
+          description: Name of the command sensor.
+          required: false
+          type: string
+        unique_id:
+          description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
+          required: false
+          type: string
+        scan_interval:
+          description: Defines number of seconds for polling interval.  
+          required: false
+          type: integer
+          default: 60
+        unit_of_measurement:
+          description: Defines the unit of measurement of the sensor, if any.
+          required: false
+          type: string
+        value_template:
+          description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
+          required: false
+          type: string
 switches:
   description: The array that contains all command switches.
   required: true
@@ -305,6 +249,80 @@ switches:
           type: string
 {% endconfiguration %}
 
+## Binary sensor
+
+To use your Command binary sensor in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+command_line:
+  binary_sensors:
+    binary_sensor_1:
+      command: "cat /proc/sys/net/ipv4/ip_forward"
+```
+
+## Cover
+
+A `command_line`cover platform that issues specific commands when it is moved up, down and stopped. It allows anyone to integrate any type of cover into Home Assistant that can be controlled from the command line.
+
+To enable a command line cover in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+command_line:
+  covers:
+    garage_door:
+      command_open: move_command up garage
+      command_close: move_command down garage
+      command_stop: move_command stop garage
+```
+
+## Notify
+
+The `command_line` platform allows you to use external tools for notifications from Home Assistant. The message will be passed in as STDIN.
+
+To enable those notifications in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+command_line:
+  notifiers:
+    notify_1:
+      command: "espeak -vmb/mb-us1"
+```
+
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+## Sensor
+
+To enable it, add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+command_line:
+  sensors:
+    sensor_1:
+      command: SENSOR_COMMAND
+```
+
+## Switch
+
+The `command_line` switch platform issues specific commands when it is turned on
+and off. This might very well become our most powerful platform as it allows
+anyone to integrate any type of switch into Home Assistant that can be
+controlled from the command line, including calling other scripts!
+
+To enable it, add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+command_line:
+  switches:
+    kitchen_light:
+      command_on: switch_command on kitchen
+      command_off: switch_command off kitchen
+```
+
 A note on `friendly_name`:
 
 When set, the `friendly_name` had been previously used for API calls and backend
@@ -341,13 +359,14 @@ Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instanc
 
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-  - platform: command_line
-    command: 'netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")'
-    name: "sickragerunning"
-    device_class: moving
-    payload_on: "Running"
-    payload_off: "Not running"
+command_line:
+  binary_sensors:
+    binary_sensor_1:
+      command: 'netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")'
+      name: "sickragerunning"
+      device_class: moving
+      payload_on: "Running"
+      payload_off: "Not running"
 ```
 
 ### Check RasPlex
@@ -355,25 +374,27 @@ binary_sensor:
 Check if [RasPlex](https://github.com/RasPlex/RasPlex) is `online`.
 
 ```yaml
-binary_sensor:
-  - platform: command_line
-    command: 'ping -c 1 rasplex.local | grep "1 received" | wc -l'
-    name: "is_rasplex_online"
-    device_class: connectivity
-    payload_on: 1
-    payload_off: 0
+command_line:
+  binary_sensors:
+    binary_sensor_1
+      command: 'ping -c 1 rasplex.local | grep "1 received" | wc -l'
+      name: "is_rasplex_online"
+      device_class: connectivity
+      payload_on: 1
+      payload_off: 0
 ```
 
 An alternative solution could look like this:
 
 ```yaml
-binary_sensor:
-  - platform: command_line
-    name: Printer
-    command: 'ping -W 1 -c 1 192.168.1.10 > /dev/null 2>&1 && echo success || echo fail'
-    device_class: connectivity
-    payload_on: "success"
-    payload_off: "fail"
+command_line:
+  binary_sensors:
+    binary_sensor_1:
+      name: Printer
+      command: 'ping -W 1 -c 1 192.168.1.10 > /dev/null 2>&1 && echo success || echo fail'
+      device_class: connectivity
+      payload_on: "success"
+      payload_off: "fail"
 ```
 
 Consider to use the [ping sensor](/integrations/ping#binary-sensor) as an alternative to the samples above.
@@ -393,33 +414,31 @@ inactive
 A binary command line sensor can check this:
 
 ```yaml
-binary_sensor:
-  - platform: command_line
-    command: '/bin/systemctl is-active home-assistant@rock64.service'
-    payload_on: "active"
-    payload_off: "inactive"
+command_line:
+  binary_sensors:
+    binary_sensor_1:
+      command: '/bin/systemctl is-active home-assistant@rock64.service'
+      payload_on: "active"
+      payload_off: "inactive"
 ```
 
 ## Example cover platform
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
-cover:
-  - platform: command_line
-    covers:
-      garage_door:
-        command_open: move_command up garage
-        command_close: move_command down garage
-        command_stop: move_command stop garage
-        command_state: state_command garage
-        value_template: >
-          {% if value == 'open' %}
-          100
-          {% elif value == 'closed' %}
-          0
-          {% endif %}
+command_line:
+  covers:
+    garage_door:
+      command_open: move_command up garage
+      command_close: move_command down garage
+      command_stop: move_command stop garage
+      command_state: state_command garage
+      value_template: >
+        {% if value == 'open' %}
+        100
+        {% elif value == 'closed' %}
+        0
+        {% endif %}
 ```
 
 ## Examples sensor platform
@@ -430,20 +449,17 @@ In this section you find some real-life examples of how to use this sensor.
 
 Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your `configuration.yaml` file:
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: command_line
-    name: CPU Temperature
-    command: "cat /sys/class/thermal/thermal_zone0/temp"
-    # If errors occur, make sure configuration file is encoded as UTF-8
-    unit_of_measurement: "°C"
-    value_template: "{{ value | multiply(0.001) | round(1) }}"
+command_line:
+  sensors:
+    sensor_1:
+      name: CPU Temperature
+      command: "cat /sys/class/thermal/thermal_zone0/temp"
+      # If errors occur, make sure configuration file is encoded as UTF-8
+      unit_of_measurement: "°C"
+      value_template: "{{ value | multiply(0.001) | round(1) }}"
 ```
-
-{% endraw %}
 
 ### Monitoring failed login attempts on Home Assistant
 
@@ -451,10 +467,11 @@ If you'd like to know how many failed login attempts are made to Home Assistant,
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: command_line
-    name: badlogin
-    command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
+command_line:
+  sensors:
+    sensor_1:
+      name: badlogin
+      command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
 ```
 
 Make sure to configure the [Logger integration](/integrations/logger) to monitor the [HTTP integration](/integrations/http/) at least the `warning` level.
@@ -472,10 +489,11 @@ logger:
 You can see directly in the frontend (**Developer tools** -> **About**) what release of Home Assistant you are running. The Home Assistant releases are available on the [Python Package Index](https://pypi.python.org/pypi). This makes it possible to get the current release.
 
 ```yaml
-sensor:
-  - platform: command_line
-    command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
-    name: HA release
+command_line:
+  sensors:
+    sensor_1:
+      command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
+      name: HA release
 ```
 
 ### Read value out of a remote text file
@@ -483,10 +501,11 @@ sensor:
 If you own devices which are storing values in text files which are accessible over HTTP then you can use the same approach as shown in the previous section. Instead of looking at the JSON response we directly grab the sensor's value.
 
 ```yaml
-sensor:
-  - platform: command_line
-    command: python3 -c "import requests; print(requests.get('http://remote-host/sensor_data.txt').text)"
-    name: File value
+command_line:
+  sensors:
+    sensor_1:
+      command: python3 -c "import requests; print(requests.get('http://remote-host/sensor_data.txt').text)"
+      name: File value
 ```
 
 ### Use an external script
@@ -513,48 +532,43 @@ To use the script you need to add something like the following to your `configur
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: command_line
-    name: Brightness
-    command: "python3 /path/to/script/arest-value.py"
+command_line:
+  sensors:
+    sensor_1:
+      name: Brightness
+      command: "python3 /path/to/script/arest-value.py"
 ```
 
 ### Usage of templating in `command:`
 
 [Templates](/docs/configuration/templating/) are supported in the `command` configuration variable. This could be used if you want to include the state of a specific sensor as an argument to your external script.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: command_line
-    name: wind direction
-    command: "sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states('sensor.wind_direction') }}"
-    unit_of_measurement: "Direction"
+command_line:
+  sensors:
+    sensor_1:
+      name: wind direction
+      command: "sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states('sensor.wind_direction') }}"
+      unit_of_measurement: "Direction"
 ```
-
-{% endraw %}
 
 ### Usage of JSON attributes in command output
 
 The example shows how you can retrieve multiple values with one sensor (where the additional values are attributes) by using `value_json` and `json_attributes`.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: command_line
-    name: JSON time
-    json_attributes:
-      - date
-      - milliseconds_since_epoch
-    command: "python3 /home/pi/.homeassistant/scripts/datetime.py"
-    value_template: "{{ value_json.time }}"
+command_line:
+  sensors:
+    sensor_1:
+      name: JSON time
+      json_attributes:
+        - date
+        - milliseconds_since_epoch
+      command: "python3 /home/pi/.homeassistant/scripts/datetime.py"
+      value_template: "{{ value_json.time }}"
 ```
-
-{% endraw %}
 
 ## Example switch platform
 
@@ -562,29 +576,23 @@ sensor:
 
 This example demonstrates how to use template to change the icon as its state changes. This icon is referencing its own state.
 
-{% raw %}
-
 ```yaml
-switch:
-  - platform: command_line
-    switches:
-
-      driveway_sensor_motion:
-        friendly_name: Driveway outside sensor
-        command_on: >
-          curl -X PUT -d '{"on":true}' "http://ip_address/api/sensors/27/config/"
-        command_off: >
-          curl -X PUT -d '{"on":false}' "http://ip_address/api/sensors/27/config/"
-        command_state: curl http://ip_address/api/sensors/27/
-        value_template: >
-          {{value_json.config.on}}
-        icon_template: >
-          {% if value_json.config.on == true %} mdi:toggle-switch
-          {% else %} mdi:toggle-switch-off
-          {% endif %}
+command_line:
+  switches:
+    driveway_sensor_motion:
+      friendly_name: Driveway outside sensor
+      command_on: >
+        curl -X PUT -d '{"on":true}' "http://ip_address/api/sensors/27/config/"
+      command_off: >
+        curl -X PUT -d '{"on":false}' "http://ip_address/api/sensors/27/config/"
+      command_state: curl http://ip_address/api/sensors/27/
+      value_template: >
+        {{value_json.config.on}}
+      icon_template: >
+        {% if value_json.config.on == true %} mdi:toggle-switch
+        {% else %} mdi:toggle-switch-off
+        {% endif %}
 ```
-
-{% endraw %}
 
 ### aREST device
 
@@ -593,22 +601,17 @@ The example below is doing the same as the
 The command line tool [`curl`](https://curl.haxx.se/) is used to toggle a pin
 which is controllable through REST.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: command_line
-    switches:
-      arest_pin_four:
-        command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
-        command_off: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
-        command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
-        value_template: '{{ value == "1" }}'
-        friendly_name: Kitchen Lightswitch
+command_line:
+  switches:
+    arest_pin_four:
+      command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
+      command_off: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
+      command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
+      value_template: '{{ value == "1" }}'
+      friendly_name: Kitchen Lightswitch
 ```
-
-{% endraw %}
 
 Given this example, in the UI one would see the `friendly_name` of
 "Kitchen Light". However, the `identifier` is `arest_pin_four`, making the
@@ -625,11 +628,10 @@ This switch will shutdown your host immediately, there will be no confirmation.
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: command_line
-    switches:
-      home_assistant_system_shutdown:
-        command_off: "/usr/sbin/poweroff"
+command_line:
+  switches:
+    home_assistant_system_shutdown:
+      command_off: "/usr/sbin/poweroff"
 ```
 
 ### Control your VLC player
@@ -639,12 +641,11 @@ This switch will control a local VLC media player
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: command_line
-    switches:
-      vlc:
-        command_on: "cvlc 1.mp3 vlc://quit &"
-        command_off: "pkill vlc"
+command_line:
+  switches:
+    vlc:
+      command_on: "cvlc 1.mp3 vlc://quit &"
+      command_off: "pkill vlc"
 ```
 
 ### Control Foscam Motion Sensor
@@ -654,21 +655,16 @@ Commands ([Source](https://www.iltucci.com/blog/wp-content/uploads/2018/12/Fosca
 This switch supports statecmd,
 which checks the current state of motion detection.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: command_line
-    switches:
-      foscam_motion:
-        command_on: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
-        command_off: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
-        command_state: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
-        value_template: '{{ value == "1" }}'
+command_line:
+  switches:
+    foscam_motion:
+      command_on: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
+      command_off: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
+      command_state: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
+      value_template: '{{ value == "1" }}'
 ```
-
-{% endraw %}
 
 - Replace admin and password with an "Admin" privileged Foscam user
 - Replace ipaddress with the local IP address of your Foscam
