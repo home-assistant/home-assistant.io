@@ -243,3 +243,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
   The `/developer-tools/template` page of your Home Assistant UI can help you check if the values for `start`, `end` or `duration` are correct. If you want to check if your period is right, just click on your component, the `from` and `to` attributes will show the start and end of the period, nicely formatted.
 
 </div>
+
+### Video Tutorial
+
+<lite-youtube videoid="BMlU4SynQBY" videotitle="How To Master Graphs to Monitor Occupancy and Device Usage in Home Assistant" posterquality="maxresdefault"></lite-youtube>
