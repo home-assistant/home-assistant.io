@@ -286,11 +286,11 @@ All Intent Slots are resolved to Template Variables. There are a few special Var
 <div class='note'>
 
 If you want to use the Slot ID Template Variables, you can set an optional ID for each Slot Value in your Skills Intent Slot Configuration.
-If you have multiple similar Slot Values e.g. South Station, East Station, West Station it is recommended to use the Variables ending with _NEAREST and _NEAREST_ID because the normal Slot Variable will always fall back to the "Spoken Text" when there is more than one possible resolution.
+If you have multiple similar Slot Values e.g. South Station, East Station, West Station it is recommended to use the variables ending with _NEAREST and _NEAREST_ID because the normal Slot Variable will always fall back to the "Spoken Text" when there is more than one possible resolution.
 
 </div>
 
-Assuming that the Slot is called `SlotTest` - here are a few examples for each Slot Variable:
+Assuming that the Slot is called `SlotTest` - here is a list with all possible variables.
 
 | Variable Name         | Description                                                                                                                                                                                                              |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -312,7 +312,7 @@ intent_script:
         entity_id: script.announce_next_tram
       data:
         variables:
-          station_id: {{ SlotTest_NEAREST_ID }}
+          station_id: {{ TramStation_NEAREST_ID }}
     speech:
       type: plain
       text: Wait a second!
