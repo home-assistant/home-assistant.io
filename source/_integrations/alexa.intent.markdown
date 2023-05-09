@@ -283,33 +283,42 @@ Now say `Alexa ask Home Assistant to run <some script>` and Alexa will run that 
 
 All Intent Slots are resolved to Template Variables. There are a few special Variables which could help you to setup more advanced automations.
 
+<div class='note'>
+
+If you want to use the Slot ID Template Variables, you can set an optional ID for each Slot Value in your Skills Intent Slot Configuration.
+If you have multiple similar Slot Values e.g. South Station, East Station, West Station it is recommended to use the Variables ending with _NEAREST and _NEAREST_ID because the normal Slot Variable will always fall back to the "Spoken Text" when there is more than one possible resolution.
+
+</div>
+
 Assuming that the Slot is called `SlotTest` - here are a few examples for each Slot Variable:
 
-- Get Slot Valuehab hier zu hause
-  ```yaml
-  {{ SlotTest }}
-  ```
-  This Variable will either have the `Slot Value` or `Spoken Text` if there are multiple possible Slot resolutions.
+| Variable Name         | Description                                                                                                                                                                                                              |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `SlotTest`            | This Variable will either have the `Slot Value` or `Spoken Text` if there are multiple possible Slot resolutions.                                                                                                        |
+| `SlotTest_ID`         | This Variable will either have the `Slot Value ID` or an empty String if there are multiple possible Slot resolutions.                                                                                                   |
+| `SlotTest_NEAREST`    | This Variable will have the `Slot Value` of the first Slot resolution. This resolution is usually the one that fits best to the spoken Text. If there are no resolutions available, the `Spoken Text` is used as Value.  |
+| `SlotTest_NEAREST_ID` | This Variable will have the `Slot Value ID` of the first Slot resolution. This resolution is usually the one that fits best to the spoken Text.                                                                          |
 
-- Get Slot ID
-  ```yaml
-  {{ SlotTest_ID }}
-  ```
-  This Variable will either have the `Slot Value ID` (You can set it optionally in the Slot Configuration) or an empty String if there are multiple possible Slot resolutions.
+**Example:** Pass the Tram Station ID to a script which will start a lookup and announce the next Tram to the specified Station
 
-- Get Slot Value of nearest Slot resolution
-  ```yaml
-  {{ SlotTest_NEAREST }}
-  ```
-  This Variable will have the `Slot Value` of the first Slot resolution. This resolution is usually the one that fits best to the spoken Text.
-  If there are no resolutions available, the `Spoken Text` is used as Value.
+{% raw %}
 
-- Get Slot Value ID of nearest Slot resolution
-  ```yaml
-  {{ SlotTest_NEAREST_ID }}
-  ```
-  This Variable will have the `Slot Value ID` of the first Slot resolution (You can set it optionally in the Slot Configuration). This resolution is usually the one that fits best to the spoken Text.
+```yaml
+intent_script:
+  TramIntent:
+    action:
+      service: script.turn_on
+      target:
+        entity_id: script.announce_next_tram
+      data:
+        variables:
+          station_id: {{ SlotTest_NEAREST_ID }}
+    speech:
+      type: plain
+      text: Wait a second!
+```
 
+{% endraw %}
 
 ### Support for Launch Requests
 
