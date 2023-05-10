@@ -305,11 +305,7 @@ DIY Expert? [Show advanced boards](?diy)
 * The YAML configuration is on [GitHub](https://github.com/esphome/bluetooth-proxies/)
 
 
-### Affiliated links
-
-Affiliated links are used on this website to support ESPHome development. Use Coupon code `NABUCASA` on [M5Stack](https://shop.m5stack.com/discount/NABUCASA?ref=NabuCasa) for 5% off your order.
-
-[ESPHome](https://esphome.io)&mdash; Installer powered by [ESP Web Tools](https://esphome.github.io/esp-web-tools/)
+{% include /esphome/affiliated_links.markdown %}
 
 <script>
   document.querySelectorAll('input[name="type"]').forEach((radio) => radio.addEventListener("change", () => {

@@ -224,11 +224,7 @@ To install the ESPHome software on the device, follow these steps:
 * The device is adoptable in [the ESPHome dashboard](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&amp;repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon).
 * The YAML configuration is on [GitHub](https://github.com/esphome/media-players/)
 
-### Affiliated links
-
-Affiliated links are used on this website to support ESPHome development. Use Coupon code `NABUCASA` on [M5Stack](https://shop.m5stack.com/discount/NABUCASA?ref=NabuCasa) for 5% off your order.
-
-[ESPHome](https://esphome.io)&mdash; Installer powered by [ESP Web Tools](https://esphome.github.io/esp-web-tools/)
+{% include /esphome/affiliated_links.markdown %}
 
 <script>
     document.querySelectorAll('input[name="type"]').forEach((radio) =>
