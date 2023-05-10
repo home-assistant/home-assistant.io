@@ -113,7 +113,7 @@ With this service the counter is reset to its initial value.
 
 ### Service `counter.set_value`
 
-With this service the value of the counter to a specific value.
+This service allows setting the counter to a specific value.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
