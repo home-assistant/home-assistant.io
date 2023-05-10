@@ -10,8 +10,7 @@ interface, by using this My button:
 
 {% if include.discovery or page.ha_dhcp or page.ha_homekit or page.ha_ssdp or page.ha_zeroconf or page.ha_mqtt %}
 {{ name }} can be auto-discovered by Home Assistant. If an instance was found,
-it will be shown as _"Discovered"_, which you can select in order to set it up right
-away.
+it will be shown as **Discovered**. You can then set it up right away.
 {% endif %}
 
 {% details "Manual configuration steps" %}
