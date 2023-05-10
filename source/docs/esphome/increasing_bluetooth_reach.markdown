@@ -1,5 +1,5 @@
 ---
-title: "Increasing the reach of bluetooth devices"
+title: "Increasing the reach of Bluetooth devices"
 ---
 
 
@@ -55,15 +55,6 @@ title: "Increasing the reach of bluetooth devices"
       }
       input:checked + img {
         border-color: #58a6ff;
-      }
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: #333;
-          color: #fff;
-        }
-        a {
-          color: #58a6ff;
-        }
       }
       @media only screen and (max-width: 450px) {
         .radios label {

@@ -76,15 +76,6 @@ Ready-made firmware to turn devices into ESPHome media players
       input:checked + img {
         border-color: #58a6ff;
       }
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: #333;
-          color: #fff;
-        }
-        a {
-          color: #58a6ff;
-        }
-      }
       /* Remove this once we add a fifth media player */
       @media only screen and (min-height: 1000px) {
         .radios label {
