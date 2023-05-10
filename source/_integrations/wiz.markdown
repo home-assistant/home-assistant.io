@@ -95,7 +95,7 @@ A power monitoring sensor is available on devices with the following hardware mo
 
 Please note: the power monitoring sensor reports in Watts (W), rather than kiloWatts per hour (kWh). As a result, it is not compatible with the Energy Dashboard. There is currently a workaround for this:
 
-1. Go to Settings -> Devices & Services and click on the + button to add a new integration.
+1. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and click on the + button to add a new integration.
 2. Search for Riemann Sum Integral and select it from the list.
 3. In the configuration dialog, enter a name for the new sensor, such as sensor.device1_energy.
 4. Select sensor.wiz_socket_87ce30_current_power as the source sensor.
