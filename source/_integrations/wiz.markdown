@@ -108,7 +108,7 @@ unit_of_measurement: kWh
 device_class: energy
 state_class: total
 ```
-9. Click on Save to apply the changes.
+9. Click on **Save** to apply the changes.
 10. Restart Home Assistant and wait for an hour for the statistics to be generated for the new sensor.
 11. Go to {% my energy title="**Settings** > **Dashboards** > **Energy**" %} and click on **Add Device**.
 12. Select **sensor.device1_energy** as the entity.
