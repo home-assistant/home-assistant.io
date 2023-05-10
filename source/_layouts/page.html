@@ -24,7 +24,7 @@ layout: default
                 {{ page.title }}
             </h1>
             <div class="content post-content">
-                {{ content }}
+                {{ content | markdownify | output_modder }}
             </div>
         </div>
     </article>
