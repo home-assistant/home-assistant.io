@@ -98,7 +98,7 @@ Please note: the power monitoring sensor reports in Watts (W), rather than kiloW
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and click on the + button to add a new integration.
 2. Search for Riemann Sum Integral and select it from the list.
 3. In the **Configuration** dialog, enter a name for the new sensor, such as `sensor.device1_energy`.
-4. Select sensor.wiz_socket_87ce30_current_power as the source sensor.
+4. Select **sensor.wiz_socket_87ce30_current_power** as the source sensor.
 5. Select left as the method and h as the unit time.
 6. Click on Submit to create the new sensor.
 7. Go to Developer Tools -> States and select sensor.device1_energy from the list of entities.
