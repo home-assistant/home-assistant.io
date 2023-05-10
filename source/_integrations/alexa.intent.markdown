@@ -203,7 +203,7 @@ Only when there aren't any synonym matches, the value that was spoken will be us
   
 </div>
 
-If you want to use the `Optional ID` field next to/instead of the Synonym value, you can simply append "_Id" at the end of the template variable e.g. `{{ Scene_Id }}`.
+If you want to use the `Optional ID` field next to/instead of the Synonym value, you can simply append "_Id" at the end of the template variable e.g. `Scene_Id`.
 
 <p class='img'>
 <img src='/images/integrations/alexa/scene_slot_synonyms.png' />
