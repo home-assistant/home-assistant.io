@@ -102,7 +102,7 @@ Please note: the power monitoring sensor reports in Watts (W), rather than kilow
 5. Select **left** as the method and **h** as the unit time.
 6. Click on **Submit** to create the new sensor.
 7. Go to **Developer Tools** > **States** and select **sensor.device1_energy** from the list of entities.
-8. Click on Edit and add or modify the following attributes:
+8. Click on **Edit** and add or modify the following attributes:
 ```yaml
 unit_of_measurement: kWh
 device_class: energy
