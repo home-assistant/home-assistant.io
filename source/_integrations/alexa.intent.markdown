@@ -197,7 +197,7 @@ In the new Alexa Skills Kit, you can also create synonyms for slot type values, 
  
 <div class='note'>
 
-In Homeassistant 2023.7.0 the synonym logic is going to change.
+In Home Assistant 2023.7.0 the synonym logic is going to change.
 Whenever there are synonym matches, the first match will be used.
 Only when there aren't any synonym matches, the value that was spoken will be used.
   
