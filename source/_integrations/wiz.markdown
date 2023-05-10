@@ -100,7 +100,7 @@ Please note: the power monitoring sensor reports in Watts (W), rather than kiloW
 3. In the **Configuration** dialog, enter a name for the new sensor, such as `sensor.device1_energy`.
 4. Select **sensor.wiz_socket_87ce30_current_power** as the source sensor.
 5. Select left as the method and h as the unit time.
-6. Click on Submit to create the new sensor.
+6. Click on **Submit** to create the new sensor.
 7. Go to Developer Tools -> States and select sensor.device1_energy from the list of entities.
 8. Click on Edit and add or modify the following attributes:
 ```yaml
