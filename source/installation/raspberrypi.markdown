@@ -34,7 +34,7 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
 
 ### Write the image to your SD card
 
-1. Install the Raspberry Pi Imager on your computer as described under [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/). 
+1. Download and install the Raspberry Pi Imager on your computer as described under [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/). 
    ![Install Raspberry Pi Imager](/images/installation/rpi_imager.png)
 1. Open the Raspberry Pi Imager.
     ![Open Raspberry Pi Imager](/images/installation/rpi-imager-start.png)
