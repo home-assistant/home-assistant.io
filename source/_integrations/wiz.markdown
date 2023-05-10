@@ -93,6 +93,27 @@ A power monitoring sensor is available on devices with the following hardware mo
 - ESP20_SHRGB_31R
 - ESP20_SHTW_31R
 
+Please note: the power monitoring sensor reports in Watts (W), rather than kiloWatts per hour (kWh). As a result, it is not compatible with the Energy Dashboard. There is currently a workaround for this:
+
+1. Go to Configuration -> Integrations and click on the + button to add a new integration.
+2. Search for Riemann Sum Integral and select it from the list.
+3. In the configuration dialog, enter a name for the new sensor, such as sensor.device1_energy.
+4. Select sensor.wiz_socket_87ce30_current_power as the source sensor.
+5. Select left as the method and h as the unit time.
+6. Click on Submit to create the new sensor.
+7. Go to Developer Tools -> States and select sensor.device1_energy from the list of entities.
+8. Click on Edit and add or modify the following attributes:
+```
+unit_of_measurement: kWh
+device_class: energy
+state_class: total
+```
+9. Click on Save to apply the changes.
+10. Restart Home Assistant and wait for an hour for the statistics to be generated for the new sensor.
+11. Go to Settings -> Dashboards  -> Energy and click on Add consumption.
+12. Select Individual Device as the type and sensor.device1_energy as the entity.
+13. Click on Save to add the sensor to the Energy Dashboard.
+
 ### Effect Speed
 
 The speed of an effect can be controlled via a `number` entity. The entity will only be available when an effect has been set that allows the speed to be adjusted.
