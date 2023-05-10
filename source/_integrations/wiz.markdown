@@ -93,7 +93,7 @@ A power monitoring sensor is available on devices with the following hardware mo
 - ESP20_SHRGB_31R
 - ESP20_SHTW_31R
 
-Please note: the power monitoring sensor reports in Watts (W), rather than kiloWatts per hour (kWh). As a result, it is not compatible with the Energy Dashboard. There is currently a workaround for this:
+Please note: the power monitoring sensor reports in Watts (W), rather than kilowatts per hour (kWh). As a result, it is not compatible with the Energy Dashboard. There is currently a workaround for this:
 
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and click on the + button to add a new integration.
 2. Search for Riemann Sum Integral and select it from the list.
