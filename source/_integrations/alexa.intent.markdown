@@ -193,7 +193,17 @@ Custom slot type for scene support.
 
 The names must exactly match the scene names (minus underscores - Amazon discards them anyway and we later map them back in with the template).
 
-In the new Alexa Skills Kit, you can also create synonyms for slot type values, which can be used in place of the base value in utterances. Synonyms will be replaced with their associated slot value in the intent request sent to the Alexa API endpoint, but only if there are not multiple synonym matches. Otherwise, the value of the synonym that was spoken will be used.
+In the new Alexa Skills Kit, you can also create synonyms for slot type values, which can be used in place of the base value in utterances. Synonyms will be replaced with their associated slot value in the intent request sent to the Alexa API endpoint, but only if there are not multiple synonym matches (Deprecated). Otherwise, the value of the synonym that was spoken will be used.
+ 
+<div class='note'>
+
+In Homeassistant 2023.7.0 the synonym logic is going to change.
+Whenever there are synonym matches, the first match will be used.
+Only when there aren't any synonym matches, the value that was spoken will be used.
+  
+</div>
+
+If you want to use the `Optional ID` field next to/instead of the Synonym value, you can simply append "_Id" at the end of the template variable e.g. `{{ Scene_Id }}`.
 
 <p class='img'>
 <img src='/images/integrations/alexa/scene_slot_synonyms.png' />
@@ -217,6 +227,8 @@ intent_script:
       service: scene.turn_on
       target:
         entity_id: scene.{{ Scene | replace(" ", "_") }}
+      data:
+        id: {{ Scene_Id }}
     speech:
       type: plain
       text: OK
@@ -277,48 +289,6 @@ intent_script:
 {% endraw %}
 
 Now say `Alexa ask Home Assistant to run <some script>` and Alexa will run that script for you.
-
-
-### Template Variables
-
-All Intent Slots are resolved to Template Variables. There are a few special Variables which could help you to setup more advanced automations.
-
-<div class='note'>
-
-If you want to use the Slot ID Template Variables, you can set an optional ID for each Slot Value in your Skills Intent Slot Configuration.
-If you have multiple similar Slot Values e.g. South Station, East Station, West Station it is recommended to use the variables ending with _NEAREST and _NEAREST_ID because the normal Slot Variable will always fall back to the "Spoken Text" when there is more than one possible resolution.
-
-</div>
-
-Assuming that the Slot is called `SlotTest` - here is a list with all possible variables.
-
-| Variable Name         | Description                                                                                                                                                                                                              |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `SlotTest`            | This Variable will either have the `Slot Value` or `Spoken Text` if there are multiple possible Slot resolutions.                                                                                                        |
-| `SlotTest_ID`         | This Variable will either have the `Slot Value ID` or an empty String if there are multiple possible Slot resolutions.                                                                                                   |
-| `SlotTest_NEAREST`    | This Variable will have the `Slot Value` of the first Slot resolution. This resolution is usually the one that fits best to the spoken Text. If there are no resolutions available, the `Spoken Text` is used as Value.  |
-| `SlotTest_NEAREST_ID` | This Variable will have the `Slot Value ID` of the first Slot resolution. This resolution is usually the one that fits best to the spoken Text.                                                                          |
-
-**Example:** Pass the Tram Station ID to a script which will start a lookup and announce the next Tram to the specified Station
-
-{% raw %}
-
-```yaml
-intent_script:
-  TramIntent:
-    action:
-      service: script.turn_on
-      target:
-        entity_id: script.announce_next_tram
-      data:
-        variables:
-          station_id: {{ TramStation_NEAREST_ID }}
-    speech:
-      type: plain
-      text: Wait a second!
-```
-
-{% endraw %}
 
 ### Support for Launch Requests
 
