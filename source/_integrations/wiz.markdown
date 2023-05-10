@@ -114,6 +114,6 @@ state_class: total
 12. Select sensor.device1_energy as the entity.
 13. Click on Save to add the sensor to the Energy Dashboard.
 
-### Effect Speed
+### Effect speed
 
 The speed of an effect can be controlled via a `number` entity. The entity will only be available when an effect has been set that allows the speed to be adjusted.
