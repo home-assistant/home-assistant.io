@@ -33,7 +33,7 @@ Some users want more control over polling intervals. To use more granular pollin
 
 Using the flexible option to set a sensor value to the `Destination`, you can setup a single Waze integration that will calculate travel time to multiple optional locations on demand.
 
-In the following example, the `Input Select` is converted into an address which is used to modify the destination for the Waze route calculation from the `device_tracker.myphone` location.It takes a few minutes for the value to update due to the interval of Waze data fetching.
+In the following example, the `Input Select` is converted into an address which is used to modify the destination for the Waze route calculation from the `device_tracker.myphone` location. It takes a few minutes for the value to update due to the interval of Waze data fetching.
 
 {% raw %}
 
