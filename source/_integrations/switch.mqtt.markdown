@@ -116,7 +116,7 @@ device:
       required: false
       type: string
 device_class:
-  description: The [type/class](/integrations/switch/#device-class) of the switch to set the icon in the frontend.
+  description: The [type/class](/integrations/switch/#device-class) of the switch to set the icon in the frontend. The `device_class` can be `null`.
   required: false
   type: device_class
   default: None
@@ -212,7 +212,7 @@ unique_id:
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract device's state from the `state_topic`. To determine the switches's state result of this template will be compared to `state_on` and `state_off`."
   required: false
-  type: string
+  type: template
 {% endconfiguration %}
 
 <div class='note warning'>

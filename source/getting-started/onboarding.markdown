@@ -13,20 +13,10 @@ Next, you can enter a name for your home and set your location and unit system. 
 
 ![Set your location, time zone, and unit system.](/images/getting-started/location.png)
 
-Once you are done, click **Next**. In this screen, Home Assistant will show any devices that it has discovered on your network. Don't be alarmed if you see fewer items than shown below; you can always manually add devices later.
+Once you are done, click **Next**. In this screen, Home Assistant will show any {% term devices %} that it has discovered on your network. Don't be alarmed if you see fewer items than shown below; you can always manually add devices later.
 
 ![Discovery of devices on your network.](/images/getting-started/devices.png)
 
-Finally, click **Finish**. Now you're brought to the Home Assistant web interface. This screen will show all of your devices. So let's get that screen filled up!
-
-![The Home Assistant user interface.](/images/getting-started/lovelace.png)
-
-From the side bar, click on {% my integrations title="Settings > Devices & Services" %}. On this screen, you will be able to set up integrations with Home Assistant. You might notice a **discovered** section. This section contains integrations that were found on your network and can easily be added with a few clicks. If your integrations are not discovered, click the **Add integration** button (in the lower right of the window) and search for your integration in that list.
-
-![The integrations page in the configurations panel shows you all your configured integrations.](/images/getting-started/integrations.png)
-
-When each integration is done setting up, it will ask you to put the new devices in areas. Areas allow you to organize all the devices in your home.
-
-When you're done, navigate back to the web interface and voila, your devices are ready for you to control.
+Finally, click **Finish**. Now you're brought to the Home Assistant web interface. This screen will show all of your devices.
 
 {% include getting-started/next_step.html step="Concepts & Terminologies" link="/getting-started/concepts-terminology/" %}

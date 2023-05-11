@@ -75,7 +75,7 @@ This is a separate account from the one you made for the app. You cannot log in 
 1. Navigate to the `Devices` tab.
 2. Click `Link Tuya App Account` > `Add App Account`.
   ![](/images/integrations/tuya/image_003.png)
-3. Scan the QR code that appears using the `Tuya Smart` app or `Smart Life` app.
+3. Scan the QR code that appears using the `Tuya Smart` app or `Smart Life` app using the 'Me' section of the app.
   ![](/images/integrations/tuya/image_004.png)
 4. Click `Confirm` in the app.
 5. To confirm that everything worked, navigate to the `All Devices` tab. Here you should be able to find the devices from the app.
