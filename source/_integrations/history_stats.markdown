@@ -129,6 +129,11 @@ duration:
 
 </div>
 
+### Video Tutorial
+This video tutorial explains how you can use history stats and how you can create a daily barchart graph to track occupance of a room or how long the lights in a room a on a daily basis.
+
+<lite-youtube videoid="BMlU4SynQBY" videotitle="How To Master Graphs to Monitor Occupancy and Device Usage in Home Assistant" posterquality="maxresdefault"></lite-youtube>
+
 ### Examples
 
 Here are some examples of periods you could work with, and what to write in your `configuration.yaml`:
@@ -243,7 +248,3 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
   The `/developer-tools/template` page of your Home Assistant UI can help you check if the values for `start`, `end` or `duration` are correct. If you want to check if your period is right, just click on your component, the `from` and `to` attributes will show the start and end of the period, nicely formatted.
 
 </div>
-
-### Video Tutorial
-
-<lite-youtube videoid="BMlU4SynQBY" videotitle="How To Master Graphs to Monitor Occupancy and Device Usage in Home Assistant" posterquality="maxresdefault"></lite-youtube>
