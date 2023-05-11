@@ -22,7 +22,7 @@ We will need a few things to get started with installing Home Assistant. Links b
 
 - [Raspberry Pi 4](https://amzn.to/2S0Gcl1) (Raspberry Pi 3 is ok too, if you have one laying around). Raspberry Pi are currently hard to come by, use [RPilocator](https://rpilocator.com/?cat=PI4) to find official distributors with stock.
 - [Power Supply for Raspberry Pi 4](https://amzn.to/2ReZ2Vq) or [Power Supply for Raspberry Pi 3](https://amzn.to/2R8yG7h)
-- [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. A 32 GB or bigger card is recommended.
+- [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. A 32&nbsp;GB or bigger card is recommended.
 - SD Card reader. This is already part of most laptops, but you can purchase a [standalone USB adapter](https://amzn.to/2WWxntY) if you don't have one. The brand doesn't matter, just pick the cheapest.
 - [Ethernet cable](https://amzn.com/dp/B00N2VISLW). Required for installation. After installation, Home Assistant can work with Wi-Fi, but an Ethernet connection is more reliable and highly recommended.
 
@@ -39,10 +39,10 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
 1. Open the Raspberry Pi Imager.
     ![Open Raspberry Pi Imager](/images/installation/rpi-imager-start.png)
 1. Choose the operating system:
-    ![Choose the operating system](/images/installation/rpi-select-os.png)
    1. Select **Choose OS**.
-   1. Select **Home assistants and home automation**.
-   1. Choose the Home Assistant OS that matches your hardware (RPi 3 or RPi 4).
+   1. Select **Other specific-purpose OS** > **Home assistants and home automation** > **Home Assistant**.
+   1. Choose the Home Assistant OS that matches your hardware (RPi&nbsp;3 or RPi&nbsp;4).
+    ![Choose the operating system](/images/installation/rpi-ha.gif)
 1. Choose the storage:
    1. Insert the SD card into the computer. Note: the contents of the card will be overwritten.
    1. Select your SD card.
