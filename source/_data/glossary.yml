@@ -282,6 +282,18 @@
     other integrations.
   link: /docs/configuration/platform_options/
 
+- term: Reload
+  definition: >-
+    Updates Home Assistant configuration files. Changes are normally
+    automatically updated. However, when changes are done outside of the UI
+    and at a file level, Home Assistant is not aware of these changes and
+    require the configuration file(s) to be reloaded to pick up any changes
+    made by going to *YAML configuration reloading* section in
+    **Developer tools > YAML**.
+  excerpt: >
+    Updates Home Assistant configuration files. Changes are normally
+    automatically updated.
+
 - term: Scene
   definition: >-
     Scenes capture the states you want certain entities to be. For example,
