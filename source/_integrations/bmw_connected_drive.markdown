@@ -7,7 +7,6 @@ ha_category:
   - Car
   - Lock
   - Notifications
-  - Number
   - Presence Detection
   - Select
   - Sensor
@@ -26,10 +25,9 @@ ha_platforms:
   - diagnostics
   - lock
   - notify
-  - number
   - select
   - sensor
-  - -switch
+  - switch
 ha_integration_type: integration
 ---
 
@@ -52,7 +50,6 @@ This integration provides the following platforms:
 - [Notifications](/integrations/bmw_connected_drive/#notifications): Send Points of Interest (POI) to your car.
 - [Buttons](/integrations/bmw_connected_drive/#buttons): Turn on air condition, sound the horn, flash the lights, update the vehicle location and update the state.
 - [Selects](/integrations/bmw_connected_drive/#selects): Display and control charging related settings for (PH)EVs.
-- [Numbers](/integrations/bmw_connected_drive/#numbers): Display and control numeric charging related settings for (PH)EVs.
 - [Switches](/integrations/bmw_connected_drive/#switches): Display and toggle settings on your car.
 
 ## Configuration
@@ -152,15 +149,7 @@ Using these selects will impact the state of your vehicle. Use them with care!
 - **Charging Mode**: Vehicle can be set to `IMMEDIATE_CHARGING` (charge as soon as plugged in) or `DELAYED_CHARGING` (charge only if within charging window). It can be used to start/stop charging if the charging window is set accordingly.
 - **AC Charging Limit**: The maximum current a vehicle will charge with. Not available on all EVs.
 
-## Numbers
-
-If you have a (PH)EV, you can control the charging process through Home Assistant. The number entities are created automatically depending on your vehicle's capabilities and can be changed from the UI or using the `number.set_value` service. For more information, please see the [number documentation](/integrations/number/).
-
-Using these selects will impact the state of your vehicle, use them with care!
-
-- **Target SoC**: Vehicle will charge until this battery level is reached. Not available on all EVs.
-
-## Numbers
+## Switches
 
 If supported by your vehicle, you can display and toggle remote services with start/stop functionality.
 
