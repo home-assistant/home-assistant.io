@@ -2,6 +2,12 @@
 layout: default
 ---
 
+{% if page.toc %}
+{% include guides.html %}
+ 
+<!-- main div end -->
+{% else %}
+
 <div class="container relative mx-auto h-[100px] md:h-[150px]">
     <div
         class="hidden md:block bg-white absolute w-[110%] top-0 left-1/2 translate-x-[-50%] h-[0] md:h-[170%] rounded-b-3xl">
@@ -18,8 +24,10 @@ layout: default
                 {{ page.title }}
             </h1>
             <div class="content post-content">
-                {{ page.content | markdownify | output_modder }}
+                {{ content | markdownify | output_modder }}
             </div>
         </div>
     </article>
 </section>
+
+{% endif %}

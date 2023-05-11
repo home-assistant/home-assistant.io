@@ -1,0 +1,97 @@
+#getting_started .intro {
+    padding-bottom:16px
+}
+#getting_started .installations h2 {
+    font-size:0;
+    margin:0
+}
+#getting_started .installations .installations-card {
+    text-decoration:none !important;
+    color:black !important
+}
+#getting_started .installations .installations-card .material-card {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    margin:8px 0
+}
+#getting_started .installations .installations-card .material-card .content-container {
+    display:flex
+}
+#getting_started .installations .installations-card .material-card .content-container div:first-of-type {
+    margin-right:24px;
+}
+#getting_started .installations .installations-card .material-card .content-container div:first-of-type img,
+#getting_started .installations .installations-card .material-card .content-container div:first-of-type svg {
+    max-width:170px;
+    max-height:170px;
+    min-width:170px;
+    min-height:170px;
+    padding:32px;
+    border-radius:3px;
+    box-shadow:rgba(0,0,0,0.06) 0 0 10px;
+    vertical-align:middle;
+    border:5px solid #fff
+}
+#getting_started .installations .installations-card .material-card .content-container div:last-of-type b {
+    font-size:28px
+}
+#getting_started .installations .installations-card .material-card .content-container div:last-of-type p {
+    font-size:0.8em;
+    margin:0
+}
+#getting_started .installations .installations-card .material-card .content-container div:last-of-type ul {
+    font-size:0.8em;
+    margin-left:24px;
+    margin-top:1rem
+}
+#getting_started .installations .installations-card .material-card .content-container div:last-of-type ul li {
+    margin:0
+}
+#getting_started .installations .installations-card .material-card svg {
+    height:42px;
+    max-width:42px;
+    min-width:42px;
+    align-self:center
+}
+#getting_started .compare-installations td,
+#getting_started .compare-installations th {
+    text-align:center
+}
+#getting_started table.compare-installations {
+    background-color:#ffffff !important;
+    border-radius:2px !important;
+    box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2) !important
+}
+#getting_started table.compare-installations td,
+#getting_started table.compare-installations th {
+    text-align:center
+}
+#getting_started table.compare-installations tr td:first-of-type {
+    text-align:left
+}
+#getting_started table.compare-installations tr:nth-child(even) {
+    background-color:#fafafa
+}
+.link-card {
+ text-decoration:none !important;
+ color:black !important
+}
+.link-card div {
+ margin:32px 0;
+ height:64px;
+ display:flex;
+ justify-content:space-between
+}
+.link-card div svg {
+ height:32px;
+ width:32px;
+ max-width:32px
+}
+.link-card div p {
+ margin:0;
+ align-self:center
+}
+.next-step p {
+ text-transform:uppercase
+}

@@ -137,6 +137,7 @@ defaults:
   - scope:
       path: ""
     values:
+      layout: page
       comments: false
       footer: true
       sharing: true

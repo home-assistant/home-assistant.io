@@ -10,6 +10,7 @@
 @import "./custom/guide.css";
 @import "./custom/topic.css";
 @import "./custom/integrations.css";
+@import "./custom/getting-started.css";
 
 @import 'home.css';
 @import 'post.css';
