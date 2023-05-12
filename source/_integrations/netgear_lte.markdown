@@ -39,7 +39,7 @@ Splitting of long SMS messages is not supported so notifications can contain a m
 
 ## Notification Service
 
-The integration will create a `notify` service matching the name of the config entry. This is the model name if the device by default.
+The integration will create a `notify` service matching the name of the integration entry. This is the model name of the device by default.
 
 ## Events
 
