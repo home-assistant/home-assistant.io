@@ -73,7 +73,7 @@ maximum:
 cycle_time:
   description: Cycle time for the PWM cycle.
   required: false
-  default: 00:30:00
+  default: {'minutes':30}
   type: time_period
 step:
   description: Step value. Smallest value `0.001`.
