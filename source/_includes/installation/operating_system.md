@@ -146,6 +146,7 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
 1. When Balena Etcher has finished writing the image, you will see a confirmation.
 ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
+    * If you are having issues with Balena Etcher, try version [1.10](https://github.com/balena-io/etcher/releases/tag/v1.10.4).
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
 
