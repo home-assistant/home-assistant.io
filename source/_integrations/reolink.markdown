@@ -182,6 +182,7 @@ The following models have been tested and confirmed to work:
 - RLC-522
 - RLC-810A
 - RLC-811A
+- RLC-81PA
 - RLC-820A
 - RLC-822A
 - RLC-823A
