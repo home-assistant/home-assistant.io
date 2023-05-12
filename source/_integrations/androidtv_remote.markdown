@@ -380,4 +380,4 @@ cards:
 - If you cannot use the Google TV mobile app or the Google Home mobile app to send commands to the device, you cannot with this integration either.
 - Some devices, like Xiaomi, become unavailable after they are turned off and can't be turned on with this integration.
 - Some devices experience disconnects every 15 seconds. This is typically resolved by rebooting the Android TV device after the initial setup of the integration.
-- If you are not able to connect to the Android TV device, try force stopping the Android TV Remote Service and clearing its data and cache.
+- If you are not able to connect to the Android TV device, or asked to pair it again and again, try force stopping the Android TV Remote Service and clearing its data and cache.
