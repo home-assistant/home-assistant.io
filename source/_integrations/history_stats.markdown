@@ -49,7 +49,7 @@ entity_id:
   required: true
   type: string
 unique_id:
-  description: An ID that uniquely identifies this entity. This allows changing the `name`, `icon` and `entity_id` from the web interface.
+  description: An ID that uniquely identifies this entity. Set this to a unique value to allow customization through the UI.
   required: false
   type: string
 state:
