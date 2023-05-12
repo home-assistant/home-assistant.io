@@ -92,7 +92,7 @@ component_config_glob:
       type: string
       description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
       required: false
-api_authentication:
+requires_auth:
   type: boolean
   description: This makes authentication optional for this /api/prometheus endpoint
   required: false
