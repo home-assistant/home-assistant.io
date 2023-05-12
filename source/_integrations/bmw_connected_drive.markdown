@@ -107,10 +107,6 @@ The air conditioning of the vehicle can be activated with the `button.<your_vehi
 
 What exactly is started here depends on the type of vehicle. It might range from just ventilation over auxiliary heating to real air conditioning. If your vehicle is equipped with auxiliary heating, only trigger this service if the vehicle is parked in a location where it is safe to use it (e.g., not in an underground parking or closed garage).
 
-Some newer cars also support stopping an active air conditioning with the `button.<your_vehicle>_deactivate_air_conditioning` button.
-
-This will only work if you have the option to stop the AC in the *MyBMW* app. If your car doesn't support this service, nothing will happen.
-
 ### Sound the horn
 
 The `button.<your_vehicle>_sound_horn` button sounds the horn of the vehicle. This option is not available in some countries (among which  the UK). Use this feature responsibly, as it might annoy your neighbors.
