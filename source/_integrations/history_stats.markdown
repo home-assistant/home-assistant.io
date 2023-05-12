@@ -48,6 +48,10 @@ entity_id:
   description: The entity you want to track.
   required: true
   type: string
+unique_id:
+  description: An ID that uniquely identifies this entity. This allows changing the `name`, `icon` and `entity_id` from the web interface.
+  required: false
+  type: string
 state:
   description: The states you want to track.
   required: true
