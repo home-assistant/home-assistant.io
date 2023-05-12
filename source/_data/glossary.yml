@@ -72,6 +72,8 @@
     Conditions are an optional part of an automation that will prevent an
     action from firing if they are not met.
   link: /docs/scripts/conditions/
+  aliases:
+    - conditions
 
 - term: Cover
   definition: >-
@@ -335,8 +337,9 @@
     A service carries out one specific task, for example: turn on the light in the 
     living room. A service has targets and data and can be called by actions, a 
     dashboard, or via voice command.
-
   link: /docs/scripts/service-calls/
+  aliases:
+    - services
 
 - term: State
   definition: |-
