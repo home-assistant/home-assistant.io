@@ -5,7 +5,7 @@ ruby '> 2.5.0'
 group :development do
   gem 'rake', '13.0.6'
   gem 'jekyll', '4.3.2'
-  gem 'stringex', '2.8.5'
+  gem 'stringex', '2.8.6'
 end
 
 group :jekyll_plugins do
@@ -16,8 +16,8 @@ group :jekyll_plugins do
   gem 'jekyll-postcss', '0.5.0'
 end
 
-gem 'sinatra', '3.0.5'
-gem 'nokogiri', '1.14.2'
+gem 'sinatra', '3.0.6'
+gem 'nokogiri', '1.14.3'
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library

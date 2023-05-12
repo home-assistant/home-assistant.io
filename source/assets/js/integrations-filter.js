@@ -123,7 +123,7 @@
       // set active class on active menu item
       jQuery('.filter-button-group a.active').removeClass('active');
       jQuery(`.filter-button-group a .check-mark`).removeAttr("checked");
-      jQuery(`.filter-button-group a[href*="${hash}"]`).addClass('active');
+      jQuery(`.filter-button-group a[href="${hash}"]`).addClass('active');
       jQuery(`.filter-button-group a[href*="${hash}"] .check-mark`).attr("checked", "checked");
       
       if (hash === "") {

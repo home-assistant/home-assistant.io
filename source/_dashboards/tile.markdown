@@ -8,8 +8,8 @@ description: "The tile card gives you a quick overview of your entity. The card 
 The tile card gives you a quick overview of your entity. The card allows you to toggle the entity and show the more info dialog. A badge is shown for some entities like the [climate](/integrations/climate) or [person](/integrations/person) entities.
 
 <p class='img'>
-  <img src='/images/dashboards/tile_card.png' alt='Screenshot of the tile card'>
-  Screenshot of the Tile card.
+  <img src='/images/dashboards/tile_card.png' alt='Screenshot of tile cards'>
+  Screenshot of Tile cards.
 </p>
 
 To add the Tile card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Tile** from the card picker.

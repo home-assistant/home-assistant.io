@@ -23,7 +23,7 @@ To get started make sure you're running the latest version of the [Home Assistan
 
 There are two versions of the shortcut. The normal shortcut works better with Siri while the Button shortcut has the ability to use speech-to-text when triggered outside of Siri and can customize the input language (instead of relying on the OS language)
 
-[_Last updated: Jan 26, 2022_](#changelog)
+[_Last updated: Jan 26, 2023_](#changelog)
 
 ### Adjusting the language
 
@@ -62,6 +62,6 @@ The latest version of Siri on the Apple Watch contains an annoying bug where it 
 
 ## Changelog
 
-### Version 1 - Jan 26, 2022
+### Version 1 - Jan 26, 2023
 
 Initial release
