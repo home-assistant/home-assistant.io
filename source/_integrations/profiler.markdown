@@ -174,4 +174,4 @@ Logs statistics from [lru_cache](https://docs.python.org/3/library/functools.htm
 
 ### Service {% my developer_call_service service="profiler.log_ssl" %}
 
-Logs ssl objects in memory to help locate memory leaks.
+Logs SSL objects in memory to help locate memory leaks.
