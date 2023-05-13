@@ -287,9 +287,9 @@
     Updates Home Assistant configuration files. Changes are normally
     automatically updated. However, when changes are made outside of the UI
     and at a file level, Home Assistant is not aware of these changes and
-    require the configuration file(s) to be reloaded to pick up any changes
+    requires the configuration file(s) to be reloaded to pick up any changes
     made by going to *YAML configuration reloading* section in
-    **Developer tools > YAML**.
+    **Developer tools** > **YAML**.
   excerpt: >
     Updates Home Assistant configuration files. Changes are normally
     automatically updated.
