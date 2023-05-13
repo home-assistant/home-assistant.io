@@ -29,10 +29,21 @@ To use this DSMR Reader sensor integration, you need to have a DSMR Reader insta
    - Day consumption: Split topic
    - Gas consumption: Split topic
    - Meter Statistics: Split topic
+   - Quarter-hour peak consumption: Split topic
    - Telegram: Split topic
 
 {% include integrations/config_flow.md %}
 
+## Configuring the Energy Dashboard
+
+It is most advisable to not use the "total" and "daily" sources. The regular "reading" sensors provide the most stable source of data for Home Assistant to use. These MQTT values are part of the "Telegram: Split topic" MQTT values within DSMR Reader, so make sure to enable them.
+
+| Section          | Sensors to configure                        |
+| ---------------- | ------------------------------------------- |
+| Grid consumption | Low tariff usage, High tariff usage         |
+| Return to grid   | Low tariff returned, High tariff returned   |
+| Gas consumption  | Gas meter usage                             |
+
 ## Difference with the DSMR integration
 
-This integration relies on the presence of an existing DSMR Reader application setup. It processes the events triggered by the MQTT publishing feature to create sensor entities within Home Assistant. This integration uses the data published on the MQTT broker, no matter how or where the application is installed. By comparison, the [DSMR](/integrations/dsmr/) integration adds a full instance of the DSMR Reader application within Home Assistant. It is possible to have both integrations installed at the same time and working together, but this is not required.
+This integration relies on the presence of an existing DSMR Reader application setup. It processes the events triggered by the MQTT publishing feature to create sensor entities within Home Assistant. This integration uses the data published on the MQTT broker, no matter how or where the application is installed. By comparison, the [DSMR](/integrations/dsmr/) integration connects directly to the smart meter within Home Assistant and doesn't use the DSMR Reader application.

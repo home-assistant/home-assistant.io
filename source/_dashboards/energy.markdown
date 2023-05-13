@@ -67,6 +67,21 @@ The gas consumption graph card shows the amount of gas consumed per source.
 type: energy-gas-graph
 ```
 
+## Water consumption graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/water-graph.png' alt='Screenshot of the water consumption graph card'>
+  Screenshot of the water consumption graph card.
+</p>
+
+The water consumption graph card shows the amount of water consumed per source.
+
+#### Example
+
+```yaml
+type: energy-water-graph
+```
+
 ## Energy distribution
 
 <p class='img'>

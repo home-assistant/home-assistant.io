@@ -72,7 +72,7 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [Smart Home Home Assistant Konfiguration mit YAML](https://onesmarthome.de/smart-home-home-assistant-konfiguration/) - July 2017
 - [Why can't we have the Internet of Nice Things?](https://opensource.com/article/17/7/home-automation-primer) - July 2017
 - [Smart Home Home Assistant Raspberry Pi Installation Hassbian](http://onesmarthome.de/smart-home-home-assistant-raspberry-pi-installation-hassbian/) - July 2017
-- [Jupiter Broadcasting - No Privacy Compromise Home Automation](https://www.jupiterbroadcasting.com/115566/no-privacy-compromise-home-automation/) - June 2017
+- [Jupiter Broadcasting - No Privacy Compromise Home Automation](https://www.youtube.com/watch?v=LQbOtUmITv8) - June 2017
 - [Monitor IoT devices with Home Assistant and Datadog](https://www.datadoghq.com/blog/monitor-home-assistant/) - June 2017
 - [Castálio Podcast - Episódio 102: Marcelo Mello - Red Hat e Automação Residencial com Home Assistant](https://youtu.be/hZq8ucpzjCs) - May 2017
 - [Paulus Schoutsen and Home Assistant - Episode 8](https://codepop.com/open-sourcecraft/episodes/paulus-schoutsen/) - March 2017

@@ -39,9 +39,15 @@ Password:
 
 The following *binary sensors* are created:
 
-| Condition           | Description                        |
+| Binary Sensor       | Description                        |
 | :------------------ | :--------------------------------- |
 | anomaly             | Device anomaly.                    |
+
+The following *binary sensors* are created for each port (or LACP):
+
+| Binary Sensor       | Description                        |
+| :------------------ | :--------------------------------- |
+| link                | Link status.                       |
 
 ## Buttons
 
@@ -55,12 +61,29 @@ The following *buttons* are created:
 
 The following *sensors* are created:
 
-| Condition           | Description                        |
+| Sensors             | Description                        |
 | :------------------ | :--------------------------------- |
 | fan_1_speed         | Fan 1 Speed.                       |
 | fan_2_speed         | Fan 2 Speed.                       |
+| ports               | Number of used ports.              |
+| rx                  | Total RX bytes.                    |
+| rx_errors           | Total number of RX errors.         |
+| rx_speed            | Total RX speed.                    |
 | temperature         | Switch temperature.                |
+| tx                  | Total TX bytes.                    |
+| tx_speed            | Total TX speed.                    |
 | uptime              | Uptime seconds.                    |
+
+The following *sensors* are created for each port (or LACP):
+
+| Sensors             | Description                        |
+| :------------------ | :--------------------------------- |
+| link_speed          | Link speed.                        |
+| rx                  | RX bytes.                          |
+| rx_errors           | Number of RX errors.               |
+| rx_speed            | RX speed.                          |
+| tx                  | TX bytes.                          |
+| tx_speed            | TX speed.                          |
 
 ## Update
 

@@ -79,14 +79,18 @@ If you have "sleep" mode enabled on your camera, you can use this service to wak
 
 To enable/disable motion detection, use the Home Assistant built in services. 
 
-### Service `camera.enable_motion_detection'
+### Service `camera.enable_motion_detection`
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
 
-### Service `camera.disable_motion_detection'
+### Service `camera.disable_motion_detection`
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
+
+## Troubleshooting
+
+- `authentication failed`: The authentication requires an EZVIZ account with two-step verification disabled. Google, Facebook, TikTok, or other Oauth-based accounts will not work.

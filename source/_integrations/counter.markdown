@@ -12,13 +12,13 @@ ha_domain: counter
 ha_integration_type: helper
 ---
 
-The `counter` integration allows one to count occurrences fired by automations.
+The Counter integration allows one to count occurrences fired by automations.
 
 ## Configuration
 
 The preferred way to configure counter helpers is via the user interface. To add one, go to
 **{% my helpers title="Settings -> Devices & Services -> Helpers" %}** and click the add button;
-next choose the "**Counter**" option.
+next choose the **{% my config_flow_start domain=counter title="Counter" %}** option.
 
 To be able to add **Helpers** via the user interface you should have
 `default_config:` in your `configuration.yaml`, it should already be there by
@@ -75,7 +75,7 @@ counter:
       type: icon
 {% endconfiguration %}
 
-Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance` or `mdi:motorbike`.
+Pick an icon that from [Material Design Icons](https://pictogrammers.com/library/mdi/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance` or `mdi:motorbike`.
 
 ### Restore State
 
@@ -85,7 +85,7 @@ If `restore` is set to `true`, the `initial` value will only be used when no pre
 
 ## Services
 
-Available services: `increment`, `decrement`, `reset` and `configure`.
+Available services: `increment`, `decrement`, `reset`, `set_value` and `configure`.
 
 ### Service `counter.increment`
 
@@ -110,6 +110,15 @@ With this service the counter is reset to its initial value.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+
+### Service `counter.set_value`
+
+This service allows setting the counter to a specific value.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| `value`                |     yes  | Set the counter to the given value. |
 
 ### Service `counter.configure`
 

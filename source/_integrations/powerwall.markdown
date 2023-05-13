@@ -5,17 +5,20 @@ ha_category:
   - Binary Sensor
   - Energy
   - Sensor
+  - Switch
 ha_release: 0.108
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
   - '@jrester'
+  - '@daniel-simpson'
 ha_domain: powerwall
 ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -25,6 +28,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
+- [Switch](#switch)
 
 {% include integrations/config_flow.md %}
 
@@ -65,7 +69,13 @@ The following sensors show the direction of energy:
 - Powerwall Generator Export - Generator energy exported in kWh
 - Powerwall Generator Import - Generator energy imported in kWh
 
+### Switch
+
+The following switches are added for each Powerwall:
+
+- Off-Grid operation - Take your Powerwall off-grid (simulate a grid outage)
+
 ### Device Info
 
-- Model number: PowerWall 2 (GW2) by Tesla
+- Model Number
 - Firmware Revision

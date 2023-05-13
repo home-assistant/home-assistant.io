@@ -19,7 +19,7 @@ The documentation covers beginner to advanced topics around the installation, se
     </div>
     <div class='title'>Configuration</div>
   </a>
-  <a class='option-card' href='/docs/mqtt/'>
+  <a class='option-card' href='/integrations/mqtt/'>
     <div class='img-container'>
       <img src='https://brands.home-assistant.io/mqtt/icon.png' />
     </div>

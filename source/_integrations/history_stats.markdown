@@ -80,7 +80,7 @@ duration:
 
   You have to provide **exactly 2** of `start`, `end` and `duration`.
 <br/>
-  You can use [template extensions](/topics/templating/#home-assistant-template-extensions) such as `now()` or `as_timestamp()` to handle dynamic dates, as shown in the examples below.
+  You can use [template extensions](/docs/configuration/templating/#home-assistant-template-extensions) such as `now()` or `as_timestamp()` to handle dynamic dates, as shown in the examples below.
 
 </div>
 
@@ -138,7 +138,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+    start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
     end: "{{ now() }}"
 ```
 
@@ -149,7 +149,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    end: "{{ now().replace(hour=0, minute=0, second=0) }}"
+    end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
     duration:
       hours: 24
 ```
@@ -161,7 +161,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    start: "{{ now().replace(hour=6, minute=0, second=0) }}"
+    start: "{{ now().replace(hour=6, minute=0, second=0, microsecond=0) }}"
     duration:
       hours: 5
 ```
@@ -175,7 +175,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}"
+    start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0, microsecond=0) ) - now().weekday() * 86400 }}"
     end: "{{ now() }}"
 ```
 
@@ -192,12 +192,23 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 
 {% endraw %}
 
+**Previous month**: starts the first day of the previous month at 00:00, ends the first day of the current month.
+
+{% raw %}
+
+```yaml
+    start: "{{ now().replace(day=1, month=now().month-1, hour=0, minute=0, second=0, microsecond=0) }}"
+    end: "{{ now().replace(day=1, hour=0, minute=0, second=0, microsecond=0) }}"
+```
+
+{% endraw %}
+
 **Next 4 pm**: 24 hours, from the last 4 pm till the next 4 pm. If it hasn't been 4 pm today, that would be 4 pm yesterday until 4 pm today. If it is already past 4 pm today, it will be 4 pm today until 4 pm tomorrow. When changing the start time, then add or subtract to the 8-hour buffer to match the next midnight.
 
 {% raw %}
 
 ```yaml
-    end: "{{ (now().replace(minute=0,second=0) + timedelta(hours=8)).replace(hour=16) }}"
+    end: "{{ (now().replace(minute=0, second=0, microsecond=0) + timedelta(hours=8)).replace(hour=16) }}"
     duration:
         hours: 24
 ```
@@ -209,7 +220,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    end: "{{ now().replace(hour=0, minute=0, second=0) }}"
+    end: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
     duration:
       days: 30
 ```

@@ -11,7 +11,7 @@ ha_codeowners:
   - '@tkdrob'
 ha_platforms:
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows integrations to send messages to the user using Discord.
@@ -74,6 +74,8 @@ The following attributes can be placed inside the `data` key of the service call
 | Attribute              | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `images`               |      yes | The file(s) to attach to message.
+| `urls`                 |      yes | The file(s) to download from a remote URL and attach to message.
+| `verify_ssl`           |      yes | A boolean to determine if SSL certs should be verified when calling the remote URLs in the `url` attribute. Defaults to `True`.
 | `embed`                |      yes | Array of [Discord embeds](https://discordpy.readthedocs.io/en/latest/api.html#embed). *NOTE*: if using `embed`, `message` is still required.
 
 To include messages with embedding, use these attributes underneath the `embed` key:
@@ -102,6 +104,22 @@ To include messages with embedding, use these attributes underneath the `embed` 
       - "/tmp/garage_cam"
       - "/tmp/garage.jpg"
 ```
+
+### Example service call with attachments sourced from remote URLs
+
+```yaml
+- service: notify.discord
+  data:
+    message: "A message from Home Assistant"
+    target: ["1234567890", "0987654321"]
+    data:
+      verify_ssl: False
+      urls: 
+      - "https://example.com/image.jpg"
+      - "https://example.com/video.mp4"
+```
+
+Note that `verify_ssl` defaults to `True`, and that any remote hosts will need to be in your [`allowlist_external_urls`](/docs/configuration/basic/#allowlist_external_urls) list. Discord limits attachment size to 8MB, so anything exceeding this will be skipped and noted in the error log.
 
 ### Example embed service call
 

@@ -12,31 +12,14 @@ The `mqtt` button platform lets you send an MQTT message when the button is pres
 
 ## Configuration
 
+<a id='new_format'></a>
+
 ```yaml
 # Example configuration.yaml entry
 mqtt:
   button:
     - command_topic: "home/bedroom/switch1/reboot"
 ```
-
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `button` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-button:
-  - platform: mqtt
-    command_topic: "home/bedroom/switch1/reboot"
-```
-
-{% enddetails %}
 
 {% configuration %}
 availability:
@@ -84,7 +67,7 @@ command_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this button is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this button is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -129,8 +112,9 @@ device:
       required: false
       type: string
 device_class:
-  description: The [type/class](/integrations/button/#device-class) of the button to set the icon in the frontend.
+  description: The [type/class](/integrations/button/#device-class) of the button to set the icon in the frontend. The `device_class` can be `null`.
   required: false
+  default: None
   type: device_class
   default: None
 enabled_by_default:
