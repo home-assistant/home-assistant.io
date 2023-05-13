@@ -1,5 +1,5 @@
 ---
-title: SwitchBee
+title: Electra Smart
 description: Instructions for how to integrate Electra Air Conditioners within Home Assistant.
 ha_category:
   - Climate
