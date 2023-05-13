@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@dgomes'
   - '@gjohansson-ST'
+  - '@dougiteixeira'
 ha_domain: sql
 ha_platforms:
   - sensor
