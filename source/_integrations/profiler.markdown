@@ -171,3 +171,7 @@ Each upcoming scheduled item is logged similar to the below example:
 ### Service {% my developer_call_service service="profiler.lru_stats" %}
 
 Logs statistics from [lru_cache](https://docs.python.org/3/library/functools.html#functools.lru_cache) and [lru-dict](https://pypi.org/project/lru-dict/) to help tune Home Assistant and locate memory leaks.
+
+### Service {% my developer_call_service service="profiler.log_ssl" %}
+
+Logs ssl objects in memory to help locate memory leaks.
