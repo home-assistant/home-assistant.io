@@ -17,7 +17,7 @@ ha_integration_type: integration
 
 [Electra Air](https://www.electra-air.co.il), is a company which manufactures and sell Air Conditioners.
 
-In order to setup this integration, you must have access to the phone number used and registered in the Electra Smart mobile app.
+In order to setup this integration, you must have access to the phone number used to register in the Electra Smart mobile app.
 
 Air Conditioners configured in your Electra Smart mobile app will be discovered by Home Assistant after the Electra Smart integration is configured.
 
