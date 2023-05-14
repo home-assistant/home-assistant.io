@@ -101,7 +101,7 @@ In your automations, you could then reuse this macro by importing it:
 NOTE: Two important formatting concerns to remember when reusing templates:
 
 1. The value returned is always a string.  If you want a number or a boolean you need to use ```|int()```, ```|float(),``` or ```|bool``` filters.
-1. You may need to use a hyphen to prevent stray whitespace in all your opening and closing tags. Example:```{{- -}}``` or ```{%- -%}```
+* If you don't add a hyphen to all your opening and closing tags (so use `{%-`, `-%}`, `{{-` and `-}}`) you're result will include unintended whitespace.
 
 ## Home Assistant template extensions
 
