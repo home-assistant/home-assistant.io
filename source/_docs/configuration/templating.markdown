@@ -98,6 +98,11 @@ In your automations, you could then reuse this macro by importing it:
 
 {% endraw %}
 
+NOTE: Two important formatting concerns to remember when reusing templates:
+
+1. The value returned is always a string.  If you want a number or a boolean you need to use ```|int()```, ```|float(),``` or ```|bool``` filters.
+1. You may need to use the a hyphen to prevent stray whitespace in all your opening and closing tags. Example:```{{- -}}``` or ```{%- -%}```
+
 ## Home Assistant template extensions
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
