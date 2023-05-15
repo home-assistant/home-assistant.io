@@ -107,7 +107,7 @@ initial_hvac_mode:
   description: Initial hvac mode. 
   required: false
   default: off
-  type: string ('off', 'cool' or 'heat')
+  type: string ('off', 'cool', or 'heat')
 away_temp:
   description: Preset 'Away' temperature. Preset will only be available in the thermostat when set here.
   required: false
