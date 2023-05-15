@@ -3,7 +3,7 @@ title: Slow PWM
 description: Convert one or multiple switches to a numeric input using slow Pulse-Width-Modulation
 ha_category:
   - Number
-ha_release: 2023.05
+ha_release: '2023.05'
 ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
