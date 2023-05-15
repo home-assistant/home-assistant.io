@@ -12,7 +12,7 @@ ha_domain: counter
 ha_integration_type: helper
 ---
 
-The `counter` integration allows one to count occurrences fired by automations.
+The Counter integration allows one to count occurrences fired by automations.
 
 ## Configuration
 
@@ -85,7 +85,7 @@ If `restore` is set to `true`, the `initial` value will only be used when no pre
 
 ## Services
 
-Available services: `increment`, `decrement`, `reset` and `configure`.
+Available services: `increment`, `decrement`, `reset`, `set_value` and `configure`.
 
 ### Service `counter.increment`
 
@@ -110,6 +110,15 @@ With this service the counter is reset to its initial value.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+
+### Service `counter.set_value`
+
+This service allows setting the counter to a specific value.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| `value`                |     yes  | Set the counter to the given value. |
 
 ### Service `counter.configure`
 
