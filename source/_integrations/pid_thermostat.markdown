@@ -13,6 +13,10 @@ ha_integration_type: integration
 
 The `pid_thermostat` climate platform is a thermostat implemented in Home Assistant. It uses a sensor and a number entity connected to a heater or air conditioning under the hood. A typical method to create a number to control a heater or cooler could be to use the [slow_pwm number integration][slow_pwm]. When in heater mode, if the measured temperature is cooler than the target temperature, the heater will be regulated to the required temperature is reached. When in air conditioning mode, if the measured temperature is hotter than the target temperature, the air conditioning will be regulated to the required temperature. One Generic Thermostat entity can only control one number output. If you need to activate two numbers, one for a heater and one for an air conditioner, you will need two Generic Thermostat entities. 
 The value for the output number entity will be calculated using the Proportional–Integral–Derivative algorithm (PID, See [https://en.wikipedia.org/wiki/PID_controller]). The implementation of the PID controller contains bumpless operation, and is prevented against integral windup by clipping of the output value to the minimum and maximum of the corresponding output number entity. 
+Setting up the optimal parameters for a PID controller can be a though job. Depending on your particalar job, you might already know more or less what the parameters should be. If required, you could use [manual tuning][https://en.wikipedia.org/wiki/PID_controller#Manual_tuning] to find optimal parameters. 
+- For kp, start with 100; if your thermostat deviates 1 °C you might want the heater to turn on for 100%. If required, gradually make it bigger if you see that the direct reaction of the controller is too low.
+- For ki, keep this number to 0 until kp is set. Than start with a small number (0.1). If you see that the reaction over time is only slowly rising, than increase it, until the controller regulates to the sepoint in a reasonalble amount of time. 
+- For kd, keep this number to 0 until kp and ki are set. Now you can use the kd to prevent the regulator from overshoot. Only increase in small steps.
 
 ## Configuration
 {% include integrations/config_flow.md %}
@@ -127,7 +131,7 @@ climate:
     name: Kitchen thermostat
     heater: number.floor_heater
     sensor: sensor.kitchen_temperature
-    kp: 150.0
+    kp: 100.0
     ki: 0.5
     kd: 0.01
     ac_mode: heat
