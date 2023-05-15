@@ -38,7 +38,7 @@ Duration between controller cycles
 ## YAML Configuration
 
 Alternatively, this integration can be configured and set up manually via YAML.
-instead. To enable the PID thermostat entity in your installation, add the
+To enable the PID thermostat entity in your installation, add the
 following to your `configuration.yaml` file:
 
 ```yaml
