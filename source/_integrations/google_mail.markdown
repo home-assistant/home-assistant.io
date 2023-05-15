@@ -27,9 +27,9 @@ If you have already set up the correct credentials, you can do step 1 and then s
 {% details "Generate Client ID and Client Secret" %}
 
 This section explains how to generate a Client ID and Client Secret on
-[Google Developers Console](https://console.cloud.google.com/apis/library/gmail.googleapis.com?project=home-assistant-17698).
+[Google Developers Console](https://console.cloud.google.com/apis/library/gmail.googleapis.com).
 
-1. First, go to the Google Developers Console to enable [Gmail API](https://console.cloud.google.com/apis/library/gmail.googleapis.com?project=home-assistant-17698)
+1. First, go to the Google Developers Console to enable [Gmail API](https://console.cloud.google.com/apis/library/gmail.googleapis.com)
 2. The wizard will ask you to choose a project to manage your application. Select a project and select **Continue**.
 3. Verify that your Gmail API was enabled and click 'Go to credentials'
 4. Navigate to **APIs & Services** (left sidebar) > [Credentials](https://console.cloud.google.com/apis/credentials)
