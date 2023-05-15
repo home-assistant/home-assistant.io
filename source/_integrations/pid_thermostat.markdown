@@ -69,7 +69,7 @@ kp:
   default: 100.0
   type: float
 ki:
-  description: Integration factor, reducing offset fault over time (Ki).
+  description: Integration factor, reducing the offset fault over time (Ki).
   required: false
   default: 0.1
   type: float
