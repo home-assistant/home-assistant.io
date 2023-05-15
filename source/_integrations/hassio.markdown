@@ -144,6 +144,7 @@ Create a full backup.
 | `name` | yes | Name of the backup file. Default is current date and time
 | `password` | yes | Optional password for backup
 | `compressed` | yes | `false` to create uncompressed backups
+| `location` | yes | Name of a storage location instead of using the default location for backups
 
 ### Service hassio.backup_partial
 
@@ -156,6 +157,7 @@ Create a partial backup.
 | `name` | yes | Name of the backup file. Default is current date and time
 | `password` | yes | Optional password for backup
 | `compressed` | yes | `false` to create uncompressed backups
+| `location` | yes | Name of a storage location instead of using the default location for backups
 
 ### Service hassio.restore_full
 

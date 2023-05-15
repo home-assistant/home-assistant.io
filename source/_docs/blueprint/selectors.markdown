@@ -18,6 +18,7 @@ The following selectors are currently available:
 - [Action selector](#action-selector)
 - [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
+  - [Example area selectors](#example-area-selectors)
 - [Attribute selector](#attribute-selector)
 - [Assist pipeline selector](#assist-pipeline-selector)
 - [Boolean selector](#boolean-selector)
@@ -25,20 +26,25 @@ The following selectors are currently available:
 - [Config entry selector](#config-entry-selector)
 - [Constant selector](#constant-selector)
 - [Date selector](#date-selector)
-- [Date & time selector](#date--time-selector)
+- [Date \& time selector](#date--time-selector)
 - [Device selector](#device-selector)
+  - [Example device selector](#example-device-selector)
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
+  - [Example entity selector](#example-entity-selector)
 - [Icon selector](#icon-selector)
 - [Language selector](#language-selector)
 - [Location selector](#location-selector)
 - [Media selector](#media-selector)
 - [Number selector](#number-selector)
+  - [Example number selectors](#example-number-selectors)
 - [Object selector](#object-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
+- [Storage location selector](#storage-location-selector)
 - [Target selector](#target-selector)
+  - [Example target selectors](#example-target-selectors)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
@@ -976,6 +982,29 @@ The output of this selector is the select state (not the translated or
 prettified name shown in the frontend).
 
 For example: `heat_cool`.
+
+## Storage location selector
+
+This can only be used on an installation with a Supervisor. For installations
+that do not have that, an error will be displayed.
+
+The storage location selector shows a list of places a file could go of those
+you have configured in [storage](https://my.home-assistant.io/redirect/storage/).
+
+TODO: NEED SCREENSHOT
+
+{% configuration storage_location %}
+usage:
+  description: >-
+    Limit selection to storage locations configured to be used for a particular
+    type of usage (`backup` or `media`)
+  type: string
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the name of the selected storage. It may also be
+empty string (`""`) if the user choose to use the local storage location as instead
+of one of the configured external storage locations.
 
 ## Target selector
 
