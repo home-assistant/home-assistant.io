@@ -89,7 +89,7 @@ min_temp:
   default: 7
   type: float
 max_temp:
-  description: Maximal temperature setpoint.
+  description: Maximal temperature setpoint in °C.
   required: false
   default: 35
   type: float
