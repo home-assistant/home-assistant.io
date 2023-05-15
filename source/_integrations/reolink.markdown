@@ -189,13 +189,15 @@ The following models have been tested and confirmed to work:
 - RLC-1224A
 - RLN8-410 NVR
 - RLN16-410 NVR
+- RLN36 NVR
 - Reolink Duo Floodlight PoE
 - Reolink TrackMix PoE
 - Reolink Video Doorbell (PoE and Wi-Fi)
 
 Battery-powered cameras are not yet supported.
 
-The following models are lacking the HTTP webserver API and can therfore not work with this integration:
+The following models are lacking the HTTP web server API and can, therefore, not work directly with this integration.
+However, these cameras can work with this integration through an NVR in which the NVR is connected to Home Assistant.
 
 - E1 Pro
 - E1

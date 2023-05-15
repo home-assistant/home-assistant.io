@@ -9,12 +9,18 @@
 #
 
 - term: Action
-  definition: >-
-    An action is an command that can be fired. For example, turning on a light.
-    Actions used in many places, most notably in automations and scripts.
+  definition: |-
+    Actions are used in several places in Home Assistant. As part of a script or automation, actions define what is going to happen once a trigger is activated. In scripts, an action is called *sequence*.
+
+    Actions use service calls and/or scenes to interact with entities and cause these entities to do something. Actions can also include conditions and a delay. An action can call multiple services at the same time. For example, if your presence is detected in a room, an action may call one service to turn on a light and call another service to start playing music after a delay.
+
+    Actions are also used on the dashboard, for example as tap or hold action on a UI element. When triggered, the action calls a service.
+
   aliases:
     - actions
   link: /docs/automation/action/
+  excerpt: >
+    Actions are used in several places in Home Assistant. As part of a script or automation, actions define what is going to happen once a trigger is activated. In scripts, an action is called *sequence*.
 
 - term: Add-on
   definition: >-
@@ -91,6 +97,8 @@
     Devices have properties such as ID, manufacturer, name, model, hardware version, firmware version, connections, etc.
   excerpt: >
     A device is a model representing a physical or logical unit that contains entities.
+  aliases:
+    - devices
 
 - term: Device tracker
   definition: >-
@@ -138,11 +146,15 @@
   link: /docs/configuration/state_object/
   excerpt: >
     An entity represents a sensor, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An entity is usually part of a device or a service.
+  aliases:
+    - entities
 
 - term: Event
   definition: >-
     An event is when something happens.
   link: /docs/configuration/events/
+  aliases:
+    - events
 
 - term: Frontend
   definition: >-
@@ -216,6 +228,19 @@
     Integrations connect and integrates Home Assistant with your devices,
     services, and more.
   link: /integrations/
+  aliases:
+    - integrations
+
+- term: Intent
+  definition: >-
+    Intent is a term used with voice assistants. The intent is what Home Assistant thinks you want it to do when it extracts a command from your voice or text utterance. Currently, the following intents are supported out of the box: HassTurnOn, HassTurnOff, HassGetState, and HassLightSet.
+
+    These intents allow you to turn things on or off, inquire about a state, or change the brightness or color of a light.
+  excerpt: >
+    Intent is a term used with voice assistants. The intent is what Home Assistant thinks you want it to do when it extracts a command from your voice or text utterance.
+  link: https://developers.home-assistant.io/docs/intent_builtin
+  aliases:
+    - Intents
 
 - term: Lovelace
   definition: >-
@@ -269,12 +294,16 @@
     Scripts are components that allow users to specify a sequence of actions
     to be executed by Home Assistant when turned on.
   link: /docs/scripts/
+  aliases:
+    - scripts
 
 - term: Sensor
   definition: >-
     Sensors return information about a thing, for instance the level of water
     in a tank.
   link: /integrations/sensor/
+  aliases:
+    - sensors
 
 - term: Selectors
   definition: >-
@@ -361,3 +390,5 @@
   definition: >-
     Zones are areas that can be used for presence detection.
   link: /integrations/zone/
+  aliases:
+    - zones

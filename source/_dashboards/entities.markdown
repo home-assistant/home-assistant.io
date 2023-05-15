@@ -227,7 +227,7 @@ entities:
       required: false
       description: If false, the button name is not shown.
       type: boolean
-      default: "true"
+      default: "false"
     show_icon:
       required: false
       description: If false, the icon is not shown.
