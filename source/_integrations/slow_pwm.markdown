@@ -7,7 +7,7 @@ ha_release: 2023.05
 ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
-  - @antonverburg
+  - '@antonverburg'
 ha_domain: slow_pwm
 ha_platforms:
   - number
