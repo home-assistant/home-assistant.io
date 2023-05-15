@@ -84,7 +84,7 @@ ac_mode:
   default: direct
   type: string ('cool' or 'heat')
 min_temp:
-  description: Minimal temperature setpoint.
+  description: Minimal temperature setpoint in °C.
   required: false
   default: 7
   type: float
