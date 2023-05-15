@@ -20,7 +20,7 @@ To set the default color, brightness and transition values when the light is tur
 The `light_profiles.csv` has to have a header. The format of the header is:
 
 ```txt
-profile,color_x,color_y,brightness,transition
+id,x,y,brightness,transition
 ```
 
 The field transition is optional and can be omitted.
