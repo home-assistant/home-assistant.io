@@ -11,9 +11,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `pid_controller` platform is a `number`. It can be used to control a number entity output to regulate a sensor value to a certain setpoint. The value of the number entity is the setpoint. As a sensor, any numerical senosor entity can be used. If two sensors are configured, the PID controller will act as a differential controller, using the difference between the two sensor values as input signal.
+The `pid_controller` platform is a `number`. It can be used to control a number entity output to regulate a sensor value to a specific setpoint. The value of the number entity is the setpoint. As a sensor, any numerical sensor entity can be used. If two sensors are configured, the PID controller will act as a differential controller, using the difference between the two sensor values as input signal.
 The value for the output number entity will be calculated using the Proportional–Integral–Derivative algorithm (PID, See [https://en.wikipedia.org/wiki/PID_controller]). The implementation of the PID controller contains bumpless operation, and is prevented against integral windup by clipping of the output value to the minimum and maximum of the corresponding output number entity. 
-This controller is typically usefull in regulated systems, for example regulate the speed of a water pump in a heat collector to keep the temperature difference between the outgoing and incomming waterstream on a certain level, so that the heat collector will perform optimal.
+This controller is typically useful in regulated systems. For example to regulate the speed of a water pump in a heat collector to keep the temperature difference between the outgoing and incomming water stream on a certain level, so that the heat collector will perform optimally.
 Setting up the optimal parameters for a PID controller can be a though job. Depending on your particalar job, you might already know more or less what the parameters should be. If required, you could use [manual tuning][https://en.wikipedia.org/wiki/PID_controller#Manual_tuning] to find optimal parameters. 
 - For kp, start with a small number (1) and gradually make it bigger if you see that the direct reaction of the controller is too low. Increase the kp, until the output oscilates, than set it to half of this value.
 - For ki, keep this number to 0 until kp is set. Than start with a very small number (0.01). If you see that the reaction over time is only slowly rising, than increase it, until the controller regulates to the sepoint in a reasonalble amount of time. 
@@ -26,7 +26,7 @@ Setting up the optimal parameters for a PID controller can be a though job. Depe
 Name:
   description: The name that the PID controller should have. You can change it again later.
 Output number entity:
-  description: Output number entity. The output of the regulator will be clipped to the min- and max value of this output number.
+  description: Output number entity. The output of the regulator will be clipped to the minimum and maximum value of this output number.
 Input sensor entity:
   description: Numerical sensor entity, used for input signal.
 Optional secondary input sensor entity:
@@ -53,8 +53,8 @@ Mode:
 
 ## YAML Configuration
 
-Alternatlively, this integration can be configured and set up manually via YAML
-instead. To enable the PID controller number entity in your installation, add the
+Alternatively, this integration can be configured and set up manually via YAML. 
+To enable the PID controller number entity in your installation, add the
 following to your `configuration.yaml` file:
 
 ```yaml
@@ -72,11 +72,11 @@ name:
   required: true
   type: string
 output:
-  description: `entity_id` for output value, must be number device. Output will be limited to min- and maximum value of this number.
+  description: `entity_id` for the output value. Must be a number device. The output will be limited to the minimum and maximum value of this number.
   required: true
   type: string
 input1:
-  description: `entity_id` for input sensor, must be numerical sensor.
+  description: `entity_id` for input sensor. Must be a numerical sensor.
   required: true
   type: string
 input2:
@@ -90,7 +90,7 @@ kp:
   default: 1.0
   type: float
 ki:
-  description: Integration factor, reducing offset fault over time (Ki).
+  description: Integration factor, reducing the offset fault over time (Ki).
   required: false
   default: 0.1
   type: float
@@ -100,7 +100,7 @@ kd:
   default: 0.0
   type: float
 direction:
-  description: Regulation direction. When 'direct', output will increase to decrease fault, when 'reverse' output will decrease to decrease fault.
+  description: Regulation direction. When 'direct', the output will increase to decrease fault. When 'reverse', the output will decrease to decrease fault.
   required: false
   default: direct
   type: string ('direct' or 'reverse')
