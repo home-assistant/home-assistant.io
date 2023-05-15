@@ -39,7 +39,13 @@ Note that some entities are disabled by default. If you are missing a sensor or 
 
 {% include integrations/config_flow.md %}
 
-## Configuaration Options
+<div class='note warning'>
+
+Gen1 controllers use a very outdated set of SSL ciphers, making communication with them over HTTPS impossible. Users with Gen1 controllers should utilize port 80 without SSL.
+
+</div>
+
+## Configuration Options
 
 The integration has two configuration options: 
 
