@@ -56,7 +56,7 @@ name:
   required: true
   type: string
 heater:
-  description: `entity_id` for heater- or cooler, must be number device. Typically, the [slow_pwm number entity][slow_pwm] can be used to create a number controlling a switch.
+  description: `entity_id` for heater or cooler. Must be a number device. Typically, the [slow_pwm number entity][slow_pwm] can be used to create a number controlling a switch.
   required: true
   type: string
 sensor:
