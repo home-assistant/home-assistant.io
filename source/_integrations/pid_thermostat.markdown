@@ -108,7 +108,7 @@ target_temp:
   default: 19
   type: float
 initial_hvac_mode:
-  description: Initial hvac mode. 
+  description: Initial HVAC mode. 
   required: false
   default: off
   type: string ('off', 'cool', or 'heat')
