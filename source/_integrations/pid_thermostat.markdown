@@ -99,7 +99,7 @@ cycle_time:
   default: {"seconds": 30}
   type: time_period
 target_temp:
-  description: Target tempererature on startup.
+  description: Target temperature on startup.
   required: false
   default: 19
   type: float
