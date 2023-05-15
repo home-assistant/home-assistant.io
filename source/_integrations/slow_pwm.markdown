@@ -13,7 +13,7 @@ ha_integration_type: integration
 
 The `slow_pwm` platform is a `number`. It can be used to control one or multiple digital switches in an analog control algorithm. 
 The switches will be controlled by Pulse-Width-Manipulation (PWM, See https://en.wikipedia.org/wiki/Pulse-width_modulation). 
-This enables the usage of digital switches in modulated modes. This is typically usefull in slow systems like floorheater or boiler heater controller systems. The [PID controller](/integrations/pid_controller) and the [PID thermostat](/integrations/pid_thermostat)  can use this number as regulated output. 
+This enables the usage of digital switches in modulated modes. This is typically useful in slow systems like floorheater or boiler heater controller systems. The [PID controller](/integrations/pid_controller) and the [PID thermostat](/integrations/pid_thermostat)  can use this number as regulated output. 
 
 ## Configuration
 {% include integrations/config_flow.md %}
@@ -23,13 +23,13 @@ Name:
 Output switch entities:
   description: One or more output switches. When multiple outputs are selected, the range of 0..100% will be shared over the multiple switches. For example, with 2 switches at 50% output only the first switch will be on full time, at 75% the first switch will be on 100% of the time, and the second 50%.
 Minimum:
-  description: Minimal value of the number. On this value, all switches will be switched off continously.
+  description: Minimal value of the number. On this value, all switches will be switched off continuously.
 Maximum:
-  description: Maximal value of the number. On this value, all switches will be switched on continously.
+  description: Maximal value of the number. On this value, all switches will be switched on continuously.
 Cycle time:
   description: Duration to execute a single controller cycle.
 Minimal switch time:
-  description: Shortest possible time a switch should be on- or off. This parameter is typically usefull in slow switching applications like the wax-valve of domestic heater systems.
+  description: Shortest possible time a switch should be on- or off. This parameter is typically useful in slow switching applications like the wax-valve of domestic heater systems.
 Step:
   description: Step size of the number.
 Mode: 
