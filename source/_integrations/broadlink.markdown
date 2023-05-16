@@ -637,10 +637,10 @@ Press enter to continue...
 ```
 
 If the attempt fails, you will see the error:
-```
+```txt
 RF Frequency not found
 ```
-If a failure occurs, you may need to simply keep pressing the button during the ```Learning RF Frequency``` step, as some remotes appear to not continously transmit when buttons are held.
+If a failure occurs, you may need to simply keep pressing the button during the `Learning RF Frequency` step, as some remotes appear to not continuously transmit when buttons are held.
 
 After a success, do one of the following two options:
 
