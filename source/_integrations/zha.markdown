@@ -272,6 +272,8 @@ Note: `cluster_id: 25` may also be `cluster_id: 0x0019`. The two are synonymous.
 
 ### Defining Zigbee channel to use
 
+Tip! Before considering to change to an other Zigbee channel on an existing Zigbee network it is highly recommended that you read through the two segments under the troubleshooting section below about "*Best practices to avoid pairing/connection difficulties*" and "*Zigbee interference avoidance and network range/coverage optimization*" for general prerequisite knowledge and advice on how to achieve the best possible Zigbee network in your environment.
+
 ZHA prefers to use Zigbee channel 15 by default. You can change this using YAML configuration, but this only works
 if there's no existing network. To change the channel for an existing network, radio has to be factory reset and a new network to be formed. This requires re-pairing of all the devices.
 
@@ -283,13 +285,13 @@ zha:
       channels: [15, 20, 25]  # Channel mask
 ```
 
-This is a good reference for channel selection for [Zigbee and WiFi coexistance](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
+Note! The general best practice is to not change the Zigbee channel from the ZHA default. Also, the related troubleshooting segments mentioned in the tip above will among other things inform that if you have issues with overlapping frequencies between Wi-Fi and Zigbee then it will usually be a better idea to first only try changing and setting a static Wi-Fi channel on your Wi-Fi Router or all your Wi-Fi Access Points (instead of just changing to an other Zigbee channel).
+
+MetaGeek Support has a good reference article about channel selection for [Zigbee and WiFi coexistance]([https://support.metageek.com/hc/en-Ti](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence)).
 
 The Zigbee specification standards divide the 2.4Ghz ISM radio band into 16 Zigbee channels (i.e. distinct radio frequencies for Zigbee). For all Zigbee devices to be able to communicate, they must support the same Zigbee channel (i.e. Zigbee radio frequency) that is set on the Zigbee Coordinator as the channel to use for its Zigbee network. Not all Zigbee devices support all Zigbee channels, it will usually depend on the hardware and firmware age as well as devices power ratings.
 
-The general recommendation is to only use channels 15, 20, or 25 in order to avoid interoperability problems with Zigbee devices that are limited to only being compatible with the ZLL (Zigbee Light Link) channels as well as lessen the chance of Wi-Fi networks interfering too much with the Zigbee network. Note that especially using Zigbee channels 11, 24, 25, or 26 on your Zigbee Coordinator could mean it will probably not be accessible to older devices as those Zigbee channels are commonly only supported by relatively modern Zigbee hardware devices with newer Zigbee firmware.
-
-Regardless, note that the best practice recommendation is, however, not to change the Zigbee channel from default as not all Zigbee devices support all channels. If you have issues with overlapping frequencies, then it will generally be a better idea to just change Wi-Fi channels on your Wi-Fi Router or all your Wi-Fi Access Points instead.
+The general recommendation is to only use channels 15, 20, or 25 in order to avoid interoperability problems with Zigbee devices, not only because there is less chance of Wi-Fi networks interfering too much with the Zigbee network on other channels, but also because not all Zigbee devices support all channels. Some devices are for example limited to only being compatible with those ZLL (Zigbee Light Link) channels, it is therefore especially not recommended to use Zigbee channels 11, 24, 25, or 26 on your Zigbee Coordinator as that could mean it will not be usable with older Zigbee devices as those Zigbee channels are commonly only supported by relatively modern Zigbee hardware devices with newer Zigbee firmware.
 
 ### Modifying the device type
 
@@ -380,27 +382,36 @@ This service disables a lock code on a Zigbee lock.
 
 ## Adding devices
 
-To add a new device:
+Tip! Regardless if your timeline is now before or after you started adding devices to the ZHA integration, it is highly recommended that you read through the two segments under the troubleshooting section below about "*Best practices to avoid pairing/connection difficulties*" and "*Zigbee interference avoidance and network range/coverage optimization*" for general prerequisite knowledge and advice on how to achieve the best possible Zigbee network in your environment.
+
+**To add a new Zigbee device:**
 
 1. Go to the **Integrations** panel, find the **Zigbee Home Automation** integration that was added by the configuration steps above, and select **Configure**.
 1. Click on the plus button at the bottom right corner to start a scan for new devices.
-1. Reset your Zigbee devices according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times, switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
+1. Reset your Zigbee devices to fectory default settings according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times, switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
 1. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
 
-### Using router devices
+### Using router devices to add more devices
 
-You use routers to increase the number of Zigbee devices that can be used in a network. The total number of Zigbee devices that you have on a Zigbee network depends on a few things, but you should know that Zigbee coordinator hardware and firmware only plays a larger role in Zigbee networks with a lot of devices. More important is how many directly connected devices ("direct children") versus how many routers are connected to your Zigbee coordinator. Zigpy library which ZHA uses has an upper limit. This is 32 direct children, but if your Zigbee coordinator hardware is powerful enough then you can still have hundreds of Zigbee devices connected through routers.
+You can normally assume that most mains-powered devices, e.g., many always-powered wall plugs or lightbulbs in your Zigbee network will automatically act as a Zigbee Router Device (sometimes also referred to as a Zigbee "signal repeater" or "range extended"). 
 
-Even the least powerful Zigbee coordinator hardware supported by Zigpy is CC2530/2531 and its default firmware, only supports 20 devices connected directly to the coordinator. However, by having routers in your Zigbee network, the mesh network size can be extended. You can assume that most, if not all mains/AC-powered devices, e.g., wall-plugs and always powered-on lightbulbs in your Zigbee network can serve as a router. You can even use CC2530/CC2531 with router firmware, as additional routers (which in their turn have a limit of 21 devices).
+Because Zigbee should use a "[wireless mesh network]"(https://en.wikipedia.org/wiki/Wireless_mesh_network) to be effective you will need to add Zigbee Router devices to increase the number of Zigbee devices that can be used in your Zigbee network, both in the total number of devices that can be added as well as the total range and coverage of the network. You should also be aware that some Zigbee Router devices do a much better job at routing/repeating Zigbee signals/messages than some other devices, and you should not have a setup where Zigbee Router devices (e.g. lightbulbs) are often powered-off as Zigbee Router devices are meant to be always available.
 
-An example using the default CC2531 coordinator firmware + two CC2531 routers; Your device limit will be:
+All Zigbee Coordinator firmware will only allow you to directly connect a certain amount of devices, and that limit is set for two reasons; firstly to not overload the Zigbee Coordinator SoC, and secondly to encourage your Zigbee network to quickly begin to utilize a "[mesh networking](https://en.wikipedia.org/wiki/Mesh_networking)" topology instead of only a "[star network](https://en.wikipedia.org/wiki/Star_network)" topology.
 
-- Coordinator: 15 devices - 2 routers = 13
-- Router one: + 21 devices
-- Router two: + 21 devices
-- Total device limit = **55 devices**
+The total number of Zigbee devices that you can have on a Zigbee network depends on a few things, but you should know that the Zigbee Coordinator hardware and its firmware only play a larger role in Zigbee networks with a lot of devices. More important is how many directly connected devices ("direct children") versus how many routers are connected to your Zigbee coordinator. The Zigpy library which the ZHA integration depends on has an upper limit that is 32 direct children, but you can still have hundreds of Zigbee devices in total connected indirectly through routes via Zigbee Router devices.
 
-### Binding and unbinding
+In this theoretical example, a CC2652 based Zigbee Coordinator has three CC2530 Zigbee Router devices for a total device limit of 77:
+
+- Coordinator: 32 Zigbee End devices - 3 routers = 29
+- Router one: + 16 devices
+- Router two: + 16 devices
+- Router three: + 16 devices
+- Total device limit = **77 devices**
+
+Note that in practice you will likley need add a lot more Zigbee Router devices than in this example in order to extend the coverage of the network to reach that many devices.
+
+## Binding and unbinding
 
 ZHA support for binding and unbinding. Binding is an action in Zigbee which defines relations between two Zigbee devices, specific endpoints, and cluster id. It provides a mechanism for attaching an endpoint on one Zigbee node to one or more endpoints on another Zigbee node or Zigbee group (a group of Zigbee devices).
 
