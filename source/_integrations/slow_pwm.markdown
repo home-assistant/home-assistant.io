@@ -1,6 +1,6 @@
 ---
 title: Slow PWM
-description: Convert one or multiple switches to a numeric input using slow Pulse-Width-Modulation
+description: Convert one or multiple switches to a numeric input using slow pulse width modulation
 ha_category:
   - Number
 ha_release: '2023.05'
