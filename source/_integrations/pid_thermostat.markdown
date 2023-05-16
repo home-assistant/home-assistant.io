@@ -15,7 +15,7 @@ The `pid_thermostat` climate platform is a thermostat implemented in Home Assist
 The value for the output number entity will be calculated using the Proportional–Integral–Derivative algorithm (PID, See [https://en.wikipedia.org/wiki/PID_controller]). The implementation of the PID controller contains bumpless operation, and is prevented against integral windup by clipping of the output value to the minimum and maximum of the corresponding output number entity. 
 Setting up the optimal parameters for a PID controller can be a tough job. Depending on your particular job, you might already know more or less what the parameters should be. If required, you could use [manual tuning][https://en.wikipedia.org/wiki/PID_controller#Manual_tuning] to find optimal parameters. 
 - For kp, start with 100; if your thermostat deviates by 1 °C, you might want the heater to turn on for 100%. If required, gradually make it bigger if you see that the direct reaction of the controller is too low.
-- For ki, keep this number to 0 until kp is set. Than start with a small number (0.1). If you see that the reaction over time is only slowly rising, than increase it, until the controller regulates to the sepoint in a reasonalble amount of time. 
+- For ki, keep this number to 0 until kp is set. Then, start with a small number (0.1). If you see that the reaction over time is only slowly rising, then increase it, until the controller regulates to the setpoint in a reasonable amount of time. 
 - For kd, keep this number to 0 until kp and ki are set. Now you can use the kd to prevent the regulator from overshoot. Only increase in small steps.
 
 ## Configuration
