@@ -89,6 +89,15 @@ title: "Increasing the reach of Bluetooth devices"
 
 Bluetooth technology has a limited range. Home Assistant can expand the reach of its Bluetooth devices by communicating via Bluetooth proxy devices powered by [ESPHome](https://esphome.io/). 
 
+## Introduction
+
+The video below provides an overview on Bluetooth proxies and how to set them up. The video was created some time ago. In the meantime, Home Assistant also supports active connections.
+
+<lite-youtube videoid="CjpPdwK_ttg" videotitle="Increase the range of your Bluetooth devices!"></lite-youtube>
+
+
+## Installing the ESPHome software on the device
+
 Pick your product to turn it into a Bluetooth proxy for Home Assistant. No programming or other software required.
 
 If you're an **advanced user** who wants to install the configuration via ESPHome add-on: You can find the `configuration.yaml` on [github](https://github.com/esphome/bluetooth-proxies).
@@ -100,32 +109,32 @@ To install the ESPHome software on the device, follow these steps:
 
 <div class="content">
 <div class="radios">
-    <label>
+    <label>r
       <input type="radio" name="type" value="esp32-generic" checked />
-      <img src="/images/docs/esphome/esp32_generic.png" alt="ESP32 Generic" />
+      <img src="/images/esphome/esp32_generic.png" alt="ESP32 Generic" />
     </label>
     <label>
       <input type="radio" name="type" value="m5stack-atom-lite" />
-      <img src="/images/docs/esphome/m5stack_atom_lite.png" alt="M5Stack Atom Lite" />
+      <img src="/images/esphome/m5stack_atom_lite.png" alt="M5Stack Atom Lite" />
     </label>
     <label>
       <input type="radio" name="type" value="olimex-esp32-poe-iso" />
       <img
-        src="/images/docs/esphome/olimex_esp32_poe_iso.png"
+        src="/images/esphome/olimex_esp32_poe_iso.png"
         alt="Olimex ESP32 Power-over-Ethernet ISO"
       />
     </label>
     <label class="diy">
       <input type="radio" name="type" value="lilygo-t-eth-poe" />
-      <img src="/images/docs/esphome/lilygo-eth-poe.png" alt="LilyGO T-ETH-POE" />
+      <img src="/images/esphome/lilygo-eth-poe.png" alt="LilyGO T-ETH-POE" />
     </label>
     <label class="diy">
       <input type="radio" name="type" value="gl-s10" />
-      <img src="/images/docs/esphome/gl-s10.png" alt="GL.iNet GL-S10" />
+      <img src="/images/esphome/gl-s10.png" alt="GL.iNet GL-S10" />
     </label>
     <label class="diy">
       <input type="radio" name="type" value="wt32-eth01" />
-      <img src="/images/docs/esphome/wt32-eth01.png" alt="Wireless-Tag WT32-ETH01" />
+      <img src="/images/esphome/wt32-eth01.png" alt="Wireless-Tag WT32-ETH01" />
     </label>
 </div>
   <br />
@@ -297,7 +306,7 @@ To install the ESPHome software on the device, follow these steps:
 
 {% include /esphome/flash_firmware_steps.markdown %}
 
-### Advanced Users
+### Advanced users
 
 DIY Expert? [Show advanced boards](?diy)
 

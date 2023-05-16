@@ -249,6 +249,13 @@ The following remote adapters are supported:
   - Single active connection: not supported
   - Multiple active connections: not supported
 
+### Improving the range of Bluetooth devices
+
+![Using Bluetooth proxies to increase the range](/images/esphome/header.png)
+
+For instructions on how to set up an ESPHome Bluetooth proxy to increase the range of your Bluetooth devices, refer to this [tutorial](/tutorials/increasing_bluetooth_reach/).
+
+
 ## Troubleshooting
 
 ### Integrations that require exclusive use of the Bluetooth Adapter
