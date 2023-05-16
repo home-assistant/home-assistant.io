@@ -100,7 +100,7 @@ max_temp:
 cycle_time:
   description: Cycle time for the internal PID controller.
   required: false
-  default: {"seconds": 30}
+  default: "{'seconds': 30}"
   type: time_period
 target_temp:
   description: Target temperature on startup.
