@@ -65,7 +65,7 @@ entity:
   type: string
 type:
   required: false
-  description: "Sets a custom card type: `custom:my-custom-card`. It also can be used to force entities with a default special row format to render as a simple state. You can do this by setting the type: `simple-entity`. This can be used, for example, to replace a helper with an editable control with a read-only value.
+  description: "Sets a custom card type: `custom:my-custom-card`. It also can be used to force entities with a default special row format to render as a simple state. You can do this by setting the type: `simple-entity`. This can be used, for example, to replace a helper with an editable control with a read-only value."
   type: string
 name:
   required: false
