@@ -109,7 +109,7 @@ To install the ESPHome software on the device, follow these steps:
 
 <div class="content">
 <div class="radios">
-    <label>r
+    <label>
       <input type="radio" name="type" value="esp32-generic" checked />
       <img src="/images/esphome/esp32_generic.png" alt="ESP32 Generic" />
     </label>
