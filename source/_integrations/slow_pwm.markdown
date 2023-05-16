@@ -16,7 +16,7 @@ ha_integration_type: integration
 
 The `slow_pwm` platform is a `number`. It can be used to control one or multiple digital switches in an analog control algorithm. 
 The switches will be controlled by pulse width modulation (PWM, see https://en.wikipedia.org/wiki/Pulse-width_modulation). 
-This enables the usage of digital switches in modulated modes. This is typically useful in slow systems like floorheater or boiler heater controller systems. The [PID controller](/integrations/pid_controller) and the [PID thermostat](/integrations/pid_thermostat)  can use this number as regulated output. 
+This enables the usage of digital switches in modulated modes. This is typically useful in slow systems like floor heater or boiler heater controller systems. The [PID controller](/integrations/pid_controller) and the [PID thermostat](/integrations/pid_thermostat)  can use this number as regulated output. 
 
 ## Configuration
 {% include integrations/config_flow.md %}
