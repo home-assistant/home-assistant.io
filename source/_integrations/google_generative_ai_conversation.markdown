@@ -37,10 +37,10 @@ Model:
   description: Model used to generate response.
 
 Temperature:
-  description: Creativity allowed in the responses. Typical values are in the range: `[0.0, 1.0]`. Higher values produce a more random and varied response. A temperature of zero will be deterministic.
+  description: Creativity allowed in the responses. Higher values produce a more random and varied response. A temperature of zero will be deterministic.
 
 Top P:
-  description: Probability threshold for top-p sampling. Typical values are in the `[0.9, 1.0]` range.
+  description: Probability threshold for top-p sampling.
 
 Top K:
   description: Number of top-scored tokens to consider during generation.
