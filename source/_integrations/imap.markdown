@@ -77,7 +77,7 @@ search:
 folder:
   description: The IMAP folder configuration
 text:
-  description: The email body `text` of the the message (only the first 2048 bytes will be available)
+  description: The email body `text` of the the message (by default only the first 2048 bytes will be available)
 sender:
   description: The `sender` of the message
 subject:
@@ -90,6 +90,14 @@ headers:
 {% endconfiguration_basic %}
 
 The `event_type` for the custom event should be set to `imap_content`. The configuration below shows how you can use the event data in a template `sensor`.
+
+If the default maximum message size (2048) to be used in events is too small for your needs, then this maximum size setting can be increased(advanced mode is required).
+
+<div class='note warning'>
+
+Increasing the default maximum message size (2048) could have a negative impact on performance as event data is also logged by the `recorder`. If the total event data size is exceeds the maximum event size (32168) the event will be skipped.
+
+</div>
 
 {% raw %}
 
