@@ -52,6 +52,11 @@ proximity:
     unit_of_measurement: mi
 ```
 
+### Video Tutorial
+This video tutorial explains how to set up geofencing in Home Assistant using the proximity integration.
+
+<lite-youtube videoid="pjAyRN5UiBg" videotitle="Geofencing in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
+
 {% configuration %}
 zone:
   description: The zone to which this integration is measuring the distance to. Default is the home zone.
