@@ -33,8 +33,6 @@ The Google Generative AI API key is used to authenticate requests to the Google 
 Prompt Template:
   description: The starting text for the AI language model to generate new text from. This text can include information about your Home Assistant instance, devices, and areas and is written using [Home Assistant Templating](/docs/configuration/templating/).
 
-See [Google Generative AI documentation](https://developers.generativeai.google/api/python/google/generativeai) for the following options.
-
 Model:
   description: Model used to generate response.
 
