@@ -3,6 +3,7 @@ title: TP-Link Omada
 description: Instructions on integrating TP-Link Omada SDN networking devices to Home Assistant.
 ha_category:
   - Hub
+  - Update
 ha_release: 2023.3
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: tplink_omada
 ha_platforms:
   - switch
+  - update
 ha_integration_type: hub
 ---
 
@@ -25,6 +27,7 @@ The integration provides basic configuration and status of Omada devices control
 - Username/Password: A user account with permissions to view & configure the site is required.
 
 ### Multiple Sites
+
 If you have multiple sites managed by your controller, you will be prompted to choose which site to manage.
 
 ## Supported Controllers
@@ -35,21 +38,22 @@ TP-Link Omada Controller:
 - OC300
 - Software Controller.
 
-Controller versions 5.0.0 and later are supported.
+Controller versions 5.1.0 and later are supported.
 
 ## Supported Omada devices
 
 ### Network Switches
 
 - Support for enabling/disabling Power over Ethernet on a per-port basis.
+- Firmware Update entities.
 
 ### Access Points
 
-- Not currently supported.
+- Firmware Update entities.
 
 ### Internet Gateways
 
-- Not currently supported.
+- Firmware Update entities.
 
 ## Device Trackers
 

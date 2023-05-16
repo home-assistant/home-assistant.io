@@ -100,7 +100,7 @@ This example also uses the [matrix `notify` platform](#notifications).
 {% raw %}
 
 ```yaml
-# The Matrix component
+# The Matrix integration
 matrix:
   homeserver: https://matrix.org
   username: "@my_matrix_user:matrix.org"
@@ -155,7 +155,7 @@ This configuration will:
 
 The `matrix` platform allows you to deliver notifications from Home Assistant to a [Matrix](https://matrix.org/) room. Rooms can be both direct as well as group chats.
 
-To enable Matrix notifications in your installation, you first need to configure the [Matrix component](#configuration). Then, add the following to your `configuration.yaml` file:
+To enable Matrix notifications in your installation, you first need to configure the [Matrix integration](#configuration). Then, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

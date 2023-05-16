@@ -94,11 +94,11 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 - Silicon Labs EmberZNet based radios using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
   - [Home Assistant SkyConnect](/skyconnect/)
   - [ITead SONOFF Zigbee 3.0 USB Dongle Plus Model "ZBDongle-E" (EFR32MG21 variant)](https://itead.cc/product/zigbee-3-0-usb-dongle/)
-  - [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs-usb-adapter.html)/[POPP ZB-Stick](https://shop.zwave.eu/detail/index/sArticle/2496) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
+  - [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs-usb-adapter.html)/POPP ZB-Stick (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
   - [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs-zigbee-shield.html) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
 - Texas Instruments based radios (via the [zigpy-znp](https://github.com/zigpy/zigpy-znp) library for zigpy)
-  - [CC2652P/CC2652R/CC2652RB USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
-  - [CC1352P/CC1352R USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
+  - [CC2652P/CC2652R/CC2652RB USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
+  - [CC1352P/CC1352R USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
 - dresden elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
   - [ConBee II (a.k.a. ConBee 2) USB adapter from dresden elektronik](https://phoscon.de/conbee2)
   - [RaspBee II (a.k.a. RaspBee 2) Raspberry Pi Shield from dresden elektronik](https://phoscon.de/raspbee2)
@@ -387,21 +387,6 @@ To add a new device:
 1. Reset your Zigbee devices according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times, switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
 1. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
 
-### Best practices to avoid pairing/connection difficulties
-
-Verify that you try to follow recommended best practices to avoid pairing and/or connection issues:
-
-- If possible try to pair your Zigbee devices in their intended final location, (and not pair it next to the Zigbee coordinator and then need to move it after).
-  - Pairing a Zigbee device next to the Zigbee coordinator and then moving it later can result in dropped/lost connections or other issues.
-    - If the device you want to add is not brand new and as such never paired before then you always have to make sure to first manually reset the device to its factory default settings before you will be able to add/pair it.
-- Some battery-operated Zigbee devices are known to have problems with pairing if they have Low battery voltage.
-    - Some people have reported replacing the battery on their newly received Xiaomi/Aqara devices solved pairing issues.
-- Check that you have enough Zigbee router devices (also known as Zigbee signal repeaters or range extenders) and if you do not have any, invest and add some mains-powered devices that will work as Zigbee routers.
-    - Aim to start out with mains-powered devices before adding battery-operated devices as a "weak" Zigbee network mesh (e.g., the device is too far from the Zigbee coordinator or a Zigbee router) may prevent some devices from being paired. Zigbee router devices are also needed to increase the maximum of devices that can be connected to your Zigbee mesh network.
-    - Note that some Zigbee devices are not fully compatible with all brands of Zigbee router devices. Xiaomi/Aqara devices are for example known not to work with Zigbee router devices from Centralite, General Electrics, Iris, Ledvance/OSRAM, LIGHTIFY/Sylvania, Orvibo, PEQ, Securifi, and SmartThings/Samsung. Better results can usually be achieved by using mains-powered devices IKEA and Nue/3A Home or dedicated DIY routing devices based on Texas Instruments CC253x/CC26x2 and XBee Series 2/3 Zigbee radios.
-- Be patient as the pairing of some Zigbee devices may require multiple attempts and you may sometimes need to try again and again.
-    - Some devices, like example those from Xiaomi/Aqara, are known to not be 100% compliant with the standard Zigbee specifications and may therefore require many paring attempts over 10-20 minutes or longer.
-
 ### Using router devices
 
 You use routers to increase the number of Zigbee devices that can be used in a network. The total number of Zigbee devices that you have on a Zigbee network depends on a few things, but you should know that Zigbee coordinator hardware and firmware only plays a larger role in Zigbee networks with a lot of devices. More important is how many directly connected devices ("direct children") versus how many routers are connected to your Zigbee coordinator. Zigpy library which ZHA uses has an upper limit. This is 32 direct children, but if your Zigbee coordinator hardware is powerful enough then you can still have hundreds of Zigbee devices connected through routers.
@@ -465,6 +450,8 @@ To help resolve any kinks or compatibility problems, report bugs as issues with 
 
 Note that ZHA only supports connecting a single dedicated Zigbee Coordinator radio adapter or module with a single Zigbee network and that the Zigbee Coordinator cannot already be connected or used by any other application. Any devices that are or have previously been connected to another Zigbee implementation will also need to first be reset to their factory default settings before they can be paired/joined to ZHA, please see each device manufacturer's documentation.
 
+Support for commissioning Zigbee 3.0 devices via "Install Code" or "QR Code" via the 'zha.permit' service has so far only been implemented for 'ezsp' (Silicon Labs EmberZNet) or 'znp' (Texas Instruments) radio type in ZHA. Other radio types are missing support in their respective [radio libraries for zigpy](https://github.com/zigpy/) or manufacturer's firmware commands/APIs.
+
 ZHA does currently not support devices that can only use the ZGP ("Zigbee Green Power") profile which is used in a few batteryless self-powered or energy harvesting devices, (such as for example; Philips Hue Click, Philips Hue Tap, and some "Friends of Hue" partnership switches).
 
 ZHA does not currently support devices that can only use the ZSE ("Zigbee Smart Energy") profile, that is however due to the "Zigbee SE" specification not being part of the standard Zigbee 3.0 specification and thus not implemented in most of the Zigbee protocol stacks that are commonly available Zigbee Coordinator radio adapters and modules.
@@ -480,6 +467,23 @@ Tip to new users is that, while there is no official list of supported devices, 
 Home Assistant's ZHA integration already supports most standard device types out-of-the-box as long as they follow the official Zigbee specifications, but for devices that manufacturers have not properly not fully Zigbee compatible, the ZHA integration has implemented a library called "[ZHA Device Handlers (also known as "zha-quirk")](https://github.com/zigpy/zha-device-handlers)" that handle and resolve compliance issues via custom conversion/translation of Zigbee parameters (clusters and attributes) for specific devices which do not conform with the Zigbee standards.
 
 The few devices that will, for example, not join/pair properly or, while joined/paired, do not present all attributes in the ZHA integration likely deviate from the Zigbee specifications set by the [CSA (Connectivity Standards Alliance)](https://csa-iot.org/all-solutions/zigbee/). These devices may therefore require the creation of a bug report by a device owner, supplying debug logs. The device owner may need to actively assist in troubleshooting by providing the information developers need to create custom ZHA Device Handlers.
+
+### Best practices to avoid pairing/connection difficulties
+
+If you are having problems pairing a device to then ZHA integratuon then it is recommomended to verify that you try to follow recommended best practices to avoid pairing and/or connection issues:
+
+- Check that your setup and environment are optimized to avoid interference.
+  - As interference avoidance is an extremely important topic on its own, please read and follow the tips in the separate section below about Zigbee interference avoidance and network range/coverage optimization.
+- Check that you have enough Zigbee router devices (also known as Zigbee signal repeaters or range extenders) and if you do not have any, invest and add some mains-powered devices that will work as Zigbee routers.
+    - Aim to start out with mains-powered devices before adding battery-operated devices as a "weak" Zigbee network mesh (e.g., the device is too far from the Zigbee coordinator or a Zigbee router) may prevent some devices from being paired. Zigbee router devices are also needed to increase the maximum of devices that can be connected to your Zigbee mesh network.
+    - Note that some Zigbee devices are not fully compatible with all brands of Zigbee router devices. Xiaomi/Aqara devices are for example known not to work with Zigbee router devices from Centralite, General Electrics, Iris, Ledvance/OSRAM, LIGHTIFY/Sylvania, Orvibo, PEQ, Securifi, and SmartThings/Samsung. Better results can usually be achieved by using mains-powered devices IKEA and Nue/3A Home or dedicated DIY routing devices based on Texas Instruments CC253x/CC26x2 and XBee Series 2/3 Zigbee radios.
+- If possible try to pair your Zigbee devices in their intended final location, (and not pair it next to the Zigbee coordinator and then need to move it after).
+  - Pairing a Zigbee device next to the Zigbee coordinator and then moving it later can result in dropped/lost connections or other issues.
+    - If the device you want to add is not brand new and as such never paired before then you always have to make sure to first manually reset the device to its factory default settings before you will be able to add/pair it.
+- Some battery-operated Zigbee devices are known to have problems with pairing if they have Low battery voltage.
+    - Some people have reported replacing the battery on their newly received Xiaomi/Aqara devices solved pairing issues.
+- Be patient as the pairing of some Zigbee devices may require multiple attempts and you may sometimes need to try again and again.
+    - Some devices, like example those from Xiaomi/Aqara, are known to not be 100% compliant with the standard Zigbee specifications and may therefore require many paring attempts over 10-20 minutes or longer.
 
 ### Zigbee interference avoidance and network range/coverage optimization
 

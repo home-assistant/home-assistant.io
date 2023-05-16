@@ -7,7 +7,9 @@ ha_category:
   - Car
   - Lock
   - Notifications
+  - Number
   - Presence Detection
+  - Select
   - Sensor
 ha_release: 0.64
 ha_iot_class: Cloud Polling
@@ -23,6 +25,8 @@ ha_platforms:
   - diagnostics
   - lock
   - notify
+  - number
+  - select
   - sensor
 ha_integration_type: integration
 ---
@@ -45,6 +49,8 @@ This integration provides the following platforms:
 - Sensors: Mileage, remaining range, remaining fuel, charging time remaining (electric cars), charging status (electric cars), remaining range electric (electric cars).
 - [Notifications](/integrations/bmw_connected_drive/#notifications): Send Points of Interest (POI) to your car.
 - [Buttons](/integrations/bmw_connected_drive/#buttons): Turn on air condition, sound the horn, flash the lights, update the vehicle location and update the state.
+- [Selects](/integrations/bmw_connected_drive/#selects): Display and control charging related settings for (PH)EVs.
+- [Numbers](/integrations/bmw_connected_drive/#numbers): Display and control numeric charging related settings for (PH)EVs.
 
 ## Configuration
 
@@ -133,6 +139,23 @@ The `button.<your_vehicle>_find_vehicle` button requests the vehicle to update t
 ### Update the state / refresh from cloud
 
 The `button.<vehicle_model>_refresh_from_cloud` button fetches the last state of the vehicles of all your accounts from the BMW server. This does *not* trigger an update from the vehicle; it gets the data from the BMW servers. So this service does *not* interact with your vehicles.
+
+## Selects
+
+If you have a (PH)EV, you can control the charging process through Home Assistant. The selects are created automatically depending on your vehicle's capabilities and can be pressed/executed from the UI or using the `select.select_option` service. For more information, please see the [select documentation](/integrations/select/).
+
+Using these selects will impact the state of your vehicle. Use them with care!
+
+- **Charging Mode**: Vehicle can be set to `IMMEDIATE_CHARGING` (charge as soon as plugged in) or `DELAYED_CHARGING` (charge only if within charging window). It can be used to start/stop charging if the charging window is set accordingly.
+- **AC Charging Limit**: The maximum current a vehicle will charge with. Not available on all EVs.
+
+## Numbers
+
+If you have a (PH)EV, you can control the charging process through Home Assistant. The number entities are created automatically depending on your vehicle's capabilities and can be changed from the UI or using the `number.set_value` service. For more information, please see the [number documentation](/integrations/number/).
+
+Using these selects will impact the state of your vehicle, use them with care!
+
+- **Target SoC**: Vehicle will charge until this battery level is reached. Not available on all EVs.
 
 ## Disclaimer
 

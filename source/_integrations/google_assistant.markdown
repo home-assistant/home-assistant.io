@@ -269,6 +269,7 @@ entity_config:
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
 
 - alarm_control_panel (arm/disarm)
+- button (scene)
 - camera (streaming, requires compatible camera)
 - group (on/off)
 - input_boolean (on/off)

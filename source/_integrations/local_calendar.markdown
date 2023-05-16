@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_domain: local_calendar
 ha_platforms:
   - calendar
+  - diagnostics
 ha_codeowners:
   - '@allenporter'
 ha_integration_type: integration
