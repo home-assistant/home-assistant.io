@@ -32,7 +32,7 @@ Maximum:
 Cycle time:
   description: Duration to execute a single controller cycle.
 Minimal switch time:
-  description: Shortest possible time a switch should be on- or off. This parameter is typically useful in slow switching applications like the wax-valve of domestic heater systems.
+  description: Shortest possible time a switch should be on or off. This parameter is typically useful in slow-switching applications like the wax valve of domestic heater systems.
 Step:
   description: Step size of the number.
 Mode: 
