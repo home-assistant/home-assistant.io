@@ -17,7 +17,11 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The Android TV Remote integration allows you to control an Android TV device by sending [commands](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt) and launching apps. For this to work the Android TV device needs to have [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service) which is pre-installed on most devices.
+The Android TV Remote integration allows you to control an Android TV device by sending [commands](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt) and launching apps. For this to work, the Android TV device needs to have [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service) which is pre-installed on most devices.
+
+For a quick introduction on how to get started with Android TV Remote, check out this video:
+
+<lite-youtube videoid="htbnf5YxAuw" videotitle="Android TV Remote Integration with Home Assistant"></lite-youtube>
 
 {% include integrations/config_flow.md %}
 
@@ -30,10 +34,10 @@ The entity has the `current_activity` attribute that shows the current foregroun
 
 You can use the `remote.turn_off`, `remote.turn_on`, `remote.toggle`,  and `remote.send_command` services from the [remote](/integrations/remote/) platform.
 
-For a list of the most common commands you can send to the Android TV via `remote.send_command` see: [TvKeys](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt).
-For a full list see [here](https://github.com/tronikos/androidtvremote2/blob/main/src/androidtvremote2/remotemessage.proto#L90).
+For a list of the most common commands that you can send to the Android TV via `remote.send_command`, see: [TvKeys](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt).
+For a full list, see [here](https://github.com/tronikos/androidtvremote2/blob/main/src/androidtvremote2/remotemessage.proto#L90).
 
-If `activity` is specified in `remote.turn_on` it will open the specified URL in the associated app.
+If `activity` is specified in `remote.turn_on`, it will open the specified URL in the associated app.
 
 Examples of URLs to pass as activity for some popular apps:
 

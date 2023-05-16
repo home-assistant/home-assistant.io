@@ -72,6 +72,8 @@
     Conditions are an optional part of an automation that will prevent an
     action from firing if they are not met.
   link: /docs/scripts/conditions/
+  aliases:
+    - conditions
 
 - term: Cover
   definition: >-
@@ -282,6 +284,19 @@
     other integrations.
   link: /docs/configuration/platform_options/
 
+- term: Reload
+  definition: >-
+    Updates Home Assistant configuration files. Changes are normally
+    automatically updated. However, when changes are made outside of the UI
+    and at a file level, Home Assistant is not aware of these changes and
+    requires the configuration file(s) to be reloaded to pick up any changes
+    made by going to **Settings** > **System** > **Restart Home Assistant**
+    (top right) > **Quick reload**. More granular reload options are available
+    in *YAML configuration reloading* section in **Developer tools** > **YAML**.
+  excerpt: >
+    Updates Home Assistant configuration files. Changes are normally
+    automatically updated.
+
 - term: Scene
   definition: >-
     Scenes capture the states you want certain entities to be. For example,
@@ -335,8 +350,9 @@
     A service carries out one specific task, for example: turn on the light in the 
     living room. A service has targets and data and can be called by actions, a 
     dashboard, or via voice command.
-
   link: /docs/scripts/service-calls/
+  aliases:
+    - services
 
 - term: State
   definition: |-

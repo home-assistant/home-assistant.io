@@ -182,6 +182,7 @@ The following models have been tested and confirmed to work:
 - RLC-522
 - RLC-810A
 - RLC-811A
+- RLC-81PA
 - RLC-820A
 - RLC-822A
 - RLC-823A
@@ -190,6 +191,7 @@ The following models have been tested and confirmed to work:
 - RLN8-410 NVR
 - RLN16-410 NVR
 - RLN36 NVR
+- Reolink Duo 2 WiFi
 - Reolink Duo Floodlight PoE
 - Reolink TrackMix PoE
 - Reolink Video Doorbell (PoE and Wi-Fi)
