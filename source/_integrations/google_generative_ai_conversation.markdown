@@ -16,7 +16,7 @@ The Google Generative AI integration adds a conversation agent powered by [Googl
 
 This conversation agent is unable to control your house. It can only query information that has been provided by Home Assistant. To be able to answer questions about your house, Home Assistant will need to provide Google Generative AI with the details of your house, which include areas, devices and their states.
 
-This integration requires an API key to use, [which you can generate here.](https://makersuite.google.com/app/apikey).
+This integration requires an API key to use, [which you can generate here](https://makersuite.google.com/app/apikey).
 
 {% include integrations/config_flow.md %}
 
