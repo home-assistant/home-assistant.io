@@ -382,7 +382,7 @@ This service disables a lock code on a Zigbee lock.
 
 ## Adding devices
 
-Tip! Regardless if your timeline is now before or after you started adding devices to the ZHA integration, it is highly recommended that you read through the two segments under the troubleshooting section below about "*Best practices to avoid pairing/connection difficulties*" and "*Zigbee interference avoidance and network range/coverage optimization*" for general prerequisite knowledge and advice on how to achieve the best possible Zigbee network in your environment.
+Tip! It is highly recommended that you read through the two segments under the troubleshooting section below about "*Best practices to avoid pairing/connection difficulties*" and "*Zigbee interference avoidance and network range/coverage optimization*" for general prerequisite knowledge and advice on how to achieve the best possible Zigbee network in your environment.
 
 **To add a new Zigbee device:**
 
