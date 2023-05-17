@@ -271,21 +271,23 @@ Currently, the following domains are available to be used with Google Assistant,
 - alarm_control_panel (arm/disarm)
 - button (scene)
 - camera (streaming, requires compatible camera)
-- group (on/off)
-- input_boolean (on/off)
-- input_select (option/setting/mode/value)
-- scene (on)
-- script (on)
-- switch (on/off)
+- climate (temperature setting, hvac_mode)
+- cover (on/off/set position)
 - fan (on/off/speed percentage/preset mode)
+- group (on/off)
+- humidifier (humidity setting/on/off/mode)
+- input_boolean (on/off)
+- input_button
+- input_select (option/setting/mode/value)
 - light (on/off/brightness/rgb color/color temp)
 - lock
-- cover (on/off/set position)
 - media_player (on/off/set volume (via set volume)/source (via set input source)/control playback)
-- climate (temperature setting, hvac_mode)
-- vacuum (dock/start/stop/pause)
+- scene (on)
+- script (on)
+- select
 - sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
-- humidifier (humidity setting/on/off/mode)
+- switch (on/off)
+- vacuum (dock/start/stop/pause)
 
 <div class='note'>
 
