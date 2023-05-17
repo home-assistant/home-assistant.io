@@ -116,7 +116,7 @@ device:
       required: false
       type: string
 device_class:
-  description: The [type/class](/integrations/switch/#device-class) of the switch to set the icon in the frontend.
+  description: The [type/class](/integrations/switch/#device-class) of the switch to set the icon in the frontend. The `device_class` can be `null`.
   required: false
   type: device_class
   default: None

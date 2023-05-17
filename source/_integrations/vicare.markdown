@@ -5,8 +5,6 @@ ha_category:
   - Climate
 ha_release: 0.99
 ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@oischinger'
 ha_config_flow: true
 ha_domain: vicare
 ha_platforms:
