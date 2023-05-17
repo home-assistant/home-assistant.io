@@ -180,3 +180,17 @@ data:
   start_date: "2022-10-01"
   end_date: "2022-10-02"
 ```
+
+Home Assistant Calendars do not allow zero duration Calendar events. The following would create a one minute long event starting "now". This could be used to record an external event in a Calendar.
+
+{% raw %}
+```yaml
+service: calendar.create_event
+target:
+  entity_id: calendar.device_automation_schedules
+data:
+  summary: "Example"
+  start_date_time: "{{ now() }}"
+  end_date_time: "{{ now() + timedelta(minutes=1) }}"
+```
+{% endraw %}

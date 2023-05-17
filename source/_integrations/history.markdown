@@ -24,13 +24,7 @@ This integration is by default enabled, unless you've disabled or removed the [`
 history:
 ```
 
-<p class='img'>
-  <a href='/images/screenshots/component_history_24h.png'>
-    <img src='/images/screenshots/component_history_24h.png' />
-  </a>
-</p>
-
-#### API
+## API
 
 The history information is also available through the
 [RESTful API](/developers/rest_api/#get-apihistory).
