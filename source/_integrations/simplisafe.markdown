@@ -35,6 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - **Motion Sensor**: reports on motion detected*.
 - **Siren**: reports on the siren status*.
 - **Smoke Detector**: reports on the smoke sensor status*.
+- **Smoke+CO Detector**: reports on the smoke and carbon monoxide sensor status*.
 - **Water Sensor**: reports on water sensor status*.
 
 * Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed.
