@@ -401,7 +401,7 @@ All Zigbee coordinator firmware will only allow you to directly connect a certai
 
 The total number of Zigbee devices that you can have on a Zigbee network depends on a few things. The Zigbee coordinator hardware and its firmware only play a larger role in Zigbee networks with a lot of devices. More important is the number of directly connected devices ("direct children") versus the number of routers that are connected to your Zigbee coordinator. The Zigpy library, which the ZHA integration depends on, has an upper limit that is 32 direct children, but you can still have hundreds of Zigbee devices in total connected indirectly through routes via Zigbee router devices.
 
-In this theoretical example, a CC2652 based Zigbee Coordinator has three CC2530 Zigbee Router devices for a total device limit of 77:
+In this theoretical example, a CC2652-based Zigbee coordinator has three CC2530 Zigbee router devices for a total limit of 77 devices:
 
 - Coordinator: 32 Zigbee End devices - 3 routers = 29
 - Router one: + 16 devices
