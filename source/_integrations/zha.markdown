@@ -285,7 +285,7 @@ zha:
       channels: [15, 20, 25]  # Channel mask
 ```
 
-Note! The general best practice is to not change the Zigbee channel from the ZHA default. Also, the related troubleshooting segments mentioned in the tip above will among other things inform that if you have issues with overlapping frequencies between Wi-Fi and Zigbee then it will usually be a better idea to first only try changing and setting a static Wi-Fi channel on your Wi-Fi Router or all your Wi-Fi Access Points (instead of just changing to an other Zigbee channel).
+Note! The best practice is to not change the Zigbee channel from the ZHA default. Also, the related troubleshooting segments mentioned in the tip above will, among other things, inform that if you have issues with overlapping frequencies between Wi-Fi and Zigbee, then it is usually better to first only try changing and setting a static Wi-Fi channel on your Wi-Fi router or all your Wi-Fi access points (instead of just changing to another Zigbee channel).
 
 MetaGeek Support has a good reference article about channel selection for [Zigbee and WiFi coexistance]([https://support.metageek.com/hc/en-Ti](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence)).
 
