@@ -24,7 +24,8 @@ This enables the usage of digital switches in modulated modes. This is typically
 Name:
   description: The name the sensor should have. You can change it again later.
 Output switch entities:
-  description: One or more output switches. When multiple outputs are selected, the range of 0..100% will be shared over the multiple switches. For example, with 2 switches at 50% output, only the first switch will be on full time, at 75% the first switch will be on 100% of the time, and the second 50%.
+  description: >
+    `entity_id`'s for switches, must be toggle devices. When multiple outputs are selected, the range of 0..100% will be shared over the multiple switches. For example, with 2 switches at 50% output only the first switch will be on full time, at 75% the first switch will be on 100% of the time, and the second 50%.
 Minimum:
   description: Minimal value of the number. On this value, all switches will be switched off continuously.
 Maximum:
