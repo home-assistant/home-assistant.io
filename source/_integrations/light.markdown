@@ -116,6 +116,6 @@ Turns one or multiple lights off.
 
 ### Service `light.toggle`
 
-Toggles the state of one or multiple lights. Takes the same arguments as [`light.turn_on`](#service-lightturn_on) service.
+Toggles the state of one or multiple lights. Takes the same arguments as the [`light.turn_on`](#service-lightturn_on) service.
 
 *Note*: If `light.toggle` is used for a group of lights, it will toggle the individual state of each light. If you want the lights to be treated as a single light, use [Light Groups](/integrations/group#binary-sensor-light-and-switch-groups) instead.
