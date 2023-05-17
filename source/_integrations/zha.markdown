@@ -272,7 +272,7 @@ Note: `cluster_id: 25` may also be `cluster_id: 0x0019`. The two are synonymous.
 
 ### Defining Zigbee channel to use
 
-Tip! Before considering to change to an other Zigbee channel on an existing Zigbee network it is highly recommended that you read through the two segments under the troubleshooting section below about "*Best practices to avoid pairing/connection difficulties*" and "*Zigbee interference avoidance and network range/coverage optimization*" for general prerequisite knowledge and advice on how to achieve the best possible Zigbee network in your environment.
+Tip! Before considering to change to an other Zigbee channel on an existing Zigbee network, it is highly recommended that you read through the two segments under the [troubleshooting](#troubleshooting) section below about "*Best practices to avoid pairing/connection difficulties*" and "*Zigbee interference avoidance and network range/coverage optimization*". These sections provide prerequisite information and advice on how to achieve the best possible Zigbee network in your environment.
 
 ZHA prefers to use Zigbee channel 15 by default. You can change this using YAML configuration, but this only works
 if there's no existing network. To change the channel for an existing network, radio has to be factory reset and a new network to be formed. This requires re-pairing of all the devices.
