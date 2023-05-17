@@ -91,7 +91,7 @@ headers:
 
 The `event_type` for the custom event should be set to `imap_content`. The configuration below shows how you can use the event data in a template `sensor`.
 
-If the default maximum message size (2048) to be used in events is too small for your needs, then this maximum size setting can be increased(advanced mode is required).
+If the default maximum message size (2048 bytes) to be used in events is too small for your needs, then this maximum size setting can be increased. You need to have your profile set to _advanced_ mode to do this.
 
 <div class='note warning'>
 
