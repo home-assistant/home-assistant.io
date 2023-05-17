@@ -393,7 +393,7 @@ Tip! It is highly recommended that you read through the two segments under the t
 
 ### Using router devices to add more devices
 
-You can normally assume that most mains-powered devices, e.g., many always-powered wall plugs or lightbulbs in your Zigbee network will automatically act as a Zigbee Router Device (sometimes also referred to as a Zigbee "signal repeater" or "range extended"). 
+Most mains-powered devices, e.g., many always-powered wall plugs or light bulbs in your Zigbee network will automatically act as a Zigbee router device (sometimes also referred to as a Zigbee "signal repeater" or "range extender"). 
 
 Because Zigbee should use a "[wireless mesh network]"(https://en.wikipedia.org/wiki/Wireless_mesh_network) to be effective, you will need to add Zigbee router devices to increase the number of Zigbee devices that can be used in your Zigbee network, both in the total number of devices that can be added as well as the total range and coverage of the network. Some Zigbee router devices do a much better job at routing and repeating Zigbee signals and messages than some other devices. You should not have a setup where Zigbee router devices (e.g. light bulbs) are often powered-off.  Zigbee router devices are meant to be always available.
 
