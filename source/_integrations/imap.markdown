@@ -95,7 +95,7 @@ If the default maximum message size (2048 bytes) to be used in events is too sma
 
 <div class='note warning'>
 
-Increasing the default maximum message size (2048) could have a negative impact on performance as event data is also logged by the `recorder`. If the total event data size is exceeds the maximum event size (32168) the event will be skipped.
+Increasing the default maximum message size (2048 bytes) could have a negative impact on performance as event data is also logged by the `recorder`. If the total event data size exceeds the maximum event size (32168 bytes), the event will be skipped.
 
 </div>
 
