@@ -409,7 +409,7 @@ In this theoretical example, a CC2652 based Zigbee Coordinator has three CC2530 
 - Router three: + 16 devices
 - Total device limit = **77 devices**
 
-Note that in practice you will likley need add a lot more Zigbee Router devices than in this example in order to extend the coverage of the network to reach that many devices.
+In practice, you will likely need to add a lot more Zigbee router devices than in this example in order to extend the coverage of the network to reach that many devices.
 
 ## Binding and unbinding
 
