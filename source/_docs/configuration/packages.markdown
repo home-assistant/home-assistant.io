@@ -81,7 +81,7 @@ homeassistant:
   packages: !include_dir_named packages
 ```
 
-The benefit of this approach is to pull all configurations required to integrate a system, into one file, rather than across several.
+The benefit of this approach is to pull all configurations required to integrate a system into one file&mdash;rather than keeping them spread across several files.
 You can use other !include-methods for packages folder, but with this one you get yaml-indentation 'as if the content was written in configuration.yaml'.
 
 
