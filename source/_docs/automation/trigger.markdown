@@ -786,6 +786,10 @@ automation:
   trigger:
     - platform: webhook
       webhook_id: "some_hook_id"
+      allowed_methods:
+        - POST
+        - PUT
+      local_only: true
 ```
 
 You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an example form data payload:
@@ -794,7 +798,9 @@ You can run this automation by sending an HTTP POST request to `http://your-home
 curl -X POST -d 'key=value&key2=value2' https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
-Webhooks support HTTP POST, PUT, and HEAD requests; POST requests are recommended. HTTP GET requests are not supported.
+Webhooks support HTTP POST, PUT, HEAD, and GET requests; PUT requests are recommended. HTTP GET and HEAD requests are not enabled by default but can be enabled by adding them to the `allowed_methods` option. The request methods can also be configured in the UI by clicking the settings gear menu button beside the Webhook ID.
+
+By default, webhook triggers can only be accessed from devices on the same network as Home Assistant or via [Nabu Casa Cloud webhooks](https://www.nabucasa.com/config/webhooks/). The `local_only` option should be set to `false` to allow webhooks to be triggered directly via the internet. This option can also be configured in the UI by clicking the settings gear menu button beside the Webhook ID.
 
 Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
 
@@ -817,6 +823,7 @@ Webhook endpoints don't require authentication, other than knowing a valid webho
 - Do not use webhooks to trigger automations that are destructive, or that can create safety issues. For example, do not use a webhook to unlock a lock, or open a garage door.
 - Treat a webhook ID like a password: use a unique, non-guessable value, and keep it secret.
 - Do not copy-and-paste webhook IDs from public sources, including blueprints. Always create your own.
+- Keep the `local_only` option enabled for webhooks if access from the internet is not required.
 
 ## Zone trigger
 

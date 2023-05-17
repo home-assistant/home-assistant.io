@@ -11,6 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@engrbm87'
+  - '@jbouwh'
 ha_config_flow: true
 ---
 
@@ -49,6 +50,21 @@ Below is an example for setting up the integration to connect to your Microsoft 
   - Password: Your password
   - Charset: `US-ASCII`
 
+### Selecting an alternate SSL cipher list (advanced mode)
+
+If the default IMAP server settings do not work, you might try to set an alternate SLL cipher list.
+The SSL cipher list option allows to select the list of SSL ciphers to be accepted from this endpoint. `default` (_system default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_)
+
+<div class='note info'>
+
+The SSL cipher list is an advanced setting. The option is available only when advanced mode is enabled (see user settings).
+
+</div>
+
+### Troubleshooting
+
+Email providers may limit the number of reported emails. The number may be less than the limit (10,000 at least for Yahoo) even if you set the `IMAP search` to reduce the number of results. If you are not getting expected events and cleaning your Inbox or the configured folder is not desired, set up an email filter for the specific sender to go into a new folder. Then create a new config entry or modify the existing one with the desired folder.
+
 ### Using events
 
 When a new message arrives that meets the search criteria the `imap` integration will send a custom [event](/docs/automation/trigger/#event-trigger) that can be used to trigger an automation.
@@ -66,7 +82,7 @@ search:
 folder:
   description: The IMAP folder configuration
 text:
-  description: The email body `text` of the the message
+  description: The email body `text` of the the message (only the first 2048 bytes will be available)
 sender:
   description: The `sender` of the message
 subject:
@@ -101,7 +117,6 @@ template:
           Date: "{{ trigger.event.data['date'] }}"
           Subject: "{{ trigger.event.data['subject'] }}"
           To: "{{ trigger.event.data['headers']['Delivered-To'][0] }}"
-          Subject: "{{ trigger.event.data['headers']['Subject'][0] }}"
           Return_Path: "{{ trigger.event.data['headers']['Return-Path'][0] }}"
           Received-first: "{{ trigger.event.data['headers']['Received'][0] }}"
           Received-last: "{{ trigger.event.data['headers']['Received'][-1] }}"
