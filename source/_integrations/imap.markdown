@@ -77,7 +77,7 @@ search:
 folder:
   description: The IMAP folder configuration
 text:
-  description: The email body `text` of the the message (by default only the first 2048 bytes will be available)
+  description: The email body `text` of the message (by default, only the first 2048 bytes will be available)
 sender:
   description: The `sender` of the message
 subject:
