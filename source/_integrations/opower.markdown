@@ -20,6 +20,7 @@ The Opower integration allows you to get energy information from utilities that 
 More than 175 utilities use Opower. Currently only the following ones are supported:
 
 - [Pacific Gas and Electric Company (PG&E)](https://www.pge.com/)
+- [Puget Sound Energy (PSE)](https://www.pse.com/)
 
 To add this integration to your installation, you will need your login username and password for your utility website.
 
