@@ -115,9 +115,9 @@ The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-us
 
 The below sample will listen on multiple ports which can be useful for devices that use webhooks that do no work with SSL or use an older TLS/SSL standard. 
 
-8123 - TLS with the modern TLS/SSL profile
-8124 - TLS with the intermediate TLS/SSL profile
-8125 - No TLS/SSL
+- 8123 - TLS with the modern TLS/SSL profile
+- 8124 - TLS with the intermediate TLS/SSL profile
+- 8125 - No TLS/SSL
 
 ```yaml
 # Example configuration.yaml entry
