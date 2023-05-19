@@ -454,7 +454,7 @@ For clarification, normally only devices that do not fully conform to CSA's ZCL 
 
 Before continuing with this section: If a device does not join/pair at all, read the troubleshooting sections about how to avoid pairing/connection difficulties, interference avoidance, and network range/coverage optimization.
 
-Also, a tip to new Zigbee users is to look at [blakadder's unofficial Zigbee Device Compatibility Repository](https://zigbee.blakadder.com) which anyone from any home automation community can help maintain by submitting device compatibility to it. His unofficial Zigbee device database contains independent community member's reports or device-specific pairing tips and tricks for several home automation gateway/bridge/hub software, including but not limited to open-source Zigbee implementations, such as example; ZHA, Zigbee2MQTT, and Tasmota (Zigbee2Tasmota).
+Tip to new Zigbee users: Checkout [blakadder's unofficial Zigbee Device Compatibility Repository](https://zigbee.blakadder.com). Anyone can help maintain the site by submitting device compatibility information to it. The repository contains independent community member's reports or device-specific pairing tips for several home automation gateway/bridge/hub software, including open-source Zigbee implementations, such as ZHA, Zigbee2MQTT, and Tasmota (Zigbee2Tasmota).
 
 #### How to add support for new and unsupported devices
 
