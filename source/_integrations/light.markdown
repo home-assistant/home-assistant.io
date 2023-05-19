@@ -43,7 +43,7 @@ Most lights do not support all attributes. You can check the integration documen
 | ---------------------- | -------- | ----------- |
 | `entity_id`  | no  | String or list of strings that point at `entity_id`s of lights. To target all lights, set `entity_id` to `all`.
 | `transition` | yes | Number that represents the time (in seconds) the light should take to transition to the new state.
-| `profile` | yes | String with the name of one of the [built-in profiles](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv) (relax, energize, concentrate, reading) or one of the custom profiles defined in `light_profiles.csv` in the current working directory. Light profiles define an xy color, brightness and a transition value (if no transition is desired, set to 0 or leave out the column entirely). If a profile is given, and a brightness is set, then the profile brightness will be overwritten.
+| `profile` | yes | String with the name of one of the [built-in profiles](https://github.com/home-assistant/core/blob/master/homeassistant/components/light/light_profiles.csv) (relax, energize, concentrate, reading) or one of the custom profiles defined in `light_profiles.csv` in the current working directory. Light profiles define an xy color, brightness and a transition value (if no transition is desired, set to 0 or leave out the column entirely). If a profile is given, and a brightness is set, then the profile brightness will be overwritten.
 | `hs_color` | yes | A list containing two floats representing the hue and saturation of the color you want the light to be. Hue is scaled 0-360, and saturation is scaled 0-100.
 | `xy_color` | yes | A list containing two floats representing the xy color you want the light to be. Two comma-separated floats that represent the color in XY.
 | `rgb_color` | yes | A list containing three integers between 0 and 255 representing the RGB color you want the light to be. Three comma-separated integers that represent the color in RGB, within square brackets.
@@ -116,6 +116,6 @@ Turns one or multiple lights off.
 
 ### Service `light.toggle`
 
-Toggles the state of one or multiple lights. Takes the same arguments as [`turn_on`](#service-lightturn_on) service.
+Toggles the state of one or multiple lights. Takes the same arguments as the [`light.turn_on`](#service-lightturn_on) service.
 
-*Note*: If `light.toggle` is used for a group of lights, it will toggle the individual state of each light. If you want the lights to be treated as a single light, use [Light Groups](/integrations/light.group/) instead.
+*Note*: If `light.toggle` is used for a group of lights, it will toggle the individual state of each light. If you want the lights to be treated as a single light, use [Light Groups](/integrations/group#binary-sensor-light-and-switch-groups) instead.
