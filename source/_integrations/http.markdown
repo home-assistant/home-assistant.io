@@ -35,33 +35,34 @@ servers:
   description: "List of servers"
   required: false
   type: list
-  server_host:
-    description: "Only listen to incoming requests on specific IP/host. By default the `http` integration auto-detects IPv4/IPv6 and listens on all connections. Use `server_host: 0.0.0.0` if you want to only listen to IPv4 addresses. The default listed assumes support for IPv4 and IPv6."
-    required: false
-    type: [list, string]
-    default: "0.0.0.0, ::"
-  server_port:
-    description: Let you set a port to use.
-    required: false
-    type: integer
-    default: 8123
-  ssl_certificate:
-    description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/fullchain.pem`. We recommend to use the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) instead of using this option.
-    required: false
-    type: string
-  ssl_peer_certificate:
-    description: Path to the client/peer TLS/SSL certificate to accept secure connections from.
-    required: false
-    type: string
-  ssl_key:
-    description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/privkey.pem`.
-    required: false
-    type: string
-  ssl_profile:
-    description: The [Mozilla SSL profile](https://wiki.mozilla.org/Security/Server_Side_TLS) to use. Only lower if you are experiencing integrations causing SSL handshake errors.
-    required: false
-    type: string
-    default: modern
+  keys:
+    server_host:
+      description: "Only listen to incoming requests on specific IP/host. By default the `http` integration auto-detects IPv4/IPv6 and listens on all connections. Use `server_host: 0.0.0.0` if you want to only listen to IPv4 addresses. The default listed assumes support for IPv4 and IPv6."
+      required: false
+      type: [list, string]
+      default: "0.0.0.0, ::"
+    server_port:
+      description: Let you set a port to use.
+      required: false
+      type: integer
+      default: 8123
+    ssl_certificate:
+      description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/fullchain.pem`. We recommend to use the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) instead of using this option.
+      required: false
+      type: string
+    ssl_peer_certificate:
+      description: Path to the client/peer TLS/SSL certificate to accept secure connections from.
+      required: false
+      type: string
+    ssl_key:
+      description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/privkey.pem`.
+      required: false
+      type: string
+    ssl_profile:
+      description: The [Mozilla SSL profile](https://wiki.mozilla.org/Security/Server_Side_TLS) to use. Only lower if you are experiencing integrations causing SSL handshake errors.
+      required: false
+      type: string
+      default: modern
 cors_allowed_origins:
   description: "A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, Authorization`. You must provide the exact Origin, i.e., `https://www.home-assistant.io` will allow requests from `https://www.home-assistant.io` but __not__ `http://www.home-assistant.io`."
   required: false
