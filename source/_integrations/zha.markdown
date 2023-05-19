@@ -473,7 +473,7 @@ If you do not want to develop such a "quirk" Python script yourself, you can sub
   * New device support requests require the device signature + diagnostic information. 
   * You may also need to actively help in further testing or provide additional information to the volunteering developers. 
 
-Note that submitting a new "device support request" does not guarantee that someone else will develop a custom "quirk" for ZHA, as it relies on volunteering developers contributing new ZHA Device Handlers to the project. However, without "device support requests" being submitted for deviating devices to the ZHA Device Handlers project, it is likely that the ZHA integration developers will not know that the specific Zigbee device is not working correctly in ZHA unless they happen to have bought it themselves by chance.
+Note that submitting a new "device support request" does not guarantee that someone else will develop a custom "quirk" for ZHA. The project relies on volunteering developers. However, without "device support requests", the developers may not be aware that your specific Zigbee device is not working correctly in ZHA. 
 
 ### Best practices to avoid pairing/connection difficulties
 
