@@ -31,28 +31,34 @@ http:
 ```
 
 {% configuration %}
-server_host:
-  description: "Only listen to incoming requests on specific IP/host. By default the `http` integration auto-detects IPv4/IPv6 and listens on all connections. Use `server_host: 0.0.0.0` if you want to only listen to IPv4 addresses. The default listed assumes support for IPv4 and IPv6."
-  required: false
-  type: [list, string]
-  default: "0.0.0.0, ::"
-server_port:
-  description: Let you set a port to use.
-  required: false
-  type: integer
-  default: 8123
-ssl_certificate:
-  description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/fullchain.pem`. We recommend to use the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) instead of using this option.
-  required: false
-  type: string
-ssl_peer_certificate:
-  description: Path to the client/peer TLS/SSL certificate to accept secure connections from.
-  required: false
-  type: string
-ssl_key:
-  description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/privkey.pem`.
-  required: false
-  type: string
+servers:
+  server_host:
+    description: "Only listen to incoming requests on specific IP/host. By default the `http` integration auto-detects IPv4/IPv6 and listens on all connections. Use `server_host: 0.0.0.0` if you want to only listen to IPv4 addresses. The default listed assumes support for IPv4 and IPv6."
+    required: false
+    type: [list, string]
+    default: "0.0.0.0, ::"
+  server_port:
+    description: Let you set a port to use.
+    required: false
+    type: integer
+    default: 8123
+  ssl_certificate:
+    description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/fullchain.pem`. We recommend to use the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) instead of using this option.
+    required: false
+    type: string
+  ssl_peer_certificate:
+    description: Path to the client/peer TLS/SSL certificate to accept secure connections from.
+    required: false
+    type: string
+  ssl_key:
+    description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/privkey.pem`.
+    required: false
+    type: string
+  ssl_profile:
+    description: The [Mozilla SSL profile](https://wiki.mozilla.org/Security/Server_Side_TLS) to use. Only lower if you are experiencing integrations causing SSL handshake errors.
+    required: false
+    type: string
+    default: modern
 cors_allowed_origins:
   description: "A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, Authorization`. You must provide the exact Origin, i.e., `https://www.home-assistant.io` will allow requests from `https://www.home-assistant.io` but __not__ `http://www.home-assistant.io`."
   required: false
@@ -76,11 +82,6 @@ login_attempts_threshold:
   required: false
   type: integer
   default: -1
-ssl_profile:
-  description: The [Mozilla SSL profile](https://wiki.mozilla.org/Security/Server_Side_TLS) to use. Only lower if you are experiencing integrations causing SSL handshake errors.
-  required: false
-  type: string
-  default: modern
 {% endconfiguration %}
 
 The sample below shows a configuration entry with possible values:
@@ -88,9 +89,11 @@ The sample below shows a configuration entry with possible values:
 ```yaml
 # Example configuration.yaml entry
 http:
-  server_port: 12345
-  ssl_certificate: /etc/letsencrypt/live/hass.example.com/fullchain.pem
-  ssl_key: /etc/letsencrypt/live/hass.example.com/privkey.pem
+  servers:
+    - server_port: 12345
+      ssl_certificate: /etc/letsencrypt/live/hass.example.com/fullchain.pem
+      ssl_key: /etc/letsencrypt/live/hass.example.com/privkey.pem
+      ssl_profile: modern
   cors_allowed_origins:
     - https://google.com
     - https://www.home-assistant.io
@@ -103,6 +106,29 @@ http:
 ```
 
 The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).
+
+## TLS/SSL Configuration per port
+
+The below sample will listen on multiple ports which can be useful for devices that use webhooks that do no work with SSL or use an older TLS/SSL standard. 
+
+8123 - TLS with the modern TLS/SSL profile
+8124 - TLS with the intermediate TLS/SSL profile
+8125 - No TLS/SSL
+
+```yaml
+# Example configuration.yaml entry
+http:
+  servers:
+    - server_port: 8123
+      ssl_certificate: /etc/letsencrypt/live/hass.example.com/fullchain.pem
+      ssl_key: /etc/letsencrypt/live/hass.example.com/privkey.pem
+      ssl_profile: modern
+    - server_port: 8124
+      ssl_certificate: /etc/letsencrypt/live/hass.example.com/fullchain.pem
+      ssl_key: /etc/letsencrypt/live/hass.example.com/privkey.pem
+      ssl_profile: intermediate
+    - server_port: 8125
+```
 
 ## Reverse proxies
 
