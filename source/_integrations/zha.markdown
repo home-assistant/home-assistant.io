@@ -450,7 +450,7 @@ Home Assistant's ZHA integration supports all standard Zigbee device types. It s
 
 Not all hardware manufacturers always fully comply with the standard specifications. Sometimes, they may also implement unique features. For this reason, some Zigbee devices pair/join fine with ZHA but then only show none or only a few entities in the integration. Developers can work around most such interoperability issues by adding conversion/translation code in custom device handlers. For more information, refer to the section below on _How to add support for new and unsupported devices_.
 
-For clarification, noramlly there will only be devices that do not fully conform to CSA's ZCL specifications that will not present all standard attributes as entities for configuration in the ZHA integration. Zigbee devices that only use the standard clusters and attributes that are Zigbee specifications set by the Connectivity Standards Alliance should not need any custom device handlers.
+For clarification, normally only devices that do not fully conform to CSA's ZCL specifications that will not present all standard attributes as entities for configuration in the ZHA integration. Zigbee devices that only use the standard clusters and attributes that are Zigbee specifications set by the Connectivity Standards Alliance should not need custom device handlers.
 
 Note! Before continuing with that section, please that if a device does not join/pair at all then your issues probably have other problems, so first be sure that you have read and followed the actions suggested in the troubleshooting sections about how to avoid pairing/connection difficulties + interference avoidance and network range/coverage optimization.
 
