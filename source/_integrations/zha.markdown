@@ -446,7 +446,7 @@ ZHA does not currently support devices that can only use the ZSE ("Zigbee Smart 
 
 ### Knowing which devices are supported
 
-Home Assistant's ZHA integration supports all standard Zigbee device types and should be compatible with most Zigbee devices as long as they fully conform to the official ZCL (Zigbee Cluster Library) specifications as set by the [CSA (Connectivity Standards Alliance, formerly the Zigbee Alliance)](https://csa-iot.org/all-solutions/zigbee/). There is therefore no official compatibility list of devices that will work out-of-the-box with the ZHA integration.
+Home Assistant's ZHA integration supports all standard Zigbee device types. It should be compatible with most Zigbee devices as long as they fully conform to the official ZCL (Zigbee Cluster Library) specifications defined by the [CSA (Connectivity Standards Alliance, formerly the Zigbee Alliance)](https://csa-iot.org/all-solutions/zigbee/). There is therefore no official compatibility list of devices that will work out-of-the-box with the ZHA integration.
 
 Be aware that there are hardware manufacturers that do not always fully comply with the standard specifications or implement unique features, and as such some Zigbee devices will pair/join fine with ZHA but then only show none or only a few entities in the integration. Know that developers can work around most such interoperability issues by adding conversion/translation code in custom device handlers. Please see the section below about "How to add support for new and unsupported devices" for more information.
 
