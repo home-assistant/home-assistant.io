@@ -61,8 +61,8 @@ The integration can report the state of occupancy sensors that have been linked 
 
 ## Connect WiZ devices to your network
 
-To connect a WiZ device to your Wi-Fi network, please follow the instructions in the [WiZ app](https://www.wizconnected.com/en/consumer/app/) (available for iOS and Android).
-If you have further questions, please have a look at the [WiZ Support Page](https://www.wizconnected.com/en/consumer/support/).
+To connect a WiZ device to your Wi-Fi network, please follow the instructions in the [WiZ app](https://www.wizconnected.com/en-us/explore-wiz/app) (available for iOS and Android).
+If you have further questions, please have a look at the [WiZ Support Page](https://www.wizconnected.com/en-us/support/faq).
 
 ### Enable local connectivity
 
