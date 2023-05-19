@@ -458,7 +458,10 @@ Tip to new Zigbee users: Checkout [blakadder's unofficial Zigbee Device Compatib
 
 #### How to add support for new and unsupported devices
 
-If you have already followed the recommended troubleshooting steps and your Zigbee device pairs/joins successfully with the ZHA integration but still does not show any entities or not all of the expected entities, even after trying to re-pair/re-join it several times, you may need a custom device handler. This handler will have exception code to work around specific device deviations or unique features and functions.
+If your Zigbee device pairs/joins successfully with the ZHA integration but does not show all of the expected entities: 
+1. Try to re-pair/re-join the device several times.
+2. Checkout the troubleshooting section.
+3. Still not working? You may need a custom device handler. This handler will have exception handling code to work around device-specific issues.
 
 For devices that do not follow the standard clusters and attributes provided in the CSA's ZCL (Zigbee Cluster Library) specifications, the ZHA integration relies on a project called "[ZHA Device Handlers (also known as "zha-quirk")](https://github.com/zigpy/zha-device-handlers)". It contains device-specific Python scripts, referred to in ZHA as "quirks", that can resolve compliance and interoperability issues by implementing on-the-fly conversion/translation of custom Zigbee configurations and parameters or implementing manufacturer-specific features and functions for specific devices.
 
