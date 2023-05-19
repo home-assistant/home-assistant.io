@@ -467,7 +467,11 @@ For devices that do not follow the standard defined in the CSA's ZCL (Zigbee Clu
 
 People familiar with other Zigbee gateway solutions for home automation may know similar concepts of using custom Zigbee device handlers/converters for non-standard devices. For example, [Zigbee2MQTT (and IoBroker) uses zigbee-herdsman converters](https://www.zigbee2mqtt.io/advanced/support-new-devices/01_support_new_devices.html) and [SmartThings Classics (Legacy) platform has Hub Connected Device Handlers](https://developer.smartthings.com/docs/devices/hub-connected/legacy).
 
-If you are not able to develop such a custom "quirk" Python script yourself with the custom handler/converter/parser/translator code needed for your specific device and add it to the "ZHA Device Handlers" repository/library, you can submit a "device support request" as a new issue to the [ZHA Device Handlers project repository on GitHub](https://github.com/zigpy/zha-device-handlers/issues). To do so, sign up/in on GitHub and click "New issue" and follow the instructions. New device support requests requires at minimum that the device owner supply the device signature + diagnostic information. The device owner may also need to actively assist in further testing or provide additional information that volunteering developers might to create custom ZHA Device Handlers for your devices.
+If you do not want to develop such a "quirk" Python script yourself, you can submit a "device support request" as a new issue to the [ZHA Device Handlers project repository on GitHub](https://github.com/zigpy/zha-device-handlers/issues): 
+1. Sign in to GitHub.
+2. Select **New issue** and follow the instructions. 
+  * New device support requests require the device signature + diagnostic information. 
+  * You may also need to actively help in further testing or provide additional information to the volunteering developers. 
 
 Note that submitting a new "device support request" does not guarantee that someone else will develop a custom "quirk" for ZHA, as it relies on volunteering developers contributing new ZHA Device Handlers to the project. However, without "device support requests" being submitted for deviating devices to the ZHA Device Handlers project, it is likely that the ZHA integration developers will not know that the specific Zigbee device is not working correctly in ZHA unless they happen to have bought it themselves by chance.
 
