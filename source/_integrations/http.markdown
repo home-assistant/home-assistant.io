@@ -113,7 +113,9 @@ The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-us
 
 ## TLS/SSL Configuration per port
 
-The below sample will listen on multiple ports which can be useful for devices that use webhooks that do no work with SSL or use an older TLS/SSL standard. 
+The below sample will listen on multiple ports which can be useful for devices that use webhooks that do no work with SSL or use an older TLS/SSL standard.
+
+Configuring the first one with the most secure settings when using multiple servers, as it will be used by default when determining the external URL.
 
 - 8123 - TLS with the modern TLS/SSL profile
 - 8124 - TLS with the intermediate TLS/SSL profile
