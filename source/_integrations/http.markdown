@@ -111,7 +111,7 @@ http:
 
 The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).
 
-## TLS/SSL Configuration per port
+## Multiple Servers (TLS/SSL Configuration per port)
 
 For most use case, configure the first one with the most secure settings when using multiple servers, as it will be used by default when determining the external URL.
 
