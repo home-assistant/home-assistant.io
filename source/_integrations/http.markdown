@@ -55,7 +55,7 @@ servers:
       required: false
       type: string
     ssl_key:
-      description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt) this will be at `/ssl/privkey.pem`.
+      description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/addons/tree/master/letsencrypt), this will be at `/ssl/privkey.pem`.
       required: false
       type: string
     ssl_profile:
