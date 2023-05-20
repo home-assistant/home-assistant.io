@@ -5,8 +5,6 @@ ha_category:
   - Finance
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@fabaff'
 ha_domain: bitcoin
 ha_platforms:
   - sensor

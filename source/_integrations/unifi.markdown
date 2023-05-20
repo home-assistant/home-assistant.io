@@ -6,6 +6,7 @@ ha_category:
   - Presence Detection
   - Sensor
   - Switch
+  - Update
 ha_release: 0.81
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -19,16 +20,18 @@ ha_platforms:
   - diagnostics
   - sensor
   - switch
-ha_integration_type: integration
+  - update
+ha_integration_type: hub
 ---
 
-[UniFi Network](https://www.ui.com/software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
+[UniFi Network](https://www.ui.com/download-software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Presence Detection](#presence-detection)
 - [Switch](#switch)
 - [Sensor](#sensor)
+- [Firmware updates](#firmware-updates)
 
 {% include integrations/config_flow.md %}
 
@@ -40,7 +43,7 @@ All configuration options are offered from the front end. Enter what UniFi Netwo
 
 ### Configuring Users
 
-The UniFi Network application allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the UniFi Network device tracker. If you want blocking of network access or POE control as well you would need to have 'admin' permissions.
+The UniFi Network application allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the UniFi Network device tracker. If you want blocking of network access, POE control, or firmware upgrades as well you would need to have 'admin' permissions.
 
 ### UniFi OS
 
@@ -54,9 +57,11 @@ It is recommended that you run the UniFi Network application in a dedicated virt
 
 ## Presence detection
 
-This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi Network](https://unifi-network.ui.com/) application. By default devices are marked as away 300 seconds after they were last seen.
+This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi Network](https://ui.com/consoles) application. By default devices are marked as away 300 seconds after they were last seen.
 
 ### Troubleshooting and Time Synchronization
+
+If tracked devices continue to show "Home" when not connect/present and show connected in the UniFi Controller, disable 802.11r Fast Roaming.  When enabled, it has been observed on the various UniFi Controller versions, failure to declare disconnected clients.
 
 Presence detection depends on accurate time configuration between Home Assistant and the UniFi Network application.
 
@@ -103,6 +108,10 @@ Get entities reporting receiving and transmitting bandwidth per network client.
 ### Uptime sensor
 
 Get entities reporting uptime per network client.
+
+## Firmware updates
+
+This will show if there are firmware updates available for the UniFi network devices connected to the controller. If the configured user has admin privileges, the firmware upgrades can also be installed directly from Home Assistant.
 
 ## Debugging integration
 

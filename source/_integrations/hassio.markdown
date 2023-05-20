@@ -4,7 +4,7 @@ description: Control Supervisor Add-ons and OS from Home Assistant
 ha_category:
   - Binary Sensor
   - Sensor
-  - Updates
+  - Update
 ha_iot_class: Local Polling
 ha_release: 0.42
 ha_domain: hassio
@@ -20,11 +20,11 @@ ha_integration_type: integration
 ---
 
 Supervisor integration allows you to monitor and control Supervisor add-ons and operating system from Home Assistant.
-This integration is installed automatically if you run Home Assistant OS or Supervised.
+This integration is already installed if you run Home Assistant OS or Supervised.
 
 ## Sensor entities
 
-For each installed add-on Supervisor provides following sensors:
+For each installed add-on, the following sensors are available:
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
@@ -33,16 +33,42 @@ For each installed add-on Supervisor provides following sensors:
 | CPU Percent| no | The CPU Percent usage of the add-on
 | Memory Percent| no | The Memory (RAM) Percent usage of the add-on
 
-For Home Assistant OS Supervisor provides following sensors:
+For Home Assistant OS, the following sensors are available:
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
 | Version | no | Current version of the Home Assistant OS
 | Newest Version | no | Latest version of the Home Assistant OS currently available
 
+For Home Assistant Core, the following sensors are available:
+
+| Sensor | Enabled by default | Description |
+| ------- | ------------------ | ----------- |
+| CPU Percent| no | The CPU Percent usage of the core
+| Memory Percent| no | The Memory (RAM) Percent usage of the core
+
+For Home Assistant Supervisor, the following sensors are available:
+
+| Sensor | Enabled by default | Description |
+| ------- | ------------------ | ----------- |
+| CPU Percent| no | The CPU Percent usage of the supervisor
+| Memory Percent| no | The Memory (RAM) Percent usage of the supervisor
+
+For Home Assistant Host, the following sensors are available:
+
+| Sensor | Enabled by default | Description |
+| ------- | ------------------ | ----------- |
+| OS Agent Version | no | The version of the installed OS Agent
+| Apparmor Version | no | The version of apparmor
+| Disk Free | no | Free space (in GB) left on the device
+| Disk Total | no | Total space (in GB) on the device
+| Disk Used | no | Used space (in GB) on the device
+
 ## Binary Sensor entities
 
 For each installed add-on Supervisor provides following binary sensors:
+
+(These entities are disabled by default and must be reenabled to appear)
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |

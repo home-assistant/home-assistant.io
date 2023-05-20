@@ -3,7 +3,7 @@ title: "Automation YAML"
 description: "How to use the automation integration with YAML."
 ---
 
-Automations are created in Home Assistant via the UI, but are stored in a YAML format. If you want to edit the YAML of an automation, go to edit the automation, click on the menu button in the top right and turn on YAML mode.
+Automations are created in Home Assistant via the UI, but are stored in a YAML format. If you want to edit the YAML of an automation, select the automation, click on the menu button in the top right then on **Edit in YAML**.
 
 The UI will write your automations to `automations.yaml`. This file is managed by the UI and should not be edited manually.
 
@@ -266,6 +266,6 @@ If you want to migrate your manual automations to use the editor, you'll have to
 
 When automations remain visible in the Home Assistant Dashboard, even after having deleted in the YAML file, you have to delete them in the UI.
 
-To delete them completely, go to UI **{% my entities title="Configuration -> Devices & Services -> Entities" %}** and find the automation in the search field or by scrolling down.
+To delete them completely, go to UI **{% my entities title="Settings -> Devices & Services -> Entities" %}** and find the automation in the search field or by scrolling down.
 
 Check the square box aside of the automation you wish to delete and from the top-right of your screen, select 'REMOVE SELECTED'.

@@ -10,7 +10,7 @@ ha_codeowners:
   - '@home-assistant/core'
   - '@ludeeus'
 ha_domain: analytics
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 {% assign current_version = site.current_major_version | append: "." | append: site.current_minor_version | append: "." | append: site.current_patch_version  %}
@@ -19,9 +19,9 @@ Home Assistant allows users to share their usage data via the analytics integrat
 
 ## Data Collection
 
-The information sent depends on what options you opt-in to. You can opt-in during onboarding and by going to **{% my general title="Configuration >> General" %}** .
+The information sent depends on what options you opt-in to. You can opt-in during onboarding and by going to **{% my analytics title="Settings > System > Analytics" %}** .
 
-{% my general badge %}
+{% my analytics badge %}
 
 When enabled, data will be sent 15 minutes after each start, and every 24h after startup. Sent data is printed to your log.
 
@@ -75,6 +75,7 @@ This includes:
 
 - The names of all your core integrations
 - The names and versions of all your custom integrations if you have any
+- The name and version of the engine used in the [recorder integration](/integrations/recorder)
 - Boolean to indicate that the [energy integration](/integrations/energy) is configured
 - Boolean to indicate that [HTTP certificate](https://www.home-assistant.io/integrations/http/#ssl_certificate) is configured
 
@@ -113,6 +114,10 @@ If your system includes the Supervisor, this will also contain:
   ],
   "energy": {
     "configured": true
+  },
+  "recorder": {
+    "engine": "sqlite",
+    "version": "123"
   },
   "certificate": false
 }

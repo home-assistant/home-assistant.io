@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: button
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 A button entity is an entity that can fire an event / trigger an action towards

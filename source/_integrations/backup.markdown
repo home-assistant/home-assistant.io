@@ -9,7 +9,7 @@ ha_domain: backup
 ha_codeowners:
   - '@home-assistant/core'
 ha_iot_class: Calculated
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 The Backup integration allow you to create and download backups for your Home Assistant Core and Home Assistant Container installations. This backup file can be used if you migrate to Home Assistant Operating System.
@@ -28,7 +28,7 @@ backup:
 ```
 
 You need to restart Home Assistant after you add this configuration.
-When it has started up again you will find a new "Backup" entry in the main menu (**Configuration** -> **Backup**).
+When it has started up again you will find a new "Backup" entry in the main menu (**Settings** -> **System** -> **Backup**).
 
 The backup files are stored in a new "backups" subdirectory in the root of your configuration directory.
 

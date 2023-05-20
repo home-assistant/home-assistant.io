@@ -29,7 +29,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The [Homematic](https://www.homematic.com/) integration provides bi-directional communication with your CCU/Homegear. It uses an XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
+The [Homematic](https://www.eq-3.com/products/homematic.html) integration provides bi-directional communication with your CCU/Homegear. It uses an XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
 If you are using Homegear with paired [Intertechno](https://intertechno.at/) devices, uni-directional communication is possible as well.
 
 There is currently support for the following device types within Home Assistant:
@@ -54,7 +54,7 @@ Since CCU Version 3, the internal firewalls are enabled by default. You have to 
 If you want to see if a specific device you have is supported, head over to the [pyhomematic](https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes) repository and browse through the source code. A dictionary with the device identifiers (e.g., HM-Sec-SC-2) can be found within the relevant modules near the bottom. If your device is not supported, feel free to contribute.
 
 We automatically detect all devices we currently support and try to generate useful names. If you enable name-resolving, we try to fetch names from Metadata (Homegear), via JSON-RPC or the XML-API you may have installed on your CCU. Since this may fail this is disabled by default.
-You can manually rename the created entities by using Home Assistant's [Customizing](/docs/configuration/customizing-devices/) feature. The Homematic integration is also supported by the [Entity Registry](https://developers.home-assistant.io/docs/en/entity_registry_index.html), which allows you to change the friendly name and the entity ID directly in the Home Assistant UI.
+You can manually rename the created entities by using Home Assistant's [Customizing](/docs/configuration/customizing-devices/) feature. The Homematic integration is also supported by the [Entity Registry](https://developers.home-assistant.io/docs/entity_registry_index/), which allows you to change the friendly name and the entity ID directly in the Home Assistant UI.
 
 ## Configuration
 
@@ -209,7 +209,7 @@ Resolving names can take some time. So when you start Home Assistant you won't s
 
 ### Multiple hosts
 
-In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and ip), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
+In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and IP), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
 Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.
 This does *not* affect the entities in Home Assistant. They all use their own connection and work as expected.
 

@@ -13,7 +13,7 @@ ha_platforms:
   - binary_sensor
   - stt
   - tts
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services like Amazon Alexa and Google Assistant. [Learn more.](/cloud)
@@ -29,7 +29,7 @@ cloud:
 
 Documentation of further configuration possibilities are located at [NabuCasa](https://www.nabucasa.com/config/)
 
-Once activated, go to the configuration panel in Home Assistant and create an account and log in. If you are not seeing the **Configuration** panel, make sure you have the following option enabled in your `configuration.yaml` file.
+Once activated, go to the configuration panel in Home Assistant and create an account and log in. If you are not seeing the **Settings** panel, make sure you have the following option enabled in your `configuration.yaml` file.
 
 ```yaml
 config:

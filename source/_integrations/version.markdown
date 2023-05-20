@@ -8,7 +8,6 @@ ha_iot_class: Local Push
 ha_release: 0.52
 ha_quality_scale: internal
 ha_codeowners:
-  - '@fabaff'
   - '@ludeeus'
 ha_domain: version
 ha_platforms:

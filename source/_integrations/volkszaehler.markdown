@@ -6,8 +6,6 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.78
 ha_domain: volkszaehler
-ha_codeowners:
-  - '@fabaff'
 ha_platforms:
   - sensor
 ha_integration_type: integration

@@ -16,7 +16,7 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 [RDW](https://www.rdw.nl) is the Netherlands Vehicle Authority. Their tasks

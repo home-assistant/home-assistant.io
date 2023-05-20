@@ -43,6 +43,6 @@ To be able to query the API an `auth_token` is required which can be obtained by
 ### Webhook (Airlock only)
 
 The configuration step will give you the webhook URL to use in the PLAATO mobile app. It should be pasted in configuration on the tab "Webhook". 
-More information can be found [here](https://plaato.io/apps/help-center#!hc-general).
+More information can be found [here](https://intercom.help/plaato/en/articles/5004719-webhook-plaato-airlock).
 
 This sensor platform was not made by Plaato. It is not official, not developed, and not supported by Plaato.

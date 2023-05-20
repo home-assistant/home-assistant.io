@@ -12,12 +12,13 @@ ha_codeowners:
   - '@G-Two'
 ha_domain: subaru
 ha_platforms:
+  - diagnostics
   - lock
   - sensor
 ha_integration_type: integration
 ---
 
-This integration retrieves vehicle information and actuates remote services provided by [Subaru STARLINK](https://www.subaru.com/engineering/starlink/safety-security.html) (currently only available in USA and Canada).
+This integration retrieves vehicle information and actuates remote services provided by [Subaru STARLINK](https://www.subaru.com/subaru-starlink/starlink-safety-and-security.html) (currently only available in USA and Canada).
 
 This integration requires a telematics equipped Subaru and an active vehicle subscription to the Subaru STARLINK service. Before using this integration, you must first register and have login credentials to [MySubaru](https://www.mysubaru.com).
 
@@ -70,7 +71,7 @@ The current lock status is always unknown due to the fact that the Subaru API do
 
 Subaru integration options are set via:
 
-**Configuration** -> **Devices & Services** -> **Subaru** -> **Options**.
+**Settings** -> **Devices & Services** -> **Subaru** -> **Options**.
 
 - **Enable vehicle polling *[Default: off]*:** When enabled, vehicle polling will send a remote command to your vehicle every 2 hours to obtain new sensor data. This involves "waking" your vehicle and requesting that it send new data to Subaru servers. Without vehicle polling, new sensor data is only received when the vehicle automatically pushes data (normally after engine shutdown). This option only applies to Gen 2 vehicles with Security Plus subscriptions because it uses a "locate" command to request the data.
 

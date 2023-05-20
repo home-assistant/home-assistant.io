@@ -5,8 +5,6 @@ ha_category:
   - Media Player
 ha_release: pre 0.7
 ha_iot_class: Local Polling
-ha_codeowners:
-  - '@fabaff'
 ha_domain: mpd
 ha_platforms:
   - media_player
@@ -28,7 +26,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: IP address of the Host where Music Player Daemon is running.
+  description: Hostname or IP address of the Host where Music Player Daemon is running.
   required: true
   type: string
 port:

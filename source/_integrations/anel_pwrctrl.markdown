@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `anel_pwrctrl` switch platform allows you to control [ANEL PwrCtrl](https://anel-elektronik.de/SITE/produkte/produkte.htm) devices.
+The `anel_pwrctrl` switch platform allows you to control [ANEL PwrCtrl](https://en.anel.eu/index.htm?src=/produkte/produkte.htm) devices.
 
 Supported devices (tested):
 
