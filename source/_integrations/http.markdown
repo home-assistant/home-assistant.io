@@ -115,7 +115,7 @@ The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-us
 
 For most use cases, configure the first server with the most secure settings when using multiple servers. This is the server that will be used by default when determining the external URL.
 
-The sample below will listen on multiple ports, which can be helpful for devices that use webhooks that do not work with SSL or use an older TLS/SSL standard.
+The example below shows a configuration that allows listening on multiple ports. This can be helpful for devices that use webhooks that do not work with SSL or use an older TLS/SSL standard.
 
 - 8123 - TLS with the modern TLS/SSL profile
 - 8124 - TLS with the intermediate TLS/SSL profile
