@@ -59,7 +59,7 @@ servers:
       required: false
       type: string
     ssl_profile:
-      description: The [Mozilla SSL profile](https://wiki.mozilla.org/Security/Server_Side_TLS) to use. Only lower if you are experiencing integrations causing SSL handshake errors.
+      description: The [Mozilla SSL profile](https://wiki.mozilla.org/Security/Server_Side_TLS) to use. Only lower the configuration (options: modern, intermediate, old), if integrations cause SSL handshake errors.
       required: false
       type: string
       default: modern
