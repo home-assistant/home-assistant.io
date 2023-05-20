@@ -51,7 +51,7 @@ servers:
       required: false
       type: string
     ssl_peer_certificate:
-      description: Path to the client/peer TLS/SSL certificate to accept secure connections from.
+      description: Path to the client/peer TLS/SSL certificate from which you want to accept secure connections.
       required: false
       type: string
     ssl_key:
