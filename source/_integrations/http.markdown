@@ -31,7 +31,7 @@ servers:
       type: [list, string]
       default: "0.0.0.0, ::"
     server_port:
-      description: "Let's you set a port to use."
+      description: "The port to listen on for this server."
       required: false
       type: integer
       default: 8123
