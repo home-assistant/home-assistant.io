@@ -15,6 +15,7 @@ ha_platforms:
   - camera
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 ---
 
@@ -90,6 +91,10 @@ To enable/disable motion detection, use the Home Assistant built in services.
 | Service data attribute | Description |
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
+
+### OTA update
+
+Trigger device OTA firmware update process for latest stable version.
 
 ## Troubleshooting
 
