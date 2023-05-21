@@ -6,8 +6,10 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_quality_scale: internal
+ha_config_flow: true
 ha_codeowners:
   - '@fabaff'
+  - '@cyr-ius'
 ha_domain: time_date
 ha_platforms:
   - sensor
@@ -15,6 +17,8 @@ ha_integration_type: integration
 ---
 
 The time and date (`time_date`) integration allows one to create sensors for the current date or time in different formats. All values are based on the timezone which is set in "General Configuration". 
+
+## Setup
 
 {% include integrations/config_flow.md %}
 
@@ -25,7 +29,7 @@ Sensors including the time update every minute, the date sensor updates each day
   <img src='/images/screenshots/time_date.png' />
 </p>
 
-# Producing your own custom time and date sensor
+## Producing your own custom time and date sensor
 
 The following can be used to create a time and date sensor whose output can be properly customised to use your own preferred formatting, specified in the call to timestamp_custom() using standard [Python datetime formatting](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior).
 
