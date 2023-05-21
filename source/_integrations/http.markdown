@@ -189,7 +189,14 @@ If you want to use Home Assistant to host or serve static files then create a di
 
 </div>
 
-## Binary Sensor
+## States API
+
+There is currently support for the following device types within Home Assistant:
+
+- [Binary Sensor](#binary-sensor)
+- [Sensor](#sensor)
+
+### Binary Sensor
 
 The HTTP binary sensor is dynamically created with the first request that is made to its URL. You don't have to define it in the configuration first.
 
@@ -237,11 +244,11 @@ $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
 }
 ```
 
-### Examples
+#### Examples
 
 In this section you'll find some real-life examples of how to use this sensor, besides `curl`, which was shown earlier.
 
-#### Using Python request module
+##### Using Python request module
 
 As already shown on the [API](/developers/rest_api/) page, it's very simple to use Python and the [Requests](https://requests.kennethreitz.org/en/latest/) module for the interaction with Home Assistant.
 
@@ -257,7 +264,7 @@ response = requests.post(
 print(response.text)
 ```
 
-#### Using `httpie`
+##### Using `httpie`
 
 [`httpie`](https://github.com/httpie/httpie) is a user-friendly CLI HTTP client.
 
@@ -267,7 +274,7 @@ $ http -v POST http://localhost:8123/api/states/binary_sensor.radio \
       attributes:='{"friendly_name": "Radio"}'
 ```
 
-## Sensor
+### Sensor
 
 The HTTP sensor is dynamically created with the first request that is made to its URL. You don't have to define it in the configuration first.
 
