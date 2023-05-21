@@ -14,17 +14,6 @@ ha_integration_type: system
 
 The `http` integration serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
 
-There is currently support for the following device types within Home Assistant:
-
-- [Binary Sensor](#binary-sensor)
-- [Sensor](#sensor)
-
-<div class='note'>
-
-The option `server_host` should only be used on a Home Assistant Core installation!
-
-</div>
-
 ```yaml
 # Example configuration.yaml entry
 http:
@@ -87,6 +76,12 @@ login_attempts_threshold:
   type: integer
   default: -1
 {% endconfiguration %}
+
+<div class='note'>
+
+The option `server_host` should only be used on a Home Assistant Core installation!
+
+</div>
 
 The sample below shows a configuration entry with possible values:
 
