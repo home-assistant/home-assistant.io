@@ -52,7 +52,7 @@ These devices do not send updates, but can be locked and unlocked.
 
 ## Troubleshooting
 
-Lock operation requires setting up an encrypted connection highly sensitive to latency. It is recommended to use a [High-Performance Bluetooth adapter](https://www.home-assistant.io/integrations/bluetooth/#known-working-high-performance-adapters) or [ESPHome Bluetooth proxy](https://www.home-assistant.io/integrations/bluetooth/#remote-adapters-bluetooth-proxies) for stable operation.
+Lock operation requires setting up an encrypted connection highly sensitive to latency. It is recommended to use a [High-Performance Bluetooth adapter](/integrations/bluetooth/#known-working-high-performance-adapters) or [ESPHome Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) for stable operation.
 
 ## Push updates
 
