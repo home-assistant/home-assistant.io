@@ -440,14 +440,14 @@ action:
   - choose:
       - conditions:
           - condition: template
-            value_template: '''{{trigger.event.data.data.key == 'volume_up'}}'''
+            value_template: {{trigger.event.data.data.key == "volume_up"}}
         sequence:
           - service: media_player.volume_up
             target:
               entity_id: media_player.receiver
       - conditions:
           - condition: template
-            value_template: '''{{trigger.event.data.data.key == 'volume_down'}}'''
+            value_template: {{trigger.event.data.data.key == "volume_down"}}
         sequence:
           - service: media_player.volume_down
             target:
