@@ -118,7 +118,7 @@ json_attributes_template:
   required: false
   type: template
 json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as device_tracker attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  description: "The MQTT topic subscribed to receive a JSON dictionary message and then set as device_tracker attributes. If the attributes in the JSON message include `longitude`, `latitude` and optional `gps_accuracy` and if the device tracker is within a configured [zone](/integrations/zone/), they can be used to set the location of the device tracker, then configuring `state_topic` is not required. Be aware that any location message received at `state_topic` will override the location received via `json_attributes_topic` until a message configured with `payload_reset` is received at `state_topic`. A more generic usage example for the use of `json_attributes_topic` can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation."
   required: false
   type: string
 name:
@@ -164,8 +164,8 @@ source_type:
   required: false
   type: string
 state_topic:
-  description: The MQTT topic subscribed to receive device tracker state changes.
-  required: true
+  description: The MQTT topic subscribed to receive device tracker state changes, or to reset the state override when a message configured with `payload_reset` is received. Can only be omitted if only `json_attributes_topic` is used.
+  required: false
   type: string
 unique_id:
   description: "An ID that uniquely identifies this device_tracker. If two device_trackers have the same unique ID, Home Assistant will raise an exception."
@@ -208,6 +208,8 @@ If the device supports GPS coordinates then they can be sent to Home Assistant b
 - Attributes topic: `a4567d663eaf/attributes`
 - Example attributes payload:
 
+Example message to be received at topic `a4567d663eaf/attributes`:
+
 ```json
 {
   "latitude": 32.87336,
@@ -219,8 +221,14 @@ If the device supports GPS coordinates then they can be sent to Home Assistant b
 To create the device_tracker with GPS coordinates support:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"state_topic": "a4567d663eaf/state", "name": "My Tracker", "payload_home": "home", "payload_not_home": "not_home", "json_attributes_topic": "a4567d663eaf/attributes"}'
+mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"json_attributes_topic": "a4567d663eaf/attributes", "name": "My Tracker"}'
 ```
+
+<div class='note info'>
+
+Using `state_topic` is optional when using `json_attributes_topic` to determine the state of the device tracker.
+
+</div>
 
 To set the state of the device tracker to specific coordinates:
 
