@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: discovery
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 This is the legacy discovery integration for Home Assistant. It's use is no longer recommended. Use the [SSDP](/integrations/ssdp/), [Zeroconf](/integrations/zeroconf/) and [USB](/integrations/usb/) integrations instead.
@@ -18,7 +18,6 @@ This integration is limited to detect:
  * [Bluesound speakers](/integrations/bluesound)
  * [Bose Soundtouch speakers](/integrations/soundtouch)
  * [Enigma2 media player](/integrations/enigma2)
- * [Frontier Silicon internet radios](/integrations/frontier_silicon)
  * [Linn / Openhome](/integrations/openhome)
  * [SABnzbd downloader](/integrations/sabnzbd)
  * [Yamaha media player](/integrations/yamaha)
@@ -49,7 +48,6 @@ Valid values for ignore are:
  * `bluesound`: Bluesound speakers
  * `bose_soundtouch`: Bose Soundtouch speakers
  * `enigma2`: Enigma2 media players
- * `frontier_silicon`: Frontier Silicon internet radios
  * `lg_smart_device`: LG Soundbars
  * `openhome`: Linn / Openhome
  * `sabnzbd`: SABnzbd downloader

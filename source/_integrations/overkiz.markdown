@@ -16,6 +16,7 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+  - Water Heater
 ha_release: 2022.2
 ha_config_flow: true
 ha_iot_class: Cloud Polling
@@ -23,6 +24,7 @@ ha_codeowners:
   - '@imicknl'
   - '@vlebourl'
   - '@tetienne'
+  - '@nyroDev'
 ha_domain: overkiz
 ha_dhcp: true
 ha_zeroconf: true
@@ -41,7 +43,8 @@ ha_platforms:
   - sensor
   - siren
   - switch
-ha_integration_type: integration
+  - water_heater
+ha_integration_type: hub
 ---
 
 The Overkiz (by Somfy) integration platform is used by many different vendors, like Somfy, Hitachi, and Atlantic. This integration will allow users to integrate their devices into Home Assistant using the Overkiz API.
@@ -87,4 +90,4 @@ Another option if you are only using Somfy IO compatible devices is to purchase 
 
 #### Local API via HomeKit Controller
 
-If your hub (e.g. Somfy TaHoma) supports HomeKit natively, your setup code will be added as a sensor in Home Assistant. Look up your hub in Home Assistant and retrieve the value from the 'HomeKit Setup Code' sensor. You can now configure the [HomeKit Controller](/integrations/homekit_controller/) integration in Home Assistant and benefit from local support. Only a [limited amount of devices is supported](https://service.somfy.com/downloads/nl_v5/tahoma-homekitcompatibilitylist_eng.pdf).
+If your hub (e.g. Somfy TaHoma) supports HomeKit natively, your setup code will be added as a sensor in Home Assistant. Look up your hub in Home Assistant and retrieve the value from the 'HomeKit Setup Code' sensor. You can now configure the [HomeKit Controller](/integrations/homekit_controller/) integration in Home Assistant and benefit from local support. Only a [limited set of devices is supported](https://service.somfy.com/downloads/nl_v5/tahoma-homekitcompatibilitylist_eng.pdf).

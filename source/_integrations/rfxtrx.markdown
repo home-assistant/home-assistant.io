@@ -158,7 +158,7 @@ Copy the event code from the state attribute of the switch, which shows up on th
 710030e4102 **01** 50<br>
 710030e4102 **02** 50
 
-### Protocols {#protocols}
+### Protocols
 
 When no protocols are selected in the device configuration, the RFXtrx device will use the protocols enabled in its non-volatile memory. You can set these using [RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads).
 
@@ -344,11 +344,22 @@ action:
     event: 0b1111e003af16aa10000060
 ```
 
+Alternatively:
+
+- Go to: {% my developer_call_service title="Developer tools -> Services" service="rfxtrx.send" %}
+- Select: `RFXCOM RFXtrx: Send` from the Service drop-down menu.
+
+```yaml
+service: rfxtrx.send
+data:
+  event: "0b1111e003af16aa10000060"
+```
+
 ## Generate codes
 
 If you need to generate codes for switches and lights, you can use a template (useful, for example, COCO switches).
 
-- Go to home-assistant-IP:8123/dev-template
+- Go to: {% my developer_template title="Developer tools -> Template" %}
 - Use the following codes to generate an event:
 
 ### Switch: ARC

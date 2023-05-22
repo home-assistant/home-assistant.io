@@ -12,7 +12,11 @@ The Media Control card is used to display [Media Player](/integrations/#media-pl
 Screenshot of the Media Control card.
 </p>
 
-To add the Media Control card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Media Control** from the card picker.
+To add the Media Control card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+
+## YAML Configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -34,9 +38,9 @@ theme:
   type: string
 {% endconfiguration %}
 
-## Example
+### Example
 
-Alternatively, the card can be configured using YAML:
+Basic example:
 
 ```yaml
 type: media-control

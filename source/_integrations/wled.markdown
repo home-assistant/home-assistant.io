@@ -24,7 +24,7 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 [WLED](https://kno.wled.ge) is a fast and feature-rich
@@ -88,6 +88,7 @@ This integration provides sensors for the following information from WLED:
 - Wi-Fi Signal Strength (RSSI in dBm, disabled by default).
 - Wi-Fi Channel (disabled by default).
 - Wi-Fi BSSID (disabled by default).
+- IP.
 
 ## Switches
 

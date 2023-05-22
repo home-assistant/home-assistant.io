@@ -36,12 +36,15 @@ Visit [the Neato Developer Network](https://developers.neatorobotics.com/applica
 
 <div class='note'>
 
-You will have to enter a name, a description and your redirect URL.
+You will have to enter a name, a description, and the redirect URI:
 
-Use `https://my.home-assistant.io/redirect/oauth` as the redirect URL.
+- **Name**: can be anything you like, for example, "Home Assistant".
+- **Description**: can be anything you like, for example, "Home Assistant integration for Neato"
+- **Redirect URI**: `https://my.home-assistant.io/redirect/oauth`
+- **Terms Of Service URL**: leave blank
+- **Privacy Policy URL**: leave blank
 
 You have to select all three scopes (`public_profile`, `control_robots` and `maps`).
-
 </div>
 
 {% details "I have manually disabled My Home Assistant" %}

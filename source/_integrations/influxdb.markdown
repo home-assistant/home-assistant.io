@@ -56,7 +56,7 @@ host:
   default: localhost
 port:
   type: integer
-  description: Port to use. 2.xx - No default port for 2.xx, otherwise 8086.
+  description: Port to use. 2.xx - Must specify port for 2.xx, otherwise 8086.
   required: false
   default: 8086
 path:
@@ -506,27 +506,27 @@ The example configuration entry below create two request to your local InfluxDB 
 
 ```yaml
 sensor:
-  platform: influxdb
-  host: localhost
-  username: home-assistant
-  password: password
-  queries:
-    - name: last value of foo
-      unit_of_measurement: °C
-      value_template: '{{ value | round(1) }}'
-      group_function: last
-      where: '"name" = ''foo'''
-      measurement: '"°C"'
-      field: value
-      database: db1
-    - name: Min for last hour
-      unit_of_measurement: "%"
-      value_template: '{{ value | round(1) }}'
-      group_function: min
-      where: '"entity_id" = ''salon'' and time > now() - 1h'
-      measurement: '"%"'
-      field: tmp
-      database: db2
+  - platform: influxdb
+    host: localhost
+    username: home-assistant
+    password: password
+    queries:
+      - name: last value of foo
+        unit_of_measurement: °C
+        value_template: '{{ value | round(1) }}'
+        group_function: last
+        where: '"name" = ''foo'''
+        measurement: '"°C"'
+        field: value
+        database: db1
+      - name: Min for last hour
+        unit_of_measurement: "%"
+        value_template: '{{ value | round(1) }}'
+        group_function: min
+        where: '"entity_id" = ''salon'' and time > now() - 1h'
+        measurement: '"%"'
+        field: tmp
+        database: db2
 ```
 
 {% endraw %}

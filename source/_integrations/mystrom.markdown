@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `mystrom` light platform allows you to control your [myStrom](https://mystrom.ch/en/) WiFi Bulbs.
+The `mystrom` light platform allows you to control your [myStrom](https://mystrom.ch/) WiFi Bulbs.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -157,7 +157,7 @@ If you have set [`login_attempts_threshold`](/integrations/http/) and forget to 
 
 ## Switch
 
-The `mystrom` switch platform allows you to control the state of your [myStrom](https://mystrom.ch/en/) switches.
+The `mystrom` switch platform allows you to control the state of your [myStrom](https://mystrom.ch/) switches.
 
 ### Setup
 

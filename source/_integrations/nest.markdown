@@ -1,8 +1,7 @@
 ---
-title: Nest
+title: Google Nest
 description: Instructions on how to integrate Nest into Home Assistant.
 ha_category:
-  - Binary Sensor
   - Camera
   - Climate
   - Doorbell
@@ -18,7 +17,6 @@ ha_domain: nest
 ha_quality_scale: platinum
 ha_dhcp: true
 ha_platforms:
-  - binary_sensor
   - camera
   - climate
   - diagnostics
@@ -26,16 +24,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-<a class="integration-alert" href="/more-info/nest-auth-deprecation">
-  <svg preserveAspectRatio="xMidYMid meet" focusable="false" role="img" aria-hidden="true" viewBox="0 0 24 24" color="currentColor">
-    <g><path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path></g>
-  </svg>
-  <div class="content">Existing users: Nest authentication is changing.</div>
-  <div class="learn-more">LEARN MORE</div>
-</a>
-
-
-The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
+The `nest` integration allows you to integrate a few [supported](https://developers.google.com/nest/device-access/supported-devices) Google [Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -49,7 +38,7 @@ You are in control of the information and capabilities exposed to Home Assistant
 
 <div class='note'>
 
-The Nest Smart Device Management (SDM) API **requires a US$5 fee**.
+The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
 
 </div>
 
@@ -259,7 +248,7 @@ This feature is enabled by the following permissions:
 
 </div>
 <div class='note'>
-Additional Nest Temperature Sensors are not supported by the SDM API.
+Additional Nest Temperature Sensors are not supported by the SDM API.  The Temperature reported by the API will be pulled from whichever device is currently configured as the Active Sensor, which can be adjusted via manual selection or the schedule offered in the Nest App.
 </div>
 
 
@@ -288,8 +277,9 @@ All cameras have motion and person triggers, however only some support capturing
 | Nest Cam Indoor<br>Nest Cam IQ Indoor<br>Nest Cam IQ Outdoor<br>Nest Cam Outdoor | RTSP<br>Recording | Motion<br>Person<br>Sound | Snapshot (jpg) |
 | Nest Cam with floodlight | WebRTC | Motion<br>Person | N/A |
 | Nest Doorbell (battery) | WebRTC | Motion<br>Person<br>Chime | Clip Preview (mp4, gif) |
-| Nest Doorbell (wired) | RTSP<br>Recording | Motion<br>Person<br>Sound<br>Chime | Snapshot (jpg) |
-| Nest Hub Max | RTSP<br>Recording | Motion<br>Person<br>Sound<br><sub><sup>* [SDM API known issue](https://github.com/home-assistant/core/issues/58482)</sup></sub> | Snapshot (jpg) |
+| Nest Doorbell (wired, 1st gen) | RTSP<br>Recording | Motion<br>Person<br>Sound<br>Chime | Snapshot (jpg) |
+| Nest Doorbell (wired, 2nd gen) | WebRTC | Motion<br>Person<br>Chime | Clip Preview (mp4, gif) |
+| Nest Hub Max | RTSP<br>Recording | Motion<br>Person<br>Sound<br> | Snapshot (jpg) |
 
 Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
 
@@ -397,7 +387,7 @@ data:
 
 {% details "Example Action: Snapshot (jpg) attachment for Android or iOS %}
 
-Example for cameras that support Snaphot (jpg) on either Android or iOS.
+Example for cameras that support Snapshot (jpg) on either Android or iOS.
 
 {% raw %}
 
@@ -467,7 +457,7 @@ If the *Nest* integration does not have an Alert then you probably used *Web Aut
 
 1.  Visit the [Device Access Console](https://console.nest.google.com/device-access/)
 1.  Select the *Device Access Project* used by *Home Assistant*
-1.  You need to then delete the old *OAuth Client ID* by clicking the Trash icon to unlick your Nest project from the deprecated Auth method.
+1.  You need to then delete the old *OAuth Client ID* by clicking the Trash icon to unlink your Nest project from the deprecated Auth method.
 1.  Click the overflow menu `...` then *Add Client ID*
 1.  Enter the new *OAuth Client ID* for *Web App Auth* credentials
 1.  Back in Home Assistant confirm your *Device Access Project ID*
@@ -528,7 +518,7 @@ The *OAuth Client ID* used must be consistent, so check these:
 
 {% enddetails %}
 
-- *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiugration or your authentication token was revoked by Google for some other reason.
+- *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiguration or your authentication token was revoked by Google for some other reason.
 
 {% details "Details about reauthentication issues" %}
 
@@ -557,7 +547,7 @@ The *OAuth Client ID* used must be consistent, so check these:
 
 - *Error: invalid_client no application name* means the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) has not been fully configured for the project. Enter the required fields (App Name, Support Email, Developer Email) and leave everything else as default.
 
-- *Subscriber error* means that `configuration.yaml` has an incorrect `subscriber_id` or the subscription is misconfiugred. It is recommended to delete this from the configuration, then delete and re-add the integration to let it create a subscription for you.
+- *Subscriber error* means that `configuration.yaml` has an incorrect `subscriber_id` or the subscription is misconfigured. It is recommended to delete this from the configuration, then delete and re-add the integration to let it create a subscription for you.
 
 - *Not receiving updates* typically means a problem with the subscriber configuration. Make sure to check the logs for any error messages. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant subscriber when everything is configured correctly.
 
@@ -583,348 +573,12 @@ logger:
     google_nest_sdm.event: debug
 ```
 
-- It is recommended to let Home Assistant create the Pub/Sub subscription for you. However, if you would like more control you can enter a `susbcriber_id` in the configuration. See [Subscribe to Events](https://developers.google.com/nest/device-access/subscribe-to-events) for more instructions on how to manually create a subscription and use the full subscription name in the Home Assistant configuration e.g. `projects/gcp-project-name/subscriptions/subscription-id`
+- It is recommended to let Home Assistant create the Pub/Sub subscription for you. However, if you would like more control you can enter a `subscriber_id` in the configuration. See [Subscribe to Events](https://developers.google.com/nest/device-access/subscribe-to-events) for more instructions on how to manually create a subscription and use the full subscription name in the Home Assistant configuration e.g. `projects/gcp-project-name/subscriptions/subscription-id`
 
 # Works With Nest API
 
 <div class='note warning'>
 
-The Legacy [Works with Nest](https://developers.nest.com/) API is not accepting new signups.
+The Legacy [Works with Nest](https://developers.nest.com/) API is deprecated, and will be shut down by Google in September 2023.
 
 </div>
-
-{% details "Legacy Works with Nest Configuration Steps" %}
-
-The Nest integration is the main integration to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.
-
-
-There is currently support for the following device types within Home Assistant:
-
-- [Binary Sensor](#binary-sensor)
-- [Camera](#camera)
-- [Climate](#climate)
-- [Sensor](#sensor)
-
-**Setting up developer account**
-
-
-1. Visit [Nest Developers](https://developers.nest.com/), and sign in. Create an account if you don't have one already.
-2. Fill in account details:
-  * The "Company Information" can be anything. We recommend using your name.
-3. Submit changes
-4. Click "[Products](https://developers.nest.com/products)" at top of page.
-5. Click "[Create New Product](https://developers.nest.com/products/new)"
-6. Fill in details:
-  * Product name must be unique. We recommend [email] - Home Assistant.
-  * The description, users, URLs can all be anything you want.
-  * Leave the "Redirect URI" Field blank
-7. For permissions check every box and if it's an option select the read/write option. Note: there are important permissions under the "Other Permissions" category. If you are only adding a thermostat, do not just select the permissions under "Thermostat". You still need to check the boxes under "Other Permissions" in order to give you access to features like away mode, ETA, structure read/write, and postal code.
-  * The description requires a specific format to be accepted.
-    * Use "[Home Assistant] [Edit] [For Home Automation]" as the description as it is not super important.
-8. Click "Create Product"
-9. Once the new product page opens the "Product ID" and "Product Secret" are located on the right side. These will be used as `client_id` and `client_secret` below.
-10. Add the Nest integration to your `configuration.yaml` and restart Home Assistant. Then, go to `Settings > Devices & Services` and select `CONFIGURE` next to `Nest`. Click the link in the configurator pop up to log into your Nest account and complete the OAuth. Copy the resulting PIN code into the pop up.
-
-Connecting to the Nest Developer API requires outbound port 9553 on your firewall. The configuration will fail if this is not accessible.
-
-**Configuration**
-
-```yaml
-# Example configuration.yaml entry
-nest:
-  client_id: CLIENT_ID
-  client_secret: CLIENT_SECRET
-```
-
-```yaml
-# Example configuration.yaml entry to show only devices at your vacation and primary homes
-nest:
-  client_id: CLIENT_ID
-  client_secret: CLIENT_SECRET
-  structure:
-    - Vacation
-    - Primary
-```
-
-{% configuration %}
-client_id:
-  description: Your Nest developer client ID.
-  required: true
-  type: string
-client_secret:
-  description: Your Nest developer client secret.
-  required: true
-  type: string
-structure:
-  description: The structure or structures you would like to include devices from. If not specified, this will include all structures in your Nest account.
-  required: false
-  type: list
-{% endconfiguration %}
-
-**Service `set_away_mode`**
-
-You can use the service `nest/set_away_mode` to set the structure(s) to "Home" or "Away".
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `away_mode` | no | String, must be `away` or `home`.
-| `structure` | yes | String, will default to all configured Nest structures if not specified.
-
-Examples:
-
-```yaml
-# Example script to set away, no structure specified so will execute for all
-script:
-  nest_set_away:
-    sequence:
-      - service: nest.set_away_mode
-        data:
-          away_mode: away
-```
-
-```yaml
-# Example script to set home, structure specified
-script:
-  nest_set_home:
-    sequence:
-      - service: nest.set_away_mode
-        data:
-          away_mode: home
-          structure:
-            - Apartment
-```
-
-**Service `set_eta`**
-
-You can use the service `nest/set_eta` to set or update the estimated time of arrival window. Calling this service will automatically set the structure(s) to "Away". Structures must have an associated Nest thermostat in order to use ETA function.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `eta` | no | Time period, estimated time of arrival from now.
-| `eta_window` | yes | Time period, estimated time of arrival window. Default is 1 minute.
-| `trip_id` | yes | String, unique ID for the trip. Default is auto-generated using a timestamp. Using an existing `trip_id` will update that trip's ETA.
-| `structure` | yes | String, will default to all configured Nest structures if not specified.
-
-Examples:
-
-```yaml
-# Example script to set ETA, no structure specified so will execute for all
-script:
-  nest_set_eta:
-    sequence:
-      - service: nest.set_eta
-        data:
-          eta: 00:10:30
-          trip_id: Leave Work
-```
-
-```yaml
-# Example script to update ETA and specify window, structure specified
-script:
-  nest_update_eta:
-    sequence:
-      - service: nest.set_eta
-        data:
-          eta: 00:11:00
-          eta_window: 00:05
-          trip_id: Leave Work
-          structure:
-            - Apartment
-```
-
-**Service `cancel_eta`**
-
-You can use the service `nest/cancel_eta` to cancel an existing estimated time of arrival window. Structures must have an associated Nest thermostat in order to use ETA function.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `trip_id` | no | String, unique ID for the trip. Using an existing `trip_id` will update that trip's ETA.
-| `structure` | yes | String, will default to all configured Nest structures if not specified.
-
-Examples:
-
-```yaml
-# Example script to cancel ETA, no structure specified so will execute for all
-script:
-  nest_cancel_eta:
-    sequence:
-      - service: nest.cancel_eta
-        data:
-          trip_id: Leave Work
-```
-
-```yaml
-# Example script to cancel ETA, structure specified
-script:
-  nest_cancel_eta:
-    sequence:
-      - service: nest.cancel_eta
-        data:
-          trip_id: Leave Work
-          structure:
-            - Apartment
-```
-
-**Troubleshooting**
-
-- If you're getting [rickrolled](https://www.youtube.com/watch?v=dQw4w9WgXcQ) by the Legacy API instead of being able to see your Nest cameras, you may not have set up your developer account's permissions correctly. Go back through and make sure you've selected read/write under every category that it's an option.
-
-**Platforms**
-
-<div class='note'>
-
-You must have the [Nest component](/integrations/nest/) configured to use the platforms below.
-
-</div>
-
-**Binary Sensor**
-
-The `nest` binary sensor platform lets you monitor various states of your [Nest](https://nest.com) devices.
-
-<div class='note'>
-
-You must have the [Nest component](/integrations/nest/) configured to use these sensors. The binary sensors will be setup if the `nest` integration is configured and the required configuration for the `nest binary sensor` is set.
-
-</div>
-
-**Configuration**
-
-To enable binary sensors and customize which sensors are setup, you can extend the [Nest component](/integrations/nest/) configuration in your `configuration.yaml` file with the following settings:
-
-```yaml
-# Example configuration.yaml entry
-nest:
-  binary_sensors:
-    monitored_conditions:
-      - 'fan'
-      - 'target'
-```
-
-By default all binary sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all binary sensors for the [Nest component](/integrations/nest/).
-
-{% configuration %}
-monitored_conditions:
-  description: States to monitor.
-  required: false
-  type: list
-{% endconfiguration %}
-
-The following conditions are available by device:
-
-- Nest Home:
-  - away
-- Nest Thermostat:
-  - online
-  - fan
-  - is\_using\_emergency\_heat
-  - is\_locked
-  - has\_leaf
-- Nest Protect:
-  - online
-- Nest Camera:
-  - online
-  - motion\_detected
-  - person\_detected
-  - sound\_detected
-
-**Camera**
-
-The `nest` platform allows you to watch still frames from a video stream (not live stream) of your [Nest](https://nest.com/camera/meet-nest-cam/) camera in Home Assistant.
-
-<div class='note'>
-
-The Legacy API integration allows you to watch still frames from a video stream (not live stream). The Legacy API also supports the `camera.turn_on` and `camera.turn_off` services.
-
-</div>
-
-Nest Camera supports the `camera.turn_on` and `camera.turn_off` services since the 0.75 release.
-
-**Climate**
-
-The `nest` climate platform lets you control a thermostat from [Nest](https://nest.com).
-
-<div class='note'>
-Please note due to limitations with the European Nest Thermostat E, integration with Home Assistant for that thermostat is not possible.
-</div>
-
-<p class='img'>
-  <img src='/images/screenshots/nest-thermostat-card.png' />
-</p>
-
-**Sensor**
-
-The `nest` sensor platform lets you monitor sensors connected to your [Nest](https://nest.com) devices.
-
-<div class='note'>
-
-The sensors will be setup if the `nest` integration is configured and the required configuration for the `nest sensor` is set.
-
-</div>
-
-**Configuration**
-
-To enable sensors and customize which sensors are setup, you can extend the [Nest component](/integrations/nest/) configuration in your `configuration.yaml` file with the following settings:
-
-```yaml
-# Example configuration.yaml entry
-nest:
-  sensors:
-    monitored_conditions:
-      - 'temperature'
-      - 'target'
-```
-
-By default all sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all sensors for the [Nest component](/integrations/nest/).
-
-{% configuration %}
-monitored_conditions:
-  description: States to monitor.
-  required: false
-  type: list
-{% endconfiguration %}
-
-The following conditions are available by device:
-
-- Nest Home:
-  - `eta`: Estimated time of arrival.
-  - `security_state`: `ok` or `deter`. [Security State](#security-state). Only available when Nest Camera exists.
-- Nest Thermostat:
-  - `humidity`
-  - `preset_mode`
-  - `temperature`
-  - `target`
-  - `hvac_state`: The currently active state of the HVAC system, `heat`, `cool` or `off` (previously `heating`, `cooling` or `off`).
-- Nest Protect:
-  - `co_status`: `Ok`, `Warning` or `Emergency`
-  - `smoke_status`: `Ok`, `Warning` or `Emergency`
-  - `battery_health`: `Ok` or `Replace`
-  - `color_status`: `gray`, `green`, `yellow` or `red`. Indicates device status by color in the Nest app UI. It is an aggregate condition for battery+smoke+CO states, and reflects the actual color indicators displayed in the Nest app.
-- Nest Camera: none
-
-**Security State**
-
-<div class='note warning'>
-
-This feature is not designed to transform your Home Assistant into a security system, neither Home Assistant nor Nest are liable for damages,
-or consequential damages of any character arising as a result of use this feature.
-
-This feature does not depend on the [Nest Secure alarm system](https://nest.com/alarm-system/overview/) and is not a reflection of the status of that system,
-nor does it react to state changes in that system.
-
-</div>
-
-<div class='note'>
-
-This feature uses a new [Nest Security API](https://developers.nest.com/documentation/cloud/security-guide).
-You may need to change your ["Product"](https://developers.nest.com/products) permission setting to include `Security State Read`.
-After this permission change, you may need to re-authorize your client.
-
-</div>
-
-If a Nest Cam detects the presence of a person (see `person_detected` in [binary_sensor.nest](#binary-sensor) while the structure is in `away` mode (see `away` in [binary_sensor.nest](#binary-sensor), the structure enters `deter` mode.
-
-A `deter` state is re-evaluated after several minutes and relaxed to `ok` if no further `person_detected` events have occurred.
-
-The `security_state` automatically switches to `ok` when the structure state is `home`.
-
-{% enddetails %}

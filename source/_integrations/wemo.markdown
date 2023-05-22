@@ -24,14 +24,14 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The `wemo` integration is the main integration to integrate various [Belkin WeMo](https://www.belkin.com/us/c/wemo/) devices with Home Assistant.
+The `wemo` integration is the main integration to integrate various [Belkin WeMo](https://www.belkin.com/products/wemo-smart-home/) devices with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary Sensor (Belkin WeMo Motion Sensor)
 - Fan (Belkin WeMo (Holmes) Smart Humidifier)
 - Light (Belkin WeMo LED lights and Smart Dimmer Switch)
-- Switch ([Belkin WeMo Switches](https://www.belkin.com/us/smart-home/c/wemo/) and includes support for WeMo enabled [Mr. Coffee](https://www.mrcoffee.com/) smart coffee makers.)
+- Switch ([Belkin WeMo Switches](https://www.belkin.com/products/wemo-smart-home/) and includes support for WeMo enabled [Mr. Coffee](https://www.mrcoffee.com/) smart coffee makers.)
 
 ## Configuration
 

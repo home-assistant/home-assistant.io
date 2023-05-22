@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://developer.here.com/documentation/routing/dev_guide/topics/introduction.html).
+The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://developer.here.com/documentation/routing-api/dev_guide/index.html).
 
 ## Setup
 

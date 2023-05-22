@@ -8,7 +8,7 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_domain: search
 ha_quality_scale: internal
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 The `search` integration is an internally used integration by the
