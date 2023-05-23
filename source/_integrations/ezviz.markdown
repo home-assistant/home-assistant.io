@@ -52,6 +52,16 @@ If your EZVIZ camera supports PTZ, you will be able to pan or tilt your camera.
 | `direction` | 	Direction of the movement. Allowed values: `up`, `down`, `left`, `right` |
 | `speed` | (Optional) Speed to in which to move the camera. Allowed values: int from 1 to 9. Default: 5 |
 
+### Service `ezviz.set_alarm_detection_sensibility`
+
+If your EZVIZ camera supports motion detection, you will be able to set the sensitivity level using this service.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
+| `level` | Sensibility level (1-6) for type 0 (Normal camera) or (1-100) for type 3 (PIR sensor camera). |
+| `type_value` | Type of detection. Options : 0 - Camera or 3 - PIR Sensor Camera. |
+
 ### Service `ezviz.sound_alarm`
 
 If your EZVIZ camera has a built-in siren, you can use this service to make a noise.
