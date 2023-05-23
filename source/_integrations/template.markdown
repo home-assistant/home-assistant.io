@@ -113,7 +113,7 @@ sensor:
   type: map
   keys:
     state:
-      description: "Defines a template to get the state of the sensor. If the sensor is numeric, i.e. it has a `state_class` or a `unit_of_measurement` the state template must render to a number or to `none`. The state template must not render to a string, including to `"unknown"` or to `"unavailable"`. An `availability` template may be defined to suppress rendering of the state template".
+      description: "Defines a template to get the state of the sensor. If the sensor is numeric, i.e. it has a `state_class` or a `unit_of_measurement`, the state template must render to a number or to `none`. The state template must not render to a string, including `"unknown"` or `"unavailable"`. An `availability` template may be defined to suppress rendering of the state template".
       required: true
       type: template
     unit_of_measurement:
