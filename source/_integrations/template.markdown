@@ -460,6 +460,8 @@ template:
 ### State based sensor changing the unit of measurement of another sensor
 
 With a Template Sensor, it's easy to convert given values into others if the unit of measurement doesn't fit your needs.
+Because the sensors do math on the source sensor's state and need to render to a numeric value, an availability template is used
+to suppress rendering of the state template if the source sensor does not have a valid numeric state.
 
 {% raw %}
 
@@ -469,10 +471,12 @@ template:
       - name: "Transmission Down Speed"
         unit_of_measurement: "kB/s"
         state: "{{ states('sensor.transmission_down_speed')|float * 1024 }}"
+        availability: "{{ is_number(states('sensor.transmission_down_speed')) }}"
 
       - name: "Transmission Up Speed"
         unit_of_measurement: "kB/s"
         state: "{{ states('sensor.transmission_up_speed')|float * 1024 }}"
+        availability: "{{ is_number(states('sensor.transmission_up_speed')) }}"
 ```
 
 {% endraw %}
