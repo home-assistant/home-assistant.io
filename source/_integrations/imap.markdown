@@ -65,7 +65,15 @@ The SSL cipher list is an advanced setting. The option is available only when ad
 When a new message arrives that meets the search criteria the `imap` integration will send a custom [event](/docs/automation/trigger/#event-trigger) that can be used to trigger an automation.
 It is also possible to use to create a template [`binary_sensor` or `sensor`](/integrations/template/#trigger-based-template-binary-sensors-buttons-numbers-selects-and-sensors) based the [event data](/docs/automation/templating/#event).
 
-The table below shows what attributes come with `trigger.event.data`. The data is a dictionary that has the keys that are shown below:
+The table below shows what attributes come with `trigger.event.data`. The data is a dictionary that has the keys that are shown below.
+
+The attributes shown in table are also available as variables for the custom event data template. The [example](/integrations/imap/#example---custom-event-data-template) shows how to use this as an event filter.
+
+<div class='note info'>
+
+The custom event data template is an advanced feature. The option is available only when advanced mode is enabled (see user settings). The `text` attribute is not size limited when it is used as variable in the template.
+
+</div>
 
 {% configuration_basic %}
 server:
@@ -77,7 +85,7 @@ search:
 folder:
   description: The IMAP folder configuration
 text:
-  description: The email body `text` of the message (by default, only the first 2048 bytes will be available)
+  description: The email body `text` of the message (by default, only the first 2048 bytes will be available.)
 sender:
   description: The `sender` of the message
 subject:
@@ -86,6 +94,8 @@ date:
   description: A `datetime` object of the `date` sent
 headers:
   description: The `headers` of the message in the for of a dictionary. The values are iterable as headers can occur more than once.
+custom:
+  description: Holds the result of the custom event data [template](/docs/configuration/templating). All attributes are available as a variable in the template.
 
 {% endconfiguration_basic %}
 
@@ -200,3 +210,37 @@ template:
 {% endraw %}
 
 By making small changes to the regular expressions defined above, a similar structure can parse other types of data out of the body text of other emails.
+
+## Example - custom event data template
+
+We can define a custom event data template to help filtering events. This can be handy if e.g. we have multiple senders we want to allow.
+We define the following template to return true if part of the `sender` is `@example.com`:
+
+{% raw %}
+
+```jinja2
+{{ "@example.com" in sender }}
+```
+
+{% endraw %}
+
+This will render to `True` if the sender is allowed. The result is added to the event data as `trigger.event.data["custom"]`.
+
+The example below will only set the state to the subject of the email of template sensor, but only if the sender address matches.
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: event
+        event_type: "imap_content"
+        id: "custom_event"
+        event_data:
+          custom: True
+    sensor:
+      - name: event filtered by template
+        state: '{{ trigger.event.data["subject"] }}'
+```
+
+{% endraw %}
