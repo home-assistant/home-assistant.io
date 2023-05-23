@@ -50,6 +50,7 @@ Enjoy the release!
 - [Release 2023.5.1 - May 4](#release-202351---may-4)
 - [Release 2023.5.2 - May 5](#release-202352---may-5)
 - [Release 2023.5.3 - May 14](#release-202353---may-14)
+- [Release 2023.5.4 - May 23](#release-202354---may-23)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -537,6 +538,107 @@ The following integrations are now available via the Home Assistant UI:
 [webostv docs]: /integrations/webostv/
 [workday docs]: /integrations/workday/
 [zha docs]: /integrations/zha/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2023.5.4 - May 23
+
+- Fix weather handling in zamg ([@killer0071234] - [#85635]) ([zamg docs])
+- Fix onvif cameras that cannot parse relative time ([@bdraco] - [#92711]) ([onvif docs]) (dependency)
+- Update solax state class for sensors with no units ([@MichaelMraka] - [#92914]) ([solax docs])
+- Fix NWS error with no observation ([@MatthewFlamm] - [#92997]) ([nws docs])
+- Increase timeout to 30 seconds for homeassistant_alerts integration ([@N3rdix] - [#93089]) ([homeassistant_alerts docs])
+- Fix ONVIF cameras that change the xaddr for the pull point service ([@bdraco] - [#93104]) ([onvif docs])
+- Bump pyunifiprotect to 4.9.0 ([@bdraco] - [#93106]) ([unifiprotect docs]) (dependency)
+- Fix last imap message is not reset on empty search ([@jbouwh] - [#93119]) ([imap docs])
+- Bump `accuweather` to version 0.5.2 ([@bieniu] - [#93130]) ([accuweather docs]) (dependency)
+- Better handling of source sensor unavailability in Riemman Integration ([@dgomes] - [#93137]) ([integration docs])
+- Bump `regenmaschine` to 2023.05.1 ([@bachya] - [#93139]) ([rainmachine docs]) (dependency)
+- Bump pyatv to 0.11.0 ([@bdraco] - [#93172]) ([apple_tv docs])
+- Fix china login for bmw_connected_drive ([@rikroe] - [#93180]) ([bmw_connected_drive docs])
+- Add Fan and Dry HVAC modes to Advantage Air MyTemp preset ([@Bre77] - [#93189]) ([advantage_air docs])
+- Disconnect yale access locks at the stop event ([@bdraco] - [#93192]) ([august docs]) ([yalexs_ble docs]) (dependency)
+- Add support for Yale Home brand to august ([@bdraco] - [#93214]) ([august docs])
+- Bump async-upnp-client to 0.33.2 ([@StevenLooman] - [#93329]) (dependency)
+- Bump `aionotion` to 2023.05.5 ([@bachya] - [#93334]) ([notion docs])
+- Bump zwave-js-server-python to 0.48.1 ([@raman325] - [#93342]) ([zwave_js docs]) (dependency)
+- Bump glances_api to 0.4.2 ([@freeDom-] - [#93352]) ([glances docs])
+- Fix august configuration url with Yale Home brand ([@bdraco] - [#93361]) ([august docs]) (dependency)
+- Bump httpx to 0.24.1 ([@epenet] - [#93396]) (dependency)
+- Fix non threadsafe call xiaomi_aqara ([@bdraco] - [#93405]) ([xiaomi_aqara docs])
+- Bump Matter server library to 3.4.1 and address changes ([@marcelveldt] - [#93411]) ([matter docs]) (dependency)
+- Fix race in tracking pending writes in recorder ([@bdraco] - [#93414]) ([recorder docs])
+
+[#85635]: https://github.com/home-assistant/core/pull/85635
+[#92422]: https://github.com/home-assistant/core/pull/92422
+[#92513]: https://github.com/home-assistant/core/pull/92513
+[#92610]: https://github.com/home-assistant/core/pull/92610
+[#92711]: https://github.com/home-assistant/core/pull/92711
+[#92914]: https://github.com/home-assistant/core/pull/92914
+[#92997]: https://github.com/home-assistant/core/pull/92997
+[#93066]: https://github.com/home-assistant/core/pull/93066
+[#93089]: https://github.com/home-assistant/core/pull/93089
+[#93104]: https://github.com/home-assistant/core/pull/93104
+[#93106]: https://github.com/home-assistant/core/pull/93106
+[#93119]: https://github.com/home-assistant/core/pull/93119
+[#93130]: https://github.com/home-assistant/core/pull/93130
+[#93137]: https://github.com/home-assistant/core/pull/93137
+[#93139]: https://github.com/home-assistant/core/pull/93139
+[#93172]: https://github.com/home-assistant/core/pull/93172
+[#93180]: https://github.com/home-assistant/core/pull/93180
+[#93189]: https://github.com/home-assistant/core/pull/93189
+[#93192]: https://github.com/home-assistant/core/pull/93192
+[#93214]: https://github.com/home-assistant/core/pull/93214
+[#93329]: https://github.com/home-assistant/core/pull/93329
+[#93334]: https://github.com/home-assistant/core/pull/93334
+[#93342]: https://github.com/home-assistant/core/pull/93342
+[#93352]: https://github.com/home-assistant/core/pull/93352
+[#93361]: https://github.com/home-assistant/core/pull/93361
+[#93396]: https://github.com/home-assistant/core/pull/93396
+[#93405]: https://github.com/home-assistant/core/pull/93405
+[#93411]: https://github.com/home-assistant/core/pull/93411
+[#93414]: https://github.com/home-assistant/core/pull/93414
+[@Bre77]: https://github.com/Bre77
+[@MatthewFlamm]: https://github.com/MatthewFlamm
+[@MichaelMraka]: https://github.com/MichaelMraka
+[@N3rdix]: https://github.com/N3rdix
+[@StevenLooman]: https://github.com/StevenLooman
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@dgomes]: https://github.com/dgomes
+[@epenet]: https://github.com/epenet
+[@freeDom-]: https://github.com/freeDom-
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@killer0071234]: https://github.com/killer0071234
+[@marcelveldt]: https://github.com/marcelveldt
+[@raman325]: https://github.com/raman325
+[@rikroe]: https://github.com/rikroe
+[accuweather docs]: /integrations/accuweather/
+[advantage_air docs]: /integrations/advantage_air/
+[apple_tv docs]: /integrations/apple_tv/
+[august docs]: /integrations/august/
+[bluetooth docs]: /integrations/bluetooth/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[cloud docs]: /integrations/cloud/
+[frontend docs]: /integrations/frontend/
+[glances docs]: /integrations/glances/
+[homeassistant_alerts docs]: /integrations/homeassistant_alerts/
+[imap docs]: /integrations/imap/
+[integration docs]: /integrations/integration/
+[lifx docs]: /integrations/lifx/
+[matter docs]: /integrations/matter/
+[notion docs]: /integrations/notion/
+[nws docs]: /integrations/nws/
+[onvif docs]: /integrations/onvif/
+[rainmachine docs]: /integrations/rainmachine/
+[recorder docs]: /integrations/recorder/
+[solax docs]: /integrations/solax/
+[unifiprotect docs]: /integrations/unifiprotect/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[yalexs_ble docs]: /integrations/yalexs_ble/
+[zamg docs]: /integrations/zamg/
 [zwave_js docs]: /integrations/zwave_js/
 
 ## Need help? Join the community!
