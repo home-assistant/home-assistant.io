@@ -80,9 +80,11 @@ port:
 
 The first time Home Assistant will connect to your Freebox, you will need to authorize it by pressing the right arrow on the facade of the Freebox when prompted to do so.
 
-To make the Wi-Fi switch and the reboot service working you will have to add "Modification des réglages de la Freebox" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+To make the Wi-Fi switch and the reboot service working you will have to add the "Modification des réglages de la Freebox" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
-To use cameras from the Freebox Delta, you will have to add "Gestion de l'alarme et maison connectée" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+To use cameras from the Freebox Delta, you will have to add the "Gestion de l'alarme et maison connectée" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+
+To change the brightness of the Freebox Server's integrated screen, you will have to add "Modification des réglages de la Freebox" permission to Home Assistant in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
 ### Supported routers
 
@@ -129,3 +131,7 @@ This service will reboot your Freebox router. It does not take any parameter. Be
 ## Switch
 
 This platform offers you a switch to toggle the Wi-Fi on or off. This will toggle all Wi-Fi interfaces of the router (all SSID and all bands).
+
+## LCD Brightness
+
+This platform offers you a slider to change the brightness level of the Freebox Server's integrated screen.
