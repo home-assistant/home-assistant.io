@@ -516,7 +516,7 @@ ZHA configuration UI has a window/tab for "Visualization" that provides a visual
 
 This network visualization can sometimes be of help to get a quick overview in identifying devices that are reporting links with poor connection (e.i. low values), however, be aware that for deeper troubleshooting you will need to look at the ZHA logs instead.
 
-The visualization tried to show multi-hop connections between your paired devices and their reported cumulative values of RSSI (“Received Signal Strength Indicator") and LQI ("Link Quality Indication").
+The visualization shows multi-hop connections between your paired devices and their reported cumulative values of Received Signal Strength Indicator (RSSI) and Link Quality Indication (LQI).
 
 Note that the exact method in which these values are reported depends on the Zigbee network stack being used on each device, and LQI values can be modified at each step as the massage propagates through the mesh networking matrix.
 
