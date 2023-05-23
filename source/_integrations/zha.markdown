@@ -512,7 +512,7 @@ Since all Zigbee Coordinator radio adapters are very sensitive/susceptible to al
 
 ### Zigbee network visualization in ZHA UI
 
-ZHA configuration UI has a window/tab for "Visualization" that provides a visual representation of device links in your Zigbee network topology.
+ZHA configuration UI has a window/tab for *Visualization* that provides a visual representation of device links in your Zigbee network topology.
 
 The network visualization can help to get a quick overview in identifying devices that are reporting links with poor connection (i.e. low values). However, be aware that for deeper troubleshooting you will need to look at the ZHA logs instead.
 
