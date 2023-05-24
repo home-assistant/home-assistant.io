@@ -35,5 +35,5 @@ For each Airzone zone (thermostat), the following *sensors* are created:
 
 | Condition           | Description                        |
 | :------------------ | :--------------------------------- |
-| humidity            | Current zone relative humidity.    |
+| humidity            | Measures the relative humidity in the current zone.     |
 | temperature         | Current zone temperature.          |
