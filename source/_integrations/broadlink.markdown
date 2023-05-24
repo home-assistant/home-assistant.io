@@ -656,7 +656,7 @@ After a success, do one of the following two options:
     ```
 
 2. To learn a button hold RF code, hold the button you wish to learn for 1-2 seconds then immediately press enter.  
-    * You will see the same prompts for a short press, as above, and should see it spit out a different base64 code.
+    * You will see the same prompts for a short press as shown above. You should see it return a different base64 code.
     * Test the base64 code to ensure it performs the button 'hold' command as expected, rather than the button 'press' command.
     * This might take some trial and error to get the hold timing right before hitting enter to scan for the code.
 
