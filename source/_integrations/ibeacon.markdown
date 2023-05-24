@@ -79,6 +79,7 @@ To get the Estimated distance sensor to work, in most cases, it has to be calibr
 - [NRF52810 iBeacon](https://www.aliexpress.com/item/1005003211033416.html)
 - [Pawscout Tag](https://pawscout.com/shop/pawscout-tag/)
 - [SwiftFinder](https://www.amazon.com/dp/B089MD5NP7) (Requires being paired to a phone first before it starts transmitting once a minute, otherwise it stays asleep)
+- [Teltonika EYE Teltonika EYE Sensor](https://teltonika-gps.com/products/accessories/sensors-beacons/eye) (Additional sensors such as accelerometer, temperature, and humidity are not compatible)
 
 ## Example automation
 
