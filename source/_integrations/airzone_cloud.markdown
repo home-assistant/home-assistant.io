@@ -16,7 +16,7 @@ ha_integration_type: integration
 
 This integration interacts with the Cloud API of [Airzone HVAC zoning systems](https://www.airzone.es/en/).
 
-A typical Airzone device has a *parent zone* (Master Thermostat) per HVAC system, which is the only zone where the HVAC mode can be changed. The rest are *child zones* which can only enable or disable the HVAC and adjust the desired temperature on that specific zone.
+A typical Airzone HVAC system consists of a parent device (called *master* in Airzone terminology) and child devices (called *zones* in Airzone terminology). The [HVAC mode](https://www.home-assistant.io/integrations/climate/#service-climateset_hvac_mode) can only be changed on the parent device. On child devices (*zones*), you can only enable or disable the HVAC and adjust the desired temperature for that specific device.
 
 Note that multiple HVAC systems can be connected to the same Airzone WebServer. In this case, there will be a *parent zone* per HVAC system and there may also be *child zones* for each HVAC system.
 
