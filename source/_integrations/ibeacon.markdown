@@ -74,7 +74,7 @@ To get the Estimated distance sensor to work, in most cases, it has to be calibr
 - [Feasycom FSC-BP103B](https://www.feasycom.com/bluetooth-ibeacon-da14531)
 - [Feasycom FSC-BP104D](https://www.feasycom.com/dialog-da14531-bluetooth-low-energy-beacon)
 - [Feasycom FSC-BP108](https://www.feasycom.com/bluetooth-5-1-waterproof-bluetooth-beacon)
-- [Mikrotik TG-BT5-IN](https://mikrotik.com/product/tg_bt5_in) (Additional sensors such as angle or impact are not compatible)
+- [MikroTik TG-BT5-IN](https://mikrotik.com/product/tg_bt5_in) (Additional sensors such as angle or impact are not compatible)
 - [NRF51822 iBeacon](https://www.aliexpress.com/item/32826502025.html)
 - [NRF52810 iBeacon](https://www.aliexpress.com/item/1005003211033416.html)
 - [Pawscout Tag](https://pawscout.com/shop/pawscout-tag/)
