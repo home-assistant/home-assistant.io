@@ -85,7 +85,7 @@ If `restore` is set to `true`, the `initial` value will only be used when no pre
 
 ## Services
 
-Available services: `increment`, `decrement`, `reset` and `set_value`.
+Available services: `increment`, `decrement`, `reset`, and `set_value`.
 
 ### Service `counter.increment`
 
