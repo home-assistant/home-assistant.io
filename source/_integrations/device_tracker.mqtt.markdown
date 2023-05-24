@@ -168,7 +168,7 @@ source_type:
   required: false
   type: string
 state_topic:
-  description: The MQTT topic subscribed to receive device tracker state changes, or to reset the state override when a message configured with `payload_reset` is received. Can only be omitted if only `json_attributes_topic` is used.
+  description: The MQTT topic subscribed to receive device tracker state changes. The states defined in `state_topic` override the location states defined by the `json_attributes_topic`. This state override is turned inactive if the `state_topic` receives a message containing `payload_reset`. The `state_topic` can only be omitted if `json_attributes_topic` is used.
   required: false
   type: string
 unique_id:
