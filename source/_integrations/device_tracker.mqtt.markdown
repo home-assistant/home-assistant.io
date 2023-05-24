@@ -118,7 +118,11 @@ json_attributes_template:
   required: false
   type: template
 json_attributes_topic:
-  description: "The MQTT topic subscribed to receive a JSON dictionary message and then set as device_tracker attributes. If the attributes in the JSON message include `longitude`, `latitude` and optional `gps_accuracy` and if the device tracker is within a configured [zone](/integrations/zone/), they can be used to set the location of the device tracker, then configuring `state_topic` is not required. Be aware that any location message received at `state_topic` will override the location received via `json_attributes_topic` until a message configured with `payload_reset` is received at `state_topic`. A more generic usage example for the use of `json_attributes_topic` can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation."
+  description: "The MQTT topic subscribed to receive a JSON dictionary message containing device tracker attributes. 
+  This topic can be used to set the location of the device tracker under the following conditions: 
+    * If the attributes in the JSON message include `longitude`, `latitude`, and `gps_accuracy` (optional).
+    * If the device tracker is within a configured [zone](/integrations/zone/). 
+    If these conditions are met, it is not required to configure `state_topic`. Be aware that any location message received at `state_topic`  overrides the location received via `json_attributes_topic` until a message configured with `payload_reset` is received at `state_topic`. For a more generic usage example of the `json_attributes_topic`, refer to the [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation."
   required: false
   type: string
 name:
