@@ -67,11 +67,11 @@ It is also possible to use to create a template [`binary_sensor` or `sensor`](/i
 
 The table below shows what attributes come with `trigger.event.data`. The data is a dictionary that has the keys that are shown below.
 
-The attributes shown in table are also available as variables for the custom event data template. The [example](/integrations/imap/#example---custom-event-data-template) shows how to use this as an event filter.
+The attributes shown in the table are also available as variables for the custom event data template. The [example](/integrations/imap/#example---custom-event-data-template) shows how to use this as an event filter.
 
 <div class='note info'>
 
-The custom event data template is an advanced feature. The option is available only when advanced mode is enabled (see user settings). The `text` attribute is not size limited when it is used as variable in the template.
+The custom event data template is an advanced feature. The option is available only when advanced mode is enabled (see user settings). The `text` attribute is not size limited when used as a variable in the template.
 
 </div>
 
@@ -213,7 +213,7 @@ By making small changes to the regular expressions defined above, a similar stru
 
 ## Example - custom event data template
 
-We can define a custom event data template to help filtering events. This can be handy if e.g. we have multiple senders we want to allow.
+We can define a custom event data template to help filter events. This can be handy if, for example, we have multiple senders we want to allow.
 We define the following template to return true if part of the `sender` is `@example.com`:
 
 {% raw %}
