@@ -45,11 +45,13 @@ binary_sensor:
     after: sunrise
     after_offset: "-02:00"
     before: "07:00"
+    unique_id: early_morning_sensor
 
   - platform: tod
     name: Late Morning
     after: "10:00"
     before: "12:00"
+    unique_id: late_morning_sensor
 ```
 
 {% configuration %}
@@ -72,6 +74,10 @@ after:
 after_offset:
   description: The time offset of the beginning time range.
   type: time
+  required: false
+unique_id:
+  description: An ID that uniquely identifies this sensor. This allows changing the name, icon, and entity_id from the web interface.
+  type: string
   required: false
 {% endconfiguration %}
 

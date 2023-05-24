@@ -1,5 +1,5 @@
 ---
-title: Nest
+title: Google Nest
 description: Instructions on how to integrate Nest into Home Assistant.
 ha_category:
   - Binary Sensor
@@ -26,16 +26,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-<a class="integration-alert" href="/more-info/nest-auth-deprecation">
-  <svg preserveAspectRatio="xMidYMid meet" focusable="false" role="img" aria-hidden="true" viewBox="0 0 24 24" color="currentColor">
-    <g><path d="M12,2L1,21H23M12,6L19.53,19H4.47M11,10V14H13V10M11,16V18H13V16"></path></g>
-  </svg>
-  <div class="content">Existing users: Nest authentication is changing.</div>
-  <div class="learn-more">LEARN MORE</div>
-</a>
-
-
-The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
+The `nest` integration allows you to integrate a few [supported](https://developers.google.com/nest/device-access/supported-devices) Google [Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -49,7 +40,7 @@ You are in control of the information and capabilities exposed to Home Assistant
 
 <div class='note'>
 
-The Nest Smart Device Management (SDM) API **requires a US$5 fee**.
+The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
 
 </div>
 
@@ -259,7 +250,7 @@ This feature is enabled by the following permissions:
 
 </div>
 <div class='note'>
-Additional Nest Temperature Sensors are not supported by the SDM API.
+Additional Nest Temperature Sensors are not supported by the SDM API.  The Temperature reported by the API will be pulled from whichever device is currently configured as the Active Sensor, which can be adjusted via manual selection or the schedule offered in the Nest App.
 </div>
 
 
@@ -288,8 +279,9 @@ All cameras have motion and person triggers, however only some support capturing
 | Nest Cam Indoor<br>Nest Cam IQ Indoor<br>Nest Cam IQ Outdoor<br>Nest Cam Outdoor | RTSP<br>Recording | Motion<br>Person<br>Sound | Snapshot (jpg) |
 | Nest Cam with floodlight | WebRTC | Motion<br>Person | N/A |
 | Nest Doorbell (battery) | WebRTC | Motion<br>Person<br>Chime | Clip Preview (mp4, gif) |
-| Nest Doorbell (wired) | RTSP<br>Recording | Motion<br>Person<br>Sound<br>Chime | Snapshot (jpg) |
-| Nest Hub Max | RTSP<br>Recording | Motion<br>Person<br>Sound<br><sub><sup>* [SDM API known issue](https://github.com/home-assistant/core/issues/58482)</sup></sub> | Snapshot (jpg) |
+| Nest Doorbell (wired, 1st gen) | RTSP<br>Recording | Motion<br>Person<br>Sound<br>Chime | Snapshot (jpg) |
+| Nest Doorbell (wired, 2nd gen) | WebRTC | Motion<br>Person<br>Chime | Clip Preview (mp4, gif) |
+| Nest Hub Max | RTSP<br>Recording | Motion<br>Person<br>Sound<br> | Snapshot (jpg) |
 
 Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
 
@@ -397,7 +389,7 @@ data:
 
 {% details "Example Action: Snapshot (jpg) attachment for Android or iOS %}
 
-Example for cameras that support Snaphot (jpg) on either Android or iOS.
+Example for cameras that support Snapshot (jpg) on either Android or iOS.
 
 {% raw %}
 
@@ -467,7 +459,7 @@ If the *Nest* integration does not have an Alert then you probably used *Web Aut
 
 1.  Visit the [Device Access Console](https://console.nest.google.com/device-access/)
 1.  Select the *Device Access Project* used by *Home Assistant*
-1.  You need to then delete the old *OAuth Client ID* by clicking the Trash icon to unlick your Nest project from the deprecated Auth method.
+1.  You need to then delete the old *OAuth Client ID* by clicking the Trash icon to unlink your Nest project from the deprecated Auth method.
 1.  Click the overflow menu `...` then *Add Client ID*
 1.  Enter the new *OAuth Client ID* for *Web App Auth* credentials
 1.  Back in Home Assistant confirm your *Device Access Project ID*
@@ -528,7 +520,7 @@ The *OAuth Client ID* used must be consistent, so check these:
 
 {% enddetails %}
 
-- *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiugration or your authentication token was revoked by Google for some other reason.
+- *Reauthentication required often*: If you are getting logged out every 7 days, this means an OAuth Consent Screen misconfiguration or your authentication token was revoked by Google for some other reason.
 
 {% details "Details about reauthentication issues" %}
 
@@ -557,7 +549,7 @@ The *OAuth Client ID* used must be consistent, so check these:
 
 - *Error: invalid_client no application name* means the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) has not been fully configured for the project. Enter the required fields (App Name, Support Email, Developer Email) and leave everything else as default.
 
-- *Subscriber error* means that `configuration.yaml` has an incorrect `subscriber_id` or the subscription is misconfiugred. It is recommended to delete this from the configuration, then delete and re-add the integration to let it create a subscription for you.
+- *Subscriber error* means that `configuration.yaml` has an incorrect `subscriber_id` or the subscription is misconfigured. It is recommended to delete this from the configuration, then delete and re-add the integration to let it create a subscription for you.
 
 - *Not receiving updates* typically means a problem with the subscriber configuration. Make sure to check the logs for any error messages. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant subscriber when everything is configured correctly.
 
@@ -583,7 +575,7 @@ logger:
     google_nest_sdm.event: debug
 ```
 
-- It is recommended to let Home Assistant create the Pub/Sub subscription for you. However, if you would like more control you can enter a `susbcriber_id` in the configuration. See [Subscribe to Events](https://developers.google.com/nest/device-access/subscribe-to-events) for more instructions on how to manually create a subscription and use the full subscription name in the Home Assistant configuration e.g. `projects/gcp-project-name/subscriptions/subscription-id`
+- It is recommended to let Home Assistant create the Pub/Sub subscription for you. However, if you would like more control you can enter a `subscriber_id` in the configuration. See [Subscribe to Events](https://developers.google.com/nest/device-access/subscribe-to-events) for more instructions on how to manually create a subscription and use the full subscription name in the Home Assistant configuration e.g. `projects/gcp-project-name/subscriptions/subscription-id`
 
 # Works With Nest API
 

@@ -36,7 +36,7 @@ You can find a full supported messenger list [here](https://notify.events/featur
 
 To start getting notifications, you need to follow those simple steps:
  
-1. SignUp to [Notify.Events](https://notify.events/) and create a Channel
+1. Sign up to [Notify.Events](https://notify.events/) and create a Channel
 2. Add **Home Assistant** source to this channel and get your **token**
 3. Add the Notify.Events integration to your installation by adding the following to your `configuration.yaml` file:
 

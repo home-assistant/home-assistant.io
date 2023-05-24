@@ -43,7 +43,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The [HomeKit](https://developer.apple.com/homekit/) controller integration allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
+The [HomeKit](https://developer.apple.com/apple-home/) controller integration allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
 
 The integration will automatically detect HomeKit compatible devices that are ready to pair if the [`zeroconf`](/integrations/zeroconf/) integration is enabled. This is enabled by default on new installations via the [`default_config`](/integrations/default_config/) component.
 
@@ -83,6 +83,14 @@ HomeKit controller will poll your devices, but it will also automatically enable
 
 HomeKit Controller will automatically discover Bluetooth devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. Bluetooth devices may take significantly longer to pair than IP devices. Battery-powered devices may require pressing a button on the device to wake it before pairing can be successful.
 
+## Thread device support
+
+In order to use HomeKit over Thread you need a working border router (like a HomePod mini). Your Home Assistant instance will need to be on the same VLAN as the border router.
+
+HomeKit Controller will automatically discover supported Thread devices using the [Zeroconf](/integrations/zeroconf) integration. Battery powered devices may go to sleep and require a button pressing to wake them up before pairing works.
+
+In order to provision a Thread device onto a mesh network using a HomePod as a border router, first pair it with an iOS device. Then unpair it from the Home app. Don't reset it. This will leave the Thread network details on the device. Home Assistant can now pair with it over Thread.
+
 ## 'Stateless' switches and sensors
 
 Some HomeKit devices (like buttons, remotes and doorbells) don't have sensors that can be read like a normal HomeKit device - they only inform Home Assistant when something happens. This means Home Assistant can't show an entity for them, as they have no state. But they are available for use as [device automations](/integrations/device_automation/).
@@ -105,7 +113,7 @@ Clicking on one will drop you in to the automation editor with a trigger pre-fil
 <img src='/images/integrations/homekit_controller/device_automation_new.png' />
 </p>
 
-When you have filled in the rest of the form to create your migration it will show up against that device in the device registry.
+When you have filled in the rest of the form to create your automation it will show up against that device in the device registry.
 
 <p class='img'>
 <img src='/images/integrations/homekit_controller/device_automation_finish.png' />
@@ -157,7 +165,7 @@ homekit:
 
 `netdisco` is not used by Home Assistant to discover HomeKit devices, so if it can't see your device the problem is more likely to be environmental than with Home Assistant itself.
 
-Alternatively if you are less comfortable with the command line you could use Discovery for [Mac](https://apps.apple.com/us/app/discovery-dns-sd-browser/id1381004916?mt=12) or [iOS](https://apps.apple.com/us/app/discovery-dns-sd-browser/id305441017), Android [Service Browser](https://play.google.com/store/apps/details?id=com.druk.servicebrowser) or [All My Lan](https://www.microsoft.com/en-us/p/all-my-lan/9wzdncrdn19v). These are a less useful diagnostic as they aren't running from the same point on your network as Home Assistant. Even if it is visible in this tool it might still be a networking issue. They can give sometimes give clues.
+Alternatively if you are less comfortable with the command line you could use Discovery for [Mac](https://apps.apple.com/app/discovery-dns-sd-browser/id1381004916) or [iOS](https://apps.apple.com/app/discovery-dns-sd-browser/id305441017), Android [Service Browser](https://play.google.com/store/apps/details?id=com.druk.servicebrowser) or [All My Lan](https://apps.microsoft.com/store/detail/all-my-lan/9WZDNCRDN19V). These are a less useful diagnostic as they aren't running from the same point on your network as Home Assistant. Even if it is visible in this tool it might still be a networking issue. They can give sometimes give clues.
 
 Where a discovery tool does give an IP, check it is what you expect (compare to DHCP leases in your router for example). Can you ping it? If not, you have a network problem.
 

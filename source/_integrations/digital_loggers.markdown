@@ -8,9 +8,12 @@ ha_category:
   - Light
   - Switch
 ha_domain: digital_loggers
+ha_integration_type: virtual
+ha_supporting_domain: wemo
+ha_supporting_integration: Belkin WeMo
+ha_release: pre 0.7
 ha_codeowners:
   - '@esev'
-ha_integration_type: integration
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
@@ -19,11 +22,8 @@ ha_platforms:
   - sensor
   - switch
 ha_iot_class: Local Push
-ha_ssdp: true
 ha_homekit: true
-ha_supporting_domain: wemo
-ha_supporting_integration: Belkin WeMo
-ha_release: pre 0.7
+ha_ssdp: true
 ---
 
 {% include integrations/supported_brand.md %}

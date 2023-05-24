@@ -185,7 +185,7 @@ Adding nice and matching icons to your entities, makes all the difference for
 how your Home Assistant interface looks and feels.
 
 Finding those icons was somewhat clumsy. You'd go to the
-[Material Design Icons](https://materialdesignicons.com/) website to find one,
+[Material Design Icons](https://pictogrammers.com/library/mdi/) website to find one,
 remember its code and add the `mdi:<code>` to your entity. Not a great
 experience, especially with the number of icons available your browser doesn't
 always like that website.

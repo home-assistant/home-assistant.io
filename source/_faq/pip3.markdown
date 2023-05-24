@@ -10,7 +10,7 @@ This utility should have been installed as part of the Python 3 installation. Ch
 If you are able to successfully run `python3 --version` but not `pip3`, install Home Assistant by running the following command instead:
 
 ```bash
-python3 -m pip install homeassistant
+python3 -m pip install homeassistant=={{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}
 ```
 
 On a Debian system, you can also install python3 by `sudo apt-get install python3` and pip3 by `sudo apt-get install python3-pip`.

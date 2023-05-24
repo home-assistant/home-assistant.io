@@ -8,7 +8,7 @@ ha_domain: logbook
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 <img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" />

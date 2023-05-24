@@ -14,6 +14,8 @@ This can be used with an application or a service capable of sending images thro
 
 ## Configuration
 
+<a id='new_format'></a>
+
 To enable this camera in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -22,25 +24,6 @@ mqtt:
   camera:
     - topic: zanzito/shared_locations/my-device
 ```
-
-<a id='new_format'></a>
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `camera` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example:
-
-```yaml
-camera:
-  - platform: mqtt
-    topic: zanzito/shared_locations/my-device
-```
-
-{% enddetails %}
 
 The sample configuration above can be tested by publishing an image to the topic from the console:
 
@@ -86,7 +69,7 @@ availability_topic:
   required: false
   type: string
 device:
-  description: "Information about the device this camera is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this camera is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
