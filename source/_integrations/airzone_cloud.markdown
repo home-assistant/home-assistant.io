@@ -31,7 +31,7 @@ Password:
 
 ## Sensors
 
-For each Airzone zone (Thermostat), the following *sensors* are created:
+For each Airzone zone (thermostat), the following *sensors* are created:
 
 | Condition           | Description                        |
 | :------------------ | :--------------------------------- |
