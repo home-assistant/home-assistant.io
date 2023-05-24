@@ -33,7 +33,7 @@ Password:
 
 For each Airzone zone (thermostat), the following *sensors* are created:
 
-| Condition           | Description                        |
-| :------------------ | :--------------------------------- |
-| humidity            | Measures the relative humidity in the current zone.     |
-| temperature         | Measures the temperature  in the current zone.          |
+| Condition           | Description                                         |
+| :------------------ | :-------------------------------------------------- |
+| humidity            | Measures the relative humidity in the current zone. |
+| temperature         | Measures the temperature  in the current zone.      |
