@@ -26,7 +26,7 @@ Note that multiple HVAC systems can be connected to the same Airzone web server.
 Username:
   description: "Cloud API username"
 Password:
-  description: "Cloud API Password"
+  description: "Cloud API password"
 {% endconfiguration_basic %}
 
 ## Sensors
