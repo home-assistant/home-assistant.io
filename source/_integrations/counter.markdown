@@ -85,7 +85,7 @@ If `restore` is set to `true`, the `initial` value will only be used when no pre
 
 ## Services
 
-Available services: `increment`, `decrement`, `reset`, `set_value` and `configure`.
+Available services: `increment`, `decrement`, `reset`, and `set_value`.
 
 ### Service `counter.increment`
 
@@ -119,19 +119,6 @@ This service allows setting the counter to a specific value.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 | `value`                |     yes  | Set the counter to the given value. |
-
-### Service `counter.configure`
-
-With this service the properties of the counter can be changed while running.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
-| `minimum`              |     yes  | Set new value for minimum. None disables minimum. |
-| `maximum`              |     yes  | Set new value for maximum. None disables maximum. |
-| `step`                 |     yes  | Set new value for step. |
-| `initial`              |     yes  | Set new value for initial. |
-| `value`                |     yes  | Set the counters state to the given value. |
 
 ### Use the service
 
