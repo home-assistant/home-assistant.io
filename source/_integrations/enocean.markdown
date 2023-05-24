@@ -327,7 +327,7 @@ The window handle sensor can have the following states:
 
 ### Window sensor
 
-The window sensor is tested with the NodON SDO-2-1-05 reed sensor which uses 1BS telegrams with EEP D5-00-01
+The window sensor is tested with the NodON SDO-2-1-05 reed sensor, which uses 1BS telegrams with EEP D5-00-01.
 
 To configure a window sensor, add the following code to your `configuration.yaml`:
 
