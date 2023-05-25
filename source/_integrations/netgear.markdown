@@ -112,4 +112,4 @@ Displays the current link type: wired, 2.4GHz or 5GHz.
 
 ## Troubleshooting
 
-- If you get a "Connection or login error" when trying to setup the Netgear integration, please try using the IP address of the router (often "192.168.1.1") as host instead of the default "routerlogin.net".
+- If you get a "Connection or login error" when trying to setup the NETGEAR integration, please try using the IP address of the router (often "192.168.1.1") as host instead of the default "routerlogin.net".
