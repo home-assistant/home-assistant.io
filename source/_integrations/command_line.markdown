@@ -34,9 +34,9 @@ command_line:
   type: list
   keys:
     binary_sensor:
-      description: The array that contains all command switches.
+      description: Binary sensor platform.
       required: false
-      type: list
+      type: map
       keys:
         command:
           description: The action to take to get the value.
@@ -75,9 +75,9 @@ command_line:
           required: false
           type: string
     cover:
-      description: The array that contains all command line covers.
+      description: Cover platform.
       required: false
-      type: list
+      type: map
       keys:
         command_close:
           description: The action to close the cover.
@@ -116,9 +116,9 @@ command_line:
           required: false
           type: template
     notify:
-      description: The array that contains all command line notifiers.
+      description: Notify platform.
       required: false
-      type: list
+      type: map
       keys:
         name:
           description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
@@ -135,9 +135,9 @@ command_line:
           type: integer
           default: 15
     sensor:
-      description: The array that contains all command line sensors.
+      description: Sensor platform.
       required: false
-      type: list
+      type: map
       keys:
         command:
           description: The action to take to get the value.
@@ -169,9 +169,9 @@ command_line:
           required: false
           type: string
     switch:
-      description: The array that contains all command switches.
+      description: Switch platform.
       required: false
-      type: list
+      type: map
       keys:
         command_on:
           description: The action to take for on.
@@ -217,7 +217,7 @@ To use your Command binary sensor in your installation, add the following to you
 # Example configuration.yaml entry
 command_line:
   - binary_sensor:
-    - command: "cat /proc/sys/net/ipv4/ip_forward"
+      command: "cat /proc/sys/net/ipv4/ip_forward"
 ```
 {% endraw%}
 
@@ -232,7 +232,7 @@ To enable a command line cover in your installation, add the following to your `
 # Example configuration.yaml entry
 command_line:
   - cover:
-    - command_open: move_command up garage
+      command_open: move_command up garage
       command_close: move_command down garage
       command_stop: move_command stop garage
       name: Garage
@@ -250,7 +250,7 @@ To enable those notifications in your installation, add the following to your `c
 # Example configuration.yaml entry
 command_line:
   - notify:
-    - command: "espeak -vmb/mb-us1"
+      command: "espeak -vmb/mb-us1"
 ```
 {% endraw%}
 
@@ -265,7 +265,7 @@ To enable it, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 command_line:
   - sensor:
-    - command: SENSOR_COMMAND
+      command: SENSOR_COMMAND
 ```
 {% endraw%}
 
@@ -283,7 +283,7 @@ To enable it, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 command_line:
   - switch:
-    - name: Kitchen Light
+      name: Kitchen Light
       command_on: switch_command on kitchen
       command_off: switch_command off kitchen
 ```
@@ -324,7 +324,7 @@ Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instanc
 # Example configuration.yaml entry
 command_line:
   - binary_sensor:
-    - command: 'netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")'
+      command: 'netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")'
       name: "sickragerunning"
       device_class: moving
       payload_on: "Running"
@@ -340,7 +340,7 @@ Check if [RasPlex](https://github.com/RasPlex/RasPlex) is `online`.
 ```yaml
 command_line:
   - binary_sensor:
-    - command: 'ping -c 1 rasplex.local | grep "1 received" | wc -l'
+      command: 'ping -c 1 rasplex.local | grep "1 received" | wc -l'
       name: "is_rasplex_online"
       device_class: connectivity
       payload_on: 1
@@ -354,7 +354,7 @@ An alternative solution could look like this:
 ```yaml
 command_line:
   - binary_sensor:
-    - name: Printer
+      name: Printer
       command: 'ping -W 1 -c 1 192.168.1.10 > /dev/null 2>&1 && echo success || echo fail'
       device_class: connectivity
       payload_on: "success"
@@ -384,7 +384,7 @@ A binary command line sensor can check this:
 ```yaml
 command_line:
   - binary_sensor:
-    - command: '/bin/systemctl is-active home-assistant@rock64.service'
+      command: '/bin/systemctl is-active home-assistant@rock64.service'
       payload_on: "active"
       payload_off: "inactive"
 ```
@@ -397,7 +397,7 @@ command_line:
 # Example configuration.yaml entry
 command_line:
   - cover:
-    - name: Garage door
+      name: Garage door
       command_open: move_command up garage
       command_close: move_command down garage
       command_stop: move_command stop garage
@@ -424,7 +424,7 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
 # Example configuration.yaml entry
 command_line:
   - sensor:
-    - name: CPU Temperature
+      name: CPU Temperature
       command: "cat /sys/class/thermal/thermal_zone0/temp"
       # If errors occur, make sure configuration file is encoded as UTF-8
       unit_of_measurement: "°C"
@@ -441,7 +441,7 @@ If you'd like to know how many failed login attempts are made to Home Assistant,
 # Example configuration.yaml entry
 command_line:
   - sensor:
-    - name: Badlogin
+      name: Badlogin
       command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
 ```
 {% endraw%}
@@ -466,7 +466,7 @@ You can see directly in the frontend (**Developer tools** -> **About**) what rel
 ```yaml
 command_line:
   - sensor:
-    - command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
+      command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
       name: HA release
 ```
 {% endraw%}
@@ -479,7 +479,7 @@ If you own devices which are storing values in text files which are accessible o
 ```yaml
 command_line:
   - sensor:
-    - command: python3 -c "import requests; print(requests.get('http://remote-host/sensor_data.txt').text)"
+      command: python3 -c "import requests; print(requests.get('http://remote-host/sensor_data.txt').text)"
       name: File value
 ```
 {% endraw%}
@@ -515,7 +515,7 @@ To use the script you need to add something like the following to your `configur
 # Example configuration.yaml entry
 command_line:
   - sensor:
-    - name: Brightness
+      name: Brightness
       command: "python3 /path/to/script/arest-value.py"
 ```
 {% endraw%}
@@ -529,7 +529,7 @@ command_line:
 # Example configuration.yaml entry
 command_line:
   - sensor:
-    - name: Wind direction
+      name: Wind direction
       command: "sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states('sensor.wind_direction') }}"
       unit_of_measurement: "Direction"
 ```
@@ -544,7 +544,7 @@ The example shows how you can retrieve multiple values with one sensor (where th
 # Example configuration.yaml entry
 command_line:
   - sensor:
-    - name: JSON time
+      name: JSON time
       json_attributes:
         - date
         - milliseconds_since_epoch
@@ -563,7 +563,7 @@ This example demonstrates how to use template to change the icon as its state ch
 ```yaml
 command_line:
   - switch:
-    - name: Driveway outside sensor
+      name: Driveway outside sensor
       command_on: >
         curl -X PUT -d '{"on":true}' "http://ip_address/api/sensors/27/config/"
       command_off: >
@@ -590,7 +590,7 @@ which is controllable through REST.
 # Example configuration.yaml entry
 command_line:
   - switch:
-    - command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
+      command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
       command_off: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
       command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
       value_template: '{{ value == "1" }}'
@@ -616,7 +616,7 @@ This switch will shutdown your host immediately, there will be no confirmation.
 # Example configuration.yaml entry
 command_line:
   - switch:
-    - name: Home Assistant System Shutdown
+      name: Home Assistant System Shutdown
       command_off: "/usr/sbin/poweroff"
 ```
 {% endraw%}
@@ -631,7 +631,7 @@ This switch will control a local VLC media player
 # Example configuration.yaml entry
 command_line:
   - switch:
-    - name: VLC
+      name: VLC
       command_on: "cvlc 1.mp3 vlc://quit &"
       command_off: "pkill vlc"
 ```
@@ -649,7 +649,7 @@ which checks the current state of motion detection.
 # Example configuration.yaml entry
 command_line:
   - switch:
-    - name: Foscam Motion
+      name: Foscam Motion
       command_on: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
       command_off: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
       command_state: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
