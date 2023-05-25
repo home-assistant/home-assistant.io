@@ -33,13 +33,13 @@ In this step, you will create the owner account of Home Assistant. This account 
     
    ![Share anonymized data](/images/getting-started/onboarding_share_anonymized_info.png) 
 
-1. Once you are done, click **Next**. 
+1. Once you are done, select **Next**. 
     * Home Assistant will then show any {% term devices %} that it has discovered on your network. 
     * Don't be alarmed if you see fewer items than shown below; you can always manually add devices later.
 
     ![Discovery of devices on your network.](/images/getting-started/onboarding_devices.png)
 
-1. Finally, click **Finish**. 
+1. Finally, select **Finish**. 
    * Now you're brought to the Home Assistant web interface. This screen will show all of your devices.
 
 {% include getting-started/next_step.html step="Concepts & Terminologies" link="/getting-started/concepts-terminology/" %}
