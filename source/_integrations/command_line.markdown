@@ -380,7 +380,7 @@ command_line:
       value_template: >
         {% if value == 'open' %}
         100
-        {% elif value == 'closed' %}
+        {% raw %}{% elif value == 'closed' %}{% endraw%}
         0
         {% endif %}
 ```
