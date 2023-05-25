@@ -28,9 +28,9 @@ The data disk feature can be used on an existing installation without losing dat
 
 1. Connect the data disk to your system.
 2. Go to **{% my storage title="Settings > System > Storage" %}** in the UI.
-3. Click the "Move data disk" button
+3. Select the "Move data disk" button.
 4. Select the data disk from the list of available devices.
-5. Press "Move".
+5. Select **Move**.
 
 ![Screenshot of the "Move datadisk" feature](/images/screenshots/move-datadisk.png)
 
