@@ -28,225 +28,180 @@ It's highly recommended to enclose the command in single quotes `'` as it ensure
 </div>
 
 {% configuration %}
-binary_sensors:
+binary_sensor:
   description: The array that contains all command switches.
-  required: true
-  type: map
-  keys:
-    identifier:
-      description: Identifier of binary sensor. Multiple entries are possible.
-      required: true
-      type: map
-      keys:
-        command:
-          description: The action to take to get the value.
-          required: true
-          type: string
-        command_timeout:
-          description: Defines number of seconds for command timeout.
-          required: false
-          type: integer
-          default: 15
-        device_class:
-          description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
-          required: false
-          type: string
-        name:
-          description: Let you overwrite the name of the device.
-          required: false
-          type: string
-          default: "*name* from the device"
-        payload_on:
-          description: The payload that represents enabled state.
-          required: false
-          type: string
-          default: 'ON'
-        unique_id:
-          description: An ID that uniquely identifies this binary sensor. Set this to a unique value to allow customization through the UI.
-          required: false
-          type: string
-        payload_off:
-          description: The payload that represents disabled state.
-          required: false
-          type: string
-          default: 'OFF'
-        scan_interval:
-          description: Defines number of seconds for polling interval.  
-          required: false
-          type: integer
-          default: 60
-        value_template:
-          description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
-          required: false
-          type: string
-covers:
+  required: false
+  type: list
+    keys:
+      command:
+        description: The action to take to get the value.
+        required: true
+        type: string
+      command_timeout:
+        description: Defines number of seconds for command timeout.
+        required: false
+        type: integer
+        default: 15
+      device_class:
+        description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+        required: false
+        type: string
+      name:
+        description: Let you overwrite the name of the device.
+        required: false
+        type: string
+        default: "*name* from the device"
+      payload_on:
+        description: The payload that represents enabled state.
+        required: false
+        type: string
+        default: 'ON'
+      unique_id:
+        description: An ID that uniquely identifies this binary sensor. Set this to a unique value to allow customization through the UI.
+        required: false
+        type: string
+      payload_off:
+        description: The payload that represents disabled state.
+        required: false
+        type: string
+        default: 'OFF'
+      value_template:
+        description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+        required: false
+        type: string
+cover:
   description: The array that contains all command line covers.
-  required: true
-  type: map
-  keys:
-    identifier:
-      description: Name of the command line cover as slug. Multiple entries are possible.
-      required: true
-      type: list
-      keys:
-        command_close:
-          description: The action to close the cover.
-          required: true
-          default: true
-          type: string
-        command_open:
-          description: The command to open the cover.
-          required: true
-          default: true
-          type: string
-        command_state:
-          description: If given, this will act as a sensor that runs in the background and updates the state of the cover. If the command returns a `0` the indicates the cover is fully closed, whereas a 100 indicates the cover is fully open.
-          required: false
-          type: string
-        command_stop:
-          description: The action to stop the cover.
-          required: true
-          default: true
-          type: string
-        command_timeout:
-          description: Defines number of seconds for command timeout.
-          required: false
-          type: integer
-          default: 15
-        friendly_name:
-          description: The name used to display the cover in the frontend.
-          required: false
-          type: string
-        scan_interval:
-          description: Defines number of seconds for polling interval.  
-          required: false
-          type: integer
-          default: 60
-        unique_id:
-          description: An ID that uniquely identifies this cover. Set this to a unique value to allow customization through the UI.
-          required: false
-          type: string
-        value_template:
-          description: if specified, `command_state` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `command_state` returns a string "open", using `value_template` as in the example configuration above will allow you to translate that into the valid state `100`.
-          required: false
-          default: "'{% raw %}{{ value }}{% endraw%}'"
-          type: template
-notifers:
+  required: false
+  type: list
+    keys:
+      command_close:
+        description: The action to close the cover.
+        required: true
+        default: true
+        type: string
+      command_open:
+        description: The command to open the cover.
+        required: true
+        default: true
+        type: string
+      command_state:
+        description: If given, this will act as a sensor that runs in the background and updates the state of the cover. If the command returns a `0` the indicates the cover is fully closed, whereas a 100 indicates the cover is fully open.
+        required: false
+        type: string
+      command_stop:
+        description: The action to stop the cover.
+        required: true
+        default: true
+        type: string
+      command_timeout:
+        description: Defines number of seconds for command timeout.
+        required: false
+        type: integer
+        default: 15
+      name:
+        description: The name used to display the cover in the frontend.
+        required: true
+        type: string
+      unique_id:
+        description: An ID that uniquely identifies this cover. Set this to a unique value to allow customization through the UI.
+        required: false
+        type: string
+      value_template:
+        description: if specified, `command_state` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `command_state` returns a string "open", using `value_template` as in the example configuration above will allow you to translate that into the valid state `100`.
+        required: false
+        default: "'{% raw %}{{ value }}{% endraw%}'"
+        type: template
+notify:
   description: The array that contains all command line notifiers.
-  required: true
-  type: map
-  keys:
-    identifier:
-      description: Identifier of notify. Multiple entries are possible.
-      required: true
-      type: list
-      keys:
-        name:
-          description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-          required: false
-          default: notify
-          type: string
-        command:
-          description: The action to take.
-          required: true
-          type: string
-        command_timeout:
-          description: Defines number of seconds for command timeout.
-          required: false
-          type: integer
-          default: 15
-sensors:
+  required: false
+  type: list
+    keys:
+      name:
+        description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+        required: false
+        default: notify
+        type: string
+      command:
+        description: The action to take.
+        required: true
+        type: string
+      command_timeout:
+        description: Defines number of seconds for command timeout.
+        required: false
+        type: integer
+        default: 15
+sensor:
   description: The array that contains all command line sensors.
-  required: true
-  type: map
-  keys:
-    identifier:
-      description: Identifier of sensor. Multiple entries are possible.
-      required: true
-      type: list
-      keys:
-        command:
-          description: The action to take to get the value.
-          required: true
-          type: string
-        command_timeout:
-          description: Defines number of seconds for command timeout
-          required: false
-          type: integer
-          default: 15
-        json_attributes:
-          description: Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
-          required: false
-          type: [string, list]
-        name:
-          description: Name of the command sensor.
-          required: false
-          type: string
-        unique_id:
-          description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
-          required: false
-          type: string
-        scan_interval:
-          description: Defines number of seconds for polling interval.  
-          required: false
-          type: integer
-          default: 60
-        unit_of_measurement:
-          description: Defines the unit of measurement of the sensor, if any.
-          required: false
-          type: string
-        value_template:
-          description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
-          required: false
-          type: string
-switches:
+  required: false
+  type: list
+    keys:
+      command:
+        description: The action to take to get the value.
+        required: true
+        type: string
+      command_timeout:
+        description: Defines number of seconds for command timeout
+        required: false
+        type: integer
+        default: 15
+      json_attributes:
+        description: Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
+        required: false
+        type: [string, list]
+      name:
+        description: Name of the command sensor.
+        required: false
+        type: string
+      unique_id:
+        description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
+        required: false
+        type: string
+      unit_of_measurement:
+        description: Defines the unit of measurement of the sensor, if any.
+        required: false
+        type: string
+      value_template:
+        description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
+        required: false
+        type: string
+switch:
   description: The array that contains all command switches.
-  required: true
-  type: map
-  keys:
-    identifier:
-      description: Name of the command switch as slug. Multiple entries are possible.
-      required: true
-      type: map
-      keys:
-        command_on:
-          description: The action to take for on.
-          required: true
-          type: string
-        command_off:
-          description: The action to take for off.
-          required: true
-          type: string
-        command_state:
-          description: "If given, this command will be run. Returning a result code `0` will indicate that the switch is on."
-          required: false
-          type: string
-        command_timeout:
-          description: Defines number of seconds for command timeout.
-          required: false
-          type: integer
-          default: 15
-        friendly_name:
-          description: The name used to display the switch in the frontend.
-          required: false
-          type: string
-        icon_template:
-          description: Defines a template for the icon of the entity.
-          required: false
-          type: template
-        scan_interval:
-          description: Defines number of seconds for polling interval.  
-          required: false
-          type: integer
-          default: 60
-        unique_id:
-          description: An ID that uniquely identifies this switch. Set this to a unique value to allow customization through the UI.
-          required: false
-          type: string
-        value_template:
-          description: "If specified, `command_state` will ignore the result code of the command but the template evaluating to `true` will indicate the switch is on."
-          required: false
-          type: string
+  required: false
+  type: list
+    keys:
+      command_on:
+        description: The action to take for on.
+        required: true
+        type: string
+      command_off:
+        description: The action to take for off.
+        required: true
+        type: string
+      command_state:
+        description: "If given, this command will be run. Returning a result code `0` will indicate that the switch is on."
+        required: false
+        type: string
+      command_timeout:
+        description: Defines number of seconds for command timeout.
+        required: false
+        type: integer
+        default: 15
+      name:
+        description: The name used to display the switch in the frontend.
+        required: true
+        type: string
+      icon_template:
+        description: Defines a template for the icon of the entity.
+        required: false
+        type: template
+      unique_id:
+        description: An ID that uniquely identifies this switch. Set this to a unique value to allow customization through the UI.
+        required: false
+        type: string
+      value_template:
+        description: "If specified, `command_state` will ignore the result code of the command but the template evaluating to `true` will indicate the switch is on."
+        required: false
+        type: string
 {% endconfiguration %}
 
 ## Binary sensor
@@ -256,9 +211,8 @@ To use your Command binary sensor in your installation, add the following to you
 ```yaml
 # Example configuration.yaml entry
 command_line:
-  binary_sensors:
-    binary_sensor_1:
-      command: "cat /proc/sys/net/ipv4/ip_forward"
+  binary_sensor:
+    - command: "cat /proc/sys/net/ipv4/ip_forward"
 ```
 
 ## Cover
@@ -270,11 +224,11 @@ To enable a command line cover in your installation, add the following to your `
 ```yaml
 # Example configuration.yaml entry
 command_line:
-  covers:
-    garage_door:
-      command_open: move_command up garage
+  cover:
+    - command_open: move_command up garage
       command_close: move_command down garage
       command_stop: move_command stop garage
+      name: Garage
 ```
 
 ## Notify
@@ -286,9 +240,8 @@ To enable those notifications in your installation, add the following to your `c
 ```yaml
 # Example configuration.yaml entry
 command_line:
-  notifiers:
-    notify_1:
-      command: "espeak -vmb/mb-us1"
+  notify:
+    - command: "espeak -vmb/mb-us1"
 ```
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
@@ -300,9 +253,8 @@ To enable it, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 command_line:
-  sensors:
-    sensor_1:
-      command: SENSOR_COMMAND
+  sensor:
+    - command: SENSOR_COMMAND
 ```
 
 ## Switch
@@ -317,25 +269,21 @@ To enable it, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 command_line:
-  switches:
-    kitchen_light:
+  switch:
+    - name: Kitchen Light
       command_on: switch_command on kitchen
       command_off: switch_command off kitchen
 ```
 
-A note on `friendly_name`:
+<div class='note'>
 
-When set, the `friendly_name` had been previously used for API calls and backend
-configuration instead of the `object_id` ("identifier"), but
-[this behavior is changing](https://github.com/home-assistant/home-assistant/pull/4343)
-to make the `friendly_name` for display purposes only. This allows users to set
-an `identifier` that emphasizes uniqueness and predictability for API and configuration
-purposes but have a prettier `friendly_name` still show up in the UI. As an
-additional benefit, if a user wanted to change the `friendly_name` / display
-name (e.g., from "Kitchen Lightswitch" to "Kitchen Switch" or
-"Living Room Light", or remove the `friendly_name` altogether), they could
-do so without needing to change existing automations or API calls.
-See aREST device below for an example.
+A note on `name` for `cover` and `switch`:
+  
+The use of `friendly_name` and `object_id` has been deprecated and the slugified `name` will also be used as identifier.
+
+Use `unique_id` to enable changing the name from the UI if required to use `name` as identifier object as required.
+
+</div>
 
 ## Execution
 
@@ -360,9 +308,8 @@ Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instanc
 ```yaml
 # Example configuration.yaml entry
 command_line:
-  binary_sensors:
-    binary_sensor_1:
-      command: 'netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")'
+  binary_sensor:
+    - command: 'netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")'
       name: "sickragerunning"
       device_class: moving
       payload_on: "Running"
@@ -375,9 +322,8 @@ Check if [RasPlex](https://github.com/RasPlex/RasPlex) is `online`.
 
 ```yaml
 command_line:
-  binary_sensors:
-    binary_sensor_1
-      command: 'ping -c 1 rasplex.local | grep "1 received" | wc -l'
+  binary_sensor:
+    - command: 'ping -c 1 rasplex.local | grep "1 received" | wc -l'
       name: "is_rasplex_online"
       device_class: connectivity
       payload_on: 1
@@ -388,9 +334,8 @@ An alternative solution could look like this:
 
 ```yaml
 command_line:
-  binary_sensors:
-    binary_sensor_1:
-      name: Printer
+  binary_sensor:
+    - name: Printer
       command: 'ping -W 1 -c 1 192.168.1.10 > /dev/null 2>&1 && echo success || echo fail'
       device_class: connectivity
       payload_on: "success"
@@ -415,9 +360,8 @@ A binary command line sensor can check this:
 
 ```yaml
 command_line:
-  binary_sensors:
-    binary_sensor_1:
-      command: '/bin/systemctl is-active home-assistant@rock64.service'
+  binary_sensor:
+    - command: '/bin/systemctl is-active home-assistant@rock64.service'
       payload_on: "active"
       payload_off: "inactive"
 ```
@@ -427,8 +371,8 @@ command_line:
 ```yaml
 # Example configuration.yaml entry
 command_line:
-  covers:
-    garage_door:
+  cover:
+    - name: Garage door
       command_open: move_command up garage
       command_close: move_command down garage
       command_stop: move_command stop garage
@@ -452,9 +396,8 @@ Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, variou
 ```yaml
 # Example configuration.yaml entry
 command_line:
-  sensors:
-    sensor_1:
-      name: CPU Temperature
+  sensor:
+    - name: CPU Temperature
       command: "cat /sys/class/thermal/thermal_zone0/temp"
       # If errors occur, make sure configuration file is encoded as UTF-8
       unit_of_measurement: "°C"
@@ -468,9 +411,8 @@ If you'd like to know how many failed login attempts are made to Home Assistant,
 ```yaml
 # Example configuration.yaml entry
 command_line:
-  sensors:
-    sensor_1:
-      name: badlogin
+  sensor:
+    - name: Badlogin
       command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
 ```
 
@@ -490,9 +432,8 @@ You can see directly in the frontend (**Developer tools** -> **About**) what rel
 
 ```yaml
 command_line:
-  sensors:
-    sensor_1:
-      command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
+  sensor:
+    - command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
       name: HA release
 ```
 
@@ -502,9 +443,8 @@ If you own devices which are storing values in text files which are accessible o
 
 ```yaml
 command_line:
-  sensors:
-    sensor_1:
-      command: python3 -c "import requests; print(requests.get('http://remote-host/sensor_data.txt').text)"
+  sensor:
+    - command: python3 -c "import requests; print(requests.get('http://remote-host/sensor_data.txt').text)"
       name: File value
 ```
 
@@ -533,9 +473,8 @@ To use the script you need to add something like the following to your `configur
 ```yaml
 # Example configuration.yaml entry
 command_line:
-  sensors:
-    sensor_1:
-      name: Brightness
+  sensor:
+    - name: Brightness
       command: "python3 /path/to/script/arest-value.py"
 ```
 
@@ -546,9 +485,8 @@ command_line:
 ```yaml
 # Example configuration.yaml entry
 command_line:
-  sensors:
-    sensor_1:
-      name: wind direction
+  sensor:
+    - name: Wind direction
       command: "sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states('sensor.wind_direction') }}"
       unit_of_measurement: "Direction"
 ```
@@ -560,9 +498,8 @@ The example shows how you can retrieve multiple values with one sensor (where th
 ```yaml
 # Example configuration.yaml entry
 command_line:
-  sensors:
-    sensor_1:
-      name: JSON time
+  sensor:
+    - name: JSON time
       json_attributes:
         - date
         - milliseconds_since_epoch
@@ -578,9 +515,8 @@ This example demonstrates how to use template to change the icon as its state ch
 
 ```yaml
 command_line:
-  switches:
-    driveway_sensor_motion:
-      friendly_name: Driveway outside sensor
+  switch:
+    - name: Driveway outside sensor
       command_on: >
         curl -X PUT -d '{"on":true}' "http://ip_address/api/sensors/27/config/"
       command_off: >
@@ -604,13 +540,12 @@ which is controllable through REST.
 ```yaml
 # Example configuration.yaml entry
 command_line:
-  switches:
-    arest_pin_four:
-      command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
+  switch:
+    - command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
       command_off: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
       command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
       value_template: '{{ value == "1" }}'
-      friendly_name: Kitchen Lightswitch
+      name: Kitchen Lightswitch
 ```
 
 Given this example, in the UI one would see the `friendly_name` of
@@ -629,8 +564,8 @@ This switch will shutdown your host immediately, there will be no confirmation.
 ```yaml
 # Example configuration.yaml entry
 command_line:
-  switches:
-    home_assistant_system_shutdown:
+  switch:
+    - name: Home Assistant System Shutdown
       command_off: "/usr/sbin/poweroff"
 ```
 
@@ -642,8 +577,8 @@ This switch will control a local VLC media player
 ```yaml
 # Example configuration.yaml entry
 command_line:
-  switches:
-    vlc:
+  switch:
+    - name: VLC
       command_on: "cvlc 1.mp3 vlc://quit &"
       command_off: "pkill vlc"
 ```
@@ -658,8 +593,8 @@ which checks the current state of motion detection.
 ```yaml
 # Example configuration.yaml entry
 command_line:
-  switches:
-    foscam_motion:
+  switch:
+    - name: Foscam Motion
       command_on: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
       command_off: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
       command_state: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
