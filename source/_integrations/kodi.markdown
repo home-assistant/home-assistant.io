@@ -391,7 +391,7 @@ data:
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-## Keypress device triggers
+## Keypress events
 key presses of keyboards/remotes can be overwritten in Kodi and configured to send a event to Home Assistant, which can then be used in automations to for instance turn up/down the volume of a TV/receiver.
 
 A keypress can be overwritten in Kodi by using the [Kodi keymap XML](https://kodi.wiki/view/Keymap) or from within the Kodi GUI using the [Keymap Editor add-on](https://kodi.wiki/view/Add-on:Keymap_Editor).
@@ -420,22 +420,22 @@ event_type: kodi_keypress
 data:
   type: keypress
   device_id: 72e5g0ay5621f5d719qd8cydj943421a
+  entity_id: media_player.kodi_livingroom
   sender: KodiLivingroom
   data:
     key: volume_up
 ```
 
-A example of a automation to turn up/down the volume of a receiver using the device trigger:
+A example of a automation to turn up/down the volume of a receiver using the event:
 ```yaml
 alias: Kodi keypress
 mode: parallel
 max: 10
 trigger:
-  - platform: device
-    device_id: 72e5g0ay5621f5d719qd8cydj943421a
-    domain: kodi
-    entity_id: media_player.kodi_livingroom
-    type: keypress
+  - platform: event
+    event_type: kodi_keypress
+    event_data:
+      entity_id: media_player.kodi_livingroom
 action:
   - choose:
       - conditions:
