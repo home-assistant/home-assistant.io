@@ -14,8 +14,8 @@ ha_config_flow: true
 
 The `lastfm` sensor platform will allow you to see whenever a user starts scrobbling, their play count, last song played, and top song played on [Last.fm](https://www.last.fm/).
 
-{% include integrations/config_flow.md %}
-
-## Setup
+## Prerequisites
 
 To get an API key you need to create an [API account](https://www.last.fm/api/account/create).
+
+{% include integrations/config_flow.md %}
