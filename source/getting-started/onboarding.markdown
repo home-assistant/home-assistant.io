@@ -5,7 +5,7 @@ description: "Instructions to get Home Assistant configured."
 
 Alright, you made it here. The tough part is done.
 
-After entering the Home Assistant devices address in the address bar of your browser, the preparation screen is shown. Depending on your hardware, preparation may take a while.
+After entering the Home Assistant device's address in your browser's address bar, the preparation screen is shown. Depending on your hardware, preparation may take a while.
 
 ![Home Assistant preparation](/images/getting-started/onboarding_preparing_01.png)
 
@@ -34,7 +34,7 @@ In this step, you will create the owner account of Home Assistant. This account 
    ![Share anonymized data](/images/getting-started/onboarding_share_anonymized_info.png) 
 
 1. Once you are done, select **Next**. 
-    * Home Assistant will then show any {% term devices %} that it has discovered on your network. 
+    * Home Assistant will then show any {% term devices %} it has discovered on your network.
     * Don't be alarmed if you see fewer items than shown below; you can always manually add devices later.
 
     ![Discovery of devices on your network.](/images/getting-started/onboarding_devices.png)
