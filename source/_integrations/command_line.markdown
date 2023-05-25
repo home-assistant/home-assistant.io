@@ -487,7 +487,7 @@ command_line:
 command_line:
   sensor:
     - name: Wind direction
-      command: "sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states('sensor.wind_direction') }}"
+      command: {% raw %}"sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states('sensor.wind_direction') }}"{% endraw%}
       unit_of_measurement: "Direction"
 ```
 
@@ -544,7 +544,7 @@ command_line:
     - command_on: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/1"
       command_off: "/usr/bin/curl -X GET http://192.168.1.10/digital/4/0"
       command_state: "/usr/bin/curl -X GET http://192.168.1.10/digital/4"
-      value_template: '{{ value == "1" }}'
+      value_template: {% raw %}'{{ value == "1" }}'{% endraw%}
       name: Kitchen Lightswitch
 ```
 
@@ -598,7 +598,7 @@ command_line:
       command_on: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
       command_off: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
       command_state: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
-      value_template: '{{ value == "1" }}'
+      value_template: {% raw %}'{{ value == "1" }}'{% endraw%}
 ```
 
 - Replace admin and password with an "Admin" privileged Foscam user
