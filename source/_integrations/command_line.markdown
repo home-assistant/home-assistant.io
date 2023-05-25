@@ -401,7 +401,7 @@ command_line:
       command: "cat /sys/class/thermal/thermal_zone0/temp"
       # If errors occur, make sure configuration file is encoded as UTF-8
       unit_of_measurement: "°C"
-      value_template: "{{ value | multiply(0.001) | round(1) }}"
+      value_template: {% raw %}"{{ value | multiply(0.001) | round(1) }}"{% endraw%}
 ```
 
 ### Monitoring failed login attempts on Home Assistant
