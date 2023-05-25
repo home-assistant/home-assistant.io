@@ -37,175 +37,175 @@ command_line:
       description: The array that contains all command switches.
       required: false
       type: list
-        keys:
-          command:
-            description: The action to take to get the value.
-            required: true
-            type: string
-          command_timeout:
-            description: Defines number of seconds for command timeout.
-            required: false
-            type: integer
-            default: 15
-          device_class:
-            description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
-            required: false
-            type: string
-          name:
-            description: Let you overwrite the name of the device.
-            required: false
-            type: string
-            default: "*name* from the device"
-          payload_on:
-            description: The payload that represents enabled state.
-            required: false
-            type: string
-            default: 'ON'
-          unique_id:
-            description: An ID that uniquely identifies this binary sensor. Set this to a unique value to allow customization through the UI.
-            required: false
-            type: string
-          payload_off:
-            description: The payload that represents disabled state.
-            required: false
-            type: string
-            default: 'OFF'
-          value_template:
-            description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
-            required: false
-            type: string
+      keys:
+        command:
+          description: The action to take to get the value.
+          required: true
+          type: string
+        command_timeout:
+          description: Defines number of seconds for command timeout.
+          required: false
+          type: integer
+          default: 15
+        device_class:
+          description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+          required: false
+          type: string
+        name:
+          description: Let you overwrite the name of the device.
+          required: false
+          type: string
+          default: "*name* from the device"
+        payload_on:
+          description: The payload that represents enabled state.
+          required: false
+          type: string
+          default: 'ON'
+        unique_id:
+          description: An ID that uniquely identifies this binary sensor. Set this to a unique value to allow customization through the UI.
+          required: false
+          type: string
+        payload_off:
+          description: The payload that represents disabled state.
+          required: false
+          type: string
+          default: 'OFF'
+        value_template:
+          description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+          required: false
+          type: string
     cover:
       description: The array that contains all command line covers.
       required: false
       type: list
-        keys:
-          command_close:
-            description: The action to close the cover.
-            required: true
-            default: true
-            type: string
-          command_open:
-            description: The command to open the cover.
-            required: true
-            default: true
-            type: string
-          command_state:
-            description: If given, this will act as a sensor that runs in the background and updates the state of the cover. If the command returns a `0` the indicates the cover is fully closed, whereas a 100 indicates the cover is fully open.
-            required: false
-            type: string
-          command_stop:
-            description: The action to stop the cover.
-            required: true
-            default: true
-            type: string
-          command_timeout:
-            description: Defines number of seconds for command timeout.
-            required: false
-            type: integer
-            default: 15
-          name:
-            description: The name used to display the cover in the frontend.
-            required: true
-            type: string
-          unique_id:
-            description: An ID that uniquely identifies this cover. Set this to a unique value to allow customization through the UI.
-            required: false
-            type: string
-          value_template:
-            description: if specified, `command_state` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `command_state` returns a string "open", using `value_template` as in the example configuration above will allow you to translate that into the valid state `100`.
-            required: false
-            type: template
+      keys:
+        command_close:
+          description: The action to close the cover.
+          required: true
+          default: true
+          type: string
+        command_open:
+          description: The command to open the cover.
+          required: true
+          default: true
+          type: string
+        command_state:
+          description: If given, this will act as a sensor that runs in the background and updates the state of the cover. If the command returns a `0` the indicates the cover is fully closed, whereas a 100 indicates the cover is fully open.
+          required: false
+          type: string
+        command_stop:
+          description: The action to stop the cover.
+          required: true
+          default: true
+          type: string
+        command_timeout:
+          description: Defines number of seconds for command timeout.
+          required: false
+          type: integer
+          default: 15
+        name:
+          description: The name used to display the cover in the frontend.
+          required: true
+          type: string
+        unique_id:
+          description: An ID that uniquely identifies this cover. Set this to a unique value to allow customization through the UI.
+          required: false
+          type: string
+        value_template:
+          description: if specified, `command_state` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `command_state` returns a string "open", using `value_template` as in the example configuration above will allow you to translate that into the valid state `100`.
+          required: false
+          type: template
     notify:
       description: The array that contains all command line notifiers.
       required: false
       type: list
-        keys:
-          name:
-            description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-            required: false
-            default: notify
-            type: string
-          command:
-            description: The action to take.
-            required: true
-            type: string
-          command_timeout:
-            description: Defines number of seconds for command timeout.
-            required: false
-            type: integer
-            default: 15
+      keys:
+        name:
+          description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+          required: false
+          default: notify
+          type: string
+        command:
+          description: The action to take.
+          required: true
+          type: string
+        command_timeout:
+          description: Defines number of seconds for command timeout.
+          required: false
+          type: integer
+          default: 15
     sensor:
       description: The array that contains all command line sensors.
       required: false
       type: list
-        keys:
-          command:
-            description: The action to take to get the value.
-            required: true
-            type: string
-          command_timeout:
-            description: Defines number of seconds for command timeout
-            required: false
-            type: integer
-            default: 15
-          json_attributes:
-            description: Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
-            required: false
-            type: [string, list]
-          name:
-            description: Name of the command sensor.
-            required: false
-            type: string
-          unique_id:
-            description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
-            required: false
-            type: string
-          unit_of_measurement:
-            description: Defines the unit of measurement of the sensor, if any.
-            required: false
-            type: string
-          value_template:
-            description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
-            required: false
-            type: string
+      keys:
+        command:
+          description: The action to take to get the value.
+          required: true
+          type: string
+        command_timeout:
+          description: Defines number of seconds for command timeout
+          required: false
+          type: integer
+          default: 15
+        json_attributes:
+          description: Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
+          required: false
+          type: [string, list]
+        name:
+          description: Name of the command sensor.
+          required: false
+          type: string
+        unique_id:
+          description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
+          required: false
+          type: string
+        unit_of_measurement:
+          description: Defines the unit of measurement of the sensor, if any.
+          required: false
+          type: string
+        value_template:
+          description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
+          required: false
+          type: string
     switch:
       description: The array that contains all command switches.
       required: false
       type: list
-        keys:
-          command_on:
-            description: The action to take for on.
-            required: true
-            type: string
-          command_off:
-            description: The action to take for off.
-            required: true
-            type: string
-          command_state:
-            description: "If given, this command will be run. Returning a result code `0` will indicate that the switch is on."
-            required: false
-            type: string
-          command_timeout:
-            description: Defines number of seconds for command timeout.
-            required: false
-            type: integer
-            default: 15
-          name:
-            description: The name used to display the switch in the frontend.
-            required: true
-            type: string
-          icon_template:
-            description: Defines a template for the icon of the entity.
-            required: false
-            type: template
-          unique_id:
-            description: An ID that uniquely identifies this switch. Set this to a unique value to allow customization through the UI.
-            required: false
-            type: string
-          value_template:
-            description: "If specified, `command_state` will ignore the result code of the command but the template evaluating to `true` will indicate the switch is on."
-            required: false
-            type: string
+      keys:
+        command_on:
+          description: The action to take for on.
+          required: true
+          type: string
+        command_off:
+          description: The action to take for off.
+          required: true
+          type: string
+        command_state:
+          description: "If given, this command will be run. Returning a result code `0` will indicate that the switch is on."
+          required: false
+          type: string
+        command_timeout:
+          description: Defines number of seconds for command timeout.
+          required: false
+          type: integer
+          default: 15
+        name:
+          description: The name used to display the switch in the frontend.
+          required: true
+          type: string
+        icon_template:
+          description: Defines a template for the icon of the entity.
+          required: false
+          type: template
+        unique_id:
+          description: An ID that uniquely identifies this switch. Set this to a unique value to allow customization through the UI.
+          required: false
+          type: string
+        value_template:
+          description: "If specified, `command_state` will ignore the result code of the command but the template evaluating to `true` will indicate the switch is on."
+          required: false
+          type: string
 {% endconfiguration %}
 
 ## Binary sensor
