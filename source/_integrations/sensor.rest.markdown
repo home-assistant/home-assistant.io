@@ -352,7 +352,7 @@ rest:
 
 {% endraw %}
 
-This configuration shows how to extract multiple values from a dictionary. This avoids flooding the REST service by only requesting the result once, then creating multiple sensors from that single result using template sensors.
+This configuration shows how to extract multiple values from a dictionary. This method avoids flooding the REST service because the result is only requested once. From that single request, multiple sensors can be created by using template sensors.
 
 {% raw %}
 
@@ -407,7 +407,7 @@ rest:
 
 {% endraw %}
 
-The below example allows shows how to extract multiple values from a dictionary from the XML of a Steamist Steambath Wi-Fi interface and use them to create a switch and multiple sensors without having to poll the endpoint numerous times.
+The example below shows how to extract multiple values from a dictionary from the XML file of a Steamist Steambath Wi-Fi interface. The values are used to create a switch and multiple sensors without having to poll the endpoint numerous times.
 
 {% raw %}
 
