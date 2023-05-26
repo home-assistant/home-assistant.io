@@ -50,9 +50,9 @@ You can configure specific FFmpeg options through the integration options flow b
 
 Some cameras will not produce usable snapshots with larger stream sizes.
 
-By default the integration will only enable the camera entity for the first H264 profile. If you are unable to get working snapshot:
+By default, the integration will only enable the camera entity for the first H264 profile. If you are unable to get a working snapshot:
 
-- If there are additional camera entities available for other profiles, try enabling those entities.
+- If additional camera entities are available for other profiles, try enabling those entities.
 - Set the `Extra FFmpeg arguments` to `-pred 1 -ss 00:00:05 -frames:v 1` to cause the snapshot to be taken 5 seconds into the stream.
 
 ### Supported Sensors
