@@ -98,7 +98,7 @@ Some older models also expose the installed applications through the WebSocket, 
 
 ### Remote
 
-The integration supports `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` service. The supported keys vary between TV models.
+The integration supports the `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` service. The supported keys vary between TV models.
 
 {% details "Full keycodes list" %}
 
