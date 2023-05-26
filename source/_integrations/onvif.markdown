@@ -46,6 +46,10 @@ You can configure specific FFmpeg options through the integration options flow b
 | Extra FFmpeg arguments | Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [`ffmpeg` integration](/integrations/ffmpeg). |
 | Use wallclock as timestamps | ([Advanced Mode](/blog/2019/07/17/release-96/#advanced-mode) only) Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (e.g., EZVIZ). |
 
+#### Snapshots
+
+Some cameras will not produce usable snapshots with larger stream sizes and may require seeking in the stream to get a usable snapshot. Setting the `Extra FFmpeg arguments` to `-pred 1 -ss 00:00:05 -frames:v 1` will cause the snapshot to be taken 5 seconds into the stream.
+
 ### Supported Sensors
 
 This integration uses the ONVIF pullpoint subscription API to process events into sensors that will be automatically added to Home Assistant.  Below is a list of currently supported event topics along with the entities they create.
