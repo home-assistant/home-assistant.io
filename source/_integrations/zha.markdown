@@ -518,7 +518,7 @@ The network visualization can help get a quick overview in identifying devices r
 
 The visualization shows multi-hop connections between your paired devices and their reported cumulative values of Received Signal Strength Indicator (RSSI) and Link Quality Indication (LQI).
 
-Note that the exact method in which these values are reported depends on the Zigbee network stack being used on each device, and LQI values can be modified at each step as the massage propagates through the mesh networking matrix.
+Note that the exact method in which these values are reported depends on the Zigbee network stack used on each device, and LQI values can be modified at each step as the massage propagates through the mesh networking matrix.
 
 ### Reporting issues
 
