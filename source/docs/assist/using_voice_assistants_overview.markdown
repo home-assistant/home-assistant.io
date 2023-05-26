@@ -2,7 +2,7 @@
 title: "Using voice assistants - overview"
 ---
 
-We are in [chapter two](https://www.home-assistant.io/blog/2023/04/27/year-of-the-voice-chapter-2/) of Home Assistant's Year of the Voice.
+We are in [chapter two](/blog/2023/04/27/year-of-the-voice-chapter-2/) of Home Assistant's Year of the Voice.
 We can now turn speech into text and text back into speech. Wake word detection is not yet supported.
 
 The video below provides a good overview of what is currently possible with voice assistants. It shows you the following:
