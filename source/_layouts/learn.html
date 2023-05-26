@@ -29,10 +29,20 @@ layout: default
                     <a href="/docs/automation/condition/" class="text-lg font-medium mb-5 block">Conditions</a>
                     <a href="/docs/automation/action/" class="text-lg font-medium mb-5 block">Actions</a>
                     <a href="/docs/automation/services/" class="text-lg font-medium mb-5 block">Services</a>
-                    <a href="/docs/automation/templating/" class="text-lg font-medium mb-5 block">Templating</a>
+                    <a href="/docs/automation/templating/" class="text-lg font-medium mb-5 block">Templates</a>
+                    <a href="/docs/automation/yaml/" class="text-lg font-medium mb-5 block">YAML</a>
+                    <a href="/docs/automation/troubleshooting/" class="text-lg font-medium mb-5 block">Troubleshooting</a>
+                </div>
+            </div>
+            <div class="border-border-line border rounded-[40px] mb-10 p-7 md:py-14 md:px-2 bg-white text-center mx-2 md:mx-5">
+                <div class="h-[34px] md:h-[70px] mb-10 text-center"><a href="{{guide.url}}"><img src="{{ site.baseurl }}images/icon/automation.svg" class="m-auto h-full" alt="Automation blueprints" loading="lazy"></a></div>
+                <a href="{{guide.url}}" class="text-lg md:text-4xl font-bold">Blueprints</a>
+                <div class="hidden md:block mt-8">
+                    <a href="/docs/automation/using_blueprints/" class="text-lg font-medium mb-5 block">Automation from blueprint</a>
                     <a href="/docs/blueprint/" class="text-lg font-medium mb-5 block">Creating blueprints</a>
                     <a href="/docs/blueprint/schema/" class="text-lg font-medium mb-5 block">Blueprint schema</a>
                     <a href="/docs/blueprint/selectors/" class="text-lg font-medium mb-5 block">Blueprint selectors</a>
+                    <a href="https://community.home-assistant.io/c/blueprints-exchange/53" class="text-lg font-medium mb-5 block">Blueprint forum</a>
                 </div>
             </div>
             {% assign sortedGuides = site.guides | sort: 'order' %}
