@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: airzone_cloud
 ha_platforms:
+  - diagnostics
   - sensor
 ha_codeowners:
   - '@Noltari'
