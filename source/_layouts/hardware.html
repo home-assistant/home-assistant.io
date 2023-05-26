@@ -1,0 +1,27 @@
+---
+layout: default 
+---
+<section class="container mx-auto relative pt-20 md:pt-[180px]" id="learn">
+    <img src="{{ site.baseurl }}images/yellow/yellow_hero.jpg" class="absolute min-w-[107%] h-auto left-[50%] translate-x-[-50%]" alt="learn-bg" loading="lazy">
+    <div class="relative z-20">
+        <h1 class="pt-[80px] sm:pt-[200px] pb-[55px] md:pb-[120px] text-white text-[32px] md:text-[68px] text-center font-bold">{{page.title}}</h1>
+        <div class="learn-grid grid md:grid-cols-2 lg:grid-cols-3 tracking-[-0.02em] text-black">
+            <div class="border-border-line border rounded-[40px] mb-10 p-7 md:py-14 md:px-2 bg-white text-center mx-2 md:mx-5">
+                <div class="h-[34px] md:h-[70px] mb-10 text-center"><a href="{{guide.url}}"><img src="{{ site.baseurl }}images/icon/hardware.svg" class="m-auto h-full" alt="Get started" loading="lazy"></a></div>
+                <a href="{{guide.url}}" class="text-lg md:text-4xl font-bold">Home Assistant Yellow</a>
+                <div class="hidden md:block mt-8">
+                    <a href="/yellow/" class="text-lg font-medium mb-5 block">Buy</a>
+                    <a href="https://yellow.home-assistant.io/" class="text-lg font-medium mb-5 block">Documentation</a>
+                </div>
+            </div>
+            <div class="border-border-line border rounded-[40px] mb-10 p-7 md:py-14 md:px-2 bg-white text-center mx-2 md:mx-5">
+                <div class="h-[34px] md:h-[70px] mb-10 text-center"><a href="{{guide.url}}"><img src="{{ site.baseurl }}images/icon/hardware.svg" class="m-auto h-full" alt="Get started" loading="lazy"></a></div>
+                <a href="{{guide.url}}" class="text-lg md:text-4xl font-bold">Home Assistant SkyConnect</a>
+                <div class="hidden md:block mt-8">
+                    <a href="/skyconnect/" class="text-lg font-medium mb-5 block">Buy</a>
+                    <a href="https://skyconnect.home-assistant.io/" class="text-lg font-medium mb-5 block">Documentation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
