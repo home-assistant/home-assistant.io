@@ -156,10 +156,11 @@ Add a new calendar event. A calendar `target` is selected with a [Target Selecto
 | `summary` | no | Acts as the title of the event. | Bowling
 | `description` | yes | The description of the event. | Birthday bowling
 | `start_date_time` | yes | The date and time the event should start. | 2019-03-10 20:00:00
-| `end_date_time` | yes | The date and time the event should end. | 2019-03-10 23:00:00
+| `end_date_time` | yes | The date and time the event should end (exclusive). | 2019-03-10 23:00:00
 | `start_date` | yes | The date the whole day event should start. | 2019-03-10
-| `end_date` | yes | The date the whole day event should end. | 2019-03-11
+| `end_date` | yes | The date the whole day event should end (exclusive). | 2019-03-11
 | `in` | yes | Days or weeks that you want to create the event in. | "days": 2
+| `location` | yes | The location of the event. | Bowling center
 
 
 <div class='note'>
@@ -179,3 +180,17 @@ data:
   start_date: "2022-10-01"
   end_date: "2022-10-02"
 ```
+
+Home Assistant Calendars do not allow zero duration Calendar events. The following would create a one minute long event starting "now". This could be used to record an external event in a Calendar.
+
+{% raw %}
+```yaml
+service: calendar.create_event
+target:
+  entity_id: calendar.device_automation_schedules
+data:
+  summary: "Example"
+  start_date_time: "{{ now() }}"
+  end_date_time: "{{ now() + timedelta(minutes=1) }}"
+```
+{% endraw %}

@@ -114,7 +114,8 @@ device:
       required: false
       type: string
 device_class:
-  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend. The `device_class` can be `null`.
+  default: None
   required: false
   type: string
 enabled_by_default:
@@ -202,7 +203,7 @@ unique_id:
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that returns a string to be compared to `payload_on`/`payload_off` or an empty string, in which case the MQTT message will be removed. Remove this option when `payload_on` and `payload_off` are sufficient to match your payloads (i.e no pre-processing of original message is required)."
   required: false
-  type: string
+  type: template
 {% endconfiguration %}
 
 ## Examples

@@ -6,9 +6,9 @@ sidebar: false
 
 If you have an installation, a setup or a configuration issue please use our [Forum](https://community.home-assistant.io/) to get help. We have a big community which will help you if they can.
 
-If you found a bug then please report it in one of our [trackers](/help/#bugs-feature-requests-and-alike). To help you and our developers to identify the issue quickly, please fill out the provided template. The "weird" content you will see is there to render your entry in a nice format after submitting. It's just [markdown](https://guides.github.com/features/mastering-markdown/).
+If you found a bug then please report it in one of our [trackers](/help/#bugs-feature-requests-and-alike). To help you and our developers to identify the issue quickly, please fill out the provided template. The "weird" content you will see is there to render your entry in a nice format after submitting. It's just [markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
-Please refer to the **Settings** -> **About** page, which is accessible inside the Home Assistant frontend.
+Please refer to the [**Settings** -> **About**](https://my.home-assistant.io/redirect/info/) page, which is accessible inside the Home Assistant frontend.
 
 ## First Home Assistant release with the issue
 
@@ -26,8 +26,8 @@ There are many different ways to run Home Assistant. In this section please ment
 
 Please add the link to the documentation of the integration in question. E.g.,
 
-- issue with the `random` sensor: [/integrations/random#sensor](/integrations/random#sensor)
-- issue with the `hue` integration: [/integrations/hue/](/integrations/hue/)
+- Issue with the `random` sensor: [/integrations/random#sensor](/integrations/random#sensor).
+- Issue with the `hue` integration: [/integrations/hue/](/integrations/hue/).
 
 ### Description of problem
 
