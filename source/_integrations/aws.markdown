@@ -104,7 +104,7 @@ context:
 
 ## Lambda Notify Usage
 
-AWS Lambda is a notification platform and thus can be controlled by calling the `notify` service [as described here](/integrations/notify/). It will invoke a Lambda for all targets given in the notification payload. A target can be formatted as a function name, an entire ARN ([Amazon Resource Name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html)) or a partial ARN. For more information, please see the [botocore documentation](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Client.invoke).
+AWS Lambda is a notification platform and thus can be controlled by calling the `notify` service [as described here](/integrations/notify/). It will invoke a Lambda for all targets given in the notification payload. A target can be formatted as a function name, an entire ARN ([Amazon Resource Name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html)) or a partial ARN. For more information, please see the [botocore documentation](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke.html).
 
 The Lambda event payload will contain everything passed in the service call payload. Here is an example payload that would be sent to Lambda:
 
