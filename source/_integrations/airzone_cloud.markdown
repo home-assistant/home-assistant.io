@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_domain: airzone_cloud
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ha_codeowners:
   - '@Noltari'
