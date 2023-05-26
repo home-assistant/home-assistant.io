@@ -514,7 +514,7 @@ Since all Zigbee Coordinator radio adapters are very sensitive/susceptible to al
 
 ZHA configuration UI has a window/tab for *Visualization* that visually represents device links in your Zigbee network topology.
 
-The network visualization can help to get a quick overview in identifying devices that are reporting links with poor connection (i.e. low values). However, be aware that for deeper troubleshooting you will need to look at the ZHA logs instead.
+The network visualization can help get a quick overview in identifying devices reporting links with poor connection (that is, low values). However, be aware that you will need to look at the ZHA logs instead for deeper troubleshooting.
 
 The visualization shows multi-hop connections between your paired devices and their reported cumulative values of Received Signal Strength Indicator (RSSI) and Link Quality Indication (LQI).
 
