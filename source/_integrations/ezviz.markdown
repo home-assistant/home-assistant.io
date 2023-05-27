@@ -104,7 +104,7 @@ The motion detection sensitivity can be adjusted using the "Detection sensitivit
 
 ### PTZ
 
-PTZ up/down/left/right buttons are availble on supported PTZ cameras for pan and tilt control.
+PTZ up/down/left/right buttons are available on supported PTZ cameras for pan and tilt control.
 
 ## Troubleshooting
 
