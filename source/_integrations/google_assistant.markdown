@@ -285,6 +285,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - vacuum (dock/start/stop/pause)
 - sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
 - humidifier (humidity setting/on/off/mode)
+- water_heater (temperature setting)
 
 <div class='note'>
 
