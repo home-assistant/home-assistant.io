@@ -12,6 +12,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - button
   - camera
   - number
   - sensor
@@ -100,6 +101,10 @@ Trigger device OTA firmware update process for latest stable version.
 ### Motion Detection Sensitivity
 
 The motion detection sensitivity can be adjusted using the "Detection sensitivity" Number entity. It's important to note that this entity fetches information from the device and will not update if your battery-powered camera is in sleep mode, as this measure is implemented to preserve battery life and prevent excessive drainage.
+
+### PTZ
+
+PTZ up/down/left/right buttons are availble on supported PTZ cameras for pan and tilt control.
 
 ## Troubleshooting
 
