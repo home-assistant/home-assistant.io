@@ -5,7 +5,7 @@ sidebar_label: History Graph
 description: "The History Graph card allows you to display a graph for each of the entities listed."
 ---
 
-The History Graph card allows you to display a graph for each of the entities listed.
+The History Graph card allows you to display a graph for each of up to eight entities.
 
 <p class='img'>
 <img src='/images/dashboards/history_graph.png' alt='Screenshot of the history graph card for entities without a unit_of_measurement'>
@@ -39,11 +39,6 @@ hours_to_show:
   description: Hours to show in graph. Minimum is 1 hour. Big values can result in delayed rendering, especially if the selected entities have a lot of state changes.
   type: integer
   default: 24
-refresh_interval:
-  required: false
-  description: Refresh interval in seconds.
-  type: integer
-  default: 0
 title:
   required: false
   description: The card title.

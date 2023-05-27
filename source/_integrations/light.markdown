@@ -50,13 +50,14 @@ Most lights do not support all attributes. You can check the integration documen
 | `rgbw_color` | yes | A list containing four integers between 0 and 255 representing the RGBW color you want the light to be. Four comma-separated integers that represent the color in RGBW (red, green, blue, white), within square brackets. This attribute will be ignored by lights which do not support RGBW colors.
 | `rgbww_color` | yes | A list containing five integers between 0 and 255 representing the RGBWW color you want the light to be. Five comma-separated integers that represent the color in RGBWW (red, green, blue, cold white, warm white), within square brackets. This attribute will be ignored by lights which do not support RGBWW colors.
 | `color_temp_kelvin` | yes | An integer in Kelvin representing the color temperature you want the light to be.
-| `color_temp` | yes | Alternatively, you can specify the color temperature in Mireds.
+| `kelvin` | yes | (Deprecated) Use `color_temp_kelvin` instead.
+| `color_temp` | yes | (Deprecated) Alternatively, you can specify the color temperature in Mireds.
 | `color_name` | yes | A human-readable string of a color name, such as `blue` or `goldenrod`. All [CSS3 color names](https://www.w3.org/TR/css-color-3/#svg-color) are supported.
 | `brightness` | yes | Integer between 0 and 255 for how bright the light should be, where 0 means the light is off, 1 is the minimum brightness and 255 is the maximum brightness supported by the light.
 | `brightness_pct`| yes | Alternatively, you can specify brightness in percent (a number between 0 and 100), where 0 means the light is off, 1 is the minimum brightness and 100 is the maximum brightness supported by the light.
 | `brightness_step` | yes | Change brightness by an amount. Should be between -255..255.
 | `brightness_step_pct` | yes | Change brightness by a percentage. Should be between -100..100.
-| `white` | yes | Set the light to white mode and change its brightness, where 0 means the light is off, 1 is the minimum brightness and 255 is the maximum brightness supported by the light. Note that `white` does not have a corresponding state attribute, the `color_mode` state attribute will to `white` and the `brightness` state attribute will be set to the requested brightness.
+| `white` | yes | Set the light to white mode by setting this to `True`. Note that `white` does not have a corresponding state attribute, so the `color_mode` state attribute will be set to `white`.
 | `flash` | yes | Tell light to flash, can be either value `short` or `long`.
 | `effect`| yes | Applies an effect such as `colorloop` or `random`.
 

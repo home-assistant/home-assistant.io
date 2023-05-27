@@ -20,7 +20,7 @@ ha_integration_type: integration
 ---
 
 Supervisor integration allows you to monitor and control Supervisor add-ons and operating system from Home Assistant.
-This integration is installed automatically if you run Home Assistant OS or Supervised.
+This integration is already installed if you run Home Assistant OS or Supervised.
 
 ## Sensor entities
 
@@ -54,9 +54,21 @@ For Home Assistant Supervisor, the following sensors are available:
 | CPU Percent| no | The CPU Percent usage of the supervisor
 | Memory Percent| no | The Memory (RAM) Percent usage of the supervisor
 
+For Home Assistant Host, the following sensors are available:
+
+| Sensor | Enabled by default | Description |
+| ------- | ------------------ | ----------- |
+| OS Agent Version | no | The version of the installed OS Agent
+| Apparmor Version | no | The version of apparmor
+| Disk Free | no | Free space (in GB) left on the device
+| Disk Total | no | Total space (in GB) on the device
+| Disk Used | no | Used space (in GB) on the device
+
 ## Binary Sensor entities
 
 For each installed add-on Supervisor provides following binary sensors:
+
+(These entities are disabled by default and must be reenabled to appear)
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |

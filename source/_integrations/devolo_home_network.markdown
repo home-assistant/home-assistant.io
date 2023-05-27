@@ -3,6 +3,7 @@ title: devolo Home Network
 description: Instructions on how to integrate devolo Home Network devices with Home Assistant.
 ha_category:
   - Binary Sensor
+  - Button
   - Presence Detection
   - Sensor
   - Switch
@@ -16,6 +17,7 @@ ha_domain: devolo_home_network
 ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
+  - button
   - device_tracker
   - diagnostics
   - sensor
@@ -37,6 +39,13 @@ Currently the following device types within Home Assistant are supported.
 * Device attached to the router
   * Updates every 5 minutes
   * Is disabled by default because it typically rarely changes
+
+### Buttons
+
+* Identify a PLC device by making its LED blink for 2 minutes
+* Start pairing on a PLC device
+* Restart the device
+* Start WPS
 
 ### Presence Detection
 
