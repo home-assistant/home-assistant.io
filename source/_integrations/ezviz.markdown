@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - camera
+  - light
   - number
   - sensor
   - switch
@@ -100,6 +101,10 @@ Trigger device OTA firmware update process for latest stable version.
 ### Motion Detection Sensitivity
 
 The motion detection sensitivity can be adjusted using the "Detection sensitivity" Number entity. It's important to note that this entity fetches information from the device and will not update if your battery-powered camera is in sleep mode, as this measure is implemented to preserve battery life and prevent excessive drainage.
+
+### Light entity
+
+Light entity will be added to cameras + light combos. Can turn on/off and set brightness.
 
 ## Troubleshooting
 
