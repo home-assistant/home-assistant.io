@@ -4,7 +4,7 @@ description: Instructions on how to integrate Snapcast into Home Assistant.
 ha_category:
   - Media Player
 ha_release: 0.13
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_domain: snapcast
 ha_config_flow: true
 ha_platforms:

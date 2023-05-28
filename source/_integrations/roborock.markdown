@@ -4,6 +4,7 @@ description: Instructions on how to integrate Roborock vacuums into Home Assista
 ha_category:
   - Vacuum
   - Select
+  - Sensor
 ha_iot_class: Local Polling
 ha_release: 2023.5
 ha_config_flow: true
