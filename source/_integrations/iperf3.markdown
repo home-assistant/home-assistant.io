@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `iperf3` sensor integration allows you to measure network bandwidth performance against a private or public [Iperf3](https://software.es.net/iperf/index.html) server.
+The `iperf3` sensor integration allows you to measure network bandwidth performance, loss, and jitter against a private or public [Iperf3](https://software.es.net/iperf/index.html) server.
 
 Enabling this integration will automatically create the Iperf3 sensors for the monitored conditions (below). By default, it will run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a Iperf3 test to run.
 
@@ -45,6 +45,10 @@ iperf3:
         description: The download speed (Mbit/s).
       upload:
         description: The upload speed (Mbit/s).
+      loss:
+        description: The percentage of packets lost. Only available if protocol is UDP.
+      jitter:
+        description: The jitter in milliseconds. Only available if protocol is UDP.
   hosts:
     description: A list of Iperf3 servers to perform the test against.
     required: true
@@ -87,6 +91,11 @@ Configuration variables (host):
     required: false
     default: tcp
     type: string
+  bandwidth:
+    description: The target bandwidth in bits/sec. If 0 is provided, the default (1 Mbit/sec for UDP, unlimited for TCP) iperf3 bandwidth will be used.
+    required: false
+    default: 0
+    type: integer
 {% endconfiguration %}
 
 #### Time period dictionary example
