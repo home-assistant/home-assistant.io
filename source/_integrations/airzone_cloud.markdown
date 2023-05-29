@@ -23,11 +23,11 @@ There are two main types of Airzone devices:
 
 ## Aidoo / Aidoo Pro
 
-These devices are wifi controllers that are normally connected to a single air conditioner split system.
+These devices are Wi-Fi controllers that are normally connected to a single air conditioner split system.
 
 ## Easyzone (US) / Flexa (EU)
 
-These devices are connected to ducted air conditioners along with motorized grilles and individual thermostats for every room (zone). Therefore, with a single ducted air conditioning system the user can turn on and off the air conditioner and set different desired temperatures on each room.
+These devices are connected to ducted air conditioners, motorized grilles, and individual thermostats for every room (zone). Therefore, with a single ducted air conditioning system, the user can turn on and off the air conditioner and set different desired temperatures in each room.
 
 A typical Airzone HVAC system consists of a parent device (called *master zone* in Airzone terminology) and child devices (called *slave zones* in Airzone terminology). The [HVAC mode](https://www.home-assistant.io/integrations/climate/#service-climateset_hvac_mode) can only be changed on the parent device. On child devices, you can only enable or disable the HVAC and adjust the desired temperature for that specific device.
 
@@ -44,7 +44,7 @@ Password:
 
 ## Sensors
 
-For each Airzone Aidoo (HVAC wifi controller), the following *sensors* are created:
+For each Airzone Aidoo (HVAC Wi-Fi controller), the following *sensors* are created:
 
 | Condition           | Description                                        |
 | :------------------ | :------------------------------------------------- |
