@@ -6,8 +6,8 @@ notify:
   boldText: Important Announcement
   normalText: New release breaks 124.
 hero:
-  title: We build together the future of the Open Home
-  description: The smart home we dream it’s private, local and powerful.
+  title: Together, we're building the future of the Open Home
+  description: The smart home you've dreamed of. Private, local and powerful.
 achive:
   - label: Open Homes
     value: 500k
@@ -16,7 +16,7 @@ achive:
   - label: Devices
     value: 100k+
   - label: Github Stars
-    value: 50k
+    value: 60k
 communityList:
   - community: Forum
     link: https://community.home-assistant.io/
