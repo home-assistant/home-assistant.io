@@ -17,7 +17,19 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-This integration interacts with the Cloud API of [Airzone HVAC zoning systems](https://www.airzone.es/en/).
+This integration interacts with the Cloud API of [Airzone devices](https://www.airzone.es/en/).
+
+There are two main types of Airzone devices:
+- [Aidoo](https://www.airzonecontrol.com/aa/en/control-solutions/aidoo/wi-fi/) / [Aidoo Pro](https://www.airzonecontrol.com/aa/en/control-solutions/aidoo/pro/)
+- [Easyzone (US)](https://www.airzonecontrol.com/aa/en/control-solutions/easyzone/) / [Flexa (EU)](https://www.airzonecontrol.com/ib/es/soluciones-de-control/flexa/)
+
+## Aidoo / Aidoo Pro
+
+These devices are Wi-Fi controllers that are normally connected to a single air conditioner split system.
+
+## Easyzone (US) / Flexa (EU)
+
+These devices are connected to ducted air conditioners, motorized grilles, and individual thermostats for every room (zone). Therefore, with a single ducted air conditioning system, the user can turn on and off the air conditioner and set different desired temperatures in each room.
 
 A typical Airzone HVAC system consists of a parent device (called *master zone* in Airzone terminology) and child devices (called *slave zones* in Airzone terminology). The [HVAC mode](https://www.home-assistant.io/integrations/climate/#service-climateset_hvac_mode) can only be changed on the parent device. On child devices, you can only enable or disable the HVAC and adjust the desired temperature for that specific device.
 
@@ -41,6 +53,12 @@ For each Airzone zone (thermostat), the following *binary sensors* are created:
 | problems            | Indicates that the current zone has errors or warnings. |
 
 ## Sensors
+
+For each Airzone Aidoo (HVAC Wi-Fi controller), the following *sensors* are created:
+
+| Condition           | Description                                        |
+| :------------------ | :------------------------------------------------- |
+| temperature         | Measures the temperature from the HVAC thermostat. |
 
 For each Airzone zone (thermostat), the following *sensors* are created:
 
