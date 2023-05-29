@@ -104,7 +104,7 @@ The motion detection sensitivity can be adjusted using the "Detection sensitivit
 
 ### Light entity
 
-Light entity will be added to cameras + light combos. Can turn on/off and set brightness.
+A light entity will be added to cameras + light combos. You can turn it on/off and set the brightness.
 
 ## Troubleshooting
 
