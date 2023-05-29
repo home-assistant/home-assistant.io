@@ -57,6 +57,19 @@
   aliases:
     - automations
 
+- term: Backup
+  definition: >-
+    Home Assistant has built-in functionality to create files containing a copy of
+    your configuration. This can be used to restore you your Home Assistant as well
+    as migrate to a new system. The backup feature is available on some installation
+    types.
+  link: /integrations/backup/
+  excerpt: >-
+    Home Assistant has built-in functionality to create files containing a copy of
+    your configurations. This is available on certain installation types.
+  aliases:
+    - backups
+
 - term: Binary sensor
   definition: >-
     A binary sensor returns information about things that only have two states -
