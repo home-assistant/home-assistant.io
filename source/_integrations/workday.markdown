@@ -47,6 +47,8 @@ Add holidays will only take dates formatted with `YYYY-MM-DD`.
 
 Remove holidays will take dates formatted with `YYYY-MM-DD` or partial of name, for example, `christmas` will exclude `Christmas Day`.
 
+Offset can be used to see if future days are workdays. As example put `1` to see if tomorrow is workday.
+
 ## Automation example
 
 Example usage for automation:
