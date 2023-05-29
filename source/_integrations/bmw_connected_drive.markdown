@@ -152,6 +152,7 @@ If supported by your vehicle, you can display and toggle remote services with st
 Using these selects will impact the state of your vehicle, use them with care!
 
 - **Climate**: Toggle vehicle climatization. It is not possible to force it to heating/cooling, the vehicle will decide on its own. If turned on, it will run for 30 minutes (as if toggled via the MyBMW app).
+- **Charging**: Toggle vehicle charging if plugged in. Only available on some electric vehicles.
 
 ## Disclaimer
 
