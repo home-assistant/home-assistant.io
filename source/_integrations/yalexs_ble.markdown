@@ -56,7 +56,11 @@ Some locks only send push updates when they have an active HomeKit pairing. If y
 
 One easy way to fix this is to create a new/second home in the Apple Home app and add the lock to that new home. Push updates should occur as intended after the lock is added.
 
-Alternatively, call the `homeassistant.update_entity` service to force the integration to update the lock state.
+Alternatively, call the `homeassistant.update_entity` service to force the integration to update the lock state, or enable the always connected option.
+
+{% include integrations/option_flow.md %}
+
+If the lock does not support push updates via advertisements or you want lock operation to be more responsive, you can enable always connected mode. Always connected will cause the lock to stay connected to Home Assistant via Bluetooth, which will use more battery.
 
 ## Door Sensors
 

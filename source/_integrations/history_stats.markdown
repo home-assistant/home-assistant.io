@@ -48,6 +48,10 @@ entity_id:
   description: The entity you want to track.
   required: true
   type: string
+unique_id:
+  description: An ID that uniquely identifies this entity. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 state:
   description: The states you want to track.
   required: true
