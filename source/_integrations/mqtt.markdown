@@ -218,7 +218,7 @@ The discovery topic needs to follow a specific format:
 <discovery_prefix>/<component>/[<node_id>/]<object_id>/config
 ```
 
-- `<discovery_prefix>`: The Discovery Prefix, defaults to `homeassistant`. This prefix be [changed](#discovery-options).
+- `<discovery_prefix>`: The Discovery Prefix defaults to `homeassistant`. This prefix can be [changed](#discovery-options).
 - `<component>`: One of the supported MQTT components, eg. `binary_sensor`.
 - `<node_id>` (*Optional*):  ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic. The ID of the node must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 - `<object_id>`: The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`. The ID of the device must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
