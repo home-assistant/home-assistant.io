@@ -60,7 +60,7 @@
 - term: Backup
   definition: >-
     Home Assistant has built-in functionality to create files containing a copy of
-    your configuration. This can be used to restore you your Home Assistant as well
+    your configuration. This can be used to restore your Home Assistant as well
     as migrate to a new system. The backup feature is available on some installation
     types.
   link: /integrations/backup/
