@@ -78,7 +78,7 @@ The message attribute supports the [Markdown formatting syntax](https://daringfi
 | Headline 2 | `## Headline` |
 | Newline | `\n` |
 | Bold | `**My bold text**` |
-| Cursive | `*My cursive text*` |
+| Italic | `*My italic text*` |
 | Link | `[Link](https://home-assistant.io/)` |
 | Image | `![image](/local/my_image.jpg)` |
 
