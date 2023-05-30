@@ -82,13 +82,13 @@ Use this My button:
 
 {% enddetails %}
 
-1. Wait for the installation to complete.
-2. You are prompted for network security keys.
+3. Wait for the installation to complete.
+1. You are prompted for network security keys.
    * If you are using Z-Wave for the first time, leave all the fields empty and select **Submit**. The system will generate network security keys for you.
    * If this Z-Wave dongle has already been paired with secure devices, you need to enter the previously used network key as the S0 network key. S2 security keys will be automatically generated for you.
    * Make sure that you keep a backup of these keys in a safe place in case you need to move your Z-Wave dongle to another device. Copy and paste them somewhere safe.
-3. Wait for the Z-Wave JS add-on to start up.
-4. Once the installation is complete, the **Device info** of the Z-Wave controller is shown.
+1. Wait for the Z-Wave JS add-on to start up.
+1. Once the installation is complete, the **Device info** of the Z-Wave controller is shown.
    * You successfully installed the Z-Wave integration and the Z-Wave JS add-on.
    * You can now [add](/integrations/zwave_js/#adding-a-new-device-to-the-z-wave-network) devices to the Z-Wave network.
 
