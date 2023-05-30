@@ -22,6 +22,14 @@ layout: default
                     <a href="/docs/glossary/" class="text-lg font-medium mb-5 block">Glossary</a>
                 </div>
             </div>
+            <div class="border-border-line border rounded-[40px] mb-10 p-7 md:py-14 md:px-2 bg-white text-center mx-2 md:mx-5">
+                <div class="h-[34px] md:h-[70px] mb-10 text-center"><a href="{{guide.url}}"><img src="{{ site.baseurl }}images/icon/dashboard.svg" class="m-auto h-full" alt="Get started" loading="lazy"></a></div>
+                <a href="{{guide.url}}" class="text-lg md:text-4xl font-bold">Dashboard</a>
+                <div class="hidden md:block mt-8">
+                    <a href="/dashboards/" class="text-lg font-medium mb-5 block">Dashboards</a>
+                    <a href="/integrations/frontend/" class="text-lg font-medium mb-5 block">Defining themes</a>
+                </div>
+            </div>
             {% assign sortedGuides = site.guides | sort: 'order' %}
             {% for guide in sortedGuides %}
             <div class="border-border-line border rounded-[40px] mb-10 p-7 md:py-14 md:px-2 bg-white text-center mx-2 md:mx-5">
