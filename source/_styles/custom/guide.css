@@ -68,7 +68,6 @@
 .guide-content p {
     --tw-text-opacity: 1;
     color: rgb(87 87 87 / var(--tw-text-opacity));
-    letter-spacing: -0.02em;
     font-weight: 400;
     font-size: 1rem;
     line-height: 1.5rem;

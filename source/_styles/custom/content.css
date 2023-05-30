@@ -77,7 +77,6 @@
 }
 .content p {
     color: rgb(87 87 87);
-    letter-spacing: -0.02em;
     font-weight: 400;
     font-size: 1rem;
     line-height: 1.5rem;
@@ -283,7 +282,7 @@
     margin-left: -20px;
     scroll-margin-top: 100px;
 }
-  
+
 .content .config-vars  .config-vars-label:hover a.title-link::before {
     position: absolute;
     top: 50%;
@@ -299,7 +298,7 @@
     height: 15px;
     width: 15px;
 }
-  
+
 .content .config-vars .config-vars-default {
     padding-top: 8px;
 }
@@ -308,7 +307,7 @@
     margin: 0;
     display: inline;
 }
-  
+
 .content .config-vars .config-vars-default .nested {
     margin-left: 48px;
 }
@@ -339,5 +338,5 @@
     .content table th,
     .content table td {
         padding: 6px;
-    } 
+    }
 }
