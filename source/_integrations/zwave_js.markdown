@@ -73,12 +73,12 @@ Use this My button:
 {% my config_flow_start badge domain="zwave_js" %}, or follow these steps:
 
 * Browse to your Home Assistant instance.
-* In the sidebar click on _**{% my config icon %}**_.
-* From the configuration menu select: _**{% my integrations %}**_.
-* In the bottom right, click on the
-  _**{% my config_flow_start icon domain="zwave_js" %}**_ button.
-* From the list, search and select _**"Z-Wave"**_.
-* Follow the instructions on screen to complete the set up.
+* In the sidebar, select **{% my config icon %}**.
+* From the configuration menu, select: **{% my integrations %}**.
+* On the bottom right, select the
+  **{% my config_flow_start icon domain="zwave_js" %}** button.
+* From the list, search and select **Z-Wave**.
+* Follow the instructions on screen to complete the setup.
 
 {% enddetails %}
 
