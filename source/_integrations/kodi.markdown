@@ -427,6 +427,9 @@ data:
 ```
 
 A example of a automation to turn up/down the volume of a receiver using the event:
+
+{% raw %}
+
 ```yaml
 alias: Kodi keypress
 mode: parallel
