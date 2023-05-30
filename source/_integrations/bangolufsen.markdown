@@ -4,19 +4,11 @@ description: Instructions on how to integrate Bang & Olufsen devices into Home A
 ha_category:
   - Media Player
   - Multimedia
-  - Sensor
 ha_release: 2023.6.0
 ha_iot_class: Local Push
 ha_domain: bangolufsen
 ha_platforms:
-  - binary_sensor
-  - button
   - media_player
-  - number
-  - select
-  - sensor
-  - switch
-  - text
 ha_codeowners:
   - "@mj23000"
 ha_config_flow: true
@@ -87,28 +79,7 @@ Max volume:
 
 ## Entities
 
-This integration adds an array of different useful entities that are generated and added automatically upon setup, customized for the supported features of the device.
-
-### Always added
-
-- Favourite buttons
-- Treble number
-- Bass number
-- Media ID sensor (Disabled by default)
-- Input Signal sensor (Disabled by default)
-- Friendly Name text
-- Loudness switch
-
-### If supported
-
-- Battery Level sensor
-- Battery Charging Time sensor
-- Battery Playing Time sensor
-- Sound mode select
-- Listening Position select
-- Battery Charging binary sensor
-- Proximity sensor binary sensor
-- Home Control URI text
+This integration currently adds a media_player entity.
 
 ## Services
 
@@ -290,8 +261,6 @@ Additionally the "raw" WebSocket notifications received from the device are fire
 ### Physical buttons and sensors
 
 The "shortPress" of all the buttons, except for volume control, are available as device triggers.
-
-If the device has a proximity sensor, then a proximity sensor binary sensor will be available in Home Assistant.
 
 ### Beoremote One
 
