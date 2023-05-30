@@ -56,3 +56,9 @@ For each Airzone zone (thermostat), the following *sensors* are created:
 | :------------------ | :-------------------------------------------------- |
 | humidity            | Measures the relative humidity in the current zone. |
 | temperature         | Measures the temperature in the current zone.       |
+
+For each Airzone WebServer (HVAC Wi-Fi controller), the following *sensors* are created:
+
+| Condition           | Description                                        |
+| :------------------ | :------------------------------------------------- |
+| rssi                | Wi-Fi RSSI.                                        |
