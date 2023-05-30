@@ -14,7 +14,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The Owlet integration allows you to integration a v3 Owlet Smart Sock into home assistant, this will expose 8 sensors, include heart rate, o2 saturation etc.
+The Owlet integration allows you to integration a v3 Owlet Smart Sock into Home Assistant, this will expose 8 sensors, include heart rate, o2 saturation etc.
 
 All that is required to add this integration is an Owlet account with a Smart Sock v3 connected to this account.
 
