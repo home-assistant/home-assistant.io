@@ -392,11 +392,13 @@ data:
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
 ## Keypress events
-key presses of keyboards/remotes can be overwritten in Kodi and configured to send a event to Home Assistant, which can then be used in automations to for instance turn up/down the volume of a TV/receiver.
+
+key presses of keyboards/remotes can be overwritten in Kodi and configured to send an event to Home Assistant, which can then be used in automations to, for instance, turn up/down the volume of a TV/receiver.
 
 A keypress can be overwritten in Kodi by using the [Kodi keymap XML](https://kodi.wiki/view/Keymap) or from within the Kodi GUI using the [Keymap Editor add-on](https://kodi.wiki/view/Add-on:Keymap_Editor).
 
-A example of the Kodi keymap configuration using XML which will overwrite the volume_up/volume_down buttons and instead send a event to HomeAssistant:
+An example of the Kodi keymap configuration using XML, which will overwrite the volume_up/volume_down buttons and instead send an event to HomeAssistant:
+
 ```xml
 <keymap>
   <global>
@@ -407,14 +409,15 @@ A example of the Kodi keymap configuration using XML which will overwrite the vo
   </global>
 </keymap>
 ```
+
 The `"KodiLivingroom"` can be set to any value and will be present in the event data as the `"sender"`
 The `"OnKeyPress"` is needed to identify the event in Home Assistant, do not change this.
-The `{"key":"volume_up"}` can contain any JSON which will be present in the event data under the `"data"` key, normally this is used to identitfy which key was pressed.
+The `{"key":"volume_up"}` can contain any JSON which will be present in the event data under the `"data"` key, normally this is used to identify which key was pressed.
 
-For possible keyboard key names see: https://kodi.wiki/view/List_of_keynames
-For other actions see: https://kodi.wiki/view/Keymap#Keynames
+For possible keyboard key names, see: https://kodi.wiki/view/List_of_keynames
+For other actions, see: https://kodi.wiki/view/Keymap#Keynames
 
-For the example abbove, when the volume up key is pressed, a event in Home Assistant will be fired that looks like:
+For the example above, when the volume up key is pressed, an event in Home Assistant will be fired that looks like this:
 ```yaml
 event_type: kodi_keypress
 data:
