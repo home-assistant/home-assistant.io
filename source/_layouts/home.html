@@ -75,7 +75,7 @@ layout: default
             <br /> Explore a new universe of possibilities with Home Assistant. Extend and empower your home automations with your imagination.
           </p>
           <div class="mt-11">
-            <a href="/integrate"><button type="button" class="inline-flex leading-[20px] font-bold items-center px-[26px] bg-white  py-[21px] border-2 border-grey-secondary text-[16px] md:text-[24px] rounded-[10px] text-black"> See what you get more <svg class="ml-[25px]" width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a href="/integrate"><button type="button" class="inline-flex leading-[20px] font-bold items-center px-[26px] bg-white  py-[21px] border-2 border-grey-secondary text-[16px] md:text-[24px] rounded-[10px] text-black"> See what you can do <svg class="ml-[25px]" width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.7625 0.00166702L12.7625 5.66833L0.125828 5.66833L0.0833263 8.51583L12.7625 8.51583V14.1683L19.8458 7.085L12.7625 0.00166702Z" fill="black" />
               </svg>
             </button></a>
@@ -106,7 +106,7 @@ layout: default
         </g>
       </svg>
       <h2 class="font-extrabold text-[22px] md:text-[44px] text-black leading-6 md:leading-[53px] mt-[36px]">What sets us apart</h2>
-      <p class="text-base md:text-[28px] font-semibold leading-[150%] tracking-[-0.02em] text-black opacity-80 mt-[36px] mb-[5px]"> See how we compare to other popular home automation products</p>      
+      <p class="text-base md:text-[28px] font-semibold leading-[150%] tracking-[-0.02em] text-black opacity-80 mt-[36px] mb-[5px]"> See how we compare to other popular home automation products</p>
     </div>
     <div class="container relative mx-auto mt-[65px] md:mt-[1px] text-center md:px-20  md:py-[50px]">
       <div class="rounded-2xl shadow-[0_4px_24px_5px_rgba(0,0,0,0.1)] px-5 py-[38px] md:px-[75px]">
@@ -215,7 +215,8 @@ layout: default
       <div class="relative text-center md:max-w-[343px] md:max-w-full mx-auto">
         <img class="absolute top-[70px]  hidden md:block" src="{{site.baseurl}}images/dot_group.png" loading="lazy" />
         <img class="absolute top-[25px] left-[15px] md:hidden" src="{{site.baseurl}}images/dot_mobile.png" loading="lazy" />
-        <span class="font-extrabold text-[22px] md:text-[44px] text-black-secondary laading-7 md:leading-[49.63px]">Make 39.542 devices <br> work together </span>
+        <span class="font-extrabold text-[22px] md:text-[44px] text-black-secondary laading-7 md:leading-[49.63px]">We allow over 1000 devices to work together</span>
+        <p class="text-base md:text-[28px] font-semibold leading-[150%] tracking-[-0.02em] text-black opacity-80 mt-[36px] mb-[5px]">See if your device is supported below</p>
       </div>
       <div class="mt-[33px] md:mt-[43px] w-full">
         <div class="mx-auto w-full md:max-w-xs">
@@ -236,9 +237,9 @@ layout: default
     </div>
     <div class="possibliy mx-auto mt-[50px] md:mt-[110px] pb-[60px] md:pb-[180px] text-center relative z-10" style="background: linear-gradient(180deg, #01002C -3.36%, #020054 104.31%);">
       <div class="relative pt-[44px] md:pt-[142px] px-9 md:w-[60%] mx-auto">
-        <span class="font-bold text-[22px] md:text-[44px] text-white leading-[27px] md:leading-[54.03px]">We possibly don’t work with all the brands <br>
+        <span class="font-bold text-[22px] md:text-[44px] text-white leading-[27px] md:leading-[54.03px]">We may not work with all the brands in the universe <br>
         </span>
-        <span class="font-bold text-[22px] md:text-[44px] text-blue-btn leading-[27px] md:leading-[54.03px]">in this universe.</span>
+        <span class="font-bold text-[22px] md:text-[44px] text-blue-btn leading-[27px] md:leading-[54.03px]">but we're close.</span>
       </div>
       <div class="min-h-[58px] mt-[40px] md:mt-[100px] ml-[-180px]" style="background-image: url({{site.baseurl}}images/logo3.png);"></div>
       <div class="min-h-[38px] mt-[25px] md:mt-[20px] ml-[20px]" style="background-image: url({{site.baseurl}}images/logo2.png);"></div>
@@ -278,11 +279,11 @@ layout: default
       <div class="wrap mt-[77px]">
         <div class="frame main-news__items-wrapp" id="cycleitems" style="overflow: hidden;">
           <ul class="clearfix main-news__items-wrapp" id="itemScroll">
-            {% for video in site.data.videos %} 
+            {% for video in site.data.videos %}
             <li>
               <lite-youtube id="item" videoid="{{video.videoID}}" videotitle="{{video.videoTitle}}" title="{{video.videoTitle}}"></lite-youtube>
-            </li> 
-            {% endfor %} 
+            </li>
+            {% endfor %}
           </ul>
         </div>
         <div class="max-w-[1010px] mt-10 mx-auto relative scrollbar">
@@ -315,18 +316,18 @@ layout: default
             </span>
             <span class="font-semibold text-brand-primary text-4xl">posts</span>
           </div>
-          <div> 
+          <div>
             {% assign sortedPosts = site.posts | sort: 'date' | reverse  %}
-            {% for post in sortedPosts limit:4%} 
+            {% for post in sortedPosts limit:4%}
             <div class="mt-8">
               <a href="{{post.url}}" >
                 <span class="font-medium text-black-secondary text-base leading-5 text-opacity-30">
                   {{post.date_formatted}}
                 </span>
                 <p class="font-medium text-black-secondary text-base leading-5"> {{post.title}}</p>
-              </a> 
+              </a>
             </div>
-            {% endfor %} 
+            {% endfor %}
             <div class="mt-7">
               <a href="/blog" class="inline-flex font-semibold items-center px-[17px] py-[10px] border-2 border-[#41BDF5] text-lg leading-[22px] text-[#41BDF5] rounded-md">All the posts</a>
             </div>
