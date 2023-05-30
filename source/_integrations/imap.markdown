@@ -11,6 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@engrbm87'
+  - '@jbouwh'
 ha_config_flow: true
 ---
 
@@ -59,6 +60,10 @@ The SSL cipher list option allows to select the list of SSL ciphers to be accept
 The SSL cipher list is an advanced setting. The option is available only when advanced mode is enabled (see user settings).
 
 </div>
+
+### Troubleshooting
+
+Email providers may limit the number of reported emails. The number may be less than the limit (10,000 at least for Yahoo) even if you set the `IMAP search` to reduce the number of results. If you are not getting expected events and cleaning your Inbox or the configured folder is not desired, set up an email filter for the specific sender to go into a new folder. Then create a new config entry or modify the existing one with the desired folder.
 
 ### Using events
 
@@ -130,7 +135,6 @@ template:
           Date: "{{ trigger.event.data['date'] }}"
           Subject: "{{ trigger.event.data['subject'] }}"
           To: "{{ trigger.event.data['headers']['Delivered-To'][0] }}"
-          Subject: "{{ trigger.event.data['headers']['Subject'][0] }}"
           Return_Path: "{{ trigger.event.data['headers']['Return-Path'][0] }}"
           Received-first: "{{ trigger.event.data['headers']['Received'][0] }}"
           Received-last: "{{ trigger.event.data['headers']['Received'][-1] }}"

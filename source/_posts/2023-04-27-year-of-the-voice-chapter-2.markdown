@@ -51,7 +51,7 @@ Interacting with many different services means that many different things can go
 Screenshot of the new Assist debug tool.
 </p>
 
-[Assist Pipeline integration]: https://next.home-assistant.io/integrations/assist_pipeline/
+[Assist Pipeline integration]: https://www.home-assistant.io/integrations/assist_pipeline/
 [Assist dialog]: /docs/assist/
 
 ## Voice Assistant powered by Home Assistant Cloud
@@ -119,7 +119,7 @@ The Whisper and Piper add-ons mentioned above are integrated into Home Assistant
 
 [Wyoming]: https://github.com/rhasspy/rhasspy3/blob/master/docs/wyoming.md
 [Rhasspy]: https://github.com/rhasspy/rhasspy3/
-[Wyoming integration]: https://next.home-assistant.io/integrations/wyoming/
+[Wyoming integration]: https://www.home-assistant.io/integrations/wyoming/
 
 ## ESPHome powered voice assistants
 
@@ -131,7 +131,7 @@ Today we’re launching support for building voice assistants using ESPHome. Con
 
 We’ve been focusing on the [M5STACK ATOM Echo][atom-echo] for testing and development. For $13 it comes with a microphone and a speaker in a nice little box. We’ve created a tutorial to turn this device into a voice remote directly from your browser!
 
-[Tutorial: create a $13 voice remote for Home Assistant.](https://next.home-assistant.io/projects/thirteen-usd-voice-remote/)
+[Tutorial: create a $13 voice remote for Home Assistant.](https://www.home-assistant.io/projects/thirteen-usd-voice-remote/)
 
 [ESPHome Voice Assistant documentation.](https://esphome.io/components/voice_assistant.html)
 
@@ -152,7 +152,7 @@ By configuring off-hook autodial, your phone will automatically call Home Assist
 
 We’ve focused our initial efforts on supporting [the Grandstream HT801 Voice-over-IP box][ht801]. It works with any phone with an RJ11 connector, and connects directly to Home Assistant. There is no need for an extra server.
 
-[Tutorial: create your own World’s Most Private Voice Assistant](https://next.home-assistant.io/projects/worlds-most-private-voice-assistant/)
+[Tutorial: create your own World’s Most Private Voice Assistant](https://www.home-assistant.io/projects/worlds-most-private-voice-assistant/)
 
 
 <p class='img'>
@@ -160,7 +160,7 @@ We’ve focused our initial efforts on supporting [the Grandstream HT801 Voice-o
 Give your voice assistant personality using the OpenAI integration.
 </p>
 
-[voip]: https://next.home-assistant.io/integrations/voip/
+[voip]: https://www.home-assistant.io/integrations/voip/
 [ht801]: https://amzn.to/40k7mRa
 
 _Some links on this page are affiliate links and purchases using these links support the Home Assistant project._
