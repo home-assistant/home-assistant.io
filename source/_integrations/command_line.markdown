@@ -4,8 +4,8 @@ description: Instructions on how to integrate the Command Line utility within Ho
 ha_category:
   - Binary Sensor
   - Cover
-  - Sensor
   - Notifications
+  - Sensor
   - Utility
 ha_release: 0.12
 ha_iot_class: Local Polling
