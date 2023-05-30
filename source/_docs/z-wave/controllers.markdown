@@ -20,6 +20,9 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
 
 </div>
 
+- 800 series controllers
+  - Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
+
 - 700 series controllers
   - Aeotec Z-Stick 7 USB stick (ZWA010) (the EU version is not recommended due to RF performance issues)
   - Silicon Labs UZB-7 USB Stick (Silabs SLUSB7000A / SLUSB001A)
