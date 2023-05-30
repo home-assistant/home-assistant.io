@@ -60,7 +60,7 @@ your smart home and issue commands and get responses.
    * To allow this phone to control your smart home, under **Configuration**, enable **Allow calls**.   
    ![Voice over IP integration - allow calls](/images/assist/voip_configuration.png) 
 1. Congratulations! You set up your analog phone to work with Home Assistant. Now pick up the phone and control your device. 
-   * Say a [supported voice command](/docs/assist/builtin_sentences/). For example, *Turn off the light in the kitchen*.
+   * Say a [supported voice command](/voice/builtin_sentences/). For example, *Turn off the light in the kitchen*.
    * You can also ask a question, such as
      *  *Is the front door locked?*
      *  *Which lights are on in the living room?*
@@ -114,7 +114,7 @@ If you’re unable to call Home Assistant, confirm the following settings in you
 
 **Symptom**
 You were able to control Home Assistant over the phone but it no longer works. When picking up the phone, no sound is played. 
-The [debug information](/docs/assist/troubleshooting#view-debug-information) shows no runs.
+The [debug information](/voice/troubleshooting#view-debug-information) shows no runs.
 
 **Potential remedy**
 1. Log onto the Grandstream *Device Configuration* software.
@@ -127,7 +127,7 @@ The [debug information](/docs/assist/troubleshooting#view-debug-information) sho
 
 Are things still not working as expected? 
 
-* Checkout the [general troubleshooting section for Assist](/docs/assist/troubleshooting).
+* Checkout the [general troubleshooting section for Assist](/voice/troubleshooting).
 
 ## About the analog phone
 

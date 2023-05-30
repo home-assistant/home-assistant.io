@@ -12,7 +12,7 @@ your smart home. Issue commands and get responses!
 ## Required material
 
 * Home Assistant 2023.5 or later
-* [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/docs/assist/voice_remote_local_assistant)
+* [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/voice/voice_remote_local_assistant)
 * The password to your 2.4&nbsp;GHz Wi-Fi network
 * Chrome (or a Chromium-based browser like Edge) on desktop (not Android/iOS) 
 * [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
@@ -64,7 +64,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 1. Press and hold the button on your ATOM Echo.
    * The LED should light up in blue.
-1. Say a [supported voice command](/docs/assist/builtin_sentences/). For example, *Turn off the light in the kitchen*.   
+1. Say a [supported voice command](/voice/builtin_sentences/). For example, *Turn off the light in the kitchen*.   
       * Make sure you’re using the area name exactly as you defined it in Home Assistant.
       * You can also ask a question, such as
           * *Is the front door locked?*
@@ -78,4 +78,4 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 Are things not working as expected?
 
-* Checkout the [general troubleshooting section for Assist](/docs/assist/troubleshooting/).
+* Checkout the [general troubleshooting section for Assist](/voice/troubleshooting/).

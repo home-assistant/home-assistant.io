@@ -27,7 +27,7 @@ _To watch the video presentation of this blog post, including live demos, check 
 [Chapter 1]: https://www.home-assistant.io/blog/2023/01/26/year-of-the-voice-chapter-1/
 [45 languages]: https://home-assistant.github.io/intents/
 [live-stream]: https://youtube.com/live/Tk-pnm7FY7c?feature=share
-[assist]: /docs/assist/
+[assist]: /voice/
 
 <!--more-->
 
@@ -52,7 +52,7 @@ Screenshot of the new Assist debug tool.
 </p>
 
 [Assist Pipeline integration]: https://www.home-assistant.io/integrations/assist_pipeline/
-[Assist dialog]: /docs/assist/
+[Assist dialog]: /voice/
 
 ## Voice Assistant powered by Home Assistant Cloud
 

@@ -22,9 +22,9 @@ In addition to individual entities, commands can target **areas**:
 * *"change kitchen brightness to 50%"*
 * *"set bedroom lights to green"*
 
-Entity [aliases](/docs/assist/aliases) are also matched so multiple names can be used, even in different languages.
+Entity [aliases](/voice/aliases) are also matched so multiple names can be used, even in different languages.
 
-You can extend the built-in sentences or [add your own](/docs/assist/custom_sentences) to trigger any action in Home Assistant.
+You can extend the built-in sentences or [add your own](/voice/custom_sentences) to trigger any action in Home Assistant.
 
 ## View existing sentences
 

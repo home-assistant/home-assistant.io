@@ -89,7 +89,7 @@ journey:
 
 - [The world's most private voice assistant](/projects/worlds-most-private-voice-assistant/)
 - [Giving your voice assistant a Super Mario personality using OpenAI](/projects/worlds-most-private-voice-assistant/#give-your-voice-assistant-personality-using-the-openai-integration)
-- [Installing a local Assist pipeline](/docs/assist/voice_remote_local_assistant/)
+- [Installing a local Assist pipeline](/voice/voice_remote_local_assistant/)
 - [The $13 tiny ESPHome-based voice assistant](/projects/thirteen-usd-voice-remote/)
 
 If you missed [last week's live stream](https://www.youtube.com/watch?v=Tk-pnm7FY7c),
@@ -123,7 +123,7 @@ manage the entity's aliases.
 
 <img class="no-shadow" src='/images/blog/2023-05/voice-assistants-expose-entities-settings.png' alt='Screenshot showing the new expose entities tab in the voice assistants menu.'>
 
-This currently supports our [Assist](/docs/assist), and Amazon Alexa and
+This currently supports our [Assist](/voice), and Amazon Alexa and
 Google Assistant via Home Assistant Cloud.
 
 ## Improved entity setting
@@ -277,7 +277,7 @@ findability. This one is new:
 [@tronikos]: https://github.com/tronikos
 [android tv remote]: /integrations/androidtv_remote
 [Anova]: /integrations/anova
-[assist]: /docs/assist
+[assist]: /voice
 [Intellifire]: /integrations/intellifire
 [Monessen]: /integrations/monessen
 [RAPT Bluetooth]: /integrations/rapt_ble
