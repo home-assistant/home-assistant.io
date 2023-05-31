@@ -1,0 +1,908 @@
+---
+layout: post
+title: "2023.6: Beta release notes"
+description: "Beta release notes for Home Assistant Core 2023.6."
+date: 2023-05-31 00:00:00
+date_formatted: "June 7, 2023"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2023-06/social.png
+---
+
+<a href='/integrations/#version/2023.6'><img src='/images/blog/2023-06/social.png' style='border: 0;box-shadow: none;'></a>
+
+<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+These are the beta release notes for Home Assistant Core 2023.6 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/UI/dashboards:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the Supervisor:<br>
+  <https://github.com/home-assistant/supervisor/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+version field (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+---
+
+<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+Home Assistant Core 2023.6! 🎉
+
+Get ready for an old-fashioned jam-packed release 🤯
+
+Thanks for helping out testing the beta! ❤️
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [Connect and use your existing network storage](#connect-and-use-your-existing-network-storage)
+- [Light entity dialog improvements, with favorite colors](#light-entity-dialog-improvements-with-favorite-colors)
+- [Integration pages](#integration-pages)
+- [Copy 'n paste support in the automation and script editors](#copy-n-paste-support-in-the-automation-and-script-editors)
+- [Related information](#related-information)
+- [Last changed added to the entity dialog](#last-changed-added-to-the-entity-dialog)
+- [Python 3.11 and major performance upgrades](#python-311-and-major-performance-upgrades)
+- [Z-Wave](#z-wave)
+- [New entities! `date`, `time`, `date_time`](#new-entities-date-time-date_time)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New Integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Breaking Changes](#breaking-changes)
+- [All changes](#all-changes)
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=C1eLZLtvc_k)
+3 May 2023, at 12:00 PDT / 21:00 CEST!
+
+<lite-youtube videoid="C1eLZLtvc_k" videotitle="Home Assistant 2023.6 Release Party"></lite-youtube>
+
+## Connect and use your existing network storage
+
+{% details "TODO" %}
+
+- Improve/extend story
+- Proof read/spelling/grammar
+- Replace screenshot
+
+Refs:
+
+- Include share as mount usage option (#16636) @ludeeus
+- Add dialog to change default backup location (#16610) @ludeeus
+- Add UI for network mounts (#16357) @ludeeus
+
+{% enddetails %}
+
+Do you have a network storage in your home? Like a QNAP or Synology NAS?
+This release add the ability to add and use that storage with Home Assistant!
+
+In the {% my storage title="**Settings** > **Storage**" %} menu, you can now
+find a whole new set of controls to connect to your storage and use it to,
+for example, use as your network share as a media source in Home Assistant.
+
+Even better... You can use it as a target for your backups, so that when
+Home Assistant creates a backup for you, it will be "off-site".
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/15093472/235440103-6fa6cdad-85f8-4e46-a4d3-2a5ddf1e9500.png'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+<p class='img'>
+<img src='https://raw.githubusercontent.com/home-assistant/home-assistant.io/5fce2401dad4c72f99067353dc12ede23d63549a/source/images/screenshots/network-storage/connect_light.png'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+## Light entity dialog improvements, with favorite colors
+
+{% details "TODO" %}
+
+- Improve/extend story
+- Proof read/spelling/grammar
+- Replace screenshot
+
+Refs:
+
+- Light more info enhancement (#16673) @piitaya
+- Update more info light actions (#16512) @piitaya
+- New color picker for HS and color temp (#16549) @piitaya
+- Update default colors for more info light favorite colors (#16688) @piitaya
+- Add button bar for light modes (#16683) @piitaya
+
+{% enddetails %}
+
+Recently we introduced new controls in the light entity dialog, this release
+iterates on the design by adding new controls and adding favorite colors.
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/5878303/242213802-301417be-65a5-40b3-aa32-25c3811e9e46.png'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+The favorite colors can be added and re-organized by holding one of the colors
+to enter the edit mode:
+
+<p class='img'>
+<video controls width="690px">
+  <source src="https://user-images.githubusercontent.com/5878303/242026572-9ff4813a-950f-4002-a0f2-7ed77e69398c.mp4" type="video/mp4">
+</video>
+Temporary screenrecording that needs to be replaced.
+</p>
+
+## Integration pages
+
+{% details "TODO" %}
+
+- Improve/extend story
+- Proof read/spelling/grammar
+- Replace screenshot
+
+Refs:
+
+- Overhaul Integrations page, add integration page (#16640) @bramkragten
+
+{% enddetails %}
+
+The integrations page had gotten a major overhaul this release!
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/5662298/241394494-56c2d763-423e-4bf2-8c85-8cb0d9a14920.png'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+Some things to notice in the above screenshot:
+
+- Device base integrations, like ESPHome, are now combined in a single card that
+  doesn't require scrolling anymore
+- The failing integration entry for deCONZ in the above screenshot, no longer
+  displays large error messages and thus does not stretch the layout.
+- Custom integrations and integrations relying on the cloud, are now more
+  visibly marked.
+
+Selecting the cog icon on the integration card, will bring you to a brand new
+integrations page, showing all information about integration:
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/5662298/241394598-88b1e856-c337-4ba1-adf4-23a290251131.png'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+In the above example, the ESPHome integration page, shows all integration
+entries this integration has. This page provides all the options and information
+that used to be "stuffed" into the integration card on the old integrations
+dashboard.
+
+## Copy 'n paste support in the automation and script editors
+
+{% details "TODO" %}
+
+- Improve/extend story
+- Proof read/spelling/grammar
+- Replace screenshot
+
+Refs:
+
+- Add cut / copy / paste support to automation & script editor (#16488) @karwosts
+- https://github.com/home-assistant/frontend/pull/16488
+
+{% enddetails %}
+
+An amazing contribution by @karwosts this release, that adds cut, copy & paste
+capabilities to the automation editor!
+
+You can now copy and paste any trigger, condition, and action into different
+places of your automation, and even past it into a different automation all
+together!
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/32912880/237117102-21fcc059-f959-4989-9079-1a158befb6b6.gif'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+## Related information
+
+{% details "TODO" %}
+
+- Improve/extend story
+- Proof read/spelling/grammar
+- Replace screenshot
+
+Refs:
+
+- Tweak style of related items (#16672) @bramkragten
+- Related blueprints (#16618) @bramkragten
+
+{% enddetails %}
+
+Which automationed used that blueprint? Well, Home Assistant can now tell you
+that! On the {% my blueprints title="**Settings** > **Automations & Scenes** > **Blueprints**" %}
+page you can now hit the trippel dotted menu on any blueprint to discover which
+automations are using that blueprint.
+
+Now only that, if you accidentially remove a blueprint that is still in use,
+Home Assistant will stop you from doing that and tell you which automations
+still rely on it.
+
+But wait, there is more related! The related items in the entity information
+dialog got improved as well. Told old list of links is gone, and it now shows
+a way more modern view of all related items for an entity:
+
+<p class='img'>
+<img src='https://user-images.githubusercontent.com/5662298/242026603-be5cd16a-a321-4bae-b4a0-3b68feaf39a6.png'></a>
+Temporary screenshot that needs to be replaced.
+</p>
+
+## Last changed added to the entity dialog
+
+{% details "TODO" %}
+
+- Improve/extend story
+- Proof read/spelling/grammar
+- Replace screenshot
+
+Refs:
+
+- Add last-changed date to more-info (#16509) @piitaya
+
+{% enddetails %}
+
+By popular request, the information on when an entity was last changed,
+has been added back to into the new entity information dialogs.
+
+Not only that, @piitaya added a very nice easter egg! You can click on it
+to toggle between the relative and absolute format!
+
+<p class='img'>
+<video controls width="690px">
+  <source src="https://user-images.githubusercontent.com/5878303/237703725-3732613e-e681-4ee2-84c3-ce1ab3f7f083.mp4" type="video/mp4">
+</video>
+Temporary screenrecording that needs to be replaced.
+</p>
+
+## Python 3.11 and major performance upgrades
+
+{% details "TODO" %}
+
+- Improve/extend story
+- Proof read/spelling/grammar
+
+{% enddetails %}
+
+This release ships running on Python 3.11! In case you are wondering, what is
+that? Well, Python is the language the Core of Home Assistant is written in.
+
+Why it matters? It is seriously faster! 🚀
+
+And that is not all in terms of performance, we've also upgraded internal parts,
+including a newer SQLite version that should be faster. Oh! And of course
+@bdraco has been all over the place to optimize a lot (a lot lot).
+
+So this release, can be expected to be a lot faster (or less consuming) of
+resources at runtime.
+
+## Z-Wave
+
+{% details "TODO" %}
+
+- Make a story out of this
+- Proof read/spelling/grammar
+
+{% enddetails %}
+
+There has been quite a bit of progress on Z-Wave in Home Assistant.
+
+- Add entities for node statistics so that users can more easily troubleshoot RF issues in their network
+- Add support for Window Covering CC which improves support for blind tilt devices (fixes iBlinds v3)
+- Fix notification CC sensor and button names
+- Proper Indicator CC support (certification requirement)
+- Optimistic state updates for multilevel switch entities (specifically buttons and switches - certification requirement)
+- Add entities for config parameters so they can be included in part of automations (they were already supported in device automations but entities will give users more flexibility)
+- We added better support for z-wave devices related to energy generation
+
+Z-Wave JS is now a platinum quality level integration 🏆
+
+## New entities! `date`, `time`, `date_time`
+
+We welcome three new entities types this release:
+[`date`](/integrations/date), [`time`](/integrations/time) & [`date_time`](/integrations/date_time).
+
+These entities allow integration to provide for date, time, or date/time input
+controls from the UI.
+
+They are so new, that no integrations are using them yet, but you can expect
+to see usage in (custom) integrations of these soon!
+
+Thanks for creating those [@raman325]!
+
+## Other noteworthy changes
+
+{% details "TODO" %}
+
+- Proof read/spelling/grammar
+- Last minute ones added?
+- Go over list again, might have missed something
+
+To consider:
+
+- Home Connect add WasherDryer support ([@stickpin] - [#90673]) ([home_connect docs]) (noteworthy)
+- Add sensor device class volatile_organic_compounds_parts ([@emontnemery] - [#92973]) ([sensor docs]) ([number docs]) (noteworthy)
+- Add support for sleepy BTHome devices ([@Ernst79] - [#92991]) ([bthome docs]) (dependency) (noteworthy)
+- Add a description for time pattern trigger (#16520) @karwosts
+- Add a description for time condition (#16499) @karwosts
+- Lock entity options ([@gjohansson-ST] - [#88139]) ([lock docs]) (noteworthy)
+- Add Ezviz number entity ([@RenierM26] - [#93366]) ([ezviz docs]) (new-platform) (noteworthy)
+- Add Ezviz update entity ([@RenierM26] - [#85377]) ([ezviz docs]) (breaking-change) (new-platform) (dependency) (noteworthy)
+
+- **Note**: Changes processed up to PR 93811
+
+{% enddetails %}
+
+There are much more easter bunnies in this release; here are some of the other
+noteworthy changes this release:
+
+- When using services in the UI (like in the automation editor), only options
+  and settings available to the selected target devices & entities will be shown.
+  This makes the UI much cleaner! Thanks, [@emontnemery] and [@bramkragten]!
+- The [Roborock] integration (introduced previous release) did receive a lot
+  of love and now provides a wide range of new entities. Thanks [@Lash-L]!
+- The [Android TV Remote] integration now provides a media player entity too!
+  Nice, [@Drafteed]!
+- [KNX] now provides its own configuration panel, allowing to upload your KNX
+  project file and offers a group monitor for live bus diagnostic.
+  Amazing [@farmio]!
+- [@bdraco] added the option to disable Webhooks for [ONVIF], in case your
+  camera isn't fully following specifications.
+- The [variables action] is now also availble in the automation and script
+  editors in the UI. Thanks, [@piitaya]
+- The add-on dashboard, now has a search bar. Helpful, [@bramkragten]!
+- The [Samsung TV] now has a remote entity, allowing you to send remote key
+  presses directly to your TV! Thanks [@peitschie]!
+- The {% my developer_states title="States in the developer tools" %} now
+  uses the entity ID in the entity ID picker. Thanks, [@bramkragten]!
+- [Matter] now has support for tilt covers, thanks [@Diegorro98]!
+- [@gjohansson-ST] added a service to change a running timer helper, [@frenck]
+  did something similar, and added a service to set the value of a counter helper.
+- The [AccuWeather] integration now provides sensors for the weather condition
+  and solar irradiance values. Thanks, [@bieniu]
+- You can now update your [QNAP QSW] directly from Home Assistant. Nice [@Noltari]!
+- The [BMW Connected Drive] now allows you to toggle climate on/off and new
+  entities related to the charging of your car. Thanks, [@rikroe] and [@cpoulsen]!
+
+[@peitschie]: https://github.com/peitschie
+[Samsung TV]: /integrations/samsungtv
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@cpoulsen]: https://github.com/cpoulsen
+[@Diegorro98]: https://github.com/Diegorro98
+[@Drafteed]: https://github.com/Drafteed
+[@emontnemery]: https://github.com/emontnemery
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@Lash-L]: https://github.com/Lash-L
+[@Noltari]: https://github.com/@Noltari
+[@piitaya]: https://github.com/piitaya
+[@rikroe]: https://github.com/rikroe
+[AccuWeather]: /integrations/accuweather
+[Android TV Remote]: /integrations/androidtv_remote
+[BMW Connected Drive]: /integrations/bmw_connected_drive
+[KNX]: /integrations/knx
+[Matter]: /integrations/matter
+[ONVIF]: /integrations/onvif
+[QNAP QSW]: /integrations/qnap_qsw
+[Roborock]: /integrations/roborock
+[variables action]: /docs/scripts/#variables
+
+## New Integrations
+
+We welcome the following new integrations in this release:
+
+- **[Airzone Cloud]**, added by [@Noltari]<br />
+  Launch apps and control your Android TV device.
+- **[Date]** , **[Time]**, and **[Date/Time]**, added by [@raman325]<br />
+  New entity types, that allow integrations to provide date/time controls.
+- **[Electra Smart]**, added by [@jafar-atili]<br />
+  Control your Electra Air air conditioner from Home Assistant.
+- **[Google Generative AI Conversation]**, added by [@tronikos]<br />
+  A conversation agent powered by Google Generative AI.
+- **[JVC Projector]**, added by [@SteveEasley]<br />
+  You can now automate your network controllable JVC Projector.
+- **[YouTube]**, added by [@joostlek]<br />
+  Add your favorite YouTube channels as sensors.
+
+This release also has a new virtual integration. Virtual integrations
+are stubs that are handled by other (existing) integrations to help with
+findability. This one is new:
+
+- **[Piper]** provided by [Wyoming], added by [@frenck]
+- **[Whisper]** provided by [Wyoming], added by [@frenck]
+- **[Yale Home]** provided by [August], added by [@bdraco]
+
+[@bdraco]: https://github.com/bdraco
+[@frenck]: https://github.com/frenck
+[@jafar-atili]: https://github.com/jafar-atili
+[@joostlek]: https://github.com/joostlek
+[@Noltari]: https://github.com/Noltari
+[@raman325]: https://github.com/raman325
+[@SteveEasley]: https://github.com/SteveEasley
+[@tronikos]: https://github.com/tronikos
+[Airzone Cloud]: /integrations/airzone_cloud
+[August]: /integrations/august
+[Date]: /integrations/date
+[Date/Time]: /integrations/date_time
+[Electra Smart]: /integrations/electrasmart
+[Google Generative AI Conversation]: /integrations/google_generative_ai_conversation
+[JVC Projector]: /integrations/jvc_projector
+[Piper]: /integrations/piper
+[Time]: /integrations/time
+[Whisper]: /integrations/whisper
+[Wyoming]: /integrations/wyoming
+[Yale Home]: /integrations/yale_home
+[YouTube]: /integrations/youtube
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[Deutscher Wetterdienst (DWD) Weather Warnings]**, done by [@andarotajo]
+- **[GeoJSON]**, done by [@exxamalte]
+- **[Last.fm]**, done by [@joostlek]
+
+[@andarotajo]: https://github.com/andarotajo
+[@exxamalte]: https://github.com/exxamalte
+[@joostlek]: https://github.com/joostlek
+[Deutscher Wetterdienst (DWD) Weather Warnings]: /integrations/dwd_weather_warnings
+[GeoJSON]: /integrations/geo_json_events
+[Last.fm]: /integrations/lastfm
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Breaking Changes
+
+{% details "TODO" %}
+
+- Proof read/spelling/grammar
+
+**Note**: Breaking changes processed up to PR 92223
+
+{% enddetails %}
+
+{% details "Python" %}
+
+All Home Assistant versions of which the Home Assistant project manages the
+Python version for you, have been upgraded to Python 3.11. This affects
+the following installation types:
+
+- Home Assistant Operating System
+- Home Assistant Container
+- Home Assistant Supervised
+
+This might affect you when you are using custom integrations, as those have
+to be compatible with Python 3.11.
+
+Furthermore, as of this release, Python 3.10 is deprecated and support will
+be removed in Home Assistant 2023.8. This **only** affects you if you are
+running Home Assistant Core installation type in your own Python virtual
+environment. Please update your Python version to Python 3.11.
+
+If you run Home Assistant OS, Home Assistant Container or Home Assistant
+Supervised, we have taken care of this for you, you will be using Python 3.11
+automatically on upgrade.
+
+{% enddetails %}
+
+{% details "APC UPS Daemon" %}
+
+`sensor.ups_self_test_interval` sensor now properly splits unit "days" from the
+raw data. Previously, it will show `7 days` as sensor state, now it shows `7`
+with a unit "Days".
+
+([@yuxincs] - [#93844]) ([documentation](/integrations/apcupsd))
+
+[@yuxincs]: https://github.com/yuxincs
+[#93844]: https://github.com/home-assistant/core/pull/93844
+
+{% enddetails %}
+
+{% details "Counter" %}
+
+The `counter` entities no longer restore their previous manually set
+configuration (using the, now deprecated, `counter.configure` service) on
+Home Assistant startup. Instead, it will now use the configuration as set in
+the helper configuration in the UI (or as configured YAML, if that is used).
+
+This behavior is removed, as it caused configuration issues, as the new
+configuration was never applied again (but forever restored). This behavior was
+out of the ordinary for Home Assistant and thus now standardized.
+
+The value of the counter is still restored and available across Home Assistant
+restarts.
+
+([@frenck] - [#93344]) ([documentation](/integrations/counter))
+
+[@frenck]: https://github.com/frenck
+[#93344]: https://github.com/home-assistant/core/pull/93344
+
+{% enddetails %}
+
+{% details "D-Link Wi-Fi Smart Plugs" %}
+
+The previously deprecated YAML configuration of the D-Link Wi-Fi Smart Plugs
+integration has been removed.
+
+D-Link Wi-Fi Smart Plugs are now configured via the UI. Any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@gjohansson-ST] - [#92590]) ([documentation](/integrations/dlink))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#92590]: https://github.com/home-assistant/core/pull/92590
+
+{% enddetails %}
+
+{% details "EDL21" %}
+
+The previously deprecated YAML configuration of the EDL21
+integration has been removed.
+
+EDL21 is now configured via the UI. Any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@gjohansson-ST] - [#93551]) ([documentation](/integrations/edl21))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#93551]: https://github.com/home-assistant/core/pull/93551
+
+{% enddetails %}
+
+{% details "EZVIZ" %}
+
+The binary sensor providing "upgrade available" information, has been removed
+and replaced by a new `update` entity. If you used the binary sensor in your
+automations, scripts, or dashboards, you will need to adjust them to
+this change.
+
+([@RenierM26] - [#85377]) ([documentation](/integrations/ezviz))
+
+[@RenierM26]: https://github.com/RenierM26
+[#85377]: https://github.com/home-assistant/core/pull/85377
+
+{% enddetails %}
+
+{% details "Frontier Silicon" %}
+
+The previously deprecated YAML configuration of the Frontier Silicon
+integration has been removed.
+
+Frontier Silicon is now configured via the UI. Any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@gjohansson-ST] - [#93552]) ([documentation](/integrations/frontier_silicon))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#93552]: https://github.com/home-assistant/core/pull/93552
+
+{% enddetails %}
+
+{% details "Google Nest" %}
+
+The Google Nest YAML configuration has been fully removed. You should ensure you
+have imported your configuration and credentials into the UI before upgrading.
+
+Nest Desktop or OOB authentication, which was previously disabled by Google,
+has now been removed.
+
+([@allenporter] - [#92311]) ([documentation](/integrations/nest))
+
+[@allenporter]: https://github.com/allenporter
+[#92311]: https://github.com/home-assistant/core/pull/92311
+
+{% enddetails %}
+
+{% details "IBM Watson TTS" %}
+
+Home Assistant was still using the legacy Python pip package resolver, which
+has been removed. Due to upstream package conflicts, the IBM Watson TTS
+integration has been disabled.
+
+The upstream project providing the libaries used, has been notified repeatedly
+in, at least, the past two years; unfortunately, without response. We had no
+other choice than disabling this integration.
+
+([@frenck] - [#92124]) ([documentation](/integrations/watson_tts))
+
+[@frenck]: https://github.com/frenck
+[#91492]: https://github.com/home-assistant/core/pull/92124
+
+{% enddetails %}
+
+{% details "IHC Controller" %}
+
+The default unit of measurement for manually set up sensors from IHC have been
+removed. Home assistant now assume all sensors with unit of measurement set is
+a number. IHC sensors can be text, but because of the default unit of
+measurement, there is currently no way to get text sensors from IHC working.
+
+This is a breaking fix, because if you currently have temperature sensors
+without unit of measurement set, you will have to set this for the sensors.
+
+([@dingusdk] - [#91096]) ([documentation](/integrations/ihc))
+
+[@dingusdk]: https://github.com/dingusdk
+[#93054]: https://github.com/home-assistant/core/pull/93054
+
+{% enddetails %}
+
+{% details "LG Netcast" %}
+
+LG Netcast media player do no longer have fake (assumed) `playing` or `paused`
+states and those are replaced with the `on` state.
+
+If you used the `playing` or `paused` state in your automations, you will need
+to update them to match this change.
+
+([@Drafteed] - [#93543]) ([documentation](/integrations/lg_netcast))
+
+[@Drafteed]: https://github.com/Drafteed
+[#93543]: https://github.com/home-assistant/core/pull/93543
+
+{% enddetails %}
+
+{% details "Meteorologisk institutt (Met.no)" %}
+
+The weather forecast provided by the weather entity has changes. The current
+day has been added to the forecast. If your automation or scripts relied
+on the first day to be tomorrow, you will need to adjust.
+
+([@mmalina] - [#91891]) ([documentation](/integrations/met))
+
+[@mmalina]: https://github.com/mmalina
+[#91891]: https://github.com/home-assistant/core/pull/91891
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+MQTT sensor configurations that still use `last_reset_topic` will fail. The
+support was deprecated in Home Assistant 2021.11 and is now removed. Users
+should use ` last_reset_value_template` instead.
+
+([@jbouwh] - [#93792]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#93792]: https://github.com/home-assistant/core/pull/93792
+
+{% enddetails %}
+
+{% details "Nextcloud" %}
+
+The previously deprecated YAML configuration of the Nextcloud
+integration has been removed.
+
+Nextcloud is now configured via the UI. Any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@gjohansson-ST] - [#93550]) ([documentation](/integrations/nextcloud))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#93550]: https://github.com/home-assistant/core/pull/93550
+
+{% enddetails %}
+
+{% details "Obihai" %}
+
+The previously deprecated YAML configuration of the Obihai
+integration has been removed.
+
+Obihai is now configured via the UI. Any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@gjohansson-ST] - [#93549]) ([documentation](/integrations/obihai))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#93549]: https://github.com/home-assistant/core/pull/93549
+
+{% enddetails %}
+
+{% details "Persistent notifications" %}
+
+Persistent notifications are no longer stored in the state machine. This means
+that we no longer create an entity for each persistent notification.
+
+([@bdraco] - [#92828]) ([documentation](/integrations/persistent_notification))
+
+[@bdraco]: https://github.com/bdraco
+[#92828]: https://github.com/home-assistant/core/pull/92828
+
+{% enddetails %}
+
+{% details "Rain Bird" %}
+
+The previously deprecated YAML configuration of the Rain Bird
+integration has been removed.
+
+Rain Bird is now configured via the UI. Any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@gjohansson-ST] - [#92599]) ([documentation](/integrations/rainbird))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#92599]: https://github.com/home-assistant/core/pull/92599
+
+---
+
+The previously deprecated `rainbird.rain_delay` service for Rainbird has been
+removed. Please update any automation or script depending on this service.
+
+([@gjohansson-ST] - [#92601]) ([documentation](/integrations/rainbird))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#92601]: https://github.com/home-assistant/core/pull/92601
+
+{% enddetails %}
+
+{% details "Salda Smarty" %}
+
+Home Assistant was still using the legacy Python pip package resolver, which
+has been removed. Due to upstream package conflicts, the Salda Smarty
+integration has been disabled.
+
+The upstream project providing the libaries used, has been notified repeatedly
+in, at least, the past two years; unfortunately, without response. We had no
+other choice than disabling this integration.
+
+([@frenck] - [#92124]) ([documentation](/integrations/smarty))
+
+[@frenck]: https://github.com/frenck
+[#91492]: https://github.com/home-assistant/core/pull/92124
+
+{% enddetails %}
+
+{% details "Samsung Smart TV" %}
+
+The previously deprecated YAML configuration of the Samsung Smart TV
+integration has been removed.
+
+Samsung Smart TV is now configured via the UI. Any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@epenet] - [#93392]) ([documentation](/integrations/samsungtv))
+
+[@epenet]: https://github.com/epenet
+[#93392]: https://github.com/home-assistant/core/pull/93392
+
+{% enddetails %}
+
+{% details "Total Connect" %}
+
+The tampered and low battery status zone attribute have been moved into their
+own dedicated binary sensors. If you use these attributes in your automations,
+scripts, or dashboards, you will need to update those to reflect this change.
+
+([@austinmroczek] - [#73152]) ([documentation](/integrations/totalconnect))
+
+[@austinmroczek]: https://github.com/austinmroczek
+[#73152]: https://github.com/home-assistant/core/pull/73152
+
+{% enddetails %}
+
+{% details "Universal Devices ISY/IoX" %}
+
+The previously deprecated sensor entities for Insteon devices' On Level and
+Ramp Rate, as well as ISY Variable sensors have been removed, please use the
+dedicated `number` and `select` entities instead.
+
+([@shbatm] - [#92255]) ([documentation](/integrations/isy994))
+
+[@shbatm]: https://github.com/shbatm
+[#92255]: https://github.com/home-assistant/core/pull/92255
+
+{% enddetails %}
+
+{% details "Vallox" %}
+
+The previously deprecated YAML configuration of the Vallox
+integration has been removed.
+
+Vallox is now configured via the UI. Any existing YAML
+configuration has been imported in previous releases and can now be safely
+removed from your YAML configuration files.
+
+([@slovdahl] - [#91096]) ([documentation](/integrations/vallox))
+
+[@slovdahl]: https://github.com/slovdahl
+[#91096]: https://github.com/home-assistant/core/pull/91096
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+On/Off properties for the Indicator CC are no longer discovered as entities.
+
+They were previously discovered as sensor entities which were not useful in
+cases where you wanted to change these values, and you would need to change
+the value for all three On/Off properties simultaneously in order for them to
+work, which wasn't supported with our existing discovery model.
+
+([@raman325] - [#90248]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#90248]: https://github.com/home-assistant/core/pull/90248
+
+---
+
+For devices with the `Entry control` generic device class, the `Door lock mode`
+config parameter no longer gets created as a `sensor` entity and will instead
+get created as a `select` entity.
+
+([@raman325] - [#92223]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#92223]: https://github.com/home-assistant/core/pull/92223
+
+---
+
+For devices with the `Entry control` generic device class, the `Door lock mode`
+config parameter no longer gets created as a `sensor` entity and will instead
+get created as a `select` entity.
+
+- Add zwave config parameter entities ([@raman325] - [#92223]) ([zwave_js docs]) (breaking-change)
+
+([@raman325] - [#92223]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#92223]: https://github.com/home-assistant/core/pull/92223
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Recent MQTT changes to improve overall performance](https://developers.home-assistant.io/blog/2023/05/21/retained-mqtt-messages-filtered)
+- [Statistics WebSocket API changes](https://developers.home-assistant.io/blog/2023/04/30/statistics_impossible_values)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2023.6](/changelogs/core-2023.6)
