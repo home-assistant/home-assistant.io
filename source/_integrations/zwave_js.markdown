@@ -21,6 +21,7 @@ ha_category:
 ha_release: '2021.2'
 ha_iot_class: Local Push
 ha_config_flow: true
+ha_quality_scale: platinum
 ha_codeowners:
   - '@home-assistant/z-wave'
 ha_domain: zwave_js
