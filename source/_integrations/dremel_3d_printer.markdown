@@ -5,7 +5,7 @@ ha_category:
   - 3D Printing
   - Sensor
 ha_iot_class: Local Polling
-ha_release: 2023.2
+ha_release: 2023.6
 ha_config_flow: true
 ha_domain: dremel_3d_printer
 ha_platforms:
@@ -15,10 +15,6 @@ ha_codeowners:
 ha_integration_type: device
 ---
 
-The [Dremel 3D Printer](https://www.dremel.com/gn/en/digilab) can be added by knowing its Host IP address.
-
-.
+The [Dremel 3D Printer](https://www.dremel.com/gn/en/digilab) integration allow you to monitor your Dremel 3D printer and its progress with your Home Assistant installation. This integration is currently limited to the 3D20, 3D40 and 3D45.
 
 {% include integrations/config_flow.md %}
-
-Supported models are 3D20, 3D40 and 3D45.
