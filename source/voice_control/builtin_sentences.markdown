@@ -2,7 +2,7 @@
 title: "Assist - Default Sentences"
 ---
 
-Home Assistant comes with built-in sentences [contributed by the community](https://github.com/home-assistant/intents/) for [dozens of languages](https://developers.home-assistant.io/docs/voice_control/intent-recognition/supported-languages).
+Home Assistant comes with built-in sentences [contributed by the community](https://github.com/home-assistant/intents/) for [dozens of languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages).
 These sentences allow you to:
 
 * **Turn entities on and off**

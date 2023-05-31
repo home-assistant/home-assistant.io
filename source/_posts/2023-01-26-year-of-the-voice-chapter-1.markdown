@@ -90,7 +90,7 @@ _In a future release we're planning to make it possible to configure multiple As
 
 For Year of the Voice - Chapter 1 we focused on building intent recognition into Home Assistant while relying on Google and Apple to do the hard parts (speech recognition). This allowed us the fastest path to get something to the community to play with.
 
-We will continue collecting home automation sentences for all languages ([anyone can help!](https://developers.home-assistant.io/docs/voice_control/intent-recognition/)). Updates will be included with every major release of Home Assistant.
+We will continue collecting home automation sentences for all languages ([anyone can help!](https://developers.home-assistant.io/docs/voice/intent-recognition/)). Updates will be included with every major release of Home Assistant.
 
 Our next step is integrating Speech-to-Text and Text-to-Speech with Assist. We don't have a timeline yet when that will be ready. Stay tuned!
 
