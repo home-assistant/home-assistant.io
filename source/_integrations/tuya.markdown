@@ -136,7 +136,7 @@ If no devices show up in Home Assistant:
 
     - Incorrect country. You must select the region of your account of the Tuya Smart app or Smart Life app.
     
-    - Note: Some users still experience the **Permission denied** error after adding correct app account credentials in a correctly configured project. A workaround involves adding a custom user under **Cloud** > **Development** > **Users**. 
+    - Some users still experience the **Permission denied** error after adding the correct app account credentials in a correctly configured project. A workaround involves adding a custom user under **Cloud** > **Development** > **Users**. 
 
 "1100: param is empty":
   description: Empty parameter of username or app. Please fill the parameters refer to the **Configuration** part above.
