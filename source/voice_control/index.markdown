@@ -6,7 +6,7 @@ title: Assist - Talking to Home Assistant
 
 Assist is our feature to allow you to control Home Assistant using natural language. It is built on top of an open voice foundation and powered by knowledge provided by our community. 
 
-You want to use Home Assistant with [Google Assistant](https://www.nabucasa.com/config/google_assistant/) or [Alexa](https://www.nabucasa.com/config/amazon_alexa/)? Get started with [Home Assistant Cloud](https://www.nabucasa.com/config/). 
+_Want to use Home Assistant with Google Assistant or Amazon Alexa? Get started with [Home Assistant Cloud](https://www.nabucasa.com/config/)._
 
 With Assist, you can use the [built-in sentences](/voice_control/builtin_sentences) to control entities and areas, or [create your own](/voice_control/custom_sentences).
 
