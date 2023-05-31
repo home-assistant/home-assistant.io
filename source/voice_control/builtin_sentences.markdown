@@ -2,7 +2,7 @@
 title: "Assist - Default Sentences"
 ---
 
-Home Assistant comes with built-in sentences [contributed by the community](https://github.com/home-assistant/intents/) for [dozens of languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages).
+Home Assistant comes with built-in sentences [contributed by the community](https://github.com/home-assistant/intents/) for [dozens of languages](https://developers.home-assistant.io/docs/voice_control/intent-recognition/supported-languages).
 These sentences allow you to:
 
 * **Turn entities on and off**
@@ -22,9 +22,9 @@ In addition to individual entities, commands can target **areas**:
 * *"change kitchen brightness to 50%"*
 * *"set bedroom lights to green"*
 
-Entity [aliases](/voice/aliases) are also matched so multiple names can be used, even in different languages.
+Entity [aliases](/voice_control/aliases) are also matched so multiple names can be used, even in different languages.
 
-You can extend the built-in sentences or [add your own](/voice/custom_sentences) to trigger any action in Home Assistant.
+You can extend the built-in sentences or [add your own](/voice_control/custom_sentences) to trigger any action in Home Assistant.
 
 ## View existing sentences
 
@@ -55,6 +55,6 @@ To get an idea of the specific sentences that are supported for your language, y
         * () mean alternative elements.
         * [] mean optional elements.
         * <> mean an expansion rule. The view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml)   file.
-        * The syntax is explained in detail in the [template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax).
+        * The syntax is explained in detail in the [template sentence syntax documentation](https://developers.home-assistant.io/docs/voice_control/intent-recognition/template-sentence-syntax).
 
 

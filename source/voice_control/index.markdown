@@ -4,17 +4,17 @@ title: Assist - Talking to Home Assistant
 
 <img src='/images/assist/assist-logo.png' class='no-shadow' alt='Assist logo' style='width: 150px; float: right'>
 
-Assist is our feature to allow you to control Home Assistant using natural language. It is built on top of an open voice foundation and powered by knowledge provided by our community. You can use the [built-in sentences](/voice/builtin_sentences) to control entities and areas, or [create your own](/voice/custom_sentences).
+Assist is our feature to allow you to control Home Assistant using natural language. It is built on top of an open voice foundation and powered by knowledge provided by our community. You can use the [built-in sentences](/voice_control/builtin_sentences) to control entities and areas, or [create your own](/voice_control/custom_sentences).
 
-[List of supported languages.](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages)
+[List of supported languages.](https://developers.home-assistant.io/docs/voice_control/intent-recognition/supported-languages)
 
 Assist is available to use on most platforms that can interface with Home Assistant. Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'>:
 
 - Inside the Home Assistant app in the top-right corner
-- On Apple devices via [Siri and Assist shortcuts](/voice/apple)
-- On Wear OS watches using [Assist tile](/voice/android)
+- On Apple devices via [Siri and Assist shortcuts](/voice_control/apple)
+- On Wear OS watches using [Assist tile](/voice_control/android)
 
-Did Assist not understand your sentence? [Contribute them.](https://developers.home-assistant.io/docs/voice/intent-recognition/)
+Did Assist not understand your sentence? [Contribute them.](https://developers.home-assistant.io/docs/voice_control/intent-recognition/)
 
 The Assist icon doesn't show up? Make sure the [conversation](/integrations/conversation/) integration is enabled. If you use YAML for configuration and have removed `default_config:`, the conversation integration may not be included in the config file.
  

@@ -116,7 +116,7 @@ Thanks, [@synesthesiam] for implementing this, and thanks to language leaders
 and contributors for helping out providing translations for all these [intents]! ❤️
 
 Want to help with adding support for these intents in your language? Please do!
-Read more about [contributing sentences in our documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/contributing).
+Read more about [contributing sentences in our documentation](https://developers.home-assistant.io/docs/voice_control/intent-recognition/contributing).
 
 [@synesthesiam]: https://github.com/synesthesiam
 [intents]: https://github.com/home-assistant/intents

@@ -53,14 +53,14 @@ your smart home and issue commands and get responses.
    * You should now hear the message *This is your smart home speaking. Your phone is connected, but you must configure it within Home Assistant.*
    * The integration should now include a device and entities.
     ![Voice over IP integration with device and entities](/images/assist/voip_device_available.png)
-   * Don't hear the voice? Try these [troubleshooting steps](/projects/worlds-most-private-voice-assistant/#troubleshoot-grandstream).
+   * Don't hear the voice? Try these [troubleshooting steps](/voice_control/worlds-most-private-voice-assistant/#troubleshoot-grandstream).
 1. Allow calls.
    * Calls from new devices are blocked by default since voice commands could be used to control sensitive devices, such as locks and garage doors.
    * In the **Voice over IP** integration, select the **device** link.
    * To allow this phone to control your smart home, under **Configuration**, enable **Allow calls**.   
    ![Voice over IP integration - allow calls](/images/assist/voip_configuration.png) 
 1. Congratulations! You set up your analog phone to work with Home Assistant. Now pick up the phone and control your device. 
-   * Say a [supported voice command](/voice/builtin_sentences/). For example, *Turn off the light in the kitchen*.
+   * Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn off the light in the kitchen*.
    * You can also ask a question, such as
      *  *Is the front door locked?*
      *  *Which lights are on in the living room?*
@@ -114,7 +114,7 @@ If you’re unable to call Home Assistant, confirm the following settings in you
 
 **Symptom**
 You were able to control Home Assistant over the phone but it no longer works. When picking up the phone, no sound is played. 
-The [debug information](/voice/troubleshooting#view-debug-information) shows no runs.
+The [debug information](/voice_control/troubleshooting#view-debug-information) shows no runs.
 
 **Potential remedy**
 1. Log onto the Grandstream *Device Configuration* software.
@@ -127,7 +127,7 @@ The [debug information](/voice/troubleshooting#view-debug-information) shows no 
 
 Are things still not working as expected? 
 
-* Checkout the [general troubleshooting section for Assist](/voice/troubleshooting).
+* Checkout the [general troubleshooting section for Assist](/voice_control/troubleshooting).
 
 ## About the analog phone
 

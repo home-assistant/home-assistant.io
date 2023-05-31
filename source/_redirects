@@ -218,6 +218,7 @@ layout: null
 # Moved documentation
 /details/database /docs/backend/database
 /details/updater /docs/backend/updater
+/docs/assist/ /docs/voice_control/
 /docs/backend/updater /integrations/analytics
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
