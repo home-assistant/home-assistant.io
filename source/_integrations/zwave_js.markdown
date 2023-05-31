@@ -73,12 +73,12 @@ Use this My button:
 {% my config_flow_start badge domain="zwave_js" %}, or follow these steps:
 
 * Browse to your Home Assistant instance.
-* In the sidebar click on _**{% my config icon %}**_.
-* From the configuration menu select: _**{% my integrations %}**_.
-* In the bottom right, click on the
-  _**{% my config_flow_start icon domain="zwave_js" %}**_ button.
-* From the list, search and select _**"Z-Wave"**_.
-* Follow the instructions on screen to complete the set up.
+* In the sidebar, select **{% my config icon %}**.
+* From the configuration menu, select: **{% my integrations %}**.
+* On the bottom right, select the
+  **{% my config_flow_start icon domain="zwave_js" %}** button.
+* From the list, search and select **Z-Wave**.
+* Follow the instructions on screen to complete the setup.
 
 {% enddetails %}
 
@@ -102,7 +102,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 1. In the Z-Wave integration, select **Configure**.
 1. Select **Add device**.
    * The Z-Wave controller is now in inclusion mode.
-1. If your device supports SmartStart, select **Scan QR code** and scan the QR code on your device.
+1. If your device supports SmartStart (700 series controller), select **Scan QR code** and scan the QR code on your device.
 1. If your device does not support SmartStart, set the device in inclusion mode. Refer to the device manual to see how this is done.
    * If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
 1. The UI should confirm that the device was added. After a short while (seconds to minutes), the entities should also be created.
