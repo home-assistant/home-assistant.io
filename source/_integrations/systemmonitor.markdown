@@ -52,6 +52,7 @@ file.
 | disk_use_percent       | Path, e.g., `/`           | no                        |
 | disk_use               | Path, e.g., `/`           | no                        |
 | disk_free              | Path, e.g., `/`           | no                        |
+| disk_await             | Device, e.g., `mmcblk0`   | no                        |
 | memory_use_percent     |                           |                           |
 | memory_use             |                           |                           |
 | memory_free            |                           |                           |
@@ -101,6 +102,12 @@ sensor:
       - type: disk_use
         arg: /dev/shm
 ```
+
+## Disk await
+
+Disk await provides a measure of disk I/O latency - specifically, the average time to service an I/O request. The value will be displayed in the system's native time unit (seconds).
+
+Unlike disk usage, which is concerned with mount points, disk await is concerned with block devices. The `lsblk` command provides a list of block devices and their mount points. If no device is provided via the optional argument, the system-wide average await time is reported.
 
 ## Processor temperature
 
@@ -157,6 +164,8 @@ sensor:
         arg: /config
       - type: disk_use
       - type: disk_free
+      - type: disk_await
+        arg: mmcblk0
       - type: memory_use_percent
       - type: memory_use
       - type: memory_free
