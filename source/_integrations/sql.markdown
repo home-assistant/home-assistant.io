@@ -8,7 +8,6 @@ ha_release: 0.63
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@dgomes'
   - '@gjohansson-ST'
   - '@dougiteixeira'
 ha_domain: sql

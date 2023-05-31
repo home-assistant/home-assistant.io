@@ -17,6 +17,8 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+ha_codeowners:
+  - '@gjohansson-ST'
 ---
 
 The `command_line` offers functionality that issues specific commands to get data or to control a device.

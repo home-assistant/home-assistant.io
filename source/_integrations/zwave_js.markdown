@@ -42,6 +42,7 @@ ha_platforms:
   - update
 ha_integration_type: hub
 ha_zeroconf: true
+ha_quality_scale: platinum
 ---
 
 The Z-Wave integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
