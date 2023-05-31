@@ -28,5 +28,5 @@ Set a new value for the datetime entity.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`'s of datetimes to control.
-| `datetime` | yes | New datetime value to set. If timezone is not included, the Home Assistant instance's timezone will be used.
+| `datetime` | no | New datetime value to set. If timezone is not included, the Home Assistant instance's timezone will be used.
 
