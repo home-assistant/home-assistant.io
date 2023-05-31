@@ -291,7 +291,7 @@ sensor:
 
 ```yaml
 rest:
-  - resource: http://date.jsontest.com/
+  - resource: "http://date.jsontest.com/"
     sensor:
       - name: "Time"
         value_template: "{{ value_json.time }}"
@@ -331,7 +331,7 @@ This sample fetches a weather report from [OpenWeatherMap](https://openweatherma
 
 ```yaml
 rest:
-  - resource: https://api.openweathermap.org/data/2.5/weather?zip=80302,us&APPID=VERYSECRETAPIKEY
+  - resource: "https://api.openweathermap.org/data/2.5/weather?zip=80302,us&APPID=VERYSECRETAPIKEY"
     sensor:
       - name: "Report"
         value_template: "{{ value_json['weather'][0]['description'].title() }}"
@@ -385,7 +385,7 @@ This configuration shows how to extract multiple values from a dictionary. This 
 
 ```yaml
 rest:
-    resource: http://<address_to_rest_service>
+    resource: "http://<address_to_rest_service>"
     sensor:
       - name: "Bedroom1 Temperature"
         value_template: "{{ value_json['bedroom1']['temperature'] }}"
@@ -414,11 +414,11 @@ The example below shows how to extract multiple values from a dictionary from th
 ```yaml
 rest:
   # Steam Controller
-  - resource: http://192.168.1.105/status.xml
+  - resource: "http://192.168.1.105/status.xml"
     scan_interval: 15
   
     sensor:
-      - name: Steam Temp
+      - name: "Steam Temp"
         value_template: "{{ json_value['response']['temp0'] | regex_findall_index('([0-9]+)XF') }}"
         unit_of_measurement: "°F"
 

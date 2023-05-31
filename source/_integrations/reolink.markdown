@@ -38,9 +38,10 @@ Protocol:
 
 ## Camera streams
 
-This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, and Snapshots.
+This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, Snapshots Main, and Snapshots Sub.
 The Sub stream camera entity is enabled by default; the other streams are disabled by default.
 The Images stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the RTMP/RTSP/FLV video stream has too much lag.
+Dual lens cameras provide additional streams for the second lens.
 
 ## Binary sensors
 
@@ -193,7 +194,7 @@ The following models have been tested and confirmed to work:
 - RLN36 NVR
 - Reolink Duo 2 WiFi
 - Reolink Duo Floodlight PoE
-- Reolink TrackMix PoE
+- Reolink TrackMix (PoE and Wi-Fi)
 - Reolink Video Doorbell (PoE and Wi-Fi)
 
 Battery-powered cameras are not yet supported.

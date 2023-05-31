@@ -19,7 +19,7 @@ To list all your currently connected network storages, go to **{% my storage tit
   Screenshot of the list of network shares inside the storage panel.
 </p>
 
-### Add a new new network storage
+### Add a new network storage
 
 1. Go to **{% my storage title="Settings > System > Storage" %}** in the UI.
 1. Select **Add network storage**.
