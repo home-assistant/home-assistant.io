@@ -366,6 +366,8 @@ noteworthy changes this release:
 - [KNX] now provides its own configuration panel, allowing to upload your KNX
   project file and offers a group monitor for live bus diagnostic.
   Amazing [@farmio]!
+- The [Philips Dynalite] integration now supports configuration through its own
+  panel instead of YAML. Awesome [@ziv1234]
 - [@bdraco] added the option to disable Webhooks for [ONVIF], in case your
   camera isn't fully following specifications.
 - The [variables action] is now also availble in the automation and script
@@ -396,6 +398,7 @@ noteworthy changes this release:
 [@farmio]: https://github.com/farmio
 [@frenck]: https://github.com/frenck
 [@gjohansson-ST]: https://github.com/gjohansson-ST
+[@ziv1234]: https://github.com/ziv1234
 [@Lash-L]: https://github.com/Lash-L
 [@Noltari]: https://github.com/@Noltari
 [@piitaya]: https://github.com/piitaya
@@ -406,6 +409,7 @@ noteworthy changes this release:
 [KNX]: /integrations/knx
 [Matter]: /integrations/matter
 [ONVIF]: /integrations/onvif
+[Philips Dynalite]: /integrations/dynalite
 [QNAP QSW]: /integrations/qnap_qsw
 [Roborock]: /integrations/roborock
 [variables action]: /docs/scripts/#variables
