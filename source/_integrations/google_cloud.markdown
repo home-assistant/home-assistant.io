@@ -52,7 +52,7 @@ Basic instruction for all APIs:
     2. From the `Service account` list, select `New service account`.
     3. In the `Service account name` field, enter any name.
 
-    If you are requesting Text-to-speech API key:
+    If you are requesting a text-to-speech API key:
 
     4. Don't select a value from the Role list. **No role is required to access this service**.
     5. Click `Create`. A note appears, warning that this service account has no role.
@@ -71,7 +71,7 @@ The Cloud text-to-speech API is priced monthly based on the amount of characters
 | Standard (non-WaveNet) voices | 0 to 4 million characters | $4.00 USD / 1 million characters  |
 | WaveNet voices                | 0 to 1 million characters | $16.00 USD / 1 million characters |
 
-### text-to-speech configuration
+### Text-to-speech configuration
 
 {% configuration %}
 key_file:
