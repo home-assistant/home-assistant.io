@@ -34,6 +34,7 @@ Send a notification.
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 | `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
+| `reply_to_message_id`     |      yes | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use `{{ trigger.event.data.message.message_id }}` |
 
 ### Service `telegram_bot.send_photo` 
 
