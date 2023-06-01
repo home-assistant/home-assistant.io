@@ -15,13 +15,13 @@ ha_platforms:
   - diagnostics
 ---
 
-The Bluetooth integration will detect nearby Bluetooth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
+The Bluetooth integration will detect nearby Bluetooth devices. Discovered devices will show up on the integrations page.
 
 {% include integrations/config_flow.md %}
 
 ## Configuration
 
-While this integration is part of [`default_config:`](/integrations/default_config/) to enable automatic discovery of the Bluetooth Adapter, it will only be enabled by setting up the configuration flow, or manually adding it to your `configuration.yaml`.
+While this integration is part of [`default_config:`](/integrations/default_config/), to enable automatic discovery of the Bluetooth adapter, you need to follow either the configuration flow described above, or manually add `bluetooth` to your `configuration.yaml`.
 
 ```yaml
 # Example configuration.yaml entry
@@ -71,7 +71,7 @@ On Debian based host systems, the `sudo apt-get -y install bluez` command will i
 
 {% enddetails %}
 
-## Installing a USB Bluetooth Adapter
+## Installing a USB Bluetooth adapter
 
 Some systems may not come with Bluetooth and require a USB adapter. Installing an adapter for the first time may require multiple restarts for the device to be fully recognized.
 
@@ -224,9 +224,9 @@ The following methods are known to work to add multiple adapters:
 
 Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/bluetooth/?_highlight=Best+practices#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
 
-## Passive Scanning
+## Passive scanning
 
-Passive Scanning on Linux can be enabled in the options flow per adapter if the host system runs BlueZ 5.63 or later with experimental features enabled. This functionality is available with Home Assistant Operating System 9.4 and later.
+Passive scanning on Linux can be enabled in the options flow per adapter if the host system runs BlueZ 5.63 or later with experimental features enabled. This functionality is available with Home Assistant Operating System 9.4 and later.
 
 Many integrations require active scanning and may not function when scanning is passive.
 
@@ -253,20 +253,20 @@ The following remote adapters are supported:
 
 ![Using Bluetooth proxies to increase the range](/images/esphome/header.png)
 
-For instructions on how to set up an ESPHome Bluetooth proxy to increase the range of your Bluetooth devices, refer to this [tutorial](/tutorials/increasing_bluetooth_reach/).
+For instructions on how to set up an ESPHome Bluetooth proxy to increase the range of your Bluetooth devices, refer to this [procedure](/tutorials/increasing_bluetooth_reach/).
 
 
 ## Troubleshooting
 
-### Integrations that require exclusive use of the Bluetooth Adapter
+### Integrations that require exclusive use of the Bluetooth adapter
 
-While newer integrations can share the Bluetooth Adapter, some legacy integrations require exclusive use of the adapter. Enabling this integration may prevent an integration that has not been updated to use newer methods from functioning.
+While newer integrations can share the Bluetooth adapter, some legacy integrations require exclusive use of the adapter. Enabling this integration may prevent an integration that has not been updated to use newer methods from functioning.
 
 Deleting the config entry for this integration will release control of the adapter and allow another integration to gain exclusive use of the Bluetooth adapter. If you have manually added `bluetooth:` to your `configuration.yaml`, you must also remove it to prevent the configuration from being recreated. Consider adding a second Bluetooth adapter on Linux systems if you need to continue using legacy integrations, as more integrations will move to use the Bluetooth integration in the future.
 
 ### Bluetooth interference with other devices
 
-Sources of interference for radios can lead to transmission/reception loss or connection problems and show symptoms such as errors/failures when sending and receiving Bluetooth messages that can cause significant degradation in performance. Below are some basic but essential tips for getting a good setup starting point to achieve better signal quality, coverage, and extended range.
+Sources of interference for radios can lead to transmission/reception loss or connection problems. Typical symptoms of interference are errors/failures when sending and receiving Bluetooth messages.This can cause significant degradation in performance. Below are some basic but essential tips for getting a good setup starting point to achieve better signal quality, coverage, and extended range.
 
 Following all these optimization tips below should significantly improve the reception of your Bluetooth radio adapter. The below insights describe working around the well-known limitations of low-power 2.4 GHz digital radio. It can resolve or avoid many known issues caused by interference or poor placement of your Bluetooth radio adapter or devices.
 

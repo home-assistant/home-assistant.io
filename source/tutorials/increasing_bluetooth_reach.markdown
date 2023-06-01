@@ -163,8 +163,7 @@ To install the ESPHome software on the device, follow these steps:
     <h3>GL.iNet GL-S10</h3>
     <p>
       ESP32 in a case with external antenna and wired Ethernet connection
-      that can also be powered using Power over Ethernet 802.3af. Note that
-      when installed via this website, Wi-Fi is disabled and it needs to be
+      that can also be powered using Power over Ethernet 802.3af. When installed via this website, Wi-Fi is disabled and it needs to be
       connected via Ethernet.
     </p>
       <b>Warning: This board requires extra work.</b>
@@ -209,7 +208,7 @@ To install the ESPHome software on the device, follow these steps:
   <h3>Olimex ESP32 Power-over-Ethernet ISO</h3>
   <p>
     ESP32 board with wired Ethernet connection that can also be powered
-    using Power over Ethernet 802.3af. Note that when installed via this
+    using Power over Ethernet 802.3af. When installed via this
     website, Wi-Fi is disabled and it needs to be connected via Ethernet.
     The <i>ESP32-POE-ISO-EA</i> variant may provide better Bluetooth range
     since it has an external antennae.
@@ -237,7 +236,7 @@ To install the ESPHome software on the device, follow these steps:
 <div class="hidden info wt32-eth01">
   <h3>Wireless-Tag WT32-ETH01</h3>
   <p>
-    ESP32 board with wired Ethernet connection. Note that when installed
+    ESP32 board with wired Ethernet connection. When installed
     via this website, Wi-Fi is disabled and it needs to be connected via
     Ethernet.
     <a href="https://www.thingiverse.com/search?q=WT32-ETH01"
