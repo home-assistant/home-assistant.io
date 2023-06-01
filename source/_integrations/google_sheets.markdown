@@ -72,6 +72,11 @@ The integration setup will next give you instructions to enter the [Application 
 
 If you have an error with your credentials you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
 
+### Video Tutorial
+This video tutorial explains how to set up the Google Sheets integration and how you can add data from Home Assistant to a Google Sheet.
+
+<lite-youtube videoid="hgGMgoxLYwo" videotitle="How to use Google Sheets in Home Assistant - TUTORIAL" posterquality="maxresdefault"></lite-youtube>
+
 ### Service `google_sheets.append_sheet`
 
 You can use the service `google_sheets.append_sheet` to add a row of data to the Sheets document created at setup.

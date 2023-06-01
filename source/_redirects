@@ -218,6 +218,17 @@ layout: null
 # Moved documentation
 /details/database /docs/backend/database
 /details/updater /docs/backend/updater
+/docs/assist/ /voice_control/
+/docs/assist/android/ /voice_control/android/
+/docs/assist/apple/ /voice_control/apple/
+/docs/assist/builtin_sentences/ /voice_control/builtin_sentences/
+/docs/assist/custom_sentences/ /voice_control/custom_sentences/
+/docs/assist/using_voice_assistants_overview/ /voice_control/using_voice_assistants_overview/
+/docs/assist/voice_remote_expose_devices/ /voice_control/voice_remote_expose_devices/
+/docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
+/docs/assist/troubleshooting/ /voice_control/troubleshooting/
+/docs/assist/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
+/docs/assist/thirteen-usd-voice-remote/ /voice_control/thirteen-usd-voice-remote/
 /docs/backend/updater /integrations/analytics
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
@@ -376,24 +387,24 @@ layout: null
 /getting-started/autostart-systemd https://community.home-assistant.io/t/autostart-using-systemd/199497
 
 # Add-ons
-/addons/cec_scan https://github.com/home-assistant/hassio-addons/blob/master/cec_scan/README.md
-/addons/check_config https://github.com/home-assistant/hassio-addons/blob/master/check_config/README.md
-/addons/configurator https://github.com/home-assistant/hassio-addons/blob/master/configurator/README.md
-/addons/dhcp_server https://github.com/home-assistant/hassio-addons/blob/master/dhcp_server/README.md
-/addons/dnsmasq https://github.com/home-assistant/hassio-addons/blob/master/dnsmasq/README.md
-/addons/duckdns https://github.com/home-assistant/hassio-addons/blob/master/duckdns/README.md
-/addons/git_pull https://github.com/home-assistant/hassio-addons/blob/master/git_pull/README.md
-/addons/google_assistant https://github.com/home-assistant/hassio-addons/blob/master/google_assistant/README.md
-/addons/homematic https://github.com/home-assistant/hassio-addons/blob/master/homematic/README.md
-/addons/lets_encrypt https://github.com/home-assistant/hassio-addons/blob/master/letsencrypt/README.md
-/addons/mariadb https://github.com/home-assistant/hassio-addons/blob/master/mariadb/README.md
-/addons/mosquitto https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/README.md
-/addons/nginx_proxy https://github.com/home-assistant/hassio-addons/blob/master/nginx_proxy/README.md
-/addons/rpc_shutdown https://github.com/home-assistant/hassio-addons/blob/master/rpc_shutdown/README.md
-/addons/samba https://github.com/home-assistant/hassio-addons/blob/master/samba/README.md
-/addons/snips https://github.com/home-assistant/hassio-addons/blob/master/snips/README.md
-/addons/ssh https://github.com/home-assistant/hassio-addons/blob/master/ssh/README.md
-/addons/tellstick https://github.com/home-assistant/hassio-addons/blob/master/tellstick/README.md
+/addons/cec_scan https://github.com/home-assistant/addons/blob/master/cec_scan/README.md
+/addons/check_config https://github.com/home-assistant/addons/blob/master/check_config/README.md
+/addons/configurator https://github.com/home-assistant/addons/blob/master/configurator/README.md
+/addons/dhcp_server https://github.com/home-assistant/addons/blob/master/dhcp_server/README.md
+/addons/dnsmasq https://github.com/home-assistant/addons/blob/master/dnsmasq/README.md
+/addons/duckdns https://github.com/home-assistant/addons/blob/master/duckdns/README.md
+/addons/git_pull https://github.com/home-assistant/addons/blob/master/git_pull/README.md
+/addons/google_assistant https://github.com/home-assistant/addons/blob/master/google_assistant/README.md
+/addons/homematic https://github.com/home-assistant/addons/blob/master/homematic/README.md
+/addons/lets_encrypt https://github.com/home-assistant/addons/blob/master/letsencrypt/README.md
+/addons/mariadb https://github.com/home-assistant/addons/blob/master/mariadb/README.md
+/addons/mosquitto https://github.com/home-assistant/addons/blob/master/mosquitto/README.md
+/addons/nginx_proxy https://github.com/home-assistant/addons/blob/master/nginx_proxy/README.md
+/addons/rpc_shutdown https://github.com/home-assistant/addons/blob/master/rpc_shutdown/README.md
+/addons/samba https://github.com/home-assistant/addons/blob/master/samba/README.md
+/addons/snips https://github.com/home-assistant/addons/blob/master/snips/README.md
+/addons/ssh https://github.com/home-assistant/addons/blob/master/ssh/README.md
+/addons/tellstick https://github.com/home-assistant/addons/blob/master/tellstick/README.md
 
 # Redirect old /demo to new demo page
 /demo https://demo.home-assistant.io

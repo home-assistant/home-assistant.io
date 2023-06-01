@@ -223,6 +223,10 @@ The Philips Hue V2 bridge supports Matter since a recent update (the beta progra
 - Device events for example for dimmer remotes are not supported.
 - Only basic control of lights is supported, no scenes, events, effects etc.
 
+### Tasmota
+
+Tasmota supports Matter over IP on all ESP32 based devices (in experimental phase). Follow the [instructions](https://tasmota.github.io/docs/Matter/).
+
 ### TP-Link Tapo P125M (power plug)
 
 - Look for the M addition in the model name, a device without the M (regular P125) is not Matter compliant.
