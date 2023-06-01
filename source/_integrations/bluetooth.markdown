@@ -21,7 +21,7 @@ The Bluetooth integration will detect nearby Bluetooth devices. Discovered devic
 
 ## YAML configuration
 
-While this integration is part of the [`default_config:`](/integrations/default_config/), to enable automatic discovery of the Bluetooth adapter, you need to follow either the configuration flow described above, or manually add `bluetooth` to your `configuration.yaml`.
+While this integration is part of the [`default_config:`](/integrations/default_config/), to enable automatic discovery of the Bluetooth adapter, you need to follow either the configuration flow described above or manually add `bluetooth` to your `configuration.yaml`.
 
 ```yaml
 # Example configuration.yaml entry
