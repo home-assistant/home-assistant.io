@@ -112,7 +112,7 @@ Users of Xiaomi Vacuum cleaners can now use this great custom Lovelace card:
 
 - Add Unifi Led ([@florisvdk] - [#27475]) ([unifiled docs]) (new-integration)
 - Almond integration ([@balloob] - [#28282]) ([almond docs]) (new-integration)
-- Speech-to-text component ([@pvizeli] - [#28434]) ([demo docs]) ([stt docs]) (new-integration)
+- Speech to Text component ([@pvizeli] - [#28434]) ([demo docs]) ([stt docs]) (new-integration)
 - Add WLED integration ([@frenck] - [#28542]) ([wled docs]) (new-integration)
 - Add azure servicebus notify service ([@hfurubotten] - [#27566]) ([azure_service_bus docs]) (new-integration)
 - Add pcal9535a integration ([@Shulyaka] - [#26563]) ([pcal9535a docs]) (new-integration)
@@ -381,7 +381,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove legacy reproduce state ([@balloob] - [#28458])
 - Align attribute naming between light and switch for HomematicIP Cloud ([@SukramJ] - [#28271]) ([homematicip_cloud docs]) (breaking change)
 - Enable transition time for HmIP-BSL - HomematicIP Cloud ([@SukramJ] - [#28201]) ([homematicip_cloud docs])
-- Speech-to-text component ([@pvizeli] - [#28434]) ([demo docs]) ([stt docs]) (new-integration)
+- Speech to Text component ([@pvizeli] - [#28434]) ([demo docs]) ([stt docs]) (new-integration)
 - Add switches (on/off zones) to geniushub ([@castaway] - [#28182]) ([geniushub docs]) (new-platform)
 - Cleanup Device Registry on Z-Wave Node Removal ([@cgarwood] - [#28240]) ([zwave docs])
 - Support Huawei LTE SSDP discovery ([@scop] - [#28214]) ([huawei_lte docs])

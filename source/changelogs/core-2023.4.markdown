@@ -578,7 +578,7 @@ For a summary in a more readable format:
 - Prepare MQTT platform tests part4 ([@jbouwh] - [#90107])
 - Prepare MQTT platform tests part8 ([@jbouwh] - [#90132])
 - Prepare MQTT platform tests part9 ([@jbouwh] - [#90133])
-- Add speech-to-text over binary websocket to pipeline ([@synesthesiam] - [#90082])
+- Add speech to text over binary websocket to pipeline ([@synesthesiam] - [#90082])
 - Fix missing mock in islamic_prayer_times ([@epenet] - [#90178])
 - Avoid calling the http access logging when logging is disabled ([@bdraco] - [#90152])
 - Fix recorder attribute excludes not being effective until after startup ([@bdraco] - [#90198])
