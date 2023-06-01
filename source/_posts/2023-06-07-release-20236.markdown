@@ -363,9 +363,10 @@ noteworthy changes this release:
   of love and now provides a wide range of new entities. Thanks [@Lash-L]!
 - The [Android TV Remote] integration now provides a media player entity too!
   Nice, [@Drafteed]!
-- [KNX] now provides its own configuration panel, allowing to upload your KNX
+- [KNX] now provides its own panel, allowing to upload your KNX
   project file and offers a group monitor for live bus diagnostic.
-  Amazing [@farmio]!
+  Information from the project is also used for device triggers.
+  Amazing [@marvin-w] and [@farmio]!
 - [@bdraco] added the option to disable Webhooks for [ONVIF], in case your
   camera isn't fully following specifications.
 - The [variables action] is now also availble in the automation and script
@@ -396,6 +397,7 @@ noteworthy changes this release:
 [@farmio]: https://github.com/farmio
 [@frenck]: https://github.com/frenck
 [@gjohansson-ST]: https://github.com/gjohansson-ST
+[@marvin-w]: https://github.com/marvin-w
 [@Lash-L]: https://github.com/Lash-L
 [@Noltari]: https://github.com/@Noltari
 [@piitaya]: https://github.com/piitaya
