@@ -175,7 +175,7 @@ target:
 
 #### Overrides
 
-You can pass any of the parameters listed [here](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/showNotification#parameters) in the `data` dictionary. Please note, Chrome specifies that the maximum size for an icon is 320px by 320px, the maximum `badge` size is 96px by 96px and the maximum icon size for an action button is 128px by 128px.
+You can pass any of the parameters listed [here](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/showNotification#Parameters) in the `data` dictionary. Please note, Chrome specifies that the maximum size for an icon is 320px by 320px, the maximum `badge` size is 96px by 96px and the maximum icon size for an action button is 128px by 128px.
 
 #### URL
 
