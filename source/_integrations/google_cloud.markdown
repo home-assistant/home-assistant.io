@@ -46,7 +46,6 @@ Basic instruction for all APIs:
     * [Text-to-speech](https://console.cloud.google.com/flows/enableapi?apiid=texttospeech.googleapis.com)
     * [Speech-to-text](https://console.cloud.google.com/flows/enableapi?apiid=speech.googleapis.com)
     * [Geocoding](https://console.cloud.google.com/flows/enableapi?apiid=geocoding-backend.googleapis.com)
-ssssssssssssssssssssssssssssssssssss
 6. Set up authentication:
 
     1. Visit [this link](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
