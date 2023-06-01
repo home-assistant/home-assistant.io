@@ -92,8 +92,7 @@ For Year of the Voice - Chapter 1 we focused on building intent recognition into
 
 We will continue collecting home automation sentences for all languages ([anyone can help!](https://developers.home-assistant.io/docs/voice/intent-recognition/)). Updates will be included with every major release of Home Assistant.
 
-Our next step is integrating Speech-to-Text and text-to-speech with Assist. We don't have a timeline yet when that will be ready. Stay tuned!
-
+Our next step is integrating speech-to-text and text-to-speech with Assist. We don't have a timeline yet when that will be ready. Stay tuned!
 ## Credits
 
 A lot of people have worked very hard to make all of the above possible.
