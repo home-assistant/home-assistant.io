@@ -71,6 +71,10 @@ children:
   description: Ordered list of child media players that this entity will control.
   required: false
   type: list
+active_child_template:
+  description: "A [template](/docs/configuration/templating/) can be specified to return the active child media player that this entity will control. The template must return the entity ID of a child media player provided in the `children` parameter. If the template fails to return a valid entity ID listed in the `children` parameter, this entity will default to controlling the first child in the `children` list that is active (not idle/off)."
+  required: false
+  type: template
 state_template:
   description: "A [template](/docs/configuration/templating/) can be specified to render the state of the media player. In this way, the state may depend on entities that are not themselves media players, like switches or input booleans."
   required: false
@@ -97,7 +101,7 @@ unique_id:
   type: string
 {% endconfiguration %}
 
-The Universal Media Player will primarily imitate one of its `children`. The Universal Media Player will control the first child on the list that is active (not idle/off). The Universal Media Player will also inherit its state from the first active child if a `state_template` is not provided. Entities in the `children:` list must be media players, but the state template can contain any entity.
+The Universal Media Player will primarily imitate one of its `children`. The Universal Media Player will control the child returned from the `active_child_template` or the first child on the list that is active (not idle/off) if there is no `active_child_template` or the `active_child_template` fails to return a child in the `children` list. The Universal Media Player will also inherit its state from the active child if a `state_template` is not provided. Entities in the `children:` list must be media players, but the state template can contain any entity.
 
 It is recommended that the command `turn_on`, the command `turn_off`, and the attribute `state` all be provided together. The `state` attribute indicates if the media player is on or off. If `state` indicates the media player is off, this status will take precedence over the states of the children. If all the children are idle/off and `state` is on, the Universal Media Player's state will be on. If not provided, the `toggle` command will delegate to `turn_on` or `turn_off` based on the `state`.
 
@@ -318,6 +322,81 @@ media_player:
           activity: "{{ source }}"
     device_class: tv
     unique_id: media_room_harmony_hub
+```
+
+{% endraw %}
+
+### AVR Example
+
+In this example, the Universal Media Player will use the receiver's source to determine which child to control and reflect the status of.
+
+{% raw %}
+
+```yaml
+media_player:
+  platform: universal
+  name: AVR
+  children:
+    - media_player.receiver
+    - media_player.kodi
+    - media_player.dvd
+  active_child_template: >
+    {% if state_attr('media_player.receiver', 'source') == 'hdmi_1' %}
+      media_player.kodi
+    {% elif state_attr('media_player.receiver', 'source') == 'hdmi_2' %}
+      media_player.dvd
+    {% else %}
+      media_player.receiver
+    {% endif %}
+  commands:
+    turn_on:
+      service: media_player.turn_on
+      target:
+        entity_id:
+          - media_player.receiver
+          - media_player.kodi
+          - media_player.dvd
+          - media_player.tv
+    turn_off:
+      service: media_player.turn_off
+      target:
+        entity_id:
+          - media_player.receiver
+          - media_player.kodi
+          - media_player.dvd
+          - media_player.tv
+    volume_up:
+      service: media_player.volume_up
+      target:
+        entity_id: media_player.receiver
+    volume_down:
+      service: media_player.volume_down
+      target:
+        entity_id: media_player.receiver
+    volume_mute:
+      service: media_player.volume_mute
+      target:
+        entity_id: media_player.receiver
+      data:
+        is_volume_muted: "{{ is_volume_muted }}"
+    select_source:
+      service: media_player.select_source
+      target:
+        entity_id: media_player.receiver
+      data:
+        source: "{{ source }}"
+    volume_set:
+      service: media_player.volume_set
+      target:
+        entity_id: media_player.receiver
+      data:
+        volume_level: "{{ volume_level }}"
+
+  attributes:
+    is_volume_muted: media_player.receiver|is_volume_muted
+    volume_level: media_player.receiver|volume_level
+    source: media_player.receiver|source
+    source_list: media_player.receiver|source_list
 ```
 
 {% endraw %}
