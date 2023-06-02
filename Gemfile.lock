@@ -29,7 +29,7 @@ GEM
     forwardable-extended (2.6.0)
     google-protobuf (3.23.2)
     http_parser.rb (0.8.0)
-    i18n (1.13.0)
+    i18n (1.14.0)
       concurrent-ruby (~> 1.0)
     jekyll (4.3.2)
       addressable (~> 2.4)
