@@ -17,6 +17,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/) Profile S conformant device in Home Assistant. This requires the [`ffmpeg` integration](/integrations/ffmpeg/) to be already configured.
@@ -43,6 +44,15 @@ Most of the ONVIF devices support more than one audio/video profile. Each profil
 | Extra FFmpeg arguments | Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [`ffmpeg` integration](/integrations/ffmpeg). |
 | Use wallclock as timestamps | ([Advanced Mode](/blog/2019/07/17/release-96/#advanced-mode) only) Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (e.g., EZVIZ). |
 | Enable Webhooks | If the device supports notifications via a Webhook, the integration will attempt to set up a Webhook. Disable this option to force falling back to trying PullPoint if the device supports it. |
+
+#### Snapshots
+
+Some cameras will not produce usable snapshots with larger stream sizes.
+
+By default, the integration will only enable the camera entity for the first H264 profile. If you are unable to get a working snapshot:
+
+- If additional camera entities are available for other profiles, try enabling those entities.
+- Set the `Extra FFmpeg arguments` to `-pred 1 -ss 00:00:05 -frames:v 1` to cause the snapshot to be taken 5 seconds into the stream.
 
 ### Supported Sensors
 

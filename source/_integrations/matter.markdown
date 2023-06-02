@@ -8,11 +8,11 @@ ha_category:
   - Lock
   - Sensor
   - Switch
-ha_release: "2022.12"
+ha_release: '2022.12'
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - "@home-assistant/matter"
+  - '@home-assistant/matter'
 ha_domain: matter
 ha_platforms:
   - binary_sensor
@@ -222,6 +222,10 @@ The Philips Hue V2 bridge supports Matter since a recent update (the beta progra
 - You will need a Hue/Signify (cloud) account and the app before you can use Matter.
 - Device events for example for dimmer remotes are not supported.
 - Only basic control of lights is supported, no scenes, events, effects etc.
+
+### Tasmota
+
+Tasmota supports Matter over IP on all ESP32 based devices (in experimental phase). Follow the [instructions](https://tasmota.github.io/docs/Matter/).
 
 ### TP-Link Tapo P125M (power plug)
 

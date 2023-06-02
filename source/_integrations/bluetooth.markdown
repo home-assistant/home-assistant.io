@@ -86,6 +86,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - DIGITUS DN-30210-1 (CSR8510A10)
 - Enbiawit BT403 (CSR8510A10)
 - Feasycom FSC-BP119 (CSR8510A10) 📶
+- Gold Touch E-USB-BT4 (CSR8510A10)
 - HIDEEZ BT0015-01 (CSR8510A10)
 - Maxesla CSR 4.0 (CSR8510A10)
 - Nuu You BT40 (CSR8510A10)

@@ -22,6 +22,10 @@ ha_integration_type: device
 
 The Android TV Remote integration allows you to control an Android TV and launching apps. For this to work the Android TV device needs to have [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service) which is pre-installed on most devices.
 
+For a quick introduction on how to get started with Android TV Remote, check out this video:
+
+<lite-youtube videoid="htbnf5YxAuw" videotitle="Android TV Remote Integration with Home Assistant"></lite-youtube>
+
 {% include integrations/config_flow.md %}
 
 ## Media player

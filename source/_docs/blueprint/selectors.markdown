@@ -561,8 +561,7 @@ include_entities:
 filter:
   description: >
     When filter options are provided, the entities are limited by entities
-    that at least match the given conditions. Can be either a object or a list of object.
-    Can be either a object or a list of object.
+    that at least match the given conditions. Can be either an object or a list of objects.
   type: list
   required: false
   keys:
