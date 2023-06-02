@@ -882,16 +882,14 @@ get created as a `select` entity.
 
 ---
 
-For devices with the `Entry control` generic device class, the `Door lock mode`
-config parameter no longer gets created as a `sensor` entity and will instead
-get created as a `select` entity.
+The Nice IBT4ZWAVE module was previously discovered as a light, but now it is
+discovered as a cover. The light entity will be permanently unavailable and can
+be safely deleted.
 
-- Add zwave config parameter entities ([@raman325] - [#92223]) ([zwave_js docs]) (breaking-change)
-
-([@raman325] - [#92223]) ([documentation](/integrations/zwave_js))
+([@raman325] - [#93946]) ([documentation](/integrations/zwave_js))
 
 [@raman325]: https://github.com/raman325
-[#92223]: https://github.com/home-assistant/core/pull/92223
+[#93946]: https://github.com/home-assistant/core/pull/93946
 
 {% enddetails %}
 
