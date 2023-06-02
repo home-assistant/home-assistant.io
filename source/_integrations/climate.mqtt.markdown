@@ -181,10 +181,9 @@ fan_modes:
   default: ['auto', 'low', 'medium', 'high']
   type: list
 initial:
-  description: Set the initial target temperature. The default value depends un the temperature unit.
+  description: Set the initial target temperature. The default value depends on the temperature unit and will be 21° or 69.8°F.
   required: false
   type: integer
-  default: 21° or 69.8°F
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -203,19 +202,18 @@ max_humidity:
   type: integer
   default: 99
 max_temp:
-  description: Maximum set point available. The default value depends un the temperature unit.
+  description: Maximum set point available. The default value depends on the temperature unit, and will be 35°C or 95°F.
   type: float
-  required: 35°C or 95°F
+  required: false
 min_humidity:
   description: The maximum target humidity percentage that can be set.
   required: false
   type: integer
   default: 30
 min_temp:
-  description: Minimum set point available. The default value depends un the temperature unit.
+  description: Minimum set point available. The default value depends on the temperature unit, and will be 7°C or 44.6°F.
   type: float
   required: false
-  default: 7°C or 44.6°F
 mode_command_template:
   description: A template to render the value sent to the `mode_command_topic` with.
   required: false
