@@ -168,6 +168,16 @@ command_line:
           description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
           required: false
           type: string
+        device_class:
+          description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
+          required: false
+          type: device_class
+          default: None
+        state_class:
+          description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor."
+          required: false
+          type: string
+          default: None
     switch:
       description: Switch platform.
       required: false
