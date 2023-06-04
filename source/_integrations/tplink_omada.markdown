@@ -54,6 +54,7 @@ Controller versions 5.1.0 and later are supported.
 ### Internet Gateways
 
 - Firmware Update entities.
+- WAN/LAN Port connectivity sensor entities.
 
 ## Device Trackers
 
