@@ -104,7 +104,7 @@ The easiest way to check if the integration is working is to check [My Google Ac
 
 - Multiple Google accounts are not supported.
 - Personal results are not supported yet since that requires creating an OAuth client ID of Desktop app.
-- If you see the issued commands in [My Google Activity](https://myactivity.google.com/myactivity) the integration is working fine. If the commands don't have the expected outcome don't open an issue in Home Assistant Core project or the [underlying library](https://github.com/tronikos/gassist_text). You can instead try opening an issue [here](https://github.com/googlesamples/assistant-sdk-python/issues). Examples of known Google Assistant API issues:
+- If you see the issued commands in [My Google Activity](https://myactivity.google.com/myactivity) the integration is working fine. If the commands don't have the expected outcome don't open an issue in Home Assistant Core project or the [underlying library](https://github.com/tronikos/gassist_text). You should instead report the issue directly to Google [here](https://github.com/googlesamples/assistant-sdk-python/issues). Examples of known Google Assistant API issues:
   - Media playback commands (other than play news or play podcast or play white noise or play rain sounds) don't work.
   - Routines don't work.
 
