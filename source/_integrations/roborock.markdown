@@ -5,6 +5,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Time
   - Vacuum
 ha_iot_class: Local Polling
 ha_release: 2023.5
