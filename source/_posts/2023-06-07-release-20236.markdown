@@ -230,7 +230,7 @@ Refs:
 
 {% enddetails %}
 
-Which automationed used that blueprint? Well, Home Assistant can now tell you
+Which automation used that blueprint? Well, Home Assistant can now tell you
 that! On the {% my blueprints title="**Settings** > **Automations & Scenes** > **Blueprints**" %}
 page you can now hit the trippel dotted menu on any blueprint to discover which
 automations are using that blueprint.
