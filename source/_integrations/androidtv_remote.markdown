@@ -18,11 +18,11 @@ ha_integration_type: device
 ---
 
 The Android TV Remote integration allows you to control an Android TV device by sending
-[commands](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt) and
-launching [apps](https://community.home-assistant.io/t/android-tv-remote-app-links-deep-linking-guide/567921).
-For this to work, the Android TV device needs to have
+[commands](https://github.com/tronikos/androidtvremote2/blob/main/TvKeys.txt) and launching apps that support
+[deep linking](https://developer.android.com/training/app-links/deep-linking).
+For this integration to work, the Android TV device needs to have the
 [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service)
-which is pre-installed on most devices except Fire TV devices.
+which is pre-installed on most devices (Fire TV devices are a notable exception).
 
 For a quick introduction on how to get started with Android TV Remote, check out this video:
 
@@ -55,9 +55,6 @@ Examples of URLs to pass as activity for some popular apps:
 | Prime Video | `https://app.primevideo.com`
 | Disney+ | `https://www.disneyplus.com`
 | Plex | `plex://`
-
-See [this Guide/wiki](https://community.home-assistant.io/t/android-tv-remote-app-links-deep-linking-guide/567921)
-for how to find out what URL to use and a collection of more apps.
 
 Examples of service calls:
 
@@ -108,7 +105,7 @@ Below is an example for you to start with. Many of the buttons support long pres
 
 {% details "YAML Lovelace example" %}
 
-Add a Vertical Stack card, click on show code editor, replace code with the following code. 
+Add a Manual card with the following code. 
 Replace all instances of `living_room_tv` with your entity ID.
 Tip: inside the code editor press `ctrl+F` to do the replace all.
 
@@ -376,8 +373,8 @@ cards:
 
 ## Known issues
 
-- Doesn't work with Fire TV devices because they are missing the [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service).
-- If you cannot use the Google TV mobile app or the Google Home mobile app to send commands to the device, you cannot with this integration either.
+- Doesn't work with Fire TV devices because they are missing the [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service). Attempts to sideload it haven't been successful.
+- If you cannot use the Google TV mobile app or the Google Home mobile app to send commands to the device, you cannot with this integration either. A noteable example of this is Netflix.
 - Some devices, like Xiaomi, become unavailable after they are turned off and can't be turned on with this integration.
 - Some devices experience disconnects every 15 seconds. This is typically resolved by rebooting the Android TV device after the initial setup of the integration.
-- If you are not able to connect to the Android TV device, or asked to pair it again and again, try force stopping the Android TV Remote Service and clearing its data and cache.
+- If you are not able to connect to the Android TV device, or asked to pair it again and again, try force stopping the Android TV Remote Service and clearing its storage. On the Android TV device, go to settings, apps, show system apps, select Android TV Remote Service, storage, clear storage. You will have to pair again.
