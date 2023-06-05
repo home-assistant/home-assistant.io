@@ -374,7 +374,7 @@ cards:
 ## Known issues
 
 - Doesn't work with Fire TV devices because they are missing the [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service). Attempts to sideload it haven't been successful.
-- If you cannot use the Google TV mobile app or the Google Home mobile app to send commands to the device, you cannot with this integration either. A noteable example of this is Netflix.
+- If you cannot use the Google TV mobile app or the Google Home mobile app to send commands to the device, you cannot with this integration either. A notable example of this is Netflix.
 - Some devices, like Xiaomi, become unavailable after they are turned off and can't be turned on with this integration.
 - Some devices experience disconnects every 15 seconds. This is typically resolved by rebooting the Android TV device after the initial setup of the integration.
 - If you are not able to connect to the Android TV device, or asked to pair it again and again, try force stopping the Android TV Remote Service and clearing its storage. On the Android TV device, go to settings, apps, show system apps, select Android TV Remote Service, storage, clear storage. You will have to pair again.
