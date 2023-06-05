@@ -50,4 +50,4 @@ Top P:
 
 ### Talking to Super Mario over the phone
 
-You can use an OpenAI Conversation integration to [talk to Super Mario over a classic landline phone](/projects/worlds-most-private-voice-assistant/).
+You can use an OpenAI Conversation integration to [talk to Super Mario over a classic landline phone](/voice_control/worlds-most-private-voice-assistant/).
