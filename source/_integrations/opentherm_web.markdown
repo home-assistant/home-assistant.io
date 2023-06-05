@@ -1,7 +1,7 @@
 ---
 title: OpenTherm Web
 description: Instructions on how to set up the OpenTherm Web integration in Home Assistant.
-ha_release: 2023.6.0
+ha_release: 2023.7.0
 ha_category:
   - Climate
 ha_iot_class: Local Polling
