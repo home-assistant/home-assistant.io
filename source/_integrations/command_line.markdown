@@ -77,7 +77,7 @@ command_line:
         scan_interval:
           description: Define time in seconds between each update.
           required: false
-          type: int
+          type: integer
           default: 60
     cover:
       description: Cover platform.
@@ -123,7 +123,7 @@ command_line:
         scan_interval:
           description: Define time in seconds between each update.
           required: false
-          type: int
+          type: integer
           default: 15
     notify:
       description: Notify platform.
@@ -191,7 +191,7 @@ command_line:
         scan_interval:
           description: Define time in seconds between each update.
           required: false
-          type: int
+          type: integer
           default: 60
     switch:
       description: Switch platform.
@@ -234,7 +234,7 @@ command_line:
         scan_interval:
           description: Define time in seconds between each update.
           required: false
-          type: int
+          type: integer
           default: 30
 {% endconfiguration %}
 
