@@ -4,8 +4,8 @@ description: Instructions on how to integrate the Command Line utility within Ho
 ha_category:
   - Binary Sensor
   - Cover
-  - Sensor
   - Notifications
+  - Sensor
   - Utility
 ha_release: 0.12
 ha_iot_class: Local Polling
@@ -183,6 +183,16 @@ command_line:
           required: false
           type: int
           default: 60
+        device_class:
+          description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
+          required: false
+          type: device_class
+          default: None
+        state_class:
+          description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor."
+          required: false
+          type: string
+          default: None
     switch:
       description: Switch platform.
       required: false

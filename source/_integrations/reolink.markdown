@@ -38,9 +38,10 @@ Protocol:
 
 ## Camera streams
 
-This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, and Snapshots.
+This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, Snapshots Main, and Snapshots Sub.
 The Sub stream camera entity is enabled by default; the other streams are disabled by default.
 The Images stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the RTMP/RTSP/FLV video stream has too much lag.
+Dual lens cameras provide additional streams for the second lens.
 
 ## Binary sensors
 
@@ -182,6 +183,7 @@ The following models have been tested and confirmed to work:
 - RLC-522
 - RLC-810A
 - RLC-811A
+- RLC-81PA
 - RLC-820A
 - RLC-822A
 - RLC-823A
@@ -190,8 +192,9 @@ The following models have been tested and confirmed to work:
 - RLN8-410 NVR
 - RLN16-410 NVR
 - RLN36 NVR
+- Reolink Duo 2 WiFi
 - Reolink Duo Floodlight PoE
-- Reolink TrackMix PoE
+- Reolink TrackMix (PoE and Wi-Fi)
 - Reolink Video Doorbell (PoE and Wi-Fi)
 
 Battery-powered cameras are not yet supported.
@@ -207,3 +210,4 @@ However, these cameras can work with this integration through an NVR in which th
 - Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) prior to setting up the integration. Note that Reolink auto update and check for update functions in the app/windows/web client often do not show the latest available firmware version. Therefore check the version in the [Reolink download center](https://reolink.com/download-center/) online.
 - Ensure at least one of the HTTP/HTTPS ports is enabled in the [windows](https://reolink.com/software-and-manual/)/web client under `Settings`->`Network`->`Advanced`->`Port Settings`, see [additional instructions](https://support.reolink.com/hc/en-us/articles/900004435763-How-to-Set-up-Reolink-Ports-Settings-via-Reolink-Client-New-Client-) on the Reolink site.
 - On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
+- Setting a static IP address for Reolink cameras/NVRs in your router is advisable to prevent (temporal) connectivity issues when the IP address changes.
