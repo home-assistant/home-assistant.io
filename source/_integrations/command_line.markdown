@@ -178,11 +178,6 @@ command_line:
           description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
           required: false
           type: string
-        scan_interval:
-          description: Define time in seconds between each update.
-          required: false
-          type: int
-          default: 60
         device_class:
           description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
           required: false
@@ -193,6 +188,11 @@ command_line:
           required: false
           type: string
           default: None
+        scan_interval:
+          description: Define time in seconds between each update.
+          required: false
+          type: int
+          default: 60
     switch:
       description: Switch platform.
       required: false
