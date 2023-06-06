@@ -34,7 +34,7 @@ This procedure shows you how to create a text-to-speech {% term action %}. For t
     navigateIds:
         - {}
         - media_content_type: app
-        media_content_id: media-source://tts
+          media_content_id: media-source://tts
         - media_content_type: provider
-        media_content_id: media-source://tts/tts.piper?message=Your+coffee+is+ready%21+Enjoy.
+          media_content_id: media-source://tts/tts.piper?message=Your+coffee+is+ready%21+Enjoy.
     ```
