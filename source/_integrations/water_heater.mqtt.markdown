@@ -66,7 +66,7 @@ current_temperature_template:
   required: false
   type: template
 current_temperature_topic:
-  description: The MQTT topic on which to listen for the current temperature. A `"None"` value received will reset the current humidity. Empty values (`'''`) will be ignored.
+  description: The MQTT topic on which to listen for the current temperature. A `"None"` value received will reset the current temperature. Empty values (`'''`) will be ignored.
   required: false
   type: string
 device:
