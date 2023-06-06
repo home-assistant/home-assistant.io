@@ -133,7 +133,7 @@ initial:
   description: Set the initial target temperature.
   required: false
   type: integer
-  default: 21
+  default: 43.3 for Celsius and 110 for Fahrenheit
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -150,10 +150,12 @@ max_temp:
   description: Maximum set point available.
   type: float
   required: false
+  default: 43.3 for Celsius and 110 for Fahrenheit
 min_temp:
   description: Minimum set point available.
   type: float
   required: false
+  default: 60 for Celsius and 140 for Fahrenheit
 mode_command_template:
   description: A template to render the value sent to the `mode_command_topic` with.
   required: false
