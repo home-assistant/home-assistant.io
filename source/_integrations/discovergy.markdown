@@ -4,7 +4,7 @@ description: Instructions on how to integrate Discovergy within Home Assistant.
 ha_category:
   - Energy
   - Sensor
-ha_release: '2021.10'
+ha_release: '2023.7'
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@jpbede'
