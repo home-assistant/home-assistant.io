@@ -130,10 +130,9 @@ entity_category:
   type: string
   default: None
 initial:
-  description: Set the initial target temperature.
+  description: Set the initial target temperature. The default value depends on the temperature unit, and will be 43.3°C or 110°F.
   required: false
   type: integer
-  default: 43.3
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -147,15 +146,13 @@ json_attributes_topic:
   required: false
   type: string
 max_temp:
-  description: Maximum set point available.
+  description: Maximum set point available. The default value depends on the temperature unit, and will be 60°C or 140°F.
   type: float
   required: false
-  default: 43.3
 min_temp:
-  description: Minimum set point available.
+  description: Minimum set point available. The default value depends on the temperature unit, and will be 43.3°C or 110°F.
   type: float
   required: false
-  default: 60
 mode_command_template:
   description: A template to render the value sent to the `mode_command_topic` with.
   required: false
