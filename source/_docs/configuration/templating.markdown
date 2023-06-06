@@ -1063,6 +1063,12 @@ To evaluate a response, go to **{% my developer_template title="Developer Tools 
 
 {% endraw %}
 
+### Using templates with the Persistent Notification integration
+
+The [Persistent Notification](/integrations/persistent_notification/) integration notifications can be access via the `persistent_notification()` call.
+
+Example Template {% raw %}`{{ persistent_notifications() }}`{% endraw %}
+
 ### Using templates with the MQTT integration
 
 The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templates are used to transform incoming payloads (value templates) to status updates or incoming service calls (command templates) to payloads that configure the MQTT device.
