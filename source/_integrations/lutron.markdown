@@ -60,6 +60,12 @@ It is recommended to assign a static IP address to your main repeater. This ensu
 
 </div>
 
+<div class='note'>
+
+If you are using RadioRA2 software version 12 or later, the default `lutron` user with password `integration` is not configured by default.  To configure a new telnet user, go to Settings > Integration in your project and add a new telnet login.  The username and password you set in the RadioRA2 software are what need to be entered in the YAML configuration above.
+
+</div>
+
 ## Keypad buttons
 
 Individual buttons on keypads are not represented as entities. Instead, they fire events called `lutron_event` whose payloads include `id` and `action` attributes.
