@@ -55,7 +55,7 @@ Enjoy the (beta) release!
 - [Connect and use your existing network storage](#connect-and-use-your-existing-network-storage)
 - [Integrations dashboard \& pages](#integrations-dashboard--pages)
 - [Light entity dialog improvements, with favorite colors](#light-entity-dialog-improvements-with-favorite-colors)
-- [Last changed added to the entity dialog](#last-changed-added-to-the-entity-dialog)
+- [Added to the entity dialog: last changed](#added-to-the-entity-dialog-last-changed)
 - [Related information](#related-information)
 - [Copy 'n paste support in the automation editor](#copy-n-paste-support-in-the-automation-editor)
 - [Python 3.11 and significant performance upgrades](#python-311-and-significant-performance-upgrades)
@@ -183,32 +183,17 @@ to enter the edit mode:
 Temporary screenrecording that needs to be replaced.
 </p>
 
-## Last changed added to the entity dialog
+## Added to the entity dialog: last changed
 
-{% details "TODO" %}
+By popular request, the information on when an entity was last changed has
+been added back to the new entity information dialogs.
 
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-Refs:
-
-- Add last-changed date to more-info (#16509) @piitaya
-
-{% enddetails %}
-
-By popular request, the information on when an entity was last changed,
-has been added back to into the new entity information dialogs.
-
-Not only that, @piitaya added a very nice easter egg! You can click on it
+Not only that, [@piitaya] added a very nice easter egg! You can click on it
 to toggle between the relative and absolute format!
 
-<p class='img'>
-<video controls width="690px">
-  <source src="https://user-images.githubusercontent.com/5878303/237703725-3732613e-e681-4ee2-84c3-ce1ab3f7f083.mp4" type="video/mp4">
-</video>
-Temporary screenrecording that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2023-06/toggle-last-changed.gif' alt='Screen recording demonstrating how to toggle between relative and absolute time.'>
+
+[@piitaya]: https://github.com/piitaya
 
 ## Related information
 
