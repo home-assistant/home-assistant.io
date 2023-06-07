@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2023.6: Beta release notes"
-description: "Beta release notes for Home Assistant Core 2023.6."
-date: 2023-05-31 00:00:00
+title: "2023.6: Network storage, favorite light colors, new integrations dashboard"
+description: "Add and use network storage, the integrations dashboard got a revamp, add your favorite colors to your lights, copy & paste support for automations, blazing speed through Python 3.11, and Matter and Z-Wave updates."
+date: 2023-06-07 00:00:00
 date_formatted: "June 7, 2023"
 author: Franck Nijhof
 author_twitter: frenck
@@ -15,38 +15,22 @@ og_image: /images/blog/2023-06/social.png
 
 <a href='/integrations/#version/2023.6'><img src='/images/blog/2023-06/social.png' style='border: 0;box-shadow: none;'></a>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
-These are the beta release notes for Home Assistant Core 2023.6 (and is thus a
-work in progress).
-
-If you encounter any issues with the beta release, please report them on GitHub:
-
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/UI/dashboards:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
-
-Please be sure to include the beta version you are running in the issue
-version field (not title), so we can classify your issue correctly.
-
-Issues introduced in the beta are processed with priority.
-
----
-
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
 Home Assistant Core 2023.6! 🎉
 
-Get ready for an old-fashioned jam-packed release 🤯
+Get ready for a classic, old-fashioned, jam-packed release! 🤯
 
-Thanks for helping out testing the beta! ❤️
+I am excited about so many things being shipped in this release that it is
+hard to pick a favorite 😅 This release has it all.
 
-Enjoy the (beta) release!
+Being able to directly use and back up my Home Assistant configuration to my
+network storage is absolutely incredible! But I also really enjoy the new and
+clean integrations dashboard and pages.
+
+The feature that greatly improved the Home Approval Factor in my household
+is definitely the addition of the new favorite colors they can quickly pick
+in the light entity dialog 🎨
+
+Enjoy the release!
 
 ../Frenck
 
@@ -54,7 +38,7 @@ Enjoy the (beta) release!
 
 - [Connect and use your existing network storage](#connect-and-use-your-existing-network-storage)
 - [Integrations dashboard \& pages](#integrations-dashboard--pages)
-- [Light entity dialog improvements, with favorite colors](#light-entity-dialog-improvements-with-favorite-colors)
+- [Light entity dialog improvements: favorite colors](#light-entity-dialog-improvements-favorite-colors)
 - [Added to the entity dialog: last changed](#added-to-the-entity-dialog-last-changed)
 - [Related information](#related-information)
 - [Copy 'n paste support in the automation editor](#copy-n-paste-support-in-the-automation-editor)
