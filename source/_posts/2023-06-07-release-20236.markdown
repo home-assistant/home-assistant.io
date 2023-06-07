@@ -295,6 +295,24 @@ at runtime.
 
 [@bdraco]: https://github.com/bdraco
 
+## Matter 1.1
+
+The Matter implementation within Home Assistant is now based on the freshly
+released 1.1 version of the Matter standard. This brings a ton of stability
+fixes and improvements, but unfortunately, no new features.
+
+Thanks to [@Diegorro98], we do now have support for tilt covers! Besides that,
+this Home Assistant release ships with several generic bugfixes and
+optimizations; we've managed to squeeze out some additional performance to
+make state updates for your Matter devices lightning-fast 🚀
+
+All these stability improvements to both the Matter stack and our
+implementation did not go unnoticed:
+
+<lite-youtube videoid="PsNdR-m5pwE" videotitle="This ACTUALLY Works Now!?"></lite-youtube>
+
+[@Diegorro98]: https://github.com/Diegorro98
+
 ## Z-Wave
 
 {% details "TODO" %}
