@@ -20,14 +20,15 @@ For the quickest way to get your local Assist pipeline started, follow these ste
    - Start both add-ons.
    - Once the add-ons are started, head over to the integrations under {% my integrations title="**Settings** > **Devices & Services**" %}.
      - You should now see Piper and Whisper being discovered by the [Wyoming integration](/integrations/wyoming/).
-       ![Whisper and Piper integrations](/images/assist/piper-whisper-install-02.png)
+       ![Whisper and Piper integrations](/images/assist/piper-whisper-install-new-02.png)
    - For both integrations, select **Configure**.
      - Once the setup is complete, you should see both Piper and Whisper in one integration.
-       ![Whisper and Piper integration](/images/assist/piper-whisper-install-03.png)
+   
+       ![Whisper and Piper integration](/images/assist/piper-whisper-install-new-03.png)
        - **Whisper** converts speech into text.
        - **Piper** converts text into speech.
        - **Wyoming** is the protocol they are both using to communicate.
-1. Setup your assistant.
+2. Setup your assistant.
 
    - Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**.
      ![Enter a name for your voice assistant](/images/assist/piper-whisper-install-05.png)
