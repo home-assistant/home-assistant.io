@@ -546,6 +546,42 @@ restarts.
 
 {% enddetails %}
 
+{% details "Command Line" %}
+
+The Command Line integration changes its YAML configuration format from
+an old-style platform configuration to a more modern integration-style
+configuration format.
+
+For example, if you have a binary sensor configured previously as:
+
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+  - platform: command_line
+    command: "cat /proc/sys/net/ipv4/ip_forward"
+```
+
+That same binary sensor is now configured under the `command_line` integration
+configuration as:
+
+```yaml
+# Example configuration.yaml entry
+command_line:
+  - binary_sensor:
+      command: "cat /proc/sys/net/ipv4/ip_forward"
+```
+
+Note: While this is currently not yet a breaking change, it did raise questions
+during our beta testing period. Hence we have added this as a breaking change
+to provide more context.
+
+([@gjohansson-ST] - [#92824]) ([documentation](/integrations/command_line))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#92824]: https://github.com/home-assistant/core/pull/92824
+
+{% enddetails %}
+
 {% details "D-Link Wi-Fi Smart Plugs" %}
 
 The previously deprecated YAML configuration of the D-Link Wi-Fi Smart Plugs
