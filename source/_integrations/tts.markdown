@@ -1,13 +1,13 @@
 ---
 title: Text-to-speech (TTS)
-description: Instructions on how to set up Text-to-Speech (TTS) with Home Assistant.
+description: Instructions on how to set up text-to-speech (TTS) with Home Assistant.
 ha_category:
   - Media Source
   - Text-to-speech
 ha_release: 0.35
 ha_codeowners:
-  - '@home-assistant/core'
-  - '@pvizeli'
+  - "@home-assistant/core"
+  - "@pvizeli"
 ha_domain: tts
 ha_quality_scale: internal
 ha_platforms:
@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: entity
 ---
 
-Text-to-Speech (TTS) enables Home Assistant to speak to you.
+Text-to-speech (TTS) enables Home Assistant to speak to you.
 
 ## Services
 
@@ -23,7 +23,7 @@ Text-to-Speech (TTS) enables Home Assistant to speak to you.
 
 Modern platforms will create entities under the `tts` domain, where each entity represents one text-to-speech service provider. These entities may be used as targets for the `tts.speak` service.
 
-The `tts.speak` service supports `language` and on some platforms also `options` for settings, e.g., *voice, motion, speed, etc*. The text that should be spoken is set with `message`, and the media player that should output the sound is selected with `media_player_entity_id`.
+The `tts.speak` service supports `language` and on some platforms also `options` for settings, e.g., _voice, motion, speed, etc_. The text that should be spoken is set with `message`, and the media player that should output the sound is selected with `media_player_entity_id`.
 
 ```yaml
 service: tts.speak
@@ -35,7 +35,7 @@ data:
 
 ### Service say (legacy)
 
-The `say` service supports `language` and on some platforms also `options` for settings, e.g., *voice, motion, speed, etc*. The text that should be spoken is set with `message`. Since release 0.92, service name can be defined in configuration `service_name` option.
+The `say` service supports `language` and on some platforms also `options` for settings, e.g., _voice, motion, speed, etc_. The text that should be spoken is set with `message`. Since release 0.92, service name can be defined in configuration `service_name` option.
 
 Say to all `media_player` entities:
 
@@ -91,8 +91,8 @@ Returns a URL to the generated TTS file. The `engine_id` or `platform` parameter
 
 ```json
 {
-    "engine_id": "tts.amazon_polly",
-    "message": "I am speaking now"
+  "engine_id": "tts.amazon_polly",
+  "message": "I am speaking now"
 }
 ```
 
@@ -100,8 +100,8 @@ The return code is 200 if the file is generated. The message body will contain a
 
 ```json
 {
-    "path": "/api/tts_proxy/265944c108cbb00b2a621be5930513e03a0bb2cd_en_-_tts.demo.mp3",
-    "url": "http://127.0.0.1:8123/api/tts_proxy/265944c108cbb00b2a621be5930513e03a0bb2cd_en_-_tts.demo.mp3"
+  "path": "/api/tts_proxy/265944c108cbb00b2a621be5930513e03a0bb2cd_en_-_tts.demo.mp3",
+  "url": "http://127.0.0.1:8123/api/tts_proxy/265944c108cbb00b2a621be5930513e03a0bb2cd_en_-_tts.demo.mp3"
 }
 ```
 
@@ -134,8 +134,8 @@ The `tts` service will send an `https://` URL to the media device, which will ch
 
 The Google cast devices (Google Home, Chromecast, etc.) present the following problems:
 
-* They [reject self-signed certificates](#self-signed-certificates).
+- They [reject self-signed certificates](#self-signed-certificates).
 
-* They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). If you are _not_ using SSL then setting an internal URL that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
+- They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). If you are _not_ using SSL then setting an internal URL that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
 
-* If you are using SSL (e.g., `https://yourhost.example.org/...`) then you _must_ use the hostname in the certificate (e.g., `external_url: https://yourhost.example.org`). You cannot use an IP address since the certificate won't be valid for the IP address, and the cast device will refuse the connection.
+- If you are using SSL (e.g., `https://yourhost.example.org/...`) then you _must_ use the hostname in the certificate (e.g., `external_url: https://yourhost.example.org`). You cannot use an IP address since the certificate won't be valid for the IP address, and the cast device will refuse the connection.

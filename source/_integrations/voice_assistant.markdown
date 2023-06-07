@@ -13,4 +13,4 @@ ha_integration_type: integration
 ha_quality_scale: internal
 ---
 
-The Voice Assistant integration contains logic for running *pipelines*, which perform the common steps of a voice assistant like [Assist](/docs/assist/).
+The Voice Assistant integration contains logic for running *pipelines*, which perform the common steps of a voice assistant like [Assist](/voice_control/).

@@ -1,6 +1,6 @@
 ---
 title: Google Translate text-to-speech
-description: Instructions on how to setup Google Translate Text-to-Speech with Home Assistant.
+description: Instructions on how to setup Google Translate text-to-speech with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 0.35
@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `google_translate` text-to-speech platform uses the unofficial [Google Translate Text-to-Speech engine](https://translate.google.com/) to read a text with natural sounding voices. Contrary to what the name suggests, the integration only does text-to-speech and does not translate messages sent to it.
+The `google_translate` text-to-speech platform uses the unofficial [Google Translate text-to-speech engine](https://translate.google.com/) to read a text with natural sounding voices. Contrary to what the name suggests, the integration only does text-to-speech and does not translate messages sent to it.
 
 ## Configuration
 
@@ -25,41 +25,40 @@ tts:
 
 {% configuration %}
 language:
-  description: "The default speech language to use."
-  required: false
-  type: string
-  default: "`en`"
+description: "The default speech language to use."
+required: false
+type: string
+default: "`en`"
 tld:
-  description: "The default Google domain you want to use to choose dialect."
-  required: false
-  type: string
-  default: "`com`"
+description: "The default Google domain you want to use to choose dialect."
+required: false
+type: string
+default: "`com`"
 {% endconfiguration %}
 
 Check the [complete list of supported languages](https://translate.google.com/intl/en_ALL/about/languages/) (languages where "Talk" feature is enabled in Google Translate) for allowed values.
-Use the 2-digit language code which you can find at the end of the URL when you click on the language name. 
+Use the 2-digit language code which you can find at the end of the URL when you click on the language name.
 
-Check the [complete list of supported tld](https://www.google.com/supported_domains) for allowed TLD values. This is used to force the dialect used when multiple fall into the same 2-digit language code(i.e., *US, UK, AU*)
+Check the [complete list of supported tld](https://www.google.com/supported_domains) for allowed TLD values. This is used to force the dialect used when multiple fall into the same 2-digit language code(i.e., _US, UK, AU_)
 
 You can also use supported BCP 47 tags like the below or the 2-2 digit format for your supported dialect(`en-gb` or `en-us`). Below is a list of the currently implemented mappings:
 
-| Dialect | Language | TLD |
-|---------|----------|-----|
-|en-us|en|com|
-|en-gb|en|co.uk|
-|en-uk|en|co.uk|
-|en-au|en|com.au|
-|en-ca|en|ca|
-|en-in|en|co.in|
-|en-ie|en|ie|
-|en-za|en|co.za|
-|fr-ca|fr|ca|
-|fr-fr|fr|fr|
-|pt-br|pt|com.br|
-|pt-pt|pt|pt|
-|es-es|es|es|
-|es-us|es|com|
-
+| Dialect | Language | TLD    |
+| ------- | -------- | ------ |
+| en-us   | en       | com    |
+| en-gb   | en       | co.uk  |
+| en-uk   | en       | co.uk  |
+| en-au   | en       | com.au |
+| en-ca   | en       | ca     |
+| en-in   | en       | co.in  |
+| en-ie   | en       | ie     |
+| en-za   | en       | co.za  |
+| fr-ca   | fr       | ca     |
+| fr-fr   | fr       | fr     |
+| pt-br   | pt       | com.br |
+| pt-pt   | pt       | pt     |
+| es-es   | es       | es     |
+| es-us   | es       | com    |
 
 ## Full configuration example
 
@@ -123,7 +122,7 @@ data:
   message: "May the force be with you."
   language: "en"
   options:
-    tld: co.uk  
+    tld: co.uk
 ```
 
 With a template:
