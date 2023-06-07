@@ -349,53 +349,31 @@ Thanks for creating those [@raman325]!
 
 ## Other noteworthy changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-- Last minute ones added?
-- Go over list again, might have missed something
-
-To consider:
-
-- Home Connect add WasherDryer support ([@stickpin] - [#90673]) ([home_connect docs]) (noteworthy)
-- Add sensor device class volatile_organic_compounds_parts ([@emontnemery] - [#92973]) ([sensor docs]) ([number docs]) (noteworthy)
-- Add support for sleepy BTHome devices ([@Ernst79] - [#92991]) ([bthome docs]) (dependency) (noteworthy)
-- Add a description for time pattern trigger (#16520) @karwosts
-- Add a description for time condition (#16499) @karwosts
-- Lock entity options ([@gjohansson-ST] - [#88139]) ([lock docs]) (noteworthy)
-- Add Ezviz number entity ([@RenierM26] - [#93366]) ([ezviz docs]) (new-platform) (noteworthy)
-- Add Ezviz update entity ([@RenierM26] - [#85377]) ([ezviz docs]) (breaking-change) (new-platform) (dependency) (noteworthy)
-
-- **Note**: Changes processed up to PR 93811
-
-{% enddetails %}
-
 There are much more easter bunnies in this release; here are some of the other
 noteworthy changes this release:
 
 - When using services in the UI (like in the automation editor), only options
   and settings available to the selected target devices & entities will be shown.
   This makes the UI much cleaner! Thanks, [@emontnemery] and [@bramkragten]!
-- The [Roborock] integration (introduced previous release) did receive a lot
-  of love and now provides a wide range of new entities. Thanks [@Lash-L]!
+- The [Roborock] integration (introduced in the previous release) received much
+  love and now provides a wide range of new entities. Thanks [@Lash-L]!
 - The [Android TV Remote] integration now provides a media player entity too!
   Nice, [@Drafteed]!
-- [KNX] now provides its own panel, allowing to upload your KNX
-  project file and offers a group monitor for live bus diagnostic.
+- [KNX] now provides its own panel, allowing you to upload your KNX
+  project file, and offers a group monitor for live bus diagnostics.
   Information from the project is also used for device triggers.
   Amazing [@marvin-w] and [@farmio]!
-- [@bdraco] added the option to disable Webhooks for [ONVIF], in case your
+- [@bdraco] added the option to disable Webhooks for [ONVIF] in case your
   camera isn't fully following specifications.
-- The [variables action] is now also availble in the automation and script
+- The [variables action] is now also available in the automation and script
   editors in the UI. Thanks, [@piitaya]
-- The add-on dashboard, now has a search bar. Helpful, [@bramkragten]!
+- The add-on dashboard now has a search bar. Helpful, [@bramkragten]!
 - The [Samsung TV] now has a remote entity, allowing you to send remote key
   presses directly to your TV! Thanks [@peitschie]!
 - The {% my developer_states title="States in the developer tools" %} now
   uses the entity ID in the entity ID picker. Thanks, [@bramkragten]!
-- [Matter] now has support for tilt covers, thanks [@Diegorro98]!
 - [@gjohansson-ST] added a service to change a running timer helper, [@frenck]
-  did something similar, and added a service to set the value of a counter helper.
+  did something similar and added a service to set the value of a counter helper.
 - The [AccuWeather] integration now provides sensors for the weather condition
   and solar irradiance values. Thanks, [@bieniu]
 - You can now update your [QNAP QSW] directly from Home Assistant. Nice [@Noltari]!
@@ -408,7 +386,6 @@ noteworthy changes this release:
 [@bieniu]: https://github.com/bieniu
 [@bramkragten]: https://github.com/bramkragten
 [@cpoulsen]: https://github.com/cpoulsen
-[@Diegorro98]: https://github.com/Diegorro98
 [@Drafteed]: https://github.com/Drafteed
 [@emontnemery]: https://github.com/emontnemery
 [@farmio]: https://github.com/farmio
@@ -423,7 +400,6 @@ noteworthy changes this release:
 [Android TV Remote]: /integrations/androidtv_remote
 [BMW Connected Drive]: /integrations/bmw_connected_drive
 [KNX]: /integrations/knx
-[Matter]: /integrations/matter
 [ONVIF]: /integrations/onvif
 [QNAP QSW]: /integrations/qnap_qsw
 [Roborock]: /integrations/roborock
