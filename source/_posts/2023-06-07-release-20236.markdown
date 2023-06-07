@@ -141,9 +141,9 @@ In the above example, the ESPHome integration page shows all devices
 this integration has. All the information and options, previously squashed into
 the integration dashboard, are now available here.
 
-This brand new integration page is also helpful in other places in
-Home Assistant. For example, the device pages can now link back directly
-to the integration that provided it.
+These brand new integration pages are helpful in other places in Home Assistant.
+For example, the device pages can now link back directly to the integration
+that provided it.
 
 [ESPHome]: https://esphome.io
 
