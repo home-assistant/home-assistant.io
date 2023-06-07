@@ -334,15 +334,21 @@ There has been quite a bit of progress on Z-Wave in Home Assistant.
 
 Z-Wave JS is now a platinum quality level integration 🏆
 
-## New entities! `date`, `time`, `date_time`
+## New entities! Date, time, date/time
 
-We welcome three new entities types this release:
-[`date`](/integrations/date), [`time`](/integrations/time) & [`date_time`](/integrations/date_time).
+We welcome three new entity types in this release:
+[`date`](/integrations/date), [`time`](/integrations/time) & [`datetime`](/integrations/datetime).
 
-These entities allow integration to provide for date, time, or date/time input
-controls from the UI.
+These entities allow integrations to provide date, time, or date/time input
+controls from the UI. They are very similar to the [input datetime](/integrations/input_datetime)
+helper but are available for use by integrations.
 
-They are so new, that no integrations are using them yet, but you can expect
+<p class='img'>
+<img src='/images/blog/2023-06/new-date-time-entities.png' alt='Screenshot showing the new date & time entities introduced'></a>
+How the new time, date, and date/time entities will look like on your dashboards.
+</p>
+
+They are so new that no integrations are using them yet, but you can expect
 to see usage in (custom) integrations of these soon!
 
 Thanks for creating those [@raman325]!
