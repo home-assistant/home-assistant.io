@@ -466,13 +466,16 @@ The following integrations are now available via the Home Assistant UI:
 - **[Deutscher Wetterdienst (DWD) Weather Warnings]**, done by [@andarotajo]
 - **[GeoJSON]**, done by [@exxamalte]
 - **[Last.fm]**, done by [@joostlek]
+- **[Philips Dynalite]**, done by [@ziv1234]
 
 [@andarotajo]: https://github.com/andarotajo
 [@exxamalte]: https://github.com/exxamalte
 [@joostlek]: https://github.com/joostlek
+[@ziv1234]: https://github.com/ziv1234
 [Deutscher Wetterdienst (DWD) Weather Warnings]: /integrations/dwd_weather_warnings
 [GeoJSON]: /integrations/geo_json_events
 [Last.fm]: /integrations/lastfm
+[Philips Dynalite]: /integrations/dynalite
 
 ## Need help? Join the community!
 
