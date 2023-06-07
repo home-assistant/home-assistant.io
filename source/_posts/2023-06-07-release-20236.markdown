@@ -60,7 +60,7 @@ Enjoy the (beta) release!
 - [Copy 'n paste support in the automation editor](#copy-n-paste-support-in-the-automation-editor)
 - [Python 3.11 and significant performance upgrades](#python-311-and-significant-performance-upgrades)
 - [Matter 1.1](#matter-11)
-- [Z-Wave](#z-wave)
+- [Z-Wave updates](#z-wave-updates)
 - [New entities! Date, time, date/time](#new-entities-date-time-datetime)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
@@ -238,26 +238,40 @@ implementation did not go unnoticed:
 
 [@Diegorro98]: https://github.com/Diegorro98
 
-## Z-Wave
-
-{% details "TODO" %}
-
-- Make a story out of this
-- Proof read/spelling/grammar
-
-{% enddetails %}
+## Z-Wave updates
 
 There has been quite a bit of progress on Z-Wave in Home Assistant.
 
-- Add entities for node statistics so that users can more easily troubleshoot RF issues in their network
-- Add support for Window Covering CC which improves support for blind tilt devices (fixes iBlinds v3)
-- Fix notification CC sensor and button names
-- Proper Indicator CC support (certification requirement)
-- Optimistic state updates for multilevel switch entities (specifically buttons and switches - certification requirement)
-- Add entities for config parameters so they can be included in part of automations (they were already supported in device automations but entities will give users more flexibility)
-- We added better support for z-wave devices related to energy generation
+Thanks to [@raman325], the integration reached platinum level 🏆 on our
+[quality scale]. This means the integration now does things right according
+to best practices which should mean a better user experience in general.
 
-Z-Wave JS is now a platinum quality level integration 🏆
+Have you ever turned on a Z-Wave light from the Home Assistant UI just to see
+the toggle going off again after a couple of seconds, then after some more
+seconds seeing it going back to on? This long-standing issue (that even got the
+nickname flip/flop) for certain devices, that are slow to respond to their
+state has finally been addressed.
+
+For those of you that like to automate everything, you can now automate not
+only the Z-Wave device state but also the device configuration. We added device
+configuration parameter entities so that almost every Z-Wave device setting
+is now available as an entity.
+
+Not stopping there, we also added entities for device connection statistics,
+which you can use to, for example, create a notification if a device generates
+more than a certain amount of dropped messages. If you want to track
+a misbehaving device, you can enable these sensors to view the history
+of the connection performance.
+
+In the background, [@AlCalzone] is working tirelessly on the [Z-Wave JS driver],
+which is the foundation of our Z-Wave integration. Among other things, some
+devices are now faster to interview during addition, and more devices
+can be configured.
+
+[Z-Wave JS driver]: https://github.com/zwave-js/node-zwave-js/
+[@raman325]: https://github.com/raman325
+[quality scale]: /docs/quality_scale/
+[@AlCalzone]: https://github.com/AlCalzone
 
 ## New entities! Date, time, date/time
 
