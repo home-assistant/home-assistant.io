@@ -27,8 +27,7 @@ network storage is absolutely incredible! But I also really enjoy the new and
 clean integrations dashboard and pages.
 
 The feature that greatly improved the Home Approval Factor in my household
-is definitely the addition of the new favorite colors they can quickly pick
-in the light entity dialog 🎨
+is definitely the addition of the new favorite colors in the light dialogs 🎨
 
 Enjoy the release!
 
@@ -93,13 +92,13 @@ of these issues, aiming to provide a cleaner and more consistent experience.
 
 <img class="no-shadow" src='/images/blog/2023-06/integrations-dashboard.png' alt='Screenshot showing the look and feel of the new integrations dashboard.'>
 
-Device base integrations, like ESPHome, are combined: no more scrolling.
+Device based integrations, like ESPHome, are combined: no more scrolling.
 A failing integration does not stretch the layout and no longer makes the
 layout "jump" during retries. Custom integrations and integrations relying
 on the cloud are now more visibly marked.
 
 Selecting the cog icon on the integration card will bring you to a brand new
-integrations page, showing all information about integration:
+integrations page, showing all information about the integration:
 
 <img class="no-shadow" src='/images/blog/2023-06/integration-page.png' alt='Screenshot showing an integration page, in this case, the integration page of ESPHome.'>
 
@@ -151,7 +150,7 @@ Home Assistant will stop you from removing it and tell you which automations
 still rely on it.
 
 Hold on; there is more related! The related items in the entity information
-dialog got improved as well. Told old list of links is gone, and it now shows
+dialog got improved as well. The old list of links is gone, and it now shows
 a way more modern view of all related items for an entity:
 
 <img class="no-shadow" src='/images/blog/2023-06/related-information.png' alt='Screenshot of the improved related entity information dialog.'>
@@ -167,7 +166,7 @@ You can now copy and paste any trigger, condition, and action into different
 places of your automation and even paste it into a different automation
 altogether!
 
-<img class="no-shadow" src='/images/blog/2023-06/cut-copy-past-automations.gif' alt='Screen recording demonstrating cutting & pasting an condition in the automation editor.'>
+<img class="no-shadow" src='/images/blog/2023-06/cut-copy-past-automations.gif' alt='Screen recording demonstrating cutting & pasting a condition in the automation editor.'>
 
 [@karwosts]: https://github.com/karwosts
 
@@ -583,7 +582,7 @@ integration has been disabled.
 
 The upstream project providing the libraries used has been notified repeatedly
 in, at least, the past two years; unfortunately, without response. We had no
-other choice to disable disabling this integration.
+other choice than to disable this integration.
 
 ([@frenck] - [#92124]) ([documentation](/integrations/watson_tts))
 
@@ -595,7 +594,7 @@ other choice to disable disabling this integration.
 {% details "IHC Controller" %}
 
 The default unit of measurement for manually set up sensors from IHC has been
-removed. Home Assistant now assume all sensors with a unit of measurement set
+removed. Home Assistant now assumes all sensors with a unit of measurement set
 are a number. IHC sensors can be text, but because of the default unit of
 measurement, there is currently no way to get text sensors from IHC working.
 
@@ -627,8 +626,8 @@ to update them to match this change.
 {% details "Meteorologisk institutt (Met.no)" %}
 
 The weather forecast provided by the weather entity has changed. The current
-day has been added to the forecast. If your automation or scripts relied
-on the first day to be tomorrow, you would need to adjust.
+day has been added to the forecast. If your automations or scripts rely
+on the first day to be tomorrow, you need to adjust them.
 
 ([@mmalina] - [#91891]) ([documentation](/integrations/met))
 
