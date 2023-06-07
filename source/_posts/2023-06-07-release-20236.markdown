@@ -275,26 +275,25 @@ to toggle between the relative and absolute format!
 Temporary screenrecording that needs to be replaced.
 </p>
 
-## Python 3.11 and major performance upgrades
-
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-
-{% enddetails %}
+## Python 3.11 and significant performance upgrades
 
 This release ships running on Python 3.11! In case you are wondering, what is
 that? Well, Python is the language the Core of Home Assistant is written in.
 
 Why it matters? It is seriously faster! 🚀
 
-And that is not all in terms of performance, we've also upgraded internal parts,
-including a newer SQLite version that should be faster. Oh! And of course
-@bdraco has been all over the place to optimize a lot (a lot lot).
+If you run the Home Assistant Operating System or are using the Home Assistant
+Container installation type: You won't have to do anything as we handle the
+upgrade to Python 3.11 for you.
 
-So this release, can be expected to be a lot faster (or less consuming) of
-resources at runtime.
+And that is not all in terms of performance. We've also upgraded internal parts,
+including a newer SQLite version that should be faster. Oh! And, of course,
+[@bdraco] has been all over the place to optimize a lot (a lot lot).
+
+This release can be expected to be a lot faster (or less consuming) of resources
+at runtime.
+
+[@bdraco]: https://github.com/bdraco
 
 ## Z-Wave
 
