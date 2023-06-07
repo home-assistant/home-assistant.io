@@ -93,7 +93,7 @@ of these issues, aiming to provide a cleaner and more consistent experience.
 <img class="no-shadow" src='/images/blog/2023-06/integrations-dashboard.png' alt='Screenshot showing the look and feel of the new integrations dashboard.'>
 
 Device based integrations, like ESPHome, are combined: no more scrolling.
-A failing integration does not stretch the layout and no longer makes the
+A failing integration no longer stretches the layout or makes the
 layout "jump" during retries. Custom integrations and integrations relying
 on the cloud are now more visibly marked.
 
@@ -145,12 +145,12 @@ that! On the {% my blueprints title="**Settings** > **Automations & Scenes** > *
 page, select the three dotted menu on any blueprint to discover which
 automations are using that blueprint.
 
-Not only that, if you accidentally remove a blueprint that is still in use,
+Not only that, if you accidentally try to remove a blueprint that is still in use,
 Home Assistant will stop you from removing it and tell you which automations
 still rely on it.
 
 Hold on; there is more related! The related items in the entity information
-dialog got improved as well. The old list of links is gone, and it now shows
+dialog were improved as well. The old list of links is gone, and it now shows
 a way more modern view of all related items for an entity:
 
 <img class="no-shadow" src='/images/blog/2023-06/related-information.png' alt='Screenshot of the improved related entity information dialog.'>
