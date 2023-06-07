@@ -687,6 +687,9 @@ removed from your YAML configuration files.
 Persistent notifications are no longer stored in the state machine. This means
 that we no longer create an entity for each persistent notification.
 
+If you used these entities in, for example, automations, scripts, or templates,
+you won't be able to use these anymore.
+
 ([@bdraco] - [#92828]) ([documentation](/integrations/persistent_notification))
 
 [@bdraco]: https://github.com/bdraco
