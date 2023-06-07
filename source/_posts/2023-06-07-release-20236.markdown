@@ -132,7 +132,8 @@ that provided it.
 ## Light entity dialog improvements: favorite colors
 
 Recently we introduced new controls in the light entity dialog, and this release
-iterates on the design by adding new controls and adding favorite colors! 🎨
+iterates on the design by adding the current brightness, new controls,
+and adding favorite colors! 🎨
 
 <img class="no-shadow" src='/images/blog/2023-06/light-dialog-favorite-colors.png' alt='Screenshot showing the improved light entity dialog, with the new favorite colors.'>
 
