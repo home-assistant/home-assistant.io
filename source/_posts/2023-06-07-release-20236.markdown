@@ -410,9 +410,9 @@ noteworthy changes this release:
 We welcome the following new integrations in this release:
 
 - **[Airzone Cloud]**, added by [@Noltari]<br />
-  Launch apps and control your Android TV device.
-- **[Date]** , **[Time]**, and **[Date/Time]**, added by [@raman325]<br />
-  New entity types, that allow integrations to provide date/time controls.
+  Climate control for your Aidoo, Easyzone, or Flexa air conditioners.
+- **[Date]**, **[Time]**, and **[Date/Time]**, added by [@raman325]<br />
+  New entity types that allow integrations to provide date/time controls.
 - **[Electra Smart]**, added by [@jafar-atili]<br />
   Control your Electra Air air conditioner from Home Assistant.
 - **[Google Generative AI Conversation]**, added by [@tronikos]<br />
