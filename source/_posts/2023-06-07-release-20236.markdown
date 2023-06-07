@@ -147,41 +147,18 @@ that provided it.
 
 [ESPHome]: https://esphome.io
 
-## Light entity dialog improvements, with favorite colors
+## Light entity dialog improvements: favorite colors
 
-{% details "TODO" %}
+Recently we introduced new controls in the light entity dialog, and this release
+iterates on the design by adding new controls and adding favorite colors! 🎨
 
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
+<img class="no-shadow" src='/images/blog/2023-06/light-dialog-favorite-colors.png' alt='Screenshot showing the improved light entity dialog, with the new favorite colors.'>
 
-Refs:
+Each light (or light group) has its own set of colors. These colors can
+be added, changed, removed, and reorganized using drag-and-drop. To enter
+edit mode, select and hold one of the colors:
 
-- Light more info enhancement (#16673) @piitaya
-- Update more info light actions (#16512) @piitaya
-- New color picker for HS and color temp (#16549) @piitaya
-- Update default colors for more info light favorite colors (#16688) @piitaya
-- Add button bar for light modes (#16683) @piitaya
-
-{% enddetails %}
-
-Recently we introduced new controls in the light entity dialog, this release
-iterates on the design by adding new controls and adding favorite colors.
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5878303/242213802-301417be-65a5-40b3-aa32-25c3811e9e46.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
-
-The favorite colors can be added and re-organized by holding one of the colors
-to enter the edit mode:
-
-<p class='img'>
-<video controls width="690px">
-  <source src="https://user-images.githubusercontent.com/5878303/242026572-9ff4813a-950f-4002-a0f2-7ed77e69398c.mp4" type="video/mp4">
-</video>
-Temporary screenrecording that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2023-06/edit-favorite-colors.gif' alt='Screen recording demonstrating editing favorite colors.'>
 
 ## Added to the entity dialog: last changed
 
@@ -191,7 +168,7 @@ been added back to the new entity information dialogs.
 Not only that, [@piitaya] added a very nice easter egg! You can click on it
 to toggle between the relative and absolute format!
 
-<img class="no-shadow" src='/images/blog/2023-06/toggle-last-changed.gif' alt='Screen recording demonstrating how to toggle between relative and absolute time.'>
+<center><img class="no-shadow" src='/images/blog/2023-06/toggle-last-changed.gif' alt='Screen recording demonstrating how to toggle between relative and absolute time.'></center>
 
 [@piitaya]: https://github.com/piitaya
 
