@@ -68,7 +68,11 @@ The Mosquitto project runs a [public broker](https://test.mosquitto.org). This i
 
 MQTT broker settings are configured when the MQTT integration is first set up and can be changed later if needed.
 
-Add the MQTT integration, then provide your broker's hostname (or IP address) and port and (if required) the username and password that Home Assistant should use. To change the settings later, click on "Configure" on the integration page in the UI, then "Re-configure MQTT".
+Add the MQTT integration, then provide your broker's hostname (or IP address) and port and (if required) the username and password that Home Assistant should use. To change the settings later, follow these steps:
+
+1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. On the MQTT integration, select the cogwheel. 
+1. Select **Configure**, then **Re-configure MQTT**.
 
 <div class='note'>
 
@@ -120,7 +124,12 @@ A configured client certificate will only be active if broker certificate valida
 
 ## Configure MQTT options
 
-To change the settings, click on "Configure" in the integration page in the UI, then "Re-configure MQTT". Click `NEXT` to open the MQTT options page.
+To change the settings, follow these steps:
+
+1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. On the MQTT integration, select the cogwheel. 
+1. Select **Configure**, then **Re-configure MQTT**.
+1. To open the MQTT options page, select **Next**.
 
 ### Discovery options
 
@@ -143,7 +152,11 @@ The `mosquitto` broker package ships commandline tools (often as `*-clients` pac
 mosquitto_pub -h 127.0.0.1 -t homeassistant/switch/1/on -m "Switch is ON"
 ```
 
-Another way to send MQTT messages manually is to use the "MQTT" integration in the frontend. Choose "Settings" on the left menu, click "Devices & Services", and choose "Configure" in the "Mosquitto broker" tile. Enter something similar to the example below into the "topic" field under "Publish a packet" and press "PUBLISH" .
+Another way to send MQTT messages manually is to use the **MQTT** integration in the frontend. Choose "Settings" on the left menu, click "Devices & Services", and choose "Configure" in the "Mosquitto broker" tile. Enter something similar to the example below into the "topic" field under "Publish a packet" and press "PUBLISH" .
+
+1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. On the Mosquitto broker integration, select the cogwheel, then select **Configure**.
+1. Enter something similar to the example below into the **topic** field under **Publish a packet**. Select **Publish**.
 
 ```bash
    homeassistant/switch/1/power
