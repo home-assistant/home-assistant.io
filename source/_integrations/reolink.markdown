@@ -204,6 +204,18 @@ However, these cameras can work with this integration through an NVR in which th
 - E1 Pro
 - E1
 
+## Initial Setup
+
+You'll need to configure your new camera/doorbell for your network. If you're using a wired LAN this is simple enough. Simply plug it in and let it use DHCP to set itself up. Once it's recognized by your network you can access its configuration with a web browser.
+
+If you prefer to use Wi-Fi, especially if you want to retrict it to a local IOT network, [here's a quick way to get it connected](https://www.reddit.com/r/reolink/comments/hjn5be/how_to_connect_wifi_without_an_app/). Simply create a QR code with the following XML string:
+
+    <QR><S>ssid</S><P>password</P><C>last4</C></QR>
+
+Use the `ssid` and `password` of your IOT network. The `last4` is the last 4 digits of the QR code used for the Reolink setup - it's printed under the QR code or simply scan the QR code and grab the last 4 digites.
+
+Then power up the camera while pointing it at the QR code. It takes about a minute to initialize, read the QR code, and attach.
+
 ## Troubleshooting
 
 - Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) prior to setting up the integration. Note that Reolink auto update and check for update functions in the app/windows/web client often do not show the latest available firmware version. Therefore check the version in the [Reolink download center](https://reolink.com/download-center/) online.
