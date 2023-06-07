@@ -44,3 +44,28 @@ We are working on adding a lot of features to the core integration. We have reve
 - Status information such as errors, clean time, consumables, etc.
 - Viewing the camera
 - Viewing the map
+
+### How can I clean a specific room?
+We plan to make the process simplier in the future, but for now it is a multi-step process.
+1) Enable debug logging for this integration and reload it.
+2) Search your logs for 'Got home data' and then find the attribute rooms.
+3) Write the rooms down, they have a name and 6 digit id
+4) Go to Developer Tools -> Services -> Vacuum: Send Command and select your vacuum as the entity and 'get_room_mapping' as the command
+5) Go back to your logs and look at the response to get_room_mapping, this is a list of the 6 digit ids you saw earlier to 2 digit ids. In your original list of room names and 6 digit ids, replace the 6 digit id with its pairing 2 digit id.
+6) Now you have the 2 digit id that your vacuum uses to describe a room.
+7) Go back to Developer Tools -> Services -> Vacuum: Send Command then type in app_segment_clean as your command and 'segments' with a list of the two digit ids you want to clean and then 'repeats' with a number 1->3 to determine how many times you want to clean these areas.
+
+Example:
+```
+service: vacuum.send_command
+data:
+  command: app_segment_clean
+  params:
+    - segments:
+        - 22
+        - 23
+    - repeats: 1
+target:
+  entity_id: vacuum.s7_roborock
+
+```
