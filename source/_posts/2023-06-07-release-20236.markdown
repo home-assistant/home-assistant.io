@@ -197,36 +197,22 @@ to toggle between the relative and absolute format!
 
 ## Related information
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-Refs:
-
-- Tweak style of related items (#16672) @bramkragten
-- Related blueprints (#16618) @bramkragten
-
-{% enddetails %}
-
-Which automation used that blueprint? Well, Home Assistant can now tell you
+Which automation is using that blueprint? Well, Home Assistant can now tell you
 that! On the {% my blueprints title="**Settings** > **Automations & Scenes** > **Blueprints**" %}
-page you can now hit the trippel dotted menu on any blueprint to discover which
+page, select the three dotted menu on any blueprint to discover which
 automations are using that blueprint.
 
-Now only that, if you accidentially remove a blueprint that is still in use,
-Home Assistant will stop you from doing that and tell you which automations
+Not only that, if you accidentally remove a blueprint that is still in use,
+Home Assistant will stop you from removing it and tell you which automations
 still rely on it.
 
-But wait, there is more related! The related items in the entity information
+Hold on; there is more related! The related items in the entity information
 dialog got improved as well. Told old list of links is gone, and it now shows
 a way more modern view of all related items for an entity:
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5662298/242026603-be5cd16a-a321-4bae-b4a0-3b68feaf39a6.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2023-06/related-information.png' alt='Screenshot of the improved related entity information dialog.'>
+
+Notice how it nicely links back to the new integration page here too!
 
 ## Copy 'n paste support in the automation editor
 
