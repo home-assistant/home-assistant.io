@@ -46,7 +46,7 @@ We are working on adding a lot of features to the core integration. We have reve
 - Viewing the map
 
 ### How can I clean a specific room?
-We plan to make the process simplier in the future, but for now it is a multi-step process.
+We plan to make the process simpler in the future, but for now it is a multi-step process.
 1) Enable debug logging for this integration and reload it.
 2) Search your logs for 'Got home data' and then find the attribute rooms.
 3) Write the rooms down, they have a name and 6 digit id
@@ -56,7 +56,7 @@ We plan to make the process simplier in the future, but for now it is a multi-st
 7) Go back to Developer Tools -> Services -> Vacuum: Send Command then type in app_segment_clean as your command and 'segments' with a list of the two digit ids you want to clean and then 'repeats' with a number 1->3 to determine how many times you want to clean these areas.
 
 Example:
-```
+```yaml
 service: vacuum.send_command
 data:
   command: app_segment_clean
