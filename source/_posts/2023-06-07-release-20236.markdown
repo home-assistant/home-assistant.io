@@ -176,30 +176,16 @@ Notice how it nicely links back to the new integration page here too!
 
 ## Copy 'n paste support in the automation editor
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-Refs:
-
-- Add cut / copy / paste support to automation & script editor (#16488) @karwosts
-- https://github.com/home-assistant/frontend/pull/16488
-
-{% enddetails %}
-
-An amazing contribution by @karwosts this release, that adds cut, copy & paste
-capabilities to the automation and script editors!
+An amazing contribution by [@karwosts] in this release that adds cut, copy
+& paste capabilities to the automation and script editors!
 
 You can now copy and paste any trigger, condition, and action into different
-places of your automation, and even past it into a different automation all
-together!
+places of your automation and even paste it into a different automation
+altogether!
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/32912880/237117102-21fcc059-f959-4989-9079-1a158befb6b6.gif'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+<img class="no-shadow" src='/images/blog/2023-06/cut-copy-past-automations.gif' alt='Screen recording demonstrating cutting & pasting an condition in the automation editor.'>
+
+[@karwosts]: https://github.com/karwosts
 
 ## Python 3.11 and significant performance upgrades
 
