@@ -492,17 +492,9 @@ other news about building an Open Home; straight into your inbox.
 
 ## Breaking Changes
 
-{% details "TODO" %}
-
-- Proof read/spelling/grammar
-
-**Note**: Breaking changes processed up to PR 92223
-
-{% enddetails %}
-
 {% details "Python" %}
 
-All Home Assistant versions of which the Home Assistant project manages the
+All Home Assistant versions, of which the Home Assistant project manages the
 Python version for you, have been upgraded to Python 3.11. This affects
 the following installation types:
 
@@ -510,16 +502,16 @@ the following installation types:
 - Home Assistant Container
 - Home Assistant Supervised
 
-This might affect you when you are using custom integrations, as those have
-to be compatible with Python 3.11.
+This might affect you when using custom integrations, as those must be
+compatible with Python 3.11.
 
-Furthermore, as of this release, Python 3.10 is deprecated and support will
+Furthermore, as of this release, Python 3.10 is deprecated, and support will
 be removed in Home Assistant 2023.8. This **only** affects you if you are
 running Home Assistant Core installation type in your own Python virtual
 environment. Please update your Python version to Python 3.11.
 
-If you run Home Assistant OS, Home Assistant Container or Home Assistant
-Supervised, we have taken care of this for you, you will be using Python 3.11
+If you run Home Assistant OS, Home Assistant Container, or Home Assistant
+Supervised, we have taken care of this for you; you will be using Python 3.11
 automatically on upgrade.
 
 {% enddetails %}
@@ -527,8 +519,8 @@ automatically on upgrade.
 {% details "APC UPS Daemon" %}
 
 `sensor.ups_self_test_interval` sensor now properly splits unit "days" from the
-raw data. Previously, it will show `7 days` as sensor state, now it shows `7`
-with a unit "Days".
+raw data. Previously, it would show `7 days` as the sensor state.
+Now it shows `7` with a unit "Days".
 
 ([@yuxincs] - [#93844]) ([documentation](/integrations/apcupsd))
 
@@ -540,9 +532,9 @@ with a unit "Days".
 {% details "Counter" %}
 
 The `counter` entities no longer restore their previous manually set
-configuration (using the, now deprecated, `counter.configure` service) on
+configuration (using the - now deprecated - `counter.configure` service) on
 Home Assistant startup. Instead, it will now use the configuration as set in
-the helper configuration in the UI (or as configured YAML, if that is used).
+the helper configuration in the UI (or as configured YAML, if used).
 
 This behavior is removed, as it caused configuration issues, as the new
 configuration was never applied again (but forever restored). This behavior was
@@ -592,8 +584,8 @@ removed from your YAML configuration files.
 
 {% details "EZVIZ" %}
 
-The binary sensor providing "upgrade available" information, has been removed
-and replaced by a new `update` entity. If you used the binary sensor in your
+The binary sensor providing "upgrade available" information has been removed
+and replaced by a new `update` entity. If you use the binary sensor in your
 automations, scripts, or dashboards, you will need to adjust them to
 this change.
 
@@ -641,9 +633,9 @@ Home Assistant was still using the legacy Python pip package resolver, which
 has been removed. Due to upstream package conflicts, the IBM Watson TTS
 integration has been disabled.
 
-The upstream project providing the libaries used, has been notified repeatedly
+The upstream project providing the libraries used has been notified repeatedly
 in, at least, the past two years; unfortunately, without response. We had no
-other choice than disabling this integration.
+other choice to disable disabling this integration.
 
 ([@frenck] - [#92124]) ([documentation](/integrations/watson_tts))
 
@@ -654,13 +646,13 @@ other choice than disabling this integration.
 
 {% details "IHC Controller" %}
 
-The default unit of measurement for manually set up sensors from IHC have been
-removed. Home assistant now assume all sensors with unit of measurement set is
-a number. IHC sensors can be text, but because of the default unit of
+The default unit of measurement for manually set up sensors from IHC has been
+removed. Home Assistant now assume all sensors with a unit of measurement set
+are a number. IHC sensors can be text, but because of the default unit of
 measurement, there is currently no way to get text sensors from IHC working.
 
-This is a breaking fix, because if you currently have temperature sensors
-without unit of measurement set, you will have to set this for the sensors.
+This is a breaking fix because if you currently have temperature sensors
+without a unit of measurement set, you will have to set this for the sensors.
 
 ([@dingusdk] - [#91096]) ([documentation](/integrations/ihc))
 
@@ -671,8 +663,8 @@ without unit of measurement set, you will have to set this for the sensors.
 
 {% details "LG Netcast" %}
 
-LG Netcast media player do no longer have fake (assumed) `playing` or `paused`
-states and those are replaced with the `on` state.
+LG Netcast media players no longer have fake (assumed) `playing` or `paused`
+states, and those are replaced with the `on` state.
 
 If you used the `playing` or `paused` state in your automations, you will need
 to update them to match this change.
@@ -686,9 +678,9 @@ to update them to match this change.
 
 {% details "Meteorologisk institutt (Met.no)" %}
 
-The weather forecast provided by the weather entity has changes. The current
+The weather forecast provided by the weather entity has changed. The current
 day has been added to the forecast. If your automation or scripts relied
-on the first day to be tomorrow, you will need to adjust.
+on the first day to be tomorrow, you would need to adjust.
 
 ([@mmalina] - [#91891]) ([documentation](/integrations/met))
 
@@ -752,6 +744,15 @@ that we no longer create an entity for each persistent notification.
 [@bdraco]: https://github.com/bdraco
 [#92828]: https://github.com/home-assistant/core/pull/92828
 
+---
+
+The `persistent_notification.mark_read` service has been removed.
+
+([@bdraco] - [#94122]) ([documentation](/integrations/persistent_notification))
+
+[@bdraco]: https://github.com/bdraco
+[#94122]: https://github.com/home-assistant/core/pull/94122
+
 {% enddetails %}
 
 {% details "Rain Bird" %}
@@ -786,9 +787,9 @@ Home Assistant was still using the legacy Python pip package resolver, which
 has been removed. Due to upstream package conflicts, the Salda Smarty
 integration has been disabled.
 
-The upstream project providing the libaries used, has been notified repeatedly
+The upstream project providing the libraries used has been notified repeatedly
 in, at least, the past two years; unfortunately, without response. We had no
-other choice than disabling this integration.
+other choice than to disable this integration.
 
 ([@frenck] - [#92124]) ([documentation](/integrations/smarty))
 
@@ -815,7 +816,7 @@ removed from your YAML configuration files.
 
 {% details "Total Connect" %}
 
-The tampered and low battery status zone attribute have been moved into their
+The tampered and low battery status zone attributes have been moved into their
 own dedicated binary sensors. If you use these attributes in your automations,
 scripts, or dashboards, you will need to update those to reflect this change.
 
@@ -829,7 +830,7 @@ scripts, or dashboards, you will need to update those to reflect this change.
 {% details "Universal Devices ISY/IoX" %}
 
 The previously deprecated sensor entities for Insteon devices' On Level and
-Ramp Rate, as well as ISY Variable sensors have been removed, please use the
+Ramp Rate, as well as ISY Variable sensors, have been removed. Please use the
 dedicated `number` and `select` entities instead.
 
 ([@shbatm] - [#92255]) ([documentation](/integrations/isy994))
@@ -901,6 +902,16 @@ changes and new features available for your integration: Be sure to follow our
 - [Statistics WebSocket API changes](https://developers.home-assistant.io/blog/2023/04/30/statistics_impossible_values)
 
 [devblog]: https://developers.home-assistant.io/blog/
+
+## Farewell to the following
+
+The following integrations are also no longer available as of this release:
+
+- **Goalfeed** has been removed. Their service has been discontinued.
+  ([@thecode] - [#94129])
+
+[@thecode]: https://github.com/thecode
+[#94129]: https://github.com/home-assistant/core/pull/94129
 
 ## All changes
 
