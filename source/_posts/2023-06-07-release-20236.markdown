@@ -77,41 +77,23 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 ## Connect and use your existing network storage
 
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-Refs:
-
-- Include share as mount usage option (#16636) @ludeeus
-- Add dialog to change default backup location (#16610) @ludeeus
-- Add UI for network mounts (#16357) @ludeeus
-
-{% enddetails %}
-
 Do you have a network storage in your home? Like a QNAP or Synology NAS?
-This release add the ability to add and use that storage with Home Assistant!
+This release adds the ability to add and use that storage with Home Assistant!
 
-This long and highly requested feature, is now available when you are running
-the Home Assistant Operating System. In the {% my storage title="**Settings** > **System** > **Storage**" %}
+This long and highly requested feature is now available when running the
+Home Assistant Operating System. In the {% my storage title="**Settings** > **System** > **Storage**" %}
 menu, you can now find a whole new set of controls to connect to your storage
-and use it to, for example, use as your network share as a media source
+and use it to, for example, use your network share as a media source
 in Home Assistant.
 
-Even better... You can use it as a target for your backups, so that when
-Home Assistant creates a backup for you, it will be "off-site".
+<img class="no-shadow" src='/images/blog/2023-06/network-storage.png' alt='Screenshot showing two external network storages attached to Home Assistant.'>
 
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/15093472/235440103-6fa6cdad-85f8-4e46-a4d3-2a5ddf1e9500.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+Even better: You can use it as a target for your backups so that when
+Home Assistant creates a backup for you, it will store it directly on
+your network storage.
 
-<p class='img'>
-<img src='https://raw.githubusercontent.com/home-assistant/home-assistant.io/5fce2401dad4c72f99067353dc12ede23d63549a/source/images/screenshots/network-storage/connect_light.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
+Multiple network storages are also supported; if you like, you can
+easily add more.
 
 ## Integrations dashboard & pages
 
