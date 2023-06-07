@@ -53,23 +53,25 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [Connect and use your existing network storage](#connect-and-use-your-existing-network-storage)
+- [Integrations dashboard \& pages](#integrations-dashboard--pages)
 - [Light entity dialog improvements, with favorite colors](#light-entity-dialog-improvements-with-favorite-colors)
-- [Integration pages](#integration-pages)
-- [Copy 'n paste support in the automation and script editors](#copy-n-paste-support-in-the-automation-and-script-editors)
-- [Related information](#related-information)
 - [Last changed added to the entity dialog](#last-changed-added-to-the-entity-dialog)
-- [Python 3.11 and major performance upgrades](#python-311-and-major-performance-upgrades)
+- [Related information](#related-information)
+- [Copy 'n paste support in the automation editor](#copy-n-paste-support-in-the-automation-editor)
+- [Python 3.11 and significant performance upgrades](#python-311-and-significant-performance-upgrades)
+- [Matter 1.1](#matter-11)
 - [Z-Wave](#z-wave)
-- [New entities! `date`, `time`, `date_time`](#new-entities-date-time-date_time)
+- [New entities! Date, time, date/time](#new-entities-date-time-datetime)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Breaking Changes](#breaking-changes)
+- [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
 Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=C1eLZLtvc_k)
-3 May 2023, at 12:00 PDT / 21:00 CEST!
+7 June 2023, at 12:00 PDT / 21:00 CEST!
 
 <lite-youtube videoid="C1eLZLtvc_k" videotitle="Home Assistant 2023.6 Release Party"></lite-youtube>
 
@@ -92,9 +94,11 @@ Refs:
 Do you have a network storage in your home? Like a QNAP or Synology NAS?
 This release add the ability to add and use that storage with Home Assistant!
 
-In the {% my storage title="**Settings** > **Storage**" %} menu, you can now
-find a whole new set of controls to connect to your storage and use it to,
-for example, use as your network share as a media source in Home Assistant.
+This long and highly requested feature, is now available when you are running
+the Home Assistant Operating System. In the {% my storage title="**Settings** > **System** > **Storage**" %}
+menu, you can now find a whole new set of controls to connect to your storage
+and use it to, for example, use as your network share as a media source
+in Home Assistant.
 
 Even better... You can use it as a target for your backups, so that when
 Home Assistant creates a backup for you, it will be "off-site".
@@ -108,6 +112,40 @@ Temporary screenshot that needs to be replaced.
 <img src='https://raw.githubusercontent.com/home-assistant/home-assistant.io/5fce2401dad4c72f99067353dc12ede23d63549a/source/images/screenshots/network-storage/connect_light.png'></a>
 Temporary screenshot that needs to be replaced.
 </p>
+
+## Integrations dashboard & pages
+
+The integrations dashboard has gotten a major overhaul!
+
+There have been quite some usability issues with the previous version of the
+integration dashboard. For example, if you use [ESPHome] with many devices,
+you are undoubtedly familiar with the annoying scrolling in that little card. Or,
+big error messages stretching those cards out, messing up the whole page.
+
+This release brings in a whole new integrations dashboard that addresses many
+of these issues, aiming to provide a cleaner and more consistent experience.
+
+<img class="no-shadow" src='/images/blog/2023-06/integrations-dashboard.png' alt='Screenshot showing the look and feel of the new integrations dashboard.'>
+
+Device base integrations, like ESPHome, are combined: no more scrolling.
+A failing integration does not stretch the layout and no longer makes the
+layout "jump" during retries. Custom integrations and integrations relying
+on the cloud are now more visibly marked.
+
+Selecting the cog icon on the integration card will bring you to a brand new
+integrations page, showing all information about integration:
+
+<img class="no-shadow" src='/images/blog/2023-06/integration-page.png' alt='Screenshot showing an integration page, in this case, the integration page of ESPHome.'>
+
+In the above example, the ESPHome integration page shows all devices
+this integration has. All the information and options, previously squashed into
+the integration dashboard, are now available here.
+
+This brand new integration page is also helpful in other places in
+Home Assistant. For example, the device pages can now link back directly
+to the integration that provided it.
+
+[ESPHome]: https://esphome.io
 
 ## Light entity dialog improvements, with favorite colors
 
@@ -145,7 +183,7 @@ to enter the edit mode:
 Temporary screenrecording that needs to be replaced.
 </p>
 
-## Integration pages
+## Last changed added to the entity dialog
 
 {% details "TODO" %}
 
@@ -155,64 +193,21 @@ Temporary screenrecording that needs to be replaced.
 
 Refs:
 
-- Overhaul Integrations page, add integration page (#16640) @bramkragten
+- Add last-changed date to more-info (#16509) @piitaya
 
 {% enddetails %}
 
-The integrations page had gotten a major overhaul this release!
+By popular request, the information on when an entity was last changed,
+has been added back to into the new entity information dialogs.
+
+Not only that, @piitaya added a very nice easter egg! You can click on it
+to toggle between the relative and absolute format!
 
 <p class='img'>
-<img src='https://user-images.githubusercontent.com/5662298/241394494-56c2d763-423e-4bf2-8c85-8cb0d9a14920.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
-
-Some things to notice in the above screenshot:
-
-- Device base integrations, like ESPHome, are now combined in a single card that
-  doesn't require scrolling anymore
-- The failing integration entry for deCONZ in the above screenshot, no longer
-  displays large error messages and thus does not stretch the layout.
-- Custom integrations and integrations relying on the cloud, are now more
-  visibly marked.
-
-Selecting the cog icon on the integration card, will bring you to a brand new
-integrations page, showing all information about integration:
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/5662298/241394598-88b1e856-c337-4ba1-adf4-23a290251131.png'></a>
-Temporary screenshot that needs to be replaced.
-</p>
-
-In the above example, the ESPHome integration page, shows all integration
-entries this integration has. This page provides all the options and information
-that used to be "stuffed" into the integration card on the old integrations
-dashboard.
-
-## Copy 'n paste support in the automation and script editors
-
-{% details "TODO" %}
-
-- Improve/extend story
-- Proof read/spelling/grammar
-- Replace screenshot
-
-Refs:
-
-- Add cut / copy / paste support to automation & script editor (#16488) @karwosts
-- https://github.com/home-assistant/frontend/pull/16488
-
-{% enddetails %}
-
-An amazing contribution by @karwosts this release, that adds cut, copy & paste
-capabilities to the automation editor!
-
-You can now copy and paste any trigger, condition, and action into different
-places of your automation, and even past it into a different automation all
-together!
-
-<p class='img'>
-<img src='https://user-images.githubusercontent.com/32912880/237117102-21fcc059-f959-4989-9079-1a158befb6b6.gif'></a>
-Temporary screenshot that needs to be replaced.
+<video controls width="690px">
+  <source src="https://user-images.githubusercontent.com/5878303/237703725-3732613e-e681-4ee2-84c3-ce1ab3f7f083.mp4" type="video/mp4">
+</video>
+Temporary screenrecording that needs to be replaced.
 </p>
 
 ## Related information
@@ -248,7 +243,7 @@ a way more modern view of all related items for an entity:
 Temporary screenshot that needs to be replaced.
 </p>
 
-## Last changed added to the entity dialog
+## Copy 'n paste support in the automation editor
 
 {% details "TODO" %}
 
@@ -258,21 +253,21 @@ Temporary screenshot that needs to be replaced.
 
 Refs:
 
-- Add last-changed date to more-info (#16509) @piitaya
+- Add cut / copy / paste support to automation & script editor (#16488) @karwosts
+- https://github.com/home-assistant/frontend/pull/16488
 
 {% enddetails %}
 
-By popular request, the information on when an entity was last changed,
-has been added back to into the new entity information dialogs.
+An amazing contribution by @karwosts this release, that adds cut, copy & paste
+capabilities to the automation and script editors!
 
-Not only that, @piitaya added a very nice easter egg! You can click on it
-to toggle between the relative and absolute format!
+You can now copy and paste any trigger, condition, and action into different
+places of your automation, and even past it into a different automation all
+together!
 
 <p class='img'>
-<video controls width="690px">
-  <source src="https://user-images.githubusercontent.com/5878303/237703725-3732613e-e681-4ee2-84c3-ce1ab3f7f083.mp4" type="video/mp4">
-</video>
-Temporary screenrecording that needs to be replaced.
+<img src='https://user-images.githubusercontent.com/32912880/237117102-21fcc059-f959-4989-9079-1a158befb6b6.gif'></a>
+Temporary screenshot that needs to be replaced.
 </p>
 
 ## Python 3.11 and significant performance upgrades
