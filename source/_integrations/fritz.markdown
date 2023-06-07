@@ -76,10 +76,10 @@ If no password is given, it will be auto-generated.
 | `password`             | yes      | New password for the guest wifi                                                                                |
 | `length`               | yes      | Length of the auto-generated password. (_default 12_)                        |
 
-## Integration Options
+## Integration options
 
 It is possible to change some behaviors through the integration options.
-These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrations page.
+To change the settings, go to {% my integrations title="**Settings** > **Devices & Services**" %}. On the **AVM FRITZ!Box Tools** integration, select the cogwheel. Then select **Configure**.
 
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
 - **Enable old discovery method**: Needed on some scenarios like no mesh support (fw <= 6.x), mixed brands network devices or LAN switches.
