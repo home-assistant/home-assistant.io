@@ -9,6 +9,8 @@ ha_release: 2023.7
 ha_config_flow: true
 ha_domain: dremel_3d_printer
 ha_platforms:
+  - binary_sensor
+  - camera
   - Sensor
 ha_codeowners:
   - '@tkdrob'

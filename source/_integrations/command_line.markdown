@@ -74,6 +74,11 @@ command_line:
           description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
           required: false
           type: string
+        scan_interval:
+          description: Define time in seconds between each update.
+          required: false
+          type: integer
+          default: 60
     cover:
       description: Cover platform.
       required: false
@@ -115,6 +120,11 @@ command_line:
           description: if specified, `command_state` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `command_state` returns a string "open", using `value_template` as in the example configuration above will allow you to translate that into the valid state `100`.
           required: false
           type: template
+        scan_interval:
+          description: Define time in seconds between each update.
+          required: false
+          type: integer
+          default: 15
     notify:
       description: Notify platform.
       required: false
@@ -168,6 +178,21 @@ command_line:
           description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
           required: false
           type: string
+        device_class:
+          description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
+          required: false
+          type: device_class
+          default: None
+        state_class:
+          description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor."
+          required: false
+          type: string
+          default: None
+        scan_interval:
+          description: Define time in seconds between each update.
+          required: false
+          type: integer
+          default: 60
     switch:
       description: Switch platform.
       required: false
@@ -206,6 +231,11 @@ command_line:
           description: "If specified, `command_state` will ignore the result code of the command but the template evaluating to `true` will indicate the switch is on."
           required: false
           type: string
+        scan_interval:
+          description: Define time in seconds between each update.
+          required: false
+          type: integer
+          default: 30
 {% endconfiguration %}
 
 ## Binary sensor

@@ -1,6 +1,6 @@
 ---
-title: Google Translate Text-to-Speech
-description: Instructions on how to setup Google Translate Text-to-Speech with Home Assistant.
+title: Google Translate text-to-speech
+description: Instructions on how to setup Google Translate text-to-speech with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 0.35
@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `google_translate` text-to-speech platform uses the unofficial [Google Translate Text-to-Speech engine](https://translate.google.com/) to read a text with natural sounding voices. Contrary to what the name suggests, the integration only does text-to-speech and does not translate messages sent to it.
+The `google_translate` text-to-speech platform uses the unofficial [Google Translate text-to-speech engine](https://translate.google.com/) to read a text with natural sounding voices. Contrary to what the name suggests, the integration only does text-to-speech and does not translate messages sent to it.
 
 ## Configuration
 
