@@ -90,7 +90,7 @@ The message attribute supports the [Markdown formatting syntax](https://daringfi
 
 ### Create a persistent notification
 
-Choose the **{% my developer_services title="Services" %}** tab from the **Developer Tools** sidebar item, then select the `{% my developer_services service=persistent_notification.create title="persistent_notification.create" %}` service from the "Service" dropdown. Enter something like the sample below into the **Service Data** field and press the **CALL SERVICE** button.
+Choose the **{% my developer_services title="Services" %}** tab from the **Developer Tools** sidebar item, then select the `{% my developer_services service="persistent_notification.create" title="persistent_notification.create" %}` service from the "Service" dropdown. Enter something like the sample below into the **Service Data** field and press the **CALL SERVICE** button.
 
 ```json
 {
