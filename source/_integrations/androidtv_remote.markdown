@@ -170,8 +170,6 @@ Other:
 
 {% enddetails %}
 
-For a full list see [here](https://github.com/tronikos/androidtvremote2/blob/main/src/androidtvremote2/remotemessage.proto#L90).
-
 If `activity` is specified in `remote.turn_on` it will open the specified URL in the associated app. See [Launching apps section](#launching-apps).
 
 Examples of service calls:
