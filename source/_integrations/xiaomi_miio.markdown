@@ -1599,9 +1599,7 @@ Go the specified coordinates.
 | `x_coord`                 |       no | X-coordinate, integer value. The dock is located at x-coordinate 25500. |
 | `y_coord`                 |       no | Y-coordinate, integer value. The dock is located at y-coordinate 25500. |
 
-<div class='note'>
-If your vacuum is in motion and does not respond to the `xiaomi_miio.vacuum_goto` command, call the `vacuum.pause` or `vacuum.stop` service first.
-</div>
+Note: If your vacuum is in motion and does not respond to the `xiaomi_miio.vacuum_goto` command, call the `vacuum.pause` or `vacuum.stop` service first.
 
 ### Service `xiaomi_miio.vacuum_remote_control_start`
 
