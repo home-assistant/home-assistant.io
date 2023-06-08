@@ -422,9 +422,8 @@ To improve security and reduce phishing risk Google has [deprecated](https://dev
 {% details "Reconfigure the integration %}
 
 1. Make sure to upgrade to the latest version of Home Assistant.
-1. In the sidebar click on _**{% my config icon %}**_.
-1. From the configuration menu select: _**{% my integrations %}**_.
-1. The *Nest* integration should appear with alert.
+1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. The **Nest** integration should appear with alert.
 
     ![Screenshot of success](/images/integrations/nest/attention.png)
 
