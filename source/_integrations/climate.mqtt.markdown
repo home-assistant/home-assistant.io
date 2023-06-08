@@ -415,7 +415,7 @@ If a property works in *optimistic mode* (when the corresponding state topic is 
 
 ## Last active operation mode
 
-Home Assistant remembers the last active operation mode for a MQTT HVAC device. When the device is turned using the `climate.turn_on` service the last known active operation mode will be set to turn on the device.
+Home Assistant remembers the last active operation mode for a MQTT HVAC device. When the device is turned using the `climate.turn_on` service the last known active operation mode will be set to turn on the device. The last active operation mode is also exposed via state attribute `last_active_mode`.
 
 ## Using Templates
 
