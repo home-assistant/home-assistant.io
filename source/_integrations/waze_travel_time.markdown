@@ -27,7 +27,7 @@ Notes:
 
 ## Manual Polling
 
-Some users want more control over polling intervals. To use more granular polling, you can disable automated polling. Go to {% my integrations title="**Settings** > **Devices & Services**" %}, and on the **Waze Travel Time** integration, select the 3 dots. Then, select **System options** and toggle the button to disable polling. To manually trigger a polling request, call the [`homeassistant.update_entity` service](/integrations/homeassistant/#service-homeassistantupdate_entity) as needed, either manually or via automations.
+Some users want more control over polling intervals. To use more granular polling, you can disable automated polling. Go to {% my integrations title="**Settings** > **Devices & Services**" %}, and on the **Waze Travel Time** integration, select the cogwheel. On the integration entry, select the three dots. Then, select **System options** and toggle the button to disable polling. To manually trigger a polling request, call the [`homeassistant.update_entity` service](/integrations/homeassistant/#service-homeassistantupdate_entity) as needed, either manually or via automations.
 
 ## Example using dynamic destination
 
