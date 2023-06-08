@@ -68,7 +68,7 @@ data:
     - segments:
         - 22
         - 23
-    - repeats: 1
+    - repeat: 1
 target:
   entity_id: vacuum.s7_roborock
 
