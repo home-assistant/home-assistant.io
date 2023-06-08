@@ -206,13 +206,13 @@ However, these cameras can work with this integration through an NVR in which th
 
 ## Initial Setup
 
-You'll need to configure your new camera/doorbell for your network. If you're using a wired LAN this is simple enough. Simply plug it in and let it use DHCP to set itself up. Once it's recognized by your network you can access its configuration with a web browser.
+You'll need to configure your new camera/doorbell for your network. If you're using a wired LAN, this is simple enough. Simply plug it in and let it use DHCP to set itself up. Once it's recognized by your network, you can access its configuration with a web browser.
 
-If you prefer to use Wi-Fi, especially if you want to retrict it to a local IoT network, [here's a quick way to get it connected](https://www.reddit.com/r/reolink/comments/hjn5be/how_to_connect_wifi_without_an_app/). Simply create a QR code with the following XML string:
+If you prefer to use Wi-Fi, especially if you want to restrict it to a local IoT network, [here's a quick way to get it connected](https://www.reddit.com/r/reolink/comments/hjn5be/how_to_connect_wifi_without_an_app/). Simply create a QR code with the following XML string:
 
     <QR><S>ssid</S><P>password</P><C>last4</C></QR>
 
-Use the `ssid` and `password` of your IoT network. The `last4` is the last 4 digits of the QR code used for the Reolink setup - it's printed under the QR code or simply scan the QR code and grab the last 4 digites.
+Use the `ssid` and `password` of your IoT network. The `last4` is the last 4 digits of the QR code used for the Reolink setup. It's printed under the QR code. You can also scan the QR code and grab the last 4 digits.
 
 Then power up the camera while pointing it at the QR code. It takes about a minute to initialize, read the QR code, and attach.
 
