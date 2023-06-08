@@ -10,6 +10,7 @@ ha_codeowners:
   - '@IceBotYT'
 ha_domain: lacrosse_view
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---

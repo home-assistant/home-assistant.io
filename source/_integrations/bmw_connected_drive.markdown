@@ -11,6 +11,7 @@ ha_category:
   - Presence Detection
   - Select
   - Sensor
+  - Switch
 ha_release: 0.64
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -28,6 +29,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -50,6 +52,7 @@ This integration provides the following platforms:
 - [Notifications](/integrations/bmw_connected_drive/#notifications): Send Points of Interest (POI) to your car.
 - [Buttons](/integrations/bmw_connected_drive/#buttons): Turn on air condition, sound the horn, flash the lights, update the vehicle location and update the state.
 - [Selects](/integrations/bmw_connected_drive/#selects): Display and control charging related settings for (PH)EVs.
+- [Switches](/integrations/bmw_connected_drive/#switches): Display and toggle settings on your car.
 - [Numbers](/integrations/bmw_connected_drive/#numbers): Display and control numeric charging related settings for (PH)EVs.
 
 ## Configuration
@@ -107,10 +110,6 @@ The air conditioning of the vehicle can be activated with the `button.<your_vehi
 
 What exactly is started here depends on the type of vehicle. It might range from just ventilation over auxiliary heating to real air conditioning. If your vehicle is equipped with auxiliary heating, only trigger this service if the vehicle is parked in a location where it is safe to use it (e.g., not in an underground parking or closed garage).
 
-Some newer cars also support stopping an active air conditioning with the `button.<your_vehicle>_deactivate_air_conditioning` button.
-
-This will only work if you have the option to stop the AC in the *MyBMW* app. If your car doesn't support this service, nothing will happen.
-
 ### Sound the horn
 
 The `button.<your_vehicle>_sound_horn` button sounds the horn of the vehicle. This option is not available in some countries (among which  the UK). Use this feature responsibly, as it might annoy your neighbors.
@@ -148,6 +147,15 @@ Using these selects will impact the state of your vehicle. Use them with care!
 
 - **Charging Mode**: Vehicle can be set to `IMMEDIATE_CHARGING` (charge as soon as plugged in) or `DELAYED_CHARGING` (charge only if within charging window). It can be used to start/stop charging if the charging window is set accordingly.
 - **AC Charging Limit**: The maximum current a vehicle will charge with. Not available on all EVs.
+
+## Switches
+
+If supported by your vehicle, you can display and toggle remote services with start/stop functionality.
+
+Using these selects will impact the state of your vehicle, use them with care!
+
+- **Climate**: Toggle vehicle climatization. It is not possible to force it to heating/cooling, the vehicle will decide on its own. If turned on, it will run for 30 minutes (as if toggled via the MyBMW app).
+- **Charging**: Toggle vehicle charging if plugged in. Only available on some electric vehicles.
 
 ## Numbers
 
