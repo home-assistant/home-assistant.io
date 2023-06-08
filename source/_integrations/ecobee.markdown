@@ -83,7 +83,7 @@ api_key:
   <img src='/images/screenshots/ecobee-thermostat-card.png' />
 </p>
 
-You must [restart Home Assistant](/docs/configuration/#reloading-changes) for the changes to take effect. After restarting, navigate to the **Settings** -> **Devices & Services** menu, hit **Configure** next to the discovered `ecobee` entry, and continue to authorize the app according to the above **Automatic Configuration**, starting at step 2.
+You must [restart Home Assistant](/docs/configuration/#reloading-changes) for the changes to take effect. After restarting, go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the cogwheel. Then, select **Configure** and continue to authorize the app according to the above **Automatic Configuration**, starting at step 2.
 
 ## Notifications
 

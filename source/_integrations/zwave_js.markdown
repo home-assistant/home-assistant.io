@@ -42,6 +42,7 @@ ha_platforms:
   - update
 ha_integration_type: hub
 ha_zeroconf: true
+ha_quality_scale: platinum
 ---
 
 The Z-Wave integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
@@ -73,12 +74,11 @@ Use this My button:
 {% my config_flow_start badge domain="zwave_js" %}, or follow these steps:
 
 * Browse to your Home Assistant instance.
-* In the sidebar click on _**{% my config icon %}**_.
-* From the configuration menu select: _**{% my integrations %}**_.
-* In the bottom right, click on the
-  _**{% my config_flow_start icon domain="zwave_js" %}**_ button.
-* From the list, search and select _**"Z-Wave"**_.
-* Follow the instructions on screen to complete the set up.
+* Go to **{% my integrations title="Settings > Devices & Services" %}**.
+* In the bottom right, select the
+  **{% my config_flow_start icon domain="zwave_js" %}** button.
+* From the list, select **Z-Wave**.
+* Follow the instructions on screen to complete the setup.
 
 {% enddetails %}
 
@@ -99,10 +99,10 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 ### Adding a new device to the Z-Wave network
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-1. In the Z-Wave integration, select **Configure**.
+1. In the Z-Wave integration, select the cogwheel, then select **Configure**.
 1. Select **Add device**.
    * The Z-Wave controller is now in inclusion mode.
-1. If your device supports SmartStart, select **Scan QR code** and scan the QR code on your device.
+1. If your device supports SmartStart (700 series controller), select **Scan QR code** and scan the QR code on your device.
 1. If your device does not support SmartStart, set the device in inclusion mode. Refer to the device manual to see how this is done.
    * If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
 1. The UI should confirm that the device was added. After a short while (seconds to minutes), the entities should also be created.
@@ -118,7 +118,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 ### Removing a device from the Z-Wave network
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-1. In the Z-Wave integration, select **Configure**.
+1. In the Z-Wave integration, select the cogwheel, then select **Configure**.
 1. Select **Remove device**, then **Start exclusion**.
    * The Z-Wave controller is now in exclusion mode.
 1. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
@@ -132,6 +132,7 @@ The Z-Wave integration provides several special entities, some of which are avai
 
 1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device.  The sensor is disabled by default.  The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
 2. **Ping** button: This button can be pressed to ping a device. It is an alternative to the `zwave_js.ping` service.
+3. **Controller/node statistics** sensors: Z-Wave JS collects statistics about communications between [nodes](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot) and the [controller](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot). The statistics can be used to troubleshoot RF issues in your environment. These statistics are available in the network configuration and device info panels. But they are also available as sensors which are disabled by default.
 
 ### Conditional entities
 
@@ -825,9 +826,9 @@ After ensuring you are using an extension cable, perform a network heal.
 
 The combination of these two steps corrects a large number of reported difficulties.
 
-#### I have an Aeotec Gen5 controller, and it isn't detected on my Raspberry Pi 4?
+#### I have an Aeotec Gen5 controller, and it isn't detected on my Raspberry Pi&nbsp;4?
 
-The first-generation Gen5 controller has a known bug when plugged into a Pi 4 and possibly other systems. Aeotec released the Gen5+ stick to correct this bug. Gen5 users can plug their sticks into a USB 2.0 hub in order to overcome the issue.
+The first-generation Gen5 controller has a known bug when plugged into a Pi&nbsp;4 and possibly other systems. Aeotec released the Gen5+ stick to correct this bug. Gen5 users can plug their sticks into a USB&nbsp;2.0 hub in order to overcome the issue.
 
 #### I do not see any entities created for my device in Home Assistant
 
@@ -857,21 +858,24 @@ If the interview is complete, then the device does not yet have a device file fo
 
 #### How do I get a dump of the current network state?
 
-When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow the menu:
+When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow these steps:
 
-{% my integrations title="**Settings** -> **Devices & Services**" %} -> **Z-Wave** -> **...** -> **Download diagnostics**
+1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+1. On the **Z-Wave** integration, select the cogwheel, then select the three dots.
+1. From he dropdown menu, select **Download diagnostics**.
 
 ### Interference issues
 
-Many users have reported issues with interference when the USB stick was directly connected to the machine (proximity). If you are having issues try to use a short USB 2.0 A male to female extension cord.
+Many users have reported issues with interference when the USB stick was directly connected to the machine (proximity). If you are having issues, try to use a short USB&nbsp;2.0&nbsp;A (male to female) extension cord.
 
 #### How to access the Z-Wave logs
 
-Z-Wave JS writes details to its logs. To access these logs go to the following.
+Z-Wave JS writes details to its logs. To access these logs, follow these steps:
 
-   **Settings** -> **Devices & Services** -> **Integrations(tab)** -> **Z-Wave (CONFIGURE)** -> **Logs(tab)**
-
-You need to keep this browser tab open for logging to be active.
+1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+1. On the **Z-Wave** integration, select the cogwheel, then select **Configure**.
+1. Open the **Logs** tab.
+1. Make sure to keep this browser tab open. Otherwise the logging is not active.
 
 ## Z-Wave terminology
 

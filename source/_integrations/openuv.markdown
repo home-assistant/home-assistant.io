@@ -28,8 +28,7 @@ trained medical professional.
 
 ## Generating an API Key
 
-To generate an API key,
-[simply log in to the OpenUV website](https://www.openuv.io/auth/google).
+To generate an API key, simply log in at [the OpenUV website](https://www.openuv.io/).
 
 {% include integrations/config_flow.md %}
 
