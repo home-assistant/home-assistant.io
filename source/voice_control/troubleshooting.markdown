@@ -29,7 +29,6 @@ This section lists a few steps that may help you troubleshoot issues with Assist
    * Check if your phrase is [supported](/voice_control/builtin_sentences/).
    * Make sure you are using the name of the area as it is defined in Home Assistant. If you have a room called *bathroom*, the phrase *Turning on the lights in the bath* won’t work.
 
-
 ## I do not see any assistant
 
 If under {% my voice_assistants title="**Settings** > **Voice assistants**" %} you do not see any assistants, you are not using the default configuration. The image below shows the **Assist** section. 
@@ -42,4 +41,3 @@ If the **Assist** section is missing entirely, you need to add the following to 
    # Example configuration.yaml entry
    assist_pipeline:
    ```
-        

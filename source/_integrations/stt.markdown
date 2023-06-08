@@ -1,10 +1,10 @@
 ---
 title: Speech-to-text (STT)
 description: Instructions on how to set up speech-to-text (STT) with Home Assistant.
-ha_release: '0.102'
+ha_release: "0.102"
 ha_codeowners:
-  - '@home-assistant/core'
-  - '@pvizeli'
+  - "@home-assistant/core"
+  - "@pvizeli"
 ha_domain: stt
 ha_quality_scale: internal
 ha_category: []
