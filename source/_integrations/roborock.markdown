@@ -57,7 +57,7 @@ We plan to make the process simpler in the future, but for now, it is a multi-st
 4) Go to **Developer Tools** > **Services** > **Vacuum: Send Command**. Select your vacuum as the entity and 'get_room_mapping' as the command.
 5) Go back to your logs and look at the response to `get_room_mapping`. This is a list of the 6-digit IDs you saw earlier to 2-digit IDs. In your original list of room names and 6-digit IDs, replace the 6-digit ID with its pairing 2-digit ID.
 6) Now, you have the 2-digit ID that your vacuum uses to describe a room.
-7) Go back to **Developer Tools** > **Services** > **Vacuum: Send Command** then type `app_segment_clean` as your command and 'segments' with a list of the 2-digit IDs you want to clean. Then, add  `repeats` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
+7) Go back to **Developer Tools** > **Services** > **Vacuum: Send Command** then type `app_segment_clean` as your command and 'segments' with a list of the 2-digit IDs you want to clean. Then, add  `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
 
 Example:
 ```yaml
