@@ -22,19 +22,19 @@ This procedure shows you how to create a text-to-speech {% term action %}. For t
     ```yaml
     service: media_player.play_media
     target:
-    entity_id: media_player.m5stack_atom_echo_a61920
+      entity_id: media_player.m5stack_atom_echo_a61920
     data:
-    media_content_id: media-source://tts/tts.piper?message=Your+coffee+is+ready%21+Enjoy.
-    media_content_type: provider
+      media_content_id: media-source://tts/tts.piper?message=Your+coffee+is+ready%21+Enjoy.
+      media_content_type: provider
     metadata:
-    title: Your coffee is ready! Enjoy.
-    thumbnail: https://brands.home-assistant.io/_/tts/logo.png
-    media_class: app
-    children_media_class: null
-    navigateIds:
-        - {}
-        - media_content_type: app
-          media_content_id: media-source://tts
-        - media_content_type: provider
-          media_content_id: media-source://tts/tts.piper?message=Your+coffee+is+ready%21+Enjoy.
+      title: Your coffee is ready! Enjoy.
+      thumbnail: https://brands.home-assistant.io/_/tts/logo.png
+      media_class: app
+      children_media_class: null
+      navigateIds:
+          - {}
+          - media_content_type: app
+            media_content_id: media-source://tts
+          - media_content_type: provider
+            media_content_id: media-source://tts/tts.piper?message=Your+coffee+is+ready%21+Enjoy.
     ```
