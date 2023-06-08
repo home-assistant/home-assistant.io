@@ -17,6 +17,8 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+ha_codeowners:
+  - '@gjohansson-ST'
 ---
 
 The `command_line` offers functionality that issues specific commands to get data or to control a device.
@@ -219,7 +221,7 @@ command_line:
           description: The name used to display the switch in the frontend.
           required: true
           type: string
-        icon_template:
+        icon:
           description: Defines a template for the icon of the entity.
           required: false
           type: template
