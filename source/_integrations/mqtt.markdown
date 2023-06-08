@@ -35,6 +35,7 @@ ha_platforms:
   - tag
   - update
   - vacuum
+  - water_heater
 ha_integration_type: integration
 ha_quality_scale: gold
 ---
@@ -215,6 +216,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Tag Scanner](/integrations/tag.mqtt/)
 - [Text](/integrations/text.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+- [Water Heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
 
@@ -694,6 +696,7 @@ For most components it is also possible to manual set up MQTT items in `configur
 - [Text](/integrations/text.mqtt/)
 - [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+- [Water Heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
 
