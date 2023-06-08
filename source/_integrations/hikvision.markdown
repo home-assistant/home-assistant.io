@@ -114,6 +114,11 @@ ssl:
   required: false
   type: boolean
   default: false
+verify_ssl:
+  description: "Set to `false` if you have a self-signed SSL certificate and haven’t installed the CA certificate to enable verification."
+  required: false
+  type: boolean
+  default: true
 customize:
   description: >
     This attribute contains sensor-specific override values.
