@@ -12,7 +12,7 @@ your smart home. Issue commands and get responses!
 ## Required material
 
 * Home Assistant 2023.5 or later
-* [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/docs/assist/voice_remote_local_assistant)
+* [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
 * The password to your 2.4&nbsp;GHz Wi-Fi network
 * Chrome (or a Chromium-based browser like Edge) on desktop (not Android/iOS) 
 * [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
@@ -55,16 +55,18 @@ Before you can use this device with Home Assistant, you need to install a bit of
    ![Set up ESPHome](/images/assist/esp32-atom-flash-07.png)
 1. To add the newly discovered device, select the ATOM Echo from the list.
    * Add your ATOM Echo to a room and select **Finish**. 
-1. You should now see a new **M5Stack Atom Echo** integration.
-   ![ATOM Echo discovered](/images/assist/m5stack-atom-echo-discovered-03.png)
+2. You should now see the **ESPHome** integration.
+   ![New ESPHome device discovered](/images/assist/m5stack-atom-echo-discovered-33.png)
+3. Select the cogwheel. Under **Devices**, you should see the **M5Stack Atom Echo** listed.
+   ![ATOM Echo discovered](/images/assist/m5stack-atom-echo-discovered-new-03.png)
    * Your ATOM Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply. 
-1. Congratulations! You can now voice control Home Assistant using a button with build-in microphone. Now give some commands.
+4. Congratulations! You can now voice control Home Assistant using a button with build-in microphone. Now give some commands.
 
 ## Controlling Home Assistant over the ATOM Echo
 
 1. Press and hold the button on your ATOM Echo.
    * The LED should light up in blue.
-1. Say a [supported voice command](/docs/assist/builtin_sentences/). For example, *Turn off the light in the kitchen*.   
+1. Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn off the light in the kitchen*.   
       * Make sure you’re using the area name exactly as you defined it in Home Assistant.
       * You can also ask a question, such as
           * *Is the front door locked?*
@@ -78,4 +80,4 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 Are things not working as expected?
 
-* Checkout the [general troubleshooting section for Assist](/docs/assist/troubleshooting/).
+* Checkout the [general troubleshooting section for Assist](/voice_control/troubleshooting/).

@@ -38,9 +38,10 @@ Protocol:
 
 ## Camera streams
 
-This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, and Snapshots.
+This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, Snapshots Main, and Snapshots Sub.
 The Sub stream camera entity is enabled by default; the other streams are disabled by default.
 The Images stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the RTMP/RTSP/FLV video stream has too much lag.
+Dual lens cameras provide additional streams for the second lens.
 
 ## Binary sensors
 
@@ -191,8 +192,9 @@ The following models have been tested and confirmed to work:
 - RLN8-410 NVR
 - RLN16-410 NVR
 - RLN36 NVR
+- Reolink Duo 2 WiFi
 - Reolink Duo Floodlight PoE
-- Reolink TrackMix PoE
+- Reolink TrackMix (PoE and Wi-Fi)
 - Reolink Video Doorbell (PoE and Wi-Fi)
 
 Battery-powered cameras are not yet supported.
@@ -202,6 +204,18 @@ However, these cameras can work with this integration through an NVR in which th
 
 - E1 Pro
 - E1
+
+## Initial Setup
+
+You'll need to configure your new camera/doorbell for your network. If you're using a wired LAN, this is simple enough. Simply plug it in and let it use DHCP to set itself up. Once it's recognized by your network, you can access its configuration with a web browser.
+
+If you prefer to use Wi-Fi, especially if you want to restrict it to a local IoT network, [here's a quick way to get it connected](https://www.reddit.com/r/reolink/comments/hjn5be/how_to_connect_wifi_without_an_app/). Simply create a QR code with the following XML string:
+
+    <QR><S>ssid</S><P>password</P><C>last4</C></QR>
+
+Use the `ssid` and `password` of your IoT network. The `last4` is the last 4 digits of the QR code used for the Reolink setup. It's printed under the QR code. You can also scan the QR code and grab the last 4 digits.
+
+Then power up the camera while pointing it at the QR code. It takes about a minute to initialize, read the QR code, and attach.
 
 ## Troubleshooting
 
