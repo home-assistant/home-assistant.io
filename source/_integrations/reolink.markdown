@@ -3,6 +3,7 @@ title: Reolink IP NVR/camera
 description: Instructions on how to integrate Reolink devices (NVR/cameras) into Home Assistant.
 ha_category:
   - Camera
+  - Update
 ha_iot_class: Local Push
 ha_release: 2023.1
 ha_domain: reolink
@@ -11,7 +12,14 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - button
   - camera
+  - light
+  - number
+  - select
+  - siren
+  - switch
+  - update
 ha_integration_type: integration
 ha_dhcp: true
 ---
@@ -30,13 +38,14 @@ Protocol:
 
 ## Camera streams
 
-This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, and Snapshots.
+This integration creates a few camera entities, one for each stream type with different resolutions: Main, Sub, Ext, Snapshots Main, and Snapshots Sub.
 The Sub stream camera entity is enabled by default; the other streams are disabled by default.
 The Images stream provides a sequence of image snapshots giving very low latency at the cost of a very low frame rate; this can be used when the RTMP/RTSP/FLV video stream has too much lag.
+Dual lens cameras provide additional streams for the second lens.
 
 ## Binary sensors
 
-Depending on the supported features of the camera binary sensors are added for:
+Depending on the supported features of the camera, binary sensors are added for:
 
 - Motion detection
 - Doorbell presses
@@ -47,10 +56,11 @@ Depending on the supported features of the camera binary sensors are added for:
 
 These sensors are polled every 60 seconds and receive ONVIF push events for immediate updates.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
+For list of Reolink products that support ONVIF see the [Reolink Support Site](https://support.reolink.com/hc/en-us/articles/900000617826).
 
 ## Number entities
 
-Depending on the supported features of the camera number entities are added for:
+Depending on the supported features of the camera, number entities are added for:
 
 - Optical zoom control
 - Focus control
@@ -62,14 +72,23 @@ Depending on the supported features of the camera number entities are added for:
 - AI people sensitivity
 - AI vehicle sensitivity
 - AI pet sensitivity
+- Auto quick reply time
+- Auto track limit left
+- Auto track limit right
+- Auto track disappear time
+- Auto track stop time
 
 "Floodlight turn on brightness" controls the brightness of the floodlight when it is turned on internally by the camera (see "Floodlight mode" select entity) or when using the "Floodlight" light entity.
 
 When the camera is not moved and no person/pet/vehicle is detected for the "Guard return time" in seconds, and the "Guard return" switch is ON, the camera will move back to the guard position.
 
+When a Reolink doorbell is pressed the quick reply message from the "Auto quick reply message" select entity will be played after "Auto quick reply time" seconds, unless the "Auto quick reply message" is set to off.
+
+If the "Auto tracking" switch entity is enabled, and a object disappears from view OR stops moving for the "Auto track disappear time"/"Auto track stop time", the camera goes back to its original position.
+
 ## Button entities
 
-Depending on the supported features of the camera button entities are added for:
+Depending on the supported features of the camera, button entities are added for:
 
 - PTZ stop
 - PTZ left
@@ -86,13 +105,18 @@ PTZ left, right, up and down will continually move the camera in the respective 
 
 ## Select entities
 
-Depending on the supported features of the camera select entities are added for:
+Depending on the supported features of the camera, select entities are added for:
 
 - Floodlight mode (Off, Auto, Schedule)
 - Day night mode (Auto, Color, Black&White)
 - PTZ preset
+- Auto quick reply message
+- Auto track method (Digital, Digital first, Pan/Tilt first)
+- Status LED (Doorbell only: Stay off, Auto, Auto & always on at night)
 
 PTZ preset positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
+
+Auto quick reply messages can be recorded in the Reolink app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
 
 ## Siren entities
 
@@ -103,13 +127,14 @@ In some camera models, there is a delay of up to 5 seconds between the turn-off 
 
 ## Switch entities
 
-Depending on the supported features of the camera switch entities are added for:
+Depending on the supported features of the camera, switch entities are added for:
 
 - Record audio
 - Siren on event
 - Auto tracking
 - Auto focus
 - Guard return
+- Doorbell button sound
 
 Depending on the supported features of the NVR/host, global switch entities are added for:
 
@@ -121,7 +146,7 @@ Depending on the supported features of the NVR/host, global switch entities are 
 
 ## Light entities
 
-Depending on the supported features of the camera light entities are added for:
+Depending on the supported features of the camera, light entities are added for:
 
 - Floodlight
 - Infra red lights in night mode
@@ -146,6 +171,7 @@ The following models have been tested and confirmed to work:
 - C2 Pro
 - E1 Zoom
 - E1 Outdoor
+- RLC-410
 - RLC-410W
 - RLC-411
 - RLC-420
@@ -157,27 +183,43 @@ The following models have been tested and confirmed to work:
 - RLC-522
 - RLC-810A
 - RLC-811A
+- RLC-81PA
 - RLC-820A
+- RLC-822A
 - RLC-823A
+- RLC-833A
+- RLC-1224A
 - RLN8-410 NVR
 - RLN16-410 NVR
+- RLN36 NVR
+- Reolink Duo 2 WiFi
 - Reolink Duo Floodlight PoE
-- Reolink TrackMix PoE
+- Reolink TrackMix (PoE and Wi-Fi)
 - Reolink Video Doorbell (PoE and Wi-Fi)
 
 Battery-powered cameras are not yet supported.
 
-The following models are lacking the HTTP webserver API and can therfore not work with this integration:
+The following models are lacking the HTTP web server API and can, therefore, not work directly with this integration.
+However, these cameras can work with this integration through an NVR in which the NVR is connected to Home Assistant.
 
 - E1 Pro
+- E1
+
+## Initial Setup
+
+You'll need to configure your new camera/doorbell for your network. If you're using a wired LAN, this is simple enough. Simply plug it in and let it use DHCP to set itself up. Once it's recognized by your network, you can access its configuration with a web browser.
+
+If you prefer to use Wi-Fi, especially if you want to restrict it to a local IoT network, [here's a quick way to get it connected](https://www.reddit.com/r/reolink/comments/hjn5be/how_to_connect_wifi_without_an_app/). Simply create a QR code with the following XML string:
+
+    <QR><S>ssid</S><P>password</P><C>last4</C></QR>
+
+Use the `ssid` and `password` of your IoT network. The `last4` is the last 4 digits of the QR code used for the Reolink setup. It's printed under the QR code. You can also scan the QR code and grab the last 4 digits.
+
+Then power up the camera while pointing it at the QR code. It takes about a minute to initialize, read the QR code, and attach.
 
 ## Troubleshooting
 
 - Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) prior to setting up the integration. Note that Reolink auto update and check for update functions in the app/windows/web client often do not show the latest available firmware version. Therefore check the version in the [Reolink download center](https://reolink.com/download-center/) online.
 - Ensure at least one of the HTTP/HTTPS ports is enabled in the [windows](https://reolink.com/software-and-manual/)/web client under `Settings`->`Network`->`Advanced`->`Port Settings`, see [additional instructions](https://support.reolink.com/hc/en-us/articles/900004435763-How-to-Set-up-Reolink-Ports-Settings-via-Reolink-Client-New-Client-) on the Reolink site.
-
-## Reolink firmware limitations
-
-- The Reolink NVR only sends event-notifications if motion happens on the camera connected to the first (index "0") channel, therefore the binary sensors of all channels will only be updated when the first channel sees motion. Beta NVR firmware v3.0.0.211_23011204 fixes this issue, you can request beta firmware from reolink support, release firmware is expected in a few weeks.
-- Reolink doorbell presses only generate ONVIF event notifications when the doorbell is directly connected to your network. The doorbell visitor binary sensor will not work when connecting the Reolink doorbell to an NVR. Beta NVR firmware v3.0.0.211_23011204 fixes this issue, you can request beta firmware from reolink support, release firmware is expected in a few weeks.
-- The siren turn-off service does not work on the Reolink NVR, you need to power cycle the NVR/camera to stop the siren. Reolink is aware of this firmware bug and is working on a solution.
+- On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
+- Setting a static IP address for Reolink cameras/NVRs in your router is advisable to prevent (temporal) connectivity issues when the IP address changes.

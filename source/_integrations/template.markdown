@@ -113,7 +113,7 @@ sensor:
   type: map
   keys:
     state:
-      description: Defines a template to get the state of the sensor.
+      description: "Defines a template to get the state of the sensor. If the sensor is numeric, i.e. it has a `state_class` or a `unit_of_measurement`, the state template must render to a number or to `none`. The state template must not render to a string, including `unknown` or `unavailable`. An `availability` template may be defined to suppress rendering of the state template."
       required: true
       type: template
     unit_of_measurement:
@@ -251,7 +251,7 @@ button:
       required: false
       type: template
     availability:
-      description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+      description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison is not case sensitive; `"TrUe"` and `"yEs"` are allowed.
       required: false
       type: template
       default: true
@@ -460,6 +460,8 @@ template:
 ### State based sensor changing the unit of measurement of another sensor
 
 With a Template Sensor, it's easy to convert given values into others if the unit of measurement doesn't fit your needs.
+Because the sensors do math on the source sensor's state and need to render to a numeric value, an availability template is used
+to suppress rendering of the state template if the source sensor does not have a valid numeric state.
 
 {% raw %}
 
@@ -469,10 +471,12 @@ template:
       - name: "Transmission Down Speed"
         unit_of_measurement: "kB/s"
         state: "{{ states('sensor.transmission_down_speed')|float * 1024 }}"
+        availability: "{{ is_number(states('sensor.transmission_down_speed')) }}"
 
       - name: "Transmission Up Speed"
         unit_of_measurement: "kB/s"
         state: "{{ states('sensor.transmission_up_speed')|float * 1024 }}"
+        availability: "{{ is_number(states('sensor.transmission_up_speed')) }}"
 ```
 
 {% endraw %}

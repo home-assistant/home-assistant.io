@@ -47,8 +47,8 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **nitrous_oxide**: Concentration of Nitrous Oxide in µg/m³
 - **ozone**: Concentration of Ozone in µg/m³
 - **pm1**: Concentration of particulate matter less than 1 micrometer in µg/m³
-- **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
+- **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
 - **power_factor**: Power factor (unitless), unit may be `None` or %
 - **power**: Power in W or kW
 - **precipitation**: Accumulated precipitation in cm, in or mm
@@ -62,6 +62,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **temperature**: Temperature in °C, °F or K
 - **timestamp**: Datetime object or timestamp string (ISO 8601)
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
+- **volatile_organic_compounds_parts**: Ratio of volatile organic compounds in ppm or ppb
 - **voltage**: Voltage in V, mV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF

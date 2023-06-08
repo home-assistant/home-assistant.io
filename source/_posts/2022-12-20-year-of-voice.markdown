@@ -44,7 +44,7 @@ With Home Assistant we want to make a privacy and locally focused smart home ava
 
 With Home Assistant we prefer to get the things we’re building in the user's hands as early as possible. Even basic functionality allows users to find things that work and don’t work, allowing us to address the direction if needed.
 
-A voice assistant has a lot of different parts: hot word detection, speech to text, intent recognition, intent execution, text to speech. Making each work in every language is a lot of work. The most important part is the intent recognition and intent execution. We need to be able to understand your commands and execute them.
+A voice assistant has a lot of different parts: hot word detection, speech-to-text, intent recognition, intent execution, text-to-speech. Making each work in every language is a lot of work. The most important part is the intent recognition and intent execution. We need to be able to understand your commands and execute them.
 
 We started gathering these command sentences in our new [intents repository](https://github.com/home-assistant/intents). It will soon power the existing [conversation integration](/integrations/conversation) in Home Assistant, allowing you to use our app to write and say commands.
 

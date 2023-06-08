@@ -32,7 +32,7 @@ We want Assist to be as accessible to as many people as possible. To do this, we
 
 Assist is enabled by default in the Home Assistant 2023.2 release. Tap the new Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'> at the top right of the dashboard to use it.
 
-[Assist documentation.](https://next.home-assistant.io/docs/assist/)
+[Assist documentation.](https://www.home-assistant.io/voice_control/)
 
 <img src="/images/blog/2023-01-26-year-of-the-voice-chapter-1/assist-dialog.png" alt="Screenshot of the Assist dialog" class='no-shadow' />
 
@@ -40,7 +40,7 @@ Assist is enabled by default in the Home Assistant 2023.2 release. Tap the new A
 
 We want to make it as easy as possible to use Assist. To enable this for Android users, we have added a new tile to the Android Wear app. A simple swipe from the clock face will show the assist button and allows you to send voice commands.
 
-[Assist on Android Wear documentation.](https://next.home-assistant.io/docs/assist/android/)
+[Assist on Android Wear documentation.](https://www.home-assistant.io/voice_control/android/)
 
 _The tile is available in [Home Assistant Companion for Android 2023.1.1](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1)._
 
@@ -50,7 +50,7 @@ _The tile is available in [Home Assistant Companion for Android 2023.1.1](https:
 
 For Apple devices we have been able to create a fully hands-free experience by integrating with Siri. This is powered by a new Apple Shortcut action called Assist, which is part of the Home Assistant app. This shortcut action can also be manually triggered from your Mac taskbar, iPhone home screen or Apple Watch complication. We have two ready-made shortcuts that users can import from the documentation with a single tap to unlock these features.
 
-[Assist via Siri and Apple Shortcuts documentation.](https://next.home-assistant.io/docs/assist/apple/)
+[Assist via Siri and Apple Shortcuts documentation.](https://www.home-assistant.io/voice_control/apple/)
 
 _The Assist shortcut is available in [Home Assistant Companion for iOS 2023.2](https://apps.apple.com/us/app/home-assistant/id1099568401?itsct=apps_box_badge&itscg=30200). Mac version is awaiting approval._
 
@@ -66,7 +66,7 @@ With Home Assistant we believe that every home is uniquely yours and that [techn
 
 Assist includes support for custom sentences, responses and intents, allowing you to achieve all of the above, and more. We've designed the custom sentence format in a way that it can be easily shared with the community.
 
-Read [the documentation](https://next.home-assistant.io/docs/assist/custom_sentences) on how to get started.
+Read [the documentation](https://www.home-assistant.io/voice_control/custom_sentences) on how to get started.
 
 _In a future release we're planning on adding a user interface to customize and import sentences._
 
@@ -92,8 +92,7 @@ For Year of the Voice - Chapter 1 we focused on building intent recognition into
 
 We will continue collecting home automation sentences for all languages ([anyone can help!](https://developers.home-assistant.io/docs/voice/intent-recognition/)). Updates will be included with every major release of Home Assistant.
 
-Our next step is integrating Speech-to-Text and Text-to-Speech with Assist. We don't have a timeline yet when that will be ready. Stay tuned!
-
+Our next step is integrating speech-to-text and text-to-speech with Assist. We don't have a timeline yet when that will be ready. Stay tuned!
 ## Credits
 
 A lot of people have worked very hard to make all of the above possible.

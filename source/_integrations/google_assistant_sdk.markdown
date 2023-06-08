@@ -2,7 +2,7 @@
 title: Google Assistant SDK
 description: Instructions on how to use Google Assistant SDK in Home Assistant.
 ha_category:
-  - Utility
+  - Voice
 ha_iot_class: Cloud Polling
 ha_release: 2023.1
 ha_config_flow: true
@@ -12,6 +12,7 @@ ha_codeowners:
 ha_integration_type: service
 ha_platforms:
   - notify
+ha_quality_scale: platinum
 ---
 
 The Google Assistant SDK integration allows Home Assistant to interact with Google Assistant. If you want to use Google Assistant (for example, from your phone or Google Home device) to interact with your Home Assistant managed devices, then you want the [Google Assistant](/integrations/google_assistant) integration.
@@ -77,13 +78,15 @@ The integration setup will next give you instructions to enter the [Application 
 
 1. Continue through the steps of selecting the account you want to authorize.
 
-2. **NOTE**: You may get a message telling you that the app has not been verified and you will need to acknowledge that in order to proceed.
+2. If your Google account settings are set to a language not supported by the SDK -- which can be noticed by the authentication screen of Google being localized in that language -- the authorization will fail without a clear error. Changing the language at the bottom of the error page to one that is [supported](https://developers.google.com/assistant/sdk/reference/rpc/languages) by the SDK will allow you to continue to the link page of Home Assistant.
 
-3. You can now see the details of what you are authorizing Home Assistant to access with two options at the bottom. Click **Continue**.
+3. **NOTE**: You may get a message telling you that the app has not been verified and you will need to acknowledge that in order to proceed.
 
-4. The page will now display _Link account to Home Assistant?_, note _Your instance URL_. If this is not correct, please refer to [My Home Assistant](/integrations/my). If everything looks good, click **Link Account**.
+4. You can now see the details of what you are authorizing Home Assistant to access with two options at the bottom. Click **Continue**.
 
-5. You may close the window, and return back to Home Assistant where you should see a _Success!_ message from Home Assistant.
+5. The page will now display _Link account to Home Assistant?_, note _Your instance URL_. If this is not correct, please refer to [My Home Assistant](/integrations/my). If everything looks good, click **Link Account**.
+
+6. You may close the window, and return back to Home Assistant where you should see a _Success!_ message from Home Assistant.
 
 {% enddetails %}
 
@@ -138,8 +141,8 @@ The easiest way to check if the integration is working is to check [My Google Ac
 ## Limitations/known issues
 
 - Multiple Google accounts are not supported.
-- If you see the issued commands in [My Google Activity](https://myactivity.google.com/myactivity) the integration is working fine. If the commands don't have the expected outcome don't open an issue in Home Assistant Core project. Instead open an issue [here](https://github.com/googlesamples/assistant-sdk-python/issues). Examples of known Google Assistant API issues:
-  - Media playback commands (other than play news or play podcast or play white noise or play rain sounds) don't work.
+- If you see the issued commands in [My Google Activity](https://myactivity.google.com/myactivity), the integration is working fine. If the commands don't have the expected outcome, don't open an issue in the Home Assistant Core project or the [underlying library](https://github.com/tronikos/gassist_text). You should instead report the issue directly to Google [here](https://github.com/googlesamples/assistant-sdk-python/issues). Examples of known Google Assistant API issues:
+  - Media playback commands (other than play news, play podcast, play white noise, or play rain sounds) don't work.
   - Routines don't work.
 
 ## Configuration
