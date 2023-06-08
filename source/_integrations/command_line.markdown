@@ -211,7 +211,7 @@ command_line:
           description: The name used to display the switch in the frontend.
           required: true
           type: string
-        icon_template:
+        icon:
           description: Defines a template for the icon of the entity.
           required: false
           type: template
