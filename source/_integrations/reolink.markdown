@@ -219,7 +219,7 @@ The recommended way is to use the [Reolink mobile app, Windows, or Mac client](h
 When your camera has a LAN port (most Wi-Fi cameras also have a LAN port), first connect the camera to your network using a LAN cable.
 Find the IP address of the camera (for example by checking in your router) and go to the IP address in a web browser.
 Follow the on-screen instructions to first setup the credentials (use the same credentials in Home Assistant).
-If it is a Wi-Fi camera, go to settings (gear icon) > **Network** and fill in your Wi-Fi SSID and password. After that you can disconnect the LAN cable and the camera will automatically switch to the Wi-Fi connection.
+If it is a Wi-Fi camera, go to **settings** (gear icon) > **Network** and fill in your Wi-Fi SSID and password. After that you can disconnect the LAN cable and the camera will automatically switch to the Wi-Fi connection.
 Now set up the Reolink Home Assistant integration using the credentials you just specified.
 
 ### QR code
