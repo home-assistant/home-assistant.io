@@ -19,8 +19,8 @@ To enable MQTT Number in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  number:
-    - command_topic: my-device/threshold
+  - number:
+      command_topic: my-device/threshold
 ```
 
 {% configuration %}

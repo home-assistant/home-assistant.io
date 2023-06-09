@@ -34,8 +34,8 @@ To enable this platform, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  alarm_control_panel:
-    - state_topic: "home/alarm"
+  - alarm_control_panel:
+      state_topic: "home/alarm"
       command_topic: "home/alarm/set"
 ```
 
@@ -267,8 +267,8 @@ The example below shows a full configuration with local code validation.
 ```yaml
 # Example using text based code with local validation configuration.yaml
 mqtt:
-  alarm_control_panel:
-    - name: "Alarm Panel With Numeric Keypad"
+  - alarm_control_panel:
+      name: "Alarm Panel With Numeric Keypad"
       state_topic: "alarmdecoder/panel"
       value_template: "{{value_json.state}}"
       command_topic: "alarmdecoder/panel/set"
@@ -286,8 +286,8 @@ The example below shows a full configuration with remote code validation and `co
 ```yaml
 # Example using text code with remote validation configuration.yaml
 mqtt:
-  alarm_control_panel:
-    - name: "Alarm Panel With Text Code Dialog"
+  - alarm_control_panel:
+      name: "Alarm Panel With Text Code Dialog"
       state_topic: "alarmdecoder/panel"
       value_template: "{{ value_json.state }}"
       command_topic: "alarmdecoder/panel/set"
@@ -299,8 +299,8 @@ mqtt:
 ```yaml
 # Example using numeric code with remote validation configuration.yaml
 mqtt:
-  alarm_control_panel:
-    - name: "Alarm Panel With Numeric Keypad"
+  - alarm_control_panel:
+      name: "Alarm Panel With Numeric Keypad"
       state_topic: "alarmdecoder/panel"
       value_template: "{{ value_json.state }}"
       command_topic: "alarmdecoder/panel/set"

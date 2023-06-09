@@ -17,8 +17,8 @@ The `mqtt` button platform lets you send an MQTT message when the button is pres
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  button:
-    - command_topic: "home/bedroom/switch1/reboot"
+  - button:
+      command_topic: "home/bedroom/switch1/reboot"
 ```
 
 {% configuration %}
@@ -201,8 +201,8 @@ The example below shows a full configuration for a button.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  button:
-    - unique_id: bedroom_switch_reboot_btn
+  - button:
+      unique_id: bedroom_switch_reboot_btn
       name: "Restart Bedroom Switch"
       command_topic: "home/bedroom/switch1/commands"
       payload_press: "restart"

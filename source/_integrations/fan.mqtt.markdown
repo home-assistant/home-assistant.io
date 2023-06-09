@@ -25,8 +25,8 @@ To enable MQTT fans in your installation, add the following to your `configurati
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  fan:
-    - command_topic: "bedroom_fan/on/set"
+  - fan:
+      command_topic: "bedroom_fan/on/set"
 ```
 
 {% configuration %}
@@ -321,8 +321,8 @@ There are 10 speeds within the speed range, so  `percentage_step` = 100 / 10 ste
 ```yaml
 # Example using percentage based speeds with preset modes configuration.yaml
 mqtt:
-  fan:
-    - name: "Bedroom Fan"
+  - fan:
+      name: "Bedroom Fan"
       state_topic: "bedroom_fan/on/state"
       command_topic: "bedroom_fan/on/set"
       direction_state_topic: "bedroom_fan/direction/state"
@@ -358,8 +358,8 @@ This example demonstrates how to use command templates with JSON output.
 ```yaml
 # Example configuration.yaml with command templates
 mqtt:
-  fan:
-    - name: "Bedroom Fan"
+  - fan:
+      name: "Bedroom Fan"
       command_topic: "bedroom_fan/on/set"
       command_template: "{ state: '{{ value }}'}"
       direction_command_template: "{{ iif(value == 'forward', 'fwd', 'rev') }}"
@@ -387,8 +387,8 @@ This example shows how to configure a fan that doesn't use `forward` and `backwa
 ```yaml
 # Example configuration.yaml with direction templates
 mqtt:
-  fan:
-    - name: "Bedroom Fan"
+  - fan:
+      name: "Bedroom Fan"
       direction_command_template: "{{ iif(value == 'forward', 'fwd', 'rev') }}"
       direction_value_template: "{{ iif(value == 'fwd', 'forward', 'reverse') }}"
 ```

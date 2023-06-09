@@ -17,8 +17,8 @@ To enable MQTT text platform in your installation, add the following to your `co
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  text:
-    - command_topic: command-topic
+  - text:
+      command_topic: command-topic
 ```
 
 {% configuration %}
@@ -201,8 +201,8 @@ This is an example of a manual configured MQTT `text` item.
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  text:
-    - name: "Remote LCD screen"
+  - text:
+      name: "Remote LCD screen"
       icon: mdi:ab-testing
       mode: "text"
       command_topic: "txt/cmd"
