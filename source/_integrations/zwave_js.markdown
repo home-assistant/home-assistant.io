@@ -42,6 +42,7 @@ ha_platforms:
   - update
 ha_integration_type: hub
 ha_zeroconf: true
+ha_quality_scale: platinum
 ---
 
 The Z-Wave integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
@@ -73,11 +74,10 @@ Use this My button:
 {% my config_flow_start badge domain="zwave_js" %}, or follow these steps:
 
 * Browse to your Home Assistant instance.
-* In the sidebar, select **{% my config icon %}**.
-* From the configuration menu, select: **{% my integrations %}**.
-* On the bottom right, select the
+* Go to **{% my integrations title="Settings > Devices & Services" %}**.
+* In the bottom right, select the
   **{% my config_flow_start icon domain="zwave_js" %}** button.
-* From the list, search and select **Z-Wave**.
+* From the list, select **Z-Wave**.
 * Follow the instructions on screen to complete the setup.
 
 {% enddetails %}

@@ -15,6 +15,8 @@ ha_codeowners:
 ha_domain: roborock
 ha_platforms:
   - select
+  - sensor
+  - switch
   - vacuum
 ha_integration_type: integration
 ---
