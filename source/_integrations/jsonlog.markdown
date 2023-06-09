@@ -3,7 +3,7 @@ title: JSON Log
 description: Summary of errors and warnings in Home Assistant during runtime.
 ha_category:
   - Utility
-ha_release: 2023.6
+ha_release: 2023.7
 ha_codeowners:
   - '@janw'
 ha_quality_scale: internal
