@@ -938,6 +938,18 @@ be safely deleted.
 [@raman325]: https://github.com/raman325
 [#93946]: https://github.com/home-assistant/core/pull/93946
 
+---
+
+If you have zwave_js cover entities already and your device supports Window 
+Covering CC, you may see newly created cover entities. The old cover entities
+can safely be deleted but all customizations will need to be reapplied to the
+new entities.
+
+([@raman325] - [#93314]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#93314]: https://github.com/home-assistant/core/pull/93314
+
 {% enddetails %}
 
 If you are a custom integration developer and want to learn about breaking
