@@ -8,7 +8,7 @@ ha_iot_class: Local Poll
 ha_config_flow: true
 ha_codeowners:
   - '@jimmyd-be'
-ha_domain: integration
+ha_domain: renson
 ha_platforms:
   - sensor
 ---
