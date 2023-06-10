@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ---
 
-The Renson integration pulls in data from the Renson Endura delta device. Most of the sensors that can be monitored from inside the Android/IOS application can be monitored with this integration.
+The Renson integration pulls in data from the Renson Endura delta device. Most of the sensors that can be monitored from inside the Android/iOS application can be monitored with this integration.
 
 
 {% include integrations/config_flow.md %}
