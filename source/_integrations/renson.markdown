@@ -13,6 +13,7 @@ ha_platforms:
   - sensor
 ---
 
-The Reason integration pulls in data from the Renson Endura delta application for Android en iOS.
+The Renson integration pulls in data from the Renson Endura delta device. Most of the sensors that can be monitored from inside the Android/IOS application can be monitored with this integration.
+
 
 {% include integrations/config_flow.md %}
