@@ -99,6 +99,14 @@ current_temperature_topic:
   description: The MQTT topic on which to listen for the current temperature. A `"None"` value received will reset the current temperature. Empty values (`'''`) will be ignored.
   required: false
   type: string
+default_mode_state_template:
+  description: A template with which the value received on `default_mode_state_topic` will be rendered.
+  required: false
+  type: template
+default_mode_state_topic:
+  description: The MQTT topic to subscribe for changes of the default HVAC operation mode. If this is not set, the last mode received at `mode_state_topic` will be considered the default mode. The received mode must be one of the `modes` configured, mode `off` excluded.
+  required: false
+  type: string
 device:
   description: 'Information about the device this HVAC device is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/integrations/mqtt/#mqtt-discovery) and when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
   required: false
@@ -219,7 +227,7 @@ mode_command_template:
   required: false
   type: template
 mode_command_topic:
-  description: The MQTT topic to publish commands to change the HVAC operation mode. Use with `mode_command_template` if you only want to publish the power state.
+  description: The MQTT topic to publish commands to change the HVAC operation mode. Use with `mode_command_template` if you only want to publish the power state. When optimistic mode applies, this will set default operation mode unless `default_mode_state_topic` is configured. 
   required: false
   type: string
 mode_state_template:
@@ -413,9 +421,9 @@ value_template:
 
 If a property works in *optimistic mode* (when the corresponding state topic is not set), Home Assistant will assume that any state changes published to the command topics did work and change the internal state of the entity immediately after publishing to the command topic. If it does not work in optimistic mode, the internal state of the entity is only updated when the requested update is confirmed by the device through the state topic. You can enforce optimistic mode by setting the `optimistic` option to `true`. When set, the internal state will always be updated, even when a state topic is defined.
 
-## Last active operation mode
+## Default operation mode
 
-Home Assistant remembers the last active operation mode for a MQTT HVAC device. When the device is turned using the `climate.turn_on` service the last known active operation mode will be set to turn on the device. The last active operation mode is also exposed via state attribute `last_active_mode`.
+The default operation mode is the mode that is set when the climate is turned on using the `climate.turn_on` service. In that case no operation mode is massed to the service. This functionality relies on the climate reporting this mode on `default_state_topic`. If this is not set, in pessimistic mode the fist supported mode (configured in `modes`) in in `['heat_cool', 'heat', 'cool']` will be used. In optimistic mode, if `default_state_topic` is not set, the default operation mode is the last active mode set.
 
 ## Using Templates
 
