@@ -3,7 +3,6 @@ title: Renson
 description: Instructions on how to integrate Renson Endura Delta sensors into Home Assistant.
 ha_category:
   - Sensor
-  - Binary Sensor
 ha_release: 2021.10
 ha_iot_class: Local Poll
 ha_config_flow: true
