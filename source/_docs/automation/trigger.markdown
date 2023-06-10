@@ -31,6 +31,11 @@ An automation can be triggered by an event, a certain entity state, at a given t
 
 All triggers can be assigned an optional `id`. If the ID is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from [trigger conditions and actions](/docs/scripts/conditions/#trigger-condition). The `id` does not have to be unique for each trigger, and it can be used to group similar triggers for use later in the automation (i.e., several triggers of different types that should all turn some entity on).
 
+### Video Tutorial
+This video tutorial explains how trigger IDs work.
+
+<lite-youtube videoid="fE_MYcXYwMI" videotitle="How to use Trigger IDs in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
+
 ```yaml
 automation:
   trigger:
