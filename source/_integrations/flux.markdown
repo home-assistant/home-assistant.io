@@ -12,7 +12,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `flux` switch platform enables you to control the temperature of your lights, using a model that resembles the human circadian rhythm. Your lights will be bright during the day, and gradually fade to a warmer hue at night. The `flux` switch restores its last state after startup.
+The `flux` switch platform enables you to control the temperature of your lights, adapting to natural day-night cycles. Your lights will be bright during the day, and gradually fade to a warmer hue at night. The `flux` switch restores its last state after startup.
 
 This integration changes your lights based on the time of day. It only affects lights that are turned on and configured in the Flux integration.
 
