@@ -3,7 +3,7 @@ title: Renson
 description: Instructions on how to integrate Renson Endura Delta sensors into Home Assistant.
 ha_category:
   - Sensor
-ha_release: 2021.10
+ha_release: 2023.7
 ha_iot_class: Local Poll
 ha_config_flow: true
 ha_codeowners:
