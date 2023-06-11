@@ -223,6 +223,11 @@ Don't forget to reload automations after you make changes to your blueprint to h
 
 ![Screenshot of the blueprint UI](/images/blueprints/tutorial-ui.png)
 
+### Video Tutorial
+This video tutorial explains how to create a blueprint that toggles a light on motion when the lux value is below a certain threshold.
+
+<lite-youtube videoid="ZxxxZ9Vci3I" videotitle="Blueprints in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
+
 ## Share the love
 
 The final step is to share this blueprint with others. For this tutorial we're going to share it on GitHub Gists.
