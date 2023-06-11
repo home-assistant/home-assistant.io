@@ -36,7 +36,7 @@ tld:
   default: "`com`"
 {% endconfiguration %}
 
-Check the [complete list of supported languages](https://translate.google.com/intl/en_ALL/about/languages/) (languages where "Talk" feature is enabled in Google Translate) for allowed values.
+Check the [complete list of supported languages](https://cloud.google.com/translate/docs/languages) (languages where "Talk" feature is enabled in Google Translate) for allowed values.
 Use the 2-digit language code which you can find at the end of the URL when you click on the language name. 
 
 Check the [complete list of supported tld](https://www.google.com/supported_domains) for allowed TLD values. This is used to force the dialect used when multiple fall into the same 2-digit language code(i.e., *US, UK, AU*)

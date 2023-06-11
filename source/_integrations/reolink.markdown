@@ -207,15 +207,33 @@ However, these cameras can work with this integration through an NVR in which th
 
 ## Initial Setup
 
-You'll need to configure your new camera/doorbell for your network. If you're using a wired LAN, this is simple enough. Simply plug it in and let it use DHCP to set itself up. Once it's recognized by your network, you can access its configuration with a web browser.
+A brand new Reolink camera first needs to be connected to the network and initialized. During initialization, the credentials for the camera need to be set.
+There are serveral ways to achieve this.
 
-If you prefer to use Wi-Fi, especially if you want to restrict it to a local IoT network, [here's a quick way to get it connected](https://www.reddit.com/r/reolink/comments/hjn5be/how_to_connect_wifi_without_an_app/). Simply create a QR code with the following XML string:
+### Reolink app/client
+
+The recommended way is to use the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/). Follow the on-screen instructions.  In Home Assistant, use the credentials you just configured in the Reolink app/client.
+
+### Web browser
+
+When your camera has a LAN port (most Wi-Fi cameras also have a LAN port), first connect the camera to your network using a LAN cable.
+Find the IP address of the camera (for example by checking in your router) and go to the IP address in a web browser.
+Follow the on-screen instructions to first setup the credentials (use the same credentials in Home Assistant).
+If it is a Wi-Fi camera, go to **settings** (gear icon) > **Network** and fill in your Wi-Fi SSID and password. After that you can disconnect the LAN cable and the camera will automatically switch to the Wi-Fi connection.
+Now set up the Reolink Home Assistant integration using the credentials you just specified.
+
+### QR code
+
+You can also connect a Wi-Fi camera using a self-made QR code. Once connected, follow the instructions under **Web browser**.
+Create a QR code using ISO-8859-1 character encoding (not UTF-8) with the following XML string:
 
     <QR><S>ssid</S><P>password</P><C>last4</C></QR>
 
-Use the `ssid` and `password` of your IoT network. The `last4` is the last 4 digits of the QR code used for the Reolink setup. It's printed under the QR code. You can also scan the QR code and grab the last 4 digits.
+Use the `ssid` and `password` of your Wi-Fi network.
+The `last4` are the last 4 digits of the QR code which is printed (on the underside) of the camera itself.
+Normally, the digits are printed directly under the QR code. Alternatively, you could scan the QR code and grab the last 4 digits.
 
-Then power up the camera while pointing it at the QR code. It takes about a minute to initialize, read the QR code, and attach.
+Then power up the camera while pointing it at the QR code. It takes about a minute to initialize, read the QR code, and connect to your Wi-Fi.
 
 ## Troubleshooting
 
