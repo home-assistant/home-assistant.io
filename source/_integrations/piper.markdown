@@ -1,6 +1,6 @@
 ---
 title: Piper
-description: Connect and control your Piper instance using the Wyoming Protocol integration
+description: Connect and control your Piper devices using the Wyoming Protocol integration
 ha_category:
   - Voice
 ha_domain: piper

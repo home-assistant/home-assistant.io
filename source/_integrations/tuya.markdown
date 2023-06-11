@@ -135,6 +135,8 @@ If no devices show up in Home Assistant:
     - Incorrect username or password: Enter the correct account and password of the Tuya Smart or Smart Life app in the **Account** and **Password** fields (social login, which the Tuya Smart app allows, may not work, and thus should be avoided for use with the Home Assistant integration). Note that the app account depends on which app (Tuya Smart or Smart Life) you used to link devices on the [Tuya IoT Platform](https://iot.tuya.com/cloud/).
 
     - Incorrect country. You must select the region of your account of the Tuya Smart app or Smart Life app.
+    
+    - Some users still experience the **Permission denied** error after adding the correct app account credentials in a correctly configured project. A workaround involves adding a custom user under **Cloud** > **Development** > **Users**. 
 
 "1100: param is empty":
   description: Empty parameter of username or app. Please fill the parameters refer to the **Configuration** part above.

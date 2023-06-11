@@ -3,11 +3,11 @@ title: Date/Time
 description: Instructions on how to set up date/time entities within Home Assistant.
 ha_category:
   - Date/Time
-ha_release: '2023.6'
+ha_release: "2023.6"
 ha_domain: datetime
 ha_quality_scale: internal
 ha_codeowners:
-  - '@home-assistant/core'
+  - "@home-assistant/core"
 ha_integration_type: entity
 ---
 
@@ -25,8 +25,7 @@ Available services: `datetime.set_value`
 
 Set a new value for the datetime entity.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of datetimes to control.
-| `datetime` | no | New datetime value to set. If timezone is not included, the Home Assistant instance's timezone will be used.
-
+| Service data attribute | Optional | Description                                                                                                  |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `entity_id`            | no       | String or list of strings that point at `entity_id`'s of datetimes to control.                               |
+| `datetime`             | no       | New datetime value to set. If timezone is not included, the Home Assistant instance's timezone will be used. |

@@ -407,7 +407,7 @@
 
 - term: TTS
   definition: >-
-    TTS (text to speech) allows Home Assistant to talk to you.
+    TTS (text-to-speech) allows Home Assistant to talk to you.
   link: /integrations/tts/
 
 - term: Variables

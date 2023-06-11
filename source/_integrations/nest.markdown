@@ -17,6 +17,7 @@ ha_domain: nest
 ha_quality_scale: platinum
 ha_dhcp: true
 ha_platforms:
+  - binary_sensor
   - camera
   - climate
   - diagnostics
@@ -54,11 +55,10 @@ Adding Nest to your Home Assistant instance can be done via the user interface, 
 {% details "Manual configuration steps" %}
 
 1. Browse to your Home Assistant instance.
-1. In the sidebar click on _**{% my config icon %}**_.
-1. From the configuration menu select: _**{% my integrations %}**_.
-1. In the bottom right, click on the
-  _**{% my config_flow_start icon domain=page.ha_domain %}**_ button.
-1. From the list, search and select _**"Nest"**_ and follow the instructions.
+1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. In the bottom right corner, select the
+  **{% my config_flow_start icon domain=page.ha_domain %}** button.
+1. From the list, select **Nest** and follow the instructions on screen.
 
 {% enddetails %}
 
@@ -422,9 +422,8 @@ To improve security and reduce phishing risk Google has [deprecated](https://dev
 {% details "Reconfigure the integration %}
 
 1. Make sure to upgrade to the latest version of Home Assistant.
-1. In the sidebar click on _**{% my config icon %}**_.
-1. From the configuration menu select: _**{% my integrations %}**_.
-1. The *Nest* integration should appear with alert.
+1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. The **Nest** integration should appear with alert.
 
     ![Screenshot of success](/images/integrations/nest/attention.png)
 

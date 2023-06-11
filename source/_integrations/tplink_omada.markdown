@@ -11,6 +11,7 @@ ha_codeowners:
   - '@MarkGodwin'
 ha_domain: tplink_omada
 ha_platforms:
+  - binary_sensor
   - switch
   - update
 ha_integration_type: hub

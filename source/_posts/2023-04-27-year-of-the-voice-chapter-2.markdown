@@ -27,7 +27,7 @@ _To watch the video presentation of this blog post, including live demos, check 
 [Chapter 1]: https://www.home-assistant.io/blog/2023/01/26/year-of-the-voice-chapter-1/
 [45 languages]: https://home-assistant.github.io/intents/
 [live-stream]: https://youtube.com/live/Tk-pnm7FY7c?feature=share
-[assist]: /docs/assist/
+[assist]: /voice_control/
 
 <!--more-->
 
@@ -52,7 +52,7 @@ Screenshot of the new Assist debug tool.
 </p>
 
 [Assist Pipeline integration]: https://www.home-assistant.io/integrations/assist_pipeline/
-[Assist dialog]: /docs/assist/
+[Assist dialog]: /voice_control/
 
 ## Voice Assistant powered by Home Assistant Cloud
 
@@ -131,7 +131,7 @@ Today we’re launching support for building voice assistants using ESPHome. Con
 
 We’ve been focusing on the [M5STACK ATOM Echo][atom-echo] for testing and development. For $13 it comes with a microphone and a speaker in a nice little box. We’ve created a tutorial to turn this device into a voice remote directly from your browser!
 
-[Tutorial: create a $13 voice remote for Home Assistant.](https://www.home-assistant.io/projects/thirteen-usd-voice-remote/)
+[Tutorial: create a $13 voice remote for Home Assistant.](https://www.home-assistant.io/voice_control/thirteen-usd-voice-remote/)
 
 [ESPHome Voice Assistant documentation.](https://esphome.io/components/voice_assistant.html)
 
@@ -152,7 +152,7 @@ By configuring off-hook autodial, your phone will automatically call Home Assist
 
 We’ve focused our initial efforts on supporting [the Grandstream HT801 Voice-over-IP box][ht801]. It works with any phone with an RJ11 connector, and connects directly to Home Assistant. There is no need for an extra server.
 
-[Tutorial: create your own World’s Most Private Voice Assistant](https://www.home-assistant.io/projects/worlds-most-private-voice-assistant/)
+[Tutorial: create your own World’s Most Private Voice Assistant](https://www.home-assistant.io/voice_control/worlds-most-private-voice-assistant/)
 
 
 <p class='img'>

@@ -35,6 +35,7 @@ ha_platforms:
   - tag
   - update
   - vacuum
+  - water_heater
 ha_integration_type: integration
 ha_quality_scale: gold
 ---
@@ -68,7 +69,11 @@ The Mosquitto project runs a [public broker](https://test.mosquitto.org). This i
 
 MQTT broker settings are configured when the MQTT integration is first set up and can be changed later if needed.
 
-Add the MQTT integration, then provide your broker's hostname (or IP address) and port and (if required) the username and password that Home Assistant should use. To change the settings later, click on "Configure" on the integration page in the UI, then "Re-configure MQTT".
+Add the MQTT integration, then provide your broker's hostname (or IP address) and port and (if required) the username and password that Home Assistant should use. To change the settings later, follow these steps:
+
+1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. On the MQTT integration, select the cogwheel. 
+1. Select **Configure**, then **Re-configure MQTT**.
 
 <div class='note'>
 
@@ -120,7 +125,12 @@ A configured client certificate will only be active if broker certificate valida
 
 ## Configure MQTT options
 
-To change the settings, click on "Configure" in the integration page in the UI, then "Re-configure MQTT". Click `NEXT` to open the MQTT options page.
+To change the settings, follow these steps:
+
+1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. On the MQTT integration, select the cogwheel. 
+1. Select **Configure**, then **Re-configure MQTT**.
+1. To open the MQTT options page, select **Next**.
 
 ### Discovery options
 
@@ -143,7 +153,11 @@ The `mosquitto` broker package ships commandline tools (often as `*-clients` pac
 mosquitto_pub -h 127.0.0.1 -t homeassistant/switch/1/on -m "Switch is ON"
 ```
 
-Another way to send MQTT messages manually is to use the "MQTT" integration in the frontend. Choose "Settings" on the left menu, click "Devices & Services", and choose "Configure" in the "Mosquitto broker" tile. Enter something similar to the example below into the "topic" field under "Publish a packet" and press "PUBLISH" .
+Another way to send MQTT messages manually is to use the **MQTT** integration in the frontend. Choose "Settings" on the left menu, click "Devices & Services", and choose "Configure" in the "Mosquitto broker" tile. Enter something similar to the example below into the "topic" field under "Publish a packet" and press "PUBLISH" .
+
+1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. On the Mosquitto broker integration, select the cogwheel, then select **Configure**.
+1. Enter something similar to the example below into the **topic** field under **Publish a packet**. Select **Publish**.
 
 ```bash
    homeassistant/switch/1/power
@@ -202,6 +216,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Tag Scanner](/integrations/tag.mqtt/)
 - [Text](/integrations/text.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+- [Water Heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
 
@@ -317,10 +332,6 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'fan_mode_stat_t':     'fan_mode_state_topic',
     'frc_upd':             'force_update',
     'g_tpl':               'green_template',
-    'hold_cmd_tpl':        'hold_command_template',
-    'hold_cmd_t':          'hold_command_topic',
-    'hold_stat_tpl':       'hold_state_template',
-    'hold_stat_t':         'hold_state_topic',
     'hs_cmd_t':            'hs_command_topic',
     'hs_cmd_tpl':          'hs_command_template',
     'hs_stat_t':           'hs_state_topic',
@@ -482,7 +493,6 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'tilt_clsd_val':       'tilt_closed_value',
     'tilt_cmd_t':          'tilt_command_topic',
     'tilt_cmd_tpl':        'tilt_command_template',
-    'tilt_inv_stat':       'tilt_invert_state',
     'tilt_max':            'tilt_max',
     'tilt_min':            'tilt_min',
     'tilt_opnd_val':       'tilt_opened_value',
@@ -496,10 +506,6 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'val_tpl':             'value_template',
     'whit_cmd_t':          'white_command_topic',
     'whit_scl':            'white_scale',
-    'whit_val_cmd_t':      'white_value_command_topic',
-    'whit_val_scl':        'white_value_scale',
-    'whit_val_stat_t':     'white_value_state_topic',
-    'whit_val_tpl':        'white_value_template',
     'xy_cmd_t':            'xy_command_topic',
     'xy_cmd_tpl':          'xy_command_template',
     'xy_stat_t':           'xy_state_topic',
@@ -690,6 +696,7 @@ For most components it is also possible to manual set up MQTT items in `configur
 - [Text](/integrations/text.mqtt/)
 - [Update](/integrations/update.mqtt/)
 - [Vacuum](/integrations/vacuum.mqtt/)
+- [Water Heater](/integrations/water_heater.mqtt/)
 
 {% enddetails %}
 
