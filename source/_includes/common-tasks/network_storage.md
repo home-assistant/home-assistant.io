@@ -13,7 +13,7 @@ To list all your currently connected network storages, go to **{% my storage tit
 
 <div class='note'>
 
-  You need to make sure you run a supported Home Assistant Supervised installation with the latest version of the [os-agent](https://github.com/home-assistant/os-agent), and that your supervisor use [slave bind propagation](https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation) for the data volume.
+  You need to make sure you run a supported Home Assistant Supervised installation with the latest version of the [os-agent](https://github.com/home-assistant/os-agent). Make sure that your supervisor uses [slave bind propagation](https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation) for the data volume.
 
 </div>
 
@@ -72,11 +72,11 @@ Server:
 
 {% configuration_basic "hassio.network_share.usage" %}
 Backup:
-  description: This will become a target you can use in service calls or when manually creating a backup, the first storage you add with this type will become your new default target. If you want to change the default target, [check out the documentation for that below](#change-default-backup-location).
+  description: This will become a target you can use in service calls or when manually creating a backup. The first storage you add of this type becomes your new default target. If you want to change the default target, [check out the documentation below](#change-default-backup-location).
 Media:
-  description: A new directory with the name you gave your network storage will be created under `/media` this can be accessed by Home Assistant and Add-ons.
+  description: A new directory with the name you gave your network storage will be created under `/media`. This directory can be accessed by Home Assistant and add-ons.
 Share:
-  description: A new directory with the name you gave your network storage will be created under `/share` this can be accessed by Home Assistant and Add-ons.
+  description: A new directory with the name you gave your network storage will be created under `/share`.  This directory can be accessed by Home Assistant and add-ons.
 {% endconfiguration_basic %}
 
 ### Change default backup location
