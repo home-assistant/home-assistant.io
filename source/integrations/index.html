@@ -400,7 +400,13 @@ integrations.pop(); // remove placeholder element at the end
             history.pushState('', '', newURL);
         } else {
             location.search = newURL;
-        }
+      }
+
+      //make sure search input keeps text after url is adjusted
+      if (queryParams.has('search')) {
+        let searchText = queryParams.get('search');
+        $searchFilter.val(searchText);
+      }
     }
 
     //remove a filter in the url
@@ -437,6 +443,10 @@ integrations.pop(); // remove placeholder element at the end
 
       //set the value of select dropdown if it doesn't currently match the query in the url
       if ($filterElement.val() !== query) {
+        // set value of search input
+        if (id === 'search') {
+          $filterElement.val(query);
+        }
 
         // only change the select dropdown if it matches an available dropdown value
         options.forEach(option => {
