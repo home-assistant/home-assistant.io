@@ -21,6 +21,7 @@ More than 175 utilities use Opower. Currently only the following ones are suppor
 
 - [Pacific Gas and Electric Company (PG&E)](https://www.pge.com/)
 - [Puget Sound Energy (PSE)](https://www.pse.com/)
+- [Baltimore Gas and Electric (BGE)](https://www.bge.com/)
 
 To add this integration to your installation, you will need your login username and password for your utility website.
 
