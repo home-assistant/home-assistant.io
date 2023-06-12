@@ -38,11 +38,11 @@ host:
   required: false
   type: string
 port_recv:
-  description: The port the device receives data to.
+  description: The port on which the device receives data.
   required: true
   type: integer
 port_send:
-  description: The port the device sends data from.
+  description: The port from which the device sends data.
   required: true
   type: integer
 username:
