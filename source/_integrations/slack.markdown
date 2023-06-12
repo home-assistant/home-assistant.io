@@ -8,7 +8,6 @@ ha_config_flow: true
 ha_domain: slack
 ha_iot_class: Cloud Push
 ha_codeowners:
-  - '@bachya'
   - '@tkdrob'
 ha_platforms:
   - notify

@@ -1430,58 +1430,22 @@ Currently supported services are:
 - `clean_spot`
 - `set_fan_speed`
   Fan speeds: `Silent`, `Standard`, `Medium`, `Turbo` and `Gentle` (exclusively for mopping).
-- `remote_control_*` (of your robot)
 - `xiaomi_clean_zone`
 - `xiaomi_clean_segment`
+- `xiaomi_goto`
+- `remote_control_*` (of your robot)
 
 ### Platform Services
 
 In addition to all of the services provided by the `vacuum` integration (`start`, `pause`, `stop`, `return_to_base`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi_miio` platform introduces specific services to access the remote control mode of the robot. These are:
 
+- `xiaomi_miio.vacuum_clean_zone`
+- `xiaomi_miio.vacuum_clean_segment`
+- `xiaomi_miio.vacuum_goto`
 - `xiaomi_miio.vacuum_remote_control_start`
 - `xiaomi_miio.vacuum_remote_control_stop`
 - `xiaomi_miio.vacuum_remote_control_move`
 - `xiaomi_miio.vacuum_remote_control_move_step`
-- `xiaomi_miio.vacuum_clean_zone`
-- `xiaomi_miio.vacuum_clean_segment`
-
-### Service `xiaomi_miio.vacuum_remote_control_start`
-
-Start the remote control mode of the robot. You can then move it with `remote_control_move`; when done, call `remote_control_stop`.
-
-| Service data attribute    | Optional | Description                                       |
-|---------------------------|----------|---------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific robot                      |
-
-### Service `xiaomi_miio.vacuum_remote_control_stop`
-
-Exit the remote control mode of the robot.
-
-| Service data attribute    | Optional | Description                                       |
-|---------------------------|----------|---------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific robot                      |
-
-### Service `xiaomi_miio.vacuum_remote_control_move`
-
-Remote control the robot. Please ensure you first set it in remote control mode with `remote_control_start`.
-
-| Service data attribute    | Optional | Description                                               |
-|---------------------------|----------|-----------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific robot                              |
-| `velocity`                |       no | Speed: between -0.29 and 0.29                             |
-| `rotation`                |       no | Rotation: between -179 degrees and 179 degrees            |
-| `duration`                |       no | The number of milliseconds that the robot should move for |
-
-### Service `xiaomi_miio.vacuum_remote_control_move_step`
-
-Enter remote control mode, make one move, stop, and exit remote control mode.
-
-| Service data attribute    | Optional | Description                                               |
-|---------------------------|----------|-----------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific robot                              |
-| `velocity`                |       no | Speed: between -0.29 and 0.29                             |
-| `rotation`                |       no | Rotation: between -179 degrees and 179 degrees            |
-| `duration`                |       no | The number of milliseconds that the robot should move for |
 
 ### Service `xiaomi_miio.vacuum_clean_zone`
 
@@ -1565,16 +1529,6 @@ automation:
           - 26496
 ```
 
-### Service `xiaomi_miio.vacuum_goto`
-
-Go the specified coordinates
-
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific robot                          |
-| `x_coord`                 |       no | X-coordinate, integer value. The dock is located at x-coordinate 25500. |
-| `y_coord`                 |       no | Y-coordinate, integer value. The dock is located at y-coordinate 25500. |
-
 ### Service `xiaomi_miio.vacuum_clean_segment`
 
 Clean the specified segment/room. A room is identified by a number. Instructions on how to find the valid room numbers and determine what rooms they map to, read the section [Retrieving room numbers](#retrieving-room-numbers).
@@ -1634,6 +1588,56 @@ automation:
         data:
           segments: [1, 1]
 ```
+
+### Service `xiaomi_miio.vacuum_goto`
+
+Go the specified coordinates.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific robot                          |
+| `x_coord`                 |       no | X-coordinate, integer value. The dock is located at x-coordinate 25500. |
+| `y_coord`                 |       no | Y-coordinate, integer value. The dock is located at y-coordinate 25500. |
+
+Note: If your vacuum is in motion and does not respond to the `xiaomi_miio.vacuum_goto` command, call the `vacuum.pause` or `vacuum.stop` service first.
+
+### Service `xiaomi_miio.vacuum_remote_control_start`
+
+Start the remote control mode of the robot. You can then move it with `remote_control_move`; when done, call `remote_control_stop`.
+
+| Service data attribute    | Optional | Description                                       |
+|---------------------------|----------|---------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific robot                      |
+
+### Service `xiaomi_miio.vacuum_remote_control_stop`
+
+Exit the remote control mode of the robot.
+
+| Service data attribute    | Optional | Description                                       |
+|---------------------------|----------|---------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific robot                      |
+
+### Service `xiaomi_miio.vacuum_remote_control_move`
+
+Remote control the robot. Please ensure you first set it in remote control mode with `remote_control_start`.
+
+| Service data attribute    | Optional | Description                                               |
+|---------------------------|----------|-----------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific robot                              |
+| `velocity`                |       no | Speed: between -0.29 and 0.29                             |
+| `rotation`                |       no | Rotation: between -179 degrees and 179 degrees            |
+| `duration`                |       no | The number of milliseconds that the robot should move for |
+
+### Service `xiaomi_miio.vacuum_remote_control_move_step`
+
+Enter remote control mode, make one move, stop, and exit remote control mode.
+
+| Service data attribute    | Optional | Description                                               |
+|---------------------------|----------|-----------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific robot                              |
+| `velocity`                |       no | Speed: between -0.29 and 0.29                             |
+| `rotation`                |       no | Rotation: between -179 degrees and 179 degrees            |
+| `duration`                |       no | The number of milliseconds that the robot should move for |
 
 ### Sensors
 

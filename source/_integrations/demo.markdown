@@ -40,6 +40,8 @@ ha_platforms:
   - vacuum
   - water_heater
   - weather
+  - date
+  - time
 ha_integration_type: integration
 ---
 
