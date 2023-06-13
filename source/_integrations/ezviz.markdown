@@ -28,7 +28,7 @@ As there is no official documentation for the API, the integration retrieves dat
 
 The password for each camera is usually written near the QR code. This could be underneath the device or in the user manual. It is usually referred to as the camera "verification code".
 
-The local RTSP server on your camera [needs to be enabled](https://community.home-assistant.io/t/ezviz-camera-discovered-but-unable-to-connect/535885). To do that:
+The local RTSP server on your camera needs to be enabled. To do that:
 
 - Open the EZVIZ mobile app.
 - Select the profile icon.
