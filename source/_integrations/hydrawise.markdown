@@ -53,7 +53,7 @@ To get your API access token log into your [Hydrawise account](https://app.hydra
 
 ## Binary Sensor
 
-Once you have enabled the `hydrawise` component, add the following to your `configuration.yaml` file:
+Once you have enabled the `hydrawise` integration, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -87,7 +87,7 @@ The limit is 3 calls to start/stop/suspend a zone per 30 seconds and an addition
 
 ## Sensor
 
-Once you have enabled the `hydrawise` component, add the following to your `configuration.yaml` file:
+Once you have enabled the `hydrawise` integration, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -110,7 +110,7 @@ monitored_conditions:
 
 ## Switch
 
-Once you have enabled the `hydrawise` component, add the following to your `configuration.yaml` file:
+Once you have enabled the `hydrawise` integration, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
