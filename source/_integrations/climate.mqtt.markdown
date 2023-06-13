@@ -423,7 +423,7 @@ If a property works in *optimistic mode* (when the corresponding state topic is 
 
 ## Default operation mode
 
-The default operation mode is the mode that is set when the climate is turned on using the `climate.turn_on` service. In that case no operation mode is massed to the service. This functionality relies on the climate reporting this mode on `default_state_topic`. If this is not set, in pessimistic mode the fist supported mode (configured in `modes`) in in `['heat_cool', 'heat', 'cool']` will be used. In optimistic mode, if `default_state_topic` is not set, the default operation mode is the last active mode set.
+The default operation mode is the mode that is set when the climate is turned on using the `climate.turn_on` service. In that case, no operation mode is passed to the service. This functionality relies on the climate reporting this mode on `default_state_topic`. If this is not set, in pessimistic mode, the first supported mode (configured in `modes`) in in `['heat_cool', 'heat', 'cool']` will be used. If `default_state_topic` is not set in optimistic mode, the default operation mode is the last active mode set.
 
 ## Using Templates
 
