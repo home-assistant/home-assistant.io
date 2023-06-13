@@ -391,7 +391,7 @@ If you have a firewall configured on your Home Assistant system, make sure you o
 
 The following integrations are currently supported:
 
-| integration | Type Name | Description |
+| Integration | Type Name | Description |
 | --------- | --------- | ----------- |
 | alarm_control_panel | SecuritySystem | All security systems. |
 | automation / input_boolean / remote / scene / script / vacuum | Switch | All represented as switches. |
