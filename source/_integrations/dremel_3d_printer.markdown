@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_domain: dremel_3d_printer
 ha_platforms:
   - binary_sensor
+  - button
   - camera
   - Sensor
 ha_codeowners:
