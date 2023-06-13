@@ -104,4 +104,4 @@ script:
 
 ## Notice
 
-Please note this component relies on an undocumented API utilized by the Eight Sleep mobile app to communicate with the Eight Sleep servers.  It is not supported by Eight Sleep and may malfunction if changes are made to either the mobile app operation or the API format.
+This integration relies on an undocumented API utilized by the Eight Sleep mobile app to communicate with the Eight Sleep servers. It is not supported by Eight Sleep and may malfunction if changes are made to either the mobile app operation or the API format.
