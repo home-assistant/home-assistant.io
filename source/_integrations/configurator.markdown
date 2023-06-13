@@ -1,6 +1,6 @@
 ---
 title: Configurator
-description: Instructions on how to integrate the configurator in your components.
+description: Instructions on how to integrate the configurator into your integrations.
 ha_category:
   - Other
 ha_release: 0.7
