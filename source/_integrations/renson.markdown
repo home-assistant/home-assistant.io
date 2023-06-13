@@ -11,7 +11,7 @@ ha_codeowners:
   - '@jimmyd-be'
 ha_domain: renson
 ha_platforms:
-  - Binary Sensor
+  - binary_sensor
   - sensor
 ha_integration_type: integration
 ---
