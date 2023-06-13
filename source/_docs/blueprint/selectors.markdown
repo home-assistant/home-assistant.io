@@ -18,6 +18,7 @@ The following selectors are currently available:
 - [Action selector](#action-selector)
 - [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
+  - [Example area selectors](#example-area-selectors)
 - [Attribute selector](#attribute-selector)
 - [Assist pipeline selector](#assist-pipeline-selector)
 - [Boolean selector](#boolean-selector)
@@ -25,20 +26,24 @@ The following selectors are currently available:
 - [Config entry selector](#config-entry-selector)
 - [Constant selector](#constant-selector)
 - [Date selector](#date-selector)
-- [Date & time selector](#date--time-selector)
+- [Date \& time selector](#date--time-selector)
 - [Device selector](#device-selector)
+  - [Example device selector](#example-device-selector)
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
+  - [Example entity selector](#example-entity-selector)
 - [Icon selector](#icon-selector)
 - [Language selector](#language-selector)
 - [Location selector](#location-selector)
 - [Media selector](#media-selector)
 - [Number selector](#number-selector)
+  - [Example number selectors](#example-number-selectors)
 - [Object selector](#object-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
 - [Target selector](#target-selector)
+  - [Example target selectors](#example-target-selectors)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
@@ -121,6 +126,7 @@ device:
     that at least provide one device that matches the given conditions. Can be
     either a object or a list of object.
   type: list
+  required: false
   keys:
     integration:
       description: >
