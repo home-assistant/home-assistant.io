@@ -205,6 +205,7 @@ However, these cameras can work with this integration through an NVR in which th
 
 - E1 Pro
 - E1
+- Reolink Lumus
 
 ## Initial Setup
 
