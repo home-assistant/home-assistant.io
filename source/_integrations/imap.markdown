@@ -136,10 +136,10 @@ template:
           Sender: "{{ trigger.event.data['sender'] }}"
           Date: "{{ trigger.event.data['date'] }}"
           Subject: "{{ trigger.event.data['subject'] }}"
-          To: "{{ trigger.event.data['headers']['Delivered-To'][0] }}"
-          Return_Path: "{{ trigger.event.data['headers']['Return-Path'][0] }}"
-          Received-first: "{{ trigger.event.data['headers']['Received'][0] }}"
-          Received-last: "{{ trigger.event.data['headers']['Received'][-1] }}"
+          To: "{{ trigger.event.data['headers'].get('Delivered-To', ['n/a'])[0] }}"
+          Return-Path: "{{ trigger.event.data['headers'].get('Return-Path',['n/a'])[0] }}"
+          Received-first: "{{ trigger.event.data['headers'].get('Received',['n/a'])[0] }}"
+          Received-last: "{{ trigger.event.data['headers'].get('Received',['n/a'])[-1] }}"
 ```
 
 {% endraw %}

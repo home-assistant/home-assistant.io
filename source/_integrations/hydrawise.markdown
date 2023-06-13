@@ -10,6 +10,7 @@ ha_release: 0.71
 ha_iot_class: Cloud Polling
 ha_domain: hydrawise
 ha_codeowners:
+  - '@dknowles2'
   - '@ptcryan'
 ha_platforms:
   - binary_sensor
