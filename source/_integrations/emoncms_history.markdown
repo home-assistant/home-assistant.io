@@ -34,7 +34,7 @@ url:
   required: true
   type: string
 inputnode:
-  description:  Input node that will be used inside Emoncms. Please make sure you use a dedicated, not used before, node for this component!
+  description:  Input node that will be used inside Emoncms. Please make sure you use a dedicated, not used before, node for this integration!
   required: true
   type: integer
 whitelist:
