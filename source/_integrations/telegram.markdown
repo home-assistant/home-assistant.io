@@ -64,7 +64,7 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
       data:
         message: Yay! A message from Home Assistant.
       ```
-   * Select call service. You should now get a message. 
+   * Select **Call service**. You should now get a message. 
 
 1. You can do more with this. Check out the configuration descriptions and examples below.
 
