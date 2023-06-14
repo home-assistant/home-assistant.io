@@ -9,7 +9,7 @@ ha_domain: plant
 ha_integration_type: integration
 ---
 
-This`plant`integration lets you merge moisture, conductivity, light intensity, temperature and battery level for a plant into a single UI element. It also supports setting minimum and maximum values for each measurement and will change its state to "problem" if it is not within those limits.
+This `plant` integration lets you merge moisture, conductivity, light intensity, temperature and battery level for a plant into a single UI element. It also supports setting minimum and maximum values for each measurement and will change its state to "problem" if it is not within those limits.
 
 ## Configuration
 
@@ -93,7 +93,7 @@ entity_id:
       required: false
       type: float
     min_brightness:
-      description: Minimum brightness before triggering a problem. In contrast to the other values, this check is *not* looking at the current situation, but rather at the last days. A problem is only reported if the maximum brightness over the last days was lower than min_brightness. You can use this to check if the plant gets enough light during the course of the day.
+      description: Minimum brightness before triggering a problem. In contrast to the other values, this check is *not* looking at the current situation, but rather at the last days. A problem is only reported if the maximum brightness over the last days was lower than `min_brightness`. You can use this to check if the plant gets enough light during the course of the day.
       required: false
       type: integer
     max_brightness:
