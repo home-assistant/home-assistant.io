@@ -75,7 +75,7 @@ filters:
   type: list
   keys:
     filter:
-      description: Algorithm to be used to filter data. Available filters are  `lowpass`, `outlier`, `range`, `throttle`, `time_throttle` and `time_simple_moving_average`.
+      description: Algorithm to be used to filter data. Available filters are  `lowpass`, `median`, `outlier`, `range`, `throttle`, `time_throttle` and `time_simple_moving_average`.
       required: true
       type: string
     precision:
@@ -134,6 +134,12 @@ B = 1.0 / time_constant
 A = 1.0 - B
 LowPass(state) = A * previous_state + B * state
 ```
+
+### Median
+
+The Median filter (`median`) is a simple but effective non-linear filtering technique, capable of removing outliers from data. 
+
+The Median filter takes the preceding `window_size` states up to the current state, then computes the median value of the set that includes the previous states and the current state.
 
 ### Outlier
 
