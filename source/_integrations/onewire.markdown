@@ -27,7 +27,7 @@ For more information see: [Architectural Decision Record 0019](https://github.co
 
 </div>
 
-The `onewire` platform supports sensors which that using the One wire (1-wire) bus for communication.
+The Onewire integration supports sensors that use the 1-wire bus for communication.
 
 Every 1-wire device has a (globally) unique ID that identifies the device on the bus. The first two digits identify a device family and the last 14 digits are a globally unique number given to it during manufacturing.
 
