@@ -161,7 +161,7 @@ light:
         required: false
         type: action
       set_color:
-        description: Defines an action to run when the light is given a color command. Receives variables `h`, `s`, and `hs` (which is equivalent to `(h, s)`).  May also receive variables `brightness` and/or `transition`.
+        description: Defines an action to run when the light is given a color command. Receives variables `h`, `s`, and `hs` (which is equivalent to `(h, s)`). May also receive variables `brightness` and/or `transition`.
         required: false
         type: action
       set_effect:
