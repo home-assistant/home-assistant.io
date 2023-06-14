@@ -253,7 +253,7 @@ Tasmota supports Matter over IP on all ESP32 based devices (in experimental phas
 This button will only be visible within the Home Assistant Companion App (so not in the browser) and your device meets all requirements for Matter support.
 
 - For iOS, minimum version is iOS 16 (minimal 16.3 is preferred) and the most recent version of the HA companion app.
-- For Android, minimum version is 8.1 and the most recent version of the (full) HA Companion app, downloaded from the app store.
+- For Android, minimum version is 8.1 and the most recent version of the (full) HA Companion app, downloaded from the Play Store.
 
 ### When I'm trying to commission using the Android app, I get an error stating "Matter is currently unavailable"
 
