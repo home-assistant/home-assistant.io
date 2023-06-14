@@ -138,7 +138,7 @@ To add the device, enter the value unaltered in the Event Code field, and click 
 
 #### Convert switch event to dimming event
 
-To convert a standard switch to a light, use the [Light Switch](/integrations/light.switch/) component.
+To convert a standard switch to a light, use the [Light Switch](/integrations/light.switch/) integration.
 
 To convert a switch to a dimmable light, make sure the event contains a dimming command. You can usually convert a command by changing one byte.
 
