@@ -18,17 +18,17 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `openuv` integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
+The OpenUV integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
 
 <div class='note warning'>
-The guidelines within this documentation constitute estimates and are intended to help
-informed decision making. They should not replace analysis, advice or diagnosis from a
+The guidelines within this documentation constitute estimates which are intended to help
+informed decision making. They should not replace analysis, advice, or diagnosis from a
 trained medical professional.
 </div>
 
 ## Generating an API Key
 
-To generate an API key, simply log in at [the OpenUV website](https://www.openuv.io/).
+To generate an API key, log in at [the OpenUV website](https://www.openuv.io/).
 
 {% include integrations/config_flow.md %}
 
@@ -57,7 +57,7 @@ update data via the `homeassistant.update_entity` service.
 
 Beginning February 1, 2019, the "Limited" plan (which is what new users are given by
 default) is limited to 50 API requests per day. Because different API plans and
-locations will have different requirements, the `openuv` component does not automatically
+locations will have different requirements, the OpenUV integration does not automatically
 query the API for new data after it initially loads. To request new data, the
 `homeassistant.update_entity` service should be used.
 
