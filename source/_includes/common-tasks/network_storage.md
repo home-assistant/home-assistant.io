@@ -55,7 +55,7 @@ Server:
   description: The service the server is using for the network storage.
 "[NFS]<sup>1</sup> Remote share path":
   description: The path used to connect to the remote storage server.
-"[CIFS]<sup>2</sup> Username<sup>4</sup>":
+"[CIFS]<sup>2</sup> Username":
   description: The username to use when connecting to the storage server.
 "[CIFS]<sup>2</sup> Password":
   description: The password to use when connecting to the storage server.
@@ -66,7 +66,6 @@ Server:
 <sup>1</sup> _Options prefixed with `[NFS]` are only available for NFS targets._<br>
 <sup>2</sup> _Options prefixed with `[CIFS]` are only available for CIFS targets._<br>
 <sup>3</sup> _For the `CIFS` option, only version 2.1+ is supported._<br>
-<sup>4</sup> _Guest access is not supported. You need to supply a username and password to access the share._<br>
 
 ##### Usage types
 
