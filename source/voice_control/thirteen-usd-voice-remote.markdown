@@ -64,17 +64,18 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 ## Controlling Home Assistant over the ATOM Echo
 
-1. Press and hold the button on your ATOM Echo.
+1. Press and hold the flat button with rounded shape on your ATOM Echo.
+   * The rectangular button on the side is the reset button. Do not press that one.
    * The LED should light up in blue.
-1. Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn off the light in the kitchen*.   
+2. Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn off the light in the kitchen*.   
       * Make sure you’re using the area name exactly as you defined it in Home Assistant.
       * You can also ask a question, such as
           * *Is the front door locked?*
           * *Which lights are on in the living room?*
-1. Let go of the button.
+3. Let go of the button.
    * The LED should light up in green.
    * Home Assistant will confirm the action.
-1. Your command is not supported? [Add your own commands](/integrations/conversation/).
+4. Your command is not supported? [Add your own commands](/integrations/conversation/).
 
 ## Troubleshooting
 
