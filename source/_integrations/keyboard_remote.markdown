@@ -168,9 +168,7 @@ getfacl /dev/input/event*
 
 ## Containers
 
-If you are running Home Assistant inside of a Docker container, you need to pass the input device through to the container. This can be done by running the container in privileged mode, but this is is not ideal for security. Instead you can pass the input device you want to use directly into the container with the `--devices` flag. However, restarting the container or unplugging and replugging your keyboard will break this integration as only the instance of the keyboard that existed when the container first starts will be avaible inside of the container.
-
-To allow replugging to work and for the access to survive container restarts, you can pass the path `"/dev/input/"` to the container in both the `devices` and `volumes` sections. If you get pemission errors, you may also need to add `'c 13:* rmw'` to the device cgroup rules.
+If you are running Home Assistant Container, you need to pass the input device through to the container. This can be done by running the container in privileged mode, but this is is not ideal for security. Instead you can pass the input device you want to use directly into the container with the `--devices` flag. However, restarting the container or unplugging and replugging your keyboard will break this integration as only the instance of the keyboard that existed when the container first starts will be avaible inside of the container.
 
 Here is an incompolete example `docker-compose.yml` that allows Home Assistant persistent access to input devices in a container without privileged mode:
 
@@ -189,7 +187,6 @@ services:
       - 'c 13:* rmw' 
     devices:
       # since input id may change, pass them all in
-      # this is not needed with privileged mode
       - "/dev/input/"
     ...
 
