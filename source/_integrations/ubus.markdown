@@ -13,7 +13,7 @@ ha_integration_type: integration
 
 This is a presence detection scanner for [OpenWrt](https://openwrt.org/) using [ubus](https://wiki.openwrt.org/doc/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the access point on the router.
 
-Before this scanner can be used you have to install the ubus RPC packages on OpenWrt (versions older than 18.06.x do not require the `uhttpd-mod-ubus` package):
+Before this scanner can be used, you have to install the ubus RPC packages on OpenWrt (versions older than 18.06.x do not require the `uhttpd-mod-ubus` package):
 
 ```bash
 opkg update
@@ -90,7 +90,7 @@ If you find that this never creates `known_devices.yaml`, or if you need more in
 ### Increase Log Level
 
 1. On your Home Assistant device, stop Home Assistant
-2. Adjust `configuration.yaml` to log more detail for the `device_tracker` component
+2. Adjust `configuration.yaml` to log more detail for the `device_tracker` integration.
 
     ```yaml
     logger:
