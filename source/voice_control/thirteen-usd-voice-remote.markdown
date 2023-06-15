@@ -55,27 +55,27 @@ Before you can use this device with Home Assistant, you need to install a bit of
    ![Set up ESPHome](/images/assist/esp32-atom-flash-07.png)
 1. To add the newly discovered device, select the ATOM Echo from the list.
    * Add your ATOM Echo to a room and select **Finish**. 
-2. You should now see the **ESPHome** integration.
+1. You should now see the **ESPHome** integration.
    ![New ESPHome device discovered](/images/assist/m5stack-atom-echo-discovered-33.png)
-3. Select the cogwheel. Under **Devices**, you should see the **M5Stack Atom Echo** listed.
+1. Select the cogwheel. Under **Devices**, you should see the **M5Stack Atom Echo** listed.
    ![ATOM Echo discovered](/images/assist/m5stack-atom-echo-discovered-new-03.png)
    * Your ATOM Echo is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply. 
-4. Congratulations! You can now voice control Home Assistant using a button with build-in microphone. Now give some commands.
+1. Congratulations! You can now voice control Home Assistant using a button with build-in microphone. Now give some commands.
 
 ## Controlling Home Assistant over the ATOM Echo
 
 1. Press and hold the flat button with rounded shape on your ATOM Echo.
    * The rectangular button on the side is the reset button. Do not press that one.
    * The LED should light up in blue.
-2. Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn off the light in the kitchen*.   
+1. Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn off the light in the kitchen*.   
       * Make sure you’re using the area name exactly as you defined it in Home Assistant.
       * You can also ask a question, such as
           * *Is the front door locked?*
           * *Which lights are on in the living room?*
-3. Let go of the button.
+1. Let go of the button.
    * The LED should light up in green.
    * Home Assistant will confirm the action.
-4. Your command is not supported? [Add your own commands](/integrations/conversation/).
+1. Your command is not supported? [Add your own commands](/integrations/conversation/).
 
 ## Troubleshooting
 
