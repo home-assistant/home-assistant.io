@@ -146,6 +146,16 @@ Remote app in iOS. If that is the case, please write a bug in
 [pyatv](https://github.com/postlund/pyatv/issues/new?assignees=&labels=bug&template=bug_report.yml)
 and include logs (see Debugging below).
 
+### Setting volume doesn't work on my Apple TV
+
+Volume control functionality depends on how the Apple TV is set up. If the
+Apple TV is connected to a HomePod or HomePod stereo pair, all volume controls
+should work. If the Apple TV is connected to TV speakers and with volume control
+over HDMI CEC (Settings -> Remotes and Devices -> Volume Control) only volume
+up/down controls will work. If volume control is over IR then volume cannot be
+controlled remotely through the Apple TV, but you may be able to integrate your
+TV or soundbar directly.
+
 ### I'm trying to play a stream via AirPlay, but it doesn't work
 
 The Apple TV is quite picky when it comes to which formats it plays. The best bet is MP4. If it doesn't
