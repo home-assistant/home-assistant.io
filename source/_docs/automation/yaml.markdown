@@ -189,7 +189,7 @@ automation my_lights:
         data:
           message: "Paulus left the house"
 
-  # Send a notification via Pushover with the event of a Xiaomi cube. Custom event from the Xiaomi component.
+  # Send a notification via Pushover with the event of a Xiaomi cube. Custom event from the Xiaomi integration.
   - alias: "Xiaomi Cube Action"
     initial_state: false
     trigger:
