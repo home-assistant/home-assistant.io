@@ -19,11 +19,17 @@ The Opower integration allows you to get energy information from utilities that 
 
 More than 175 utilities use Opower. Currently only the following ones are supported:
 
-- [Pacific Gas and Electric Company (PG&E)](https://www.pge.com/)
-- [Puget Sound Energy (PSE)](https://www.pse.com/)
-- [Baltimore Gas and Electric (BGE)](https://www.bge.com/)
+- Pacific Gas & Electric (PG&E)
+- Puget Sound Energy (PSE)
+- Exelon subsidiaries
+  - Atlantic City Electric
+  - Baltimore Gas and Electric (BGE)
+  - Commonwealth Edison (ComEd)
+  - Delmarva Power
+  - PECO Energy Company (PECO)
+  - Potomac Electric Power Company (Pepco)
 
-To add this integration to your installation, you will need your login username and password for your utility website.
+To add this integration to your installation, you will need your login username and password for your utility website. Two-factor authentication is not supported.
 
 {% include integrations/config_flow.md %}
 
