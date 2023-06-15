@@ -172,7 +172,7 @@ If you are running Home Assistant inside of a Docker container, you need to pass
 
 To allow replugging to work and for the access to survive container restarts, you can pass the path `"/dev/input/"` to the container in both the `devices` and `volumes` sections. If you get pemission errors, you may also need to add `'c 13:* rmw'` to the device cgroup rules.
 
-Here is an incompolete example `docker-compose.yml` that allows home assistant persistant access to input devices in a container without privileged mode:
+Here is an incompolete example `docker-compose.yml` that allows Home Assistant persistent access to input devices in a container without privileged mode:
 
 ```yaml
 version: '3.7'
