@@ -94,7 +94,8 @@ guidelines.
 {% raw %}
 
 ```yaml
-sensor:
+template:
+  - sensor:
     - name: "Local Outdoor Air Quality"
       state: >
         {% set pm2_5_avg = states("sensor.average_outdoor_pm2_5_24h") | int %}

@@ -48,7 +48,7 @@ The following preset modes are supported. The STIEBEL ELTRON modes are mapped an
 
 ## Configuration
 
-To enable this component, add the following lines to your `configuration.yaml` file:
+To enable this integration, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

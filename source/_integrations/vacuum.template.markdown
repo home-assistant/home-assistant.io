@@ -111,7 +111,7 @@ State-based template entities have the special template variable `this` availabl
 
 ### Control vacuum with Harmony Hub
 
-This example shows how you can use a Template Vacuum to control an IR vacuum cleaner using the [Harmony Hub Remote component](/integrations/harmony).
+This example shows how you can use a Template Vacuum to control an IR vacuum cleaner using the [Harmony Hub Remote integration](/integrations/harmony).
 
 ```yaml
 vacuum:

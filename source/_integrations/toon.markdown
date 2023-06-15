@@ -46,7 +46,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Setting up a developer account
 
-In order to be able to use this component, you'll need to sign up for a free Toon API developer account.
+In order to be able to use this integration, you'll need to sign up for a free Toon API developer account.
 
 1. Visit the [Toon API developers website](https://developer.toon.eu/), and [sign in](https://developer.toon.eu/user/login). [Create an account](https://developer.toon.eu/user/register) if you don’t have one already.
 2. Open the "[My Apps](https://developer.toon.eu/user/me/apps)" page and click on "Add a new App" button on the top right.

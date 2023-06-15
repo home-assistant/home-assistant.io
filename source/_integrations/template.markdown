@@ -113,7 +113,7 @@ sensor:
   type: map
   keys:
     state:
-      description: Defines a template to get the state of the sensor.
+      description: "Defines a template to get the state of the sensor. If the sensor is numeric, i.e. it has a `state_class` or a `unit_of_measurement`, the state template must render to a number or to `none`. The state template must not render to a string, including `unknown` or `unavailable`. An `availability` template may be defined to suppress rendering of the state template."
       required: true
       type: template
     unit_of_measurement:
@@ -415,7 +415,7 @@ template:
 
 ### State based sensor modifying another sensor's output
 
-If you don't like the wording of a sensor output, then the Template Sensor can help too. Let's rename the output of the [Sun component](/integrations/sun/) as a simple example:
+If you don't like the wording of a sensor output, then the Template Sensor can help too. Let's rename the output of the [Sun integration](/integrations/sun/) as a simple example:
 
 {% raw %}
 
@@ -460,6 +460,8 @@ template:
 ### State based sensor changing the unit of measurement of another sensor
 
 With a Template Sensor, it's easy to convert given values into others if the unit of measurement doesn't fit your needs.
+Because the sensors do math on the source sensor's state and need to render to a numeric value, an availability template is used
+to suppress rendering of the state template if the source sensor does not have a valid numeric state.
 
 {% raw %}
 
@@ -469,10 +471,12 @@ template:
       - name: "Transmission Down Speed"
         unit_of_measurement: "kB/s"
         state: "{{ states('sensor.transmission_down_speed')|float * 1024 }}"
+        availability: "{{ is_number(states('sensor.transmission_down_speed')) }}"
 
       - name: "Transmission Up Speed"
         unit_of_measurement: "kB/s"
         state: "{{ states('sensor.transmission_up_speed')|float * 1024 }}"
+        availability: "{{ is_number(states('sensor.transmission_up_speed')) }}"
 ```
 
 {% endraw %}
@@ -786,7 +790,7 @@ sensor:
             required: true
             type: template
       availability_template:
-        description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+        description: Defines a template to get the `available` state of the integration. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the integration will always be `available`.
         required: false
         type: template
         default: true

@@ -11,6 +11,7 @@ ha_codeowners:
   - '@MarkGodwin'
 ha_domain: tplink_omada
 ha_platforms:
+  - binary_sensor
   - switch
   - update
 ha_integration_type: hub
@@ -54,6 +55,7 @@ Controller versions 5.1.0 and later are supported.
 ### Internet Gateways
 
 - Firmware Update entities.
+- WAN/LAN Port connectivity sensor entities.
 
 ## Device Trackers
 

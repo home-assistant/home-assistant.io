@@ -9,7 +9,6 @@ ha_category:
 ha_release: 0.93
 ha_iot_class: Local Push
 ha_codeowners:
-  - '@tomerfi'
   - '@thecode'
 ha_domain: switcher_kis
 ha_platforms:
