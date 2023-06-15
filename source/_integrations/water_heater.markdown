@@ -12,7 +12,7 @@ ha_integration_type: entity
 
 The `water_heater` integration is built for the controlling and monitoring of hot water heaters.
 
-To enable this component, pick one of the platforms, and add it to your `configuration.yaml`:
+To enable this integration, pick one of the platforms, and add it to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry

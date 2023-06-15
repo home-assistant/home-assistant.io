@@ -232,7 +232,7 @@ custom_quirks_path:
 
 ### OTA firmware updates
 
-ZHA component has the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
+The ZHA integration has the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
 
 Online OTA providers for firmware updates are currently only available for IKEA, LEDVANCE/OSRAM, SALUS/Computime, and INOVELLI devices. Support for OTA updates from other manufacturers could be supported in the future if they publish their firmware images publicly.
 
@@ -554,7 +554,7 @@ When reporting issues, please provide the following information in addition to i
 
 ### Debug logging
 
-To enable debug logging for ZHA component and radio libraries, add the following [logger](/integrations/logger/) configuration to `configuration.yaml`:
+To enable debug logging for the ZHA integration and radio libraries, add the following [logger](/integrations/logger/) configuration to `configuration.yaml`:
 
 ```yaml
 logger:
