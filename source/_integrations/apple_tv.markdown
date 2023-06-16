@@ -52,7 +52,7 @@ Examples of some `Deep Links` for popular applications:
 
 The simplest way to find useful `Deep Links` is to use the “Share” feature in iOS
 or macOS versions of the App. Share sheets will often have a “Copy” or
-“Copy link” feature. For apps that have a web accessible version, links copied
+“Copy link” feature. For apps that have a web-accessible version, links copied
 from the browser usually work too. Such links may not work if a developer
 maintains separate iOS and tvOS apps. More methods of discovering links
 supported by apps can be found in the
