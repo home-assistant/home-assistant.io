@@ -29,6 +29,19 @@ Remove Sensor:
   description: Untrack a sensor.
 {% endconfiguration_basic %}
 
+## Creating an API key
+
+To add this integration you will need a (free) Purple Air API Key.  Detailed instructions are at [https://community.purpleair.com/t/creating-api-keys/3951]([https://community.purpleair.com/t/creating-api-keys/3951]) but in summary you:
+
+* Create an account at https://develop.purpleair.com/ (which uses Single Sign-On through a Google account)
+* On the ['keys'](https://develop.purpleair.com/keys) page press the "plus" button to create an API key.  Leave the defaults of "Read" and "Enabled".
+* Go to the ['projects'](https://develop.purpleair.com/projects) page and select edit (pencil) button on the listed Project and add points (eg, 1,000,000) then click "Update"
+* Go back to the ['keys'](https://develop.purpleair.com/keys) page and copy the API key.  It will be a value like XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXX.
+* Paste that API key into the "API Key" field when creating the Integration in Home Assistant
+
+Note that if you are using your own sensor it will need to be set to Public to be visible.
+
+
 ## Creating an AQI Rating from Raw Particulate Data
 
 The PurpleAir API does not provide AQI data; therefore, the integration does not create
