@@ -37,6 +37,7 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
 If you don't have [My Home Assistant](/integrations/my) on your installation,
 you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
 instead.
+- Note: If *My Home Assistant* is enabled, You must use it’s URI. When enabled, the config flow will automatically send the *My Home Assitant* callback URI. Using another URI will cause The config flow will fail with: `redirect_uri_mismatch: The redirect URI provided is missing or does not match partner callback url`
 
 The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
 authentication process.
