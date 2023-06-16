@@ -83,7 +83,7 @@ apply_lower_limit:
   type: boolean
   default: false
 apply_upper_limit:
-  description: "Enables an upper limit for the sensor.  The upper limit is defined by the data collections (`data_points`) greatest `uncompensated_value`.  For example, if the greatest `uncompensated_value` value is `5.0` and the paired `compensated_value` is `10.0`, the any `source` state greater than `5.0` will produce a compensated state of `10.0`."
+  description: "Enables an upper limit for the sensor. The upper limit is defined by the data collections (`data_points`) greatest `uncompensated_value`. For example, if the greatest `uncompensated_value` value is `5.0` and the paired `compensated_value` is `10.0`, any `source` state greater than `5.0` will produce a compensated state of `10.0`."
   required: false
   type: boolean
   default: false
