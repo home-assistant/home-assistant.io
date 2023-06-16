@@ -877,7 +877,7 @@ If you would like to use a device trigger for an automation that is not managed 
 ## Calendar trigger
 
 Calendar trigger fires when a [Calendar](/integrations/calendar/) event starts or ends, allowing
-much more flexible automations that using the Calendar entity state which only supports a single
+for much more flexible automations than using the Calendar entity state which only supports a single
 event start at a time.
 
 An optional time offset can be given to have it fire a set time before or after the calendar event (e.g., 5 minutes before event start).
