@@ -33,6 +33,53 @@ The Apple TV media player platform will create a Media Player entity for each
 Apple TV discovered on your network.
 This entity will display the active app and playback controls.
 
+### Launching apps
+
+You can launch apps using the `media_player.select_source` service, or using the
+“Apps” folder in the media browser.
+
+Using the `media_player.play_media` service, you can also use `Deep Links` to
+launch specific content in applications.
+
+Examples of some `Deep Links` for popular applications:
+
+| App       | URL |
+|-----------| --- |
+| YouTube   | youtube://www.youtube.com/watch?v=dQw4w9WgXcQ
+| Netflix   | https://www.netflix.com/title/80234304
+| Disney+   | https://www.disneyplus.com/series/the-beatles-get-back/7DcWEeWVqrkE
+| Apple TV+ | https://tv.apple.com/show/severance/umc.cmc.1srk2goyh2q2zdxcx605w8vtx
+
+The simplest way to find useful `Deep Links` is to use the “Share” feature in iOS
+or macOS versions of the App. Share sheets will often have a “Copy” or
+“Copy link” feature. For apps that have a web-accessible version, links copied
+from the browser usually work too. Such links may not work if a developer
+maintains separate iOS and tvOS apps. More methods of discovering links
+supported by apps can be found in the
+[pyatv documentation](https://pyatv.dev/development/apps/#app-deep-links).
+
+Examples:
+
+```yaml
+# Open the Netflix app at a specific title
+service: media_player.play_media
+data:
+  media_content_type: url
+  media_content_id: https://www.netflix.com/title/80234304
+target:
+  entity_id: media_player.living_room_apple_tv
+```
+
+```yaml
+# Open a specific YouTube video:
+service: media_player.play_media
+data:
+  media_content_type: url
+  media_content_id: youtube://www.youtube.com/watch?v=dQw4w9WgXcQ
+target:
+  entity_id: media_player.living_room_apple_tv
+```
+
 ## Remote
 
 The Apple TV remote platform will automatically create a Remote entity for each Apple TV
