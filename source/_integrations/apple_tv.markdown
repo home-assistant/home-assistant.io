@@ -148,12 +148,13 @@ and include logs (see Debugging below).
 
 ### Setting volume doesn't work on my Apple TV
 
-Volume control functionality depends on how the Apple TV is set up. If the
-Apple TV is connected to a HomePod or HomePod stereo pair, all volume controls
-should work. If the Apple TV is connected to TV speakers and with volume control
+Volume control functionality depends on how the Apple TV is set up. 
+All volume controls should work if the Apple TV is connected to a 
+HomePod or HomePod stereo pair. If the Apple TV is connected to 
+TV speakers and with volume control
 over HDMI CEC (Settings -> Remotes and Devices -> Volume Control) only volume
 up/down controls will work. If volume control is over IR then volume cannot be
-controlled remotely through the Apple TV, but you may be able to integrate your
+controlled remotely through the Apple TV, but you can integrate your
 TV or soundbar directly.
 
 ### I'm trying to play a stream via AirPlay, but it doesn't work
