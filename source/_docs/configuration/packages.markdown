@@ -82,7 +82,7 @@ homeassistant:
 ```
 
 The benefit of this approach is to pull all configurations required to integrate a system into one file&mdash;rather than keeping them spread across several files.
-You can use other !include-methods for packages folder, but with this one you get yaml-indentation 'as if the content was written in configuration.yaml'.
+You can use other `!include` methods for packages; for example `!include_dir_merge_named`. However, unlike `!include_dir_merge_named`, the `!include_dir_named` method uses the same indentation as the configuration.yaml'. This means that you can copy and paste elements from the config file. With `!include_dir_named`, the file name is used as the package name. File names must be unique.
 
 
 ## Customizing entities with packages
