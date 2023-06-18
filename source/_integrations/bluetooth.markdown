@@ -257,7 +257,7 @@ The following remote adapters are supported:
 
 ### Improving connection times
 
-The connection time and performance varies greatly based on the bluetooth adapter. Below adapters are listed from best performing to worst performing:
+The connection time and performance vary greatly based on the Bluetooth adapter. The below adapters are listed from best performing to worst performing:
 
 - Bluetooth proxies running ESPHome 2023.6.0 or later with passive scanning
 - USB High performance adapter with passive scanning
