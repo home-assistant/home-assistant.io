@@ -107,9 +107,9 @@ homekit:
       type: string
       default: '`bridge`'
     advertise_ip:
-      description: If you need to override the IP address used for mDNS advertisement. (For example, using network isolation in Docker and together with an mDNS forwarder like `avahi-daemon` in reflector mode)
+      description: If you need to override the IP address(es) used for mDNS advertisement. (For example, using network isolation in Docker and together with an mDNS forwarder like `avahi-daemon` in reflector mode)
       required: false
-      type: string
+      type: list
     filter:
       description: Filters for entities to be included/excluded from HomeKit. ([Configure Filter](#configure-filter))
       required: false
