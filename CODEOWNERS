@@ -321,7 +321,7 @@ source/_integrations/icloud.markdown @Quentame @nzapponi
 source/_integrations/ign_sismologia.markdown @exxamalte
 source/_integrations/image_processing.markdown @home-assistant/core
 source/_integrations/image_upload.markdown @home-assistant/core
-source/_integrations/imap.markdown @engrbm87 @jbouwh
+source/_integrations/imap.markdown @jbouwh
 source/_integrations/incomfort.markdown @zxdavb
 source/_integrations/influxdb.markdown @mdegat01
 source/_integrations/inkbird.markdown @bdraco
