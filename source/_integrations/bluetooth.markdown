@@ -259,9 +259,9 @@ The following remote adapters are supported:
 
 The connection time and performance vary greatly based on the Bluetooth adapter. The below adapters are listed from best performing to worst performing:
 
-- Bluetooth proxies running ESPHome 2023.6.0 or later with passive scanning
+- [Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [passive scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
 - [USB High performance adapter](#known-working-high-performance-adapters) with [passive scanning](#passive-scanning)
-- Bluetooth proxies running ESPHome 2023.6.0 or later with active scanning
+- [Bluetooth proxies](#remote-adapters-bluetooth-proxies) running ESPHome 2023.6.0 or later with [active scanning](https://esphome.io/components/esp32_ble_tracker.html#configuration-variables)
 - [USB High performance adapter](#known-working-high-performance-adapters) with active scanning
 - [Onboard high performance adapter](#cypress-based-adapters) with [passive scanning](#passive-scanning)
 - [Onboard high performance adapter](#cypress-based-adapters) with active scanning
