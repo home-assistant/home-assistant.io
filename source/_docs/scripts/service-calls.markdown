@@ -125,6 +125,30 @@ data: >
 
 {% endraw %}
 
+### Use templates to handle response data
+
+Some services may respond with data that can be used in automations. Service response
+data may be used for data that is dynamic or large and not a fit for entity state such
+as upcoming calendar events for the next week or detailed driving directions.
+
+Templates can also be used for handling response data. The service call can specify
+`response_variable` which is the name a [variable](https://www.home-assistant.io/docs/scripts/#variables)
+that will contain the response data.
+
+{% raw %}
+
+```yaml
+service: calendar.list_events
+target:
+  entity_id: calendar.school
+data:
+  # XXX: populate when calendar API is settled
+response_variable: "agenda"
+```
+
+{% endraw %}
+
+
 ### `homeassistant` services
 
 There are four `homeassistant` services that aren't tied to any single domain, these are:
