@@ -163,6 +163,10 @@ Performance testing used the following hardware:
 
 ### Known working adapters
 
+<div class='note'>
+Known working adapters list adapter that do not meet high performance requirements, but will generally work. These adapters vary widely in performance, and may take as long as thirty seconds or more to establish a connection.
+</div>
+
 #### Realtek RTL8761BU adapters
 
 <div class='note warning'>
@@ -250,6 +254,19 @@ The following remote adapters are supported:
   - Multiple active connections: not supported
 
 ## Troubleshooting
+
+### Improving connection times
+
+The connection time and performance varies greatly based on the bluetooth adapter. Below adapters are listed from best performing to worst performing:
+
+- Bluetooth proxies running ESPHome 2023.6.0 or later with passive scanning
+- USB High performance adapter with passive scanning
+- Bluetooth proxies running ESPHome 2023.6.0 or later with active scanning
+- USB High performance adapter with active scanning
+- Onboard high performance adapter with passive scanning
+- Onboard high performance adapter with active scanning
+- Known working adapters with passive scanning
+- Known working adapters with active scanning
 
 ### Integrations that require exclusive use of the Bluetooth Adapter
 
