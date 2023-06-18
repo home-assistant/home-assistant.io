@@ -18,6 +18,30 @@ The `persistent_notification` integration can be used to show a notification on 
   <img src='/images/screenshots/persistent-notification.png' />
 </p>
 
+## Automation
+
+Persistent Notification [Triggers](/docs/automation/trigger) enable automations to be
+triggered when `persistent_notification`s are `added` or `removed`.
+Review the [Automating Home Assistant](/getting-started/automation/)
+getting started guide on automations or the [Automation](/docs/automation/)
+documentation for full details.
+
+{% my automations badge %}
+
+An example of a persistent_notification trigger in YAML:
+
+```yaml
+automation:
+  - trigger:
+    - platform: persistent_notification
+      # Optional. Possible values: added, removed
+      update_type: added
+      # Optional.
+      notification_id: invalid_config
+```
+See [Automation Trigger Variables: Persistent Notification](/docs/automation/templating/#persistent-notification) 
+for additional trigger data available for conditions or actions.
+
 ### Service
 
 The service `persistent_notification.create` takes in `message`, `title`, and `notification_id`.
