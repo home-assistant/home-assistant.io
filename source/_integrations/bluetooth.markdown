@@ -266,7 +266,7 @@ The connection time and performance vary greatly based on the Bluetooth adapter.
 - [Onboard high performance adapter](#cypress-based-adapters) with [passive scanning](#passive-scanning)
 - [Onboard high performance adapter](#cypress-based-adapters) with active scanning
 - [Known working adapters](#known-working-adapters) with [passive scanning](#passive-scanning)
-- [Known working adapters[(#known-working-adapters) with active scanning
+- [Known working adapters](#known-working-adapters) with active scanning
 
 ### Integrations that require exclusive use of the Bluetooth Adapter
 
