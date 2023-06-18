@@ -263,8 +263,8 @@ The connection time and performance vary greatly based on the Bluetooth adapter.
 - [USB High performance adapter](#known-working-high-performance-adapters) with [passive scanning](#passive-scanning)
 - Bluetooth proxies running ESPHome 2023.6.0 or later with active scanning
 - [USB High performance adapter](#known-working-high-performance-adapters) with active scanning
-- Onboard high performance adapter with [passive scanning](#passive-scanning)
-- Onboard high performance adapter with active scanning
+- [Onboard high performance adapter](#cypress-based-adapters) with [passive scanning](#passive-scanning)
+- [Onboard high performance adapter](#cypress-based-adapters) with active scanning
 - [Known working adapters](#known-working-adapters) with [passive scanning](#passive-scanning)
 - [Known working adapters[(#known-working-adapters) with active scanning
 
