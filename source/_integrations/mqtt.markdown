@@ -203,6 +203,7 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 - [Device Trigger](/integrations/device_trigger.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/image.mqtt/)
 - [Climate/HVAC](/integrations/climate.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -298,6 +299,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'cod_arm_req':         'code_arm_required',
     'cod_dis_req':         'code_disarm_required',
     'cod_trig_req':        'code_trigger_required',
+    'cont_type':           'content_type',
     'curr_temp_t':         'current_temperature_topic',
     'curr_temp_tpl':       'current_temperature_template',
     'dev':                 'device',
@@ -319,6 +321,7 @@ Configuration variable names in the discovery payload may be abbreviated to cons
     'fanspd_lst':          'fan_speed_list',
     'flsh_tlng':           'flash_time_long',
     'flsh_tsht':           'flash_time_short',
+    'from_url':            'from_url',
     'fx_cmd_t':            'effect_command_topic',
     'fx_cmd_tpl':          'effect_command_template',
     'fx_list':             'effect_list',
@@ -684,6 +687,7 @@ For most components it is also possible to manual set up MQTT items in `configur
 - [Device Tracker](/integrations/device_tracker.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/imahe.mqtt/)
 - [Climate/HVACs](/integrations/climate.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
