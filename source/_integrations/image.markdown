@@ -11,4 +11,4 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The image integration allows other integration to display a static image.
+The image integration allows other integrations to display a static image.
