@@ -20,7 +20,13 @@ If you use Home Assistant Operating System or Home Assistant Supervised, [back u
 
 </div>
 
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+The video below provides an introduction on how you can set up a backup with your NAS and Google drive.
+
+<lite-youtube videoid="MTlkjVrpo-o" videotitle="Never Lose Your Home Assistant Server AGAIN" posterquality="maxresdefault"></lite-youtube>
+
+### Manual configuration
+
+The backup integration is by default enabled. If you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
@@ -28,7 +34,7 @@ backup:
 ```
 
 You need to restart Home Assistant after you add this configuration.
-When it has started up again you will find a new "Backup" entry in the main menu (**Settings** -> **System** -> **Backup**).
+When it has started up again you will find a new "Backup" entry in the main menu (**Settings** > **System** > **Backup**).
 
 The backup files are stored in a new "backups" subdirectory in the root of your configuration directory.
 
