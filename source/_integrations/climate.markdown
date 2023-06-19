@@ -27,12 +27,12 @@ Not all climate services may be available for your platform. You can check which
 
 ### Service `climate.set_aux_heat`
 
-Turn auxiliary heater on/off for climate device
+Turn emergency heater on/off for climate device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
-| `aux_heat` | no | New value of auxiliary heater.
+| `aux_heat` | no | New value of emergency heater.
 
 #### Automation example
 
