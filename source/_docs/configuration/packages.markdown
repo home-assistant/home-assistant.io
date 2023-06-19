@@ -85,6 +85,25 @@ The benefit of this approach is to pull all configurations required to integrate
 You can use other `!include` methods for packages; for example `!include_dir_merge_named`. However, unlike `!include_dir_merge_named`, the `!include_dir_named` method uses the same indentation as the 'configuration.yaml'. This means that you can copy and paste elements from the config file. With `!include_dir_named`, the file name is used as the package name. File names must be unique.
 
 With the `!include_dir_merge_named` method, the package name has to be included in the file. The configuration below then needs to be indented accordingly. This means you cannot directly copy and paste from the configuration file.
+
+
+```yaml
+homeassistant:
+  packages: !include_dir_merge_named packages/
+```
+
+and in `packages/subsystem1/functionality1.yaml`:
+
+```yaml
+subsystem1_functionality1:
+  input_boolean:
+  ...
+  binary_sensor:
+  ...
+  automation:
+```
+
+
 ## Customizing entities with packages
 
 It is possible to [customize entities](/docs/configuration/customizing-devices/) within packages. Just create your customization entries under:
