@@ -20,9 +20,6 @@ If you use Home Assistant Operating System or Home Assistant Supervised, [back u
 
 </div>
 
-The video below provides an introduction on how you can set up a backup with your NAS and Google drive.
-
-<lite-youtube videoid="MTlkjVrpo-o" videotitle="Never Lose Your Home Assistant Server AGAIN" posterquality="maxresdefault"></lite-youtube>
 
 ### Manual configuration
 
