@@ -79,7 +79,7 @@ If no password is given, it will be auto-generated.
 ## Integration options
 
 It is possible to change some behaviors through the integration options.
-To change the settings, go to {% my integrations title="**Settings** > **Devices & Services**" %}. On the **AVM FRITZ!Box Tools** integration, select the cogwheel. Then select **Configure**.
+To change the settings, go to {% my integrations title="**Settings** > **Devices & Services**" %}. Select **AVM FRITZ!Box Tools**, then select **Configure**.
 
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
 - **Enable old discovery method**: Needed on some scenarios like no mesh support (fw <= 6.x), mixed brands network devices or LAN switches.

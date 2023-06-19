@@ -99,7 +99,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 ### Adding a new device to the Z-Wave network
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-1. In the Z-Wave integration, select the cogwheel, then select **Configure**.
+1. Select **Z-Wave**, then select **Configure**.
 1. Select **Add device**.
    * The Z-Wave controller is now in inclusion mode.
 1. If your device supports SmartStart (700 series controller), select **Scan QR code** and scan the QR code on your device.
@@ -118,7 +118,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 ### Removing a device from the Z-Wave network
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-1. In the Z-Wave integration, select the cogwheel, then select **Configure**.
+1. Select **Z-Wave**, then select **Configure**.
 1. Select **Remove device**, then **Start exclusion**.
    * The Z-Wave controller is now in exclusion mode.
 1. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
@@ -861,8 +861,8 @@ If the interview is complete, then the device does not yet have a device file fo
 When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow these steps:
 
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-1. On the **Z-Wave** integration, select the cogwheel, then select the three dots.
-1. From he dropdown menu, select **Download diagnostics**.
+1. Select **Z-Wave**, then select the three dots next to your hub.
+1. From the dropdown menu, select **Download diagnostics**.
 
 ### Interference issues
 

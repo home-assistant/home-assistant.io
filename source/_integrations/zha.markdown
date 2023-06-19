@@ -387,7 +387,7 @@ Tip! It is highly recommended that you read through the two segments under the t
 **To add a new Zigbee device:**
 
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-1. On the **Zigbee Home Automation** integration select the cogwheel, the select **Configure**.
+1. Select **Zigbee Home Automation**, then select **Configure**.
 1. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
 1. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times; switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
 1. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
@@ -550,7 +550,7 @@ When reporting issues, please provide the following information in addition to i
 1. Debug logs for the issue, see [debug logging](#debug-logging)
 2. Model of Zigbee radio being used
 3. If the issue is related to a specific Zigbee device, provide both the **Zigbee Device Signature** and the **Diagnostics** information.
-  * Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & Services**" %}. On the **Zigbee Home Automation** integration, select the cogwheel. Then, select **Configure** > **Devices** (pick your device). Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
+  * Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & Services**" %}. Select **Zigbee Home Automation**. Then, select **Configure** > **Devices** (pick your device). Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
 
 ### Debug logging
 
