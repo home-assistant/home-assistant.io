@@ -36,25 +36,32 @@ This entity will display the active app and playback controls.
 ## Remote
 
 The Apple TV remote platform will automatically create a Remote entity for each Apple TV
-configured on to your Home Assistant instance.
+configured on your Home Assistant instance.
 These entities allow you to turn the device on/off and to send control commands.
 
 The following commands are currently available:
 
 - `wakeup`
+- `suspend`
 - `home`
 - `home_hold`
 - `top_menu`
 - `menu`
 - `select`
+- `play`
+- `pause`
 - `up`
 - `down`
 - `left`
 - `right`
 - `volume_up`
 - `volume_down`
+- `previous`
+- `next`
+- `skip_backward`
+- `skip_forward`
 
-**NOTE:** Not all commands are supported by all Apple TV versions
+**NOTE:** Not all commands are supported by all Apple TV versions.
 
 ### Service `send_command`
 
