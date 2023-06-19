@@ -168,9 +168,9 @@ getfacl /dev/input/event*
 
 ## Containers
 
-If you are running Home Assistant Container, you need to pass the input device through to the container. This can be done by running the container in privileged mode, but this is is not ideal for security. Instead you can pass the input device you want to use directly into the container with the `--devices` flag. However, restarting the container or unplugging and replugging your keyboard will break this integration as only the instance of the keyboard that existed when the container first starts will be avaible inside of the container.
+If you are running Home Assistant Container, you need to pass the input device through to the container. This can be done by running the container in privileged mode, but this is not ideal for security. Instead, you can pass the input device you want to use directly into the container with the `--devices` flag. However, restarting the container or unplugging and replugging your keyboard will break this integration. This is because only the instance of the keyboard that existed when the container first started will be available inside the container.
 
-Here is an incompolete example `docker-compose.yml` that allows Home Assistant persistent access to input devices in a container without privileged mode:
+Here is an incomplete example `docker-compose.yml` that allows Home Assistant persistent access to input devices in a container without privileged mode:
 
 ```yaml
 version: '3.7'
@@ -180,7 +180,7 @@ services:
     image: homeassistant/home-assistant:stable
     volumes:
       - config:/config/
-      - /dev/input:/dev/input/ # this is needed to read input events, even in priv mode
+      - /dev/input:/dev/input/ # this is needed to read input events, even in privileged mode.
     restart: unless-stopped
     device_cgroup_rules:
       # allow creation of /dev/input/* with mknod, this is not enough on its own and needs mknod to be called in the container
