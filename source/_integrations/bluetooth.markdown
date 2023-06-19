@@ -164,7 +164,7 @@ Performance testing used the following hardware:
 ### Known working adapters
 
 <div class='note'>
-Known working adapters list adapters that do not meet high-performance requirements but will generally work. These adapters vary widely in performance and may take as long as thirty seconds or more to establish a connection.
+Known working adapters list adapters that do not meet high-performance requirements but will generally work. These adapters vary widely in performance and may take as long as thirty seconds or more to establish a connection. These adapters may also miss advertisements such as button presses or temperature updates.
 </div>
 
 #### Realtek RTL8761BU adapters
