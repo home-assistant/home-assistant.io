@@ -51,21 +51,21 @@ ZHA uses an open-source Python library implementing a hardware-independent Zigbe
 
 There is currently support for the following device types within Home Assistant:
 
-- Alarm Control Panel
-- Binary Sensor
-- Button
-- Climate (beta)
-- Cover
-- Fan
-- Light
-- Lock
-- Number (i.e. analog output)
-- Select
-- Sensor
-- Siren
-- Switch
+- [Alarm Control Panel](../alarm_control_panel/)
+- [Binary Sensor](../binary_sensor/)
+- [Button](../button/)
+- [Climate](../climate/) (beta)
+- [Cover](../cover/)
+- [Fan](../fan/)
+- [Light](../light/)
+- [Lock](../lock/)
+- [Number](../number/) (i.e. analog output)
+- [Select](../select/)
+- [Sensor](../sensor/)
+- [Siren](../siren/)
+- [Switch](../switch/)
 
-There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a group before the group entity is created. As well as support for binding/unbinding (i.e. bind a remote to a lightbulb or group).
+There is also support for Zigbee grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a Zigbee group in the ZHA integration before the group entity is created. As well as support for [binding and unbinding (i.e. bind a remote to a lightbulb or group)](#binding-and-unbinding).
 
 ## Introduction
 
