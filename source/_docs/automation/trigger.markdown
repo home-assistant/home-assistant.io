@@ -786,7 +786,9 @@ Persistent notification triggers are fired when a `persistent_notification` is `
 automation:
   trigger:
     - platform: persistent_notification
-      update_type: added
+      update_type: 
+        - added
+        - removed
       notification_id: invalid_config
 ```
 
