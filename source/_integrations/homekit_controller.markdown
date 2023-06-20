@@ -83,34 +83,32 @@ HomeKit controller will poll your devices, but it will also automatically enable
 
 HomeKit Controller will automatically discover Bluetooth devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. Bluetooth devices may take significantly longer to pair than IP devices. Battery-powered devices may require pressing a button on the device to wake it before pairing can be successful.
 
-## Adding Thread devices using HomeKit
+## Adding a HomeKit controller device to a Thread network
 
-**Wireless chip with multiprotocol support**
-To add a Thread device, your Home Assistant server device needs a wireless chip that supports Thread. Home Assistant Yellow supports both Zigbee and Thread networks. This is also referred to as *multiprotocol support*. If you do not have a Home Assistant Yellow, you can use a Home Assistant SkyConnect, which also supports Thread networks.
+### Prerequisites
 
-**Bluetooth support**
-HomeKit devices are joined using Bluetooth. If your Home Assistant server device does not support Bluetooth, you can use a Bluetooth proxy. Make sure the Bluetooth integration is up and running.
+* Make sure your HomeKit device supports Thread. This is indicated by the Thread label on the packaging.
+* **Bluetooth support**: HomeKit devices are joined using Bluetooth. If your Home Assistant server device does not support Bluetooth, you can use a Bluetooth proxy.
+* **Thread network**: In order to use HomeKit over Thread you need a working border router. 
+    * Make sure your Home Assistant device is on the same network (LAN) as the border router. 
+    * If you have a Home Assistant [Yellow](https://yellow.home-assistant.io/guides/enable-multiprotocol/) or [SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-multiprotocol/), you can enable multiprotocol to set up an Open Thread border router and with that a Thread network. 
+    * Other devices, such as an Apple HomePod mini or Apple TV, cannot currently be used as border routers. They do not communicate their Thread credentials an can therefore not be integrated.
 
-1. Enable multiprotocol support:
-   * If you are using a Home Assistant Yellow, [enable multiprotocol support](https://yellow.home-assistant.io/guides/enable-multiprotocol/).
-   * If you are not using a Home Assistant Yellow, plug in a Home Assistant SkyConnect.
-     * If you do not already have a Zigbee integration, [set up a Zigbee integration](https://skyconnect.home-assistant.io/new-zigbee/).
-     * [enable multiprotocol support](https://skyconnect.home-assistant.io/procedures/enable-multiprotocol/).
+### To add a HomeKit controller device to a Thread network
+
 1. Power up your HomeKit controller device.
    * If you have Bluetooth enabled, it should be discovered under **{% my integrations title="Settings > Devices & Services" %}**.
 1. On the HomeKit integration, select **Configure**.
-1. To pair the device, enter the HomeKit pairing code. It should be on the device itself or the packaging. 
+1. To pair the device, enter the HomeKit pairing code. The code is on the device itself or the packaging. 
    * Select **Finish**. 
-1.  
-
-
-## Thread device support
-
-In order to use HomeKit over Thread you need a working border router (like a HomePod mini). Your Home Assistant instance will need to be on the same VLAN as the border router.
-
-HomeKit Controller will automatically discover supported Thread devices using the [Zeroconf](/integrations/zeroconf) integration. Battery powered devices may go to sleep and require a button pressing to wake them up before pairing works.
-
-In order to provision a Thread device onto a mesh network using a HomePod as a border router, first pair it with an iOS device. Then unpair it from the Home app. Don't reset it. This will leave the Thread network details on the device. Home Assistant can now pair with it over Thread.
+1. To open the device configuration page, on the integration, select the **device**.
+1. Under **Diagnostic**, you can see the **Thread Status** as **Disabled**.
+    ![Device configuration page](/images/integrations/homekit_controller/homekit_controller_add_02.png)
+1. To enable Thread, under **Configuration**, select **Press**. This will provision the preferred Thread credentials.
+   * The status has now changed to **Child**. 
+     ![Thread status](/images/integrations/homekit_controller/homekit_controller_add_02.png)
+   * That's it. Your controller device now communicates via Thread.
+   * Your HomeKit Controller automatically discovers supported Thread devices using the [Zeroconf](/integrations/zeroconf) integration. Battery powered devices may go to sleep. To pair them, you may need to press a button to wake them up.
 
 ## 'Stateless' switches and sensors
 
