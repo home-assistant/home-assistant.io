@@ -91,7 +91,9 @@ HomeKit Controller will automatically discover Bluetooth devices once the [Bluet
 * **Bluetooth support**: HomeKit devices are joined using Bluetooth. If your Home Assistant server device does not support Bluetooth, you can use a Bluetooth proxy.
 * **Thread network**: In order to use HomeKit over Thread you need a working border router. 
     * Make sure your Home Assistant device is on the same network (LAN) as the border router. 
-    * If you have a Home Assistant [Yellow](https://yellow.home-assistant.io/guides/enable-multiprotocol/) or [SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-multiprotocol/), you can enable multiprotocol to set up an Open Thread border router and with that a Thread network. 
+    * If you have a Home Assistant Yellow or SkyConnect, you can enable multiprotocol to set up an Open Thread border router and with that a Thread network. 
+      * Documentation on [enabling multiprotocol on Yellow](https://yellow.home-assistant.io/guides/enable-multiprotocol/)
+      * Documentation on [enabling multiprotocol on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-multiprotocol/)
     * Other devices, such as an Apple HomePod mini or Apple TV, cannot currently be used as border routers. They do not communicate their Thread credentials an can therefore not be integrated.
 
 ### To add a HomeKit controller device to a Thread network
@@ -108,7 +110,7 @@ HomeKit Controller will automatically discover Bluetooth devices once the [Bluet
    * The status has now changed to **Child**. 
      ![Thread status](/images/integrations/homekit_controller/homekit_controller_add_02.png)
    * That's it. Your controller device now communicates via Thread.
-   * Your HomeKit Controller automatically discovers supported Thread devices using the [Zeroconf](/integrations/zeroconf) integration. Battery powered devices may go to sleep. To pair them, you may need to press a button to wake them up.
+   * Your HomeKit controller automatically discovers supported Thread devices using the [Zeroconf](/integrations/zeroconf) integration. Battery powered devices may go to sleep. To pair them, you may need to press a button to wake them up.
 
 ## 'Stateless' switches and sensors
 
