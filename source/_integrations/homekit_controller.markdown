@@ -114,7 +114,6 @@ HomeKit controller will poll your devices, but it will also automatically enable
    * The status has now changed to **Child**. 
      ![Thread status](/images/integrations/homekit_controller/homekit_controller_add_02.png)
    * That's it. Your controller device now communicates via Thread.
-   * Your HomeKit controller automatically discovers supported Thread devices using the [Zeroconf](/integrations/zeroconf) integration. Battery powered devices may go to sleep. To pair them, you may need to press a button to wake them up.
 
 ## 'Stateless' switches and sensors
 
