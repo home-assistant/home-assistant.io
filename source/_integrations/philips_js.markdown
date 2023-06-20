@@ -5,7 +5,6 @@ ha_category:
   - Light
   - Media Player
   - Remote
-  - Sensor
   - Binary Sensor
 ha_iot_class: Local Polling
 ha_release: 0.34
@@ -19,14 +18,13 @@ ha_platforms:
   - media_player
   - remote
   - switch
-  - sensor
   - binary_sensor
 ha_integration_type: integration
 ---
 
 The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API.
 
-If your TV responds to `http://IP_ADDRESS_OF_TV:1925/system` then this integration can be used. In the response, you should also be able to see the version of the API the TV uses (`"api_version":{"Major":6...`). Note that newer OS might be fixed to secured communication only. To check those, use `https://IP_ADDRESS_OF_TV:1926/system` instead.
+If your TV responds to `http://IP_ADDRESS_OF_TV:1925/system` then this integration can be used. In the response, you should also be able to see the version of the API the TV uses (`"api_version":{"Major":6...`).
 
 For older TVs follow instructions on how to activate the API and if your model is supported [here](http://jointspace.sourceforge.net/download.html). Note that not all listed, jointSPACE-enabled devices will have JSON-interface running on port 1925. This is true at least for some models before year 2011.
 
@@ -54,6 +52,7 @@ Also, note that version 6 of the API needs to be authenticated by a PIN code dis
 | Ambilight Control  | Yes              | ?   | Yes                | ?                |
 | Ambilight Styles   | No               | ?   | Yes                | Yes              |
 | Ambilight Measure  | No               | No  | No                 | No               |
+
 
 ### Turn on device
 
@@ -130,27 +129,22 @@ The integration provides a remote entity for sending remote key presses directly
 | SmartTV          |                                           |
 | PhilipsMenu      |                                           |
 
-## Ambilight
+### Ambilight
 
 The integration exposes a single light entity to control the mode of the ambilight on the TV. It allows setting a fixed background color or switching the TV to one of the lounge modes supported by the TV.
 
 When the light entity is turned on, it is controlling the ambilights, when it is turned off the TV is in control of the ambilight in its standard video-based fashion.
 
 Limits:
-
 - The integration does not expose current ambilight measured values since it would
 overload the event bus in Home Assistant.
 - There is no support to control the standard, non-expert, styles of the TV.
 
-### Ambilight+Hue
+#### Ambilight+Hue
 
 Some TV's allow you to sync the processed ambilight color data to your Philips Hue bridge. This will make your Hue lights sync with the TV ambilight without the need to purchase a Hue Play HDMI Sync Box.
 The integration exposes a "Ambilight+Hue" switch entity when your TV supports it which enables you to toggle this.
 
-## Sensor
-
-Some newer OS version support live TV recording functions via the API.\
-For those TV's this integration supports the time of the next scheduled recording.
 
 ## Binary Sensor
 
