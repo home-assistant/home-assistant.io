@@ -27,7 +27,5 @@ The following sensors will be created :
 
 |Entity|Description|
 |------|-----------|
-|`free_game_1`|First current free game|
-|`free_game_2`|Second current free game|
-|`next_free_game_1`|First upcoming free game|
-|`next_free_game_2`|Second upcoming free game|
+|`free_games`|Current free games|
+|`next_free_games`|Upcoming free games|
